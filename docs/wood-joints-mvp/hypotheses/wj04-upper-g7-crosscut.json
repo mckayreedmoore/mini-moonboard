@@ -1,0 +1,4132 @@
+{
+  "assembly_blocker_graph": {
+    "assembly_pose": "all source service members remain installed",
+    "clear_order_found": false,
+    "fixed_insertion_blockers": {
+      "lower_principal_1": {},
+      "lower_principal_2": {},
+      "lower_rail_1": {
+        "head_insertion_and_withdrawal": {
+          "wood/base_rail_service_upper_right": 4923.399152,
+          "wood/wj04_upper_g7_crosscut_full_stock_cleat": 11487.931355
+        },
+        "head_washer_insertion": {
+          "wood/base_rail_service_upper_right": 15240.232055,
+          "wood/wj04_lower_full_stock_cleat": 3333.315629,
+          "wood/wj04_upper_g7_crosscut_full_stock_cleat": 35560.541461
+        },
+        "shaft_insertion_and_withdrawal": {
+          "wood/base_rail_service_upper_right": 1206.597185,
+          "wood/wj04_upper_g7_crosscut_full_stock_cleat": 2815.393431
+        }
+      },
+      "lower_rail_2": {
+        "head_insertion_and_withdrawal": {
+          "wood/base_rail_service_upper_right": 4923.399152,
+          "wood/wj04_upper_g7_crosscut_full_stock_cleat": 10405.485741
+        },
+        "head_washer_insertion": {
+          "wood/base_rail_service_upper_right": 15240.232055,
+          "wood/wj04_lower_full_stock_cleat": 3333.315629,
+          "wood/wj04_upper_g7_crosscut_full_stock_cleat": 33879.579297
+        },
+        "shaft_insertion_and_withdrawal": {
+          "wood/base_rail_service_upper_right": 1206.597185,
+          "wood/wj04_upper_g7_crosscut_full_stock_cleat": 2388.301901
+        }
+      },
+      "upper_principal_1": {},
+      "upper_principal_2": {},
+      "upper_rail_1": {
+        "head_insertion_and_withdrawal": {
+          "wood/base_rail_service_lower_right": 4923.399152,
+          "wood/wj04_lower_full_stock_cleat": 10405.485672
+        },
+        "head_washer_insertion": {
+          "wood/base_rail_service_lower_right": 15240.232055,
+          "wood/base_rail_service_upper_right": 3333.315711,
+          "wood/wj04_lower_full_stock_cleat": 33879.579297
+        },
+        "shaft_insertion_and_withdrawal": {
+          "wood/base_rail_service_lower_right": 1206.597185,
+          "wood/wj04_lower_full_stock_cleat": 2388.298735
+        }
+      },
+      "upper_rail_2": {
+        "head_insertion_and_withdrawal": {
+          "wood/base_rail_service_lower_right": 4923.399152,
+          "wood/wj04_lower_full_stock_cleat": 11487.931355
+        },
+        "head_washer_insertion": {
+          "wood/base_rail_service_lower_right": 15240.232055,
+          "wood/base_rail_service_upper_right": 3333.315711,
+          "wood/wj04_lower_full_stock_cleat": 35560.541461
+        },
+        "shaft_insertion_and_withdrawal": {
+          "wood/base_rail_service_lower_right": 1206.597185,
+          "wood/wj04_lower_full_stock_cleat": 2815.393431
+        }
+      }
+    },
+    "limitations": [
+      "Search uses revised geometry.stacks and checks straight insertion and washer ride-on only.",
+      "Temporary member removal, frame erection, lateral wrench access and physical fitting are not modeled.",
+      "A clear order would not establish field access or acceptance."
+    ],
+    "one_clear_order": [],
+    "orders_enumerated": 0,
+    "prior_stack_incompatibilities": {
+      "lower_rail_1_after_upper_rail_1": {
+        "head_washer_insertion": {
+          "hardware/upper_rail_1/head": 7.456461,
+          "hardware/upper_rail_1/head_washer": 76.732003,
+          "hardware/upper_rail_1/nut": 10.338406,
+          "hardware/upper_rail_1/nut_washer": 76.732003
+        }
+      },
+      "lower_rail_2_after_upper_principal_1": {
+        "head_insertion_and_withdrawal": {
+          "hardware/upper_principal_1/shaft": 393.314118
+        },
+        "head_washer_insertion": {
+          "hardware/upper_principal_1/shaft": 602.494194
+        },
+        "shaft_insertion_and_withdrawal": {
+          "hardware/upper_principal_1/shaft": 170.410606
+        }
+      },
+      "lower_rail_2_after_upper_principal_2": {
+        "head_insertion_and_withdrawal": {
+          "hardware/upper_principal_2/shaft": 393.314118
+        },
+        "head_washer_insertion": {
+          "hardware/upper_principal_2/shaft": 602.494194
+        },
+        "shaft_insertion_and_withdrawal": {
+          "hardware/upper_principal_2/shaft": 170.410599
+        }
+      },
+      "lower_rail_2_after_upper_rail_1": {
+        "head_washer_insertion": {
+          "hardware/upper_rail_1/head": 3.657921,
+          "hardware/upper_rail_1/head_washer": 70.724287,
+          "hardware/upper_rail_1/nut": 5.071718,
+          "hardware/upper_rail_1/nut_washer": 70.724287
+        }
+      },
+      "lower_rail_2_after_upper_rail_2": {
+        "head_washer_insertion": {
+          "hardware/upper_rail_2/head": 7.456461,
+          "hardware/upper_rail_2/head_washer": 76.732003,
+          "hardware/upper_rail_2/nut": 10.338406,
+          "hardware/upper_rail_2/nut_washer": 76.732003
+        }
+      },
+      "upper_rail_1_after_lower_principal_1": {
+        "head_insertion_and_withdrawal": {
+          "hardware/lower_principal_1/shaft": 393.313296
+        },
+        "head_washer_insertion": {
+          "hardware/lower_principal_1/shaft": 602.494194
+        },
+        "shaft_insertion_and_withdrawal": {
+          "hardware/lower_principal_1/shaft": 170.452693
+        }
+      },
+      "upper_rail_1_after_lower_principal_2": {
+        "head_insertion_and_withdrawal": {
+          "hardware/lower_principal_2/shaft": 393.313296
+        },
+        "head_washer_insertion": {
+          "hardware/lower_principal_2/shaft": 602.494194
+        },
+        "shaft_insertion_and_withdrawal": {
+          "hardware/lower_principal_2/shaft": 170.452693
+        }
+      },
+      "upper_rail_1_after_lower_rail_1": {
+        "head_washer_insertion": {
+          "hardware/lower_rail_1/head": 7.456461,
+          "hardware/lower_rail_1/head_washer": 76.732003,
+          "hardware/lower_rail_1/nut": 10.338406,
+          "hardware/lower_rail_1/nut_washer": 76.732003
+        }
+      },
+      "upper_rail_1_after_lower_rail_2": {
+        "head_washer_insertion": {
+          "hardware/lower_rail_2/head": 3.657921,
+          "hardware/lower_rail_2/head_washer": 70.724287,
+          "hardware/lower_rail_2/nut": 5.071718,
+          "hardware/lower_rail_2/nut_washer": 70.724287
+        }
+      },
+      "upper_rail_2_after_lower_rail_2": {
+        "head_washer_insertion": {
+          "hardware/lower_rail_2/head": 7.456461,
+          "hardware/lower_rail_2/head_washer": 76.732003,
+          "hardware/lower_rail_2/nut": 10.338406,
+          "hardware/lower_rail_2/nut_washer": 76.732003
+        }
+      }
+    },
+    "subset_state_limit": 256,
+    "subset_states_expanded": 15
+  },
+  "candidate_panel_overlay": {
+    "applied_panel_ids": [
+      "kicker_right",
+      "main_lower_right",
+      "main_upper_right"
+    ],
+    "applied_to_local_geometry_map": true,
+    "canonical_wj04_overlay_changed": false,
+    "raw_source_binding_mutated": false
+  },
+  "canonical_wj04_config_sha256": "d1c63e1fa5617999e8af68d683cc0f3074fb84f518b048a087ec5ed276206c0e",
+  "claim_boundary": {
+    "accepted_replacement_count": 0,
+    "capacity_established": false,
+    "drilling_released": false,
+    "fabrication_released": false,
+    "physical_replacement_accepted": false,
+    "purchase_approved": false,
+    "structural_accepted": false
+  },
+  "environment_obligations": {
+    "all_nonselected_legacy_connector_and_sds_geometry_retained": true,
+    "corrected_candidate_right_panels_used_in_local_map": true,
+    "fixed_panel_kicker_screw_count": 66,
+    "starting_frame_bolt_count": 12
+  },
+  "fixed_obligations": {
+    "cad_environment_materialized": true,
+    "panel_kicker_screw_axes": 66,
+    "preservation_required": true,
+    "preserved_in_local_environment": true,
+    "starting_frame_bolts": 12
+  },
+  "limitations": [
+    "This is a local two-duty geometry hypothesis, not a complete WJ-06 layout or load path.",
+    "The 50.8 mm G7 projection is a provisional keepout, not delivered hold-bolt geometry.",
+    "Rail-row end-distance factor is conditional on signed demand and member-specific resistance checks.",
+    "Crosscut reduces nominal two-face contact area; no load-transfer or resistance result is inferred.",
+    "Bolt, thread transition, washers, tools, stock condition, and assembly sequence remain unverified.",
+    "No physical replacement, drilling, fabrication, purchase, or structural acceptance is asserted."
+  ],
+  "materialized_geometry": {
+    "canonical_narrow_trial_finished_hosts_reused": false,
+    "cleat_hits_mm3": {
+      "clip_horizontal_lower_right_1": {
+        "hosts": {},
+        "other_cleat": {},
+        "other_wood": {},
+        "panels": {},
+        "protected": {}
+      },
+      "clip_horizontal_upper_right_1": {
+        "hosts": {},
+        "other_cleat": {},
+        "other_wood": {},
+        "panels": {},
+        "protected": {}
+      }
+    },
+    "contact_area_mm2": {
+      "clip_horizontal_lower_right_1": {
+        "principal_to_cleat": 10641.329998,
+        "rail_to_cleat": 10641.305465
+      },
+      "clip_horizontal_upper_right_1": {
+        "principal_to_cleat": 7725.409998,
+        "rail_to_cleat": 7725.39219
+      }
+    },
+    "lower_rail_reconstruction_volume_delta_mm3": 0.0,
+    "removed_legacy_axes": [
+      "clip_horizontal_lower_right_1_beam_1",
+      "clip_horizontal_lower_right_1_beam_2",
+      "clip_horizontal_lower_right_1_beam_3",
+      "clip_horizontal_lower_right_1_upright_1",
+      "clip_horizontal_lower_right_1_upright_2",
+      "clip_horizontal_lower_right_1_upright_3",
+      "clip_horizontal_upper_right_1_beam_1",
+      "clip_horizontal_upper_right_1_beam_2",
+      "clip_horizontal_upper_right_1_beam_3",
+      "clip_horizontal_upper_right_1_upright_1",
+      "clip_horizontal_upper_right_1_upright_2",
+      "clip_horizontal_upper_right_1_upright_3"
+    ],
+    "removed_legacy_axis_count": 12,
+    "retained_source_openings_reapplied_after_sds_restoration": true
+  },
+  "pair_spacing": {
+    "lower_block_t_interval_mm": [
+      1353.874134,
+      1442.774134
+    ],
+    "nominal_clear_gap_mm": 55.15,
+    "upper_block_t_interval_mm": [
+      1497.924134,
+      1586.8241340000002
+    ]
+  },
+  "predecessor_hypothesis": {
+    "preserved_separately": true,
+    "report_sha256": "2df952ff8b01a9b56b1c445d54d5aea8ea7b94b75b818bcc002a1719168b9d9f",
+    "trial_id": "full_x88p9_lower_upper_pair_hypothesis"
+  },
+  "producer_sha256": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9",
+  "schema": "wood_joint_wj04_upper_g7_crosscut_probe/v1",
+  "source_binding": {
+    "fixed_screw_axes_sha256": "22224a0afc78500cb0f832f3b6c6ea4e0d1dd934813c8570d637c16cb052a4f1",
+    "frame_bolt_axes_sha256": "524792bb6fe1f966a7725aad7a7ed4290c355bebafcc27d84f9a5e2690ad3e27",
+    "inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "raw_source_binding_mutated": false,
+    "runtime_module_sha256": {
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53"
+    },
+    "uncut_host_shape_sha256": {
+      "base_header": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec",
+      "base_post_outer_left": "9d95af16d2d8788134f22359846d3dec8728a8b735841f6bad788403fb26660d",
+      "base_post_outer_right": "7ef63af6efe5cf4a16ab17d5247a4a2f54775bba1d37329c155f15182a2217d3",
+      "base_side_left": "391762c2285e53e22a6907df3afc357a3bb2ef72ffa68a359d1a2d4986802333",
+      "base_side_right": "8fa6f222d09695d41cc74ca7138effa3da1db02d4600fea96162b55354c6c60b"
+    },
+    "uncut_part_shapes_sha256": "627cead591c1f0f4e63ede07a871659fba7c1b56a8e468791e5dd8f6d9845f2c"
+  },
+  "source_candidate_id": "compact-floor-flush-development",
+  "source_inputs_sha256": {
+    "docs/wood-joints-mvp/hypotheses/wj04-full-stock-stagger-probe.json": "2c247cf249b0dddcd403c1466efe6d8a7ddd32366f8b8b3294657318bd42da6a",
+    "docs/wood-joints-mvp/ordinary-hardware-basis.md": "b66983d6ed267814289707cc5f3b5503dfe39ce723529b663092544e29ee8bf4",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "docs/wood-joints-mvp/stock-and-cut-basis.md": "a6089794eb0789dda022b90a3a2f2d82eff2e57e8fc20616ac4f05f0aa8c17f3",
+    "docs/wood-joints-mvp/wood-limit-state-basis.md": "1110e664a88f704773a463e83a2aeac3954b978048d811e4bff1effa55aa7c2e",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+    "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+    "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+    "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+    "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+    "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+    "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+    "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+    "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+    "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+    "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+    "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+    "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+    "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+    "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+    "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+    "scripts/wood_joint_wj04_full_stock_probe.py": "965b997a2b3f4ecb4c39e161fc9dde1757ff8a4c8d7bc8acc90d851a122f8bde",
+    "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
+    "scripts/wood_joint_wj04_tool_access.py": "8e3af4e66153dd3de183604957db969d3bcb1cfcc5e2ce2505eaa8d9bebc129d",
+    "scripts/wood_joint_wj04_upper_pair_probe.py": "7e042ed35b6670191e2549f4f4922af4643db8d6552fef09b6998546ae123860"
+  },
+  "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+  "source_variant": "kerf-right",
+  "stack_diagnostics": {
+    "lower_principal_1": {
+      "bore": {
+        "layer_material_fractions_before_cut": {
+          "base_principal_center_right": 1.0,
+          "wj04_lower_full_stock_cleat": 1.0
+        },
+        "other_wood_hits_mm3": {},
+        "panel_hits_mm3": {},
+        "protected_hits_mm3": {}
+      },
+      "candidate_sku": "25C600HCS5Z",
+      "catalog_gaging_bounds_establish_full_thread_at_nut": false,
+      "excluded_wood_ids_from_stack_clearance_summary": [
+        "wood/base_principal_center_right",
+        "wood/wj04_lower_full_stock_cleat"
+      ],
+      "grip_mm": 127.0,
+      "installed_component_hits": {
+        "head": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "intentional_layer_ids": [
+        "wj04_lower_full_stock_cleat",
+        "base_principal_center_right"
+      ],
+      "nominal_length_margin_mm_after_two_max_washers_nut_and_tip": 13.0556,
+      "operations": {
+        "50mm_axial_tool_approach": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head": {
+              "hardware/lower_principal_1/head_washer": 480.581674
+            },
+            "nut": {
+              "hardware/lower_principal_1/nut_washer": 7.568215
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bolt_insertion_withdrawal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": true,
+          "hits_mm3": {},
+          "physical_clearance_established": false
+        },
+        "bounded_nut_removal": {
+          "full_nut_removal_verified": false,
+          "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+          "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+          "nut_translation_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_principal_1/nut",
+              "hardware/lower_principal_1/shaft"
+            ],
+            "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_washer_translation_sweep": {
+            "axial_sliding_clearance": {
+              "delivered_parts_and_assembly_clearance_verified": false,
+              "minimum_radial_clearance_mm": 0.7239,
+              "motion_is_along_fastener_axis": true,
+              "shaft_max_diameter_mm": 6.35,
+              "source_bounds_allow_modeled_axial_slide": true,
+              "thread_major_diameter_and_received_clearance_verified": false,
+              "washer_min_inner_diameter_mm": 7.7978
+            },
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_principal_1/nut",
+              "hardware/lower_principal_1/nut_washer",
+              "hardware/lower_principal_1/shaft"
+            ],
+            "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "thread_engagement_and_runout_verified": false,
+          "tool_radius_conservative_vs_overall_length": true,
+          "tool_radius_mm": 100.0,
+          "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+          "wrench_full_turn_and_axial_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_principal_1/nut",
+              "hardware/lower_principal_1/shaft"
+            ],
+            "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "full_turn_and_axial_nut_wrench": {
+                "hardware/lower_principal_2/shaft": 493.900448,
+                "wood/main_lower_right": 35278.398563,
+                "wood/main_upper_right": 3773.572956
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          }
+        },
+        "catalog_open_end_wrench": {
+          "head_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "wood/base_rail_service_upper_right": 11823.183278
+                },
+                "lateral_reseat_sweep": {
+                  "protected/wires/wire_078_G6_G7": 2.32095,
+                  "protected/wires/wire_079_G7_G8": 40.477722,
+                  "wood/base_rail_service_lower_right": 0.36995,
+                  "wood/base_rail_service_upper_right": 10330.966247,
+                  "wood/main_upper_right": 0.226453
+                },
+                "lateral_unseat_sweep": {
+                  "wood/base_rail_service_upper_right": 104.09401
+                },
+                "seated": {
+                  "wood/base_rail_service_upper_right": 399.71201
+                },
+                "stroke_sweep": {
+                  "wood/base_rail_service_lower_right": 769.110972,
+                  "wood/base_rail_service_upper_right": 1507.747222
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "wood/base_rail_service_lower_right": 1067.988779,
+                  "wood/base_rail_service_upper_right": 3266.357732
+                },
+                "lateral_reseat_sweep": {
+                  "wood/base_rail_service_upper_right": 104.09401
+                },
+                "lateral_unseat_sweep": {
+                  "wood/base_rail_service_lower_right": 5757.71377
+                },
+                "stroke_sweep": {
+                  "wood/base_rail_service_lower_right": 7060.635334
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "nut_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_2/shaft": 95.007652,
+                  "wood/main_upper_right": 369.454855
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_principal_2/shaft": 95.007652
+                },
+                "lateral_unseat_sweep": {
+                  "wood/main_upper_right": 468.928523
+                },
+                "seated": {
+                  "hardware/lower_principal_2/shaft": 89.111399
+                },
+                "stroke_sweep": {
+                  "hardware/lower_principal_2/shaft": 95.007652,
+                  "wood/main_lower_right": 1206.120972,
+                  "wood/main_upper_right": 156.476067
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_2/shaft": 95.007652,
+                  "wood/main_lower_right": 4632.377731,
+                  "wood/main_upper_right": 1942.390529
+                },
+                "lateral_reseat_sweep": {
+                  "wood/main_upper_right": 468.928523
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_2/shaft": 95.007652,
+                  "wood/main_lower_right": 5893.090094
+                },
+                "seated": {
+                  "wood/main_lower_right": 281.235857
+                },
+                "stroke_sweep": {
+                  "wood/main_lower_right": 2769.030619
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "paired_counterhold_vs_turning_sweep": {
+            "head_15_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_15_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            }
+          }
+        },
+        "detached_component_removal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": true,
+          "hits_mm3": {},
+          "physical_clearance_established": false
+        },
+        "nut_and_nut_washer_assembly": {
+          "reverse_of_bounded_removal_sweep_screened": true,
+          "screen": {
+            "full_nut_removal_verified": false,
+            "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+            "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+            "nut_translation_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_principal_1/nut",
+                "hardware/lower_principal_1/shaft"
+              ],
+              "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+              "external_envelope_clear": true,
+              "external_envelope_hits_mm3": {},
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "nut_washer_translation_sweep": {
+              "axial_sliding_clearance": {
+                "delivered_parts_and_assembly_clearance_verified": false,
+                "minimum_radial_clearance_mm": 0.7239,
+                "motion_is_along_fastener_axis": true,
+                "shaft_max_diameter_mm": 6.35,
+                "source_bounds_allow_modeled_axial_slide": true,
+                "thread_major_diameter_and_received_clearance_verified": false,
+                "washer_min_inner_diameter_mm": 7.7978
+              },
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_principal_1/nut",
+                "hardware/lower_principal_1/nut_washer",
+                "hardware/lower_principal_1/shaft"
+              ],
+              "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+              "external_envelope_clear": true,
+              "external_envelope_hits_mm3": {},
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "thread_engagement_and_runout_verified": false,
+            "tool_radius_conservative_vs_overall_length": true,
+            "tool_radius_mm": 100.0,
+            "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+            "wrench_full_turn_and_axial_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_principal_1/nut",
+                "hardware/lower_principal_1/shaft"
+              ],
+              "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "full_turn_and_axial_nut_wrench": {
+                  "hardware/lower_principal_2/shaft": 493.900448,
+                  "wood/main_lower_right": 35278.398563,
+                  "wood/main_upper_right": 3773.572956
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            }
+          },
+          "thread_start_and_functional_nut_engagement_verified": false,
+          "translation_and_rotation_envelopes_are_reversible": true
+        }
+      },
+      "thread_transition_and_functional_nut_engagement": "unresolved; receive and measure delivered bolt/nut stack",
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        }
+      }
+    },
+    "lower_principal_2": {
+      "bore": {
+        "layer_material_fractions_before_cut": {
+          "base_principal_center_right": 1.0,
+          "wj04_lower_full_stock_cleat": 1.0
+        },
+        "other_wood_hits_mm3": {},
+        "panel_hits_mm3": {},
+        "protected_hits_mm3": {}
+      },
+      "candidate_sku": "25C600HCS5Z",
+      "catalog_gaging_bounds_establish_full_thread_at_nut": false,
+      "excluded_wood_ids_from_stack_clearance_summary": [
+        "wood/base_principal_center_right",
+        "wood/wj04_lower_full_stock_cleat"
+      ],
+      "grip_mm": 127.0,
+      "installed_component_hits": {
+        "head": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "intentional_layer_ids": [
+        "wj04_lower_full_stock_cleat",
+        "base_principal_center_right"
+      ],
+      "nominal_length_margin_mm_after_two_max_washers_nut_and_tip": 13.0556,
+      "operations": {
+        "50mm_axial_tool_approach": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head": {
+              "hardware/lower_principal_2/head_washer": 480.581674
+            },
+            "nut": {
+              "hardware/lower_principal_2/nut_washer": 7.568215
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bolt_insertion_withdrawal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": true,
+          "hits_mm3": {},
+          "physical_clearance_established": false
+        },
+        "bounded_nut_removal": {
+          "full_nut_removal_verified": false,
+          "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+          "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+          "nut_translation_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_principal_2/nut",
+              "hardware/lower_principal_2/shaft"
+            ],
+            "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_washer_translation_sweep": {
+            "axial_sliding_clearance": {
+              "delivered_parts_and_assembly_clearance_verified": false,
+              "minimum_radial_clearance_mm": 0.7239,
+              "motion_is_along_fastener_axis": true,
+              "shaft_max_diameter_mm": 6.35,
+              "source_bounds_allow_modeled_axial_slide": true,
+              "thread_major_diameter_and_received_clearance_verified": false,
+              "washer_min_inner_diameter_mm": 7.7978
+            },
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_principal_2/nut",
+              "hardware/lower_principal_2/nut_washer",
+              "hardware/lower_principal_2/shaft"
+            ],
+            "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "thread_engagement_and_runout_verified": false,
+          "tool_radius_conservative_vs_overall_length": true,
+          "tool_radius_mm": 100.0,
+          "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+          "wrench_full_turn_and_axial_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_principal_2/nut",
+              "hardware/lower_principal_2/shaft"
+            ],
+            "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "full_turn_and_axial_nut_wrench": {
+                "hardware/lower_principal_1/shaft": 493.900448,
+                "wood/main_lower_right": 21726.095637,
+                "wood/main_upper_right": 17325.875883
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          }
+        },
+        "catalog_open_end_wrench": {
+          "head_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G7": 192.979325,
+                  "wood/base_rail_service_upper_right": 14719.563384
+                },
+                "lateral_reseat_sweep": {
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G7": 345.475866,
+                  "protected/tnuts/hold_tnut_main_G7": 21.508643,
+                  "wood/base_rail_service_upper_right": 12298.967794,
+                  "wood/main_upper_right": 0.226453
+                },
+                "lateral_unseat_sweep": {
+                  "wood/base_rail_service_upper_right": 2546.652754
+                },
+                "seated": {
+                  "wood/base_rail_service_upper_right": 2539.945929
+                },
+                "stroke_sweep": {
+                  "wood/base_rail_service_upper_right": 7200.097071
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "wood/base_rail_service_upper_right": 6918.189815
+                },
+                "lateral_reseat_sweep": {
+                  "wood/base_rail_service_upper_right": 2546.652754
+                },
+                "lateral_unseat_sweep": {
+                  "wood/base_rail_service_lower_right": 6.776804,
+                  "wood/base_rail_service_upper_right": 19.684663
+                },
+                "stroke_sweep": {
+                  "wood/base_rail_service_lower_right": 1574.683064,
+                  "wood/base_rail_service_upper_right": 1545.438087
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "nut_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/upper_principal_1/shaft": 95.007652,
+                  "wood/main_upper_right": 369.454855
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/upper_principal_1/shaft": 94.831415
+                },
+                "lateral_unseat_sweep": {
+                  "wood/main_upper_right": 468.928523
+                },
+                "stroke_sweep": {
+                  "wood/main_upper_right": 1362.597039
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "wood/main_lower_right": 2825.008981,
+                  "wood/main_upper_right": 3749.759279
+                },
+                "lateral_reseat_sweep": {
+                  "wood/main_upper_right": 468.928523
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_1/shaft": 95.007652,
+                  "wood/main_lower_right": 4523.343242,
+                  "wood/main_upper_right": 1369.746852
+                },
+                "seated": {
+                  "wood/main_upper_right": 281.235857
+                },
+                "stroke_sweep": {
+                  "hardware/lower_principal_1/shaft": 95.007652,
+                  "wood/main_lower_right": 1824.424416,
+                  "wood/main_upper_right": 944.606202
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "paired_counterhold_vs_turning_sweep": {
+            "head_15_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_15_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            }
+          }
+        },
+        "detached_component_removal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": true,
+          "hits_mm3": {},
+          "physical_clearance_established": false
+        },
+        "nut_and_nut_washer_assembly": {
+          "reverse_of_bounded_removal_sweep_screened": true,
+          "screen": {
+            "full_nut_removal_verified": false,
+            "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+            "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+            "nut_translation_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_principal_2/nut",
+                "hardware/lower_principal_2/shaft"
+              ],
+              "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+              "external_envelope_clear": true,
+              "external_envelope_hits_mm3": {},
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "nut_washer_translation_sweep": {
+              "axial_sliding_clearance": {
+                "delivered_parts_and_assembly_clearance_verified": false,
+                "minimum_radial_clearance_mm": 0.7239,
+                "motion_is_along_fastener_axis": true,
+                "shaft_max_diameter_mm": 6.35,
+                "source_bounds_allow_modeled_axial_slide": true,
+                "thread_major_diameter_and_received_clearance_verified": false,
+                "washer_min_inner_diameter_mm": 7.7978
+              },
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_principal_2/nut",
+                "hardware/lower_principal_2/nut_washer",
+                "hardware/lower_principal_2/shaft"
+              ],
+              "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+              "external_envelope_clear": true,
+              "external_envelope_hits_mm3": {},
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "thread_engagement_and_runout_verified": false,
+            "tool_radius_conservative_vs_overall_length": true,
+            "tool_radius_mm": 100.0,
+            "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+            "wrench_full_turn_and_axial_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_principal_2/nut",
+                "hardware/lower_principal_2/shaft"
+              ],
+              "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "full_turn_and_axial_nut_wrench": {
+                  "hardware/lower_principal_1/shaft": 493.900448,
+                  "wood/main_lower_right": 21726.095637,
+                  "wood/main_upper_right": 17325.875883
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            }
+          },
+          "thread_start_and_functional_nut_engagement_verified": false,
+          "translation_and_rotation_envelopes_are_reversible": true
+        }
+      },
+      "thread_transition_and_functional_nut_engagement": "unresolved; receive and measure delivered bolt/nut stack",
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        }
+      }
+    },
+    "lower_rail_1": {
+      "bore": {
+        "layer_material_fractions_before_cut": {
+          "base_rail_service_lower_right": 1.0,
+          "wj04_lower_full_stock_cleat": 1.0
+        },
+        "other_wood_hits_mm3": {},
+        "panel_hits_mm3": {},
+        "protected_hits_mm3": {}
+      },
+      "candidate_sku": "25C600HCS5Z",
+      "catalog_gaging_bounds_establish_full_thread_at_nut": false,
+      "excluded_wood_ids_from_stack_clearance_summary": [
+        "wood/base_rail_service_lower_right",
+        "wood/wj04_lower_full_stock_cleat"
+      ],
+      "grip_mm": 127.0,
+      "installed_component_hits": {
+        "head": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "intentional_layer_ids": [
+        "wj04_lower_full_stock_cleat",
+        "base_rail_service_lower_right"
+      ],
+      "nominal_length_margin_mm_after_two_max_washers_nut_and_tip": 13.0556,
+      "operations": {
+        "50mm_axial_tool_approach": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head": {
+              "hardware/lower_rail_1/head_washer": 480.581674,
+              "hardware/upper_rail_1/head": 69.621298,
+              "hardware/upper_rail_1/head_washer": 119.046863,
+              "wood/base_rail_service_upper_right": 16694.831055
+            },
+            "nut": {
+              "hardware/lower_rail_1/nut_washer": 7.568215
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bolt_insertion_withdrawal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head_insertion_and_withdrawal": {
+              "wood/base_rail_service_upper_right": 4923.399152,
+              "wood/wj04_upper_g7_crosscut_full_stock_cleat": 11487.931355
+            },
+            "shaft_insertion_and_withdrawal": {
+              "wood/base_rail_service_upper_right": 1206.597185,
+              "wood/wj04_upper_g7_crosscut_full_stock_cleat": 2815.393431
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bounded_nut_removal": {
+          "full_nut_removal_verified": false,
+          "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+          "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+          "nut_translation_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_rail_1/nut",
+              "hardware/lower_rail_1/shaft"
+            ],
+            "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_to_clear_bolt_tip": {
+                "hardware/lower_rail_1/nut_washer": 354.80947,
+                "wood/base_rail_service_lower_right": 826.253671
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_washer_translation_sweep": {
+            "axial_sliding_clearance": {
+              "delivered_parts_and_assembly_clearance_verified": false,
+              "minimum_radial_clearance_mm": 0.7239,
+              "motion_is_along_fastener_axis": true,
+              "shaft_max_diameter_mm": 6.35,
+              "source_bounds_allow_modeled_axial_slide": true,
+              "thread_major_diameter_and_received_clearance_verified": false,
+              "washer_min_inner_diameter_mm": 7.7978
+            },
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_rail_1/nut",
+              "hardware/lower_rail_1/nut_washer",
+              "hardware/lower_rail_1/shaft"
+            ],
+            "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_washer_to_clear_bolt_tip": {
+                "wood/base_rail_service_lower_right": 3333.315711
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "thread_engagement_and_runout_verified": false,
+          "tool_radius_conservative_vs_overall_length": true,
+          "tool_radius_mm": 100.0,
+          "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+          "wrench_full_turn_and_axial_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_rail_1/nut",
+              "hardware/lower_rail_1/shaft"
+            ],
+            "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "full_turn_and_axial_nut_wrench": {
+                "hardware/lower_rail_2/shaft": 493.900448,
+                "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 4926.938504,
+                "protected/tnuts/hold_tnut_main_G6": 1265.455805,
+                "protected/wires/wire_078_G6_G7": 357.66592,
+                "wood/base_principal_center_right": 124510.452029,
+                "wood/main_lower_right": 59090.801529
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          }
+        },
+        "catalog_open_end_wrench": {
+          "head_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_1/head": 535.009375,
+                  "hardware/lower_principal_1/head_washer": 475.245571,
+                  "hardware/lower_principal_1/shaft": 1296.083335,
+                  "hardware/lower_principal_2/head": 535.009375,
+                  "hardware/lower_principal_2/head_washer": 480.581674,
+                  "hardware/lower_principal_2/shaft": 1296.083335,
+                  "hardware/lower_rail_1/head_washer": 119.661043,
+                  "hardware/lower_rail_2/head": 47.804245,
+                  "hardware/lower_rail_2/head_washer": 119.661043,
+                  "hardware/upper_rail_1/head": 47.804245,
+                  "hardware/upper_rail_1/head_washer": 119.661043,
+                  "hardware/upper_rail_2/head": 47.804245,
+                  "hardware/upper_rail_2/head_washer": 119.661043,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G7": 1183.671877,
+                  "protected/wires/wire_079_G7_G8": 1912.653542,
+                  "wood/base_rail_service_upper_right": 450361.693448,
+                  "wood/main_upper_right": 44491.689064,
+                  "wood/wj04_lower_full_stock_cleat": 206602.697185,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 35858.470019
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_principal_2/head": 96.975778,
+                  "hardware/lower_principal_2/head_washer": 109.539847,
+                  "hardware/lower_principal_2/shaft": 60.344807,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_2/head": 237.039341,
+                  "hardware/lower_rail_2/head_washer": 165.891917,
+                  "hardware/lower_rail_2/shaft": 1.28947,
+                  "hardware/upper_rail_1/head": 535.009375,
+                  "hardware/upper_rail_1/head_washer": 480.410166,
+                  "hardware/upper_rail_1/shaft": 298.659087,
+                  "protected/wires/wire_079_G7_G8": 530.948437,
+                  "wood/base_rail_service_upper_right": 66861.749935,
+                  "wood/wj04_lower_full_stock_cleat": 43001.552486
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_2/head_washer": 1.671488,
+                  "hardware/lower_principal_2/shaft": 1236.415973,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_2/head_washer": 52.271598,
+                  "hardware/upper_rail_1/head": 503.049654,
+                  "hardware/upper_rail_1/head_washer": 375.890972,
+                  "hardware/upper_rail_1/shaft": 1223.673634,
+                  "protected/lights/light_G7": 460.26205,
+                  "protected/tnuts/hold_tnut_main_G7": 71.327614,
+                  "protected/wires/wire_078_G6_G7": 78.62681,
+                  "protected/wires/wire_079_G7_G8": 1106.726541,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/base_rail_service_upper_right": 307682.900076,
+                  "wood/main_lower_right": 20489.35342,
+                  "wood/main_upper_right": 129629.260377,
+                  "wood/wj04_lower_full_stock_cleat": 192114.499855,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 5659.797617
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 139.195822,
+                  "hardware/upper_rail_1/head_washer": 67.252131,
+                  "protected/wires/wire_079_G7_G8": 856.726273,
+                  "wood/base_rail_service_upper_right": 151121.5193,
+                  "wood/main_upper_right": 14019.163088,
+                  "wood/wj04_lower_full_stock_cleat": 88935.360562
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 528.71898,
+                  "hardware/upper_rail_1/head_washer": 326.1048,
+                  "hardware/upper_rail_1/shaft": 123.954159,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G7": 713.879765,
+                  "protected/lights/light_G7": 1233.96228,
+                  "protected/tnuts/hold_tnut_main_G7": 320.273211,
+                  "protected/wires/wire_078_G6_G7": 357.143498,
+                  "protected/wires/wire_079_G7_G8": 1314.192602,
+                  "wood/base_rail_service_upper_right": 290645.901487,
+                  "wood/main_lower_right": 25454.798415,
+                  "wood/main_upper_right": 208443.894696,
+                  "wood/wj04_lower_full_stock_cleat": 156499.563646
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_principal_2/head_washer": 1.671488,
+                  "hardware/lower_principal_2/shaft": 1236.415973,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_2/head_washer": 52.271598,
+                  "hardware/upper_rail_1/head": 503.049654,
+                  "hardware/upper_rail_1/head_washer": 375.890972,
+                  "hardware/upper_rail_1/shaft": 1223.673634,
+                  "protected/lights/light_G7": 460.26205,
+                  "protected/tnuts/hold_tnut_main_G7": 71.327614,
+                  "protected/wires/wire_078_G6_G7": 78.62681,
+                  "protected/wires/wire_079_G7_G8": 1106.725958,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/base_rail_service_upper_right": 307682.900075,
+                  "wood/main_lower_right": 20489.35342,
+                  "wood/main_upper_right": 129629.260377,
+                  "wood/wj04_lower_full_stock_cleat": 192114.499854,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 5659.797617
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_2/shaft": 826.463082,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 217.653024,
+                  "hardware/upper_rail_1/head_washer": 218.711608,
+                  "hardware/upper_rail_1/shaft": 418.383256,
+                  "wood/base_principal_center_right": 6765.27318,
+                  "wood/base_rail_service_upper_right": 201376.397116,
+                  "wood/main_lower_right": 23715.343059,
+                  "wood/main_upper_right": 100933.410378,
+                  "wood/wj04_lower_full_stock_cleat": 163490.883382,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 3336.083442
+                },
+                "seated": {
+                  "wood/main_upper_right": 1209.251371
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 358.290307,
+                  "hardware/upper_rail_1/head_washer": 195.874874,
+                  "hardware/upper_rail_1/shaft": 10.023971,
+                  "wood/base_principal_center_right": 48170.906314,
+                  "wood/base_rail_service_upper_right": 160637.284899,
+                  "wood/main_upper_right": 82896.614821,
+                  "wood/wj04_lower_full_stock_cleat": 143202.687183
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "nut_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 119.661043,
+                  "hardware/lower_rail_2/nut": 66.280732,
+                  "hardware/lower_rail_2/nut_washer": 119.661043,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 4926.938504,
+                  "protected/tnuts/hold_tnut_main_G6": 1372.654821,
+                  "protected/wires/wire_078_G6_G7": 2014.158192,
+                  "wood/base_rail_service_lower_right": 419119.45483,
+                  "wood/main_lower_right": 65518.533403,
+                  "wood/wj04_lower_full_stock_cleat": 50839.391385
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/nut": 308.041039,
+                  "hardware/lower_rail_2/nut_washer": 81.8415,
+                  "hardware/lower_rail_2/shaft": 210.07539,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 2827.693319,
+                  "protected/wires/wire_078_G6_G7": 606.096274,
+                  "wood/base_rail_service_lower_right": 79502.599671,
+                  "wood/main_lower_right": 0.0001
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/nut": 741.792139,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 1682.144875,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 2440.788855,
+                  "protected/wires/wire_078_G6_G7": 440.474713,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/base_rail_service_lower_right": 337469.833156,
+                  "wood/wj04_lower_full_stock_cleat": 19178.339503
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/nut": 741.792139,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 1570.06331,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 118.647177,
+                  "protected/wires/wire_078_G6_G7": 601.053403,
+                  "wood/base_rail_service_lower_right": 135732.710454
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/nut": 741.792139,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 2478.356884,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 836.323228,
+                  "protected/wires/wire_078_G6_G7": 716.008412,
+                  "wood/base_rail_service_lower_right": 339027.957163,
+                  "wood/wj04_lower_full_stock_cleat": 41203.139149
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/nut": 741.792139,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 1682.144875,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 2440.788854,
+                  "protected/wires/wire_078_G6_G7": 440.474713,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/base_rail_service_lower_right": 337469.833155,
+                  "wood/wj04_lower_full_stock_cleat": 19178.339503
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/nut": 741.792139,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 2011.859363,
+                  "wood/base_principal_center_right": 16786.670881,
+                  "wood/base_rail_service_lower_right": 228929.738896,
+                  "wood/wj04_lower_full_stock_cleat": 12373.524769
+                },
+                "seated": {
+                  "hardware/lower_rail_2/shaft": 89.111399
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/nut": 741.792139,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 2221.757436,
+                  "wood/base_principal_center_right": 54141.816892,
+                  "wood/base_rail_service_lower_right": 185104.141548,
+                  "wood/wj04_lower_full_stock_cleat": 12048.843761
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "paired_counterhold_vs_turning_sweep": {
+            "head_15_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_15_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            }
+          }
+        },
+        "detached_component_removal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head_washer_outward": {
+              "hardware/upper_rail_1/head_washer": 34.785819,
+              "wood/base_rail_service_upper_right": 9944.102412
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "nut_and_nut_washer_assembly": {
+          "reverse_of_bounded_removal_sweep_screened": true,
+          "screen": {
+            "full_nut_removal_verified": false,
+            "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+            "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+            "nut_translation_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_rail_1/nut",
+                "hardware/lower_rail_1/shaft"
+              ],
+              "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "nut_to_clear_bolt_tip": {
+                  "hardware/lower_rail_1/nut_washer": 354.80947,
+                  "wood/base_rail_service_lower_right": 826.253671
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "nut_washer_translation_sweep": {
+              "axial_sliding_clearance": {
+                "delivered_parts_and_assembly_clearance_verified": false,
+                "minimum_radial_clearance_mm": 0.7239,
+                "motion_is_along_fastener_axis": true,
+                "shaft_max_diameter_mm": 6.35,
+                "source_bounds_allow_modeled_axial_slide": true,
+                "thread_major_diameter_and_received_clearance_verified": false,
+                "washer_min_inner_diameter_mm": 7.7978
+              },
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_rail_1/nut",
+                "hardware/lower_rail_1/nut_washer",
+                "hardware/lower_rail_1/shaft"
+              ],
+              "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "nut_washer_to_clear_bolt_tip": {
+                  "wood/base_rail_service_lower_right": 3333.315711
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "thread_engagement_and_runout_verified": false,
+            "tool_radius_conservative_vs_overall_length": true,
+            "tool_radius_mm": 100.0,
+            "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+            "wrench_full_turn_and_axial_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_rail_1/nut",
+                "hardware/lower_rail_1/shaft"
+              ],
+              "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "full_turn_and_axial_nut_wrench": {
+                  "hardware/lower_rail_2/shaft": 493.900448,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 4926.938504,
+                  "protected/tnuts/hold_tnut_main_G6": 1265.455805,
+                  "protected/wires/wire_078_G6_G7": 357.66592,
+                  "wood/base_principal_center_right": 124510.452029,
+                  "wood/main_lower_right": 59090.801529
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            }
+          },
+          "thread_start_and_functional_nut_engagement_verified": false,
+          "translation_and_rotation_envelopes_are_reversible": true
+        }
+      },
+      "thread_transition_and_functional_nut_engagement": "unresolved; receive and measure delivered bolt/nut stack",
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        }
+      }
+    },
+    "lower_rail_2": {
+      "bore": {
+        "layer_material_fractions_before_cut": {
+          "base_rail_service_lower_right": 1.0,
+          "wj04_lower_full_stock_cleat": 1.0
+        },
+        "other_wood_hits_mm3": {},
+        "panel_hits_mm3": {},
+        "protected_hits_mm3": {}
+      },
+      "candidate_sku": "25C600HCS5Z",
+      "catalog_gaging_bounds_establish_full_thread_at_nut": false,
+      "excluded_wood_ids_from_stack_clearance_summary": [
+        "wood/base_rail_service_lower_right",
+        "wood/wj04_lower_full_stock_cleat"
+      ],
+      "grip_mm": 127.0,
+      "installed_component_hits": {
+        "head": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "intentional_layer_ids": [
+        "wj04_lower_full_stock_cleat",
+        "base_rail_service_lower_right"
+      ],
+      "nominal_length_margin_mm_after_two_max_washers_nut_and_tip": 13.0556,
+      "operations": {
+        "50mm_axial_tool_approach": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head": {
+              "hardware/lower_rail_2/head_washer": 480.581674,
+              "hardware/upper_rail_1/head": 62.23584,
+              "hardware/upper_rail_1/head_washer": 113.701699,
+              "hardware/upper_rail_2/head": 69.621298,
+              "hardware/upper_rail_2/head_washer": 119.046863,
+              "wood/base_rail_service_upper_right": 16694.831055
+            },
+            "nut": {
+              "hardware/lower_rail_2/nut_washer": 7.568215
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bolt_insertion_withdrawal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head_insertion_and_withdrawal": {
+              "hardware/upper_principal_1/shaft": 393.314118,
+              "hardware/upper_principal_2/shaft": 393.314118,
+              "wood/base_rail_service_upper_right": 4923.399152,
+              "wood/wj04_upper_g7_crosscut_full_stock_cleat": 10405.485741
+            },
+            "shaft_insertion_and_withdrawal": {
+              "hardware/upper_principal_1/shaft": 170.410606,
+              "hardware/upper_principal_2/shaft": 170.410599,
+              "wood/base_rail_service_upper_right": 1206.597185,
+              "wood/wj04_upper_g7_crosscut_full_stock_cleat": 2388.301901
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bounded_nut_removal": {
+          "full_nut_removal_verified": false,
+          "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+          "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+          "nut_translation_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_rail_2/nut",
+              "hardware/lower_rail_2/shaft"
+            ],
+            "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_to_clear_bolt_tip": {
+                "hardware/lower_rail_2/nut_washer": 354.80947,
+                "wood/base_rail_service_lower_right": 826.253671
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_washer_translation_sweep": {
+            "axial_sliding_clearance": {
+              "delivered_parts_and_assembly_clearance_verified": false,
+              "minimum_radial_clearance_mm": 0.7239,
+              "motion_is_along_fastener_axis": true,
+              "shaft_max_diameter_mm": 6.35,
+              "source_bounds_allow_modeled_axial_slide": true,
+              "thread_major_diameter_and_received_clearance_verified": false,
+              "washer_min_inner_diameter_mm": 7.7978
+            },
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_rail_2/nut",
+              "hardware/lower_rail_2/nut_washer",
+              "hardware/lower_rail_2/shaft"
+            ],
+            "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_washer_to_clear_bolt_tip": {
+                "wood/base_rail_service_lower_right": 3333.315711
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "thread_engagement_and_runout_verified": false,
+          "tool_radius_conservative_vs_overall_length": true,
+          "tool_radius_mm": 100.0,
+          "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+          "wrench_full_turn_and_axial_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/lower_rail_2/nut",
+              "hardware/lower_rail_2/shaft"
+            ],
+            "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "full_turn_and_axial_nut_wrench": {
+                "hardware/lower_rail_1/shaft": 493.900447,
+                "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 4173.389004,
+                "protected/wires/wire_078_G6_G7": 357.66592,
+                "wood/base_principal_center_right": 109777.715689,
+                "wood/main_lower_right": 3183.673137
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          }
+        },
+        "catalog_open_end_wrench": {
+          "head_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_1/head_washer": 0.126631,
+                  "hardware/lower_principal_2/head": 535.009375,
+                  "hardware/lower_principal_2/head_washer": 480.581674,
+                  "hardware/lower_principal_2/shaft": 1296.083335,
+                  "hardware/lower_rail_1/head": 47.804245,
+                  "hardware/lower_rail_1/head_washer": 119.661043,
+                  "hardware/lower_rail_2/head_washer": 119.661043,
+                  "hardware/upper_principal_1/head": 370.301365,
+                  "hardware/upper_principal_1/head_washer": 285.995215,
+                  "hardware/upper_principal_1/shaft": 1124.311023,
+                  "hardware/upper_rail_1/head": 47.804245,
+                  "hardware/upper_rail_1/head_washer": 119.661043,
+                  "hardware/upper_rail_2/head": 47.804245,
+                  "hardware/upper_rail_2/head_washer": 119.661043,
+                  "protected/wires/wire_079_G7_G8": 1303.125988,
+                  "wood/base_rail_service_upper_right": 391713.73895,
+                  "wood/wj04_lower_full_stock_cleat": 194340.081326,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 59054.305965
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_rail_1/head": 268.806698,
+                  "hardware/lower_rail_1/head_washer": 132.678418,
+                  "hardware/lower_rail_1/shaft": 0.76817,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 535.009375,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 476.684697,
+                  "hardware/upper_rail_2/head": 535.009375,
+                  "hardware/upper_rail_2/head_washer": 480.410166,
+                  "hardware/upper_rail_2/shaft": 298.659087,
+                  "wood/base_rail_service_upper_right": 81524.187079,
+                  "wood/wj04_lower_full_stock_cleat": 43096.870439
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_1/head": 1.9e-05,
+                  "hardware/lower_principal_1/head_washer": 32.736389,
+                  "hardware/lower_principal_2/head": 535.009375,
+                  "hardware/lower_principal_2/head_washer": 480.581674,
+                  "hardware/lower_principal_2/shaft": 2223.211184,
+                  "hardware/lower_rail_1/head": 535.009375,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_1/shaft": 1057.127533,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 535.009375,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 1662.138507,
+                  "hardware/upper_rail_2/head": 503.049654,
+                  "hardware/upper_rail_2/head_washer": 375.890972,
+                  "hardware/upper_rail_2/shaft": 1223.673634,
+                  "protected/wires/wire_079_G7_G8": 1284.297265,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/base_rail_service_upper_right": 362111.848504,
+                  "wood/main_lower_right": 560.567446,
+                  "wood/main_upper_right": 30524.122975,
+                  "wood/wj04_lower_full_stock_cleat": 245052.941327,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 18498.137608
+                },
+                "seated": {
+                  "protected/wires/wire_079_G7_G8": 42.746281
+                },
+                "stroke_sweep": {
+                  "hardware/lower_principal_2/head": 466.800807,
+                  "hardware/lower_principal_2/head_washer": 343.057426,
+                  "hardware/lower_principal_2/shaft": 2259.308195,
+                  "hardware/lower_rail_1/head": 535.009375,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_1/shaft": 945.045969,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 535.009375,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 743.432276,
+                  "hardware/upper_rail_2/head": 139.195822,
+                  "hardware/upper_rail_2/head_washer": 67.252131,
+                  "protected/wires/wire_079_G7_G8": 914.422816,
+                  "wood/base_rail_service_upper_right": 128606.998148,
+                  "wood/wj04_lower_full_stock_cleat": 99749.931115
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_2/head": 524.194618,
+                  "hardware/lower_principal_2/head_washer": 399.268649,
+                  "hardware/lower_principal_2/shaft": 2608.400401,
+                  "hardware/lower_rail_1/head": 535.009375,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_1/shaft": 1853.339542,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 535.009375,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 1000.883906,
+                  "hardware/upper_rail_2/head": 528.71898,
+                  "hardware/upper_rail_2/head_washer": 326.1048,
+                  "hardware/upper_rail_2/shaft": 123.954159,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G7": 718.914587,
+                  "protected/wires/wire_079_G7_G8": 1422.387509,
+                  "wood/base_rail_service_upper_right": 404722.814302,
+                  "wood/main_upper_right": 70060.259159,
+                  "wood/wj04_lower_full_stock_cleat": 267073.939779,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 9497.798606
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_principal_1/head": 1.9e-05,
+                  "hardware/lower_principal_1/head_washer": 32.736389,
+                  "hardware/lower_principal_2/head": 535.009375,
+                  "hardware/lower_principal_2/head_washer": 480.581674,
+                  "hardware/lower_principal_2/shaft": 2223.211184,
+                  "hardware/lower_rail_1/head": 535.009375,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_1/shaft": 1057.127533,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 535.009375,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 1662.138507,
+                  "hardware/upper_rail_2/head": 503.049654,
+                  "hardware/upper_rail_2/head_washer": 375.890972,
+                  "hardware/upper_rail_2/shaft": 1223.673634,
+                  "protected/wires/wire_079_G7_G8": 1284.297265,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/base_rail_service_upper_right": 362111.848502,
+                  "wood/main_lower_right": 560.567446,
+                  "wood/main_upper_right": 30524.122975,
+                  "wood/wj04_lower_full_stock_cleat": 245052.941327,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 18498.137609
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_2/shaft": 2187.148635,
+                  "hardware/lower_rail_1/head": 535.009375,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_1/shaft": 1386.842021,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 535.009375,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 1332.827004,
+                  "hardware/upper_rail_2/head": 217.653024,
+                  "hardware/upper_rail_2/head_washer": 218.711608,
+                  "hardware/upper_rail_2/shaft": 418.383256,
+                  "wood/base_principal_center_right": 40946.025205,
+                  "wood/base_rail_service_upper_right": 273352.615666,
+                  "wood/main_lower_right": 18065.485312,
+                  "wood/main_upper_right": 76882.504942,
+                  "wood/wj04_lower_full_stock_cleat": 247867.234683,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 7700.720346
+                },
+                "stroke_sweep": {
+                  "hardware/lower_principal_2/shaft": 2756.081336,
+                  "hardware/lower_rail_1/head": 535.009375,
+                  "hardware/lower_rail_1/head_washer": 480.581674,
+                  "hardware/lower_rail_1/shaft": 1596.740095,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_1/head": 535.009375,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 858.661028,
+                  "hardware/upper_rail_2/head": 358.290307,
+                  "hardware/upper_rail_2/head_washer": 195.874874,
+                  "hardware/upper_rail_2/shaft": 10.023971,
+                  "wood/base_principal_center_right": 57622.958184,
+                  "wood/base_rail_service_upper_right": 190871.843461,
+                  "wood/main_upper_right": 292.643136,
+                  "wood/wj04_lower_full_stock_cleat": 205018.642606,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 4336.250474
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "nut_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_1/head": 486.927424,
+                  "hardware/lower_principal_1/head_washer": 307.832748,
+                  "hardware/lower_principal_1/shaft": 1296.083335,
+                  "hardware/lower_rail_1/nut": 66.280732,
+                  "hardware/lower_rail_1/nut_washer": 119.661043,
+                  "hardware/lower_rail_2/nut_washer": 119.661043,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 3789.699886,
+                  "protected/wires/wire_078_G6_G7": 1386.137051,
+                  "wood/base_rail_service_lower_right": 393456.557106,
+                  "wood/wj04_lower_full_stock_cleat": 49275.747799
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_rail_1/nut": 282.978556,
+                  "hardware/lower_rail_1/nut_washer": 125.810649,
+                  "hardware/lower_rail_1/shaft": 210.07539,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 24.215525,
+                  "protected/wires/wire_078_G6_G7": 670.317598,
+                  "wood/base_rail_service_lower_right": 63303.828005
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 52.271598,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "wood/base_principal_center_right": 1714.394376,
+                  "wood/base_rail_service_lower_right": 224452.143067,
+                  "wood/wj04_lower_full_stock_cleat": 19017.764455
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "wood/base_rail_service_lower_right": 135590.238683
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "wood/base_rail_service_lower_right": 205393.141212,
+                  "wood/wj04_lower_full_stock_cleat": 26199.932034
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_rail_1/nut_washer": 52.271598,
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "wood/base_principal_center_right": 1714.394376,
+                  "wood/base_rail_service_lower_right": 224452.143067,
+                  "wood/wj04_lower_full_stock_cleat": 19017.764455
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "wood/base_principal_center_right": 89.556396,
+                  "wood/base_rail_service_lower_right": 150215.66985,
+                  "wood/wj04_lower_full_stock_cleat": 8119.073207
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_2/nut_washer": 480.581674,
+                  "wood/base_principal_center_right": 33730.57425,
+                  "wood/base_rail_service_lower_right": 123515.669274,
+                  "wood/wj04_lower_full_stock_cleat": 12432.628251
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "paired_counterhold_vs_turning_sweep": {
+            "head_15_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_15_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            }
+          }
+        },
+        "detached_component_removal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head_washer_outward": {
+              "hardware/upper_rail_1/head_washer": 30.937403,
+              "hardware/upper_rail_2/head_washer": 34.785819,
+              "wood/base_rail_service_upper_right": 9944.102412
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "nut_and_nut_washer_assembly": {
+          "reverse_of_bounded_removal_sweep_screened": true,
+          "screen": {
+            "full_nut_removal_verified": false,
+            "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+            "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+            "nut_translation_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_rail_2/nut",
+                "hardware/lower_rail_2/shaft"
+              ],
+              "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "nut_to_clear_bolt_tip": {
+                  "hardware/lower_rail_2/nut_washer": 354.80947,
+                  "wood/base_rail_service_lower_right": 826.253671
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "nut_washer_translation_sweep": {
+              "axial_sliding_clearance": {
+                "delivered_parts_and_assembly_clearance_verified": false,
+                "minimum_radial_clearance_mm": 0.7239,
+                "motion_is_along_fastener_axis": true,
+                "shaft_max_diameter_mm": 6.35,
+                "source_bounds_allow_modeled_axial_slide": true,
+                "thread_major_diameter_and_received_clearance_verified": false,
+                "washer_min_inner_diameter_mm": 7.7978
+              },
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_rail_2/nut",
+                "hardware/lower_rail_2/nut_washer",
+                "hardware/lower_rail_2/shaft"
+              ],
+              "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "nut_washer_to_clear_bolt_tip": {
+                  "wood/base_rail_service_lower_right": 3333.315711
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "thread_engagement_and_runout_verified": false,
+            "tool_radius_conservative_vs_overall_length": true,
+            "tool_radius_mm": 100.0,
+            "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+            "wrench_full_turn_and_axial_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/lower_rail_2/nut",
+                "hardware/lower_rail_2/shaft"
+              ],
+              "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "full_turn_and_axial_nut_wrench": {
+                  "hardware/lower_rail_1/shaft": 493.900447,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G6": 4173.389004,
+                  "protected/wires/wire_078_G6_G7": 357.66592,
+                  "wood/base_principal_center_right": 109777.715689,
+                  "wood/main_lower_right": 3183.673137
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            }
+          },
+          "thread_start_and_functional_nut_engagement_verified": false,
+          "translation_and_rotation_envelopes_are_reversible": true
+        }
+      },
+      "thread_transition_and_functional_nut_engagement": "unresolved; receive and measure delivered bolt/nut stack",
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        }
+      }
+    },
+    "upper_principal_1": {
+      "bore": {
+        "layer_material_fractions_before_cut": {
+          "base_principal_center_right": 1.0,
+          "wj04_upper_g7_crosscut_full_stock_cleat": 1.0
+        },
+        "other_wood_hits_mm3": {},
+        "panel_hits_mm3": {},
+        "protected_hits_mm3": {}
+      },
+      "candidate_sku": "25C600HCS5Z",
+      "catalog_gaging_bounds_establish_full_thread_at_nut": false,
+      "excluded_wood_ids_from_stack_clearance_summary": [
+        "wood/base_principal_center_right",
+        "wood/wj04_upper_g7_crosscut_full_stock_cleat"
+      ],
+      "grip_mm": 127.0,
+      "installed_component_hits": {
+        "head": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "intentional_layer_ids": [
+        "wj04_upper_g7_crosscut_full_stock_cleat",
+        "base_principal_center_right"
+      ],
+      "nominal_length_margin_mm_after_two_max_washers_nut_and_tip": 13.0556,
+      "operations": {
+        "50mm_axial_tool_approach": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head": {
+              "hardware/upper_principal_1/head_washer": 480.581674
+            },
+            "nut": {
+              "hardware/upper_principal_1/nut_washer": 7.568215
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bolt_insertion_withdrawal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": true,
+          "hits_mm3": {},
+          "physical_clearance_established": false
+        },
+        "bounded_nut_removal": {
+          "full_nut_removal_verified": false,
+          "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+          "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+          "nut_translation_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_principal_1/nut",
+              "hardware/upper_principal_1/shaft"
+            ],
+            "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_washer_translation_sweep": {
+            "axial_sliding_clearance": {
+              "delivered_parts_and_assembly_clearance_verified": false,
+              "minimum_radial_clearance_mm": 0.7239,
+              "motion_is_along_fastener_axis": true,
+              "shaft_max_diameter_mm": 6.35,
+              "source_bounds_allow_modeled_axial_slide": true,
+              "thread_major_diameter_and_received_clearance_verified": false,
+              "washer_min_inner_diameter_mm": 7.7978
+            },
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_principal_1/nut",
+              "hardware/upper_principal_1/nut_washer",
+              "hardware/upper_principal_1/shaft"
+            ],
+            "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "thread_engagement_and_runout_verified": false,
+          "tool_radius_conservative_vs_overall_length": true,
+          "tool_radius_mm": 100.0,
+          "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+          "wrench_full_turn_and_axial_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_principal_1/nut",
+              "hardware/upper_principal_1/shaft"
+            ],
+            "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "full_turn_and_axial_nut_wrench": {
+                "hardware/upper_principal_2/shaft": 493.900448,
+                "wood/main_upper_right": 3314.897775
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          }
+        },
+        "catalog_open_end_wrench": {
+          "head_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "protected/wires/wire_079_G7_G8": 10.208135
+                },
+                "lateral_reseat_sweep": {
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G7": 93.44126,
+                  "protected/wires/wire_079_G7_G8": 0.233382,
+                  "wood/base_rail_service_upper_right": 0.36995
+                },
+                "stroke_sweep": {
+                  "wood/base_rail_service_upper_right": 769.110972
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "wood/base_rail_service_upper_right": 203.947301
+                },
+                "lateral_unseat_sweep": {
+                  "wood/base_rail_service_upper_right": 4188.082683
+                },
+                "stroke_sweep": {
+                  "wood/base_rail_service_upper_right": 5206.990064
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "nut_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/upper_principal_2/shaft": 95.007652
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/upper_principal_2/shaft": 95.007652
+                },
+                "seated": {
+                  "hardware/upper_principal_2/shaft": 89.111399
+                },
+                "stroke_sweep": {
+                  "hardware/upper_principal_2/shaft": 95.007652,
+                  "wood/main_upper_right": 75.509179
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/upper_principal_2/shaft": 95.007652,
+                  "wood/main_upper_right": 4750.640663
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/upper_principal_2/shaft": 95.007652,
+                  "wood/main_upper_right": 4246.664097
+                },
+                "stroke_sweep": {
+                  "wood/main_upper_right": 946.123173
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "paired_counterhold_vs_turning_sweep": {
+            "head_15_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_15_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            }
+          }
+        },
+        "detached_component_removal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": true,
+          "hits_mm3": {},
+          "physical_clearance_established": false
+        },
+        "nut_and_nut_washer_assembly": {
+          "reverse_of_bounded_removal_sweep_screened": true,
+          "screen": {
+            "full_nut_removal_verified": false,
+            "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+            "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+            "nut_translation_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_principal_1/nut",
+                "hardware/upper_principal_1/shaft"
+              ],
+              "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+              "external_envelope_clear": true,
+              "external_envelope_hits_mm3": {},
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "nut_washer_translation_sweep": {
+              "axial_sliding_clearance": {
+                "delivered_parts_and_assembly_clearance_verified": false,
+                "minimum_radial_clearance_mm": 0.7239,
+                "motion_is_along_fastener_axis": true,
+                "shaft_max_diameter_mm": 6.35,
+                "source_bounds_allow_modeled_axial_slide": true,
+                "thread_major_diameter_and_received_clearance_verified": false,
+                "washer_min_inner_diameter_mm": 7.7978
+              },
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_principal_1/nut",
+                "hardware/upper_principal_1/nut_washer",
+                "hardware/upper_principal_1/shaft"
+              ],
+              "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+              "external_envelope_clear": true,
+              "external_envelope_hits_mm3": {},
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "thread_engagement_and_runout_verified": false,
+            "tool_radius_conservative_vs_overall_length": true,
+            "tool_radius_mm": 100.0,
+            "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+            "wrench_full_turn_and_axial_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_principal_1/nut",
+                "hardware/upper_principal_1/shaft"
+              ],
+              "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "full_turn_and_axial_nut_wrench": {
+                  "hardware/upper_principal_2/shaft": 493.900448,
+                  "wood/main_upper_right": 3314.897775
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            }
+          },
+          "thread_start_and_functional_nut_engagement_verified": false,
+          "translation_and_rotation_envelopes_are_reversible": true
+        }
+      },
+      "thread_transition_and_functional_nut_engagement": "unresolved; receive and measure delivered bolt/nut stack",
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        }
+      }
+    },
+    "upper_principal_2": {
+      "bore": {
+        "layer_material_fractions_before_cut": {
+          "base_principal_center_right": 1.0,
+          "wj04_upper_g7_crosscut_full_stock_cleat": 1.0
+        },
+        "other_wood_hits_mm3": {},
+        "panel_hits_mm3": {},
+        "protected_hits_mm3": {}
+      },
+      "candidate_sku": "25C600HCS5Z",
+      "catalog_gaging_bounds_establish_full_thread_at_nut": false,
+      "excluded_wood_ids_from_stack_clearance_summary": [
+        "wood/base_principal_center_right",
+        "wood/wj04_upper_g7_crosscut_full_stock_cleat"
+      ],
+      "grip_mm": 127.0,
+      "installed_component_hits": {
+        "head": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "intentional_layer_ids": [
+        "wj04_upper_g7_crosscut_full_stock_cleat",
+        "base_principal_center_right"
+      ],
+      "nominal_length_margin_mm_after_two_max_washers_nut_and_tip": 13.0556,
+      "operations": {
+        "50mm_axial_tool_approach": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head": {
+              "hardware/upper_principal_2/head_washer": 480.581674
+            },
+            "nut": {
+              "hardware/upper_principal_2/nut_washer": 7.568215
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bolt_insertion_withdrawal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": true,
+          "hits_mm3": {},
+          "physical_clearance_established": false
+        },
+        "bounded_nut_removal": {
+          "full_nut_removal_verified": false,
+          "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+          "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+          "nut_translation_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_principal_2/nut",
+              "hardware/upper_principal_2/shaft"
+            ],
+            "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_washer_translation_sweep": {
+            "axial_sliding_clearance": {
+              "delivered_parts_and_assembly_clearance_verified": false,
+              "minimum_radial_clearance_mm": 0.7239,
+              "motion_is_along_fastener_axis": true,
+              "shaft_max_diameter_mm": 6.35,
+              "source_bounds_allow_modeled_axial_slide": true,
+              "thread_major_diameter_and_received_clearance_verified": false,
+              "washer_min_inner_diameter_mm": 7.7978
+            },
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_principal_2/nut",
+              "hardware/upper_principal_2/nut_washer",
+              "hardware/upper_principal_2/shaft"
+            ],
+            "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "thread_engagement_and_runout_verified": false,
+          "tool_radius_conservative_vs_overall_length": true,
+          "tool_radius_mm": 100.0,
+          "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+          "wrench_full_turn_and_axial_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_principal_2/nut",
+              "hardware/upper_principal_2/shaft"
+            ],
+            "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "full_turn_and_axial_nut_wrench": {
+                "hardware/upper_principal_1/shaft": 493.900448,
+                "wood/main_upper_right": 3314.897774
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          }
+        },
+        "catalog_open_end_wrench": {
+          "head_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "lateral_reseat_sweep": {
+                  "protected/wires/wire_080_G8_G9": 7.318915
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "stroke_sweep": {
+                  "wood/base_rail_service_upper_right": 1043.327586
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "nut_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "stroke_sweep": {
+                  "wood/main_upper_right": 75.509179
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "wood/main_upper_right": 4750.640663
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/upper_principal_1/shaft": 95.007652,
+                  "wood/main_upper_right": 4246.664097
+                },
+                "stroke_sweep": {
+                  "hardware/upper_principal_1/shaft": 95.007652,
+                  "wood/main_upper_right": 946.123173
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "paired_counterhold_vs_turning_sweep": {
+            "head_15_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_15_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            }
+          }
+        },
+        "detached_component_removal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": true,
+          "hits_mm3": {},
+          "physical_clearance_established": false
+        },
+        "nut_and_nut_washer_assembly": {
+          "reverse_of_bounded_removal_sweep_screened": true,
+          "screen": {
+            "full_nut_removal_verified": false,
+            "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+            "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+            "nut_translation_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_principal_2/nut",
+                "hardware/upper_principal_2/shaft"
+              ],
+              "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+              "external_envelope_clear": true,
+              "external_envelope_hits_mm3": {},
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "nut_washer_translation_sweep": {
+              "axial_sliding_clearance": {
+                "delivered_parts_and_assembly_clearance_verified": false,
+                "minimum_radial_clearance_mm": 0.7239,
+                "motion_is_along_fastener_axis": true,
+                "shaft_max_diameter_mm": 6.35,
+                "source_bounds_allow_modeled_axial_slide": true,
+                "thread_major_diameter_and_received_clearance_verified": false,
+                "washer_min_inner_diameter_mm": 7.7978
+              },
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_principal_2/nut",
+                "hardware/upper_principal_2/nut_washer",
+                "hardware/upper_principal_2/shaft"
+              ],
+              "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+              "external_envelope_clear": true,
+              "external_envelope_hits_mm3": {},
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "thread_engagement_and_runout_verified": false,
+            "tool_radius_conservative_vs_overall_length": true,
+            "tool_radius_mm": 100.0,
+            "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+            "wrench_full_turn_and_axial_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_principal_2/nut",
+                "hardware/upper_principal_2/shaft"
+              ],
+              "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "full_turn_and_axial_nut_wrench": {
+                  "hardware/upper_principal_1/shaft": 493.900448,
+                  "wood/main_upper_right": 3314.897774
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            }
+          },
+          "thread_start_and_functional_nut_engagement_verified": false,
+          "translation_and_rotation_envelopes_are_reversible": true
+        }
+      },
+      "thread_transition_and_functional_nut_engagement": "unresolved; receive and measure delivered bolt/nut stack",
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        }
+      }
+    },
+    "upper_rail_1": {
+      "bore": {
+        "layer_material_fractions_before_cut": {
+          "base_rail_service_upper_right": 1.0,
+          "wj04_upper_g7_crosscut_full_stock_cleat": 1.0
+        },
+        "other_wood_hits_mm3": {},
+        "panel_hits_mm3": {},
+        "protected_hits_mm3": {}
+      },
+      "candidate_sku": "25C600HCS5Z",
+      "catalog_gaging_bounds_establish_full_thread_at_nut": false,
+      "excluded_wood_ids_from_stack_clearance_summary": [
+        "wood/base_rail_service_upper_right",
+        "wood/wj04_upper_g7_crosscut_full_stock_cleat"
+      ],
+      "grip_mm": 127.0,
+      "installed_component_hits": {
+        "head": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "intentional_layer_ids": [
+        "base_rail_service_upper_right",
+        "wj04_upper_g7_crosscut_full_stock_cleat"
+      ],
+      "nominal_length_margin_mm_after_two_max_washers_nut_and_tip": 13.0556,
+      "operations": {
+        "50mm_axial_tool_approach": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head": {
+              "hardware/lower_principal_2/shaft": 798.037931,
+              "hardware/lower_rail_1/head": 69.621298,
+              "hardware/lower_rail_1/head_washer": 119.046863,
+              "hardware/lower_rail_2/head": 62.23584,
+              "hardware/lower_rail_2/head_washer": 113.701699,
+              "hardware/upper_rail_1/head_washer": 480.581674,
+              "wood/wj04_lower_full_stock_cleat": 15585.291113
+            },
+            "nut": {
+              "hardware/upper_rail_1/nut_washer": 7.568215
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bolt_insertion_withdrawal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head_insertion_and_withdrawal": {
+              "hardware/lower_principal_1/shaft": 393.313296,
+              "hardware/lower_principal_2/shaft": 393.313296,
+              "wood/base_rail_service_lower_right": 4923.399152,
+              "wood/wj04_lower_full_stock_cleat": 10405.485672
+            },
+            "shaft_insertion_and_withdrawal": {
+              "hardware/lower_principal_1/shaft": 170.452693,
+              "hardware/lower_principal_2/shaft": 170.452693,
+              "wood/base_rail_service_lower_right": 1206.597185,
+              "wood/wj04_lower_full_stock_cleat": 2388.298735
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bounded_nut_removal": {
+          "full_nut_removal_verified": false,
+          "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+          "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+          "nut_translation_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_rail_1/nut",
+              "hardware/upper_rail_1/shaft"
+            ],
+            "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_to_clear_bolt_tip": {
+                "hardware/upper_rail_1/nut_washer": 354.80947,
+                "wood/wj04_upper_g7_crosscut_full_stock_cleat": 826.253627
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_washer_translation_sweep": {
+            "axial_sliding_clearance": {
+              "delivered_parts_and_assembly_clearance_verified": false,
+              "minimum_radial_clearance_mm": 0.7239,
+              "motion_is_along_fastener_axis": true,
+              "shaft_max_diameter_mm": 6.35,
+              "source_bounds_allow_modeled_axial_slide": true,
+              "thread_major_diameter_and_received_clearance_verified": false,
+              "washer_min_inner_diameter_mm": 7.7978
+            },
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_rail_1/nut",
+              "hardware/upper_rail_1/nut_washer",
+              "hardware/upper_rail_1/shaft"
+            ],
+            "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_washer_to_clear_bolt_tip": {
+                "wood/wj04_upper_g7_crosscut_full_stock_cleat": 3333.315629
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "thread_engagement_and_runout_verified": false,
+          "tool_radius_conservative_vs_overall_length": true,
+          "tool_radius_mm": 100.0,
+          "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+          "wrench_full_turn_and_axial_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_rail_1/nut",
+              "hardware/upper_rail_1/shaft"
+            ],
+            "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "full_turn_and_axial_nut_wrench": {
+                "hardware/upper_rail_2/shaft": 493.900447,
+                "protected/lights/light_G8": 1086.26518,
+                "protected/wires/wire_079_G7_G8": 359.021903,
+                "protected/wires/wire_080_G8_G9": 0.731439,
+                "wood/base_principal_center_right": 123167.009555,
+                "wood/main_upper_right": 38765.581735
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          }
+        },
+        "catalog_open_end_wrench": {
+          "head_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_1/head": 528.846484,
+                  "hardware/lower_principal_1/head_washer": 405.76402,
+                  "hardware/lower_principal_1/shaft": 1296.083335,
+                  "hardware/lower_principal_2/head": 535.009375,
+                  "hardware/lower_principal_2/head_washer": 480.581674,
+                  "hardware/lower_principal_2/shaft": 1296.083335,
+                  "hardware/lower_rail_1/head": 47.804245,
+                  "hardware/lower_rail_1/head_washer": 119.661043,
+                  "hardware/lower_rail_2/head": 47.804245,
+                  "hardware/lower_rail_2/head_washer": 119.661043,
+                  "hardware/upper_rail_1/head_washer": 119.661043,
+                  "hardware/upper_rail_2/head": 47.804245,
+                  "hardware/upper_rail_2/head_washer": 119.661043,
+                  "protected/hold_hole_and_trial_projection/hold_tnut_main_G7": 93.519853,
+                  "protected/wires/wire_079_G7_G8": 1733.874815,
+                  "wood/base_rail_service_upper_right": 437378.318849,
+                  "wood/main_upper_right": 9051.91332,
+                  "wood/wj04_lower_full_stock_cleat": 218893.286024,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 46062.201788
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_principal_2/head": 0.084805,
+                  "hardware/lower_principal_2/head_washer": 47.213774,
+                  "hardware/lower_principal_2/shaft": 1.796351,
+                  "hardware/lower_rail_1/head": 535.009375,
+                  "hardware/lower_rail_1/head_washer": 480.410166,
+                  "hardware/lower_rail_1/shaft": 298.659087,
+                  "hardware/lower_rail_2/head": 535.009375,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 476.684697,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_2/head": 268.806698,
+                  "hardware/upper_rail_2/head_washer": 132.678418,
+                  "hardware/upper_rail_2/shaft": 0.76817,
+                  "protected/wires/wire_079_G7_G8": 652.56046,
+                  "wood/base_rail_service_upper_right": 78123.488547,
+                  "wood/wj04_lower_full_stock_cleat": 36885.279462
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_2/head": 71.15477,
+                  "hardware/lower_principal_2/head_washer": 173.991977,
+                  "hardware/lower_principal_2/shaft": 1926.467505,
+                  "hardware/lower_rail_1/head": 503.049654,
+                  "hardware/lower_rail_1/head_washer": 375.890972,
+                  "hardware/lower_rail_1/shaft": 1223.673634,
+                  "hardware/lower_rail_2/head": 535.009375,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 1662.138507,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_2/head": 535.009375,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_2/shaft": 1057.127533,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/base_rail_service_upper_right": 300799.267272,
+                  "wood/wj04_lower_full_stock_cleat": 215518.277538,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 23290.158487
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_1/head": 139.195822,
+                  "hardware/lower_rail_1/head_washer": 67.252131,
+                  "hardware/lower_rail_2/head": 535.009375,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 743.432276,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_2/head": 535.009375,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_2/shaft": 945.045969,
+                  "protected/wires/wire_079_G7_G8": 217.750611,
+                  "wood/base_rail_service_upper_right": 160851.308187,
+                  "wood/wj04_lower_full_stock_cleat": 93215.461615,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 15.356579
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_2/head_washer": 0.955627,
+                  "hardware/lower_rail_1/head": 528.71898,
+                  "hardware/lower_rail_1/head_washer": 326.1048,
+                  "hardware/lower_rail_1/shaft": 123.954159,
+                  "hardware/lower_rail_2/head": 535.009375,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 1000.883906,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_2/head": 535.009375,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_2/shaft": 1853.339543,
+                  "protected/wires/wire_079_G7_G8": 336.186699,
+                  "wood/base_rail_service_upper_right": 286513.595398,
+                  "wood/wj04_lower_full_stock_cleat": 206120.740248,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 45646.780907
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_principal_2/head": 71.15477,
+                  "hardware/lower_principal_2/head_washer": 173.991977,
+                  "hardware/lower_principal_2/shaft": 1926.467505,
+                  "hardware/lower_rail_1/head": 503.049654,
+                  "hardware/lower_rail_1/head_washer": 375.890972,
+                  "hardware/lower_rail_1/shaft": 1223.673634,
+                  "hardware/lower_rail_2/head": 535.009375,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 1662.138507,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_2/head": 535.009375,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_2/shaft": 1057.127533,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/base_rail_service_upper_right": 300799.267272,
+                  "wood/wj04_lower_full_stock_cleat": 215518.277538,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 23290.158487
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_2/shaft": 2187.148635,
+                  "hardware/lower_rail_1/head": 217.653024,
+                  "hardware/lower_rail_1/head_washer": 218.711608,
+                  "hardware/lower_rail_1/shaft": 418.383256,
+                  "hardware/lower_rail_2/head": 535.009375,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 1332.827004,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_2/head": 535.009375,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_2/shaft": 1386.842021,
+                  "wood/base_principal_center_right": 4882.843243,
+                  "wood/base_rail_service_upper_right": 190364.359958,
+                  "wood/wj04_lower_full_stock_cleat": 198240.51636,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 18284.390662
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_1/head": 358.290307,
+                  "hardware/lower_rail_1/head_washer": 195.874874,
+                  "hardware/lower_rail_1/shaft": 10.023971,
+                  "hardware/lower_rail_2/head": 535.009375,
+                  "hardware/lower_rail_2/head_washer": 480.581674,
+                  "hardware/lower_rail_2/shaft": 858.661028,
+                  "hardware/upper_rail_1/head_washer": 480.581674,
+                  "hardware/upper_rail_2/head": 535.009375,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "hardware/upper_rail_2/shaft": 1596.740094,
+                  "wood/base_principal_center_right": 46157.114949,
+                  "wood/base_rail_service_upper_right": 168639.486011,
+                  "wood/wj04_lower_full_stock_cleat": 162945.7768,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 15380.623023
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "nut_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/upper_principal_1/head": 535.009375,
+                  "hardware/upper_principal_1/head_washer": 456.828473,
+                  "hardware/upper_principal_1/shaft": 1296.083335,
+                  "hardware/upper_principal_2/head": 535.009375,
+                  "hardware/upper_principal_2/head_washer": 480.581674,
+                  "hardware/upper_principal_2/shaft": 1296.083335,
+                  "hardware/upper_rail_1/nut_washer": 119.661043,
+                  "hardware/upper_rail_2/nut": 66.280732,
+                  "hardware/upper_rail_2/nut_washer": 119.661043,
+                  "protected/lights/light_G8": 0.792904,
+                  "protected/wires/wire_079_G7_G8": 831.668165,
+                  "protected/wires/wire_080_G8_G9": 299.148641,
+                  "wood/main_upper_right": 1344.749103,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 171776.433418
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/upper_principal_2/head": 48.425406,
+                  "hardware/upper_principal_2/head_washer": 81.869483,
+                  "hardware/upper_principal_2/shaft": 2.900567,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_2/nut": 282.978556,
+                  "hardware/upper_rail_2/nut_washer": 125.810649,
+                  "hardware/upper_rail_2/shaft": 210.075389,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 38110.314399
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/upper_principal_2/shaft": 1193.892849,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_2/nut_washer": 52.271598,
+                  "protected/lights/light_G8": 3829.367301,
+                  "protected/wires/wire_079_G7_G8": 1099.700829,
+                  "protected/wires/wire_080_G8_G9": 463.310973,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/main_upper_right": 84737.717625,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 142058.436838
+                },
+                "stroke_sweep": {
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "protected/wires/wire_079_G7_G8": 544.683909,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 55181.338975
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "protected/lights/light_G8": 3711.914621,
+                  "protected/wires/wire_079_G7_G8": 1192.058443,
+                  "protected/wires/wire_080_G8_G9": 630.168268,
+                  "wood/main_upper_right": 150233.687529,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 75931.203271
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/upper_principal_2/shaft": 1193.89285,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_2/nut_washer": 52.271598,
+                  "protected/lights/light_G8": 3829.367301,
+                  "protected/wires/wire_079_G7_G8": 1099.700829,
+                  "protected/wires/wire_080_G8_G9": 463.310973,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/main_upper_right": 84737.717625,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 142058.436837
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/upper_principal_2/shaft": 826.463077,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "wood/base_principal_center_right": 20146.203381,
+                  "wood/main_upper_right": 124648.753437,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 111732.934292
+                },
+                "seated": {
+                  "wood/main_upper_right": 287.269579
+                },
+                "stroke_sweep": {
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "wood/base_principal_center_right": 55251.271395,
+                  "wood/main_upper_right": 29980.41398,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 77835.819851
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "paired_counterhold_vs_turning_sweep": {
+            "head_15_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_15_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            }
+          }
+        },
+        "detached_component_removal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head_washer_outward": {
+              "hardware/lower_principal_2/shaft": 593.949545,
+              "hardware/lower_rail_1/head_washer": 34.785819,
+              "hardware/lower_rail_2/head_washer": 30.937403,
+              "wood/wj04_lower_full_stock_cleat": 9120.32047
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "nut_and_nut_washer_assembly": {
+          "reverse_of_bounded_removal_sweep_screened": true,
+          "screen": {
+            "full_nut_removal_verified": false,
+            "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+            "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+            "nut_translation_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_rail_1/nut",
+                "hardware/upper_rail_1/shaft"
+              ],
+              "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "nut_to_clear_bolt_tip": {
+                  "hardware/upper_rail_1/nut_washer": 354.80947,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 826.253627
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "nut_washer_translation_sweep": {
+              "axial_sliding_clearance": {
+                "delivered_parts_and_assembly_clearance_verified": false,
+                "minimum_radial_clearance_mm": 0.7239,
+                "motion_is_along_fastener_axis": true,
+                "shaft_max_diameter_mm": 6.35,
+                "source_bounds_allow_modeled_axial_slide": true,
+                "thread_major_diameter_and_received_clearance_verified": false,
+                "washer_min_inner_diameter_mm": 7.7978
+              },
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_rail_1/nut",
+                "hardware/upper_rail_1/nut_washer",
+                "hardware/upper_rail_1/shaft"
+              ],
+              "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "nut_washer_to_clear_bolt_tip": {
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 3333.315629
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "thread_engagement_and_runout_verified": false,
+            "tool_radius_conservative_vs_overall_length": true,
+            "tool_radius_mm": 100.0,
+            "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+            "wrench_full_turn_and_axial_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_rail_1/nut",
+                "hardware/upper_rail_1/shaft"
+              ],
+              "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "full_turn_and_axial_nut_wrench": {
+                  "hardware/upper_rail_2/shaft": 493.900447,
+                  "protected/lights/light_G8": 1086.26518,
+                  "protected/wires/wire_079_G7_G8": 359.021903,
+                  "protected/wires/wire_080_G8_G9": 0.731439,
+                  "wood/base_principal_center_right": 123167.009555,
+                  "wood/main_upper_right": 38765.581735
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            }
+          },
+          "thread_start_and_functional_nut_engagement_verified": false,
+          "translation_and_rotation_envelopes_are_reversible": true
+        }
+      },
+      "thread_transition_and_functional_nut_engagement": "unresolved; receive and measure delivered bolt/nut stack",
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        }
+      }
+    },
+    "upper_rail_2": {
+      "bore": {
+        "layer_material_fractions_before_cut": {
+          "base_rail_service_upper_right": 1.0,
+          "wj04_upper_g7_crosscut_full_stock_cleat": 1.0
+        },
+        "other_wood_hits_mm3": {},
+        "panel_hits_mm3": {},
+        "protected_hits_mm3": {}
+      },
+      "candidate_sku": "25C600HCS5Z",
+      "catalog_gaging_bounds_establish_full_thread_at_nut": false,
+      "excluded_wood_ids_from_stack_clearance_summary": [
+        "wood/base_rail_service_upper_right",
+        "wood/wj04_upper_g7_crosscut_full_stock_cleat"
+      ],
+      "grip_mm": 127.0,
+      "installed_component_hits": {
+        "head": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_stacks": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "intentional_layer_ids": [
+        "base_rail_service_upper_right",
+        "wj04_upper_g7_crosscut_full_stock_cleat"
+      ],
+      "nominal_length_margin_mm_after_two_max_washers_nut_and_tip": 13.0556,
+      "operations": {
+        "50mm_axial_tool_approach": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head": {
+              "hardware/lower_rail_2/head": 69.621298,
+              "hardware/lower_rail_2/head_washer": 119.046863,
+              "hardware/upper_rail_2/head_washer": 480.581674,
+              "wood/wj04_lower_full_stock_cleat": 16694.830938
+            },
+            "nut": {
+              "hardware/upper_rail_2/nut_washer": 7.568215
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bolt_insertion_withdrawal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head_insertion_and_withdrawal": {
+              "wood/base_rail_service_lower_right": 4923.399152,
+              "wood/wj04_lower_full_stock_cleat": 11487.931355
+            },
+            "shaft_insertion_and_withdrawal": {
+              "wood/base_rail_service_lower_right": 1206.597185,
+              "wood/wj04_lower_full_stock_cleat": 2815.393431
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "bounded_nut_removal": {
+          "full_nut_removal_verified": false,
+          "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+          "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+          "nut_translation_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_rail_2/nut",
+              "hardware/upper_rail_2/shaft"
+            ],
+            "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_to_clear_bolt_tip": {
+                "hardware/upper_rail_2/nut_washer": 354.80947,
+                "wood/wj04_upper_g7_crosscut_full_stock_cleat": 826.253627
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_washer_translation_sweep": {
+            "axial_sliding_clearance": {
+              "delivered_parts_and_assembly_clearance_verified": false,
+              "minimum_radial_clearance_mm": 0.7239,
+              "motion_is_along_fastener_axis": true,
+              "shaft_max_diameter_mm": 6.35,
+              "source_bounds_allow_modeled_axial_slide": true,
+              "thread_major_diameter_and_received_clearance_verified": false,
+              "washer_min_inner_diameter_mm": 7.7978
+            },
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_rail_2/nut",
+              "hardware/upper_rail_2/nut_washer",
+              "hardware/upper_rail_2/shaft"
+            ],
+            "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_washer_to_clear_bolt_tip": {
+                "wood/wj04_upper_g7_crosscut_full_stock_cleat": 3333.315629
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "thread_engagement_and_runout_verified": false,
+          "tool_radius_conservative_vs_overall_length": true,
+          "tool_radius_mm": 100.0,
+          "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+          "wrench_full_turn_and_axial_sweep": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "hardware/upper_rail_2/nut",
+              "hardware/upper_rail_2/shaft"
+            ],
+            "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "full_turn_and_axial_nut_wrench": {
+                "hardware/upper_rail_1/shaft": 493.900448,
+                "wood/base_principal_center_right": 94565.361136
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          }
+        },
+        "catalog_open_end_wrench": {
+          "head_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_principal_2/head": 535.009375,
+                  "hardware/lower_principal_2/head_washer": 480.581674,
+                  "hardware/lower_principal_2/shaft": 1296.083335,
+                  "hardware/lower_rail_1/head": 47.804245,
+                  "hardware/lower_rail_1/head_washer": 119.661043,
+                  "hardware/lower_rail_2/head": 47.804245,
+                  "hardware/lower_rail_2/head_washer": 119.661043,
+                  "hardware/upper_principal_1/head": 520.196398,
+                  "hardware/upper_principal_1/head_washer": 367.766972,
+                  "hardware/upper_principal_1/shaft": 1296.083335,
+                  "hardware/upper_rail_1/head": 47.804245,
+                  "hardware/upper_rail_1/head_washer": 119.661043,
+                  "hardware/upper_rail_2/head_washer": 119.661043,
+                  "protected/wires/wire_079_G7_G8": 1077.787014,
+                  "wood/base_rail_service_upper_right": 344630.945244,
+                  "wood/wj04_lower_full_stock_cleat": 180085.968115,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 53853.457328
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_rail_2/head": 535.009375,
+                  "hardware/lower_rail_2/head_washer": 480.410166,
+                  "hardware/lower_rail_2/shaft": 298.659087,
+                  "hardware/upper_rail_1/head": 237.039341,
+                  "hardware/upper_rail_1/head_washer": 165.891917,
+                  "hardware/upper_rail_1/shaft": 1.28947,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "protected/wires/wire_079_G7_G8": 314.36214,
+                  "wood/base_rail_service_upper_right": 82785.616098,
+                  "wood/wj04_lower_full_stock_cleat": 37463.119174
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_principal_2/shaft": 11.164215,
+                  "hardware/lower_rail_2/head": 503.049654,
+                  "hardware/lower_rail_2/head_washer": 375.890972,
+                  "hardware/lower_rail_2/shaft": 1223.673634,
+                  "hardware/upper_rail_1/head_washer": 52.271598,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "wood/base_principal_center_right": 367.331246,
+                  "wood/base_rail_service_upper_right": 160634.151908,
+                  "wood/wj04_lower_full_stock_cleat": 140036.959471,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 20770.477594
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_2/head": 139.195822,
+                  "hardware/lower_rail_2/head_washer": 67.252131,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "wood/base_rail_service_upper_right": 97270.22007,
+                  "wood/wj04_lower_full_stock_cleat": 37486.429178,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 15.35658
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/lower_rail_2/head": 528.71898,
+                  "hardware/lower_rail_2/head_washer": 326.1048,
+                  "hardware/lower_rail_2/shaft": 123.954159,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "wood/base_rail_service_upper_right": 128736.332049,
+                  "wood/wj04_lower_full_stock_cleat": 69972.963934,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 4212.413711
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/lower_principal_2/shaft": 11.164215,
+                  "hardware/lower_rail_2/head": 503.049654,
+                  "hardware/lower_rail_2/head_washer": 375.890972,
+                  "hardware/lower_rail_2/shaft": 1223.673634,
+                  "hardware/upper_rail_1/head_washer": 52.271598,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "wood/base_principal_center_right": 367.331246,
+                  "wood/base_rail_service_upper_right": 160634.151908,
+                  "wood/wj04_lower_full_stock_cleat": 140036.959472,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 20770.477594
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/lower_rail_2/head": 217.653024,
+                  "hardware/lower_rail_2/head_washer": 218.711608,
+                  "hardware/lower_rail_2/shaft": 418.383256,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "wood/base_rail_service_upper_right": 107097.302826,
+                  "wood/wj04_lower_full_stock_cleat": 113754.350073,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 10286.636242
+                },
+                "stroke_sweep": {
+                  "hardware/lower_rail_2/head": 358.290307,
+                  "hardware/lower_rail_2/head_washer": 195.874874,
+                  "hardware/lower_rail_2/shaft": 10.023971,
+                  "hardware/upper_rail_2/head_washer": 480.581674,
+                  "wood/base_principal_center_right": 20092.99361,
+                  "wood/base_rail_service_upper_right": 78100.485345,
+                  "wood/wj04_lower_full_stock_cleat": 53699.287421,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 4915.425601
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "nut_end": {
+            "15deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/upper_principal_2/head": 535.009375,
+                  "hardware/upper_principal_2/head_washer": 480.581674,
+                  "hardware/upper_principal_2/shaft": 1296.083335,
+                  "hardware/upper_rail_1/nut": 66.280732,
+                  "hardware/upper_rail_1/nut_washer": 119.661043,
+                  "hardware/upper_rail_2/nut_washer": 119.661043,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 152025.768974
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/upper_rail_1/nut": 308.041039,
+                  "hardware/upper_rail_1/nut_washer": 81.8415,
+                  "hardware/upper_rail_1/shaft": 210.07539,
+                  "hardware/upper_rail_2/nut_washer": 480.581674,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 36743.640637
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/upper_principal_1/head_washer": 12.406801,
+                  "hardware/upper_principal_2/head": 535.009375,
+                  "hardware/upper_principal_2/head_washer": 480.581674,
+                  "hardware/upper_principal_2/shaft": 2102.421997,
+                  "hardware/upper_rail_1/nut": 741.792139,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 1682.144875,
+                  "hardware/upper_rail_2/nut_washer": 480.581674,
+                  "protected/lights/light_G8": 557.831472,
+                  "protected/wires/wire_079_G7_G8": 1168.384255,
+                  "protected/wires/wire_080_G8_G9": 606.617035,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/main_upper_right": 3699.518783,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 205716.577863
+                },
+                "stroke_sweep": {
+                  "hardware/upper_principal_2/head": 421.261912,
+                  "hardware/upper_principal_2/head_washer": 311.202594,
+                  "hardware/upper_principal_2/shaft": 2243.32664,
+                  "hardware/upper_rail_1/nut": 741.792139,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 1570.06331,
+                  "hardware/upper_rail_2/nut_washer": 480.581674,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 91007.275487
+                }
+              },
+              "physical_clearance_established": false
+            },
+            "75deg": {
+              "broad_envelope_clash_proves_impossibility": false,
+              "envelope_clear": false,
+              "hits_mm3": {
+                "detached_reindex_sweep": {
+                  "hardware/upper_principal_2/head": 492.805171,
+                  "hardware/upper_principal_2/head_washer": 366.069389,
+                  "hardware/upper_principal_2/shaft": 2608.400401,
+                  "hardware/upper_rail_1/nut": 741.792139,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 2478.356884,
+                  "hardware/upper_rail_2/nut_washer": 480.581674,
+                  "protected/lights/light_G8": 34.795336,
+                  "protected/wires/wire_079_G7_G8": 969.806123,
+                  "protected/wires/wire_080_G8_G9": 278.603262,
+                  "wood/main_upper_right": 6348.551863,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 208963.35268
+                },
+                "lateral_reseat_sweep": {
+                  "hardware/upper_principal_1/head_washer": 12.406801,
+                  "hardware/upper_principal_2/head": 535.009375,
+                  "hardware/upper_principal_2/head_washer": 480.581674,
+                  "hardware/upper_principal_2/shaft": 2102.421997,
+                  "hardware/upper_rail_1/nut": 741.792139,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 1682.144875,
+                  "hardware/upper_rail_2/nut_washer": 480.581674,
+                  "protected/lights/light_G8": 557.831472,
+                  "protected/wires/wire_079_G7_G8": 1168.384255,
+                  "protected/wires/wire_080_G8_G9": 606.617035,
+                  "wood/base_principal_center_right": 1716.559281,
+                  "wood/main_upper_right": 3699.518783,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 205716.577863
+                },
+                "lateral_unseat_sweep": {
+                  "hardware/upper_principal_2/shaft": 2187.148635,
+                  "hardware/upper_rail_1/nut": 741.792139,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 2011.859363,
+                  "hardware/upper_rail_2/nut_washer": 480.581674,
+                  "wood/base_principal_center_right": 53870.677959,
+                  "wood/main_upper_right": 9323.30374,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 197602.369277
+                },
+                "seated": {
+                  "hardware/upper_rail_1/shaft": 89.111399
+                },
+                "stroke_sweep": {
+                  "hardware/upper_principal_2/shaft": 2756.081336,
+                  "hardware/upper_rail_1/nut": 741.792139,
+                  "hardware/upper_rail_1/nut_washer": 480.581674,
+                  "hardware/upper_rail_1/shaft": 2221.757436,
+                  "hardware/upper_rail_2/nut_washer": 480.581674,
+                  "wood/base_principal_center_right": 57649.812404,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 171244.88735
+                }
+              },
+              "physical_clearance_established": false
+            }
+          },
+          "paired_counterhold_vs_turning_sweep": {
+            "head_15_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_15_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_15deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            },
+            "head_75_nut_75deg": {
+              "envelopes_clear": true,
+              "hits_mm3": {},
+              "physical_two_wrench_access_established": false
+            }
+          }
+        },
+        "detached_component_removal": {
+          "broad_envelope_clash_proves_impossibility": false,
+          "envelope_clear": false,
+          "hits_mm3": {
+            "head_washer_outward": {
+              "hardware/lower_rail_2/head_washer": 34.785819,
+              "wood/wj04_lower_full_stock_cleat": 9944.102346
+            }
+          },
+          "physical_clearance_established": false
+        },
+        "nut_and_nut_washer_assembly": {
+          "reverse_of_bounded_removal_sweep_screened": true,
+          "screen": {
+            "full_nut_removal_verified": false,
+            "nominal_axial_travel_to_clear_shaft_tip_mm": 21.346,
+            "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 23.378,
+            "nut_translation_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_rail_2/nut",
+                "hardware/upper_rail_2/shaft"
+              ],
+              "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "nut_to_clear_bolt_tip": {
+                  "hardware/upper_rail_2/nut_washer": 354.80947,
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 826.253627
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "nut_washer_translation_sweep": {
+              "axial_sliding_clearance": {
+                "delivered_parts_and_assembly_clearance_verified": false,
+                "minimum_radial_clearance_mm": 0.7239,
+                "motion_is_along_fastener_axis": true,
+                "shaft_max_diameter_mm": 6.35,
+                "source_bounds_allow_modeled_axial_slide": true,
+                "thread_major_diameter_and_received_clearance_verified": false,
+                "washer_min_inner_diameter_mm": 7.7978
+              },
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_rail_2/nut",
+                "hardware/upper_rail_2/nut_washer",
+                "hardware/upper_rail_2/shaft"
+              ],
+              "exclusion_scope": "The moving washer's installed copy and already-removed same-stack nut are excluded. Its same-stack shaft is excluded only for this axial slide: source-bounded minimum washer ID exceeds canonical modeled shaft diameter. Unrelated shafts, washers, hardware, and wood remain obstacles; thread major diameter, delivered-part fit, and assembly clearances are unverified.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "nut_washer_to_clear_bolt_tip": {
+                  "wood/wj04_upper_g7_crosscut_full_stock_cleat": 3333.315629
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            },
+            "thread_engagement_and_runout_verified": false,
+            "tool_radius_conservative_vs_overall_length": true,
+            "tool_radius_mm": 100.0,
+            "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+            "wrench_full_turn_and_axial_sweep": {
+              "bounds_are_conservative": true,
+              "clear_envelope_proves_actual_tool_access": false,
+              "envelope_clash_proves_physical_blockage": false,
+              "excluded_target_obstacle_ids": [
+                "hardware/upper_rail_2/nut",
+                "hardware/upper_rail_2/shaft"
+              ],
+              "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+              "external_envelope_clear": false,
+              "external_envelope_hits_mm3": {
+                "full_turn_and_axial_nut_wrench": {
+                  "hardware/upper_rail_1/shaft": 493.900448,
+                  "wood/base_principal_center_right": 94565.361136
+                }
+              },
+              "physical_access_established": false,
+              "real_tool_impossibility_proven": false
+            }
+          },
+          "thread_start_and_functional_nut_engagement_verified": false,
+          "translation_and_rotation_envelopes_are_reversible": true
+        }
+      },
+      "thread_transition_and_functional_nut_engagement": "unresolved; receive and measure delivered bolt/nut stack",
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_annulus_supported": true
+        }
+      }
+    }
+  },
+  "stacks": [
+    {
+      "axis_direction_basis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "axis_point_basis_mm": [
+        134.5,
+        1442.774134,
+        273.190968
+      ],
+      "bolt_model_class": "25C600HCS5Z 6-in partially-threaded cap-screw envelope; provisional",
+      "grip_mm": 127.0,
+      "interface_id": "rail_to_cleat",
+      "layers_head_to_nut": [
+        {
+          "member_id": "wj04_lower_full_stock_cleat",
+          "thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_rail_service_lower_right",
+          "thickness_mm": 38.1
+        }
+      ],
+      "stack_id": "lower_rail_1",
+      "station_id": "clip_horizontal_lower_right_1",
+      "thread_transition_status": "unresolved; ASME Lg is a ring-gage plane, not first full-form thread"
+    },
+    {
+      "axis_direction_basis": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "axis_point_basis_mm": [
+        134.5,
+        1442.774134,
+        306.190968
+      ],
+      "bolt_model_class": "25C600HCS5Z 6-in partially-threaded cap-screw envelope; provisional",
+      "grip_mm": 127.0,
+      "interface_id": "rail_to_cleat",
+      "layers_head_to_nut": [
+        {
+          "member_id": "wj04_lower_full_stock_cleat",
+          "thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_rail_service_lower_right",
+          "thickness_mm": 38.1
+        }
+      ],
+      "stack_id": "lower_rail_2",
+      "station_id": "clip_horizontal_lower_right_1",
+      "thread_transition_status": "unresolved; ASME Lg is a ring-gage plane, not first full-form thread"
+    },
+    {
+      "axis_direction_basis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_point_basis_mm": [
+        177.95,
+        1381.874134,
+        289.690968
+      ],
+      "bolt_model_class": "25C600HCS5Z 6-in partially-threaded cap-screw envelope; provisional",
+      "grip_mm": 127.0,
+      "interface_id": "principal_to_cleat",
+      "layers_head_to_nut": [
+        {
+          "member_id": "wj04_lower_full_stock_cleat",
+          "thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "thickness_mm": 38.1
+        }
+      ],
+      "stack_id": "lower_principal_1",
+      "station_id": "clip_horizontal_lower_right_1",
+      "thread_transition_status": "unresolved; ASME Lg is a ring-gage plane, not first full-form thread"
+    },
+    {
+      "axis_direction_basis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_point_basis_mm": [
+        177.95,
+        1414.874134,
+        289.690968
+      ],
+      "bolt_model_class": "25C600HCS5Z 6-in partially-threaded cap-screw envelope; provisional",
+      "grip_mm": 127.0,
+      "interface_id": "principal_to_cleat",
+      "layers_head_to_nut": [
+        {
+          "member_id": "wj04_lower_full_stock_cleat",
+          "thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "thickness_mm": 38.1
+        }
+      ],
+      "stack_id": "lower_principal_2",
+      "station_id": "clip_horizontal_lower_right_1",
+      "thread_transition_status": "unresolved; ASME Lg is a ring-gage plane, not first full-form thread"
+    },
+    {
+      "axis_direction_basis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "axis_point_basis_mm": [
+        134.5,
+        1459.824134,
+        289.590968
+      ],
+      "bolt_model_class": "25C600HCS5Z 6-in partially-threaded cap-screw envelope; provisional",
+      "grip_mm": 127.0,
+      "interface_id": "rail_to_cleat",
+      "layers_head_to_nut": [
+        {
+          "member_id": "base_rail_service_upper_right",
+          "thickness_mm": 38.1
+        },
+        {
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "thickness_mm": 88.9
+        }
+      ],
+      "stack_id": "upper_rail_1",
+      "station_id": "clip_horizontal_upper_right_1",
+      "thread_transition_status": "unresolved; ASME Lg is a ring-gage plane, not first full-form thread"
+    },
+    {
+      "axis_direction_basis": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "axis_point_basis_mm": [
+        134.5,
+        1459.824134,
+        322.590968
+      ],
+      "bolt_model_class": "25C600HCS5Z 6-in partially-threaded cap-screw envelope; provisional",
+      "grip_mm": 127.0,
+      "interface_id": "rail_to_cleat",
+      "layers_head_to_nut": [
+        {
+          "member_id": "base_rail_service_upper_right",
+          "thickness_mm": 38.1
+        },
+        {
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "thickness_mm": 88.9
+        }
+      ],
+      "stack_id": "upper_rail_2",
+      "station_id": "clip_horizontal_upper_right_1",
+      "thread_transition_status": "unresolved; ASME Lg is a ring-gage plane, not first full-form thread"
+    },
+    {
+      "axis_direction_basis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_point_basis_mm": [
+        177.95,
+        1525.924134,
+        306.090968
+      ],
+      "bolt_model_class": "25C600HCS5Z 6-in partially-threaded cap-screw envelope; provisional",
+      "grip_mm": 127.0,
+      "interface_id": "principal_to_cleat",
+      "layers_head_to_nut": [
+        {
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "thickness_mm": 38.1
+        }
+      ],
+      "stack_id": "upper_principal_1",
+      "station_id": "clip_horizontal_upper_right_1",
+      "thread_transition_status": "unresolved; ASME Lg is a ring-gage plane, not first full-form thread"
+    },
+    {
+      "axis_direction_basis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_point_basis_mm": [
+        177.95,
+        1558.924134,
+        306.090968
+      ],
+      "bolt_model_class": "25C600HCS5Z 6-in partially-threaded cap-screw envelope; provisional",
+      "grip_mm": 127.0,
+      "interface_id": "principal_to_cleat",
+      "layers_head_to_nut": [
+        {
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "thickness_mm": 38.1
+        }
+      ],
+      "stack_id": "upper_principal_2",
+      "station_id": "clip_horizontal_upper_right_1",
+      "thread_transition_status": "unresolved; ASME Lg is a ring-gage plane, not first full-form thread"
+    }
+  ],
+  "stations": {
+    "clip_horizontal_lower_right_1": {
+      "cleat_origin_x_t_n_mm": [
+        89.05,
+        1353.874134,
+        229.840968
+      ],
+      "cleat_size_x_t_n_mm": [
+        88.9,
+        88.9,
+        119.7
+      ],
+      "host_members": [
+        "base_rail_service_lower_right",
+        "base_principal_center_right"
+      ]
+    },
+    "clip_horizontal_upper_right_1": {
+      "cleat_origin_x_t_n_mm": [
+        89.05,
+        1497.924134,
+        262.640968
+      ],
+      "cleat_size_x_t_n_mm": [
+        88.9,
+        88.9,
+        86.9
+      ],
+      "contact_area_screen": {
+        "crosscut_length_mm2": 7725.41,
+        "geometry_status": "analytic patch bound only; CAD and load transfer unverified",
+        "nominal_area_reduction_fraction": 0.274018379,
+        "nominal_full_length_mm2": 10641.33
+      },
+      "critical_rail_washer_outer_diameter_mm": 19.0246,
+      "critical_rail_washer_support_margin_mm": 17.4377,
+      "g7_clearance_basis": "nominal datum-boundary difference; stock, hold, placement, and cut tolerances are not included",
+      "g7_clearance_reserve_mm": 2.0,
+      "g7_projection": {
+        "bounds_x_t_n_mm": {
+          "N": [
+            209.840967859,
+            260.640967859
+          ],
+          "T": [
+            1514.26788377,
+            1525.38038377
+          ],
+          "X": [
+            175.24375,
+            186.35625
+          ]
+        },
+        "datum_id": "hold_tnut_main_G7",
+        "delivered_hold_bolt_geometry_verified": false,
+        "diameter_mm": 11.1125,
+        "length_mm": 50.8,
+        "panel_id": "main_upper_right",
+        "projection_axis_x_t_n": [
+          0.0,
+          -0.0,
+          1.0
+        ],
+        "rear_seating_x_t_n_mm": [
+          180.8,
+          1519.82413377,
+          209.840967859
+        ]
+      },
+      "host_members": [
+        "base_rail_service_upper_right",
+        "base_principal_center_right"
+      ],
+      "rail_end_distance_ratio_to_7d": 0.606299213,
+      "rail_full_factor_7d_mm": 44.45,
+      "rail_minimum_3p5d_mm": 22.225,
+      "rail_row_end_distances_mm": [
+        26.95,
+        26.95
+      ],
+      "rail_row_pitch_mm": 33.0,
+      "signed_demand_and_capacity_status": "unresolved; conditional end-distance factor is not resistance acceptance",
+      "stock_note": "full 88.9 x 88.9 mm section; 86.9 mm N crosscut"
+    }
+  },
+  "status": "unaccepted_geometry_hypothesis",
+  "trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+  "upper_rail_reversal": {
+    "assembly_prerequisite": "upper rail and cleat bolt subassembly must be installed before lower cleat occupies insertion path, or alternate erection path must be proven",
+    "axis_direction_x_t_n": [
+      0.0,
+      1.0,
+      0.0
+    ],
+    "head_seat_t_mm": 1459.824134,
+    "head_to_nut_layers": [
+      {
+        "member_id": "base_rail_service_upper_right",
+        "thickness_mm": 38.1
+      },
+      {
+        "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+        "thickness_mm": 88.9
+      }
+    ],
+    "installed_axial_overlap_removed_by_reversal": true,
+    "max_head_plus_washer_depth_per_side_mm": 6.1722,
+    "opposing_head_envelope_gap_mm": 4.7056,
+    "tool_access_status": "unresolved; adjacent wood blocks straight axial access in all-members-installed pose",
+    "wood_face_gap_to_lower_cleat_mm": 17.05
+  }
+}
