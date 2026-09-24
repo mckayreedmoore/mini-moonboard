@@ -1,0 +1,595 @@
+{
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "cleat_hits": {
+    "hosts": {},
+    "other_wood": {},
+    "panels": {},
+    "protected": {
+      "wires/wire_078_G6_G7": 102.93696
+    }
+  },
+  "comparison_diagnostic": {
+    "earlier_40mm_dynamic_tool_gap_mm": 3.652,
+    "earlier_50mm_dynamic_tool_upper_rail_collision": true,
+    "earlier_generic_50mm_nut_removal_upper_rail_collision": true,
+    "earlier_rail_bolt_length_mm": 101.6,
+    "earlier_rail_x_from_butt_mm": [
+      44.45,
+      69.85
+    ],
+    "earlier_status": "diagnostic_revise",
+    "earlier_t_mm": 50.8
+  },
+  "conditional_1_4in_placement_mm": {
+    "principal_group": {
+      "bolt_axis": "X",
+      "cleat_grain": "N",
+      "cleat_n_grain_front_end_first": 63.159032,
+      "cleat_n_grain_rear_end_second": 29.540968,
+      "cleat_t_edge_minus_conditional_4d": -6.349999999999998,
+      "cleat_t_lateral_edge_each": 19.05,
+      "principal_grain": "T",
+      "principal_n_lateral_rear_edge_second": 29.540968
+    },
+    "rail_group": {
+      "bolt_axis": "T",
+      "cleat_grain": "N",
+      "cleat_n_grain_front_end": 35.159032,
+      "cleat_n_grain_rear_end": 84.540968,
+      "cleat_x_edge_minus_conditional_4d": 6.35,
+      "cleat_x_lateral_far_edge_second": 31.75,
+      "pitch_minus_conditional_4d": -0.0,
+      "rail_bolt_pitch_along_x": 25.4,
+      "rail_end_along_grain_first": 44.45,
+      "rail_end_minus_conditional_7d": 0.0,
+      "rail_grain": "X",
+      "rail_n_lateral_front_edge": 55.159032,
+      "rail_n_lateral_rear_edge": 84.540968,
+      "t_dimension_is_bolt_bearing_length_not_lateral_edge": true
+    },
+    "signed_load_and_applicable_2024_nds_classification_complete": false
+  },
+  "contact_area_mm2": {
+    "principal_to_cleat": 4560.57,
+    "rail_to_cleat": 12161.52
+  },
+  "dependency_sha256": {
+    "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+    "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+    "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+    "scripts/wood_joint_clearance.py": "1d824c142c180acb954a03b9f8db317a35744b15472ab9b375e550d293293b0d"
+  },
+  "drilling_released": false,
+  "envelope": {
+    "cleat_n_from_rail_front_mm": [
+      20.0,
+      139.7
+    ],
+    "nominal_40mm_unthread_tool_gap_to_upper_rail_mm": 3.652,
+    "nominal_50mm_unthread_tool_gap_to_upper_rail_mm": -6.348,
+    "ordinary_limit_mm": 139.7,
+    "temporary_rearward_nut_exit_excess_mm": 21.872532,
+    "wood_body_excess_mm": 0.0
+  },
+  "fabrication_released": false,
+  "limits": [
+    "Provisional partial-thread hardware geometry and usable-thread interval; no supplier, delivered shank, thread root, or nut engagement selected.",
+    "The transverse cleat width cannot come from surfaced 4x6 stock; 6x6 is a dimensional lead, not a verified graded purchase.",
+    "Four WJ-03 outer legacy angle stations are removed from the local protected inventory, while their replacement node geometry is absent; this is not an integrated clash pass.",
+    "Retained upper-rail SDS and connector geometry remain in the local screen until their own duties are replaced.",
+    "Exact tool and reverse-order access are diagnostic; dimensional tolerances are unbounded.",
+    "No wood, bolt group, washer bearing, internal cleat, or same-case mechanics acceptance."
+  ],
+  "producer_command": "uv run python -m scripts.wood_joint_wj04_probe --cleat-x-mm 101.6 --rail-length-mm 101.6 --write",
+  "producer_sha256": "a2f419d4fd164b5f00a7e27482a1dbfa8bea012fefef85ca27d079ff2f44f485",
+  "rail_nominal_partial_thread_bolt_length_mm": 101.6,
+  "schema": "wood_joint_wj04_probe/v1",
+  "source_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+  "source_datum": {
+    "rail_n_mm": [
+      209.840968,
+      349.540968
+    ],
+    "rail_t_mm": [
+      1315.774134,
+      1353.874134
+    ],
+    "rail_x_end_mm": 89.05
+  },
+  "source_faces": {
+    "principal_rear": "planar_face_04",
+    "principal_x_end": "planar_face_07",
+    "rail_rear": "planar_face_02",
+    "rail_t_end": "planar_face_04"
+  },
+  "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+  "stacks": {
+    "rail_1": {
+      "axis_global_xyz_mm": [
+        133.5,
+        642.761533,
+        1178.28018
+      ],
+      "bore": {
+        "layer_material_fractions": {
+          "base_rail_service_lower_right": 1.0,
+          "wj04_cleat": 1.0
+        },
+        "panel_hits": {},
+        "protected_hits": {},
+        "unrelated_wood_hits": {}
+      },
+      "direction_global_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "grip_mm": 76.2,
+      "installed_hits": {
+        "head": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "nominal_under_head_length_mm": 101.6,
+      "operation_hits": {
+        "bounded_rail_nut_removal": {
+          "40.0mm_tool_during_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "50.0mm_tool_during_unthread": {
+            "other_hardware": {},
+            "other_wood": {
+              "base_rail_service_upper_right": 3216.579077
+            },
+            "protected": {
+              "retained_legacy_sds/clip_horizontal_upper_right_1_beam_1": 120.113741
+            }
+          },
+          "axial_nut_to_tip": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "axial_travel_mm": 22.198,
+          "rearward_nut_after_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "detached": {
+          "head_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "tools_50mm": {
+          "head": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "withdrawal": {
+          "head_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "shaft_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        }
+      },
+      "provisional_length_margin_mm": 13.8176,
+      "provisional_length_passes": true,
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_seat": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_seat": true
+        }
+      }
+    },
+    "rail_2": {
+      "axis_global_xyz_mm": [
+        158.9,
+        642.761533,
+        1178.28018
+      ],
+      "bore": {
+        "layer_material_fractions": {
+          "base_rail_service_lower_right": 1.0,
+          "wj04_cleat": 1.0
+        },
+        "panel_hits": {},
+        "protected_hits": {},
+        "unrelated_wood_hits": {}
+      },
+      "direction_global_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "grip_mm": 76.2,
+      "installed_hits": {
+        "head": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "nominal_under_head_length_mm": 101.6,
+      "operation_hits": {
+        "bounded_rail_nut_removal": {
+          "40.0mm_tool_during_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "50.0mm_tool_during_unthread": {
+            "other_hardware": {},
+            "other_wood": {
+              "base_rail_service_upper_right": 3216.579077
+            },
+            "protected": {}
+          },
+          "axial_nut_to_tip": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "axial_travel_mm": 22.198,
+          "rearward_nut_after_unthread": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "detached": {
+          "head_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "tools_50mm": {
+          "head": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "withdrawal": {
+          "head_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "shaft_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        }
+      },
+      "provisional_length_margin_mm": 13.8176,
+      "provisional_length_passes": true,
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_seat": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_seat": true
+        }
+      }
+    },
+    "upright_1": {
+      "axis_global_xyz_mm": [
+        190.65,
+        658.0476,
+        1240.057673
+      ],
+      "bore": {
+        "layer_material_fractions": {
+          "base_principal_center_right": 1.0,
+          "wj04_cleat": 1.0
+        },
+        "panel_hits": {},
+        "protected_hits": {},
+        "unrelated_wood_hits": {}
+      },
+      "direction_global_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "grip_mm": 139.7,
+      "installed_hits": {
+        "head": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "nominal_under_head_length_mm": 152.4,
+      "operation_hits": {
+        "detached": {
+          "head_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "tools_50mm": {
+          "head": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "withdrawal": {
+          "head_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "shaft_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        }
+      },
+      "provisional_length_margin_mm": 1.1176,
+      "provisional_length_passes": true,
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_seat": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_seat": true
+        }
+      }
+    },
+    "upright_2": {
+      "axis_global_xyz_mm": [
+        190.65,
+        637.3644,
+        1257.412939
+      ],
+      "bore": {
+        "layer_material_fractions": {
+          "base_principal_center_right": 1.0,
+          "wj04_cleat": 1.0
+        },
+        "panel_hits": {},
+        "protected_hits": {},
+        "unrelated_wood_hits": {}
+      },
+      "direction_global_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "grip_mm": 139.7,
+      "installed_hits": {
+        "head": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "head_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "nut_washer": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        },
+        "shaft": {
+          "other_hardware": {},
+          "protected": {},
+          "wood": {}
+        }
+      },
+      "nominal_under_head_length_mm": 152.4,
+      "operation_hits": {
+        "detached": {
+          "head_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut_washer_outward": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "tools_50mm": {
+          "head": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "nut": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        },
+        "withdrawal": {
+          "head_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          },
+          "shaft_insertion_and_withdrawal": {
+            "other_hardware": {},
+            "other_wood": {},
+            "protected": {}
+          }
+        }
+      },
+      "provisional_length_margin_mm": 1.1176,
+      "provisional_length_passes": true,
+      "washer_support": {
+        "head": {
+          "fraction": 1.0,
+          "full_seat": true
+        },
+        "nut": {
+          "fraction": 1.0,
+          "full_seat": true
+        }
+      }
+    }
+  },
+  "station": "clip_horizontal_lower_right_1",
+  "status": "reject_protected_wire_clash",
+  "stock": {
+    "actual_stock_and_grade_verified": false,
+    "dimensional_source": "provisional solid 6x6 blank, crosscut and ripped; product, grade, kerf and yield unverified",
+    "grain_axis": "N",
+    "section_x_t_n_mm": [
+      101.6,
+      38.1,
+      119.7
+    ],
+    "surfaced_4x6_rejected_for_x_width": true
+  },
+  "structural_released": false,
+  "trial_id": "wide_x101p6"
+}

@@ -1,0 +1,35 @@
+{
+  "schema": "wood_joint_wj04_hardware_screen/v1",
+  "historical_only": true,
+  "superseded_by": "owner direction to prioritize one ordinary Grade-5 hex bolt, nut, and two-washer WJ-04 stack",
+  "status": "diagnostic_revise",
+  "station": "clip_horizontal_lower_right_1",
+  "geometry_source": "docs/wood-joints-mvp/wj04-probe.json",
+  "cleat_x_t_n_mm": [95.25, 38.1, 119.7],
+  "wood_grip_mm": 76.2,
+  "source_urls": {
+    "bolt": "https://www.kljack.com/products/25c400kcss/",
+    "standard_dimensions": "https://cdefasteners.com/sites/default/files/product-specs/socketscapss.pdf",
+    "nut": "https://www.kljack.com/products/25cnfhs/",
+    "washer_dimensional_comparator": "https://www.kljack.com/products/25nwus8z/",
+    "socket": "https://www.facom.com/product/rb716/716-drive-12-point-thin-wall-socket?tid=609036",
+    "socket_catalog": "https://docs.rs-online.com/6a69/A700000008404294.pdf"
+  },
+  "washer_thickness_mm": [1.2954, 2.032],
+  "nut_thickness_mm": [5.3848, 5.7404],
+  "tip_reserve_mm": 2.54,
+  "length_tolerance_minus_mm": 1.524,
+  "length_cases": [
+    {"nominal_in": 3.5, "minimum_under_head_mm": 87.376, "worst_stack_reserve_mm": -1.1684, "standard_min_body_mm": 57.15, "standard_max_grip_gaging_mm": 63.5},
+    {"nominal_in": 4.0, "minimum_under_head_mm": 100.076, "worst_stack_reserve_mm": 11.5316, "standard_min_body_mm": 69.85, "standard_max_grip_gaging_mm": 76.2},
+    {"nominal_in": 4.5, "minimum_under_head_mm": 112.776, "worst_stack_reserve_mm": 24.2316, "standard_min_body_mm": 82.55, "standard_max_grip_gaging_mm": 88.9}
+  ],
+  "max_wood_end_from_under_head_mm": 78.232,
+  "earliest_nut_face_from_under_head_mm": 78.7908,
+  "transition_window_before_other_tolerances_mm": 0.5588,
+  "facom_socket": {"sku": "RB.7/16", "outer_diameter_mm": 14.8, "drive_end_diameter_mm": 15.8, "overall_length_mm": 22, "listed_L1_mm": 9, "internal_stud_through_depth": "unpublished", "driver_envelope": "unpublished"},
+  "four_in_tip_beyond_seated_nut_mm": [14.0716, 17.4244],
+  "four_in_socket_nominal_axial_gap_after_unthread_mm": 21.6454,
+  "four_in_generic_50mm_tool_gap_mm": -6.348,
+  "limit": "No product-backed tolerance-aware bolt-and-tool release; no capacity claim."
+}

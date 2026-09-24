@@ -1,0 +1,3723 @@
+{
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "config_source_sha256": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+  "dependency_sha256": {
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+    "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+    "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+    "scripts/wood_joint_clearance.py": "580f0989c300087cd66bf998e9d6d83965604fdf9e98ee1cdb4746f3e688b774",
+    "scripts/wood_joint_wj04_probe.py": "ed3c3b183139941eb9a8de6d64d15e4f4f8fb69c79a1aa29e17f0fdf1b612840"
+  },
+  "envelope_screen_status": "diagnostic_overlap_present",
+  "fastener_candidates": {
+    "bolts": [
+      {
+        "body_diameter_range_mm": [
+          6.223,
+          6.35
+        ],
+        "candidate_id": "kl_jack_25c375hcs5z",
+        "dimensional_standard": "ASME B18.2.1",
+        "full_form_thread_end_guaranteed": false,
+        "grade": "Grade 5",
+        "length_minus_tolerance_mm": 1.524,
+        "manufacturer": "K.L. Jack",
+        "maximum_full_thread_start_mm": 76.2,
+        "minimum_smooth_body_mm": 69.85,
+        "nominal_length_mm": 95.25,
+        "receiving_measurement_required": true,
+        "sku": "25C375HCS5Z",
+        "source_urls": [
+          "https://www.kljack.com/products/25c375hcs5z/",
+          "https://www.nickel-systems.com/wp-content/uploads/2025/01/Hex-Head-Cap-Screws-Partially-Threaded-Minimum-Body-Maximum-Grip-Gaging-Lengths-1.pdf",
+          "https://www.nickel-systems.com/products/bolts-screws/hex-head-cap/"
+        ],
+        "status": "catalog candidate for modeling only; no purchase or strength approval",
+        "thread": "1/4-20 UNC"
+      },
+      {
+        "body_diameter_range_mm": [
+          6.223,
+          6.35
+        ],
+        "candidate_id": "kl_jack_25c600hcs5z",
+        "dimensional_standard": "ASME B18.2.1",
+        "full_form_thread_end_guaranteed": false,
+        "grade": "Grade 5",
+        "length_minus_tolerance_mm": 2.54,
+        "manufacturer": "K.L. Jack",
+        "maximum_full_thread_start_mm": 133.35,
+        "minimum_smooth_body_mm": 127.0,
+        "nominal_length_mm": 152.4,
+        "receiving_measurement_required": true,
+        "sku": "25C600HCS5Z",
+        "source_urls": [
+          "https://www.kljack.com/products/25c600hcs5z/",
+          "https://www.nickel-systems.com/wp-content/uploads/2025/01/Hex-Head-Cap-Screws-Partially-Threaded-Minimum-Body-Maximum-Grip-Gaging-Lengths-1.pdf",
+          "https://www.nickel-systems.com/products/bolts-screws/hex-head-cap/"
+        ],
+        "status": "catalog candidate for modeling only; no purchase or strength approval",
+        "thread": "1/4-20 UNC"
+      }
+    ],
+    "hex_head_bounds": {
+      "across_corners_range_mm": [
+        12.3952,
+        12.827
+      ],
+      "across_flats_range_mm": [
+        10.8712,
+        11.1252
+      ],
+      "height_range_mm": [
+        3.81,
+        4.1402
+      ],
+      "source_urls": [
+        "https://www.kljack.com/docs/default-source/technical-information/kl_jack_fasteners-technical_data_and_charts.pdf",
+        "https://www.nickel-systems.com/products/bolts-screws/hex-head-cap/"
+      ],
+      "standard": "ASME B18.2.1; K.L. Jack 2009/10 technical data, p.159"
+    },
+    "nut": {
+      "across_corners_max_mm": 12.827,
+      "across_flats_range_mm": [
+        10.8712,
+        11.1252
+      ],
+      "candidate_id": "kl_jack_25cnfh5z",
+      "grade": "Grade 5",
+      "manufacturer": "K.L. Jack",
+      "sku": "25CNFH5Z",
+      "source_urls": [
+        "https://www.kljack.com/products/25cnfh5z/",
+        "https://www.nickel-systems.com/products/nuts/finished-hex/"
+      ],
+      "standard": "SAE J995; ASME B18.2.2",
+      "status": "catalog candidate for modeling only; engagement needs receiving check",
+      "thickness_range_mm": [
+        5.3848,
+        5.7404
+      ],
+      "thread": "1/4-20 UNC"
+    },
+    "purchase_approved": false,
+    "status": "catalog candidates for geometry screening only",
+    "washer": {
+      "candidate_id": "fastenal_type_a_wide_uss_plain_steel",
+      "description": "1/4-in Type A Wide plain steel washer",
+      "inner_diameter_range_mm": [
+        7.7978,
+        8.3058
+      ],
+      "manufacturer": "Fastenal",
+      "material": "plain steel",
+      "outer_diameter_range_mm": [
+        18.4658,
+        19.0246
+      ],
+      "published_tolerance_bounds": true,
+      "source_urls": [
+        "https://www.fastenal.com/content/product_specifications/FW.LC.USS.A.P.00.pdf"
+      ],
+      "standard": "ASME B18.21.1",
+      "status": "catalog dimensional candidate; compatibility and bearing remain open",
+      "thickness_range_mm": [
+        1.2954,
+        2.032
+      ]
+    },
+    "washers_per_stack": 2
+  },
+  "geometry_source_binding": {
+    "duty_host_mapping": {
+      "clip_angle_base_left": [
+        "base_header",
+        "base_side_left"
+      ],
+      "clip_angle_base_right": [
+        "base_header",
+        "base_side_right"
+      ],
+      "clip_timber_header_outer_left": [
+        "base_header",
+        "base_post_outer_left"
+      ],
+      "clip_timber_header_outer_right": [
+        "base_header",
+        "base_post_outer_right"
+      ]
+    },
+    "fixed_screw_axes_sha256": "22224a0afc78500cb0f832f3b6c6ea4e0d1dd934813c8570d637c16cb052a4f1",
+    "frame_bolt_axes_sha256": "524792bb6fe1f966a7725aad7a7ed4290c355bebafcc27d84f9a5e2690ad3e27",
+    "inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "runtime_module_sha256": {
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53"
+    },
+    "uncut_host_shape_sha256": {
+      "base_header": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec",
+      "base_post_outer_left": "9d95af16d2d8788134f22359846d3dec8728a8b735841f6bad788403fb26660d",
+      "base_post_outer_right": "7ef63af6efe5cf4a16ab17d5247a4a2f54775bba1d37329c155f15182a2217d3",
+      "base_side_left": "391762c2285e53e22a6907df3afc357a3bb2ef72ffa68a359d1a2d4986802333",
+      "base_side_right": "8fa6f222d09695d41cc74ca7138effa3da1db02d4600fea96162b55354c6c60b"
+    },
+    "uncut_part_shapes_sha256": "627cead591c1f0f4e63ede07a871659fba7c1b56a8e468791e5dd8f6d9845f2c"
+  },
+  "has_external_envelope_overlaps": true,
+  "input_artifact_sha256": {
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+  },
+  "interpretation": "No nominal envelope clash is evidence only for the modeled external tool envelope and supplied source-bound CAD. A modeled clash can be a false collision from the deliberately broad envelope; neither a clear envelope nor a clash proves actual tool access or physical impossibility. Jaw fit, tool orientation, delivered clearances, and thread engagement remain unverified.",
+  "limiting_obstacles": [
+    {
+      "maximum_reported_intersection_mm3": 522840.781061,
+      "obstacle_id": "finished_parts/base_principal_center_right",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 522840.781061,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 491728.888404,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 476437.259601,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 417021.775949,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 396415.712571,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 267236.784331,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 214111.870579,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 115876.646185,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 92143.44054,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 66232.692787,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 23186.689371,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 7415.94037,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 7415.94037,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 422611.847427,
+      "obstacle_id": "finished_parts/wj04_cleat",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 422611.847427,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 422611.847427,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 419194.74286,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 415917.07341,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 333450.061159,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 333450.061159,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 163327.623116,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 163327.623113,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 145658.922066,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 144447.900362,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 125589.487923,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 124579.588433,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 123389.330122,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 123389.330119,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 46663.796291,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 30184.340291,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 3333.315629,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 3333.315629,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_to_clear_bolt_tip",
+          "intersection_mm3": 826.253627,
+          "operation": "nut_translation_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_to_clear_bolt_tip",
+          "intersection_mm3": 826.253627,
+          "operation": "nut_translation_sweep",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 234238.69774,
+      "obstacle_id": "panels/main_lower_right",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 234238.69774,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 234238.697739,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 203403.187216,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 203403.187215,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 164127.260816,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 164125.106114,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 125363.28825,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 125363.28825,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 125363.28825,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 125363.28825,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 95792.840135,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 95777.284634,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 85747.356476,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 85747.356476,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 48895.477866,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 48895.477866,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 22433.91796,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 6346.476618,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 6175.081411,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 5992.839811,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 5992.839811,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 1629.007012,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 1629.007012,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 1357.651509,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 1357.651509,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 757.133533,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 406.620648,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 107367.487115,
+      "obstacle_id": "panels/main_upper_right",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 107367.487115,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 107367.487115,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 75558.732048,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 75558.732048,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 74128.555482,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 74128.555482,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 50865.446313,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 50865.446313,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 50865.446313,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 50865.446313,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 38901.396961,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 38901.396961,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 8884.393306,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 8884.393306,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1209.167894,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1037.772686,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 416.45865,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 254.883924,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 5.953507,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 5.953507,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 46356.044788,
+      "obstacle_id": "finished_parts/base_rail_service_lower_right",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 46356.044788,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 39048.924336,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 38882.722897,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 32523.976871,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 31076.271612,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 31076.271612,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 30450.695541,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 30450.695539,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 9709.428143,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 9226.458881,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "head_washer_after_bolt_withdrawal",
+          "intersection_mm3": 3333.315711,
+          "operation": "head_washer_removal_after_bolt_withdrawal",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "head_washer_after_bolt_withdrawal",
+          "intersection_mm3": 3333.315711,
+          "operation": "head_washer_removal_after_bolt_withdrawal",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 4826.388738,
+      "obstacle_id": "installed_hardware/upright_1/shaft",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 4826.388738,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 4826.388738,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 4688.735197,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 4654.228106,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 4606.288895,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 3884.33835,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 700.677463,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 700.677463,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 700.677463,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 700.677463,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 538.946742,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 292.800917,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 75.993482,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 4826.388738,
+      "obstacle_id": "installed_hardware/upright_2/shaft",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 4826.388738,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 4826.388738,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 4325.586769,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 4272.730014,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 4255.984023,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 3451.586849,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 538.946742,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 292.800917,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 95.007652,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 83.808121,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 11.887984,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "upright_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 3832.767041,
+      "obstacle_id": "protected/lights/light_G7",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 3832.767041,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 3817.016916,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 3787.289948,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 1946.200837,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 1946.200837,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 8.184409,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 2202.764976,
+      "obstacle_id": "installed_hardware/rail_2/shaft",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 2202.764976,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 2202.764974,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1810.759832,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 1810.759832,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 1810.759832,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1495.949028,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 1014.463316,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 950.68072,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 835.617219,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 292.800917,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 2110.015509,
+      "obstacle_id": "other_wood/base_rail_service_upper_right",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 2110.015509,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 2110.015509,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 2053.93693,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 2053.93693,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 1810.759832,
+      "obstacle_id": "installed_hardware/rail_1/shaft",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1810.759832,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 1810.759832,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 1810.759832,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1495.949028,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 950.68072,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 835.617219,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 373.295731,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 373.295731,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 292.800917,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 1114.09785,
+      "obstacle_id": "protected/wires/wire_078_G6_G7",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1114.09785,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 1114.09785,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1114.09785,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 1114.09785,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 988.441017,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 988.441006,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 768.008843,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 768.008843,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 565.404502,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 565.404502,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 565.078082,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 565.078082,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "head_counterhold",
+          "intersection_mm3": 37.82697,
+          "operation": "head_counterhold",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "head_counterhold",
+          "intersection_mm3": 30.293135,
+          "operation": "head_counterhold",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 11.279554,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 11.279554,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 1069.96929,
+      "obstacle_id": "protected/wires/wire_079_G7_G8",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1069.96929,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 1069.96929,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 1069.96929,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 1069.96929,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 874.053508,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 874.053508,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 750.693166,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 750.693166,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 622.122896,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 622.122896,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 506.225828,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 506.225828,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 376.270069,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "full_turn_and_axial_nut_wrench",
+          "intersection_mm3": 376.270069,
+          "operation": "wrench_full_turn_and_axial_sweep",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "head_counterhold",
+          "intersection_mm3": 7.216033,
+          "operation": "head_counterhold",
+          "stack_id": "upright_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 741.792139,
+      "obstacle_id": "installed_hardware/rail_1/nut",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 271.539612,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 271.539612,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 741.792139,
+      "obstacle_id": "installed_hardware/rail_2/nut",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 741.792139,
+      "obstacle_id": "installed_hardware/upright_1/nut",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 5.982622,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 741.792139,
+      "obstacle_id": "installed_hardware/upright_2/nut",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_washer_to_clear_bolt_tip",
+          "intersection_mm3": 741.792139,
+          "operation": "nut_washer_translation_sweep",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 45.487801,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 7.1148,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 2.802076,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 535.009375,
+      "obstacle_id": "installed_hardware/upright_1/head",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 269.175942,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 26.566592,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 4.3149,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 4.3149,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 2.148528,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 2.148528,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 535.009375,
+      "obstacle_id": "installed_hardware/upright_2/head",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 535.009375,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 4.3149,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 4.3149,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 480.581674,
+      "obstacle_id": "installed_hardware/rail_1/head_washer",
+      "screen_locations": [
+        {
+          "candidate_shape": "head_washer_after_bolt_withdrawal",
+          "intersection_mm3": 480.581674,
+          "operation": "head_washer_removal_after_bolt_withdrawal",
+          "stack_id": "rail_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 480.581674,
+      "obstacle_id": "installed_hardware/rail_1/nut_washer",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 473.8495,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_to_clear_bolt_tip",
+          "intersection_mm3": 354.80947,
+          "operation": "nut_translation_sweep",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 209.008653,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 209.008653,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 480.581674,
+      "obstacle_id": "installed_hardware/rail_2/head_washer",
+      "screen_locations": [
+        {
+          "candidate_shape": "head_washer_after_bolt_withdrawal",
+          "intersection_mm3": 480.581674,
+          "operation": "head_washer_removal_after_bolt_withdrawal",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 480.581674,
+      "obstacle_id": "installed_hardware/rail_2/nut_washer",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 458.851895,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_to_clear_bolt_tip",
+          "intersection_mm3": 354.80947,
+          "operation": "nut_translation_sweep",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 480.581674,
+      "obstacle_id": "installed_hardware/upright_1/head_washer",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "head_washer_after_bolt_withdrawal",
+          "intersection_mm3": 480.581674,
+          "operation": "head_washer_removal_after_bolt_withdrawal",
+          "stack_id": "upright_1"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 223.518277,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 115.4821,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 115.4821,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 78.935305,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 71.861937,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 71.861937,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 480.581674,
+      "obstacle_id": "installed_hardware/upright_1/nut_washer",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 71.861937,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 480.581674,
+      "obstacle_id": "installed_hardware/upright_2/head_washer",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "head_washer_after_bolt_withdrawal",
+          "intersection_mm3": 480.581674,
+          "operation": "head_washer_removal_after_bolt_withdrawal",
+          "stack_id": "upright_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 71.861937,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 71.861937,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 480.581674,
+      "obstacle_id": "installed_hardware/upright_2/nut_washer",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 480.581674,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 248.76139,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 171.576912,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        },
+        {
+          "candidate_shape": "nut_detached_reindex_60deg",
+          "intersection_mm3": 171.337906,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_turn_30deg",
+          "intersection_mm3": 8.448023,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_1"
+        }
+      ]
+    },
+    {
+      "maximum_reported_intersection_mm3": 31.908517,
+      "obstacle_id": "protected/retained_legacy_sds/clip_horizontal_upper_right_1_beam_1",
+      "screen_locations": [
+        {
+          "candidate_shape": "nut_open_end_exit",
+          "intersection_mm3": 31.908517,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        },
+        {
+          "candidate_shape": "nut_reseat",
+          "intersection_mm3": 31.908517,
+          "operation": "nut_turn_and_reindex",
+          "stack_id": "rail_2"
+        }
+      ]
+    }
+  ],
+  "operation_screen": {
+    "flat_stroke_degrees": 30.0,
+    "full_turn_degrees": 360.0,
+    "interpretation": "Two bounded synthetic planar heading cases use the catalog's 15-degree and 75-degree values as sampling angles only. They do not model the wrench's actual jaw-to-handle offset. Each case uses a 30-degree turning stroke, an unverified open-end exit proxy, a detached 60-degree reindex, and reseating. This is not a torque, fit, or wrench-engagement claim.",
+    "reindex_degrees": 60.0,
+    "synthetic_heading_cases_degrees": [
+      15.0,
+      75.0
+    ]
+  },
+  "physical_access_established": false,
+  "producer_command": "uv run python -m scripts.wood_joint_wj04_tool_access --write",
+  "producer_sha256": "0878ef863556729b7911ae29961a4593873b961a2ebd0d74c856b46edafed419",
+  "real_tool_impossibility_proven": false,
+  "release_claims": {
+    "drilling_released": false,
+    "fabrication_released": false,
+    "physical_access_established": false,
+    "purchase_approved": false,
+    "structural_released": false
+  },
+  "schema": "wood_joint_wj04_tool_access/v1",
+  "source_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+  "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+  "source_variant": "kerf-right",
+  "stacks": {
+    "rail_1": {
+      "axis_direction_global_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "axis_global_xyz_mm": [
+        127.15,
+        642.761533055,
+        1178.280180317
+      ],
+      "bolt_nominal_length_mm": 95.25,
+      "full_bolt_withdrawal": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "installed_hardware/rail_1/head",
+          "installed_hardware/rail_1/head_washer",
+          "installed_hardware/rail_1/nut",
+          "installed_hardware/rail_1/nut_washer",
+          "installed_hardware/rail_1/shaft"
+        ],
+        "exclusion_scope": "All same-stack installed hardware is treated as already removed. The active host and cleat remain obstacles; the shaft path must clear their modeled bores.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "modeled_shapes": [
+          "head_insertion_and_withdrawal",
+          "shaft_insertion_and_withdrawal"
+        ],
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false,
+        "same_stack_hardware_removed_first": true,
+        "thread_end_and_thread_engagement_verified": false
+      },
+      "grip_mm": 76.2,
+      "hardware_candidate_id": "kl_jack_25c375hcs5z",
+      "head_washer_removal_after_bolt_withdrawal": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "installed_hardware/rail_1/head",
+          "installed_hardware/rail_1/nut",
+          "installed_hardware/rail_1/nut_washer",
+          "installed_hardware/rail_1/shaft"
+        ],
+        "exclusion_scope": "The same-stack bolt, nut, and nut washer are already removed. The head washer is the moving object; source wood and all other hardware remain obstacles.",
+        "external_envelope_clear": false,
+        "external_envelope_hits_mm3": {
+          "head_washer_after_bolt_withdrawal": {
+            "finished_parts/base_rail_service_lower_right": 3333.315711,
+            "installed_hardware/rail_1/head_washer": 480.581674
+          }
+        },
+        "hand_pickup_clearance_verified": false,
+        "outward_travel_mm": 2.042,
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false,
+        "same_stack_bolt_removed_first": true
+      },
+      "heading_cases": [
+        {
+          "head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/rail_1/head",
+              "installed_hardware/rail_1/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "head_counterhold": {
+                "protected/wires/wire_078_G6_G7": 30.293135
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "motion": {
+            "detached_reindex_degrees": -60.0,
+            "open_end_exit_distance_mm": 22.0,
+            "open_end_exit_motion_is_unverified_proxy": true,
+            "stroke_degrees": 30.0,
+            "stroke_sweep_rotation_bound_degrees": 360.0
+          },
+          "nut_tool_vs_head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "No fastener or opposing tool is excluded.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_turn_and_reindex": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/rail_1/nut",
+              "installed_hardware/rail_1/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_detached_reindex_60deg": {
+                "finished_parts/base_principal_center_right": 417021.775949,
+                "finished_parts/wj04_cleat": 333450.061159,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_2/nut": 741.792139,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/rail_2/shaft": 1495.949028,
+                "installed_hardware/upright_1/head": 535.009375,
+                "installed_hardware/upright_1/head_washer": 480.581674,
+                "installed_hardware/upright_1/nut": 741.792139,
+                "installed_hardware/upright_1/nut_washer": 480.581674,
+                "installed_hardware/upright_1/shaft": 4826.388738,
+                "installed_hardware/upright_2/head": 535.009375,
+                "installed_hardware/upright_2/head_washer": 480.581674,
+                "installed_hardware/upright_2/nut": 741.792139,
+                "installed_hardware/upright_2/nut_washer": 480.581674,
+                "installed_hardware/upright_2/shaft": 4826.388738,
+                "panels/main_lower_right": 203403.187215,
+                "panels/main_upper_right": 74128.555482,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/wires/wire_078_G6_G7": 988.441017,
+                "protected/wires/wire_079_G7_G8": 874.053508
+              },
+              "nut_open_end_exit": {
+                "finished_parts/base_principal_center_right": 7415.94037,
+                "finished_parts/base_rail_service_lower_right": 30450.695541,
+                "finished_parts/wj04_cleat": 163327.623116,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_2/nut": 741.792139,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/rail_2/shaft": 2202.764974,
+                "installed_hardware/upright_1/shaft": 700.677463,
+                "other_wood/base_rail_service_upper_right": 2110.015509,
+                "panels/main_lower_right": 125363.28825,
+                "panels/main_upper_right": 50865.446313,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/wires/wire_078_G6_G7": 565.078082,
+                "protected/wires/wire_079_G7_G8": 622.122896
+              },
+              "nut_reseat": {
+                "finished_parts/wj04_cleat": 46663.796291,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_2/nut": 741.792139,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/rail_2/shaft": 1014.463316,
+                "installed_hardware/upright_1/head": 269.175942,
+                "installed_hardware/upright_1/head_washer": 223.518277,
+                "installed_hardware/upright_1/shaft": 75.993482
+              },
+              "nut_turn_30deg": {
+                "finished_parts/base_principal_center_right": 214111.870579,
+                "finished_parts/wj04_cleat": 145658.922066,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_2/nut": 741.792139,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/rail_2/shaft": 950.68072,
+                "installed_hardware/upright_1/head": 4.3149,
+                "installed_hardware/upright_1/head_washer": 71.861937,
+                "installed_hardware/upright_1/nut": 5.982622,
+                "installed_hardware/upright_1/nut_washer": 71.861937,
+                "installed_hardware/upright_2/head": 4.3149,
+                "installed_hardware/upright_2/head_washer": 71.861937,
+                "installed_hardware/upright_2/nut_washer": 8.448023,
+                "panels/main_lower_right": 95792.840135,
+                "panels/main_upper_right": 8884.393306,
+                "protected/lights/light_G7": 3787.289948,
+                "protected/wires/wire_078_G6_G7": 565.404502,
+                "protected/wires/wire_079_G7_G8": 506.225828
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "requires_two_wrench_units_for_simultaneous_counterhold": true,
+          "synthetic_heading_proxy_degrees": 15.0
+        },
+        {
+          "head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/rail_1/head",
+              "installed_hardware/rail_1/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "motion": {
+            "detached_reindex_degrees": -60.0,
+            "open_end_exit_distance_mm": 22.0,
+            "open_end_exit_motion_is_unverified_proxy": true,
+            "stroke_degrees": 30.0,
+            "stroke_sweep_rotation_bound_degrees": 360.0
+          },
+          "nut_tool_vs_head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "No fastener or opposing tool is excluded.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_turn_and_reindex": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/rail_1/nut",
+              "installed_hardware/rail_1/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_detached_reindex_60deg": {
+                "finished_parts/base_principal_center_right": 522840.781061,
+                "finished_parts/base_rail_service_lower_right": 39048.924336,
+                "finished_parts/wj04_cleat": 422611.847427,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_2/nut": 741.792139,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/rail_2/shaft": 1810.759832,
+                "installed_hardware/upright_1/head": 535.009375,
+                "installed_hardware/upright_1/head_washer": 480.581674,
+                "installed_hardware/upright_1/nut": 741.792139,
+                "installed_hardware/upright_1/nut_washer": 480.581674,
+                "installed_hardware/upright_1/shaft": 4826.388738,
+                "installed_hardware/upright_2/head": 535.009375,
+                "installed_hardware/upright_2/head_washer": 480.581674,
+                "installed_hardware/upright_2/nut": 741.792139,
+                "installed_hardware/upright_2/nut_washer": 480.581674,
+                "installed_hardware/upright_2/shaft": 4826.388738,
+                "panels/main_lower_right": 234238.697739,
+                "panels/main_upper_right": 107367.487115,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/wires/wire_078_G6_G7": 1114.09785,
+                "protected/wires/wire_079_G7_G8": 1069.96929
+              },
+              "nut_open_end_exit": {
+                "finished_parts/base_principal_center_right": 23186.689371,
+                "finished_parts/base_rail_service_lower_right": 9226.458881,
+                "finished_parts/wj04_cleat": 124579.588433,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_2/nut": 741.792139,
+                "installed_hardware/rail_2/nut_washer": 458.851895,
+                "installed_hardware/rail_2/shaft": 1810.759832,
+                "panels/main_lower_right": 85747.356476,
+                "panels/main_upper_right": 38901.396961
+              },
+              "nut_reseat": {
+                "finished_parts/base_principal_center_right": 7415.94037,
+                "finished_parts/base_rail_service_lower_right": 30450.695539,
+                "finished_parts/wj04_cleat": 163327.623113,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_2/nut": 741.792139,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/rail_2/shaft": 2202.764976,
+                "installed_hardware/upright_1/shaft": 700.677463,
+                "other_wood/base_rail_service_upper_right": 2110.015509,
+                "panels/main_lower_right": 125363.28825,
+                "panels/main_upper_right": 50865.446313,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/wires/wire_078_G6_G7": 565.078082,
+                "protected/wires/wire_079_G7_G8": 622.122896
+              },
+              "nut_turn_30deg": {
+                "finished_parts/base_principal_center_right": 476437.259601,
+                "finished_parts/base_rail_service_lower_right": 32523.976871,
+                "finished_parts/wj04_cleat": 419194.74286,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_2/nut": 741.792139,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/rail_2/shaft": 1810.759832,
+                "installed_hardware/upright_1/head": 535.009375,
+                "installed_hardware/upright_1/head_washer": 480.581674,
+                "installed_hardware/upright_1/nut": 741.792139,
+                "installed_hardware/upright_1/nut_washer": 480.581674,
+                "installed_hardware/upright_1/shaft": 4688.735197,
+                "installed_hardware/upright_2/head": 535.009375,
+                "installed_hardware/upright_2/head_washer": 480.581674,
+                "installed_hardware/upright_2/nut": 7.1148,
+                "installed_hardware/upright_2/nut_washer": 171.576912,
+                "installed_hardware/upright_2/shaft": 4255.984023,
+                "panels/main_lower_right": 164127.260816,
+                "panels/main_upper_right": 75558.732048,
+                "protected/lights/light_G7": 3817.016916,
+                "protected/wires/wire_078_G6_G7": 1114.09785,
+                "protected/wires/wire_079_G7_G8": 1069.96929
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "requires_two_wrench_units_for_simultaneous_counterhold": true,
+          "synthetic_heading_proxy_degrees": 75.0
+        }
+      ],
+      "nut_full_removal": {
+        "full_nut_removal_verified": false,
+        "nominal_axial_travel_to_clear_shaft_tip_mm": 14.996,
+        "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 17.028,
+        "nut_translation_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/rail_1/nut",
+            "installed_hardware/rail_1/shaft"
+          ],
+          "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "nut_to_clear_bolt_tip": {
+              "finished_parts/wj04_cleat": 826.253627,
+              "installed_hardware/rail_1/nut_washer": 354.80947
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        },
+        "nut_washer_translation_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/rail_1/nut_washer"
+          ],
+          "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "nut_washer_to_clear_bolt_tip": {
+              "finished_parts/wj04_cleat": 3333.315629,
+              "installed_hardware/rail_1/nut": 741.792139,
+              "installed_hardware/rail_1/shaft": 835.617219
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        },
+        "thread_engagement_and_runout_verified": false,
+        "tool_radius_conservative_vs_overall_length": true,
+        "tool_radius_mm": 100.0,
+        "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+        "wrench_full_turn_and_axial_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/rail_1/nut",
+            "installed_hardware/rail_1/shaft"
+          ],
+          "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "full_turn_and_axial_nut_wrench": {
+              "finished_parts/base_principal_center_right": 92143.44054,
+              "installed_hardware/rail_2/shaft": 292.800917,
+              "panels/main_lower_right": 48895.477866,
+              "protected/lights/light_G7": 1946.200837,
+              "protected/wires/wire_078_G6_G7": 11.279554,
+              "protected/wires/wire_079_G7_G8": 376.270069
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        }
+      },
+      "target_hardware_keys": {
+        "head": "installed_hardware/rail_1/head",
+        "head_washer": "installed_hardware/rail_1/head_washer",
+        "nut": "installed_hardware/rail_1/nut",
+        "nut_washer": "installed_hardware/rail_1/nut_washer",
+        "shaft": "installed_hardware/rail_1/shaft"
+      },
+      "tool_contact_screen": {
+        "bolt_head_across_flats_range_mm": [
+          10.8712,
+          11.1252
+        ],
+        "bolt_head_height_range_mm": [
+          3.81,
+          4.1402
+        ],
+        "fit_and_contact_verified": false,
+        "interpretation": "The nominal 7/16-in opening lies within the source AF ranges, and source bounds provide axial depth for a 3 mm nominal tool envelope. The wrench opening tolerance and jaw profile are unpublished; this does not establish actual jaw fit, contact area, torque, or installed seating.",
+        "minimum_head_axial_depth_minus_tool_thickness_mm": 0.81,
+        "minimum_nut_axial_depth_minus_tool_thickness_mm": 2.3848,
+        "nominal_opening_fit_verified": false,
+        "nominal_opening_inside_head_af_range": true,
+        "nominal_opening_inside_nut_af_range": true,
+        "nominal_wrench_opening_mm": 11.1125,
+        "nut_across_flats_range_mm": [
+          10.8712,
+          11.1252
+        ],
+        "nut_thickness_range_mm": [
+          5.3848,
+          5.7404
+        ],
+        "wrench_head_thickness_mm": 3.0,
+        "wrench_size_in": "7/16"
+      }
+    },
+    "rail_2": {
+      "axis_direction_global_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "axis_global_xyz_mm": [
+        152.55,
+        642.761533055,
+        1178.280180317
+      ],
+      "bolt_nominal_length_mm": 95.25,
+      "full_bolt_withdrawal": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "installed_hardware/rail_2/head",
+          "installed_hardware/rail_2/head_washer",
+          "installed_hardware/rail_2/nut",
+          "installed_hardware/rail_2/nut_washer",
+          "installed_hardware/rail_2/shaft"
+        ],
+        "exclusion_scope": "All same-stack installed hardware is treated as already removed. The active host and cleat remain obstacles; the shaft path must clear their modeled bores.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "modeled_shapes": [
+          "head_insertion_and_withdrawal",
+          "shaft_insertion_and_withdrawal"
+        ],
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false,
+        "same_stack_hardware_removed_first": true,
+        "thread_end_and_thread_engagement_verified": false
+      },
+      "grip_mm": 76.2,
+      "hardware_candidate_id": "kl_jack_25c375hcs5z",
+      "head_washer_removal_after_bolt_withdrawal": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "installed_hardware/rail_2/head",
+          "installed_hardware/rail_2/nut",
+          "installed_hardware/rail_2/nut_washer",
+          "installed_hardware/rail_2/shaft"
+        ],
+        "exclusion_scope": "The same-stack bolt, nut, and nut washer are already removed. The head washer is the moving object; source wood and all other hardware remain obstacles.",
+        "external_envelope_clear": false,
+        "external_envelope_hits_mm3": {
+          "head_washer_after_bolt_withdrawal": {
+            "finished_parts/base_rail_service_lower_right": 3333.315711,
+            "installed_hardware/rail_2/head_washer": 480.581674
+          }
+        },
+        "hand_pickup_clearance_verified": false,
+        "outward_travel_mm": 2.042,
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false,
+        "same_stack_bolt_removed_first": true
+      },
+      "heading_cases": [
+        {
+          "head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/rail_2/head",
+              "installed_hardware/rail_2/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "head_counterhold": {
+                "protected/wires/wire_078_G6_G7": 37.82697
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "motion": {
+            "detached_reindex_degrees": -60.0,
+            "open_end_exit_distance_mm": 22.0,
+            "open_end_exit_motion_is_unverified_proxy": true,
+            "stroke_degrees": 30.0,
+            "stroke_sweep_rotation_bound_degrees": 360.0
+          },
+          "nut_tool_vs_head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "No fastener or opposing tool is excluded.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_turn_and_reindex": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/rail_2/nut",
+              "installed_hardware/rail_2/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_detached_reindex_60deg": {
+                "finished_parts/base_principal_center_right": 396415.712571,
+                "finished_parts/wj04_cleat": 333450.061159,
+                "installed_hardware/rail_1/nut": 741.792139,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_1/shaft": 1495.949028,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/upright_1/head": 535.009375,
+                "installed_hardware/upright_1/head_washer": 480.581674,
+                "installed_hardware/upright_1/nut": 741.792139,
+                "installed_hardware/upright_1/nut_washer": 480.581674,
+                "installed_hardware/upright_1/shaft": 4654.228106,
+                "installed_hardware/upright_2/head": 535.009375,
+                "installed_hardware/upright_2/head_washer": 480.581674,
+                "installed_hardware/upright_2/nut": 45.487801,
+                "installed_hardware/upright_2/nut_washer": 248.76139,
+                "installed_hardware/upright_2/shaft": 4325.586769,
+                "panels/main_lower_right": 203403.187216,
+                "panels/main_upper_right": 74128.555482,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/wires/wire_078_G6_G7": 988.441006,
+                "protected/wires/wire_079_G7_G8": 874.053508
+              },
+              "nut_open_end_exit": {
+                "finished_parts/base_rail_service_lower_right": 31076.271612,
+                "finished_parts/wj04_cleat": 123389.330122,
+                "installed_hardware/rail_1/nut": 271.539612,
+                "installed_hardware/rail_1/nut_washer": 209.008653,
+                "installed_hardware/rail_1/shaft": 373.295731,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/upright_1/head": 2.148528,
+                "installed_hardware/upright_1/head_washer": 115.4821,
+                "installed_hardware/upright_1/shaft": 700.677463,
+                "other_wood/base_rail_service_upper_right": 2053.93693,
+                "panels/main_lower_right": 125363.28825,
+                "panels/main_upper_right": 50865.446313,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_1_beam_1": 31.908517,
+                "protected/wires/wire_078_G6_G7": 768.008843,
+                "protected/wires/wire_079_G7_G8": 750.693166
+              },
+              "nut_reseat": {
+                "finished_parts/wj04_cleat": 30184.340291,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/upright_1/head": 26.566592,
+                "installed_hardware/upright_1/head_washer": 78.935305
+              },
+              "nut_turn_30deg": {
+                "finished_parts/base_principal_center_right": 115876.646185,
+                "finished_parts/wj04_cleat": 144447.900362,
+                "installed_hardware/rail_1/nut": 741.792139,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_1/shaft": 950.68072,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/upright_1/head": 4.3149,
+                "installed_hardware/upright_1/head_washer": 71.861937,
+                "installed_hardware/upright_2/head": 4.3149,
+                "installed_hardware/upright_2/head_washer": 71.861937,
+                "panels/main_lower_right": 95777.284634,
+                "panels/main_upper_right": 8884.393306,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/wires/wire_078_G6_G7": 565.404502,
+                "protected/wires/wire_079_G7_G8": 506.225828
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "requires_two_wrench_units_for_simultaneous_counterhold": true,
+          "synthetic_heading_proxy_degrees": 15.0
+        },
+        {
+          "head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/rail_2/head",
+              "installed_hardware/rail_2/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "motion": {
+            "detached_reindex_degrees": -60.0,
+            "open_end_exit_distance_mm": 22.0,
+            "open_end_exit_motion_is_unverified_proxy": true,
+            "stroke_degrees": 30.0,
+            "stroke_sweep_rotation_bound_degrees": 360.0
+          },
+          "nut_tool_vs_head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "No fastener or opposing tool is excluded.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_turn_and_reindex": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/rail_2/nut",
+              "installed_hardware/rail_2/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_detached_reindex_60deg": {
+                "finished_parts/base_principal_center_right": 491728.888404,
+                "finished_parts/base_rail_service_lower_right": 46356.044788,
+                "finished_parts/wj04_cleat": 422611.847427,
+                "installed_hardware/rail_1/nut": 741.792139,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_1/shaft": 1810.759832,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/upright_1/head": 535.009375,
+                "installed_hardware/upright_1/head_washer": 480.581674,
+                "installed_hardware/upright_1/nut": 741.792139,
+                "installed_hardware/upright_1/nut_washer": 480.581674,
+                "installed_hardware/upright_1/shaft": 4606.288895,
+                "installed_hardware/upright_2/head": 535.009375,
+                "installed_hardware/upright_2/head_washer": 480.581674,
+                "installed_hardware/upright_2/nut": 2.802076,
+                "installed_hardware/upright_2/nut_washer": 171.337906,
+                "installed_hardware/upright_2/shaft": 4272.730014,
+                "panels/main_lower_right": 234238.69774,
+                "panels/main_upper_right": 107367.487115,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/wires/wire_078_G6_G7": 1114.09785,
+                "protected/wires/wire_079_G7_G8": 1069.96929
+              },
+              "nut_open_end_exit": {
+                "finished_parts/base_rail_service_lower_right": 9709.428143,
+                "finished_parts/wj04_cleat": 125589.487923,
+                "installed_hardware/rail_1/nut": 741.792139,
+                "installed_hardware/rail_1/nut_washer": 473.8495,
+                "installed_hardware/rail_1/shaft": 1810.759832,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "panels/main_lower_right": 85747.356476,
+                "panels/main_upper_right": 38901.396961,
+                "protected/lights/light_G7": 8.184409
+              },
+              "nut_reseat": {
+                "finished_parts/base_rail_service_lower_right": 31076.271612,
+                "finished_parts/wj04_cleat": 123389.330119,
+                "installed_hardware/rail_1/nut": 271.539612,
+                "installed_hardware/rail_1/nut_washer": 209.008653,
+                "installed_hardware/rail_1/shaft": 373.295731,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/upright_1/head": 2.148528,
+                "installed_hardware/upright_1/head_washer": 115.4821,
+                "installed_hardware/upright_1/shaft": 700.677463,
+                "other_wood/base_rail_service_upper_right": 2053.93693,
+                "panels/main_lower_right": 125363.28825,
+                "panels/main_upper_right": 50865.446313,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/retained_legacy_sds/clip_horizontal_upper_right_1_beam_1": 31.908517,
+                "protected/wires/wire_078_G6_G7": 768.008843,
+                "protected/wires/wire_079_G7_G8": 750.693166
+              },
+              "nut_turn_30deg": {
+                "finished_parts/base_principal_center_right": 267236.784331,
+                "finished_parts/base_rail_service_lower_right": 38882.722897,
+                "finished_parts/wj04_cleat": 415917.07341,
+                "installed_hardware/rail_1/nut": 741.792139,
+                "installed_hardware/rail_1/nut_washer": 480.581674,
+                "installed_hardware/rail_1/shaft": 1810.759832,
+                "installed_hardware/rail_2/nut_washer": 480.581674,
+                "installed_hardware/upright_1/head": 535.009375,
+                "installed_hardware/upright_1/head_washer": 480.581674,
+                "installed_hardware/upright_1/shaft": 3884.33835,
+                "installed_hardware/upright_2/head": 535.009375,
+                "installed_hardware/upright_2/head_washer": 480.581674,
+                "installed_hardware/upright_2/shaft": 3451.586849,
+                "panels/main_lower_right": 164125.106114,
+                "panels/main_upper_right": 75558.732048,
+                "protected/lights/light_G7": 3832.767041,
+                "protected/wires/wire_078_G6_G7": 1114.09785,
+                "protected/wires/wire_079_G7_G8": 1069.96929
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "requires_two_wrench_units_for_simultaneous_counterhold": true,
+          "synthetic_heading_proxy_degrees": 75.0
+        }
+      ],
+      "nut_full_removal": {
+        "full_nut_removal_verified": false,
+        "nominal_axial_travel_to_clear_shaft_tip_mm": 14.996,
+        "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 17.028,
+        "nut_translation_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/rail_2/nut",
+            "installed_hardware/rail_2/shaft"
+          ],
+          "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "nut_to_clear_bolt_tip": {
+              "finished_parts/wj04_cleat": 826.253627,
+              "installed_hardware/rail_2/nut_washer": 354.80947
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        },
+        "nut_washer_translation_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/rail_2/nut_washer"
+          ],
+          "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "nut_washer_to_clear_bolt_tip": {
+              "finished_parts/wj04_cleat": 3333.315629,
+              "installed_hardware/rail_2/nut": 741.792139,
+              "installed_hardware/rail_2/shaft": 835.617219
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        },
+        "thread_engagement_and_runout_verified": false,
+        "tool_radius_conservative_vs_overall_length": true,
+        "tool_radius_mm": 100.0,
+        "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+        "wrench_full_turn_and_axial_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/rail_2/nut",
+            "installed_hardware/rail_2/shaft"
+          ],
+          "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "full_turn_and_axial_nut_wrench": {
+              "finished_parts/base_principal_center_right": 66232.692787,
+              "installed_hardware/rail_1/shaft": 292.800917,
+              "panels/main_lower_right": 48895.477866,
+              "protected/lights/light_G7": 1946.200837,
+              "protected/wires/wire_078_G6_G7": 11.279554,
+              "protected/wires/wire_079_G7_G8": 376.270069
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        }
+      },
+      "target_hardware_keys": {
+        "head": "installed_hardware/rail_2/head",
+        "head_washer": "installed_hardware/rail_2/head_washer",
+        "nut": "installed_hardware/rail_2/nut",
+        "nut_washer": "installed_hardware/rail_2/nut_washer",
+        "shaft": "installed_hardware/rail_2/shaft"
+      },
+      "tool_contact_screen": {
+        "bolt_head_across_flats_range_mm": [
+          10.8712,
+          11.1252
+        ],
+        "bolt_head_height_range_mm": [
+          3.81,
+          4.1402
+        ],
+        "fit_and_contact_verified": false,
+        "interpretation": "The nominal 7/16-in opening lies within the source AF ranges, and source bounds provide axial depth for a 3 mm nominal tool envelope. The wrench opening tolerance and jaw profile are unpublished; this does not establish actual jaw fit, contact area, torque, or installed seating.",
+        "minimum_head_axial_depth_minus_tool_thickness_mm": 0.81,
+        "minimum_nut_axial_depth_minus_tool_thickness_mm": 2.3848,
+        "nominal_opening_fit_verified": false,
+        "nominal_opening_inside_head_af_range": true,
+        "nominal_opening_inside_nut_af_range": true,
+        "nominal_wrench_opening_mm": 11.1125,
+        "nut_across_flats_range_mm": [
+          10.8712,
+          11.1252
+        ],
+        "nut_thickness_range_mm": [
+          5.3848,
+          5.7404
+        ],
+        "wrench_head_thickness_mm": 3.0,
+        "wrench_size_in": "7/16"
+      }
+    },
+    "upright_1": {
+      "axis_direction_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_global_xyz_mm": [
+        184.3,
+        658.047600541,
+        1240.057673313
+      ],
+      "bolt_nominal_length_mm": 152.4,
+      "full_bolt_withdrawal": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "installed_hardware/upright_1/head",
+          "installed_hardware/upright_1/head_washer",
+          "installed_hardware/upright_1/nut",
+          "installed_hardware/upright_1/nut_washer",
+          "installed_hardware/upright_1/shaft"
+        ],
+        "exclusion_scope": "All same-stack installed hardware is treated as already removed. The active host and cleat remain obstacles; the shaft path must clear their modeled bores.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "modeled_shapes": [
+          "head_insertion_and_withdrawal",
+          "shaft_insertion_and_withdrawal"
+        ],
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false,
+        "same_stack_hardware_removed_first": true,
+        "thread_end_and_thread_engagement_verified": false
+      },
+      "grip_mm": 133.35,
+      "hardware_candidate_id": "kl_jack_25c600hcs5z",
+      "head_washer_removal_after_bolt_withdrawal": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "installed_hardware/upright_1/head",
+          "installed_hardware/upright_1/nut",
+          "installed_hardware/upright_1/nut_washer",
+          "installed_hardware/upright_1/shaft"
+        ],
+        "exclusion_scope": "The same-stack bolt, nut, and nut washer are already removed. The head washer is the moving object; source wood and all other hardware remain obstacles.",
+        "external_envelope_clear": false,
+        "external_envelope_hits_mm3": {
+          "head_washer_after_bolt_withdrawal": {
+            "installed_hardware/upright_1/head_washer": 480.581674
+          }
+        },
+        "hand_pickup_clearance_verified": false,
+        "outward_travel_mm": 2.042,
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false,
+        "same_stack_bolt_removed_first": true
+      },
+      "heading_cases": [
+        {
+          "head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/upright_1/head",
+              "installed_hardware/upright_1/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "head_counterhold": {
+                "protected/wires/wire_079_G7_G8": 7.216033
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "motion": {
+            "detached_reindex_degrees": -60.0,
+            "open_end_exit_distance_mm": 22.0,
+            "open_end_exit_motion_is_unverified_proxy": true,
+            "stroke_degrees": 30.0,
+            "stroke_sweep_rotation_bound_degrees": 360.0
+          },
+          "nut_tool_vs_head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "No fastener or opposing tool is excluded.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_turn_and_reindex": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/upright_1/nut",
+              "installed_hardware/upright_1/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_detached_reindex_60deg": {
+                "installed_hardware/upright_2/shaft": 95.007652,
+                "panels/main_lower_right": 6346.476618,
+                "panels/main_upper_right": 1209.167894
+              },
+              "nut_open_end_exit": {
+                "panels/main_lower_right": 5992.839811,
+                "panels/main_upper_right": 5.953507
+              },
+              "nut_reseat": {
+                "installed_hardware/upright_2/shaft": 11.887984,
+                "panels/main_upper_right": 254.883924
+              },
+              "nut_turn_30deg": {
+                "installed_hardware/upright_2/shaft": 95.007652,
+                "panels/main_lower_right": 1357.651509
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "requires_two_wrench_units_for_simultaneous_counterhold": true,
+          "synthetic_heading_proxy_degrees": 15.0
+        },
+        {
+          "head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/upright_1/head",
+              "installed_hardware/upright_1/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "motion": {
+            "detached_reindex_degrees": -60.0,
+            "open_end_exit_distance_mm": 22.0,
+            "open_end_exit_motion_is_unverified_proxy": true,
+            "stroke_degrees": 30.0,
+            "stroke_sweep_rotation_bound_degrees": 360.0
+          },
+          "nut_tool_vs_head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "No fastener or opposing tool is excluded.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_turn_and_reindex": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/upright_1/nut",
+              "installed_hardware/upright_1/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_detached_reindex_60deg": {
+                "installed_hardware/upright_2/shaft": 95.007652,
+                "panels/main_lower_right": 6175.081411,
+                "panels/main_upper_right": 1037.772686
+              },
+              "nut_open_end_exit": {
+                "installed_hardware/upright_2/shaft": 83.808121
+              },
+              "nut_reseat": {
+                "panels/main_lower_right": 5992.839811,
+                "panels/main_upper_right": 5.953507
+              },
+              "nut_turn_30deg": {
+                "installed_hardware/upright_2/shaft": 95.007652,
+                "panels/main_lower_right": 1357.651509
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "requires_two_wrench_units_for_simultaneous_counterhold": true,
+          "synthetic_heading_proxy_degrees": 75.0
+        }
+      ],
+      "nut_full_removal": {
+        "full_nut_removal_verified": false,
+        "nominal_axial_travel_to_clear_shaft_tip_mm": 14.996,
+        "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 17.028,
+        "nut_translation_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/upright_1/nut",
+            "installed_hardware/upright_1/shaft"
+          ],
+          "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+          "external_envelope_clear": true,
+          "external_envelope_hits_mm3": {},
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        },
+        "nut_washer_translation_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/upright_1/nut_washer"
+          ],
+          "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "nut_washer_to_clear_bolt_tip": {
+              "installed_hardware/upright_1/nut": 741.792139,
+              "installed_hardware/upright_1/shaft": 538.946742
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        },
+        "thread_engagement_and_runout_verified": false,
+        "tool_radius_conservative_vs_overall_length": true,
+        "tool_radius_mm": 100.0,
+        "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+        "wrench_full_turn_and_axial_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/upright_1/nut",
+            "installed_hardware/upright_1/shaft"
+          ],
+          "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "full_turn_and_axial_nut_wrench": {
+              "installed_hardware/upright_2/shaft": 292.800917,
+              "panels/main_lower_right": 22433.91796,
+              "panels/main_upper_right": 416.45865
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        }
+      },
+      "target_hardware_keys": {
+        "head": "installed_hardware/upright_1/head",
+        "head_washer": "installed_hardware/upright_1/head_washer",
+        "nut": "installed_hardware/upright_1/nut",
+        "nut_washer": "installed_hardware/upright_1/nut_washer",
+        "shaft": "installed_hardware/upright_1/shaft"
+      },
+      "tool_contact_screen": {
+        "bolt_head_across_flats_range_mm": [
+          10.8712,
+          11.1252
+        ],
+        "bolt_head_height_range_mm": [
+          3.81,
+          4.1402
+        ],
+        "fit_and_contact_verified": false,
+        "interpretation": "The nominal 7/16-in opening lies within the source AF ranges, and source bounds provide axial depth for a 3 mm nominal tool envelope. The wrench opening tolerance and jaw profile are unpublished; this does not establish actual jaw fit, contact area, torque, or installed seating.",
+        "minimum_head_axial_depth_minus_tool_thickness_mm": 0.81,
+        "minimum_nut_axial_depth_minus_tool_thickness_mm": 2.3848,
+        "nominal_opening_fit_verified": false,
+        "nominal_opening_inside_head_af_range": true,
+        "nominal_opening_inside_nut_af_range": true,
+        "nominal_wrench_opening_mm": 11.1125,
+        "nut_across_flats_range_mm": [
+          10.8712,
+          11.1252
+        ],
+        "nut_thickness_range_mm": [
+          5.3848,
+          5.7404
+        ],
+        "wrench_head_thickness_mm": 3.0,
+        "wrench_size_in": "7/16"
+      }
+    },
+    "upright_2": {
+      "axis_direction_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_global_xyz_mm": [
+        184.3,
+        637.364400577,
+        1257.412938774
+      ],
+      "bolt_nominal_length_mm": 152.4,
+      "full_bolt_withdrawal": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "installed_hardware/upright_2/head",
+          "installed_hardware/upright_2/head_washer",
+          "installed_hardware/upright_2/nut",
+          "installed_hardware/upright_2/nut_washer",
+          "installed_hardware/upright_2/shaft"
+        ],
+        "exclusion_scope": "All same-stack installed hardware is treated as already removed. The active host and cleat remain obstacles; the shaft path must clear their modeled bores.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "modeled_shapes": [
+          "head_insertion_and_withdrawal",
+          "shaft_insertion_and_withdrawal"
+        ],
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false,
+        "same_stack_hardware_removed_first": true,
+        "thread_end_and_thread_engagement_verified": false
+      },
+      "grip_mm": 133.35,
+      "hardware_candidate_id": "kl_jack_25c600hcs5z",
+      "head_washer_removal_after_bolt_withdrawal": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "installed_hardware/upright_2/head",
+          "installed_hardware/upright_2/nut",
+          "installed_hardware/upright_2/nut_washer",
+          "installed_hardware/upright_2/shaft"
+        ],
+        "exclusion_scope": "The same-stack bolt, nut, and nut washer are already removed. The head washer is the moving object; source wood and all other hardware remain obstacles.",
+        "external_envelope_clear": false,
+        "external_envelope_hits_mm3": {
+          "head_washer_after_bolt_withdrawal": {
+            "installed_hardware/upright_2/head_washer": 480.581674
+          }
+        },
+        "hand_pickup_clearance_verified": false,
+        "outward_travel_mm": 2.042,
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false,
+        "same_stack_bolt_removed_first": true
+      },
+      "heading_cases": [
+        {
+          "head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/upright_2/head",
+              "installed_hardware/upright_2/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "motion": {
+            "detached_reindex_degrees": -60.0,
+            "open_end_exit_distance_mm": 22.0,
+            "open_end_exit_motion_is_unverified_proxy": true,
+            "stroke_degrees": 30.0,
+            "stroke_sweep_rotation_bound_degrees": 360.0
+          },
+          "nut_tool_vs_head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "No fastener or opposing tool is excluded.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_turn_and_reindex": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/upright_2/nut",
+              "installed_hardware/upright_2/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_detached_reindex_60deg": {
+                "installed_hardware/upright_1/shaft": 95.007652,
+                "panels/main_lower_right": 757.133533
+              },
+              "nut_open_end_exit": {
+                "installed_hardware/upright_1/shaft": 95.007652,
+                "panels/main_lower_right": 1629.007012
+              },
+              "nut_reseat": {
+                "installed_hardware/upright_1/shaft": 95.007652
+              },
+              "nut_turn_30deg": {
+                "installed_hardware/upright_1/shaft": 95.007652
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "requires_two_wrench_units_for_simultaneous_counterhold": true,
+          "synthetic_heading_proxy_degrees": 15.0
+        },
+        {
+          "head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/upright_2/head",
+              "installed_hardware/upright_2/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "motion": {
+            "detached_reindex_degrees": -60.0,
+            "open_end_exit_distance_mm": 22.0,
+            "open_end_exit_motion_is_unverified_proxy": true,
+            "stroke_degrees": 30.0,
+            "stroke_sweep_rotation_bound_degrees": 360.0
+          },
+          "nut_tool_vs_head_counterhold": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [],
+            "exclusion_scope": "No fastener or opposing tool is excluded.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "nut_turn_and_reindex": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "installed_hardware/upright_2/nut",
+              "installed_hardware/upright_2/shaft"
+            ],
+            "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut_detached_reindex_60deg": {
+                "installed_hardware/upright_1/shaft": 95.007652,
+                "panels/main_lower_right": 406.620648
+              },
+              "nut_open_end_exit": {
+                "installed_hardware/upright_1/shaft": 95.007652
+              },
+              "nut_reseat": {
+                "installed_hardware/upright_1/shaft": 95.007652,
+                "panels/main_lower_right": 1629.007012
+              },
+              "nut_turn_30deg": {
+                "installed_hardware/upright_1/shaft": 95.007652
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "requires_two_wrench_units_for_simultaneous_counterhold": true,
+          "synthetic_heading_proxy_degrees": 75.0
+        }
+      ],
+      "nut_full_removal": {
+        "full_nut_removal_verified": false,
+        "nominal_axial_travel_to_clear_shaft_tip_mm": 14.996,
+        "nominal_nut_washer_travel_to_clear_shaft_tip_mm": 17.028,
+        "nut_translation_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/upright_2/nut",
+            "installed_hardware/upright_2/shaft"
+          ],
+          "exclusion_scope": "The moving target nut and its own threaded shaft are excluded as intended contact during unthreading. Its washer and all other hardware remain obstacles.",
+          "external_envelope_clear": true,
+          "external_envelope_hits_mm3": {},
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        },
+        "nut_washer_translation_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/upright_2/nut_washer"
+          ],
+          "exclusion_scope": "The active bolt's complete hex head or nut and its own shaft are excluded from tool-envelope clashes. This represents intended contact and open-end clearance only; jaw fit and actual contact remain unmodeled. Washers remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "nut_washer_to_clear_bolt_tip": {
+              "installed_hardware/upright_2/nut": 741.792139,
+              "installed_hardware/upright_2/shaft": 538.946742
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        },
+        "thread_engagement_and_runout_verified": false,
+        "tool_radius_conservative_vs_overall_length": true,
+        "tool_radius_mm": 100.0,
+        "travel_basis": "Nominal tip plane less the modeled nut's inboard face, using the canonical stack's modeled washer thickness. Full-form thread at the tip and usable thread interval are not guaranteed.",
+        "wrench_full_turn_and_axial_sweep": {
+          "bounds_are_conservative": true,
+          "clear_envelope_proves_actual_tool_access": false,
+          "envelope_clash_proves_physical_blockage": false,
+          "excluded_target_obstacle_ids": [
+            "installed_hardware/upright_2/nut",
+            "installed_hardware/upright_2/shaft"
+          ],
+          "exclusion_scope": "The target nut and its own shaft are excluded for intended open-jaw contact and axial unthreading. Both washers and all other hardware remain obstacles.",
+          "external_envelope_clear": false,
+          "external_envelope_hits_mm3": {
+            "full_turn_and_axial_nut_wrench": {
+              "installed_hardware/upright_1/shaft": 292.800917
+            }
+          },
+          "physical_access_established": false,
+          "real_tool_impossibility_proven": false
+        }
+      },
+      "target_hardware_keys": {
+        "head": "installed_hardware/upright_2/head",
+        "head_washer": "installed_hardware/upright_2/head_washer",
+        "nut": "installed_hardware/upright_2/nut",
+        "nut_washer": "installed_hardware/upright_2/nut_washer",
+        "shaft": "installed_hardware/upright_2/shaft"
+      },
+      "tool_contact_screen": {
+        "bolt_head_across_flats_range_mm": [
+          10.8712,
+          11.1252
+        ],
+        "bolt_head_height_range_mm": [
+          3.81,
+          4.1402
+        ],
+        "fit_and_contact_verified": false,
+        "interpretation": "The nominal 7/16-in opening lies within the source AF ranges, and source bounds provide axial depth for a 3 mm nominal tool envelope. The wrench opening tolerance and jaw profile are unpublished; this does not establish actual jaw fit, contact area, torque, or installed seating.",
+        "minimum_head_axial_depth_minus_tool_thickness_mm": 0.81,
+        "minimum_nut_axial_depth_minus_tool_thickness_mm": 2.3848,
+        "nominal_opening_fit_verified": false,
+        "nominal_opening_inside_head_af_range": true,
+        "nominal_opening_inside_nut_af_range": true,
+        "nominal_wrench_opening_mm": 11.1125,
+        "nut_across_flats_range_mm": [
+          10.8712,
+          11.1252
+        ],
+        "nut_thickness_range_mm": [
+          5.3848,
+          5.7404
+        ],
+        "wrench_head_thickness_mm": 3.0,
+        "wrench_size_in": "7/16"
+      }
+    }
+  },
+  "station_id": "clip_horizontal_lower_right_1",
+  "tool_candidate": {
+    "candidate_id": "facom_34_7_16",
+    "catalog_head_offsets_degrees": [
+      15.0,
+      75.0
+    ],
+    "catalog_offset_mapping_verified": false,
+    "description": "midget 15\u00b0 open-end wrench",
+    "handle_sweep_verified": false,
+    "head_thickness_mm": 3.0,
+    "head_width_mm": 22.0,
+    "manufacturer": "FACOM",
+    "modeled_head_diameter_mm": 22.0,
+    "modeled_head_radius_mm": 11.0,
+    "overall_length_mm": 100.0,
+    "published_dimension_tolerances": false,
+    "source_urls": [
+      "https://www.facom.fr/products/34-cles-a-fourches-micromecanique-tetes-inclinees-en-pouces"
+    ],
+    "wrench_size_in": "7/16"
+  },
+  "trial_config_sha256": "d1c63e1fa5617999e8af68d683cc0f3074fb84f518b048a087ec5ed276206c0e",
+  "trial_id": "narrow_x95p25_ordinary_bolt_candidate",
+  "unmodeled_limits": [
+    "Exact open-jaw outline, opening tolerance, fit, and contact patch",
+    "Delivered tool dimensions, handle section/profile, and handle sweep",
+    "Delivered wood dimensions, cut variation, and assembly tolerance",
+    "Required installation torque and human hand clearance",
+    "Physical nut/head rotation phase and contact force",
+    "Actual swept width and clearance of the human-held handle",
+    "Exact catalog drawing interpretation and three-dimensional jaw orientation",
+    "Two simultaneously available wrenches and their human-hand placement"
+  ]
+}

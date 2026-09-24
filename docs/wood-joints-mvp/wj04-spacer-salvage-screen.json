@@ -1,0 +1,53 @@
+{
+  "schema": "wood_joint_wj04_spacer_salvage_screen/v1",
+  "status": "diagnostic_revise",
+  "station": "clip_horizontal_lower_right_1",
+  "geometry_source": "docs/wood-joints-mvp/wj04-probe.json",
+  "wood_grip_mm": 76.2,
+  "bolt": {
+    "sku": "Grainger 22TT96 / U51050.025.0450",
+    "url": "https://www.grainger.com/product/Socket-Head-Cap-Screw-1-4-22TT96",
+    "nominal_length_mm": 114.3,
+    "minimum_length_mm": 112.776,
+    "standard_min_body_mm": 82.55,
+    "standard_max_grip_gaging_mm": 88.9,
+    "standard_source": "https://cdefasteners.com/sites/default/files/product-specs/socketscapss.pdf"
+  },
+  "spacer": {
+    "sku": "USA Industrials ZSPCR-470",
+    "url": "https://www.zoro.com/usa-industrials-brass-unthreaded-round-spacers-14-in-screw-size-zinc-plated-brass-12-overall-lg-zspcr-470/i/G601011174/",
+    "material": "zinc-plated brass; structural suitability unproved",
+    "length_mm": [12.573, 12.827],
+    "outer_diameter_mm": [12.573, 12.827],
+    "inner_diameter_mm": [6.4008, 6.6548]
+  },
+  "stack": {
+    "sequence": ["head washer", "rail and cleat wood", "wood-side washer", "spacer", "outer washer", "nut", "tip reserve"],
+    "washer_count": 3,
+    "washer_each_thickness_mm": [1.2954, 2.032],
+    "nut_thickness_mm": [5.3848, 5.7404],
+    "tip_reserve_mm": 2.54,
+    "wood_end_latest_from_under_head_mm": 78.232,
+    "body_margin_before_other_tolerances_mm": 4.318,
+    "nut_near_face_earliest_mm": 92.6592,
+    "thread_location_margin_before_other_tolerances_mm": 3.7592,
+    "maximum_full_stack_mm": 103.4034,
+    "minimum_length_reserve_mm": 9.3726,
+    "tip_beyond_seated_nut_mm": [11.9126, 16.256]
+  },
+  "tool": {
+    "facom_socket": "RB.7/16",
+    "socket_url": "https://www.facom.com/product/rb716/716-drive-12-point-thin-wall-socket?tid=609036",
+    "socket_catalog_url": "https://docs.rs-online.com/6a69/A700000008404294.pdf",
+    "socket_length_mm": 22,
+    "socket_listed_engagement_mm": 9,
+    "internal_stud_through_depth": "unpublished",
+    "nominal_axial_gap_after_socket_unthread_mm": 8.9454,
+    "ratchet": "GEARWRENCH 81011T",
+    "ratchet_url": "https://www.gearwrench.com/all-tools/ratchets-sockets/ratchets-drive-tools/81011t-14-drive-90-tooth-teardrop-ratchet-5",
+    "ratchet_head_thickness_mm": 8.89,
+    "simple_axial_residual_mm": 0.0554,
+    "assembled_drive_and_service_clash": "unproved"
+  },
+  "limits": ["No compression or material capacity claim", "No installed or moving CAD screen for new sleeve and tools", "No socket internal-depth or driver interface evidence", "No WJ-03 integration or edge-distance acceptance", "No fabrication release"]
+}
