@@ -41,6 +41,19 @@ unaccepted separate prototype, not the active WJ-04 trial.
   rear projection remains +86.018477 mm beyond the ordinary reference. The
   sequence remains diagnostic, with envelope, support, and tolerance gates
   open.
+- A separate WJ-03 compact outer-bevel hypothesis (`c99751db`) and [access
+  archive](hypotheses/wj03-compact-outer-access.md) (`b3a949e9`) report six
+  body-removal translations, 40 shaft/head checks across 20 bolt stations,
+  42 panel-screw tool/withdrawal proxies, and lower-panel-first kicker
+  extraction/return clear in sampled geometry. Its [outer tool archive](hypotheses/wj03-compact-outer-tools.md)
+  reports 40 coaxial socket approaches clear, four socket-plus-nut exits
+  overlapping under-header links, two nut-washer slides hitting base rails,
+  and no tool proxy below the analytical z = 0 plane. A broad FACOM full-turn
+  envelope overlaps all 20 stacks; turning/withdrawing the bolt from the head
+  side while holding the nut stationary, then removing nut and washer, is the
+  next proposed screen. These diagnostics do not establish actual tool fit,
+  continuous motion, physical floor clearance, or acceptance; the hypothesis
+  remains separate from active layout.
 - WJ-04 binds the 95.25 × 38.1 × 119.7 mm grain-N trial across probe,
   mechanics, and tool-access artifacts. Mechanics now uses the probe's finite
   contact-area method and lists the canonical rectangle separately. Historical
@@ -49,8 +62,18 @@ unaccepted separate prototype, not the active WJ-04 trial.
   25.4 mm perpendicular-grain loaded-edge 4D reference. Signed demand remains
   unresolved, so this is not a universal failure claim; the narrow trial
   cannot meet that criterion if a nonzero ±T lateral component governs.
-  Generic tool envelopes overlap modeled solids, but establish neither actual
-  access nor impossibility. The 2×6 rip requires post-rip regrading.
+  The refreshed tool report remains `diagnostic_overlap_present`. Its corrected
+  placement centers the modeled 3.0 mm wrench slab within target head/nut axial
+  thickness. In two synthetic headings, paired-wrench and upright counterhold
+  bounds clear; rail counterhold and nut stroke/reindex overlap. The full-turn
+  wrench-plus-axial nut-removal bound overlaps at all four stacks; separate
+  loose-nut/washer translation sweeps clear at uprights but overlap at rails.
+  Bolt withdrawal clears at all four; head-washer removal overlaps at rails
+  but clears at uprights. These broad bounds establish
+  neither actual access nor impossibility. The probe's 0.764 mm generic 50 mm
+  rail-tool gap and 21.872532 mm temporary nut-exit excess are unchanged and
+  remain outside tolerance acceptance. The 2×6 rip requires post-rip
+  regrading.
 - WJ-05 transfer and receiver reports remain diagnostic; center receiver path
   remains blocked and backer/header duties remain unaccepted.
 - WJ-06 registry maps 24 duties / 144 former SDS axes, retains 66 screw axes
@@ -92,7 +115,7 @@ Pages run `35959025255` succeeded. Parent verified live HTML SHA-256
 | Work area | Owner | Current scope and boundary |
 | --- | --- | --- |
 | Scope, shared decisions, integration, validation, delivery | Parent `/root` | Resolve conflicts, authorize dependent edits, own serialized commit/push and final gates. |
-| WJ-04 tool refinement | `luna_wj04_tool_access` | Refined report is frozen and source/config bound. It uses synthetic 15°/75° headings, 30° stroke, 60° reindex, analytic rotation enclosure, and separately screened nut/washer removal. The washer's same-stack shaft is excluded only during axial slide (7.7978 mm source-bounded minimum ID vs 6.35 mm modeled shaft max); unrelated obstacles remain. `diagnostic_overlap_present` remains; bounds prove neither actual access nor impossibility. Exact FACOM jaw/handle shape and working sweep remain unsupported. Manifest pins refreshed. |
+| WJ-04 tool refinement | `luna_wj04_tool_access` | Refreshed report is source/config bound and keeps `diagnostic_overlap_present`. Corrected placement centers the modeled 3.0 mm slab within target fastener head/nut thickness. Synthetic 15°/75° headings, 30° stroke, 60° reindex, analytic rotation enclosure, and separate nut/washer removal remain. Paired-wrench and upright counterhold bounds clear; rail counterhold and nut stroke/removal overlaps remain. The washer's same-stack shaft is excluded only during axial slide (7.7978 mm source-bounded minimum ID vs 6.35 mm modeled shaft max); unrelated obstacles remain. Exact FACOM jaw/handle shape, delivered tolerances, and working sweep remain unsupported. Manifest pins refreshed. |
 | WJ-03 service alignment | `luna_outer_path` | Candidate-only `mini_moonboard/wood_joint_panel_machining.py` and tests restore fixed service-bore datums without editing `floor_flush_width.py` or changing source inventory. The final sequence clears the prior 35 right-return LED hits; no disconnection is needed or inferred. |
 | WJ-03 transport narrative | `luna_transport_ops` | Current order clears return after staging the lower panel. Kicker motion with that panel retained still overlaps; sequence remains diagnostic and does not prescribe service disconnection. |
 | WJ-05 center paths | `luna_center_loadpath` | Implements an isolated center-node prototype. Keep it separate from the active candidate and current receiver report; no receiver duty, load path, or capacity is accepted. |

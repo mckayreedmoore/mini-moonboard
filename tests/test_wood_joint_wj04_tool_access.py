@@ -10,6 +10,7 @@ from scripts.wood_joint_wj04_tool_access import (
     DEFAULT_PRODUCER_COMMAND,
     DEPENDENCY_PATHS,
     _file_bindings,
+    _seated_tool_center,
     build_catalog_wrench_envelope,
     collision_report,
     full_nut_removal_envelope,
@@ -56,6 +57,54 @@ def test_catalog_wrench_external_envelope_uses_head_width_as_diameter():
     assert bounds.ymax - bounds.ymin == pytest.approx(tool.head_width_mm)
     assert bounds.zmax - bounds.zmin == pytest.approx(tool.head_thickness_mm)
     assert bounds.xmin == pytest.approx(-tool.head_width_mm / 2)
+
+
+@pytest.mark.parametrize(
+    "outward_axis",
+    (
+        cq.Vector(0.0, 0.0, 1.0),
+        cq.Vector(0.0, 0.0, -1.0),
+        cq.Vector(0.0, math.cos(math.radians(23)), math.sin(math.radians(23))),
+    ),
+)
+def test_seated_wrench_slab_is_contained_with_three_mm_axial_engagement(
+    outward_axis,
+):
+    tool = _tool()
+    height_mm = 4.0
+    target_start = cq.Vector(13.0, -21.0, 8.0)
+    target = cq.Solid.makeCylinder(6.0, height_mm, target_start, outward_axis)
+    axis_point = target_start + outward_axis * 1.0
+    center = _seated_tool_center(
+        axis_point, outward_axis, target, tool.head_thickness_mm
+    )
+    wrench = build_catalog_wrench_envelope(
+        center,
+        outward_axis.toTuple(),
+        (1.0, 0.0, 0.0),
+        tool,
+        offset_degrees=0.0,
+    )
+    axis = outward_axis.normalized()
+    target_projection = [vertex.Center().dot(axis) for vertex in target.Vertices()]
+    wrench_projection = [vertex.Center().dot(axis) for vertex in wrench.Vertices()]
+    target_min, target_max = min(target_projection), max(target_projection)
+    wrench_min, wrench_max = min(wrench_projection), max(wrench_projection)
+
+    assert wrench_max - wrench_min == pytest.approx(3.0)
+    assert wrench_min >= target_min
+    assert wrench_max <= target_max
+    assert min(target_max, wrench_max) - max(target_min, wrench_min) == pytest.approx(
+        3.0
+    )
+
+
+def test_seated_tool_fails_closed_when_thickness_exceeds_target_height():
+    outward = cq.Vector(0.0, 0.0, -1.0)
+    target = cq.Solid.makeCylinder(6.0, 2.0, cq.Vector(0.0, 0.0, 0.0), outward)
+
+    with pytest.raises(ValueError, match="tool thickness exceeds target axial height"):
+        _seated_tool_center((0.0, 0.0, -1.0), outward, target, 3.0)
 
 
 def test_turning_sweep_contains_intermediate_wrench_orientation():

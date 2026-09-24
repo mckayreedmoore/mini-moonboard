@@ -16,12 +16,12 @@ Status: diagnostic_overlap_present. This is a conservative catalog-envelope scre
 | --- | --- | --- | --- | --- | --- | --- |
 | rail_1 | Overlap in bound | Overlap in bound | Clear in bound | Overlap in bound | Clear in bound | Overlap in bound |
 | rail_2 | Overlap in bound | Overlap in bound | Clear in bound | Overlap in bound | Clear in bound | Overlap in bound |
-| upright_1 | Overlap in bound | Overlap in bound | Clear in bound | Overlap in bound | Clear in bound | Clear in bound |
+| upright_1 | Clear in bound | Overlap in bound | Clear in bound | Overlap in bound | Clear in bound | Clear in bound |
 | upright_2 | Clear in bound | Overlap in bound | Clear in bound | Overlap in bound | Clear in bound | Clear in bound |
 
 Clear means no intersections in this nominal, deliberately broad envelope. Overlap means that an envelope intersects a modeled obstacle; it does not prove that an actual open-end wrench cannot pass. Rotation paths use continuous-angle boxes computed from analytic corner extrema; translation paths use enclosing boxes. Exact jaw fit, handle profile, and human-hand clearance are not modeled. The 15°/75° values are synthetic planar heading samples, not a verified mapping of the catalog jaw offsets.
 
-Limiting modeled obstacles: finished_parts/wj04_cleat (186740.355213 mm³), panels/main_lower_right (160292.516282 mm³), finished_parts/base_rail_service_lower_right (115128.865089 mm³), panels/main_upper_right (111466.896032 mm³), finished_parts/base_principal_center_right (92143.44054 mm³), other_wood/base_rail_service_upper_right (80369.19461 mm³), protected/lights/light_G7 (3832.767041 mm³), installed_hardware/rail_2/shaft (2464.150137 mm³)
+Limiting modeled obstacles: finished_parts/wj04_cleat (195355.522599 mm³), panels/main_lower_right (170982.870741 mm³), finished_parts/base_rail_service_lower_right (147688.728472 mm³), panels/main_upper_right (100776.541567 mm³), finished_parts/base_principal_center_right (92143.440541 mm³), other_wood/base_rail_service_upper_right (58110.387987 mm³), protected/lights/light_G7 (3832.767041 mm³), installed_hardware/rail_2/shaft (2602.550951 mm³)
 
 ## Removal sequence screened
 
@@ -29,4 +29,4 @@ The model screens a 30° nut-working stroke, an unverified open-end exit proxy o
 
 ## Reproduction and provenance
 
-Run uv run python -m scripts.wood_joint_wj04_tool_access --write. Producer SHA-256: 8e3af4e66153dd3de183604957db969d3bcb1cfcc5e2ce2505eaa8d9bebc129d. JSON data: [wj04-tool-access.json](wj04-tool-access.json).
+Run uv run python -m scripts.wood_joint_wj04_tool_access --write. Producer SHA-256: 91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8. JSON data: [wj04-tool-access.json](wj04-tool-access.json).

@@ -1074,15 +1074,27 @@ def _seated_tool_center(
     target_solid: cq.Shape,
     tool_thickness_mm: float,
 ) -> tuple[float, float, float]:
-    """Seat the outer tool face on the modeled fastener's exterior face."""
+    """Center the tool slab within the target fastener's axial thickness."""
     axis_point = cq.Vector(axis_point_xyz)
-    projection = axis_point.dot(outward_axis)
-    projected_extents = [vertex.Center().dot(outward_axis) for vertex in target_solid.Vertices()]
+    if not all(math.isfinite(component) for component in axis_point.toTuple()):
+        raise ValueError("axis_point_xyz must be finite")
+    axis = _vector(outward_axis, "outward_axis")
+    projected_extents = [
+        vertex.Center().dot(axis) for vertex in target_solid.Vertices()
+    ]
     if not projected_extents:
         raise ValueError("target hardware envelope has no vertices")
-    outer_plane = max(projected_extents)
+    if not all(math.isfinite(value) for value in projected_extents):
+        raise ValueError("target hardware axial projections must be finite")
+    target_min, target_max = min(projected_extents), max(projected_extents)
+    target_axial_height = target_max - target_min
+    if target_axial_height <= 1e-9:
+        raise ValueError("target hardware envelope has no axial thickness")
     thickness = _positive(tool_thickness_mm, "tool_thickness_mm")
-    center = axis_point + outward_axis * (outer_plane - projection + thickness / 2)
+    if thickness > target_axial_height + 1e-9:
+        raise ValueError("tool thickness exceeds target axial height")
+    target_midpoint = (target_min + target_max) / 2
+    center = axis_point + axis * (target_midpoint - axis_point.dot(axis))
     return tuple(center.toTuple())
 
 

@@ -48,31 +48,36 @@ and all Git actions. The selected-baseline source reference remains pinned at
   separate isolated prototype under development, not the active WJ-04 trial
   and not an accepted stock or connection. The current probe binds
   that trial to config hash `d1c63e1f…206c0e`, with release flags false. Its
-  local cleat body has
-  0.0 mm ordinary-N excess; modeled stacks/seats clear, but the generic 50 mm
-  rail tool gap is 0.764 mm and temporary nut exit exceeds the ordinary limit
-  by 21.872532 mm. Early mechanics is config-bound but uses six unreplayed
+  local cleat body has 0.0 mm ordinary-N excess; modeled stacks/seats clear.
+  The generic 50 mm rail-tool gap remains 0.764 mm and temporary nut exit
+  remains 21.872532 mm beyond the ordinary limit; both are probe values, not
+  tolerance passes. Early mechanics is config-bound but uses six unreplayed
   historical angle-demand cases; each has four mismatched source files, so
   fresh candidate demand and capacity remain unresolved. The principal bolts
   have 19.05 mm T-edge distance versus a conditional 25.4 mm perpendicular-
   grain loaded-edge 4D reference. Signed demands remain unresolved; this is
   not a universal failure claim, but the narrow trial cannot satisfy that
-  criterion if a nonzero ±T lateral component governs. Mechanics now uses
-  the probe's finite-probe area basis and reports the canonical bounds area
-  separately as a coordinate audit. The refined tool report remains
-  `diagnostic_overlap_present`: it screens two synthetic heading samples with
-  a 30° working stroke, detached 60° reindex, and conservative continuous
-  rotation enclosures, plus a 22 mm open-end exit proxy. It also screens
-  full-turn nut advancement, nut/washer translation, bolt withdrawal, and
-  later head-washer removal. For wrench contact, only the active fastener head
-  or nut and its own shaft are excluded; washers remain obstacles. The nut
-  washer's same-stack shaft is excluded only during nominal axial sliding,
-  based on source-bounded washer ID exceeding modeled shaft diameter; thread
-  major diameter and delivered-part fit remain unverified. Full bolt
-  withdrawal assumes all same-stack hardware is removed first, with host wood
-  retained as an obstacle. The refreshed broad tool envelope overlaps the
-  lower panel; that remains a conservative diagnostic, not a physical access
-  finding. The model proves neither actual access nor physical impossibility.
+  criterion if a nonzero ±T lateral component governs. Mechanics now uses the
+  probe's finite-probe area basis and reports the canonical bounds area
+  separately as a coordinate audit. The regenerated tool report remains
+  `diagnostic_overlap_present`. Its corrected placement centers the modeled
+  3.0 mm wrench slab within target head/nut axial thickness. In two synthetic
+  headings, head counterhold clears at both principal upright stacks and
+  overlaps at both rails; paired-wrench bounds clear at all four. Nut
+  stroke/reindex and the full-turn wrench-plus-axial nut-removal bound overlap
+  at all four. Separate loose-nut and nut-washer translation sweeps clear at
+  upright stacks but overlap at rails. Bolt withdrawal clears at all four;
+  head-washer removal overlaps at rail stacks and clears at upright stacks.
+  The report retains 30° working strokes,
+  detached 60° reindex, conservative continuous-rotation enclosures, a 22 mm
+  open-end exit proxy, full-turn nut advancement, and nut/washer translation.
+  For wrench contact, only the active fastener head or nut and its own shaft
+  are excluded; washers remain obstacles. The nut washer's same-stack shaft is
+  excluded only during nominal axial sliding, based on source-bounded washer ID
+  exceeding modeled shaft diameter; thread major diameter and delivered-part
+  fit remain unverified. Full bolt withdrawal assumes all same-stack hardware
+  is removed first, with host wood retained as an obstacle. These broad
+  envelopes establish neither actual access nor physical impossibility.
 - **WJ-05:** The fresh transfer report remains nominal geometry only. The
   receiver audit is `blocked_center_receiver_path`; the four center duties,
   both backer/header attachments, and complete receiver-to-frame capacities
@@ -100,8 +105,20 @@ authority, or deployed viewer. None is integrated or accepted.
 
 - [WJ-03 compact outer bevel](hypotheses/wj03-compact-outer-probe.md),
   `c99751db`: N = 137.7 mm leaves 2 mm nominal rear-envelope reserve; installed
-  stacks, timber, and protected geometry screens clear. Tool/access review is
-  separate.
+  stacks, timber, and protected geometry screens clear. Its separate
+  [compact access archive](hypotheses/wj03-compact-outer-access.md),
+  `b3a949e9`, reports six body-removal translations and 40 shaft/head checks
+  across 20 bolt stations clear, 42 panel-screw tool/withdrawal proxies clear,
+  and lower-panel-first
+  kicker extraction/return clear in sampled geometry. The [outer tool
+  archive](hypotheses/wj03-compact-outer-tools.md) reports 40 coaxial socket
+  approaches clear, four socket-plus-nut exits that overlap under-header
+  links, two nut-washer slides that hit base rails, and no tool proxy below
+  the analytical z = 0 plane. Its broad FACOM full-turn envelope overlaps all
+  20 stacks; it proposes turning/withdrawing the bolt from the head side while
+  holding the nut stationary, then removing the nut and washer. These screens
+  establish neither actual tool fit, continuous motion, physical floor
+  clearance, nor acceptance; the hypothesis remains isolated.
 - [WJ-04 upper G7 crosscut](hypotheses/wj04-upper-g7-crosscut.md),
   `5555c646`: the upper cleat is crosscut and its upper-rail bolt stack
   reversed. Bodies, stacks, and 16 washer seats clear, but all four rail-bolt
@@ -134,7 +151,7 @@ references resolve to existing files.
 | `/root/luna_joint_mechanics` | `scripts/wood_joint_wj04_early_mechanics.py`, its test, and generated `wj04-early-mechanics.json/.md` | Reconciled area basis consumes active probe finite-probe values and reports the canonical rectangle separately. Ruff and seven focused tests pass. Status remains diagnostic-only and `UNRESOLVED_DEMAND`; no fresh candidate forces or capacity are claimed. Current artifact hashes are pinned in the manifest. |
 | `/root/luna_viewer_audit` | `scripts/export_wood_joint_scene.py`, generated `site/owner-wood-joints-layout-scene.json` | Final candidate-panel scene is deployed and browser-reviewed: 169 solids (110 WJ-03, 23 WJ-04, 32 WJ-05, four shared) and `integrated_clearance=not_run`. |
 | `/root/luna_hardware_tools` | Viewer `site/wood-joints-outer-viewer.html`, `site/index.html`; also completed the ordinary fastener stack method, tests, and basis doc | Default-off tool/socket overlay and UI are live; the reviewed “Shared geometry” labels are deployed. Viewer claims remain bounded by the diagnostic scene. |
-| `/root/luna_wj04_tool_access` | `scripts/wood_joint_wj04_tool_access.py`, its test, and generated `wj04-tool-access.json/.md` | Refined report is source/config bound; status remains `diagnostic_overlap_present`. Parent reports 13 focused tool-access checks and Ruff pass. Current artifact hashes are pinned in the manifest. |
+| `/root/luna_wj04_tool_access` | `scripts/wood_joint_wj04_tool_access.py`, its test, and generated `wj04-tool-access.json/.md` | Refreshed source/config-bound report remains `diagnostic_overlap_present`; modeled 3.0 mm wrench slab is centered within target head/nut axial thickness. Paired-wrench and upright counterhold bounds clear; rail counterhold, nut stroke/reindex, and full-turn wrench-plus-axial removal bounds overlap. Separate loose-nut/washer translation clears at uprights and overlaps at rails. Actual jaw/handle access is unproved. Current artifact hashes are pinned in the manifest. |
 | `/root/luna_snapshot_integrity` | `scripts/wood_joint_snapshot_integrity.py` and its tests | Audit code, 15 focused tests, Ruff, and read-only CLI pass. Active manifest scope includes WJ-04 probe, mechanics, tool-access, viewer, WJ-05 receiver audit, and duty registry; historical screens are byte-pinned only. |
 | `/root/luna_duty_registry` | `scripts/wood_joint_duty_registry.py`, its test, `duty-registry.json`; `scripts/wood_joint_wj04_full_stock_probe.py` and its test | Registry source binding is current. Counts remain 24/144 duties/axes, retained 66/12, zero accepted replacements, and 540 potential WJ-06 corridors with none materialized or fully stacked. The separate 88.9 × 88.9 × 119.7 mm full 4×4 prototype is in development; it is unaccepted, does not change the active WJ-04 trial, and authorizes no stock or hardware purchase or fabrication. Current artifact hashes are pinned in the manifest. |
 | `/root/luna_checkpoint_prep` | `.github/workflows/ci.yml` | Owns the CI workflow edit; the orchestration plan now reflects the verified public viewer checkpoint. |
@@ -151,10 +168,11 @@ This handoff and the narrative docs (`completion-ledger.md`, `next-mvp-plan.md`,
 1. The final 169-solid candidate-panel scene is deployed and verified in Pages
    run `35963729016`; HTML and scene both returned HTTP 200 and matched their
    pinned hashes. Parent browser review passed.
-2. The refined WJ-04 tool-access result is pinned. Keep the FACOM catalog
-   nomination and conservative partial-sweep/removal screens distinct from
-   proven tool motion; broad-envelope overlaps prove neither actual access nor
-   physical impossibility.
+2. The refreshed WJ-04 tool-access result is pinned. Its corrected slab
+   placement refines the head/nut contact envelope; keep FACOM catalog
+   nomination and synthetic partial-sweep/removal bounds distinct from actual
+   tool motion. Clear bounds and overlaps prove neither access nor
+   impossibility.
 3. The WJ-06 duty registry is refreshed and source-bound. Regenerate it only
    if a bound input changes; its current counts include zero accepted
    replacements.

@@ -34,7 +34,7 @@ The selected angle-frame authority in [`current-candidate.json`](../../current-c
 and the preserved barrel work do not supply new-joint capacities or case passes.
 Do not change selected authority to make this development lane appear complete.
 
-## Current diagnostic checkpoint, 2026-09-23
+## Current diagnostic checkpoint, 2026-09-24
 
 This checkpoint is source and geometry work only. Component tests and nominal
 clearance do not close a stage gate.
@@ -76,10 +76,18 @@ clearance do not close a stage gate.
   traceable source is required. The current early mechanics report uses six
   historical angle-demand cases without replay; each has four mismatched
   source files, and no fresh candidate demand/capacity is established. The
-  current tool-access report is `diagnostic_overlap_present`: broad envelopes
-  overlap modeled solids on counterhold, nut stroke/reindex, and removal
-  operations. These proxies establish neither physical access nor
-  impossibility. The principal bolts have 19.05 mm T-edge distance versus a
+  current tool-access report remains `diagnostic_overlap_present`. Its
+  corrected placement centers the modeled 3.0 mm wrench slab within the target
+  head/nut axial thickness. In the broad 22 mm envelope and two synthetic
+  headings, head counterhold clears at both upright stacks and overlaps at
+  both rails; the paired-wrench envelope clears at all four. Nut stroke/reindex
+  and the full-turn wrench-plus-axial nut-removal bound overlap at all four.
+  Separate loose-nut and nut-washer translation sweeps clear at the uprights
+  but overlap at the rails. Bolt withdrawal clears at all four, and head-washer
+  removal overlaps at the rails but clears at the uprights. These bounds
+  establish neither actual access nor impossibility;
+  actual jaw fit, handle sweep, and placement remain unverified. The principal
+  bolts have 19.05 mm T-edge distance versus a
   conditional 25.4 mm perpendicular-grain loaded-edge 4D reference. Signed
   demands remain unresolved; this is not a universal failure claim, but the
   narrow trial cannot satisfy that criterion if a nonzero ±T lateral component
@@ -108,7 +116,22 @@ These follow-up screens do not change the active
 `narrow_x95p25_ordinary_bolt_candidate`, selected source pins, or deployed
 viewer. None is integrated, promoted, or accepted.
 
-- **WJ-03 compact outer bevel** (`c99751db`, [archived probe](hypotheses/wj03-compact-outer-probe.md)) trims the connector rear bevel to N = 137.7 mm, leaving 2 mm nominal reserve to the ordinary envelope. Installed hardware, timber, and protected-geometry screens clear. A separate access producer and tool review remain in progress.
+- **WJ-03 compact outer bevel** (`c99751db`,
+  [archived probe](hypotheses/wj03-compact-outer-probe.md)) trims the connector
+  rear bevel to N = 137.7 mm, leaving 2 mm nominal reserve to the ordinary
+  envelope. Installed hardware, timber, and protected-geometry screens clear.
+  Its separate [compact access archive](hypotheses/wj03-compact-outer-access.md)
+  reports six body-removal translations, 40 shaft/head checks across 20 bolt
+  stations, 42 panel-screw tool/withdrawal proxies, and lower-panel-first
+  kicker extraction/return clear in sampled geometry. The [outer tool
+  archive](hypotheses/wj03-compact-outer-tools.md) reports all 40 coaxial
+  socket approaches clear, four socket-plus-nut exits overlapping under-header
+  links, two nut-washer slides hitting base rails, and no tool proxy below the
+  analytical z = 0 plane. Its broad FACOM full-turn envelope overlaps all 20
+  stacks; the report proposes turning/withdrawing the bolt from the head side
+  while holding the nut stationary, then removing the nut and washer. These
+  operation screens do not establish actual tool fit, continuous motion,
+  physical floor clearance, or acceptance; this hypothesis is not integrated.
 - **WJ-04 upper G7 crosscut** (`5555c646`, [archived probe](hypotheses/wj04-upper-g7-crosscut.md)) crosscuts the upper cleat and reverses its upper-rail bolt stack. Bodies, stacks, and all 16 washer seats clear, but all four rail-bolt insertion paths are blocked with neighboring parts retained. The duty-registry workstream is planning rail-plus-cleat subassemblies outside the frame.
 - **WJ-05 center wire-relief** ([archived probe](hypotheses/wj05-center-node-relieved.md)) clears the L = 82 mm wire-relief body geometry. The right station is 2.303793 mm from the wire; the mirrored left result is a 9.25 mm bounding-box lower bound. It retains 48 + 18 fixed axes. Two properly seated generic head-tool proxies overlap the center posts at upper-header row 2 (left and right), 1,481.459916 mm³ each. These proxy-to-wood results establish neither actual wrench access nor a complete operation path; the center owner is planning tool and staging checks.
 
@@ -125,7 +148,7 @@ and MVP-E remain gated by the work below.
 | Stage | Work | Gate to advance |
 | --- | --- | --- |
 | **1. Repair outer nodes (finish WJ-03)** | Preserve the final candidate-only service-bore correction and lower-panel-first order before kicker extraction/return; kicker motion with the panel installed still overlaps. No LED disconnection is needed or inferred. Resolve the +86.018477 mm permanent rear projection by a dimensioned geometry revision or named exception; verify the separate temporary bolt-stroke workspace. | Both sides have feasible stock/cuts, complete transfer paths, supported washer seats, the required staged removal order, tolerance-aware installed and removal clearances, and a recorded `advance_layout` result. Keep `revise_named_constraint` until the permanent disposition and remaining local sequence checks pass; do not defer required WJ-03 work to WJ-07. |
-| **2. Prove one ordinary joint (WJ-04)** | Keep every consumer bound to `narrow_x95p25_ordinary_bolt_candidate` at `clip_horizontal_lower_right_1`. Probe/mechanics contact areas now share the finite-probe basis; the mechanics report lists the canonical rectangle separately as a coordinate audit. Review the current probe's 0.764 mm generic 50 mm rail-tool gap and 21.872532 mm temporary nut-exit excess; neither is a tolerance pass. Resolve conservative envelope overlaps with a credible tool profile and bounded motion; the current report neither proves access nor physical impossibility. Rebuild mechanics only on fresh candidate actions; the current early screen uses stale angle-demand inputs. Resolve conditional end/edge geometry with signed loads, and use the 2×6 rip only with post-rip grade evidence. | One complete nominal and tolerance-aware joint with a traceable stock/cut route, matched geometry/hardware/tool/mechanics, an evidenced disassembly path, fresh demands, and signed end/edge treatment. List only station families whose geometry can reuse it; screen mirrored and service-different stations independently. |
+| **2. Prove one ordinary joint (WJ-04)** | Keep every consumer bound to `narrow_x95p25_ordinary_bolt_candidate` at `clip_horizontal_lower_right_1`. Probe/mechanics contact areas now share the finite-probe basis; the mechanics report lists the canonical rectangle separately as a coordinate audit. The probe's 0.764 mm generic 50 mm rail-tool gap and 21.872532 mm temporary nut-exit excess are unchanged; neither is a tolerance pass. The refreshed tool screen centers its 3.0 mm slab within target head/nut thickness. Paired-wrench and upright counterhold bounds clear; rail counterhold, nut stroke/reindex, and full-turn wrench-plus-axial nut-removal bounds overlap. Loose nut/washer translation sweeps clear at upright stacks and overlap at rails. Replace broad envelopes with source-supported wrench geometry and a bounded operation path; neither clear bounds nor overlaps prove actual access or impossibility. Rebuild mechanics only on fresh candidate actions; the current early screen uses stale angle-demand inputs. Resolve conditional end/edge geometry with signed loads, and use the 2×6 rip only with post-rip grade evidence. | One complete nominal and tolerance-aware joint with a traceable stock/cut route, matched geometry/hardware/tool/mechanics, an evidenced disassembly path, fresh demands, and signed end/edge treatment. List only station families whose geometry can reuse it; screen mirrored and service-different stations independently. |
 | **3. Close center and kicker subsystem (WJ-05)** | Preserve the fresh nominal transfer and receiver reports as diagnostics. Complete the four center principal/header and moved-post/header structural duties, both backer/header attachments, and both inner kicker edge supports. Recheck E1/G1, T-nuts, LEDs, wire, and all twelve retained frame-bolt arrangements. | The 66 axes retain supported finished-wood receivers and required embedment; center and edge-support load paths reach the frame through accepted joints. Each backer attachment and complete joint has evidence; socket outside-envelope clearance is not treated as tool fit. |
 | **4. Finish whole-frame geometry (WJ-06)** | Assign one accountable replacement owner to every former angle duty. Add residual top, rail, inclined, and splice details only where the actual topology needs them. Generate one source-bound finished-part model and viewer, including all new and retained fasteners and all machining. | Exactly 24 duties and 144 removed SDS axes reconcile with physical interfaces; all 66 fixed screw axes and twelve rechecked frame-bolt arrangements appear; no legacy structural SDS path survives; part, assembly, bolt, and move-operation counts are separate. |
 | **5. Close MVP-L (WJ-07)** | Run complete installed, tool, insertion, reverse-removal, same-family, cross-family, protected-service, floor/pad, and tolerance screens on the integrated model. Define manufacturable cut setups, tool needs, and forward/reverse assembly order. | No known unintended collision or unsupported seat; required separations stay positive under stated dimensional bounds; every joint can be assembled and removed without routine structural wood-thread removal. Publish a complete owner-reviewable layout with limits, not a drilling release. |
@@ -202,9 +225,11 @@ support, service, movement, and tolerance screen before reuse.
    two Type A Wide washers per bolt. The 100 × 53.34 mm pose is unbound until
    stock, bolt grip, delivered thread engagement, tools, tolerances, and
    mechanics all match. The cataloged FACOM `34.7/16` wrench pair is only a
-   tool candidate; actual install/removal pose and handle sweep remain to be
-   proved. The 2×6 rip is only a raw-stock lead until post-rip grade evidence
-   exists. No joint or capacity is accepted.
+   tool candidate. The updated conservative screen centers its modeled slab
+   axially on the fastener and clears paired-wrench/upright counterhold
+   envelopes, but remaining overlaps and unsupported jaw/handle geometry leave
+   actual install/removal access unproved. The 2×6 rip is only a raw-stock lead
+   until post-rip grade evidence exists. No joint or capacity is accepted.
 4. **Complete WJ-05 load paths.** Fresh transfer and receiver reports are
    nominal geometry diagnostics. The four center screw receivers terminate in
    separate backers; two provisional bolts per backer do not establish the
