@@ -1,0 +1,96 @@
+{
+  "schema": "wood_joint_candidate_contract/v1",
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "status": "development_partial_diagnostic_unreleased",
+  "source": {
+    "repository_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+    "handoff": "MINI_MOONBOARD_WOOD_JOINT_MVP_HANDOFF_df7f5ec.md",
+    "handoff_reviewed_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+    "source_variant": "kerf-right"
+  },
+  "authority": {
+    "role": "separate_development_candidate",
+    "replaces_selected_authority": false,
+    "selected_authority_path": "current-candidate.json",
+    "selected_candidate": "compact-floor-flush-development",
+    "selected_authority_git_blob": "c4cac8e86d4a3100fa26c60f4e0a9a9e2da132ee",
+    "preserved_barrel_authority_path": "barrel-nut-candidate.json",
+    "preserved_barrel_candidate": "compact-floor-flush-bolted-development",
+    "preserved_barrel_authority_git_blob": "8b3702cb5c9218df886a75f71f0c751fc2ab315c",
+    "relationship_to_dirty_bolted_docs": "The owner block direction remains active in the parallel compact-floor-flush-bolted-development lane; this handoff creates a stricter separate identity with all 66 panel/kicker axes fixed."
+  },
+  "invariants": {
+    "climbing_surface": "fixed kerf-right surface, panel outlines, hold grid, kicker geometry and service function",
+    "panel_kicker_screw_axes_fixed": true,
+    "panel_screws": 48,
+    "kicker_screws": 18,
+    "panel_kicker_screw_axes": 66,
+    "panel_screw_policy": "Retain purchased Hillman 42605 policy; panel screws remain distinct from structural connections.",
+    "starting_frame_bolt_arrangements": 12,
+    "legacy_angle_duties_to_replace": 24,
+    "legacy_structural_sds_to_remove": 144,
+    "ordinary_local_n_envelope_mm": 139.7,
+    "ordinary_local_n_envelope_policy": "Measure connector-body extrema and full installed hardware projection from an explicit station datum; rear-face placement does not waive the envelope.",
+    "primary_member_notch_default": "prohibited",
+    "primary_member_notch_exception": "Candidate-specific housing may be evaluated only for a named load-transfer or geometry benefit, with exact cut geometry, fabrication method and complete affected checks; no cut is released.",
+    "connector_construction": {
+      "permitted_for_development": [
+        "realizable one-piece solid-wood connector bodies",
+        "mechanically complete multi-piece wood connector assemblies using ordinary through-bolts, metal nuts and suitable washers",
+        "structural-plywood connector bodies only with explicit product, layup, axes and applicable connection evidence",
+        "connector-side seats, recesses and shaping"
+      ],
+      "excluded": [
+        "custom fabricated steel",
+        "new steel-angle architecture",
+        "barrel-nut architecture",
+        "unqualified glue-dependent composite action",
+        "routine structural wood-thread removal interfaces",
+        "half-laps and other interlocking primary-member joinery"
+      ]
+    },
+    "individual_member_transport": true,
+    "floor_support": "Existing no-slip floor support remains an unverified analytical assumption; no floor anchor or new floor-bearing connector contact is credited."
+  },
+  "release": false,
+  "release_flags": {
+    "layout_complete": false,
+    "engineering_mvp_complete": false,
+    "physical_prototype_complete": false,
+    "geometry_accepted": false,
+    "drilling_released": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "documents": {
+    "plan": "docs/wood-joints-mvp/plan.md",
+    "authority_integrity": "docs/wood-joints-mvp/authority-integrity.json",
+    "decision_log": "docs/wood-joints-mvp/decision-log.md",
+    "completion_ledger": "docs/wood-joints-mvp/completion-ledger.md",
+    "criteria": "docs/wood-joints-mvp/criteria.json",
+    "source_inventory": "docs/wood-joints-mvp/source-inventory.json",
+    "source_inventory_summary": "docs/wood-joints-mvp/source-inventory-summary.md",
+    "outer_interfaces": "docs/wood-joints-mvp/interfaces.json",
+    "outer_hardware": "docs/wood-joints-mvp/hardware.json",
+    "outer_clearance": "docs/wood-joints-mvp/clearance.json",
+    "artifact_manifest": "docs/wood-joints-mvp/artifact-manifest.json",
+    "outer_node_result": "docs/wood-joints-mvp/outer-node-result.md",
+    "outer_scene": "site/owner-wood-joints-layout-scene.json",
+    "outer_viewer": "site/wood-joints-outer-viewer.html",
+    "next_mvp_plan": "docs/wood-joints-mvp/next-mvp-plan.md",
+    "wj03_sequence": "docs/wood-joints-mvp/wj03-sequence-diagnostic.json",
+    "wj03_transport_operations": "docs/wood-joints-mvp/transport-operations.md",
+    "wj04_probe": "docs/wood-joints-mvp/wj04-probe.json",
+    "wj04_workhorse": "docs/wood-joints-mvp/wj04-workhorse-probe.md",
+    "wj04_mechanics": "docs/wood-joints-mvp/wj04-early-mechanics.json",
+    "wj04_tool_access": "docs/wood-joints-mvp/wj04-tool-access.json",
+    "ordinary_hardware_basis": "docs/wood-joints-mvp/ordinary-hardware-basis.md",
+    "stock_cut_basis": "docs/wood-joints-mvp/stock-and-cut-basis.md",
+    "bolt_resistance_basis": "docs/wood-joints-mvp/bolt-resistance-basis.md",
+    "wj05_transfer": "docs/wood-joints-mvp/wj05-center-backer-transfer.json",
+    "wj05_receiver_audit": "docs/wood-joints-mvp/wj05-receiver-audit.json",
+    "duty_registry": "docs/wood-joints-mvp/duty-registry.json"
+  },
+  "limits": "WJ-00 through WJ-02 are complete. WJ-03 remains partial: the integrated sequence is diagnostic; 35 fixed LEDs overlap the right lower-panel return only at the terminal 250 mm pose because the kerf-right panel and service bores shift while electrical parts remain at earlier datums. Both staged panel and kicker poses have 0 mm nominal floor gap. The permanent rear envelope is +86.018477 mm beyond the ordinary reference; the 315.648756 mm bolt stroke is separate temporary workspace. WJ-04 remains a diagnostic 95.25 x 38.1 x 119.7 mm grain-N trial: local body excess is 0 mm, generic 50 mm rail-tool gap is 0.764 mm, and temporary nut exit exceeds the ordinary limit by 21.872532 mm. Tool-access envelopes overlap modeled solids but establish neither actual access nor physical impossibility. Mechanics now uses probe finite-contact areas, but its six historical angle-demand cases remain unreplayed with four mismatched source files per case; fresh demand and capacity are unresolved. The 2x6 rip requires post-rip regrading. WJ-05 transfer and receiver reports remain diagnostic; the receiver path is blocked and backer/header duties are unresolved. WJ-06 registry maps 24 duties / 144 former SDS axes, retains 66 screw axes / 12 frame-bolt arrangements, and accepts zero replacements; 540 corridors remain potential, with zero materialized corridors or full stacks. No complete joint resistance, integrated layout acceptance, MVP-L, or release is established."
+}
