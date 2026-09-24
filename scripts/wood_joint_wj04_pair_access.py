@@ -46,6 +46,8 @@ LIGHT_COUNT = 132
 WIRE_COUNT = 131
 HIT_TOLERANCE_MM3 = 1e-6
 EXIT_CLEARANCE_MM = 25.0
+LOCAL_UNSEATING_OVERTRAVEL_MM = 25.0
+LOCAL_SAMPLE_MAX_GAP_MM = 5.0
 WORKING_STROKE_DEGREES = 30.0
 
 SOURCE_INPUTS = tuple(
@@ -256,11 +258,32 @@ def trial_plan() -> dict[str, Any]:
                 ],
                 "translation_axis": "source WJ04 global N axis",
                 "directions_checked": ["+N", "-N"],
+                "global_projection_comparison": {
+                    "clearance_mm": EXIT_CLEARANCE_MM,
+                    "scope": "global fixed-obstacle projection; not a local extraction distance",
+                },
                 "stand_off_strategy": (
-                    "At materialization, extend each one-axis sweep until the moving "
-                    "member's N projection clears the fixed obstacle projection by "
-                    f"{EXIT_CLEARANCE_MM:g} mm. This is not a route around the frame."
+                    "Legacy comparison only: extend each one-axis swept AABB until "
+                    "the moving pair clears the global fixed-obstacle N projection "
+                    f"by {EXIT_CLEARANCE_MM:g} mm. These long distances are not a "
+                    "local unseating stroke or a route around the frame."
                 ),
+                "local_plus_n_sampled_solid_screen": {
+                    "direction": "+N",
+                    "stroke_definition": (
+                        "Conservative AABB-corner N projection extent of the source "
+                        "rail plus cleat, then 25 mm overtravel. Attached rail T-bolts "
+                        "move with them."
+                    ),
+                    "maximum_sample_gap_mm": LOCAL_SAMPLE_MAX_GAP_MM,
+                    "floor_plane_z_mm": 0.0,
+                    "placement_state": (
+                        "The moving station's principal X-bolts are not yet installed; "
+                        "opposite-station principal hardware stays in place."
+                    ),
+                    "continuous_path_clearance_proven": False,
+                    "screen_status": "pending_materialization",
+                },
                 "outer_duty_obstacles_retained": True,
                 "side_member_release_modeled": False,
                 "screen_status": "pending_materialization",
@@ -401,6 +424,356 @@ def _map_projection_bounds(shapes: Mapping[str, cq.Shape], axis: cq.Vector) -> t
     if not bounds:
         raise ValueError("movement screen requires fixed environment obstacles")
     return min(low for low, _high in bounds), max(high for _low, high in bounds)
+
+
+def _bounds_overlap(first: cq.BoundBox, second: cq.BoundBox) -> bool:
+    return not (
+        first.xmax <= second.xmin
+        or second.xmax <= first.xmin
+        or first.ymax <= second.ymin
+        or second.ymax <= first.ymin
+        or first.zmax <= second.zmin
+        or second.zmax <= first.zmin
+    )
+
+
+def _path_aabb(
+    shape: cq.Shape, displacement: cq.Vector
+) -> tuple[tuple[float, float, float], tuple[float, float, float]]:
+    bounds = shape.BoundingBox()
+    delta = displacement.toTuple()
+    lows = (bounds.xmin, bounds.ymin, bounds.zmin)
+    highs = (bounds.xmax, bounds.ymax, bounds.zmax)
+    path_lows = tuple(min(low, low + move) for low, move in zip(lows, delta, strict=True))
+    path_highs = tuple(
+        max(high, high + move) for high, move in zip(highs, delta, strict=True)
+    )
+    return path_lows, path_highs
+
+
+def _path_aabb_overlaps_obstacle(
+    path_bounds: tuple[tuple[float, float, float], tuple[float, float, float]],
+    obstacle_bounds: cq.BoundBox,
+) -> bool:
+    lows, highs = path_bounds
+    obstacle_lows = (
+        obstacle_bounds.xmin,
+        obstacle_bounds.ymin,
+        obstacle_bounds.zmin,
+    )
+    obstacle_highs = (
+        obstacle_bounds.xmax,
+        obstacle_bounds.ymax,
+        obstacle_bounds.zmax,
+    )
+    return all(
+        high > obstacle_low and obstacle_high > low
+        for low, high, obstacle_low, obstacle_high in zip(
+            lows, highs, obstacle_lows, obstacle_highs, strict=True
+        )
+    )
+
+
+def _solid_entries(name: str, shape: cq.Shape) -> dict[str, cq.Shape]:
+    solids = shape.Solids()
+    if not solids:
+        raise ValueError(f"moving component {name} contains no solids")
+    if len(solids) == 1:
+        return {name: solids[0]}
+    return {f"{name}/solid_{index}": solid for index, solid in enumerate(solids)}
+
+
+def _sampled_solid_translation_screen(
+    moving_solids: Mapping[str, cq.Shape],
+    obstacles: Mapping[str, cq.Shape],
+    direction: cq.Vector,
+    stroke_mm: float,
+    *,
+    max_sample_gap_mm: float = LOCAL_SAMPLE_MAX_GAP_MM,
+    floor_z_mm: float = 0.0,
+) -> dict[str, Any]:
+    """Sample exact BRep intersections along one straight translation.
+
+    Swept AABBs limit the obstacle pairs considered. They remain a separate
+    broadphase result; only translated source solids intersected at sampled
+    offsets count as exact sample hits.
+    """
+    if not moving_solids:
+        raise ValueError("sampled translation requires at least one moving solid")
+    if not obstacles:
+        raise ValueError("sampled translation requires fixed obstacle geometry")
+    direction_values = direction.toTuple()
+    if (
+        not all(math.isfinite(value) for value in direction_values)
+        or direction.Length <= 1e-12
+    ):
+        raise ValueError("sampled translation direction must be finite and nonzero")
+    axis = direction.normalized()
+    stroke = float(stroke_mm)
+    step_limit = float(max_sample_gap_mm)
+    floor = float(floor_z_mm)
+    if not math.isfinite(stroke) or stroke < 0.0:
+        raise ValueError("sampled translation stroke must be finite and nonnegative")
+    if not math.isfinite(step_limit) or step_limit <= 0.0:
+        raise ValueError("maximum sample gap must be finite and positive")
+    if not math.isfinite(floor):
+        raise ValueError("floor plane must be finite")
+
+    interval_count = max(1, math.ceil(stroke / step_limit))
+    offsets = [stroke * index / interval_count for index in range(interval_count + 1)]
+    delta = axis * stroke
+    obstacle_bounds = {name: shape.BoundingBox() for name, shape in obstacles.items()}
+    path_bounds = {
+        moving_id: _path_aabb(moving, delta)
+        for moving_id, moving in moving_solids.items()
+    }
+    broadphase_pairs = {
+        (moving_id, obstacle_id)
+        for moving_id in moving_solids
+        for obstacle_id in obstacles
+        if _path_aabb_overlaps_obstacle(
+            path_bounds[moving_id], obstacle_bounds[obstacle_id]
+        )
+    }
+    broadphase_by_moving: dict[str, list[str]] = {
+        moving_id: sorted(
+            obstacle_id for candidate_id, obstacle_id in broadphase_pairs
+            if candidate_id == moving_id
+        )
+        for moving_id in moving_solids
+    }
+
+    pair_stats: dict[tuple[str, str], dict[str, Any]] = {}
+    per_pose = []
+    minimum_z_by_solid = {moving_id: math.inf for moving_id in moving_solids}
+    for sample_index, offset in enumerate(offsets):
+        translation = axis * offset
+        exact_hits = []
+        floor_clearance = {}
+        floor_penetration_ids = []
+        candidate_pair_count = 0
+        for moving_id, moving in moving_solids.items():
+            moved = moving.translate(translation)
+            moved_bounds = moved.BoundingBox()
+            z_min = moved_bounds.zmin
+            clearance = z_min - floor
+            minimum_z_by_solid[moving_id] = min(minimum_z_by_solid[moving_id], z_min)
+            floor_clearance[moving_id] = round(clearance, 6)
+            if clearance < -HIT_TOLERANCE_MM3:
+                floor_penetration_ids.append(moving_id)
+            for obstacle_id in broadphase_by_moving[moving_id]:
+                if not _bounds_overlap(moved_bounds, obstacle_bounds[obstacle_id]):
+                    continue
+                candidate_pair_count += 1
+                overlap = moved.intersect(obstacles[obstacle_id]).Volume()
+                if overlap <= HIT_TOLERANCE_MM3:
+                    continue
+                rounded = round(overlap, 6)
+                exact_hits.append(
+                    {
+                        "moving_solid_id": moving_id,
+                        "obstacle_id": obstacle_id,
+                        "overlap_volume_mm3": rounded,
+                    }
+                )
+                pair = (moving_id, obstacle_id)
+                stats = pair_stats.setdefault(
+                    pair,
+                    {
+                        "first_sample_index": sample_index,
+                        "first_translation_mm": round(offset, 6),
+                        "last_sample_index": sample_index,
+                        "last_translation_mm": round(offset, 6),
+                        "sampled_hit_count": 0,
+                        "max_overlap_volume_mm3": rounded,
+                        "max_overlap_sample_index": sample_index,
+                    },
+                )
+                stats["last_sample_index"] = sample_index
+                stats["last_translation_mm"] = round(offset, 6)
+                stats["sampled_hit_count"] += 1
+                if rounded > stats["max_overlap_volume_mm3"]:
+                    stats["max_overlap_volume_mm3"] = rounded
+                    stats["max_overlap_sample_index"] = sample_index
+        per_pose.append(
+            {
+                "sample_index": sample_index,
+                "translation_mm": round(offset, 6),
+                "floor_clearance_by_moving_solid_mm": floor_clearance,
+                "floor_penetrating_solid_ids": sorted(floor_penetration_ids),
+                "broadphase_candidate_pair_count": candidate_pair_count,
+                "exact_sample_hits": exact_hits,
+            }
+        )
+
+    summaries = {}
+    exact_pairs_by_moving: dict[str, set[str]] = {name: set() for name in moving_solids}
+    for (moving_id, obstacle_id), stats in pair_stats.items():
+        exact_pairs_by_moving[moving_id].add(obstacle_id)
+    for moving_id in moving_solids:
+        pair_rows = [
+            {"obstacle_id": obstacle_id, **stats}
+            for (candidate_id, obstacle_id), stats in sorted(pair_stats.items())
+            if candidate_id == moving_id
+        ]
+        hit_sample_indices = [
+            row["sample_index"]
+            for row in per_pose
+            if any(hit["moving_solid_id"] == moving_id for hit in row["exact_sample_hits"])
+        ]
+        all_samples = [
+            hit
+            for row in per_pose
+            for hit in row["exact_sample_hits"]
+            if hit["moving_solid_id"] == moving_id
+        ]
+        max_hit = max(
+            all_samples,
+            key=lambda row: row["overlap_volume_mm3"],
+            default=None,
+        )
+        sampled_exact_ids = exact_pairs_by_moving[moving_id]
+        candidates = set(broadphase_by_moving[moving_id])
+        summaries[moving_id] = {
+            "first_sample_with_any_exact_hit": min(hit_sample_indices, default=None),
+            "last_sample_with_any_exact_hit": max(hit_sample_indices, default=None),
+            "maximum_exact_sample_overlap_mm3": (
+                max_hit["overlap_volume_mm3"] if max_hit else 0.0
+            ),
+            "maximum_overlap_obstacle_id": max_hit["obstacle_id"] if max_hit else None,
+            "minimum_z_over_sampled_path_mm": round(minimum_z_by_solid[moving_id], 6),
+            "broadphase_candidate_obstacle_ids": sorted(candidates),
+            "exact_sample_hit_obstacle_ids": sorted(sampled_exact_ids),
+            "broadphase_candidates_without_exact_sample_hit": sorted(
+                candidates - sampled_exact_ids
+            ),
+            "exact_sample_hits_by_obstacle": pair_rows,
+        }
+
+    any_hits = any(row["exact_sample_hits"] for row in per_pose)
+    any_floor_penetration = any(row["floor_penetrating_solid_ids"] for row in per_pose)
+    return {
+        "direction_global_xyz": [round(value, 9) for value in axis.toTuple()],
+        "stroke_mm": round(stroke, 6),
+        "maximum_sample_gap_mm": round(max(offsets[i + 1] - offsets[i] for i in range(len(offsets) - 1)), 6),
+        "sampled_pose_count": len(offsets),
+        "floor_plane_z_mm": floor,
+        "swept_aabb_broadphase": {
+            "candidate_pair_count": len(broadphase_pairs),
+            "candidate_pairs": [
+                {"moving_solid_id": moving_id, "obstacle_id": obstacle_id}
+                for moving_id, obstacle_id in sorted(broadphase_pairs)
+            ],
+        },
+        "sampled_actual_solid_translation": {
+            "all_sampled_poses_clear": not any_hits and not any_floor_penetration,
+            "continuous_path_clearance_proven": False,
+            "per_moving_solid": summaries,
+            "poses": per_pose,
+        },
+    }
+
+
+def _local_plus_n_screens(
+    geometry: Any,
+    panel_off_panels: Mapping[str, cq.Shape],
+    panel_off_protected: Mapping[str, cq.Shape],
+) -> dict[str, Any]:
+    n_axis = cq.Vector(*WJ04_TRIAL.frame.n_global).normalized()
+    environment = _final_environment(geometry, panel_off_panels, panel_off_protected)
+    outer_required = _outer_obstacle_ids(geometry)
+    results = {}
+    for station_id, rail_id, cleat_id, prefix, other_prefix in (
+        (LOWER_STATION, LOWER_RAIL, LOWER_CLEAT, "lower", "upper"),
+        (UPPER_STATION, UPPER_RAIL, UPPER_CLEAT, "upper", "lower"),
+    ):
+        stack_ids = (f"{prefix}_rail_1", f"{prefix}_rail_2")
+        principal_stack_ids = (f"{prefix}_principal_1", f"{prefix}_principal_2")
+        opposite_principal_stack_ids = (
+            f"{other_prefix}_principal_1",
+            f"{other_prefix}_principal_2",
+        )
+        source_moving_shapes: dict[str, cq.Shape] = {
+            f"wood/{rail_id}": geometry.finished[rail_id],
+            f"wood/{cleat_id}": geometry.finished[cleat_id],
+        }
+        for stack_id in stack_ids:
+            for role, shape in geometry.installed[stack_id].items():
+                source_moving_shapes[f"hardware/{stack_id}/{role}"] = shape
+        moving_environment_ids = set(source_moving_shapes)
+        moving_solids = {
+            solid_id: solid
+            for source_id, shape in source_moving_shapes.items()
+            for solid_id, solid in _solid_entries(source_id, shape).items()
+        }
+        principal_environment_ids = {
+            f"hardware/{stack_id}/{role}"
+            for stack_id in principal_stack_ids
+            for role in geometry.installed[stack_id]
+        }
+        opposite_principal_environment_ids = {
+            f"hardware/{stack_id}/{role}"
+            for stack_id in opposite_principal_stack_ids
+            for role in geometry.installed[stack_id]
+        }
+        missing_opposite = opposite_principal_environment_ids - set(environment)
+        if missing_opposite:
+            raise ValueError(
+                "local placement screen must retain opposite-station principal hardware: "
+                f"{sorted(missing_opposite)}"
+            )
+        obstacles = {
+            name: shape
+            for name, shape in environment.items()
+            if name not in moving_environment_ids | principal_environment_ids
+        }
+        missing_outer = {f"protected/{name}" for name in outer_required} - set(obstacles)
+        if missing_outer:
+            raise ValueError(
+                f"local placement screen omitted unresolved outer obstacles: {sorted(missing_outer)}"
+            )
+        if "wood/base_side_right" not in obstacles:
+            raise ValueError("local placement screen must retain base_side_right")
+
+        wood_members = {
+            f"wood/{rail_id}": geometry.finished[rail_id],
+            f"wood/{cleat_id}": geometry.finished[cleat_id],
+        }
+        moving_low, moving_high = _map_projection_bounds(wood_members, n_axis)
+        pair_extent = moving_high - moving_low
+        stroke = pair_extent + LOCAL_UNSEATING_OVERTRAVEL_MM
+        sampled = _sampled_solid_translation_screen(
+            moving_solids,
+            obstacles,
+            n_axis,
+            stroke,
+            max_sample_gap_mm=LOCAL_SAMPLE_MAX_GAP_MM,
+            floor_z_mm=0.0,
+        )
+        results[station_id] = {
+            "moving_wood_member_ids": [rail_id, cleat_id],
+            "attached_rail_t_bolt_stack_ids": list(stack_ids),
+            "placement_state": "target station principal X-bolts are not yet installed",
+            "not_installed_target_principal_stack_ids": list(principal_stack_ids),
+            "opposite_station_principal_stack_ids_retained": list(
+                opposite_principal_stack_ids
+            ),
+            "fixed_obstacle_count": len(obstacles),
+            "retained_outer_duty_obstacle_ids": sorted(
+                f"protected/{name}" for name in outer_required
+            ),
+            "base_side_right_retained": True,
+            "side_member_release_modeled": False,
+            "rail_plus_cleat_n_projection_extent_mm_conservative": round(
+                pair_extent, 6
+            ),
+            "local_unseating_overtravel_mm": LOCAL_UNSEATING_OVERTRAVEL_MM,
+            "floor_plane_z_mm": 0.0,
+            "aabb_and_exact_results_are_separate": True,
+            "physical_move_proven": False,
+            **sampled,
+        }
+    return results
 
 
 def _final_environment(geometry: Any, panels: Mapping[str, cq.Shape], protected: Mapping[str, cq.Shape]) -> dict[str, cq.Shape]:
@@ -655,6 +1028,9 @@ def report(base_geometry: Any | None = None) -> dict[str, Any]:
     rail_moves = _rail_move_screens(
         geometry, plan, panel_off_panels, panel_off_protected
     )
+    local_plus_n_moves = _local_plus_n_screens(
+        geometry, panel_off_panels, panel_off_protected
+    )
     principal_tools = _principal_tool_screens(
         geometry, panel_off_panels, panel_off_protected
     )
@@ -695,7 +1071,22 @@ def report(base_geometry: Any | None = None) -> dict[str, Any]:
             "rail_cleat_placement_removal": {
                 **plan["operations"]["rail_cleat_placement_removal"],
                 "directions_by_station": rail_moves,
-                "screen_status": "geometry_materialized; physical path unverified",
+                "global_projection_aabb_diagnostics_by_station": rail_moves,
+                "local_plus_n_sampled_solid_screens_by_station": local_plus_n_moves,
+                "local_plus_n_sampled_solid_screen": {
+                    **plan["operations"]["rail_cleat_placement_removal"][
+                        "local_plus_n_sampled_solid_screen"
+                    ],
+                    "by_station": local_plus_n_moves,
+                    "screen_status": (
+                        "materialized; coarse sampled intersections and broadphase "
+                        "only; continuous movement unverified"
+                    ),
+                },
+                "screen_status": (
+                    "global swept-AABB comparison and local sampled-solid diagnostic; "
+                    "physical path unverified"
+                ),
             },
             "principal_x_bolt_tool_screen": principal_tools,
             "final_fit_state": {
@@ -720,7 +1111,10 @@ def report(base_geometry: Any | None = None) -> dict[str, Any]:
         },
         "limitations": [
             "Panel removal itself is a declared state; screw extraction and safe panel handling are not modeled.",
-            "The rail movement screen is one-axis only and its swept AABB can flag conservative false collisions; no route around the frame is searched.",
+            "The legacy +/-N swept-AABB screen uses global fixed-obstacle projection clearance, not local unseating distance; it can overstate collisions and is not a route metric.",
+            "The separate +N local screen checks source solids only at offsets no more than 5 mm apart; broadphase AABB candidates can be false positives, and inter-sample collisions can be missed. It proves neither continuous clearance nor a movement route.",
+            "The local placement state omits only the target station's not-yet-installed principal X-bolts; opposite-station hardware, fixed services, unresolved far-end connector/SDS obstacles, and base_side_right remain.",
+            "The z=0 floor plane is checked from each translated solid's bounding-box minimum at every sampled pose; temporary support, stability, and human handling are not modeled.",
             "The two far-end legacy connector/SDS duties remain unresolved obstacles; no temporary release, replacement, or side-member removal is assumed.",
             "The FACOM external envelope is a catalog proxy; exact jaw orientation, fit, torque, delivered tool tolerances, and human access are unverified.",
             "The 30-degree stroke and 60-degree one-flat reindex are one bounded diagnostic, not proof of repeatable nut removal.",

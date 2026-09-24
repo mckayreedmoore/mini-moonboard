@@ -37,6 +37,20 @@ def test_plan_directly_pins_g7_materializer_source():
     assert plan["source_inputs_sha256"][path] == probe._sha256(ROOT / path)
 
 
+def test_plan_separates_global_aabb_comparison_from_local_plus_n_samples():
+    move = probe.trial_plan()["operations"]["rail_cleat_placement_removal"]
+    local = move["local_plus_n_sampled_solid_screen"]
+
+    assert move["global_projection_comparison"]["scope"] == (
+        "global fixed-obstacle projection; not a local extraction distance"
+    )
+    assert local["direction"] == "+N"
+    assert local["maximum_sample_gap_mm"] == 5.0
+    assert local["floor_plane_z_mm"] == 0.0
+    assert local["continuous_path_clearance_proven"] is False
+    assert "not yet installed" in local["placement_state"]
+
+
 def test_outer_rail_duties_are_unresolved_prerequisites_not_removed():
     plan = probe.trial_plan()
     outer = plan["operations"]["outer_duty_prerequisites"]
@@ -178,3 +192,78 @@ def test_oblique_cylinder_exit_bound_covers_curved_support_between_seam_vertices
     assert max(vertex_values) < exact_high
     assert actual_low <= exact_low
     assert actual_high >= exact_high
+
+
+def test_sampled_screen_keeps_diagonal_cylinder_aabb_candidates_separate_from_solid_hits():
+    cylinder = cq.Solid.makeCylinder(
+        0.5,
+        10.0,
+        cq.Vector(0.0, 0.0, 10.0),
+        cq.Vector(0.0, 1.0, 1.0),
+    )
+    obstacle = cq.Solid.makeBox(
+        0.1,
+        0.1,
+        0.1,
+        cq.Vector(0.0, 0.2, 15.8),
+    )
+
+    result = probe._sampled_solid_translation_screen(
+        {"moving/diagonal_cylinder": cylinder},
+        {"fixed/aabb_only_box": obstacle},
+        cq.Vector(1.0, 0.0, 0.0),
+        2.0,
+        max_sample_gap_mm=0.75,
+        floor_z_mm=0.0,
+    )
+
+    broadphase = result["swept_aabb_broadphase"]
+    sampled = result["sampled_actual_solid_translation"]
+    member = sampled["per_moving_solid"]["moving/diagonal_cylinder"]
+    assert broadphase["candidate_pair_count"] == 1
+    assert member["broadphase_candidate_obstacle_ids"] == ["fixed/aabb_only_box"]
+    assert member["exact_sample_hit_obstacle_ids"] == []
+    assert member["broadphase_candidates_without_exact_sample_hit"] == [
+        "fixed/aabb_only_box"
+    ]
+    assert sampled["all_sampled_poses_clear"] is True
+    assert sampled["continuous_path_clearance_proven"] is False
+    assert result["maximum_sample_gap_mm"] <= 0.75
+    assert all(
+        pose["floor_clearance_by_moving_solid_mm"]["moving/diagonal_cylinder"] > 0.0
+        for pose in sampled["poses"]
+    )
+
+
+def test_sampled_solid_summary_reports_first_last_and_max_overlap_per_body():
+    moving = cq.Solid.makeBox(1.0, 1.0, 1.0, cq.Vector(0.0, 0.0, 2.0))
+    obstacle = cq.Solid.makeBox(1.0, 0.6, 0.6, cq.Vector(2.5, 0.2, 2.2))
+
+    result = probe._sampled_solid_translation_screen(
+        {"moving/rail": moving},
+        {"fixed/post": obstacle},
+        cq.Vector(1.0, 0.0, 0.0),
+        3.0,
+        max_sample_gap_mm=1.0,
+    )
+
+    sampled = result["sampled_actual_solid_translation"]
+    member = sampled["per_moving_solid"]["moving/rail"]
+    assert member["first_sample_with_any_exact_hit"] == 2
+    assert member["last_sample_with_any_exact_hit"] == 3
+    assert member["maximum_exact_sample_overlap_mm3"] == pytest.approx(0.18)
+    assert member["exact_sample_hits_by_obstacle"] == [
+        {
+            "obstacle_id": "fixed/post",
+            "first_sample_index": 2,
+            "first_translation_mm": 2.0,
+            "last_sample_index": 3,
+            "last_translation_mm": 3.0,
+            "sampled_hit_count": 2,
+            "max_overlap_volume_mm3": 0.18,
+            "max_overlap_sample_index": 2,
+        }
+    ]
+    assert all(
+        pose["floor_penetrating_solid_ids"] == [] for pose in sampled["poses"]
+    )
