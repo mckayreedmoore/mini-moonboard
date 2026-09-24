@@ -103,12 +103,15 @@ clearance do not close a stage gate.
   and both backer/header attachments lack accepted load paths. The socket
   model omits internal 12-point fit, ratchet/extension space, tolerances, and
   actual access.
-- **WJ-06:** the current source-bound duty registry counts 24 duties and 144
-  former SDS axes with zero accepted replacements, while preserving 66
-  Hillman axes and twelve frame-bolt obligations. Its absent WJ-06 report
-  leaves 540 potential corridors, zero materialized, and zero full stacks;
-  WJ-05 has four provisional axes and zero full stacks. Implement and verify
-  complete interfaces and stacks before updating any acceptance count.
+- **WJ-06:** the active duty registry still maps 24 duties and 144 former SDS
+  axes, preserves 66 Hillman axes and twelve frame-bolt obligations, records
+  geometry for 5/24 duties, and accepts zero replacements. Its residual-probe
+  entry still has 540 potential generic corridors, none materialized there,
+  and replacement complete-stack evidence remains zero. Separate commit
+  `b69ca5fa` now materializes installed-state geometry for two far-end right
+  rail pairs; right four-duty integration is in progress. This hypothesis does
+  not change registry counts or acceptance. Verify complete interfaces and
+  stacks before updating any acceptance count.
 
 ### Isolated installed-fit hypotheses, 2026-09-24
 
@@ -132,13 +135,16 @@ viewer. None is integrated, promoted, or accepted.
   while holding the nut stationary, then removing the nut and washer. These
   operation screens do not establish actual tool fit, continuous motion,
   physical floor clearance, or acceptance; this hypothesis is not integrated.
+  A separate outer head-withdrawal study is in progress; no result is available.
 - **WJ-04 upper G7 crosscut** (`5555c646`, [archived probe](hypotheses/wj04-upper-g7-crosscut.md)) crosscuts the upper cleat and reverses its upper-rail bolt stack. Bodies, stacks, and all 16 washer seats clear, but all four rail-bolt insertion paths are blocked with neighboring parts retained. The duty-registry workstream is planning rail-plus-cleat subassemblies outside the frame.
-- **WJ-05 center wire-relief** ([archived probe](hypotheses/wj05-center-node-relieved.md)) clears the L = 82 mm wire-relief body geometry. The right station is 2.303793 mm from the wire; the mirrored left result is a 9.25 mm bounding-box lower bound. It retains 48 + 18 fixed axes. Two properly seated generic head-tool proxies overlap the center posts at upper-header row 2 (left and right), 1,481.459916 mm³ each. These proxy-to-wood results establish neither actual wrench access nor a complete operation path; the center owner is planning tool and staging checks.
+- **WJ-04 local +N access** ([refined sampled screen](hypotheses/wj04-pair-access-local-n.md)) tests lower and upper right rail/cleat moves with far-end duties retained. Each move has eight distinct obstacle pairs with sampled exact intersections: three retained outer-duty SDS beams and five service wires. The report remains an unaccepted discrete screen; it proves neither continuous blockage nor a physical route.
+- **WJ-05 center wire-relief** ([archived probe](hypotheses/wj05-center-node-relieved.md)) clears the L = 82 mm wire-relief body geometry. The right station is 2.303793 mm from the wire; the mirrored left result is a 9.25 mm bounding-box lower bound. It retains 48 + 18 fixed axes. Two properly seated generic head-tool proxies overlap the center posts at upper-header row 2 (left and right), 1,481.459916 mm³ each. This generic proxy-to-wood screen establishes neither actual wrench access nor a complete operation path; see the catalog-sized comparison below for current tool-envelope evidence.
+- **WJ-05 center tool screen** ([catalog-envelope comparison](hypotheses/wj05-center-tools/README.md)) now records overlaps for socket/extension, counterhold, and ratchet proxies at both upper-header row-2 stations. Opposite ratchet strokes still hit lower-post washer/timber. These are external envelopes, not proof of tool fit or impossibility. A separate 10 mm outward post/lower-cleat/axis variant is in progress.
+- **WJ-06 right outer paired rails** ([installed-geometry archive](hypotheses/wj06-outer-pair.md), `b69ca5fa`) materializes two far-end right rail-pair geometries and eight provisional bolt stacks. It is static installed geometry only; whether +N insertion needs side release is untested. The next screen tests the rail and two cleats moving +N with principal/side members retained and X bolts absent. Assembly sequence, wrench access, and capacity remain untested. Right four-duty integration is in progress; no replacement is accepted.
 
-Next, keep these as separate hypotheses while the assigned owners test tool
-access and installation order. Integrate a layout only after those operations
-clear their retained-part obstacles and the parent reviews the source-bound
-results.
+Keep these as separate hypotheses. Continue tool, withdrawal, and staged-motion
+work against retained obstacles; integrate only after parent review of
+source-bound results.
 
 No joint has accepted resistance or capacity. MVP-L, fresh six-case evidence,
 and MVP-E remain gated by the work below.
@@ -239,9 +245,13 @@ support, service, movement, and tolerance screen before reuse.
    starting frame-bolt arrangements.
 5. **Keep the duty registry source-bound.** Current registry covers 24 duties
    and 144 former SDS axes, preserves 66 screw axes and twelve frame-bolt
-   obligations, and accepts zero replacement duties. It records 540 potential
-   WJ-06 corridors and no complete stacks. Regenerate only if a bound input
-   changes; source binding alone does not accept a connection.
+   obligations, records geometry for 5/24 duties, and accepts zero
+   replacements. Its residual-probe entry still lists 540 potential WJ-06
+   corridors with none materialized in that registry; its replacement
+   complete-stack evidence count remains zero. The separate WJ-06 paired-rail
+   geometry remains a hypothesis, outside registry acceptance. Regenerate
+   only if a bound input changes; source binding alone does not accept a
+   connection.
 
 Only after source-bound geometry, methods, tolerance screens, and complete
 joint evidence pass should WJ-08/WJ-09 work begin. Do not launch native

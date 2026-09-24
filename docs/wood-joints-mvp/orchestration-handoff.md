@@ -88,11 +88,16 @@ and all Git actions. The selected-baseline source reference remains pinned at
   changed, but geometry and collision tolerance did not. The artifact manifest
   pins the current report. The deployed scene binds it and includes the
   candidate panel overlay.
-- **WJ-06:** The current source-bound duty registry maps 24 former angle duties / 144 SDS axes,
-  retains all 66 panel/kicker axes and twelve frame-bolt obligations, and
-  accepts zero replacements. It records 540 potential corridors with none
-  materialized or fully stacked, and four provisional WJ-05 axes with no
-  complete stacks. Regenerate only if a bound input changes.
+- **WJ-06:** The active duty registry still maps 24 duties / 144 former SDS
+  axes, retains 66 panel/kicker axes and twelve frame-bolt obligations, records
+  geometry for 5/24 duties, and accepts zero replacements. Its residual-probe
+  entry still lists 540 potential generic corridors with none materialized in
+  that registry; its `replacement_complete_stack_evidence_count` remains zero.
+  Separate report `b69ca5fa` now materializes static installed geometry for two
+  far-end right rail pairs with eight provisional stacks; it does not change
+  registry counts or acceptance. Right four-duty integration is in progress.
+  Four provisional WJ-05 axes remain unaccepted. Regenerate registry only if a
+  bound input changes.
 
 All current outputs remain diagnostics. Do not infer a complete replacement,
 accepted resistance, MVP-L, six-case readiness, shop release, or physical
@@ -118,24 +123,41 @@ authority, or deployed viewer. None is integrated or accepted.
   20 stacks; it proposes turning/withdrawing the bolt from the head side while
   holding the nut stationary, then removing the nut and washer. These screens
   establish neither actual tool fit, continuous motion, physical floor
-  clearance, nor acceptance; the hypothesis remains isolated.
+  clearance, nor acceptance; the hypothesis remains isolated. A separate
+  outer head-withdrawal study is in progress; no result is available.
 - [WJ-04 upper G7 crosscut](hypotheses/wj04-upper-g7-crosscut.md),
   `5555c646`: the upper cleat is crosscut and its upper-rail bolt stack
   reversed. Bodies, stacks, and 16 washer seats clear, but all four rail-bolt
   insertion paths are blocked with neighbors retained. Duty-registry work is
   planning rail-plus-cleat subassemblies outside the frame.
+- [WJ-04 local +N access](hypotheses/wj04-pair-access-local-n.md): refined
+  lower/upper right rail-cleat screens find eight distinct obstacle pairs per
+  move with sampled exact intersections: three retained far-end outer-duty SDS
+  beams and five service wires. This remains discrete, unaccepted evidence;
+  neither continuous blockage nor a physical route is established.
 - [WJ-05 center wire-relief](hypotheses/wj05-center-node-relieved.md): the
   L = 82 mm body geometry clears; right wire gap is 2.303793 mm and the left
   result is a 9.25 mm bounding-box lower bound. It keeps 48 + 18 fixed axes,
   with installed fastener components clear. Two properly seated generic
   head-tool proxies overlap center posts at upper-header row 2 (left and
-  right), 1,481.459916 mm³ each. This is proxy-to-wood evidence only: no wrench
-  sweep or actual tool-access conclusion is established. The center owner is
-  planning tool and staging checks.
+  right), 1,481.459916 mm³ each. The [catalog-sized tool comparison](hypotheses/wj05-center-tools/README.md)
+  now records socket/extension hits on same-side lower-post bolt heads,
+  counterhold overlap with row-1 nut/shaft/timber, and ratchet-stroke overlaps
+  with backers or washer/timber. These external proxies prove neither actual
+  fit nor impossibility. A separate 10 mm outward post/lower-cleat/axis variant
+  is in progress.
+- [WJ-06 right outer paired rails](hypotheses/wj06-outer-pair.md), `b69ca5fa`:
+  static installed geometry is materialized for two far-end right rail pairs,
+  with eight provisional stacks and 16 supported washer seats. Whether +N
+  insertion needs side release remains untested. Next screen tests the rail
+  and two cleats moving +N with principal/side members retained and X bolts
+  absent. Assembly sequence, wrench access, and capacity remain untested.
+  Right four-duty integration is in progress; no replacement is accepted.
 
-The next work is operation-specific: test actual tool access and a viable
-staging/insertion order for each hypothesis, then return source-bound results
-for parent review before any integration decision.
+Next work stays operation-specific: continue the 10 mm center variant, the
+outer head-withdrawal study, and right four-duty integration. Parent reviews
+source-bound results before integration. The deployed viewer remains at
+`40b97ecf`; these hypotheses do not change viewer or active-registry scope.
 
 `wood-joints-candidate.json` now identifies the lane as partial diagnostic
 development, links the current WJ-03 through WJ-06 evidence, and retains all
@@ -147,21 +169,22 @@ references resolve to existing files.
 | Owner | Owned files / boundary | Current state and next dependency |
 |---|---|---|
 | `/root` | Shared configuration decisions, serialization, report regeneration, integrated acceptance, validation, Git delivery | Owns the serial slots and all staging/commit/push. |
-| `/root/luna_center_loadpath` | Stable WJ-04 probe adapter/report; isolated WJ-05 center-node prototype | WJ-04 config-bound report remains current for `narrow_x95p25_ordinary_bolt_candidate`, config SHA `d1c63e1f…206c0e`; source binding matches and release flags are false. Current implementation work is a separate center-node prototype; it does not change the four blocked receiver duties or accept their load paths. |
+| `/root/luna_center_loadpath` | Stable WJ-04 probe adapter/report; isolated WJ-05 center-node prototype | WJ-04 config-bound report remains current for `narrow_x95p25_ordinary_bolt_candidate`, config SHA `d1c63e1f…206c0e`; source binding matches and release flags are false. The center tool-envelope comparison is archived; a separate 10 mm outward post/lower-cleat/axis variant is in progress. Neither changes the four blocked receiver duties or accepts their load paths. |
 | `/root/luna_joint_mechanics` | `scripts/wood_joint_wj04_early_mechanics.py`, its test, and generated `wj04-early-mechanics.json/.md` | Reconciled area basis consumes active probe finite-probe values and reports the canonical rectangle separately. Ruff and seven focused tests pass. Status remains diagnostic-only and `UNRESOLVED_DEMAND`; no fresh candidate forces or capacity are claimed. Current artifact hashes are pinned in the manifest. |
-| `/root/luna_viewer_audit` | `scripts/export_wood_joint_scene.py`, generated `site/owner-wood-joints-layout-scene.json` | Final candidate-panel scene is deployed and browser-reviewed: 169 solids (110 WJ-03, 23 WJ-04, 32 WJ-05, four shared) and `integrated_clearance=not_run`. |
+| `/root/luna_viewer_audit` | `scripts/wood_joint_right_rail_integration.py`, `scripts/export_wood_joint_scene.py`, generated scene | Right four-duty integration is in progress. Viewer remains at commit `40b97ecf`; deployed candidate-panel scene remains browser-reviewed with 169 solids and `integrated_clearance=not_run`. |
 | `/root/luna_hardware_tools` | Viewer `site/wood-joints-outer-viewer.html`, `site/index.html`; also completed the ordinary fastener stack method, tests, and basis doc | Default-off tool/socket overlay and UI are live; the reviewed “Shared geometry” labels are deployed. Viewer claims remain bounded by the diagnostic scene. |
 | `/root/luna_wj04_tool_access` | `scripts/wood_joint_wj04_tool_access.py`, its test, and generated `wj04-tool-access.json/.md` | Refreshed source/config-bound report remains `diagnostic_overlap_present`; modeled 3.0 mm wrench slab is centered within target head/nut axial thickness. Paired-wrench and upright counterhold bounds clear; rail counterhold, nut stroke/reindex, and full-turn wrench-plus-axial removal bounds overlap. Separate loose-nut/washer translation clears at uprights and overlaps at rails. Actual jaw/handle access is unproved. Current artifact hashes are pinned in the manifest. |
 | `/root/luna_snapshot_integrity` | `scripts/wood_joint_snapshot_integrity.py` and its tests | Audit code, 15 focused tests, Ruff, and read-only CLI pass. Active manifest scope includes WJ-04 probe, mechanics, tool-access, viewer, WJ-05 receiver audit, and duty registry; historical screens are byte-pinned only. |
-| `/root/luna_duty_registry` | `scripts/wood_joint_duty_registry.py`, its test, `duty-registry.json`; `scripts/wood_joint_wj04_full_stock_probe.py` and its test | Registry source binding is current. Counts remain 24/144 duties/axes, retained 66/12, zero accepted replacements, and 540 potential WJ-06 corridors with none materialized or fully stacked. The separate 88.9 × 88.9 × 119.7 mm full 4×4 prototype is in development; it is unaccepted, does not change the active WJ-04 trial, and authorizes no stock or hardware purchase or fabrication. Current artifact hashes are pinned in the manifest. |
-| `/root/luna_checkpoint_prep` | `.github/workflows/ci.yml` | Owns the CI workflow edit; the orchestration plan now reflects the verified public viewer checkpoint. |
+| `/root/luna_duty_registry` | `scripts/wood_joint_duty_registry.py`, its test, `duty-registry.json`; `scripts/wood_joint_wj04_full_stock_probe.py` and its test | Registry source binding is current: 24/144 duties/axes, retained 66/12, active trial geometry 5/24, and zero accepted replacements. Its residual-probe entry still has 540 potential generic corridors and none materialized in that registry; `replacement_complete_stack_evidence_count` remains zero. Separate WJ-06 pair geometry is archived; right four-duty integration is in progress. No stock or hardware is selected. |
+| `/root/luna_checkpoint_prep` | `next-mvp-plan.md`, `orchestration-handoff.md` | Owns this bounded checkpoint status refresh; parent retains final validation and Git actions. |
 | `/root/luna_review_contract`, `/root/luna_review_resistance` | Read-only review lanes; no shared-file ownership | Review and browser feedback is used only within its assigned scope; parent decides whether it changes the checkpoint. |
 | `/root/luna_outer_path`, `/root/luna_socket_spec`, `/root/luna_transport_ops` | WJ-03 sequence, WJ-05 diagnostic producers, and transport narrative in their assigned files | The fixed service-bore correction clears all 35 terminal right-return LED overlaps. Kicker removal passes after the lower panel is staged; WJ-05 remains diagnostic. |
 
-This handoff and the narrative docs (`completion-ledger.md`, `next-mvp-plan.md`,
-`plan.md`, `wj04-workhorse-probe.md`, and `outer-node-result.md`) are owned by
-`/root/luna_handoff`. The active WJ-04 tool-access report is not the historical
-`wj04-bolt-tool-receiving-screen.json`; preserve that screen as history.
+The handoff and narrative docs are ordinarily owned by `/root/luna_handoff`;
+this bounded refresh of `next-mvp-plan.md` and `orchestration-handoff.md` is
+owned by `/root/luna_checkpoint_prep`. The active WJ-04 tool-access report is
+not the historical `wj04-bolt-tool-receiving-screen.json`; preserve that
+screen as history.
 
 ## Parent-controlled closeout sequence
 
