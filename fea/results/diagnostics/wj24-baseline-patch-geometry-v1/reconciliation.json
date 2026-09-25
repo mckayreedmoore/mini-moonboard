@@ -1,0 +1,1241 @@
+{
+  "G7_relief_dependency": {
+    "WJ24_LED_connector_body_id": "wj04_lower_full_stock_cleat",
+    "WJ24_LED_id": "light_G7",
+    "WJ24_LED_radial_clearance_scenarios_mm": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "WJ24_LED_relief_is_in_baseline_composition": false,
+    "WJ24_LED_relief_mutates_retained_composition": false,
+    "historical_upper_crosscut_N_dimension_mm": 86.9,
+    "historical_upper_crosscut_body_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+    "historical_upper_crosscut_reserve_mm": 2.0,
+    "if_a_relief_variant_is_selected": "replace the lower cleat with its named source-bound relief shape, then repeat STEP identity and geometry reconciliation",
+    "mesh_variant_exported": false
+  },
+  "body_comparisons": [
+    {
+      "WJ16": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          577.999394262,
+          709.506010895,
+          1142.824637718,
+          1261.808360075
+        ],
+        "cad_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+        "centroid_global_xyz_mm": [
+          607.970143949,
+          643.754118237,
+          1202.315311018
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703412
+      },
+      "WJ24": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          577.999394262,
+          709.506010895,
+          1142.824637718,
+          1261.808360075
+        ],
+        "cad_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+        "centroid_global_xyz_mm": [
+          607.970143949,
+          643.754118237,
+          1202.315311018
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703412
+      },
+      "added_in_WJ24_material_mm3": 0.0,
+      "archived_WJ16_STEP_source_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+      "body_id": "base_rail_service_lower_right",
+      "cut_provenance_delta": {
+        "WJ16": {
+          "applied_source_cutter_map_ids": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "panel_purchase/round_panel_lower_right_service_1",
+            "panel_purchase/round_panel_lower_right_service_2",
+            "round_panel_lower_right_service_1",
+            "round_panel_lower_right_service_2",
+            "service/22/bore_base_rail_service_lower_right_078",
+            "service/23/bore_base_rail_service_lower_right_090",
+            "service/24/bore_base_rail_service_lower_right_102",
+            "service/25/bore_base_rail_service_lower_right_114",
+            "service/26/bore_base_rail_service_lower_right_126"
+          ],
+          "candidate_bore_axis_ids": [
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2",
+            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1",
+            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2"
+          ],
+          "native_source_cutter_ids": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "round_panel_lower_right_service_1",
+            "round_panel_lower_right_service_2",
+            "service/22/bore_base_rail_service_lower_right_078",
+            "service/23/bore_base_rail_service_lower_right_090",
+            "service/24/bore_base_rail_service_lower_right_102",
+            "service/25/bore_base_rail_service_lower_right_114",
+            "service/26/bore_base_rail_service_lower_right_126"
+          ],
+          "purchased_panel_cutter_ids": [
+            "panel_purchase/round_panel_lower_right_service_1",
+            "panel_purchase/round_panel_lower_right_service_2"
+          ],
+          "replaced_source_cutter_ids_on_host": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "WJ24": {
+          "applied_source_cutter_map_ids": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "panel_purchase/round_panel_lower_right_service_1",
+            "panel_purchase/round_panel_lower_right_service_2",
+            "round_panel_lower_right_service_1",
+            "round_panel_lower_right_service_2",
+            "service/22/bore_base_rail_service_lower_right_078",
+            "service/23/bore_base_rail_service_lower_right_090",
+            "service/24/bore_base_rail_service_lower_right_102",
+            "service/25/bore_base_rail_service_lower_right_114",
+            "service/26/bore_base_rail_service_lower_right_126"
+          ],
+          "candidate_bore_axis_ids": [
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2",
+            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1",
+            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2"
+          ],
+          "native_source_cutter_ids": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "round_panel_lower_right_service_1",
+            "round_panel_lower_right_service_2",
+            "service/22/bore_base_rail_service_lower_right_078",
+            "service/23/bore_base_rail_service_lower_right_090",
+            "service/24/bore_base_rail_service_lower_right_102",
+            "service/25/bore_base_rail_service_lower_right_114",
+            "service/26/bore_base_rail_service_lower_right_126"
+          ],
+          "purchased_panel_cutter_ids": [
+            "panel_purchase/round_panel_lower_right_service_1",
+            "panel_purchase/round_panel_lower_right_service_2"
+          ],
+          "replaced_source_cutter_ids_on_host": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "native_and_purchase_operations_separate": true,
+            "native_replay_shape_sha256": "8aedb02f181f7c06411ead27f46339aafc7e333678a4062a90871faeda929a35",
+            "native_source_cutter_count": 13,
+            "native_source_cutter_ids": [
+              "clip_horizontal_lower_right_1_beam_1",
+              "clip_horizontal_lower_right_1_beam_2",
+              "clip_horizontal_lower_right_1_beam_3",
+              "clip_horizontal_lower_right_2_beam_1",
+              "clip_horizontal_lower_right_2_beam_2",
+              "clip_horizontal_lower_right_2_beam_3",
+              "round_panel_lower_right_service_1",
+              "round_panel_lower_right_service_2",
+              "service/22/bore_base_rail_service_lower_right_078",
+              "service/23/bore_base_rail_service_lower_right_090",
+              "service/24/bore_base_rail_service_lower_right_102",
+              "service/25/bore_base_rail_service_lower_right_114",
+              "service/26/bore_base_rail_service_lower_right_126"
+            ],
+            "source_finished_shape_sha256": "b35a032d476682dc4c628d5384d19060977e06685c1dbcf3b3aa49ad7ad11196",
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "candidate_bore_axis_ids_added": [],
+        "candidate_bore_axis_ids_removed": [],
+        "native_source_cutter_ids_added": [],
+        "native_source_cutter_ids_removed": [],
+        "replacement_cutter_ids_added": [],
+        "replacement_cutter_ids_no_longer_removed": []
+      },
+      "delta_solids": [],
+      "geometry_role": "finished_source_host",
+      "removed_from_WJ16_material_mm3": 0.0,
+      "same_geometry_within_tolerance": true,
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "WJ16": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          670.592949437,
+          802.09956607,
+          1253.17333975,
+          1372.157062106
+        ],
+        "cad_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+        "centroid_global_xyz_mm": [
+          607.970143949,
+          736.35565303,
+          1312.657317355
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703394
+      },
+      "WJ24": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          670.592949437,
+          802.09956607,
+          1253.17333975,
+          1372.157062106
+        ],
+        "cad_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+        "centroid_global_xyz_mm": [
+          607.970143949,
+          736.35565303,
+          1312.657317355
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703394
+      },
+      "added_in_WJ24_material_mm3": 0.0,
+      "archived_WJ16_STEP_source_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+      "body_id": "base_rail_service_upper_right",
+      "cut_provenance_delta": {
+        "WJ16": {
+          "applied_source_cutter_map_ids": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "panel_purchase/round_panel_upper_right_service_1",
+            "panel_purchase/round_panel_upper_right_service_2",
+            "round_panel_upper_right_service_1",
+            "round_panel_upper_right_service_2",
+            "service/27/bore_base_rail_service_upper_right_079",
+            "service/28/bore_base_rail_service_upper_right_089",
+            "service/29/bore_base_rail_service_upper_right_103",
+            "service/30/bore_base_rail_service_upper_right_113",
+            "service/31/bore_base_rail_service_upper_right_127"
+          ],
+          "candidate_bore_axis_ids": [
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2",
+            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_1",
+            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_2"
+          ],
+          "native_source_cutter_ids": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "round_panel_upper_right_service_1",
+            "round_panel_upper_right_service_2",
+            "service/27/bore_base_rail_service_upper_right_079",
+            "service/28/bore_base_rail_service_upper_right_089",
+            "service/29/bore_base_rail_service_upper_right_103",
+            "service/30/bore_base_rail_service_upper_right_113",
+            "service/31/bore_base_rail_service_upper_right_127"
+          ],
+          "purchased_panel_cutter_ids": [
+            "panel_purchase/round_panel_upper_right_service_1",
+            "panel_purchase/round_panel_upper_right_service_2"
+          ],
+          "replaced_source_cutter_ids_on_host": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "WJ24": {
+          "applied_source_cutter_map_ids": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "panel_purchase/round_panel_upper_right_service_1",
+            "panel_purchase/round_panel_upper_right_service_2",
+            "round_panel_upper_right_service_1",
+            "round_panel_upper_right_service_2",
+            "service/27/bore_base_rail_service_upper_right_079",
+            "service/28/bore_base_rail_service_upper_right_089",
+            "service/29/bore_base_rail_service_upper_right_103",
+            "service/30/bore_base_rail_service_upper_right_113",
+            "service/31/bore_base_rail_service_upper_right_127"
+          ],
+          "candidate_bore_axis_ids": [
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2",
+            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_1",
+            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_2"
+          ],
+          "native_source_cutter_ids": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "round_panel_upper_right_service_1",
+            "round_panel_upper_right_service_2",
+            "service/27/bore_base_rail_service_upper_right_079",
+            "service/28/bore_base_rail_service_upper_right_089",
+            "service/29/bore_base_rail_service_upper_right_103",
+            "service/30/bore_base_rail_service_upper_right_113",
+            "service/31/bore_base_rail_service_upper_right_127"
+          ],
+          "purchased_panel_cutter_ids": [
+            "panel_purchase/round_panel_upper_right_service_1",
+            "panel_purchase/round_panel_upper_right_service_2"
+          ],
+          "replaced_source_cutter_ids_on_host": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "native_and_purchase_operations_separate": true,
+            "native_replay_shape_sha256": "6f2f43142e359212337078efec22618b2dceea4296f3ae7d84beddbdb90ace3b",
+            "native_source_cutter_count": 13,
+            "native_source_cutter_ids": [
+              "clip_horizontal_upper_right_1_beam_1",
+              "clip_horizontal_upper_right_1_beam_2",
+              "clip_horizontal_upper_right_1_beam_3",
+              "clip_horizontal_upper_right_2_beam_1",
+              "clip_horizontal_upper_right_2_beam_2",
+              "clip_horizontal_upper_right_2_beam_3",
+              "round_panel_upper_right_service_1",
+              "round_panel_upper_right_service_2",
+              "service/27/bore_base_rail_service_upper_right_079",
+              "service/28/bore_base_rail_service_upper_right_089",
+              "service/29/bore_base_rail_service_upper_right_103",
+              "service/30/bore_base_rail_service_upper_right_113",
+              "service/31/bore_base_rail_service_upper_right_127"
+            ],
+            "source_finished_shape_sha256": "aef7df7004dc57fb71784603c59f6b1715317d5edb1aafeefd628f7a61b2fa39",
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "candidate_bore_axis_ids_added": [],
+        "candidate_bore_axis_ids_removed": [],
+        "native_source_cutter_ids_added": [],
+        "native_source_cutter_ids_removed": [],
+        "replacement_cutter_ids_added": [],
+        "replacement_cutter_ids_no_longer_removed": []
+      },
+      "delta_solids": [],
+      "geometry_role": "finished_source_host",
+      "removed_from_WJ16_material_mm3": 0.0,
+      "same_geometry_within_tolerance": true,
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "WJ16": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.094299554,
+          277.0,
+          2217.104082866
+        ],
+        "cad_shape_sha256": "4ec409ec4e8c760b20424248ab03071aa6f0dec0cbe58cfdf6d9d3d937b446d8",
+        "centroid_global_xyz_mm": [
+          69.999586677,
+          666.976910972,
+          1230.574574639
+        ],
+        "solid_count": 1,
+        "volume_mm3": 13064473.889421383
+      },
+      "WJ24": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.094299554,
+          277.0,
+          2217.104082866
+        ],
+        "cad_shape_sha256": "afdd72e27e439cde4d9467908f1b5ef6a8e40bd9df4fbe1130dd7ccd330a740d",
+        "centroid_global_xyz_mm": [
+          70.0,
+          666.971835876,
+          1230.58026055
+        ],
+        "solid_count": 1,
+        "volume_mm3": 13064685.12737084
+      },
+      "added_in_WJ24_material_mm3": 6944.063705184,
+      "archived_WJ16_STEP_source_shape_sha256": "4ec409ec4e8c760b20424248ab03071aa6f0dec0cbe58cfdf6d9d3d937b446d8",
+      "body_id": "base_principal_center_right",
+      "cut_provenance_delta": {
+        "WJ16": {
+          "applied_source_cutter_map_ids": [
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3",
+            "panel_purchase/round_panel_lower_right_center_1",
+            "panel_purchase/round_panel_lower_right_center_2",
+            "panel_purchase/round_panel_lower_right_center_3",
+            "panel_purchase/round_panel_lower_right_center_4",
+            "panel_purchase/round_panel_upper_right_center_1",
+            "panel_purchase/round_panel_upper_right_center_2",
+            "panel_purchase/round_panel_upper_right_center_3",
+            "panel_purchase/round_panel_upper_right_center_4",
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4",
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4",
+            "service/1/bore_base_principal_center_right_072"
+          ],
+          "candidate_bore_axis_ids": [
+            "center_principal_right_1",
+            "center_principal_right_2",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
+          ],
+          "native_source_cutter_ids": [
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3",
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4",
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4",
+            "service/1/bore_base_principal_center_right_072"
+          ],
+          "purchased_panel_cutter_ids": [
+            "panel_purchase/round_panel_lower_right_center_1",
+            "panel_purchase/round_panel_lower_right_center_2",
+            "panel_purchase/round_panel_lower_right_center_3",
+            "panel_purchase/round_panel_lower_right_center_4",
+            "panel_purchase/round_panel_upper_right_center_1",
+            "panel_purchase/round_panel_upper_right_center_2",
+            "panel_purchase/round_panel_upper_right_center_3",
+            "panel_purchase/round_panel_upper_right_center_4"
+          ],
+          "replaced_source_cutter_ids_on_host": [
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "WJ24": {
+          "applied_source_cutter_map_ids": [
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3",
+            "panel_purchase/round_panel_lower_right_center_1",
+            "panel_purchase/round_panel_lower_right_center_2",
+            "panel_purchase/round_panel_lower_right_center_3",
+            "panel_purchase/round_panel_lower_right_center_4",
+            "panel_purchase/round_panel_upper_right_center_1",
+            "panel_purchase/round_panel_upper_right_center_2",
+            "panel_purchase/round_panel_upper_right_center_3",
+            "panel_purchase/round_panel_upper_right_center_4",
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4",
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4",
+            "service/1/bore_base_principal_center_right_072"
+          ],
+          "candidate_bore_axis_ids": [
+            "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+            "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+            "center_principal_right_1",
+            "center_principal_right_2",
+            "top_center/clip_split_top_center_right/principal_1",
+            "top_center/clip_split_top_center_right/principal_2",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
+          ],
+          "native_source_cutter_ids": [
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3",
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4",
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4",
+            "service/1/bore_base_principal_center_right_072"
+          ],
+          "purchased_panel_cutter_ids": [
+            "panel_purchase/round_panel_lower_right_center_1",
+            "panel_purchase/round_panel_lower_right_center_2",
+            "panel_purchase/round_panel_lower_right_center_3",
+            "panel_purchase/round_panel_lower_right_center_4",
+            "panel_purchase/round_panel_upper_right_center_1",
+            "panel_purchase/round_panel_upper_right_center_2",
+            "panel_purchase/round_panel_upper_right_center_3",
+            "panel_purchase/round_panel_upper_right_center_4"
+          ],
+          "replaced_source_cutter_ids_on_host": [
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "native_and_purchase_operations_separate": true,
+            "native_replay_shape_sha256": "e856fb168da8a05c6f7d0f8c2e1af2ea3b00202592b2dfb87137d4b4a235c53d",
+            "native_source_cutter_count": 24,
+            "native_source_cutter_ids": [
+              "clip_horizontal_bottom_right_1_upright_1",
+              "clip_horizontal_bottom_right_1_upright_2",
+              "clip_horizontal_bottom_right_1_upright_3",
+              "clip_horizontal_lower_right_1_upright_1",
+              "clip_horizontal_lower_right_1_upright_2",
+              "clip_horizontal_lower_right_1_upright_3",
+              "clip_horizontal_upper_right_1_upright_1",
+              "clip_horizontal_upper_right_1_upright_2",
+              "clip_horizontal_upper_right_1_upright_3",
+              "clip_split_base_center_right_upright_1",
+              "clip_split_base_center_right_upright_2",
+              "clip_split_base_center_right_upright_3",
+              "clip_split_top_center_right_upright_1",
+              "clip_split_top_center_right_upright_2",
+              "clip_split_top_center_right_upright_3",
+              "round_panel_lower_right_center_1",
+              "round_panel_lower_right_center_2",
+              "round_panel_lower_right_center_3",
+              "round_panel_lower_right_center_4",
+              "round_panel_upper_right_center_1",
+              "round_panel_upper_right_center_2",
+              "round_panel_upper_right_center_3",
+              "round_panel_upper_right_center_4",
+              "service/1/bore_base_principal_center_right_072"
+            ],
+            "source_finished_shape_sha256": "e856fb168da8a05c6f7d0f8c2e1af2ea3b00202592b2dfb87137d4b4a235c53d",
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "candidate_bore_axis_ids_added": [
+          "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+          "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+          "top_center/clip_split_top_center_right/principal_1",
+          "top_center/clip_split_top_center_right/principal_2"
+        ],
+        "candidate_bore_axis_ids_removed": [],
+        "native_source_cutter_ids_added": [],
+        "native_source_cutter_ids_removed": [],
+        "replacement_cutter_ids_added": [
+          "clip_horizontal_bottom_right_1_upright_1",
+          "clip_horizontal_bottom_right_1_upright_2",
+          "clip_horizontal_bottom_right_1_upright_3",
+          "clip_split_top_center_right_upright_1",
+          "clip_split_top_center_right_upright_2",
+          "clip_split_top_center_right_upright_3"
+        ],
+        "replacement_cutter_ids_no_longer_removed": []
+      },
+      "delta_solids": [
+        {
+          "bounds_xyz_mm": [
+            50.95,
+            89.05,
+            -19.52952434,
+            -12.02952434,
+            412.566598034,
+            420.066598034
+          ],
+          "kind": "removed_from_WJ16",
+          "volume_mm3": 1683.206438931
+        },
+        {
+          "bounds_xyz_mm": [
+            50.95,
+            89.05,
+            -1.017241181,
+            6.482758819,
+            434.628677996,
+            442.128677996
+          ],
+          "kind": "removed_from_WJ16",
+          "volume_mm3": 1683.206438931
+        },
+        {
+          "bounds_xyz_mm": [
+            50.95,
+            89.05,
+            1407.029885341,
+            1414.529885341,
+            2128.23113784,
+            2135.73113784
+          ],
+          "kind": "removed_from_WJ16",
+          "volume_mm3": 1683.206438931
+        },
+        {
+          "bounds_xyz_mm": [
+            50.95,
+            89.05,
+            1428.241876461,
+            1435.741876461,
+            2153.510604463,
+            2161.010604463
+          ],
+          "kind": "removed_from_WJ16",
+          "volume_mm3": 1683.206438931
+        },
+        {
+          "bounds_xyz_mm": [
+            52.50524,
+            89.05,
+            -0.60573682,
+            5.74426318,
+            405.372292579,
+            411.722292579
+          ],
+          "kind": "added_in_WJ24",
+          "volume_mm3": 1157.343950864
+        },
+        {
+          "bounds_xyz_mm": [
+            52.50524,
+            89.05,
+            -25.710328782,
+            -19.360328782,
+            434.726882722,
+            441.076882722
+          ],
+          "kind": "added_in_WJ24",
+          "volume_mm3": 1157.343950864
+        },
+        {
+          "bounds_xyz_mm": [
+            52.50524,
+            89.05,
+            1445.932833294,
+            1452.282833294,
+            2129.28983034,
+            2135.63983034
+          ],
+          "kind": "added_in_WJ24",
+          "volume_mm3": 1157.343950864
+        },
+        {
+          "bounds_xyz_mm": [
+            52.50524,
+            89.05,
+            -58.978323386,
+            -52.628323386,
+            454.352708437,
+            460.702708437
+          ],
+          "kind": "added_in_WJ24",
+          "volume_mm3": 1157.343950864
+        },
+        {
+          "bounds_xyz_mm": [
+            52.50524,
+            89.05,
+            1412.66483869,
+            1419.01483869,
+            2148.915656055,
+            2155.265656055
+          ],
+          "kind": "added_in_WJ24",
+          "volume_mm3": 1157.343950864
+        },
+        {
+          "bounds_xyz_mm": [
+            52.50524,
+            89.05,
+            1387.560246729,
+            1393.910246729,
+            2178.270246198,
+            2184.620246198
+          ],
+          "kind": "added_in_WJ24",
+          "volume_mm3": 1157.343950864
+        }
+      ],
+      "geometry_role": "finished_source_host",
+      "removed_from_WJ16_material_mm3": 6732.825755725,
+      "same_geometry_within_tolerance": false,
+      "symmetric_difference_mm3": 13676.889460908
+    },
+    {
+      "WJ16": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          602.489602232,
+          751.328940574,
+          1184.866683462,
+          1329.909711335
+        ],
+        "cad_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+        "centroid_global_xyz_mm": [
+          133.491556566,
+          676.909000036,
+          1257.387873996
+        ],
+        "solid_count": 1,
+        "volume_mm3": 930304.310236643
+      },
+      "WJ24": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          602.489602232,
+          751.328940574,
+          1184.866683462,
+          1329.909711335
+        ],
+        "cad_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+        "centroid_global_xyz_mm": [
+          133.491556566,
+          676.909000036,
+          1257.387873996
+        ],
+        "solid_count": 1,
+        "volume_mm3": 930304.310236643
+      },
+      "added_in_WJ24_material_mm3": 0.0,
+      "archived_WJ16_STEP_source_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+      "body_id": "wj04_lower_full_stock_cleat",
+      "cut_provenance_delta": null,
+      "delta_solids": [],
+      "geometry_role": "finished_candidate_part",
+      "removed_from_WJ16_material_mm3": 0.0,
+      "same_geometry_within_tolerance": true,
+      "symmetric_difference_mm3": 0.0
+    },
+    {
+      "WJ16": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          695.083157407,
+          818.796238015,
+          1316.298819091,
+          1440.258413366
+        ],
+        "cad_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+        "centroid_global_xyz_mm": [
+          133.488295025,
+          756.93932152,
+          1378.278167902
+        ],
+        "solid_count": 1,
+        "volume_mm3": 671079.022236643
+      },
+      "WJ24": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          695.083157407,
+          818.796238015,
+          1316.298819091,
+          1440.258413366
+        ],
+        "cad_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+        "centroid_global_xyz_mm": [
+          133.488295025,
+          756.93932152,
+          1378.278167902
+        ],
+        "solid_count": 1,
+        "volume_mm3": 671079.022236643
+      },
+      "added_in_WJ24_material_mm3": 0.0,
+      "archived_WJ16_STEP_source_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+      "body_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+      "cut_provenance_delta": null,
+      "delta_solids": [],
+      "geometry_role": "finished_candidate_part",
+      "removed_from_WJ16_material_mm3": 0.0,
+      "same_geometry_within_tolerance": true,
+      "symmetric_difference_mm3": 0.0
+    }
+  ],
+  "body_ids": [
+    "base_rail_service_lower_right",
+    "base_rail_service_upper_right",
+    "base_principal_center_right",
+    "wj04_lower_full_stock_cleat",
+    "wj04_upper_g7_crosscut_full_stock_cleat"
+  ],
+  "cut_replay_interpretation": {
+    "candidate_bores_are_reported_separately_from_native_source_cutters": true,
+    "native_source_replay_is_checked_separately_from_candidate_machining": true,
+    "replacement_source_cutter_ids_are_explicit_per_body": true,
+    "volume_comparison_uses_finished_WJ16_and_finished_WJ24_shapes": true
+  },
+  "limits": {
+    "capacity_established": false,
+    "contact_law_assigned": false,
+    "fabrication_released": false,
+    "mesh_generated": false,
+    "native_solve_run": false,
+    "structural_released": false
+  },
+  "old_WJ16_patch_bundle": {
+    "inventory_path": "fea/results/diagnostics/wj04-full-stock-patch-geometry-v1/inventory.json",
+    "inventory_sha256": "c208f96bcfcda7a6b089496c9e1c4afe48f874810050f8d0c5cc700f65d5772d",
+    "old_mesh_archive_sha256": "b4a92cf5d0a76082bce736efe576dda1e8732924d4a19013501727ace7c63a58",
+    "old_mesh_audit_status": "parent_deck_and_ownership_audit_passed",
+    "old_mesh_audit_structural_solve_run": false,
+    "old_mesh_bundle_contents_path": "docs/wood-joints-mvp/hypotheses/wj04-patch-mesh/attempt-03/bundle-contents.json",
+    "old_mesh_bundle_contents_sha256": "981b2524dce764796d4f83a72a6a44dda278300377ee04d92a9cf77d453a4456",
+    "old_mesh_input_bundle_inventory_sha256": "c208f96bcfcda7a6b089496c9e1c4afe48f874810050f8d0c5cc700f65d5772d",
+    "old_mesh_input_sha256": "43f50fd605841821391f749ebddf226c639778945fef89b50ff78899c38afe56",
+    "old_mesh_report_archive_path": "docs/wood-joints-mvp/hypotheses/wj04-patch-mesh/attempt-03/complete-mesh-evidence.tar.gz",
+    "old_mesh_report_member": "mesh.json",
+    "old_mesh_report_member_bytes": 8103150,
+    "old_mesh_report_sha256": "e8af81e6a92eb53b4ee72fcecc43efd9ed7ab901b3568be603509994c8b3c33c",
+    "step_sha256": {
+      "base_principal_center_right": "87403476680158f8bffb7e55039f868255c54b2b8e1d847e101ed710ad73692c",
+      "base_rail_service_lower_right": "09f8d8134c45ac0f0bdde30c8e2e8c2320ecfb4c1d67eaaaf6dbf2a652591196",
+      "base_rail_service_upper_right": "536de5357ac1094e486baf722efbff41050680b117e01ebfc85256aee7bc0c51",
+      "wj04_lower_full_stock_cleat": "b6c4b0f1c0e37f09645e23d482b6dc704dc192bc0a5b3a21fcd8479e6eceb700",
+      "wj04_upper_g7_crosscut_full_stock_cleat": "636ebad8ea5038e54cf08d1fc18d215c83818371bbfe7fff5305d1ecea999d75"
+    }
+  },
+  "schema": "wood_joint_wj24_patch_reconciliation/v1",
+  "source_composition": {
+    "WJ16": {
+      "layout_id": "wj16-sixteen-duty-left-service-composition-v1",
+      "live_report_matches_archive": true,
+      "report_path": "docs/wood-joints-mvp/hypotheses/wj16-integrated-static/composition.json",
+      "report_sha256": "c0bc37fdbc364deafcbc86dc04e710d2f5b6809436e560717a97593951f8ebcb",
+      "trial_id": "wj16-wj12-plus-left-service-four-duty-v1"
+    },
+    "WJ24": {
+      "layout_id": "wj24-twenty-four-duty-integrated-static-v1",
+      "live_report_matches_archive": true,
+      "report_path": "docs/wood-joints-mvp/hypotheses/wj24-integrated-static/composition.json",
+      "report_sha256": "c4cebb2870e337ece0b429eb099514c36ea5fac79bc9d321fbdcf45734310dfb",
+      "trial_id": "wj24-wj18-plus-top-center-bottom-pairs-v1"
+    },
+    "shared_source_object": true,
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+  },
+  "status": "source_bound_representative_WJ16_to_WJ24_geometry_comparison_only",
+  "step_artifacts": {
+    "base_principal_center_right": {
+      "file": "base_principal_center_right.step",
+      "file_sha256": "7b7e3880a87e959486072e9e174de1a4adb9b9014ceae916693625633cb5d0d8",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "solid_count": true,
+        "symmetric_difference": {
+          "absolute_tolerance_mm3": 0.001,
+          "allowed_volume_difference_mm3": 0.014064685127,
+          "passed": true,
+          "relative_tolerance": 1e-09,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.094299554,
+          277.0,
+          2217.104082866
+        ],
+        "cad_shape_sha256": "afdd72e27e439cde4d9467908f1b5ef6a8e40bd9df4fbe1130dd7ccd330a740d",
+        "centroid_global_xyz_mm": [
+          70.0,
+          666.971835876,
+          1230.58026055
+        ],
+        "solid_count": 1,
+        "volume_mm3": 13064685.12737084
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.094299555,
+          277.0,
+          2217.104082866
+        ],
+        "cad_shape_sha256": "eab8fa9493b7f888d796ea23b091746592cf085037ce72a8d40141b083b1c566",
+        "centroid_global_xyz_mm": [
+          70.0,
+          666.971835875,
+          1230.580260549
+        ],
+        "solid_count": 1,
+        "volume_mm3": 13064685.127338944
+      }
+    },
+    "base_rail_service_lower_right": {
+      "file": "base_rail_service_lower_right.step",
+      "file_sha256": "8d593898a3762c3ae4b037cbda8e6ed85599c0462b279693fb11daae16d5918a",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "solid_count": true,
+        "symmetric_difference": {
+          "absolute_tolerance_mm3": 0.001,
+          "allowed_volume_difference_mm3": 0.006300088327,
+          "passed": true,
+          "relative_tolerance": 1e-09,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          577.999394262,
+          709.506010895,
+          1142.824637718,
+          1261.808360075
+        ],
+        "cad_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+        "centroid_global_xyz_mm": [
+          607.970143949,
+          643.754118237,
+          1202.315311018
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703412
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          577.999394262,
+          709.506010895,
+          1142.824637718,
+          1261.808360075
+        ],
+        "cad_shape_sha256": "8b985c8858adcc23650887172a42f5699ea1a474e0456c24a4b738586f1b428a",
+        "centroid_global_xyz_mm": [
+          607.970143949,
+          643.754118237,
+          1202.315311018
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326745396
+      }
+    },
+    "base_rail_service_upper_right": {
+      "file": "base_rail_service_upper_right.step",
+      "file_sha256": "ec692263019aeffe674d0477c965be3b223f91a66be59627029f4fd37e72824c",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "solid_count": true,
+        "symmetric_difference": {
+          "absolute_tolerance_mm3": 0.001,
+          "allowed_volume_difference_mm3": 0.006300088327,
+          "passed": true,
+          "relative_tolerance": 1e-09,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          670.592949437,
+          802.09956607,
+          1253.17333975,
+          1372.157062106
+        ],
+        "cad_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+        "centroid_global_xyz_mm": [
+          607.970143949,
+          736.35565303,
+          1312.657317355
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703394
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          670.592949437,
+          802.099566071,
+          1253.17333975,
+          1372.157062106
+        ],
+        "cad_shape_sha256": "4e44b2ff024193a0538d36cb62ef21c702a4e5a0171bd36f7ce875a61094d6ea",
+        "centroid_global_xyz_mm": [
+          607.970143949,
+          736.35565303,
+          1312.657317355
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326718564
+      }
+    },
+    "wj04_lower_full_stock_cleat": {
+      "file": "wj04_lower_full_stock_cleat.step",
+      "file_sha256": "5d0f47eaa042215aa473ff7509ad98ccb38fa700b9f30b6e6a087aa5e8f1b7c0",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "solid_count": true,
+        "symmetric_difference": {
+          "absolute_tolerance_mm3": 0.001,
+          "allowed_volume_difference_mm3": 0.00193030431,
+          "passed": true,
+          "relative_tolerance": 1e-09,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          602.489602232,
+          751.328940574,
+          1184.866683462,
+          1329.909711335
+        ],
+        "cad_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+        "centroid_global_xyz_mm": [
+          133.491556566,
+          676.909000036,
+          1257.387873996
+        ],
+        "solid_count": 1,
+        "volume_mm3": 930304.310236643
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          602.489602232,
+          751.328940574,
+          1184.866683462,
+          1329.909711335
+        ],
+        "cad_shape_sha256": "a818a3ffc1c555f583201d958957442894ed6daabcf33e31f6e0016ce4b2d2cb",
+        "centroid_global_xyz_mm": [
+          133.491556566,
+          676.909000036,
+          1257.387873996
+        ],
+        "solid_count": 1,
+        "volume_mm3": 930304.310236945
+      }
+    },
+    "wj04_upper_g7_crosscut_full_stock_cleat": {
+      "file": "wj04_upper_g7_crosscut_full_stock_cleat.step",
+      "file_sha256": "336c774a145eb3b8a82ca653e4c08a8a2307a2e75b0de2b6c44170ae9b11ce7c",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "solid_count": true,
+        "symmetric_difference": {
+          "absolute_tolerance_mm3": 0.001,
+          "allowed_volume_difference_mm3": 0.001671079022,
+          "passed": true,
+          "relative_tolerance": 1e-09,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          695.083157407,
+          818.796238015,
+          1316.298819091,
+          1440.258413366
+        ],
+        "cad_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+        "centroid_global_xyz_mm": [
+          133.488295025,
+          756.93932152,
+          1378.278167902
+        ],
+        "solid_count": 1,
+        "volume_mm3": 671079.022236643
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          695.083157407,
+          818.796238015,
+          1316.298819091,
+          1440.258413366
+        ],
+        "cad_shape_sha256": "50fd6887cd49920ea5c74e5f5c50d715245a011599316a14236bcda13c4a4471",
+        "centroid_global_xyz_mm": [
+          133.488295025,
+          756.93932152,
+          1378.278167902
+        ],
+        "solid_count": 1,
+        "volume_mm3": 671079.022236223
+      }
+    }
+  }
+}
