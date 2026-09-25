@@ -1,0 +1,31 @@
+import hashlib
+import importlib
+import json
+import time
+from pathlib import Path
+
+graph_module = importlib.import_module('scripts.wood_joint_current_contact_graph')
+graph_module = importlib.reload(graph_module)
+graph_root = Path.cwd()
+graph_dest = graph_root / 'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+graph_source = graph_root / 'scripts/wood_joint_current_contact_graph.py'
+graph_expected_sha = '8afed27a493719354c55b6c0deb5faeb1cd40068519d4578c365db120f293f7d'
+graph_sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+assert graph_sha(graph_source) == graph_expected_sha
+assert graph_sha(graph_root / 'site/owner-wood-joints-review-report.json') == '148f97623573558cd6a6c53f8a5399f2b30549d6aa1ed13c326dfe1bc3e9d695'
+graph_target = graph_dest / 'complete-contact-graph-attempt02.json'
+assert not graph_target.exists()
+graph_started = time.monotonic()
+try:
+    complete_current_graph = graph_module.collect_current_contact_graph(g24_outer_2x6, frozen_review_report)
+except Exception as graph_error:
+    graph_failure = {'status': 'collector_failed_no_mechanics', 'error': f'{type(graph_error).__name__}: {graph_error}', 'collector_sha256': graph_expected_sha, 'seconds': time.monotonic() - graph_started}
+    graph_target.write_text(json.dumps(graph_failure, indent=2) + '\n')
+    raise
+assert graph_sha(graph_source) == graph_expected_sha
+complete_current_graph['parent_run'] = {'collector_sha256': graph_expected_sha, 'source_unchanged_after_run': True, 'seconds': time.monotonic() - graph_started}
+graph_target.write_text(json.dumps(complete_current_graph, indent=2, sort_keys=True, allow_nan=False) + '\n')
+(graph_dest / 'complete-contact-graph-driver02.py.snapshot').write_bytes(Path('/tmp/freeze-current-contact-graph.py').read_bytes())
+print('CURRENT_CONTACT_GRAPH', json.dumps({k:v for k,v in complete_current_graph.items() if not isinstance(v, (dict,list))}), flush=True)
+print('CURRENT_CONTACT_GRAPH_COUNTS', json.dumps(complete_current_graph.get('summary', complete_current_graph.get('counts'))), flush=True)
+print('CURRENT_CONTACT_GRAPH_SHA256', graph_sha(graph_target), flush=True)
