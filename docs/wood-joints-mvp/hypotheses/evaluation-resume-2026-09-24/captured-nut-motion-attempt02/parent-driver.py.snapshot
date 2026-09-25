@@ -1,0 +1,56 @@
+import hashlib, importlib, json, time
+from pathlib import Path
+
+staged_access=importlib.reload(importlib.import_module('scripts.wood_joint_current_access_screen'))
+staged_transverse=importlib.import_module('scripts.wood_joint_transverse_hardware_sweep')
+staged_root=Path.cwd();staged_base=staged_root/'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+staged_out=staged_base/'captured-nut-motion-attempt02';assert not staged_out.exists()
+staged_sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert staged_sha(staged_root/'scripts/wood_joint_transverse_hardware_sweep.py')=='e4164fb485f1a1015fb5a9e1d001f0aa2beb7d625c6c2a964425e028306cab1b'
+staged_pins={p:staged_sha(staged_root/p) for p in ('scripts/wood_joint_current_access_screen.py','scripts/wood_joint_transverse_hardware_sweep.py','scripts/wood_joint_wj04_tool_access.py','scripts/wood_joint_wj24_tool_operation_probe.py','site/owner-wood-joints-review-report.json','site/owner-wood-joints-wj24-scene.json')}
+staged_prior=json.loads((staged_base/'access-screen-attempt03-exact-components.json').read_text())
+staged_rows={r['axis_id']:r for r in staged_prior['axis_operations']}
+staged_targets=sorted({r['axis_id'] for r in json.loads((staged_base/'exact-access-parent-audit.json').read_text())['remaining_axial_slide_hits']})
+assert len(staged_targets)==4
+staged_started=time.monotonic();staged_obstacles=staged_access._live_scene_obstacles(g24_outer_2x6);staged_bounds={k:s.BoundingBox() for k,s in staged_obstacles.items()}
+staged_results=[]
+for staged_axis_id in staged_targets:
+    staged_roles=g24_outer_2x6.candidate_installed_hardware[staged_axis_id]
+    staged_headward=staged_access._stack_axis(staged_roles,staged_axis_id)
+    staged_headtravel=staged_rows[staged_axis_id]['operations']['head_side_bolt']['derived_travel_mm']+1.0
+    staged_displacement=staged_headward*staged_headtravel
+    staged_head_sweeps={k:staged_access._component_translation_sweep(staged_roles[k],staged_displacement.toTuple())[0] for k in ('head','head_washer')}
+    staged_shaft=staged_access._exact_cylindrical_translation_sweep(staged_roles['shaft'],staged_displacement.toTuple());assert staged_shaft is not None
+    staged_exclusions=tuple(f'candidate_stack/{staged_axis_id}/{k}' for k in staged_roles)
+    staged_external=staged_access._collision_report({'head':staged_head_sweeps['head'],'head_washer':staged_head_sweeps['head_washer'],'shaft':staged_shaft},staged_obstacles,staged_bounds,excluded_target_ids=staged_exclusions,exclusion_scope='The own-stack pair interactions are checked separately below; all external scene objects remain obstacles.')
+    staged_retained_checks={f'{moving}_vs_{fixed}':sweep.intersect(staged_roles[fixed]).Volume() for moving,sweep in staged_head_sweeps.items() for fixed in ('nut','nut_washer')}
+    staged_retained_checks['shaft_vs_nut_washer']=staged_shaft.intersect(staged_roles['nut_washer']).Volume()
+    staged_intended_initial=staged_roles['shaft'].intersect(staged_roles['nut']).Volume()
+    staged_intended_sweep=staged_shaft.intersect(staged_roles['nut']).Volume()
+    assert abs(staged_intended_sweep-staged_intended_initial)<1e-5
+    staged_radii=[staged_transverse._verified_round_source(staged_roles[k])[3] for k in ('nut','nut_washer')]
+    staged_lateral_distance=2*max(staged_radii)+1.0
+    staged_options=[]
+    for staged_sign in (-1,1):
+        staged_block_id=next(h['obstacle'] for h in json.loads((staged_base/'exact-access-parent-audit.json').read_text())['remaining_axial_slide_hits'] if h['axis_id']==staged_axis_id)
+        staged_block_bounds=staged_bounds[staged_block_id]
+        staged_part_min=min(staged_roles[k].BoundingBox().xmin for k in ('nut','nut_washer'))
+        staged_part_max=max(staged_roles[k].BoundingBox().xmax for k in ('nut','nut_washer'))
+        staged_dx=(staged_block_bounds.xmax-staged_part_min+1.0) if staged_sign>0 else (staged_block_bounds.xmin-staged_part_max-1.0)
+        staged_lateral=(staged_dx,0.0,0.0)
+        staged_sweeps={};staged_methods={}
+        for staged_role in ('nut','nut_washer'):
+            staged_sweep,staged_method=staged_transverse.exact_transverse_round_component_sweep(staged_roles[staged_role],staged_lateral)
+            assert staged_sweep is not None
+            staged_sweeps[staged_role]=staged_sweep;staged_methods[staged_role]=staged_method
+        staged_lateral_check=staged_access._collision_report(staged_sweeps,staged_obstacles,staged_bounds,excluded_target_ids=staged_exclusions,exclusion_scope='Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.')
+        staged_exit=-staged_headward*25.0
+        staged_exit_sweeps={k:staged_access._component_translation_sweep(staged_roles[k].translate(staged_lateral),staged_exit.toTuple())[0] for k in ('nut','nut_washer')}
+        staged_exit_check=staged_access._collision_report(staged_exit_sweeps,staged_obstacles,staged_bounds,excluded_target_ids=staged_exclusions,exclusion_scope='Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.')
+        staged_options.append({'lateral_displacement_xyz_mm':list(staged_lateral),'lateral_travel_basis':'Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.','lateral_methods':staged_methods,'lateral_collision':staged_lateral_check,'following_nutward_displacement_xyz_mm':list(staged_exit.toTuple()),'following_nutward_travel_basis':'Declared 25 mm follow-on motion for this diagnostic only.','following_nutward_collision':staged_exit_check,'two_stage_cad_motion_clear':staged_lateral_check['external_envelope_clear'] and staged_exit_check['external_envelope_clear']})
+    staged_results.append({'axis_id':staged_axis_id,'headward_travel_mm':staged_headtravel,'headward_terminal_allowance_mm':1.0,'headward_external_collision':staged_external,'retained_own_nut_washer_pair_intersections_mm3':staged_retained_checks,'shaft_nut_display_envelope_initial_overlap_mm3':staged_intended_initial,'shaft_nut_display_envelope_swept_overlap_mm3':staged_intended_sweep,'shaft_nut_overlap_interpretation':'Identical preexisting coaxial occupancy of a boreless nut display envelope. Thread-compatible unthreading is an assumption, not tested physical passage; nut side/cylinder is not newly crossed.','lateral_then_axial_options':staged_options})
+assert all(staged_sha(staged_root/p)==h for p,h in staged_pins.items())
+staged_report={'status':'CURRENT_CAPTURED_NUT_CAD_MOTION_HYPOTHESIS','geometry_revision_id':staged_prior['geometry_revision_id'],'input_sha256':staged_pins,'prior_report_sha256':staged_sha(staged_base/'access-screen-attempt03-exact-components.json'),'sources_unchanged_after_run':True,'scene_obstacle_count':len(staged_obstacles),'seconds':time.monotonic()-staged_started,'axis_operations':staged_results,'physical_assembly_or_tool_access_proven':False,'limits':['Holding/unthreading and thread-compatible bolt/nut engagement are assumed prerequisites, not simulated.','No live or published geometry changed.','Both lateral directions are diagnostic alternatives; clear part envelopes do not prove tools, hand clearance, loose-part capture or support transfer.','Nut cylinders are source display envelopes; their internal threaded geometry is absent.','The 25 mm follow-on movement is a bounded local path, not removal from the full scene or a complete build sequence.']}
+staged_out.mkdir();(staged_out/'motion.json').write_text(json.dumps(staged_report,indent=2,sort_keys=True,allow_nan=False)+'\n');(staged_out/'parent-driver.py.snapshot').write_bytes(Path('/tmp/run-current-captured-nut-probe2.py').read_bytes())
+for src,dest in [('scripts/wood_joint_transverse_hardware_sweep.py','transverse-sweep.py.snapshot'),('tests/test_wood_joint_transverse_hardware_sweep.py','transverse-tests.py.snapshot')]: (staged_out/dest).write_bytes((staged_root/src).read_bytes())
+print('CAPTURED_NUT_PROBE',json.dumps({'seconds':staged_report['seconds'],'report_sha256':staged_sha(staged_out/'motion.json'),'axes':[{'axis':r['axis_id'],'head_external_clear':r['headward_external_collision']['external_envelope_clear'],'retained_pair_max_overlap_mm3':max(r['retained_own_nut_washer_pair_intersections_mm3'].values()),'options_clear':[v['two_stage_cad_motion_clear'] for v in r['lateral_then_axial_options']]} for r in staged_results]}),flush=True)

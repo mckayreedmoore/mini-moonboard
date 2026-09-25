@@ -1,0 +1,642 @@
+{
+  "axis_operations": [
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_left_2/rail_2",
+      "headward_external_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head",
+          "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head_washer",
+          "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut",
+          "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut_washer",
+          "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/shaft"
+        ],
+        "exclusion_scope": "The own-stack pair interactions are checked separately below; all external scene objects remain obstacles.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "headward_terminal_allowance_mm": 1.0,
+      "headward_travel_mm": 151.368,
+      "lateral_then_axial_options": [
+        {
+          "following_nutward_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/shaft"
+            ],
+            "exclusion_scope": "Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "following_nutward_displacement_xyz_mm": [
+            5.22441375574228e-15,
+            -16.069690242163478,
+            -19.151111077974452
+          ],
+          "following_nutward_travel_basis": "Declared 25 mm follow-on motion for this diagnostic only.",
+          "lateral_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/shaft"
+            ],
+            "exclusion_scope": "Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "lateral_displacement_xyz_mm": [
+            -50.96230000000001,
+            0.0,
+            0.0
+          ],
+          "lateral_methods": {
+            "nut": "exact_source_brep_transverse_cylinder_sweep",
+            "nut_washer": "exact_source_brep_transverse_annular_cylinder_sweep"
+          },
+          "lateral_travel_basis": "Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.",
+          "two_stage_cad_motion_clear": true
+        },
+        {
+          "following_nutward_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/shaft"
+            ],
+            "exclusion_scope": "Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut": {
+                "wood/base_principal_center_left": 3972.36901
+              },
+              "nut_washer": {
+                "wood/base_principal_center_left": 6393.249906
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "following_nutward_displacement_xyz_mm": [
+            5.22441375574228e-15,
+            -16.069690242163478,
+            -19.151111077974452
+          ],
+          "following_nutward_travel_basis": "Declared 25 mm follow-on motion for this diagnostic only.",
+          "lateral_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/head_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/nut_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_left_2/rail_2/shaft"
+            ],
+            "exclusion_scope": "Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut": {
+                "wood/base_principal_center_left": 1144.938908
+              },
+              "nut_washer": {
+                "wood/base_principal_center_left": 695.195976
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "lateral_displacement_xyz_mm": [
+            53.962299999999985,
+            0.0,
+            0.0
+          ],
+          "lateral_methods": {
+            "nut": "exact_source_brep_transverse_cylinder_sweep",
+            "nut_washer": "exact_source_brep_transverse_annular_cylinder_sweep"
+          },
+          "lateral_travel_basis": "Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.",
+          "two_stage_cad_motion_clear": false
+        }
+      ],
+      "retained_own_nut_washer_pair_intersections_mm3": {
+        "head_vs_nut": 0.0,
+        "head_vs_nut_washer": 0.0,
+        "head_washer_vs_nut": 0.0,
+        "head_washer_vs_nut_washer": 0.0,
+        "shaft_vs_nut_washer": 0.0
+      },
+      "shaft_nut_display_envelope_initial_overlap_mm3": 181.79397581320575,
+      "shaft_nut_display_envelope_swept_overlap_mm3": 181.79397581320512,
+      "shaft_nut_overlap_interpretation": "Identical preexisting coaxial occupancy of a boreless nut display envelope. Thread-compatible unthreading is an assumption, not tested physical passage; nut side/cylinder is not newly crossed."
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "headward_external_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+          "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+          "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+          "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+          "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft"
+        ],
+        "exclusion_scope": "The own-stack pair interactions are checked separately below; all external scene objects remain obstacles.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "headward_terminal_allowance_mm": 1.0,
+      "headward_travel_mm": 151.368,
+      "lateral_then_axial_options": [
+        {
+          "following_nutward_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft"
+            ],
+            "exclusion_scope": "Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut": {
+                "wood/base_principal_center_right": 3972.36901
+              },
+              "nut_washer": {
+                "wood/base_principal_center_right": 6393.249906
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "following_nutward_displacement_xyz_mm": [
+            1.0448827511484575e-14,
+            -16.069690242163496,
+            -19.15111107797444
+          ],
+          "following_nutward_travel_basis": "Declared 25 mm follow-on motion for this diagnostic only.",
+          "lateral_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft"
+            ],
+            "exclusion_scope": "Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut": {
+                "wood/base_principal_center_right": 1144.938908
+              },
+              "nut_washer": {
+                "wood/base_principal_center_right": 695.195976
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "lateral_displacement_xyz_mm": [
+            -55.962299999999956,
+            0.0,
+            0.0
+          ],
+          "lateral_methods": {
+            "nut": "exact_source_brep_transverse_cylinder_sweep",
+            "nut_washer": "exact_source_brep_transverse_annular_cylinder_sweep"
+          },
+          "lateral_travel_basis": "Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.",
+          "two_stage_cad_motion_clear": false
+        },
+        {
+          "following_nutward_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft"
+            ],
+            "exclusion_scope": "Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "following_nutward_displacement_xyz_mm": [
+            1.0448827511484575e-14,
+            -16.069690242163496,
+            -19.15111107797444
+          ],
+          "following_nutward_travel_basis": "Declared 25 mm follow-on motion for this diagnostic only.",
+          "lateral_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+              "candidate_stack/bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft"
+            ],
+            "exclusion_scope": "Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "lateral_displacement_xyz_mm": [
+            48.96230000000004,
+            0.0,
+            0.0
+          ],
+          "lateral_methods": {
+            "nut": "exact_source_brep_transverse_cylinder_sweep",
+            "nut_washer": "exact_source_brep_transverse_annular_cylinder_sweep"
+          },
+          "lateral_travel_basis": "Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.",
+          "two_stage_cad_motion_clear": true
+        }
+      ],
+      "retained_own_nut_washer_pair_intersections_mm3": {
+        "head_vs_nut": 0.0,
+        "head_vs_nut_washer": 0.0,
+        "head_washer_vs_nut": 0.0,
+        "head_washer_vs_nut_washer": 0.0,
+        "shaft_vs_nut_washer": 0.0
+      },
+      "shaft_nut_display_envelope_initial_overlap_mm3": 181.79397581320453,
+      "shaft_nut_display_envelope_swept_overlap_mm3": 181.7939758132049,
+      "shaft_nut_overlap_interpretation": "Identical preexisting coaxial occupancy of a boreless nut display envelope. Thread-compatible unthreading is an assumption, not tested physical passage; nut side/cylinder is not newly crossed."
+    },
+    {
+      "axis_id": "bottom_outer/clip_horizontal_bottom_left_1/rail_2",
+      "headward_external_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head",
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head_washer",
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut",
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut_washer",
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/shaft"
+        ],
+        "exclusion_scope": "The own-stack pair interactions are checked separately below; all external scene objects remain obstacles.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "headward_terminal_allowance_mm": 1.0,
+      "headward_travel_mm": 151.368,
+      "lateral_then_axial_options": [
+        {
+          "following_nutward_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/shaft"
+            ],
+            "exclusion_scope": "Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut": {
+                "wood/base_side_left": 3972.36901
+              },
+              "nut_washer": {
+                "wood/base_side_left": 6393.249906
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "following_nutward_displacement_xyz_mm": [
+            4.17953100459382e-14,
+            -16.069690248226745,
+            -19.15111107288677
+          ],
+          "following_nutward_travel_basis": "Declared 25 mm follow-on motion for this diagnostic only.",
+          "lateral_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/shaft"
+            ],
+            "exclusion_scope": "Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut": {
+                "wood/base_side_left": 1144.938908
+              },
+              "nut_washer": {
+                "wood/base_side_left": 695.195976
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "lateral_displacement_xyz_mm": [
+            -55.96230000000014,
+            0.0,
+            0.0
+          ],
+          "lateral_methods": {
+            "nut": "exact_source_brep_transverse_cylinder_sweep",
+            "nut_washer": "exact_source_brep_transverse_annular_cylinder_sweep"
+          },
+          "lateral_travel_basis": "Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.",
+          "two_stage_cad_motion_clear": false
+        },
+        {
+          "following_nutward_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/shaft"
+            ],
+            "exclusion_scope": "Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "following_nutward_displacement_xyz_mm": [
+            4.17953100459382e-14,
+            -16.069690248226745,
+            -19.15111107288677
+          ],
+          "following_nutward_travel_basis": "Declared 25 mm follow-on motion for this diagnostic only.",
+          "lateral_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/head_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_left_1/rail_2/shaft"
+            ],
+            "exclusion_scope": "Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "lateral_displacement_xyz_mm": [
+            53.96230000000014,
+            0.0,
+            0.0
+          ],
+          "lateral_methods": {
+            "nut": "exact_source_brep_transverse_cylinder_sweep",
+            "nut_washer": "exact_source_brep_transverse_annular_cylinder_sweep"
+          },
+          "lateral_travel_basis": "Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.",
+          "two_stage_cad_motion_clear": true
+        }
+      ],
+      "retained_own_nut_washer_pair_intersections_mm3": {
+        "head_vs_nut": 0.0,
+        "head_vs_nut_washer": 0.0,
+        "head_washer_vs_nut": 0.0,
+        "head_washer_vs_nut_washer": 0.0,
+        "shaft_vs_nut_washer": 0.0
+      },
+      "shaft_nut_display_envelope_initial_overlap_mm3": 181.79397581320495,
+      "shaft_nut_display_envelope_swept_overlap_mm3": 181.79397581320418,
+      "shaft_nut_overlap_interpretation": "Identical preexisting coaxial occupancy of a boreless nut display envelope. Thread-compatible unthreading is an assumption, not tested physical passage; nut side/cylinder is not newly crossed."
+    },
+    {
+      "axis_id": "bottom_outer/clip_horizontal_bottom_right_2/rail_2",
+      "headward_external_collision": {
+        "bounds_are_conservative": true,
+        "clear_envelope_proves_actual_tool_access": false,
+        "envelope_clash_proves_physical_blockage": false,
+        "excluded_target_obstacle_ids": [
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head",
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head_washer",
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut",
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut_washer",
+          "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/shaft"
+        ],
+        "exclusion_scope": "The own-stack pair interactions are checked separately below; all external scene objects remain obstacles.",
+        "external_envelope_clear": true,
+        "external_envelope_hits_mm3": {},
+        "physical_access_established": false,
+        "real_tool_impossibility_proven": false
+      },
+      "headward_terminal_allowance_mm": 1.0,
+      "headward_travel_mm": 151.368,
+      "lateral_then_axial_options": [
+        {
+          "following_nutward_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/shaft"
+            ],
+            "exclusion_scope": "Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "following_nutward_displacement_xyz_mm": [
+            -8.359062009187646e-14,
+            -16.069690248226756,
+            -19.151111072886764
+          ],
+          "following_nutward_travel_basis": "Declared 25 mm follow-on motion for this diagnostic only.",
+          "lateral_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/shaft"
+            ],
+            "exclusion_scope": "Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.",
+            "external_envelope_clear": true,
+            "external_envelope_hits_mm3": {},
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "lateral_displacement_xyz_mm": [
+            -55.96230000000037,
+            0.0,
+            0.0
+          ],
+          "lateral_methods": {
+            "nut": "exact_source_brep_transverse_cylinder_sweep",
+            "nut_washer": "exact_source_brep_transverse_annular_cylinder_sweep"
+          },
+          "lateral_travel_basis": "Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.",
+          "two_stage_cad_motion_clear": true
+        },
+        {
+          "following_nutward_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/shaft"
+            ],
+            "exclusion_scope": "Nut and nut washer translate nutward after the specified lateral move; all other scene objects remain.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut": {
+                "wood/base_side_right": 3972.36901
+              },
+              "nut_washer": {
+                "wood/base_side_right": 6393.249906
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "following_nutward_displacement_xyz_mm": [
+            -8.359062009187646e-14,
+            -16.069690248226756,
+            -19.151111072886764
+          ],
+          "following_nutward_travel_basis": "Declared 25 mm follow-on motion for this diagnostic only.",
+          "lateral_collision": {
+            "bounds_are_conservative": true,
+            "clear_envelope_proves_actual_tool_access": false,
+            "envelope_clash_proves_physical_blockage": false,
+            "excluded_target_obstacle_ids": [
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/head_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut_washer",
+              "candidate_stack/bottom_outer/clip_horizontal_bottom_right_2/rail_2/shaft"
+            ],
+            "exclusion_scope": "Own head, shaft and head washer are withdrawn; nut and nut washer move together. Every other scene object remains.",
+            "external_envelope_clear": false,
+            "external_envelope_hits_mm3": {
+              "nut": {
+                "wood/base_side_right": 1144.938908
+              },
+              "nut_washer": {
+                "wood/base_side_right": 695.195976
+              }
+            },
+            "physical_access_established": false,
+            "real_tool_impossibility_proven": false
+          },
+          "lateral_displacement_xyz_mm": [
+            53.962299999999914,
+            0.0,
+            0.0
+          ],
+          "lateral_methods": {
+            "nut": "exact_source_brep_transverse_cylinder_sweep",
+            "nut_washer": "exact_source_brep_transverse_annular_cylinder_sweep"
+          },
+          "lateral_travel_basis": "Move both part envelopes completely beyond the reported blocker global-X bound plus 1 mm; bounded escape step, not full workspace or hand access.",
+          "two_stage_cad_motion_clear": false
+        }
+      ],
+      "retained_own_nut_washer_pair_intersections_mm3": {
+        "head_vs_nut": 0.0,
+        "head_vs_nut_washer": 0.0,
+        "head_washer_vs_nut": 0.0,
+        "head_washer_vs_nut_washer": 0.0,
+        "shaft_vs_nut_washer": 0.0
+      },
+      "shaft_nut_display_envelope_initial_overlap_mm3": 181.79397581320495,
+      "shaft_nut_display_envelope_swept_overlap_mm3": 181.79397581320433,
+      "shaft_nut_overlap_interpretation": "Identical preexisting coaxial occupancy of a boreless nut display envelope. Thread-compatible unthreading is an assumption, not tested physical passage; nut side/cylinder is not newly crossed."
+    }
+  ],
+  "geometry_revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+  "input_sha256": {
+    "scripts/wood_joint_current_access_screen.py": "e28b2f2f1877afe8834f316d5d4f867d4355fee88def795127efb4c8c66edb18",
+    "scripts/wood_joint_transverse_hardware_sweep.py": "e4164fb485f1a1015fb5a9e1d001f0aa2beb7d625c6c2a964425e028306cab1b",
+    "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+    "scripts/wood_joint_wj24_tool_operation_probe.py": "5e20a74f94eb9bfdb78dc374eb916d52fb77484aad3249a88c104633d78398c1",
+    "site/owner-wood-joints-review-report.json": "148f97623573558cd6a6c53f8a5399f2b30549d6aa1ed13c326dfe1bc3e9d695",
+    "site/owner-wood-joints-wj24-scene.json": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf"
+  },
+  "limits": [
+    "Holding/unthreading and thread-compatible bolt/nut engagement are assumed prerequisites, not simulated.",
+    "No live or published geometry changed.",
+    "Both lateral directions are diagnostic alternatives; clear part envelopes do not prove tools, hand clearance, loose-part capture or support transfer.",
+    "Nut cylinders are source display envelopes; their internal threaded geometry is absent.",
+    "The 25 mm follow-on movement is a bounded local path, not removal from the full scene or a complete build sequence."
+  ],
+  "physical_assembly_or_tool_access_proven": false,
+  "prior_report_sha256": "bd2b97c0677b2e0ab5b09898ba7f2227758088744cd93f7e3c9b266bce5c5215",
+  "scene_obstacle_count": 1231,
+  "seconds": 2.81488789600553,
+  "sources_unchanged_after_run": true,
+  "status": "CURRENT_CAPTURED_NUT_CAD_MOTION_HYPOTHESIS"
+}

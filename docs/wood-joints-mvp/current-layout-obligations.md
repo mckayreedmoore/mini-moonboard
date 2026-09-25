@@ -11,9 +11,9 @@ bolt stacks, and 66 panel/kicker screw axes (58 unchanged and 8 moved).
 
 | Area | What current evidence says | Remaining bounded work |
 | --- | --- | --- |
-| Candidate-bolt access (92 axes) | The current [attempt02 access screen](current-access-screen.md) covers all 92 candidate axes against 1,231 live-scene obstacle entries; attempt01’s 16 priority rows are identical. Exact continuous coaxial-cylinder shaft sweeps report zero hits. Conservative head and head-washer translation envelopes each overlap in 32 axes; nut slide envelopes overlap in 32 axes and nut-washer envelopes in 32. | Resolve the conservative envelope overlaps with selected hardware dimensions, needed capture/counterhold, and tolerance bounds, then reconcile install/removal dependencies. The report does not prove any actual component is blocked or establish fit of delivered parts. |
-| Wrench access on candidate bolts | Attempt02 uses an unselected 22 mm × 3 mm, 100 mm FACOM-profile proxy. At least one synthetic proxy pose overlaps at every head side and nut side: head approach 129/184, discrete turns 427/920 and angular AABBs 322/368; nut approach 147/184, discrete turns 480/920 and angular AABBs 336/368. | Check named candidate tools and actual head/nut access with counterhold, full turning stroke, re-indexing, hand clearance, tolerance and staging. Proxy overlap is not proof a real wrench is blocked; a clear proxy pose would not establish actual tool access either. |
-| Retained frame bolts (12 stacks) | Their current identities, receiver pairs, stations and nominal sizes reconcile to the selected construction packet with zero reported origin/direction/diameter/length deltas. The current frame-bolt review still marks all 12 `candidate_recheck_status: required`. Both access attempts include them as obstacles; attempt02 explicitly excludes them from target operations. | Screen tool, counterhold, component capture and shaft withdrawal for each retained arrangement in the revised full scene. Separately recompute their demands/resistance under the new runner-seated load path; identity reconciliation is not an access or structural pass. |
+| Candidate-bolt access (92 axes) | The current [attempt03 exact-component screen](current-access-screen.md) covers all 92 candidate axes against 1,231 live-scene obstacles. Exact continuous sweeps of shaft, head and head washer report zero intersections under the headward-withdrawal exclusions; that operation assumes nut and washer already removed. Four exact source-BRep nut slides and two bottom-center nut-washer slides hit wood. Captured-nut attempt02 then found one complete local two-stage CAD motion for each affected axis: headward bolt travel with a 1 mm terminal allowance, followed by an axis-specific lateral nut/washer move and 25 mm local nutward move. | Resolve thread-compatible unthreading, actual tools, counterhold and part capture; the boreless nut display envelope overlaps the shaft by the same 181.794 mm³ before and during withdrawal. The 25 mm nutward segment is a bounded local path, not full-scene extraction or a proven staging location. Verify the reverse assembly path and physical fit before relying on it. |
+| Wrench access on candidate bolts | Attempt03's wrench rows are unchanged from attempt02's unselected 22 mm × 3 mm, 100 mm FACOM-profile proxy. At least one synthetic proxy pose overlaps at every head side and nut side: head approach 129/184, discrete turns 427/920 and angular AABBs 322/368; nut approach 147/184, discrete turns 480/920 and angular AABBs 336/368. | Check named candidate tools and actual head/nut access with counterhold, full turning stroke, re-indexing, hand clearance, tolerance and staging. Proxy overlap is not proof a real wrench is blocked; a clear proxy pose would not establish actual tool access either. |
+| Retained frame bolts (12 stacks) | Their current identities, receiver pairs, stations and nominal sizes reconcile to the selected construction packet with zero reported origin/direction/diameter/length deltas. The current frame-bolt review still marks all 12 `candidate_recheck_status: required`. General access attempts and the captured-nut probe retain them as obstacles, not target operations. | Screen tool, counterhold, component capture and shaft withdrawal for each retained arrangement in the revised full scene. Separately recompute their demands/resistance under the new runner-seated load path; identity reconciliation is not an access or structural pass. |
 | G1/G2 lights and holes | The current revision resolves the former G1 hole-projection and G2 light/body conflicts in CAD. Both 13 mm × 50.8 mm rear paths and light bodies clear checked timber; each has 1.35 mm minimum clearance to its nearest block. G2 moved 5 mm outward, from panel coordinates (1400, 199.2) to (1405, 199.2) mm, and its two adjacent wire endpoints moved with it. | Preserve this geometry result as a narrow nominal check. It does not prove a feed path, connector handling, tolerances, or a permissible patch to a drilled panel. The panel contains the new G2 hole only in CAD. |
 | G6/G12 hold-bolt corridors | The current revision report still flags both. Its G6 finding says a middle corner block intersects the provisional clearance envelope behind G6; the G12 finding says the top-right center block retains its overlap with the provisional G12 envelope. These are unresolved envelope clashes, not verified contact with a selected hold bolt or proof that an actual hold cannot fit. | Reconcile each corridor against the present exact panel, block and T-nut datums, then bind an actual hold/bolt product and its removal/access path if product compatibility is being claimed. Keep current installed T-nut fit separate from hypothetical future hold-layout sites. No numeric G6/G12 clearance result is reported by the latest revision summary. |
 | Wiring and LED service | The current revision reports a modeled G1–G2 wire intersection with the bottom-right rail, reduced from 532.196 to 515.757 mm³; G2–G3 has no checked intersection. It also records ten modeled wire crossings at the bottom rails and an F1–G1 crossing at the taller right central block. The source-supported initial order is frame, panels, then feed/install LEDs. | Reconcile the current routed wires and full service state against the final scene. For later member movement, test the proposed intact second/third-pack staging on current geometry: open the existing pack 1/2 connection at `wire_050_E2_E3`, keep the pack 2/3 connection at `wire_100_I4_I5`, and resolve the PWR1 endpoint. Check capture, withdrawal, refeed and continuity. Older discrete wire-solid hits are not proof a flexible cable route is physically blocked; this staging hypothesis is not a demonstrated operation. |
@@ -56,20 +56,23 @@ these counts neither approve nor disqualify any actual product or station.
 
 ## Evidence limits and closure order
 
-The attempt02 shaft result is an exact continuous coaxial-cylinder translation
-sweep for the modeled shafts; it reports zero hits across 92 axes. Head,
-washer and nut motion uses conservative envelopes, while only the wrench poses
-and angle bounds are sampled. The conditional order graph has 32 assembly and
-32 removal edges, zero reported cycles, and seven out-of-subset dependencies;
-its edges are conditional on proxy overlaps corresponding to real blockages,
-and it is not complete across build states. The 12 retained frame bolts are
-obstacles but not target operations. The current access map includes legs,
+Attempt03 reports zero intersections for exact continuous shaft, head and
+head-washer sweeps, four exact source-BRep nut-slide intersections and two
+exact source-BRep nut-washer intersections. Captured-nut attempt02 records a
+locally clear CAD route on each affected axis, under an assumed unthreaded,
+thread-compatible state; it is not physical access or full-scene extraction.
+The conditional sequence graph reports no edges or cycles, remains incomplete
+across build states, and does not include the alternate captured-nut sequence.
+Wrench poses and angular bounds remain synthetic. The 12 retained frame bolts
+are obstacles but not target operations. The current access map includes legs,
 runners, panels and all 92 candidate-hardware roles as scene obstacles.
 
-The next useful closure is a current-scene access review of the 12 retained
-frame-bolt arrangements and resolution of proxy-only overlaps using selected
-tools, hardware, and tolerance envelopes. Audit the seven external sequence
-dependencies before claiming a whole-build order. Keep the separate G1/G2 and
+The next useful closure is to bind compatible thread geometry, selected tools
+and actual capture for the four locally screened nut routes; verify reverse
+assembly and whether the staged parts can reach a real handling location. Also
+screen the 12 retained frame-bolt arrangements and review wrench-proxy
+overlaps with selected tools and tolerance envelopes. Resolve full-build
+ordering with all build states and dependencies represented. Keep the separate G1/G2 and
 G6/G12 findings, panel support, harness/service state, individual-part
 transport, and ordinary-N dimensions visible in the final disposition.
 Geometry changes must be identified before they are made and their affected
