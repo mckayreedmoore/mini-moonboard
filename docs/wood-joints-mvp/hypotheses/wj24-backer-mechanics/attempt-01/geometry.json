@@ -1,0 +1,2712 @@
+{
+  "claims": {
+    "capacity_established": false,
+    "contact_or_bearing_capacity_established": false,
+    "fabrication_released": false,
+    "fastener_thread_or_stack_adequacy_established": false,
+    "hillman_receiver_capacity_established": false,
+    "native_analysis_ready": false,
+    "structural_release": false,
+    "whole_candidate_complete": false,
+    "wood_net_section_adequacy_established": false
+  },
+  "composition": {
+    "family_trial_ids": {
+      "bottom_center": "bottom_center_full_stock_pair_v1",
+      "bottom_outer": "bottom_outer_full_stock_pair_v1",
+      "center_x190": "wj05-center-node-posts-x190-outward-v1",
+      "left_service": "left_service_mirrored_inner_outer_hypothesis",
+      "top_center": "top_center_full_stock_pair_v1",
+      "top_outer": "top_outer_full_stock_pair_v1",
+      "wj03_outer": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "wj04_g7": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "wj05_backer": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "wj06_outer_pair": "right_outer_full_4x4_paired_rail_hypothesis"
+    },
+    "layout_id": "wj24-twenty-four-duty-integrated-static-v1",
+    "relevant_finished_shape_sha256": {
+      "base_header": "0c00d109f7b0b89b325c0c3e0be61657f1d96d5e48f35bd08e5bbce86029e98e",
+      "inner_kicker_backer_left": "2e0a9533844e587b3be0a97a489a4ceb249e2405f287430dc22346aff83d6063",
+      "inner_kicker_backer_right": "b07599b036ab0d5d9aace3b974652c7c36b875f08f20c9e01f5833d1967e6656"
+    },
+    "source_inputs_sha256": {
+      "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+      "docs/floor-flush-construction-kerf-right/stock-profiles.json": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8",
+      "docs/led-wiring-reference.json": "b0f93c4f48139561c06491d3d1031b9e3ceb830f40e1fcf78bdf846146f3f1f0",
+      "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+      "docs/round-service-wiring-reference.json": "b335fe3732c89e66625bac0525e959ccc562e2c7cd0e1e1551a4720fc26497f8",
+      "docs/wood-joints-mvp/hypotheses/bottom-duty-investigation.md": "7c7cee1cf9fb815a9612c2c5f57fff8b9a4142be0152671ddbc4b940590a01f9",
+      "docs/wood-joints-mvp/hypotheses/current-hardware-schedule-audit.md": "cc6a74bcd3f3143bdeb26b89661f10f72e33fb041262fa09ee65f1cf684f26e6",
+      "docs/wood-joints-mvp/hypotheses/remaining-duty-sequence.md": "2f02e8507e2c24b0bb26e781958e7a1e5fa26b908a7c9b0048e50c0ca194ba5d",
+      "docs/wood-joints-mvp/hypotheses/right-rail-integration.md": "8156c02a3f30e5c91d502bf6bdfdbba649a6c9522f054f2b6223e6ecb0c74575",
+      "docs/wood-joints-mvp/hypotheses/wj04-full-stock-stagger-probe.json": "2c247cf249b0dddcd403c1466efe6d8a7ddd32366f8b8b3294657318bd42da6a",
+      "docs/wood-joints-mvp/ordinary-hardware-basis.md": "b66983d6ed267814289707cc5f3b5503dfe39ce723529b663092544e29ee8bf4",
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "docs/wood-joints-mvp/stock-and-cut-basis.md": "a6089794eb0789dda022b90a3a2f2d82eff2e57e8fc20616ac4f05f0aa8c17f3",
+      "docs/wood-joints-mvp/wj03-hardware-procurement.md": "dba2e10295358859d7bae5a9a9b1c71382aa212441186022be3fbdc3579db3fc",
+      "docs/wood-joints-mvp/wood-limit-state-basis.md": "1110e664a88f704773a463e83a2aeac3954b978048d811e4bff1effa55aa7c2e",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+      "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+      "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+      "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+      "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+      "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+      "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+      "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+      "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+      "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/wood_joint_bottom_center_integration.py": "2fd69088b0e1fffc3fa2e5390ded6bfbe2072686f30823fe0331e0ac5973c425",
+      "scripts/wood_joint_bottom_outer_integration.py": "5727ece25cda9a702f88e0b71eb717e7e1081573c556a95eb891a26fd2288f11",
+      "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+      "scripts/wood_joint_left_rail_integration.py": "e2f7536acfcad39937d2529f648dd0e35d15e13fa06a2e264a9abdadfd80c031",
+      "scripts/wood_joint_right_rail_integration.py": "0c2ea604b4b26cd775b84d2f3b145a132ebea89c49b2d1dbad350d7ecee95005",
+      "scripts/wood_joint_top_center_integration.py": "c92d92b47e8ee480d1aafe9e21ac3dbab5c5dc82c9c428b005bd6178e4cc0399",
+      "scripts/wood_joint_top_outer_integration.py": "010e018c28722af6d25a78baf653a99c635ac3caa987f68071e7e55167c9bbdb",
+      "scripts/wood_joint_wj03_compact_outer_access.py": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc",
+      "scripts/wood_joint_wj03_compact_outer_probe.py": "1b87fffdb250e7e3021f43913bb26d2e0c6f4a3b3f198d31c6bd8b875320065e",
+      "scripts/wood_joint_wj03_sequence.py": "27d62b50bdbe3084c68caa35f186785e57cff412fb9e68eb5fafe423ed260386",
+      "scripts/wood_joint_wj04_full_stock_probe.py": "965b997a2b3f4ecb4c39e161fc9dde1757ff8a4c8d7bc8acc90d851a122f8bde",
+      "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
+      "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+      "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9",
+      "scripts/wood_joint_wj04_upper_pair_probe.py": "7e042ed35b6670191e2549f4f4922af4643db8d6552fef09b6998546ae123860",
+      "scripts/wood_joint_wj05_center_node_probe.py": "eafffbc95d5989bcc21a7cfed90ff25e917c778bf9758154b915cbba0ec3d173",
+      "scripts/wood_joint_wj05_center_offset_adapter.py": "e60269df6de450ec06684459a8197ad4fc56fda1af2acc6f8e84d8eb929070ad",
+      "scripts/wood_joint_wj05_center_post_x190_probe.py": "b97723f66caabb200f1504011196543ceb1e4f7f2587c09be0300cd72f43f9d8",
+      "scripts/wood_joint_wj05_center_tools.py": "3d14041588fb49c2664e410e8dff9b74ab5a9d026a39e4c24feea0f5501c3723",
+      "scripts/wood_joint_wj06_outer_pair_probe.py": "daaf03d3b56b4284435e207c23c9223e474d2213ca599f67ceb482933440afb0",
+      "scripts/wood_joint_wj06_residual_probe.py": "c3c3a05e2d89cf0142b0d8bf32f9de08ae84cbd771857d240205d06f7efe2795",
+      "scripts/wood_joint_wj12_compositor.py": "7622fc87c9882abb7c91028b8002077a76a4d8e7a29c9eee61e59c8c01020109",
+      "scripts/wood_joint_wj12_diagnostic.py": "c49e223a4abb004b1eeb6626a2678d94db2d7728d46d9af14589be9d307805d8",
+      "scripts/wood_joint_wj16_compositor.py": "913d1037d8ecf0d8f8e8b77de363d22f36188fb65457650b5fa2f9a1026e99e3",
+      "scripts/wood_joint_wj16_diagnostic.py": "bfd9fdcd169aefbe660dead429f608c40dafb3cd44eb232e0d7655ec71e3c32e",
+      "scripts/wood_joint_wj18_compositor.py": "ec0a800cc361a7bbcfdc9051b87bdc5cae0fd16b5f537ab83565288e05afa64d",
+      "scripts/wood_joint_wj18_diagnostic.py": "f0462eb92e0af545399ed2af2a0f973d320559a296f1fecc400c0c3110259a75",
+      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+    },
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "status": "unaccepted_integrated_hypothesis",
+    "trial_id": "wj24-wj18-plus-top-center-bottom-pairs-v1",
+    "wj05_backer_source_bundle": "wj03_compact_outer",
+    "wj05_backer_source_fingerprints_sha256": {
+      "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+      "docs/floor-flush-construction-kerf-right/stock-profiles.json": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8",
+      "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+      "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+      "scripts/wood_joint_wj03_compact_outer_access.py": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc",
+      "scripts/wood_joint_wj03_compact_outer_probe.py": "1b87fffdb250e7e3021f43913bb26d2e0c6f4a3b3f198d31c6bd8b875320065e",
+      "scripts/wood_joint_wj03_sequence.py": "27d62b50bdbe3084c68caa35f186785e57cff412fb9e68eb5fafe423ed260386",
+      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+    }
+  },
+  "fixed_hillman_load_entry_axes": [
+    {
+      "axis_id": "round_kicker_left_center_1",
+      "candidate_cutter_shape_sha256": "a25500141936e70ac641532d98026a979bf9e7234e29419f853dde17864d194e",
+      "candidate_receiver_member_id": "inner_kicker_backer_left",
+      "capacity_status": "unresolved; no Hillman withdrawal, lateral, group, or receiver-to-frame resistance assigned",
+      "direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "finished_candidate_receiver_shape_sha256": "2e0a9533844e587b3be0a97a489a4ceb249e2405f287430dc22346aff83d6063",
+      "finished_receiver_overlap_volume_mm3_geometry_only": 0.0,
+      "fixed_axis_shape_sha256": "a25500141936e70ac641532d98026a979bf9e7234e29419f853dde17864d194e",
+      "occupancy_diameter_basis": "historical CAD occupancy from source inventory; not a Hillman measured diameter, pilot instruction, or resistance input",
+      "origin_global_xyz_mm": [
+        -70.0,
+        -17.74375,
+        60.0
+      ],
+      "panel_member_id": "kicker_left",
+      "raw_candidate_receiver_shape_sha256": "fb0b240b75037627484dad039e4a87383a96dbb2b56d384130345348fa19519c",
+      "raw_receiver_full_diameter_intersection_length_mm_geometry_only": 45.24375,
+      "raw_receiver_intersection_interval_mm_along_purchase_axis": [
+        18.25625,
+        63.5
+      ],
+      "receiver_cut_status": "composed purchase cutter is present; finished receiver clears the modeled occupancy cylinder",
+      "receiver_entry_point_global_xyz_mm": [
+        -70.0,
+        -36.0,
+        60.0
+      ],
+      "receiver_to_frame_path_complete": false,
+      "shop_purchased_length_mm": 63.5,
+      "signed_wrench_owner_id": "hillman_receiver_action:round_kicker_left_center_1",
+      "source_occupied_diameter_mm": 4.1402,
+      "source_occupied_length_mm": 50.8,
+      "source_receiver_member_id": "base_post_center_left"
+    },
+    {
+      "axis_id": "round_kicker_left_center_2",
+      "candidate_cutter_shape_sha256": "4fecce1a14a749badc25a1a633cbf1880d6bcd7aa14996b28e06ab5e5f3ea86c",
+      "candidate_receiver_member_id": "inner_kicker_backer_left",
+      "capacity_status": "unresolved; no Hillman withdrawal, lateral, group, or receiver-to-frame resistance assigned",
+      "direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "finished_candidate_receiver_shape_sha256": "2e0a9533844e587b3be0a97a489a4ceb249e2405f287430dc22346aff83d6063",
+      "finished_receiver_overlap_volume_mm3_geometry_only": 0.0,
+      "fixed_axis_shape_sha256": "4fecce1a14a749badc25a1a633cbf1880d6bcd7aa14996b28e06ab5e5f3ea86c",
+      "occupancy_diameter_basis": "historical CAD occupancy from source inventory; not a Hillman measured diameter, pilot instruction, or resistance input",
+      "origin_global_xyz_mm": [
+        -70.0,
+        -17.74375,
+        192.0
+      ],
+      "panel_member_id": "kicker_left",
+      "raw_candidate_receiver_shape_sha256": "fb0b240b75037627484dad039e4a87383a96dbb2b56d384130345348fa19519c",
+      "raw_receiver_full_diameter_intersection_length_mm_geometry_only": 45.24375,
+      "raw_receiver_intersection_interval_mm_along_purchase_axis": [
+        18.25625,
+        63.5
+      ],
+      "receiver_cut_status": "composed purchase cutter is present; finished receiver clears the modeled occupancy cylinder",
+      "receiver_entry_point_global_xyz_mm": [
+        -70.0,
+        -36.0,
+        192.0
+      ],
+      "receiver_to_frame_path_complete": false,
+      "shop_purchased_length_mm": 63.5,
+      "signed_wrench_owner_id": "hillman_receiver_action:round_kicker_left_center_2",
+      "source_occupied_diameter_mm": 4.1402,
+      "source_occupied_length_mm": 50.8,
+      "source_receiver_member_id": "base_post_center_left"
+    },
+    {
+      "axis_id": "round_kicker_right_center_1",
+      "candidate_cutter_shape_sha256": "ce123d81863e9d9cb450097f6e0ddb0ecbd04f09dc62659f874209148c70bc11",
+      "candidate_receiver_member_id": "inner_kicker_backer_right",
+      "capacity_status": "unresolved; no Hillman withdrawal, lateral, group, or receiver-to-frame resistance assigned",
+      "direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "finished_candidate_receiver_shape_sha256": "b07599b036ab0d5d9aace3b974652c7c36b875f08f20c9e01f5833d1967e6656",
+      "finished_receiver_overlap_volume_mm3_geometry_only": 0.0,
+      "fixed_axis_shape_sha256": "ce123d81863e9d9cb450097f6e0ddb0ecbd04f09dc62659f874209148c70bc11",
+      "occupancy_diameter_basis": "historical CAD occupancy from source inventory; not a Hillman measured diameter, pilot instruction, or resistance input",
+      "origin_global_xyz_mm": [
+        70.0,
+        -17.74375,
+        60.0
+      ],
+      "panel_member_id": "kicker_right",
+      "raw_candidate_receiver_shape_sha256": "e6511356e748633ab9b73119c6f7667d09fe792b63cb11bda2edd2e80c50bf24",
+      "raw_receiver_full_diameter_intersection_length_mm_geometry_only": 45.24375,
+      "raw_receiver_intersection_interval_mm_along_purchase_axis": [
+        18.25625,
+        63.5
+      ],
+      "receiver_cut_status": "composed purchase cutter is present; finished receiver clears the modeled occupancy cylinder",
+      "receiver_entry_point_global_xyz_mm": [
+        70.0,
+        -36.0,
+        60.0
+      ],
+      "receiver_to_frame_path_complete": false,
+      "shop_purchased_length_mm": 63.5,
+      "signed_wrench_owner_id": "hillman_receiver_action:round_kicker_right_center_1",
+      "source_occupied_diameter_mm": 4.1402,
+      "source_occupied_length_mm": 50.8,
+      "source_receiver_member_id": "base_post_center_right"
+    },
+    {
+      "axis_id": "round_kicker_right_center_2",
+      "candidate_cutter_shape_sha256": "816e8e52240b826c0167a90defd85a29d309fb86c6f0d37880f3ac9a08f903f4",
+      "candidate_receiver_member_id": "inner_kicker_backer_right",
+      "capacity_status": "unresolved; no Hillman withdrawal, lateral, group, or receiver-to-frame resistance assigned",
+      "direction_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "finished_candidate_receiver_shape_sha256": "b07599b036ab0d5d9aace3b974652c7c36b875f08f20c9e01f5833d1967e6656",
+      "finished_receiver_overlap_volume_mm3_geometry_only": 0.0,
+      "fixed_axis_shape_sha256": "816e8e52240b826c0167a90defd85a29d309fb86c6f0d37880f3ac9a08f903f4",
+      "occupancy_diameter_basis": "historical CAD occupancy from source inventory; not a Hillman measured diameter, pilot instruction, or resistance input",
+      "origin_global_xyz_mm": [
+        70.0,
+        -17.74375,
+        192.0
+      ],
+      "panel_member_id": "kicker_right",
+      "raw_candidate_receiver_shape_sha256": "e6511356e748633ab9b73119c6f7667d09fe792b63cb11bda2edd2e80c50bf24",
+      "raw_receiver_full_diameter_intersection_length_mm_geometry_only": 45.24375,
+      "raw_receiver_intersection_interval_mm_along_purchase_axis": [
+        18.25625,
+        63.5
+      ],
+      "receiver_cut_status": "composed purchase cutter is present; finished receiver clears the modeled occupancy cylinder",
+      "receiver_entry_point_global_xyz_mm": [
+        70.0,
+        -36.0,
+        192.0
+      ],
+      "receiver_to_frame_path_complete": false,
+      "shop_purchased_length_mm": 63.5,
+      "signed_wrench_owner_id": "hillman_receiver_action:round_kicker_right_center_2",
+      "source_occupied_diameter_mm": 4.1402,
+      "source_occupied_length_mm": 50.8,
+      "source_receiver_member_id": "base_post_center_right"
+    }
+  ],
+  "members": {
+    "base_header": {
+      "delivered_stock_observed": false,
+      "finished_shape_sha256": "0c00d109f7b0b89b325c0c3e0be61657f1d96d5e48f35bd08e5bbce86029e98e",
+      "grain_axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "grain_source": "docs/wood-joints-mvp/source-inventory.json parts[base_header].grain_axis_global_xyz",
+      "grain_status": "source design datum; delivered stock not observed",
+      "member_id": "base_header",
+      "member_role": "shared WJ24 source host",
+      "raw_shape_sha256": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec",
+      "species_grade_basis": "DF-L No. 2",
+      "stock_product": "solid sawn timber"
+    },
+    "inner_kicker_backer_left": {
+      "delivered_stock_observed": false,
+      "finished_shape_sha256": "2e0a9533844e587b3be0a97a489a4ceb249e2405f287430dc22346aff83d6063",
+      "grain_axis_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "grain_source": "pinned WJ05 backer producer candidate datum: separate solid-sawn 88.9 x 88.9 x 238.9 mm members, grain along global Z",
+      "grain_status": "candidate design orientation; delivered stock and grain quality unobserved",
+      "member_id": "inner_kicker_backer_left",
+      "member_role": "candidate backer receiver",
+      "raw_shape_sha256": "fb0b240b75037627484dad039e4a87383a96dbb2b56d384130345348fa19519c",
+      "species_grade_basis": "DF-L No. 2 design basis; source availability not verified",
+      "stock_product": "solid sawn timber candidate"
+    },
+    "inner_kicker_backer_right": {
+      "delivered_stock_observed": false,
+      "finished_shape_sha256": "b07599b036ab0d5d9aace3b974652c7c36b875f08f20c9e01f5833d1967e6656",
+      "grain_axis_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "grain_source": "pinned WJ05 backer producer candidate datum: separate solid-sawn 88.9 x 88.9 x 238.9 mm members, grain along global Z",
+      "grain_status": "candidate design orientation; delivered stock and grain quality unobserved",
+      "member_id": "inner_kicker_backer_right",
+      "member_role": "candidate backer receiver",
+      "raw_shape_sha256": "e6511356e748633ab9b73119c6f7667d09fe792b63cb11bda2edd2e80c50bf24",
+      "species_grade_basis": "DF-L No. 2 design basis; source availability not verified",
+      "stock_product": "solid sawn timber candidate"
+    }
+  },
+  "method_boundary": {
+    "capacity_methods_evaluated": false,
+    "contact_area_or_bearing_credit_assigned": false,
+    "criteria_method_map": "docs/wood-joints-mvp/criteria-method-map.md",
+    "fresh_global_frame_actions_provided": false,
+    "inherited_unit_statics_or_synthetic_wrenches_as_demand": false
+  },
+  "physical_bolts": [
+    {
+      "axis_direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "axis_direction_reference": "geometric direction oriented backer-to-header; this does not verify a delivered bolt head/nut orientation",
+      "axis_line_point_global_xyz_mm": [
+        -35.0,
+        -97.0,
+        0.0
+      ],
+      "component_identity_limit": "CAD occupancy envelopes in the composed hypothesis; not delivered bolt, washer, nut, thread, or stack measurements",
+      "composed_bore_shape_sha256": "ecac64ff52fe6c1261606b62081e2082dd1774b231ed69337c17c7dbbd277f9f",
+      "composed_interface_plane_intersection_global_xyz_mm": [
+        -35.0,
+        -97.0,
+        238.9
+      ],
+      "family": "wj05_backer",
+      "hardware_selection": "unresolved; provisional ordinary-bolt geometry only, with no selected or received product identity",
+      "modeled_component_role_ids": [
+        "bottom_head",
+        "bottom_washer",
+        "shaft",
+        "top_nut",
+        "top_washer"
+      ],
+      "modeled_component_shape_sha256": {
+        "bottom_head": "f266286968bcb01b2e3c556634b7e1407b03f2aca9251482a0359bdc13bcb70d",
+        "bottom_washer": "7fa54489e114b10a78774707ad06a9bd0f200b07be31f055196cb48be7fa4193",
+        "shaft": "6ae7fc8f85682c68055a30f0bb84c6dac15f6d393edbceca3c0336610fe5a821",
+        "top_nut": "f44dfb7c8e2f5c3ee057029b75f100180d1318cf6da15182a64f431b8596336d",
+        "top_washer": "f5aabf9faa6725b97f9913629b3f63750acea6f16fd2c09b0a07343daa349c14"
+      },
+      "ordered_receiver_ids": [
+        "inner_kicker_backer_left",
+        "base_header"
+      ],
+      "physical_bolt_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_1",
+      "short_station_axis_alias": "backer_header_left_1",
+      "signed_wrench_owner_id": "bolt_action:wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_1",
+      "stack_status": "unresolved; modeled component envelope is not a selected or received physical stack",
+      "station_id": "wj05_backer_left",
+      "steel_resistance_status": "unresolved; no delivered fastener identity or applicable resistance calculation",
+      "thread_transition_status": "unresolved; no SKU/delivered thread transition or smooth-shank-through-wood proof",
+      "trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7"
+    },
+    {
+      "axis_direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "axis_direction_reference": "geometric direction oriented backer-to-header; this does not verify a delivered bolt head/nut orientation",
+      "axis_line_point_global_xyz_mm": [
+        -35.0,
+        -63.0,
+        0.0
+      ],
+      "component_identity_limit": "CAD occupancy envelopes in the composed hypothesis; not delivered bolt, washer, nut, thread, or stack measurements",
+      "composed_bore_shape_sha256": "c0550c0fb3f0ba908f0be88c42f253a4c9c3301deae555d6c244977212d77b4e",
+      "composed_interface_plane_intersection_global_xyz_mm": [
+        -35.0,
+        -63.0,
+        238.9
+      ],
+      "family": "wj05_backer",
+      "hardware_selection": "unresolved; provisional ordinary-bolt geometry only, with no selected or received product identity",
+      "modeled_component_role_ids": [
+        "bottom_head",
+        "bottom_washer",
+        "shaft",
+        "top_nut",
+        "top_washer"
+      ],
+      "modeled_component_shape_sha256": {
+        "bottom_head": "a3fbe8428e5c8ff8a7bd9c7007a58c791d1bff8023bb038e4c424f77902c03bb",
+        "bottom_washer": "4bc409f6901c1ad58d81d96536aeb4ba03e73244b7be0fa4f72e241d1361025c",
+        "shaft": "ca7374c95bd8ccd3cd512108c1cf4a89959918ca735618f9ea0f2c92ba2b3f73",
+        "top_nut": "ad5cadb69dfdeb492599050e0c6d91c13a5136c95e033e6e65d002ff637852f4",
+        "top_washer": "cdfabf27bb922a66af08e717e2542d0e45be381b30136c23184627ab0cb300b1"
+      },
+      "ordered_receiver_ids": [
+        "inner_kicker_backer_left",
+        "base_header"
+      ],
+      "physical_bolt_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_2",
+      "short_station_axis_alias": "backer_header_left_2",
+      "signed_wrench_owner_id": "bolt_action:wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_2",
+      "stack_status": "unresolved; modeled component envelope is not a selected or received physical stack",
+      "station_id": "wj05_backer_left",
+      "steel_resistance_status": "unresolved; no delivered fastener identity or applicable resistance calculation",
+      "thread_transition_status": "unresolved; no SKU/delivered thread transition or smooth-shank-through-wood proof",
+      "trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7"
+    },
+    {
+      "axis_direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "axis_direction_reference": "geometric direction oriented backer-to-header; this does not verify a delivered bolt head/nut orientation",
+      "axis_line_point_global_xyz_mm": [
+        41.0,
+        -98.0,
+        0.0
+      ],
+      "component_identity_limit": "CAD occupancy envelopes in the composed hypothesis; not delivered bolt, washer, nut, thread, or stack measurements",
+      "composed_bore_shape_sha256": "fffaf8b58f8f9edba9e2c05088ba739e9e5ee64790ec74ba07e00bd8f982472f",
+      "composed_interface_plane_intersection_global_xyz_mm": [
+        41.0,
+        -98.0,
+        238.9
+      ],
+      "family": "wj05_backer",
+      "hardware_selection": "unresolved; provisional ordinary-bolt geometry only, with no selected or received product identity",
+      "modeled_component_role_ids": [
+        "bottom_head",
+        "bottom_washer",
+        "shaft",
+        "top_nut",
+        "top_washer"
+      ],
+      "modeled_component_shape_sha256": {
+        "bottom_head": "93455f8249c67bb88cf565faea9bc59e8dce3b49ae3038ce64102958c2e8a063",
+        "bottom_washer": "e45ade243cb110cfa9284df2dd3ea4998358d17c55cca82b27ea883780da8605",
+        "shaft": "6d94661e2ffd3dc1c54786cbea943274f3e82b95e285d089a35f4407e974e433",
+        "top_nut": "b02823adfaa35a22eef7f468540b7cc96241e413fed34c5671ef15ba1c0c1e9f",
+        "top_washer": "20b590bcbc41e67cbd8e58f7de5da5d10e759536885a8ce281687e7a27003b3d"
+      },
+      "ordered_receiver_ids": [
+        "inner_kicker_backer_right",
+        "base_header"
+      ],
+      "physical_bolt_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_1",
+      "short_station_axis_alias": "backer_header_right_1",
+      "signed_wrench_owner_id": "bolt_action:wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_1",
+      "stack_status": "unresolved; modeled component envelope is not a selected or received physical stack",
+      "station_id": "wj05_backer_right",
+      "steel_resistance_status": "unresolved; no delivered fastener identity or applicable resistance calculation",
+      "thread_transition_status": "unresolved; no SKU/delivered thread transition or smooth-shank-through-wood proof",
+      "trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7"
+    },
+    {
+      "axis_direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "axis_direction_reference": "geometric direction oriented backer-to-header; this does not verify a delivered bolt head/nut orientation",
+      "axis_line_point_global_xyz_mm": [
+        25.0,
+        -76.0,
+        0.0
+      ],
+      "component_identity_limit": "CAD occupancy envelopes in the composed hypothesis; not delivered bolt, washer, nut, thread, or stack measurements",
+      "composed_bore_shape_sha256": "76a9994b61fe3b73201b50d12355f35aafbe0b2ed3075697cc0b712cfe4d2d74",
+      "composed_interface_plane_intersection_global_xyz_mm": [
+        25.0,
+        -76.0,
+        238.9
+      ],
+      "family": "wj05_backer",
+      "hardware_selection": "unresolved; provisional ordinary-bolt geometry only, with no selected or received product identity",
+      "modeled_component_role_ids": [
+        "bottom_head",
+        "bottom_washer",
+        "shaft",
+        "top_nut",
+        "top_washer"
+      ],
+      "modeled_component_shape_sha256": {
+        "bottom_head": "cf7e009bf6b4781555bca8f2bdb9f3a97cbd62321e1dd036dc6be5bf9294215d",
+        "bottom_washer": "27763673cf312484cdca91a93f02a83618d7b02361d10b8aa1914396cadc5023",
+        "shaft": "5d73e64b1bf69e2dbc84516d629d980890958d22419a130c73ec31c1c0800a56",
+        "top_nut": "02ef6a7d34bf060275a6a6eedb90c09bd28c4967c58b4dddb670bb54d9043adf",
+        "top_washer": "e61fbeb16cf5074ea665062f11f98cbed058f385cdbff9cdc75927771ed5e1b7"
+      },
+      "ordered_receiver_ids": [
+        "inner_kicker_backer_right",
+        "base_header"
+      ],
+      "physical_bolt_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_2",
+      "short_station_axis_alias": "backer_header_right_2",
+      "signed_wrench_owner_id": "bolt_action:wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_2",
+      "stack_status": "unresolved; modeled component envelope is not a selected or received physical stack",
+      "station_id": "wj05_backer_right",
+      "steel_resistance_status": "unresolved; no delivered fastener identity or applicable resistance calculation",
+      "thread_transition_status": "unresolved; no SKU/delivered thread transition or smooth-shank-through-wood proof",
+      "trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7"
+    }
+  ],
+  "physical_interfaces": [
+    {
+      "active_contact_area_assigned": false,
+      "backer_face_plane_gap_mm_geometry_only": 0.0,
+      "backer_finished_face": {
+        "face_id": "inner_kicker_backer_left/finished_face_002",
+        "face_index_in_finished_brep": 2,
+        "face_shape_sha256": "18400ab413d5aa53c4812212eb3141c0c7889cccbcddc3e171f2fb7cc6a7db55",
+        "geometry_limit": "actual finished BRep face identity/trim only; not proof of active contact or load-bearing area",
+        "inner_wires": [
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -35.0,
+                    -97.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "20a574b6c547f783597f75ab414cb75b5649851a73d095ef872f980cf40d498f",
+                "vertex_global_xyz_mm": [
+                  [
+                    -31.35,
+                    -97.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "20a574b6c547f783597f75ab414cb75b5649851a73d095ef872f980cf40d498f"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -35.0,
+                    -63.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "4827daf7838f9bde7e089645b55f36f171779d3614917079cedfd6206f6b6dc5",
+                "vertex_global_xyz_mm": [
+                  [
+                    -31.35,
+                    -63.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "4827daf7838f9bde7e089645b55f36f171779d3614917079cedfd6206f6b6dc5"
+          }
+        ],
+        "member_id": "inner_kicker_backer_left",
+        "outer_wire": {
+          "edge_count": 4,
+          "edges": [
+            {
+              "curve_type": "LINE",
+              "edge_index": 0,
+              "edge_shape_sha256": "ed14a9594bb0c7244cb90b8c53972866abbc00c414b5b344f8109970f17d5787",
+              "vertex_global_xyz_mm": [
+                [
+                  -90.4875,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  -90.4875,
+                  -124.9,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 1,
+              "edge_shape_sha256": "4461f48a164c1d9e5b63fe74d4bfa7c4198d1a7617dc539919ddb70fd08e0160",
+              "vertex_global_xyz_mm": [
+                [
+                  -1.5875,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  -90.4875,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 2,
+              "edge_shape_sha256": "ea9b1c700482949173856207f390baa8a73fea667e30d0b1a65c56ba0f6a5163",
+              "vertex_global_xyz_mm": [
+                [
+                  -1.5875,
+                  -124.9,
+                  238.9
+                ],
+                [
+                  -90.4875,
+                  -124.9,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 3,
+              "edge_shape_sha256": "8a56bc43f87fc59479b0e9282d594f2f1cc83f132ee35a7b8620c017d2a5955d",
+              "vertex_global_xyz_mm": [
+                [
+                  -1.5875,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  -1.5875,
+                  -124.9,
+                  238.9
+                ]
+              ]
+            }
+          ],
+          "wire_shape_sha256": "b25760e2085820c66b352e0fea40b35c95d035a6182574d1df3430a5d063feb4"
+        },
+        "outward_normal_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "plane_point_global_xyz_mm": [
+          -46.155656387421,
+          -80.454817247958,
+          238.9
+        ],
+        "trimmed_face_bounds_global_xyz_mm": {
+          "x": [
+            -90.4875,
+            -1.5875000000000057
+          ],
+          "y": [
+            -124.9,
+            -36.0
+          ],
+          "z": [
+            238.9,
+            238.9
+          ]
+        }
+      },
+      "backer_member_id": "inner_kicker_backer_left",
+      "backer_to_header_contact_normal_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "backer_to_header_direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bolt_axis_ids": [
+        "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_1",
+        "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_2"
+      ],
+      "bolt_centerline_interface_intersections_global_xyz_mm": [
+        [
+          -35.0,
+          -97.0,
+          238.9
+        ],
+        [
+          -35.0,
+          -63.0,
+          238.9
+        ]
+      ],
+      "bolt_group_centroid_datum_basis": "arithmetic centroid of the two composed bore centerline intersections with the actual opposed finished-face plane",
+      "contact_status": "composed finished faces are geometrically coincident and opposed; active contact, tolerance, separation/opening, and load-bearing area are unresolved",
+      "datum_basis": {
+        "axes_global_xyz": {
+          "n": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "u": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "axis_names": [
+          "u",
+          "v",
+          "n"
+        ],
+        "basis_source": "preferred global X projected into the measured interface plane; v = n cross u; n is confirmed backer-to-header by the opposed finished faces"
+      },
+      "datum_global_xyz_mm": [
+        -35.0,
+        -80.0,
+        238.9
+      ],
+      "header_finished_face": {
+        "face_id": "base_header/finished_face_001",
+        "face_index_in_finished_brep": 1,
+        "face_shape_sha256": "2b8c6f6de98024bb9a6efdfea9549670677d46b36491ce2b6bde3e2616a510af",
+        "geometry_limit": "actual finished BRep face identity/trim only; not proof of active contact or load-bearing area",
+        "inner_wires": [
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -1080.0,
+                    -137.6,
+                    238.9
+                  ],
+                  "radius_mm": 3.75
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "d4908bd298712d05d5fc06c0139b5987ebccae35d64773ba2f350772de37b054",
+                "vertex_global_xyz_mm": [
+                  [
+                    -1083.75,
+                    -137.6,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "d4908bd298712d05d5fc06c0139b5987ebccae35d64773ba2f350772de37b054"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -1045.0,
+                    -137.6,
+                    238.9
+                  ],
+                  "radius_mm": 3.75
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "8a774617f78d67daddf964e2ed0b90cfb921cca22c5241dd755fe756467a1ae6",
+                "vertex_global_xyz_mm": [
+                  [
+                    -1048.75,
+                    -137.6,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "8a774617f78d67daddf964e2ed0b90cfb921cca22c5241dd755fe756467a1ae6"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -254.0,
+                    -148.75,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "102133e671a30356aaa8ce51bd1198f33bd6b31662798abaf4eb9a423ccaf794",
+                "vertex_global_xyz_mm": [
+                  [
+                    -250.35,
+                    -148.75,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "102133e671a30356aaa8ce51bd1198f33bd6b31662798abaf4eb9a423ccaf794"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -151.0,
+                    -139.4,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "41e4f3d4e01f1498656a99b710deb02e95d943fbec32e5671d296fdab9a80998",
+                "vertex_global_xyz_mm": [
+                  [
+                    -147.35,
+                    -139.4,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "41e4f3d4e01f1498656a99b710deb02e95d943fbec32e5671d296fdab9a80998"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -116.0,
+                    -139.4,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "891964a575aca3673ba96a2c77d1362f1ac13cc7c5302c7d24c13431b51d25bb",
+                "vertex_global_xyz_mm": [
+                  [
+                    -112.35,
+                    -139.4,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "891964a575aca3673ba96a2c77d1362f1ac13cc7c5302c7d24c13431b51d25bb"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -254.0,
+                    -113.75,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "bef55f079e2e7c812454b7c5a78cc6d39b9800567563af936f620cf751c42096",
+                "vertex_global_xyz_mm": [
+                  [
+                    -250.35,
+                    -113.75,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "bef55f079e2e7c812454b7c5a78cc6d39b9800567563af936f620cf751c42096"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    254.0,
+                    -148.75,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "c2704a91420f14a204b3dcdd0f8e7d64fa4253a62b58744fb31ee9afc2386743",
+                "vertex_global_xyz_mm": [
+                  [
+                    257.65,
+                    -148.75,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "c2704a91420f14a204b3dcdd0f8e7d64fa4253a62b58744fb31ee9afc2386743"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    116.0,
+                    -139.4,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "2567fbee092febb826dd3168ee36b7204f25f229eca1da03d593bda3ae9e83da",
+                "vertex_global_xyz_mm": [
+                  [
+                    119.65,
+                    -139.4,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "2567fbee092febb826dd3168ee36b7204f25f229eca1da03d593bda3ae9e83da"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    151.0,
+                    -139.4,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "75e6a85830065f2567b56c8e3044de71065c33e3ac75a7878d44eeb04aeb4a07",
+                "vertex_global_xyz_mm": [
+                  [
+                    154.65,
+                    -139.4,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "75e6a85830065f2567b56c8e3044de71065c33e3ac75a7878d44eeb04aeb4a07"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    1041.825,
+                    -137.6,
+                    238.9
+                  ],
+                  "radius_mm": 3.75
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "3b8f7739125a672dd0e00c9813bec5ae7c8bcad1c02ae774b3a730977c8e2dc2",
+                "vertex_global_xyz_mm": [
+                  [
+                    1038.075,
+                    -137.6,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "3b8f7739125a672dd0e00c9813bec5ae7c8bcad1c02ae774b3a730977c8e2dc2"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    1076.825,
+                    -137.6,
+                    238.9
+                  ],
+                  "radius_mm": 3.75
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "80ec55b1755633bc217b0b3a7219b0865c57c765aa058534bec88e2d18a5c577",
+                "vertex_global_xyz_mm": [
+                  [
+                    1073.075,
+                    -137.6,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "80ec55b1755633bc217b0b3a7219b0865c57c765aa058534bec88e2d18a5c577"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    254.0,
+                    -113.75,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "2e38ab78d18ee2b9d8412c8630e7db2dcad4ab8c10001d097735015ec8637a7d",
+                "vertex_global_xyz_mm": [
+                  [
+                    257.65,
+                    -113.75,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "2e38ab78d18ee2b9d8412c8630e7db2dcad4ab8c10001d097735015ec8637a7d"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -35.0,
+                    -97.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "20a574b6c547f783597f75ab414cb75b5649851a73d095ef872f980cf40d498f",
+                "vertex_global_xyz_mm": [
+                  [
+                    -31.35,
+                    -97.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "20a574b6c547f783597f75ab414cb75b5649851a73d095ef872f980cf40d498f"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -35.0,
+                    -63.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "4827daf7838f9bde7e089645b55f36f171779d3614917079cedfd6206f6b6dc5",
+                "vertex_global_xyz_mm": [
+                  [
+                    -31.35,
+                    -63.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "4827daf7838f9bde7e089645b55f36f171779d3614917079cedfd6206f6b6dc5"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    41.0,
+                    -98.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "706268fec88615a6307d8c8470d432ee04a083affab8254345033d0232854015",
+                "vertex_global_xyz_mm": [
+                  [
+                    44.65,
+                    -98.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "706268fec88615a6307d8c8470d432ee04a083affab8254345033d0232854015"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    25.0,
+                    -76.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "53d00edd973475d3376c37dbd014300c90f245a2eb8c90d316ef6fa6f08af573",
+                "vertex_global_xyz_mm": [
+                  [
+                    28.65,
+                    -76.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "53d00edd973475d3376c37dbd014300c90f245a2eb8c90d316ef6fa6f08af573"
+          }
+        ],
+        "member_id": "base_header",
+        "outer_wire": {
+          "edge_count": 4,
+          "edges": [
+            {
+              "curve_type": "LINE",
+              "edge_index": 0,
+              "edge_shape_sha256": "f98c3e4f88dbba5589ced4efc7e2ff9ceb2a6c81776e03309051eb8cc1ad113b",
+              "vertex_global_xyz_mm": [
+                [
+                  -1219.2,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 1,
+              "edge_shape_sha256": "c36055ebc21da6ceef9a594e9ee0ace3b99dfcc2f561a670a130a8ce4327a0b7",
+              "vertex_global_xyz_mm": [
+                [
+                  -1219.2,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  -1219.2,
+                  -175.7,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 2,
+              "edge_shape_sha256": "e9857290c87c0d10ad69fb03c244c02cff4c9d0360a19a2dbc6957cb8fb96401",
+              "vertex_global_xyz_mm": [
+                [
+                  1216.025,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 3,
+              "edge_shape_sha256": "138f954ff94466763e86537521457640c3ef7e11fff51d5c40574309650eaa59",
+              "vertex_global_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -175.7,
+                  238.9
+                ]
+              ]
+            }
+          ],
+          "wire_shape_sha256": "816923f4f815f6a9bf77c433bb5c8067c5212df49f187d51a04c4cfdce57242e"
+        },
+        "outward_normal_global_xyz": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "plane_point_global_xyz_mm": [
+          -1.589355257592,
+          -105.815427585225,
+          238.9
+        ],
+        "trimmed_face_bounds_global_xyz_mm": {
+          "x": [
+            -1219.2,
+            1216.0250000000003
+          ],
+          "y": [
+            -175.7,
+            -36.0
+          ],
+          "z": [
+            238.9,
+            238.9
+          ]
+        }
+      },
+      "header_member_id": "base_header",
+      "interface_id": "wj05_backer_left__base_header",
+      "ordered_member_ids_backer_to_header": [
+        "inner_kicker_backer_left",
+        "base_header"
+      ],
+      "physical_interface_datum_id": "wj05_backer_left/interface_datum",
+      "short_station_axis_aliases": [
+        "backer_header_left_1",
+        "backer_header_left_2"
+      ],
+      "signed_wrench_owner_id": "backer_header_joint_action:wj05_backer_left"
+    },
+    {
+      "active_contact_area_assigned": false,
+      "backer_face_plane_gap_mm_geometry_only": 0.0,
+      "backer_finished_face": {
+        "face_id": "inner_kicker_backer_right/finished_face_002",
+        "face_index_in_finished_brep": 2,
+        "face_shape_sha256": "d10226f87f090892272f83cdb6460198d6c3707969678003c2fee9528ca6795a",
+        "geometry_limit": "actual finished BRep face identity/trim only; not proof of active contact or load-bearing area",
+        "inner_wires": [
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    41.0,
+                    -98.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "706268fec88615a6307d8c8470d432ee04a083affab8254345033d0232854015",
+                "vertex_global_xyz_mm": [
+                  [
+                    44.65,
+                    -98.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "706268fec88615a6307d8c8470d432ee04a083affab8254345033d0232854015"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    25.0,
+                    -76.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "53d00edd973475d3376c37dbd014300c90f245a2eb8c90d316ef6fa6f08af573",
+                "vertex_global_xyz_mm": [
+                  [
+                    28.65,
+                    -76.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "53d00edd973475d3376c37dbd014300c90f245a2eb8c90d316ef6fa6f08af573"
+          }
+        ],
+        "member_id": "inner_kicker_backer_right",
+        "outer_wire": {
+          "edge_count": 4,
+          "edges": [
+            {
+              "curve_type": "LINE",
+              "edge_index": 0,
+              "edge_shape_sha256": "8a56bc43f87fc59479b0e9282d594f2f1cc83f132ee35a7b8620c017d2a5955d",
+              "vertex_global_xyz_mm": [
+                [
+                  -1.5875,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  -1.5875,
+                  -124.9,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 1,
+              "edge_shape_sha256": "468f04674cf33f8f078bf28e8b87fae4c3a328e0bef5e5f227abe7f8fb1559ae",
+              "vertex_global_xyz_mm": [
+                [
+                  87.3125,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  -1.5875,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 2,
+              "edge_shape_sha256": "cc2364e639fffc0aaac636c72fd16b8f44ba613a560611e5d297379a1114fc01",
+              "vertex_global_xyz_mm": [
+                [
+                  87.3125,
+                  -124.9,
+                  238.9
+                ],
+                [
+                  -1.5875,
+                  -124.9,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 3,
+              "edge_shape_sha256": "c50ab581e5e42907d46d1a1a51fe7fe046e05ff93909cb1f2ebbec5fd7481079",
+              "vertex_global_xyz_mm": [
+                [
+                  87.3125,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  87.3125,
+                  -124.9,
+                  238.9
+                ]
+              ]
+            }
+          ],
+          "wire_shape_sha256": "625597ac5486d095d86e60fdddf1a06eb17258b04d05b9593601aef32a0d62cc"
+        },
+        "outward_normal_global_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "plane_point_global_xyz_mm": [
+          42.968078017752,
+          -80.379882279719,
+          238.9
+        ],
+        "trimmed_face_bounds_global_xyz_mm": {
+          "x": [
+            -1.5875,
+            87.3125
+          ],
+          "y": [
+            -124.9,
+            -36.0
+          ],
+          "z": [
+            238.9,
+            238.9
+          ]
+        }
+      },
+      "backer_member_id": "inner_kicker_backer_right",
+      "backer_to_header_contact_normal_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "backer_to_header_direction_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "bolt_axis_ids": [
+        "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_1",
+        "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_2"
+      ],
+      "bolt_centerline_interface_intersections_global_xyz_mm": [
+        [
+          41.0,
+          -98.0,
+          238.9
+        ],
+        [
+          25.0,
+          -76.0,
+          238.9
+        ]
+      ],
+      "bolt_group_centroid_datum_basis": "arithmetic centroid of the two composed bore centerline intersections with the actual opposed finished-face plane",
+      "contact_status": "composed finished faces are geometrically coincident and opposed; active contact, tolerance, separation/opening, and load-bearing area are unresolved",
+      "datum_basis": {
+        "axes_global_xyz": {
+          "n": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "u": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "axis_names": [
+          "u",
+          "v",
+          "n"
+        ],
+        "basis_source": "preferred global X projected into the measured interface plane; v = n cross u; n is confirmed backer-to-header by the opposed finished faces"
+      },
+      "datum_global_xyz_mm": [
+        33.0,
+        -87.0,
+        238.9
+      ],
+      "header_finished_face": {
+        "face_id": "base_header/finished_face_001",
+        "face_index_in_finished_brep": 1,
+        "face_shape_sha256": "2b8c6f6de98024bb9a6efdfea9549670677d46b36491ce2b6bde3e2616a510af",
+        "geometry_limit": "actual finished BRep face identity/trim only; not proof of active contact or load-bearing area",
+        "inner_wires": [
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -1080.0,
+                    -137.6,
+                    238.9
+                  ],
+                  "radius_mm": 3.75
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "d4908bd298712d05d5fc06c0139b5987ebccae35d64773ba2f350772de37b054",
+                "vertex_global_xyz_mm": [
+                  [
+                    -1083.75,
+                    -137.6,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "d4908bd298712d05d5fc06c0139b5987ebccae35d64773ba2f350772de37b054"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -1045.0,
+                    -137.6,
+                    238.9
+                  ],
+                  "radius_mm": 3.75
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "8a774617f78d67daddf964e2ed0b90cfb921cca22c5241dd755fe756467a1ae6",
+                "vertex_global_xyz_mm": [
+                  [
+                    -1048.75,
+                    -137.6,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "8a774617f78d67daddf964e2ed0b90cfb921cca22c5241dd755fe756467a1ae6"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -254.0,
+                    -148.75,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "102133e671a30356aaa8ce51bd1198f33bd6b31662798abaf4eb9a423ccaf794",
+                "vertex_global_xyz_mm": [
+                  [
+                    -250.35,
+                    -148.75,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "102133e671a30356aaa8ce51bd1198f33bd6b31662798abaf4eb9a423ccaf794"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -151.0,
+                    -139.4,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "41e4f3d4e01f1498656a99b710deb02e95d943fbec32e5671d296fdab9a80998",
+                "vertex_global_xyz_mm": [
+                  [
+                    -147.35,
+                    -139.4,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "41e4f3d4e01f1498656a99b710deb02e95d943fbec32e5671d296fdab9a80998"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -116.0,
+                    -139.4,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "891964a575aca3673ba96a2c77d1362f1ac13cc7c5302c7d24c13431b51d25bb",
+                "vertex_global_xyz_mm": [
+                  [
+                    -112.35,
+                    -139.4,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "891964a575aca3673ba96a2c77d1362f1ac13cc7c5302c7d24c13431b51d25bb"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -254.0,
+                    -113.75,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "bef55f079e2e7c812454b7c5a78cc6d39b9800567563af936f620cf751c42096",
+                "vertex_global_xyz_mm": [
+                  [
+                    -250.35,
+                    -113.75,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "bef55f079e2e7c812454b7c5a78cc6d39b9800567563af936f620cf751c42096"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    254.0,
+                    -148.75,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "c2704a91420f14a204b3dcdd0f8e7d64fa4253a62b58744fb31ee9afc2386743",
+                "vertex_global_xyz_mm": [
+                  [
+                    257.65,
+                    -148.75,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "c2704a91420f14a204b3dcdd0f8e7d64fa4253a62b58744fb31ee9afc2386743"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    116.0,
+                    -139.4,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "2567fbee092febb826dd3168ee36b7204f25f229eca1da03d593bda3ae9e83da",
+                "vertex_global_xyz_mm": [
+                  [
+                    119.65,
+                    -139.4,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "2567fbee092febb826dd3168ee36b7204f25f229eca1da03d593bda3ae9e83da"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    151.0,
+                    -139.4,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "75e6a85830065f2567b56c8e3044de71065c33e3ac75a7878d44eeb04aeb4a07",
+                "vertex_global_xyz_mm": [
+                  [
+                    154.65,
+                    -139.4,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "75e6a85830065f2567b56c8e3044de71065c33e3ac75a7878d44eeb04aeb4a07"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    1041.825,
+                    -137.6,
+                    238.9
+                  ],
+                  "radius_mm": 3.75
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "3b8f7739125a672dd0e00c9813bec5ae7c8bcad1c02ae774b3a730977c8e2dc2",
+                "vertex_global_xyz_mm": [
+                  [
+                    1038.075,
+                    -137.6,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "3b8f7739125a672dd0e00c9813bec5ae7c8bcad1c02ae774b3a730977c8e2dc2"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    1076.825,
+                    -137.6,
+                    238.9
+                  ],
+                  "radius_mm": 3.75
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "80ec55b1755633bc217b0b3a7219b0865c57c765aa058534bec88e2d18a5c577",
+                "vertex_global_xyz_mm": [
+                  [
+                    1073.075,
+                    -137.6,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "80ec55b1755633bc217b0b3a7219b0865c57c765aa058534bec88e2d18a5c577"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    254.0,
+                    -113.75,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "2e38ab78d18ee2b9d8412c8630e7db2dcad4ab8c10001d097735015ec8637a7d",
+                "vertex_global_xyz_mm": [
+                  [
+                    257.65,
+                    -113.75,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "2e38ab78d18ee2b9d8412c8630e7db2dcad4ab8c10001d097735015ec8637a7d"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -35.0,
+                    -97.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "20a574b6c547f783597f75ab414cb75b5649851a73d095ef872f980cf40d498f",
+                "vertex_global_xyz_mm": [
+                  [
+                    -31.35,
+                    -97.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "20a574b6c547f783597f75ab414cb75b5649851a73d095ef872f980cf40d498f"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    -35.0,
+                    -63.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "4827daf7838f9bde7e089645b55f36f171779d3614917079cedfd6206f6b6dc5",
+                "vertex_global_xyz_mm": [
+                  [
+                    -31.35,
+                    -63.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "4827daf7838f9bde7e089645b55f36f171779d3614917079cedfd6206f6b6dc5"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    41.0,
+                    -98.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "706268fec88615a6307d8c8470d432ee04a083affab8254345033d0232854015",
+                "vertex_global_xyz_mm": [
+                  [
+                    44.65,
+                    -98.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "706268fec88615a6307d8c8470d432ee04a083affab8254345033d0232854015"
+          },
+          {
+            "edge_count": 1,
+            "edges": [
+              {
+                "circle": {
+                  "axis_global_xyz": [
+                    0.0,
+                    0.0,
+                    1.0
+                  ],
+                  "center_global_xyz_mm": [
+                    25.0,
+                    -76.0,
+                    238.9
+                  ],
+                  "radius_mm": 3.65
+                },
+                "curve_type": "CIRCLE",
+                "edge_index": 0,
+                "edge_shape_sha256": "53d00edd973475d3376c37dbd014300c90f245a2eb8c90d316ef6fa6f08af573",
+                "vertex_global_xyz_mm": [
+                  [
+                    28.65,
+                    -76.0,
+                    238.9
+                  ]
+                ]
+              }
+            ],
+            "wire_shape_sha256": "53d00edd973475d3376c37dbd014300c90f245a2eb8c90d316ef6fa6f08af573"
+          }
+        ],
+        "member_id": "base_header",
+        "outer_wire": {
+          "edge_count": 4,
+          "edges": [
+            {
+              "curve_type": "LINE",
+              "edge_index": 0,
+              "edge_shape_sha256": "f98c3e4f88dbba5589ced4efc7e2ff9ceb2a6c81776e03309051eb8cc1ad113b",
+              "vertex_global_xyz_mm": [
+                [
+                  -1219.2,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 1,
+              "edge_shape_sha256": "c36055ebc21da6ceef9a594e9ee0ace3b99dfcc2f561a670a130a8ce4327a0b7",
+              "vertex_global_xyz_mm": [
+                [
+                  -1219.2,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  -1219.2,
+                  -175.7,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 2,
+              "edge_shape_sha256": "e9857290c87c0d10ad69fb03c244c02cff4c9d0360a19a2dbc6957cb8fb96401",
+              "vertex_global_xyz_mm": [
+                [
+                  1216.025,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "edge_index": 3,
+              "edge_shape_sha256": "138f954ff94466763e86537521457640c3ef7e11fff51d5c40574309650eaa59",
+              "vertex_global_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -175.7,
+                  238.9
+                ]
+              ]
+            }
+          ],
+          "wire_shape_sha256": "816923f4f815f6a9bf77c433bb5c8067c5212df49f187d51a04c4cfdce57242e"
+        },
+        "outward_normal_global_xyz": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "plane_point_global_xyz_mm": [
+          -1.589355257592,
+          -105.815427585225,
+          238.9
+        ],
+        "trimmed_face_bounds_global_xyz_mm": {
+          "x": [
+            -1219.2,
+            1216.0250000000003
+          ],
+          "y": [
+            -175.7,
+            -36.0
+          ],
+          "z": [
+            238.9,
+            238.9
+          ]
+        }
+      },
+      "header_member_id": "base_header",
+      "interface_id": "wj05_backer_right__base_header",
+      "ordered_member_ids_backer_to_header": [
+        "inner_kicker_backer_right",
+        "base_header"
+      ],
+      "physical_interface_datum_id": "wj05_backer_right/interface_datum",
+      "short_station_axis_aliases": [
+        "backer_header_right_1",
+        "backer_header_right_2"
+      ],
+      "signed_wrench_owner_id": "backer_header_joint_action:wj05_backer_right"
+    }
+  ],
+  "physical_inventory": {
+    "backer_header_interfaces": 2,
+    "fixed_hillman_load_entry_axes": 4,
+    "fixed_panel_axis_count_in_composition": 66,
+    "modeled_component_shapes_for_backer_bolts": 20,
+    "ordinary_physical_bolts": 4,
+    "scope_does_not_cover": "other WJ24 duties, downstream center-post/principal-cleat paths, the whole frame, native analysis, actual installation, or any capacity/release determination"
+  },
+  "schema": "wood_joint_wj24_backer_mechanics_contract/v1",
+  "scope": "two WJ24 center-kicker backer-to-header joints, four provisional through-bolt axes, and four fixed Hillman center-kicker load-entry axes",
+  "signed_wrench_owners": {
+    "action_source": "fresh source-bound complete-frame demand extraction is still required",
+    "action_source_status": "no fresh WJ09 signed case actions imported",
+    "allocation_limit": "owner identities and reference datums are defined; no distribution among Hillman axes, bolts, fastener shank/thread, or contact is inferred",
+    "component_names": [
+      "Fx",
+      "Fy",
+      "Fz",
+      "Mx",
+      "My",
+      "Mz"
+    ],
+    "component_units": {
+      "force": "N",
+      "moment": "N*mm"
+    },
+    "global_sign_convention": "positive force components act along the listed basis axes; positive moments follow the right-hand rule; each owner row names the body receiving the action",
+    "local_basis_convention": "Hillman and bolt-axis owners use global XYZ; interface owners use their measured right-handed u/v/n basis",
+    "owners": [
+      {
+        "action_on": "inner_kicker_backer_left",
+        "action_status": "signed demand and four-screw load sharing not imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "x": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "z": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "canonical_axis_id": "round_kicker_left_center_1",
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          -70.0,
+          -36.0,
+          60.0
+        ],
+        "member_or_joint_id": "inner_kicker_backer_left",
+        "owner_id": "hillman_receiver_action:round_kicker_left_center_1",
+        "owner_kind": "fixed_hillman_load_entry_axis"
+      },
+      {
+        "action_on": "inner_kicker_backer_left",
+        "action_status": "signed demand and four-screw load sharing not imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "x": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "z": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "canonical_axis_id": "round_kicker_left_center_2",
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          -70.0,
+          -36.0,
+          192.0
+        ],
+        "member_or_joint_id": "inner_kicker_backer_left",
+        "owner_id": "hillman_receiver_action:round_kicker_left_center_2",
+        "owner_kind": "fixed_hillman_load_entry_axis"
+      },
+      {
+        "action_on": "inner_kicker_backer_right",
+        "action_status": "signed demand and four-screw load sharing not imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "x": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "z": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "canonical_axis_id": "round_kicker_right_center_1",
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          70.0,
+          -36.0,
+          60.0
+        ],
+        "member_or_joint_id": "inner_kicker_backer_right",
+        "owner_id": "hillman_receiver_action:round_kicker_right_center_1",
+        "owner_kind": "fixed_hillman_load_entry_axis"
+      },
+      {
+        "action_on": "inner_kicker_backer_right",
+        "action_status": "signed demand and four-screw load sharing not imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "x": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "z": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "canonical_axis_id": "round_kicker_right_center_2",
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          70.0,
+          -36.0,
+          192.0
+        ],
+        "member_or_joint_id": "inner_kicker_backer_right",
+        "owner_id": "hillman_receiver_action:round_kicker_right_center_2",
+        "owner_kind": "fixed_hillman_load_entry_axis"
+      },
+      {
+        "action_on": "physical bolt axis; bolt/member interaction distribution unresolved",
+        "action_status": "no signed bolt actions or group distribution imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "x": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "z": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "canonical_axis_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_1",
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          -35.0,
+          -97.0,
+          238.9
+        ],
+        "member_or_joint_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_1",
+        "owner_id": "bolt_action:wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_1",
+        "owner_kind": "physical_bolt_axis"
+      },
+      {
+        "action_on": "physical bolt axis; bolt/member interaction distribution unresolved",
+        "action_status": "no signed bolt actions or group distribution imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "x": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "z": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "canonical_axis_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_2",
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          -35.0,
+          -63.0,
+          238.9
+        ],
+        "member_or_joint_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_2",
+        "owner_id": "bolt_action:wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_left_2",
+        "owner_kind": "physical_bolt_axis"
+      },
+      {
+        "action_on": "physical bolt axis; bolt/member interaction distribution unresolved",
+        "action_status": "no signed bolt actions or group distribution imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "x": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "z": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "canonical_axis_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_1",
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          41.0,
+          -98.0,
+          238.9
+        ],
+        "member_or_joint_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_1",
+        "owner_id": "bolt_action:wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_1",
+        "owner_kind": "physical_bolt_axis"
+      },
+      {
+        "action_on": "physical bolt axis; bolt/member interaction distribution unresolved",
+        "action_status": "no signed bolt actions or group distribution imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "x": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "y": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "z": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        "canonical_axis_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_2",
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          25.0,
+          -76.0,
+          238.9
+        ],
+        "member_or_joint_id": "wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_2",
+        "owner_id": "bolt_action:wj05_backer/compact_bridge_rear_bevel_4x6_spine_137_7/backer_header_right_2",
+        "owner_kind": "physical_bolt_axis"
+      },
+      {
+        "action_on": "inner_kicker_backer_left",
+        "action_status": "no fresh WJ09 complete-frame signed interface action imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "n": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "u": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "canonical_axis_id": null,
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          -35.0,
+          -80.0,
+          238.9
+        ],
+        "member_or_joint_id": "wj05_backer_left__base_header",
+        "owner_id": "backer_header_joint_action:wj05_backer_left",
+        "owner_kind": "complete_backer_header_joint_interface"
+      },
+      {
+        "action_on": "inner_kicker_backer_right",
+        "action_status": "no fresh WJ09 complete-frame signed interface action imported",
+        "actions_by_case_id": null,
+        "basis_global_xyz": {
+          "n": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "u": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "v": [
+            0.0,
+            1.0,
+            0.0
+          ]
+        },
+        "canonical_axis_id": null,
+        "component_schema": {
+          "force_global_N": [
+            "Fx",
+            "Fy",
+            "Fz"
+          ],
+          "moment_global_Nmm": [
+            "Mx",
+            "My",
+            "Mz"
+          ]
+        },
+        "datum_global_xyz_mm": [
+          33.0,
+          -87.0,
+          238.9
+        ],
+        "member_or_joint_id": "wj05_backer_right__base_header",
+        "owner_id": "backer_header_joint_action:wj05_backer_right",
+        "owner_kind": "complete_backer_header_joint_interface"
+      }
+    ]
+  },
+  "status": "bounded_mechanics_inputs_only",
+  "unresolved_mechanics_inputs": {
+    "active_contact_gap_opening_and_pressure": "missing; coincident geometric faces do not establish active contact, gap tolerance, opening law, bearing area, or pressure distribution",
+    "backer_cut_effects_and_screw_resistance": "missing; actual WJ24 receiver cuts are bound, but no Hillman withdrawal/lateral/group resistance is assigned",
+    "bolt_group_distribution_and_joint_stiffness": "missing; no adopted axial/lateral/rotational stiffness or group response model",
+    "bolt_identity_thread_transition_and_delivered_smooth_shank": "missing; no SKU, measured thread runout, delivered body section, or through-wood smooth-shank proof",
+    "bolt_nut_washer_stack_and_preload": "missing; CAD envelopes do not define received stack, nut engagement, snug/preload, or installation state",
+    "bolt_steel_and_wood_resistance": "missing; no delivered fastener properties or applicable resistance calculation",
+    "fresh_complete_frame_signed_actions": "missing; WJ09 source-bound fresh demand extraction required",
+    "header_transfer_and_downstream_compatibility": "missing; complete eccentric backer-to-header and center-frame transfer remains outside this geometry input contract",
+    "hillman_axis_load_allocation": "missing; no per-screw action or group sharing is assigned",
+    "net_sections_and_loaded_edge_end_distances": "not evaluated; identify actual governing section cuts and loaded edges from signed actions before applying an applicable wood method",
+    "received_stock_and_grain_quality": "missing; DF-L No. 2 is a design basis, not received-stock inspection or property verification"
+  }
+}

@@ -1,0 +1,45 @@
+import json,hashlib,math,time
+from pathlib import Path
+import cadquery as cq
+from mini_moonboard import hold_tnut_reinforcement as hold_datums_module
+from scripts import owner_layout_protected as hold_proxy
+
+probe_start=time.monotonic()
+bc=bottom_center_geometry
+source_paths=[Path(bottom_center.__file__),Path('scripts/owner_layout_protected.py'),Path('mini_moonboard/hold_tnut_reinforcement.py'),Path('docs/wood-joints-mvp/hypotheses/bottom-center-integration/geometry.json'),Path('docs/wood-joints-mvp/hypotheses/wj18-integrated-static/composition.json'),Path('docs/floor-flush-construction/timber-passages.json')]
+pins={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}
+raw=bottom_center._source_parts(bc.source,'uncut_wood_parts')
+finished={}
+for host in bottom_center.HOST_IDS:
+ _,finished[host],_=bottom_center._rebuild_one_host_preview(g18,host,raw[host],bc.source_native_cutters_by_host,bc.source_panel_purchase_cutters_by_host,bc.replaced_source_cutter_ids,bc.candidate_bores_by_host[host])
+rows=[]
+for duty,placement in bc.placement_evidence.items():
+ cleat=bottom_center.CLEAT_IDS[duty]
+ for role in ('rail','principal'):
+  host=placement[role+'_id']
+  basis=placement['rail_high_T_contact_face' if role=='rail' else 'principal_outboard_contact_face']
+  origin=cq.Vector(*basis['center_global_xyz_mm']);normal=cq.Vector(*basis['normal_global_xyz']).normalized()
+  host_faces=[f for f in finished[host].Faces() if f.geomType()=='PLANE' and f.normalAt().dot(normal)>1-1e-8 and abs((f.Center()-origin).dot(normal))<1e-6]
+  cleat_faces=[f for f in bc.finished_candidate_parts[cleat].Faces() if f.geomType()=='PLANE' and f.normalAt().dot(-normal)>1-1e-8 and abs((f.Center()-origin).dot(normal))<1e-6]
+  assert host_faces and cleat_faces
+  common=[f for a in host_faces for b in cleat_faces for f in a.intersect(b).Faces()]
+  assert common
+  rows.append({'duty_id':duty,'host_id':host,'cleat_id':cleat,'matched_host_faces':len(host_faces),'matched_cleat_faces':len(cleat_faces),'common_face_count':len(common),'host_planar_area_mm2':sum(f.Area() for f in host_faces),'cleat_planar_area_mm2':sum(f.Area() for f in cleat_faces),'finite_common_area_mm2':sum(f.Area() for f in common),'maximum_pair_distance_mm':max(a.distance(b) for a in host_faces for b in cleat_faces)})
+host='base_rail_bottom_left';placement=bc.placement_evidence['clip_horizontal_bottom_left_2'];frame=top_center._frame_for_part(bc.source_inventory,host)
+slab=bottom_center._contact_slab(frame,placement,host,0.05);net=slab.cut(*bc.candidate_bores_by_host[host].values()).clean();missing=net.cut(finished[host]).clean()
+cutters={**bc.source_native_cutters_by_host[host],**bc.source_panel_purchase_cutters_by_host[host]}
+attribution={k:v for k,s in cutters.items() if (v:=bottom_center._intersection_volume(missing,s))>1e-5}
+assert set(attribution)=={'service/6/bore_base_rail_bottom_left_049'}
+r,d=19.05,11.25;cap=r*r*math.acos(d/r)-d*math.sqrt(r*r-d*d)
+assert abs(cap*.05-missing.Volume())<1e-6
+left=next(row for row in rows if row['host_id']==host)
+assert abs(left['cleat_planar_area_mm2']-left['finite_common_area_mm2']-cap)<1e-5
+hold=next(r for r in hold_datums_module.datums(g18.source) if r['name']=='hold_tnut_main_G1')
+rear=cq.Vector(*hold['rear_seating_xyz_mm']);axis=-cq.Vector(*hold['barrel_into_panel_direction']);shape=bc.raw_candidate_parts['bottom_center_right_cleat']
+proxy=g18.protected['hold_hole_and_provisional_projection']['hold_tnut_main_G1'];overlap=shape.intersect(proxy)
+assert overlap.Volume()>0
+stations=[(v.Center()-rear).dot(axis) for v in overlap.Vertices()]
+report={'status':'bounded_finite_contact_and_provisional_hold_envelope_probe','source_sha256':pins,'producer_sha256':hashlib.sha256(Path('/tmp/bottom-center-contact-and-hold-probe.py').read_bytes()).hexdigest(),'interfaces':rows,'left_service_cut':{'cut_id':next(iter(attribution)),'radius_mm':r,'center_outside_patch_edge_mm':d,'analytic_cap_area_mm2':cap,'slab_depth_mm':.05,'missing_slab_volume_mm3':missing.Volume(),'per_cutter_missing_volume_mm3':attribution,'no_missing_volume_unattributed':abs(sum(attribution.values())-missing.Volume())<1e-7},'G1_provisional_hold_projection':{'datum':hold,'proxy_diameter_mm':hold_proxy.HOLD_HOLE_DIAMETER_MM,'proxy_length_mm':hold_proxy.TRIAL_HOLD_REAR_PROJECTION_MM,'overlap_volume_mm3':overlap.Volume(),'overlap_stations_from_panel_rear_mm':[min(stations),max(stations)],'positive_clearance_requires_projection_below_first_contact_minus_stated_tolerances':True,'first_contact_is_not_a_selected_or_approved_hold_bolt_length':True,'actual_hold_bolt_or_thread_engagement_observed':False},'elapsed_seconds':time.monotonic()-probe_start,'native_solve_run':False,'contact_pressure_or_capacity_established':False,'release':False}
+assert pins=={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}
+Path('/tmp/bottom-center-contact-and-hold-probe.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+print(json.dumps(report,indent=2),flush=True)

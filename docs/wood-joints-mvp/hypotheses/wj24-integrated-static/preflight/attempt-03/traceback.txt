@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "<string>", line 17, in <module>
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py", line 1141, in compose_wj24_geometry
+    for duty_id in set(top_center_geometry.target_duty_ids) | set(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'TopCenterIntegrationGeometry' object has no attribute 'target_duty_ids'

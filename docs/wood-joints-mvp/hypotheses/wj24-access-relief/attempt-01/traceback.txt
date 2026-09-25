@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/tmp/run-wj24-relief-resume-20260924.py", line 20, in <module>
+    access_relief_report = access_relief.build_wj24_access_relief_report(g24)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_access_relief_probe.py", line 1666, in build_wj24_access_relief_report
+    identity = _validate_geometry(geometry)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_access_relief_probe.py", line 236, in _validate_geometry
+    source_identity = _validate_source_identity(geometry)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_access_relief_probe.py", line 350, in _validate_source_identity
+    raise ValueError("WJ24 retained family fingerprints and trials are incomplete")
+ValueError: WJ24 retained family fingerprints and trials are incomplete

@@ -1,0 +1,109 @@
+{
+  "configuration": {
+    "axis_local_min_size_mm": 3.0,
+    "axis_refinement_band_mm": 12.0,
+    "global_max_size_mm": 40.0
+  },
+  "independent_deck_audit": {
+    "audit_json_sha256": "c671f187d869278c2a37a31168d31353148315b818917de0634748bfdff2ef79",
+    "audit_script_sha256": "4541d7174c26da3424b6a438c370929d82de5787bf2be8a0673009f50ba7938f",
+    "independent_jacobian_audit_expected_separately": true,
+    "jacobians_independently_recomputed_by_this_audit": false,
+    "source_and_input_hashes_reconcile": true,
+    "status": "parent_deck_body_ownership_and_surface_audit_passed"
+  },
+  "input_bundle": {
+    "file_sha256": {
+      "reconciliation.json": "256af45c2a6b2b48726d86f95e2f4febdd8cad726d690738e9cb1fad87a89711",
+      "sha256.json": "67f4c82a16510e2a5cfe6f13860e7571c45e840cdc36517e47030dc8075df8f0",
+      "wood/base_principal_center_right.step": "7b7e3880a87e959486072e9e174de1a4adb9b9014ceae916693625633cb5d0d8",
+      "wood/base_rail_service_lower_right.step": "8d593898a3762c3ae4b037cbda8e6ed85599c0462b279693fb11daae16d5918a",
+      "wood/base_rail_service_upper_right.step": "ec692263019aeffe674d0477c965be3b223f91a66be59627029f4fd37e72824c",
+      "wood/wj04_lower_full_stock_cleat.step": "5d0f47eaa042215aa473ff7509ad98ccb38fa700b9f30b6e6a087aa5e8f1b7c0",
+      "wood/wj04_upper_g7_crosscut_full_stock_cleat.step": "336c774a145eb3b8a82ca653e4c08a8a2307a2e75b0de2b6c44170ae9b11ce7c"
+    },
+    "hash_index_sha256": "67f4c82a16510e2a5cfe6f13860e7571c45e840cdc36517e47030dc8075df8f0",
+    "reconciliation_sha256": "256af45c2a6b2b48726d86f95e2f4febdd8cad726d690738e9cb1fad87a89711"
+  },
+  "invocation": {
+    "command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "--read-only",
+      "--cap-drop",
+      "ALL",
+      "--cpus",
+      "2",
+      "--memory",
+      "4g",
+      "--user",
+      "1000:1000",
+      "--tmpfs",
+      "/tmp:rw,size=512m",
+      "--mount",
+      "type=bind,src=/home/mckay-linux/repos/mini-moonboard,dst=/work,readonly",
+      "--mount",
+      "type=bind,src=/home/mckay-linux/repos/mini-moonboard/fea/generated/wj24-baseline-patch-mesh,dst=/runs",
+      "-w",
+      "/work",
+      "-e",
+      "OMP_NUM_THREADS=1",
+      "sha256:083de8eefd4d9d9029d28ac1fdbb933a3b1e024225d8048165d6ef580d1b8f59",
+      "python3",
+      "-m",
+      "fea.wood_joint_wj24_patch_mesh",
+      "/work/fea/results/diagnostics/wj24-baseline-patch-geometry-v1",
+      "/runs/attempt-01",
+      "--global-max-size-mm",
+      "40",
+      "--axis-local-size-mm",
+      "3",
+      "--axis-refinement-band-mm",
+      "12"
+    ],
+    "elapsed_seconds": 13.815608336008154,
+    "image_id": "sha256:083de8eefd4d9d9029d28ac1fdbb933a3b1e024225d8048165d6ef580d1b8f59",
+    "launch_record_sha256": "69b050fe21fb347ea0436fdd2069f7beb1e5b79533cde63f78eae168b3d28170",
+    "launcher_path": "/tmp/run-wj24-baseline-mesh-attempt01.py",
+    "launcher_sha256": "03d31414a78ab57ff028991cc485076f40c1929b4d42d3403412cf86cd09cfc4",
+    "returncode": 0,
+    "run_log_sha256": "2569c6b9ee165081023878c5279d378c6fc822a0cade9b2e3444c1fe9796a295",
+    "source_sha256_after": {
+      "fea/wood_joint_wj24_patch_mesh.py": "80d26c667a0fa2c9d9603559f43b5654c67b1c018f297435672a772e3838d9bb",
+      "tests/test_wood_joint_wj24_patch_mesh.py": "23472e4433734fed868728be73128723dfdff5bde12e62fd127356025309aa1d"
+    },
+    "source_sha256_before": {
+      "fea/wood_joint_wj24_patch_mesh.py": "80d26c667a0fa2c9d9603559f43b5654c67b1c018f297435672a772e3838d9bb",
+      "tests/test_wood_joint_wj24_patch_mesh.py": "23472e4433734fed868728be73128723dfdff5bde12e62fd127356025309aa1d"
+    },
+    "source_unchanged": true,
+    "started_utc": "2026-09-24T21:57:36.669913+00:00"
+  },
+  "native_solve_run": false,
+  "output": {
+    "body_count": 5,
+    "body_ids": [
+      "base_rail_service_lower_right",
+      "base_rail_service_upper_right",
+      "base_principal_center_right",
+      "wj04_lower_full_stock_cleat",
+      "wj04_upper_g7_crosscut_full_stock_cleat"
+    ],
+    "contains_material_contact_tie_load_or_solver_cards": false,
+    "element_count": 46629,
+    "mesh_input_sha256": "5f1494e91af5ad2f2e936b94583588ca7c28bbce201881bded4b22bee769a214",
+    "mesh_report_sha256": "9146c8e4b4874bf3812d751676113be505f54e357901eda8af1b5cc5814010cd",
+    "node_count": 89743,
+    "status": "VERIFIED_WJ24_C3D10_MESH_ONLY_NO_SOLVER"
+  },
+  "runtime": {
+    "gmsh_version": "4.12.1",
+    "numpy_version": "1.26.4",
+    "python": "3.12.3"
+  },
+  "schema": "wood_joint_wj24_patch_mesh_execution_evidence/v1",
+  "scope": "five-body current WJ24 baseline wood mesh only; no G7 relief variant"
+}

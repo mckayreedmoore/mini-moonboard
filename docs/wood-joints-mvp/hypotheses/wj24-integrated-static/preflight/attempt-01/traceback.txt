@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<string>", line 14, in <module>
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py", line 854, in compose_wj24_geometry
+    family_inputs = _normalized_producer_inputs(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py", line 263, in _normalized_producer_inputs
+    raise ValueError(f"{context} input labels differ from the producer hash contract")
+ValueError: WJ24 bottom_outer input labels differ from the producer hash contract

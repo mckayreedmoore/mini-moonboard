@@ -1,0 +1,37 @@
+import hashlib
+import json
+import time
+from pathlib import Path
+from scripts.wood_joint_wj04_patch_geometry import WOOD_BODY_IDS
+
+started_patch_compare = time.monotonic()
+old_patch_wood = {**g16.finished_hosts, **g16.finished_candidate_parts}
+new_patch_wood = {**g24.finished_hosts, **g24.finished_candidate_parts}
+comparison_rows = []
+for body_id in WOOD_BODY_IDS:
+    old_shape = old_patch_wood[body_id]
+    new_shape = new_patch_wood[body_id]
+    removed_shape = old_shape.cut(new_shape)
+    added_shape = new_shape.cut(old_shape)
+    delta_solids = []
+    for delta_type, shape in [('removed', removed_shape), ('added', added_shape)]:
+        for solid in shape.Solids():
+            if solid.Volume() <= 1e-5:
+                continue
+            box = solid.BoundingBox()
+            delta_solids.append({'kind': delta_type, 'volume_mm3': solid.Volume(), 'bounds_xyz_mm': [box.xmin, box.xmax, box.ymin, box.ymax, box.zmin, box.zmax]})
+    comparison_rows.append({'body_id': body_id, 'wj16_volume_mm3': old_shape.Volume(), 'wj24_volume_mm3': new_shape.Volume(), 'removed_from_wj16_mm3': removed_shape.Volume(), 'added_to_wj16_mm3': added_shape.Volume(), 'delta_solids': delta_solids})
+comparison_report = {
+    'status': 'finished_wood_geometry_comparison_only',
+    'producer_sha256': hashlib.sha256(Path('/tmp/wj04-wj16-wj24-wood-comparison.py').read_bytes()).hexdigest(),
+    'wj16_composition_sha256': hashlib.sha256(Path('docs/wood-joints-mvp/hypotheses/wj16-integrated-static/composition.json').read_bytes()).hexdigest(),
+    'wj24_composition_sha256': hashlib.sha256(Path('docs/wood-joints-mvp/hypotheses/wj24-integrated-static/composition.json').read_bytes()).hexdigest(),
+    'rows': comparison_rows,
+    'native_solve_run': False,
+    'earlier_wood_mesh_is_final_geometry': all(row['removed_from_wj16_mm3'] + row['added_to_wj16_mm3'] <= 1e-5 for row in comparison_rows),
+    'unchanged_geometry_does_not_establish_response': True,
+    'release': False,
+    'elapsed_seconds': time.monotonic() - started_patch_compare,
+}
+Path('/tmp/wj04-wj16-wj24-wood-comparison.json').write_text(json.dumps(comparison_report, indent=2, sort_keys=True) + '\n')
+print(json.dumps(comparison_report), flush=True)

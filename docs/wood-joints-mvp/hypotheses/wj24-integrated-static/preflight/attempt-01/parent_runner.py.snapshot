@@ -1,0 +1,35 @@
+import hashlib,json,time,traceback
+from pathlib import Path
+from scripts import wood_joint_wj24_compositor as compositor24
+from scripts import wood_joint_wj24_diagnostic as diagnostic24
+attempt24=Path('/tmp/wj24-integrated-attempt-01')
+attempt24.mkdir(exist_ok=False)
+paths24=[Path(compositor24.__file__),Path(diagnostic24.__file__),Path('tests/test_wood_joint_wj24_compositor.py')]
+pins24={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths24}
+for p in paths24:
+ (attempt24/(p.name+'.snapshot')).write_bytes(p.read_bytes())
+execution24={'producer_hashes_before':pins24,'native_solve_run':False,'release':False,'status':'started'}
+start24=time.monotonic()
+try:
+ g24=compositor24.compose_wj24_geometry(g18,top_center_geometry,bottom_outer_geometry,bottom_center_geometry)
+ composition24=compositor24.composition_report(g24)
+ execution24['composition_seconds']=time.monotonic()-start24
+ (attempt24/'composition.json').write_text(json.dumps(composition24,indent=2,sort_keys=True)+'\n')
+ print('WJ24 composition done',execution24['composition_seconds'],flush=True)
+ diagstart24=time.monotonic()
+ diagnostic_report24=diagnostic24.build_wj24_diagnostic_report(g24)
+ execution24['diagnostic_seconds']=time.monotonic()-diagstart24
+ (attempt24/'diagnostic.json').write_text(json.dumps(diagnostic_report24,indent=2,sort_keys=True)+'\n')
+ execution24['status']='diagnostic_completed'
+ print('WJ24 diagnostic gates',json.dumps(diagnostic_report24['diagnostic_gates']),flush=True)
+except Exception:
+ execution24['status']='failed'
+ execution24['traceback']=traceback.format_exc()
+ (attempt24/'traceback.txt').write_text(execution24['traceback'])
+ print(execution24['traceback'],flush=True)
+finally:
+ execution24['elapsed_seconds']=time.monotonic()-start24
+ execution24['producer_hashes_after']={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in paths24}
+ execution24['producer_hashes_unchanged']=pins24==execution24['producer_hashes_after']
+ (attempt24/'execution.json').write_text(json.dumps(execution24,indent=2,sort_keys=True)+'\n')
+ print('WJ24 execution',json.dumps(execution24),flush=True)

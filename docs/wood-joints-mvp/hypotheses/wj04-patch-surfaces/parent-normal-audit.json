@@ -1,0 +1,87 @@
+{
+  "capacity_or_release_claim": false,
+  "classification_sha256": "8134945198c284c734494cadf18476cae1d89cf0197a57f012b1471c7a12eb42",
+  "contact_or_pressure_assigned": false,
+  "interface_count": 4,
+  "interface_side_rows": [
+    {
+      "cad_entity_tag_local_pointer": 1,
+      "exterior_tri6_face_count": 66,
+      "interface_id": "clip_horizontal_lower_right_1__principal_to_cleat",
+      "member_id": "wj04_lower_full_stock_cleat",
+      "minimum_opposite_vertex_plane_distance_mm": 1.503814074375967,
+      "minimum_outward_alignment": 1.0,
+      "role": "candidate"
+    },
+    {
+      "cad_entity_tag_local_pointer": 3,
+      "exterior_tri6_face_count": 849,
+      "interface_id": "clip_horizontal_lower_right_1__principal_to_cleat",
+      "member_id": "base_principal_center_right",
+      "minimum_opposite_vertex_plane_distance_mm": 1.6162815396309327,
+      "minimum_outward_alignment": 1.0,
+      "role": "host"
+    },
+    {
+      "cad_entity_tag_local_pointer": 2,
+      "exterior_tri6_face_count": 64,
+      "interface_id": "clip_horizontal_lower_right_1__rail_to_cleat",
+      "member_id": "wj04_lower_full_stock_cleat",
+      "minimum_opposite_vertex_plane_distance_mm": 2.0625092885348466,
+      "minimum_outward_alignment": 0.9999999999999998,
+      "role": "candidate"
+    },
+    {
+      "cad_entity_tag_local_pointer": 18,
+      "exterior_tri6_face_count": 718,
+      "interface_id": "clip_horizontal_lower_right_1__rail_to_cleat",
+      "member_id": "base_rail_service_lower_right",
+      "minimum_opposite_vertex_plane_distance_mm": 1.564709832354801,
+      "minimum_outward_alignment": 0.9999999999999998,
+      "role": "host"
+    },
+    {
+      "cad_entity_tag_local_pointer": 1,
+      "exterior_tri6_face_count": 46,
+      "interface_id": "clip_horizontal_upper_right_1__principal_to_cleat",
+      "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+      "minimum_opposite_vertex_plane_distance_mm": 1.7018437720888073,
+      "minimum_outward_alignment": 1.0,
+      "role": "candidate"
+    },
+    {
+      "cad_entity_tag_local_pointer": 3,
+      "exterior_tri6_face_count": 849,
+      "interface_id": "clip_horizontal_upper_right_1__principal_to_cleat",
+      "member_id": "base_principal_center_right",
+      "minimum_opposite_vertex_plane_distance_mm": 1.6162815396309327,
+      "minimum_outward_alignment": 1.0,
+      "role": "host"
+    },
+    {
+      "cad_entity_tag_local_pointer": 2,
+      "exterior_tri6_face_count": 66,
+      "interface_id": "clip_horizontal_upper_right_1__rail_to_cleat",
+      "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+      "minimum_opposite_vertex_plane_distance_mm": 1.826227031163206,
+      "minimum_outward_alignment": 0.9999999999999998,
+      "role": "candidate"
+    },
+    {
+      "cad_entity_tag_local_pointer": 18,
+      "exterior_tri6_face_count": 720,
+      "interface_id": "clip_horizontal_upper_right_1__rail_to_cleat",
+      "member_id": "base_rail_service_upper_right",
+      "minimum_opposite_vertex_plane_distance_mm": 1.6228951214700826,
+      "minimum_outward_alignment": 0.9999999999999998,
+      "role": "host"
+    }
+  ],
+  "inventory_sha256": "c208f96bcfcda7a6b089496c9e1c4afe48f874810050f8d0c5cc700f65d5772d",
+  "mesh_deck_sha256": "43f50fd605841821391f749ebddf226c639778945fef89b50ff78899c38afe56",
+  "mesh_report_sha256": "e8af81e6a92eb53b4ee72fcecc43efd9ed7ab901b3568be603509994c8b3c33c",
+  "method": "For each classified planar exterior triangle, orient its corner cross product away from the owning tetrahedron opposite vertex; compare with independently pinned signed CAD datum normal. No Gmsh parametric normal sign is used.",
+  "native_solve_run": false,
+  "status": "parent_signed_mesh_normal_audit_passed",
+  "unique_mesh_surfaces": 7
+}

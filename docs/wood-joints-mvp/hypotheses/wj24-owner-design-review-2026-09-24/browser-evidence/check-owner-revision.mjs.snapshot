@@ -1,0 +1,32 @@
+import { chromium } from 'playwright';
+import { mkdir, writeFile } from 'node:fs/promises';
+const output = '/tmp/wj24-owner-review-browser';
+await mkdir(output, {recursive:true});
+const browser = await chromium.launch({headless:true, executablePath:'/home/mckay-linux/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome', args:['--enable-unsafe-swiftshader','--use-angle=swiftshader']});
+const page = await browser.newPage({viewport:{width:1600,height:1000}});
+const errors=[];
+page.on('pageerror', e=>errors.push(e.message));
+page.on('requestfailed', r=>errors.push(`${r.url()}: ${r.failure()?.errorText}`));
+try {
+  await page.goto('http://127.0.0.1:8765/wood-joints-wj24-viewer.html', {waitUntil:'domcontentloaded'});
+  await page.waitForFunction(()=>document.querySelector('#baseline-status')?.textContent?.includes('verified:') || document.querySelector('#baseline-status')?.textContent?.includes('unavailable:'), null, {timeout:60000});
+  const status=await page.locator('#baseline-status').innerText();
+  if(status.includes('unavailable:')) throw Error(status);
+  for(const side of ['full','left','right']) {
+    await page.locator(`#${side}`).click();
+    await page.waitForTimeout(300);
+    await page.screenshot({path:`${output}/${side}.png`});
+  }
+  for(const layer of ['baseline','finished_host','candidate_part','candidate_hardware','panel_replacement']) {
+    const input=page.locator(`[data-layer="${layer}"]`);
+    await input.uncheck();
+    await input.check();
+  }
+  await page.locator('#full').click();
+  await page.setViewportSize({width:390,height:844});
+  await page.screenshot({path:`${output}/mobile.png`});
+  const result={status, counts:await page.locator('#counts').innerText(), errors};
+  await writeFile(`${output}/result.json`, JSON.stringify(result,null,2)+'\n');
+  console.log(JSON.stringify(result));
+  if(errors.length) process.exitCode=1;
+} finally { await browser.close(); }

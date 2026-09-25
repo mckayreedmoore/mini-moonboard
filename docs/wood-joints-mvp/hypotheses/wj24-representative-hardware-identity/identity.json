@@ -1,0 +1,1565 @@
+{
+  "axes": [
+    {
+      "WJ24_participant_geometry": [
+        {
+          "WJ16_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "WJ24_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "body_id": "wj04_lower_full_stock_cleat",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        },
+        {
+          "WJ16_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+          "WJ24_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+          "body_id": "base_rail_service_lower_right",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        }
+      ],
+      "axis": {
+        "WJ16_occupancy_bore_shape_sha256": "742d331f5cc206119a4bc77128290202c41b7febbb30c7a53825388e660bec86",
+        "WJ24_candidate_bore_shape_sha256": "742d331f5cc206119a4bc77128290202c41b7febbb30c7a53825388e660bec86",
+        "bore_bounds_difference_max_mm": 3.8700000004610047e-07,
+        "bore_volume_difference_mm3": 1.0900021152338013e-07,
+        "direction_head_to_nut_global": [
+          0.0,
+          -0.642787609929,
+          -0.766044442915
+        ],
+        "far_wood_face_axis_point_global_xyz_mm": [
+          134.5,
+          636.486887504,
+          1183.545233085
+        ],
+        "first_wood_face_axis_point_global_xyz_mm": [
+          134.5,
+          718.120913965,
+          1280.832877335
+        ],
+        "head_to_nut_direction_and_origin_source": "frozen WJ16 mechanics and WJ04 physical-profile inventory; exact WJ24 candidate-bore CAD fingerprint match",
+        "underhead_origin_basis": "pinned first wood-face axis datum minus selected 2.032 mm head washer",
+        "underhead_origin_global_xyz_mm": [
+          134.5,
+          719.427058388,
+          1282.389479643
+        ]
+      },
+      "complete_stack_envelope_bounds_xyz_mm": [
+        124.9877,
+        144.0123,
+        619.630408788,
+        726.713902943,
+        1164.103872463,
+        1289.131262452
+      ],
+      "interface_id": "clip_horizontal_lower_right_1__rail_to_cleat",
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+      "profiles_and_body_roles": {
+        "WJ24_installed_CAD_roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "head_and_nut_washer_seat_surface_descriptors_present": true,
+        "material_or_contact_law": false,
+        "nut_interval_from_underhead_mm": [
+          131.064,
+          136.8044
+        ],
+        "physical_mesh_role_count_per_stack": 4,
+        "physical_mesh_roles": {
+          "bolt": {
+            "bounds_xyz_mm": [
+              128.08649989994237,
+              140.91350010005763,
+              619.6304086881479,
+              726.3431331065295,
+              1164.1038723636357,
+              1289.1312625525436
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_rail_1__bolt",
+            "source_step_sha256": "dff562ff32a7ffb29c29cd8dbbc1edf0f625446990d9533c8580b5fe67bfc04c",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "head_washer": {
+            "bounds_xyz_mm": [
+              124.98769990000001,
+              144.0123001,
+              710.8340693106504,
+              726.7139030427134,
+              1274.7184886530658,
+              1288.5038683249302
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_rail_1__head_washer",
+            "source_step_sha256": "5c536d5c9e811e511fad7bb6c30b59da817b2f285c13dc864962deaf631d0bcf",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut": {
+            "bounds_xyz_mm": [
+              128.08649989994237,
+              140.91350010005763,
+              627.2360796286777,
+              639.4355485361295,
+              1174.021023549958,
+              1185.558836484
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_rail_1__nut",
+            "source_step_sha256": "93d5b02aa18a786813cf800e83fbf480ce1358a4dbc203c4fa99da9dab81e5fe",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut_washer": {
+            "bounds_xyz_mm": [
+              124.98769990000001,
+              144.0123001,
+              627.8938984262567,
+              643.7737321583234,
+              1175.874242095066,
+              1189.6596217669303
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_rail_1__nut_washer",
+            "source_step_sha256": "e6342758fcec6b4b2778858c93f3ff1e137491f3ac9fce41b8ce0218d1c91e5f",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          }
+        },
+        "physical_to_CAD_role_mapping": {
+          "bolt": [
+            "head",
+            "shaft"
+          ],
+          "head_washer": [
+            "head_washer"
+          ],
+          "nut": [
+            "nut"
+          ],
+          "nut_washer": [
+            "nut_washer"
+          ]
+        },
+        "profile_transition_station_from_underhead_mm": 129.032,
+        "scenario_id": "body_to_far_wood_face",
+        "scenario_interpretation": "A response-only scenario with the selected maximum catalog body diameter through the far wood face, followed by a smooth-cylinder basic-thread-root sensitivity segment. It does not claim that the catalog bolt has this delivered transition."
+      },
+      "stack_spec_id": "lower_rail_1",
+      "wood_stack": {
+        "head_washer_wood_seat_center_global_xyz_mm": [
+          134.5,
+          718.120913965,
+          1280.832877335
+        ],
+        "head_washer_wood_seat_station_from_underhead_mm": 2.032,
+        "nut_washer_wood_seat_center_global_xyz_mm": [
+          134.5,
+          636.486887504,
+          1183.545233085
+        ],
+        "nut_washer_wood_seat_station_from_underhead_mm": 129.032,
+        "ordered_receivers_head_to_nut": [
+          "wj04_lower_full_stock_cleat",
+          "base_rail_service_lower_right"
+        ],
+        "receiver_thicknesses_mm": [
+          88.9,
+          38.1
+        ],
+        "wood_grip_mm": 127.0,
+        "wood_seat_role_assignment": "geometry descriptors only; no active contact or tie is assigned"
+      }
+    },
+    {
+      "WJ24_participant_geometry": [
+        {
+          "WJ16_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "WJ24_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "body_id": "wj04_lower_full_stock_cleat",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        },
+        {
+          "WJ16_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+          "WJ24_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+          "body_id": "base_rail_service_lower_right",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        }
+      ],
+      "axis": {
+        "WJ16_occupancy_bore_shape_sha256": "8af7cd8cdb6a2fd8a93673ed7e4a3b1274600197e73831d6383dc6581f128be4",
+        "WJ24_candidate_bore_shape_sha256": "8af7cd8cdb6a2fd8a93673ed7e4a3b1274600197e73831d6383dc6581f128be4",
+        "bore_bounds_difference_max_mm": 4.589999207382789e-07,
+        "bore_volume_difference_mm3": 1.0900021152338013e-07,
+        "direction_head_to_nut_global": [
+          0.0,
+          -0.642787609929,
+          -0.766044442915
+        ],
+        "far_wood_face_axis_point_global_xyz_mm": [
+          134.5,
+          611.207420881,
+          1204.757224205
+        ],
+        "first_wood_face_axis_point_global_xyz_mm": [
+          134.5,
+          692.841447342,
+          1302.044868455
+        ],
+        "head_to_nut_direction_and_origin_source": "frozen WJ16 mechanics and WJ04 physical-profile inventory; exact WJ24 candidate-bore CAD fingerprint match",
+        "underhead_origin_basis": "pinned first wood-face axis datum minus selected 2.032 mm head washer",
+        "underhead_origin_global_xyz_mm": [
+          134.5,
+          694.147591765,
+          1303.601470763
+        ]
+      },
+      "complete_stack_envelope_bounds_xyz_mm": [
+        124.9877,
+        144.0123,
+        594.350942165,
+        701.43443632,
+        1185.315863583,
+        1310.343253572
+      ],
+      "interface_id": "clip_horizontal_lower_right_1__rail_to_cleat",
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2",
+      "profiles_and_body_roles": {
+        "WJ24_installed_CAD_roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "head_and_nut_washer_seat_surface_descriptors_present": true,
+        "material_or_contact_law": false,
+        "nut_interval_from_underhead_mm": [
+          131.064,
+          136.8044
+        ],
+        "physical_mesh_role_count_per_stack": 4,
+        "physical_mesh_roles": {
+          "bolt": {
+            "bounds_xyz_mm": [
+              128.08649989994237,
+              140.91350010005763,
+              594.3509420651479,
+              701.0636664835296,
+              1185.3158634836357,
+              1310.3432536725436
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_rail_2__bolt",
+            "source_step_sha256": "464dd826662e8efad94c448a423fe32f8b11705abb7b1f08b74fb97288c76751",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "head_washer": {
+            "bounds_xyz_mm": [
+              124.98769990000001,
+              144.0123001,
+              685.5546026876503,
+              701.4344364197133,
+              1295.9304797730658,
+              1309.7158594449302
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_rail_2__head_washer",
+            "source_step_sha256": "efcbb2b10567ab691edb3020a67cdf66008b93043a54103731b7368a7991e906",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut": {
+            "bounds_xyz_mm": [
+              128.08649989994237,
+              140.91350010005763,
+              601.9566130056777,
+              614.1560819131296,
+              1195.233014669958,
+              1206.770827604
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_rail_2__nut",
+            "source_step_sha256": "d1f33fd38b9a17f54c9de45d020c0571e6594d07ed9807bd53c267d12a7341f1",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut_washer": {
+            "bounds_xyz_mm": [
+              124.98769990000001,
+              144.0123001,
+              602.6144318032567,
+              618.4942655353233,
+              1197.086233215066,
+              1210.8716128869303
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_rail_2__nut_washer",
+            "source_step_sha256": "223a41c8388182fee865df4bccbbb96505f60b19b936744a4ce8c3daeb7f8249",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          }
+        },
+        "physical_to_CAD_role_mapping": {
+          "bolt": [
+            "head",
+            "shaft"
+          ],
+          "head_washer": [
+            "head_washer"
+          ],
+          "nut": [
+            "nut"
+          ],
+          "nut_washer": [
+            "nut_washer"
+          ]
+        },
+        "profile_transition_station_from_underhead_mm": 129.032,
+        "scenario_id": "body_to_far_wood_face",
+        "scenario_interpretation": "A response-only scenario with the selected maximum catalog body diameter through the far wood face, followed by a smooth-cylinder basic-thread-root sensitivity segment. It does not claim that the catalog bolt has this delivered transition."
+      },
+      "stack_spec_id": "lower_rail_2",
+      "wood_stack": {
+        "head_washer_wood_seat_center_global_xyz_mm": [
+          134.5,
+          692.841447342,
+          1302.044868455
+        ],
+        "head_washer_wood_seat_station_from_underhead_mm": 2.032,
+        "nut_washer_wood_seat_center_global_xyz_mm": [
+          134.5,
+          611.207420881,
+          1204.757224205
+        ],
+        "nut_washer_wood_seat_station_from_underhead_mm": 129.032,
+        "ordered_receivers_head_to_nut": [
+          "wj04_lower_full_stock_cleat",
+          "base_rail_service_lower_right"
+        ],
+        "receiver_thicknesses_mm": [
+          88.9,
+          38.1
+        ],
+        "wood_grip_mm": 127.0,
+        "wood_seat_role_assignment": "geometry descriptors only; no active contact or tie is assigned"
+      }
+    },
+    {
+      "WJ24_participant_geometry": [
+        {
+          "WJ16_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "WJ24_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "body_id": "wj04_lower_full_stock_cleat",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        },
+        {
+          "WJ16_shape_sha256": "4ec409ec4e8c760b20424248ab03071aa6f0dec0cbe58cfdf6d9d3d937b446d8",
+          "WJ24_shape_sha256": "afdd72e27e439cde4d9467908f1b5ef6a8e40bd9df4fbe1130dd7ccd330a740d",
+          "body_id": "base_principal_center_right",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "all_exact_delta_solids_bbox_disjoint_from_complete_stack_envelope",
+          "reported_delta_solid_count": 10,
+          "whole_body_same_geometry": false
+        }
+      ],
+      "axis": {
+        "WJ16_occupancy_bore_shape_sha256": "4874d7723d2604bbd36cfca470beaa16ee92f4c4ea4925ac877c7b25dfb08556",
+        "WJ24_candidate_bore_shape_sha256": "4874d7723d2604bbd36cfca470beaa16ee92f4c4ea4925ac877c7b25dfb08556",
+        "bore_bounds_difference_max_mm": 3.0900014280632604e-07,
+        "bore_volume_difference_mm3": 1.0900021152338013e-07,
+        "direction_head_to_nut_global": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "far_wood_face_axis_point_global_xyz_mm": [
+          50.95,
+          666.335415223,
+          1244.786766309
+        ],
+        "first_wood_face_axis_point_global_xyz_mm": [
+          177.95,
+          666.335415223,
+          1244.786766309
+        ],
+        "head_to_nut_direction_and_origin_source": "frozen WJ16 mechanics and WJ04 physical-profile inventory; exact WJ24 candidate-bore CAD fingerprint match",
+        "underhead_origin_basis": "pinned first wood-face axis datum minus selected 2.032 mm head washer",
+        "underhead_origin_global_xyz_mm": [
+          179.982,
+          666.335415223,
+          1244.786766309
+        ]
+      },
+      "complete_stack_envelope_bounds_xyz_mm": [
+        27.582,
+        184.1222,
+        656.823115223,
+        675.847715223,
+        1235.274466309,
+        1254.299066309
+      ],
+      "interface_id": "clip_horizontal_lower_right_1__principal_to_cleat",
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+      "profiles_and_body_roles": {
+        "WJ24_installed_CAD_roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "head_and_nut_washer_seat_surface_descriptors_present": true,
+        "material_or_contact_law": false,
+        "nut_interval_from_underhead_mm": [
+          131.064,
+          136.8044
+        ],
+        "physical_mesh_role_count_per_stack": 4,
+        "physical_mesh_roles": {
+          "bolt": {
+            "bounds_xyz_mm": [
+              27.5819999,
+              184.1222001,
+              659.9219151230001,
+              672.748915323,
+              1239.2325122819577,
+              1250.3410203360422
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_principal_1__bolt",
+            "source_step_sha256": "c082027ea7a95bde168c177a2c95073354e8ddd9a9f0aec2ab4d9f52e469e156",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "head_washer": {
+            "bounds_xyz_mm": [
+              177.9499999,
+              179.9820001,
+              656.8231151230001,
+              675.847715323,
+              1235.274466209,
+              1254.2990664090003
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_principal_1__head_washer",
+            "source_step_sha256": "c05b00b176d18d198224eb62c810eba94d95d855dc0babd916481411242701c3",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut": {
+            "bounds_xyz_mm": [
+              43.1775999,
+              48.91800010000001,
+              659.9219151230001,
+              672.748915323,
+              1239.2325122819577,
+              1250.3410203360422
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_principal_1__nut",
+            "source_step_sha256": "3cb0c55578e1a6477f4a51474100ef1279e13947f7e0a64c98add6bb2171bd01",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut_washer": {
+            "bounds_xyz_mm": [
+              48.9179999,
+              50.950000100000004,
+              656.8231151230001,
+              675.847715323,
+              1235.274466209,
+              1254.2990664090003
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_principal_1__nut_washer",
+            "source_step_sha256": "a504bce8d1ac780b9b72d79e99ac5dc5b958dc6c9f11018fd0f9364a1b8ae6ed",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          }
+        },
+        "physical_to_CAD_role_mapping": {
+          "bolt": [
+            "head",
+            "shaft"
+          ],
+          "head_washer": [
+            "head_washer"
+          ],
+          "nut": [
+            "nut"
+          ],
+          "nut_washer": [
+            "nut_washer"
+          ]
+        },
+        "profile_transition_station_from_underhead_mm": 129.032,
+        "scenario_id": "body_to_far_wood_face",
+        "scenario_interpretation": "A response-only scenario with the selected maximum catalog body diameter through the far wood face, followed by a smooth-cylinder basic-thread-root sensitivity segment. It does not claim that the catalog bolt has this delivered transition."
+      },
+      "stack_spec_id": "lower_principal_1",
+      "wood_stack": {
+        "head_washer_wood_seat_center_global_xyz_mm": [
+          177.95,
+          666.335415223,
+          1244.786766309
+        ],
+        "head_washer_wood_seat_station_from_underhead_mm": 2.032,
+        "nut_washer_wood_seat_center_global_xyz_mm": [
+          50.95,
+          666.335415223,
+          1244.786766309
+        ],
+        "nut_washer_wood_seat_station_from_underhead_mm": 129.032,
+        "ordered_receivers_head_to_nut": [
+          "wj04_lower_full_stock_cleat",
+          "base_principal_center_right"
+        ],
+        "receiver_thicknesses_mm": [
+          88.9,
+          38.1
+        ],
+        "wood_grip_mm": 127.0,
+        "wood_seat_role_assignment": "geometry descriptors only; no active contact or tie is assigned"
+      }
+    },
+    {
+      "WJ24_participant_geometry": [
+        {
+          "WJ16_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "WJ24_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "body_id": "wj04_lower_full_stock_cleat",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        },
+        {
+          "WJ16_shape_sha256": "4ec409ec4e8c760b20424248ab03071aa6f0dec0cbe58cfdf6d9d3d937b446d8",
+          "WJ24_shape_sha256": "afdd72e27e439cde4d9467908f1b5ef6a8e40bd9df4fbe1130dd7ccd330a740d",
+          "body_id": "base_principal_center_right",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "all_exact_delta_solids_bbox_disjoint_from_complete_stack_envelope",
+          "reported_delta_solid_count": 10,
+          "whole_body_same_geometry": false
+        }
+      ],
+      "axis": {
+        "WJ16_occupancy_bore_shape_sha256": "e681eabad0dd2cbdd63f06aeed57076955e1f7a039a29fc39f4659fa71f749a2",
+        "WJ24_candidate_bore_shape_sha256": "e681eabad0dd2cbdd63f06aeed57076955e1f7a039a29fc39f4659fa71f749a2",
+        "bore_bounds_difference_max_mm": 3.4300001061637886e-07,
+        "bore_volume_difference_mm3": 1.0900021152338013e-07,
+        "direction_head_to_nut_global": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "far_wood_face_axis_point_global_xyz_mm": [
+          50.95,
+          687.547406343,
+          1270.066232932
+        ],
+        "first_wood_face_axis_point_global_xyz_mm": [
+          177.95,
+          687.547406343,
+          1270.066232932
+        ],
+        "head_to_nut_direction_and_origin_source": "frozen WJ16 mechanics and WJ04 physical-profile inventory; exact WJ24 candidate-bore CAD fingerprint match",
+        "underhead_origin_basis": "pinned first wood-face axis datum minus selected 2.032 mm head washer",
+        "underhead_origin_global_xyz_mm": [
+          179.982,
+          687.547406343,
+          1270.066232932
+        ]
+      },
+      "complete_stack_envelope_bounds_xyz_mm": [
+        27.582,
+        184.1222,
+        678.035106343,
+        697.059706343,
+        1260.553932932,
+        1279.578532932
+      ],
+      "interface_id": "clip_horizontal_lower_right_1__principal_to_cleat",
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+      "profiles_and_body_roles": {
+        "WJ24_installed_CAD_roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "head_and_nut_washer_seat_surface_descriptors_present": true,
+        "material_or_contact_law": false,
+        "nut_interval_from_underhead_mm": [
+          131.064,
+          136.8044
+        ],
+        "physical_mesh_role_count_per_stack": 4,
+        "physical_mesh_roles": {
+          "bolt": {
+            "bounds_xyz_mm": [
+              27.5819999,
+              184.1222001,
+              681.1339062430001,
+              693.960906443,
+              1264.5119789049577,
+              1275.6204869590422
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_principal_2__bolt",
+            "source_step_sha256": "48ec07c413cb0cbac055de8a5ca03b9f54c98e8c4b2c6ef1a768475f7709206e",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "head_washer": {
+            "bounds_xyz_mm": [
+              177.9499999,
+              179.9820001,
+              678.0351062430001,
+              697.059706443,
+              1260.5539328319999,
+              1279.5785330320002
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_principal_2__head_washer",
+            "source_step_sha256": "922114f9c00efdc264db7ec710c18c80d9259ae840aaab7c8521e79f888854a2",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut": {
+            "bounds_xyz_mm": [
+              43.1775999,
+              48.91800010000001,
+              681.1339062430001,
+              693.960906443,
+              1264.5119789049577,
+              1275.6204869590422
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_principal_2__nut",
+            "source_step_sha256": "df86fbf2dae4e3380143c67418f67524106b31565a8201287555d21c5a5be3e6",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut_washer": {
+            "bounds_xyz_mm": [
+              48.9179999,
+              50.950000100000004,
+              678.0351062430001,
+              697.059706443,
+              1260.5539328319999,
+              1279.5785330320002
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "lower_principal_2__nut_washer",
+            "source_step_sha256": "41adb876f5d920876b862213ef10d7156baa2776d7b38421c488408d91a1aed0",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          }
+        },
+        "physical_to_CAD_role_mapping": {
+          "bolt": [
+            "head",
+            "shaft"
+          ],
+          "head_washer": [
+            "head_washer"
+          ],
+          "nut": [
+            "nut"
+          ],
+          "nut_washer": [
+            "nut_washer"
+          ]
+        },
+        "profile_transition_station_from_underhead_mm": 129.032,
+        "scenario_id": "body_to_far_wood_face",
+        "scenario_interpretation": "A response-only scenario with the selected maximum catalog body diameter through the far wood face, followed by a smooth-cylinder basic-thread-root sensitivity segment. It does not claim that the catalog bolt has this delivered transition."
+      },
+      "stack_spec_id": "lower_principal_2",
+      "wood_stack": {
+        "head_washer_wood_seat_center_global_xyz_mm": [
+          177.95,
+          687.547406343,
+          1270.066232932
+        ],
+        "head_washer_wood_seat_station_from_underhead_mm": 2.032,
+        "nut_washer_wood_seat_center_global_xyz_mm": [
+          50.95,
+          687.547406343,
+          1270.066232932
+        ],
+        "nut_washer_wood_seat_station_from_underhead_mm": 129.032,
+        "ordered_receivers_head_to_nut": [
+          "wj04_lower_full_stock_cleat",
+          "base_principal_center_right"
+        ],
+        "receiver_thicknesses_mm": [
+          88.9,
+          38.1
+        ],
+        "wood_grip_mm": 127.0,
+        "wood_seat_role_assignment": "geometry descriptors only; no active contact or tie is assigned"
+      }
+    },
+    {
+      "WJ24_participant_geometry": [
+        {
+          "WJ16_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+          "WJ24_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+          "body_id": "base_rail_service_upper_right",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        },
+        {
+          "WJ16_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "WJ24_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "body_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        }
+      ],
+      "axis": {
+        "WJ16_occupancy_bore_shape_sha256": "863a61a0a0ac71793150273d3444300687c23c20e74f4f861ff77d1021dc2f33",
+        "WJ24_candidate_bore_shape_sha256": "863a61a0a0ac71793150273d3444300687c23c20e74f4f861ff77d1021dc2f33",
+        "bore_bounds_difference_max_mm": 4.20999981542991e-07,
+        "bore_volume_difference_mm3": 1.0900021152338013e-07,
+        "direction_head_to_nut_global": [
+          0.0,
+          0.642787609929,
+          0.766044442915
+        ],
+        "far_wood_face_axis_point_global_xyz_mm": [
+          134.5,
+          798.151340304,
+          1401.723296139
+        ],
+        "first_wood_face_axis_point_global_xyz_mm": [
+          134.5,
+          716.517313843,
+          1304.435651889
+        ],
+        "head_to_nut_direction_and_origin_source": "frozen WJ16 mechanics and WJ04 physical-profile inventory; exact WJ24 candidate-bore CAD fingerprint match",
+        "underhead_origin_basis": "pinned first wood-face axis datum minus selected 2.032 mm head washer",
+        "underhead_origin_global_xyz_mm": [
+          134.5,
+          715.21116942,
+          1302.879049581
+        ]
+      },
+      "complete_stack_envelope_bounds_xyz_mm": [
+        124.9877,
+        144.0123,
+        707.924324865,
+        815.00781902,
+        1296.137266772,
+        1421.164656761
+      ],
+      "interface_id": "clip_horizontal_upper_right_1__rail_to_cleat",
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+      "profiles_and_body_roles": {
+        "WJ24_installed_CAD_roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "head_and_nut_washer_seat_surface_descriptors_present": true,
+        "material_or_contact_law": false,
+        "nut_interval_from_underhead_mm": [
+          131.064,
+          136.8044
+        ],
+        "physical_mesh_role_count_per_stack": 4,
+        "physical_mesh_roles": {
+          "bolt": {
+            "bounds_xyz_mm": [
+              128.08649989994237,
+              140.9135001000577,
+              708.2950947014604,
+              815.0078191198421,
+              1296.1372666714565,
+              1421.1646568603644
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_rail_1__bolt",
+            "source_step_sha256": "ea2f2877cfeaec94e238de8ed18c0d4a1900ab48adb2f7cd13e5eb3fa134ef1f",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "head_washer": {
+            "bounds_xyz_mm": [
+              124.98769990000001,
+              144.0123001,
+              707.9243247652767,
+              723.8041584973433,
+              1296.7646608990697,
+              1310.550040570934
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_rail_1__head_washer",
+            "source_step_sha256": "99fd3cc0b856ebd9ec0bb9cbb91b0c7caed645dc70ded9ab29b21da855a4e78f",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut": {
+            "bounds_xyz_mm": [
+              128.0864998999423,
+              140.91350010005763,
+              795.2026792718605,
+              807.4021481793166,
+              1399.7096927399998,
+              1411.247505674047
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_rail_1__nut",
+            "source_step_sha256": "31ce8e7355acdf2f56877017e2dc762e806aaad31940717980a44dbf8e398170",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut_washer": {
+            "bounds_xyz_mm": [
+              124.98769990000001,
+              144.0123001,
+              790.8644956496667,
+              806.7443293817333,
+              1395.6089074570698,
+              1409.3942871289341
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_rail_1__nut_washer",
+            "source_step_sha256": "7cb21d308eb567e7fc272e0091284133713e994ef5642e346380849879d87e15",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          }
+        },
+        "physical_to_CAD_role_mapping": {
+          "bolt": [
+            "head",
+            "shaft"
+          ],
+          "head_washer": [
+            "head_washer"
+          ],
+          "nut": [
+            "nut"
+          ],
+          "nut_washer": [
+            "nut_washer"
+          ]
+        },
+        "profile_transition_station_from_underhead_mm": 129.032,
+        "scenario_id": "body_to_far_wood_face",
+        "scenario_interpretation": "A response-only scenario with the selected maximum catalog body diameter through the far wood face, followed by a smooth-cylinder basic-thread-root sensitivity segment. It does not claim that the catalog bolt has this delivered transition."
+      },
+      "stack_spec_id": "upper_rail_1",
+      "wood_stack": {
+        "head_washer_wood_seat_center_global_xyz_mm": [
+          134.5,
+          716.517313843,
+          1304.435651889
+        ],
+        "head_washer_wood_seat_station_from_underhead_mm": 2.032,
+        "nut_washer_wood_seat_center_global_xyz_mm": [
+          134.5,
+          798.151340304,
+          1401.723296139
+        ],
+        "nut_washer_wood_seat_station_from_underhead_mm": 129.032,
+        "ordered_receivers_head_to_nut": [
+          "base_rail_service_upper_right",
+          "wj04_upper_g7_crosscut_full_stock_cleat"
+        ],
+        "receiver_thicknesses_mm": [
+          38.1,
+          88.9
+        ],
+        "wood_grip_mm": 127.0,
+        "wood_seat_role_assignment": "geometry descriptors only; no active contact or tie is assigned"
+      }
+    },
+    {
+      "WJ24_participant_geometry": [
+        {
+          "WJ16_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+          "WJ24_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+          "body_id": "base_rail_service_upper_right",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        },
+        {
+          "WJ16_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "WJ24_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "body_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        }
+      ],
+      "axis": {
+        "WJ16_occupancy_bore_shape_sha256": "14c790f81e87467bdcb53d525e3208781dba17c2df370c3259c22db1d10f8430",
+        "WJ24_candidate_bore_shape_sha256": "14c790f81e87467bdcb53d525e3208781dba17c2df370c3259c22db1d10f8430",
+        "bore_bounds_difference_max_mm": 2.409999524388695e-07,
+        "bore_volume_difference_mm3": 1.0900021152338013e-07,
+        "direction_head_to_nut_global": [
+          0.0,
+          0.642787609929,
+          0.766044442915
+        ],
+        "far_wood_face_axis_point_global_xyz_mm": [
+          134.5,
+          772.871873681,
+          1422.935287259
+        ],
+        "first_wood_face_axis_point_global_xyz_mm": [
+          134.5,
+          691.23784722,
+          1325.647643009
+        ],
+        "head_to_nut_direction_and_origin_source": "frozen WJ16 mechanics and WJ04 physical-profile inventory; exact WJ24 candidate-bore CAD fingerprint match",
+        "underhead_origin_basis": "pinned first wood-face axis datum minus selected 2.032 mm head washer",
+        "underhead_origin_global_xyz_mm": [
+          134.5,
+          689.931702797,
+          1324.091040701
+        ]
+      },
+      "complete_stack_envelope_bounds_xyz_mm": [
+        124.9877,
+        144.0123,
+        682.644858242,
+        789.728352397,
+        1317.349257892,
+        1442.376647881
+      ],
+      "interface_id": "clip_horizontal_upper_right_1__rail_to_cleat",
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2",
+      "profiles_and_body_roles": {
+        "WJ24_installed_CAD_roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "head_and_nut_washer_seat_surface_descriptors_present": true,
+        "material_or_contact_law": false,
+        "nut_interval_from_underhead_mm": [
+          131.064,
+          136.8044
+        ],
+        "physical_mesh_role_count_per_stack": 4,
+        "physical_mesh_roles": {
+          "bolt": {
+            "bounds_xyz_mm": [
+              128.0864998999423,
+              140.91350010005763,
+              683.0156280784604,
+              789.728352496842,
+              1317.3492577914565,
+              1442.3766479803644
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_rail_2__bolt",
+            "source_step_sha256": "a9f31a23084aa674c3bf154d4991971622482d87dbe816ecd7e27634aec0efcb",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "head_washer": {
+            "bounds_xyz_mm": [
+              124.98769990000001,
+              144.0123001,
+              682.6448581422767,
+              698.5246918743434,
+              1317.97665201907,
+              1331.7620316909342
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_rail_2__head_washer",
+            "source_step_sha256": "7db6c50f851a67b96d2438d787a0f2c8ca2647c6b84ee1c83e7ac7093aaee55e",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut": {
+            "bounds_xyz_mm": [
+              128.08649989994237,
+              140.9135001000577,
+              769.9232126488605,
+              782.1226815563165,
+              1420.92168386,
+              1432.459496794047
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_rail_2__nut",
+            "source_step_sha256": "bedce6c51e157fee27a4b834cd0e9159c209206bad7c5929c575fe87592fd663",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut_washer": {
+            "bounds_xyz_mm": [
+              124.98769990000001,
+              144.0123001,
+              765.5850290266667,
+              781.4648627587334,
+              1416.8208985770698,
+              1430.6062782489341
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_rail_2__nut_washer",
+            "source_step_sha256": "2cc45c92609a7d7701b5368ed3c577c55ce3738d2d12e35864b2796cf6933d22",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          }
+        },
+        "physical_to_CAD_role_mapping": {
+          "bolt": [
+            "head",
+            "shaft"
+          ],
+          "head_washer": [
+            "head_washer"
+          ],
+          "nut": [
+            "nut"
+          ],
+          "nut_washer": [
+            "nut_washer"
+          ]
+        },
+        "profile_transition_station_from_underhead_mm": 129.032,
+        "scenario_id": "body_to_far_wood_face",
+        "scenario_interpretation": "A response-only scenario with the selected maximum catalog body diameter through the far wood face, followed by a smooth-cylinder basic-thread-root sensitivity segment. It does not claim that the catalog bolt has this delivered transition."
+      },
+      "stack_spec_id": "upper_rail_2",
+      "wood_stack": {
+        "head_washer_wood_seat_center_global_xyz_mm": [
+          134.5,
+          691.23784722,
+          1325.647643009
+        ],
+        "head_washer_wood_seat_station_from_underhead_mm": 2.032,
+        "nut_washer_wood_seat_center_global_xyz_mm": [
+          134.5,
+          772.871873681,
+          1422.935287259
+        ],
+        "nut_washer_wood_seat_station_from_underhead_mm": 129.032,
+        "ordered_receivers_head_to_nut": [
+          "base_rail_service_upper_right",
+          "wj04_upper_g7_crosscut_full_stock_cleat"
+        ],
+        "receiver_thicknesses_mm": [
+          38.1,
+          88.9
+        ],
+        "wood_grip_mm": 127.0,
+        "wood_seat_role_assignment": "geometry descriptors only; no active contact or tie is assigned"
+      }
+    },
+    {
+      "WJ24_participant_geometry": [
+        {
+          "WJ16_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "WJ24_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "body_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        },
+        {
+          "WJ16_shape_sha256": "4ec409ec4e8c760b20424248ab03071aa6f0dec0cbe58cfdf6d9d3d937b446d8",
+          "WJ24_shape_sha256": "afdd72e27e439cde4d9467908f1b5ef6a8e40bd9df4fbe1130dd7ccd330a740d",
+          "body_id": "base_principal_center_right",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "all_exact_delta_solids_bbox_disjoint_from_complete_stack_envelope",
+          "reported_delta_solid_count": 10,
+          "whole_body_same_geometry": false
+        }
+      ],
+      "axis": {
+        "WJ16_occupancy_bore_shape_sha256": "309efaf442bf0a98056a087a8e4307a6cf6cbca55294c91f3f1ac7540577e6e9",
+        "WJ24_candidate_bore_shape_sha256": "309efaf442bf0a98056a087a8e4307a6cf6cbca55294c91f3f1ac7540577e6e9",
+        "bore_bounds_difference_max_mm": 4.6800005293334834e-07,
+        "bore_volume_difference_mm3": 1.0900021152338013e-07,
+        "direction_head_to_nut_global": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "far_wood_face_axis_point_global_xyz_mm": [
+          50.95,
+          746.365841532,
+          1365.677185139
+        ],
+        "first_wood_face_axis_point_global_xyz_mm": [
+          177.95,
+          746.365841532,
+          1365.677185139
+        ],
+        "head_to_nut_direction_and_origin_source": "frozen WJ16 mechanics and WJ04 physical-profile inventory; exact WJ24 candidate-bore CAD fingerprint match",
+        "underhead_origin_basis": "pinned first wood-face axis datum minus selected 2.032 mm head washer",
+        "underhead_origin_global_xyz_mm": [
+          179.982,
+          746.365841532,
+          1365.677185139
+        ]
+      },
+      "complete_stack_envelope_bounds_xyz_mm": [
+        27.582,
+        184.1222,
+        736.853541532,
+        755.878141532,
+        1356.164885139,
+        1375.189485139
+      ],
+      "interface_id": "clip_horizontal_upper_right_1__principal_to_cleat",
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+      "profiles_and_body_roles": {
+        "WJ24_installed_CAD_roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "head_and_nut_washer_seat_surface_descriptors_present": true,
+        "material_or_contact_law": false,
+        "nut_interval_from_underhead_mm": [
+          131.064,
+          136.8044
+        ],
+        "physical_mesh_role_count_per_stack": 4,
+        "physical_mesh_roles": {
+          "bolt": {
+            "bounds_xyz_mm": [
+              27.5819999,
+              184.1222001,
+              739.952341432,
+              752.779341632,
+              1360.1229311119578,
+              1371.2314391660423
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_principal_1__bolt",
+            "source_step_sha256": "5ac008ad573124c355fdaa5eb3011fb461d082c492fced677ab0a2540a7a3fa9",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "head_washer": {
+            "bounds_xyz_mm": [
+              177.9499999,
+              179.9820001,
+              736.853541432,
+              755.8781416319999,
+              1356.1648850389997,
+              1375.189485239
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_principal_1__head_washer",
+            "source_step_sha256": "1f3c2d25e08c8116e3c1901f048a3376b0b91232dcb03fd69efe11bc32109a30",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut": {
+            "bounds_xyz_mm": [
+              43.1775999,
+              48.91800010000001,
+              739.952341432,
+              752.779341632,
+              1360.1229311119578,
+              1371.2314391660423
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_principal_1__nut",
+            "source_step_sha256": "fb8eb2ee8abb0cafd703fbf9a31b46dbf3fe95a927980f78f78bd65fe4fff52b",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut_washer": {
+            "bounds_xyz_mm": [
+              48.9179999,
+              50.950000100000004,
+              736.853541432,
+              755.8781416319999,
+              1356.1648850389997,
+              1375.189485239
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_principal_1__nut_washer",
+            "source_step_sha256": "229618bb315f12e3603e951b19e6d7bdbc1e209098e6ba3be79b0aeeed793f50",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          }
+        },
+        "physical_to_CAD_role_mapping": {
+          "bolt": [
+            "head",
+            "shaft"
+          ],
+          "head_washer": [
+            "head_washer"
+          ],
+          "nut": [
+            "nut"
+          ],
+          "nut_washer": [
+            "nut_washer"
+          ]
+        },
+        "profile_transition_station_from_underhead_mm": 129.032,
+        "scenario_id": "body_to_far_wood_face",
+        "scenario_interpretation": "A response-only scenario with the selected maximum catalog body diameter through the far wood face, followed by a smooth-cylinder basic-thread-root sensitivity segment. It does not claim that the catalog bolt has this delivered transition."
+      },
+      "stack_spec_id": "upper_principal_1",
+      "wood_stack": {
+        "head_washer_wood_seat_center_global_xyz_mm": [
+          177.95,
+          746.365841532,
+          1365.677185139
+        ],
+        "head_washer_wood_seat_station_from_underhead_mm": 2.032,
+        "nut_washer_wood_seat_center_global_xyz_mm": [
+          50.95,
+          746.365841532,
+          1365.677185139
+        ],
+        "nut_washer_wood_seat_station_from_underhead_mm": 129.032,
+        "ordered_receivers_head_to_nut": [
+          "wj04_upper_g7_crosscut_full_stock_cleat",
+          "base_principal_center_right"
+        ],
+        "receiver_thicknesses_mm": [
+          88.9,
+          38.1
+        ],
+        "wood_grip_mm": 127.0,
+        "wood_seat_role_assignment": "geometry descriptors only; no active contact or tie is assigned"
+      }
+    },
+    {
+      "WJ24_participant_geometry": [
+        {
+          "WJ16_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "WJ24_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "body_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "whole_finished_solid_identical",
+          "reported_delta_solid_count": 0,
+          "whole_body_same_geometry": true
+        },
+        {
+          "WJ16_shape_sha256": "4ec409ec4e8c760b20424248ab03071aa6f0dec0cbe58cfdf6d9d3d937b446d8",
+          "WJ24_shape_sha256": "afdd72e27e439cde4d9467908f1b5ef6a8e40bd9df4fbe1130dd7ccd330a740d",
+          "body_id": "base_principal_center_right",
+          "delta_bbox_overlaps_stack_envelope": 0,
+          "local_identity_basis": "all_exact_delta_solids_bbox_disjoint_from_complete_stack_envelope",
+          "reported_delta_solid_count": 10,
+          "whole_body_same_geometry": false
+        }
+      ],
+      "axis": {
+        "WJ16_occupancy_bore_shape_sha256": "19fa7434bcefe9e06c2ea82595173d19374cd940831af1acc7b4e710e849ac59",
+        "WJ24_candidate_bore_shape_sha256": "19fa7434bcefe9e06c2ea82595173d19374cd940831af1acc7b4e710e849ac59",
+        "bore_bounds_difference_max_mm": 3.490000608508126e-07,
+        "bore_volume_difference_mm3": 1.0900021152338013e-07,
+        "direction_head_to_nut_global": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "far_wood_face_axis_point_global_xyz_mm": [
+          50.95,
+          767.577832651,
+          1390.956651762
+        ],
+        "first_wood_face_axis_point_global_xyz_mm": [
+          177.95,
+          767.577832651,
+          1390.956651762
+        ],
+        "head_to_nut_direction_and_origin_source": "frozen WJ16 mechanics and WJ04 physical-profile inventory; exact WJ24 candidate-bore CAD fingerprint match",
+        "underhead_origin_basis": "pinned first wood-face axis datum minus selected 2.032 mm head washer",
+        "underhead_origin_global_xyz_mm": [
+          179.982,
+          767.577832651,
+          1390.956651762
+        ]
+      },
+      "complete_stack_envelope_bounds_xyz_mm": [
+        27.582,
+        184.1222,
+        758.065532651,
+        777.090132651,
+        1381.444351762,
+        1400.468951762
+      ],
+      "interface_id": "clip_horizontal_upper_right_1__principal_to_cleat",
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2",
+      "profiles_and_body_roles": {
+        "WJ24_installed_CAD_roles": [
+          "head",
+          "head_washer",
+          "nut",
+          "nut_washer",
+          "shaft"
+        ],
+        "head_and_nut_washer_seat_surface_descriptors_present": true,
+        "material_or_contact_law": false,
+        "nut_interval_from_underhead_mm": [
+          131.064,
+          136.8044
+        ],
+        "physical_mesh_role_count_per_stack": 4,
+        "physical_mesh_roles": {
+          "bolt": {
+            "bounds_xyz_mm": [
+              27.5819999,
+              184.1222001,
+              761.164332551,
+              773.991332751,
+              1385.402397734958,
+              1396.5109057890425
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_principal_2__bolt",
+            "source_step_sha256": "57b42797e27eb39426397c763471537590473ec553b84817e70d3768a9b1fcf3",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "head_washer": {
+            "bounds_xyz_mm": [
+              177.9499999,
+              179.9820001,
+              758.065532551,
+              777.0901327509999,
+              1381.444351662,
+              1400.4689518620003
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_principal_2__head_washer",
+            "source_step_sha256": "b3e6276cb7950d264ccdff12e6eb1ad05d5308ecb52334173b65922099a93c4a",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut": {
+            "bounds_xyz_mm": [
+              43.1775999,
+              48.91800010000001,
+              761.164332551,
+              773.991332751,
+              1385.402397734958,
+              1396.5109057890425
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_principal_2__nut",
+            "source_step_sha256": "26e0afd5800f224a4b3e9e9066c3da97a0a5393ce30139fa04b4d4c9565b9206",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          },
+          "nut_washer": {
+            "bounds_xyz_mm": [
+              48.9179999,
+              50.950000100000004,
+              758.065532551,
+              777.0901327509999,
+              1381.444351662,
+              1400.4689518620003
+            ],
+            "imported_solid_count": 1,
+            "mesh_body_id": "upper_principal_2__nut_washer",
+            "source_step_sha256": "cc631fa18fd7dbea2df42068639814e1291e7b479731fdd64dc87fdfaded155b",
+            "surface_classification_status": "geometry descriptors only; not active tie/contact set assignment"
+          }
+        },
+        "physical_to_CAD_role_mapping": {
+          "bolt": [
+            "head",
+            "shaft"
+          ],
+          "head_washer": [
+            "head_washer"
+          ],
+          "nut": [
+            "nut"
+          ],
+          "nut_washer": [
+            "nut_washer"
+          ]
+        },
+        "profile_transition_station_from_underhead_mm": 129.032,
+        "scenario_id": "body_to_far_wood_face",
+        "scenario_interpretation": "A response-only scenario with the selected maximum catalog body diameter through the far wood face, followed by a smooth-cylinder basic-thread-root sensitivity segment. It does not claim that the catalog bolt has this delivered transition."
+      },
+      "stack_spec_id": "upper_principal_2",
+      "wood_stack": {
+        "head_washer_wood_seat_center_global_xyz_mm": [
+          177.95,
+          767.577832651,
+          1390.956651762
+        ],
+        "head_washer_wood_seat_station_from_underhead_mm": 2.032,
+        "nut_washer_wood_seat_center_global_xyz_mm": [
+          50.95,
+          767.577832651,
+          1390.956651762
+        ],
+        "nut_washer_wood_seat_station_from_underhead_mm": 129.032,
+        "ordered_receivers_head_to_nut": [
+          "wj04_upper_g7_crosscut_full_stock_cleat",
+          "base_principal_center_right"
+        ],
+        "receiver_thicknesses_mm": [
+          88.9,
+          38.1
+        ],
+        "wood_grip_mm": 127.0,
+        "wood_seat_role_assignment": "geometry descriptors only; no active contact or tie is assigned"
+      }
+    }
+  ],
+  "claim_boundary": {
+    "accepted": false,
+    "capacity_established": false,
+    "contact_or_tie_assigned": false,
+    "current_WJ24_wood_mesh_rebuilt_or_reused_here": false,
+    "delivered_hardware_fit_or_inspection_established": false,
+    "fabrication_or_drilling_released": false,
+    "interpretation": "Geometry/source identity only; no joint response, acceptance, or release follows.",
+    "material_assigned": false,
+    "native_solve_run": false
+  },
+  "counts_by_physical_role": {
+    "bolt": 8,
+    "head_washer": 8,
+    "nut": 8,
+    "nut_washer": 8
+  },
+  "current_WJ24_binding": {
+    "bridge_rule": "Keep the legacy WJ16 mesh fingerprint intact and add this source-derived identity record as a separate WJ24 binding.",
+    "composition_sha256": "c4cebb2870e337ece0b429eb099514c36ea5fac79bc9d321fbdcf45734310dfb",
+    "finished_wood_STEP_identity_checks": {
+      "base_principal_center_right": {
+        "WJ16_to_WJ24_whole_body_same_geometry": false,
+        "file_sha256": "7b7e3880a87e959486072e9e174de1a4adb9b9014ceae916693625633cb5d0d8",
+        "source_solid_sha256": "afdd72e27e439cde4d9467908f1b5ef6a8e40bd9df4fbe1130dd7ccd330a740d",
+        "source_to_STEP_identity_checks_passed": true
+      },
+      "base_rail_service_lower_right": {
+        "WJ16_to_WJ24_whole_body_same_geometry": true,
+        "file_sha256": "8d593898a3762c3ae4b037cbda8e6ed85599c0462b279693fb11daae16d5918a",
+        "source_solid_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+        "source_to_STEP_identity_checks_passed": true
+      },
+      "base_rail_service_upper_right": {
+        "WJ16_to_WJ24_whole_body_same_geometry": true,
+        "file_sha256": "ec692263019aeffe674d0477c965be3b223f91a66be59627029f4fd37e72824c",
+        "source_solid_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+        "source_to_STEP_identity_checks_passed": true
+      },
+      "wj04_lower_full_stock_cleat": {
+        "WJ16_to_WJ24_whole_body_same_geometry": true,
+        "file_sha256": "5d0f47eaa042215aa473ff7509ad98ccb38fa700b9f30b6e6a087aa5e8f1b7c0",
+        "source_solid_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+        "source_to_STEP_identity_checks_passed": true
+      },
+      "wj04_upper_g7_crosscut_full_stock_cleat": {
+        "WJ16_to_WJ24_whole_body_same_geometry": true,
+        "file_sha256": "336c774a145eb3b8a82ca653e4c08a8a2307a2e75b0de2b6c44170ae9b11ce7c",
+        "source_solid_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+        "source_to_STEP_identity_checks_passed": true
+      }
+    },
+    "finished_wood_reconciliation_sha256": "256af45c2a6b2b48726d86f95e2f4febdd8cad726d690738e9cb1fad87a89711",
+    "hardware_inventory_sha256": "cb11b4f14d9c6cb02bb1ecb5789579d096b6ae436171f91eabea9891f1927624"
+  },
+  "identity_rules": {
+    "axis_identity": "Exact OCC source-shape SHA-256 for each current WJ24 candidate bore equals the corresponding WJ16 occupancy-bore SHA-256; ordered receiver IDs also match. Coordinates and direction are separately recorded from the frozen WJ16 mechanics/profile datum.",
+    "component_role_mapping": "One continuous bolt (head plus shaft), one head washer, one nut washer, and one nut per axis; legacy collision-role envelopes are metadata only.",
+    "principal_locality_test": "Conservative inclusive AABB disjointness against every exact added/removed delta solid reported by the source-bound WJ16-to-WJ24 OCC comparison.",
+    "seat_identity": "WJ16 and WJ24 use the same candidate-bore solid identity; unchanged participant solids remain exact, while changed principal delta solids have bounding boxes disjoint from the full metal-stack envelope."
+  },
+  "inspection_date": "2026-09-24",
+  "modeled_hardware_profile": {
+    "bolt": {
+      "Lb_mm": 127.0,
+      "Lg_mm": 133.35,
+      "body_diameter_range_mm": [
+        6.223,
+        6.35
+      ],
+      "head_across_corners_mm": 12.827,
+      "head_height_mm": 4.1402,
+      "nominal_length_mm": 152.4,
+      "sku": "25C600HCS5Z",
+      "smooth_body_diameter_mm": 6.35,
+      "thread_designation": "1/4-20 UNC"
+    },
+    "dimension_choice": "Published catalog upper bounds for head, washer, nut, and body dimensions; 152.4 mm nominal bolt length. Geometric scenario only, not receipt or conformity evidence.",
+    "nut": {
+      "across_corners_mm": 12.827,
+      "modeled_thickness_mm": 5.7404,
+      "sku": "25CNFH5Z",
+      "smooth_basic_reference_bore_mm": 4.975859999999999,
+      "thread_designation": "1/4-20 UNC; catalog class 2B"
+    },
+    "sku_or_delivered_part_selected": false,
+    "source_status": "provisional catalog geometry for conditional response scenarios",
+    "washer": {
+      "candidate": "1/4-in Type A Wide plain steel washer; seller SKU unselected",
+      "inside_diameter_mm": 8.3058,
+      "outside_diameter_mm": 19.0246,
+      "thickness_mm": 2.032
+    }
+  },
+  "outcome": "all_eight_old_physical_stack_axes_and_ordered_participants_match_current_WJ24; wood_changes_are_outside_each_stack_envelope",
+  "preserved_legacy_binding": {
+    "old_WJ16_wood_mesh_bundle_sha256": "c208f96bcfcda7a6b089496c9e1c4afe48f874810050f8d0c5cc700f65d5772d",
+    "old_input_hardware_inventory_sha256": "ea9b292466470898be61445242cabf83176dab4f4711eab83ed74aad15d3b883",
+    "old_steel_mesh_archive_sha256": "16669129478c8e22e2245f6824ee8619ce0dadff341b2308fafa6c9750337829",
+    "old_steel_mesh_json_member_sha256": "67e737ade45b6961d42c6c82f430b5506c8932787dadeb8aa3c7af88a57c5989",
+    "old_steel_mesh_scenario_id": "body_to_far_wood_face",
+    "old_steel_mesh_schema": "wood_joint_wj04_hardware_patch_mesh/v1",
+    "old_wood_fingerprint_was_modified": false
+  },
+  "schema": "wood_joint_wj24_representative_hardware_identity/v1",
+  "scope": {
+    "physical_bolts": 8,
+    "physical_metal_solids": 32,
+    "physical_nuts": 8,
+    "physical_washers": 16,
+    "representative_interfaces": 4,
+    "selected_profile_scenario": "body_to_far_wood_face",
+    "wood_bodies": [
+      "base_rail_service_lower_right",
+      "base_rail_service_upper_right",
+      "base_principal_center_right",
+      "wj04_lower_full_stock_cleat",
+      "wj04_upper_g7_crosscut_full_stock_cleat"
+    ]
+  },
+  "source_sha256": {
+    "WJ04_archived_steel_mesh_contents_index": "881dc008cfcd3db6873dc8252e0d723bac28558f6aa8582dc363889ffa92b12c",
+    "WJ04_archived_steel_mesh_inp_member": "3b3acbf2566b960961e3ed1566ed3fe8791ee29c45cfa1a1339b9699a8b1dd2c",
+    "WJ04_archived_steel_mesh_json_member": "67e737ade45b6961d42c6c82f430b5506c8932787dadeb8aa3c7af88a57c5989",
+    "WJ04_archived_steel_mesh_report_archive": "16669129478c8e22e2245f6824ee8619ce0dadff341b2308fafa6c9750337829",
+    "WJ04_physical_hardware_hash_index_json": "c794a877cdb8ecd5338fcf52a6a8c179a3187a29aac6eb6d796f002adc6641af",
+    "WJ04_physical_hardware_inventory_json": "ea9b292466470898be61445242cabf83176dab4f4711eab83ed74aad15d3b883",
+    "WJ16_mechanics_hash_index_json": "d06981e497979a848e23b155515573f73c9e52de1d58d0904863bf9575d9a547",
+    "WJ16_mechanics_inputs_json": "f21e99f55da92ea60c950eecc6707fe98ca5df47f4d019f344c16fa06b52caf9",
+    "WJ16_patch_hash_index_json": "e758d733b9ba3169825220a45aea63ea1d1ebc70da0c9e2cb783464e8e4ea91d",
+    "WJ16_patch_inventory_json": "c208f96bcfcda7a6b089496c9e1c4afe48f874810050f8d0c5cc700f65d5772d",
+    "WJ24_STEP_wood_base_principal_center_right.step": "7b7e3880a87e959486072e9e174de1a4adb9b9014ceae916693625633cb5d0d8",
+    "WJ24_STEP_wood_base_rail_service_lower_right.step": "8d593898a3762c3ae4b037cbda8e6ed85599c0462b279693fb11daae16d5918a",
+    "WJ24_STEP_wood_base_rail_service_upper_right.step": "ec692263019aeffe674d0477c965be3b223f91a66be59627029f4fd37e72824c",
+    "WJ24_STEP_wood_wj04_lower_full_stock_cleat.step": "5d0f47eaa042215aa473ff7509ad98ccb38fa700b9f30b6e6a087aa5e8f1b7c0",
+    "WJ24_STEP_wood_wj04_upper_g7_crosscut_full_stock_cleat.step": "336c774a145eb3b8a82ca653e4c08a8a2307a2e75b0de2b6c44170ae9b11ce7c",
+    "WJ24_hardware_hash_index_json": "4c6b16d6fa9391d9a084fcef95156498dcd26fe98b096fcceddac62927a0473d",
+    "WJ24_hardware_inventory_json": "cb11b4f14d9c6cb02bb1ecb5789579d096b6ae436171f91eabea9891f1927624",
+    "WJ24_static_composition_json": "c4cebb2870e337ece0b429eb099514c36ea5fac79bc9d321fbdcf45734310dfb",
+    "WJ24_static_hash_index_json": "8a44ffec38288c7ad006b680109d78f0e5e128bee57dc14dba15e4ff9d3af6fa",
+    "WJ24_wood_hash_index_json": "67f4c82a16510e2a5cfe6f13860e7571c45e840cdc36517e47030dc8075df8f0",
+    "WJ24_wood_reconciliation_json": "256af45c2a6b2b48726d86f95e2f4febdd8cad726d690738e9cb1fad87a89711",
+    "identity_comparison_helper_py": "30ebc4e3dca5d00fcd2a161f9399a07ce637813d0f57359a18016434fb49066a"
+  },
+  "status": "representative_metal_to_WJ24_wood_identity_only"
+}

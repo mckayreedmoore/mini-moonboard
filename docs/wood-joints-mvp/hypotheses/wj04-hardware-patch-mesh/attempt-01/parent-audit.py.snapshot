@@ -1,0 +1,482 @@
+"""Read-only independent deck/report audit for WJ04 steel-mesh attempt 01."""
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+from collections import defaultdict
+from pathlib import Path
+from typing import Any
+
+ROOT = Path('/home/mckay-linux/repos/mini-moonboard')
+OUTPUT = ROOT / 'fea/generated/wj04-hardware-patch-mesh/attempt-01'
+BUNDLE = ROOT / 'fea/results/diagnostics/wj04-mechanics-hardware-v1'
+AUDIT_PATH = Path('/tmp/wj04-hardware-mesh-parent-audit.json')
+SCHEMA = 'wj04_hardware_mesh_parent_audit/v1'
+EXPECTED_STATUS = 'VERIFIED_C3D10_PHYSICAL_METAL_MESH_ONLY_NO_SOLVER'
+EXPECTED_SCENARIO = 'body_to_far_wood_face'
+STACKS = (
+    'lower_rail_1', 'lower_rail_2', 'lower_principal_1', 'lower_principal_2',
+    'upper_rail_1', 'upper_rail_2', 'upper_principal_1', 'upper_principal_2',
+)
+ROLES = ('bolt', 'head_washer', 'nut_washer', 'nut')
+EXPECTED_BODIES = {f'{stack}__{role}' for stack in STACKS for role in ROLES}
+# CalculiX C3D10 local corner and midside nodes, independently declared here.
+C3D10_FACES = (
+    (0, 1, 2, 4, 5, 6),
+    (0, 3, 1, 7, 8, 4),
+    (1, 3, 2, 8, 9, 5),
+    (2, 3, 0, 9, 7, 6),
+)
+EXPECTED_HEADING = (
+    'Independent physical-metal geometry meshes only; no material, active contact, '
+    'tie, preload, load, native solve, strength result, or release claim.'
+)
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def finite_number(value: Any, name: str) -> float:
+    if isinstance(value, bool):
+        raise ValueError(f'{name} must be a finite number')
+    number = float(value)
+    if not math.isfinite(number):
+        raise ValueError(f'{name} must be finite')
+    return number
+
+
+def strict_int(value: Any, name: str) -> int:
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise ValueError(f'{name} must be an integer')
+    if value <= 0:
+        raise ValueError(f'{name} must be positive')
+    return value
+
+
+def parse_deck(path: Path) -> tuple[dict[int, tuple[float, float, float]], dict[str, dict[int, tuple[int, ...]]], list[str]]:
+    nodes: dict[int, tuple[float, float, float]] = {}
+    sections: dict[str, dict[int, tuple[int, ...]]] = {}
+    cards: list[str] = []
+    mode: tuple[str, str | None] | None = None
+    heading_lines: list[str] = []
+    saw_nodes = False
+    for line_number, raw in enumerate(path.read_text().splitlines(), 1):
+        line = raw.strip()
+        if not line:
+            continue
+        if line.startswith('**'):
+            raise ValueError(f'deck line {line_number}: unexpected comment in frozen mesh deck')
+        if line.startswith('*'):
+            upper = line.upper()
+            if upper == '*HEADING':
+                if cards:
+                    raise ValueError('deck heading must be the first card')
+                cards.append('HEADING')
+                mode = ('heading', None)
+                continue
+            if upper == '*NODE':
+                if not cards or 'NODE' in cards:
+                    raise ValueError('deck must have exactly one *NODE card after *HEADING')
+                saw_nodes = True
+                cards.append('NODE')
+                mode = ('nodes', None)
+                continue
+            fields = [part.strip() for part in upper.split(',')]
+            if len(fields) != 3 or fields[0] != '*ELEMENT':
+                raise ValueError(f'deck line {line_number}: unsupported card {line!r}')
+            attributes = {}
+            for part in fields[1:]:
+                key, separator, value = part.partition('=')
+                if not separator or key in attributes:
+                    raise ValueError(f'deck line {line_number}: malformed element card')
+                attributes[key] = value
+            if attributes.get('TYPE') != 'C3D10' or not attributes.get('ELSET', '').startswith('METAL_'):
+                raise ValueError(f'deck line {line_number}: non-C3D10 or non-metal element set')
+            deck_set = attributes['ELSET']
+            body_id = next((name for name in EXPECTED_BODIES if deck_set == f'METAL_{name.upper()}'), None)
+            if body_id is None or body_id in sections:
+                raise ValueError(f'deck line {line_number}: unknown or repeated body element set {deck_set}')
+            cards.append('ELEMENT:' + body_id)
+            sections[body_id] = {}
+            mode = ('elements', body_id)
+            continue
+
+        if mode is None:
+            raise ValueError(f'deck line {line_number}: data before a permitted card')
+        if mode[0] == 'heading':
+            heading_lines.append(line)
+            continue
+        values = [part.strip() for part in line.split(',')]
+        if mode[0] == 'nodes':
+            if len(values) != 4:
+                raise ValueError(f'deck line {line_number}: node row must have four fields')
+            node_id = strict_int(int(values[0]), f'deck line {line_number} node ID')
+            if node_id in nodes:
+                raise ValueError(f'deck line {line_number}: duplicate node ID {node_id}')
+            xyz = tuple(finite_number(value, f'deck line {line_number} coordinate') for value in values[1:])
+            nodes[node_id] = xyz  # type: ignore[assignment]
+        elif mode[0] == 'elements':
+            if len(values) != 11:
+                raise ValueError(f'deck line {line_number}: C3D10 row must have eleven fields')
+            element_id = strict_int(int(values[0]), f'deck line {line_number} element ID')
+            row = tuple(strict_int(int(value), f'deck line {line_number} connectivity ID') for value in values[1:])
+            if len(set(row)) != 10:
+                raise ValueError(f'deck line {line_number}: C3D10 element has repeated nodes')
+            body = sections[mode[1]]
+            if element_id in body:
+                raise ValueError(f'deck line {line_number}: duplicate element ID {element_id}')
+            if any(element_id in existing for existing in sections.values() if existing is not body):
+                raise ValueError(f'deck line {line_number}: element ID appears in multiple bodies')
+            body[element_id] = row
+        else:
+            raise ValueError(f'deck line {line_number}: invalid parser state')
+
+    if cards[:2] != ['HEADING', 'NODE'] or not saw_nodes or len(sections) != 32:
+        raise ValueError('deck card set is incomplete or differs from 32-body mesh-only contract')
+    if heading_lines != [EXPECTED_HEADING]:
+        raise ValueError('deck heading text differs from the geometry-only claim boundary')
+    if not nodes or any(not rows for rows in sections.values()):
+        raise ValueError('deck contains an empty node or body element section')
+    return nodes, sections, cards
+
+
+def edge_mid_nodes(face_nodes: tuple[int, ...]) -> dict[tuple[int, int], int]:
+    if len(face_nodes) != 6 or len(set(face_nodes)) != 6:
+        raise ValueError('quadratic face must contain six distinct node IDs')
+    return {
+        tuple(sorted((face_nodes[a], face_nodes[b]))): face_nodes[mid]
+        for a, b, mid in ((0, 1, 3), (1, 2, 4), (2, 0, 5))
+    }
+
+
+def exterior_faces(elements: dict[int, tuple[int, ...]]) -> tuple[set[tuple[int, int]], dict[tuple[int, int], tuple[int, ...]]]:
+    by_corner: dict[tuple[int, int, int], list[tuple[int, int, tuple[int, ...]]]] = defaultdict(list)
+    for element_id, row in elements.items():
+        if len(row) != 10 or len(set(row)) != 10:
+            raise ValueError(f'element {element_id}: invalid C3D10 row')
+        for face_number, local in enumerate(C3D10_FACES, 1):
+            face = tuple(row[index] for index in local)
+            by_corner[tuple(sorted(face[:3]))].append((element_id, face_number, face))
+    exposed: set[tuple[int, int]] = set()
+    exposed_nodes: dict[tuple[int, int], tuple[int, ...]] = {}
+    for key, members in by_corner.items():
+        if len(members) == 1:
+            element_id, face_number, face = members[0]
+            reference = (element_id, face_number)
+            exposed.add(reference)
+            exposed_nodes[reference] = face
+        elif len(members) == 2:
+            if edge_mid_nodes(members[0][2]) != edge_mid_nodes(members[1][2]):
+                raise ValueError(f'interior face {key} has incompatible quadratic edge nodes')
+        else:
+            raise ValueError(f'face {key} has nonmanifold incidence {len(members)}')
+    if not exposed:
+        raise ValueError('body has no exterior C3D10 faces')
+    return exposed, exposed_nodes
+
+
+def run() -> dict[str, Any]:
+    mesh_path = OUTPUT / 'mesh.json'
+    deck_path = OUTPUT / 'mesh.inp'
+    report = json.loads(mesh_path.read_text())
+    nodes, deck_bodies, cards = parse_deck(deck_path)
+    bodies = report.get('bodies')
+    if not isinstance(bodies, dict):
+        raise ValueError('mesh report has no body map')
+    checks: dict[str, bool] = {}
+    check_details: dict[str, Any] = {}
+
+    checks['producer_report_schema_and_status'] = (
+        report.get('schema') == 'wood_joint_wj04_hardware_patch_mesh/v1'
+        and report.get('status') == EXPECTED_STATUS
+        and report.get('scenario_id') == EXPECTED_SCENARIO
+        and report.get('accepted') is False
+        and report.get('solved') is False
+    )
+    if not checks['producer_report_schema_and_status']:
+        raise ValueError('report schema, status, scenario, or non-acceptance fields differ')
+    checks['strict_geometry_only_deck_cards'] = (
+        cards[0:2] == ['HEADING', 'NODE']
+        and len([card for card in cards if card.startswith('ELEMENT:')]) == 32
+        and len(cards) == 34
+    )
+    checks['no_material_contact_load_or_solver_cards'] = (
+        report.get('material_contact_tie_preload_load_or_solver_cards') is False
+        and report.get('output_contains_material_contact_tie_preload_or_solver_cards') is False
+        and report.get('active_contact_or_tie_set_assignment') is False
+        and report.get('capacity_or_release_claim') is False
+        and report.get('full24_final_mechanics_claim') is False
+        and report.get('open_clearances_preserved') is True
+        and report.get('legacy_collision_roles_meshed') == 0
+    )
+    checks['body_inventory_exactly_32'] = set(bodies) == EXPECTED_BODIES and set(deck_bodies) == EXPECTED_BODIES
+    if not checks['body_inventory_exactly_32']:
+        raise ValueError('reported or deck body IDs differ from the exact 8 × 4 body contract')
+    checks['deck_hash_matches_report'] = sha256(deck_path) == report.get('mesh_input_sha256')
+
+    report_nodes: set[int] = set()
+    report_elements: set[int] = set()
+    body_node_sets: dict[str, set[int]] = {}
+    body_element_sets: dict[str, set[int]] = {}
+    body_results: dict[str, Any] = {}
+    all_exterior_count = 0
+    max_relative_volume_error = 0.0
+    min_sampled_jacobian = math.inf
+    min_integration_jacobian = math.inf
+    total_sampled_jacobians = 0
+    total_integration_jacobians = 0
+    max_nodes_per_body = 0
+    max_elements_per_body = 0
+    all_surfaces_covered = True
+    all_quality_summaries_pass = True
+
+    for body_id in sorted(EXPECTED_BODIES):
+        body = bodies[body_id]
+        deck_elements = deck_bodies[body_id]
+        body_nodes = {strict_int(value, f'{body_id} report node ID') for value in body.get('nodes', [])}
+        body_elements = {strict_int(value, f'{body_id} report element ID') for value in body.get('elements', [])}
+        if len(body_nodes) != len(body.get('nodes', [])) or len(body_elements) != len(body.get('elements', [])):
+            raise ValueError(f'{body_id}: duplicate node or element IDs in report')
+        if body_elements != set(deck_elements):
+            raise ValueError(f'{body_id}: element ownership differs between deck and report')
+        used_nodes = {node for row in deck_elements.values() for node in row}
+        if body_nodes != used_nodes:
+            raise ValueError(f'{body_id}: node ownership differs from deck connectivity')
+        if not body_nodes <= set(nodes):
+            raise ValueError(f'{body_id}: report node ownership includes absent deck nodes')
+        if body.get('node_count') != len(body_nodes) or body.get('element_count') != len(body_elements):
+            raise ValueError(f'{body_id}: report body counts disagree with explicit ownership')
+        if body.get('component_role') != body_id.rsplit('__', 1)[1]:
+            raise ValueError(f'{body_id}: component role field disagrees with body ID')
+        if body.get('stack_spec_id') != body_id.rsplit('__', 1)[0]:
+            raise ValueError(f'{body_id}: stack ID field disagrees with body ID')
+        if body.get('solid_identity', {}).get('expected_solid_count') != 1 or body.get('solid_identity', {}).get('imported_solid_count') != 1:
+            raise ValueError(f'{body_id}: imported STEP solid count is not exactly one')
+        if body.get('physical_bolt_id', '').rsplit('/', 1)[-1] != body.get('stack_spec_id'):
+            raise ValueError(f'{body_id}: physical bolt identity does not end with its stack ID')
+
+        exterior, face_nodes = exterior_faces(deck_elements)
+        all_exterior_count += len(exterior)
+        seen_surface_faces: set[tuple[int, int]] = set()
+        surface_node_reference_errors: list[str] = []
+        surfaces = body.get('surfaces')
+        if not isinstance(surfaces, dict) or not surfaces:
+            raise ValueError(f'{body_id}: CAD surface map is missing')
+        classified_count = 0
+        unresolved_count = 0
+        for tag, surface in surfaces.items():
+            if str(surface.get('cad_entity_tag')) != str(tag):
+                raise ValueError(f'{body_id}: surface key/tag mismatch')
+            if not math.isfinite(finite_number(surface.get('area_mm2'), f'{body_id}/{tag} area')) or surface['area_mm2'] <= 0:
+                raise ValueError(f'{body_id}/{tag}: invalid surface area')
+            classification = surface.get('datum_classification', {})
+            if classification.get('status') == 'classified':
+                classified_count += 1
+            elif classification.get('status') == 'unresolved':
+                unresolved_count += 1
+            else:
+                raise ValueError(f'{body_id}/{tag}: unknown datum classification status')
+            if surface.get('semantic_interface_binding') != 'datum classification only; not an active mesh contact assignment':
+                raise ValueError(f'{body_id}/{tag}: surface metadata exceeds geometry-only semantics')
+            refs = surface.get('tri6_exterior_face_refs')
+            if not isinstance(refs, list) or not refs:
+                raise ValueError(f'{body_id}/{tag}: missing TRI6 exterior-face references')
+            surface_faces: set[tuple[int, int]] = set()
+            face_nodes_for_surface: set[int] = set()
+            for ref in refs:
+                if not isinstance(ref, list) or len(ref) != 2:
+                    raise ValueError(f'{body_id}/{tag}: malformed exterior-face reference')
+                pair = (strict_int(ref[0], 'face element ID'), strict_int(ref[1], 'face ordinal'))
+                if pair[1] not in {1, 2, 3, 4} or pair not in exterior:
+                    raise ValueError(f'{body_id}/{tag}: face reference is not an exterior C3D10 face')
+                if pair in surface_faces or pair in seen_surface_faces:
+                    raise ValueError(f'{body_id}/{tag}: exterior face is duplicated across surface ownership')
+                surface_faces.add(pair)
+                seen_surface_faces.add(pair)
+                face_nodes_for_surface.update(face_nodes[pair])
+            tri6_nodes = {strict_int(value, f'{body_id}/{tag} TRI6 node ID') for value in surface.get('tri6_node_ids', [])}
+            if tri6_nodes != face_nodes_for_surface:
+                surface_node_reference_errors.append(tag)
+            if not tri6_nodes <= body_nodes:
+                raise ValueError(f'{body_id}/{tag}: surface references nodes outside its body')
+        surface_coverage = seen_surface_faces == exterior
+        surface_node_coverage = not surface_node_reference_errors
+        all_surfaces_covered &= surface_coverage and surface_node_coverage
+        if not surface_coverage:
+            missing = len(exterior - seen_surface_faces)
+            extra = len(seen_surface_faces - exterior)
+            raise ValueError(f'{body_id}: surface refs do not cover exterior faces exactly ({missing} missing, {extra} extra)')
+        if not surface_node_coverage:
+            raise ValueError(f'{body_id}: surface TRI6 node IDs disagree with deck face nodes: {surface_node_reference_errors}')
+        surface_classification = body.get('surface_classification', {})
+        if surface_classification.get('classified_surface_count') != classified_count or surface_classification.get('unresolved_surface_count') != unresolved_count:
+            raise ValueError(f'{body_id}: classified/unresolved surface summary counts disagree')
+        if surface_classification.get('status') != 'geometry descriptors only; not active tie/contact set assignment':
+            raise ValueError(f'{body_id}: surface classification status exceeds geometry-only scope')
+        if body.get('exterior_tri6_face_count') != len(exterior):
+            raise ValueError(f'{body_id}: exterior face count differs from deck reconstruction')
+
+        imported = body.get('imported_cad', {})
+        cad_volume = finite_number(imported.get('volume_mm3'), f'{body_id} imported CAD volume')
+        volume_error = finite_number(imported.get('relative_volume_error_vs_export'), f'{body_id} STEP volume error')
+        if cad_volume <= 0 or volume_error < 0 or volume_error > finite_number(imported.get('relative_volume_tolerance'), f'{body_id} STEP volume tolerance'):
+            raise ValueError(f'{body_id}: STEP import volume check fails its recorded bound')
+        mesh_audit = body.get('integrated_mesh_audit', {})
+        integration_rule = body.get('integration_rule', {})
+        sampled_count = strict_int(mesh_audit.get('sampled_jacobian_count'), f'{body_id} sampled Jacobian count')
+        integration_count = strict_int(mesh_audit.get('integration_jacobian_count'), f'{body_id} integration Jacobian count')
+        gauss_points = strict_int(integration_rule.get('weights_per_element'), f'{body_id} Gauss point count')
+        sample_min = finite_number(mesh_audit.get('minimum_sampled_jacobian'), f'{body_id} sampled Jacobian minimum')
+        integration_min = finite_number(mesh_audit.get('minimum_integration_jacobian'), f'{body_id} integration Jacobian minimum')
+        min_weight = finite_number(integration_rule.get('minimum_weight'), f'{body_id} Gauss weight minimum')
+        mesh_volume = finite_number(mesh_audit.get('integrated_mesh_volume_mm3'), f'{body_id} integrated mesh volume')
+        mesh_cad_volume = finite_number(mesh_audit.get('cad_volume_mm3'), f'{body_id} audited CAD volume')
+        relative_error = finite_number(mesh_audit.get('relative_volume_error'), f'{body_id} relative mesh volume error')
+        relative_tolerance = finite_number(mesh_audit.get('relative_volume_tolerance'), f'{body_id} relative mesh volume tolerance')
+        if sampled_count != len(body_elements) or integration_count != len(body_elements) * gauss_points:
+            raise ValueError(f'{body_id}: Jacobian evidence counts disagree with the deck')
+        if sample_min <= 0 or integration_min <= 0 or min_weight <= 0 or mesh_volume <= 0 or mesh_cad_volume <= 0:
+            raise ValueError(f'{body_id}: nonpositive mesh quality or volume summary')
+        recalculated_error = abs(mesh_volume / mesh_cad_volume - 1.0)
+        if not math.isclose(recalculated_error, relative_error, rel_tol=1e-9, abs_tol=1e-12):
+            raise ValueError(f'{body_id}: reported relative volume error does not recalculate')
+        if relative_error > relative_tolerance or not math.isclose(cad_volume, mesh_cad_volume, rel_tol=0, abs_tol=1e-9):
+            raise ValueError(f'{body_id}: integrated mesh volume summary fails recorded bound')
+        if integration_rule.get('name') != 'Gmsh Gauss5 for element type 11':
+            raise ValueError(f'{body_id}: integration rule name differs from C3D10 Gauss5')
+        max_relative_volume_error = max(max_relative_volume_error, relative_error)
+        min_sampled_jacobian = min(min_sampled_jacobian, sample_min)
+        min_integration_jacobian = min(min_integration_jacobian, integration_min)
+        total_sampled_jacobians += sampled_count
+        total_integration_jacobians += integration_count
+        max_nodes_per_body = max(max_nodes_per_body, len(body_nodes))
+        max_elements_per_body = max(max_elements_per_body, len(body_elements))
+        body_node_sets[body_id] = body_nodes
+        body_element_sets[body_id] = body_elements
+        body_results[body_id] = {
+            'component_role': body['component_role'],
+            'node_count': len(body_nodes),
+            'element_count': len(body_elements),
+            'exterior_face_count_reconstructed': len(exterior),
+            'cad_surface_count': len(surfaces),
+            'classified_surface_count': classified_count,
+            'unresolved_surface_count': unresolved_count,
+            'minimum_sampled_jacobian_reported': sample_min,
+            'minimum_integration_jacobian_reported': integration_min,
+            'relative_mesh_volume_error_reported': relative_error,
+            'relative_mesh_volume_tolerance': relative_tolerance,
+        }
+
+    node_overlaps = sum(
+        len(body_node_sets[first] & body_node_sets[second])
+        for index, first in enumerate(sorted(body_node_sets))
+        for second in sorted(body_node_sets)[index + 1:]
+    )
+    element_overlaps = sum(
+        len(body_element_sets[first] & body_element_sets[second])
+        for index, first in enumerate(sorted(body_element_sets))
+        for second in sorted(body_element_sets)[index + 1:]
+    )
+    deck_node_ids = set(nodes)
+    report_nodes = set().union(*body_node_sets.values())
+    report_elements = set().union(*body_element_sets.values())
+    deck_element_ids = {element for rows in deck_bodies.values() for element in rows}
+    if node_overlaps or element_overlaps:
+        raise ValueError('node or element ownership is shared between independently meshed bodies')
+    if report_nodes != deck_node_ids or report_elements != deck_element_ids:
+        raise ValueError('global report ownership does not cover deck nodes and elements exactly')
+    if any(node not in deck_node_ids for body in deck_bodies.values() for row in body.values() for node in row):
+        raise ValueError('deck connectivity references an absent node')
+    if report.get('body_count') != len(bodies) or report.get('node_count') != len(nodes) or report.get('element_count') != len(deck_element_ids):
+        raise ValueError('top-level report counts disagree with deck counts')
+
+    source_before = report.get('mesh_worker_source_sha256', {})
+    source_after = report.get('mesh_worker_source_sha256_after', {})
+    if source_before != source_after or not isinstance(source_before, dict) or len(source_before) != 5:
+        raise ValueError('worker source hashes changed or do not cover five sources')
+    for relative, expected_hash in source_before.items():
+        snapshot = OUTPUT / 'sources' / f'{relative}.snapshot'
+        if not snapshot.is_file() or sha256(snapshot) != expected_hash:
+            raise ValueError(f'worker source snapshot is missing or changed: {relative}')
+    inputs_before = report.get('input_bundle_file_sha256_before', {})
+    inputs_after = report.get('input_bundle_file_sha256_after', {})
+    if inputs_before != inputs_after or len(inputs_before) != 67:
+        raise ValueError('input hardware bundle hashes changed or have an unexpected count')
+    for relative, expected_hash in inputs_before.items():
+        source = BUNDLE / relative
+        if not source.is_file() or sha256(source) != expected_hash:
+            raise ValueError(f'frozen input bundle member is missing or changed: {relative}')
+
+    checks.update({
+        'deck_hash_matches_report': checks['deck_hash_matches_report'],
+        'global_deck_report_ownership_reconciles': report_nodes == deck_node_ids and report_elements == deck_element_ids,
+        'body_local_node_and_element_ownership_is_disjoint': node_overlaps == 0 and element_overlaps == 0,
+        'all_deck_connectivity_nodes_exist': all(node in deck_node_ids for body in deck_bodies.values() for row in body.values() for node in row),
+        'all_exterior_quadratic_faces_and_surface_node_sets_reconcile': all_surfaces_covered,
+        'reported_mesh_quality_summaries_are_positive_and_within_reported_volume_tolerance': True,
+        'worker_source_snapshots_and_hashes_reconcile': True,
+        'frozen_input_bundle_hashes_reconcile': True,
+        'mesh_only_card_boundary_and_claim_flags_hold': checks['strict_geometry_only_deck_cards'] and checks['no_material_contact_load_or_solver_cards'],
+    })
+    return {
+        'schema': SCHEMA,
+        'status': 'PASSED_READ_ONLY_DECK_REPORT_AUDIT',
+        'audit_scope': {
+            'candidate': 'WJ04 representative hardware profile body_to_far_wood_face',
+            'read_only': True,
+            'native_solver_run': False,
+            'CAD_import_or_mesh_run': False,
+            'producer_or_mesh_helper_imported': False,
+            'body_count': len(bodies),
+            'deck_only_card_types': cards,
+            'scope_note': 'The audit reconciles archived adapter quality summaries and recomputes deck ownership/topology; it does not recompute raw per-element Gmsh Jacobians in this audit.',
+        },
+        'artifacts': {
+            'mesh_json': {'path': str(mesh_path), 'sha256': sha256(mesh_path)},
+            'mesh_inp': {'path': str(deck_path), 'sha256': sha256(deck_path)},
+            'audit_json': str(AUDIT_PATH),
+        },
+        'checks': checks,
+        'counts': {
+            'body_count': len(bodies),
+            'node_count': len(nodes),
+            'element_count': len(deck_element_ids),
+            'sampled_jacobian_count_reported': total_sampled_jacobians,
+            'integration_jacobian_count_reported': total_integration_jacobians,
+            'exterior_quadratic_face_count_reconstructed': all_exterior_count,
+            'cross_body_node_id_overlap_count': node_overlaps,
+            'cross_body_element_id_overlap_count': element_overlaps,
+            'unowned_deck_node_count': len(deck_node_ids - report_nodes),
+            'unowned_deck_element_count': len(deck_element_ids - report_elements),
+        },
+        'quality_summary': {
+            'minimum_reported_sampled_jacobian': min_sampled_jacobian,
+            'minimum_reported_integration_jacobian': min_integration_jacobian,
+            'maximum_reported_relative_volume_error': max_relative_volume_error,
+            'minimum_gauss_weight': min(finite_number(body['integration_rule']['minimum_weight'], 'Gauss minimum') for body in bodies.values()),
+            'largest_body_node_count': max_nodes_per_body,
+            'largest_body_element_count': max_elements_per_body,
+        },
+        'per_body': body_results,
+        'limitations': [
+            'Positive Jacobian minima and integrated-volume tolerances are checked from the mesh report summaries and counts; raw cell-wise quality/Jacobian values are not recomputed by this audit.',
+            'No material, contact, preload, tie, load, solver, stiffness, resistance, contact seating, or response claim is made.',
+        ],
+    }
+
+
+try:
+    result = run()
+except Exception as error:
+    result = {
+        'schema': SCHEMA,
+        'status': 'FAILED_READ_ONLY_DECK_REPORT_AUDIT',
+        'audit_scope': {'read_only': True, 'native_solver_run': False, 'CAD_import_or_mesh_run': False},
+        'error': f'{type(error).__name__}: {error}',
+    }
+AUDIT_PATH.write_text(json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + '\n')
+print(json.dumps({'status': result['status'], 'path': str(AUDIT_PATH), 'counts': result.get('counts'), 'quality_summary': result.get('quality_summary'), 'error': result.get('error')}, sort_keys=True))
+if result['status'] != 'PASSED_READ_ONLY_DECK_REPORT_AUDIT':
+    raise SystemExit(1)

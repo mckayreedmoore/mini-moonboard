@@ -1,0 +1,24 @@
+Warning : Volume mesh: worst distortion = -0.525958 (avg = 0.954665, 10 elements with jac. < 0)
+Warning : ------------------------------
+Warning : Mesh generation error summary
+Warning :     1 warning
+Warning :     0 errors
+Warning : Check the full log for details
+Warning : ------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/work/fea/wood_joint_patch_mesh.py", line 965, in <module>
+    main()
+  File "/work/fea/wood_joint_patch_mesh.py", line 954, in main
+    output = prepare_geometry_patch(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/fea/wood_joint_patch_mesh.py", line 887, in prepare_geometry_patch
+    body_record = _mesh_body(
+                  ^^^^^^^^^^^
+  File "/work/fea/wood_joint_patch_mesh.py", line 683, in _mesh_body
+    local_elements = c3d10_elements(element_tags_by_type[0], flat_connectivity_by_type[0])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/fea/wood_joint_patch_mesh.py", line 460, in c3d10_elements
+    raise ValueError("Gmsh C3D10 element must own ten distinct node IDs")
+ValueError: Gmsh C3D10 element must own ten distinct node IDs

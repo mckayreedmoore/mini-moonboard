@@ -1,0 +1,1429 @@
+"""Compose all twenty-four provisional wood-joint duties from retained inputs.
+
+This source-bound compositor accepts already materialized WJ18 geometry and
+three local duty deltas. It rebuilds the sixteen shared source hosts from raw
+members, canonical native and purchased-panel cuts, every legacy source-axis
+removal, and all candidate bores. It does not materialize families, run a
+native solver, or establish installation, capacity, or acceptance.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+from collections import Counter
+from collections.abc import Mapping
+from dataclasses import dataclass
+from pathlib import Path
+from types import MappingProxyType
+from typing import Any
+
+import cadquery as cq
+
+from mini_moonboard.wood_joint_frame import (
+    _source_shape_fingerprint,
+    validate_source_binding,
+)
+from mini_moonboard.wood_joint_panel_machining import PANEL_NAMES, RIGHT_PANEL_NAMES
+from scripts import wood_joint_bottom_center_integration as bottom_center
+from scripts import wood_joint_bottom_outer_integration as bottom_outer
+from scripts import wood_joint_right_rail_integration as right_rail
+from scripts import wood_joint_top_center_integration as top_center
+from scripts import wood_joint_top_outer_integration as top_outer
+from scripts import wood_joint_wj12_compositor as wj12
+from scripts import wood_joint_wj18_compositor as wj18
+from scripts import wood_joint_wj18_diagnostic as wj18_diagnostic
+
+ROOT = Path(__file__).resolve().parents[1]
+INVENTORY_PATH = "docs/wood-joints-mvp/source-inventory.json"
+SCHEMA = "wood_joint_wj24_compositor/v1"
+LAYOUT_ID = "wj24-twenty-four-duty-integrated-static-v1"
+TRIAL_ID = "wj24-wj18-plus-top-center-bottom-pairs-v1"
+SOURCE_RECONSTRUCTION_TOLERANCE_MM3 = 1e-3
+
+BOTTOM_OUTER_AXIS_STATION_IDS = {
+    f"bottom_outer/{duty_id}/{role}_{index}": duty_id
+    for duty_id in sorted(bottom_outer.TARGET_DUTY_IDS)
+    for role in ("rail", "side")
+    for index in (1, 2)
+}
+
+EXPECTED_TARGET_DUTY_IDS = frozenset(
+    wj18.EXPECTED_TARGET_DUTY_IDS
+    | top_center.TARGET_DUTY_IDS
+    | bottom_outer.TARGET_DUTY_IDS
+    | bottom_center.TARGET_DUTY_IDS
+)
+EXPECTED_SOURCE_HOST_IDS = frozenset(
+    wj18.EXPECTED_SOURCE_HOST_IDS
+    | top_center.HOST_IDS
+    | bottom_outer.HOST_IDS
+    | bottom_center.HOST_IDS
+)
+EXPECTED_CANDIDATE_AXIS_STATION_IDS = {
+    **dict(wj18_diagnostic.WJ18_LAYOUT.expected_candidate_axis_station_ids),
+    **dict(top_center.TOP_AXIS_STATION_IDS),
+    **BOTTOM_OUTER_AXIS_STATION_IDS,
+    **dict(bottom_center.BOTTOM_AXIS_STATION_IDS),
+}
+EXPECTED_CANDIDATE_AXIS_IDS = frozenset(EXPECTED_CANDIDATE_AXIS_STATION_IDS) | frozenset(
+    wj18.EXPECTED_CANDIDATE_AXIS_IDS
+    - set(wj18_diagnostic.WJ18_LAYOUT.expected_candidate_axis_station_ids)
+)
+EXPECTED_CANDIDATE_PART_IDS = frozenset(
+    wj18.EXPECTED_CANDIDATE_PART_IDS
+    | top_center.TOP_CANDIDATE_PART_IDS
+    | set(bottom_outer.CLEAT_IDS.values())
+    | bottom_center.BOTTOM_CANDIDATE_PART_IDS
+)
+EXPECTED_REDIRECTED_PANEL_AXES = frozenset(
+    row["axis_id"]
+    for row in json.loads((ROOT / INVENTORY_PATH).read_text()).get(
+        "fixed_panel_kicker_screws", ()
+    )
+    if row.get("source_finished_receiver_member")
+    != row.get("candidate_finished_receiver_member")
+)
+EXPECTED_OVERLAY_IDS_ABSORBED = frozenset(
+    {
+        "base_rail_top",
+        "base_rail_bottom_left",
+        "base_rail_bottom_right",
+        "base_rail_service_lower_left",
+        "base_rail_service_upper_left",
+    }
+)
+EXPECTED_CANDIDATE_COMPONENT_COUNT = 520
+EXPECTED_REPLACED_SOURCE_AXIS_COUNT = 144
+EXPECTED_FIXED_PANEL_AXIS_COUNT = 66
+EXPECTED_FRAME_BOLT_COUNT = 12
+EXPECTED_FRAME_BOLT_COMPONENT_COUNT = 60
+EXPECTED_FRAME_BOLT_PROXY_COUNT = 12
+EXPECTED_FRAME_BOLT_SHAPE_COUNT = 72
+
+PRODUCER_HASH_PATHS = {
+    "wj24_compositor": "scripts/wood_joint_wj24_compositor.py",
+    "wj24_diagnostic": "scripts/wood_joint_wj24_diagnostic.py",
+    "wj18_compositor": "scripts/wood_joint_wj18_compositor.py",
+    "wj18_diagnostic": "scripts/wood_joint_wj18_diagnostic.py",
+    "top_center_producer": top_center.PRODUCER_HASH_PATHS["top_center_producer"],
+    "bottom_outer_producer": bottom_outer.PRODUCER_HASH_PATHS["bottom_outer_producer"],
+    "bottom_center_producer": bottom_center.PRODUCER_HASH_PATHS["bottom_center_producer"],
+}
+
+
+@dataclass(frozen=True)
+class WJ24ComposedGeometry:
+    """A source-bound 24-duty static composition, still an unaccepted hypothesis."""
+
+    layout_id: str
+    trial_id: str
+    source: Any
+    source_binding: Any
+    source_inventory_sha256: str
+    source_inventory: Mapping[str, Any]
+    source_inputs_sha256: Mapping[str, str]
+    family_source_fingerprints: Mapping[str, Mapping[str, str]]
+    family_trial_ids: Mapping[str, str]
+    target_station_ids: tuple[str, ...]
+    raw_hosts: Mapping[str, cq.Shape]
+    finished_hosts: Mapping[str, cq.Shape]
+    raw_candidate_parts: Mapping[str, cq.Shape]
+    finished_candidate_parts: Mapping[str, cq.Shape]
+    candidate_bores: Mapping[str, Any]
+    candidate_installed_hardware: Mapping[str, Mapping[str, cq.Shape]]
+    replaced_source_axis_ids: frozenset[str]
+    replaced_source_cutter_ids: frozenset[str]
+    source_cutters_by_host: Mapping[str, Mapping[str, cq.Shape]]
+    applied_source_cutters_by_host: Mapping[str, Mapping[str, cq.Shape]]
+    purchased_panel_cutters_by_host: Mapping[str, Mapping[str, cq.Shape]]
+    purchased_panel_cutters_by_candidate_part: Mapping[
+        str, Mapping[str, cq.Shape]
+    ]
+    additional_finished_source_parts: Mapping[str, cq.Shape]
+    additional_purchased_panel_cutters_by_host: Mapping[
+        str, Mapping[str, cq.Shape]
+    ]
+    additional_source_reconstruction: Mapping[str, Mapping[str, Any]]
+    source_reconstruction: Mapping[str, Mapping[str, Any]]
+    panel_replacements: Mapping[str, cq.Shape]
+    fixed_axes: Mapping[str, cq.Shape]
+    frame_bolt_records: tuple[Mapping[str, Any], ...]
+    frame_bolt_shapes: Mapping[str, cq.Shape]
+    protected: Mapping[str, Mapping[str, cq.Shape]]
+    absorbed_source_overlay_ids: tuple[str, ...]
+    composition_checks: Mapping[str, bool]
+    local_delta_diagnostics: Mapping[str, Any]
+    status: str = "unaccepted_integrated_hypothesis"
+
+    @property
+    def counts(self) -> dict[str, int]:
+        return {
+            "target_duties": len(self.target_station_ids),
+            "source_hosts": len(self.finished_hosts),
+            "replaced_source_sds_axes": len(self.replaced_source_axis_ids),
+            "replaced_source_cutter_operations": len(
+                self.replaced_source_cutter_ids
+            ),
+            "candidate_bores": len(self.candidate_bores),
+            "candidate_installed_hardware_axes": len(
+                self.candidate_installed_hardware
+            ),
+            "candidate_installed_hardware_components": sum(
+                len(roles) for roles in self.candidate_installed_hardware.values()
+            ),
+            "candidate_parts": len(self.finished_candidate_parts),
+            "panel_replacements": len(self.panel_replacements),
+            "fixed_panel_axes": len(self.fixed_axes),
+            "redirected_panel_receiver_axes": sum(
+                len(cuts)
+                for cuts in self.purchased_panel_cutters_by_candidate_part.values()
+            ),
+            "additional_finished_source_parts": len(
+                self.additional_finished_source_parts
+            ),
+            "additional_purchased_panel_receiver_axes": sum(
+                len(cuts)
+                for cuts in self.additional_purchased_panel_cutters_by_host.values()
+            ),
+            "retained_frame_bolts": len(self.frame_bolt_records),
+            "retained_frame_bolt_installed_components": sum(
+                int(row["installed_component_count"])
+                for row in self.frame_bolt_records
+            ),
+            "retained_frame_bolt_source_occupied_axes": sum(
+                name.endswith("/source_occupied_axis")
+                for name in self.frame_bolt_shapes
+            ),
+            "retained_frame_bolt_shapes": len(self.frame_bolt_shapes),
+            "retained_legacy_clips": len(
+                self.protected.get("retained_legacy_clips", {})
+            ),
+            "retained_legacy_sds_axes": len(
+                self.protected.get("retained_legacy_sds_axes", {})
+            ),
+        }
+
+    @property
+    def gates(self) -> dict[str, bool]:
+        return {
+            "integrated_static_geometry_checked": False,
+            "complete_joint_acceptance": False,
+            "capacity_established": False,
+            "installation_proven": False,
+            "fabrication_released": False,
+            "structural_released": False,
+        }
+
+
+def _plain(value: Any) -> Any:
+    if isinstance(value, cq.Shape):
+        return _shape_evidence(value)
+    if isinstance(value, Mapping):
+        return {str(key): _plain(item) for key, item in value.items()}
+    if isinstance(value, (tuple, list, set, frozenset)):
+        return [_plain(item) for item in value]
+    return value
+
+
+def _readonly(values: Mapping) -> Mapping:
+    return MappingProxyType(dict(values))
+
+
+def _nested_readonly(values: Mapping[str, Mapping]) -> Mapping:
+    return MappingProxyType(
+        {key: MappingProxyType(dict(rows)) for key, rows in values.items()}
+    )
+
+
+def _sha256_file(relative_path: str) -> str:
+    return hashlib.sha256((ROOT / relative_path).read_bytes()).hexdigest()
+
+
+def _validate_hash_map(expected: Mapping[str, str], *, context: str) -> dict[str, str]:
+    current: dict[str, str] = {}
+    for relative_path, digest in expected.items():
+        observed = _sha256_file(relative_path)
+        if observed != digest:
+            raise ValueError(f"{context} input changed: {relative_path}")
+        current[relative_path] = observed
+    if not current:
+        raise ValueError(f"{context} input fingerprint map is empty")
+    return dict(sorted(current.items()))
+
+
+def _normalized_producer_inputs(
+    geometry: Any,
+    producer_hash_paths: Mapping[str, str],
+    *,
+    context: str,
+    retained_family_fingerprints: Mapping[str, Mapping[str, str]] | None = None,
+) -> dict[str, str]:
+    supplied = dict(getattr(geometry, "source_inputs_sha256", {}))
+    if retained_family_fingerprints is None:
+        if set(supplied) != set(producer_hash_paths):
+            raise ValueError(f"{context} input labels differ from the producer hash contract")
+        expected: dict[str, str] = {}
+        for label, relative_path in producer_hash_paths.items():
+            digest = supplied[label]
+            observed = _sha256_file(relative_path)
+            if observed != digest:
+                raise ValueError(f"{context} source input changed: {relative_path}")
+            previous = expected.get(relative_path)
+            if previous is not None and previous != digest:
+                raise ValueError(f"{context} input path has conflicting hashes: {relative_path}")
+            expected[relative_path] = digest
+    else:
+        # Bottom-outer's frozen producer exports a path-keyed, full source
+        # closure: its direct producer inputs plus every retained WJ18 family
+        # fingerprint under the repository's source trees. Keep this schema
+        # exact rather than accepting an arbitrary path-keyed superset.
+        expected = {}
+        for relative_path in producer_hash_paths.values():
+            digest = _sha256_file(relative_path)
+            previous = expected.get(relative_path)
+            if previous is not None and previous != digest:
+                raise ValueError(f"{context} producer path has conflicting hashes: {relative_path}")
+            expected[relative_path] = digest
+        for family, paths in retained_family_fingerprints.items():
+            if not isinstance(paths, Mapping):
+                raise TypeError(f"{context} retained {family} fingerprint map is invalid")
+            for relative_path, digest in paths.items():
+                if not isinstance(relative_path, str) or not isinstance(digest, str):
+                    raise TypeError(f"{context} retained {family} fingerprint is malformed")
+                if not relative_path.startswith(("scripts/", "mini_moonboard/", "docs/")):
+                    continue
+                observed = _sha256_file(relative_path)
+                if observed != digest:
+                    raise ValueError(f"{context} retained source input changed: {relative_path}")
+                previous = expected.get(relative_path)
+                if previous is not None and previous != digest:
+                    raise ValueError(f"{context} input path has conflicting hashes: {relative_path}")
+                expected[relative_path] = digest
+        if set(supplied) != set(expected):
+            raise ValueError(f"{context} path-keyed source closure differs from its exact contract")
+        if supplied != expected:
+            differing = sorted(
+                path for path in expected if supplied.get(path) != expected[path]
+            )
+            raise ValueError(f"{context} source closure hashes differ: {differing}")
+    return dict(sorted(expected.items()))
+
+
+def _merge_fingerprints(
+    groups: Mapping[str, Mapping[str, str]], *, context: str
+) -> dict[str, str]:
+    merged: dict[str, str] = {}
+    for family, rows in groups.items():
+        current = _validate_hash_map(rows, context=f"{context}/{family}")
+        for path, digest in current.items():
+            previous = merged.get(path)
+            if previous is not None and previous != digest:
+                raise ValueError(f"{context} family input hash conflict: {path}")
+            merged[path] = digest
+    return dict(sorted(merged.items()))
+
+
+def _expected_duty_source_axes(
+    inventory: Mapping[str, Any], duty_ids: frozenset[str]
+) -> frozenset[str]:
+    rows = {
+        row["legacy_station_id"]: row for row in inventory.get("legacy_duties", ())
+    }
+    if len(rows) != len(inventory.get("legacy_duties", ())):
+        raise ValueError("canonical source duty IDs must be unique")
+    if not duty_ids <= rows.keys():
+        raise ValueError("WJ24 duty contract references missing inventory stations")
+    axes = {
+        axis["axis_id"]
+        for duty_id in duty_ids
+        for axis in rows[duty_id].get("legacy_sds_axes", ())
+        if axis.get("shop_opening_kind") == "sds_wood"
+    }
+    if len(axes) != 6 * len(duty_ids):
+        raise ValueError("each WJ24 target duty must own exactly six source SDS axes")
+    return frozenset(axes)
+
+
+def _validate_shapes(values: Mapping[str, cq.Shape], *, context: str) -> None:
+    if not isinstance(values, Mapping):
+        raise TypeError(f"{context} must be a shape map")
+    invalid = [
+        key
+        for key, shape in values.items()
+        if not isinstance(shape, cq.Shape)
+        or not shape.isValid()
+        or not shape.Solids()
+        or shape.Volume() <= 0
+    ]
+    if invalid:
+        raise ValueError(f"{context} contains invalid solids: {sorted(invalid)}")
+
+
+def _same_shape_map(
+    first: Mapping[str, cq.Shape],
+    second: Mapping[str, cq.Shape],
+    *,
+    context: str,
+) -> None:
+    if set(first) != set(second):
+        raise ValueError(f"{context}: exact cutter IDs differ")
+    different = [
+        name
+        for name in first
+        if _source_shape_fingerprint(first[name])
+        != _source_shape_fingerprint(second[name])
+    ]
+    if different:
+        raise ValueError(f"{context}: cutter geometry differs for {sorted(different)}")
+
+
+def _native_and_purchase_maps(
+    source: Any,
+    inventory: Mapping[str, Any],
+    host_ids: frozenset[str],
+    deltas: tuple[tuple[str, Any, Any], ...],
+    g18: Any,
+) -> tuple[dict[str, dict[str, cq.Shape]], dict[str, dict[str, cq.Shape]]]:
+    """Generate canonical maps and require every producer's overlapping maps to agree."""
+    native = right_rail.source_native_cutters_by_host(source, host_ids)
+    purchase = right_rail.candidate_panel_purchase_cutters_by_host(
+        source, dict(inventory), host_ids
+    )
+    if set(native) != host_ids or set(purchase) != host_ids:
+        raise ValueError("canonical native and purchase maps must cover all sixteen hosts")
+    expected_native_ids = wj12._expected_native_cutter_ids(source, host_ids)
+    if {host: set(rows) for host, rows in native.items()} != expected_native_ids:
+        raise ValueError("canonical native cutter IDs differ from live source connections")
+
+    expected_purchase_ids = _expected_panel_purchase_ids(inventory, host_ids)
+    if {host: set(rows) for host, rows in purchase.items()} != expected_purchase_ids:
+        raise ValueError("canonical purchase cutter IDs differ from fixed-axis inventory")
+
+    for label, geometry, module in deltas:
+        delta_native = dict(geometry.source_native_cutters_by_host)
+        delta_purchase = dict(geometry.source_panel_purchase_cutters_by_host)
+        if set(delta_native) != set(module.HOST_IDS) or set(delta_purchase) != set(
+            module.HOST_IDS
+        ):
+            raise ValueError(f"{label} native/purchase host map IDs changed")
+        for host in module.HOST_IDS:
+            _same_shape_map(native[host], delta_native[host], context=f"{label} native/{host}")
+            _same_shape_map(
+                purchase[host], delta_purchase[host], context=f"{label} purchase/{host}"
+            )
+
+    redirects = _redirect_rows(inventory)
+    if set(g18.source_cutters_by_host) != wj18.EXPECTED_SOURCE_HOST_IDS:
+        raise ValueError("WJ18 native source map differs from its exact fourteen-host contract")
+    if set(g18.purchased_panel_cutters_by_host) != wj18.EXPECTED_SOURCE_HOST_IDS:
+        raise ValueError("WJ18 purchase map differs from its exact fourteen-host contract")
+    for host in wj18.EXPECTED_SOURCE_HOST_IDS:
+        _same_shape_map(
+            native[host],
+            g18.source_cutters_by_host[host],
+            context=f"retained WJ18 native/{host}",
+        )
+        base_purchase = dict(purchase[host])
+        for axis_id, (source_host, _candidate_host) in redirects.items():
+            if source_host == host:
+                base_purchase.pop(f"panel_purchase/{axis_id}", None)
+        _same_shape_map(
+            base_purchase,
+            g18.purchased_panel_cutters_by_host[host],
+            context=f"retained WJ18 applied purchase/{host}",
+        )
+    return native, purchase
+
+
+def _expected_panel_purchase_ids(
+    inventory: Mapping[str, Any], host_ids: frozenset[str]
+) -> dict[str, set[str]]:
+    """Return all source-side fixed-axis purchases before receiver redirects."""
+    expected = {host: set() for host in host_ids}
+    for row in inventory.get("fixed_panel_kicker_screws", ()):
+        source_host = row["source_finished_receiver_member"]
+        if source_host in host_ids:
+            expected[source_host].add(f"panel_purchase/{row['axis_id']}")
+    return expected
+
+
+def _redirect_rows(inventory: Mapping[str, Any]) -> dict[str, tuple[str, str]]:
+    result = {
+        row["axis_id"]: (
+            row["source_finished_receiver_member"],
+            row["candidate_finished_receiver_member"],
+        )
+        for row in inventory.get("fixed_panel_kicker_screws", ())
+        if row.get("source_finished_receiver_member")
+        != row.get("candidate_finished_receiver_member")
+    }
+    if set(result) != EXPECTED_REDIRECTED_PANEL_AXES or len(result) != 4:
+        raise ValueError("inventory no longer defines the exact four preserved backer redirects")
+    return result
+
+
+def _build_applied_maps(
+    native: Mapping[str, Mapping[str, cq.Shape]],
+    purchase: Mapping[str, Mapping[str, cq.Shape]],
+    redirects: Mapping[str, tuple[str, str]],
+) -> tuple[dict[str, dict[str, cq.Shape]], dict[str, dict[str, cq.Shape]]]:
+    applied = {host: dict(cuts) for host, cuts in native.items()}
+    purchase_applied = {host: dict(cuts) for host, cuts in purchase.items()}
+    for host, source_cuts in applied.items():
+        collision = set(source_cuts) & set(purchase_applied[host])
+        if collision:
+            raise ValueError(f"{host}: native/purchase cut IDs collide: {sorted(collision)}")
+        source_cuts.update(purchase_applied[host])
+    for axis_id, (source_host, candidate_host) in redirects.items():
+        if source_host not in applied or candidate_host not in EXPECTED_CANDIDATE_PART_IDS:
+            raise ValueError(f"{axis_id}: unsupported fixed-axis receiver redirect")
+        native_cutter = applied[source_host].pop(axis_id, None)
+        purchase_id = f"panel_purchase/{axis_id}"
+        purchase_cutter = applied[source_host].pop(purchase_id, None)
+        purchase_applied[source_host].pop(purchase_id, None)
+        if native_cutter is None or purchase_cutter is None:
+            raise ValueError(f"{axis_id}: source redirect requires native and purchase cuts")
+    return applied, purchase_applied
+
+
+def _validate_redirected_candidate_cuts(
+    inventory: Mapping[str, Any],
+    source_purchase: Mapping[str, Mapping[str, cq.Shape]],
+    candidate_cuts: Mapping[str, Mapping[str, cq.Shape]],
+) -> None:
+    expected: dict[str, dict[str, cq.Shape]] = {}
+    for axis_id, (_source, candidate) in _redirect_rows(inventory).items():
+        expected.setdefault(candidate, {})[axis_id] = source_purchase[_source][
+            f"panel_purchase/{axis_id}"
+        ]
+    actual = {
+        part: dict(cuts)
+        for part, cuts in candidate_cuts.items()
+        if cuts
+    }
+    if set(actual) != set(expected):
+        raise ValueError("candidate fixed-panel redirect part IDs differ from inventory")
+    for part, cuts in expected.items():
+        _same_shape_map(actual[part], cuts, context=f"candidate redirected cuts/{part}")
+
+
+def _validate_base_geometry(g18: Any, inventory: Mapping[str, Any]) -> None:
+    if getattr(g18, "layout_id", None) != wj18.LAYOUT_ID or getattr(
+        g18, "trial_id", None
+    ) != wj18.TRIAL_ID:
+        raise ValueError("WJ24 requires the fixed retained WJ18 composition")
+    if set(g18.target_station_ids) != wj18.EXPECTED_TARGET_DUTY_IDS:
+        raise ValueError("WJ18 base duty IDs differ from the exact eighteen-duty contract")
+    if set(g18.finished_hosts) != wj18.EXPECTED_SOURCE_HOST_IDS:
+        raise ValueError("WJ18 finished host IDs differ from its exact fourteen-host contract")
+    if set(g18.raw_hosts) != wj18.EXPECTED_SOURCE_HOST_IDS:
+        raise ValueError("WJ18 raw host IDs differ from its exact fourteen-host contract")
+    if set(g18.candidate_bores) != wj18.EXPECTED_CANDIDATE_AXIS_IDS:
+        raise ValueError("WJ18 candidate axes differ from its exact eighty-axis contract")
+    if set(g18.candidate_installed_hardware) != wj18.EXPECTED_CANDIDATE_AXIS_IDS:
+        raise ValueError("WJ18 installed hardware IDs differ from its exact contract")
+    if set(g18.raw_candidate_parts) != wj18.EXPECTED_CANDIDATE_PART_IDS or set(
+        g18.finished_candidate_parts
+    ) != wj18.EXPECTED_CANDIDATE_PART_IDS:
+        raise ValueError("WJ18 candidate parts differ from the exact twenty-two-part contract")
+    if len(g18.replaced_source_axis_ids) != 108:
+        raise ValueError("WJ18 must carry all 108 previously replaced source SDS axes")
+    if set(g18.applied_source_cutters_by_host) != wj18.EXPECTED_SOURCE_HOST_IDS:
+        raise ValueError("WJ18 applied cutter maps omit one or more shared hosts")
+    if len(g18.additional_finished_source_parts) != 2 or set(
+        g18.additional_finished_source_parts
+    ) != {"base_rail_bottom_left", "base_rail_bottom_right"}:
+        raise ValueError("WJ18 must retain the exact two bottom-rail overlays to absorb")
+    if len(g18.fixed_axes) != EXPECTED_FIXED_PANEL_AXIS_COUNT:
+        raise ValueError("WJ18 must preserve all 66 fixed panel axes")
+    wj12._validate_frame_bolt_shapes(
+        inventory, tuple(g18.frame_bolt_records), g18.frame_bolt_shapes
+    )
+
+
+def _validate_delta_context(
+    g18: Any,
+    delta: Any,
+    *,
+    family_name: str,
+    expected_trial: str,
+) -> None:
+    if getattr(delta, "source", None) is not g18.source:
+        raise ValueError(f"{family_name} and WJ18 must share one retained source object")
+    if family_name == "bottom_outer" and getattr(delta, "context_variant", None) != "wj18":
+        raise ValueError("bottom_outer must declare its exact WJ18 context variant")
+    if getattr(delta, "source_binding", None) != g18.source_binding:
+        raise ValueError(f"{family_name} source binding differs from WJ18")
+    context_layout = getattr(
+        delta, "retained_layout_id", getattr(delta, "context_layout_id", None)
+    )
+    context_trial = getattr(
+        delta, "retained_trial_id", getattr(delta, "context_trial_id", None)
+    )
+    if context_layout != wj18.LAYOUT_ID:
+        raise ValueError(f"{family_name} did not consume the fixed WJ18 layout")
+    if context_trial != wj18.TRIAL_ID:
+        raise ValueError(f"{family_name} did not consume the fixed WJ18 trial")
+    if getattr(delta, "trial_id", None) != expected_trial:
+        raise ValueError(f"{family_name} local trial identity changed")
+    if _plain(delta.source_inventory) != _plain(g18.source_inventory):
+        raise ValueError(f"{family_name} source inventory differs from WJ18")
+    if _plain(delta.family_trial_ids) != _plain(g18.family_trial_ids):
+        raise ValueError(f"{family_name} retained family trial IDs differ from WJ18")
+    if _plain(delta.family_source_fingerprints) != _plain(
+        g18.family_source_fingerprints
+    ):
+        raise ValueError(f"{family_name} retained source fingerprints differ from WJ18")
+
+
+def _validate_delta_duties_and_geometry(
+    delta: Any,
+    *,
+    family_name: str,
+    trial_id: str,
+    duty_ids: frozenset[str],
+    host_ids: frozenset[str],
+    axis_station_ids: Mapping[str, str],
+    candidate_part_ids: frozenset[str],
+) -> None:
+    declared_duties = set(getattr(delta, "target_duty_ids", delta.duties))
+    if set(delta.duties) != duty_ids or declared_duties != duty_ids:
+        raise ValueError(f"{family_name} target duty IDs differ from the exact two-duty contract")
+    if set(delta.source_native_cutters_by_host) != host_ids or set(
+        delta.source_panel_purchase_cutters_by_host
+    ) != host_ids:
+        raise ValueError(f"{family_name} source cutter host IDs differ from its contract")
+    if set(delta.replaced_source_axis_ids) != _expected_duty_source_axes(
+        delta.source_inventory, duty_ids
+    ):
+        raise ValueError(f"{family_name} replaced source SDS axes differ from inventory")
+    if set(delta.candidate_bores) != set(axis_station_ids):
+        raise ValueError(f"{family_name} candidate axis IDs differ from exact eight-axis contract")
+    if set(delta.candidate_installed_hardware) != set(axis_station_ids):
+        raise ValueError(f"{family_name} hardware axis IDs differ from exact eight-axis contract")
+    if set(delta.raw_candidate_parts) != candidate_part_ids or set(
+        delta.finished_candidate_parts
+    ) != candidate_part_ids:
+        raise ValueError(f"{family_name} candidate part IDs differ from exact two-part contract")
+    if set(delta.replaced_source_cutter_ids) != {
+        axis_id
+        for axis_id in delta.replaced_source_axis_ids
+    } | {
+        f"{axis_id}/head"
+        for host_map in delta.source_native_cutters_by_host.values()
+        for axis_id in delta.replaced_source_axis_ids
+        if f"{axis_id}/head" in host_map
+    }:
+        raise ValueError(f"{family_name} removed source cutter IDs differ from native source maps")
+    _validate_shapes(delta.raw_candidate_parts, context=f"{family_name} raw candidate parts")
+    _validate_shapes(
+        delta.finished_candidate_parts, context=f"{family_name} finished candidate parts"
+    )
+    for axis_id, station_id in axis_station_ids.items():
+        bore = delta.candidate_bores[axis_id]
+        if (
+            getattr(bore, "axis_id", None) != axis_id
+            or getattr(bore, "station_id", None) != station_id
+            or getattr(bore, "family", None) != family_name
+            or getattr(bore, "trial_id", None) != trial_id
+        ):
+            raise ValueError(f"{axis_id}: candidate bore provenance differs from its exact contract")
+        receiver_ids = tuple(getattr(bore, "receiver_ids", ()))
+        if len(receiver_ids) != 2 or len(set(receiver_ids)) != 2:
+            raise ValueError(f"{axis_id}: candidate bore must identify exactly two receivers")
+        if not isinstance(getattr(bore, "shape", None), cq.Shape) or not bore.shape.isValid():
+            raise ValueError(f"{axis_id}: candidate bore geometry is invalid")
+        roles = delta.candidate_installed_hardware[axis_id]
+        if set(roles) != set(top_center.ORDINARY_COMPONENT_ROLES):
+            raise ValueError(f"{axis_id}: ordinary hardware role IDs changed")
+        _validate_shapes(roles, context=f"{family_name} installed hardware/{axis_id}")
+    if sum(len(roles) for roles in delta.candidate_installed_hardware.values()) != 40:
+        raise ValueError(f"{family_name} must provide exactly forty installed CAD roles")
+
+
+def _expected_axis_family_trials(g18: Any) -> tuple[dict[str, str], dict[str, str]]:
+    contract = bottom_outer._expected_context_bore_families(
+        "wj18", bottom_outer.CONTRACTS["wj18"]
+    )
+    expected_trials = bottom_outer._expected_context_family_trials("wj18")
+    if dict(g18.family_trial_ids) != expected_trials:
+        raise ValueError("WJ18 family trial ID map differs from its exact producer contract")
+    station_ids = dict(wj18_diagnostic.WJ18_LAYOUT.expected_candidate_axis_station_ids)
+    return contract, station_ids
+
+
+def _validate_wj18_cut_maps(
+    g18: Any,
+    canonical_applied: Mapping[str, Mapping[str, cq.Shape]],
+    new_source_cutter_ids: frozenset[str],
+) -> None:
+    all_replaced = set(g18.replaced_source_cutter_ids) | set(new_source_cutter_ids)
+    all_source_cutter_ids = {
+        cutter_id for host_map in canonical_applied.values() for cutter_id in host_map
+    }
+    if not all_replaced <= all_source_cutter_ids:
+        raise ValueError("WJ24 removed source cutter IDs are absent from the complete source map")
+    for host in wj18.EXPECTED_SOURCE_HOST_IDS:
+        _same_shape_map(
+            canonical_applied[host],
+            g18.applied_source_cutters_by_host[host],
+            context=f"retained WJ18 complete source cutter map/{host}",
+        )
+
+
+def _validate_frame_protected_duplicates(
+    inventory: Mapping[str, Any],
+    frame_records: tuple[Mapping[str, Any], ...],
+    frame_shapes: Mapping[str, cq.Shape],
+    protected: Mapping[str, Mapping[str, cq.Shape]],
+) -> None:
+    axis_ids = {row["axis_id"] for row in inventory.get("starting_frame_bolts", ())}
+    physical = protected.get("retained_12_frame_bolt_components", {})
+    roles = ("shaft", "head_washer", "nut_washer", "head", "nut")
+    expected_aliases = {f"{axis}/{role}" for axis in axis_ids for role in roles}
+    if set(physical) != expected_aliases:
+        raise ValueError("protected frame-bolt components have invalid per-role identities")
+    if {row.get("axis_id") for row in frame_records} != axis_ids:
+        raise ValueError("frame-bolt records differ from the exact twelve source axes")
+    for axis in axis_ids:
+        installed = [frame_shapes[f"{axis}/installed_component_{index}"] for index in range(1, 6)]
+        aliases = [physical[f"{axis}/{role}"] for role in roles]
+        installed_hashes = Counter(_source_shape_fingerprint(shape) for shape in installed)
+        alias_hashes = Counter(_source_shape_fingerprint(shape) for shape in aliases)
+        if installed_hashes != alias_hashes:
+            raise ValueError(f"{axis}: protected frame components differ from per-bolt installed shapes")
+        if _source_shape_fingerprint(frame_shapes[f"{axis}/source_occupied_axis"]) == "":
+            raise ValueError(f"{axis}: source occupied-axis proxy fingerprint is missing")
+
+
+def _validate_live_target_axes(
+    source: Any,
+    inventory: Mapping[str, Any],
+    target_ids: frozenset[str],
+) -> None:
+    connections = tuple(source.connections())
+    by_name = {row.name: row for row in connections}
+    if len(by_name) != len(connections):
+        raise ValueError("canonical source has duplicate live connection IDs")
+    duties = {
+        row["legacy_station_id"]: row for row in inventory.get("legacy_duties", ())
+    }
+    for duty_id in target_ids:
+        for axis in duties[duty_id].get("legacy_sds_axes", ()):
+            connection = by_name.get(axis["axis_id"])
+            if connection is None:
+                raise ValueError(f"{axis['axis_id']}: source inventory axis is absent live")
+            if tuple(connection.members) != tuple(axis["members"]):
+                raise ValueError(f"{axis['axis_id']}: live receiver IDs differ from inventory")
+            origin = cq.Vector(*axis["origin_global_xyz_mm"])
+            direction = cq.Vector(*axis["axis_global_xyz"]).normalized()
+            if (cq.Vector(connection.start) - origin).Length > 1e-6:
+                raise ValueError(f"{axis['axis_id']}: live source origin differs from inventory")
+            if (cq.Vector(connection.direction).normalized() - direction).Length > 1e-8:
+                raise ValueError(f"{axis['axis_id']}: live source direction differs from inventory")
+            expected_length = float(
+                axis.get("source_occupied_length_mm", axis.get("shop_purchased_length_mm"))
+            )
+            if abs(float(connection.length) - expected_length) > 1e-6:
+                raise ValueError(f"{axis['axis_id']}: live source length differs from inventory")
+
+
+def _local_delta_evidence(
+    top_center_geometry: Any,
+    bottom_outer_geometry: Any,
+    bottom_center_geometry: Any,
+) -> dict[str, Any]:
+    """Retain the local screens that a full-layout report must not flatten away."""
+    return _plain(
+        {
+            "top_center": {
+                "diagnostic_gates": top_center_geometry.diagnostic_gates,
+                "source_reconstruction": top_center_geometry.source_reconstruction,
+                "contact_checks": top_center_geometry.contact_checks,
+                "layer_checks": top_center_geometry.layer_checks,
+                "washer_support": top_center_geometry.washer_support,
+                "candidate_body_checks": top_center_geometry.candidate_body_checks,
+                "installed_component_checks": top_center_geometry.installed_component_checks,
+                "access_checks": top_center_geometry.access_checks,
+                "source_face_evidence": top_center_geometry.source_face_evidence,
+                "source_axis_entry_face_audit": top_center_geometry.source_axis_entry_face_audit,
+                "conditional_edge_screen": top_center_geometry.conditional_edge_screen,
+                "dimensional_fit_screen": top_center_geometry.dimensional_fit_screen,
+            },
+            "bottom_outer": {
+                "diagnostic_gates": bottom_outer_geometry.diagnostic_gates,
+                "source_reconstruction": bottom_outer_geometry.source_reconstruction,
+                "existing_panel_overlay_reconstruction": bottom_outer_geometry.existing_panel_overlay_reconstruction,
+                "interface_checks": bottom_outer_geometry.interface_checks,
+                "receiver_layer_checks": bottom_outer_geometry.receiver_layer_checks,
+                "washer_support": bottom_outer_geometry.washer_support,
+                "candidate_body_checks": bottom_outer_geometry.candidate_body_checks,
+                "installed_component_checks": bottom_outer_geometry.installed_component_checks,
+                "access_checks": bottom_outer_geometry.access_checks,
+                "wj03_context": bottom_outer_geometry.wj03_context,
+                "context_counts": bottom_outer_geometry.context_counts,
+            },
+            "bottom_center": {
+                "diagnostic_gates": bottom_center_geometry.diagnostic_gates,
+                "source_reconstruction": bottom_center_geometry.source_reconstruction,
+                "source_face_evidence": bottom_center_geometry.source_face_evidence,
+                "stack_rows": bottom_center_geometry.stack_rows,
+                "source_axis_entry_face_audit": bottom_center_geometry.source_axis_entry_face_audit,
+                "contact_checks": bottom_center_geometry.contact_checks,
+                "layer_checks": bottom_center_geometry.layer_checks,
+                "washer_support": bottom_center_geometry.washer_support,
+                "candidate_body_checks": bottom_center_geometry.candidate_body_checks,
+                "installed_component_checks": bottom_center_geometry.installed_component_checks,
+                "nonreceiver_approach_checks": bottom_center_geometry.nonreceiver_approach_checks,
+                "conditional_grain_edge_screen": bottom_center_geometry.conditional_grain_edge_screen,
+                "dimensional_fit_screen": bottom_center_geometry.dimensional_fit_screen,
+            },
+        }
+    )
+
+
+def compose_wj24_geometry(
+    g18: Any,
+    top_center_geometry: Any,
+    bottom_outer_geometry: Any,
+    bottom_center_geometry: Any,
+) -> WJ24ComposedGeometry:
+    """Merge WJ18 and the three local pairs into one 24-duty geometry.
+
+    The call accepts retained geometry only. Its single host Boolean pass must
+    be run by the parent inside the serialized geometry slot.
+    """
+    if len(EXPECTED_TARGET_DUTY_IDS) != 24 or len(EXPECTED_SOURCE_HOST_IDS) != 16:
+        raise ValueError("pinned WJ24 duty/host identity sets changed")
+    if len(EXPECTED_CANDIDATE_AXIS_IDS) != 104 or len(EXPECTED_CANDIDATE_PART_IDS) != 28:
+        raise ValueError("pinned WJ24 candidate identity sets changed")
+
+    binding = validate_source_binding(g18.source)
+    if binding != g18.source_binding:
+        raise ValueError("retained WJ18 source binding changed")
+    deltas = (
+        ("top_center", top_center_geometry, top_center),
+        ("bottom_outer", bottom_outer_geometry, bottom_outer),
+        ("bottom_center", bottom_center_geometry, bottom_center),
+    )
+    for family, delta, module in deltas:
+        _validate_delta_context(
+            g18, delta, family_name=family, expected_trial=module.TRIAL_ID
+        )
+
+    inventory_bytes = (ROOT / INVENTORY_PATH).read_bytes()
+    inventory_sha256 = hashlib.sha256(inventory_bytes).hexdigest()
+    if inventory_sha256 != binding.inventory_sha256:
+        raise ValueError("WJ24 source is not bound to the canonical inventory")
+    inventory = json.loads(inventory_bytes)
+    wj12._inventory_matches_source_binding(inventory, binding)
+    if _plain(g18.source_inventory) != inventory:
+        raise ValueError("WJ18 source inventory differs from the pinned canonical inventory")
+    _validate_base_geometry(g18, inventory)
+
+    # Validate each family’s exact local IDs before combining any maps.
+    _validate_delta_duties_and_geometry(
+        top_center_geometry,
+        family_name="top_center",
+        trial_id=top_center.TRIAL_ID,
+        duty_ids=top_center.TARGET_DUTY_IDS,
+        host_ids=top_center.HOST_IDS,
+        axis_station_ids=top_center.TOP_AXIS_STATION_IDS,
+        candidate_part_ids=top_center.TOP_CANDIDATE_PART_IDS,
+    )
+    _validate_delta_duties_and_geometry(
+        bottom_outer_geometry,
+        family_name="bottom_outer",
+        trial_id=bottom_outer.TRIAL_ID,
+        duty_ids=bottom_outer.TARGET_DUTY_IDS,
+        host_ids=bottom_outer.HOST_IDS,
+        axis_station_ids=BOTTOM_OUTER_AXIS_STATION_IDS,
+        candidate_part_ids=frozenset(bottom_outer.CLEAT_IDS.values()),
+    )
+    _validate_delta_duties_and_geometry(
+        bottom_center_geometry,
+        family_name="bottom_center",
+        trial_id=bottom_center.TRIAL_ID,
+        duty_ids=bottom_center.TARGET_DUTY_IDS,
+        host_ids=bottom_center.HOST_IDS,
+        axis_station_ids=bottom_center.BOTTOM_AXIS_STATION_IDS,
+        candidate_part_ids=bottom_center.BOTTOM_CANDIDATE_PART_IDS,
+    )
+
+    target_ids = frozenset(g18.target_station_ids) | frozenset(
+        top_center_geometry.duties
+    ) | frozenset(bottom_outer_geometry.target_duty_ids) | frozenset(
+        bottom_center_geometry.duties
+    )
+    if target_ids != EXPECTED_TARGET_DUTY_IDS:
+        raise ValueError("composed duty union differs from the exact twenty-four-duty contract")
+    inventory_host_union = frozenset(
+        host
+        for duty_id in target_ids
+        for host in next(
+            row["legacy_host_members"]
+            for row in inventory["legacy_duties"]
+            if row["legacy_station_id"] == duty_id
+        )
+    )
+    if inventory_host_union != EXPECTED_SOURCE_HOST_IDS:
+        raise ValueError("WJ24 inventory target duties do not resolve to the exact sixteen hosts")
+    _validate_live_target_axes(g18.source, inventory, target_ids)
+    replaced_source_axes = _expected_duty_source_axes(inventory, target_ids)
+    if len(replaced_source_axes) != EXPECTED_REPLACED_SOURCE_AXIS_COUNT:
+        raise ValueError("WJ24 inventory must identify exactly 144 replaced source SDS axes")
+    if not set(g18.replaced_source_axis_ids) <= replaced_source_axes:
+        raise ValueError("WJ18 previously replaced source axes are absent from WJ24 targets")
+    for _, delta, _ in deltas:
+        if not set(delta.replaced_source_axis_ids) <= replaced_source_axes:
+            raise ValueError("local delta removed an axis outside the WJ24 target inventory")
+
+    family_fingerprints = {
+        family: dict(rows) for family, rows in g18.family_source_fingerprints.items()
+    }
+    family_trials = dict(g18.family_trial_ids)
+    for family, delta, module in deltas:
+        if family in family_fingerprints or family in family_trials:
+            raise ValueError(f"WJ24 family identity already exists: {family}")
+        family_inputs = _normalized_producer_inputs(
+            delta,
+            module.PRODUCER_HASH_PATHS,
+            context=f"WJ24 {family}",
+            retained_family_fingerprints=(
+                g18.family_source_fingerprints if family == "bottom_outer" else None
+            ),
+        )
+        family_fingerprints[family] = family_inputs
+        family_trials[family] = module.TRIAL_ID
+    source_inputs = _merge_fingerprints(
+        family_fingerprints, context="WJ24 family source fingerprints"
+    )
+    for path, digest in source_inputs.items():
+        if _sha256_file(path) != digest:
+            raise ValueError(f"WJ24 source input changed before host composition: {path}")
+
+    # Independently rebuild canonical cutter maps for all sixteen shared hosts.
+    # The delta maps and WJ18 baselines must agree with this complete inventory;
+    # this makes prior WJ18 removals and the four fixed-axis redirects explicit.
+    native, purchase = _native_and_purchase_maps(
+        g18.source,
+        inventory,
+        EXPECTED_SOURCE_HOST_IDS,
+        deltas,
+        g18,
+    )
+    redirects = _redirect_rows(inventory)
+    candidate_panel_cuts: dict[str, dict[str, cq.Shape]] = {
+        part: dict(cuts)
+        for part, cuts in g18.purchased_panel_cutters_by_candidate_part.items()
+    }
+    if set(candidate_panel_cuts) != {
+        "inner_kicker_backer_left",
+        "inner_kicker_backer_right",
+    } or sum(map(len, candidate_panel_cuts.values())) != 4:
+        raise ValueError("WJ18 must preserve all four panel receivers redirected to backers")
+    for _, delta, _ in deltas:
+        for part, cuts in delta.candidate_panel_purchase_cutters_by_part.items():
+            if not cuts:
+                continue
+            if part in candidate_panel_cuts:
+                raise ValueError(f"duplicate candidate receiver purchase map: {part}")
+            candidate_panel_cuts[part] = dict(cuts)
+    _validate_redirected_candidate_cuts(inventory, purchase, candidate_panel_cuts)
+
+    applied_cutters, applied_purchase = _build_applied_maps(native, purchase, redirects)
+    replaced_cutter_ids = wj12._replaced_source_cutter_ids(
+        applied_cutters, replaced_source_axes
+    )
+    expected_old_cutter_ids = wj12._replaced_source_cutter_ids(
+        applied_cutters, frozenset(g18.replaced_source_axis_ids)
+    )
+    if expected_old_cutter_ids != set(g18.replaced_source_cutter_ids):
+        raise ValueError("WJ18 previously removed native cutters differ from its exact target axes")
+    new_axes = replaced_source_axes - set(g18.replaced_source_axis_ids)
+    new_source_cutter_ids = wj12._replaced_source_cutter_ids(
+        applied_cutters, frozenset(new_axes)
+    )
+    _validate_wj18_cut_maps(g18, applied_cutters, new_source_cutter_ids)
+
+    # The five historical source-only panel overlays are now all explicit
+    # shared hosts. The two bottom rails start from canonical source members;
+    # WJ18’s source-plus-purchase evidence and both local maps must match.
+    if set(g18.additional_purchased_panel_cutters_by_host) != {
+        "base_rail_bottom_left",
+        "base_rail_bottom_right",
+    }:
+        raise ValueError("WJ18 bottom-rail purchase overlays are incomplete")
+    for host in ("base_rail_bottom_left", "base_rail_bottom_right"):
+        if len(g18.additional_purchased_panel_cutters_by_host[host]) != 2:
+            raise ValueError(f"{host}: WJ18 must preserve exactly two source purchase cuts")
+        _same_shape_map(
+            purchase[host],
+            g18.additional_purchased_panel_cutters_by_host[host],
+            context=f"absorbed WJ18 source overlay/{host}",
+        )
+        for family, delta, _ in deltas:
+            if host in delta.source_panel_purchase_cutters_by_host:
+                _same_shape_map(
+                    purchase[host],
+                    delta.source_panel_purchase_cutters_by_host[host],
+                    context=f"{family} absorbed source overlay/{host}",
+                )
+
+    # WJ18's applied map retains every native/purchase operation, including
+    # cutters its machining pass excludes. Compare the unfiltered complete maps
+    # here; pass the 144-axis removal set separately to the final machining pass.
+
+    candidate_bores: dict[str, Any] = dict(g18.candidate_bores)
+    candidate_hardware = {
+        axis: dict(roles) for axis, roles in g18.candidate_installed_hardware.items()
+    }
+    raw_candidates = dict(g18.raw_candidate_parts)
+    finished_candidates = dict(g18.finished_candidate_parts)
+    for _, delta, _ in deltas:
+        overlap = set(candidate_bores) & set(delta.candidate_bores)
+        if overlap:
+            raise ValueError(f"WJ24 candidate bore IDs collide: {sorted(overlap)}")
+        candidate_bores.update(dict(delta.candidate_bores))
+        candidate_hardware.update(
+            {axis: dict(roles) for axis, roles in delta.candidate_installed_hardware.items()}
+        )
+        if set(raw_candidates) & set(delta.raw_candidate_parts):
+            raise ValueError("WJ24 candidate part IDs collide between local families")
+        raw_candidates.update(dict(delta.raw_candidate_parts))
+        finished_candidates.update(dict(delta.finished_candidate_parts))
+    if set(candidate_bores) != EXPECTED_CANDIDATE_AXIS_IDS:
+        raise ValueError("WJ24 candidate bore IDs differ from the exact 104-axis contract")
+    if set(candidate_hardware) != EXPECTED_CANDIDATE_AXIS_IDS:
+        raise ValueError("WJ24 hardware axis IDs differ from the exact 104-axis contract")
+    if set(raw_candidates) != EXPECTED_CANDIDATE_PART_IDS or set(
+        finished_candidates
+    ) != EXPECTED_CANDIDATE_PART_IDS:
+        raise ValueError("WJ24 candidate part IDs differ from the exact 28-part contract")
+    if sum(map(len, candidate_hardware.values())) != EXPECTED_CANDIDATE_COMPONENT_COUNT:
+        raise ValueError("WJ24 must preserve exactly 520 installed hardware CAD roles")
+
+    expected_axis_families, old_station_ids = _expected_axis_family_trials(g18)
+    expected_axis_families.update(
+        {axis: "top_center" for axis in top_center.TOP_CANDIDATE_AXIS_IDS}
+    )
+    expected_axis_families.update(
+        {axis: "bottom_outer" for axis in BOTTOM_OUTER_AXIS_STATION_IDS}
+    )
+    expected_axis_families.update(
+        {axis: "bottom_center" for axis in bottom_center.BOTTOM_CANDIDATE_AXIS_IDS}
+    )
+    if set(expected_axis_families) != EXPECTED_CANDIDATE_AXIS_IDS:
+        raise ValueError("WJ24 family-to-axis map differs from the exact 104-axis layout")
+    expected_trials = dict(family_trials)
+    expected_station_ids = {
+        **old_station_ids,
+        **dict(top_center.TOP_AXIS_STATION_IDS),
+        **BOTTOM_OUTER_AXIS_STATION_IDS,
+        **dict(bottom_center.BOTTOM_AXIS_STATION_IDS),
+    }
+    if expected_station_ids != EXPECTED_CANDIDATE_AXIS_STATION_IDS:
+        raise ValueError("WJ24 explicit axis-to-station map differs from its fixed contract")
+    if any(
+        getattr(candidate_bores[axis], "station_id", None) != station
+        for axis, station in expected_station_ids.items()
+    ):
+        raise ValueError("WJ24 explicit candidate duty/station bindings changed")
+    for axis, expected_family in expected_axis_families.items():
+        bore = candidate_bores[axis]
+        trial_key = "center_x190" if expected_family == "wj05_center_x190" else expected_family
+        if (
+            getattr(bore, "axis_id", None) != axis
+            or getattr(bore, "family", None) != expected_family
+            or getattr(bore, "trial_id", None) != expected_trials.get(trial_key)
+        ):
+            raise ValueError(f"{axis}: candidate bore family/trial provenance changed")
+        if set(candidate_hardware[axis]) != (
+            set(top_outer.BACKER_COMPONENT_ROLES)
+            if axis in top_outer.BACKER_AXIS_IDS
+            else set(top_center.ORDINARY_COMPONENT_ROLES)
+        ):
+            raise ValueError(f"{axis}: installed hardware role schema changed")
+    _validate_shapes(raw_candidates, context="WJ24 raw candidate parts")
+    _validate_shapes(finished_candidates, context="WJ24 finished candidate parts")
+
+    # Redirected legacy panel screws remain on the backers; they are separate
+    # from the 144 SDS-axis replacement and must not be restored to source hosts.
+    for host, cutters in applied_cutters.items():
+        expected_redirects = {
+            cutter_id
+            for axis_id, (source_host, _candidate_host) in redirects.items()
+            if source_host == host
+            for cutter_id in (axis_id, f"panel_purchase/{axis_id}")
+        }
+        if set(cutters) & expected_redirects:
+            raise ValueError(f"{host}: redirected panel receiver cuts leaked back into source")
+
+    raw_source_parts = wj12._source_parts(g18.source, "uncut_wood_parts")
+    inventory_parts = {
+        row["part_id"]: row for row in inventory.get("parts", ())
+    }
+    timber_ids = {
+        part_id for part_id, row in inventory_parts.items() if row.get("kind") == "timber"
+    }
+    panel_ids = {
+        part_id
+        for part_id, row in inventory_parts.items()
+        if row.get("kind") == "plywood_panel"
+    }
+    if panel_ids != PANEL_NAMES or set(raw_source_parts) != timber_ids | panel_ids:
+        raise ValueError("canonical raw source members differ from the inventory timber/panel IDs")
+    if not EXPECTED_SOURCE_HOST_IDS <= raw_source_parts.keys():
+        raise ValueError("canonical raw source omits one or more WJ24 shared hosts")
+    raw_hosts = {host: raw_source_parts[host] for host in EXPECTED_SOURCE_HOST_IDS}
+    _validate_shapes(raw_hosts, context="WJ24 raw hosts")
+
+    source_parts = wj12._source_parts(g18.source, "parts")
+    if not EXPECTED_SOURCE_HOST_IDS <= source_parts.keys():
+        raise ValueError("canonical finished source omits a WJ24 host")
+    source_reconstruction: dict[str, dict[str, Any]] = {}
+    for host in EXPECTED_SOURCE_HOST_IDS:
+        tools = list(native[host].values())
+        replay = raw_hosts[host].cut(*tools).clean() if tools else raw_hosts[host]
+        canonical = source_parts[host]
+        delta = replay.cut(canonical).Volume() + canonical.cut(replay).Volume()
+        source_reconstruction[host] = {
+            "matches_source_finished_member": delta <= SOURCE_RECONSTRUCTION_TOLERANCE_MM3,
+            "symmetric_difference_mm3": round(float(delta), 9),
+            "native_source_cutter_ids": sorted(native[host]),
+            "native_source_cutter_count": len(native[host]),
+            "source_finished_shape_sha256": _source_shape_fingerprint(canonical),
+            "native_replay_shape_sha256": _source_shape_fingerprint(replay),
+            "native_and_purchase_operations_separate": True,
+        }
+        if delta > SOURCE_RECONSTRUCTION_TOLERANCE_MM3:
+            raise ValueError(f"{host}: source native reconstruction differs from canonical source")
+
+    candidate_bores_by_receiver: dict[str, dict[str, cq.Shape]] = {
+        receiver: {}
+        for receiver in EXPECTED_SOURCE_HOST_IDS | EXPECTED_CANDIDATE_PART_IDS
+    }
+    for axis, bore in candidate_bores.items():
+        receivers = tuple(getattr(bore, "receiver_ids", ()))
+        if len(receivers) != 2 or len(set(receivers)) != 2:
+            raise ValueError(f"{axis}: candidate bore must declare two distinct receivers")
+        unknown = set(receivers) - candidate_bores_by_receiver.keys()
+        if unknown:
+            raise ValueError(f"{axis}: candidate bore names unknown receivers: {sorted(unknown)}")
+        shape = getattr(bore, "shape", None)
+        if not isinstance(shape, cq.Shape) or not shape.isValid() or not shape.Solids():
+            raise ValueError(f"{axis}: candidate bore is invalid")
+        for receiver in receivers:
+            candidate_bores_by_receiver[receiver][axis] = shape
+
+    finished_hosts = right_rail.machine_shared_hosts(
+        raw_hosts,
+        applied_cutters,
+        replaced_source_axis_ids=replaced_cutter_ids,
+        candidate_bores_by_host={
+            host: candidate_bores_by_receiver[host] for host in EXPECTED_SOURCE_HOST_IDS
+        },
+    )
+    if set(finished_hosts) != EXPECTED_SOURCE_HOST_IDS:
+        raise ValueError("WJ24 machining omitted one or more of the sixteen shared hosts")
+    _validate_shapes(finished_hosts, context="WJ24 finished hosts")
+
+    retained_duty_ids = {
+        row["legacy_station_id"] for row in inventory.get("legacy_duties", ())
+    } - set(target_ids)
+    expected_retained_axes = _expected_duty_source_axes(
+        inventory, frozenset(retained_duty_ids)
+    )
+    protected = {family: dict(rows) for family, rows in g18.protected.items()}
+    retained_clips = dict(protected.get("retained_legacy_clips", {}))
+    retained_sds = dict(protected.get("retained_legacy_sds_axes", {}))
+    for duty_id in set(top_center_geometry.duties) | set(
+        bottom_outer_geometry.target_duty_ids
+    ) | set(bottom_center_geometry.duties):
+        retained_clips.pop(duty_id, None)
+        for axis in _expected_duty_source_axes(inventory, frozenset({duty_id})):
+            retained_sds.pop(axis, None)
+    if set(retained_clips) != retained_duty_ids or set(retained_sds) != expected_retained_axes:
+        raise ValueError("WJ24 retained legacy clip/SDS maps differ from zero-duty remainder")
+    if retained_duty_ids or expected_retained_axes:
+        raise ValueError("canonical WJ24 layout unexpectedly leaves legacy duties behind")
+    protected["retained_legacy_clips"] = retained_clips
+    protected["retained_legacy_sds_axes"] = retained_sds
+
+    fixed_axes = dict(g18.fixed_axes)
+    expected_fixed = {
+        row["axis_id"] for row in inventory.get("fixed_panel_kicker_screws", ())
+    }
+    if set(fixed_axes) != expected_fixed or len(fixed_axes) != EXPECTED_FIXED_PANEL_AXIS_COUNT:
+        raise ValueError("WJ24 must preserve the exact 66 fixed panel/kicker axes")
+    if set(protected.get("fixed_66_hillman_axes_63p5mm", {})) != expected_fixed:
+        raise ValueError("WJ24 protected fixed-axis map differs from the canonical 66-axis set")
+    _same_shape_map(
+        fixed_axes,
+        protected["fixed_66_hillman_axes_63p5mm"],
+        context="WJ24 protected fixed panel axes",
+    )
+    frame_records = tuple(dict(row) for row in g18.frame_bolt_records)
+    frame_shapes = dict(g18.frame_bolt_shapes)
+    wj12._validate_frame_bolt_shapes(inventory, frame_records, frame_shapes)
+    _validate_frame_protected_duplicates(inventory, frame_records, frame_shapes, protected)
+    if len(protected.get("retained_12_frame_bolt_tools_withdrawals", {})) != 36:
+        raise ValueError("WJ24 must preserve the twelve frame-bolt access maps")
+
+    panel_replacements = dict(g18.panel_replacements)
+    if set(panel_replacements) != set(RIGHT_PANEL_NAMES) or len(panel_replacements) != 3:
+        raise ValueError("WJ24 must preserve exactly the three right-side panel replacements")
+    if set(g18.additional_source_reconstruction) != {
+        "base_rail_bottom_left",
+        "base_rail_bottom_right",
+    }:
+        raise ValueError("WJ18 bottom overlay reconstruction evidence is incomplete")
+
+    # All five historic overlays are now normal hosts; no source-only overlay
+    # survives the 24-duty composition.
+    absorbed = frozenset(g18.absorbed_source_overlay_ids) | {
+        "base_rail_bottom_left",
+        "base_rail_bottom_right",
+    }
+    if absorbed != EXPECTED_OVERLAY_IDS_ABSORBED:
+        raise ValueError("WJ24 source-only overlay absorption identity set changed")
+    local_delta_diagnostics = _local_delta_evidence(
+        top_center_geometry,
+        bottom_outer_geometry,
+        bottom_center_geometry,
+    )
+
+    if validate_source_binding(g18.source) != binding:
+        raise ValueError("WJ24 source binding changed during host composition")
+    _merge_fingerprints(family_fingerprints, context="WJ24 post-compose source fingerprints")
+
+    checks = {
+        "exact_wj18_base_contract": True,
+        "exact_three_local_two_duty_delta_contracts": True,
+        "canonical_inventory_hash_and_source_binding_match": True,
+        "all_24_legacy_duties_and_144_source_sds_axes_replaced": len(target_ids) == 24
+        and len(replaced_source_axes) == EXPECTED_REPLACED_SOURCE_AXIS_COUNT,
+        "all_previous_wj18_cutter_removals_and_backer_redirects_preserved": True,
+        "all_104_candidate_axes_and_520_roles_preserved": len(candidate_bores) == 104
+        and sum(map(len, candidate_hardware.values())) == EXPECTED_CANDIDATE_COMPONENT_COUNT,
+        "all_28_candidate_parts_preserved": len(finished_candidates) == 28,
+        "all_16_hosts_rebuilt_from_raw_union_native_purchase_cuts_and_candidate_bores": len(
+            finished_hosts
+        )
+        == 16,
+        "four_backer_panel_cuts_preserved": sum(map(len, candidate_panel_cuts.values())) == 4,
+        "all_five_historical_receiver_overlays_absorbed": absorbed
+        == EXPECTED_OVERLAY_IDS_ABSORBED,
+        "no_source_only_overlays_remain": True,
+        "all_66_fixed_axes_and_twelve_frame_bolts_preserved": len(fixed_axes) == 66
+        and len(frame_records) == 12
+        and len(frame_shapes) == 72,
+        "zero_retained_legacy_clips_or_sds_axes": not retained_clips and not retained_sds,
+        "complete_static_scene_diagnostic": False,
+        "all_tool_or_access_intersections_clear": False,
+        "complete_joint_acceptance": False,
+        "capacity_established": False,
+        "installation_proven": False,
+        "fabrication_released": False,
+        "structural_released": False,
+    }
+    required = {
+        name: value
+        for name, value in checks.items()
+        if name not in {
+            "complete_static_scene_diagnostic",
+            "all_tool_or_access_intersections_clear",
+            "complete_joint_acceptance",
+            "capacity_established",
+            "installation_proven",
+            "fabrication_released",
+            "structural_released",
+        }
+    }
+    if not all(required.values()):
+        raise ValueError("WJ24 failed a required source-bound composition check")
+
+    return WJ24ComposedGeometry(
+        layout_id=LAYOUT_ID,
+        trial_id=TRIAL_ID,
+        source=g18.source,
+        source_binding=binding,
+        source_inventory_sha256=inventory_sha256,
+        source_inventory=_readonly(inventory),
+        source_inputs_sha256=_readonly(source_inputs),
+        family_source_fingerprints=_nested_readonly(family_fingerprints),
+        family_trial_ids=_readonly(family_trials),
+        target_station_ids=tuple(sorted(target_ids)),
+        raw_hosts=_readonly(raw_hosts),
+        finished_hosts=_readonly(finished_hosts),
+        raw_candidate_parts=_readonly(raw_candidates),
+        finished_candidate_parts=_readonly(finished_candidates),
+        candidate_bores=_readonly(candidate_bores),
+        candidate_installed_hardware=_nested_readonly(candidate_hardware),
+        replaced_source_axis_ids=replaced_source_axes,
+        replaced_source_cutter_ids=replaced_cutter_ids,
+        source_cutters_by_host=_nested_readonly(native),
+        applied_source_cutters_by_host=_nested_readonly(applied_cutters),
+        purchased_panel_cutters_by_host=_nested_readonly(applied_purchase),
+        purchased_panel_cutters_by_candidate_part=_nested_readonly(candidate_panel_cuts),
+        additional_finished_source_parts=_readonly({}),
+        additional_purchased_panel_cutters_by_host=_nested_readonly({}),
+        additional_source_reconstruction=_nested_readonly({}),
+        source_reconstruction=_nested_readonly(source_reconstruction),
+        panel_replacements=_readonly(panel_replacements),
+        fixed_axes=_readonly(fixed_axes),
+        frame_bolt_records=frame_records,
+        frame_bolt_shapes=_readonly(frame_shapes),
+        protected=_nested_readonly(protected),
+        absorbed_source_overlay_ids=tuple(sorted(absorbed)),
+        composition_checks=_readonly(checks),
+        local_delta_diagnostics=_readonly(local_delta_diagnostics),
+    )
+
+
+def _shape_evidence(shape: cq.Shape) -> dict[str, Any]:
+    box = shape.BoundingBox()
+    return {
+        "bounds_xyz_mm": [
+            round(value, 6)
+            for value in (box.xmin, box.xmax, box.ymin, box.ymax, box.zmin, box.zmax)
+        ],
+        "volume_mm3": round(shape.Volume(), 6),
+        "shape_sha256": _source_shape_fingerprint(shape),
+    }
+
+
+def composition_report(geometry: WJ24ComposedGeometry) -> dict[str, Any]:
+    """Return source-bound composition evidence without embedding CAD objects."""
+    if geometry.layout_id != LAYOUT_ID or geometry.trial_id != TRIAL_ID:
+        raise ValueError("composition report requires the fixed WJ24 layout")
+    if validate_source_binding(geometry.source) != geometry.source_binding:
+        raise ValueError("WJ24 source binding changed before report creation")
+    current = _validate_hash_map(
+        dict(geometry.source_inputs_sha256), context="WJ24 report input"
+    )
+    duties = {
+        row["legacy_station_id"]: row
+        for row in geometry.source_inventory.get("legacy_duties", ())
+    }
+    axis_owner = {
+        axis["axis_id"]: duty_id
+        for duty_id, row in duties.items()
+        for axis in row.get("legacy_sds_axes", ())
+    }
+    return {
+        "schema": SCHEMA,
+        "layout_id": geometry.layout_id,
+        "trial_id": geometry.trial_id,
+        "status": geometry.status,
+        "claim_boundary": (
+            "Source-bound nominal geometry composition only. This report does not establish "
+            "clearance acceptance, complete joint behavior, tool access, movement, capacity, "
+            "installation, fabrication, inspection, or release."
+        ),
+        "source": {
+            "candidate": geometry.source_inventory.get("candidate"),
+            "source_commit": geometry.source_inventory.get("source_commit"),
+            "source_inventory_sha256": geometry.source_inventory_sha256,
+            "runtime_module_sha256": dict(
+                sorted(geometry.source_binding.runtime_module_sha256.items())
+            ),
+        },
+        "producer_hashes_sha256": {
+            name: _sha256_file(path) for name, path in sorted(PRODUCER_HASH_PATHS.items())
+        },
+        "source_input_hashes_sha256": current,
+        "family_trial_ids": dict(sorted(geometry.family_trial_ids.items())),
+        "family_source_fingerprints_sha256": {
+            family: dict(sorted(rows.items()))
+            for family, rows in sorted(geometry.family_source_fingerprints.items())
+        },
+        "counts": geometry.counts,
+        "target_duties": [
+            {
+                "station_id": duty_id,
+                "legacy_host_members": duties[duty_id]["legacy_host_members"],
+                "replaced_source_sds_axis_ids": sorted(
+                    axis_id
+                    for axis_id in geometry.replaced_source_axis_ids
+                    if axis_owner.get(axis_id) == duty_id
+                ),
+            }
+            for duty_id in geometry.target_station_ids
+        ],
+        "source_reconstruction": {
+            host: dict(row)
+            for host, row in sorted(geometry.source_reconstruction.items())
+        },
+        "shared_hosts": {
+            host: {
+                "raw_shape": _shape_evidence(geometry.raw_hosts[host]),
+                "finished_shape": _shape_evidence(geometry.finished_hosts[host]),
+                "native_source_cut_ids": sorted(geometry.source_cutters_by_host[host]),
+                "applied_source_cut_ids": sorted(
+                    geometry.applied_source_cutters_by_host[host]
+                ),
+                "purchased_panel_cut_ids": sorted(
+                    geometry.purchased_panel_cutters_by_host[host]
+                ),
+            }
+            for host in sorted(geometry.finished_hosts)
+        },
+        "candidate_parts": {
+            part: {
+                "raw_shape": _shape_evidence(geometry.raw_candidate_parts[part]),
+                "finished_shape": _shape_evidence(geometry.finished_candidate_parts[part]),
+            }
+            for part in sorted(geometry.finished_candidate_parts)
+        },
+        "candidate_axes": {
+            axis: {
+                "family": bore.family,
+                "trial_id": bore.trial_id,
+                "station_id": bore.station_id,
+                "receiver_ids": list(bore.receiver_ids),
+                "bore_shape": _shape_evidence(bore.shape),
+                "installed_role_ids": sorted(geometry.candidate_installed_hardware[axis]),
+            }
+            for axis, bore in sorted(geometry.candidate_bores.items())
+        },
+        "removed_source_axes": [
+            {
+                "axis_id": axis,
+                "legacy_station_id": axis_owner.get(axis),
+                "removed_cutter_ids": sorted(
+                    cutter
+                    for cutter in geometry.replaced_source_cutter_ids
+                    if cutter == axis or cutter == f"{axis}/head"
+                ),
+            }
+            for axis in sorted(geometry.replaced_source_axis_ids)
+        ],
+        "absorbed_source_overlays": sorted(geometry.absorbed_source_overlay_ids),
+        "redirected_candidate_panel_receivers": {
+            part: sorted(cuts)
+            for part, cuts in sorted(
+                geometry.purchased_panel_cutters_by_candidate_part.items()
+            )
+        },
+        "panel_replacements": {
+            panel: _shape_evidence(shape)
+            for panel, shape in sorted(geometry.panel_replacements.items())
+        },
+        "fixed_panel_axes": sorted(geometry.fixed_axes),
+        "starting_frame_bolts": [dict(row) for row in geometry.frame_bolt_records],
+        "protected_shape_counts": {
+            family: len(shapes) for family, shapes in sorted(geometry.protected.items())
+        },
+        "local_delta_diagnostics": _plain(geometry.local_delta_diagnostics),
+        "composition_checks": dict(geometry.composition_checks),
+        "release": {
+            "candidate_accepted": False,
+            "source_cutting_released": False,
+            "drilling_released": False,
+            "fabrication_released": False,
+            "structural_accepted": False,
+            "assembly_proven": False,
+        },
+    }

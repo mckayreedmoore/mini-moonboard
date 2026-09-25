@@ -1,0 +1,38 @@
+import json,hashlib,time
+from pathlib import Path
+import cadquery as cq
+start_hardware_audit=time.monotonic()
+bundle_hardware=Path('fea/results/diagnostics/wj04-mechanics-hardware-v1')
+manifest_hardware=json.loads((bundle_hardware/'sha256.json').read_text())
+for rel,digest in manifest_hardware.items():assert hashlib.sha256((bundle_hardware/rel).read_bytes()).hexdigest()==digest,rel
+hardware_data=json.loads((bundle_hardware/'inventory.json').read_text())
+wood_for_hardware={**dict(g24.finished_hosts),**dict(g24.finished_candidate_parts)}
+def seat_pair_audit(a,b,point,normal):
+ point=cq.Vector(*point);normal=cq.Vector(*normal).normalized()
+ fa=[f for f in a.Faces() if f.geomType()=='PLANE' and f.normalAt().dot(normal)>1-1e-8 and abs((f.Center()-point).dot(normal))<1e-6]
+ fb=[f for f in b.Faces() if f.geomType()=='PLANE' and f.normalAt().dot(-normal)>1-1e-8 and abs((f.Center()-point).dot(normal))<1e-6]
+ assert fa and fb
+ common=[f for x in fa for y in fb for f in x.intersect(y).Faces()]
+ return {'first_face_count':len(fa),'second_face_count':len(fb),'common_face_count':len(common),'finite_common_area_mm2':sum(f.Area() for f in common),'maximum_pair_gap_mm':max(x.distance(y) for x in fa for y in fb)}
+rows_hardware=[]
+for scenario in hardware_data['scenarios']:
+ sid=scenario['scenario_id']
+ for stack in scenario['stacks']:
+  axis_id=stack['physical_bolt_id'];stack_id=stack['stack_spec_id']
+  shapes={role:cq.importers.importStep(str(bundle_hardware/'hardware'/sid/stack_id/(role+'.step'))).val() for role in ('bolt','head_washer','nut_washer','nut')}
+  legacy=g24.candidate_installed_hardware[axis_id]
+  enclosing={'bolt':legacy['shaft'].fuse(legacy['head']),**{role:legacy[role] for role in ('head_washer','nut_washer','nut')}}
+  outside={role:max(0.0,shape.cut(enclosing[role]).Volume()) for role,shape in shapes.items()}
+  direction=cq.Vector(*stack['world_axis_direction_head_to_nut']);origin=cq.Vector(*stack['underhead_origin_global_xyz_mm'])
+  head_wood,far_wood=[wood_for_hardware[r['member_id']] for r in stack['receivers_head_to_nut']]
+  nut_start=origin+direction*stack['nut_start_station_from_underhead_mm']
+  seats={
+   'head_to_head_washer':seat_pair_audit(shapes['bolt'],shapes['head_washer'],origin.toTuple(),direction.toTuple()),
+   'head_washer_to_wood':seat_pair_audit(shapes['head_washer'],head_wood,stack['wood_head_face_center_global_xyz_mm'],direction.toTuple()),
+   'wood_to_nut_washer':seat_pair_audit(far_wood,shapes['nut_washer'],stack['wood_far_face_center_global_xyz_mm'],direction.toTuple()),
+   'nut_washer_to_nut':seat_pair_audit(shapes['nut_washer'],shapes['nut'],nut_start.toTuple(),direction.toTuple())}
+  rows_hardware.append({'scenario_id':sid,'physical_bolt_id':axis_id,'outside_legacy_occupancy_volume_mm3':outside,'all_new_solids_contained_in_corresponding_legacy_envelopes':all(v<=1e-5 for v in outside.values()),'seat_pairs':seats,'all_seats_have_finite_opposed_common_face':all(v['finite_common_area_mm2']>0 and v['maximum_pair_gap_mm']<1e-6 for v in seats.values())})
+assert len(rows_hardware)==16
+hardware_audit_report={'status':'nominal_hardware_envelope_containment_and_finite_seat_geometry','producer_sha256':hashlib.sha256(Path('/tmp/wj04-mechanics-hardware-scene-audit.py').read_bytes()).hexdigest(),'hardware_inventory_sha256':hashlib.sha256((bundle_hardware/'inventory.json').read_bytes()).hexdigest(),'full24_composition_sha256':hashlib.sha256(Path('docs/wood-joints-mvp/hypotheses/wj24-integrated-static/composition.json').read_bytes()).hexdigest(),'full24_diagnostic_sha256':hashlib.sha256(Path('docs/wood-joints-mvp/hypotheses/wj24-integrated-static/diagnostic.json').read_bytes()).hexdigest(),'rows':rows_hardware,'all_64_new_solids_contained_in_nominal_full24_envelopes':all(r['all_new_solids_contained_in_corresponding_legacy_envelopes'] for r in rows_hardware),'all_64_named_seat_pairs_have_finite_opposed_common_faces':all(r['all_seats_have_finite_opposed_common_face'] for r in rows_hardware),'inference_scope':'Where a new metal solid is contained in its old occupancy envelope, the archived full24 nominal wood/cross-stack/protected physical non-intersection checks also enclose that new solid. This does not establish tolerances or actual hardware.','native_solve_run':False,'contact_pressure_or_strength_established':False,'stable_deck_established':False,'release':False,'elapsed_seconds':time.monotonic()-start_hardware_audit}
+Path('/tmp/wj04-mechanics-hardware-scene-audit.json').write_text(json.dumps(hardware_audit_report,indent=2,sort_keys=True)+'\n')
+print(json.dumps({k:v for k,v in hardware_audit_report.items() if k!='rows'}),flush=True)

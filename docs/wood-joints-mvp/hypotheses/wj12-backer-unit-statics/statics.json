@@ -1,0 +1,3213 @@
+{
+  "backers": {
+    "left": {
+      "backer_header_capacity_established": false,
+      "backer_id": "inner_kicker_backer_left",
+      "bolt_points_projected_to_actual_contact_plane": [
+        {
+          "axis_id": "backer_header_left_1",
+          "point_global_xyz_mm": [
+            -35.0,
+            -97.0,
+            238.9
+          ]
+        },
+        {
+          "axis_id": "backer_header_left_2",
+          "point_global_xyz_mm": [
+            -35.0,
+            -63.0,
+            238.9
+          ]
+        }
+      ],
+      "bolt_row_axis_global_xyz": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "bolt_spacing_mm": 34.0,
+      "candidate_bolt_axis_ids": [
+        "backer_header_left_1",
+        "backer_header_left_2"
+      ],
+      "contact_face_geometry": {
+        "backer_inner_wire_count": 2,
+        "backer_material_area_mm2_including_real_openings": 7819.5022637451,
+        "edge_patch_centers_are_halfway_to_each_actual_outer_boundary": true,
+        "header_inner_wire_count": 16,
+        "header_material_area_mm2_including_real_openings": 339521.97149570624,
+        "opposed_coplanar_face_delta_mm": 2.842170943040401e-14,
+        "outer_face_ray_distances_from_bolt_row_centroid_mm": {
+          "negative": 33.412499999999994,
+          "positive": 55.4875
+        },
+        "outer_face_ray_unresolved_reasons": {
+          "negative": null,
+          "positive": null
+        },
+        "ray_distance_method": "intersection with actual backer contact-face outer-wire polygon; no bounding rectangle used"
+      },
+      "contact_face_normal_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "contact_plane_global_coordinate_mm": 238.9,
+      "finite_contact_patch_checks": {
+        "all_annuli_inside_both_finished_faces": true,
+        "all_edge_disks_inside_both_finished_faces": true,
+        "annular_bore_patches": [
+          {
+            "area_mm2": 64.71680866394975,
+            "axis_id": "backer_header_left_1",
+            "backer_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 16.179202165987444,
+              "member_id": "inner_kicker_backer_left",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 16.179202165987444,
+              "reason": null
+            },
+            "center_global_xyz_mm": [
+              -35.0,
+              -97.0,
+              238.9
+            ],
+            "fully_contained_in_both_finished_faces": true,
+            "header_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 16.179202165987448,
+              "member_id": "base_header",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 16.179202165987448,
+              "reason": null
+            },
+            "inner_radius_mm": 4.15,
+            "outer_radius_mm": 6.15,
+            "radial_gap_from_candidate_bore_mm": 0.5,
+            "radial_width_mm": 2.0
+          },
+          {
+            "area_mm2": 64.71680866394975,
+            "axis_id": "backer_header_left_2",
+            "backer_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 16.17920216598744,
+              "member_id": "inner_kicker_backer_left",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 16.17920216598744,
+              "reason": null
+            },
+            "center_global_xyz_mm": [
+              -35.0,
+              -63.0,
+              238.9
+            ],
+            "fully_contained_in_both_finished_faces": true,
+            "header_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 16.179202165987444,
+              "member_id": "base_header",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 16.179202165987444,
+              "reason": null
+            },
+            "inner_radius_mm": 4.15,
+            "outer_radius_mm": 6.15,
+            "radial_gap_from_candidate_bore_mm": 0.5,
+            "radial_width_mm": 2.0
+          }
+        ],
+        "edge_moment_patches": {
+          "negative": {
+            "backer_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 3.141592653589791,
+              "member_id": "inner_kicker_backer_left",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 3.141592653589791,
+              "reason": null
+            },
+            "center_at_fraction_of_outer_face_ray": 0.5,
+            "center_global_xyz_mm": [
+              -18.293750000000003,
+              -80.0,
+              238.9
+            ],
+            "fully_contained_in_both_finished_faces": true,
+            "header_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 3.141592653589791,
+              "member_id": "base_header",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 3.141592653589791,
+              "reason": null
+            },
+            "lever_arm_mm": 16.706249999999997,
+            "radius_mm": 2.0,
+            "side": "negative"
+          },
+          "positive": {
+            "backer_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 3.1415926535897922,
+              "member_id": "inner_kicker_backer_left",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 3.1415926535897922,
+              "reason": null
+            },
+            "center_at_fraction_of_outer_face_ray": 0.5,
+            "center_global_xyz_mm": [
+              -62.74375,
+              -80.0,
+              238.9
+            ],
+            "fully_contained_in_both_finished_faces": true,
+            "header_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 3.141592653589792,
+              "member_id": "base_header",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 3.141592653589792,
+              "reason": null
+            },
+            "lever_arm_mm": 27.74375,
+            "radius_mm": 2.0,
+            "side": "positive"
+          }
+        },
+        "patch_geometry_is_contact_capacity_or_pressure_evidence": false,
+        "witness_dimensions_mm": {
+          "annulus_radial_gap": 0.5,
+          "annulus_radial_width": 2.0,
+          "boolean_check_depth": 0.25,
+          "edge_disk_radius": 2.0
+        }
+      },
+      "geometry_sha256": {
+        "bores_sha256": {
+          "backer_header_left_1": "ecac64ff52fe6c1261606b62081e2082dd1774b231ed69337c17c7dbbd277f9f",
+          "backer_header_left_2": "c0550c0fb3f0ba908f0be88c42f253a4c9c3301deae555d6c244977212d77b4e"
+        },
+        "finished_backer_sha256": "2e0a9533844e587b3be0a97a489a4ceb249e2405f287430dc22346aff83d6063",
+        "finished_header_sha256": "0c00d109f7b0b89b325c0c3e0be61657f1d96d5e48f35bd08e5bbce86029e98e",
+        "shafts_sha256": {
+          "backer_header_left_1": "6ae7fc8f85682c68055a30f0bb84c6dac15f6d393edbceca3c0336610fe5a821",
+          "backer_header_left_2": "ca7374c95bd8ccd3cd512108c1cf4a89959918ca735618f9ea0f2c92ba2b3f73"
+        }
+      },
+      "group_centroid_global_xyz_mm": [
+        -35.0,
+        -80.0,
+        238.9
+      ],
+      "physical_bolt_bearing_support_established": false,
+      "real_backer_header_demand": null,
+      "release": false,
+      "transverse_face_axis_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "unit_cases_are_real_demands": false,
+      "unit_wrench_cases": [
+        {
+          "case_id": "unit_force_X_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                -0.5,
+                0.0,
+                0.0
+              ],
+              [
+                -0.5,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                -0.5,
+                0.0,
+                0.0
+              ],
+              [
+                -0.5,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_X_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.5,
+                0.0,
+                0.0
+              ],
+              [
+                0.5,
+                0.0,
+                0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.5,
+                0.0,
+                0.0
+              ],
+              [
+                0.5,
+                0.0,
+                0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_Y_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                -0.5,
+                0.0
+              ],
+              [
+                -0.0,
+                -0.5,
+                -0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                -0.5,
+                0.0
+              ],
+              [
+                -0.0,
+                -0.5,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_Y_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.5,
+                0.0
+              ],
+              [
+                0.0,
+                0.5,
+                0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            -0.0,
+            -1.0,
+            -0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.5,
+                0.0
+              ],
+              [
+                0.0,
+                0.5,
+                0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_Z_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "contact_id": "annular_bore_1",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  -35.0,
+                  -97.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.5
+                ]
+              },
+              {
+                "contact_id": "annular_bore_2",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  -35.0,
+                  -63.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.5
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                -0.5
+              ],
+              [
+                -0.0,
+                -0.0,
+                -0.5
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_Z_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.5
+              ],
+              [
+                0.0,
+                0.0,
+                0.5
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.5
+              ],
+              [
+                0.0,
+                0.0,
+                0.5
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_moment_X_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.029411764705882353
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "contact_id": "annular_bore_2",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  -35.0,
+                  -63.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.029411764705882353
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.029411764705882353
+              ],
+              [
+                -0.0,
+                -0.0,
+                -0.029411764705882353
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_X_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.0,
+                -0.0,
+                0.029411764705882353
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "contact_id": "annular_bore_1",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  -35.0,
+                  -97.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.029411764705882353
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                -0.029411764705882353
+              ],
+              [
+                -0.0,
+                -0.0,
+                0.029411764705882353
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_Y_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              -1.0,
+              -0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.018022077044379366
+              ],
+              [
+                0.0,
+                0.0,
+                0.018022077044379366
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "bolt_tension_resultant_minimum_norm_allocation_n": 0.03604415408875873,
+                "contact_id": "row_moment_positive_edge_patch",
+                "lever_arm_mm": 27.74375,
+                "patch_geometry_verified": true,
+                "patch_kind": "finite_disk_halfway_to_actual_outer_face_ray",
+                "point_global_xyz_mm": [
+                  -62.74375,
+                  -80.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.03604415408875873
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.0,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": false,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 1.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              -1.0,
+              -0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_Y_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.029928918817807713
+              ],
+              [
+                0.0,
+                0.0,
+                0.029928918817807713
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "bolt_tension_resultant_minimum_norm_allocation_n": 0.059857837635615425,
+                "contact_id": "row_moment_negative_edge_patch",
+                "lever_arm_mm": 16.706249999999997,
+                "patch_geometry_verified": true,
+                "patch_kind": "finite_disk_halfway_to_actual_outer_face_ray",
+                "point_global_xyz_mm": [
+                  -18.293750000000003,
+                  -80.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.059857837635615425
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            -0.0,
+            -1.0,
+            -0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                -0.0,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": false,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 1.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_Z_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                -0.029411764705882353,
+                0.0,
+                0.0
+              ],
+              [
+                0.029411764705882353,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                -0.029411764705882353,
+                0.0,
+                0.0
+              ],
+              [
+                0.029411764705882353,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_Z_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.029411764705882353,
+                0.0,
+                0.0
+              ],
+              [
+                -0.029411764705882353,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.029411764705882353,
+                0.0,
+                0.0
+              ],
+              [
+                -0.029411764705882353,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        }
+      ]
+    },
+    "right": {
+      "backer_header_capacity_established": false,
+      "backer_id": "inner_kicker_backer_right",
+      "bolt_points_projected_to_actual_contact_plane": [
+        {
+          "axis_id": "backer_header_right_1",
+          "point_global_xyz_mm": [
+            41.0,
+            -98.0,
+            238.9
+          ]
+        },
+        {
+          "axis_id": "backer_header_right_2",
+          "point_global_xyz_mm": [
+            25.0,
+            -76.0,
+            238.9
+          ]
+        }
+      ],
+      "bolt_row_axis_global_xyz": [
+        -0.5881716976750462,
+        0.8087360843031886,
+        0.0
+      ],
+      "bolt_spacing_mm": 27.202941017470888,
+      "candidate_bolt_axis_ids": [
+        "backer_header_right_1",
+        "backer_header_right_2"
+      ],
+      "contact_face_geometry": {
+        "backer_inner_wire_count": 2,
+        "backer_material_area_mm2_including_real_openings": 7819.5022637451,
+        "edge_patch_centers_are_halfway_to_each_actual_outer_boundary": true,
+        "header_inner_wire_count": 16,
+        "header_material_area_mm2_including_real_openings": 339521.97149570624,
+        "opposed_coplanar_face_delta_mm": 2.842170943040401e-14,
+        "outer_face_ray_distances_from_bolt_row_centroid_mm": {
+          "negative": 67.15726063688125,
+          "positive": 42.767351020080646
+        },
+        "outer_face_ray_unresolved_reasons": {
+          "negative": null,
+          "positive": null
+        },
+        "ray_distance_method": "intersection with actual backer contact-face outer-wire polygon; no bounding rectangle used"
+      },
+      "contact_face_normal_global_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "contact_plane_global_coordinate_mm": 238.9,
+      "finite_contact_patch_checks": {
+        "all_annuli_inside_both_finished_faces": true,
+        "all_edge_disks_inside_both_finished_faces": true,
+        "annular_bore_patches": [
+          {
+            "area_mm2": 64.71680866394975,
+            "axis_id": "backer_header_right_1",
+            "backer_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 16.179202165987444,
+              "member_id": "inner_kicker_backer_right",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 16.179202165987444,
+              "reason": null
+            },
+            "center_global_xyz_mm": [
+              41.0,
+              -98.0,
+              238.9
+            ],
+            "fully_contained_in_both_finished_faces": true,
+            "header_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 16.179202165987444,
+              "member_id": "base_header",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 16.179202165987444,
+              "reason": null
+            },
+            "inner_radius_mm": 4.15,
+            "outer_radius_mm": 6.15,
+            "radial_gap_from_candidate_bore_mm": 0.5,
+            "radial_width_mm": 2.0
+          },
+          {
+            "area_mm2": 64.71680866394975,
+            "axis_id": "backer_header_right_2",
+            "backer_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 16.179202165987444,
+              "member_id": "inner_kicker_backer_right",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 16.179202165987444,
+              "reason": null
+            },
+            "center_global_xyz_mm": [
+              25.0,
+              -76.0,
+              238.9
+            ],
+            "fully_contained_in_both_finished_faces": true,
+            "header_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 16.17920216598744,
+              "member_id": "base_header",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 16.17920216598744,
+              "reason": null
+            },
+            "inner_radius_mm": 4.15,
+            "outer_radius_mm": 6.15,
+            "radial_gap_from_candidate_bore_mm": 0.5,
+            "radial_width_mm": 2.0
+          }
+        ],
+        "edge_moment_patches": {
+          "negative": {
+            "backer_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 3.1415926535897913,
+              "member_id": "inner_kicker_backer_right",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 3.1415926535897913,
+              "reason": null
+            },
+            "center_at_fraction_of_outer_face_ray": 0.5,
+            "center_global_xyz_mm": [
+              60.15625,
+              -67.25,
+              238.9
+            ],
+            "fully_contained_in_both_finished_faces": true,
+            "header_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 3.1415926535897913,
+              "member_id": "base_header",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 3.1415926535897913,
+              "reason": null
+            },
+            "lever_arm_mm": 33.578630318440624,
+            "radius_mm": 2.0,
+            "side": "negative"
+          },
+          "positive": {
+            "backer_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 3.141592653589791,
+              "member_id": "inner_kicker_backer_right",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 3.141592653589791,
+              "reason": null
+            },
+            "center_at_fraction_of_outer_face_ray": 0.5,
+            "center_global_xyz_mm": [
+              15.70625,
+              -99.57727272727273,
+              238.9
+            ],
+            "fully_contained_in_both_finished_faces": true,
+            "header_containment": {
+              "contained": true,
+              "intersection_volume_mm3": 3.141592653589791,
+              "member_id": "base_header",
+              "outside_volume_mm3": 0.0,
+              "patch_volume_mm3": 3.141592653589791,
+              "reason": null
+            },
+            "lever_arm_mm": 21.383675510040323,
+            "radius_mm": 2.0,
+            "side": "positive"
+          }
+        },
+        "patch_geometry_is_contact_capacity_or_pressure_evidence": false,
+        "witness_dimensions_mm": {
+          "annulus_radial_gap": 0.5,
+          "annulus_radial_width": 2.0,
+          "boolean_check_depth": 0.25,
+          "edge_disk_radius": 2.0
+        }
+      },
+      "geometry_sha256": {
+        "bores_sha256": {
+          "backer_header_right_1": "fffaf8b58f8f9edba9e2c05088ba739e9e5ee64790ec74ba07e00bd8f982472f",
+          "backer_header_right_2": "76a9994b61fe3b73201b50d12355f35aafbe0b2ed3075697cc0b712cfe4d2d74"
+        },
+        "finished_backer_sha256": "b07599b036ab0d5d9aace3b974652c7c36b875f08f20c9e01f5833d1967e6656",
+        "finished_header_sha256": "0c00d109f7b0b89b325c0c3e0be61657f1d96d5e48f35bd08e5bbce86029e98e",
+        "shafts_sha256": {
+          "backer_header_right_1": "6d94661e2ffd3dc1c54786cbea943274f3e82b95e285d089a35f4407e974e433",
+          "backer_header_right_2": "5d73e64b1bf69e2dbc84516d629d980890958d22419a130c73ec31c1c0800a56"
+        }
+      },
+      "group_centroid_global_xyz_mm": [
+        33.0,
+        -87.0,
+        238.9
+      ],
+      "physical_bolt_bearing_support_established": false,
+      "real_backer_header_demand": null,
+      "release": false,
+      "transverse_face_axis_global_xyz": [
+        -0.8087360843031886,
+        -0.5881716976750462,
+        0.0
+      ],
+      "unit_cases_are_real_demands": false,
+      "unit_wrench_cases": [
+        {
+          "case_id": "unit_force_X_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                -0.5,
+                0.0,
+                0.0
+              ],
+              [
+                -0.5,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                -0.5,
+                0.0,
+                0.0
+              ],
+              [
+                -0.5,
+                -0.0,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              -0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_X_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.5,
+                0.0,
+                0.0
+              ],
+              [
+                0.5,
+                0.0,
+                0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.5,
+                0.0,
+                0.0
+              ],
+              [
+                0.5,
+                0.0,
+                0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_Y_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                -0.5,
+                0.0
+              ],
+              [
+                -0.0,
+                -0.5,
+                -0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                -0.5,
+                0.0
+              ],
+              [
+                -0.0,
+                -0.5,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_Y_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.5,
+                0.0
+              ],
+              [
+                0.0,
+                0.5,
+                0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            -0.0,
+            -1.0,
+            -0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.5,
+                0.0
+              ],
+              [
+                0.0,
+                0.5,
+                0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_Z_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "contact_id": "annular_bore_1",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  41.0,
+                  -98.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.5
+                ]
+              },
+              {
+                "contact_id": "annular_bore_2",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  25.0,
+                  -76.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.5
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                -0.5
+              ],
+              [
+                -0.0,
+                -0.0,
+                -0.5
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_force_Z_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.5
+              ],
+              [
+                0.0,
+                0.0,
+                0.5
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "force",
+          "load_force_global_xyz_n": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.5
+              ],
+              [
+                0.0,
+                0.0,
+                0.5
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "N"
+        },
+        {
+          "case_id": "unit_moment_X_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.3459459459459459,
+              0.4756756756756757,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.03848785494355115
+              ],
+              [
+                0.0,
+                0.0,
+                0.008758125213821417
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "contact_id": "annular_bore_2",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  25.0,
+                  -76.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.02972972972972973
+                ]
+              },
+              {
+                "bolt_tension_resultant_minimum_norm_allocation_n": 0.017516250427642835,
+                "contact_id": "row_moment_negative_edge_patch",
+                "lever_arm_mm": 33.578630318440624,
+                "patch_geometry_verified": true,
+                "patch_kind": "finite_disk_halfway_to_actual_outer_face_ray",
+                "point_global_xyz_mm": [
+                  60.15625,
+                  -67.25,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.017516250427642835
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              5.551115123125783e-17,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 5.551115123125783e-17,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                -0.0,
+                0.02972972972972973
+              ],
+              [
+                -0.0,
+                0.0,
+                -0.02972972972972973
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": false,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              -0.654054054054054,
+              -0.4756756756756757,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.34594594594594597,
+              -0.4756756756756757,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.5881716976750462,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.3459459459459459,
+              0.4756756756756757,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_X_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.3459459459459459,
+              -0.4756756756756757,
+              -0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.013752820402621633
+              ],
+              [
+                0.0,
+                0.0,
+                0.04348255013235136
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "contact_id": "annular_bore_1",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  41.0,
+                  -98.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.02972972972972973
+                ]
+              },
+              {
+                "bolt_tension_resultant_minimum_norm_allocation_n": 0.027505640805243266,
+                "contact_id": "row_moment_positive_edge_patch",
+                "lever_arm_mm": 21.383675510040323,
+                "patch_geometry_verified": true,
+                "patch_kind": "finite_disk_halfway_to_actual_outer_face_ray",
+                "point_global_xyz_mm": [
+                  15.70625,
+                  -99.57727272727273,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.027505640805243266
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              -6.938893903907228e-18
+            ],
+            "force_residual_norm_n": 6.938893903907228e-18,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                -0.02972972972972973
+              ],
+              [
+                -0.0,
+                -0.0,
+                0.02972972972972973
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": false,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.654054054054054,
+              0.4756756756756757,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              -0.34594594594594597,
+              0.4756756756756757,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.5881716976750462,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.3459459459459459,
+              -0.4756756756756757,
+              -0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_Y_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              0.4756756756756757,
+              -0.6540540540540541,
+              -0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.04053174967522637
+              ],
+              [
+                0.0,
+                0.0,
+                0.018910128053604744
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "contact_id": "annular_bore_2",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  25.0,
+                  -76.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.02162162162162162
+                ]
+              },
+              {
+                "bolt_tension_resultant_minimum_norm_allocation_n": 0.03782025610720949,
+                "contact_id": "row_moment_positive_edge_patch",
+                "lever_arm_mm": 21.383675510040323,
+                "patch_geometry_verified": true,
+                "patch_kind": "finite_disk_halfway_to_actual_outer_face_ray",
+                "point_global_xyz_mm": [
+                  15.70625,
+                  -99.57727272727273,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.03782025610720949
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.02162162162162162
+              ],
+              [
+                -0.0,
+                -0.0,
+                -0.02162162162162162
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": false,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              -0.47567567567567565,
+              -0.3459459459459459,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              -0.47567567567567565,
+              0.654054054054054,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.8087360843031886,
+            "unresolved_row_moment_global_xyz_nmm": [
+              0.4756756756756757,
+              -0.6540540540540541,
+              -0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_Y_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.4756756756756757,
+              0.6540540540540541,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                0.012042422169004448
+              ],
+              [
+                0.0,
+                0.0,
+                0.03366404379062607
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [
+              {
+                "contact_id": "annular_bore_1",
+                "patch_geometry_verified": true,
+                "patch_kind": "annulus_centered_on_actual_bore_axis",
+                "point_global_xyz_mm": [
+                  41.0,
+                  -98.0,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.02162162162162162
+                ]
+              },
+              {
+                "bolt_tension_resultant_minimum_norm_allocation_n": 0.024084844338008896,
+                "contact_id": "row_moment_negative_edge_patch",
+                "lever_arm_mm": 33.578630318440624,
+                "patch_geometry_verified": true,
+                "patch_kind": "finite_disk_halfway_to_actual_outer_face_ray",
+                "point_global_xyz_mm": [
+                  60.15625,
+                  -67.25,
+                  238.9
+                ],
+                "reaction_global_xyz_n": [
+                  -0.0,
+                  -0.0,
+                  -0.024084844338008896
+                ]
+              }
+            ],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            -0.0,
+            -1.0,
+            -0.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.0,
+                0.0,
+                -0.02162162162162162
+              ],
+              [
+                -0.0,
+                -0.0,
+                0.02162162162162162
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": false,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.47567567567567565,
+              0.3459459459459459,
+              0.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.47567567567567565,
+              -0.654054054054054,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.8087360843031886,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.4756756756756757,
+              0.6540540540540541,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_Z_plus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                -0.02972972972972973,
+                -0.02162162162162162,
+                0.0
+              ],
+              [
+                0.02972972972972973,
+                0.02162162162162162,
+                -0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                -0.02972972972972973,
+                -0.02162162162162162,
+                0.0
+              ],
+              [
+                0.02972972972972973,
+                0.02162162162162162,
+                -0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        },
+        {
+          "case_id": "unit_moment_Z_minus",
+          "finite_contact_witness": {
+            "algebraic_equilibrium_closes": true,
+            "all_required_finite_contact_patches_verified": true,
+            "baseline_unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ],
+            "bolt_force_allocation_is_a_load_sharing_prediction": false,
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.02972972972972973,
+                0.02162162162162162,
+                -0.0
+              ],
+              [
+                -0.02972972972972973,
+                -0.02162162162162162,
+                0.0
+              ]
+            ],
+            "bolt_tension_capacity_established": false,
+            "contact_reaction_resultants": [],
+            "equilibrium_witness_closes": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_bolt_bearing_support_established": false,
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unilateral_bolt_tension_and_contact_compression_signs_valid": true,
+            "unresolved_support_components": []
+          },
+          "kind": "moment",
+          "load_force_global_xyz_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "load_moment_at_group_centroid_global_xyz_nmm": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "point_fastener_baseline": {
+            "bolt_reaction_resultants_global_xyz_n": [
+              [
+                0.02972972972972973,
+                0.02162162162162162,
+                -0.0
+              ],
+              [
+                -0.02972972972972973,
+                -0.02162162162162162,
+                0.0
+              ]
+            ],
+            "equilibrium_closed_by_ideal_point_fasteners": true,
+            "force_equilibrium_residual_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "force_residual_norm_n": 0.0,
+            "idealized_point_reactions_moment_at_centroid_global_xyz_nmm": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "idealized_point_reactions_sum_global_xyz_n": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_equilibrium_residual_global_xyz_nmm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "moment_residual_norm_nmm": 0.0,
+            "unresolved_row_moment_global_xyz_nmm": [
+              -0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "units": "Nmm"
+        }
+      ]
+    }
+  },
+  "claim_boundary": {
+    "capacity_pressure_stiffness_preload_or_equal_sharing_acceptance": false,
+    "fresh_native_solve_performed": false,
+    "historical_surrogate_backer_demand_used": false,
+    "materialization_performed": false,
+    "physical_installation_or_fabrication_release": false,
+    "scope": "signed unit-wrench equilibrium witnesses for the two WJ-05 backer/header joints",
+    "unit_wrenches_are_real_demands": false
+  },
+  "composition_report_sha256": "caa6da668e0b0715b1c3569ed9dac2bc1e2b3b581f79a03c02f42072c3f4d95d",
+  "finite_patch_basis": {
+    "annular_bore_patch": "For compressive axial point resultants only, use an annulus centered on each actual bore, with a 0.5 mm radial gap beyond the candidate bore and 2.0 mm radial width. Extrude 0.25 mm into each finished member and require the entire annular prism to be contained in both BReps. Its geometric centroid is the resultant location; this does not prescribe pressure or a capacity.",
+    "row_moment_patch": "For a row-axis moment only, use a 2.0 mm radius disk centered halfway along the ray from the actual bolt-row centroid to the corresponding outer-wire boundary. Test the 0.25 mm inward prism against both finished members. The ray distance comes from the actual polygon, not a projected bounding rectangle.",
+    "unsupported_components": "Fastener transverse bearing remains an ideal point reaction without a bearing patch model. Any failed annular or edge-patch containment leaves its associated support component unresolved.",
+    "witness_dimensions_are_not_design_or_acceptance_values": true
+  },
+  "gates": {
+    "all_candidate_axes_match_installed_shafts": true,
+    "all_family_producers_bound_and_current": true,
+    "all_finite_unit_wrench_equilibrium_witnesses_close": true,
+    "bolt_or_contact_capacity_established": false,
+    "both_backer_contact_planes_derived_from_finished_geometry": true,
+    "fabrication_released": false,
+    "family_input_hashes_current": true,
+    "finite_patch_boolean_checks_run": true,
+    "load_sharing_or_contact_pressure_assumed": false,
+    "physical_bolt_bearing_support_established": false,
+    "real_backer_demands_available": false,
+    "release": false,
+    "source_inventory_matches_binding": true,
+    "structural_released": false
+  },
+  "schema": "wood_joint_wj12_backer_statics/v1",
+  "source_provenance": {
+    "all_family_producers_bound_and_current": true,
+    "binding_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "candidate": "compact-floor-flush-wood-joints-development",
+    "family_input_hash_conflicts": [],
+    "family_input_hash_mismatches": {},
+    "family_input_hashes_current": true,
+    "family_producers": {
+      "center_x190": {
+        "current_sha256": "b97723f66caabb200f1504011196543ceb1e4f7f2587c09be0300cd72f43f9d8",
+        "matches": true,
+        "path": "scripts/wood_joint_wj05_center_post_x190_probe.py",
+        "source_bound_sha256": "b97723f66caabb200f1504011196543ceb1e4f7f2587c09be0300cd72f43f9d8"
+      },
+      "right_rail_integration": {
+        "current_sha256": "0c2ea604b4b26cd775b84d2f3b145a132ebea89c49b2d1dbad350d7ecee95005",
+        "matches": true,
+        "path": "scripts/wood_joint_right_rail_integration.py",
+        "source_bound_sha256": "0c2ea604b4b26cd775b84d2f3b145a132ebea89c49b2d1dbad350d7ecee95005"
+      },
+      "wj03_compact_outer": {
+        "current_sha256": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc",
+        "matches": true,
+        "path": "scripts/wood_joint_wj03_compact_outer_access.py",
+        "source_bound_sha256": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc"
+      },
+      "wj04_upper_g7": {
+        "current_sha256": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9",
+        "matches": true,
+        "path": "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py",
+        "source_bound_sha256": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9"
+      },
+      "wj06_outer_pair": {
+        "current_sha256": "daaf03d3b56b4284435e207c23c9223e474d2213ca599f67ceb482933440afb0",
+        "matches": true,
+        "path": "scripts/wood_joint_wj06_outer_pair_probe.py",
+        "source_bound_sha256": "daaf03d3b56b4284435e207c23c9223e474d2213ca599f67ceb482933440afb0"
+      }
+    },
+    "family_source_fingerprints_sha256": {
+      "center_x190": {
+        "docs/led-wiring-reference.json": "b0f93c4f48139561c06491d3d1031b9e3ceb830f40e1fcf78bdf846146f3f1f0",
+        "docs/round-service-wiring-reference.json": "b335fe3732c89e66625bac0525e959ccc562e2c7cd0e1e1551a4720fc26497f8",
+        "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+        "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+        "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+        "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+        "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+        "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+        "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+        "scripts/wood_joint_wj05_center_node_probe.py": "eafffbc95d5989bcc21a7cfed90ff25e917c778bf9758154b915cbba0ec3d173",
+        "scripts/wood_joint_wj05_center_offset_adapter.py": "e60269df6de450ec06684459a8197ad4fc56fda1af2acc6f8e84d8eb929070ad",
+        "scripts/wood_joint_wj05_center_post_x190_probe.py": "b97723f66caabb200f1504011196543ceb1e4f7f2587c09be0300cd72f43f9d8",
+        "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+      },
+      "center_x190_tools": {
+        "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+        "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+        "scripts/wood_joint_wj05_center_offset_adapter.py": "e60269df6de450ec06684459a8197ad4fc56fda1af2acc6f8e84d8eb929070ad",
+        "scripts/wood_joint_wj05_center_post_x190_probe.py": "b97723f66caabb200f1504011196543ceb1e4f7f2587c09be0300cd72f43f9d8",
+        "scripts/wood_joint_wj05_center_tools.py": "3d14041588fb49c2664e410e8dff9b74ab5a9d026a39e4c24feea0f5501c3723"
+      },
+      "right_rail": {
+        "docs/wood-joints-mvp/hypotheses/current-hardware-schedule-audit.md": "cc6a74bcd3f3143bdeb26b89661f10f72e33fb041262fa09ee65f1cf684f26e6",
+        "docs/wood-joints-mvp/hypotheses/wj04-full-stock-stagger-probe.json": "2c247cf249b0dddcd403c1466efe6d8a7ddd32366f8b8b3294657318bd42da6a",
+        "docs/wood-joints-mvp/ordinary-hardware-basis.md": "b66983d6ed267814289707cc5f3b5503dfe39ce723529b663092544e29ee8bf4",
+        "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+        "docs/wood-joints-mvp/stock-and-cut-basis.md": "a6089794eb0789dda022b90a3a2f2d82eff2e57e8fc20616ac4f05f0aa8c17f3",
+        "docs/wood-joints-mvp/wj03-hardware-procurement.md": "dba2e10295358859d7bae5a9a9b1c71382aa212441186022be3fbdc3579db3fc",
+        "docs/wood-joints-mvp/wood-limit-state-basis.md": "1110e664a88f704773a463e83a2aeac3954b978048d811e4bff1effa55aa7c2e",
+        "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+        "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+        "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+        "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+        "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+        "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+        "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+        "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+        "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+        "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+        "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+        "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+        "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+        "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+        "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+        "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+        "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+        "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+        "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+        "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+        "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+        "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+        "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+        "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+        "scripts/wood_joint_right_rail_integration.py": "0c2ea604b4b26cd775b84d2f3b145a132ebea89c49b2d1dbad350d7ecee95005",
+        "scripts/wood_joint_wj04_full_stock_probe.py": "965b997a2b3f4ecb4c39e161fc9dde1757ff8a4c8d7bc8acc90d851a122f8bde",
+        "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
+        "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+        "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9",
+        "scripts/wood_joint_wj04_upper_pair_probe.py": "7e042ed35b6670191e2549f4f4922af4643db8d6552fef09b6998546ae123860",
+        "scripts/wood_joint_wj06_outer_pair_probe.py": "daaf03d3b56b4284435e207c23c9223e474d2213ca599f67ceb482933440afb0",
+        "scripts/wood_joint_wj06_residual_probe.py": "c3c3a05e2d89cf0142b0d8bf32f9de08ae84cbd771857d240205d06f7efe2795"
+      },
+      "wj03_compact_outer": {
+        "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+        "docs/floor-flush-construction-kerf-right/stock-profiles.json": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8",
+        "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+        "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+        "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+        "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+        "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+        "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+        "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+        "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+        "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+        "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+        "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+        "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+        "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+        "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+        "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+        "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+        "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+        "scripts/wood_joint_wj03_compact_outer_access.py": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc",
+        "scripts/wood_joint_wj03_compact_outer_probe.py": "1b87fffdb250e7e3021f43913bb26d2e0c6f4a3b3f198d31c6bd8b875320065e",
+        "scripts/wood_joint_wj03_sequence.py": "27d62b50bdbe3084c68caa35f186785e57cff412fb9e68eb5fafe423ed260386",
+        "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+      }
+    },
+    "family_trial_ids": {
+      "center_x190": "wj05-center-node-posts-x190-outward-v1",
+      "wj03_outer": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "wj04_g7": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "wj05_backer": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "wj06_outer_pair": "right_outer_full_4x4_paired_rail_hypothesis"
+    },
+    "report_producer_hashes_sha256": {
+      "wj12_backer_statics": {
+        "path": "scripts/wood_joint_wj12_backer_statics.py",
+        "sha256": "3f38d0357bc01aa6d515a4f20ce2a080ddf57f57a7501c6c109c9b595d3d7cef"
+      },
+      "wj12_compositor": {
+        "path": "scripts/wood_joint_wj12_compositor.py",
+        "sha256": "7622fc87c9882abb7c91028b8002077a76a4d8e7a29c9eee61e59c8c01020109"
+      }
+    },
+    "source_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+    "source_inventory_matches_binding": true,
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "source_runtime_module_sha256": {
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53"
+    }
+  },
+  "static_diagnostic_report_sha256": "104f328d295375055356988b8e6f4c49df7846b76de26646d1343aada9db7a05",
+  "status": "capacity_independent_unit_statics_witness",
+  "trial_id": "wj12-compact-outer-right-rail-center-x190-v1"
+}

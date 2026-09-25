@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "<string>", line 17, in <module>
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py", line 951, in compose_wj24_geometry
+    _validate_wj18_cut_maps(g18, applied_cutters, new_source_cutter_ids)
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py", line 671, in _validate_wj18_cut_maps
+    _same_shape_map(
+  File "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py", line 370, in _same_shape_map
+    raise ValueError(f"{context}: exact cutter IDs differ")
+ValueError: retained WJ18 applied source cutters/base_side_left: exact cutter IDs differ

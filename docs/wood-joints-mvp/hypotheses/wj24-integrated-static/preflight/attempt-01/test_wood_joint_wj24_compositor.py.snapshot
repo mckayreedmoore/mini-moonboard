@@ -1,0 +1,379 @@
+import hashlib
+import json
+from pathlib import Path
+from types import SimpleNamespace
+
+import cadquery as cq
+import pytest
+
+from scripts import wood_joint_bottom_center_integration as bottom_center
+from scripts import wood_joint_bottom_outer_integration as bottom_outer
+from scripts import wood_joint_top_center_integration as top_center
+from scripts import wood_joint_wj12_compositor as wj12
+from scripts import wood_joint_wj18_compositor as wj18
+from scripts import wood_joint_wj24_compositor as wj24
+from scripts import wood_joint_wj24_diagnostic as wj24_diagnostic
+
+ROOT = Path(__file__).resolve().parents[1]
+INVENTORY_PATH = ROOT / wj24.INVENTORY_PATH
+
+
+def _box(size=2.0, x=0.0):
+    return cq.Solid.makeBox(size, size, size, cq.Vector(x, 0, 0))
+
+
+def _inventory():
+    return json.loads(INVENTORY_PATH.read_text())
+
+
+def test_wj24_contract_is_exact_inventory_union_with_zero_overlays():
+    inventory = _inventory()
+    duties = {row["legacy_station_id"]: row for row in inventory["legacy_duties"]}
+    expected_duties = set(wj18.EXPECTED_TARGET_DUTY_IDS)
+    expected_duties.update(top_center.TARGET_DUTY_IDS)
+    expected_duties.update(bottom_outer.TARGET_DUTY_IDS)
+    expected_duties.update(bottom_center.TARGET_DUTY_IDS)
+    assert expected_duties == set(wj24.EXPECTED_TARGET_DUTY_IDS)
+    assert len(expected_duties) == 24
+
+    inventory_hosts = {
+        host
+        for duty_id in expected_duties
+        for host in duties[duty_id]["legacy_host_members"]
+    }
+    assert inventory_hosts == set(wj24.EXPECTED_SOURCE_HOST_IDS)
+    assert len(inventory_hosts) == 16
+
+    replaced_axes = {
+        axis["axis_id"]
+        for duty_id in expected_duties
+        for axis in duties[duty_id]["legacy_sds_axes"]
+        if axis.get("shop_opening_kind") == "sds_wood"
+    }
+    assert len(replaced_axes) == 144
+    assert len(wj24.EXPECTED_CANDIDATE_AXIS_IDS) == 104
+    assert len(wj24.EXPECTED_CANDIDATE_PART_IDS) == 28
+    assert len(wj24.EXPECTED_CANDIDATE_AXIS_STATION_IDS) == 48
+    assert not wj24_diagnostic.WJ24_LAYOUT.expected_additional_overlay_axis_counts
+
+
+def test_source_cut_merge_keeps_all_source_sds_ids_for_machine_filter_and_redirects():
+    inventory = _inventory()
+    native = {host: {} for host in wj24.EXPECTED_SOURCE_HOST_IDS}
+    purchase = {host: {} for host in wj24.EXPECTED_SOURCE_HOST_IDS}
+    redirects = wj24._redirect_rows(inventory)
+
+    for index, (axis_id, (host, _candidate)) in enumerate(sorted(redirects.items())):
+        native[host][axis_id] = _box(1 + index / 10)
+        purchase[host][f"panel_purchase/{axis_id}"] = _box(1 + index / 10)
+
+    target_axes = wj24._expected_duty_source_axes(
+        inventory, wj24.EXPECTED_TARGET_DUTY_IDS
+    )
+    for index, axis_id in enumerate(sorted(target_axes)):
+        duty = next(
+            row
+            for row in inventory["legacy_duties"]
+            if any(axis["axis_id"] == axis_id for axis in row["legacy_sds_axes"])
+        )
+        host = duty["legacy_host_members"][0]
+        native[host][axis_id] = _box(1.0 + (index % 3) / 10)
+        if index % 7 == 0:
+            native[host][f"{axis_id}/head"] = _box(1.5 + (index % 3) / 10)
+
+    applied, purchase_applied = wj24._build_applied_maps(native, purchase, redirects)
+    for axis_id, (source_host, _candidate_host) in redirects.items():
+        assert axis_id not in applied[source_host]
+        assert f"panel_purchase/{axis_id}" not in applied[source_host]
+        assert f"panel_purchase/{axis_id}" not in purchase_applied[source_host]
+
+    replaced = wj12._replaced_source_cutter_ids(applied, target_axes)
+    assert target_axes <= replaced
+    assert len(target_axes) == 144
+    assert len(replaced - target_axes) > 0
+
+
+def test_four_backer_purchase_cutters_are_canonical_then_redirected_to_candidates():
+    inventory = _inventory()
+    redirects = wj24._redirect_rows(inventory)
+    expected = wj24._expected_panel_purchase_ids(
+        inventory, wj24.EXPECTED_SOURCE_HOST_IDS
+    )
+    canonical = {
+        host: {cutter_id: _box() for cutter_id in cutter_ids}
+        for host, cutter_ids in expected.items()
+    }
+    native = {host: {} for host in wj24.EXPECTED_SOURCE_HOST_IDS}
+    for axis_id, (source_host, _candidate_host) in redirects.items():
+        native[source_host][axis_id] = _box()
+        assert f"panel_purchase/{axis_id}" in canonical[source_host]
+
+    applied_native, applied_purchase = wj24._build_applied_maps(
+        native, canonical, redirects
+    )
+    for axis_id, (source_host, _candidate_host) in redirects.items():
+        assert axis_id not in applied_native[source_host]
+        assert f"panel_purchase/{axis_id}" not in applied_native[source_host]
+        assert f"panel_purchase/{axis_id}" not in applied_purchase[source_host]
+
+
+def test_wj18_cut_map_check_preserves_prior_replacements_and_exact_base_map():
+    shape = _box()
+    hosts = sorted(wj18.EXPECTED_SOURCE_HOST_IDS)
+    canonical = {host: {} for host in hosts}
+    canonical[hosts[0]] = {"old-axis": shape, "new-axis": shape, "native-other": shape}
+    geometry = SimpleNamespace(
+        replaced_source_cutter_ids=frozenset({"old-axis"}),
+        applied_source_cutters_by_host={
+            host: ({"old-axis": shape, "native-other": shape} if host == hosts[0] else {})
+            for host in hosts
+        },
+    )
+
+    wj24._validate_wj18_cut_maps(
+        geometry, canonical, frozenset({"new-axis"})
+    )
+
+    canonical[hosts[0]].pop("old-axis")
+    with pytest.raises(ValueError, match="previously removed source cutter IDs"):
+        wj24._validate_wj18_cut_maps(
+            geometry, canonical, frozenset({"new-axis"})
+        )
+
+
+def test_new_delta_preflight_rejects_missing_axis_and_wrong_duty_station():
+    shapes = {name: _box() for name in bottom_center.BOTTOM_CANDIDATE_PART_IDS}
+    axis_ids = dict(bottom_center.BOTTOM_AXIS_STATION_IDS)
+    hosts = set(bottom_center.HOST_IDS)
+    inventory = {
+        "legacy_duties": [
+            {
+                "legacy_station_id": duty,
+                "legacy_sds_axes": [
+                    {"axis_id": f"{duty}_legacy_{index}", "shop_opening_kind": "sds_wood"}
+                    for index in range(6)
+                ],
+            }
+            for duty in bottom_center.TARGET_DUTY_IDS
+        ]
+    }
+    candidate_bores = {
+        axis_id: SimpleNamespace(
+            axis_id=axis_id,
+            station_id=duty,
+            family="bottom_center",
+            trial_id=bottom_center.TRIAL_ID,
+            receiver_ids=(
+                next(iter(shapes)),
+                next(iter(hosts)),
+            ),
+            shape=_box(1.0),
+        )
+        for axis_id, duty in axis_ids.items()
+    }
+    source_axes = wj24._expected_duty_source_axes(inventory, bottom_center.TARGET_DUTY_IDS)
+    native = {host: {} for host in hosts}
+    for axis_id in source_axes:
+        native[next(iter(hosts))][axis_id] = _box(1.0)
+    hardware = {
+        axis_id: {
+            role: _box(0.2 + index / 100)
+            for index, role in enumerate(top_center.ORDINARY_COMPONENT_ROLES)
+        }
+        for axis_id in axis_ids
+    }
+    delta = SimpleNamespace(
+        duties={duty: {} for duty in bottom_center.TARGET_DUTY_IDS},
+        target_duty_ids=bottom_center.TARGET_DUTY_IDS,
+        source_inventory=inventory,
+        source_native_cutters_by_host=native,
+        source_panel_purchase_cutters_by_host={host: {} for host in hosts},
+        replaced_source_axis_ids=source_axes,
+        replaced_source_cutter_ids=source_axes,
+        candidate_bores=dict(candidate_bores),
+        candidate_installed_hardware=hardware,
+        raw_candidate_parts=shapes,
+        finished_candidate_parts=dict(shapes),
+    )
+    contract = {
+        "family_name": "bottom_center",
+        "trial_id": bottom_center.TRIAL_ID,
+        "duty_ids": bottom_center.TARGET_DUTY_IDS,
+        "host_ids": bottom_center.HOST_IDS,
+        "axis_station_ids": bottom_center.BOTTOM_AXIS_STATION_IDS,
+        "candidate_part_ids": bottom_center.BOTTOM_CANDIDATE_PART_IDS,
+    }
+    wj24._validate_delta_duties_and_geometry(delta, **contract)
+
+    missing_axis = next(iter(delta.candidate_bores))
+    delta.candidate_bores.pop(missing_axis)
+    with pytest.raises(ValueError, match="candidate axis IDs"):
+        wj24._validate_delta_duties_and_geometry(delta, **contract)
+
+    delta.candidate_bores[missing_axis] = SimpleNamespace(
+        **{
+            **vars(candidate_bores[missing_axis]),
+            "station_id": "wrong-duty",
+        }
+    )
+    with pytest.raises(ValueError, match="provenance"):
+        wj24._validate_delta_duties_and_geometry(delta, **contract)
+
+
+def test_frame_protected_duplicate_check_rejects_cross_bolt_role_swaps():
+    inventory = _inventory()
+    axis_ids = {row["axis_id"] for row in inventory["starting_frame_bolts"]}
+    frame_shapes = {}
+    protected_components = {}
+    records = tuple(
+        {"axis_id": axis_id, "installed_component_count": 5}
+        for axis_id in sorted(axis_ids)
+    )
+    for bolt_index, axis_id in enumerate(sorted(axis_ids)):
+        for index in range(1, 6):
+            frame_shapes[f"{axis_id}/installed_component_{index}"] = _box(
+                0.2 + bolt_index * 0.01 + index * 0.001
+            )
+        frame_shapes[f"{axis_id}/source_occupied_axis"] = _box(1.5 + bolt_index / 100)
+        for role_index, role in enumerate(("shaft", "head_washer", "nut_washer", "head", "nut")):
+            protected_components[f"{axis_id}/{role}"] = frame_shapes[
+                f"{axis_id}/installed_component_{role_index + 1}"
+            ]
+    protected = {"retained_12_frame_bolt_components": protected_components}
+    wj24._validate_frame_protected_duplicates(
+        inventory, records, frame_shapes, protected
+    )
+
+    first, second = sorted(axis_ids)[:2]
+    protected_components[f"{first}/shaft"], protected_components[f"{second}/shaft"] = (
+        protected_components[f"{second}/shaft"],
+        protected_components[f"{first}/shaft"],
+    )
+    with pytest.raises(ValueError, match="per-bolt installed shapes"):
+        wj24._validate_frame_protected_duplicates(
+            inventory, records, frame_shapes, protected
+        )
+
+
+def test_delta_producer_hash_inputs_require_exact_bound_labels():
+    paths = top_center.PRODUCER_HASH_PATHS
+    supplied = {
+        label: hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+        for label, path in paths.items()
+    }
+    geometry = SimpleNamespace(source_inputs_sha256=supplied)
+    normalized = wj24._normalized_producer_inputs(
+        geometry, paths, context="top-center test"
+    )
+    assert set(normalized.values()) == set(supplied.values())
+
+    supplied["unexpected"] = "0" * 64
+    with pytest.raises(ValueError, match="input labels"):
+        wj24._normalized_producer_inputs(
+            geometry, paths, context="top-center test"
+        )
+
+
+def test_zero_overlay_diagnostic_contract_is_vacuous_only_when_both_maps_empty():
+    geometry = SimpleNamespace(
+        additional_finished_source_parts={},
+        additional_purchased_panel_cutters_by_host={},
+    )
+    report = {
+        "additional_source_purchase_overlays": {
+            "expected_host_count": 0,
+            "overlay_host_ids": [],
+            "cutter_map_host_ids": [],
+            "host_ids_match_expected": True,
+            "all_overlay_cutter_ids_match_fixed_axes": False,
+            "all_purchase_cutters_intersect_source_finished_members": False,
+            "all_overlays_replay_from_source_finished_members_and_cuts": False,
+            "all_compositor_reconstruction_evidence_matches": False,
+        },
+        "counts_and_ids": {
+            "additional_source_purchase_overlays": {
+                "all_overlay_and_cutter_ids_match_inventory": False
+            }
+        },
+        "diagnostic_gates": {"untouched_source_receiver_overlays_reconcile": False},
+    }
+    wj24_diagnostic._resolve_empty_overlay_semantics(report, geometry)
+
+    assert report["diagnostic_gates"]["untouched_source_receiver_overlays_reconcile"]
+    assert report["zero_overlay_contract_is_vacuously_satisfied"]
+    assert not report["shared_helper_zero_overlay_raw_flags"][
+        "all_overlays_replay_from_source_finished_members_and_cuts"
+    ]
+    assert report["additional_source_purchase_overlays"][
+        "all_overlays_replay_from_source_finished_members_and_cuts"
+    ]
+
+
+def test_full_layout_retains_local_contact_body_and_tool_findings():
+    contact_failure = {
+        "full_contact_slab_material_present": False,
+        "source_cut_id": "source/service/6/bore_base_rail_bottom_left_049",
+        "missing_cap_area_mm2": 167.835055,
+    }
+    tool_hit = {
+        "recorded_nonreceiver_approach_envelopes_clear": False,
+        "intersection_mm3_by_obstacle": {"wire_001_A1_A2": 182.434194},
+    }
+    top = SimpleNamespace(
+        diagnostic_gates={"candidate_contact_slab_material_present": False},
+        source_reconstruction={"host": {"matches": True}},
+        contact_checks={"axis": contact_failure},
+        layer_checks={"axis": {"all_declared_layers_present": True}},
+        washer_support={"axis": {"head": {"full_annular_seat_support": True}}},
+        candidate_body_checks={"part": {"positive_volume_conflicts": {}}},
+        installed_component_checks={"axis": {"shaft": {"positive_volume_conflicts": {}}}},
+        access_checks={"axis": {"head": tool_hit}},
+        source_face_evidence={},
+        source_axis_entry_face_audit={},
+        conditional_edge_screen={},
+        dimensional_fit_screen={},
+    )
+    outer = SimpleNamespace(
+        diagnostic_gates={"recorded_candidate_tool_envelopes_clear": False},
+        source_reconstruction={},
+        existing_panel_overlay_reconstruction={},
+        interface_checks={"cleat": {"gross_candidate_face_rectangle_area_mm2": 100.0}},
+        receiver_layer_checks={},
+        washer_support={},
+        candidate_body_checks={},
+        installed_component_checks={},
+        access_checks={"axis": {"nut": tool_hit}},
+        wj03_context={"screen_results": {"hit_mm3": 6.0}},
+        context_counts={},
+    )
+    center = SimpleNamespace(
+        diagnostic_gates={"candidate_contact_slab_material_present": False},
+        source_reconstruction={},
+        source_face_evidence={},
+        stack_rows={},
+        source_axis_entry_face_audit={},
+        contact_checks={"axis": contact_failure},
+        layer_checks={},
+        washer_support={},
+        candidate_body_checks={"cleat": {"positive_volume_conflicts": {"G1": 745.512902}}},
+        installed_component_checks={},
+        nonreceiver_approach_checks={"axis": {"nut": tool_hit}},
+        conditional_grain_edge_screen={},
+        dimensional_fit_screen={},
+    )
+
+    evidence = wj24._local_delta_evidence(top, outer, center)
+
+    assert not evidence["bottom_center"]["contact_checks"]["axis"][
+        "full_contact_slab_material_present"
+    ]
+    assert evidence["bottom_center"]["contact_checks"]["axis"][
+        "missing_cap_area_mm2"
+    ] == 167.835055
+    assert evidence["bottom_center"]["candidate_body_checks"]["cleat"][
+        "positive_volume_conflicts"
+    ]["G1"] == 745.512902
+    assert evidence["bottom_outer"]["wj03_context"]["screen_results"]["hit_mm3"] == 6.0
+    assert evidence["top_center"]["access_checks"]["axis"]["head"][
+        "intersection_mm3_by_obstacle"
+    ]["wire_001_A1_A2"] == 182.434194

@@ -1,0 +1,20 @@
+{
+  "attempt": "attempt-02-candidate-bore-trial-provenance",
+  "context_variant": "wj18",
+  "phase": "preflight_before_candidate_geometry",
+  "cad_materialization_started": false,
+  "frozen_producer_sha256": "7d434e47710205c690bc056b1a9a29179575b36dfbd9aaddf6d1f4f5dc9c6bf7",
+  "frozen_tests_sha256": "3aaee3208a8f29931edfbe7e4d7f297d3bb3a611589d138f0d00e93237d5d1db",
+  "producer_snapshot": "producer.py.snapshot",
+  "tests_snapshot": "tests.py.snapshot",
+  "failure": {
+    "gate": "parent candidate bore provenance",
+    "axis_id": "knee_outer_left_post_1",
+    "observed_family": "wj03_outer",
+    "observed_family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+    "observed_station_id": null,
+    "incorrect_expected_trial_id": "wj18-wj16-plus-top-outer-v1",
+    "reason": "CandidateBore.trial_id names the producing family trial, not the enclosing WJ18 composition trial."
+  },
+  "correction_scope": "Validate each exact candidate axis against its pinned family and producer trial ID, and validate the complete family_trial_ids mapping. Do not accept arbitrary nonempty provenance."
+}

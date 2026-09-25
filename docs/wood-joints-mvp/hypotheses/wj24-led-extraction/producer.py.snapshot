@@ -1,0 +1,57 @@
+"""Retained-session diagnostic; requires a completed g24 and its composition archive."""
+import hashlib,json,math,time
+from pathlib import Path
+import cadquery as cq
+from scripts import wood_joint_wj12_diagnostic as scene_diagnostic
+
+start_led=time.monotonic()
+assert g24.layout_id=='wj24-twenty-four-duty-integrated-static-v1',g24.layout_id
+probe_path_led=Path('/tmp/wj24-led-extraction-probe.py')
+composition_path_led=Path('/tmp/wj24-integrated-attempt-05/composition.json')
+source_paths_led=[probe_path_led,composition_path_led,Path('docs/round-service-wiring-reference.json'),Path('docs/wood-joints-mvp/hypotheses/wj18-panel-harness-topology/topology.json')]
+pins_led={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths_led}
+reference_led=json.loads(source_paths_led[2].read_text())
+topology_led=json.loads(source_paths_led[3].read_text())
+radius_led=reference_led['user_measurements']['maximum_harness_outside_diameter_mm']/2
+assert radius_led==6.35
+panels_led={r['part_id']:r for r in g24.source_inventory['parts'] if r['part_id'].startswith('main_')}
+_,wood_led=scene_diagnostic._composed_wood(g24)
+stationary_led={'wood/'+k:v for k,v in wood_led.items()}
+for axis,roles in g24.candidate_installed_hardware.items():
+ for role,shape in roles.items(): stationary_led['candidate_hardware/'+axis+'/'+role]=shape
+for family in ('fixed_66_hillman_axes_63p5mm','retained_12_frame_bolt_components','tnuts'):
+ for name,shape in g24.protected[family].items():stationary_led[family+'/'+name]=shape
+bounds_led={k:v.BoundingBox() for k,v in stationary_led.items()}
+def boxes_meet_led(a,b):
+ return all(getattr(a,axis+'max')>=getattr(b,axis+'min') and getattr(b,axis+'max')>=getattr(a,axis+'min') for axis in 'xyz')
+rows_led=[]
+for name,light in sorted(g24.protected['lights'].items()):
+ center=light.Center(); owners=[]
+ for pid,p in panels_led.items():
+  m=p['local_to_global_transform'];origin=cq.Vector(*(m[i][3] for i in range(3)));delta=center-origin
+  local=[sum(delta.toTuple()[i]*m[i][j] for i in range(3)) for j in range(3)]
+  if all(p['actual_shape_extents_local_mm'][a][0]-1e-6<=local[j]<=p['actual_shape_extents_local_mm'][a][1]+1e-6 for j,a in enumerate(('X','T'))):owners.append((pid,p,origin))
+ assert len(owners)==1,(name,owners)
+ pid,p,origin=owners[0]
+ assert topology_led['fixed_led_owner_by_label'][name.removeprefix('light_')]==pid
+ axis=cq.Vector(*p['local_axes']['N']).normalized()
+ stations=[(v.Center()-origin).dot(axis) for v in light.Vertices()];lo,hi=min(stations),max(stations);length=hi-lo
+ base=center-axis*(length/2)
+ cylinder=cq.Solid.makeCylinder(radius_led,length,base,axis)
+ delta_volume=light.cut(cylinder).Volume()+cylinder.cut(light).Volume()
+ assert delta_volume<1e-5,(name,delta_volume)
+ rear=p['actual_shape_extents_local_mm']['N'][1]
+ stroke=rear-lo+1.0
+ assert stroke>0
+ swept=cq.Solid.makeCylinder(radius_led,length+stroke,base,axis)
+ hits={}; sweep_bounds=swept.BoundingBox()
+ for obstacle,shape in stationary_led.items():
+  if boxes_meet_led(sweep_bounds,bounds_led[obstacle]):
+   volume=swept.intersect(shape).Volume()
+   if volume>1e-5:hits[obstacle]=volume
+ rows_led.append({'light_id':name,'owner_panel':pid,'rearward_axis_global_xyz':list(axis.toTuple()),'original_cylinder_symmetric_difference_mm3':delta_volume,'diameter_mm':2*radius_led,'original_length_mm':length,'stroke_mm':stroke,'front_end_final_panel_rear_clearance_mm':1.0,'swept_solid_volume_mm3':swept.Volume(),'positive_volume_hits_mm3':hits})
+assert len(rows_led)==132
+assert pins_led=={str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths_led}
+report_led={'status':'bounded_individual_led_axial_extraction_diagnostic','layout_id':g24.layout_id,'source_sha256':pins_led,'source_input_sha256':dict(g24.source_inputs_sha256),'stationary_shape_count':len(stationary_led),'light_count':len(rows_led),'lights_with_positive_volume_hits':sum(bool(r['positive_volume_hits_mm3']) for r in rows_led),'rows':rows_led,'scenario':'Each source LED cylinder translated independently rearward until its front end is 1 mm behind its owning panel rear; panels and all timber/hardware remain seated.','limits':['Continuous axial swept solids only; 1 mm is an explicit scenario, not a delivered tolerance.','Wire bending, slack, support, electrical connectors, whole-strand feeding, neighboring lights and hold-bolt projections are not modeled in this operation.','A blocked seated-frame path does not rule out a different supported panel/frame staging sequence.','Cylinder diameter is owner-reported maximum harness diameter; actual bulb latch/release operation is unobserved.'],'transport_proven':False,'assembly_proven':False,'native_solve_run':False,'release':False,'elapsed_seconds':time.monotonic()-start_led}
+Path('/tmp/wj24-led-extraction-probe.json').write_text(json.dumps(report_led,indent=2,sort_keys=True)+'\n')
+print(json.dumps({k:report_led[k] for k in ('status','light_count','stationary_shape_count','lights_with_positive_volume_hits','elapsed_seconds')}),flush=True)

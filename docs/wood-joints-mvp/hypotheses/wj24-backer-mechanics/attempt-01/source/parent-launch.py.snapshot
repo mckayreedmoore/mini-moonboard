@@ -1,0 +1,35 @@
+import hashlib
+import json
+import time
+import traceback
+from pathlib import Path
+from scripts import wood_joint_wj24_backer_mechanics_contract as backer_mechanics
+import importlib
+backer_mechanics = importlib.reload(backer_mechanics)
+
+relief_dir = Path('/tmp/wj24-backer-mechanics-20260924-attempt01')
+relief_dir.mkdir(exist_ok=False)
+relief_paths = [Path(backer_mechanics.__file__), Path('tests/test_wood_joint_wj24_backer_mechanics_contract.py')]
+relief_pins = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in relief_paths}
+assert relief_pins[str(relief_paths[0])] == '2c0ed8176b93f05811f69345ab2971a0103e2ee90725e31966c5c521decb5de2'
+assert relief_pins[str(relief_paths[1])] == '223461172ab8ecb7df549ab3888d596214c830174db063f632b7c18a95f0471c'
+for p in relief_paths:
+    (relief_dir / (p.name + '.snapshot')).write_bytes(p.read_bytes())
+relief_execution = {'producer_sha256_before': relief_pins, 'native_solve_run': False, 'release': False, 'baseline_composition_exactly_reproduced': record['exact_report_equal']}
+relief_start = time.monotonic()
+try:
+    assert record['exact_report_equal'] and record['source_unchanged']
+    backer_mechanics_report = backer_mechanics.build_mechanics_contract(g24)
+    (relief_dir / 'geometry.json').write_text(json.dumps(backer_mechanics_report, indent=2, sort_keys=True) + '\n')
+    relief_execution['status'] = 'diagnostic_completed_for_review'
+except Exception:
+    relief_execution['status'] = 'failed'
+    relief_execution['traceback'] = traceback.format_exc()
+    (relief_dir / 'traceback.txt').write_text(relief_execution['traceback'])
+    print(relief_execution['traceback'], flush=True)
+finally:
+    relief_execution['elapsed_seconds'] = time.monotonic() - relief_start
+    relief_execution['producer_sha256_after'] = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in relief_paths}
+    relief_execution['source_unchanged'] = relief_pins == relief_execution['producer_sha256_after']
+    (relief_dir / 'execution.json').write_text(json.dumps(relief_execution, indent=2, sort_keys=True) + '\n')
+    print('BACKER_MECHANICS', json.dumps(relief_execution), flush=True)

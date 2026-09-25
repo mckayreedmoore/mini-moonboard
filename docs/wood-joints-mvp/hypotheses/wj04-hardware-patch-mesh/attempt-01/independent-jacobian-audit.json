@@ -1,0 +1,756 @@
+{
+  "audit_scope": {
+    "body_count": 32,
+    "element_type": "C3D10",
+    "gmsh_or_cad_imported": false,
+    "integration_rule": "Gmsh 4.12.1 Gauss5; tetP5Solin; 14-point order-five tetrahedron rule",
+    "jacobian_convention": "det(dX/drst), positive for the exported element orientation; units mm^3",
+    "mesh_generated": false,
+    "native_solver_run": false,
+    "read_only": true,
+    "scenario_id": "body_to_far_wood_face",
+    "shape_function_basis": "quadratic barycentric vertex and six edge functions in CalculiX C3D10 order"
+  },
+  "input_artifacts": {
+    "mesh_inp": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/wj04-hardware-patch-mesh/attempt-01/mesh.inp",
+      "sha256": "3b3acbf2566b960961e3ed1566ed3fe8791ee29c45cfa1a1339b9699a8b1dd2c"
+    },
+    "mesh_json": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/wj04-hardware-patch-mesh/attempt-01/mesh.json",
+      "sha256": "67e737ade45b6961d42c6c82f430b5506c8932787dadeb8aa3c7af88a57c5989"
+    }
+  },
+  "limitations": [
+    "This checks positive Jacobian determinants at the 14 Gauss5 points; it does not prove positivity at every point inside each quadratic element.",
+    "It is a mesh geometry audit only and establishes no material behavior, contact behavior, stiffness, resistance, response, or release."
+  ],
+  "per_body": {
+    "lower_principal_1__bolt": {
+      "adapter_integrated_volume_mm3": 4950.096626581616,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 5052,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-15,
+      "independently_integrated_volume_mm3": 4950.096626581605,
+      "jacobian_determinant_count": 70728,
+      "maximum_gauss5_jacobian_determinant_mm3": 24.50324378476646,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.392013853845982,
+      "minimum_location": {
+        "element_id": 15778,
+        "point_index": 8,
+        "reference_point_rst": [
+          0.454496295874,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 6.392241319597147e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_principal_1__head_washer": {
+      "adapter_integrated_volume_mm3": 467.52743750824663,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 834,
+      "independent_vs_adapter_volume_relative_difference": 6.661338147750939e-16,
+      "independently_integrated_volume_mm3": 467.5274375082469,
+      "jacobian_determinant_count": 11676,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.97557285716875,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.283241094095171,
+      "minimum_location": {
+        "element_id": 21299,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.1375804663280604e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_principal_1__nut": {
+      "adapter_integrated_volume_mm3": 501.8453954829435,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 958,
+      "independent_vs_adapter_volume_relative_difference": 1.9984014443252818e-15,
+      "independently_integrated_volume_mm3": 501.8453954829425,
+      "jacobian_determinant_count": 13412,
+      "maximum_gauss5_jacobian_determinant_mm3": 11.67354206845966,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.705759224621522,
+      "minimum_location": {
+        "element_id": 22785,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 2.9891655028535524e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_principal_1__nut_washer": {
+      "adapter_integrated_volume_mm3": 467.5274360834235,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 834,
+      "independent_vs_adapter_volume_relative_difference": 6.661338147750939e-16,
+      "independently_integrated_volume_mm3": 467.5274360834238,
+      "jacobian_determinant_count": 11676,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.975572857168608,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.2832410940951651,
+      "minimum_location": {
+        "element_id": 22132,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.1345328894705204e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_principal_2__bolt": {
+      "adapter_integrated_volume_mm3": 4950.116362935306,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 5321,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-16,
+      "independently_integrated_volume_mm3": 4950.116362935305,
+      "jacobian_determinant_count": 74494,
+      "maximum_gauss5_jacobian_determinant_mm3": 23.313367352126143,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.33574730517019913,
+      "minimum_location": {
+        "element_id": 23438,
+        "point_index": 8,
+        "reference_point_rst": [
+          0.454496295874,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 5.99356037266352e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_principal_2__head_washer": {
+      "adapter_integrated_volume_mm3": 467.52743750824783,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 834,
+      "independent_vs_adapter_volume_relative_difference": 3.3306690738754696e-16,
+      "independently_integrated_volume_mm3": 467.52743750824766,
+      "jacobian_determinant_count": 11676,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.975572857167304,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.283241094098184,
+      "minimum_location": {
+        "element_id": 29246,
+        "point_index": 2,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.721794249067,
+          0.0927352503109
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.1375804678823727e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_principal_2__nut": {
+      "adapter_integrated_volume_mm3": 501.8445289977975,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 975,
+      "independent_vs_adapter_volume_relative_difference": 4.440892098500626e-15,
+      "independently_integrated_volume_mm3": 501.8445289977997,
+      "jacobian_determinant_count": 13650,
+      "maximum_gauss5_jacobian_determinant_mm3": 12.644126995932512,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7073285100554891,
+      "minimum_location": {
+        "element_id": 30735,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 2.816500564395419e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_principal_2__nut_washer": {
+      "adapter_integrated_volume_mm3": 467.5274360834233,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 834,
+      "independent_vs_adapter_volume_relative_difference": 2.4424906541753444e-15,
+      "independently_integrated_volume_mm3": 467.5274360834245,
+      "jacobian_determinant_count": 11676,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.975572857167464,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.2832410940981792,
+      "minimum_location": {
+        "element_id": 30079,
+        "point_index": 2,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.721794249067,
+          0.0927352503109
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.134532890802788e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_rail_1__bolt": {
+      "adapter_integrated_volume_mm3": 4950.105926261261,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 5148,
+      "independent_vs_adapter_volume_relative_difference": 1.7763568394002505e-15,
+      "independently_integrated_volume_mm3": 4950.10592626127,
+      "jacobian_determinant_count": 72072,
+      "maximum_gauss5_jacobian_determinant_mm3": 24.47123751149975,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.29365605501190994,
+      "minimum_location": {
+        "element_id": 4773,
+        "point_index": 12,
+        "reference_point_rst": [
+          0.0455037041256,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 6.204383419583515e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_rail_1__head_washer": {
+      "adapter_integrated_volume_mm3": 467.52744575201507,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 831,
+      "independent_vs_adapter_volume_relative_difference": 1.5543122344752192e-15,
+      "independently_integrated_volume_mm3": 467.52744575201575,
+      "jacobian_determinant_count": 11634,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.971389539632085,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.8209204686234584,
+      "minimum_location": {
+        "element_id": 5830,
+        "point_index": 11,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.155214627570402e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_rail_1__nut": {
+      "adapter_integrated_volume_mm3": 501.84503000191177,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 969,
+      "independent_vs_adapter_volume_relative_difference": 4.440892098500626e-16,
+      "independently_integrated_volume_mm3": 501.84503000191194,
+      "jacobian_determinant_count": 13566,
+      "maximum_gauss5_jacobian_determinant_mm3": 12.755121239732826,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7057894020579292,
+      "minimum_location": {
+        "element_id": 7134,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 2.916328769897447e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_rail_1__nut_washer": {
+      "adapter_integrated_volume_mm3": 467.527436155471,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 833,
+      "independent_vs_adapter_volume_relative_difference": 5.551115123125783e-15,
+      "independently_integrated_volume_mm3": 467.52743615547354,
+      "jacobian_determinant_count": 11662,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.971389539664564,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7569885089742445,
+      "minimum_location": {
+        "element_id": 6619,
+        "point_index": 12,
+        "reference_point_rst": [
+          0.0455037041256,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.1346872930715364e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_rail_2__bolt": {
+      "adapter_integrated_volume_mm3": 4950.107426514197,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 5339,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-16,
+      "independently_integrated_volume_mm3": 4950.107426514196,
+      "jacobian_determinant_count": 74746,
+      "maximum_gauss5_jacobian_determinant_mm3": 29.624562014099247,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.3823442232206972,
+      "minimum_location": {
+        "element_id": 7791,
+        "point_index": 8,
+        "reference_point_rst": [
+          0.454496295874,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 6.17407780877377e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_rail_2__head_washer": {
+      "adapter_integrated_volume_mm3": 467.5274360074672,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 833,
+      "independent_vs_adapter_volume_relative_difference": 1.5543122344752192e-15,
+      "independently_integrated_volume_mm3": 467.52743600746646,
+      "jacobian_determinant_count": 11662,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.971389539636167,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.756988509848562,
+      "minimum_location": {
+        "element_id": 13760,
+        "point_index": 12,
+        "reference_point_rst": [
+          0.0455037041256,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.134371831192695e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_rail_2__nut": {
+      "adapter_integrated_volume_mm3": 501.8450300019115,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 969,
+      "independent_vs_adapter_volume_relative_difference": 1.4432899320127035e-15,
+      "independently_integrated_volume_mm3": 501.84503000191074,
+      "jacobian_determinant_count": 13566,
+      "maximum_gauss5_jacobian_determinant_mm3": 12.755121239733896,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7057894020557622,
+      "minimum_location": {
+        "element_id": 15112,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 2.9163287696309936e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "lower_rail_2__nut_washer": {
+      "adapter_integrated_volume_mm3": 467.52743601740525,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 837,
+      "independent_vs_adapter_volume_relative_difference": 3.3306690738754696e-16,
+      "independently_integrated_volume_mm3": 467.5274360174051,
+      "jacobian_determinant_count": 11718,
+      "maximum_gauss5_jacobian_determinant_mm3": 10.03499223686301,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.12328868438807383,
+      "minimum_location": {
+        "element_id": 14457,
+        "point_index": 1,
+        "reference_point_rst": [
+          0.721794249067,
+          0.0927352503109,
+          0.0927352503109
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.134391963754979e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_principal_1__bolt": {
+      "adapter_integrated_volume_mm3": 4950.0989054263655,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 5031,
+      "independent_vs_adapter_volume_relative_difference": 1.5543122344752192e-15,
+      "independently_integrated_volume_mm3": 4950.098905426374,
+      "jacobian_determinant_count": 70434,
+      "maximum_gauss5_jacobian_determinant_mm3": 19.99350030319218,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.35990433726666743,
+      "minimum_location": {
+        "element_id": 46883,
+        "point_index": 8,
+        "reference_point_rst": [
+          0.454496295874,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 6.346207892948819e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_principal_1__head_washer": {
+      "adapter_integrated_volume_mm3": 467.5274374057942,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 834,
+      "independent_vs_adapter_volume_relative_difference": 9.992007221626409e-16,
+      "independently_integrated_volume_mm3": 467.52743740579376,
+      "jacobian_determinant_count": 11676,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.975572857169965,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.2832410940955432,
+      "minimum_location": {
+        "element_id": 52400,
+        "point_index": 9,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.454496295874
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.1373613273988354e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_principal_1__nut": {
+      "adapter_integrated_volume_mm3": 501.8453954829434,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 964,
+      "independent_vs_adapter_volume_relative_difference": 5.551115123125783e-16,
+      "independently_integrated_volume_mm3": 501.8453954829431,
+      "jacobian_determinant_count": 13496,
+      "maximum_gauss5_jacobian_determinant_mm3": 12.531719322929925,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7335379616831843,
+      "minimum_location": {
+        "element_id": 53597,
+        "point_index": 1,
+        "reference_point_rst": [
+          0.721794249067,
+          0.0927352503109,
+          0.0927352503109
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 2.989165503031188e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_principal_1__nut_washer": {
+      "adapter_integrated_volume_mm3": 467.5274360857588,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 834,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-16,
+      "independently_integrated_volume_mm3": 467.52743608575884,
+      "jacobian_determinant_count": 11676,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.975572857169823,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.2832410940955369,
+      "minimum_location": {
+        "element_id": 53234,
+        "point_index": 9,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.454496295874
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.1345378836977744e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_principal_2__bolt": {
+      "adapter_integrated_volume_mm3": 4950.096626581608,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 5020,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-16,
+      "independently_integrated_volume_mm3": 4950.096626581609,
+      "jacobian_determinant_count": 70280,
+      "maximum_gauss5_jacobian_determinant_mm3": 24.503243784767122,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.3920138538454201,
+      "minimum_location": {
+        "element_id": 54561,
+        "point_index": 8,
+        "reference_point_rst": [
+          0.454496295874,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 6.392241319519432e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_principal_2__head_washer": {
+      "adapter_integrated_volume_mm3": 467.527437508248,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 834,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-15,
+      "independently_integrated_volume_mm3": 467.527437508247,
+      "jacobian_determinant_count": 11676,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.97557285716576,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.28324109409430825,
+      "minimum_location": {
+        "element_id": 60053,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.137580466550105e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_principal_2__nut": {
+      "adapter_integrated_volume_mm3": 501.8453954829469,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 960,
+      "independent_vs_adapter_volume_relative_difference": 1.6653345369377348e-15,
+      "independently_integrated_volume_mm3": 501.84539548294606,
+      "jacobian_determinant_count": 13440,
+      "maximum_gauss5_jacobian_determinant_mm3": 12.53171932292999,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7355090399808089,
+      "minimum_location": {
+        "element_id": 61251,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 2.9891655035862996e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_principal_2__nut_washer": {
+      "adapter_integrated_volume_mm3": 467.52743608342513,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 834,
+      "independent_vs_adapter_volume_relative_difference": 1.9984014443252818e-15,
+      "independently_integrated_volume_mm3": 467.5274360834242,
+      "jacobian_determinant_count": 11676,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.975572857165616,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.28324109409430237,
+      "minimum_location": {
+        "element_id": 60886,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.134532890358699e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_rail_1__bolt": {
+      "adapter_integrated_volume_mm3": 4950.095081957798,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 5233,
+      "independent_vs_adapter_volume_relative_difference": 3.3306690738754696e-16,
+      "independently_integrated_volume_mm3": 4950.0950819577965,
+      "jacobian_determinant_count": 73262,
+      "maximum_gauss5_jacobian_determinant_mm3": 23.125917273351234,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.30009815190334255,
+      "minimum_location": {
+        "element_id": 36238,
+        "point_index": 12,
+        "reference_point_rst": [
+          0.0455037041256,
+          0.454496295874,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 6.423441973957278e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_rail_1__head_washer": {
+      "adapter_integrated_volume_mm3": 467.5274360169641,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 833,
+      "independent_vs_adapter_volume_relative_difference": 1.9984014443252818e-15,
+      "independently_integrated_volume_mm3": 467.5274360169632,
+      "jacobian_determinant_count": 11662,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.971389539664353,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7569885098588958,
+      "minimum_location": {
+        "element_id": 37271,
+        "point_index": 11,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.134391030723549e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_rail_1__nut": {
+      "adapter_integrated_volume_mm3": 501.847434178737,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 964,
+      "independent_vs_adapter_volume_relative_difference": 2.886579864025407e-15,
+      "independently_integrated_volume_mm3": 501.84743417873847,
+      "jacobian_determinant_count": 13496,
+      "maximum_gauss5_jacobian_determinant_mm3": 12.723839985434259,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7243297109083252,
+      "minimum_location": {
+        "element_id": 38769,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.395410190853987e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_rail_1__nut_washer": {
+      "adapter_integrated_volume_mm3": 467.5274360172738,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 833,
+      "independent_vs_adapter_volume_relative_difference": 4.440892098500626e-16,
+      "independently_integrated_volume_mm3": 467.52743601727406,
+      "jacobian_determinant_count": 11662,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.971389539666472,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7569885090620145,
+      "minimum_location": {
+        "element_id": 38104,
+        "point_index": 11,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.134391681980375e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_rail_2__bolt": {
+      "adapter_integrated_volume_mm3": 4950.087277562213,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 4984,
+      "independent_vs_adapter_volume_relative_difference": 1.4432899320127035e-15,
+      "independently_integrated_volume_mm3": 4950.087277562206,
+      "jacobian_determinant_count": 69776,
+      "maximum_gauss5_jacobian_determinant_mm3": 23.41147863473887,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.28654132124935333,
+      "minimum_location": {
+        "element_id": 39273,
+        "point_index": 11,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 6.581093375446212e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_rail_2__head_washer": {
+      "adapter_integrated_volume_mm3": 467.52743615306565,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 833,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-16,
+      "independently_integrated_volume_mm3": 467.5274361530657,
+      "jacobian_determinant_count": 11662,
+      "maximum_gauss5_jacobian_determinant_mm3": 9.971389539662855,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7569885098589056,
+      "minimum_location": {
+        "element_id": 44885,
+        "point_index": 11,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.134682147409862e-06,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_rail_2__nut": {
+      "adapter_integrated_volume_mm3": 501.8474341787295,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 964,
+      "independent_vs_adapter_volume_relative_difference": 2.9976021664879227e-15,
+      "independently_integrated_volume_mm3": 501.847434178728,
+      "jacobian_determinant_count": 13496,
+      "maximum_gauss5_jacobian_determinant_mm3": 12.723839985436168,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7243297106908857,
+      "minimum_location": {
+        "element_id": 46387,
+        "point_index": 3,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.0927352503109,
+          0.721794249067
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.395410191586734e-05,
+      "relative_volume_tolerance": 0.001
+    },
+    "upper_rail_2__nut_washer": {
+      "adapter_integrated_volume_mm3": 467.52743615547706,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 837,
+      "independent_vs_adapter_volume_relative_difference": 6.661338147750939e-16,
+      "independently_integrated_volume_mm3": 467.52743615547735,
+      "jacobian_determinant_count": 11718,
+      "maximum_gauss5_jacobian_determinant_mm3": 10.034992236865804,
+      "minimum_gauss5_jacobian_determinant_mm3": 0.7569885090628511,
+      "minimum_location": {
+        "element_id": 45713,
+        "point_index": 11,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_imported_cad": 3.1346898838879866e-06,
+      "relative_volume_tolerance": 0.001
+    }
+  },
+  "quadrature_rule_provenance": {
+    "gmsh_version": "4.12.1",
+    "minimum_weight": 0.00709100346285,
+    "point_count": 14,
+    "source_archive_sha256": "59ee2118ba7b099e9d1502572c9af4221501af955103d2b687aaa3890d13325e",
+    "source_archive_url": "https://gmsh.info/src/gmsh-4.12.1-source.tgz",
+    "source_file_path": "src/numeric/GaussQuadratureTet.cpp",
+    "source_file_sha256": "d09ae2bd9a21927daf4e272e25dfd516bf453d0b78a8ecc66100603be4c3c24f",
+    "source_rule_weight_sum": 0.1666666666667,
+    "source_symbol": "tetP5Solin[14]"
+  },
+  "schema": "c3d10_gauss5_independent_jacobian_audit/v1",
+  "status": "PASSED_INDEPENDENT_GAUSS5_JACOBIAN_AND_VOLUME_AUDIT",
+  "totals": {
+    "all_32_bodies_pass_recorded_relative_volume_tolerance": true,
+    "element_count": 62193,
+    "gauss5_jacobian_determinant_count": 870702,
+    "maximum_relative_volume_error_vs_imported_cad": 6.581093375446212e-05,
+    "minimum_gauss5_jacobian_determinant_mm3": 0.12328868438807383,
+    "node_count": 131742,
+    "nonpositive_gauss5_jacobian_count": 0
+  }
+}

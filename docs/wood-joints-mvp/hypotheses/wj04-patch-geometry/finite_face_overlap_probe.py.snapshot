@@ -1,0 +1,33 @@
+import hashlib,json,time
+from pathlib import Path
+import cadquery as cq
+
+def face_overlap_probe(geometry):
+    bundle=Path('fea/results/diagnostics/wj04-full-stock-patch-geometry-v1')
+    manifest=json.loads((bundle/'sha256.json').read_text())
+    assert all(hashlib.sha256((bundle/p).read_bytes()).hexdigest()==h for p,h in manifest.items())
+    data=json.loads((bundle/'inventory.json').read_text())
+    parts={**geometry.finished_hosts,**geometry.finished_candidate_parts}
+    rows=[]
+    for interface in data['wood_interfaces']:
+        origin=cq.Vector(*interface['shear_plane_datum']['origin_global_xyz_mm'])
+        selected={}
+        for key in ('source_host_face','candidate_cleat_face'):
+            basis=interface[key]; part=basis['part_id']; normal=cq.Vector(*(basis.get('normal_global_xyz') or basis['plane_normal_global_xyz']))
+            selected[key]=[f for f in parts[part].Faces() if f.geomType()=='PLANE' and f.normalAt().dot(normal)>1-1e-8 and abs((f.Center()-origin).dot(normal))<=1e-6]
+            assert selected[key], (interface['interface_id'],part)
+        common=[]; distances=[]
+        for first in selected['source_host_face']:
+            for second in selected['candidate_cleat_face']:
+                distances.append(first.distance(second))
+                common.extend(first.intersect(second).Faces())
+        area=sum(f.Area() for f in common)
+        assert area>0,interface['interface_id']
+        rows.append({'interface_id':interface['interface_id'],'source_member':interface['source_host_face']['part_id'],'cleat_member':interface['candidate_cleat_face']['part_id'],'matched_host_planar_faces':len(selected['source_host_face']),'matched_cleat_planar_faces':len(selected['candidate_cleat_face']),'host_planar_area_mm2':sum(f.Area() for f in selected['source_host_face']),'cleat_planar_area_mm2':sum(f.Area() for f in selected['candidate_cleat_face']),'finite_common_face_count':len(common),'finite_common_area_mm2':area,'minimum_pair_distance_mm':min(distances),'maximum_pair_distance_mm':max(distances),'pressure_or_capacity_established':False})
+    return {'status':'parent_finite_face_overlap_probe_only','inventory_sha256':manifest['inventory.json'],'producer_sha256':hashlib.sha256(Path('/tmp/wj04-face-overlap-parent-probe.py').read_bytes()).hexdigest(),'plane_selection_tolerance_mm':1e-6,'method':'common faces of actual opposed finished planar faces; no projection or translation','interfaces':rows,'native_solve_run':False,'release':False}
+
+probe_start=time.monotonic()
+face_overlap_report=face_overlap_probe(g16)
+Path('/tmp/wj04-face-overlap-parent.json').write_text(json.dumps(face_overlap_report,indent=2,sort_keys=True)+'\n')
+print('FACE_OVERLAP_SECONDS',time.monotonic()-probe_start,flush=True)
+print(json.dumps(face_overlap_report['interfaces']),flush=True)

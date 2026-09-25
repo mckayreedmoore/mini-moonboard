@@ -1,0 +1,86 @@
+import importlib
+import json
+import time
+from pathlib import Path
+from scripts import wood_joint_wj24_bottom_support_up_one_row as support_up
+from scripts import wood_joint_wj24_bottom_support_above_tnuts as above_tnuts
+from scripts import export_wood_joint_design_review_scene as design_export
+from mini_moonboard import wood_joint_panel_machining as panel_machining
+
+importlib.reload(support_up)
+importlib.reload(above_tnuts)
+importlib.reload(design_export)
+above_dir = Path('docs/wood-joints-mvp/hypotheses/bottom-support-above-tnuts-2026-09-24')
+above_dir.mkdir(exist_ok=True)
+started_above = time.monotonic()
+g24_above_tnuts, above_tnuts_report = above_tnuts.build_bottom_support_above_tnuts(g24_lower_below, lower_below_report, g24_owner_review)
+print('MODEL_READY',above_tnuts_report['position_reference'],flush=True)
+
+axis_ids = set(g24_above_tnuts.fixed_axes)
+delta_above = support_up._translation_from_inventory(g24_above_tnuts.source_inventory,above_tnuts_report['translation_wall_T_mm'])
+old_axes = {c.name:c for c in g24_above_tnuts.source.panel_connections()}
+prior_axes = {c.name:c for c in support_up._panel_connections(g24_above_tnuts.source,support_up._translation_from_inventory(g24_above_tnuts.source_inventory),axis_ids)}
+new_axes = {c.name:c for c in support_up._panel_connections(g24_above_tnuts.source,delta_above,axis_ids)}
+above_checks = {'screw_holes':{},'contacts':{},'panel_bounds':{}}
+for axis in sorted(support_up.PANEL_SCREW_IDS):
+    panel = g24_above_tnuts.panel_replacements[new_axes[axis].members[0]]
+    volumes = [panel.intersect(panel_machining._panel_connection_cutters(rows[axis])[0]).Volume() for rows in [old_axes,prior_axes,new_axes]]
+    assert volumes[0]>1 and volumes[1]>1 and volumes[2]<1e-4, (axis,volumes)
+    above_checks['screw_holes'][axis] = {'original_position_filled_mm3':volumes[0],'previous_raised_position_filled_mm3':volumes[1],'new_hole_overlap_mm3':volumes[2]}
+for part_id in support_up.MOVING_PART_IDS:
+    shape = g24_above_tnuts.finished_candidate_parts[part_id]
+    receivers = {r for axis in support_up.MOVING_PART_AXES[part_id] for r in g24_above_tnuts.candidate_bores[axis].receiver_ids}-{part_id}
+    for receiver in receivers:
+        host = g24_above_tnuts.finished_hosts[receiver]
+        overlap,gap = shape.intersect(host).Volume(),shape.distance(host)
+        assert overlap<1e-4 and gap<1e-4,(part_id,receiver,overlap,gap)
+        above_checks['contacts'][f'{part_id}/{receiver}']={'overlap_mm3':overlap,'gap_mm':gap}
+for name in support_up.PANEL_IDS:
+    old_bb=g24_owner_review.panel_replacements[name].BoundingBox()
+    new_bb=g24_above_tnuts.panel_replacements[name].BoundingBox()
+    change=max(abs(getattr(old_bb,a+end)-getattr(new_bb,a+end)) for a in 'xyz' for end in ['min','max'])
+    assert change<1e-6,(name,change)
+    above_checks['panel_bounds'][name]=change
+assert len(axis_ids)==66 and len(g24_above_tnuts.candidate_bores)==104
+assert g24_above_tnuts.frame_bolt_shapes is g24_lower_below.frame_bolt_shapes
+above_tnuts_report['focused_geometry_checks']=above_checks
+print('HOLES_CONTACTS_AND_BOUNDS_CHECKED',flush=True)
+
+def above_bbox_overlap(shape,other):
+    a,b=shape.BoundingBox(),other.BoundingBox()
+    return all(getattr(a,d+'min')<getattr(b,d+'max') and getattr(b,d+'min')<getattr(a,d+'max') for d in 'xyz')
+
+pool={f'wood/{k}':v for k,v in {**g24_above_tnuts.finished_hosts,**g24_above_tnuts.finished_candidate_parts}.items()}
+for group in ['tnuts','hold_hole_and_provisional_projection','lights','wires']:
+    pool.update({f'{group}/{k}':v for k,v in g24_above_tnuts.protected[group].items()})
+changed_parts=set(lower_blocks.TARGET_PART_IDS)|set(support_up.MOVING_PART_IDS)
+changed_shapes={k:g24_above_tnuts.finished_candidate_parts[k] for k in changed_parts}
+changed_shapes.update({k:g24_above_tnuts.finished_hosts[k] for k in support_up.MOVED_RAIL_IDS})
+above_hits=[]
+for name,shape in changed_shapes.items():
+    for neighbor,other in pool.items():
+        if neighbor==f'wood/{name}' or not above_bbox_overlap(shape,other): continue
+        volume=shape.intersect(other).Volume()
+        if volume>1e-4: above_hits.append({'part':name,'neighbor':neighbor,'intersection_mm3':round(volume,6)})
+above_tnuts_report['focused_neighbor_hits']=above_hits
+above_tnuts_report['findings']=[{'title':'Lower panel edge support needs a revised detail','detail':'The bottom rail and four panel screws remain above their original positions. Support along the lower panel edge remains part of the kicker connection review.'}]
+wire_hits=[h for h in above_hits if h['neighbor'].startswith('wires/')]
+if wire_hits: above_tnuts_report['findings'].append({'title':'Wire routing at the bottom rail','detail':f'The rail crosses {len(wire_hits)} segments of the current LED wiring model. The wire route or rail passages need updating.'})
+for hit in above_hits:
+    if hit['neighbor'].startswith('wires/'): continue
+    if hit['neighbor'].startswith('hold_hole_and_provisional_projection/'):
+        hold=hit['neighbor'].rsplit('_',1)[-1]
+        above_tnuts_report['findings'].append({'title':f'{hold} hold-bolt clearance','detail':f'A corner block intersects the provisional clearance envelope behind hold {hold}. Hold-bolt length and access here remain to be resolved.'})
+    else:
+        above_tnuts_report['findings'].append({'title':'Neighboring geometry needs review','detail':f"{hit['part']} intersects {hit['neighbor']} in the model."})
+print('NEIGHBOR_HITS',above_hits,flush=True)
+report_raw=json.dumps(above_tnuts_report,indent=2,sort_keys=True).encode()+b'\n'
+scene_above=design_export.build_design_review_scene(g24_above_tnuts,above_tnuts_report,revision_report_bytes=report_raw,revision_report_path='owner-wood-joints-review-report.json')
+scene_raw=design_export.scene_json_bytes(scene_above)
+(above_dir/'revision.json').write_bytes(report_raw)
+(above_dir/'producer.py.snapshot').write_bytes(Path(above_tnuts.__file__).read_bytes())
+(above_dir/'launch.py.snapshot').write_bytes(Path('/tmp/run-wj24-above-tnuts.py').read_bytes())
+Path('site/owner-wood-joints-review-report.json').write_bytes(report_raw)
+Path('site/owner-wood-joints-wj24-scene.json.tmp').write_bytes(scene_raw)
+Path('site/owner-wood-joints-wj24-scene.json.tmp').replace('site/owner-wood-joints-wj24-scene.json')
+print('VIEWER_UPDATED',len(scene_above['solids']),time.monotonic()-started_above,flush=True)

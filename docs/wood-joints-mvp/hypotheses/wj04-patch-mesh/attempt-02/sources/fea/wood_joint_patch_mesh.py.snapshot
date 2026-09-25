@@ -1,0 +1,1045 @@
+"""Prepare independent C3D10 meshes from the frozen WJ04 five-body STEP bundle.
+
+Mesh preparation only: this module has no CadQuery import, material, contact
+law, assembly classification, load, strength check, or native solver call.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import math
+import platform
+from pathlib import Path
+from typing import Any
+
+from fea.stitch_joint_mesh import (
+    GMSH_TO_CCX,
+    append_body,
+    external_faces,
+    surface_faces,
+    validate_ownership,
+)
+
+ROOT = Path(__file__).resolve().parents[1]
+BUNDLE_INVENTORY_SCHEMA = "wood_joint_wj04_patch_geometry/v1"
+SCHEMA = "wood_joint_patch_mesh/v1"
+BUNDLE_STATUS = "source_bound_finished_geometry_export_inputs_only"
+FROZEN_PATCH_INVENTORY_SHA256 = "c208f96bcfcda7a6b089496c9e1c4afe48f874810050f8d0c5cc700f65d5772d"
+FROZEN_MANIFEST_SHA256 = "f21e99f55da92ea60c950eecc6707fe98ca5df47f4d019f344c16fa06b52caf9"
+FROZEN_COMPOSITION_SHA256 = "c0bc37fdbc364deafcbc86dc04e710d2f5b6809436e560717a97593951f8ebcb"
+FROZEN_PATCH_EXPORTER_SHA256 = "8e08dbeb739b267d6c4bf1af372a769ac39867ae397e180656f10dfe72d41994"
+SOURCE_INVENTORY_SHA256 = "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+LIMITS = (
+    "Finished geometry mesh preparation only; no material, contact, interface tie, "
+    "load, native solve, strength result, or release claim."
+)
+
+PATCH_EXPORTER_PATH = "scripts/wood_joint_wj04_patch_geometry.py"
+WORKER_SOURCE_PATHS = (
+    "fea/wood_joint_patch_mesh.py",
+    "fea/stitch_joint_mesh.py",
+    "fea/floor_contact.py",
+    PATCH_EXPORTER_PATH,
+)
+
+LOWER_CLEAT = "wj04_lower_full_stock_cleat"
+UPPER_CLEAT = "wj04_upper_g7_crosscut_full_stock_cleat"
+LOWER_RAIL = "base_rail_service_lower_right"
+UPPER_RAIL = "base_rail_service_upper_right"
+PRINCIPAL = "base_principal_center_right"
+WOOD_BODY_IDS = (
+    LOWER_RAIL,
+    UPPER_RAIL,
+    PRINCIPAL,
+    LOWER_CLEAT,
+    UPPER_CLEAT,
+)
+EXPECTED_BODY_ROLES = {
+    LOWER_RAIL: "finished_source_host",
+    UPPER_RAIL: "finished_source_host",
+    PRINCIPAL: "finished_source_host",
+    LOWER_CLEAT: "finished_candidate_part",
+    UPPER_CLEAT: "finished_candidate_part",
+}
+HARDWARE_ROLES = frozenset({"shaft", "head", "head_washer", "nut_washer", "nut"})
+G7_AXIS_PREFIX = "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/"
+STACK_RECEIVERS = {
+    "lower_rail_1": (LOWER_CLEAT, LOWER_RAIL),
+    "lower_rail_2": (LOWER_CLEAT, LOWER_RAIL),
+    "lower_principal_1": (LOWER_CLEAT, PRINCIPAL),
+    "lower_principal_2": (LOWER_CLEAT, PRINCIPAL),
+    "upper_rail_1": (UPPER_RAIL, UPPER_CLEAT),
+    "upper_rail_2": (UPPER_RAIL, UPPER_CLEAT),
+    "upper_principal_1": (UPPER_CLEAT, PRINCIPAL),
+    "upper_principal_2": (UPPER_CLEAT, PRINCIPAL),
+}
+EXPECTED_INTERFACE_STACKS = {
+    "clip_horizontal_lower_right_1__rail_to_cleat": (
+        "lower_rail_1",
+        "lower_rail_2",
+    ),
+    "clip_horizontal_lower_right_1__principal_to_cleat": (
+        "lower_principal_1",
+        "lower_principal_2",
+    ),
+    "clip_horizontal_upper_right_1__rail_to_cleat": (
+        "upper_rail_1",
+        "upper_rail_2",
+    ),
+    "clip_horizontal_upper_right_1__principal_to_cleat": (
+        "upper_principal_1",
+        "upper_principal_2",
+    ),
+}
+BODY_INTERFACE_IDS = {
+    LOWER_RAIL: {"clip_horizontal_lower_right_1__rail_to_cleat"},
+    UPPER_RAIL: {"clip_horizontal_upper_right_1__rail_to_cleat"},
+    PRINCIPAL: {
+        "clip_horizontal_lower_right_1__principal_to_cleat",
+        "clip_horizontal_upper_right_1__principal_to_cleat",
+    },
+    LOWER_CLEAT: {
+        "clip_horizontal_lower_right_1__rail_to_cleat",
+        "clip_horizontal_lower_right_1__principal_to_cleat",
+    },
+    UPPER_CLEAT: {
+        "clip_horizontal_upper_right_1__rail_to_cleat",
+        "clip_horizontal_upper_right_1__principal_to_cleat",
+    },
+}
+
+RELATIVE_MESH_VOLUME_TOLERANCE = 0.001
+CAD_IMPORT_RELATIVE_VOLUME_TOLERANCE = 1e-7
+CAD_IMPORT_POSITION_TOLERANCE_MM = 1e-3
+
+
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def sha256_file(path: str | Path) -> str:
+    return sha256_bytes(Path(path).read_bytes())
+
+
+def write_json(path: str | Path, record: Any) -> None:
+    Path(path).write_text(json.dumps(record, indent=2, sort_keys=True, allow_nan=False) + "\n")
+
+
+def _finite_vector(value: Any, length: int, context: str) -> tuple[float, ...]:
+    try:
+        result = tuple(float(component) for component in value)
+    except (TypeError, ValueError) as error:
+        raise ValueError(f"{context}: expected {length} finite coordinates") from error
+    if len(result) != length or not all(math.isfinite(component) for component in result):
+        raise ValueError(f"{context}: expected {length} finite coordinates")
+    return result
+
+
+def normalize_gmsh_bounds_xyz(bounds: Any, context: str) -> tuple[float, ...]:
+    """Convert Gmsh [xmin,ymin,zmin,xmax,ymax,zmax] into axis-pair order."""
+    raw = _finite_vector(bounds, 6, context)
+    low = raw[:3]
+    high = raw[3:]
+    if any(minimum > maximum for minimum, maximum in zip(low, high, strict=True)):
+        raise ValueError(f"{context}: inverted Gmsh bounding box")
+    return (low[0], high[0], low[1], high[1], low[2], high[2])
+
+
+def _finite_positive(value: Any, context: str) -> float:
+    if isinstance(value, bool):
+        raise TypeError(f"{context}: expected a positive finite number")
+    try:
+        number = float(value)
+    except (TypeError, ValueError) as error:
+        raise ValueError(f"{context}: expected a positive finite number") from error
+    if not math.isfinite(number) or number <= 0:
+        raise ValueError(f"{context}: expected a positive finite number")
+    return number
+
+
+def validate_mesh_configuration(
+    size_mm: float, axis_local_size_mm: float, axis_refinement_band_mm: float
+) -> dict[str, float]:
+    size = _finite_positive(size_mm, "global mesh size")
+    local = _finite_positive(axis_local_size_mm, "axis-local mesh size")
+    band = _finite_positive(axis_refinement_band_mm, "axis-refinement band")
+    if local > size:
+        raise ValueError("axis-local mesh size must not exceed global mesh size")
+    return {
+        "global_max_size_mm": size,
+        "axis_local_min_size_mm": local,
+        "axis_refinement_band_mm": band,
+    }
+
+
+def _expected_axis_ids() -> set[str]:
+    return {G7_AXIS_PREFIX + stack_id for stack_id in STACK_RECEIVERS}
+
+
+def _validate_inventory_contract(inventory: dict[str, Any]) -> None:
+    if not isinstance(inventory, dict):
+        raise TypeError("patch geometry inventory root must be an object")
+    if inventory.get("schema") != BUNDLE_INVENTORY_SCHEMA:
+        raise ValueError("patch geometry inventory schema is not the frozen WJ04 export")
+    if inventory.get("status") != BUNDLE_STATUS:
+        raise ValueError("patch geometry inventory status is not finished export inputs only")
+    composition = inventory.get("composition", {})
+    if not isinstance(composition, dict):
+        raise TypeError("patch geometry inventory composition must be an object")
+    if (
+        composition.get("mechanics_manifest_sha256") != FROZEN_MANIFEST_SHA256
+        or composition.get("wj16_composition_report_sha256") != FROZEN_COMPOSITION_SHA256
+        or composition.get("source_inventory_sha256") != SOURCE_INVENTORY_SHA256
+        or composition.get("adapter_source_sha256") != FROZEN_PATCH_EXPORTER_SHA256
+    ):
+        raise ValueError("patch inventory source/manifest pins differ from frozen WJ16 inputs")
+    exporter_path = ROOT / PATCH_EXPORTER_PATH
+    if not exporter_path.is_file() or sha256_file(exporter_path) != FROZEN_PATCH_EXPORTER_SHA256:
+        raise ValueError("live patch exporter source differs from the frozen input bundle")
+
+    bodies = inventory.get("wood_bodies")
+    if not isinstance(bodies, list):
+        raise TypeError("patch inventory has no wood body list")
+    body_rows = {row.get("part_id"): row for row in bodies if isinstance(row, dict)}
+    if len(body_rows) != len(bodies) or set(body_rows) != set(WOOD_BODY_IDS):
+        raise ValueError("patch inventory must contain the exact five WJ04 wood bodies")
+    for part_id, expected_role in EXPECTED_BODY_ROLES.items():
+        row = body_rows[part_id]
+        if row.get("geometry_role") != expected_role:
+            raise ValueError(f"{part_id}: source/candidate wood role changed")
+        solid = row.get("finished_geometry", {})
+        if solid.get("solid_count") != 1:
+            raise ValueError(f"{part_id}: frozen STEP source is not one solid")
+        _finite_positive(solid.get("volume_mm3"), f"{part_id} source volume")
+        _finite_vector(solid.get("centroid_global_xyz_mm"), 3, f"{part_id} centroid")
+        bounds = _finite_vector(solid.get("bounds_xyz_mm"), 6, f"{part_id} bounds")
+        if any(bounds[index] > bounds[index + 1] for index in (0, 2, 4)):
+            raise ValueError(f"{part_id}: inverted frozen bounds")
+        if not _is_sha256(solid.get("cad_shape_sha256")):
+            raise ValueError(f"{part_id}: missing finished-solid fingerprint")
+        frame = row.get("grain_frame", {})
+        if frame.get("grain_axis_local_name") not in {"X", "T", "N"}:
+            raise ValueError(f"{part_id}: missing explicit grain local axis")
+        grain = _finite_vector(frame.get("grain_axis_global_xyz"), 3, f"{part_id} grain")
+        if not math.isclose(math.sqrt(math.fsum(v * v for v in grain)), 1.0, abs_tol=1e-8):
+            raise ValueError(f"{part_id}: grain vector is not unit length")
+        axes = frame.get("local_axes_global_xyz", {})
+        local_axis = _finite_vector(
+            axes.get(frame["grain_axis_local_name"]), 3, f"{part_id} grain frame axis"
+        )
+        if any(abs(a - b) > 1e-8 for a, b in zip(grain, local_axis, strict=True)):
+            raise ValueError(f"{part_id}: grain vector disagrees with explicit local frame")
+        if set(row.get("bound_interface_ids", ())) != BODY_INTERFACE_IDS[part_id]:
+            raise ValueError(f"{part_id}: interface binding metadata changed")
+        if not isinstance(row.get("cut_feature_metadata"), dict):
+            raise TypeError(f"{part_id}: cut-feature metadata is missing")
+
+    physical_inventory = inventory.get("scope", {})
+    if not isinstance(physical_inventory, dict):
+        raise TypeError("patch inventory scope must be an object")
+    if any(
+        physical_inventory.get(key) != expected
+        for key, expected in (
+            ("finished_wood_bodies", 5),
+            ("physical_bolts", 8),
+            ("modeled_hardware_roles", 40),
+            ("wood_interfaces", 4),
+        )
+    ):
+        raise ValueError("patch geometry inventory count contract changed")
+    if any(
+        physical_inventory.get(key) is not False
+        for key in ("native_solve_run", "mesh_generated", "contact_law_assigned", "capacity_or_release_claim")
+    ):
+        raise ValueError("patch geometry export claims an out-of-scope mechanics result")
+
+    bolts = inventory.get("physical_bolts")
+    if not isinstance(bolts, list):
+        raise TypeError("patch inventory has no physical bolt list")
+    bolt_rows = {row.get("physical_bolt_id"): row for row in bolts if isinstance(row, dict)}
+    if len(bolt_rows) != len(bolts) or set(bolt_rows) != _expected_axis_ids():
+        raise ValueError("patch inventory must contain the exact eight G7 physical bolts")
+    for stack_id, receiver_ids in STACK_RECEIVERS.items():
+        axis_id = G7_AXIS_PREFIX + stack_id
+        row = bolt_rows[axis_id]
+        if row.get("stack_spec_id") != stack_id:
+            raise ValueError(f"{axis_id}: stack spec identity changed")
+        if tuple(item.get("member_id") for item in row.get("receivers_head_to_nut", ())) != receiver_ids:
+            raise ValueError(f"{axis_id}: ordered receiver pair changed")
+        origin = _finite_vector(row.get("world_axis_origin_xyz_mm"), 3, f"{axis_id} origin")
+        direction = _finite_vector(
+            row.get("world_axis_direction_head_to_nut"), 3, f"{axis_id} direction"
+        )
+        if not math.isclose(math.sqrt(math.fsum(v * v for v in direction)), 1.0, abs_tol=1e-8):
+            raise ValueError(f"{axis_id}: physical bolt direction is not unit length")
+        _finite_vector(row.get("single_wood_shear_plane_global_xyz_mm"), 3, f"{axis_id} shear datum")
+        if row.get("wood_grip_mm") != 127.0:
+            raise ValueError(f"{axis_id}: expected the pinned 127 mm wood grip")
+        if len(origin) != 3:
+            raise ValueError(f"{axis_id}: malformed world origin")
+        role_rows = row.get("physical_hardware_roles")
+        if not isinstance(role_rows, list):
+            raise TypeError(f"{axis_id}: physical hardware role list is missing")
+        roles = {part.get("role") for part in role_rows if isinstance(part, dict)}
+        if len(role_rows) != 5 or roles != HARDWARE_ROLES or row.get("role_count") != 5:
+            raise ValueError(f"{axis_id}: expected five distinct physical CAD roles")
+        if row.get("role_shapes_are_fused") is not False:
+            raise ValueError(f"{axis_id}: component-role fusion is outside this mesh stage")
+        bore = row.get("composed_occupancy_bore", {})
+        if bore.get("solid_count") != 1 or not _is_sha256(bore.get("cad_shape_sha256")):
+            raise ValueError(f"{axis_id}: occupancy-bore input metadata is incomplete")
+
+    interfaces = inventory.get("wood_interfaces")
+    if not isinstance(interfaces, list):
+        raise TypeError("patch inventory has no wood interface list")
+    interface_rows = {
+        row.get("interface_id"): row for row in interfaces if isinstance(row, dict)
+    }
+    if len(interface_rows) != len(interfaces) or set(interface_rows) != set(EXPECTED_INTERFACE_STACKS):
+        raise ValueError("patch inventory must contain the exact four interface bindings")
+    for interface_id, stack_ids in EXPECTED_INTERFACE_STACKS.items():
+        row = interface_rows[interface_id]
+        expected_bolts = [G7_AXIS_PREFIX + stack_id for stack_id in stack_ids]
+        actual_bolts = row.get("physical_bolt_ids")
+        if actual_bolts != expected_bolts:
+            raise ValueError(f"{interface_id}: interface-to-axis binding changed")
+        if row.get("contact_law_assigned") is not False:
+            raise ValueError(f"{interface_id}: contact law is outside this geometry stage")
+        if row.get("finite_paired_overlap_surface", {}).get("status") != "unresolved_not_extracted":
+            raise ValueError(f"{interface_id}: interface overlap classification must remain pending")
+
+
+def _is_sha256(value: Any) -> bool:
+    return (
+        isinstance(value, str)
+        and len(value) == 64
+        and all(character in "0123456789abcdef" for character in value)
+    )
+
+
+def load_geometry_bundle(directory: str | Path) -> dict[str, Any]:
+    """Verify the exact immutable exporter inventory and all five STEP inputs."""
+    source = Path(directory).expanduser().resolve()
+    if not source.is_dir():
+        raise ValueError(f"patch geometry input directory is unavailable: {source}")
+    inventory_path = source / "inventory.json"
+    hashes_path = source / "sha256.json"
+    try:
+        inventory_bytes = inventory_path.read_bytes()
+        hash_index_bytes = hashes_path.read_bytes()
+        inventory = json.loads(inventory_bytes)
+        hashes = json.loads(hash_index_bytes)
+    except (OSError, json.JSONDecodeError) as error:
+        raise ValueError("patch geometry inventory/hash files are missing or invalid") from error
+    if not isinstance(hashes, dict):
+        raise TypeError("patch geometry SHA-256 index root must be an object")
+    if sha256_bytes(inventory_bytes) != FROZEN_PATCH_INVENTORY_SHA256:
+        raise ValueError("patch inventory hash differs from the frozen exporter bundle")
+    expected_files = {"inventory.json"} | {
+        f"wood/{part_id}.step" for part_id in WOOD_BODY_IDS
+    }
+    if set(hashes) != expected_files:
+        raise ValueError("patch hash index differs from the exact five STEP input set")
+    if hashes.get("inventory.json") != FROZEN_PATCH_INVENTORY_SHA256:
+        raise ValueError("patch hash index inventory digest differs from its frozen pin")
+    if any(not _is_sha256(value) for value in hashes.values()):
+        raise ValueError("patch hash index contains an invalid SHA-256 value")
+    _validate_inventory_contract(inventory)
+
+    artifact_rows = inventory.get("step_artifacts")
+    if not isinstance(artifact_rows, dict) or set(artifact_rows) != set(WOOD_BODY_IDS):
+        raise ValueError("patch STEP artifact rows differ from the five wood body IDs")
+    for part_id in WOOD_BODY_IDS:
+        relative = f"wood/{part_id}.step"
+        artifact = artifact_rows[part_id]
+        if not isinstance(artifact, dict):
+            raise TypeError(f"{part_id}: STEP artifact row must be an object")
+        if artifact.get("file") != f"{part_id}.step":
+            raise ValueError(f"{part_id}: unexpected STEP file binding")
+        if artifact.get("file_sha256") != hashes[relative]:
+            raise ValueError(f"{part_id}: inventory and SHA index disagree")
+        path = source / relative
+        if not path.is_file() or sha256_file(path) != hashes[relative]:
+            raise ValueError(f"{part_id}: frozen STEP file is missing or changed")
+        checks = artifact.get("identity_checks", {})
+        if any(checks.get(key) is not True for key in ("solid_count", "volume", "centroid", "bounds")):
+            raise ValueError(f"{part_id}: STEP round-trip identity evidence is incomplete")
+        difference = checks.get("symmetric_difference", {})
+        if difference.get("passed") is not True:
+            raise ValueError(f"{part_id}: source/STEP symmetric-difference check did not pass")
+    return {
+        "path": source,
+        "inventory": inventory,
+        "inventory_sha256": FROZEN_PATCH_INVENTORY_SHA256,
+        "hash_index_sha256": sha256_bytes(hash_index_bytes),
+        "step_sha256": {
+            part_id: hashes[f"wood/{part_id}.step"] for part_id in WOOD_BODY_IDS
+        },
+        "input_file_sha256": {
+            "inventory.json": FROZEN_PATCH_INVENTORY_SHA256,
+            "sha256.json": sha256_bytes(hash_index_bytes),
+            **{
+                f"wood/{part_id}.step": hashes[f"wood/{part_id}.step"]
+                for part_id in WOOD_BODY_IDS
+            },
+        },
+    }
+
+
+def audit_mesh_volume(
+    cad_volume_mm3: float,
+    determinants: list[float] | tuple[float, ...],
+    quadrature_weights: list[float] | tuple[float, ...],
+    sampled_jacobians: list[float] | tuple[float, ...],
+    element_count: int,
+    *,
+    relative_tolerance: float = RELATIVE_MESH_VOLUME_TOLERANCE,
+) -> dict[str, Any]:
+    cad_volume = _finite_positive(cad_volume_mm3, "CAD body volume")
+    try:
+        weights = tuple(float(value) for value in quadrature_weights)
+        dets = tuple(float(value) for value in determinants)
+        samples = tuple(float(value) for value in sampled_jacobians)
+    except (TypeError, ValueError, OverflowError) as error:
+        raise ValueError("quadrature/Jacobian evidence must be numeric sequences") from error
+    if not weights or not dets or not samples:
+        raise ValueError("quadrature and sampled Jacobian evidence must be nonempty")
+    tolerance = _finite_positive(relative_tolerance, "relative volume tolerance")
+    if isinstance(element_count, bool) or not isinstance(element_count, int) or element_count <= 0:
+        raise ValueError("C3D10 element count must be a positive integer")
+    if len(dets) != element_count * len(weights) or len(samples) != element_count:
+        raise ValueError("sample/integration Jacobian counts differ from C3D10 element count")
+    if any(not math.isfinite(value) or value <= 0 for value in (*weights, *dets, *samples)):
+        raise ValueError(
+            "requested Gmsh C3D10 Gauss5 weights and sampled/integration Jacobians "
+            "must all be positive finite"
+        )
+    mesh_volume = math.fsum(dets[index] * weights[index % len(weights)] for index in range(len(dets)))
+    relative_error = abs(mesh_volume / cad_volume - 1.0)
+    if not math.isfinite(relative_error) or relative_error > tolerance:
+        raise ValueError(
+            f"integrated C3D10 volume relative error {relative_error:.9g} exceeds {tolerance:.9g}"
+        )
+    return {
+        "cad_volume_mm3": cad_volume,
+        "integrated_mesh_volume_mm3": mesh_volume,
+        "relative_volume_error": relative_error,
+        "relative_volume_tolerance": tolerance,
+        "minimum_sampled_jacobian": min(samples),
+        "minimum_integration_jacobian": min(dets),
+        "sampled_jacobian_count": len(samples),
+        "integration_jacobian_count": len(dets),
+    }
+
+
+def c3d10_elements(element_tags: Any, flat_connectivity: Any) -> dict[int, tuple[int, ...]]:
+    try:
+        raw_tags = tuple(element_tags)
+        raw_connectivity = tuple(flat_connectivity)
+        tags = tuple(int(tag) for tag in raw_tags)
+        connectivity = tuple(int(node) for node in raw_connectivity)
+    except (TypeError, ValueError, OverflowError) as error:
+        raise ValueError("Gmsh C3D10 tags/connectivity must be integer sequences") from error
+    if any(isinstance(tag, bool) or tag != converted for tag, converted in zip(raw_tags, tags, strict=True)):
+        raise ValueError("Gmsh C3D10 element tags must be exact integers")
+    if any(isinstance(node, bool) or node != converted for node, converted in zip(raw_connectivity, connectivity, strict=True)):
+        raise ValueError("Gmsh C3D10 node tags must be exact integers")
+    if not tags or len(connectivity) != len(tags) * 10:
+        raise ValueError("Gmsh C3D10 tags/connectivity count differs")
+    if any(tag <= 0 for tag in tags) or any(node <= 0 for node in connectivity):
+        raise ValueError("Gmsh C3D10 element and node tags must be positive")
+    elements = {
+        element: tuple(
+            connectivity[10 * offset + index] for index in GMSH_TO_CCX
+        )
+        for offset, element in enumerate(tags)
+    }
+    if any(len(set(row)) != 10 for row in elements.values()):
+        raise ValueError("Gmsh C3D10 element must own ten distinct node IDs")
+    if len(elements) != len(tags):
+        raise ValueError("Duplicate Gmsh C3D10 element tags")
+    return elements
+
+
+def validate_surface_coverage(
+    exterior: dict[Any, tuple[int, int, tuple[int, ...]]],
+    surface_faces_by_entity: dict[str, list[list[int]]],
+) -> None:
+    expected = {(element, face) for element, face, _nodes in exterior.values()}
+    if not expected:
+        raise ValueError("C3D10 mesh has no exterior faces")
+    covered: list[tuple[int, int]] = []
+    for faces in surface_faces_by_entity.values():
+        for row in faces:
+            if not isinstance(row, (list, tuple)) or len(row) != 2:
+                raise ValueError("CAD surface face reference must be an element/face pair")
+            try:
+                element, face = int(row[0]), int(row[1])
+            except (TypeError, ValueError, OverflowError) as error:
+                raise ValueError("CAD surface face reference must use integer IDs") from error
+            if row[0] != element or row[1] != face:
+                raise ValueError("CAD surface face reference IDs must be exact integers")
+            if element <= 0 or face not in {1, 2, 3, 4}:
+                raise ValueError("CAD surface face reference is outside C3D10 bounds")
+            covered.append((element, face))
+    if len(covered) != len(set(covered)):
+        raise ValueError("Exterior C3D10 face is assigned to more than one CAD surface")
+    if set(covered) != expected:
+        raise ValueError("CAD surfaces do not cover exactly the complete exterior TRI6 set")
+
+
+def _source_paths() -> dict[str, Path]:
+    return {relative: ROOT / relative for relative in WORKER_SOURCE_PATHS}
+
+
+def snapshot_sources(output: Path) -> dict[str, str]:
+    hashes = {}
+    for relative, path in _source_paths().items():
+        data = path.read_bytes()
+        digest = sha256_bytes(data)
+        target = output / "sources" / f"{relative}.snapshot"
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(data)
+        hashes[relative] = digest
+    if hashes[PATCH_EXPORTER_PATH] != FROZEN_PATCH_EXPORTER_SHA256:
+        raise ValueError("patch exporter source changed before mesh preparation")
+    return hashes
+
+
+def verify_sources(source_hashes: dict[str, str]) -> None:
+    for relative, path in _source_paths().items():
+        if not path.is_file() or sha256_file(path) != source_hashes[relative]:
+            raise ValueError(f"mesh preparation source changed during run: {relative}")
+
+
+def verify_input_bundle(bundle: dict[str, Any]) -> None:
+    source = bundle["path"]
+    current = load_geometry_bundle(source)
+    if current["input_file_sha256"] != bundle["input_file_sha256"]:
+        raise ValueError("frozen patch inventory, hash index, or STEP changed during meshing")
+
+
+def preserve_failed_gmsh_model(gmsh: Any, output: Path, body_id: str) -> dict[str, Any]:
+    """Best-effort export of the active failed Gmsh body without masking its error."""
+    result: dict[str, Any] = {
+        "body_id": body_id,
+        "status": "capture_unavailable",
+        "capture_basis": "current active model at mesh-preparation failure; partial mesh possible",
+        "file": None,
+        "sha256": None,
+        "size_bytes": None,
+    }
+    target: Path | None = None
+    try:
+        if not body_id or Path(body_id).name != body_id:
+            raise ValueError("unsafe failed-model body ID")
+        model_names = tuple(gmsh.model.list())
+        current_model = gmsh.model.getCurrent()
+        if body_id not in model_names or current_model != body_id:
+            result["status"] = "no_matching_active_model"
+            result["current_model"] = str(current_model)
+            result["known_models"] = list(model_names)
+            return result
+
+        artifact_directory = output / "failed-gmsh-models"
+        artifact_directory.mkdir(parents=True, exist_ok=True)
+        target = artifact_directory / f"{body_id}.msh"
+        if target.exists() or target.is_symlink():
+            raise FileExistsError(f"failed Gmsh artifact already exists: {target}")
+        gmsh.write(str(target))
+        if not target.is_file():
+            result["status"] = "write_returned_without_file"
+            return result
+        result.update(
+            {
+                "status": "captured",
+                "file": str(target.relative_to(output)),
+                "sha256": sha256_file(target),
+                "size_bytes": target.stat().st_size,
+            }
+        )
+        return result
+    except Exception as capture_error:  # noqa: BLE001 - capture must not mask mesh failure
+        result["status"] = "capture_failed"
+        result["capture_error"] = f"{type(capture_error).__name__}: {capture_error}"
+        if target is not None and target.is_file():
+            result.update(
+                {
+                    "file": str(target.relative_to(output)),
+                    "sha256": sha256_file(target),
+                    "size_bytes": target.stat().st_size,
+                    "partial_file": True,
+                }
+            )
+        return result
+
+
+def _write_input_deck(path: Path, nodes: dict[int, tuple[float, float, float]], elements: dict[int, tuple[int, ...]], bodies: dict[str, Any]) -> None:
+    lines = ["*HEADING", LIMITS, "*NODE"]
+    lines.extend(
+        f"{node}," + ",".join(repr(float(value)) for value in xyz)
+        for node, xyz in sorted(nodes.items())
+    )
+    for body_id in WOOD_BODY_IDS:
+        lines.append(f"*ELEMENT,TYPE=C3D10,ELSET={body_id.upper()}")
+        lines.extend(
+            f"{element}," + ",".join(str(node) for node in elements[element])
+            for element in bodies[body_id]["elements"]
+        )
+    path.write_text("\n".join(lines) + "\n")
+
+
+def _surface_geometry(gmsh: Any, tag: int) -> dict[str, Any]:
+    cad_type = str(gmsh.model.getType(2, tag))
+    area = float(gmsh.model.occ.getMass(2, tag))
+    bounds = normalize_gmsh_bounds_xyz(
+        gmsh.model.getBoundingBox(2, tag), f"CAD surface {tag} bounds"
+    )
+    if not cad_type or not math.isfinite(area) or area <= 0:
+        raise ValueError(f"CAD surface {tag} has invalid type or area")
+    if len(bounds) != 6 or not all(math.isfinite(value) for value in bounds):
+        raise ValueError(f"CAD surface {tag} has invalid bounds")
+    analytic: dict[str, Any] = {
+        "surface_type": cad_type,
+        "parametric_bounds": None,
+        "sample_parametric_uv": None,
+        "sample_xyz_mm": None,
+        "sample_normal_global": None,
+        "sample_status": "parametric sample unavailable",
+    }
+    try:
+        low, high = gmsh.model.getParametrizationBounds(2, tag)
+        uv_bounds = tuple(float(value) for value in (*low, *high))
+        if len(uv_bounds) != 4 or not all(math.isfinite(value) for value in uv_bounds):
+            raise ValueError("invalid surface parameter bounds")
+        uv = tuple((float(low[index]) + float(high[index])) / 2 for index in range(2))
+        analytic["parametric_bounds"] = [list(map(float, low)), list(map(float, high))]
+        analytic["sample_parametric_uv"] = list(uv)
+        analytic["sample_xyz_mm"] = list(map(float, gmsh.model.getValue(2, tag, list(uv))))
+        try:
+            normal = tuple(float(value) for value in gmsh.model.getNormal(tag, list(uv)))
+            if len(normal) == 3 and all(math.isfinite(value) for value in normal):
+                analytic["sample_normal_global"] = list(normal)
+        except (RuntimeError, TypeError, ValueError):
+            analytic["sample_normal_global"] = None
+        analytic["sample_status"] = "Gmsh kernel type/parameter/point sample"
+    except (RuntimeError, TypeError, ValueError, IndexError) as error:
+        analytic["sample_status"] = f"unavailable: {type(error).__name__}"
+    return {
+        "cad_entity_tag": int(tag),
+        "cad_entity_tag_scope": "transient within this independent Gmsh body model; not an interface identity",
+        "cad_type": cad_type,
+        "area_mm2": area,
+        "bounds_xyz_mm": list(bounds),
+        "bounds_order": "xmin,xmax,ymin,ymax,zmin,zmax",
+        "analytic_surface_data": analytic,
+        "semantic_interface_binding": "pending; no face ordinal or tag-based inference",
+        "tri6_exterior_face_refs": [],
+        "tri6_node_ids": [],
+    }
+
+
+def _mesh_body(
+    gmsh: Any,
+    bundle_directory: Path,
+    body_row: dict[str, Any],
+    settings: dict[str, float],
+    all_nodes: dict[int, tuple[float, float, float]],
+    all_elements: dict[int, tuple[int, ...]],
+) -> dict[str, Any]:
+    part_id = body_row["part_id"]
+    step_path = bundle_directory / "wood" / f"{part_id}.step"
+    gmsh.model.add(part_id)
+    imported = gmsh.model.occ.importShapes(str(step_path))
+    gmsh.model.occ.synchronize()
+    if len(imported) != 1 or imported[0][0] != 3:
+        raise ValueError(f"{part_id}: STEP must import as exactly one solid")
+    volumes = gmsh.model.getEntities(3)
+    if len(volumes) != 1 or volumes[0][1] != imported[0][1]:
+        raise ValueError(f"{part_id}: Gmsh model has an unexpected solid inventory")
+    volume_tag = int(imported[0][1])
+    cad_volume = float(gmsh.model.occ.getMass(3, volume_tag))
+    expected_geometry = body_row["finished_geometry"]
+    expected_volume = _finite_positive(expected_geometry["volume_mm3"], f"{part_id} exported CAD volume")
+    import_error = abs(cad_volume / expected_volume - 1.0)
+    if not math.isfinite(cad_volume) or cad_volume <= 0 or import_error > CAD_IMPORT_RELATIVE_VOLUME_TOLERANCE:
+        raise ValueError(f"{part_id}: Gmsh STEP mass differs from frozen exporter volume")
+    imported_centroid = tuple(
+        float(value) for value in gmsh.model.occ.getCenterOfMass(3, volume_tag)
+    )
+    expected_centroid = _finite_vector(
+        expected_geometry["centroid_global_xyz_mm"], 3, f"{part_id} source centroid"
+    )
+    if any(
+        abs(a - b) > CAD_IMPORT_POSITION_TOLERANCE_MM
+        for a, b in zip(imported_centroid, expected_centroid, strict=True)
+    ):
+        raise ValueError(f"{part_id}: Gmsh STEP centroid differs from frozen exporter")
+    imported_bounds = normalize_gmsh_bounds_xyz(
+        gmsh.model.getBoundingBox(3, volume_tag), f"{part_id} Gmsh bounds"
+    )
+    expected_bounds = _finite_vector(expected_geometry["bounds_xyz_mm"], 6, f"{part_id} source bounds")
+    if any(
+        abs(a - b) > CAD_IMPORT_POSITION_TOLERANCE_MM
+        for a, b in zip(imported_bounds, expected_bounds, strict=True)
+    ):
+        raise ValueError(f"{part_id}: Gmsh STEP bounds differ from frozen exporter")
+
+    boundary = gmsh.model.getBoundary(imported, combined=False, oriented=False)
+    surface_rows: dict[str, dict[str, Any]] = {}
+    duplicate_tags = len({tag for dim, tag in boundary if dim == 2}) != len(
+        [tag for dim, tag in boundary if dim == 2]
+    )
+    if duplicate_tags or not boundary or any(dim != 2 for dim, _tag in boundary):
+        raise ValueError(f"{part_id}: expected unique CAD boundary surfaces")
+    for _dim, tag in boundary:
+        surface_rows[str(tag)] = _surface_geometry(gmsh, int(tag))
+
+    axis_surface_tags = [
+        int(row["cad_entity_tag"])
+        for row in surface_rows.values()
+        if row["cad_type"] == "Cylinder"
+    ]
+    for name, value in (
+        ("Mesh.MeshSizeMax", settings["global_max_size_mm"]),
+        ("Mesh.MeshSizeMin", settings["axis_local_min_size_mm"]),
+        ("Mesh.MeshSizeFromCurvature", 32),
+        ("Mesh.MeshSizeExtendFromBoundary", 0),
+        ("Mesh.MeshSizeFromPoints", 0),
+        ("Mesh.ElementOrder", 2),
+        ("Mesh.SecondOrderLinear", 0),
+    ):
+        gmsh.option.setNumber(name, value)
+    threshold_field = None
+    if axis_surface_tags:
+        distance_field = gmsh.model.mesh.field.add("Distance")
+        gmsh.model.mesh.field.setNumbers(distance_field, "FacesList", axis_surface_tags)
+        threshold_field = gmsh.model.mesh.field.add("Threshold")
+        gmsh.model.mesh.field.setNumber(threshold_field, "InField", distance_field)
+        gmsh.model.mesh.field.setNumber(
+            threshold_field, "SizeMin", settings["axis_local_min_size_mm"]
+        )
+        gmsh.model.mesh.field.setNumber(
+            threshold_field, "SizeMax", settings["global_max_size_mm"]
+        )
+        gmsh.model.mesh.field.setNumber(threshold_field, "DistMin", 0.0)
+        gmsh.model.mesh.field.setNumber(
+            threshold_field, "DistMax", settings["axis_refinement_band_mm"]
+        )
+        gmsh.model.mesh.field.setAsBackgroundMesh(threshold_field)
+    gmsh.model.mesh.generate(3)
+    gmsh.model.mesh.optimize("HighOrder")
+
+    types, element_tags_by_type, flat_connectivity_by_type = gmsh.model.mesh.getElements(3)
+    if list(map(int, types)) != [11] or len(element_tags_by_type) != 1:
+        raise ValueError(f"{part_id}: expected quadratic tetrahedra only (Gmsh type 11)")
+    local_elements = c3d10_elements(element_tags_by_type[0], flat_connectivity_by_type[0])
+    used_nodes = {node for row in local_elements.values() for node in row}
+    node_tags, coordinates, _parametric = gmsh.model.mesh.getNodes()
+    local_nodes_all = {
+        int(node): tuple(float(value) for value in coordinates[3 * index : 3 * index + 3])
+        for index, node in enumerate(node_tags)
+    }
+    if not used_nodes <= set(local_nodes_all):
+        raise ValueError(f"{part_id}: C3D10 connectivity references an absent node")
+    local_nodes = {node: local_nodes_all[node] for node in used_nodes}
+    if any(
+        len(point) != 3 or not all(math.isfinite(value) for value in point)
+        for point in local_nodes.values()
+    ):
+        raise ValueError(f"{part_id}: nonfinite C3D10 node coordinates")
+
+    exterior = external_faces(local_elements)
+    sampled_jacobians = tuple(
+        float(value)
+        for value in gmsh.model.mesh.getElementQualities(
+            element_tags_by_type[0], "minDetJac"
+        )
+    )
+    quadrature_points, quadrature_weights = gmsh.model.mesh.getIntegrationPoints(
+        11, "Gauss5"
+    )
+    _jacobians, determinants, _physical_coordinates = gmsh.model.mesh.getJacobians(
+        11, quadrature_points, volume_tag
+    )
+    audit = audit_mesh_volume(
+        cad_volume,
+        tuple(float(value) for value in determinants),
+        tuple(float(value) for value in quadrature_weights),
+        sampled_jacobians,
+        len(local_elements),
+    )
+    node_map, element_map = append_body(
+        all_nodes, all_elements, local_nodes, local_elements
+    )
+
+    covered_surface_faces: dict[str, list[list[int]]] = {}
+    for _dim, tag in boundary:
+        kinds, _surface_tags, surface_connectivity = gmsh.model.mesh.getElements(2, tag)
+        if list(map(int, kinds)) != [9] or len(surface_connectivity) != 1:
+            raise ValueError(f"{part_id} surface {tag}: expected quadratic TRI6 only")
+        flat = surface_connectivity[0]
+        if len(flat) % 6:
+            raise ValueError(f"{part_id} surface {tag}: incomplete TRI6 connectivity")
+        triangles = [
+            tuple(int(value) for value in flat[index : index + 6])
+            for index in range(0, len(flat), 6)
+        ]
+        selected = surface_faces(triangles, exterior)
+        references = [[element_map[element], face] for element, face in selected["faces"]]
+        covered_surface_faces[str(tag)] = references
+        surface_rows[str(tag)]["tri6_exterior_face_refs"] = references
+        surface_rows[str(tag)]["tri6_node_ids"] = sorted(
+            node_map[node] for node in selected["nodes"]
+        )
+    validate_surface_coverage(exterior, covered_surface_faces)
+    return {
+        "nodes": sorted(node_map.values()),
+        "elements": sorted(element_map.values()),
+        "surfaces": surface_rows,
+        "target_configuration_mm": settings,
+        "axis_refinement_surface_tags": axis_surface_tags,
+        "axis_refinement_field_tag": threshold_field,
+        "mesh_element_type": "C3D10",
+        "gmsh_element_type": 11,
+        "node_count": len(node_map),
+        "element_count": len(element_map),
+        "exterior_tri6_face_count": len(exterior),
+        "imported_cad": {
+            "volume_mm3": cad_volume,
+            "relative_volume_error_vs_export": import_error,
+            "centroid_global_xyz_mm": list(imported_centroid),
+            "bounds_xyz_mm": list(imported_bounds),
+            "bounds_order": "xmin,xmax,ymin,ymax,zmin,zmax",
+            "relative_volume_tolerance": CAD_IMPORT_RELATIVE_VOLUME_TOLERANCE,
+            "position_tolerance_mm": CAD_IMPORT_POSITION_TOLERANCE_MM,
+        },
+        "integrated_mesh_audit": audit,
+        "integration_rule": {
+            "name": "Gmsh Gauss5 for element type 11",
+            "weights_per_element": len(quadrature_weights),
+            "minimum_weight": min(float(value) for value in quadrature_weights),
+            "maximum_weight": max(float(value) for value in quadrature_weights),
+            "weight_positivity_basis": (
+                "this explicit Gmsh type-11 Gauss5 rule; not a general quadrature assumption"
+            ),
+        },
+        "surface_inventory": surface_rows,
+        "surface_semantic_binding_status": (
+            "pending geometry-to-interface resolution; entity tags are local/transient and not used as IDs"
+        ),
+    }
+
+
+def prepare_geometry_patch(
+    bundle_directory: str | Path,
+    output_directory: str | Path,
+    *,
+    size_mm: float,
+    axis_local_size_mm: float,
+    axis_refinement_band_mm: float,
+) -> Path:
+    """Mesh the frozen five-body bundle, preserving failures in a fresh output."""
+    settings = validate_mesh_configuration(
+        size_mm, axis_local_size_mm, axis_refinement_band_mm
+    )
+    source_directory = Path(bundle_directory).expanduser().resolve()
+    requested_output = Path(output_directory).expanduser().absolute()
+    if requested_output.exists() or requested_output.is_symlink():
+        raise FileExistsError(f"mesh output directory already exists: {requested_output}")
+    output = requested_output.resolve(strict=False)
+    if output.exists() or output.is_symlink():
+        raise FileExistsError(f"mesh output directory resolves to an existing path: {output}")
+    if output == source_directory or output.is_relative_to(source_directory) or source_directory.is_relative_to(output):
+        raise ValueError("mesh output and frozen STEP input directories must be separate")
+    output.mkdir(parents=True, exist_ok=False)
+
+    nodes: dict[int, tuple[float, float, float]] = {}
+    elements: dict[int, tuple[int, ...]] = {}
+    bodies: dict[str, dict[str, Any]] = {}
+    record: dict[str, Any] = {
+        "schema": SCHEMA,
+        "status": "PREPARING_MESH_ONLY",
+        "limits": LIMITS,
+        "input_bundle_directory": str(source_directory),
+        "configuration": settings,
+        "accepted": False,
+        "solved": False,
+    }
+    write_json(output / "mesh.json", record)
+    gmsh = None
+    initialized = False
+    active_body_id: str | None = None
+    try:
+        source_hashes = snapshot_sources(output)
+        bundle = load_geometry_bundle(source_directory)
+        record.update(
+            {
+                "input_bundle_inventory_sha256": bundle["inventory_sha256"],
+                "input_bundle_hash_index_sha256": bundle["hash_index_sha256"],
+                "input_bundle_file_sha256_before": bundle["input_file_sha256"],
+                "mesh_worker_source_sha256": source_hashes,
+                "runtime": {"python": platform.python_version()},
+                "input_geometry_context": {
+                    "mesh_scope": {
+                        "finished_wood_bodies": 5,
+                        "physical_bolts": 8,
+                        "modeled_hardware_roles": 40,
+                        "hardware_roles_meshed": 0,
+                    },
+                    "wood_bodies": [
+                        {
+                            "part_id": row["part_id"],
+                            "grain_frame": row["grain_frame"],
+                            "cut_feature_metadata": row["cut_feature_metadata"],
+                            "finished_geometry": row["finished_geometry"],
+                        }
+                        for row in bundle["inventory"]["wood_bodies"]
+                    ],
+                    "physical_bolts": [
+                        {
+                            key: row[key]
+                            for key in (
+                                "physical_bolt_id",
+                                "stack_spec_id",
+                                "interface_id",
+                                "world_axis_origin_xyz_mm",
+                                "world_axis_origin_datum",
+                                "world_axis_direction_head_to_nut",
+                                "receivers_head_to_nut",
+                                "wood_grip_mm",
+                                "single_wood_shear_plane_global_xyz_mm",
+                                "hardware_status",
+                                "role_count",
+                                "physical_hardware_roles",
+                            )
+                        }
+                        for row in bundle["inventory"]["physical_bolts"]
+                    ],
+                    "wood_interfaces": bundle["inventory"]["wood_interfaces"],
+                    "contact_classification": "pending; mesh entities are not assigned to interfaces",
+                },
+            }
+        )
+        write_json(output / "mesh.json", record)
+
+        import gmsh
+        import numpy
+
+        if gmsh.isInitialized():
+            raise ValueError("independent Gmsh session required for patch mesh preparation")
+        gmsh.initialize()
+        initialized = True
+        gmsh.option.setNumber("General.NumThreads", 1)
+        gmsh.option.setNumber("General.Verbosity", 2)
+        for part_id in WOOD_BODY_IDS:
+            active_body_id = part_id
+            body_row = next(
+                row
+                for row in bundle["inventory"]["wood_bodies"]
+                if row["part_id"] == part_id
+            )
+            body_record = _mesh_body(
+                gmsh,
+                bundle["path"],
+                body_row,
+                settings,
+                nodes,
+                elements,
+            )
+            bodies[part_id] = body_record
+            record["completed_body_ids"] = list(bodies)
+            record["completed_node_count"] = len(nodes)
+            record["completed_element_count"] = len(elements)
+            record["bodies"] = bodies
+            write_json(output / "mesh.json", record)
+            gmsh.model.remove()
+            active_body_id = None
+        record["runtime"].update(
+            {"gmsh_version": str(gmsh.__version__), "numpy_version": str(numpy.__version__)}
+        )
+        gmsh.finalize()
+        initialized = False
+
+        validate_ownership(nodes, elements, bodies)
+        verify_input_bundle(bundle)
+        verify_sources(source_hashes)
+        deck = output / "mesh.inp"
+        _write_input_deck(deck, nodes, elements, bodies)
+        record.update(
+            {
+                "status": "VERIFIED_C3D10_MESH_ONLY_NO_SOLVER",
+                "body_count": len(bodies),
+                "node_count": len(nodes),
+                "element_count": len(elements),
+                "bodies": bodies,
+                "mesh_input_sha256": sha256_file(deck),
+                "input_bundle_file_sha256_after": bundle["input_file_sha256"],
+                "mesh_worker_source_sha256_after": source_hashes,
+                "output_contains_material_contact_or_solver_cards": False,
+            }
+        )
+        write_json(output / "mesh.json", record)
+        return output
+    except Exception as error:
+        failed_model = None
+        if initialized and gmsh is not None and active_body_id is not None:
+            try:
+                failed_model = preserve_failed_gmsh_model(
+                    gmsh, output, active_body_id
+                )
+            except Exception as capture_error:  # noqa: BLE001 - preserve original mesh failure
+                failed_model = {
+                    "body_id": active_body_id,
+                    "status": "capture_failed",
+                    "capture_error": (
+                        f"{type(capture_error).__name__}: {capture_error}"
+                    ),
+                    "file": None,
+                    "sha256": None,
+                }
+        record.update(
+            {
+                "status": "FAILED_MESH_PREPARATION_NO_SOLVER",
+                "error": f"{type(error).__name__}: {error}",
+                "completed_body_ids": list(bodies),
+                "completed_node_count": len(nodes),
+                "completed_element_count": len(elements),
+                "bodies": bodies,
+                "failed_gmsh_model": failed_model,
+            }
+        )
+        try:
+            write_json(output / "mesh.json", record)
+        except Exception as report_error:  # noqa: BLE001 - preserve the original failure
+            error.add_note(
+                f"Could not update failure record: {type(report_error).__name__}: {report_error}"
+            )
+        raise
+    finally:
+        if initialized and gmsh is not None:
+            gmsh.finalize()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("bundle_directory", type=Path)
+    parser.add_argument("output_directory", type=Path)
+    parser.add_argument("--size-mm", type=float, required=True)
+    parser.add_argument("--axis-local-size-mm", type=float, required=True)
+    parser.add_argument("--axis-refinement-band-mm", type=float, required=True)
+    args = parser.parse_args()
+    output = prepare_geometry_patch(
+        args.bundle_directory,
+        args.output_directory,
+        size_mm=args.size_mm,
+        axis_local_size_mm=args.axis_local_size_mm,
+        axis_refinement_band_mm=args.axis_refinement_band_mm,
+    )
+    print(output, flush=True)
+
+
+if __name__ == "__main__":
+    main()

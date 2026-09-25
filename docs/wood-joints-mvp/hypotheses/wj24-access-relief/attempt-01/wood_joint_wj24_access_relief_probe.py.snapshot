@@ -1,0 +1,1777 @@
+"""Bounded WJ24 hold-corridor and G7 LED-access relief screens.
+
+The producer consumes an already composed WJ24 object. It does not rebuild
+families, change protected proxy cores, run mechanics, or release a cut. Relief
+variants are geometry experiments only; sampled grain sections are not global
+minimum proofs.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+from collections.abc import Mapping, Sequence
+from pathlib import Path
+from typing import Any
+
+import cadquery as cq
+from OCP.BRepAdaptor import BRepAdaptor_Surface
+
+from mini_moonboard.wood_joint_frame import (
+    _source_shape_fingerprint,
+    validate_source_binding,
+)
+from scripts import wood_joint_wj12_diagnostic as shared_diagnostic
+from scripts import wood_joint_wj24_compositor as wj24
+
+ROOT = Path(__file__).resolve().parents[1]
+SCHEMA = "wood_joint_wj24_access_relief_probe/v1"
+HIT_TOLERANCE_MM3 = 1e-3
+SHAPE_MATCH_TOLERANCE_MM3 = 1e-5
+
+HOLD_CORE_DIAMETER_MM = 11.1125
+HOLD_CORE_LENGTH_MM = 50.8
+HOLD_RADIAL_CLEARANCE_SCENARIOS_MM = (0.0, 0.5, 1.0)
+HOLD_RELIEF_CASES = {
+    "hold_tnut_main_G1": "bottom_center_right_cleat",
+    "hold_tnut_main_G12": "top_center_right_cleat",
+}
+
+LED_ID = "light_G7"
+LED_CONNECTOR_ID = "wj04_lower_full_stock_cleat"
+LED_CORE_DIAMETER_MM = 12.7
+LED_WITHDRAWAL_STROKE_MM = 19.25625
+LED_PANEL_REAR_TIP_CLEARANCE_MM = 1.0
+LED_RADIAL_CLEARANCE_SCENARIOS_MM = (0.0, 0.5, 1.0)
+LED_OWNER_PANEL_ID = "main_lower_right"
+
+CONTACT_PROBE_DEPTH_MM = 0.05
+WASHER_PROBE_DEPTH_MM = 0.05
+SECTION_PROBE_DEPTH_MM = 0.1
+SECTION_INTERVAL_STEP_MM = 5.0
+SECTION_REFINEMENT_OFFSETS_MM = (0.05, 0.25, 0.5, 1.0)
+
+FRAME_FOR_CANDIDATE = {
+    "bottom_center_right_cleat": "base_rail_bottom_right",
+    "top_center_right_cleat": "base_rail_top",
+    LED_CONNECTOR_ID: "base_rail_service_lower_right",
+}
+
+PRODUCER_HASH_PATHS = {
+    "wj24_access_relief_probe": "scripts/wood_joint_wj24_access_relief_probe.py",
+    "wj24_compositor": "scripts/wood_joint_wj24_compositor.py",
+    "wj24_diagnostic": "scripts/wood_joint_wj24_diagnostic.py",
+    "wj24_hardware_inventory": "scripts/wood_joint_wj24_hardware_inventory.py",
+    "owner_layout_protected": "scripts/owner_layout_protected.py",
+    "hold_tnut_reinforcement": "mini_moonboard/hold_tnut_reinforcement.py",
+    "round_service_reference": "docs/round-service-wiring-reference.json",
+    "round_service_wiring": "mini_moonboard/round_service_wiring.py",
+}
+
+
+def _vec(values: Sequence[float], label: str) -> cq.Vector:
+    vector = cq.Vector(*(float(value) for value in values))
+    if vector.Length <= 1e-12:
+        raise ValueError(f"{label} must be nonzero")
+    return vector
+
+
+def _bbox_disjoint(first: cq.Shape, second: cq.Shape) -> bool:
+    a, b = first.BoundingBox(), second.BoundingBox()
+    return bool(
+        a.xmax < b.xmin
+        or b.xmax < a.xmin
+        or a.ymax < b.ymin
+        or b.ymax < a.ymin
+        or a.zmax < b.zmin
+        or b.zmax < a.zmin
+    )
+
+
+def _intersection_volume(first: cq.Shape, second: cq.Shape) -> float:
+    if _bbox_disjoint(first, second):
+        return 0.0
+    return max(0.0, float(first.intersect(second).Volume()))
+
+
+def _symmetric_difference_volume(first: cq.Shape, second: cq.Shape) -> float:
+    return float(first.cut(second).Volume() + second.cut(first).Volume())
+
+
+def _shape_evidence(shape: cq.Shape) -> dict[str, Any]:
+    box = shape.BoundingBox()
+    return {
+        "bounds_xyz_mm": [
+            round(float(value), 6)
+            for value in (box.xmin, box.xmax, box.ymin, box.ymax, box.zmin, box.zmax)
+        ],
+        "volume_mm3": round(float(shape.Volume()), 9),
+        "shape_sha256": _source_shape_fingerprint(shape),
+        "is_valid_solid": bool(shape.isValid() and shape.Solids()),
+    }
+
+
+def _hits(
+    subject: cq.Shape,
+    obstacles: Mapping[str, cq.Shape],
+    *,
+    tolerance_mm3: float = HIT_TOLERANCE_MM3,
+) -> dict[str, float]:
+    result = {}
+    for name, obstacle in obstacles.items():
+        if _bbox_disjoint(subject, obstacle):
+            continue
+        volume = _intersection_volume(subject, obstacle)
+        if volume > tolerance_mm3:
+            result[name] = round(volume, 9)
+    return result
+
+
+def _cylinder_geometry(shape: cq.Shape, label: str) -> dict[str, Any]:
+    """Recover one finite circular cylinder from its BRep faces and end caps."""
+    cylindrical_faces = [
+        face for face in shape.Faces() if face.geomType() == "CYLINDER"
+    ]
+    if len(cylindrical_faces) != 1:
+        raise ValueError(f"{label}: expected one cylindrical surface")
+    cylinder = BRepAdaptor_Surface(cylindrical_faces[0].wrapped).Cylinder()
+    direction = cylinder.Axis().Direction()
+    axis = cq.Vector(direction.X(), direction.Y(), direction.Z()).normalized()
+    plane_caps = []
+    for face in shape.Faces():
+        if face.geomType() != "PLANE":
+            continue
+        normal = face.normalAt().normalized()
+        if abs(abs(normal.dot(axis)) - 1.0) <= 1e-7:
+            plane_caps.append(face.Center())
+    stations = sorted(
+        {round(float(point.dot(axis)), 9): point for point in plane_caps}.items()
+    )
+    if len(stations) != 2:
+        raise ValueError(f"{label}: expected two finite planar cylinder caps")
+    first, last = stations[0][1], stations[1][1]
+    length = float(last.dot(axis) - first.dot(axis))
+    radius = float(cylinder.Radius())
+    if length <= 0 or radius <= 0:
+        raise ValueError(f"{label}: cylinder radius and length must be positive")
+    rebuilt = cq.Solid.makeCylinder(radius, length, first, axis)
+    difference = _symmetric_difference_volume(shape, rebuilt)
+    if difference > SHAPE_MATCH_TOLERANCE_MM3:
+        raise ValueError(
+            f"{label}: expected an unstepped solid cylinder; symmetric difference "
+            f"is {difference:.9f} mm3"
+        )
+    return {
+        "axis_global_xyz": axis,
+        "start_global_xyz": first,
+        "end_global_xyz": last,
+        "length_mm": length,
+        "radius_mm": radius,
+        "diameter_mm": 2 * radius,
+        "core_symmetric_difference_mm3": difference,
+    }
+
+
+def _cylinder_with_radial_clearance(
+    shape: cq.Shape, clearance_mm: float, label: str
+) -> tuple[cq.Shape, dict[str, Any]]:
+    clearance = float(clearance_mm)
+    if not math.isfinite(clearance) or clearance < 0:
+        raise ValueError("radial clearance scenarios must be finite and nonnegative")
+    info = _cylinder_geometry(shape, label)
+    cutter = cq.Solid.makeCylinder(
+        info["radius_mm"] + clearance,
+        info["length_mm"],
+        info["start_global_xyz"],
+        info["axis_global_xyz"],
+    )
+    return cutter, {
+        "core_diameter_mm": info["diameter_mm"],
+        "relief_diameter_mm": 2 * (info["radius_mm"] + clearance),
+        "radial_clearance_mm": clearance,
+        "core_length_mm": info["length_mm"],
+        "core_symmetric_difference_mm3": info["core_symmetric_difference_mm3"],
+        "axis_global_xyz": [
+            round(float(value), 9) for value in info["axis_global_xyz"].toTuple()
+        ],
+        "start_global_xyz_mm": [
+            round(float(value), 9) for value in info["start_global_xyz"].toTuple()
+        ],
+        "end_global_xyz_mm": [
+            round(float(value), 9) for value in info["end_global_xyz"].toTuple()
+        ],
+    }
+
+
+def _projected_cylinder_interval(
+    info: Mapping[str, Any], origin: cq.Vector, grain: cq.Vector
+) -> tuple[float, float, float]:
+    axis = info["axis_global_xyz"]
+    first = info["start_global_xyz"]
+    last = info["end_global_xyz"]
+    first_station = (first - origin).dot(grain)
+    last_station = (last - origin).dot(grain)
+    radial_projection = float(info["radius_mm"]) * math.sqrt(
+        max(0.0, 1.0 - min(1.0, abs(axis.dot(grain))) ** 2)
+    )
+    low = min(first_station, last_station) - radial_projection
+    high = max(first_station, last_station) + radial_projection
+    return float(low), float(high), float((low + high) / 2)
+
+
+def _validate_geometry(geometry: Any) -> dict[str, Any]:
+    if getattr(geometry, "layout_id", None) != wj24.LAYOUT_ID:
+        raise ValueError("access-relief probe requires the fixed WJ24 layout")
+    if getattr(geometry, "trial_id", None) != wj24.TRIAL_ID:
+        raise ValueError("access-relief probe requires the fixed WJ24 trial")
+    if (
+        set(getattr(geometry, "target_station_ids", ()))
+        != wj24.EXPECTED_TARGET_DUTY_IDS
+    ):
+        raise ValueError(
+            "WJ24 exact target-duty identity differs from the fixed contract"
+        )
+    inventory = geometry.source_inventory
+    source_identity = _validate_source_identity(geometry)
+    if set(geometry.raw_candidate_parts) != set(wj24.EXPECTED_CANDIDATE_PART_IDS):
+        raise ValueError("WJ24 raw candidate part IDs differ from the fixed contract")
+    if set(geometry.finished_candidate_parts) != set(wj24.EXPECTED_CANDIDATE_PART_IDS):
+        raise ValueError(
+            "WJ24 finished candidate part IDs differ from the fixed contract"
+        )
+    if set(geometry.candidate_bores) != set(wj24.EXPECTED_CANDIDATE_AXIS_IDS):
+        raise ValueError(
+            "WJ24 candidate bore IDs differ from the fixed 104-axis contract"
+        )
+    if set(geometry.candidate_installed_hardware) != set(
+        wj24.EXPECTED_CANDIDATE_AXIS_IDS
+    ):
+        raise ValueError(
+            "WJ24 installed hardware IDs differ from the fixed 104-axis contract"
+        )
+    if (
+        len(geometry.candidate_bores) != 104
+        or len(geometry.candidate_installed_hardware) != 104
+    ):
+        raise ValueError("WJ24 must preserve all 104 candidate axes")
+    if (
+        sum(len(roles) for roles in geometry.candidate_installed_hardware.values())
+        != 520
+    ):
+        raise ValueError("WJ24 must preserve all 520 candidate component roles")
+    if len(geometry.fixed_axes) != 66:
+        raise ValueError("WJ24 must preserve all 66 fixed panel axes")
+    expected_fixed_axes = {
+        row["axis_id"] for row in inventory.get("fixed_panel_kicker_screws", ())
+    }
+    if set(geometry.fixed_axes) != expected_fixed_axes:
+        raise ValueError("WJ24 fixed panel axis IDs differ from canonical inventory")
+    if len(geometry.frame_bolt_records) != 12 or len(geometry.frame_bolt_shapes) != 72:
+        raise ValueError(
+            "WJ24 must preserve all twelve frame bolts and their shape records"
+        )
+    protected = geometry.protected
+    hold_map = protected.get("hold_hole_and_provisional_projection")
+    lights = protected.get("lights")
+    if not isinstance(hold_map, Mapping) or not isinstance(lights, Mapping):
+        raise TypeError("WJ24 hold-projection and light protected maps are required")
+    if len(hold_map) != 142 or len(lights) != 132:
+        raise ValueError("WJ24 protected hold/light census changed")
+    for hold_id in HOLD_RELIEF_CASES:
+        if hold_id not in hold_map:
+            raise ValueError(f"WJ24 protected hold corridor {hold_id} is missing")
+    if LED_ID not in lights:
+        raise ValueError("WJ24 protected G7 LED geometry is missing")
+    for part_id in (*HOLD_RELIEF_CASES.values(), LED_CONNECTOR_ID):
+        if (
+            part_id not in geometry.raw_candidate_parts
+            or part_id not in geometry.finished_candidate_parts
+        ):
+            raise ValueError(f"WJ24 candidate connector {part_id} is missing")
+    for part_id in (
+        "bottom_center_right_cleat",
+        "top_center_right_cleat",
+        LED_CONNECTOR_ID,
+    ):
+        axes = [
+            axis_id
+            for axis_id, bore in geometry.candidate_bores.items()
+            if part_id in tuple(getattr(bore, "receiver_ids", ()))
+        ]
+        if len(axes) != 4:
+            raise ValueError(
+                f"{part_id}: expected exactly four retained candidate bores"
+            )
+
+    source_identity["counts"] = dict(geometry.counts)
+    source_identity["target_station_ids"] = sorted(geometry.target_station_ids)
+    return source_identity
+
+
+def _validate_source_identity(geometry: Any) -> dict[str, Any]:
+    """Recheck the live source binding, canonical inventory, and family closure."""
+    inventory = getattr(geometry, "source_inventory", None)
+    if not isinstance(inventory, Mapping):
+        raise TypeError("WJ24 source inventory is required")
+    binding = getattr(geometry, "source_binding", None)
+    source = getattr(geometry, "source", None)
+    if binding is None or source is None:
+        raise ValueError("WJ24 live source and source binding are required")
+    if validate_source_binding(source) != binding:
+        raise ValueError("WJ24 live source binding changed before access-relief report")
+
+    inventory_path = ROOT / wj24.INVENTORY_PATH
+    inventory_bytes = inventory_path.read_bytes()
+    inventory_sha256 = hashlib.sha256(inventory_bytes).hexdigest()
+    binding_inventory_sha256 = getattr(binding, "inventory_sha256", None)
+    if (
+        inventory_sha256 != getattr(geometry, "source_inventory_sha256", None)
+        or inventory_sha256 != binding_inventory_sha256
+    ):
+        raise ValueError("WJ24 canonical inventory no longer matches its source binding")
+    if wj24._plain(inventory) != json.loads(inventory_bytes):
+        raise ValueError("WJ24 in-memory inventory differs from canonical source inventory")
+
+    supplied_inputs = dict(getattr(geometry, "source_inputs_sha256", {}))
+    if not supplied_inputs:
+        raise ValueError("WJ24 source input hash closure is missing")
+    checked_inputs = wj24._validate_hash_map(
+        supplied_inputs, context="WJ24 access-relief source"
+    )
+    family_pins = getattr(geometry, "family_source_fingerprints", {})
+    family_trials = getattr(geometry, "family_trial_ids", {})
+    if (
+        not isinstance(family_pins, Mapping)
+        or not family_pins
+        or not isinstance(family_trials, Mapping)
+        or set(family_pins) != set(family_trials)
+    ):
+        raise ValueError("WJ24 retained family fingerprints and trials are incomplete")
+    expected_family_trials = wj24.bottom_outer._expected_context_family_trials("wj18")
+    expected_family_trials.update(
+        {
+            "top_center": wj24.top_center.TRIAL_ID,
+            "bottom_outer": wj24.bottom_outer.TRIAL_ID,
+            "bottom_center": wj24.bottom_center.TRIAL_ID,
+        }
+    )
+    if dict(family_trials) != expected_family_trials:
+        raise ValueError("WJ24 family trial IDs differ from the exact producer contract")
+    merged_family_inputs: dict[str, str] = {}
+    checked_families = {}
+    for family, rows in sorted(family_pins.items()):
+        if not isinstance(family, str) or not family or not isinstance(rows, Mapping):
+            raise TypeError("WJ24 family source fingerprints are malformed")
+        checked_rows = wj24._validate_hash_map(
+            rows, context=f"WJ24 access-relief family source {family}"
+        )
+        checked_families[family] = checked_rows
+        if not isinstance(family_trials[family], str) or not family_trials[family]:
+            raise ValueError(f"WJ24 family {family} has no exact trial identity")
+        for relative_path, digest in checked_rows.items():
+            previous = merged_family_inputs.get(relative_path)
+            if previous is not None and previous != digest:
+                raise ValueError(
+                    f"WJ24 family source fingerprints conflict at {relative_path}"
+                )
+            merged_family_inputs[relative_path] = digest
+    if merged_family_inputs != checked_inputs:
+        raise ValueError(
+            "WJ24 family source fingerprints differ from the exact source-input closure"
+        )
+
+    return {
+        "candidate": inventory.get("candidate"),
+        "source_commit": inventory.get("source_commit"),
+        "source_inventory_sha256": inventory_sha256,
+        "source_binding": {
+            "inventory_sha256": binding_inventory_sha256,
+            "runtime_module_sha256": dict(
+                sorted(binding.runtime_module_sha256.items())
+            ),
+            "uncut_part_shapes_sha256": binding.uncut_part_shapes_sha256,
+            "uncut_host_shape_sha256": dict(
+                sorted(binding.uncut_host_shape_sha256.items())
+            ),
+            "duty_host_mapping": {
+                key: list(value)
+                for key, value in sorted(binding.duty_host_mapping.items())
+            },
+            "fixed_screw_axes_sha256": binding.fixed_screw_axes_sha256,
+            "frame_bolt_axes_sha256": binding.frame_bolt_axes_sha256,
+        },
+        "source_inputs_sha256": checked_inputs,
+        "family_source_fingerprints_sha256": checked_families,
+        "family_trial_ids": dict(sorted(family_trials.items())),
+    }
+
+
+def _producer_pins() -> dict[str, dict[str, str]]:
+    return {
+        label: {
+            "path": relative_path,
+            "sha256": hashlib.sha256((ROOT / relative_path).read_bytes()).hexdigest(),
+        }
+        for label, relative_path in sorted(PRODUCER_HASH_PATHS.items())
+    }
+
+
+def _geometry_fingerprints(geometry: Any) -> dict[str, Any]:
+    """Fingerprint the complete source scene that a relief scenario must preserve."""
+    return {
+        "raw_candidate_parts": {
+            key: _source_shape_fingerprint(shape)
+            for key, shape in sorted(geometry.raw_candidate_parts.items())
+        },
+        "finished_candidate_parts": {
+            key: _source_shape_fingerprint(shape)
+            for key, shape in sorted(geometry.finished_candidate_parts.items())
+        },
+        "candidate_bores": {
+            key: _source_shape_fingerprint(bore.shape)
+            for key, bore in sorted(geometry.candidate_bores.items())
+        },
+        "candidate_installed_hardware": {
+            axis_id: {
+                role: _source_shape_fingerprint(shape)
+                for role, shape in sorted(roles.items())
+            }
+            for axis_id, roles in sorted(
+                geometry.candidate_installed_hardware.items()
+            )
+        },
+        "fixed_panel_axes": {
+            key: _source_shape_fingerprint(shape)
+            for key, shape in sorted(geometry.fixed_axes.items())
+        },
+        "retained_frame_bolt_shapes": {
+            key: _source_shape_fingerprint(shape)
+            for key, shape in sorted(geometry.frame_bolt_shapes.items())
+        },
+        "target_hold_proxies": {
+            key: _source_shape_fingerprint(
+                geometry.protected["hold_hole_and_provisional_projection"][key]
+            )
+            for key in sorted(HOLD_RELIEF_CASES)
+        },
+        "G7_LED_core": _source_shape_fingerprint(
+            geometry.protected["lights"][LED_ID]
+        ),
+    }
+
+
+def _source_inventory_part_rows(
+    inventory: Mapping[str, Any],
+) -> dict[str, Mapping[str, Any]]:
+    return {str(row["part_id"]): row for row in inventory.get("parts", ())}
+
+
+def _frame_for_connector(geometry: Any, part_id: str) -> dict[str, cq.Vector]:
+    host_id = FRAME_FOR_CANDIDATE[part_id]
+    row = _source_inventory_part_rows(geometry.source_inventory).get(host_id)
+    if row is None:
+        raise ValueError(f"source inventory has no frame host {host_id}")
+    matrix = row.get("local_to_global_transform")
+    axes = row.get("local_axes")
+    if not isinstance(matrix, list) or not isinstance(axes, Mapping):
+        raise TypeError(f"source inventory frame for {host_id} is incomplete")
+    origin = cq.Vector(float(matrix[0][3]), float(matrix[1][3]), float(matrix[2][3]))
+    frame = {
+        "origin": origin,
+        "X": _vec(axes["X"], f"{host_id}.X").normalized(),
+        "T": _vec(axes["T"], f"{host_id}.T").normalized(),
+        "N": _vec(axes["N"], f"{host_id}.N").normalized(),
+    }
+    if (
+        abs(frame["X"].dot(frame["T"])) > 1e-8
+        or abs(frame["X"].dot(frame["N"])) > 1e-8
+        or abs(frame["T"].dot(frame["N"])) > 1e-8
+        or frame["X"].cross(frame["T"]).dot(frame["N"]) < 1 - 1e-8
+    ):
+        raise ValueError(f"source inventory frame for {host_id} is not right-handed")
+    return frame
+
+
+def _to_local(
+    point: cq.Vector, frame: Mapping[str, cq.Vector]
+) -> tuple[float, float, float]:
+    delta = point - frame["origin"]
+    return tuple(delta.dot(frame[axis]) for axis in ("X", "T", "N"))
+
+
+def _local_vertices(
+    shape: cq.Shape, frame: Mapping[str, cq.Vector]
+) -> list[tuple[float, float, float]]:
+    vertices = [_to_local(vertex.Center(), frame) for vertex in shape.Vertices()]
+    if len(vertices) < 4:
+        raise ValueError(
+            "connector shape has too few vertices for source-local extents"
+        )
+    return vertices
+
+
+def _face_prism(face: cq.Face, direction: cq.Vector, depth_mm: float) -> cq.Shape:
+    return cq.Solid.extrudeLinear(
+        face.outerWire(), face.innerWires(), direction.normalized() * depth_mm
+    )
+
+
+def _planar_faces(shape: cq.Shape) -> list[tuple[int, cq.Face, cq.Vector]]:
+    result = []
+    for index, face in enumerate(shape.Faces()):
+        if face.geomType() != "PLANE" or face.Area() <= 1e-6:
+            continue
+        result.append((index, face, face.normalAt().normalized()))
+    return result
+
+
+def _receiver_bores(geometry: Any, receiver_id: str) -> dict[str, cq.Shape]:
+    return {
+        axis_id: bore.shape
+        for axis_id, bore in geometry.candidate_bores.items()
+        if receiver_id in tuple(getattr(bore, "receiver_ids", ()))
+    }
+
+
+def _contact_face_checks(
+    geometry: Any,
+    connector_id: str,
+    modified_shape: cq.Shape,
+    *,
+    tolerance_mm3: float,
+) -> dict[str, Any]:
+    raw_shape = geometry.raw_candidate_parts[connector_id]
+    baseline_finished = geometry.finished_candidate_parts[connector_id]
+    connector_bores = _receiver_bores(geometry, connector_id)
+    other_receivers = sorted(
+        {
+            receiver
+            for bore in geometry.candidate_bores.values()
+            if connector_id in tuple(getattr(bore, "receiver_ids", ()))
+            for receiver in tuple(getattr(bore, "receiver_ids", ()))
+            if receiver != connector_id
+        }
+    )
+    if len(other_receivers) != 2:
+        return {
+            "expected_contact_face_count": 2,
+            "found_contact_face_count": 0,
+            "all_two_faces_mapped": False,
+            "unresolved_reason": "connector does not have exactly two receiving hosts",
+            "per_host": {},
+        }
+
+    checks = {}
+    for host_id in other_receivers:
+        host_shape = geometry.finished_hosts.get(host_id)
+        if host_shape is None:
+            checks[host_id] = {
+                "matched": False,
+                "unresolved_reason": "finished host missing",
+            }
+            continue
+        candidates = []
+        for face_index, face, normal in _planar_faces(raw_shape):
+            face_area = float(face.Area())
+            try:
+                for sign in (-1.0, 1.0):
+                    into_connector = normal * sign
+                    connector_slab = _face_prism(
+                        face, into_connector, CONTACT_PROBE_DEPTH_MM
+                    )
+                    raw_fill = _intersection_volume(connector_slab, raw_shape)
+                    if raw_fill < connector_slab.Volume() * 0.98:
+                        continue
+                    host_slab = _face_prism(
+                        face, -into_connector, CONTACT_PROBE_DEPTH_MM
+                    )
+                    host_raw_volume = _intersection_volume(host_slab, host_shape)
+                    if host_raw_volume <= tolerance_mm3:
+                        continue
+                    declared_connector_cutters = list(connector_bores.values())
+                    declared_host_cutters = list(
+                        _receiver_bores(geometry, host_id).values()
+                    )
+                    connector_net_probe = (
+                        connector_slab.cut(*declared_connector_cutters).clean()
+                        if declared_connector_cutters
+                        else connector_slab
+                    )
+                    host_net_probe = (
+                        host_slab.cut(*declared_host_cutters).clean()
+                        if declared_host_cutters
+                        else host_slab
+                    )
+                    connector_denominator = float(connector_net_probe.Volume())
+                    host_denominator = float(host_net_probe.Volume())
+                    if (
+                        connector_denominator <= tolerance_mm3
+                        or host_denominator <= tolerance_mm3
+                    ):
+                        continue
+                    baseline_supported = _intersection_volume(
+                        connector_net_probe, baseline_finished
+                    )
+                    modified_supported = _intersection_volume(
+                        connector_net_probe, modified_shape
+                    )
+                    host_supported = _intersection_volume(host_net_probe, host_shape)
+                    candidates.append(
+                        {
+                            "face_index": face_index,
+                            "face_area_mm2": face_area,
+                            "face_shape_fingerprint_sha256": _source_shape_fingerprint(
+                                face
+                            ),
+                            "face_center_global_xyz_mm": [
+                                round(float(value), 9)
+                                for value in face.Center().toTuple()
+                            ],
+                            "face_normal_global_xyz": [
+                                round(float(value), 9) for value in normal.toTuple()
+                            ],
+                            "connector_inward_normal_global_xyz": [
+                                round(float(value), 9)
+                                for value in into_connector.toTuple()
+                            ],
+                            "gross_contact_slab_mm3": round(
+                                float(connector_slab.Volume()), 9
+                            ),
+                            "connector_net_contact_slab_mm3": round(
+                                connector_denominator, 9
+                            ),
+                            "host_net_contact_slab_mm3": round(host_denominator, 9),
+                            "baseline_connector_supported_net_slab_mm3": round(
+                                baseline_supported, 9
+                            ),
+                            "variant_connector_supported_net_slab_mm3": round(
+                                modified_supported, 9
+                            ),
+                            "host_supported_net_slab_mm3": round(host_supported, 9),
+                            "baseline_connector_support_fraction": round(
+                                baseline_supported / connector_denominator, 9
+                            ),
+                            "variant_connector_support_fraction": round(
+                                modified_supported / connector_denominator, 9
+                            ),
+                            "host_support_fraction": round(
+                                host_supported / host_denominator, 9
+                            ),
+                            "relief_support_loss_mm3": round(
+                                max(0.0, baseline_supported - modified_supported), 9
+                            ),
+                            "probe_depth_mm": CONTACT_PROBE_DEPTH_MM,
+                            "declared_candidate_bore_voids_discounted": True,
+                        }
+                    )
+            except (
+                ValueError,
+                RuntimeError,
+            ) as error:  # preserve a fail-closed per-face diagnostic
+                candidates.append({"face_index": face_index, "probe_error": str(error)})
+        usable = [
+            row for row in candidates if "variant_connector_support_fraction" in row
+        ]
+        usable.sort(
+            key=lambda row: (
+                row["baseline_connector_support_fraction"],
+                row["host_support_fraction"],
+                row["face_area_mm2"],
+            ),
+            reverse=True,
+        )
+        selected = usable[0] if usable else None
+        unique_match = len(usable) == 1
+        checks[host_id] = {
+            "matched": selected is not None and unique_match,
+            "match_count": len(usable),
+            "selected_face": selected,
+            "ambiguous_face_match": len(usable) > 1,
+            "unresolved_candidate_face_errors": [
+                row for row in candidates if "probe_error" in row
+            ],
+        }
+    matched = sum(row.get("matched", False) for row in checks.values())
+    selected_face_indices = [
+        row["selected_face"]["face_index"]
+        for row in checks.values()
+        if row.get("selected_face") is not None
+    ]
+    distinct_face_count = len(set(selected_face_indices))
+    selected_rows = [
+        row["selected_face"]
+        for row in checks.values()
+        if row.get("matched") and row.get("selected_face") is not None
+    ]
+    return {
+        "expected_contact_face_count": 2,
+        "found_contact_face_count": matched,
+        "distinct_connector_contact_face_count": distinct_face_count,
+        "all_two_faces_mapped": matched == 2
+        and distinct_face_count == 2
+        and all(not row.get("ambiguous_face_match", False) for row in checks.values()),
+        "all_selected_contact_probe_slabs_fully_supported": len(selected_rows) == 2
+        and all(
+            row["baseline_connector_support_fraction"] >= 1.0 - 1e-6
+            and row["variant_connector_support_fraction"] >= 1.0 - 1e-6
+            and row["host_support_fraction"] >= 1.0 - 1e-6
+            for row in selected_rows
+        ),
+        "minimum_contact_slab_is_a_local_geometric_probe_only": True,
+        "capacity_or_pressure_established": False,
+        "per_host": checks,
+    }
+
+
+def _washer_seat_checks(
+    geometry: Any,
+    connector_id: str,
+    modified_shape: cq.Shape,
+    *,
+    tolerance_mm3: float,
+) -> dict[str, Any]:
+    baseline = geometry.finished_candidate_parts[connector_id]
+    per_axis: dict[str, Any] = {}
+    for axis_id, bore in sorted(geometry.candidate_bores.items()):
+        if connector_id not in tuple(getattr(bore, "receiver_ids", ())):
+            continue
+        roles = geometry.candidate_installed_hardware[axis_id]
+        receiver_ids = tuple(getattr(bore, "receiver_ids", ()))
+        receiver_shapes: dict[str, cq.Shape] = {}
+        unresolved_receivers = []
+        for receiver_id in receiver_ids:
+            if receiver_id == connector_id:
+                receiver_shapes[receiver_id] = baseline
+            elif receiver_id in geometry.finished_candidate_parts:
+                receiver_shapes[receiver_id] = geometry.finished_candidate_parts[
+                    receiver_id
+                ]
+            elif receiver_id in geometry.finished_hosts:
+                receiver_shapes[receiver_id] = geometry.finished_hosts[receiver_id]
+            else:
+                unresolved_receivers.append(receiver_id)
+        if len(receiver_ids) != 2 or len(set(receiver_ids)) != 2:
+            unresolved_receivers.extend(receiver_ids)
+        seats = {}
+        for role in ("head_washer", "nut_washer"):
+            washer = roles.get(role)
+            if washer is None:
+                continue
+            planar_areas = [
+                float(face.Area())
+                for face in washer.Faces()
+                if face.geomType() == "PLANE" and face.Area() > 1e-6
+            ]
+            if not planar_areas:
+                seats[role] = {
+                    "resolved": False,
+                    "unresolved_reason": "washer role has no annular planar seat face",
+                }
+                continue
+            annular_area = max(planar_areas)
+            expected_volume = annular_area * WASHER_PROBE_DEPTH_MM
+            bore_axis = _cylinder_geometry(bore.shape, axis_id)["axis_global_xyz"]
+            choices: list[tuple[float, int, cq.Vector, dict[str, float]]] = []
+            for sign in (-1.0, 1.0):
+                direction = bore_axis * sign
+                probe = washer.translate(direction * WASHER_PROBE_DEPTH_MM)
+                per_receiver = {
+                    receiver_id: _intersection_volume(probe, shape)
+                    for receiver_id, shape in receiver_shapes.items()
+                }
+                choices.append((sum(per_receiver.values()), sign, direction, per_receiver))
+            choices.sort(key=lambda row: (row[0], row[1]), reverse=True)
+            baseline_volume, sign, direction, baseline_by_receiver = choices[0]
+            direction_ambiguous = (
+                len(choices) == 2
+                and abs(choices[0][0] - choices[1][0]) <= tolerance_mm3
+            )
+            variant_probe = washer.translate(direction * WASHER_PROBE_DEPTH_MM)
+            variant_by_receiver = {
+                receiver_id: _intersection_volume(
+                    variant_probe,
+                    modified_shape if receiver_id == connector_id else shape,
+                )
+                for receiver_id, shape in receiver_shapes.items()
+            }
+            variant_volume = sum(variant_by_receiver.values())
+            baseline_fraction = (
+                baseline_volume / expected_volume if expected_volume else 0.0
+            )
+            variant_fraction = (
+                variant_volume / expected_volume if expected_volume else 0.0
+            )
+            seats[role] = {
+                "resolved": baseline_volume > tolerance_mm3
+                and not unresolved_receivers
+                and not direction_ambiguous,
+                "seat_direction_global_xyz": [
+                    round(float(value), 9) for value in direction.toTuple()
+                ],
+                "annular_planar_area_mm2": round(annular_area, 9),
+                "probe_depth_mm": WASHER_PROBE_DEPTH_MM,
+                "declared_receiver_ids": list(receiver_ids),
+                "resolved_receiver_ids": sorted(receiver_shapes),
+                "unresolved_receiver_ids": unresolved_receivers,
+                "expected_annular_probe_mm3": round(expected_volume, 9),
+                "baseline_supported_annular_probe_mm3": round(baseline_volume, 9),
+                "variant_supported_annular_probe_mm3": round(variant_volume, 9),
+                "baseline_support_by_receiver_mm3": {
+                    key: round(value, 9)
+                    for key, value in sorted(baseline_by_receiver.items())
+                },
+                "variant_support_by_receiver_mm3": {
+                    key: round(value, 9)
+                    for key, value in sorted(variant_by_receiver.items())
+                },
+                "baseline_support_fraction": round(baseline_fraction, 9),
+                "variant_support_fraction": round(variant_fraction, 9),
+                "seat_direction_ambiguous": direction_ambiguous,
+                "support_loss_mm3": round(
+                    max(0.0, baseline_volume - variant_volume), 9
+                ),
+                "baseline_full_annular_support": baseline_fraction >= 1.0 - 1e-6
+                and not unresolved_receivers
+                and not direction_ambiguous,
+                "variant_full_annular_support": variant_fraction >= 1.0 - 1e-6
+                and not unresolved_receivers
+                and not direction_ambiguous,
+                "contact_probe_is_not_capacity_or_pressure": True,
+            }
+            if baseline_volume <= tolerance_mm3 or unresolved_receivers:
+                seats[role]["unresolved_reason"] = (
+                    "baseline washer seat did not resolve against all declared receivers"
+                )
+            elif direction_ambiguous:
+                seats[role]["unresolved_reason"] = (
+                    "both washer translation directions have equal support"
+                )
+        per_axis[axis_id] = seats
+    seat_count = sum(len(rows) for rows in per_axis.values())
+    return {
+        "candidate_bore_count_for_connector": len(per_axis),
+        "washer_role_probe_count": seat_count,
+        "expected_washer_role_probe_count": 4,
+        "all_four_seats_resolved": seat_count == 4
+        and all(
+            row.get("resolved", False)
+            for roles in per_axis.values()
+            for row in roles.values()
+        ),
+        "all_four_baseline_annular_seats_fully_supported": seat_count == 4
+        and all(
+            row.get("baseline_full_annular_support", False)
+            for roles in per_axis.values()
+            for row in roles.values()
+        ),
+        "all_four_variant_annular_seats_fully_supported": seat_count == 4
+        and all(
+            row.get("variant_full_annular_support", False)
+            for roles in per_axis.values()
+            for row in roles.values()
+        ),
+        "per_axis": per_axis,
+    }
+
+
+def _bore_checks(
+    geometry: Any,
+    connector_id: str,
+    modified_shape: cq.Shape,
+    cutter: cq.Shape,
+) -> dict[str, Any]:
+    rows = {}
+    for axis_id, bore in sorted(geometry.candidate_bores.items()):
+        if connector_id not in tuple(getattr(bore, "receiver_ids", ())):
+            continue
+        bore_shape = bore.shape
+        bore_geometry = _cylinder_geometry(bore_shape, axis_id)
+        cutter_overlap = _intersection_volume(cutter, bore_shape)
+        finished_overlap = _intersection_volume(modified_shape, bore_shape)
+        distance = None
+        if cutter_overlap <= HIT_TOLERANCE_MM3:
+            try:
+                distance = float(cutter.distance(bore_shape))
+            except (ValueError, RuntimeError):
+                distance = None
+        hardware_roles = geometry.candidate_installed_hardware[axis_id]
+        role_geometry = {
+            role: _shape_evidence(shape)
+            for role, shape in sorted(hardware_roles.items())
+        }
+        rows[axis_id] = {
+            "family": str(getattr(bore, "family", "")),
+            "family_trial_id": str(getattr(bore, "trial_id", "")),
+            "station_id": getattr(bore, "station_id", None),
+            "ordered_receiver_ids": list(getattr(bore, "receiver_ids", ())),
+            "bore_shape_sha256": _source_shape_fingerprint(bore_shape),
+            "bore_cylinder_geometry": {
+                "axis_global_xyz": [
+                    round(float(value), 9)
+                    for value in bore_geometry["axis_global_xyz"].toTuple()
+                ],
+                "start_global_xyz_mm": [
+                    round(float(value), 9)
+                    for value in bore_geometry["start_global_xyz"].toTuple()
+                ],
+                "end_global_xyz_mm": [
+                    round(float(value), 9)
+                    for value in bore_geometry["end_global_xyz"].toTuple()
+                ],
+                "length_mm": round(bore_geometry["length_mm"], 9),
+                "diameter_mm": round(bore_geometry["diameter_mm"], 9),
+            },
+            "installed_hardware_role_shapes": role_geometry,
+            "ordinary_hardware_role_set_exact": set(hardware_roles)
+            == {"shaft", "head", "head_washer", "nut_washer", "nut"},
+            "relief_cutter_vs_bore_overlap_mm3": round(cutter_overlap, 9),
+            "relieved_finished_connector_vs_bore_overlap_mm3": round(
+                finished_overlap, 9
+            ),
+            "surface_distance_to_relief_mm": round(distance, 9)
+            if distance is not None
+            else None,
+            "candidate_bore_remains_clear": finished_overlap <= HIT_TOLERANCE_MM3,
+        }
+    return {
+        "expected_bore_count": 4,
+        "actual_bore_count": len(rows),
+        "all_four_axes_have_exact_ordinary_hardware_roles": len(rows) == 4
+        and all(row["ordinary_hardware_role_set_exact"] for row in rows.values()),
+        "all_four_bores_clear_after_relief": len(rows) == 4
+        and all(row["candidate_bore_remains_clear"] for row in rows.values()),
+        "per_axis": rows,
+    }
+
+
+def _section_stations(
+    raw_shape: cq.Shape,
+    frame: Mapping[str, cq.Vector],
+    bores: Mapping[str, cq.Shape],
+    cutter: cq.Shape,
+) -> tuple[float, float, list[tuple[float, str]]]:
+    points = _local_vertices(raw_shape, frame)
+    n_values = [point[2] for point in points]
+    n_min, n_max = min(n_values), max(n_values)
+    if n_max - n_min <= SECTION_PROBE_DEPTH_MM * 3:
+        raise ValueError(
+            "connector grain interval is too short for sampled section slabs"
+        )
+    critical: dict[float, set[str]] = {}
+
+    def add(value: float, label: str) -> None:
+        if (
+            n_min + SECTION_PROBE_DEPTH_MM / 2
+            <= value
+            <= n_max - SECTION_PROBE_DEPTH_MM / 2
+        ):
+            critical.setdefault(round(float(value), 6), set()).add(label)
+
+    add(n_min + SECTION_PROBE_DEPTH_MM / 2, "stock_low_end_near_tangent")
+    add(n_max - SECTION_PROBE_DEPTH_MM / 2, "stock_high_end_near_tangent")
+    for axis_id, bore in sorted(bores.items()):
+        info = _cylinder_geometry(bore, axis_id)
+        low, high, center = _projected_cylinder_interval(
+            info, frame["origin"], frame["N"]
+        )
+        add(low, f"{axis_id}:grain_tangent_low")
+        add(center, f"{axis_id}:axis_center")
+        add(high, f"{axis_id}:grain_tangent_high")
+    tool_info = _cylinder_geometry(cutter, "relief_cutter")
+    cut_low, cut_high, cut_center = _projected_cylinder_interval(
+        tool_info, frame["origin"], frame["N"]
+    )
+    add(cut_low, "relief_tool:grain_tangent_low")
+    add(cut_center, "relief_tool:axis_center")
+    add(cut_high, "relief_tool:grain_tangent_high")
+
+    regular = []
+    first = n_min + SECTION_PROBE_DEPTH_MM / 2
+    count = math.floor(
+        (n_max - SECTION_PROBE_DEPTH_MM / 2 - first) / SECTION_INTERVAL_STEP_MM
+    )
+    for index in range(count + 1):
+        station = first + index * SECTION_INTERVAL_STEP_MM
+        regular.append((round(station, 6), "regular_interval_sample"))
+    regular.append(
+        (round(n_max - SECTION_PROBE_DEPTH_MM / 2, 6), "regular_interval_sample")
+    )
+
+    samples: dict[float, set[str]] = {}
+    for station, label in regular:
+        samples.setdefault(station, set()).add(label)
+    for critical_station, labels in critical.items():
+        samples.setdefault(critical_station, set()).update(labels)
+        for offset in SECTION_REFINEMENT_OFFSETS_MM:
+            for sign in (-1.0, 1.0):
+                station = critical_station + sign * offset
+                if (
+                    n_min + SECTION_PROBE_DEPTH_MM / 2
+                    <= station
+                    <= n_max - SECTION_PROBE_DEPTH_MM / 2
+                ):
+                    samples.setdefault(round(station, 6), set()).add(
+                        f"refinement_around_{'|'.join(sorted(labels))}"
+                    )
+    return (
+        n_min,
+        n_max,
+        [
+            (station, ";".join(sorted(labels)))
+            for station, labels in sorted(samples.items())
+        ],
+    )
+
+
+def _section_probe(
+    frame: Mapping[str, cq.Vector],
+    extents: Mapping[str, tuple[float, float]],
+    station_n: float,
+) -> cq.Shape:
+    x_min, x_max = extents["X"]
+    t_min, t_max = extents["T"]
+    margin = 2.0
+    origin = (
+        frame["origin"]
+        + frame["X"] * (x_min - margin)
+        + frame["T"] * (t_min - margin)
+        + frame["N"] * (station_n - SECTION_PROBE_DEPTH_MM / 2)
+    )
+    plane = cq.Plane(origin=origin, xDir=frame["X"], normal=frame["N"])
+    return (
+        cq.Workplane(plane)
+        .box(
+            (x_max - x_min) + 2 * margin,
+            (t_max - t_min) + 2 * margin,
+            SECTION_PROBE_DEPTH_MM,
+            centered=False,
+        )
+        .val()
+    )
+
+
+def _sampled_grain_sections(
+    geometry: Any,
+    connector_id: str,
+    cutter: cq.Shape,
+    relieved_raw: cq.Shape,
+    relieved_finished: cq.Shape,
+) -> dict[str, Any]:
+    frame = _frame_for_connector(geometry, connector_id)
+    raw = geometry.raw_candidate_parts[connector_id]
+    baseline_finished = geometry.finished_candidate_parts[connector_id]
+    local = _local_vertices(raw, frame)
+    axes = tuple(zip(*local, strict=True))
+    extents = {
+        name: (float(min(values)), float(max(values)))
+        for name, values in zip(("X", "T", "N"), axes, strict=True)
+    }
+    bores = _receiver_bores(geometry, connector_id)
+    _, _, stations = _section_stations(raw, frame, bores, cutter)
+    rows = []
+    for station, labels in stations:
+        probe = _section_probe(frame, extents, station)
+        raw_area = _intersection_volume(probe, raw) / SECTION_PROBE_DEPTH_MM
+        baseline_area = (
+            _intersection_volume(probe, baseline_finished) / SECTION_PROBE_DEPTH_MM
+        )
+        relieved_raw_area = (
+            _intersection_volume(probe, relieved_raw) / SECTION_PROBE_DEPTH_MM
+        )
+        relieved_finished_area = (
+            _intersection_volume(probe, relieved_finished) / SECTION_PROBE_DEPTH_MM
+        )
+        rows.append(
+            {
+                "station_N_mm": round(station, 6),
+                "station_tags": labels.split(";"),
+                "raw_section_slab_equivalent_area_mm2": round(raw_area, 9),
+                "baseline_finished_section_slab_equivalent_area_mm2": round(
+                    baseline_area, 9
+                ),
+                "relieved_raw_section_slab_equivalent_area_mm2": round(
+                    relieved_raw_area, 9
+                ),
+                "relieved_finished_section_slab_equivalent_area_mm2": round(
+                    relieved_finished_area, 9
+                ),
+            }
+        )
+    interior = [
+        row
+        for row in rows
+        if "stock_low_end_near_tangent" not in row["station_tags"]
+        and "stock_high_end_near_tangent" not in row["station_tags"]
+    ]
+    minimum = min(
+        interior,
+        key=lambda row: row["relieved_finished_section_slab_equivalent_area_mm2"],
+    )
+    baseline_minimum = min(
+        interior,
+        key=lambda row: row["baseline_finished_section_slab_equivalent_area_mm2"],
+    )
+    return {
+        "grain_axis_local_name": "N",
+        "grain_axis_global_xyz": [
+            round(float(value), 9) for value in frame["N"].toTuple()
+        ],
+        "connector_local_extents_X_T_N_mm": {
+            key: [round(value, 6) for value in values]
+            for key, values in extents.items()
+        },
+        "sample_count": len(rows),
+        "interval_sample_step_mm": SECTION_INTERVAL_STEP_MM,
+        "refinement_offsets_around_bore_and_cut_tangencies_mm": list(
+            SECTION_REFINEMENT_OFFSETS_MM
+        ),
+        "slab_depth_mm": SECTION_PROBE_DEPTH_MM,
+        "area_method": "intersection volume divided by 0.1 mm local N-normal slab depth",
+        "minimum_kind": "sampled minimum only; no continuous global minimum proved",
+        "baseline_sampled_minimum_mm2": round(
+            baseline_minimum["baseline_finished_section_slab_equivalent_area_mm2"], 9
+        ),
+        "baseline_sampled_minimum_station_N_mm": baseline_minimum["station_N_mm"],
+        "relieved_sampled_minimum_mm2": round(
+            minimum["relieved_finished_section_slab_equivalent_area_mm2"], 9
+        ),
+        "relieved_sampled_minimum_station_N_mm": minimum["station_N_mm"],
+        "sampled_minimum_change_mm2": round(
+            minimum["relieved_finished_section_slab_equivalent_area_mm2"]
+            - baseline_minimum["baseline_finished_section_slab_equivalent_area_mm2"],
+            9,
+        ),
+        "stations": rows,
+        "capacity_or_accepted_net_section_established": False,
+    }
+
+
+def _physical_and_access_maps(
+    geometry: Any,
+) -> tuple[dict[str, cq.Shape], dict[str, cq.Shape], dict[str, cq.Shape]]:
+    physical: dict[str, cq.Shape] = {}
+    access: dict[str, cq.Shape] = {}
+    frame_proxies: dict[str, cq.Shape] = {}
+    access_families = {
+        "retained_12_frame_bolt_tools_withdrawals",
+        "hold_hole_and_provisional_projection",
+    }
+    for family, shapes in geometry.protected.items():
+        if family == "retained_12_frame_bolt_components":
+            continue
+        target = access if family in access_families else physical
+        target.update(
+            {f"protected/{family}/{name}": shape for name, shape in shapes.items()}
+        )
+    for name, shape in geometry.frame_bolt_shapes.items():
+        key = f"frame_bolt/{name}"
+        if name.endswith("/source_occupied_axis"):
+            frame_proxies[key] = shape
+        else:
+            physical[key] = shape
+    return physical, access, frame_proxies
+
+
+def _flatten_candidate_hardware(
+    geometry: Any, *, omit_axes: set[str] | None = None
+) -> dict[str, cq.Shape]:
+    omitted = omit_axes or set()
+    return {
+        f"candidate_hardware/{axis_id}/{role}": shape
+        for axis_id, roles in geometry.candidate_installed_hardware.items()
+        if axis_id not in omitted
+        for role, shape in roles.items()
+    }
+
+
+def _scene_maps(
+    geometry: Any,
+) -> tuple[
+    dict[str, cq.Shape],
+    dict[str, cq.Shape],
+    dict[str, cq.Shape],
+    dict[str, cq.Shape],
+    dict[str, cq.Shape],
+]:
+    _, finished_wood = shared_diagnostic._composed_wood(geometry)
+    physical, access, frame_proxies = _physical_and_access_maps(geometry)
+    hardware = _flatten_candidate_hardware(geometry)
+    return dict(finished_wood), physical, access, frame_proxies, hardware
+
+
+def _scene_checks(
+    geometry: Any,
+    connector_id: str,
+    modified_shape: cq.Shape,
+    *,
+    tolerance_mm3: float,
+    scene_maps: tuple[
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+    ]
+    | None = None,
+) -> dict[str, Any]:
+    if scene_maps is None:
+        scene_maps = _scene_maps(geometry)
+    finished_wood, physical, access, frame_proxies, hardware = scene_maps
+    candidates = dict(geometry.finished_candidate_parts)
+    candidates[connector_id] = modified_shape
+    wood_obstacles = {
+        name: shape for name, shape in finished_wood.items() if name != connector_id
+    }
+    candidate_obstacles = {
+        name: shape for name, shape in candidates.items() if name != connector_id
+    }
+    body_checks = {
+        "finished_wood_hits_mm3": _hits(
+            modified_shape, wood_obstacles, tolerance_mm3=tolerance_mm3
+        ),
+        "peer_candidate_body_hits_mm3": _hits(
+            modified_shape, candidate_obstacles, tolerance_mm3=tolerance_mm3
+        ),
+        "candidate_installed_hardware_hits_mm3": _hits(
+            modified_shape, hardware, tolerance_mm3=tolerance_mm3
+        ),
+        "physical_protected_hits_mm3": _hits(
+            modified_shape, physical, tolerance_mm3=tolerance_mm3
+        ),
+        "access_envelope_hits_mm3": _hits(
+            modified_shape, access, tolerance_mm3=tolerance_mm3
+        ),
+        "frame_source_occupied_proxy_hits_mm3": _hits(
+            modified_shape, frame_proxies, tolerance_mm3=tolerance_mm3
+        ),
+    }
+    body_checks["all_reported_overlap_maps_empty"] = not any(
+        body_checks[key]
+        for key in (
+            "finished_wood_hits_mm3",
+            "peer_candidate_body_hits_mm3",
+            "candidate_installed_hardware_hits_mm3",
+            "physical_protected_hits_mm3",
+            "access_envelope_hits_mm3",
+            "frame_source_occupied_proxy_hits_mm3",
+        )
+    )
+    return body_checks
+
+
+def _modified_connector_row(
+    geometry: Any,
+    connector_id: str,
+    cutter_id: str,
+    cutter: cq.Shape,
+    cutter_parameters: Mapping[str, Any],
+    *,
+    tolerance_mm3: float,
+    relieved_finished_override: cq.Shape | None = None,
+    scene_maps: tuple[
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+    ]
+    | None = None,
+) -> dict[str, Any]:
+    raw = geometry.raw_candidate_parts[connector_id]
+    finished = geometry.finished_candidate_parts[connector_id]
+    raw_source_hash = _source_shape_fingerprint(raw)
+    finished_source_hash = _source_shape_fingerprint(finished)
+    relieved_raw = raw.cut(cutter).clean()
+    relieved_finished = (
+        relieved_finished_override
+        if relieved_finished_override is not None
+        else finished.cut(cutter).clean()
+    )
+    if (
+        not relieved_raw.isValid()
+        or not relieved_raw.Solids()
+        or not relieved_finished.isValid()
+        or not relieved_finished.Solids()
+    ):
+        raise ValueError(f"{connector_id}: relief created invalid solid geometry")
+    source_connector_unchanged = (
+        raw_source_hash
+        == _source_shape_fingerprint(geometry.raw_candidate_parts[connector_id])
+        and finished_source_hash
+        == _source_shape_fingerprint(geometry.finished_candidate_parts[connector_id])
+    )
+    if not source_connector_unchanged:
+        raise ValueError(f"{connector_id}: source connector geometry mutated")
+    removed_axes = sorted(
+        axis_id
+        for axis_id, bore in geometry.candidate_bores.items()
+        if connector_id in tuple(getattr(bore, "receiver_ids", ()))
+    )
+    return {
+        "connector_id": connector_id,
+        "exact_new_cutter_id": cutter_id,
+        "source_connector_geometry_unchanged": source_connector_unchanged,
+        "raw_source_shape_sha256": raw_source_hash,
+        "finished_source_shape_sha256": finished_source_hash,
+        "cutter_parameters": dict(cutter_parameters),
+        "cutter_shape": _shape_evidence(cutter),
+        "raw_baseline_shape": _shape_evidence(raw),
+        "raw_variant_shape": _shape_evidence(relieved_raw),
+        "raw_material_removed_mm3": round(
+            max(0.0, raw.Volume() - relieved_raw.Volume()), 9
+        ),
+        "finished_baseline_shape": _shape_evidence(finished),
+        "finished_variant_shape": _shape_evidence(relieved_finished),
+        "finished_material_removed_mm3": round(
+            max(0.0, finished.Volume() - relieved_finished.Volume()), 9
+        ),
+        "modified_connector_ids": [connector_id],
+        "candidate_bore_axis_ids_on_connector": removed_axes,
+        "scene_checks": _scene_checks(
+            geometry,
+            connector_id,
+            relieved_finished,
+            tolerance_mm3=tolerance_mm3,
+            scene_maps=scene_maps,
+        ),
+        "contact_faces": _contact_face_checks(
+            geometry, connector_id, relieved_finished, tolerance_mm3=tolerance_mm3
+        ),
+        "candidate_bores": _bore_checks(
+            geometry, connector_id, relieved_finished, cutter
+        ),
+        "washer_seats": _washer_seat_checks(
+            geometry, connector_id, relieved_finished, tolerance_mm3=tolerance_mm3
+        ),
+        "sampled_grain_sections": _sampled_grain_sections(
+            geometry, connector_id, cutter, relieved_raw, relieved_finished
+        ),
+        "cut_authorized": False,
+        "capacity_or_joint_acceptance_established": False,
+    }
+
+
+def _led_sweep(
+    geometry: Any,
+    *,
+    radial_clearance_mm: float,
+) -> tuple[cq.Shape, dict[str, Any]]:
+    light = geometry.protected["lights"][LED_ID]
+    panel = _source_inventory_part_rows(geometry.source_inventory).get(
+        LED_OWNER_PANEL_ID
+    )
+    if panel is None:
+        raise ValueError(f"source inventory omits LED owner panel {LED_OWNER_PANEL_ID}")
+    transform = panel["local_to_global_transform"]
+    panel_origin = cq.Vector(
+        float(transform[0][3]), float(transform[1][3]), float(transform[2][3])
+    )
+    axis = _vec(panel["local_axes"]["N"], "G7 panel normal").normalized()
+    info = _cylinder_geometry(light, LED_ID)
+    if abs(abs(info["axis_global_xyz"].dot(axis)) - 1.0) > 1e-7:
+        raise ValueError("G7 LED cylinder axis differs from its owner panel normal")
+    # Orient the core in the panel's outward N direction and match the archived
+    # source-bound extraction sweep exactly before applying any radial margin.
+    cap_stations = [
+        (point - panel_origin).dot(axis)
+        for point in (info["start_global_xyz"], info["end_global_xyz"])
+    ]
+    low_cap = (
+        info["start_global_xyz"]
+        if cap_stations[0] <= cap_stations[1]
+        else info["end_global_xyz"]
+    )
+    length = info["length_mm"]
+    if abs(2 * info["radius_mm"] - LED_CORE_DIAMETER_MM) > 1e-6:
+        raise ValueError(
+            "G7 LED core diameter differs from the owner-reported 12.7 mm basis"
+        )
+    rear_n = float(panel["actual_shape_extents_local_mm"]["N"][1])
+    low_n = min(cap_stations)
+    stroke = rear_n - low_n + LED_PANEL_REAR_TIP_CLEARANCE_MM
+    if abs(stroke - LED_WITHDRAWAL_STROKE_MM) > 1e-6:
+        raise ValueError(
+            f"G7 rearward stroke differs from the archived 19.25625 mm basis: {stroke:.9f}"
+        )
+    clearance = float(radial_clearance_mm)
+    if not math.isfinite(clearance) or clearance < 0:
+        raise ValueError(
+            "LED radial clearance scenarios must be finite and nonnegative"
+        )
+    sweep = cq.Solid.makeCylinder(
+        info["radius_mm"] + clearance,
+        length + stroke,
+        low_cap,
+        axis,
+    )
+    core = cq.Solid.makeCylinder(info["radius_mm"], length, low_cap, axis)
+    core_delta = _symmetric_difference_volume(light, core)
+    if core_delta > SHAPE_MATCH_TOLERANCE_MM3:
+        raise ValueError(f"{LED_ID}: source light does not match its cylindrical core")
+    return sweep, {
+        "light_id": LED_ID,
+        "owner_panel_id": LED_OWNER_PANEL_ID,
+        "core_diameter_mm": LED_CORE_DIAMETER_MM,
+        "swept_diameter_mm": 2 * (info["radius_mm"] + clearance),
+        "radial_clearance_mm": clearance,
+        "core_length_mm": length,
+        "rearward_stroke_mm": stroke,
+        "panel_rear_tip_clearance_mm": LED_PANEL_REAR_TIP_CLEARANCE_MM,
+        "source_core_symmetric_difference_mm3": core_delta,
+        "rearward_axis_global_xyz": [
+            round(float(value), 9) for value in axis.toTuple()
+        ],
+        "swept_shape": _shape_evidence(sweep),
+    }
+
+
+def _led_route_checks(
+    geometry: Any,
+    sweep: cq.Shape,
+    *,
+    removed_connector: bool,
+    tolerance_mm3: float,
+    modified_connector_shape: cq.Shape | None = None,
+    scene_maps: tuple[
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+    ]
+    | None = None,
+) -> dict[str, Any]:
+    if scene_maps is None:
+        scene_maps = _scene_maps(geometry)
+    finished_wood_map, physical, access, frame_proxies, all_hardware = scene_maps
+    finished_wood = dict(finished_wood_map)
+    candidates = dict(geometry.finished_candidate_parts)
+    removed_axes: set[str] = set()
+    if removed_connector:
+        if modified_connector_shape is not None:
+            raise ValueError(
+                "removed-connector route cannot also supply a modified connector"
+            )
+        candidates.pop(LED_CONNECTOR_ID, None)
+        finished_wood.pop(LED_CONNECTOR_ID, None)
+        removed_axes = {
+            axis_id
+            for axis_id, bore in geometry.candidate_bores.items()
+            if LED_CONNECTOR_ID in tuple(getattr(bore, "receiver_ids", ()))
+        }
+    else:
+        if modified_connector_shape is None:
+            modified_connector_shape = geometry.finished_candidate_parts[
+                LED_CONNECTOR_ID
+            ]
+        candidates[LED_CONNECTOR_ID] = modified_connector_shape
+        finished_wood[LED_CONNECTOR_ID] = modified_connector_shape
+    wood_hits = _hits(sweep, finished_wood, tolerance_mm3=tolerance_mm3)
+    removed_prefixes = {f"candidate_hardware/{axis_id}/" for axis_id in removed_axes}
+    hardware = {
+        name: shape
+        for name, shape in all_hardware.items()
+        if not name.startswith(tuple(removed_prefixes))
+    }
+    # Exclude the moving G7 LED itself. Other lights and the maintained wire
+    # display shapes remain explicit obstacles in this rigid-envelope screen.
+    service_hits = dict(physical)
+    service_hits.pop(f"protected/lights/{LED_ID}", None)
+    candidate_body_hits = _hits(sweep, candidates, tolerance_mm3=tolerance_mm3)
+    hardware_hits = _hits(sweep, hardware, tolerance_mm3=tolerance_mm3)
+    physical_hits = _hits(sweep, service_hits, tolerance_mm3=tolerance_mm3)
+    access_hits = _hits(sweep, access, tolerance_mm3=tolerance_mm3)
+    frame_proxy_hits = _hits(sweep, frame_proxies, tolerance_mm3=tolerance_mm3)
+    return {
+        "wood_hits_mm3": wood_hits,
+        "other_candidate_body_hits_mm3": candidate_body_hits,
+        "candidate_installed_hardware_hits_mm3": hardware_hits,
+        "fixed_and_retained_physical_hits_mm3": physical_hits,
+        "hold_projection_and_frame_access_hits_mm3": access_hits,
+        "frame_source_occupied_proxy_hits_mm3": frame_proxy_hits,
+        "removed_connector_id": LED_CONNECTOR_ID if removed_connector else None,
+        "removed_candidate_axis_ids": sorted(removed_axes),
+        "removed_candidate_hardware_role_count": sum(
+            len(geometry.candidate_installed_hardware[axis]) for axis in removed_axes
+        ),
+        "all_recorded_rigid_obstacle_hits_empty": not any(
+            (
+                wood_hits,
+                candidate_body_hits,
+                hardware_hits,
+                physical_hits,
+                access_hits,
+                frame_proxy_hits,
+            )
+        ),
+        "fixed_panel_axis_count": len(geometry.fixed_axes),
+        "fixed_frame_bolt_count": len(geometry.frame_bolt_records),
+        "flexible_wire_transport_or_service_sequence_established": False,
+    }
+
+
+def _hold_relief_scenarios(
+    geometry: Any,
+    *,
+    radial_clearances_mm: Sequence[float],
+    tolerance_mm3: float,
+    scene_maps: tuple[
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+    ],
+) -> list[dict[str, Any]]:
+    rows = []
+    hold_shapes = geometry.protected["hold_hole_and_provisional_projection"]
+    for hold_id, connector_id in sorted(HOLD_RELIEF_CASES.items()):
+        core = hold_shapes[hold_id]
+        core_info = _cylinder_geometry(core, hold_id)
+        if (
+            abs(core_info["diameter_mm"] - HOLD_CORE_DIAMETER_MM) > 1e-6
+            or abs(core_info["length_mm"] - HOLD_CORE_LENGTH_MM) > 1e-6
+        ):
+            raise ValueError(
+                f"{hold_id}: protected hold corridor core dimensions changed"
+            )
+        for radial_clearance in radial_clearances_mm:
+            cutter, cutter_parameters = _cylinder_with_radial_clearance(
+                core, float(radial_clearance), hold_id
+            )
+            label = f"{hold_id}/radial_clearance_{float(radial_clearance):g}mm"
+            rows.append(
+                {
+                    "scenario_id": label,
+                    "hold_proxy_id": hold_id,
+                    "proxy_core_diameter_mm": HOLD_CORE_DIAMETER_MM,
+                    "proxy_core_length_mm": HOLD_CORE_LENGTH_MM,
+                    "connector": _modified_connector_row(
+                        geometry,
+                        connector_id,
+                        f"connector_only_relief/{label}",
+                        cutter,
+                        cutter_parameters,
+                        tolerance_mm3=tolerance_mm3,
+                        scene_maps=scene_maps,
+                    ),
+                }
+            )
+    return rows
+
+
+def _led_relief_scenarios(
+    geometry: Any,
+    *,
+    radial_clearances_mm: Sequence[float],
+    tolerance_mm3: float,
+    scene_maps: tuple[
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+        dict[str, cq.Shape],
+    ],
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    baseline_sweep, baseline_params = _led_sweep(geometry, radial_clearance_mm=0.0)
+    baseline_checks = _led_route_checks(
+        geometry,
+        baseline_sweep,
+        removed_connector=False,
+        tolerance_mm3=tolerance_mm3,
+        scene_maps=scene_maps,
+    )
+    rows = []
+    for radial_clearance in radial_clearances_mm:
+        sweep, parameters = _led_sweep(
+            geometry, radial_clearance_mm=float(radial_clearance)
+        )
+        relieved_finished = (
+            geometry.finished_candidate_parts[LED_CONNECTOR_ID].cut(sweep).clean()
+        )
+        connector = _modified_connector_row(
+            geometry,
+            LED_CONNECTOR_ID,
+            f"connector_only_relief/{LED_ID}/radial_clearance_{float(radial_clearance):g}mm",
+            sweep,
+            parameters,
+            tolerance_mm3=tolerance_mm3,
+            relieved_finished_override=relieved_finished,
+            scene_maps=scene_maps,
+        )
+        connector["LED_route_after_relief"] = _led_route_checks(
+            geometry,
+            sweep,
+            removed_connector=False,
+            tolerance_mm3=tolerance_mm3,
+            modified_connector_shape=relieved_finished,
+            scene_maps=scene_maps,
+        )
+        rows.append(
+            {
+                "scenario_id": f"{LED_ID}/radial_clearance_{float(radial_clearance):g}mm",
+                "LED_sweep": parameters,
+                "connector": connector,
+            }
+        )
+    staged_sweep, staged_parameters = _led_sweep(geometry, radial_clearance_mm=0.0)
+    staging = {
+        "scenario_id": "G7_connector_and_four_stack_axes_removed_for_service_screen",
+        "LED_sweep": staged_parameters,
+        "route_checks": _led_route_checks(
+            geometry,
+            staged_sweep,
+            removed_connector=True,
+            tolerance_mm3=tolerance_mm3,
+            scene_maps=scene_maps,
+        ),
+        "required_unverified_operations": [
+            "unload and temporarily support the frame before removing the named WJ04 lower connector",
+            "remove the four connector bolt stacks and connector body before withdrawing G7",
+            "restore the connector and four bolt stacks after service",
+        ],
+        "temporary_support_method_or_capacity_established": False,
+        "bolt_tool_access_and_reinstallation_established": False,
+        "service_repeatability_established": False,
+    }
+    return rows, {
+        "baseline_route_parameters": baseline_params,
+        "baseline_route_checks": baseline_checks,
+        "relief_variants": rows,
+        "staged_state_candidate": staging,
+    }
+
+
+def build_wj24_access_relief_report(
+    geometry: Any,
+    *,
+    hold_radial_clearances_mm: Sequence[float] = HOLD_RADIAL_CLEARANCE_SCENARIOS_MM,
+    led_radial_clearances_mm: Sequence[float] = LED_RADIAL_CLEARANCE_SCENARIOS_MM,
+    tolerance_mm3: float = HIT_TOLERANCE_MM3,
+) -> dict[str, Any]:
+    """Screen named connector-only reliefs and a separate connector-removed G7 state."""
+    if not math.isfinite(float(tolerance_mm3)) or tolerance_mm3 <= 0:
+        raise ValueError("intersection tolerance must be finite and positive")
+    hold_values = tuple(float(value) for value in hold_radial_clearances_mm)
+    led_values = tuple(float(value) for value in led_radial_clearances_mm)
+    if hold_values != HOLD_RADIAL_CLEARANCE_SCENARIOS_MM:
+        raise ValueError(
+            "hold scenarios must remain exactly 0, 0.5, and 1.0 mm radial clearance"
+        )
+    if led_values != LED_RADIAL_CLEARANCE_SCENARIOS_MM:
+        raise ValueError(
+            "LED scenarios must remain exactly 0, 0.5, and 1.0 mm radial clearance"
+        )
+    identity = _validate_geometry(geometry)
+    geometry_fingerprints = _geometry_fingerprints(geometry)
+    scene_maps = _scene_maps(geometry)
+    hold_rows = _hold_relief_scenarios(
+        geometry,
+        radial_clearances_mm=hold_values,
+        tolerance_mm3=tolerance_mm3,
+        scene_maps=scene_maps,
+    )
+    _, led = _led_relief_scenarios(
+        geometry,
+        radial_clearances_mm=led_values,
+        tolerance_mm3=tolerance_mm3,
+        scene_maps=scene_maps,
+    )
+    fixed_hashes = {
+        axis_id: _source_shape_fingerprint(shape)
+        for axis_id, shape in sorted(geometry.fixed_axes.items())
+    }
+    frame_hashes = {
+        name: _source_shape_fingerprint(shape)
+        for name, shape in sorted(geometry.frame_bolt_shapes.items())
+    }
+    hold_hashes = {
+        hold_id: _source_shape_fingerprint(
+            geometry.protected["hold_hole_and_provisional_projection"][hold_id]
+        )
+        for hold_id in sorted(HOLD_RELIEF_CASES)
+    }
+    g7_hash = _source_shape_fingerprint(geometry.protected["lights"][LED_ID])
+    geometry_unchanged = geometry_fingerprints == _geometry_fingerprints(geometry)
+    scenario_connector_ids = {
+        row["connector"]["connector_id"] for row in hold_rows
+    } | {
+        row["connector"]["connector_id"]
+        for row in led["relief_variants"]
+    }
+    producer_pins = _producer_pins()
+    return {
+        "schema": SCHEMA,
+        "status": "source_bound_connector_access_relief_geometry_scenarios",
+        "layout_id": geometry.layout_id,
+        "trial_id": geometry.trial_id,
+        "source_identity": identity,
+        "producer_hashes_sha256": producer_pins,
+        "scenario_parameters": {
+            "hold_proxy_core_diameter_mm": HOLD_CORE_DIAMETER_MM,
+            "hold_proxy_core_length_mm": HOLD_CORE_LENGTH_MM,
+            "hold_radial_clearance_scenarios_mm": list(hold_values),
+            "LED_core_diameter_mm": LED_CORE_DIAMETER_MM,
+            "LED_rearward_stroke_mm": LED_WITHDRAWAL_STROKE_MM,
+            "LED_panel_rear_tip_clearance_mm": LED_PANEL_REAR_TIP_CLEARANCE_MM,
+            "LED_radial_clearance_scenarios_mm": list(led_values),
+            "intersection_tolerance_mm3": float(tolerance_mm3),
+        },
+        "hold_corridor_relief_scenarios": hold_rows,
+        "G7_LED_access_scenarios": led,
+        "preservation_checks": {
+            "candidate_axis_count": len(geometry.candidate_bores),
+            "candidate_installed_role_count": sum(
+                len(roles) for roles in geometry.candidate_installed_hardware.values()
+            ),
+            "fixed_panel_axis_count": len(geometry.fixed_axes),
+            "retained_frame_bolt_count": len(geometry.frame_bolt_records),
+            "retained_frame_bolt_shape_count": len(geometry.frame_bolt_shapes),
+            "fixed_panel_axis_fingerprints_sha256": fixed_hashes,
+            "frame_bolt_shape_fingerprints_sha256": frame_hashes,
+            "target_hold_proxy_fingerprints_sha256": hold_hashes,
+            "G7_LED_core_fingerprint_sha256": g7_hash,
+            "candidate_scene_fingerprints_sha256": geometry_fingerprints,
+            "source_geometry_mutated": not geometry_unchanged,
+            "source_geometry_fingerprints_unchanged": geometry_unchanged,
+            "scenario_modified_connector_ids": sorted(scenario_connector_ids),
+            "only_named_connector_shapes_are_modified": geometry_unchanged
+            and scenario_connector_ids
+            == set(HOLD_RELIEF_CASES.values()) | {LED_CONNECTOR_ID}
+            and all(
+                row["connector"]["modified_connector_ids"]
+                == [row["connector"]["connector_id"]]
+                for row in (
+                    *hold_rows,
+                    *led["relief_variants"],
+                )
+            ),
+            "each_relief_variant_modifies_exactly_its_named_connector": all(
+                row["connector"]["modified_connector_ids"]
+                == [row["connector"]["connector_id"]]
+                for row in (
+                    *hold_rows,
+                    *led["relief_variants"],
+                )
+            ),
+            "fixed_panel_axes_held_at_66": len(geometry.fixed_axes) == 66,
+        },
+        "limitations": [
+            "The hold-bolt projection remains a provisional 11.1125 mm diameter by 50.8 mm corridor; no delivered hold bolt is selected or verified.",
+            "The LED core remains the owner-reported 12.7 mm diameter, with the source-bound 19.25625 mm rearward stroke and 1 mm panel-rear tip clearance.",
+            "The connector-removed G7 state is a sequencing hypothesis; no temporary support method, fastener tool fit, flexible-wire transport, or repeatability is established.",
+            "Finite contact and annular washer probes are geometry-only. Sampled N sections are not continuous global minima, accepted edge distances, strength, capacity, or pressure checks.",
+            "No source member, protected proxy, candidate bore, fixed 66 axis, frame bolt, or non-target connector is changed by these scenarios.",
+        ],
+        "release": {
+            "candidate_accepted": False,
+            "relief_cut_authorized": False,
+            "source_cutting_released": False,
+            "drilling_released": False,
+            "fabrication_released": False,
+            "structural_accepted": False,
+            "service_sequence_proven": False,
+            "capacity_established": False,
+        },
+    }

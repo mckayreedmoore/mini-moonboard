@@ -1,0 +1,974 @@
+"""Bounded, source-bound installed-geometry checks for the WJ-12 composition.
+
+This module consumes an already materialized ``WJ12ComposedGeometry``. It
+does not materialize CAD, test continuous motion, establish capacity, or release
+an operation. All intersection records are nominal diagnostic evidence.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import sys
+from collections.abc import Mapping
+from pathlib import Path
+from typing import Any
+
+import cadquery as cq
+
+SCHEMA = "wood_joint_wj12_diagnostic/v1"
+HIT_TOLERANCE_MM3 = 1e-3
+AXIS_MATCH_TOLERANCE_MM = 1e-6
+
+# These are temporary access envelopes, not installed physical obstacles.
+ACCESS_ONLY_PROTECTED_FAMILIES = frozenset(
+    {
+        "retained_12_frame_bolt_tools_withdrawals",
+        "hold_hole_and_provisional_projection",
+    }
+)
+FRAME_BOLT_PROTECTED_FAMILY = "retained_12_frame_bolt_components"
+
+
+def _part_shapes(source: Any, method_name: str) -> dict[str, cq.Shape]:
+    method = getattr(source, method_name, None)
+    if not callable(method):
+        raise TypeError(f"composed source must provide {method_name}()")
+    parts = tuple(method())
+    result = {part.name: part.shape for part in parts}
+    if len(result) != len(parts):
+        raise ValueError(f"source {method_name}() has duplicate member names")
+    return result
+
+
+def _bbox_disjoint(first: cq.Shape, second: cq.Shape) -> bool:
+    a, b = first.BoundingBox(), second.BoundingBox()
+    return bool(
+        a.xmax < b.xmin
+        or b.xmax < a.xmin
+        or a.ymax < b.ymin
+        or b.ymax < a.ymin
+        or a.zmax < b.zmin
+        or b.zmax < a.zmin
+    )
+
+
+def _intersection_volume(first: cq.Shape, second: cq.Shape) -> float:
+    if _bbox_disjoint(first, second):
+        return 0.0
+    return max(0.0, float(first.intersect(second).Volume()))
+
+
+def _hits(
+    subject: cq.Shape,
+    obstacles: Mapping[str, cq.Shape],
+    *,
+    tolerance_mm3: float = HIT_TOLERANCE_MM3,
+) -> dict[str, float]:
+    return {
+        name: round(volume, 6)
+        for name, obstacle in obstacles.items()
+        if (volume := _intersection_volume(subject, obstacle)) > tolerance_mm3
+    }
+
+
+def _valid_shape(shape: Any, context: str) -> bool:
+    return isinstance(shape, cq.Shape) and shape.isValid() and bool(shape.Solids())
+
+
+def _require_shape_map(value: Any, context: str) -> dict[str, cq.Shape]:
+    if not isinstance(value, Mapping):
+        raise TypeError(f"{context} must be a shape map")
+    result = dict(value)
+    invalid = [name for name, shape in result.items() if not _valid_shape(shape, f"{context}/{name}")]
+    if invalid:
+        raise ValueError(f"{context} has invalid solids: {sorted(invalid)}")
+    return result
+
+
+def _composed_wood(geometry: Any) -> tuple[dict[str, cq.Shape], dict[str, cq.Shape]]:
+    """Return complete raw-receiver and finished-wood maps for this trial."""
+    raw_source = _part_shapes(geometry.source, "uncut_wood_parts")
+    finished_source_all = _part_shapes(geometry.source, "parts")
+    # The canonical ``parts()`` API also returns legacy clips and other
+    # non-wood objects. Restrict this map to members declared by the raw-wood
+    # inventory, as the family adapters do.
+    finished_source = {
+        name: shape for name, shape in finished_source_all.items() if name in raw_source
+    }
+    if set(raw_source) - set(finished_source):
+        raise ValueError("source finished parts omit one or more canonical wood members")
+
+    raw_hosts = _require_shape_map(geometry.raw_hosts, "raw_hosts")
+    finished_hosts = _require_shape_map(geometry.finished_hosts, "finished_hosts")
+    raw_candidates = _require_shape_map(
+        geometry.raw_candidate_parts, "raw_candidate_parts"
+    )
+    finished_candidates = _require_shape_map(
+        geometry.finished_candidate_parts, "finished_candidate_parts"
+    )
+    panel_replacements = _require_shape_map(
+        geometry.panel_replacements, "panel_replacements"
+    )
+    if set(raw_hosts) != set(finished_hosts):
+        raise ValueError("composed raw and finished source-host IDs differ")
+    if set(raw_candidates) != set(finished_candidates):
+        raise ValueError("composed raw and finished candidate-part IDs differ")
+
+    raw_receivers = dict(raw_source)
+    raw_receivers.update(raw_hosts)
+    raw_receivers.update(raw_candidates)
+
+    finished_wood = dict(finished_source)
+    finished_wood.update(finished_hosts)
+    finished_wood.update(finished_candidates)
+    finished_wood.update(panel_replacements)
+    return raw_receivers, finished_wood
+
+
+def _candidate_bore_fields(axis: Any) -> tuple[str, tuple[str, ...], cq.Shape]:
+    if isinstance(axis, Mapping):
+        family = str(axis.get("family", "unknown"))
+        receiver_ids = tuple(axis.get("receiver_ids", ()))
+        shape = axis.get("shape")
+    else:
+        family = str(getattr(axis, "family", "unknown"))
+        receiver_ids = tuple(getattr(axis, "receiver_ids", ()))
+        shape = getattr(axis, "shape", None)
+    return family, receiver_ids, shape
+
+
+def _expected_candidate_receiver_pairs(
+    bores: Mapping[str, Any], candidate_ids: set[str]
+) -> set[tuple[str, str]]:
+    pairs: set[tuple[str, str]] = set()
+    for axis in bores.values():
+        _family, receiver_ids, _shape = _candidate_bore_fields(axis)
+        if len(receiver_ids) != 2 or len(set(receiver_ids)) != 2:
+            continue
+        for candidate_id in set(receiver_ids) & candidate_ids:
+            for peer_id in set(receiver_ids) - {candidate_id}:
+                pairs.add((candidate_id, peer_id))
+    return pairs
+
+
+def _body_interactions(
+    geometry: Any,
+    raw_receivers: Mapping[str, cq.Shape],
+    finished_wood: Mapping[str, cq.Shape],
+    physical_protected: Mapping[str, cq.Shape],
+    access_protected: Mapping[str, cq.Shape],
+    *,
+    tolerance_mm3: float,
+) -> dict[str, Any]:
+    candidates = dict(geometry.finished_candidate_parts)
+    candidate_ids = set(candidates)
+    declared_pairs = _expected_candidate_receiver_pairs(
+        geometry.candidate_bores, candidate_ids
+    )
+    candidate_wood_hits: dict[str, dict[str, Any]] = {}
+    for candidate_id, body in sorted(candidates.items()):
+        hits = _hits(
+            body,
+            {name: shape for name, shape in finished_wood.items() if name != candidate_id},
+            tolerance_mm3=tolerance_mm3,
+        )
+        candidate_wood_hits[candidate_id] = {
+            name: {
+                "overlap_mm3": volume,
+                "declared_candidate_fastener_interface": (
+                    candidate_id,
+                    name,
+                ) in declared_pairs,
+            }
+            for name, volume in hits.items()
+        }
+
+    candidate_body_pairs: dict[str, float] = {}
+    names = sorted(candidates)
+    for index, first_id in enumerate(names):
+        for second_id in names[index + 1 :]:
+            volume = _intersection_volume(candidates[first_id], candidates[second_id])
+            if volume > tolerance_mm3:
+                candidate_body_pairs[f"{first_id}/{second_id}"] = round(volume, 6)
+
+    candidate_physical_hits = {
+        candidate_id: hits
+        for candidate_id, body in sorted(candidates.items())
+        if (hits := _hits(body, physical_protected, tolerance_mm3=tolerance_mm3))
+    }
+    candidate_access_hits = {
+        candidate_id: hits
+        for candidate_id, body in sorted(candidates.items())
+        if (hits := _hits(body, access_protected, tolerance_mm3=tolerance_mm3))
+    }
+
+    bore_receiver_checks = {}
+    bore_pair_hits: dict[str, float] = {}
+    bore_names = sorted(geometry.candidate_bores)
+    for index, first_id in enumerate(bore_names):
+        _first_family, _first_receivers, first_shape = _candidate_bore_fields(
+            geometry.candidate_bores[first_id]
+        )
+        for second_id in bore_names[index + 1 :]:
+            _second_family, _second_receivers, second_shape = _candidate_bore_fields(
+                geometry.candidate_bores[second_id]
+            )
+            volume = _intersection_volume(first_shape, second_shape)
+            if volume > tolerance_mm3:
+                bore_pair_hits[f"{first_id}/{second_id}"] = round(volume, 6)
+
+    for axis_id, axis in sorted(geometry.candidate_bores.items()):
+        family, receivers, bore = _candidate_bore_fields(axis)
+        if not _valid_shape(bore, f"candidate_bores/{axis_id}"):
+            raise ValueError(f"candidate bore {axis_id} is not valid solid geometry")
+        by_receiver = {}
+        for receiver_id in receivers:
+            raw_receiver = raw_receivers.get(receiver_id)
+            finished_receiver = finished_wood.get(receiver_id)
+            if raw_receiver is None or finished_receiver is None:
+                by_receiver[receiver_id] = {
+                    "receiver_present_in_raw_stock": raw_receiver is not None,
+                    "receiver_present_in_finished_scene": finished_receiver is not None,
+                    "raw_bore_receiver_overlap_mm3": 0.0,
+                    "finished_bore_receiver_overlap_mm3": None,
+                    "raw_receiver_material_detected": False,
+                    "finished_bore_is_clear": False,
+                }
+                continue
+            raw_overlap = _intersection_volume(bore, raw_receiver)
+            finished_overlap = _intersection_volume(bore, finished_receiver)
+            by_receiver[receiver_id] = {
+                "receiver_present_in_raw_stock": True,
+                "receiver_present_in_finished_scene": True,
+                "raw_bore_receiver_overlap_mm3": round(raw_overlap, 6),
+                "finished_bore_receiver_overlap_mm3": round(finished_overlap, 6),
+                "raw_receiver_material_detected": raw_overlap > tolerance_mm3,
+                "finished_bore_is_clear": finished_overlap <= tolerance_mm3,
+            }
+        foreign_wood = {
+            name: shape for name, shape in raw_receivers.items() if name not in receivers
+        }
+        bore_receiver_checks[axis_id] = {
+            "family": family,
+            "receiver_ids": list(receivers),
+            "receivers": by_receiver,
+            "foreign_raw_wood_hits_mm3": _hits(
+                bore, foreign_wood, tolerance_mm3=tolerance_mm3
+            ),
+            "physical_protected_hits_mm3": _hits(
+                bore, physical_protected, tolerance_mm3=tolerance_mm3
+            ),
+            "access_envelope_hits_mm3": _hits(
+                bore, access_protected, tolerance_mm3=tolerance_mm3
+            ),
+            "all_declared_receivers_have_raw_material": bool(by_receiver)
+            and all(row["raw_receiver_material_detected"] for row in by_receiver.values()),
+            "all_declared_receiver_bores_clear_after_machining": bool(by_receiver)
+            and all(row["finished_bore_is_clear"] for row in by_receiver.values()),
+        }
+
+    return {
+        "candidate_body_vs_finished_wood_hits": candidate_wood_hits,
+        "candidate_body_vs_candidate_body_hits_mm3": candidate_body_pairs,
+        "candidate_body_vs_physical_protected_hits_mm3": candidate_physical_hits,
+        "candidate_body_vs_access_envelope_hits_mm3": candidate_access_hits,
+        "candidate_bore_pair_hits_mm3": bore_pair_hits,
+        "candidate_bore_receiver_checks": bore_receiver_checks,
+        "declared_candidate_body_receiver_pairs": [
+            [first, second] for first, second in sorted(declared_pairs)
+        ],
+    }
+
+
+def _component_interactions(
+    geometry: Any,
+    finished_wood: Mapping[str, cq.Shape],
+    physical_protected: Mapping[str, cq.Shape],
+    access_protected: Mapping[str, cq.Shape],
+    *,
+    tolerance_mm3: float,
+) -> dict[str, Any]:
+    bores = geometry.candidate_bores
+    axis_receivers = {
+        axis_id: set(_candidate_bore_fields(axis)[1])
+        for axis_id, axis in bores.items()
+    }
+    components = {
+        axis_id: _require_shape_map(rows, f"candidate_installed_hardware/{axis_id}")
+        for axis_id, rows in geometry.candidate_installed_hardware.items()
+    }
+    wood_hits: dict[str, Any] = {}
+    physical_hits: dict[str, Any] = {}
+    access_hits: dict[str, Any] = {}
+    cross_stack_hits: dict[str, float] = {}
+    axis_ids = sorted(components)
+
+    for axis_id, roles in sorted(components.items()):
+        for role, component in sorted(roles.items()):
+            hits = _hits(component, finished_wood, tolerance_mm3=tolerance_mm3)
+            if hits:
+                wood_hits[f"{axis_id}/{role}"] = {
+                    peer_id: {
+                        "overlap_mm3": volume,
+                        "declared_shaft_receiver": role == "shaft"
+                        and peer_id in axis_receivers.get(axis_id, set()),
+                    }
+                    for peer_id, volume in hits.items()
+                }
+            if (hits := _hits(component, physical_protected, tolerance_mm3=tolerance_mm3)):
+                physical_hits[f"{axis_id}/{role}"] = hits
+            if (hits := _hits(component, access_protected, tolerance_mm3=tolerance_mm3)):
+                access_hits[f"{axis_id}/{role}"] = hits
+
+    for index, first_id in enumerate(axis_ids):
+        for second_id in axis_ids[index + 1 :]:
+            for first_role, first in components[first_id].items():
+                for second_role, second in components[second_id].items():
+                    volume = _intersection_volume(first, second)
+                    if volume > tolerance_mm3:
+                        key = f"{first_id}/{first_role}__{second_id}/{second_role}"
+                        cross_stack_hits[key] = round(volume, 6)
+
+    return {
+        "candidate_component_vs_finished_wood_hits": wood_hits,
+        "candidate_component_vs_physical_protected_hits_mm3": physical_hits,
+        "candidate_component_vs_access_envelope_hits_mm3": access_hits,
+        "candidate_component_cross_stack_hits_mm3": cross_stack_hits,
+        "shaft_receiver_overlap_is_reported_separately": True,
+    }
+
+
+def _axis_shape(row: Mapping[str, Any], *, length_key: str, diameter_key: str) -> cq.Shape:
+    direction = cq.Vector(*row["axis_global_xyz"]).normalized()
+    length = float(row[length_key])
+    diameter = float(row[diameter_key])
+    if length <= 0 or diameter <= 0:
+        raise ValueError(f"{row.get('axis_id', '<axis>')} has nonpositive axis dimensions")
+    return cq.Solid.makeCylinder(
+        diameter / 2,
+        length,
+        cq.Vector(*row["origin_global_xyz_mm"]),
+        direction,
+    )
+
+
+def _vector_delta(actual: Any, expected: Any) -> float:
+    return math.sqrt(
+        sum((float(a) - float(b)) ** 2 for a, b in zip(actual, expected, strict=True))
+    )
+
+
+def _frame_bolt_checks(
+    geometry: Any,
+    raw_receivers: Mapping[str, cq.Shape],
+    finished_wood: Mapping[str, cq.Shape],
+    *,
+    tolerance_mm3: float,
+) -> dict[str, Any]:
+    inventory_rows = tuple(geometry.source_inventory.get("starting_frame_bolts", ()))
+    expected = {row["axis_id"]: row for row in inventory_rows}
+    if len(expected) != len(inventory_rows):
+        raise ValueError("source inventory has duplicate starting frame-bolt IDs")
+    records = {row["axis_id"]: row for row in geometry.frame_bolt_records}
+    if len(records) != len(geometry.frame_bolt_records):
+        raise ValueError("composed frame-bolt records have duplicate IDs")
+    connection_rows = {
+        row.name: row
+        for row in geometry.source.connections()
+        if row.kind == "bolt"
+    }
+    if len(connection_rows) != len(
+        [row for row in geometry.source.connections() if row.kind == "bolt"]
+    ):
+        raise ValueError("source frame-bolt connections have duplicate IDs")
+    frame_shapes = _require_shape_map(geometry.frame_bolt_shapes, "frame_bolt_shapes")
+    frame_axis_shapes = {
+        name: shape
+        for name, shape in frame_shapes.items()
+        if name.endswith("/source_occupied_axis")
+    }
+    installed_frame_shapes = {
+        name: shape
+        for name, shape in frame_shapes.items()
+        if not name.endswith("/source_occupied_axis")
+    }
+    expected_ids = set(expected)
+    per_bolt = {}
+    for axis_id in sorted(expected_ids | set(records) | set(connection_rows)):
+        row = expected.get(axis_id)
+        record = records.get(axis_id)
+        connection = connection_rows.get(axis_id)
+        shape_names = sorted(name for name in frame_shapes if name.startswith(f"{axis_id}/"))
+        if row is None or record is None or connection is None:
+            per_bolt[axis_id] = {
+                "source_inventory_row_present": row is not None,
+                "composed_record_present": record is not None,
+                "live_source_connection_present": connection is not None,
+                "frame_shape_count": len(shape_names),
+                "installed_component_count": sum(
+                    not name.endswith("/source_occupied_axis") for name in shape_names
+                ),
+                "source_occupied_axis_proxy_count": sum(
+                    name.endswith("/source_occupied_axis") for name in shape_names
+                ),
+                "source_axis_and_changed_host_checks_passed": False,
+            }
+            continue
+
+        members_match = tuple(record.get("members", ())) == tuple(row["members"])
+        record_origin_delta = _vector_delta(
+            record.get("origin_global_xyz_mm", ()), row["origin_global_xyz_mm"]
+        )
+        record_direction_delta = _vector_delta(
+            record.get("axis_global_xyz", ()), row["axis_global_xyz"]
+        )
+        live_members_match = tuple(connection.members) == tuple(row["members"])
+        live_origin_delta = _vector_delta(
+            connection.start.toTuple(), row["origin_global_xyz_mm"]
+        )
+        live_direction_delta = _vector_delta(
+            connection.direction.normalized().toTuple(), row["axis_global_xyz"]
+        )
+        nominal_length_delta = abs(
+            float(connection.length) - float(row.get("source_nominal_length_mm", row["source_occupied_length_mm"]))
+        )
+        grip_delta = abs(
+            float(connection.grip) - float(row.get("source_grip_mm", connection.grip))
+        )
+        live_diameter_delta = abs(
+            float(connection.diameter) - float(row["source_occupied_diameter_mm"])
+        )
+        record_axis = _axis_shape(
+            row,
+            length_key="source_occupied_length_mm",
+            diameter_key="source_occupied_diameter_mm",
+        )
+        stored_axis = frame_shapes.get(f"{axis_id}/source_occupied_axis")
+        stored_axis_delta_mm3 = None
+        if stored_axis is not None:
+            # The source axis is not included in the 60 physical components.
+            stored_axis_delta_mm3 = round(
+                record_axis.cut(stored_axis).Volume()
+                + stored_axis.cut(record_axis).Volume(),
+                6,
+            )
+        record_geometry_matches = (
+            members_match
+            and record_origin_delta <= AXIS_MATCH_TOLERANCE_MM
+            and record_direction_delta <= AXIS_MATCH_TOLERANCE_MM
+            and abs(float(record.get("source_occupied_length_mm", -1)) - float(row["source_occupied_length_mm"])) <= AXIS_MATCH_TOLERANCE_MM
+            and abs(float(record.get("source_occupied_diameter_mm", -1)) - float(row["source_occupied_diameter_mm"])) <= AXIS_MATCH_TOLERANCE_MM
+        )
+        live_geometry_matches = (
+            live_members_match
+            and live_origin_delta <= AXIS_MATCH_TOLERANCE_MM
+            and live_direction_delta <= AXIS_MATCH_TOLERANCE_MM
+            and nominal_length_delta <= AXIS_MATCH_TOLERANCE_MM
+            and grip_delta <= AXIS_MATCH_TOLERANCE_MM
+            and live_diameter_delta <= AXIS_MATCH_TOLERANCE_MM
+        )
+        changed_host_checks = {}
+        for member_id in row["members"]:
+            if member_id not in geometry.finished_hosts:
+                continue
+            cutter = geometry.source_cutters_by_host.get(member_id, {}).get(axis_id)
+            raw_member = raw_receivers.get(member_id)
+            finished_member = finished_wood.get(member_id)
+            raw_overlap = (
+                _intersection_volume(cutter, raw_member)
+                if cutter is not None and raw_member is not None
+                else 0.0
+            )
+            finished_overlap = (
+                _intersection_volume(record_axis, finished_member)
+                if finished_member is not None
+                else 0.0
+            )
+            changed_host_checks[member_id] = {
+                "source_bolt_cutter_present": cutter is not None,
+                "source_bolt_cutter_raw_host_overlap_mm3": round(raw_overlap, 6),
+                "source_occupied_axis_finished_host_overlap_mm3": round(finished_overlap, 6),
+                "raw_host_intersects_bolt_cutter": raw_overlap > tolerance_mm3,
+                "finished_host_is_clear_of_occupied_bolt_axis": finished_overlap <= tolerance_mm3,
+            }
+        per_bolt[axis_id] = {
+            "source_inventory_row_present": True,
+            "composed_record_present": True,
+            "live_source_connection_present": True,
+            "record_members_match_inventory": members_match,
+            "record_origin_delta_mm": round(record_origin_delta, 9),
+            "record_direction_delta": round(record_direction_delta, 12),
+            "live_connection_members_match_inventory": live_members_match,
+            "live_connection_origin_delta_mm": round(live_origin_delta, 9),
+            "live_connection_direction_delta": round(live_direction_delta, 12),
+            "live_nominal_length_delta_mm": round(nominal_length_delta, 9),
+            "live_grip_delta_mm": round(grip_delta, 9),
+            "live_diameter_delta_mm": round(live_diameter_delta, 9),
+            "record_matches_source_inventory": record_geometry_matches,
+            "live_source_connection_matches_inventory": live_geometry_matches,
+            "stored_source_occupied_axis_symmetric_difference_mm3": stored_axis_delta_mm3,
+            "frame_shape_count": len(shape_names),
+            "installed_component_count": sum(
+                not name.endswith("/source_occupied_axis") for name in shape_names
+            ),
+            "source_occupied_axis_proxy_count": sum(
+                name.endswith("/source_occupied_axis") for name in shape_names
+            ),
+            "frame_members_in_composed_hosts": [
+                member_id for member_id in row["members"] if member_id in geometry.finished_hosts
+            ],
+            "changed_host_checks": changed_host_checks,
+            "structural_recheck_complete": False,
+        }
+
+    candidate_hardware = {
+        f"{axis_id}/{role}": shape
+        for axis_id, components in geometry.candidate_installed_hardware.items()
+        for role, shape in components.items()
+    }
+    frame_component_conflicts = {}
+    for frame_name, frame_shape in sorted(installed_frame_shapes.items()):
+        if (hits := _hits(frame_shape, candidate_hardware, tolerance_mm3=tolerance_mm3)):
+            frame_component_conflicts[frame_name] = hits
+
+    frame_component_wood_conflicts = {}
+    for frame_name, frame_shape in sorted(installed_frame_shapes.items()):
+        if (hits := _hits(frame_shape, finished_wood, tolerance_mm3=tolerance_mm3)):
+            frame_component_wood_conflicts[frame_name] = hits
+
+    expected_installed_component_count = sum(
+        int(row.get("installed_component_count", 0)) for row in records.values()
+    )
+    expected_axis_proxy_count = len(records)
+    expected_total_shape_count = (
+        expected_installed_component_count + expected_axis_proxy_count
+    )
+    return {
+        "source_inventory_bolt_count": len(expected),
+        "composed_frame_record_count": len(records),
+        "live_source_bolt_connection_count": len(connection_rows),
+        "installed_physical_component_count": len(installed_frame_shapes),
+        "source_occupied_axis_proxy_count": len(frame_axis_shapes),
+        "total_frame_shape_count": len(frame_shapes),
+        "expected_installed_component_count_from_records": expected_installed_component_count,
+        "expected_axis_proxy_count_from_records": expected_axis_proxy_count,
+        "expected_total_shape_count_from_records": expected_total_shape_count,
+        "record_ids_match_inventory": set(records) == expected_ids,
+        "live_connection_ids_match_inventory": set(connection_rows) == expected_ids,
+        "per_bolt": per_bolt,
+        "frame_hardware_vs_finished_wood_hits_mm3": frame_component_wood_conflicts,
+        "frame_hardware_vs_candidate_hardware_hits_mm3": frame_component_conflicts,
+        "all_record_axes_match_inventory": set(per_bolt) == expected_ids
+        and all(row.get("record_matches_source_inventory", False) for row in per_bolt.values()),
+        "all_live_connections_match_inventory": set(per_bolt) == expected_ids
+        and all(row.get("live_source_connection_matches_inventory", False) for row in per_bolt.values()),
+        "all_changed_host_cuts_reconcile": all(
+            check["source_bolt_cutter_present"]
+            and check["raw_host_intersects_bolt_cutter"]
+            and check["finished_host_is_clear_of_occupied_bolt_axis"]
+            for row in per_bolt.values()
+            for check in row.get("changed_host_checks", {}).values()
+        )
+        and any(row.get("changed_host_checks") for row in per_bolt.values()),
+        "stored_occupied_axes_match_inventory": set(per_bolt) == expected_ids
+        and all(
+            row.get("stored_source_occupied_axis_symmetric_difference_mm3") == 0.0
+            for row in per_bolt.values()
+        ),
+        "component_count_matches_records": len(installed_frame_shapes)
+        == expected_installed_component_count,
+        "axis_proxy_count_matches_records": len(frame_axis_shapes)
+        == expected_axis_proxy_count,
+        "total_shape_count_matches_records": len(frame_shapes)
+        == expected_total_shape_count,
+        "structural_recheck_complete": False,
+    }
+
+
+def _fixed_receiver_checks(
+    geometry: Any,
+    raw_receivers: Mapping[str, cq.Shape],
+    finished_wood: Mapping[str, cq.Shape],
+    *,
+    tolerance_mm3: float,
+) -> dict[str, Any]:
+    rows = tuple(geometry.source_inventory.get("fixed_panel_kicker_screws", ()))
+    row_by_id = {row["axis_id"]: row for row in rows}
+    axes = _require_shape_map(geometry.fixed_axes, "fixed_axes")
+    if len(row_by_id) != len(rows):
+        raise ValueError("source inventory has duplicate fixed panel-axis IDs")
+
+    source_cuts = geometry.purchased_panel_cutters_by_host
+    candidate_cuts = getattr(geometry, "purchased_panel_cutters_by_candidate_part", {})
+    checks = {}
+    for axis_id in sorted(set(row_by_id) | set(axes)):
+        row = row_by_id.get(axis_id)
+        axis_shape = axes.get(axis_id)
+        if row is None or axis_shape is None:
+            checks[axis_id] = {
+                "source_inventory_row_present": row is not None,
+                "composed_fixed_axis_present": axis_shape is not None,
+                "receiver_support_present": False,
+                "purchase_cut_present": False,
+                "finished_receiver_clear": False,
+            }
+            continue
+        receiver_id = row["candidate_finished_receiver_member"]
+        raw_receiver = raw_receivers.get(receiver_id)
+        finished_receiver = finished_wood.get(receiver_id)
+        raw_overlap = (
+            _intersection_volume(axis_shape, raw_receiver)
+            if raw_receiver is not None
+            else 0.0
+        )
+        finished_overlap = (
+            _intersection_volume(axis_shape, finished_receiver)
+            if finished_receiver is not None
+            else None
+        )
+        if receiver_id in candidate_cuts:
+            cutter_present = axis_id in candidate_cuts.get(receiver_id, {})
+            cutter_owner = "candidate_part"
+        else:
+            source_rows = source_cuts.get(receiver_id, {})
+            cutter_present = axis_id in source_rows or f"panel_purchase/{axis_id}" in source_rows
+            cutter_owner = (
+                "source_host"
+                if receiver_id in geometry.finished_hosts
+                else "untouched_source_host"
+            )
+        radius = float(row["source_occupied_diameter_mm"]) / 2
+        equivalent_support_length = raw_overlap / (math.pi * radius * radius)
+        checks[axis_id] = {
+            "panel_member": row["panel_member"],
+            "source_receiver_member": row["source_finished_receiver_member"],
+            "candidate_receiver_member": receiver_id,
+            "receiver_present_in_raw_stock": raw_receiver is not None,
+            "receiver_present_in_finished_scene": finished_receiver is not None,
+            "raw_receiver_overlap_mm3": round(raw_overlap, 6),
+            "raw_receiver_equivalent_full_diameter_length_mm": round(equivalent_support_length, 6),
+            "receiver_support_present": raw_overlap > tolerance_mm3,
+            "purchase_cut_present_on_composed_receiver": cutter_present,
+            "purchase_cut_owner": cutter_owner,
+            "finished_receiver_axis_overlap_mm3": (
+                round(finished_overlap, 6) if finished_overlap is not None else None
+            ),
+            "finished_receiver_clear_of_axis": finished_overlap is not None
+            and finished_overlap <= tolerance_mm3,
+            "thread_embedment_or_capacity_established": False,
+        }
+    all_ids_match = set(row_by_id) == set(axes)
+    return {
+        "source_inventory_axis_count": len(row_by_id),
+        "composed_fixed_axis_count": len(axes),
+        "axis_ids_match_inventory": all_ids_match,
+        "per_axis": checks,
+        "all_receivers_have_raw_material": all_ids_match
+        and all(row.get("receiver_support_present", False) for row in checks.values()),
+        "all_purchase_cuts_present_on_composed_receivers": all_ids_match
+        and all(
+            row.get("purchase_cut_present_on_composed_receiver", False)
+            for row in checks.values()
+        ),
+        "all_finished_receivers_clear_of_axis": all_ids_match
+        and all(row.get("finished_receiver_clear_of_axis", False) for row in checks.values()),
+    }
+
+
+def _flatten_protected(
+    geometry: Any,
+) -> tuple[dict[str, cq.Shape], dict[str, cq.Shape], dict[str, int]]:
+    physical: dict[str, cq.Shape] = {}
+    access: dict[str, cq.Shape] = {}
+    counts = {}
+    for family, shapes in geometry.protected.items():
+        shape_map = _require_shape_map(shapes, f"protected/{family}")
+        counts[family] = len(shape_map)
+        if family in ACCESS_ONLY_PROTECTED_FAMILIES or family == FRAME_BOLT_PROTECTED_FAMILY:
+            target = access if family in ACCESS_ONLY_PROTECTED_FAMILIES else physical
+            if family == FRAME_BOLT_PROTECTED_FAMILY:
+                # The composed stack shapes are checked once below and include
+                # an explicit inventory-axis shape with every bolt.
+                continue
+        else:
+            target = physical
+        target.update({f"{family}/{name}": shape for name, shape in shape_map.items()})
+    # The composed frame map is the authoritative inventory for explicit bolt
+    # comparison; the same components can also appear under protected geometry.
+    composed_frame = _require_shape_map(geometry.frame_bolt_shapes, "frame_bolt_shapes")
+    physical.update(
+        {
+            f"composed_frame_bolt/{name}": shape
+            for name, shape in composed_frame.items()
+            if not name.endswith("/source_occupied_axis")
+        }
+    )
+    return physical, access, counts
+
+
+def _reconstruction_summary(geometry: Any) -> dict[str, Any]:
+    rows = dict(geometry.source_reconstruction)
+    return {
+        "host_count": len(rows),
+        "host_ids": sorted(rows),
+        "matches": {
+            host_id: bool(row.get("matches_source_finished_member", False))
+            for host_id, row in sorted(rows.items())
+        },
+        "symmetric_difference_mm3": {
+            host_id: row.get("symmetric_difference_mm3")
+            for host_id, row in sorted(rows.items())
+        },
+        "all_hosts_reconstruct": bool(rows)
+        and all(row.get("matches_source_finished_member", False) for row in rows.values()),
+    }
+
+
+def build_diagnostic_report(
+    geometry: Any,
+    *,
+    tolerance_mm3: float = HIT_TOLERANCE_MM3,
+) -> dict[str, Any]:
+    """Report integrated static geometry, receiver, and frame-bolt diagnostics."""
+    if not math.isfinite(tolerance_mm3) or tolerance_mm3 < 0:
+        raise ValueError("tolerance_mm3 must be finite and nonnegative")
+    raw_receivers, finished_wood = _composed_wood(geometry)
+    physical_protected, access_protected, protected_counts = _flatten_protected(geometry)
+    body_checks = _body_interactions(
+        geometry,
+        raw_receivers,
+        finished_wood,
+        physical_protected,
+        access_protected,
+        tolerance_mm3=tolerance_mm3,
+    )
+    component_checks = _component_interactions(
+        geometry,
+        finished_wood,
+        physical_protected,
+        access_protected,
+        tolerance_mm3=tolerance_mm3,
+    )
+    frame_checks = _frame_bolt_checks(
+        geometry,
+        raw_receivers,
+        finished_wood,
+        tolerance_mm3=tolerance_mm3,
+    )
+    fixed_checks = _fixed_receiver_checks(
+        geometry,
+        raw_receivers,
+        finished_wood,
+        tolerance_mm3=tolerance_mm3,
+    )
+    binding = geometry.source_binding
+    inventory = geometry.source_inventory
+    target_rows = {
+        row["legacy_station_id"]: row
+        for row in inventory.get("legacy_duties", ())
+    }
+    replaced_axes = {
+        axis["axis_id"]
+        for station_id in geometry.target_station_ids
+        for axis in target_rows.get(station_id, {}).get("legacy_sds_axes", ())
+    }
+    candidate_axis_ids = set(geometry.candidate_bores)
+    count_rows = {
+        "target_duties": {
+            "expected": 12,
+            "actual": len(geometry.target_station_ids),
+            "ids_match_inventory": set(geometry.target_station_ids)
+            == set(geometry.target_station_ids) & set(target_rows),
+        },
+        "shared_source_hosts": {
+            "expected": 11,
+            "actual": len(geometry.finished_hosts),
+            "ids": sorted(geometry.finished_hosts),
+        },
+        "replaced_source_sds_axes": {
+            "expected": 72,
+            "inventory_count": len(replaced_axes),
+            "composed_count": len(geometry.replaced_source_axis_ids),
+            "ids_match": replaced_axes == set(geometry.replaced_source_axis_ids),
+        },
+        "candidate_bore_axes": {
+            "expected": 56,
+            "actual": len(candidate_axis_ids),
+            "ids": sorted(candidate_axis_ids),
+        },
+        "candidate_installed_hardware_axes": {
+            "expected": 56,
+            "actual": len(geometry.candidate_installed_hardware),
+            "ids_match_candidate_bores": set(geometry.candidate_installed_hardware)
+            == candidate_axis_ids,
+        },
+        "candidate_parts": {
+            "raw_expected": 16,
+            "raw_actual": len(geometry.raw_candidate_parts),
+            "finished_expected": 16,
+            "finished_actual": len(geometry.finished_candidate_parts),
+            "raw_and_finished_ids_match": set(geometry.raw_candidate_parts)
+            == set(geometry.finished_candidate_parts),
+        },
+        "fixed_panel_axes": {
+            "expected": 66,
+            "inventory_count": len(inventory.get("fixed_panel_kicker_screws", ())),
+            "composed_count": len(geometry.fixed_axes),
+            "ids_match": set(geometry.fixed_axes)
+            == {row["axis_id"] for row in inventory.get("fixed_panel_kicker_screws", ())},
+        },
+        "starting_frame_bolts": {
+            "expected_bolt_count": 12,
+            "expected_component_count": 60,
+            "expected_occupied_axis_proxy_count": 12,
+            "expected_total_shape_count": 72,
+            "inventory_count": len(inventory.get("starting_frame_bolts", ())),
+            "composed_record_count": len(geometry.frame_bolt_records),
+            "component_count": frame_checks["installed_physical_component_count"],
+            "occupied_axis_proxy_count": frame_checks[
+                "source_occupied_axis_proxy_count"
+            ],
+            "total_shape_count": frame_checks["total_frame_shape_count"],
+            "counts_match_records": frame_checks[
+                "component_count_matches_records"
+            ]
+            and frame_checks["axis_proxy_count_matches_records"]
+            and frame_checks["total_shape_count_matches_records"],
+            "protected_family_counts": protected_counts,
+        },
+    }
+    candidate_body_wood_hits = body_checks["candidate_body_vs_finished_wood_hits"]
+    candidate_component_wood_hits = component_checks[
+        "candidate_component_vs_finished_wood_hits"
+    ]
+    # Provenance labels describe why two parts are intended to meet. They do
+    # not excuse positive-volume interpenetration: a bolted timber interface
+    # should meet at its faces, while its drilled shaft path should be clear.
+    body_wood_hits_absent = not any(candidate_body_wood_hits.values())
+    component_wood_hits_absent = not candidate_component_wood_hits
+
+    source_inventory_sha256 = getattr(geometry, "source_inventory_sha256", None)
+    binding_inventory_sha256 = getattr(binding, "inventory_sha256", None)
+    gates = {
+        "source_inventory_fingerprint_matches_binding": source_inventory_sha256
+        == binding_inventory_sha256,
+        "source_reconstruction_matches_bound_members": _reconstruction_summary(geometry)["all_hosts_reconstruct"],
+        "candidate_body_finished_wood_hits_absent": body_wood_hits_absent,
+        "candidate_body_protected_physical_hits_absent": not body_checks["candidate_body_vs_physical_protected_hits_mm3"],
+        "candidate_component_finished_wood_hits_absent": component_wood_hits_absent,
+        "candidate_body_vs_candidate_body_hits_absent": not body_checks[
+            "candidate_body_vs_candidate_body_hits_mm3"
+        ],
+        "candidate_bore_pair_hits_absent": not body_checks[
+            "candidate_bore_pair_hits_mm3"
+        ],
+        "candidate_component_protected_physical_hits_absent": not component_checks["candidate_component_vs_physical_protected_hits_mm3"],
+        "frame_hardware_finished_wood_hits_absent": not frame_checks[
+            "frame_hardware_vs_finished_wood_hits_mm3"
+        ],
+        "candidate_cross_stack_hits_absent": not component_checks["candidate_component_cross_stack_hits_mm3"],
+        "candidate_bore_receivers_present_and_machined": all(
+            row["all_declared_receivers_have_raw_material"]
+            and row["all_declared_receiver_bores_clear_after_machining"]
+            and not row["foreign_raw_wood_hits_mm3"]
+            and not row["physical_protected_hits_mm3"]
+            for row in body_checks["candidate_bore_receiver_checks"].values()
+        )
+        and bool(body_checks["candidate_bore_receiver_checks"]),
+        "fixed_panel_receiver_support_and_cuts_present": fixed_checks["all_receivers_have_raw_material"]
+        and fixed_checks["all_purchase_cuts_present_on_composed_receivers"]
+        and fixed_checks["all_finished_receivers_clear_of_axis"],
+        "frame_bolt_inventory_and_live_axes_match": frame_checks["all_record_axes_match_inventory"]
+        and frame_checks["all_live_connections_match_inventory"],
+        "frame_bolt_stored_axes_and_components_reconcile": frame_checks[
+            "stored_occupied_axes_match_inventory"
+        ]
+        and frame_checks["component_count_matches_records"]
+        and frame_checks["axis_proxy_count_matches_records"]
+        and frame_checks["total_shape_count_matches_records"],
+        "frame_bolt_changed_host_cuts_reconcile": frame_checks["all_changed_host_cuts_reconcile"],
+        # Geometry checks are not installation, capacity, or acceptance gates.
+        "integrated_clearance_accepted": False,
+        "movement_or_installation_access_proven": False,
+        "complete_joint_acceptance": False,
+        "capacity_established": False,
+        "fabrication_released": False,
+        "structural_released": False,
+    }
+    return {
+        "schema": SCHEMA,
+        "trial_id": geometry.trial_id,
+        "status": "source_bound_integrated_static_geometry_diagnostic",
+        "claim_boundary": {
+            "nominal_positive_volume_screens_only": True,
+            "physical_installation_access_established": False,
+            "continuous_motion_established": False,
+            "connection_resistance_or_capacity_established": False,
+            "fabrication_or_drilling_released": False,
+        },
+        "source_binding": {
+            "inventory_sha256": source_inventory_sha256,
+            "binding_inventory_sha256": binding_inventory_sha256,
+            "fingerprints_match": source_inventory_sha256 == binding_inventory_sha256,
+            "source_commit": inventory.get("source_commit"),
+            "candidate": inventory.get("candidate"),
+            "family_trial_ids": dict(geometry.family_trial_ids),
+        },
+        "counts_and_ids": count_rows,
+        "source_reconstruction": _reconstruction_summary(geometry),
+        "integrated_scene": {
+            "finished_wood_count": len(finished_wood),
+            "finished_wood_ids": sorted(finished_wood),
+            "raw_receiver_count": len(raw_receivers),
+            "raw_receiver_ids": sorted(raw_receivers),
+            "physical_protected_shape_count": len(physical_protected),
+            "access_envelope_shape_count": len(access_protected),
+            "protected_family_counts": protected_counts,
+        },
+        "candidate_bodies": body_checks,
+        "candidate_installed_components": component_checks,
+        "fixed_66_receiver_checks": fixed_checks,
+        "starting_frame_bolt_recheck": frame_checks,
+        "positive_volume_wood_overlap_hits_mm3": {
+            "candidate_bodies": candidate_body_wood_hits,
+            "candidate_installed_components": candidate_component_wood_hits,
+            "declared_interface_flags_are_provenance_only": True,
+        },
+        "diagnostic_gates": gates,
+        "release": {
+            "candidate_accepted": False,
+            "drilling_released": False,
+            "fabrication_released": False,
+            "structural_accepted": False,
+            "assembly_proven": False,
+        },
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--output",
+        type=Path,
+        help="write the JSON report to this path; defaults to standard output",
+    )
+    args = parser.parse_args(argv)
+
+    # Import lazily so unit tests and downstream report consumers can use the
+    # pure diagnostic without loading the family geometry builders.
+    from scripts.wood_joint_wj12_compositor import materialize_wj12_geometry
+
+    report = build_diagnostic_report(materialize_wj12_geometry())
+    encoded = json.dumps(report, indent=2, sort_keys=True) + "\n"
+    if args.output:
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        args.output.write_text(encoded)
+    else:
+        sys.stdout.write(encoded)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -1,0 +1,32 @@
+import hashlib
+import importlib
+import json
+from pathlib import Path
+importlib.reload(design_export)
+final_blocks_report['summary']='The kicker center uprights and four screws sit outside the central T-nuts, and the center backer is removed. Taller central blocks sit flat on the kicker header. New inner blocks sandwich the outer 4×6s with the exterior blocks; common side bolts pass through all three timbers, and each inner block has a vertical header bolt.'
+final_blocks_report['owner_review_gate']='Joint evaluations remain paused until the owner signs off on this model revision.'
+final_blocks_report['focused_geometry_checks']=geo_checks
+final_blocks_report['kicker_post_geometry_checks']=kicker_checks
+final_blocks_report['findings']=[
+ {'title':'Panel edge support remains open','detail':'Support along the raised lower-panel edge and the kicker center seam after removing the center backer still needs a complete detail.'},
+ {'title':'Wire routing needs revision','detail':'The bottom rails cross ten modeled wire segments. The taller right central block also crosses the wire between F1 and G1.'},
+ {'title':'G2 light clearance','detail':'The lower right center corner block intersects the modeled light behind G2.'},
+ {'title':'G6 hold-bolt clearance','detail':'A middle corner block intersects the provisional clearance envelope behind G6; hold-bolt length and access remain unresolved.'}
+]
+raw=json.dumps(final_blocks_report,indent=2,sort_keys=True).encode()+b'\n'
+final_scene=design_export.build_design_review_scene(g24_final_blocks,final_blocks_report,revision_report_bytes=raw,revision_report_path='owner-wood-joints-review-report.json')
+scene_raw=design_export.scene_json_bytes(final_scene)
+(final_dir/'revision.json').write_bytes(raw)
+(final_dir/'scene.json.snapshot').write_bytes(scene_raw)
+for module in [kicker_posts,center_header,inner_frame,design_export]:
+    path=Path(module.__file__)
+    (final_dir/(path.name+'.snapshot')).write_bytes(path.read_bytes())
+for name in ['check-wj24-final-blocks.py','export-wj24-final-blocks.py']:
+    (final_dir/(name+'.snapshot')).write_bytes(Path('/tmp',name).read_bytes())
+Path('site/owner-wood-joints-review-report.json.tmp').write_bytes(raw)
+Path('site/owner-wood-joints-review-report.json.tmp').replace('site/owner-wood-joints-review-report.json')
+Path('site/owner-wood-joints-wj24-scene.json.tmp').write_bytes(scene_raw)
+Path('site/owner-wood-joints-wj24-scene.json.tmp').replace('site/owner-wood-joints-wj24-scene.json')
+verification={'scene_sha256':hashlib.sha256(scene_raw).hexdigest(),'report_sha256':hashlib.sha256(raw).hexdigest(),'counts':final_scene['counts'],'release':final_scene['release'],'joint_evaluations_run':False,'owner_signoff_required_before_joint_evaluations':True}
+(final_dir/'verification.json').write_text(json.dumps(verification,indent=2)+'\n')
+print('VIEWER_FINAL_UPDATED',len(final_scene['solids']),verification,flush=True)

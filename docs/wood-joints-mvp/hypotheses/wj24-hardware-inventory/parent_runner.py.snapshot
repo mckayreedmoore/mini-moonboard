@@ -1,0 +1,20 @@
+import json,hashlib,time,traceback
+from pathlib import Path
+from scripts import wood_joint_wj24_hardware_inventory as inventory24
+inventory_attempt=Path('/tmp/wj24-hardware-inventory-attempt-01');inventory_attempt.mkdir(exist_ok=False)
+inventory_source=Path(inventory24.__file__);(inventory_attempt/'producer.py.snapshot').write_bytes(inventory_source.read_bytes())
+inventory_execution={'producer_sha256':hashlib.sha256(inventory_source.read_bytes()).hexdigest(),'native_solve_run':False,'release':False}
+inventory_started=time.monotonic()
+try:
+ inventory_report24=inventory24.build_wj24_hardware_inventory_report(g24)
+ (inventory_attempt/'inventory.json').write_text(json.dumps(inventory_report24,indent=2,sort_keys=True)+'\n')
+ inventory_execution['status']='diagnostic_completed'
+ print('Inventory top-level fields',list(inventory_report24),flush=True)
+except Exception:
+ inventory_execution['status']='failed';inventory_execution['traceback']=traceback.format_exc()
+ (inventory_attempt/'traceback.txt').write_text(inventory_execution['traceback']);print(inventory_execution['traceback'],flush=True)
+finally:
+ inventory_execution['elapsed_seconds']=time.monotonic()-inventory_started
+ inventory_execution['producer_unchanged']=inventory_execution['producer_sha256']==hashlib.sha256(inventory_source.read_bytes()).hexdigest()
+ (inventory_attempt/'execution.json').write_text(json.dumps(inventory_execution,indent=2,sort_keys=True)+'\n')
+ print(json.dumps(inventory_execution),flush=True)

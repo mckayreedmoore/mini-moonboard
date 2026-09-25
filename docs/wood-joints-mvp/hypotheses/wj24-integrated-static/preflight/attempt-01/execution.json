@@ -1,0 +1,18 @@
+{
+  "elapsed_seconds": 0.3137999070022488,
+  "native_solve_run": false,
+  "producer_hashes_after": {
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py": "113781f8924eb836b9c13bc68ababd6f0a669ef9f99bc51c3766efe66372eacb",
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_diagnostic.py": "89ed21548eb4cbd736412f75bf56df9a24f6f23f9afa32dd40b0fd4eae3b4b07",
+    "tests/test_wood_joint_wj24_compositor.py": "2f75b124846305af12a038c492e828adec7beabc329ca1290ef5aa42f8d76b86"
+  },
+  "producer_hashes_before": {
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py": "113781f8924eb836b9c13bc68ababd6f0a669ef9f99bc51c3766efe66372eacb",
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_diagnostic.py": "89ed21548eb4cbd736412f75bf56df9a24f6f23f9afa32dd40b0fd4eae3b4b07",
+    "tests/test_wood_joint_wj24_compositor.py": "2f75b124846305af12a038c492e828adec7beabc329ca1290ef5aa42f8d76b86"
+  },
+  "producer_hashes_unchanged": true,
+  "release": false,
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 14, in <module>\n  File \"/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py\", line 854, in compose_wj24_geometry\n    family_inputs = _normalized_producer_inputs(\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py\", line 263, in _normalized_producer_inputs\n    raise ValueError(f\"{context} input labels differ from the producer hash contract\")\nValueError: WJ24 bottom_outer input labels differ from the producer hash contract\n"
+}

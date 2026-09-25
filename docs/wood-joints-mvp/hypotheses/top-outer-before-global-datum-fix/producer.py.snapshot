@@ -1,0 +1,1948 @@
+"""Source-bound provisional top-outer cleat pair and local integration screen.
+
+The producer consumes an already retained WJ-12/WJ-16 composition. It never
+materializes a family. The two top duties remain an unaccepted hypothesis;
+the host-cut maps are exported separately so a parent composition can merge
+them without replacing its existing shared-host cuts.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+from collections import Counter
+from collections.abc import Mapping
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+import cadquery as cq
+
+from mini_moonboard.wood_joint_frame import (
+    _source_shape_fingerprint,
+    access_shapes,
+    validate_source_binding,
+)
+from mini_moonboard.wood_joint_geometry import (
+    BoltStack,
+    StackLayer,
+    WasherSeat,
+    washer_support_report,
+)
+from mini_moonboard.wood_joint_panel_machining import PANEL_NAMES, RIGHT_PANEL_NAMES
+from scripts import wood_joint_right_rail_integration as right_rail
+from scripts import wood_joint_wj06_outer_pair_probe as wj06_outer
+from scripts import wood_joint_wj12_compositor as wj12
+from scripts import wood_joint_wj16_compositor as wj16
+from scripts.wood_joint_wj12_diagnostic import WJ12_LAYOUT
+
+ROOT = Path(__file__).resolve().parents[1]
+INVENTORY_PATH = "docs/wood-joints-mvp/source-inventory.json"
+SCHEMA = "wood_joint_top_outer_integration/v1"
+TRIAL_ID = "top_outer_full_stock_pair_v1"
+TARGET_DUTY_IDS = frozenset(
+    {"clip_single_top_left_1", "clip_single_top_right_2"}
+)
+HOST_IDS = frozenset({"base_rail_top", "base_side_left", "base_side_right"})
+CLEAT_IDS = {
+    "clip_single_top_left_1": "top_outer_left_cleat",
+    "clip_single_top_right_2": "top_outer_right_cleat",
+}
+EXPECTED_CLEAT_SIZE_MM = (88.9, 88.9, 119.7)
+CLEAT_T_MIN_MM = -88.9
+CLEAT_T_MAX_MM = 0.0
+CLEAT_N_MIN_MM = 20.0
+CLEAT_N_MAX_MM = 139.7
+RAIL_ROW_N_OFFSETS_MM = (-16.5, 16.5)
+SIDE_ROW_N_OFFSET_MM = 0.0
+SIDE_ROW_T_OFFSETS_MM = (-60.9, -27.9)
+SIX_IN_MINUS_TOLERANCE_MM = 2.54
+SIDE_BOLT_LENGTH_MM = wj06_outer.SIDE_BOLT_LENGTH_MM
+SIDE_BOLT_MIN_LENGTH_MM = wj06_outer.SIDE_BOLT_MIN_LENGTH_MM
+WASHER_THICKNESS_MIN_MM = 1.2954
+WASHER_THICKNESS_MAX_MM = 2.032
+NUT_THICKNESS_MAX_MM = 5.7404
+WOOD_LAYER_TOLERANCE_MM = 0.5
+TIP_PROJECTION_MM = 2.54
+AXIS_TOLERANCE_MM = 1e-6
+HIT_TOLERANCE_MM3 = 1e-5
+SOURCE_RECONSTRUCTION_TOLERANCE_MM3 = 1e-3
+SUPPORT_PROBE_MM = 0.05
+LAYER_PROBE_MM = 0.1
+ORDINARY_BODY_MAXIMUM_MM = 0.260 * 25.4
+BACKER_AXIS_IDS = frozenset(
+    f"backer_header_{side}_{index}"
+    for side in ("left", "right")
+    for index in (1, 2)
+)
+ORDINARY_COMPONENT_ROLES = frozenset(
+    {"shaft", "head", "head_washer", "nut_washer", "nut"}
+)
+BACKER_COMPONENT_ROLES = frozenset(
+    {"shaft", "bottom_washer", "bottom_head", "top_washer", "top_nut"}
+)
+
+PRODUCER_HASH_PATHS = {
+    "top_outer_producer": "scripts/wood_joint_top_outer_integration.py",
+    "source_inventory": INVENTORY_PATH,
+    "wj12_compositor": "scripts/wood_joint_wj12_compositor.py",
+    "wj12_diagnostic": "scripts/wood_joint_wj12_diagnostic.py",
+    "wj16_compositor": "scripts/wood_joint_wj16_compositor.py",
+    "wj16_diagnostic": "scripts/wood_joint_wj16_diagnostic.py",
+    "right_rail_integration": "scripts/wood_joint_right_rail_integration.py",
+    "left_rail_integration": "scripts/wood_joint_left_rail_integration.py",
+    "wj06_hardware_basis": "scripts/wood_joint_wj06_outer_pair_probe.py",
+    "frame_geometry": "mini_moonboard/wood_joint_frame.py",
+    "joint_geometry": "mini_moonboard/wood_joint_geometry.py",
+    "panel_machining": "mini_moonboard/wood_joint_panel_machining.py",
+}
+
+
+@dataclass(frozen=True)
+class SourceLocalFrame:
+    """The inventory's orthonormal local axes and source-derived origin."""
+
+    origin: cq.Vector
+    x: cq.Vector
+    t: cq.Vector
+    n: cq.Vector
+
+    def point(self, x_mm: float, t_mm: float, n_mm: float) -> cq.Vector:
+        return (
+            self.origin
+            + self.x * float(x_mm)
+            + self.t * float(t_mm)
+            + self.n * float(n_mm)
+        )
+
+    def coordinates(self, point: cq.Vector) -> tuple[float, float, float]:
+        delta = cq.Vector(point) - self.origin
+        return delta.dot(self.x), delta.dot(self.t), delta.dot(self.n)
+
+
+@dataclass(frozen=True)
+class TopOuterIntegrationGeometry:
+    """New candidate geometry plus source maps, never shared finished hosts."""
+
+    source: Any
+    source_binding: Any
+    source_inventory: Mapping[str, Any]
+    source_inputs_sha256: Mapping[str, str]
+    family_source_fingerprints: Mapping[str, Any]
+    family_trial_ids: Mapping[str, str]
+    context_variant: str
+    retained_candidate_axis_ids: frozenset[str]
+    retained_target_duty_ids: frozenset[str]
+    trial_id: str
+    duties: Mapping[str, Mapping[str, Any]]
+    raw_candidate_parts: Mapping[str, cq.Shape]
+    finished_candidate_parts: Mapping[str, cq.Shape]
+    candidate_bores: Mapping[str, Any]
+    candidate_bores_by_host: Mapping[str, Mapping[str, cq.Shape]]
+    candidate_installed_hardware: Mapping[str, Mapping[str, cq.Shape]]
+    source_native_cutters_by_host: Mapping[str, Mapping[str, cq.Shape]]
+    source_panel_purchase_cutters_by_host: Mapping[str, Mapping[str, cq.Shape]]
+    candidate_panel_purchase_cutters_by_part: Mapping[
+        str, Mapping[str, cq.Shape]
+    ]
+    replaced_source_axis_ids: frozenset[str]
+    source_reconstruction: Mapping[str, Mapping[str, Any]]
+    contact_checks: Mapping[str, Mapping[str, Any]]
+    bore_checks: Mapping[str, Mapping[str, Any]]
+    washer_support: Mapping[str, Mapping[str, Any]]
+    candidate_body_checks: Mapping[str, Mapping[str, Any]]
+    installed_component_checks: Mapping[str, Mapping[str, Any]]
+    access_checks: Mapping[str, Mapping[str, Any]]
+    context_counts: Mapping[str, int]
+    diagnostic_gates: Mapping[str, Any]
+    release: Mapping[str, bool]
+
+
+def _deep_plain(value: Any) -> Any:
+    if isinstance(value, Mapping):
+        return {str(key): _deep_plain(item) for key, item in value.items()}
+    if isinstance(value, tuple):
+        return [_deep_plain(item) for item in value]
+    if isinstance(value, list):
+        return [_deep_plain(item) for item in value]
+    return value
+
+
+def _unit(value: Any, name: str) -> cq.Vector:
+    vector = cq.Vector(value)
+    if not all(math.isfinite(value) for value in vector.toTuple()) or vector.Length < 1e-9:
+        raise ValueError(f"{name} must be a finite nonzero vector")
+    return vector.normalized()
+
+
+def _tuple(vector: cq.Vector, digits: int = 6) -> list[float]:
+    return [round(value, digits) for value in vector.toTuple()]
+
+
+def _sha(path: str) -> str:
+    return hashlib.sha256((ROOT / path).read_bytes()).hexdigest()
+
+
+def _shape_difference_volume(first: cq.Shape, second: cq.Shape) -> float:
+    return first.cut(second).Volume() + second.cut(first).Volume()
+
+
+def _intersection_volume(first: cq.Shape, second: cq.Shape) -> float:
+    a, b = first.BoundingBox(), second.BoundingBox()
+    if (
+        a.xmax < b.xmin
+        or b.xmax < a.xmin
+        or a.ymax < b.ymin
+        or b.ymax < a.ymin
+        or a.zmax < b.zmin
+        or b.zmax < a.zmin
+    ):
+        return 0.0
+    return first.intersect(second).Volume()
+
+
+def _hits(shape: cq.Shape, obstacles: Mapping[str, cq.Shape]) -> dict[str, float]:
+    return {
+        name: round(volume, 6)
+        for name, obstacle in sorted(obstacles.items())
+        if (volume := _intersection_volume(shape, obstacle)) > HIT_TOLERANCE_MM3
+    }
+
+
+def _valid_shape(shape: Any, name: str) -> cq.Shape:
+    if not isinstance(shape, cq.Shape) or not shape.isValid() or not shape.Solids():
+        raise ValueError(f"{name} must be valid positive-volume solid geometry")
+    if shape.Volume() <= 0:
+        raise ValueError(f"{name} must have positive volume")
+    return shape
+
+
+def _source_frames(inventory: Mapping[str, Any]) -> dict[str, SourceLocalFrame]:
+    rows = {row["part_id"]: row for row in inventory.get("parts", ())}
+    result = {}
+    for part_id in HOST_IDS:
+        row = rows.get(part_id)
+        matrix = row.get("local_to_global_transform") if row else None
+        axes = row.get("local_axes") if row else None
+        if not isinstance(matrix, list) or len(matrix) != 4 or not isinstance(axes, Mapping):
+            raise ValueError(f"source inventory lacks the local frame for {part_id}")
+        frame = SourceLocalFrame(
+            origin=cq.Vector(matrix[0][3], matrix[1][3], matrix[2][3]),
+            x=_unit(axes["X"], f"{part_id}.X"),
+            t=_unit(axes["T"], f"{part_id}.T"),
+            n=_unit(axes["N"], f"{part_id}.N"),
+        )
+        if (
+            abs(frame.x.dot(frame.t)) > 1e-8
+            or abs(frame.x.dot(frame.n)) > 1e-8
+            or abs(frame.t.dot(frame.n)) > 1e-8
+            or frame.x.cross(frame.t).dot(frame.n) < 1 - 1e-8
+        ):
+            raise ValueError(f"source inventory frame is not right-handed: {part_id}")
+        result[part_id] = frame
+    return result
+
+
+def _part_rows(inventory: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
+    return {row["part_id"]: dict(row) for row in inventory.get("parts", ())}
+
+
+def _face_record(
+    part_id: str,
+    row: Mapping[str, Any],
+    frame: SourceLocalFrame,
+    expected_normal: cq.Vector,
+) -> dict[str, Any]:
+    matches = []
+    for face in row.get("actual_planar_faces", ()):
+        normal = _unit(face.get("normal_global_xyz", ()), f"{part_id} face normal")
+        if normal.dot(expected_normal) >= 1.0 - 1e-8:
+            matches.append(dict(face))
+    if len(matches) != 1:
+        raise ValueError(
+            f"{part_id}: expected one source planar face normal to "
+            f"{_tuple(expected_normal, 9)}, found {len(matches)}"
+        )
+    selected = matches[0]
+    point = cq.Vector(*selected["center_global_xyz_mm"])
+    selected["center_local_xyz_mm"] = list(frame.coordinates(point))
+    selected["normal_global_xyz"] = _tuple(expected_normal, 9)
+    return selected
+
+
+def _live_coplanar_face_check(
+    shape: cq.Shape,
+    *,
+    center: cq.Vector,
+    normal: cq.Vector,
+    context: str,
+) -> dict[str, Any]:
+    matches = []
+    for face in shape.Faces():
+        if face.geomType() != "PLANE":
+            continue
+        face_normal = _unit(face.normalAt(), f"{context} live face normal")
+        if face_normal.dot(normal) < 1.0 - 1e-7:
+            continue
+        face_center = cq.Vector(face.Center())
+        gap = abs((face_center - center).dot(normal))
+        if gap <= 1e-5:
+            matches.append((face, gap))
+    area = sum(face.Area() for face, _ in matches)
+    return {
+        "matching_live_planar_face_count": len(matches),
+        "matching_live_face_area_mm2": round(area, 6),
+        "plane_gap_mm": round(min((gap for _, gap in matches), default=math.inf), 9),
+        "live_plane_present": bool(matches),
+    }
+
+
+def _duty_rows(inventory: Mapping[str, Any]) -> dict[str, dict[str, Any]]:
+    rows = {
+        row["legacy_station_id"]: dict(row)
+        for row in inventory.get("legacy_duties", ())
+        if row.get("legacy_station_id") in TARGET_DUTY_IDS
+    }
+    if set(rows) != TARGET_DUTY_IDS:
+        raise ValueError("top-outer slice requires exactly its two source duties")
+    expected_hosts = {
+        "clip_single_top_left_1": ["base_rail_top", "base_side_left"],
+        "clip_single_top_right_2": ["base_rail_top", "base_side_right"],
+    }
+    ids = set()
+    for duty_id, row in rows.items():
+        if row.get("legacy_host_members") != expected_hosts[duty_id]:
+            raise ValueError(f"{duty_id}: source host mapping changed")
+        axes = row.get("legacy_sds_axes", ())
+        if len(axes) != 6:
+            raise ValueError(f"{duty_id}: expected six source SDS axes")
+        for axis in axes:
+            if (
+                axis.get("shop_opening_kind") != "sds_wood"
+                or axis.get("members", [None, None])[0] != duty_id
+                or axis.get("members", [None, None])[1] not in expected_hosts[duty_id]
+            ):
+                raise ValueError(f"{duty_id}: invalid source SDS identity")
+            ids.add(axis["axis_id"])
+    if len(ids) != 12:
+        raise ValueError("top-outer slice must replace exactly 12 unique source SDS axes")
+    return rows
+
+
+def _inventory_entry_face(
+    axis: Mapping[str, Any],
+    host_id: str,
+    host_record: Mapping[str, Any],
+    host_frame: SourceLocalFrame,
+) -> dict[str, Any]:
+    """Select the stock boundary entered from the recorded axis start.
+
+    This deliberately does not use nearest endpoint distance: source starts
+    are tied between opposing faces for the 38.1 mm corridors.
+    """
+    start = cq.Vector(*axis["origin_global_xyz_mm"])
+    direction = _unit(axis["axis_global_xyz"], f"{axis['axis_id']} direction")
+    local_direction = (
+        direction.dot(host_frame.x),
+        direction.dot(host_frame.t),
+        direction.dot(host_frame.n),
+    )
+    axis_index = max(range(3), key=lambda index: abs(local_direction[index]))
+    if abs(abs(local_direction[axis_index]) - 1.0) > 1e-7:
+        raise ValueError(f"{axis['axis_id']}: source axis is not frame aligned")
+    axis_name = ("X", "T", "N")[axis_index]
+    extent = host_record.get("actual_shape_extents_local_mm", {}).get(axis_name)
+    if not isinstance(extent, list) or len(extent) != 2:
+        raise ValueError(f"{host_id}: missing {axis_name} source extents")
+    low, high = (float(value) for value in extent)
+    candidates = []
+    for face in host_record.get("actual_planar_faces", ()):
+        normal = _unit(face["normal_global_xyz"], f"{host_id} planar normal")
+        normal_local = (
+            normal.dot(host_frame.x),
+            normal.dot(host_frame.t),
+            normal.dot(host_frame.n),
+        )
+        if abs(abs(normal_local[axis_index]) - 1.0) > 1e-7:
+            continue
+        face_center = cq.Vector(*face["center_global_xyz_mm"])
+        face_local = host_frame.coordinates(face_center)
+        coordinate = face_local[axis_index]
+        if min(abs(coordinate - low), abs(coordinate - high)) > 1e-4:
+            continue
+        signed_start = (start - face_center).dot(normal)
+        entering = direction.dot(normal) < -1.0 + 1e-7 and signed_start > 1e-5
+        if entering:
+            candidates.append((dict(face), signed_start, normal))
+    if len(candidates) != 1:
+        raise ValueError(
+            f"{axis['axis_id']}: source start/direction/host provenance resolves "
+            f"{len(candidates)} entry faces; expected exactly one"
+        )
+    face, gap, normal = candidates[0]
+    end = start + direction * float(axis["source_occupied_length_mm"])
+    end_local = host_frame.coordinates(end)
+    # Inventory dict order is not a coordinate contract; validate the selected
+    # axis coordinate directly against its one-dimensional source extent.
+    end_axis_coordinate = end_local[axis_index]
+    end_inside = low - 1e-5 <= end_axis_coordinate <= high + 1e-5
+    if not end_inside:
+        raise ValueError(f"{axis['axis_id']}: source occupied end is outside {host_id}")
+    return {
+        "axis_id": axis["axis_id"],
+        "host_member": host_id,
+        "face_id": face.get("face_id"),
+        "entry_gap_mm": round(gap, 6),
+        "face_normal_global_xyz": _tuple(normal, 9),
+        "axis_direction_global_xyz": _tuple(direction, 9),
+        "source_start_global_xyz_mm": _tuple(start),
+        "source_end_global_xyz_mm": _tuple(end),
+        "source_end_local_axis_coordinate_mm": round(end_axis_coordinate, 6),
+        "opposing_face_tie_rejected_by_entry_provenance": True,
+    }
+
+
+def _validate_live_connections(source: Any, inventory: Mapping[str, Any]) -> None:
+    connections = tuple(source.connections())
+    by_name = {row.name: row for row in connections}
+    if len(by_name) != len(connections):
+        raise ValueError("source connection names must be unique")
+    required_rows = [
+        axis
+        for duty in inventory["legacy_duties"]
+        if duty["legacy_station_id"] in TARGET_DUTY_IDS
+        for axis in duty["legacy_sds_axes"]
+    ]
+    required_rows.extend(inventory.get("fixed_panel_kicker_screws", ()))
+    if len(inventory.get("fixed_panel_kicker_screws", ())) != 66:
+        raise ValueError("top-outer integration requires all 66 fixed panel axes")
+    for record in required_rows:
+        axis_id = record["axis_id"]
+        connection = by_name.get(axis_id)
+        if connection is None:
+            raise ValueError(f"source connection missing inventory axis {axis_id}")
+        start = cq.Vector(*record["origin_global_xyz_mm"])
+        direction = _unit(record["axis_global_xyz"], f"{axis_id} inventory direction")
+        live_start = cq.Vector(connection.start)
+        live_direction = _unit(connection.direction, f"{axis_id} live direction")
+        if (start - live_start).Length > AXIS_TOLERANCE_MM:
+            raise ValueError(f"{axis_id}: live source start differs from inventory")
+        if direction.dot(live_direction) < 1 - 1e-8:
+            raise ValueError(f"{axis_id}: live source direction differs from inventory")
+        if not math.isclose(
+            float(connection.length),
+            float(record.get("source_occupied_length_mm", record.get("shop_purchased_length_mm"))),
+            abs_tol=AXIS_TOLERANCE_MM,
+        ):
+            raise ValueError(f"{axis_id}: live source length differs from inventory")
+
+
+def _source_parts(source: Any, method_name: str) -> dict[str, cq.Shape]:
+    rows = tuple(getattr(source, method_name)())
+    by_name = {row.name: row.shape for row in rows}
+    if len(by_name) != len(rows):
+        raise ValueError(f"{method_name} returned duplicate part names")
+    return by_name
+
+
+def _context_contract(geometry: Any, inventory: Mapping[str, Any]) -> dict[str, Any]:
+    fixed_axes = dict(getattr(geometry, "fixed_axes", {}))
+    expected_panel_ids = {
+        row["axis_id"] for row in inventory.get("fixed_panel_kicker_screws", ())
+    }
+    if len(expected_panel_ids) != 66 or set(fixed_axes) != expected_panel_ids:
+        raise ValueError("retained geometry must bind all 66 fixed panel axes")
+    frame_records = tuple(getattr(geometry, "frame_bolt_records", ()))
+    frame_ids = {row["axis_id"] for row in frame_records}
+    expected_frame_ids = {
+        row["axis_id"] for row in inventory.get("starting_frame_bolts", ())
+    }
+    if len(frame_records) != 12 or frame_ids != expected_frame_ids:
+        raise ValueError("retained geometry must bind the exact 12 frame bolts")
+    frame_shapes = dict(getattr(geometry, "frame_bolt_shapes", {}))
+    if len(frame_shapes) != 72:
+        raise ValueError("retained geometry must expose 60 components and 12 proxies")
+    wj12._validate_frame_bolt_shapes(inventory, frame_records, frame_shapes)
+    protected = dict(getattr(geometry, "protected", {}))
+    required_families = {
+        "fixed_66_hillman_axes_63p5mm",
+        "retained_12_frame_bolt_components",
+        "retained_12_frame_bolt_tools_withdrawals",
+        "retained_legacy_clips",
+        "retained_legacy_sds_axes",
+        "tnuts",
+        "hold_hole_and_provisional_projection",
+        "lights",
+        "wires",
+    }
+    if not required_families <= protected.keys():
+        raise ValueError(
+            "retained geometry omits protected families: "
+            + ", ".join(sorted(required_families - protected.keys()))
+        )
+    if set(protected["fixed_66_hillman_axes_63p5mm"]) != expected_panel_ids:
+        raise ValueError("protected geometry must include all 66 fixed Hillman axes")
+    expected_frame_aliases = {
+        f"{axis_id}/{role}"
+        for axis_id in expected_frame_ids
+        for role in ("shaft", "head_washer", "nut_washer", "head", "nut")
+    }
+    frame_aliases = protected["retained_12_frame_bolt_components"]
+    if set(frame_aliases) != expected_frame_aliases:
+        raise ValueError("protected frame hardware must identify the five roles per bolt")
+    for axis_id in expected_frame_ids:
+        alias_fingerprints = Counter(
+            _source_shape_fingerprint(frame_aliases[f"{axis_id}/{role}"])
+            for role in ("shaft", "head_washer", "nut_washer", "head", "nut")
+        )
+        installed_fingerprints = Counter(
+            _source_shape_fingerprint(frame_shapes[f"{axis_id}/installed_component_{index}"])
+            for index in range(1, 6)
+        )
+        if alias_fingerprints != installed_fingerprints:
+            raise ValueError(f"{axis_id}: protected frame components differ from installed shapes")
+    installed_bores = dict(getattr(geometry, "candidate_bores", {}))
+    installed_hardware = dict(getattr(geometry, "candidate_installed_hardware", {}))
+    candidate_axis_ids = set(installed_bores)
+    target_station_ids = set(getattr(geometry, "target_station_ids", ()))
+    if (
+        candidate_axis_ids == set(WJ12_LAYOUT.expected_candidate_axis_ids)
+        and target_station_ids == set(WJ12_LAYOUT.expected_target_duty_ids)
+        and getattr(geometry, "trial_id", None) == wj12.TRIAL_ID
+    ):
+        context_variant = "wj12"
+        expected_retained_legacy_counts = (12, 72)
+    elif (
+        candidate_axis_ids == set(wj16.EXPECTED_CANDIDATE_AXIS_IDS)
+        and target_station_ids == set(wj16.EXPECTED_TARGET_DUTY_IDS)
+        and getattr(geometry, "trial_id", None) == wj16.TRIAL_ID
+        and getattr(geometry, "layout_id", None) == wj16.LAYOUT_ID
+    ):
+        context_variant = "wj16"
+        expected_retained_legacy_counts = (8, 48)
+    else:
+        raise ValueError(
+            "retained composition candidate axes, duty IDs, or trial identity differ "
+            "from the exact WJ12/WJ16 contract"
+        )
+    if candidate_axis_ids != set(installed_hardware):
+        raise ValueError("retained composition candidate axes and stacks differ")
+    for axis_id, roles in installed_hardware.items():
+        expected_roles = (
+            BACKER_COMPONENT_ROLES
+            if axis_id in BACKER_AXIS_IDS
+            else ORDINARY_COMPONENT_ROLES
+        )
+        if set(roles) != expected_roles:
+            raise ValueError(
+                f"{axis_id}: retained candidate stack roles differ from its exact family schema"
+            )
+    shape_maps = [fixed_axes, frame_shapes, *protected.values(), *installed_hardware.values()]
+    for shape_map in shape_maps:
+        for name, shape in shape_map.items():
+            _valid_shape(shape, f"retained context {name}")
+    counts = {
+        "fixed_panel_axes": len(fixed_axes),
+        "frame_bolts": len(frame_records),
+        "frame_installed_components": len(
+            protected["retained_12_frame_bolt_components"]
+        ),
+        "frame_source_occupied_proxies": sum(
+            name.endswith("/source_occupied_axis") for name in frame_shapes
+        ),
+        "frame_access_envelopes": len(
+            protected["retained_12_frame_bolt_tools_withdrawals"]
+        ),
+        "retained_legacy_clips": len(protected["retained_legacy_clips"]),
+        "retained_legacy_sds_axes": len(protected["retained_legacy_sds_axes"]),
+        "hold_tnuts": len(protected["tnuts"]),
+        "hold_projection_paths": len(protected["hold_hole_and_provisional_projection"]),
+        "lights": len(protected["lights"]),
+        "wires": len(protected["wires"]),
+        "retained_candidate_axes": len(installed_bores),
+        "retained_candidate_installed_components": sum(
+            len(roles) for roles in installed_hardware.values()
+        ),
+    }
+    retained_legacy_counts = (
+        counts["retained_legacy_clips"],
+        counts["retained_legacy_sds_axes"],
+    )
+    if retained_legacy_counts != expected_retained_legacy_counts:
+        raise ValueError("retained composition legacy obstacle counts differ from WJ12/WJ16")
+    expected_context_counts = {
+        "frame_installed_components": 60,
+        "frame_source_occupied_proxies": 12,
+        "frame_access_envelopes": 36,
+        "hold_tnuts": 142,
+        "hold_projection_paths": 142,
+        "lights": 132,
+        "wires": 131,
+    }
+    if any(counts[name] != expected for name, expected in expected_context_counts.items()):
+        raise ValueError("retained fixed axes/frame/hold/service obstacle census changed")
+    target_axis_ids = {
+        axis["axis_id"]
+        for duty in inventory.get("legacy_duties", ())
+        if duty.get("legacy_station_id") in TARGET_DUTY_IDS
+        for axis in duty.get("legacy_sds_axes", ())
+    }
+    target_clip_ids = TARGET_DUTY_IDS & protected["retained_legacy_clips"].keys()
+    target_sds_ids = target_axis_ids & protected["retained_legacy_sds_axes"].keys()
+    if target_clip_ids != TARGET_DUTY_IDS or target_sds_ids != target_axis_ids:
+        raise ValueError("retained source obstacle maps omit a target legacy clip or SDS axis")
+    counts["target_legacy_clips_excluded_from_obstacles"] = len(target_clip_ids)
+    counts["target_legacy_sds_axes_excluded_from_obstacles"] = len(target_sds_ids)
+    counts["effective_retained_legacy_clips"] = counts["retained_legacy_clips"] - len(target_clip_ids)
+    counts["effective_retained_legacy_sds_axes"] = counts["retained_legacy_sds_axes"] - len(target_sds_ids)
+    if counts["frame_installed_components"] != 60:
+        raise ValueError("retained frame map must separate exactly 60 installed parts")
+    if counts["frame_source_occupied_proxies"] != 12:
+        raise ValueError("retained frame map must classify 12 occupied-axis proxies")
+    if counts["frame_access_envelopes"] != 36:
+        raise ValueError("retained frame map must include all 36 access envelopes")
+    return {
+        "fixed_axes": fixed_axes,
+        "frame_shapes": frame_shapes,
+        "protected": protected,
+        "counts": counts,
+        "context_variant": context_variant,
+        "candidate_axis_ids": frozenset(candidate_axis_ids),
+        "target_station_ids": frozenset(target_station_ids),
+    }
+
+
+def _candidate_scene(geometry: Any, source: Any, raw_source_parts: Mapping[str, cq.Shape]) -> dict[str, cq.Shape]:
+    # Start from canonical finished source wood, then override only with the
+    # already-composed host/overlay shapes. This does not rematerialize a family.
+    source_parts = _source_parts(source, "parts")
+    if not PANEL_NAMES <= source_parts.keys():
+        raise ValueError("canonical source omits one or more of its six wood panels")
+    scene = {
+        name: shape
+        for name, shape in source_parts.items()
+        if name in raw_source_parts or name in PANEL_NAMES
+    }
+    scene.update(dict(getattr(geometry, "finished_hosts", {})))
+    scene.update(dict(getattr(geometry, "additional_finished_source_parts", {})))
+    panel_replacements = dict(getattr(geometry, "panel_replacements", {}))
+    if not set(panel_replacements) <= PANEL_NAMES:
+        raise ValueError("retained panel replacements contain unknown panel identities")
+    scene.update(panel_replacements)
+    if not PANEL_NAMES <= scene.keys():
+        raise ValueError("finished scene must contain all six source or replacement panels")
+    return scene
+
+
+def _preview_shared_hosts(
+    geometry: Any,
+    raw_hosts: Mapping[str, cq.Shape],
+    native_cutters: Mapping[str, Mapping[str, cq.Shape]],
+    purchase_cutters: Mapping[str, Mapping[str, cq.Shape]],
+    new_replaced_axis_ids: frozenset[str],
+    new_bores_by_host: Mapping[str, Mapping[str, cq.Shape]],
+) -> dict[str, cq.Shape]:
+    all_replaced = set(getattr(geometry, "replaced_source_axis_ids", ())) | set(
+        new_replaced_axis_ids
+    )
+    existing_bores = getattr(geometry, "candidate_bores", {})
+    preview: dict[str, cq.Shape] = {}
+    for host_id, raw in raw_hosts.items():
+        source_cutters = native_cutters[host_id]
+        source_tools = [
+            shape
+            for axis_id, shape in source_cutters.items()
+            if axis_id not in all_replaced
+        ]
+        purchase_tools = list(purchase_cutters.get(host_id, {}).values())
+        old_candidate_tools = [
+            record.shape
+            for record in existing_bores.values()
+            if host_id in record.receiver_ids
+        ]
+        new_tools = list(new_bores_by_host.get(host_id, {}).values())
+        tools = [*source_tools, *purchase_tools, *old_candidate_tools, *new_tools]
+        finished = raw.cut(*tools).clean() if tools else raw
+        _valid_shape(finished, f"local host preview {host_id}")
+        preview[host_id] = finished
+    return preview
+
+
+def _make_cleat(
+    frame: SourceLocalFrame,
+    *,
+    x_lo: float,
+    part_id: str,
+) -> cq.Shape:
+    x_hi = x_lo + EXPECTED_CLEAT_SIZE_MM[0]
+    origin = frame.point(x_hi, CLEAT_T_MIN_MM, CLEAT_N_MIN_MM)
+    # With normal +T and x-direction -X, plane-y is +N. The datum is the
+    # actual world point transformed from the rail's source-local frame.
+    plane = cq.Plane(origin=origin, xDir=-frame.x, normal=frame.t)
+    raw = cq.Workplane(plane).box(
+        EXPECTED_CLEAT_SIZE_MM[0],
+        EXPECTED_CLEAT_SIZE_MM[2],
+        EXPECTED_CLEAT_SIZE_MM[1],
+        centered=False,
+    ).val()
+    _valid_shape(raw, part_id)
+    return raw
+
+
+def _make_stack(
+    *,
+    axis_id: str,
+    cleat_id: str,
+    receiver_id: str,
+    point: cq.Vector,
+    direction: cq.Vector,
+    layers: tuple[tuple[str, float], ...],
+    hardware: Any,
+) -> BoltStack:
+    unit = _unit(direction, f"{axis_id} direction")
+    stack_layers = tuple(StackLayer(body_id, thickness) for body_id, thickness in layers)
+    grip = sum(layer.thickness_mm for layer in stack_layers)
+    return BoltStack(
+        id=axis_id,
+        hardware=hardware,
+        under_head_origin=point - unit * hardware.washer_thickness_mm,
+        direction=unit,
+        layers=stack_layers,
+        head_seat=WasherSeat(cleat_id, point, unit),
+        nut_seat=WasherSeat(receiver_id, point + unit * grip, -unit),
+        required_tip_projection_mm=TIP_PROJECTION_MM,
+    )
+
+
+def _through_bore(stack: BoltStack) -> cq.Shape:
+    direction = _unit(stack.direction, f"{stack.id} direction")
+    radius = stack.hardware.drill_diameter_mm / 2
+    return cq.Solid.makeCylinder(
+        radius,
+        stack.grip_mm + 2 * LAYER_PROBE_MM,
+        stack.head_seat.center - direction * LAYER_PROBE_MM,
+        direction,
+    )
+
+
+def _make_candidate_panel_cutters(
+    source: Any,
+    inventory: Mapping[str, Any],
+    candidate_part_ids: set[str],
+) -> dict[str, dict[str, cq.Shape]]:
+    result: dict[str, dict[str, cq.Shape]] = {part_id: {} for part_id in candidate_part_ids}
+    by_name = {row.name: row for row in source.connections()}
+    for row in inventory.get("fixed_panel_kicker_screws", ()):
+        part_id = row.get("candidate_finished_receiver_member")
+        if part_id not in candidate_part_ids:
+            continue
+        axis_id = row["axis_id"]
+        connection = by_name.get(axis_id)
+        if connection is None:
+            raise ValueError(f"redirected panel receiver axis is missing: {axis_id}")
+        direction = _unit(connection.direction, f"{axis_id} direction")
+        result[part_id][f"panel_purchase/{axis_id}"] = cq.Solid.makeCylinder(
+            connection.diameter / 2,
+            float(row["shop_purchased_length_mm"]),
+            connection.start,
+            direction,
+        )
+    return result
+
+
+def _interface_slab(
+    cleat: cq.Shape,
+    frame: SourceLocalFrame,
+    host_id: str,
+    depth_mm: float,
+) -> cq.Shape:
+    """Build the finite net-contact probe at one actual cleat mating face."""
+    local = [frame.coordinates(vertex.Center()) for vertex in cleat.Vertices()]
+    x_values, t_values, n_values = zip(*local, strict=True)
+    x_lo, x_hi = min(x_values), max(x_values)
+    t_lo, t_hi = min(t_values), max(t_values)
+    n_lo, n_hi = min(n_values), max(n_values)
+    if host_id == "base_rail_top":
+        origin = frame.point(x_hi, 0.0, n_lo)
+        plane = cq.Plane(origin=origin, xDir=-frame.x, normal=frame.t)
+        length, width = x_hi - x_lo, n_hi - n_lo
+    elif host_id == "base_side_left":
+        origin = frame.point(x_lo, t_hi, n_lo)
+        plane = cq.Plane(origin=origin, xDir=-frame.t, normal=-frame.x)
+        length, width = t_hi - t_lo, n_hi - n_lo
+    elif host_id == "base_side_right":
+        origin = frame.point(x_hi, t_lo, n_lo)
+        plane = cq.Plane(origin=origin, xDir=frame.t, normal=frame.x)
+        length, width = t_hi - t_lo, n_hi - n_lo
+    else:
+        raise ValueError(f"unsupported top-outer mating host: {host_id}")
+    return cq.Workplane(plane).box(length, width, depth_mm, centered=False).val()
+
+
+def _host_face_checks(
+    raw_cleats: Mapping[str, cq.Shape],
+    host_shapes: Mapping[str, cq.Shape],
+    frame: SourceLocalFrame,
+    face_rows: Mapping[str, dict[str, Any]],
+    host_face_normals: Mapping[str, cq.Vector],
+    host_ids_by_cleat: Mapping[str, tuple[str, str]],
+    candidate_bores_by_receiver: Mapping[str, Mapping[str, cq.Shape]],
+    candidate_panel_cutters_by_part: Mapping[str, Mapping[str, cq.Shape]],
+) -> dict[str, dict[str, Any]]:
+    checks = {}
+    for cleat_id, host_ids in host_ids_by_cleat.items():
+        raw = raw_cleats[cleat_id]
+        checks[cleat_id] = {}
+        for host_id in host_ids:
+            expected_normal = host_face_normals[host_id]
+            face = face_rows[host_id]
+            face_center = cq.Vector(*face["center_global_xyz_mm"])
+            live = _live_coplanar_face_check(
+                host_shapes[host_id],
+                center=face_center,
+                normal=expected_normal,
+                context=f"{host_id}/{face['face_id']}",
+            )
+            gross_slab = _interface_slab(
+                raw, frame, host_id, SUPPORT_PROBE_MM
+            )
+            candidate_tools = [
+                *candidate_bores_by_receiver[cleat_id].values(),
+                *candidate_panel_cutters_by_part[cleat_id].values(),
+            ]
+            expected_slab = (
+                gross_slab.cut(*candidate_tools).clean()
+                if candidate_tools
+                else gross_slab
+            )
+            gross_volume = gross_slab.Volume()
+            expected_volume = expected_slab.Volume()
+            supported_volume = _intersection_volume(
+                expected_slab, host_shapes[host_id]
+            )
+            support_fraction = min(1.0, supported_volume / expected_volume) if expected_volume else 0.0
+            checks[cleat_id][host_id] = {
+                **live,
+                "source_face_id": face["face_id"],
+                "source_face_normal_global_xyz": _tuple(expected_normal, 9),
+                "contact_support_probe_mm": SUPPORT_PROBE_MM,
+                "gross_contact_slab_volume_mm3": round(gross_volume, 6),
+                "expected_finished_candidate_contact_slab_volume_mm3": round(
+                    expected_volume, 6
+                ),
+                "supported_contact_slab_volume_mm3": round(supported_volume, 6),
+                "intentional_candidate_receiver_voids_discounted": True,
+                "other_source_and_service_removals_remain_support_losses": True,
+                "contact_slab_material_fraction": round(support_fraction, 9),
+                "full_contact_slab_material_present": support_fraction >= 1 - 1e-6,
+            }
+    return checks
+
+
+def _source_reconstruction(
+    source: Any,
+    raw_hosts: Mapping[str, cq.Shape],
+    native_cutters: Mapping[str, Mapping[str, cq.Shape]],
+) -> dict[str, dict[str, Any]]:
+    finished_source = _source_parts(source, "parts")
+    records = {}
+    for host_id in sorted(HOST_IDS):
+        if host_id not in finished_source or host_id not in raw_hosts:
+            raise ValueError(f"source omitted reconstruction member {host_id}")
+        tools = list(native_cutters[host_id].values())
+        replayed = raw_hosts[host_id].cut(*tools).clean() if tools else raw_hosts[host_id]
+        added = replayed.cut(finished_source[host_id]).Volume()
+        missing = finished_source[host_id].cut(replayed).Volume()
+        delta = added + missing
+        records[host_id] = {
+            "native_source_cutter_ids": sorted(native_cutters[host_id]),
+            "native_source_cutter_count": len(native_cutters[host_id]),
+            "source_finished_shape_sha256": _source_shape_fingerprint(finished_source[host_id]),
+            "replayed_shape_sha256": _source_shape_fingerprint(replayed),
+            "symmetric_difference_mm3": round(delta, 9),
+            "matches_canonical_source_finished_member": delta <= SOURCE_RECONSTRUCTION_TOLERANCE_MM3,
+            "purchased_panel_cutters_in_native_reconstruction": False,
+        }
+    if any(not row["matches_canonical_source_finished_member"] for row in records.values()):
+        raise ValueError("top-outer native source reconstruction differs from canonical source")
+    return records
+
+
+def _layer_checks(
+    stacks: Mapping[str, BoltStack],
+    pre_bore_parts: Mapping[str, cq.Shape],
+) -> dict[str, dict[str, Any]]:
+    reports = {}
+    for axis_id, stack in sorted(stacks.items()):
+        direction = _unit(stack.direction, f"{axis_id} direction")
+        progress = 0.0
+        layer_rows = []
+        for layer in stack.layers:
+            start = stack.head_seat.center + direction * progress
+            segment = cq.Solid.makeCylinder(
+                stack.hardware.drill_diameter_mm / 2,
+                layer.thickness_mm,
+                start,
+                direction,
+            )
+            host = pre_bore_parts[layer.body_id]
+            volume = _intersection_volume(segment, host)
+            fraction = volume / segment.Volume()
+            layer_rows.append(
+                {
+                    "member_id": layer.body_id,
+                    "declared_thickness_mm": round(layer.thickness_mm, 6),
+                    "source_material_fraction_before_new_bore": round(fraction, 9),
+                    "full_declared_layer_present": fraction >= 1 - 1e-6,
+                }
+            )
+            progress += layer.thickness_mm
+        reports[axis_id] = {
+            "layers_head_to_nut": layer_rows,
+            "all_declared_layers_present": all(
+                row["full_declared_layer_present"] for row in layer_rows
+            ),
+        }
+    return reports
+
+
+def _washer_support_checks(
+    stacks: Mapping[str, BoltStack],
+    finished_parts: Mapping[str, cq.Shape],
+) -> dict[str, dict[str, Any]]:
+    result = {}
+    for axis_id, stack in sorted(stacks.items()):
+        result[axis_id] = {}
+        for label, seat in (("head", stack.head_seat), ("nut", stack.nut_seat)):
+            support = washer_support_report(seat, finished_parts[seat.body_id], stack.hardware)
+            result[axis_id][label] = {
+                "body_id": seat.body_id,
+                "support_fraction": round(support.support_fraction, 9),
+                "unsupported_area_mm2": round(support.unsupported_area_mm2, 6),
+                "full_annular_seat_support": support.full_seat,
+            }
+    return result
+
+
+def _scene_from_geometry(
+    geometry: Any,
+    source_scene: Mapping[str, cq.Shape],
+    preview_hosts: Mapping[str, cq.Shape],
+    finished_cleats: Mapping[str, cq.Shape],
+) -> tuple[dict[str, cq.Shape], dict[str, cq.Shape]]:
+    timber = dict(source_scene)
+    timber.update(preview_hosts)
+    candidate_parts = dict(getattr(geometry, "finished_candidate_parts", {}))
+    candidate_parts.update(finished_cleats)
+    return timber, candidate_parts
+
+
+def _physical_and_access_maps(
+    context: Mapping[str, Any],
+    geometry: Any,
+) -> tuple[dict[str, cq.Shape], dict[str, cq.Shape], dict[str, cq.Shape]]:
+    protected = context["protected"]
+    physical: dict[str, cq.Shape] = {}
+    access: dict[str, cq.Shape] = {}
+    target_axis_ids = {
+        axis["axis_id"]
+        for duty in geometry.source_inventory.get("legacy_duties", ())
+        if duty.get("legacy_station_id") in TARGET_DUTY_IDS
+        for axis in duty.get("legacy_sds_axes", ())
+    }
+    axis_proxies = {
+        name: shape
+        for name, shape in context["frame_shapes"].items()
+        if name.endswith("/source_occupied_axis")
+    }
+    for category in (
+        "fixed_66_hillman_axes_63p5mm",
+        "retained_12_frame_bolt_components",
+        "retained_legacy_clips",
+        "retained_legacy_sds_axes",
+        "tnuts",
+        "lights",
+        "wires",
+    ):
+        retained = protected[category]
+        if category == "retained_legacy_clips":
+            retained = {
+                name: shape for name, shape in retained.items() if name not in TARGET_DUTY_IDS
+            }
+        elif category == "retained_legacy_sds_axes":
+            retained = {
+                name: shape for name, shape in retained.items() if name not in target_axis_ids
+            }
+        physical.update(
+            {f"{category}/{name}": shape for name, shape in retained.items()}
+        )
+    access.update(
+        {
+            f"frame_access/{name}": shape
+            for name, shape in protected["retained_12_frame_bolt_tools_withdrawals"].items()
+        }
+    )
+    access.update(
+        {
+            f"hold_projection/{name}": shape
+            for name, shape in protected["hold_hole_and_provisional_projection"].items()
+        }
+    )
+    return (
+        physical,
+        access,
+        {f"frame_source_axis_proxy/{name}": shape for name, shape in axis_proxies.items()},
+    )
+
+
+def _source_and_candidate_screens(
+    geometry: Any,
+    context: Mapping[str, Any],
+    timber: Mapping[str, cq.Shape],
+    candidate_parts: Mapping[str, cq.Shape],
+    raw_cleats: Mapping[str, cq.Shape],
+    finished_cleats: Mapping[str, cq.Shape],
+    stacks: Mapping[str, BoltStack],
+    installed: Mapping[str, Mapping[str, cq.Shape]],
+    access: Mapping[str, cq.Shape],
+    frame_proxies: Mapping[str, cq.Shape],
+) -> tuple[dict[str, dict[str, Any]], dict[str, dict[str, Any]], dict[str, dict[str, Any]]]:
+    protected_physical, protected_access, _ = _physical_and_access_maps(context, geometry)
+    panels = {name: shape for name, shape in timber.items() if name in PANEL_NAMES}
+    existing_hardware = {
+        f"{axis_id}/{role}": shape
+        for axis_id, roles in getattr(geometry, "candidate_installed_hardware", {}).items()
+        for role, shape in roles.items()
+    }
+    candidate_body_checks = {}
+    for cleat_id, raw in raw_cleats.items():
+        host_hits = _hits(raw, timber)
+        peer_hits = {
+            name: round(_intersection_volume(raw, shape), 6)
+            for name, shape in candidate_parts.items()
+            if name != cleat_id and _intersection_volume(raw, shape) > HIT_TOLERANCE_MM3
+        }
+        physical_hits = _hits(raw, protected_physical)
+        frame_proxy_hits = _hits(raw, frame_proxies)
+        panel_hits = _hits(raw, panels)
+        existing_hits = _hits(raw, existing_hardware)
+        access_hits = _hits(raw, protected_access)
+        candidate_body_checks[cleat_id] = {
+            "finished_timber_hits_mm3": host_hits,
+            "other_candidate_part_hits_mm3": peer_hits,
+            "fixed_or_retained_physical_hits_mm3": physical_hits,
+            "frame_source_occupied_proxy_hits_mm3": frame_proxy_hits,
+            "panel_replacement_hits_mm3": panel_hits,
+            "existing_candidate_hardware_hits_mm3": existing_hits,
+            "frame_or_hold_access_hits_mm3": access_hits,
+            "recorded_access_envelopes_clear": not access_hits,
+            "static_body_conflicts_absent": not any(
+                (host_hits, peer_hits, physical_hits, panel_hits, existing_hits)
+            ),
+        }
+
+    all_wood = {**timber, **candidate_parts}
+    installed_checks: dict[str, dict[str, Any]] = {}
+    for axis_id, components in installed.items():
+        installed_checks[axis_id] = {}
+        for role, shape in components.items():
+            # Every installed role must clear every finished receiver body by
+            # volume; intended face contact has zero volume. Include own bodies
+            # so a misplaced shaft/head/washer cannot hide behind role filters.
+            wood_hits = _hits(shape, all_wood)
+            physical_hits = _hits(shape, protected_physical)
+            frame_proxy_hits = _hits(shape, frame_proxies)
+            panel_hits = _hits(shape, panels)
+            existing_hits = _hits(shape, existing_hardware)
+            peer_hits = {
+                f"{peer_axis}/{peer_role}": round(_intersection_volume(shape, peer_shape), 6)
+                for peer_axis, peer_components in installed.items()
+                if peer_axis != axis_id
+                for peer_role, peer_shape in peer_components.items()
+                if _intersection_volume(shape, peer_shape) > HIT_TOLERANCE_MM3
+            }
+            access_hits = _hits(shape, protected_access)
+            installed_checks[axis_id][role] = {
+                "finished_wood_hits_mm3": wood_hits,
+                "physical_obstacle_hits_mm3": physical_hits,
+                "frame_source_occupied_proxy_hits_mm3": frame_proxy_hits,
+                "panel_replacement_hits_mm3": panel_hits,
+                "existing_installed_hardware_hits_mm3": existing_hits,
+                "peer_candidate_hardware_hits_mm3": peer_hits,
+                "frame_or_hold_access_hits_mm3": access_hits,
+                "recorded_access_envelopes_clear": not access_hits,
+                "static_component_conflicts_absent": not any(
+                    (
+                        wood_hits,
+                        physical_hits,
+                        panel_hits,
+                        existing_hits,
+                        peer_hits,
+                    )
+                ),
+            }
+
+    access_checks = {}
+    for axis_id, stack in stacks.items():
+        own_body_ids = {layer.body_id for layer in stack.layers}
+        axis_access = access_shapes(stack)
+        access_checks[axis_id] = {}
+        for end, shape in axis_access.items():
+            other_wood = {name: part for name, part in all_wood.items() if name not in own_body_ids}
+            wood_hits = _hits(shape, other_wood)
+            physical_hits = _hits(shape, protected_physical)
+            frame_proxy_hits = _hits(shape, frame_proxies)
+            panel_hits = _hits(shape, panels)
+            existing_hits = _hits(shape, existing_hardware)
+            other_access_hits = _hits(shape, protected_access)
+            access_checks[axis_id][end] = {
+                "finished_nonreceiver_wood_hits_mm3": wood_hits,
+                "physical_obstacle_hits_mm3": physical_hits,
+                "frame_source_occupied_proxy_hits_mm3": frame_proxy_hits,
+                "panel_replacement_hits_mm3": panel_hits,
+                "existing_installed_hardware_hits_mm3": existing_hits,
+                "retained_access_envelope_hits_mm3": other_access_hits,
+                "recorded_nonreceiver_tool_approach_clear": not any(
+                    (wood_hits, physical_hits, panel_hits, existing_hits, other_access_hits)
+                ),
+                "receiver_member_tool_fit_unresolved": True,
+            }
+    return candidate_body_checks, installed_checks, access_checks
+
+
+def _build_stack_rows(
+    frame: SourceLocalFrame,
+    face_rows: Mapping[str, dict[str, Any]],
+    duties: Mapping[str, Mapping[str, Any]],
+) -> tuple[dict[str, cq.Shape], dict[str, BoltStack], dict[str, Any]]:
+    raw_cleats: dict[str, cq.Shape] = {}
+    stacks: dict[str, BoltStack] = {}
+    bore_rows = {}
+    right_local_x = frame.coordinates(
+        cq.Vector(*face_rows["base_side_right"]["center_global_xyz_mm"])
+    )[0]
+    left_local_x = frame.coordinates(
+        cq.Vector(*face_rows["base_side_left"]["center_global_xyz_mm"])
+    )[0]
+    # Side interface planes come from actual host extents projected in the rail
+    # frame. The selected planar faces have normals +X (left) and -X (right).
+    left_interface_x = left_local_x
+    right_interface_x = right_local_x
+    if not (abs(left_interface_x) <= 1e-4 and right_interface_x > left_interface_x):
+        raise ValueError("source side-face planes do not match the rail-local datum")
+    for duty_id in sorted(TARGET_DUTY_IDS):
+        cleat_id = CLEAT_IDS[duty_id]
+        is_left = duty_id.endswith("left_1")
+        side_id = "base_side_left" if is_left else "base_side_right"
+        interface_x = left_interface_x if is_left else right_interface_x
+        x_lo = interface_x if is_left else interface_x - EXPECTED_CLEAT_SIZE_MM[0]
+        raw_cleats[cleat_id] = _make_cleat(frame, x_lo=x_lo, part_id=cleat_id)
+        x_hi = x_lo + EXPECTED_CLEAT_SIZE_MM[0]
+        # The right row preserves the WJ-06 signed 1 mm center offset. The
+        # left row reflects that signed offset about the measured side faces.
+        rail_x_local = (
+            x_lo + EXPECTED_CLEAT_SIZE_MM[0] / 2 + 1.0
+            if is_left
+            else x_lo + EXPECTED_CLEAT_SIZE_MM[0] / 2 - 1.0
+        )
+        side_direction = -frame.x if is_left else frame.x
+        side_start_x = x_hi if is_left else x_lo
+        rail_direction = frame.t
+        rail_hardware = wj06_outer._hardware(wj06_outer.RAIL_BOLT_LENGTH_MM, side=False)
+        side_hardware = wj06_outer._hardware(SIDE_BOLT_LENGTH_MM, side=True)
+        local_axes = []
+        for row_index, offset in enumerate(RAIL_ROW_N_OFFSETS_MM, 1):
+            n_mm = CLEAT_N_MIN_MM + EXPECTED_CLEAT_SIZE_MM[2] / 2 + offset
+            axis_id = f"top_outer/{duty_id}/rail_{row_index}"
+            point = frame.point(rail_x_local, CLEAT_T_MIN_MM, n_mm)
+            stack = _make_stack(
+                axis_id=axis_id,
+                cleat_id=cleat_id,
+                receiver_id="base_rail_top",
+                point=point,
+                direction=rail_direction,
+                layers=((cleat_id, 88.9), ("base_rail_top", 38.1)),
+                hardware=rail_hardware,
+            )
+            stacks[axis_id] = stack
+            bore_rows[axis_id] = {
+                "axis_id": axis_id,
+                "station_id": duty_id,
+                "interface": "cleat_to_base_rail_top",
+                "receiver_ids": [cleat_id, "base_rail_top"],
+                "local_point_xyz_mm": [round(rail_x_local, 6), CLEAT_T_MIN_MM, round(n_mm, 6)],
+                "global_point_xyz_mm": _tuple(point),
+                "direction_global_xyz": _tuple(rail_direction, 9),
+                "layer_thicknesses_mm": [88.9, 38.1],
+                "grip_mm": 127.0,
+                "hardware_class": "six-inch 25C600HCS5Z WJ06 ordinary stack envelope",
+                "length_nominal_mm": round(rail_hardware.under_head_length_mm, 6),
+                "length_minimum_mm": round(wj06_outer.RAIL_BOLT_MIN_LENGTH_MM, 6),
+                "steel_diameter_mm": round(rail_hardware.steel_diameter_mm, 6),
+                "cad_occupied_diameter_mm": round(rail_hardware.cad_occupied_diameter_mm, 6),
+                "drill_diameter_mm": round(rail_hardware.drill_diameter_mm, 6),
+                "head_diameter_mm": round(rail_hardware.head_diameter_mm, 6),
+                "washer_od_mm": round(rail_hardware.washer_od_mm, 6),
+                "washer_id_mm": round(rail_hardware.washer_id_mm, 6),
+                "washer_thickness_mm_each": round(rail_hardware.washer_thickness_mm, 6),
+                "washer_count": 2,
+                "nut_height_mm": round(rail_hardware.nut_height_mm, 6),
+                "modeled_ring_gage_or_thread_start_mm": round(
+                    rail_hardware.usable_thread_start_mm, 6
+                ),
+                "thread_model_scope": "WJ-04 maximum ring-gage plane only; first full-form thread is not located",
+            }
+            local_axes.append(axis_id)
+        side_n = CLEAT_N_MIN_MM + EXPECTED_CLEAT_SIZE_MM[2] / 2 + SIDE_ROW_N_OFFSET_MM
+        for row_index, t_mm in enumerate(SIDE_ROW_T_OFFSETS_MM, 1):
+            axis_id = f"top_outer/{duty_id}/side_{row_index}"
+            point = frame.point(side_start_x, t_mm, side_n)
+            stack = _make_stack(
+                axis_id=axis_id,
+                cleat_id=cleat_id,
+                receiver_id=side_id,
+                point=point,
+                direction=side_direction,
+                layers=((cleat_id, 88.9), (side_id, 88.9)),
+                hardware=side_hardware,
+            )
+            stacks[axis_id] = stack
+            bore_rows[axis_id] = {
+                "axis_id": axis_id,
+                "station_id": duty_id,
+                "interface": f"cleat_to_{side_id}",
+                "receiver_ids": [cleat_id, side_id],
+                "local_point_xyz_mm": [round(side_start_x, 6), round(t_mm, 6), round(side_n, 6)],
+                "global_point_xyz_mm": _tuple(point),
+                "direction_global_xyz": _tuple(side_direction, 9),
+                "layer_thicknesses_mm": [88.9, 88.9],
+                "grip_mm": 177.8,
+                "hardware_class": "eight-inch ordinary 1/4-20 WJ06 catalog lead; unselected/unreceived",
+                "length_nominal_mm": round(side_hardware.under_head_length_mm, 6),
+                "length_minimum_mm": round(SIDE_BOLT_MIN_LENGTH_MM, 6),
+                "steel_diameter_mm": round(side_hardware.steel_diameter_mm, 6),
+                "cad_occupied_diameter_mm": round(side_hardware.cad_occupied_diameter_mm, 6),
+                "drill_diameter_mm": round(side_hardware.drill_diameter_mm, 6),
+                "head_diameter_mm": round(side_hardware.head_diameter_mm, 6),
+                "washer_od_mm": round(side_hardware.washer_od_mm, 6),
+                "washer_id_mm": round(side_hardware.washer_id_mm, 6),
+                "washer_thickness_mm_each": round(side_hardware.washer_thickness_mm, 6),
+                "washer_count": 2,
+                "nut_height_mm": round(side_hardware.nut_height_mm, 6),
+                "modeled_ring_gage_or_thread_start_mm": round(
+                    side_hardware.usable_thread_start_mm, 6
+                ),
+                "thread_model_scope": "sentinel interval only; delivered side bolt and first full-form thread are unknown",
+            }
+            local_axes.append(axis_id)
+        if len(local_axes) != 4:
+            raise ValueError(f"{duty_id}: expected two bolts into each host")
+    if len(raw_cleats) != 2 or len(stacks) != 8 or len(bore_rows) != 8:
+        raise ValueError("top-outer trial must contain two cleats and eight stacks")
+    return raw_cleats, stacks, bore_rows
+
+
+def _thread_length_summary(stacks: Mapping[str, BoltStack]) -> dict[str, Any]:
+    rail = next(stack for stack in stacks.values() if stack.grip_mm == 127.0)
+    side = next(stack for stack in stacks.values() if stack.grip_mm == 177.8)
+    def envelope(stack: BoltStack, grip_mm: float, length_minimum: float) -> dict[str, Any]:
+        grip_low = grip_mm - 2 * WOOD_LAYER_TOLERANCE_MM
+        grip_high = grip_mm + 2 * WOOD_LAYER_TOLERANCE_MM
+        earliest_nut_bearing = grip_low + 2 * WASHER_THICKNESS_MIN_MM
+        farthest_nut_face = (
+            grip_high + 2 * WASHER_THICKNESS_MAX_MM + NUT_THICKNESS_MAX_MM
+        )
+        required_with_tip = farthest_nut_face + TIP_PROJECTION_MM
+        return {
+            "grip_nominal_mm": grip_mm,
+            "grip_min_max_with_0p5mm_each_layer_mm": [grip_low, grip_high],
+            "earliest_nut_bearing_face_from_under_head_mm": round(earliest_nut_bearing, 4),
+            "farthest_nut_face_from_under_head_mm": round(farthest_nut_face, 4),
+            "required_length_with_2p54mm_tip_reserve_mm": round(required_with_tip, 4),
+            "nominal_bolt_length_mm": round(stack.hardware.under_head_length_mm, 4),
+            "minimum_length_bound_mm": round(length_minimum, 4),
+            "minimum_length_envelope_margin_mm": round(length_minimum - required_with_tip, 4),
+            "thread_transition_and_full_form_engagement_verified": False,
+            "minimum_length_comparison_is_not_received_part_fit": True,
+        }
+    return {
+        "basis": {
+            "washer_thickness_min_mm": WASHER_THICKNESS_MIN_MM,
+            "washer_thickness_max_mm": WASHER_THICKNESS_MAX_MM,
+            "nut_thickness_max_mm": NUT_THICKNESS_MAX_MM,
+            "wood_layer_tolerance_mm_each": WOOD_LAYER_TOLERANCE_MM,
+            "required_tip_reserve_mm": TIP_PROJECTION_MM,
+            "first_full_form_thread_location": "not supplied by this geometry model",
+        },
+        "rail_6in_class": envelope(rail, 127.0, wj06_outer.RAIL_BOLT_MIN_LENGTH_MM),
+        "side_8in_class": envelope(side, 177.8, SIDE_BOLT_MIN_LENGTH_MM),
+        "rail_6in_thread_inspection_bounds": {
+            "Lb_min_last_thread_scratch_from_underhead_mm": round(
+                wj06_outer.RAIL_BOLT_CANDIDATE.minimum_smooth_body_mm, 4
+            ),
+            "Lg_max_ring_gage_plane_from_underhead_mm": round(
+                wj06_outer.RAIL_BOLT_CANDIDATE.maximum_full_thread_start_mm, 4
+            ),
+            "earliest_nut_bearing_minus_Lb_mm": round(
+                rail.grip_mm
+                - 2 * WOOD_LAYER_TOLERANCE_MM
+                + 2 * WASHER_THICKNESS_MIN_MM
+                - wj06_outer.RAIL_BOLT_CANDIDATE.minimum_smooth_body_mm,
+                4,
+            ),
+            "Lg_minus_earliest_nut_bearing_mm": round(
+                wj06_outer.RAIL_BOLT_CANDIDATE.maximum_full_thread_start_mm
+                - (
+                    rail.grip_mm
+                    - 2 * WOOD_LAYER_TOLERANCE_MM
+                    + 2 * WASHER_THICKNESS_MIN_MM
+                ),
+                4,
+            ),
+            "bounds_do_not_establish_first_full_form_thread_or_nut_engagement": True,
+        },
+        "side_8in_thread_inspection_bounds": {
+            "catalog_Lb_or_Lg_available_in_retained_basis": False,
+            "modeled_thread_interval_is_sentinel_only": True,
+            "delivered_bolt_nut_engagement_verified": False,
+        },
+        "ordinary_body_maximum_diameter_mm": round(ORDINARY_BODY_MAXIMUM_MM, 4),
+        "ordinary_class_maximum_is_only_a_collision_sensitivity": True,
+    }
+
+
+def build_top_outer_integration(geometry: Any) -> TopOuterIntegrationGeometry:
+    """Build the two top-outer candidates from an already retained composition.
+
+    This function runs only local CadQuery booleans and screens. Call it with
+    an existing WJ-12/WJ-16 geometry object inside the parent's geometry slot.
+    It does not call any family materializer or native structural solver.
+    """
+    source = getattr(geometry, "source", None)
+    binding = getattr(geometry, "source_binding", None)
+    if source is None or binding is None:
+        raise TypeError("top-outer integration requires retained source geometry")
+    current_binding = validate_source_binding(source)
+    if current_binding != binding:
+        raise ValueError("retained source binding changed before top-outer integration")
+    source_path = ROOT / INVENTORY_PATH
+    inventory_sha = hashlib.sha256(source_path.read_bytes()).hexdigest()
+    inventory = json.loads(source_path.read_text())
+    if binding.inventory_sha256 != inventory_sha:
+        raise ValueError("retained source is not bound to the canonical inventory")
+    supplied_inventory = _deep_plain(getattr(geometry, "source_inventory", {}))
+    if supplied_inventory and supplied_inventory != inventory:
+        raise ValueError("retained composition inventory differs from canonical inventory")
+    if getattr(geometry, "source_inventory_sha256", inventory_sha) != inventory_sha:
+        raise ValueError("retained composition inventory hash differs from canonical source")
+    _validate_live_connections(source, inventory)
+    context = _context_contract(geometry, inventory)
+    family_source_fingerprints = _deep_plain(
+        getattr(geometry, "family_source_fingerprints", {})
+    )
+    family_trial_ids = _deep_plain(getattr(geometry, "family_trial_ids", {}))
+    if not family_source_fingerprints or not family_trial_ids:
+        raise ValueError("retained geometry lacks family fingerprints or trial identities")
+
+    duties = _duty_rows(inventory)
+    part_rows = _part_rows(inventory)
+    frames = _source_frames(inventory)
+    rail_frame = frames["base_rail_top"]
+    raw_source_parts = _source_parts(source, "uncut_wood_parts")
+    if not HOST_IDS <= raw_source_parts.keys():
+        raise ValueError("canonical source omits one or more top-outer host members")
+    canonical_finished_source = _source_parts(source, "parts")
+    if not HOST_IDS <= canonical_finished_source.keys():
+        raise ValueError("canonical source omits one or more finished top-outer hosts")
+
+    native_cutters = right_rail.source_native_cutters_by_host(source, HOST_IDS)
+    purchase_cutters = right_rail.candidate_panel_purchase_cutters_by_host(
+        source, inventory, HOST_IDS
+    )
+    if set(native_cutters) != HOST_IDS or set(purchase_cutters) != HOST_IDS:
+        raise ValueError("top-outer host cut maps must cover exactly three source hosts")
+
+    # Cross-check the already-retained WJ-12/WJ-16 maps where they cover these
+    # members. New source purchase cuts remain a distinct map from native cuts.
+    existing_native = getattr(geometry, "source_cutters_by_host", {})
+    for host_id in HOST_IDS.intersection(existing_native):
+        if set(existing_native[host_id]) != set(native_cutters[host_id]):
+            raise ValueError(f"{host_id}: retained native source cut IDs changed")
+        for cut_id, shape in existing_native[host_id].items():
+            if _shape_difference_volume(shape, native_cutters[host_id][cut_id]) > 1e-6:
+                raise ValueError(f"{host_id}/{cut_id}: retained native source cutter changed")
+    existing_purchase = getattr(geometry, "purchased_panel_cutters_by_host", {})
+    additional_purchase = getattr(geometry, "additional_purchased_panel_cutters_by_host", {})
+    for host_id in HOST_IDS:
+        current = existing_purchase.get(host_id, additional_purchase.get(host_id))
+        if current is not None and set(current) != set(purchase_cutters[host_id]):
+            raise ValueError(f"{host_id}: retained panel purchase map differs from source")
+        if current is not None:
+            for cut_id, shape in current.items():
+                if _shape_difference_volume(shape, purchase_cutters[host_id][cut_id]) > 1e-6:
+                    raise ValueError(f"{host_id}/{cut_id}: retained purchase cutter changed")
+
+    source_reconstruction = _source_reconstruction(source, raw_source_parts, native_cutters)
+    axis_rows = {
+        axis["axis_id"]: axis
+        for row in duties.values()
+        for axis in row["legacy_sds_axes"]
+    }
+    entry_audit = {}
+    for axis_id, axis in axis_rows.items():
+        host_id = axis["members"][1]
+        entry_audit[axis_id] = _inventory_entry_face(
+            axis, host_id, part_rows[host_id], frames[host_id]
+        )
+    by_host_entry_ids = {}
+    for duty_id, row in duties.items():
+        for host_id in row["legacy_host_members"]:
+            selected = [
+                axis["axis_id"]
+                for axis in row["legacy_sds_axes"]
+                if axis["members"][1] == host_id
+            ]
+            if len(selected) != 3:
+                raise ValueError(f"{duty_id}/{host_id}: expected three old receiver axes")
+            by_host_entry_ids[f"{duty_id}/{host_id}"] = selected
+
+    # Choose real exterior/inward interfaces by canonical planar face normals.
+    x_axis = rail_frame.x
+    t_axis = rail_frame.t
+    inward_normals = {
+        "base_rail_top": -t_axis,
+        "base_side_left": x_axis,
+        "base_side_right": -x_axis,
+    }
+    face_rows = {
+        host_id: _face_record(
+            host_id,
+            part_rows[host_id],
+            rail_frame,
+            inward_normals[host_id],
+        )
+        for host_id in HOST_IDS
+    }
+    local_plane_positions = {
+        host_id: rail_frame.coordinates(
+            cq.Vector(*face_rows[host_id]["center_global_xyz_mm"])
+        )
+        for host_id in HOST_IDS
+    }
+    left_x = local_plane_positions["base_side_left"][0]
+    right_x = local_plane_positions["base_side_right"][0]
+    low_t = local_plane_positions["base_rail_top"][1]
+    rail_extents = part_rows["base_rail_top"].get("actual_shape_extents_local_mm", {})
+    n_extent = rail_extents.get("N")
+    t_extent = rail_extents.get("T")
+    if not isinstance(n_extent, list) or not isinstance(t_extent, list):
+        raise TypeError("top rail inventory lacks actual local extents")
+    if not (math.isclose(low_t, float(t_extent[0]), abs_tol=1e-4)):
+        raise ValueError("selected top-rail face is not the actual low-T stock face")
+    if not math.isclose(float(n_extent[0]), 0.0, abs_tol=1e-4) or not math.isclose(
+        float(n_extent[1]), 139.7, abs_tol=1e-3
+    ):
+        raise ValueError("top rail common N face differs from the selected 139.7 mm section")
+    if CLEAT_N_MIN_MM < float(n_extent[0]) or CLEAT_N_MAX_MM > float(n_extent[1]):
+        raise ValueError("119.7 mm cleat interval is outside the actual common face")
+    if not math.isclose(right_x - left_x, 2257.425, abs_tol=1e-3):
+        raise ValueError("side inward-face planes differ from the actual top-rail length")
+
+    cleat_frame = SourceLocalFrame(
+        origin=rail_frame.point(0.0, low_t, 0.0),
+        x=rail_frame.x,
+        t=rail_frame.t,
+        n=rail_frame.n,
+    )
+    raw_cleats, stacks, stack_rows = _build_stack_rows(cleat_frame, face_rows, duties)
+    replaced_axis_ids = frozenset(axis_rows)
+    bores: dict[str, Any] = {}
+    bores_by_host: dict[str, dict[str, cq.Shape]] = {
+        **{host_id: {} for host_id in HOST_IDS},
+        **{cleat_id: {} for cleat_id in raw_cleats},
+    }
+    installed: dict[str, dict[str, cq.Shape]] = {}
+    for axis_id, stack in stacks.items():
+        bore = _through_bore(stack)
+        receivers = tuple(layer.body_id for layer in stack.layers)
+        if len(receivers) != 2 or len(set(receivers)) != 2:
+            raise ValueError(f"{axis_id}: expected two distinct receiver members")
+        bores[axis_id] = wj12.CandidateBore(
+            axis_id=axis_id,
+            family="top_outer",
+            trial_id=TRIAL_ID,
+            receiver_ids=receivers,
+            shape=bore,
+            station_id=stack_rows[axis_id]["station_id"],
+        )
+        for receiver in receivers:
+            bores_by_host[receiver][axis_id] = bore
+        roles = dict(stack.installed_shapes())
+        if set(roles) != {"shaft", "head", "head_washer", "nut_washer", "nut"}:
+            raise ValueError(f"{axis_id}: ordinary stack must contain five CAD roles")
+        installed[axis_id] = roles
+    if len(replaced_axis_ids) != 12 or len(bores) != 8:
+        raise ValueError("top-outer producer must export exactly 12 old and 8 new axes")
+    if sum(len(roles) for roles in installed.values()) != 40:
+        raise ValueError("top-outer producer must export exactly 40 installed CAD roles")
+
+    panel_cutters_by_part = _make_candidate_panel_cutters(
+        source, inventory, set(raw_cleats)
+    )
+    finished_cleats = {}
+    for part_id, raw in raw_cleats.items():
+        tools = [
+            *bores_by_host[part_id].values(),
+            *panel_cutters_by_part[part_id].values(),
+        ]
+        finished = raw.cut(*tools).clean() if tools else raw
+        finished_cleats[part_id] = _valid_shape(finished, f"finished candidate {part_id}")
+
+    # WJ-12/WJ-16's top rail lives in the additional overlay map; its sides are
+    # shared WJ-12 hosts. Reconstruct local previews from raw source plus the
+    # retained, separately named native/purchase/bores maps. These previews are
+    # used only for the local screen and are deliberately not exported as hosts.
+    source_scene = _candidate_scene(geometry, source, raw_source_parts)
+    if not HOST_IDS <= source_scene.keys():
+        raise ValueError("retained geometry omits a composed top-outer host surface")
+    if set(getattr(geometry, "panel_replacements", {})) != RIGHT_PANEL_NAMES:
+        raise ValueError("retained WJ16 context must overlay exactly its three right panels")
+    if set(getattr(geometry, "additional_finished_source_parts", {})) and "base_rail_top" not in getattr(
+        geometry, "additional_finished_source_parts", {}
+    ) and "base_rail_top" not in getattr(geometry, "finished_hosts", {}):
+        raise ValueError("retained composition omitted the base_rail_top purchase overlay")
+    preview_before_new_bores = _preview_shared_hosts(
+        geometry,
+        {host_id: raw_source_parts[host_id] for host_id in HOST_IDS},
+        native_cutters,
+        purchase_cutters,
+        replaced_axis_ids,
+        {},
+    )
+    preview_hosts = _preview_shared_hosts(
+        geometry,
+        {host_id: raw_source_parts[host_id] for host_id in HOST_IDS},
+        native_cutters,
+        purchase_cutters,
+        replaced_axis_ids,
+        bores_by_host,
+    )
+    for host_id in HOST_IDS:
+        retained = source_scene[host_id]
+        prior_source_bores = [
+            record.shape
+            for record in getattr(geometry, "candidate_bores", {}).values()
+            if host_id in record.receiver_ids
+        ]
+        all_replaced = set(getattr(geometry, "replaced_source_axis_ids", ())) | set(
+            replaced_axis_ids
+        )
+        replay_before_new = raw_source_parts[host_id].cut(
+            *[
+                shape
+                for cut_id, shape in native_cutters[host_id].items()
+                if cut_id not in all_replaced
+            ],
+            *purchase_cutters[host_id].values(),
+            *prior_source_bores,
+        ).clean()
+        if (
+            _shape_difference_volume(preview_before_new_bores[host_id], replay_before_new)
+            > SOURCE_RECONSTRUCTION_TOLERANCE_MM3
+        ):
+            raise ValueError(f"{host_id}: pre-bore shared-host preview differs from cut maps")
+        expected_after_new = (
+            replay_before_new.cut(*bores_by_host[host_id].values()).clean()
+            if bores_by_host[host_id]
+            else replay_before_new
+        )
+        if (
+            _shape_difference_volume(preview_hosts[host_id], expected_after_new)
+            > SOURCE_RECONSTRUCTION_TOLERANCE_MM3
+        ):
+            raise ValueError(f"{host_id}: candidate bores do not match exported host cut map")
+        # The retained model can still show the source screws and holes for
+        # these duties; this preview removes only their declared source cutters.
+        if not isinstance(retained, cq.Shape) or not retained.isValid():
+            raise ValueError(f"{host_id}: retained composed host is invalid")
+
+    preview_after_bores = {
+        **source_scene,
+        **preview_hosts,
+    }
+    preview_before_bores = {**source_scene, **preview_before_new_bores}
+    layer_checks = _layer_checks(stacks, {**preview_before_bores, **raw_cleats})
+    washer_checks = _washer_support_checks(stacks, {**preview_after_bores, **finished_cleats})
+
+    cleat_hosts = {
+        CLEAT_IDS["clip_single_top_left_1"]: ("base_rail_top", "base_side_left"),
+        CLEAT_IDS["clip_single_top_right_2"]: ("base_rail_top", "base_side_right"),
+    }
+    # Each interface uses the proper face normal; the rail low-T face is shared.
+    host_normals = {
+        "base_rail_top": -rail_frame.t,
+        "base_side_left": rail_frame.x,
+        "base_side_right": -rail_frame.x,
+    }
+    contact_checks = _host_face_checks(
+        raw_cleats,
+        preview_hosts,
+        cleat_frame,
+        face_rows,
+        host_normals,
+        cleat_hosts,
+        bores_by_host,
+        panel_cutters_by_part,
+    )
+
+    timber, candidate_parts = _scene_from_geometry(
+        geometry, source_scene, preview_hosts, finished_cleats
+    )
+    protected_physical, protected_access, frame_proxies = _physical_and_access_maps(
+        context, geometry
+    )
+    del protected_physical, protected_access
+    body_checks, installed_checks, access_checks = _source_and_candidate_screens(
+        geometry,
+        context,
+        timber,
+        candidate_parts,
+        raw_cleats,
+        finished_cleats,
+        stacks,
+        installed,
+        {},
+        frame_proxies,
+    )
+
+    source_inputs = {name: _sha(path) for name, path in PRODUCER_HASH_PATHS.items()}
+    binding_after = validate_source_binding(source)
+    if binding_after != binding:
+        raise ValueError("top-outer integration changed the bound source geometry")
+    thread_summary = _thread_length_summary(stacks)
+    all_layers = all(row["all_declared_layers_present"] for row in layer_checks.values())
+    all_washers = all(
+        result[seat]["full_annular_seat_support"]
+        for result in washer_checks.values()
+        for seat in ("head", "nut")
+    )
+    bodies_clear = all(row["static_body_conflicts_absent"] for row in body_checks.values())
+    hardware_clear = all(
+        row[role]["static_component_conflicts_absent"]
+        for row in installed_checks.values()
+        for role in row
+    )
+    contact_present = all(
+        row[host]["full_contact_slab_material_present"]
+        for row in contact_checks.values()
+        for host in row
+    )
+    context_complete = (
+        context["counts"]["fixed_panel_axes"] == 66
+        and context["counts"]["frame_bolts"] == 12
+        and context["counts"]["frame_installed_components"] == 60
+        and context["counts"]["frame_source_occupied_proxies"] == 12
+        and context["counts"]["frame_access_envelopes"] == 36
+        and context["context_variant"] in {"wj12", "wj16"}
+        and context["counts"]["target_legacy_clips_excluded_from_obstacles"] == 2
+        and context["counts"]["target_legacy_sds_axes_excluded_from_obstacles"] == 12
+    )
+    rail_rows = [
+        row
+        for row in stack_rows.values()
+        if row["interface"] == "cleat_to_base_rail_top"
+    ]
+    rail_row_positions = sorted(
+        float(row["local_point_xyz_mm"][2]) for row in rail_rows
+    )
+    rail_diameter = float(rail_rows[0]["steel_diameter_mm"])
+    grain_end_distances = [
+        round(
+            min(position - CLEAT_N_MIN_MM, CLEAT_N_MAX_MM - position),
+            6,
+        )
+        for position in rail_row_positions
+    ]
+    conditional_7d = 7.0 * rail_diameter
+    right_rail_row_local_x = next(
+        float(row["local_point_xyz_mm"][0])
+        for row in stack_rows.values()
+        if row["station_id"] == "clip_single_top_right_2"
+        and row["interface"] == "cleat_to_base_rail_top"
+    )
+    conditional_edge = {
+        "row_center_positions_local_N_mm": rail_row_positions,
+        "grain_end_distances_in_cleat_mm": grain_end_distances,
+        "conditional_fastener_diameter_mm": round(rail_diameter, 6),
+        "conditional_7D_distance_mm": round(conditional_7d, 6),
+        "shortfall_mm_if_that_signed_loading_rule_applies": [
+            round(max(0.0, conditional_7d - distance), 6)
+            for distance in grain_end_distances
+        ],
+        "criterion_status": "conditional geometry flag only; no load direction or capacity conclusion",
+        "trial_coordinates_changed_to_clear_flag": False,
+    }
+    diagnostic_gates = {
+        "source_binding_and_canonical_inventory_match": True,
+        "exact_two_target_duties_and_twelve_replaced_SDS_axes": len(duties) == 2 and len(replaced_axis_ids) == 12,
+        "source_entry_face_provenance_unambiguous": len(entry_audit) == 12,
+        "all_66_fixed_screw_axes_and_12_frame_bolts_bound": context_complete,
+        "native_source_reconstruction_matches_canonical_parts": all(
+            row["matches_canonical_source_finished_member"] for row in source_reconstruction.values()
+        ),
+        "all_candidate_receiver_layers_present": all_layers,
+        "all_candidate_head_and_nut_washers_have_full_support": all_washers,
+        "candidate_interface_contact_slabs_fully_supported": contact_present,
+        "candidate_body_static_conflicts_absent": bodies_clear,
+        "installed_hardware_static_conflicts_absent": hardware_clear,
+        "recorded_nonreceiver_head_and_nut_approach_envelopes_clear": all(
+            row[end]["recorded_nonreceiver_tool_approach_clear"]
+            for row in access_checks.values()
+            for end in row
+        ),
+        "candidate_bodies_clear_recorded_access_envelopes": all(
+            row["recorded_access_envelopes_clear"] for row in body_checks.values()
+        ),
+        "candidate_installed_hardware_clear_recorded_access_envelopes": all(
+            row[role]["recorded_access_envelopes_clear"]
+            for row in installed_checks.values()
+            for role in row
+        ),
+        "receiver_member_tool_fit_established": False,
+        "ordinary_bolt_dimensional_fit_established": False,
+        "rail_grain_edge_distances_clear_without_loading_rule": False,
+        "complete_cross_family_composition_reviewed": False,
+        "mechanics_or_capacity_established": False,
+    }
+    release = {
+        "candidate_accepted": False,
+        "source_cutting_released": False,
+        "drilling_released": False,
+        "fabrication_released": False,
+        "structural_accepted": False,
+        "assembly_proven": False,
+        "purchase_approved": False,
+    }
+    # Retain computed source-local frame and explicit geometry notes in the
+    # class-level diagnostics consumed by diagnostic_report().
+    diagnostic_gates["_source_frame"] = {
+        "source_part_origin_global_xyz_mm": _tuple(rail_frame.origin),
+        "cleat_datum_global_xyz_mm_at_actual_low_T_face": _tuple(cleat_frame.origin),
+        "X_global_xyz": _tuple(rail_frame.x, 9),
+        "T_global_xyz": _tuple(rail_frame.t, 9),
+        "N_global_xyz": _tuple(rail_frame.n, 9),
+        "cleat_common_N_interval_mm": [CLEAT_N_MIN_MM, CLEAT_N_MAX_MM],
+        "cleat_T_interval_relative_to_actual_low_T_face_mm": [CLEAT_T_MIN_MM, CLEAT_T_MAX_MM],
+        "left_side_inner_plane_local_X_mm": round(left_x, 6),
+        "right_side_inner_plane_local_X_mm": round(right_x, 6),
+        "rail_low_T_face_source_local_T_mm": round(low_t, 6),
+        "right_rail_row_local_X_mm": round(right_rail_row_local_x, 6),
+        "right_rail_row_global_X_mm": round(right_x - EXPECTED_CLEAT_SIZE_MM[0] / 2 - 1.0, 6),
+    }
+    diagnostic_gates["_conditional_edge_screen"] = conditional_edge
+    diagnostic_gates["_thread_length_summary"] = thread_summary
+    diagnostic_gates["_stacks"] = stack_rows
+    diagnostic_gates["_entry_face_audit"] = entry_audit
+    diagnostic_gates["_host_face_source_basis"] = {
+        host_id: {
+            "source_face_id": face_rows[host_id]["face_id"],
+            "face_center_global_xyz_mm": face_rows[host_id]["center_global_xyz_mm"],
+            "face_center_source_local_xyz_mm": face_rows[host_id]["center_local_xyz_mm"],
+            "face_normal_global_xyz": face_rows[host_id]["normal_global_xyz"],
+            "actual_source_extents_local_mm": part_rows[host_id]["actual_shape_extents_local_mm"],
+            "actual_source_section_mm": part_rows[host_id].get("actual_source_section_mm"),
+            "grain_axis_global_xyz": part_rows[host_id].get("grain_axis_global_xyz"),
+            "stock_product": part_rows[host_id].get("stock_product"),
+        }
+        for host_id in sorted(HOST_IDS)
+    }
+    diagnostic_gates["_panel_scene"] = {
+        "source_panel_ids": sorted(PANEL_NAMES),
+        "source_panel_count": len(PANEL_NAMES),
+        "retained_panel_replacement_ids": sorted(
+            getattr(geometry, "panel_replacements", {})
+        ),
+        "all_six_finished_panels_in_local_collision_scene": True,
+    }
+
+    return TopOuterIntegrationGeometry(
+        source=source,
+        source_binding=binding,
+        source_inventory=inventory,
+        source_inputs_sha256=source_inputs,
+        family_source_fingerprints=family_source_fingerprints,
+        family_trial_ids=family_trial_ids,
+        context_variant=context["context_variant"],
+        retained_candidate_axis_ids=context["candidate_axis_ids"],
+        retained_target_duty_ids=context["target_station_ids"],
+        trial_id=TRIAL_ID,
+        duties=duties,
+        raw_candidate_parts=raw_cleats,
+        finished_candidate_parts=finished_cleats,
+        candidate_bores=bores,
+        candidate_bores_by_host=bores_by_host,
+        candidate_installed_hardware=installed,
+        source_native_cutters_by_host=native_cutters,
+        source_panel_purchase_cutters_by_host=purchase_cutters,
+        candidate_panel_purchase_cutters_by_part=panel_cutters_by_part,
+        replaced_source_axis_ids=replaced_axis_ids,
+        source_reconstruction=source_reconstruction,
+        contact_checks=contact_checks,
+        bore_checks=layer_checks,
+        washer_support=washer_checks,
+        candidate_body_checks=body_checks,
+        installed_component_checks=installed_checks,
+        access_checks=access_checks,
+        context_counts=context["counts"],
+        diagnostic_gates=diagnostic_gates,
+        release=release,
+    )
+
+
+def diagnostic_report(geometry: TopOuterIntegrationGeometry) -> dict[str, Any]:
+    """Convert materialized candidate geometry to a source-bound JSON report."""
+    rows = []
+    for axis_id, bore in sorted(geometry.candidate_bores.items()):
+        stack = next(
+            row
+            for row in _diagnostic_stack_rows(geometry)
+            if row["axis_id"] == axis_id
+        )
+        rows.append({**stack, "receiver_ids": list(bore.receiver_ids)})
+    gate_rows = {
+        key: value
+        for key, value in geometry.diagnostic_gates.items()
+        if not key.startswith("_")
+    }
+    source_frame = geometry.diagnostic_gates["_source_frame"]
+    thread_summary = geometry.diagnostic_gates["_thread_length_summary"]
+    return {
+        "schema": SCHEMA,
+        "title": "Top outer two-duty provisional cleat integration diagnostic",
+        "status": "unaccepted provisional geometry",
+        "trial_id": geometry.trial_id,
+        "retained_composition": {
+            "variant": geometry.context_variant,
+            "candidate_axis_ids": sorted(geometry.retained_candidate_axis_ids),
+            "target_duty_ids": sorted(geometry.retained_target_duty_ids),
+        },
+        "source_candidate": geometry.source_inventory["candidate"],
+        "source_commit": geometry.source_inventory["source_commit"],
+        "source_binding": {
+            "inventory_sha256": geometry.source_binding.inventory_sha256,
+            "runtime_module_sha256": dict(
+                getattr(geometry.source_binding, "runtime_module_sha256", {})
+            ),
+            "uncut_part_shapes_sha256": getattr(
+                geometry.source_binding, "uncut_part_shapes_sha256", None
+            ),
+            "fixed_screw_axes_sha256": getattr(
+                geometry.source_binding, "fixed_screw_axes_sha256", None
+            ),
+            "frame_bolt_axes_sha256": getattr(
+                geometry.source_binding, "frame_bolt_axes_sha256", None
+            ),
+            "family_source_fingerprints": _deep_plain(
+                geometry.family_source_fingerprints
+            ),
+            "family_trial_ids": _deep_plain(geometry.family_trial_ids),
+            "producer_inputs_sha256": dict(geometry.source_inputs_sha256),
+        },
+        "target_duties": {
+            duty_id: {
+                "host_members": list(row["legacy_host_members"]),
+                "replaced_source_sds_axis_ids": [
+                    axis["axis_id"] for axis in row["legacy_sds_axes"]
+                ],
+            }
+            for duty_id, row in geometry.duties.items()
+        },
+        "counts": {
+            "target_duties": len(geometry.duties),
+            "replaced_source_sds_axes": len(geometry.replaced_source_axis_ids),
+            "candidate_cleats": len(geometry.raw_candidate_parts),
+            "candidate_stack_axes": len(geometry.candidate_installed_hardware),
+            "candidate_bore_axes": len(geometry.candidate_bores),
+            "candidate_installed_CAD_roles": sum(
+                len(roles) for roles in geometry.candidate_installed_hardware.values()
+            ),
+            "candidate_washers": 2 * len(geometry.candidate_installed_hardware),
+            "washers_per_stack": 2,
+            "CAD_roles_per_stack": 5,
+            "CAD_roles_per_stack_including_two_washers": 5,
+            "source_native_host_maps": len(geometry.source_native_cutters_by_host),
+            "source_purchase_host_maps": len(geometry.source_panel_purchase_cutters_by_host),
+            "shared_finished_host_overrides_exported": 0,
+            "source_and_replacement_panels_in_local_scene": len(
+                geometry.diagnostic_gates["_panel_scene"]["source_panel_ids"]
+            ),
+            **dict(geometry.context_counts),
+        },
+        "stock_and_frame": {
+            "cleat_stock_dimensions_X_T_N_mm": list(EXPECTED_CLEAT_SIZE_MM),
+            "cleat_local_frame": source_frame,
+            "timber_basis": "solid sawn DF-L No. 2 source inventory; delivered stock unobserved",
+            "grain_axis_for_both_cleats": "source local N, crosscut length 119.7 mm",
+            "host_faces": geometry.contact_checks,
+            "source_host_faces_and_sections": geometry.diagnostic_gates[
+                "_host_face_source_basis"
+            ],
+            "panel_scene": geometry.diagnostic_gates["_panel_scene"],
+            "conditional_rail_grain_end_distance_screen": geometry.diagnostic_gates[
+                "_conditional_edge_screen"
+            ],
+        },
+        "stacks": rows,
+        "source_axis_entry_face_audit": geometry.diagnostic_gates[
+            "_entry_face_audit"
+        ],
+        "source_reconstruction": dict(geometry.source_reconstruction),
+        "source_cut_maps": {
+            "native_source_cutters_by_host": {
+                host: sorted(cutters)
+                for host, cutters in geometry.source_native_cutters_by_host.items()
+            },
+            "purchased_panel_cutters_by_host": {
+                host: sorted(cutters)
+                for host, cutters in geometry.source_panel_purchase_cutters_by_host.items()
+            },
+            "candidate_panel_cutters_by_cleat": {
+                part: sorted(cutters)
+                for part, cutters in geometry.candidate_panel_purchase_cutters_by_part.items()
+            },
+            "source_native_and_purchased_cuts_are_separate": True,
+            "shared_host_finished_overrides_exported": False,
+            "parent_merge_must_preserve_existing_WJ12_WJ16_host_cut_union": True,
+        },
+        "receiver_layers": dict(geometry.bore_checks),
+        "washer_support": dict(geometry.washer_support),
+        "candidate_body_static_checks": dict(geometry.candidate_body_checks),
+        "installed_component_static_checks": dict(geometry.installed_component_checks),
+        "recorded_nonreceiver_approach_checks": dict(geometry.access_checks),
+        "ordinary_hardware_dimensional_comparison": thread_summary,
+        "diagnostic_gates": gate_rows,
+        "release": dict(geometry.release),
+        "claim_boundary": {
+            "provisional_candidate_only": True,
+            "cross_family_parent_merge_required": True,
+            "ordinary_fasteners_selected_or_received": False,
+            "first_full_form_thread_engagement_established": False,
+            "tool_access_established": False,
+            "receiver_member_tool_fit_established": False,
+            "capacity_or_pressure_established": False,
+            "source_cutting_released": False,
+            "drilling_released": False,
+            "fabrication_released": False,
+            "assembly_sequence_proven": False,
+        },
+    }
+
+
+def _diagnostic_stack_rows(geometry: TopOuterIntegrationGeometry) -> list[dict[str, Any]]:
+    # The stack objects are embedded in the component axis geometry; retain
+    # their evidence rows when the producer builds the object.
+    stored = geometry.diagnostic_gates.get("_stacks", {})
+    if not stored:
+        return []
+    return [stored[axis_id] for axis_id in sorted(stored)]

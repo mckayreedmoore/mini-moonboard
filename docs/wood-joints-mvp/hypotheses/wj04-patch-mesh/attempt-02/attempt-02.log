@@ -1,0 +1,23 @@
+Warning : Volume mesh: worst distortion = -0.525958 (avg = 0.954665, 10 elements with jac. < 0)
+Warning : ------------------------------
+Warning : Mesh generation error summary
+Warning :     1 warning
+Warning :     0 errors
+Warning : Check the full log for details
+Warning : ------------------------------
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/work/fea/wood_joint_patch_mesh.py", line 1045, in <module>
+    main()
+  File "/work/fea/wood_joint_patch_mesh.py", line 1034, in main
+    output = prepare_geometry_patch(
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/fea/wood_joint_patch_mesh.py", line 944, in prepare_geometry_patch
+    body_record = _mesh_body(
+                  ^^^^^^^^^^^
+  File "/work/fea/wood_joint_patch_mesh.py", line 797, in _mesh_body
+    validate_surface_coverage(exterior, covered_surface_faces)
+  File "/work/fea/wood_joint_patch_mesh.py", line 490, in validate_surface_coverage
+    raise ValueError("CAD surfaces do not cover exactly the complete exterior TRI6 set")
+ValueError: CAD surfaces do not cover exactly the complete exterior TRI6 set

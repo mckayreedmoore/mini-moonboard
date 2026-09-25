@@ -1,0 +1,104 @@
+"""Focused tests for offline C3D10 Gauss5 Jacobian calculations."""
+
+from __future__ import annotations
+
+import math
+
+import pytest
+
+from fea import wood_joint_mesh_jacobian_audit as audit
+
+
+def _linear_unit_tetrahedron() -> tuple[tuple[float, float, float], ...]:
+    return (
+        (0.0, 0.0, 0.0),
+        (1.0, 0.0, 0.0),
+        (0.0, 1.0, 0.0),
+        (0.0, 0.0, 1.0),
+        (0.5, 0.0, 0.0),
+        (0.5, 0.5, 0.0),
+        (0.0, 0.5, 0.0),
+        (0.0, 0.0, 0.5),
+        (0.5, 0.0, 0.5),
+        (0.0, 0.5, 0.5),
+    )
+
+
+def test_pinned_gmsh_gauss5_rule_has_14_positive_points_and_reference_volume():
+    summary = audit.validate_gauss5_rule()
+
+    assert summary["point_count"] == 14
+    assert summary["minimum_weight"] == pytest.approx(0.00709100346285)
+    assert summary["weight_sum"] == pytest.approx(1 / 6, abs=5e-11)
+
+
+def test_linear_c3d10_shape_derivatives_sum_to_zero_and_integrate_unit_tetrahedron():
+    derivatives = audit.c3d10_shape_derivatives((0.17, 0.21, 0.19))
+    assert len(derivatives) == 10
+    for natural_axis in range(3):
+        assert math.fsum(row[natural_axis] for row in derivatives) == pytest.approx(0.0, abs=1e-14)
+
+    integrated = audit.integrate_c3d10_element(_linear_unit_tetrahedron())
+
+    assert integrated["jacobian_determinant_count"] == 14
+    assert integrated["all_jacobians_positive"] is True
+    assert integrated["minimum_jacobian_determinant_mm3"] == pytest.approx(1.0)
+    assert integrated["integrated_volume_mm3"] == pytest.approx(1 / 6, abs=5e-11)
+
+
+def test_curved_c3d10_edge_node_changes_jacobian_and_integrated_volume_exactly():
+    edge_offset_mm = 0.05
+    coordinates = list(_linear_unit_tetrahedron())
+    coordinates[4] = (0.5, 0.0, edge_offset_mm)
+
+    integrated = audit.integrate_c3d10_element(tuple(coordinates))
+    for row in integrated["determinants"]:
+        reference_r = row["reference_point"][0]
+        expected = 1 - 4 * edge_offset_mm * reference_r
+        assert row["determinant_mm3"] == pytest.approx(expected, abs=1e-13)
+        assert row["determinant_mm3"] > 0
+    assert integrated["integrated_volume_mm3"] == pytest.approx(
+        1 / 6 - edge_offset_mm / 6,
+        abs=5e-11,
+    )
+
+
+def test_rule_rejects_duplicate_or_negative_weight_points():
+    first = audit.GAUSS5_TETRAHEDRON_14[0]
+    duplicate_rule = (first,) * 14
+    negative_weight_rule = (*audit.GAUSS5_TETRAHEDRON_14[:-1], (audit.GAUSS5_TETRAHEDRON_14[-1][0], -0.1))
+
+    with pytest.raises(ValueError, match="duplicate"):
+        audit.validate_gauss5_rule(duplicate_rule)
+    with pytest.raises(ValueError, match="positive"):
+        audit.validate_gauss5_rule(negative_weight_rule)
+
+
+def test_geometry_deck_parser_requires_all_32_expected_c3d10_body_sets(tmp_path):
+    nodes = _linear_unit_tetrahedron()
+    lines = ["*HEADING", "mesh only", "*NODE"]
+    lines.extend(f"{index + 1},{x},{y},{z}" for index, (x, y, z) in enumerate(nodes))
+    for index, body_id in enumerate(sorted(audit.EXPECTED_BODY_IDS), 1):
+        element_nodes = ",".join(str(value) for value in range(1, 11))
+        lines.extend(
+            [
+                f"*ELEMENT,TYPE=C3D10,ELSET=METAL_{body_id.upper()}",
+                f"{index},{element_nodes}",
+            ]
+        )
+    deck = tmp_path / "mesh.inp"
+    deck.write_text("\n".join(lines) + "\n")
+
+    parsed_nodes, parsed_bodies = audit.parse_c3d10_deck(deck)
+
+    assert len(parsed_nodes) == 10
+    assert set(parsed_bodies) == audit.EXPECTED_BODY_IDS
+    assert all(len(elements) == 1 for elements in parsed_bodies.values())
+
+
+def test_geometry_deck_parser_rejects_non_mesh_mechanics_cards(tmp_path):
+    deck = tmp_path / "mesh.inp"
+    deck.write_text("*HEADING\nmesh only\n*MATERIAL,NAME=STEEL\n")
+
+    with pytest.raises(ValueError, match="unexpected card"):
+        audit.parse_c3d10_deck(deck)

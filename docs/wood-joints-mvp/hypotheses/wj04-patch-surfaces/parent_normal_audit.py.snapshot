@@ -1,0 +1,39 @@
+from pathlib import Path
+import json, math, hashlib
+from fea.floor_contact import mesh, FACES
+ROOT=Path.cwd()
+classification_path=Path('/tmp/wj04-classification-attempt-01/classification.json')
+mesh_dir=ROOT/'fea/generated/wj04-patch-mesh/attempt-03'
+classification=json.loads(classification_path.read_text())
+report=json.loads((mesh_dir/'mesh.json').read_text())
+inventory_path=ROOT/'fea/results/diagnostics/wj04-full-stock-patch-geometry-v1/inventory.json'
+inventory=json.loads(inventory_path.read_text())
+nodes,elements=mesh((mesh_dir/'mesh.inp').read_text())
+interfaces={r['interface_id']:r for r in inventory['wood_interfaces']}
+def sub(a,b):return tuple(x-y for x,y in zip(a,b,strict=True))
+def dot(a,b):return sum(x*y for x,y in zip(a,b,strict=True))
+def cross(a,b):return (a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0])
+def unit(a):
+ length=math.sqrt(dot(a,a));assert length>1e-12
+ return tuple(x/length for x in a)
+rows=[];unique_surfaces=set()
+for pair in classification['wood_contact_pairs']:
+ basis=interfaces[pair['interface_id']]
+ for role,normal in [('candidate',basis['candidate_cleat_face']['plane_normal_global_xyz']),('host',basis['source_host_face']['normal_global_xyz'])]:
+  expected=unit(normal)
+  for surface in pair[role+'_surfaces']:
+   member=surface['member_id'];tag=str(surface['cad_entity_tag']);unique_surfaces.add((member,tag))
+   face_refs=report['bodies'][member]['surfaces'][tag]['tri6_exterior_face_refs'];dots=[];distances=[]
+   for element_id,face in face_refs:
+    conn=elements[element_id];indices=FACES[face-1][:3];corners=[nodes[conn[i]] for i in indices]
+    opposite=set(range(4))-set(indices);assert len(opposite)==1
+    a,b,c=corners;normal=unit(cross(sub(b,a),sub(c,a)))
+    inward=dot(normal,sub(nodes[conn[opposite.pop()]],a));assert abs(inward)>1e-10
+    outward=normal if inward<0 else tuple(-x for x in normal)
+    alignment=dot(outward,expected);assert alignment>1-1e-8,(pair['interface_id'],role,element_id,face,alignment)
+    dots.append(alignment);distances.append(abs(inward))
+   assert dots
+   rows.append({'interface_id':pair['interface_id'],'role':role,'member_id':member,'cad_entity_tag_local_pointer':int(tag),'exterior_tri6_face_count':len(dots),'minimum_outward_alignment':min(dots),'minimum_opposite_vertex_plane_distance_mm':min(distances)})
+result={'status':'parent_signed_mesh_normal_audit_passed','method':'For each classified planar exterior triangle, orient its corner cross product away from the owning tetrahedron opposite vertex; compare with independently pinned signed CAD datum normal. No Gmsh parametric normal sign is used.','classification_sha256':hashlib.sha256(classification_path.read_bytes()).hexdigest(),'inventory_sha256':hashlib.sha256(inventory_path.read_bytes()).hexdigest(),'mesh_report_sha256':hashlib.sha256((mesh_dir/'mesh.json').read_bytes()).hexdigest(),'mesh_deck_sha256':hashlib.sha256((mesh_dir/'mesh.inp').read_bytes()).hexdigest(),'interface_count':len(interfaces),'unique_mesh_surfaces':len(unique_surfaces),'interface_side_rows':rows,'contact_or_pressure_assigned':False,'native_solve_run':False,'capacity_or_release_claim':False}
+Path('/tmp/wj04-classification-attempt-01/parent-normal-audit.json').write_text(json.dumps(result,indent=2,sort_keys=True)+'\n')
+print(json.dumps(result,indent=2))

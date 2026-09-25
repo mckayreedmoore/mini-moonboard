@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WJ24 provisional wood-joint diagnostic scene</title>
+  <style>
+    html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #111619; color: #f4f0e7; font: 14px system-ui, sans-serif; }
+    header { position: fixed; z-index: 2; left: 1rem; top: 1rem; width: min(38rem, calc(100vw - 4rem)); max-height: calc(100vh - 4rem); overflow: auto; padding: .85rem 1rem; border-radius: .45rem; background: #111619ed; box-shadow: 0 3px 18px #0008; }
+    header.collapsed { width: auto; max-width: calc(100vw - 2rem); max-height: none; overflow: visible; padding: .2rem; }
+    header.collapsed > :not(#panel-toggle) { display: none; }
+    h1 { margin: 0 0 .35rem; font-size: 1.18rem; }
+    h2 { margin: .6rem 0 .25rem; font-size: 1rem; }
+    p { margin: .35rem 0; line-height: 1.4; }
+    ul { margin: .25rem 0; padding-left: 1.25rem; }
+    li { margin: .25rem 0; line-height: 1.35; }
+    details { margin-top: .45rem; }
+    summary { cursor: pointer; }
+    button { min-height: 44px; margin: .45rem .35rem 0 0; padding: .45rem .7rem; color: inherit; background: #273038; border: 1px solid #71808a; border-radius: .25rem; }
+    button:focus-visible, summary:focus-visible, input:focus-visible, canvas:focus-visible { outline: 3px solid #ffd27f; outline-offset: 2px; }
+    #panel-toggle { position: sticky; top: 0; z-index: 1; float: right; margin: 0 0 .4rem .4rem; }
+    fieldset { display: flex; flex-wrap: wrap; gap: .35rem .8rem; margin: .6rem 0; padding: .45rem .6rem; border: 1px solid #56636b; border-radius: .3rem; }
+    legend { padding: 0 .25rem; color: #d7e1e6; }
+    fieldset label { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; white-space: normal; }
+    fieldset input { width: 1.15rem; height: 1.15rem; margin: 0; flex: 0 0 auto; }
+    header p, header li, header summary { overflow-wrap: anywhere; }
+    .revise { color: #ffd27f; font-weight: 700; }
+    .open { color: #ffb2a1; }
+    .local { color: #d7e1e6; }
+    .card { margin-top: .45rem; padding: .45rem .6rem; border-left: 3px solid #d88a58; background: #1c2226; overflow-wrap: anywhere; }
+    .card p { margin: .2rem 0; }
+    code { overflow-wrap: anywhere; }
+    pre { max-height: 24rem; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; }
+    #identity { overflow-wrap: anywhere; }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    canvas { display: block; }
+    a { color: #a8d4e7; }
+  </style>
+  <script type="importmap">{"imports":{"three":"https://unpkg.com/three@0.161.0/build/three.module.js"}}</script>
+</head>
+<body>
+  <header id="inspection-panel" class="collapsed">
+    <button id="panel-toggle" type="button" aria-expanded="false" aria-controls="inspection-panel">Open inspection panel</button>
+    <h1>WJ24 integrated wood-joint development</h1>
+    <p class="revise"><strong>REVISE — provisional diagnostic scene. Not accepted or build-ready.</strong></p>
+    <p id="scope">Loading source-bound scene…</p>
+    <p id="counts" class="local">Loading scene counts…</p>
+    <p>This scene combines the full 24-duty nominal layout with the pinned kerf-right baseline context. Blue candidate hardware shapes are CAD occupied envelopes, not selected or delivered components. The 66 Hillman screws and twelve starting frame-bolt arrangements remain rendered once from the baseline.</p>
+    <fieldset id="layers">
+      <legend>Scene layers</legend>
+      <label><input type="checkbox" data-layer="baseline" checked /> Baseline context</label>
+      <label><input type="checkbox" data-layer="finished_host" checked /> Finished shared hosts</label>
+      <label><input type="checkbox" data-layer="candidate_part" checked /> Candidate cleats / parts</label>
+      <label><input type="checkbox" data-layer="candidate_hardware" checked /> Hardware occupancy envelopes</label>
+      <label><input type="checkbox" data-layer="panel_replacement" checked /> Right-panel replacements</label>
+    </fieldset>
+    <p id="baseline-status" class="local" role="status" aria-live="polite" aria-atomic="true">Checking pinned baseline assets…</p>
+    <section id="finding-list" aria-live="polite"></section>
+    <details open>
+      <summary>Known geometry and access findings</summary>
+      <p class="open">G1 and G12 are provisional hold-envelope probes; their intersections remain visible and do not select a bolt length.</p>
+      <div id="finite-contact"></div>
+      <div id="led-extraction"></div>
+      <div id="findings"></div>
+    </details>
+    <details>
+      <summary>Full source-bound composition and diagnostic reports</summary>
+      <div id="report-details"></div>
+    </details>
+    <details>
+      <summary>Limits and evidence identity</summary>
+      <p id="release-boundary"></p>
+      <p id="identity" class="local"></p>
+      <ul id="limits"></ul>
+      <p>Prior WJ04 narrow-X study is retained as history: <a href="wood-joints-outer-viewer.html">open the earlier development viewer</a>. It is not overlaid as part of this WJ24 scene.</p>
+    </details>
+    <button id="left" type="button">Show left end</button>
+    <button id="right" type="button">Show right end</button>
+    <button id="full" type="button">Show full frame</button>
+  </header>
+  <p id="scene-instructions" class="visually-hidden">Interactive three-dimensional development scene. Drag with a pointer or touch to rotate, and use the mouse wheel or pinch to zoom. You can also focus the scene and use the arrow keys to rotate and plus or minus to zoom. The inspection panel has buttons for the left end, right end, and full frame, plus checkboxes for scene layers. The scene is marked REVISE and does not establish acceptance, capacity, installation, fabrication, structural release, or climbing release.</p>
+  <script type="module">
+    import * as THREE from 'three';
+    import {OrbitControls} from 'https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js';
+    import {STLLoader} from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
+
+    const renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+    renderer.domElement.tabIndex = 0;
+    renderer.domElement.setAttribute('role', 'group');
+    renderer.domElement.setAttribute('aria-label', 'Interactive WJ24 wood-joint development scene');
+    renderer.domElement.setAttribute('aria-describedby', 'scene-instructions');
+    document.body.append(renderer.domElement);
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x111619);
+    scene.add(new THREE.HemisphereLight(0xffffff, 0x27292b, 2.4));
+    const key = new THREE.DirectionalLight(0xffffff, 3); key.position.set(1200, -1800, 2200); scene.add(key);
+    const grid = new THREE.GridHelper(3600, 18, 0x686057, 0x35312d); grid.rotateX(Math.PI / 2); scene.add(grid);
+    const camera = new THREE.PerspectiveCamera(40, 1, 1, 10000); camera.up.set(0, 0, 1);
+    const controls = new OrbitControls(camera, renderer.domElement); controls.enableDamping = true;
+    const loader = new STLLoader();
+    const status = document.querySelector('#baseline-status');
+    const inspectionPanel = document.querySelector('#inspection-panel');
+    const panelToggle = document.querySelector('#panel-toggle');
+    const groups = new Map();
+    for (const id of ['baseline', 'finished_host', 'candidate_part', 'candidate_hardware', 'panel_replacement']) {
+      const group = new THREE.Group(); group.name = id; scene.add(group); groups.set(id, group);
+    }
+    document.querySelectorAll('[data-layer]').forEach(input => {
+      input.addEventListener('change', () => { groups.get(input.dataset.layer).visible = input.checked; });
+    });
+    function setPanelCollapsed(collapsed) {
+      inspectionPanel.classList.toggle('collapsed', collapsed);
+      panelToggle.setAttribute('aria-expanded', String(!collapsed));
+      panelToggle.textContent = collapsed ? 'WJ24 · REVISE · Open details' : 'Collapse inspection panel';
+    }
+    panelToggle.addEventListener('click', () => setPanelCollapsed(!inspectionPanel.classList.contains('collapsed')));
+    setPanelCollapsed(matchMedia('(max-width: 600px)').matches);
+
+    let modelBounds = null;
+    let activeView = '';
+
+    function decodeTypedArray(base64, componentType, componentCount) {
+      const binary = atob(base64);
+      const bytes = Uint8Array.from(binary, character => character.charCodeAt(0));
+      const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+      const componentBytes = componentType === 'int16' || componentType === 'uint16' ? 2 : 4;
+      if (bytes.byteLength !== componentCount * componentBytes) throw new Error('encoded mesh component length is invalid');
+      const result = componentType === 'int16' ? new Int16Array(componentCount) :
+        componentType === 'int32' ? new Int32Array(componentCount) :
+        componentType === 'uint16' ? new Uint16Array(componentCount) :
+        componentType === 'uint32' ? new Uint32Array(componentCount) : null;
+      if (!result) throw new Error('encoded mesh component type is invalid');
+      for (let index = 0; index < componentCount; index++) {
+        const offset = index * componentBytes;
+        result[index] = componentType === 'int16' ? view.getInt16(offset, true) :
+          componentType === 'int32' ? view.getInt32(offset, true) :
+          componentType === 'uint16' ? view.getUint16(offset, true) : view.getUint32(offset, true);
+      }
+      return result;
+    }
+    function meshGeometry(mesh, topologies) {
+      if (mesh.encoding !== 'base64_typed_arrays_le_v1') throw new Error('unsupported WJ24 display mesh encoding');
+      if (!Array.isArray(mesh.bounds_xyz_mm) || mesh.bounds_xyz_mm.length !== 6 ||
+          mesh.bounds_xyz_mm.some(value => !Number.isFinite(value)) ||
+          mesh.bounds_xyz_mm[0] > mesh.bounds_xyz_mm[1] ||
+          mesh.bounds_xyz_mm[2] > mesh.bounds_xyz_mm[3] ||
+          mesh.bounds_xyz_mm[4] > mesh.bounds_xyz_mm[5]) {
+        throw new Error('display mesh bounds are invalid');
+      }
+      const quantized = decodeTypedArray(mesh.vertices_base64, mesh.vertex_component_type, mesh.vertex_count * 3);
+      const vertices = new Float32Array(quantized.length);
+      for (let index = 0; index < quantized.length; index++) vertices[index] = quantized[index] * mesh.vertex_quantization_mm;
+      const boundPairs = [[mesh.bounds_xyz_mm[0], mesh.bounds_xyz_mm[1]], [mesh.bounds_xyz_mm[2], mesh.bounds_xyz_mm[3]], [mesh.bounds_xyz_mm[4], mesh.bounds_xyz_mm[5]]];
+      const boundMargin = mesh.vertex_quantization_mm / 2 + 1e-4;
+      for (let index = 0; index < vertices.length; index++) {
+        const [minimum, maximum] = boundPairs[index % 3];
+        if (!Number.isFinite(vertices[index]) || vertices[index] < minimum - boundMargin || vertices[index] > maximum + boundMargin) {
+          throw new Error('quantized display vertex falls outside its source bounds');
+        }
+      }
+      const topology = topologies.get(mesh.triangle_topology_sha256);
+      if (!topology || topology.triangle_count !== mesh.triangle_count || topology.triangle_component_type !== mesh.triangle_component_type) {
+        throw new Error('display mesh references a missing or mismatched triangle topology');
+      }
+      const indices = topology.indices;
+      if (indices.some(index => index >= mesh.vertex_count)) throw new Error('triangle topology references a missing display vertex');
+      // Expand after decoding to preserve the earlier flat-per-triangle display normals.
+      const positions = new Float32Array(indices.length * 3);
+      for (let index = 0; index < indices.length; index++) {
+        const vertexOffset = indices[index] * 3;
+        positions[index * 3] = vertices[vertexOffset];
+        positions[index * 3 + 1] = vertices[vertexOffset + 1];
+        positions[index * 3 + 2] = vertices[vertexOffset + 2];
+      }
+      const geometry = new THREE.BufferGeometry();
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      geometry.computeVertexNormals();
+      return geometry;
+    }
+    function updateModelBounds() {
+      const bounds = new THREE.Box3().makeEmpty();
+      for (const group of groups.values()) {
+        group.updateWorldMatrix(true, true);
+        if (group.children.length) bounds.union(new THREE.Box3().setFromObject(group));
+      }
+      if (bounds.isEmpty()) throw new Error('loaded scene has no model bounds');
+      modelBounds = bounds;
+    }
+    function view(side) {
+      activeView = side;
+      if (!modelBounds || modelBounds.isEmpty()) return;
+      const bounds = modelBounds.clone();
+      if (side === 'left' || side === 'right') {
+        const splitX = (modelBounds.min.x + modelBounds.max.x) / 2;
+        if (side === 'left') bounds.max.x = splitX;
+        else bounds.min.x = splitX;
+      }
+      const center = bounds.getCenter(new THREE.Vector3());
+      const sphere = bounds.getBoundingSphere(new THREE.Sphere());
+      const verticalFov = THREE.MathUtils.degToRad(camera.fov);
+      const horizontalFov = 2 * Math.atan(Math.tan(verticalFov / 2) * camera.aspect);
+      const limitingHalfFov = Math.min(verticalFov, horizontalFov) / 2;
+      const distance = Math.max(1, sphere.radius / Math.sin(limitingHalfFov) * 1.18);
+      const direction = side === 'left'
+        ? new THREE.Vector3(-0.75, -1, 0.45)
+        : side === 'right'
+          ? new THREE.Vector3(0.75, -1, 0.45)
+          : new THREE.Vector3(0.68, -1, 0.48);
+      direction.normalize();
+      controls.target.copy(center);
+      camera.position.copy(center).addScaledVector(direction, distance);
+      camera.near = Math.max(0.1, distance - sphere.radius * 1.5);
+      camera.far = distance + sphere.radius * 3;
+      camera.updateProjectionMatrix();
+      controls.update();
+    }
+    document.querySelector('#left').onclick = () => view('left');
+    document.querySelector('#right').onclick = () => view('right');
+    document.querySelector('#full').onclick = () => view('');
+    renderer.domElement.addEventListener('keydown', event => {
+      const offset = camera.position.clone().sub(controls.target);
+      if (!modelBounds || offset.lengthSq() === 0) return;
+      const rotationStep = THREE.MathUtils.degToRad(8);
+      const worldUp = new THREE.Vector3(0, 0, 1);
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        offset.applyAxisAngle(worldUp, event.key === 'ArrowLeft' ? -rotationStep : rotationStep);
+      } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+        const radius = offset.length();
+        const currentElevation = Math.asin(THREE.MathUtils.clamp(offset.z / radius, -1, 1));
+        const elevationChange = event.key === 'ArrowUp' ? rotationStep : -rotationStep;
+        const elevation = THREE.MathUtils.clamp(currentElevation + elevationChange, -Math.PI / 2 + .08, Math.PI / 2 - .08);
+        const rightAxis = new THREE.Vector3().crossVectors(worldUp, offset).normalize();
+        offset.applyAxisAngle(rightAxis, currentElevation - elevation);
+      } else if (event.key === '+' || event.key === '=' || event.code === 'NumpadAdd') {
+        offset.multiplyScalar(.9);
+      } else if (event.key === '-' || event.key === '_' || event.code === 'NumpadSubtract') {
+        offset.multiplyScalar(1.1);
+      } else {
+        return;
+      }
+      event.preventDefault();
+      camera.position.copy(controls.target).add(offset);
+      controls.update();
+    });
+
+    async function sha256Bytes(value) {
+      const bytes = await crypto.subtle.digest('SHA-256', value);
+      return [...new Uint8Array(bytes)].map(value => value.toString(16).padStart(2, '0')).join('');
+    }
+    async function sha256Text(value) { return sha256Bytes(new TextEncoder().encode(value)); }
+    function jsonDetails(parent, label, value) {
+      const details = document.createElement('details');
+      const summary = document.createElement('summary'); summary.textContent = label;
+      const pre = document.createElement('pre'); pre.textContent = JSON.stringify(value, null, 2);
+      details.append(summary, pre); parent.append(details);
+    }
+    function fact(parent, value, className='') {
+      const p = document.createElement('p'); p.textContent = value; if (className) p.className = className; parent.append(p);
+    }
+    function sameIds(left, right) {
+      if (!Array.isArray(left) || !Array.isArray(right) || left.length !== right.length) return false;
+      const a = new Set(left); const b = new Set(right);
+      return a.size === left.length && b.size === right.length && [...a].every(id => b.has(id));
+    }
+    function materialForBaseline(part) {
+      const name = part.name || '';
+      const kind = part.fabrication?.kind;
+      const panel = ['main_lower_left','main_upper_left','main_lower_right','main_upper_right','kicker_left','kicker_right'].includes(name);
+      const color = kind === 'light' ? 0xffd662 : kind === 'wire' ? 0xd76d5e :
+        (kind === 'screw' || kind === 'bolt' || kind === 'tnut') ? 0x74838d :
+        panel ? 0x3c464c : 0x795237;
+      return new THREE.MeshStandardMaterial({color, roughness: .76, transparent: true, opacity: .62, depthWrite: false});
+    }
+    function renderFinding(row) {
+      const card = document.createElement('section'); card.className = 'card';
+      const title = document.createElement('strong'); title.textContent = row.title || 'Open diagnostic finding'; card.append(title);
+      const body = document.createElement('p'); body.textContent = typeof row.detail === 'string' ? row.detail : JSON.stringify(row.detail); card.append(body);
+      return card;
+    }
+
+    function resize() {
+      renderer.setSize(innerWidth, innerHeight);
+      camera.aspect = innerWidth / innerHeight;
+      if (modelBounds) view(activeView);
+      else camera.updateProjectionMatrix();
+    }
+    addEventListener('resize', resize); resize();
+
+    try {
+      const [manifestResponse, sceneResponse] = await Promise.all([
+        fetch('hybrid/compact-floor-flush-kerf-right/parts.json'),
+        fetch('owner-wood-joints-wj24-scene.json'),
+      ]);
+      if (!manifestResponse.ok || !sceneResponse.ok) throw new Error('scene files unavailable');
+      const [manifestText, data] = await Promise.all([manifestResponse.text(), sceneResponse.json()]);
+      const manifest = JSON.parse(manifestText);
+      const parts = manifest.parts;
+      const releaseFlags = ['integrated_scene_is_accepted','complete_joint_acceptance','capacity_established','installation_proven','fabrication_released','structural_released','climbing_released'];
+      const sourceReleaseFlags = ['candidate_accepted','source_cutting_released','drilling_released','fabrication_released','structural_accepted','assembly_proven'];
+      if (data.schema !== 'owner_wood_joints_wj24_diagnostic_scene/v1' ||
+          data.layout_status !== 'REVISE' || data.layout_id !== 'wj24-twenty-four-duty-integrated-static-v1' ||
+          data.trial_id !== 'wj24-wj18-plus-top-center-bottom-pairs-v1' ||
+          data.candidate !== 'compact-floor-flush-wood-joints-development' ||
+          data.baseline !== 'compact-floor-flush-kerf-right' ||
+          releaseFlags.some(flag => data[flag] !== false) ||
+          !data.release || sourceReleaseFlags.some(flag => data.release[flag] !== false) ||
+          !Array.isArray(data.hidden_baseline_visual_names) || !Array.isArray(data.solids) ||
+          data.solids.length !== 567 || !Array.isArray(parts) ||
+          parts.length !== 725 ||
+          !/^[0-9a-f]{40}$/i.test(data.source_binding?.source_commit || '') ||
+          !/^[0-9a-f]{64}$/i.test(data.source_binding?.composition_report_sha256 || '') ||
+          !/^[0-9a-f]{64}$/i.test(data.source_binding?.diagnostic_report_sha256 || '') ||
+          !/^[0-9a-f]{64}$/i.test(data.source_binding?.led_extraction_report_sha256 || '') ||
+          data.display_mesh_encoding?.encoding !== 'base64_typed_arrays_le_v1' ||
+          data.display_mesh_encoding?.tessellation_tolerance_mm !== 0.5 ||
+          data.display_mesh_encoding?.vertex_quantization_mm !== 0.1 ||
+          data.display_mesh_encoding?.maximum_euclidean_vertex_quantization_error_mm >= 0.5 ||
+          data.display_mesh_encoding?.cad_geometry_modified !== false ||
+          data.display_mesh_encoding?.triangle_topologies_deduplicated !== true ||
+          await sha256Text(manifestText) !== data.baseline_manifest_sha256) {
+        throw new Error('WJ24 scene identity, mesh count, or release boundary is invalid');
+      }
+      const hidden = new Set(data.hidden_baseline_visual_names);
+      const visibleNames = new Set(parts.filter(part => !hidden.has(part.name)).map(part => part.name));
+      const comp = data.composition_report;
+      const expectedHidden = new Set([
+        ...Object.keys(comp.shared_hosts),
+        ...comp.target_duties.map(row => row.station_id),
+        ...comp.removed_source_axes.map(row => `fastener_${row.axis_id}`),
+        ...Object.keys(comp.panel_replacements),
+      ]);
+      const sorted = values => [...values].sort();
+      const expectedFixedVisuals = comp.fixed_panel_axes.map(id => `fastener_${id}`);
+      const expectedFrameIds = comp.starting_frame_bolts.map(row => row.axis_id);
+      const expectedFrameVisuals = expectedFrameIds.flatMap(id =>
+        ['shaft','near_washer','far_washer','head','nut'].map(role => `fastener_${id}_${role}`));
+      const fixedIds = new Set(data.baseline_scene_policy.retained_fixed_axis_ids.map(id => `fastener_${id}`));
+      const frameIds = new Set(data.baseline_scene_policy.retained_frame_bolt_ids.flatMap(id =>
+        ['shaft','near_washer','far_washer','head','nut'].map(role => `fastener_${id}_${role}`)));
+      if (hidden.size !== 187 || [...hidden].some(name => !parts.some(part => part.name === name)) ||
+          !sameIds(sorted(hidden), sorted(expectedHidden)) ||
+          [...fixedIds, ...frameIds].some(name => hidden.has(name) || !visibleNames.has(name)) ||
+          !sameIds(data.baseline_scene_policy.retained_fixed_axis_ids, comp.fixed_panel_axes) ||
+          !sameIds(data.baseline_scene_policy.retained_frame_bolt_ids, expectedFrameIds) ||
+          !sameIds(data.baseline_scene_policy.retained_fixed_axis_visual_names, expectedFixedVisuals) ||
+          !sameIds(data.baseline_scene_policy.retained_frame_bolt_visual_names, expectedFrameVisuals) ||
+          data.baseline_scene_policy.hidden_counts?.rebuilt_shared_hosts !== 16 ||
+          data.baseline_scene_policy.hidden_counts?.replaced_legacy_clips !== 24 ||
+          data.baseline_scene_policy.hidden_counts?.replaced_legacy_sds_visuals !== 144 ||
+          data.baseline_scene_policy.hidden_counts?.replaced_right_panels !== 3 ||
+          data.baseline_scene_policy.preserved_visual_counts.fixed_hillman_axes !== 66 ||
+          data.baseline_scene_policy.preserved_visual_counts.frame_bolt_physical_components !== 60 ||
+          data.baseline_scene_policy.preserved_visual_counts.tnuts !== 142 ||
+          data.baseline_scene_policy.preserved_visual_counts.lights !== 132 ||
+          data.baseline_scene_policy.preserved_visual_counts.wires !== 131) {
+        throw new Error('baseline visual replacement would duplicate or hide retained source hardware/services');
+      }
+      const allowedClasses = new Set(['finished_host','candidate_part','candidate_hardware','panel_replacement']);
+      if (!data.solids.every(row => allowedClasses.has(row.display_class) && row.mesh?.encoding === 'base64_typed_arrays_le_v1' &&
+          ['int16','int32'].includes(row.mesh.vertex_component_type) && ['uint16','uint32'].includes(row.mesh.triangle_component_type) &&
+          Number.isInteger(row.mesh.vertex_count) && Number.isInteger(row.mesh.triangle_count) &&
+          /^[0-9a-f]{64}$/i.test(row.mesh.triangle_topology_sha256 || '') &&
+          typeof row.mesh.vertices_base64 === 'string' &&
+          row.mesh.vertex_quantization_mm === 0.1 && row.mesh.vertex_max_euclidean_error_mm < 0.5)) {
+        throw new Error('WJ24 overlay mesh inventory has invalid rows');
+      }
+      if (!data.triangle_topologies || Object.keys(data.triangle_topologies).length !== data.display_mesh_encoding.unique_triangle_topology_count) {
+        throw new Error('WJ24 deduplicated triangle topology inventory is invalid');
+      }
+      const overlayCounts = Object.fromEntries([...allowedClasses].map(name => [name, data.solids.filter(row => row.display_class === name).length]));
+      if (JSON.stringify(overlayCounts) !== JSON.stringify({finished_host:16,candidate_part:28,candidate_hardware:520,panel_replacement:3}) ||
+          new Set(data.solids.map(row => row.id)).size !== 567 ||
+          !sameIds(data.solids.filter(row => row.display_class === 'finished_host').map(row => row.id), Object.keys(comp.shared_hosts)) ||
+          !sameIds(data.solids.filter(row => row.display_class === 'candidate_part').map(row => row.id), Object.keys(comp.candidate_parts)) ||
+          !sameIds(data.solids.filter(row => row.display_class === 'panel_replacement').map(row => row.id), Object.keys(comp.panel_replacements)) ||
+          !sameIds(data.solids.filter(row => row.display_class === 'candidate_hardware').map(row => row.id),
+            Object.entries(comp.candidate_axes).flatMap(([axis, row]) => row.installed_role_ids.map(role => `${axis}/${role}`))) ||
+          data.solids.some(row => row.display_class === 'candidate_hardware' && row.collision_envelope !== true) ||
+          data.baseline_scene_policy.retained_fixed_axis_ids.length !== 66 ||
+          data.baseline_scene_policy.retained_frame_bolt_ids.length !== 12 ||
+          data.baseline_scene_policy.retained_frame_bolt_axis_proxies_rendered !== false ||
+          data.bounded_led_extraction_summary?.lights_checked !== 132 ||
+          data.bounded_led_extraction_summary?.stationary_shapes_checked !== 842 ||
+          data.bounded_led_extraction_summary?.individual_sweeps_with_positive_volume_hits !== 1 ||
+          data.bounded_led_extraction_summary?.individual_sweeps_without_positive_volume_hits !== 131 ||
+          data.bounded_led_extraction_summary?.whole_harness_transport_proven !== false) {
+        throw new Error('WJ24 overlay, retained-source, or bounded LED diagnostic counts are invalid');
+      }
+
+      const baseline = groups.get('baseline');
+      await Promise.all(parts.filter(part => !hidden.has(part.name)).map(async part => {
+        const response = await fetch(part.path);
+        if (!response.ok) throw new Error(`baseline asset unavailable: ${part.path}`);
+        const bytes = await response.arrayBuffer();
+        if (await sha256Bytes(bytes) !== data.baseline_asset_sha256[part.path]) throw new Error(`baseline asset hash changed: ${part.path}`);
+        const geometry = loader.parse(bytes); geometry.computeVertexNormals();
+        const mesh = new THREE.Mesh(geometry, materialForBaseline(part));
+        if (part.translation_mm) mesh.position.fromArray(part.translation_mm);
+        baseline.add(mesh);
+      }));
+
+      const triangleTopologies = new Map();
+      for (const [digest, row] of Object.entries(data.triangle_topologies)) {
+        const indices = decodeTypedArray(row.triangle_indices_base64, row.triangle_component_type, row.index_count);
+        const bytes = Uint8Array.from(atob(row.triangle_indices_base64), character => character.charCodeAt(0));
+        if (await sha256Bytes(bytes.buffer) !== digest || row.index_count !== row.triangle_count * 3) {
+          throw new Error(`triangle topology hash or count mismatch: ${digest}`);
+        }
+        triangleTopologies.set(digest, {...row, indices});
+      }
+      const colors = {finished_host: 0x8a633f, candidate_part: 0xd09752, candidate_hardware: 0x9fc4d6, panel_replacement: 0x45525a};
+      for (const row of data.solids) {
+        const hardware = row.display_class === 'candidate_hardware';
+        const material = new THREE.MeshStandardMaterial({
+          color: colors[row.display_class], metalness: hardware ? .42 : 0,
+          roughness: hardware ? .34 : .76, transparent: hardware || row.display_class === 'panel_replacement',
+          opacity: hardware ? .76 : row.display_class === 'panel_replacement' ? .5 : 1,
+          depthWrite: !hardware,
+        });
+        groups.get(row.display_class).add(new THREE.Mesh(meshGeometry(row.mesh, triangleTopologies), material));
+      }
+
+      document.querySelector('#scope').textContent = data.scope;
+      document.querySelector('#identity').textContent = `Source commit ${data.source_binding.source_commit} · inventory SHA-256 ${data.source_binding.source_inventory_sha256} · composition ${data.source_binding.composition_report_sha256} · diagnostic ${data.source_binding.diagnostic_report_sha256}.`;
+      document.querySelector('#counts').textContent = `24 duties · 16 shared hosts · 28 candidate parts · 104 axes / 520 hardware occupancy roles · 66 fixed Hillman axes · 12 starting frame bolts.`;
+      status.textContent = `Pinned baseline assets verified: ${parts.length - hidden.size} visible once; ${hidden.size} legacy/replaced visuals suppressed.`;
+      document.querySelector('#release-boundary').textContent = `All acceptance and release flags are false. Layout status: ${data.layout_status}.`;
+      for (const limit of data.limits) { const li = document.createElement('li'); li.textContent = limit; document.querySelector('#limits').append(li); }
+      for (const row of data.findings) document.querySelector('#finding-list').append(renderFinding(row));
+
+      const finite = data.finite_contact_supplement.report;
+      const leftRail = finite.interfaces.find(row => row.host_id === 'base_rail_bottom_left');
+      const leftCut = finite.left_service_cut;
+      const hold = finite.G1_provisional_hold_projection;
+      fact(document.querySelector('#finite-contact'), `Bottom-left rail finite common face: ${leftRail.finite_common_area_mm2.toFixed(6)} mm² of ${leftRail.cleat_planar_area_mm2.toFixed(6)} mm² nominal cleat face; ${leftCut.cut_id} accounts for ${leftCut.analytic_cap_area_mm2.toFixed(6)} mm² and ${leftCut.missing_slab_volume_mm3.toFixed(6)} mm³ missing from the ${leftCut.slab_depth_mm} mm comparison slab.`, 'open');
+      fact(document.querySelector('#finite-contact'), `G1 provisional Ø${hold.proxy_diameter_mm} × ${hold.proxy_length_mm} mm projection overlaps the right cleat by ${hold.overlap_volume_mm3.toFixed(6)} mm³ from ${hold.overlap_stations_from_panel_rear_mm[0]} to ${hold.overlap_stations_from_panel_rear_mm[1]} mm behind the panel rear. This is not a selected or approved bolt.`, 'open');
+      const accessHits = data.diagnostic_report.candidate_bodies.candidate_body_vs_access_envelope_hits_mm3;
+      const holdHits = Object.entries(accessHits).flatMap(([body, hits]) => Object.entries(hits).map(([envelope, overlap]) => ({body, envelope, overlap})));
+      const g12 = holdHits.find(row => row.envelope.endsWith('/hold_tnut_main_G12'));
+      const g1 = holdHits.find(row => row.envelope.endsWith('/hold_tnut_main_G1'));
+      if (!g1 || !g12) throw new Error('full-scene diagnostic does not preserve both G1 and G12 proxy hits');
+      fact(document.querySelector('#finite-contact'), `Full-scene hold/access proxy hits: G1 against ${g1.body}, ${g1.overlap.toFixed(6)} mm³; G12 against ${g12.body}, ${g12.overlap.toFixed(6)} mm³. Neither is selected or approved hold-bolt geometry.`, 'open');
+      const ledReport = data.led_extraction_diagnostic.report;
+      const ledHit = ledReport.rows.flatMap(row => Object.entries(row.positive_volume_hits_mm3).map(([obstacle, overlap]) => ({row, obstacle, overlap})));
+      if (ledHit.length !== 1 || ledReport.light_count !== 132 || ledReport.stationary_shape_count !== 842) throw new Error('LED extraction diagnostic identity or counts are invalid');
+      const hit = ledHit[0];
+      fact(document.querySelector('#led-extraction'), `Bounded individual LED axial extraction: ${ledReport.light_count} light envelopes checked against ${ledReport.stationary_shape_count} stationary shapes. ${hit.row.light_id} withdraws ${hit.row.stroke_mm.toFixed(6)} mm and intersects ${hit.obstacle} by ${hit.overlap.toFixed(6)} mm³; the other 131 sweeps have no positive-volume hit in this operation.`, 'open');
+      fact(document.querySelector('#led-extraction'), 'This is an individual axial sweep only. It excludes wire flexibility/slack, connector feeding, neighboring lights, latch operation, and alternative supported staging; it does not prove whole-harness transport or assembly.', 'open');
+      jsonDetails(document.querySelector('#findings'), 'Finite contact and hold-projection evidence', finite);
+      jsonDetails(document.querySelector('#findings'), 'Bounded LED extraction evidence', ledReport);
+      jsonDetails(document.querySelector('#findings'), 'Full-scene diagnostic gates', data.diagnostic_report.diagnostic_gates);
+      jsonDetails(document.querySelector('#findings'), 'Candidate body and access-envelope intersections', data.diagnostic_report.candidate_bodies);
+      jsonDetails(document.querySelector('#findings'), 'Retained family tool/contact diagnostics', data.diagnostic_report.local_family_diagnostics);
+      jsonDetails(document.querySelector('#report-details'), 'Source-bound composition report', data.composition_report);
+      jsonDetails(document.querySelector('#report-details'), 'Full-scene diagnostic report', data.diagnostic_report);
+      jsonDetails(document.querySelector('#report-details'), 'LED extraction diagnostic', ledReport);
+      jsonDetails(document.querySelector('#report-details'), 'Baseline visual policy', data.baseline_scene_policy);
+      updateModelBounds();
+      view('');
+    } catch (error) {
+      document.querySelector('#scope').textContent = 'The source-bound WJ24 scene is unavailable or failed its identity check.';
+      status.textContent = `Viewer unavailable: ${error.message}. Serve the site over HTTP and check the pinned scene and baseline files.`;
+      status.className = 'open';
+      status.setAttribute('role', 'alert');
+      status.setAttribute('aria-live', 'assertive');
+    }
+
+    renderer.setAnimationLoop(() => { controls.update(); renderer.render(scene, camera); });
+  </script>
+</body>
+</html>

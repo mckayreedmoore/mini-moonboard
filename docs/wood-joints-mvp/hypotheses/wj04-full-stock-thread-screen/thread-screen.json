@@ -1,0 +1,4360 @@
+{
+  "all_evaluated_member_corners_within_recorded_limit_at_Lb_boundary": true,
+  "claim_boundary": "This report applies the recorded one-quarter threaded-bearing fraction screen to eight archived WJ-04 full-stock bolt stacks at independent wood-layer and washer dimensional corners. It establishes no capacity, delivered bolt fit, full-shank coverage, or NDS diameter selection.",
+  "hardware_and_fit_status": {
+    "actual_NDS_full_body_diameter_exception_established": false,
+    "actual_delivered_thread_transition_verified": false,
+    "bolt_candidate_id": "kl_jack_25c600hcs5z",
+    "capacity_established": false,
+    "full_smooth_shank_through_every_wood_layer_proven": false,
+    "nominal_length_mm": 152.4,
+    "nut_fit_or_functional_engagement_verified": false,
+    "screen_uses_Lg_as_thread_boundary": false
+  },
+  "member_screen_count": 16,
+  "method": {
+    "Lg_mm_recorded_but_not_used_as_thread_boundary": 133.35,
+    "Lg_semantics": "maximum grip-gaging inspection bound; not a thread-start location",
+    "bolt_dimension_basis": {
+      "correction_note": "docs/wood-joints-mvp/bolt-dimension-source-correction.md",
+      "lb_min_mm": 127.0,
+      "lg_max_mm": 133.35,
+      "local_pdf_sha256": "4c7bcb75223b7e89fc27f132bc44e8b422ba672c97f7803259a24fab6bd99ba0",
+      "source_attribution_note": "Use the ASME table ordering and derivation in the correction note. The Nickel Systems partial-thread table prints the six-inch 1/4-in cell as 5.25 / 5.00 under Lb min / Lg max; that reversed labeling is not used as the dimension source here.",
+      "source_url": "https://www.asme.org/codes-standards/find-codes-standards/b18-2-1-square-hex-heavy-hex-askew-head-bolts-hex-heavy-hex-hex-flange-lobed-head-lag-screws",
+      "standard": "ASME B18.2.1-2012 Table 12, printed page 21"
+    },
+    "corner_count_per_bolt": 16,
+    "fraction_formula": "For each receiver layer, overlap its head-to-nut axial interval with the interval beginning at the recorded Lb boundary; divide that length by the layer's corner thickness.",
+    "head_and_nut_washers_varied_independently": true,
+    "layer_tolerance_status": "independent diagnostic corner input; not a stock or cut acceptance tolerance",
+    "receiving_member_layer_tolerance_mm_each_side": 0.5,
+    "smooth_body_screen_boundary_Lb_mm_from_underhead": 127.0,
+    "thread_boundary_assumption": "The geometric split is placed at minimum smooth-body Lb=127 mm only for this dimensional screen. Actual delivered last-thread-scratch, thread runout, and first full-form thread locations are not measured; do not read this as an actual thread-transition guarantee.",
+    "threshold_fraction": 0.25,
+    "threshold_source": {
+      "application": "The one-quarter rule is only the member-specific geometry condition for the full-body diameter option in NDS lateral-yield calculations; it is not a resistance result. If the condition is not met, NDS permits thread-root diameter or detailed analysis.",
+      "local_pdf_sha256": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a",
+      "source_url": "https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf",
+      "standard": "ANSI/AWC NDS-2024 \u00a712.3.7.2"
+    },
+    "washer_thickness_range_mm": [
+      1.2954,
+      2.032
+    ],
+    "wood_layers_varied_independently": true
+  },
+  "physical_bolt_count": 8,
+  "physical_bolts": [
+    {
+      "all_members_all_corners_within_recorded_limit_at_Lb_boundary": true,
+      "corner_results": [
+        {
+          "corner_index": 1,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 2,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 3,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 4,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 5,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 6,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 7,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 8,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 9,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 10,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 11,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 12,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 13,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 14,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 15,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 16,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        }
+      ],
+      "independent_washer_and_layer_corner_count": 16,
+      "interface_id": "principal_to_cleat",
+      "member_screens": [
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 1,
+          "maximum_bearing_length_after_Lb_boundary_mm": 0.0,
+          "maximum_fraction_after_Lb_boundary": 0.0,
+          "member_id": "wj04_lower_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 12,
+          "maximum_bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+          "maximum_fraction_after_Lb_boundary": 0.07854922279792774,
+          "member_id": "base_principal_center_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "ordered_receivers_head_to_nut": [
+        {
+          "member_id": "wj04_lower_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+      "stack_spec_id": "lower_principal_1",
+      "station_id": "clip_horizontal_lower_right_1",
+      "wood_layer_corner_count": 4
+    },
+    {
+      "all_members_all_corners_within_recorded_limit_at_Lb_boundary": true,
+      "corner_results": [
+        {
+          "corner_index": 1,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 2,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 3,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 4,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 5,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 6,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 7,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 8,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 9,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 10,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 11,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 12,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 13,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 14,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 15,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 16,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        }
+      ],
+      "independent_washer_and_layer_corner_count": 16,
+      "interface_id": "principal_to_cleat",
+      "member_screens": [
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 1,
+          "maximum_bearing_length_after_Lb_boundary_mm": 0.0,
+          "maximum_fraction_after_Lb_boundary": 0.0,
+          "member_id": "wj04_lower_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 12,
+          "maximum_bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+          "maximum_fraction_after_Lb_boundary": 0.07854922279792774,
+          "member_id": "base_principal_center_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "ordered_receivers_head_to_nut": [
+        {
+          "member_id": "wj04_lower_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+      "stack_spec_id": "lower_principal_2",
+      "station_id": "clip_horizontal_lower_right_1",
+      "wood_layer_corner_count": 4
+    },
+    {
+      "all_members_all_corners_within_recorded_limit_at_Lb_boundary": true,
+      "corner_results": [
+        {
+          "corner_index": 1,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 2,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 3,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 4,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 5,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 6,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 7,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 8,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 9,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 10,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 11,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 12,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 13,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 14,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 15,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 16,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        }
+      ],
+      "independent_washer_and_layer_corner_count": 16,
+      "interface_id": "rail_to_cleat",
+      "member_screens": [
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 1,
+          "maximum_bearing_length_after_Lb_boundary_mm": 0.0,
+          "maximum_fraction_after_Lb_boundary": 0.0,
+          "member_id": "wj04_lower_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 12,
+          "maximum_bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+          "maximum_fraction_after_Lb_boundary": 0.07854922279792774,
+          "member_id": "base_rail_service_lower_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "ordered_receivers_head_to_nut": [
+        {
+          "member_id": "wj04_lower_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_rail_service_lower_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+      "stack_spec_id": "lower_rail_1",
+      "station_id": "clip_horizontal_lower_right_1",
+      "wood_layer_corner_count": 4
+    },
+    {
+      "all_members_all_corners_within_recorded_limit_at_Lb_boundary": true,
+      "corner_results": [
+        {
+          "corner_index": 1,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 2,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 3,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 4,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 5,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 6,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 7,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 8,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 9,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 10,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 11,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 12,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 13,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 14,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 15,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 16,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_lower_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_rail_service_lower_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        }
+      ],
+      "independent_washer_and_layer_corner_count": 16,
+      "interface_id": "rail_to_cleat",
+      "member_screens": [
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 1,
+          "maximum_bearing_length_after_Lb_boundary_mm": 0.0,
+          "maximum_fraction_after_Lb_boundary": 0.0,
+          "member_id": "wj04_lower_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 12,
+          "maximum_bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+          "maximum_fraction_after_Lb_boundary": 0.07854922279792774,
+          "member_id": "base_rail_service_lower_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "ordered_receivers_head_to_nut": [
+        {
+          "member_id": "wj04_lower_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_rail_service_lower_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2",
+      "stack_spec_id": "lower_rail_2",
+      "station_id": "clip_horizontal_lower_right_1",
+      "wood_layer_corner_count": 4
+    },
+    {
+      "all_members_all_corners_within_recorded_limit_at_Lb_boundary": true,
+      "corner_results": [
+        {
+          "corner_index": 1,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 2,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 3,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 4,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 5,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 6,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 7,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 8,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 9,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 10,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 11,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 12,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 13,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 14,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 15,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 16,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        }
+      ],
+      "independent_washer_and_layer_corner_count": 16,
+      "interface_id": "principal_to_cleat",
+      "member_screens": [
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 1,
+          "maximum_bearing_length_after_Lb_boundary_mm": 0.0,
+          "maximum_fraction_after_Lb_boundary": 0.0,
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 12,
+          "maximum_bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+          "maximum_fraction_after_Lb_boundary": 0.07854922279792774,
+          "member_id": "base_principal_center_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "ordered_receivers_head_to_nut": [
+        {
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+      "stack_spec_id": "upper_principal_1",
+      "station_id": "clip_horizontal_upper_right_1",
+      "wood_layer_corner_count": 4
+    },
+    {
+      "all_members_all_corners_within_recorded_limit_at_Lb_boundary": true,
+      "corner_results": [
+        {
+          "corner_index": 1,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 2,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 3,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 4,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 5,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.007856382978723424,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 6,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 89.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 89.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.033559585492228,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 7,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.034452127659574484,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 8,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.6954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 90.6954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.059466321243523336,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 9,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 10,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 11,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 12,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 13,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.02744680851063858,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 14,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 90.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 90.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0526424870466324,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            88.4,
+            38.6
+          ]
+        },
+        {
+          "corner_index": 15,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.054042553191489644,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            37.6
+          ]
+        },
+        {
+          "corner_index": 16,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 91.432,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 91.432,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.07854922279792774,
+              "member_id": "base_principal_center_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            89.4,
+            38.6
+          ]
+        }
+      ],
+      "independent_washer_and_layer_corner_count": 16,
+      "interface_id": "principal_to_cleat",
+      "member_screens": [
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 1,
+          "maximum_bearing_length_after_Lb_boundary_mm": 0.0,
+          "maximum_fraction_after_Lb_boundary": 0.0,
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 12,
+          "maximum_bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+          "maximum_fraction_after_Lb_boundary": 0.07854922279792774,
+          "member_id": "base_principal_center_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "ordered_receivers_head_to_nut": [
+        {
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        },
+        {
+          "member_id": "base_principal_center_right",
+          "nominal_thickness_mm": 38.1
+        }
+      ],
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2",
+      "stack_spec_id": "upper_principal_2",
+      "station_id": "clip_horizontal_upper_right_1",
+      "wood_layer_corner_count": 4
+    },
+    {
+      "all_members_all_corners_within_recorded_limit_at_Lb_boundary": true,
+      "corner_results": [
+        {
+          "corner_index": 1,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 38.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 38.8954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.003341628959276027,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 2,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 38.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 38.8954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.014489932885906049,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 3,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 39.8954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.014653846153846161,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 4,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 39.8954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.02567561521252797,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 5,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 38.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 38.8954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.003341628959276027,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 6,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 38.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 38.8954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.014489932885906049,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 7,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 39.8954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.014653846153846161,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 8,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 39.8954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.02567561521252797,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 9,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 39.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0116742081447965,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 10,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 39.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.022729306487695868,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 11,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 40.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 40.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.022986425339366637,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 12,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 40.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 40.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.033914988814317794,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 13,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 39.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0116742081447965,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 14,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 39.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.022729306487695868,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 15,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 40.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 40.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.022986425339366637,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 16,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 40.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 40.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.033914988814317794,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            89.4
+          ]
+        }
+      ],
+      "independent_washer_and_layer_corner_count": 16,
+      "interface_id": "rail_to_cleat",
+      "member_screens": [
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 1,
+          "maximum_bearing_length_after_Lb_boundary_mm": 0.0,
+          "maximum_fraction_after_Lb_boundary": 0.0,
+          "member_id": "base_rail_service_upper_right",
+          "nominal_thickness_mm": 38.1
+        },
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 12,
+          "maximum_bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+          "maximum_fraction_after_Lb_boundary": 0.033914988814317794,
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        }
+      ],
+      "ordered_receivers_head_to_nut": [
+        {
+          "member_id": "base_rail_service_upper_right",
+          "nominal_thickness_mm": 38.1
+        },
+        {
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        }
+      ],
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+      "stack_spec_id": "upper_rail_1",
+      "station_id": "clip_horizontal_upper_right_1",
+      "wood_layer_corner_count": 4
+    },
+    {
+      "all_members_all_corners_within_recorded_limit_at_Lb_boundary": true,
+      "corner_results": [
+        {
+          "corner_index": 1,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 38.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 38.8954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.003341628959276027,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 2,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 38.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 38.8954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.014489932885906049,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 3,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 39.8954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.014653846153846161,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 4,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 39.8954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.02567561521252797,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 5,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 38.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 127.2954,
+              "axial_start_from_underhead_mm": 38.8954,
+              "bearing_length_after_Lb_boundary_mm": 0.2954000000000008,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.003341628959276027,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 6,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 38.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 38.8954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.014489932885906049,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 7,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.2954,
+              "axial_start_from_underhead_mm": 39.8954,
+              "bearing_length_after_Lb_boundary_mm": 1.2954000000000008,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.014653846153846161,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 8,
+          "head_washer_thickness_mm": 1.2954,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.8954,
+              "axial_start_from_underhead_mm": 1.2954,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.2954,
+              "axial_start_from_underhead_mm": 39.8954,
+              "bearing_length_after_Lb_boundary_mm": 2.2954000000000008,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.02567561521252797,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 9,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 39.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0116742081447965,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 10,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 39.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.022729306487695868,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 11,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 40.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 40.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.022986425339366637,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 12,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 1.2954,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 40.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 40.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.033914988814317794,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 13,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 128.032,
+              "axial_start_from_underhead_mm": 39.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 1.0320000000000107,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.0116742081447965,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 14,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 39.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 37.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 39.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.022729306487695868,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            37.6,
+            89.4
+          ]
+        },
+        {
+          "corner_index": 15,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 40.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 129.032,
+              "axial_start_from_underhead_mm": 40.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 2.0320000000000107,
+              "corner_thickness_mm": 88.4,
+              "fraction_after_Lb_boundary": 0.022986425339366637,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            88.4
+          ]
+        },
+        {
+          "corner_index": 16,
+          "head_washer_thickness_mm": 2.032,
+          "nut_washer_thickness_mm": 2.032,
+          "receiving_member_results": [
+            {
+              "axial_end_from_underhead_mm": 40.632000000000005,
+              "axial_start_from_underhead_mm": 2.032,
+              "bearing_length_after_Lb_boundary_mm": 0.0,
+              "corner_thickness_mm": 38.6,
+              "fraction_after_Lb_boundary": 0.0,
+              "member_id": "base_rail_service_upper_right",
+              "nominal_thickness_mm": 38.1,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            },
+            {
+              "axial_end_from_underhead_mm": 130.032,
+              "axial_start_from_underhead_mm": 40.632000000000005,
+              "bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+              "corner_thickness_mm": 89.4,
+              "fraction_after_Lb_boundary": 0.033914988814317794,
+              "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+              "nominal_thickness_mm": 88.9,
+              "within_recorded_one_quarter_limit_at_Lb_boundary": true
+            }
+          ],
+          "wood_layer_thicknesses_head_to_nut_mm": [
+            38.6,
+            89.4
+          ]
+        }
+      ],
+      "independent_washer_and_layer_corner_count": 16,
+      "interface_id": "rail_to_cleat",
+      "member_screens": [
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 1,
+          "maximum_bearing_length_after_Lb_boundary_mm": 0.0,
+          "maximum_fraction_after_Lb_boundary": 0.0,
+          "member_id": "base_rail_service_upper_right",
+          "nominal_thickness_mm": 38.1
+        },
+        {
+          "all_corner_fractions_within_recorded_limit_at_Lb_boundary": true,
+          "governing_corner_index": 12,
+          "maximum_bearing_length_after_Lb_boundary_mm": 3.0320000000000107,
+          "maximum_fraction_after_Lb_boundary": 0.033914988814317794,
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        }
+      ],
+      "ordered_receivers_head_to_nut": [
+        {
+          "member_id": "base_rail_service_upper_right",
+          "nominal_thickness_mm": 38.1
+        },
+        {
+          "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "nominal_thickness_mm": 88.9
+        }
+      ],
+      "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2",
+      "stack_spec_id": "upper_rail_2",
+      "station_id": "clip_horizontal_upper_right_1",
+      "wood_layer_corner_count": 4
+    }
+  ],
+  "release": {
+    "NDS_diameter_choice_released": false,
+    "capacity_established": false,
+    "fastener_selected": false,
+    "fit_or_installation_released": false,
+    "native_solve_run": false,
+    "thread_screen_result": "conditional geometry screen only"
+  },
+  "schema": "wood_joint_wj04_full_stock_thread_bearing_screen/v1",
+  "source": {
+    "archive_manifest_path": "docs/wood-joints-mvp/hypotheses/wj16-full-stock-mechanics-inputs/sha256.json",
+    "archive_manifest_sha256": "d06981e497979a848e23b155515573f73c9e52de1d58d0904863bf9575d9a547",
+    "asme_b18_2_1_2012_pdf_sha256": "4c7bcb75223b7e89fc27f132bc44e8b422ba672c97f7803259a24fab6bd99ba0",
+    "execution_path": "docs/wood-joints-mvp/hypotheses/wj16-full-stock-mechanics-inputs/execution.json",
+    "execution_sha256": "64090ead266cb6d793a005629c8f4c55e8a0c661efe3686981e4196cf2b05d8d",
+    "mechanics_inputs_path": "docs/wood-joints-mvp/hypotheses/wj16-full-stock-mechanics-inputs/mechanics-inputs.json",
+    "mechanics_inputs_sha256": "f21e99f55da92ea60c950eecc6707fe98ca5df47f4d019f344c16fa06b52caf9",
+    "nds_2024_chapter_12_pdf_sha256": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a",
+    "producer_sha256": "a636d26985ceeb9b21f9ab56304c919252057e619394216128e1af34358386e6",
+    "source_correction_note": "docs/wood-joints-mvp/bolt-dimension-source-correction.md",
+    "source_correction_note_sha256": "3933bf5bf9d2491b4618691a77d75f929dfc838da7dbd4fff02de9e986846555",
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "wj16_composition_path": "docs/wood-joints-mvp/hypotheses/wj16-integrated-static/composition.json",
+    "wj16_composition_sha256": "c0bc37fdbc364deafcbc86dc04e710d2f5b6809436e560717a97593951f8ebcb",
+    "wj16_static_diagnostic_path": "docs/wood-joints-mvp/hypotheses/wj16-integrated-static/diagnostic.json",
+    "wj16_static_diagnostic_sha256": "2133e1e329e1f868af6faa1ee27d7093d7c16ed9708bc75ea05c90a4dbdefb43"
+  },
+  "status": "bounded_thread_bearing_geometry_screen_only",
+  "total_corner_evaluations": 128,
+  "total_member_corner_fractions": 256
+}

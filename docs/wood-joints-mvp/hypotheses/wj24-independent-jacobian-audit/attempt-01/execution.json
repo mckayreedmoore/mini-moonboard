@@ -1,0 +1,49 @@
+{
+  "auditor_source": {
+    "path": "fea/wood_joint_mesh_jacobian_audit.py",
+    "sha256": "3f9cb7768f2ba0efb4e5b26f56222422a09048bfe5e1acdf5ded26f749d861c0",
+    "unchanged_after_parent_launch": true
+  },
+  "command": "uv run --no-sync python -m fea.wood_joint_mesh_jacobian_audit fea/generated/wj24-baseline-patch-mesh/attempt-01 --output /tmp/wj24-baseline-mesh-independent-jacobian-audit.json",
+  "durable_mesh_archive": {
+    "member_index_path": "docs/wood-joints-mvp/hypotheses/wj24-baseline-patch-mesh/attempt-01/bundle-contents.json",
+    "member_index_sha256": "0c879f8cff29627d3f862c2fc5c0f18a6a7526ce4125e91d368d2bc3497c7e40",
+    "path": "docs/wood-joints-mvp/hypotheses/wj24-baseline-patch-mesh/attempt-01/complete-mesh-evidence.tar.gz",
+    "sha256": "a6f278812f5eac8ebbdf7d037e6a648bd48adbe7914be61e479e3205ade8a07b"
+  },
+  "exit_code": 0,
+  "focused_test_source": {
+    "path": "tests/test_wood_joint_mesh_jacobian_audit.py",
+    "sha256": "7eb88cc45ff9cdb4a7ff63ec615465858b2986f6c6ef36b6e0e759732c9e4fb8",
+    "unchanged_after_parent_launch": true
+  },
+  "mesh_generated": false,
+  "mesh_inputs": {
+    "mesh.inp": {
+      "archive_member": "mesh/mesh.inp",
+      "path": "fea/generated/wj24-baseline-patch-mesh/attempt-01/mesh.inp",
+      "sha256": "5f1494e91af5ad2f2e936b94583588ca7c28bbce201881bded4b22bee769a214"
+    },
+    "mesh.json": {
+      "archive_member": "mesh/mesh.json",
+      "path": "fea/generated/wj24-baseline-patch-mesh/attempt-01/mesh.json",
+      "sha256": "9146c8e4b4874bf3812d751676113be505f54e357901eda8af1b5cc5814010cd"
+    }
+  },
+  "native_solve_run": false,
+  "output_path_before_archival": "/tmp/wj24-baseline-mesh-independent-jacobian-audit.json",
+  "output_sha256": "23dc4333d643c507992d71127ec02568008f1c8a23a32c8329de90bdb0ef20b1",
+  "release": false,
+  "result": {
+    "body_count": 5,
+    "element_count": 46629,
+    "gauss5_jacobian_determinant_count": 652806,
+    "maximum_relative_volume_error_vs_WJ24_finished_geometry": 1.1373814184922892e-05,
+    "minimum_gauss5_jacobian_determinant_mm3": 1.5292878761987154,
+    "node_count": 89743,
+    "nonpositive_gauss5_jacobian_count": 0
+  },
+  "schema": "wj24_independent_jacobian_audit_execution/v1",
+  "status": "completed_and_passed",
+  "working_directory": "/home/mckay-linux/repos/mini-moonboard"
+}

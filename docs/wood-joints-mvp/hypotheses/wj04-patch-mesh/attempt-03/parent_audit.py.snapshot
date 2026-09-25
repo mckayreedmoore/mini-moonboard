@@ -1,0 +1,28 @@
+from pathlib import Path
+import json,hashlib
+from collections import Counter
+from fea.floor_contact import mesh,FACES
+root=Path.cwd();p=root/'fea/generated/wj04-patch-mesh/attempt-03';d=json.loads((p/'mesh.json').read_text());deck=(p/'mesh.inp').read_text();nodes,elements=mesh(deck)
+assert len(nodes)==d['node_count']==91089 and len(elements)==d['element_count']==47469
+assert hashlib.sha256((p/'mesh.inp').read_bytes()).hexdigest()==d['mesh_input_sha256']
+assert {line.split(',')[0].strip() for line in deck.splitlines() if line.startswith('*')} <= {'*HEADING','*NODE','*ELEMENT'}
+owned_n=set();owned_e=set();rows={}
+for name,b in d['bodies'].items():
+ ns,es=set(b['nodes']),set(b['elements']);assert not ns&owned_n and not es&owned_e
+ assert {n for e in es for n in elements[e]}==ns
+ assert all(len(set(elements[e]))==10 for e in es)
+ owned_n|=ns;owned_e|=es
+ occurrences=Counter(tuple(sorted(elements[e][i] for i in f)) for e in es for f in FACES)
+ assert set(occurrences.values()) <= {1,2}
+ exterior={(e,j+1) for e in es for j,f in enumerate(FACES) if occurrences[tuple(sorted(elements[e][i] for i in f))]==1}
+ refs=[tuple(ref) for s in b['surfaces'].values() for ref in s['tri6_exterior_face_refs']]
+ assert len(refs)==len(set(refs)) and set(refs)==exterior
+ a=b['integrated_mesh_audit'];assert a['sampled_jacobian_count']==len(es) and a['integration_jacobian_count']==14*len(es)
+ assert a['minimum_sampled_jacobian']>0 and a['minimum_integration_jacobian']>0 and a['relative_volume_error']<=.001
+ rows[name]={'nodes':len(ns),'elements':len(es),'exterior_tri6_faces':len(exterior),'volume_relative_error':a['relative_volume_error'],'minimum_sampled_jacobian':a['minimum_sampled_jacobian'],'minimum_integration_jacobian':a['minimum_integration_jacobian']}
+assert owned_n==set(nodes) and owned_e==set(elements)
+assert d['input_bundle_file_sha256_before']==d['input_bundle_file_sha256_after']
+assert d['mesh_worker_source_sha256']==d['mesh_worker_source_sha256_after']
+for rel,h in d['mesh_worker_source_sha256'].items():assert hashlib.sha256((root/rel).read_bytes()).hexdigest()==h
+report={'status':'parent_deck_and_ownership_audit_passed','mesh_report_sha256':hashlib.sha256((p/'mesh.json').read_bytes()).hexdigest(),'mesh_input_sha256':d['mesh_input_sha256'],'nodes':len(nodes),'elements':len(elements),'bodies':rows,'maximum_relative_volume_error':max(v['volume_relative_error'] for v in rows.values()),'shared_body_node_ids':0,'source_and_input_hashes_reconcile':True,'material_contact_load_or_solver_cards':False,'structural_solve_run':False,'release':False}
+Path('/tmp/wj04-mesh-parent-audit.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n');print(json.dumps(report,indent=2))

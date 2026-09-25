@@ -1,0 +1,105 @@
+{
+  "G1_provisional_hold_projection": {
+    "actual_hold_bolt_or_thread_engagement_observed": false,
+    "datum": {
+      "barrel_into_panel_direction": [
+        -0.0,
+        0.766044443118978,
+        -0.6427876096865393
+      ],
+      "label": "G1",
+      "name": "hold_tnut_main_G1",
+      "panel": "main_lower_right",
+      "rear_seating_xyz_mm": [
+        180.79999999999995,
+        31.975730904763118,
+        364.5617857317604
+      ]
+    },
+    "first_contact_is_not_a_selected_or_approved_hold_bolt_length": true,
+    "overlap_stations_from_panel_rear_mm": [
+      9.999999999999991,
+      50.800000000000026
+    ],
+    "overlap_volume_mm3": 745.5129018408169,
+    "positive_clearance_requires_projection_below_first_contact_minus_stated_tolerances": true,
+    "proxy_diameter_mm": 11.1125,
+    "proxy_length_mm": 50.8
+  },
+  "contact_pressure_or_capacity_established": false,
+  "elapsed_seconds": 1.1863310589978937,
+  "interfaces": [
+    {
+      "cleat_id": "bottom_center_left_cleat",
+      "cleat_planar_area_mm2": 10552.972706617787,
+      "common_face_count": 1,
+      "duty_id": "clip_horizontal_bottom_left_2",
+      "finite_common_area_mm2": 10385.13765176951,
+      "host_id": "base_rail_bottom_left",
+      "host_planar_area_mm2": 139578.80091444016,
+      "matched_cleat_faces": 1,
+      "matched_host_faces": 1,
+      "maximum_pair_distance_mm": 5.859285502108464e-14
+    },
+    {
+      "cleat_id": "bottom_center_left_cleat",
+      "cleat_planar_area_mm2": 10552.972706617787,
+      "common_face_count": 1,
+      "duty_id": "clip_horizontal_bottom_left_2",
+      "finite_common_area_mm2": 10552.972706617793,
+      "host_id": "base_principal_center_left",
+      "host_planar_area_mm2": 343026.36684896966,
+      "matched_cleat_faces": 1,
+      "matched_host_faces": 1,
+      "maximum_pair_distance_mm": 4.263256414560601e-14
+    },
+    {
+      "cleat_id": "bottom_center_right_cleat",
+      "cleat_planar_area_mm2": 10552.972706617787,
+      "common_face_count": 1,
+      "duty_id": "clip_horizontal_bottom_right_1",
+      "finite_common_area_mm2": 10552.972706617787,
+      "host_id": "base_rail_bottom_right",
+      "host_planar_area_mm2": 139135.25341444014,
+      "matched_cleat_faces": 1,
+      "matched_host_faces": 1,
+      "maximum_pair_distance_mm": 5.859285502108464e-14
+    },
+    {
+      "cleat_id": "bottom_center_right_cleat",
+      "cleat_planar_area_mm2": 10552.972706617787,
+      "common_face_count": 1,
+      "duty_id": "clip_horizontal_bottom_right_1",
+      "finite_common_area_mm2": 10552.972706617793,
+      "host_id": "base_principal_center_right",
+      "host_planar_area_mm2": 343026.36684896966,
+      "matched_cleat_faces": 1,
+      "matched_host_faces": 1,
+      "maximum_pair_distance_mm": 4.263256414560601e-14
+    }
+  ],
+  "left_service_cut": {
+    "analytic_cap_area_mm2": 167.83505484827936,
+    "center_outside_patch_edge_mm": 11.25,
+    "cut_id": "service/6/bore_base_rail_bottom_left_049",
+    "missing_slab_volume_mm3": 8.391752742410986,
+    "no_missing_volume_unattributed": true,
+    "per_cutter_missing_volume_mm3": {
+      "service/6/bore_base_rail_bottom_left_049": 8.391752742410986
+    },
+    "radius_mm": 19.05,
+    "slab_depth_mm": 0.05
+  },
+  "native_solve_run": false,
+  "producer_sha256": "463b7910bcd7f09b5356110a5a1d778c3832ad50ace1d88dbde39702232b810b",
+  "release": false,
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_bottom_center_integration.py": "2fd69088b0e1fffc3fa2e5390ded6bfbe2072686f30823fe0331e0ac5973c425",
+    "docs/floor-flush-construction/timber-passages.json": "5c86941458a6a92432941fdf7e13b2b21ef2f933332e0e1ec602d4d57796f15f",
+    "docs/wood-joints-mvp/hypotheses/bottom-center-integration/geometry.json": "b6bf3caf070a126919b426088bc523dfdf2322a16c1986b769f1e417bc55506e",
+    "docs/wood-joints-mvp/hypotheses/wj18-integrated-static/composition.json": "b7367196e8aeab5d5b81cb6000583571cfc552d30490e86cda4b78768dd40b42",
+    "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+    "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58"
+  },
+  "status": "bounded_finite_contact_and_provisional_hold_envelope_probe"
+}

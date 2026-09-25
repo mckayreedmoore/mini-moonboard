@@ -1,0 +1,1841 @@
+{
+  "accepted": false,
+  "bodies": {},
+  "completed_body_ids": [],
+  "completed_element_count": 0,
+  "completed_node_count": 0,
+  "configuration": {
+    "axis_local_min_size_mm": 3.0,
+    "axis_refinement_band_mm": 12.0,
+    "global_max_size_mm": 40.0
+  },
+  "error": "ValueError: Gmsh C3D10 element must own ten distinct node IDs",
+  "input_bundle_directory": "/work/fea/results/diagnostics/wj04-full-stock-patch-geometry-v1",
+  "input_bundle_file_sha256_before": {
+    "inventory.json": "c208f96bcfcda7a6b089496c9e1c4afe48f874810050f8d0c5cc700f65d5772d",
+    "sha256.json": "e758d733b9ba3169825220a45aea63ea1d1ebc70da0c9e2cb783464e8e4ea91d",
+    "wood/base_principal_center_right.step": "87403476680158f8bffb7e55039f868255c54b2b8e1d847e101ed710ad73692c",
+    "wood/base_rail_service_lower_right.step": "09f8d8134c45ac0f0bdde30c8e2e8c2320ecfb4c1d67eaaaf6dbf2a652591196",
+    "wood/base_rail_service_upper_right.step": "536de5357ac1094e486baf722efbff41050680b117e01ebfc85256aee7bc0c51",
+    "wood/wj04_lower_full_stock_cleat.step": "b6c4b0f1c0e37f09645e23d482b6dc704dc192bc0a5b3a21fcd8479e6eceb700",
+    "wood/wj04_upper_g7_crosscut_full_stock_cleat.step": "636ebad8ea5038e54cf08d1fc18d215c83818371bbfe7fff5305d1ecea999d75"
+  },
+  "input_bundle_hash_index_sha256": "e758d733b9ba3169825220a45aea63ea1d1ebc70da0c9e2cb783464e8e4ea91d",
+  "input_bundle_inventory_sha256": "c208f96bcfcda7a6b089496c9e1c4afe48f874810050f8d0c5cc700f65d5772d",
+  "input_geometry_context": {
+    "contact_classification": "pending; mesh entities are not assigned to interfaces",
+    "mesh_scope": {
+      "finished_wood_bodies": 5,
+      "hardware_roles_meshed": 0,
+      "modeled_hardware_roles": 40,
+      "physical_bolts": 8
+    },
+    "physical_bolts": [
+      {
+        "hardware_status": "provisional catalog candidates only; delivered product and strength not verified",
+        "interface_id": "clip_horizontal_lower_right_1__rail_to_cleat",
+        "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+        "physical_hardware_roles": [
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                128.0865,
+                140.9135,
+                714.514032354,
+                727.001353686,
+                1278.266961307,
+                1289.683575182
+              ],
+              "cad_shape_sha256": "4765b2b83505c5fc4292a0f68b3fc243b39274b092c70a6cd3095d8e70101568",
+              "centroid_global_xyz_mm": [
+                134.5,
+                720.75769302,
+                1283.975268244
+              ],
+              "solid_count": 1,
+              "volume_mm3": 535.009374522
+            },
+            "role": "head"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                124.9877,
+                144.0123,
+                710.834069411,
+                726.713902943,
+                1274.718488753,
+                1288.503868225
+              ],
+              "cad_shape_sha256": "eb95f0ff2c45919191858b390e4a7dd000da15c6c3ac9114631fcdcfdb56a455",
+              "centroid_global_xyz_mm": [
+                134.5,
+                718.773986177,
+                1281.611178489
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "head_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                128.0865,
+                140.9135,
+                626.57785905,
+                640.093769115,
+                1173.46871092,
+                1186.111149113
+              ],
+              "cad_shape_sha256": "7c442089a48c90ce9366755be2f5d99c0938cd3c7fbfc7a03d72350c1e2cb8fa",
+              "centroid_global_xyz_mm": [
+                134.5,
+                633.335814083,
+                1179.789930017
+              ],
+              "solid_count": 1,
+              "volume_mm3": 741.792138908
+            },
+            "role": "nut"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                124.9877,
+                144.0123,
+                627.893898526,
+                643.773732058,
+                1175.874242195,
+                1189.659621667
+              ],
+              "cad_shape_sha256": "d2e1c7ade99a36b8a95269bc3cc4e5b5952835b72cddf19e7d75dd83223a2a16",
+              "centroid_global_xyz_mm": [
+                134.5,
+                635.833815292,
+                1182.766931931
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "nut_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                131.325,
+                137.675,
+                619.034035529,
+                721.859249495,
+                1163.603455881,
+                1284.430330305
+              ],
+              "cad_shape_sha256": "62d3fe61873847b2d700517722e5a5433266f070be691e4a31c2a98ed15adc1e",
+              "centroid_global_xyz_mm": [
+                134.5,
+                670.446642512,
+                1224.016893093
+              ],
+              "solid_count": 1,
+              "volume_mm3": 4826.388738404
+            },
+            "role": "shaft"
+          }
+        ],
+        "receivers_head_to_nut": [
+          {
+            "member_id": "wj04_lower_full_stock_cleat",
+            "wood_thickness_mm": 88.9
+          },
+          {
+            "member_id": "base_rail_service_lower_right",
+            "wood_thickness_mm": 38.1
+          }
+        ],
+        "role_count": 5,
+        "single_wood_shear_plane_global_xyz_mm": [
+          134.5,
+          660.977095442,
+          1212.73152636
+        ],
+        "stack_spec_id": "lower_rail_1",
+        "wood_grip_mm": 127.0,
+        "world_axis_direction_head_to_nut": [
+          0.0,
+          -0.642787609929,
+          -0.766044442915
+        ],
+        "world_axis_origin_datum": "wood-side head-seat centerline at the first wood layer plane; not the BoltStack.under_head_origin",
+        "world_axis_origin_xyz_mm": [
+          134.5,
+          718.120913965,
+          1280.832877335
+        ]
+      },
+      {
+        "hardware_status": "provisional catalog candidates only; delivered product and strength not verified",
+        "interface_id": "clip_horizontal_lower_right_1__rail_to_cleat",
+        "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2",
+        "physical_hardware_roles": [
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                128.0865,
+                140.9135,
+                689.234565731,
+                701.721887063,
+                1299.478952427,
+                1310.895566302
+              ],
+              "cad_shape_sha256": "34e6c224ffab8537db9bd97986a46657e1d628a6b0aa66c912c0fbb6dc75aad9",
+              "centroid_global_xyz_mm": [
+                134.5,
+                695.478226397,
+                1305.187259364
+              ],
+              "solid_count": 1,
+              "volume_mm3": 535.009374522
+            },
+            "role": "head"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                124.9877,
+                144.0123,
+                685.554602788,
+                701.43443632,
+                1295.930479873,
+                1309.715859345
+              ],
+              "cad_shape_sha256": "36bfc75340f2c9190e9a3ad837f4e0f4e6be7a69da568acaf848f26409ba20d4",
+              "centroid_global_xyz_mm": [
+                134.5,
+                693.494519554,
+                1302.823169609
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "head_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                128.0865,
+                140.9135,
+                601.298392427,
+                614.814302492,
+                1194.68070204,
+                1207.323140233
+              ],
+              "cad_shape_sha256": "4adab63f61cf205607a16ceed755167e0213384b17527311868c24c649b8803a",
+              "centroid_global_xyz_mm": [
+                134.5,
+                608.05634746,
+                1201.001921137
+              ],
+              "solid_count": 1,
+              "volume_mm3": 741.792138908
+            },
+            "role": "nut"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                124.9877,
+                144.0123,
+                602.614431903,
+                618.494265435,
+                1197.086233315,
+                1210.871612787
+              ],
+              "cad_shape_sha256": "8db3058dd6e0d112963c37c207e60eb510924e8d0dfde11f71a787cf38b51bdd",
+              "centroid_global_xyz_mm": [
+                134.5,
+                610.554348669,
+                1203.978923051
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "nut_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                131.325,
+                137.675,
+                593.754568906,
+                696.579782872,
+                1184.815447001,
+                1305.642321425
+              ],
+              "cad_shape_sha256": "7809acfb8af33cba150422352f0f945cec547f4dc75acbc3b789b141e0ac46ca",
+              "centroid_global_xyz_mm": [
+                134.5,
+                645.167175889,
+                1245.228884213
+              ],
+              "solid_count": 1,
+              "volume_mm3": 4826.388738404
+            },
+            "role": "shaft"
+          }
+        ],
+        "receivers_head_to_nut": [
+          {
+            "member_id": "wj04_lower_full_stock_cleat",
+            "wood_thickness_mm": 88.9
+          },
+          {
+            "member_id": "base_rail_service_lower_right",
+            "wood_thickness_mm": 38.1
+          }
+        ],
+        "role_count": 5,
+        "single_wood_shear_plane_global_xyz_mm": [
+          134.5,
+          635.697628819,
+          1233.94351748
+        ],
+        "stack_spec_id": "lower_rail_2",
+        "wood_grip_mm": 127.0,
+        "world_axis_direction_head_to_nut": [
+          0.0,
+          -0.642787609929,
+          -0.766044442915
+        ],
+        "world_axis_origin_datum": "wood-side head-seat centerline at the first wood layer plane; not the BoltStack.under_head_origin",
+        "world_axis_origin_xyz_mm": [
+          134.5,
+          692.841447342,
+          1302.044868455
+        ]
+      },
+      {
+        "hardware_status": "provisional catalog candidates only; delivered product and strength not verified",
+        "interface_id": "clip_horizontal_lower_right_1__principal_to_cleat",
+        "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+        "physical_hardware_roles": [
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                179.982,
+                184.1222,
+                659.921915223,
+                672.748915223,
+                1238.373266309,
+                1251.200266309
+              ],
+              "cad_shape_sha256": "88f9317292e7a3a893db75c72f13780fdf79b69fbc2444f98bf649a7bbb3ca95",
+              "centroid_global_xyz_mm": [
+                182.0521,
+                666.335415223,
+                1244.786766309
+              ],
+              "solid_count": 1,
+              "volume_mm3": 535.009374522
+            },
+            "role": "head"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                177.95,
+                179.982,
+                656.823115223,
+                675.847715223,
+                1235.274466309,
+                1254.299066309
+              ],
+              "cad_shape_sha256": "6b4a783bef539a7b4ad0ba409aabc4b5722277f0cf1c218fdeea10b847849e75",
+              "centroid_global_xyz_mm": [
+                178.966,
+                666.335415223,
+                1244.786766309
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "head_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                43.1776,
+                48.918,
+                659.921915223,
+                672.748915223,
+                1238.373266309,
+                1251.200266309
+              ],
+              "cad_shape_sha256": "d0091d3ddc4adc31ebdc0945503d11e870b9b2f608c3ccc9d4bbb0146938c89a",
+              "centroid_global_xyz_mm": [
+                46.0478,
+                666.335415223,
+                1244.786766309
+              ],
+              "solid_count": 1,
+              "volume_mm3": 741.792138908
+            },
+            "role": "nut"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                48.918,
+                50.95,
+                656.823115223,
+                675.847715223,
+                1235.274466309,
+                1254.299066309
+              ],
+              "cad_shape_sha256": "d00ef08dae6ffeda1d93f6d65b002c0af94fc3ebe546ea81d069448ff02b6069",
+              "centroid_global_xyz_mm": [
+                49.934,
+                666.335415223,
+                1244.786766309
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "nut_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                27.582,
+                179.982,
+                663.160415223,
+                669.510415223,
+                1241.611766309,
+                1247.961766309
+              ],
+              "cad_shape_sha256": "f6b61275bc2f499682d712b98a24a5c2f26c9bea2b4aa80698afa79b2b391bd2",
+              "centroid_global_xyz_mm": [
+                103.782,
+                666.335415223,
+                1244.786766309
+              ],
+              "solid_count": 1,
+              "volume_mm3": 4826.388738404
+            },
+            "role": "shaft"
+          }
+        ],
+        "receivers_head_to_nut": [
+          {
+            "member_id": "wj04_lower_full_stock_cleat",
+            "wood_thickness_mm": 88.9
+          },
+          {
+            "member_id": "base_principal_center_right",
+            "wood_thickness_mm": 38.1
+          }
+        ],
+        "role_count": 5,
+        "single_wood_shear_plane_global_xyz_mm": [
+          89.05,
+          666.335415223,
+          1244.786766309
+        ],
+        "stack_spec_id": "lower_principal_1",
+        "wood_grip_mm": 127.0,
+        "world_axis_direction_head_to_nut": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "world_axis_origin_datum": "wood-side head-seat centerline at the first wood layer plane; not the BoltStack.under_head_origin",
+        "world_axis_origin_xyz_mm": [
+          177.95,
+          666.335415223,
+          1244.786766309
+        ]
+      },
+      {
+        "hardware_status": "provisional catalog candidates only; delivered product and strength not verified",
+        "interface_id": "clip_horizontal_lower_right_1__principal_to_cleat",
+        "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+        "physical_hardware_roles": [
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                179.982,
+                184.1222,
+                681.133906343,
+                693.960906343,
+                1263.652732932,
+                1276.479732932
+              ],
+              "cad_shape_sha256": "0329eb7ea37a4b887754c06d5941bc18b7b76cbbb2186234d346abd97c37f7fb",
+              "centroid_global_xyz_mm": [
+                182.0521,
+                687.547406343,
+                1270.066232932
+              ],
+              "solid_count": 1,
+              "volume_mm3": 535.009374522
+            },
+            "role": "head"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                177.95,
+                179.982,
+                678.035106343,
+                697.059706343,
+                1260.553932932,
+                1279.578532932
+              ],
+              "cad_shape_sha256": "9ea2bc02119a8007c38b494d1ded36aac58c3daf12e27164dd40cf923265ca50",
+              "centroid_global_xyz_mm": [
+                178.966,
+                687.547406343,
+                1270.066232932
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "head_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                43.1776,
+                48.918,
+                681.133906343,
+                693.960906343,
+                1263.652732932,
+                1276.479732932
+              ],
+              "cad_shape_sha256": "8f06bd6eecc6f4005b0b8f368a056da720b2336bf985bf0323a7a22584be6369",
+              "centroid_global_xyz_mm": [
+                46.0478,
+                687.547406343,
+                1270.066232932
+              ],
+              "solid_count": 1,
+              "volume_mm3": 741.792138908
+            },
+            "role": "nut"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                48.918,
+                50.95,
+                678.035106343,
+                697.059706343,
+                1260.553932932,
+                1279.578532932
+              ],
+              "cad_shape_sha256": "286a8d4e032ec3a34a906eca1f3821acec5d429db5b9f8392f1aef9024480ca8",
+              "centroid_global_xyz_mm": [
+                49.934,
+                687.547406343,
+                1270.066232932
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "nut_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                27.582,
+                179.982,
+                684.372406343,
+                690.722406343,
+                1266.891232932,
+                1273.241232932
+              ],
+              "cad_shape_sha256": "223e4b37867ab67d02c47ca939b2ab2339b48071676514bad10b3db6a303aeb4",
+              "centroid_global_xyz_mm": [
+                103.782,
+                687.547406343,
+                1270.066232932
+              ],
+              "solid_count": 1,
+              "volume_mm3": 4826.388738404
+            },
+            "role": "shaft"
+          }
+        ],
+        "receivers_head_to_nut": [
+          {
+            "member_id": "wj04_lower_full_stock_cleat",
+            "wood_thickness_mm": 88.9
+          },
+          {
+            "member_id": "base_principal_center_right",
+            "wood_thickness_mm": 38.1
+          }
+        ],
+        "role_count": 5,
+        "single_wood_shear_plane_global_xyz_mm": [
+          89.05,
+          687.547406343,
+          1270.066232932
+        ],
+        "stack_spec_id": "lower_principal_2",
+        "wood_grip_mm": 127.0,
+        "world_axis_direction_head_to_nut": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "world_axis_origin_datum": "wood-side head-seat centerline at the first wood layer plane; not the BoltStack.under_head_origin",
+        "world_axis_origin_xyz_mm": [
+          177.95,
+          687.547406343,
+          1270.066232932
+        ]
+      },
+      {
+        "hardware_status": "provisional catalog candidates only; delivered product and strength not verified",
+        "interface_id": "clip_horizontal_upper_right_1__rail_to_cleat",
+        "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+        "physical_hardware_roles": [
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                128.0865,
+                140.9135,
+                707.636874122,
+                720.124195454,
+                1295.584954042,
+                1307.001567917
+              ],
+              "cad_shape_sha256": "c0941600caf04f3fd53182d48f8137a643a94b5d67680f176b65c108452144f0",
+              "centroid_global_xyz_mm": [
+                134.5,
+                713.880534788,
+                1301.29326098
+              ],
+              "solid_count": 1,
+              "volume_mm3": 535.009374522
+            },
+            "role": "head"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                124.9877,
+                144.0123,
+                707.924324865,
+                723.804158397,
+                1296.764660999,
+                1310.550040471
+              ],
+              "cad_shape_sha256": "f896e8e6a10384cacd1ab727ee77624febc133e1b57bd93d23265326d65e1af6",
+              "centroid_global_xyz_mm": [
+                134.5,
+                715.864241631,
+                1303.657350735
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "head_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                128.0865,
+                140.9135,
+                794.544458693,
+                808.060368758,
+                1399.157380111,
+                1411.799818304
+              ],
+              "cad_shape_sha256": "e519bf926dee9775a0ef63aeeb4f0709c0fe54371922b3950f219a4405ed2d99",
+              "centroid_global_xyz_mm": [
+                134.5,
+                801.302413725,
+                1405.478599207
+              ],
+              "solid_count": 1,
+              "volume_mm3": 741.792138908
+            },
+            "role": "nut"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                124.9877,
+                144.0123,
+                790.86449575,
+                806.744329282,
+                1395.608907557,
+                1409.394287029
+              ],
+              "cad_shape_sha256": "db0b646244fb3a74170ef8e5026639af408e766a2f1d66439a6916f5c5db8bed",
+              "centroid_global_xyz_mm": [
+                134.5,
+                798.804412516,
+                1402.501597293
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "nut_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                131.325,
+                137.675,
+                712.778978313,
+                815.604192279,
+                1300.838198919,
+                1421.665073343
+              ],
+              "cad_shape_sha256": "c031a83aecd82f232180811c4a411a04119dc166b0f7dfd8fdc7f52fcccd95e5",
+              "centroid_global_xyz_mm": [
+                134.5,
+                764.191585296,
+                1361.251636131
+              ],
+              "solid_count": 1,
+              "volume_mm3": 4826.388738404
+            },
+            "role": "shaft"
+          }
+        ],
+        "receivers_head_to_nut": [
+          {
+            "member_id": "base_rail_service_upper_right",
+            "wood_thickness_mm": 38.1
+          },
+          {
+            "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+            "wood_thickness_mm": 88.9
+          }
+        ],
+        "role_count": 5,
+        "single_wood_shear_plane_global_xyz_mm": [
+          134.5,
+          741.007521781,
+          1333.621945164
+        ],
+        "stack_spec_id": "upper_rail_1",
+        "wood_grip_mm": 127.0,
+        "world_axis_direction_head_to_nut": [
+          0.0,
+          0.642787609929,
+          0.766044442915
+        ],
+        "world_axis_origin_datum": "wood-side head-seat centerline at the first wood layer plane; not the BoltStack.under_head_origin",
+        "world_axis_origin_xyz_mm": [
+          134.5,
+          716.517313843,
+          1304.435651889
+        ]
+      },
+      {
+        "hardware_status": "provisional catalog candidates only; delivered product and strength not verified",
+        "interface_id": "clip_horizontal_upper_right_1__rail_to_cleat",
+        "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2",
+        "physical_hardware_roles": [
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                128.0865,
+                140.9135,
+                682.357407499,
+                694.844728831,
+                1316.796945162,
+                1328.213559037
+              ],
+              "cad_shape_sha256": "7c7f525517bd7de307e582bad81177e50af2e65c6662de6e313e9217e4fe489c",
+              "centroid_global_xyz_mm": [
+                134.5,
+                688.601068165,
+                1322.5052521
+              ],
+              "solid_count": 1,
+              "volume_mm3": 535.009374522
+            },
+            "role": "head"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                124.9877,
+                144.0123,
+                682.644858242,
+                698.524691774,
+                1317.976652119,
+                1331.762031591
+              ],
+              "cad_shape_sha256": "8e149bae27d54318c567edfd6bf59523b8a5c0ac10840561e563ce859c17d62f",
+              "centroid_global_xyz_mm": [
+                134.5,
+                690.584775008,
+                1324.869341855
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "head_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                128.0865,
+                140.9135,
+                769.26499207,
+                782.780902135,
+                1420.369371231,
+                1433.011809424
+              ],
+              "cad_shape_sha256": "fce8c78c8b594652b06ac8c1296879e42fc1ecc23b1b8e0ac133105e082994db",
+              "centroid_global_xyz_mm": [
+                134.5,
+                776.022947102,
+                1426.690590327
+              ],
+              "solid_count": 1,
+              "volume_mm3": 741.792138908
+            },
+            "role": "nut"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                124.9877,
+                144.0123,
+                765.585029127,
+                781.464862659,
+                1416.820898677,
+                1430.606278149
+              ],
+              "cad_shape_sha256": "050d053a0718451a2c0db3e728d036d130f64303f2ad6f3444fb5b5961d8e11d",
+              "centroid_global_xyz_mm": [
+                134.5,
+                773.524945893,
+                1423.713588413
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "nut_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                131.325,
+                137.675,
+                687.49951169,
+                790.324725656,
+                1322.050190039,
+                1442.877064463
+              ],
+              "cad_shape_sha256": "ea76b7a207dd5a4195cbb9129e75f46865fa04dad09abbfcbea7d4459b5d418e",
+              "centroid_global_xyz_mm": [
+                134.5,
+                738.912118673,
+                1382.463627251
+              ],
+              "solid_count": 1,
+              "volume_mm3": 4826.388738404
+            },
+            "role": "shaft"
+          }
+        ],
+        "receivers_head_to_nut": [
+          {
+            "member_id": "base_rail_service_upper_right",
+            "wood_thickness_mm": 38.1
+          },
+          {
+            "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+            "wood_thickness_mm": 88.9
+          }
+        ],
+        "role_count": 5,
+        "single_wood_shear_plane_global_xyz_mm": [
+          134.5,
+          715.728055158,
+          1354.833936284
+        ],
+        "stack_spec_id": "upper_rail_2",
+        "wood_grip_mm": 127.0,
+        "world_axis_direction_head_to_nut": [
+          0.0,
+          0.642787609929,
+          0.766044442915
+        ],
+        "world_axis_origin_datum": "wood-side head-seat centerline at the first wood layer plane; not the BoltStack.under_head_origin",
+        "world_axis_origin_xyz_mm": [
+          134.5,
+          691.23784722,
+          1325.647643009
+        ]
+      },
+      {
+        "hardware_status": "provisional catalog candidates only; delivered product and strength not verified",
+        "interface_id": "clip_horizontal_upper_right_1__principal_to_cleat",
+        "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+        "physical_hardware_roles": [
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                179.982,
+                184.1222,
+                739.952341532,
+                752.779341532,
+                1359.263685139,
+                1372.090685139
+              ],
+              "cad_shape_sha256": "cadba4469de42c6920cca80e980a7793c39a4ce5158767f029efd1c04d8cb2c8",
+              "centroid_global_xyz_mm": [
+                182.0521,
+                746.365841532,
+                1365.677185139
+              ],
+              "solid_count": 1,
+              "volume_mm3": 535.009374522
+            },
+            "role": "head"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                177.95,
+                179.982,
+                736.853541532,
+                755.878141532,
+                1356.164885139,
+                1375.189485139
+              ],
+              "cad_shape_sha256": "366edbc7b9b8f35f6594d103d795ff7ca2820d1334026a54eae1bd6c8c85ad71",
+              "centroid_global_xyz_mm": [
+                178.966,
+                746.365841532,
+                1365.677185139
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "head_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                43.1776,
+                48.918,
+                739.952341532,
+                752.779341532,
+                1359.263685139,
+                1372.090685139
+              ],
+              "cad_shape_sha256": "2afcf30797754fe4d6827e9d5789f44348f1a79a2ebe37c81c63e47906953423",
+              "centroid_global_xyz_mm": [
+                46.0478,
+                746.365841532,
+                1365.677185139
+              ],
+              "solid_count": 1,
+              "volume_mm3": 741.792138908
+            },
+            "role": "nut"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                48.918,
+                50.95,
+                736.853541532,
+                755.878141532,
+                1356.164885139,
+                1375.189485139
+              ],
+              "cad_shape_sha256": "032f4af867378ec60efcf5ce49a432230e08b37960b7ea4dcaf95c99f5c1c57c",
+              "centroid_global_xyz_mm": [
+                49.934,
+                746.365841532,
+                1365.677185139
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "nut_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                27.582,
+                179.982,
+                743.190841532,
+                749.540841532,
+                1362.502185139,
+                1368.852185139
+              ],
+              "cad_shape_sha256": "d41fe98772e6af3fa24fc4b355d1f56df37615742798d21012626491fb5a97f1",
+              "centroid_global_xyz_mm": [
+                103.782,
+                746.365841532,
+                1365.677185139
+              ],
+              "solid_count": 1,
+              "volume_mm3": 4826.388738404
+            },
+            "role": "shaft"
+          }
+        ],
+        "receivers_head_to_nut": [
+          {
+            "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+            "wood_thickness_mm": 88.9
+          },
+          {
+            "member_id": "base_principal_center_right",
+            "wood_thickness_mm": 38.1
+          }
+        ],
+        "role_count": 5,
+        "single_wood_shear_plane_global_xyz_mm": [
+          89.05,
+          746.365841532,
+          1365.677185139
+        ],
+        "stack_spec_id": "upper_principal_1",
+        "wood_grip_mm": 127.0,
+        "world_axis_direction_head_to_nut": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "world_axis_origin_datum": "wood-side head-seat centerline at the first wood layer plane; not the BoltStack.under_head_origin",
+        "world_axis_origin_xyz_mm": [
+          177.95,
+          746.365841532,
+          1365.677185139
+        ]
+      },
+      {
+        "hardware_status": "provisional catalog candidates only; delivered product and strength not verified",
+        "interface_id": "clip_horizontal_upper_right_1__principal_to_cleat",
+        "physical_bolt_id": "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2",
+        "physical_hardware_roles": [
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                179.982,
+                184.1222,
+                761.164332651,
+                773.991332651,
+                1384.543151762,
+                1397.370151762
+              ],
+              "cad_shape_sha256": "5423869986674d92d8f31d248a71995d2ed82cadcaa1e14f1097a6c41cf87ac8",
+              "centroid_global_xyz_mm": [
+                182.0521,
+                767.577832651,
+                1390.956651762
+              ],
+              "solid_count": 1,
+              "volume_mm3": 535.009374522
+            },
+            "role": "head"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                177.95,
+                179.982,
+                758.065532651,
+                777.090132651,
+                1381.444351762,
+                1400.468951762
+              ],
+              "cad_shape_sha256": "f00f9e78d30a619003836e5c3e3051e908d9178405dad1d9ca56f0cd0e0e0e9e",
+              "centroid_global_xyz_mm": [
+                178.966,
+                767.577832651,
+                1390.956651762
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "head_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                43.1776,
+                48.918,
+                761.164332651,
+                773.991332651,
+                1384.543151762,
+                1397.370151762
+              ],
+              "cad_shape_sha256": "7889ead02ef52a3e52413376f5b5715e2d279182a69776ad86ab4b90d64deeaa",
+              "centroid_global_xyz_mm": [
+                46.0478,
+                767.577832651,
+                1390.956651762
+              ],
+              "solid_count": 1,
+              "volume_mm3": 741.792138908
+            },
+            "role": "nut"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                48.918,
+                50.95,
+                758.065532651,
+                777.090132651,
+                1381.444351762,
+                1400.468951762
+              ],
+              "cad_shape_sha256": "91dd7bf48bad389695c1869f5f42742087f115bf4ccdc2dc41ba7fd0dd5286e9",
+              "centroid_global_xyz_mm": [
+                49.934,
+                767.577832651,
+                1390.956651762
+              ],
+              "solid_count": 1,
+              "volume_mm3": 480.581673905
+            },
+            "role": "nut_washer"
+          },
+          {
+            "cad_shape": {
+              "bounds_xyz_mm": [
+                27.582,
+                179.982,
+                764.402832651,
+                770.752832651,
+                1387.781651762,
+                1394.131651762
+              ],
+              "cad_shape_sha256": "625f2daadbf94783dfd2c0eb64dd656a2e13c05aa93dde4cefa6173f4556a07d",
+              "centroid_global_xyz_mm": [
+                103.782,
+                767.577832651,
+                1390.956651762
+              ],
+              "solid_count": 1,
+              "volume_mm3": 4826.388738404
+            },
+            "role": "shaft"
+          }
+        ],
+        "receivers_head_to_nut": [
+          {
+            "member_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+            "wood_thickness_mm": 88.9
+          },
+          {
+            "member_id": "base_principal_center_right",
+            "wood_thickness_mm": 38.1
+          }
+        ],
+        "role_count": 5,
+        "single_wood_shear_plane_global_xyz_mm": [
+          89.05,
+          767.577832651,
+          1390.956651762
+        ],
+        "stack_spec_id": "upper_principal_2",
+        "wood_grip_mm": 127.0,
+        "world_axis_direction_head_to_nut": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "world_axis_origin_datum": "wood-side head-seat centerline at the first wood layer plane; not the BoltStack.under_head_origin",
+        "world_axis_origin_xyz_mm": [
+          177.95,
+          767.577832651,
+          1390.956651762
+        ]
+      }
+    ],
+    "wood_bodies": [
+      {
+        "cut_feature_metadata": {
+          "applied_candidate_cut_ids": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "panel_purchase/round_panel_lower_right_service_1",
+            "panel_purchase/round_panel_lower_right_service_2",
+            "round_panel_lower_right_service_1",
+            "round_panel_lower_right_service_2",
+            "service/22/bore_base_rail_service_lower_right_078",
+            "service/23/bore_base_rail_service_lower_right_090",
+            "service/24/bore_base_rail_service_lower_right_102",
+            "service/25/bore_base_rail_service_lower_right_114",
+            "service/26/bore_base_rail_service_lower_right_126"
+          ],
+          "native_source_cut_ids": [
+            "clip_horizontal_lower_right_1_beam_1",
+            "clip_horizontal_lower_right_1_beam_2",
+            "clip_horizontal_lower_right_1_beam_3",
+            "clip_horizontal_lower_right_2_beam_1",
+            "clip_horizontal_lower_right_2_beam_2",
+            "clip_horizontal_lower_right_2_beam_3",
+            "round_panel_lower_right_service_1",
+            "round_panel_lower_right_service_2",
+            "service/22/bore_base_rail_service_lower_right_078",
+            "service/23/bore_base_rail_service_lower_right_090",
+            "service/24/bore_base_rail_service_lower_right_102",
+            "service/25/bore_base_rail_service_lower_right_114",
+            "service/26/bore_base_rail_service_lower_right_126"
+          ],
+          "purchased_panel_receiver_axis_ids": [
+            "panel_purchase/round_panel_lower_right_service_1",
+            "panel_purchase/round_panel_lower_right_service_2"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "finished_geometry": {
+          "bounds_xyz_mm": [
+            89.05,
+            1127.125,
+            577.999394262,
+            709.506010895,
+            1142.824637718,
+            1261.808360075
+          ],
+          "cad_shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc",
+          "centroid_global_xyz_mm": [
+            607.970143949,
+            643.754118237,
+            1202.315311018
+          ],
+          "solid_count": 1,
+          "volume_mm3": 5300088.326703412
+        },
+        "grain_frame": {
+          "basis_source": "canonical source-inventory local transform, axes, and grain vector",
+          "frame_origin_global_xyz_mm": [
+            89.05,
+            709.50601089486,
+            1172.010931001319
+          ],
+          "grain_axis_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "grain_axis_local_name": "X",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443119,
+              0.642787609687
+            ],
+            "T": [
+              0.0,
+              0.642787609687,
+              0.766044443119
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "part_id": "base_rail_service_lower_right"
+      },
+      {
+        "cut_feature_metadata": {
+          "applied_candidate_cut_ids": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "panel_purchase/round_panel_upper_right_service_1",
+            "panel_purchase/round_panel_upper_right_service_2",
+            "round_panel_upper_right_service_1",
+            "round_panel_upper_right_service_2",
+            "service/27/bore_base_rail_service_upper_right_079",
+            "service/28/bore_base_rail_service_upper_right_089",
+            "service/29/bore_base_rail_service_upper_right_103",
+            "service/30/bore_base_rail_service_upper_right_113",
+            "service/31/bore_base_rail_service_upper_right_127"
+          ],
+          "native_source_cut_ids": [
+            "clip_horizontal_upper_right_1_beam_1",
+            "clip_horizontal_upper_right_1_beam_2",
+            "clip_horizontal_upper_right_1_beam_3",
+            "clip_horizontal_upper_right_2_beam_1",
+            "clip_horizontal_upper_right_2_beam_2",
+            "clip_horizontal_upper_right_2_beam_3",
+            "round_panel_upper_right_service_1",
+            "round_panel_upper_right_service_2",
+            "service/27/bore_base_rail_service_upper_right_079",
+            "service/28/bore_base_rail_service_upper_right_089",
+            "service/29/bore_base_rail_service_upper_right_103",
+            "service/30/bore_base_rail_service_upper_right_113",
+            "service/31/bore_base_rail_service_upper_right_127"
+          ],
+          "purchased_panel_receiver_axis_ids": [
+            "panel_purchase/round_panel_upper_right_service_1",
+            "panel_purchase/round_panel_upper_right_service_2"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "finished_geometry": {
+          "bounds_xyz_mm": [
+            89.05,
+            1127.125,
+            670.592949437,
+            802.09956607,
+            1253.17333975,
+            1372.157062106
+          ],
+          "cad_shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979",
+          "centroid_global_xyz_mm": [
+            607.970143949,
+            736.35565303,
+            1312.657317355
+          ],
+          "solid_count": 1,
+          "volume_mm3": 5300088.326703394
+        },
+        "grain_frame": {
+          "basis_source": "canonical source-inventory local transform, axes, and grain vector",
+          "frame_origin_global_xyz_mm": [
+            89.05,
+            777.609358141149,
+            1253.173339749775
+          ],
+          "grain_axis_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "grain_axis_local_name": "X",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443119,
+              0.642787609687
+            ],
+            "T": [
+              0.0,
+              0.642787609687,
+              0.766044443119
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "part_id": "base_rail_service_upper_right"
+      },
+      {
+        "cut_feature_metadata": {
+          "applied_candidate_cut_ids": [
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3",
+            "panel_purchase/round_panel_lower_right_center_1",
+            "panel_purchase/round_panel_lower_right_center_2",
+            "panel_purchase/round_panel_lower_right_center_3",
+            "panel_purchase/round_panel_lower_right_center_4",
+            "panel_purchase/round_panel_upper_right_center_1",
+            "panel_purchase/round_panel_upper_right_center_2",
+            "panel_purchase/round_panel_upper_right_center_3",
+            "panel_purchase/round_panel_upper_right_center_4",
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4",
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4",
+            "service/1/bore_base_principal_center_right_072"
+          ],
+          "native_source_cut_ids": [
+            "clip_horizontal_bottom_right_1_upright_1",
+            "clip_horizontal_bottom_right_1_upright_2",
+            "clip_horizontal_bottom_right_1_upright_3",
+            "clip_horizontal_lower_right_1_upright_1",
+            "clip_horizontal_lower_right_1_upright_2",
+            "clip_horizontal_lower_right_1_upright_3",
+            "clip_horizontal_upper_right_1_upright_1",
+            "clip_horizontal_upper_right_1_upright_2",
+            "clip_horizontal_upper_right_1_upright_3",
+            "clip_split_base_center_right_upright_1",
+            "clip_split_base_center_right_upright_2",
+            "clip_split_base_center_right_upright_3",
+            "clip_split_top_center_right_upright_1",
+            "clip_split_top_center_right_upright_2",
+            "clip_split_top_center_right_upright_3",
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4",
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4",
+            "service/1/bore_base_principal_center_right_072"
+          ],
+          "purchased_panel_receiver_axis_ids": [
+            "panel_purchase/round_panel_lower_right_center_1",
+            "panel_purchase/round_panel_lower_right_center_2",
+            "panel_purchase/round_panel_lower_right_center_3",
+            "panel_purchase/round_panel_lower_right_center_4",
+            "panel_purchase/round_panel_upper_right_center_1",
+            "panel_purchase/round_panel_upper_right_center_2",
+            "panel_purchase/round_panel_upper_right_center_3",
+            "panel_purchase/round_panel_upper_right_center_4"
+          ],
+          "source_reconstruction": {
+            "matches_source_finished_member": true,
+            "symmetric_difference_mm3": 0.0
+          }
+        },
+        "finished_geometry": {
+          "bounds_xyz_mm": [
+            50.95,
+            89.05,
+            -182.7,
+            1511.094299554,
+            277.0,
+            2217.104082866
+          ],
+          "cad_shape_sha256": "4ec409ec4e8c760b20424248ab03071aa6f0dec0cbe58cfdf6d9d3d937b446d8",
+          "centroid_global_xyz_mm": [
+            69.999586677,
+            666.976910972,
+            1230.574574639
+          ],
+          "solid_count": 1,
+          "volume_mm3": 13064473.889421383
+        },
+        "grain_frame": {
+          "basis_source": "canonical source-inventory local transform, axes, and grain vector",
+          "frame_origin_global_xyz_mm": [
+            50.95,
+            -41.497331207981,
+            277.0
+          ],
+          "grain_axis_global_xyz": [
+            0.0,
+            0.642787609687,
+            0.766044443119
+          ],
+          "grain_axis_local_name": "T",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443119,
+              0.642787609687
+            ],
+            "T": [
+              0.0,
+              0.642787609687,
+              0.766044443119
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "part_id": "base_principal_center_right"
+      },
+      {
+        "cut_feature_metadata": {
+          "producer_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+          "purchased_panel_receiver_axis_ids": [],
+          "right_g7_candidate_bore_axis_ids": [
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2"
+          ]
+        },
+        "finished_geometry": {
+          "bounds_xyz_mm": [
+            89.05,
+            177.95,
+            602.489602232,
+            751.328940574,
+            1184.866683462,
+            1329.909711335
+          ],
+          "cad_shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1",
+          "centroid_global_xyz_mm": [
+            133.491556566,
+            676.909000036,
+            1257.387873996
+          ],
+          "solid_count": 1,
+          "volume_mm3": 930304.310236643
+        },
+        "grain_frame": {
+          "basis_source": "pinned WJ04 full-stock G7 cleat datum and X/T/N frame",
+          "frame_origin_global_xyz_mm": [
+            89.05,
+            694.185122073,
+            1184.866683462
+          ],
+          "grain_axis_global_xyz": [
+            0.0,
+            -0.766044443119,
+            0.642787609687
+          ],
+          "grain_axis_local_name": "N",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443119,
+              0.642787609687
+            ],
+            "T": [
+              0.0,
+              0.642787609687,
+              0.766044443119
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "part_id": "wj04_lower_full_stock_cleat"
+      },
+      {
+        "cut_feature_metadata": {
+          "declared_crosscut": {
+            "nominal_N_dimension_mm": 86.9,
+            "source": "pinned upper G7 full-stock producer; dimension/keepout input only"
+          },
+          "producer_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+          "purchased_panel_receiver_axis_ids": [],
+          "right_g7_candidate_bore_axis_ids": [
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2"
+          ]
+        },
+        "finished_geometry": {
+          "bounds_xyz_mm": [
+            89.05,
+            177.95,
+            695.083157407,
+            818.796238015,
+            1316.298819091,
+            1440.258413366
+          ],
+          "cad_shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee",
+          "centroid_global_xyz_mm": [
+            133.488295025,
+            756.93932152,
+            1378.278167902
+          ],
+          "solid_count": 1,
+          "volume_mm3": 671079.022236643
+        },
+        "grain_frame": {
+          "basis_source": "pinned WJ04 full-stock G7 cleat datum and X/T/N frame",
+          "frame_origin_global_xyz_mm": [
+            89.05,
+            761.652419514,
+            1316.298819091
+          ],
+          "grain_axis_global_xyz": [
+            0.0,
+            -0.766044443119,
+            0.642787609687
+          ],
+          "grain_axis_local_name": "N",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443119,
+              0.642787609687
+            ],
+            "T": [
+              0.0,
+              0.642787609687,
+              0.766044443119
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "part_id": "wj04_upper_g7_crosscut_full_stock_cleat"
+      }
+    ],
+    "wood_interfaces": [
+      {
+        "candidate_cleat_face": {
+          "area_basis": "sum of coplanar planar faces on the already-composed finished cleat; includes represented bore/crosscut removal if present",
+          "composed_finished_planar_area_mm2": 10552.972707,
+          "part_id": "wj04_lower_full_stock_cleat",
+          "plane_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "contact_law_assigned": false,
+        "finite_paired_overlap_surface": {
+          "reason": "The frozen manifest authenticates opposed planar datums and cleat face area, but this export step does not compute a finite OCC face intersection, gap, or active pressure patch.",
+          "status": "unresolved_not_extracted"
+        },
+        "interface_id": "clip_horizontal_lower_right_1__principal_to_cleat",
+        "members_head_to_nut": [
+          "wj04_lower_full_stock_cleat",
+          "base_principal_center_right"
+        ],
+        "physical_bolt_ids": [
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2"
+        ],
+        "shear_plane_datum": {
+          "location_basis": "axis origin plus first head-to-nut layer thickness",
+          "normal_head_to_nut_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "origin_global_xyz_mm": [
+            89.05,
+            666.335415223,
+            1244.786766309
+          ]
+        },
+        "source_host_face": {
+          "center_global_xyz_mm": [
+            89.05,
+            664.396375,
+            1227.508854
+          ],
+          "normal_global_xyz": [
+            1.0,
+            0.0,
+            -0.0
+          ],
+          "part_id": "base_principal_center_right",
+          "shear_plane_separation_mm": 0.0,
+          "source_inventory_planar_face_id": "planar_face_07"
+        }
+      },
+      {
+        "candidate_cleat_face": {
+          "area_basis": "sum of coplanar planar faces on the already-composed finished cleat; includes represented bore/crosscut removal if present",
+          "composed_finished_planar_area_mm2": 10552.972707,
+          "part_id": "wj04_lower_full_stock_cleat",
+          "plane_normal_global_xyz": [
+            0.0,
+            -0.642787609929,
+            -0.766044442915
+          ]
+        },
+        "contact_law_assigned": false,
+        "finite_paired_overlap_surface": {
+          "reason": "The frozen manifest authenticates opposed planar datums and cleat face area, but this export step does not compute a finite OCC face intersection, gap, or active pressure patch.",
+          "status": "unresolved_not_extracted"
+        },
+        "interface_id": "clip_horizontal_lower_right_1__rail_to_cleat",
+        "members_head_to_nut": [
+          "wj04_lower_full_stock_cleat",
+          "base_rail_service_lower_right"
+        ],
+        "physical_bolt_ids": [
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2"
+        ],
+        "shear_plane_datum": {
+          "location_basis": "axis origin plus first head-to-nut layer thickness",
+          "normal_head_to_nut_global_xyz": [
+            0.0,
+            -0.642787609929,
+            -0.766044442915
+          ],
+          "origin_global_xyz_mm": [
+            134.5,
+            660.977095442,
+            1212.73152636
+          ]
+        },
+        "source_host_face": {
+          "center_global_xyz_mm": [
+            608.0875,
+            655.997807,
+            1216.909646
+          ],
+          "normal_global_xyz": [
+            -0.0,
+            0.642787609687,
+            0.766044443119
+          ],
+          "part_id": "base_rail_service_lower_right",
+          "shear_plane_separation_mm": 2.3e-07,
+          "source_inventory_planar_face_id": "planar_face_04"
+        }
+      },
+      {
+        "candidate_cleat_face": {
+          "area_basis": "sum of coplanar planar faces on the already-composed finished cleat; includes represented bore/crosscut removal if present",
+          "composed_finished_planar_area_mm2": 7637.052707,
+          "part_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "plane_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ]
+        },
+        "contact_law_assigned": false,
+        "finite_paired_overlap_surface": {
+          "reason": "The frozen manifest authenticates opposed planar datums and cleat face area, but this export step does not compute a finite OCC face intersection, gap, or active pressure patch.",
+          "status": "unresolved_not_extracted"
+        },
+        "interface_id": "clip_horizontal_upper_right_1__principal_to_cleat",
+        "members_head_to_nut": [
+          "wj04_upper_g7_crosscut_full_stock_cleat",
+          "base_principal_center_right"
+        ],
+        "physical_bolt_ids": [
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
+        ],
+        "shear_plane_datum": {
+          "location_basis": "axis origin plus first head-to-nut layer thickness",
+          "normal_head_to_nut_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "origin_global_xyz_mm": [
+            89.05,
+            746.365841532,
+            1365.677185139
+          ]
+        },
+        "source_host_face": {
+          "center_global_xyz_mm": [
+            89.05,
+            664.396375,
+            1227.508854
+          ],
+          "normal_global_xyz": [
+            1.0,
+            0.0,
+            -0.0
+          ],
+          "part_id": "base_principal_center_right",
+          "shear_plane_separation_mm": 0.0,
+          "source_inventory_planar_face_id": "planar_face_07"
+        }
+      },
+      {
+        "candidate_cleat_face": {
+          "area_basis": "sum of coplanar planar faces on the already-composed finished cleat; includes represented bore/crosscut removal if present",
+          "composed_finished_planar_area_mm2": 7637.052707,
+          "part_id": "wj04_upper_g7_crosscut_full_stock_cleat",
+          "plane_normal_global_xyz": [
+            -0.0,
+            -0.642787609929,
+            -0.766044442915
+          ]
+        },
+        "contact_law_assigned": false,
+        "finite_paired_overlap_surface": {
+          "reason": "The frozen manifest authenticates opposed planar datums and cleat face area, but this export step does not compute a finite OCC face intersection, gap, or active pressure patch.",
+          "status": "unresolved_not_extracted"
+        },
+        "interface_id": "clip_horizontal_upper_right_1__rail_to_cleat",
+        "members_head_to_nut": [
+          "base_rail_service_upper_right",
+          "wj04_upper_g7_crosscut_full_stock_cleat"
+        ],
+        "physical_bolt_ids": [
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2"
+        ],
+        "shear_plane_datum": {
+          "location_basis": "axis origin plus first head-to-nut layer thickness",
+          "normal_head_to_nut_global_xyz": [
+            0.0,
+            0.642787609929,
+            0.766044442915
+          ],
+          "origin_global_xyz_mm": [
+            134.5,
+            741.007521781,
+            1333.621945164
+          ]
+        },
+        "source_host_face": {
+          "center_global_xyz_mm": [
+            608.0875,
+            748.591362,
+            1327.258348
+          ],
+          "normal_global_xyz": [
+            -0.0,
+            0.642787609687,
+            0.766044443119
+          ],
+          "part_id": "base_rail_service_upper_right",
+          "shear_plane_separation_mm": 2.3e-07,
+          "source_inventory_planar_face_id": "planar_face_04"
+        }
+      }
+    ]
+  },
+  "limits": "Finished geometry mesh preparation only; no material, contact, interface tie, load, native solve, strength result, or release claim.",
+  "mesh_worker_source_sha256": {
+    "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+    "fea/stitch_joint_mesh.py": "9e7bdd4467457cade47f1464e8a3b17cfde69ebb5729719787dd9218011b166e",
+    "fea/wood_joint_patch_mesh.py": "c64747a92070464634eafedc4c3cd42bbe556dc3ad1d5ad69caa5e0449a89420",
+    "scripts/wood_joint_wj04_patch_geometry.py": "8e08dbeb739b267d6c4bf1af372a769ac39867ae397e180656f10dfe72d41994"
+  },
+  "runtime": {
+    "python": "3.12.3"
+  },
+  "schema": "wood_joint_patch_mesh/v1",
+  "solved": false,
+  "status": "FAILED_MESH_PREPARATION_NO_SOLVER"
+}

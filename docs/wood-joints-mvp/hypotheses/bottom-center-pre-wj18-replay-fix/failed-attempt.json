@@ -1,0 +1,20 @@
+{
+  "schema": "wood_joint_bottom_center_failed_attempt/v1",
+  "attempt_date": "2026-09-24",
+  "producer_sha256": "ade0a787e375f6c08976b7d162d05c345d123727a100b516158828f0ed9747e8",
+  "tests_sha256": "edd1672cb4bded727e35924b6051cf70d70eb2e9e1a6ee359206d092435fc886",
+  "retained_geometry": {
+    "layout_id": "wj18-eighteen-duty-integrated-static-v1",
+    "trial_id": "wj18-wj16-plus-top-outer-v1",
+    "composition_sha256": "b7367196e8aeab5d5b81cb6000583571cfc552d30490e86cda4b78768dd40b42"
+  },
+  "stopped_at": "_candidate_host_previews retained-host reconstruction",
+  "host_id": "base_principal_center_left",
+  "retained_replay_symmetric_difference_mm3": 10090.034566930073,
+  "finding": "Replay used the complete canonical native source cutter map, which reintroduced source SDS cutters already removed by WJ18. The retained g18 host must be reconstructed from its applied source cutter map, respecting g18.replaced_source_cutter_ids, plus its retained candidate bores.",
+  "additional_state_contract": "Bottom-rail source-plus-purchase overlays are held in additional_finished_source_parts and do not include retained candidate bores. The retained WJ18 bottom-rail host state must be checked separately against finished_hosts; do not use the source-only overlay as the complete retained host.",
+  "diagnostic_report_produced": false,
+  "native_solver_run": false,
+  "geometry_or_layout_changed": false,
+  "disposition": "superseded producer snapshot; retained for audit"
+}

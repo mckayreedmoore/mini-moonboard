@@ -1,0 +1,54 @@
+import json
+from pathlib import Path
+from itertools import combinations
+final_dir=Path('docs/wood-joints-mvp/hypotheses/kicker-block-review-2026-09-24')
+final_dir.mkdir(exist_ok=True)
+g=g24_final_blocks
+woods={**g.finished_hosts,**g.finished_candidate_parts,**g.panel_replacements}
+new_axes=set(center_header_report['target_axis_ids'])|set(inner_frame.SIDE_AXIS_IDS)|set(inner_frame.VERTICAL_AXIS_IDS.values())
+geo_checks={'bolt_receivers':{},'hardware_wood_hits':[],'hardware_pair_hits':[],'central_block_contacts':{}}
+for axis in sorted(new_axes):
+    bore=g.candidate_bores[axis]
+    roles=g.candidate_installed_hardware[axis]
+    row={}
+    for receiver in bore.receiver_ids:
+        raw={**g.raw_hosts,**g.raw_candidate_parts}[receiver]
+        raw_overlap=raw.intersect(roles['shaft']).Volume()
+        finished_overlap=woods[receiver].intersect(roles['shaft']).Volume()
+        assert raw_overlap>1 and finished_overlap<1e-4,(axis,receiver,raw_overlap,finished_overlap)
+        row[receiver]={'raw_shaft_occupation_mm3':raw_overlap,'finished_shaft_overlap_mm3':finished_overlap}
+    geo_checks['bolt_receivers'][axis]=row
+    for role,shape in roles.items():
+        for name,wood in woods.items():
+            if not above_bbox_overlap(shape,wood):continue
+            vol=shape.intersect(wood).Volume()
+            if vol>1e-4:geo_checks['hardware_wood_hits'].append({'axis':axis,'role':role,'wood':name,'mm3':vol})
+for a,b in combinations(sorted(new_axes),2):
+    for ra,sa in g.candidate_installed_hardware[a].items():
+        for rb,sb in g.candidate_installed_hardware[b].items():
+            if not above_bbox_overlap(sa,sb):continue
+            vol=sa.intersect(sb).Volume()
+            if vol>1e-4:geo_checks['hardware_pair_hits'].append({'a':f'{a}/{ra}','b':f'{b}/{rb}','mm3':vol})
+for side in ['left','right']:
+    block=g.finished_candidate_parts[f'center_principal_cleat_{side}']
+    for receiver in ['base_header',f'base_principal_center_{side}']:
+        host=g.finished_hosts[receiver]
+        vol,gap=block.intersect(host).Volume(),block.distance(host)
+        assert vol<1e-4 and gap<1e-4
+        geo_checks['central_block_contacts'][f'{side}/{receiver}']={'mm3':vol,'gap_mm':gap}
+changed_parts=set(lower_blocks.TARGET_PART_IDS)|set(support_up.MOVING_PART_IDS)|set(center_header.TARGET_PARTS)|set(final_blocks_report['block_ids_by_side'].values())|{'center_post_cleat_left','center_post_cleat_right'}
+changed_shapes={k:g.finished_candidate_parts[k] for k in changed_parts}
+changed_shapes.update({k:g.finished_hosts[k] for k in set(support_up.MOVED_RAIL_IDS)|{'base_post_center_left','base_post_center_right'}})
+pool={f'wood/{k}':v for k,v in woods.items()}
+for group in ['tnuts','hold_hole_and_provisional_projection','lights','wires']:
+    pool.update({f'{group}/{k}':v for k,v in g.protected[group].items()})
+hits=[]
+for name,shape in changed_shapes.items():
+    for neighbor,other in pool.items():
+        if neighbor==f'wood/{name}' or not above_bbox_overlap(shape,other):continue
+        vol=shape.intersect(other).Volume()
+        if vol>1e-4:hits.append({'part':name,'neighbor':neighbor,'mm3':round(vol,6)})
+geo_checks['neighbor_hits']=hits
+geo_checks['scope']='Basic modeled solid/axis checks only; no joint, capacity or assembly-access evaluation.'
+(final_dir/'geometry-checks.json').write_text(json.dumps(geo_checks,indent=2)+'\n')
+print('FINAL_GEOMETRY',json.dumps(geo_checks),flush=True)

@@ -1,0 +1,31 @@
+import hashlib
+import json
+import time
+import traceback
+from pathlib import Path
+from scripts import wood_joint_wj24_patch_reconciliation as reconciliation24
+
+export_record_dir = Path('/tmp/wj24-patch-export-20260924-attempt01')
+export_record_dir.mkdir(exist_ok=False)
+export_sources = [Path(reconciliation24.__file__), Path('tests/test_wood_joint_wj24_patch_reconciliation.py')]
+export_source_pins = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in export_sources}
+assert export_source_pins[str(export_sources[0])] == '314bd2ebaad301f4a82eb6a6adcadaf18241ae61718b0f3e6490ba22032d280b'
+assert export_source_pins[str(export_sources[1])] == 'dbdf838a495b88bf3a0395673fa53ffb5f9fec092f436c07bc59ad5c49a62e67'
+for p in export_sources:
+    (export_record_dir / (p.name + '.snapshot')).write_bytes(p.read_bytes())
+export_execution = {'source_sha256_before': export_source_pins, 'native_solve_run': False, 'mesh_run': False, 'release': False, 'includes_G7_relief_variant': False}
+export_start = time.monotonic()
+try:
+    export_result24 = reconciliation24.export_wj24_representative_patch(g16, g24, 'fea/results/diagnostics/wj24-baseline-patch-geometry-v1')
+    export_execution.update(status='diagnostic_export_completed', result=export_result24)
+except Exception:
+    export_execution['status'] = 'failed'
+    export_execution['traceback'] = traceback.format_exc()
+    (export_record_dir / 'traceback.txt').write_text(export_execution['traceback'])
+    print(export_execution['traceback'], flush=True)
+finally:
+    export_execution['elapsed_seconds'] = time.monotonic() - export_start
+    export_execution['source_sha256_after'] = {str(p): hashlib.sha256(p.read_bytes()).hexdigest() for p in export_sources}
+    export_execution['source_unchanged'] = export_execution['source_sha256_after'] == export_source_pins
+    (export_record_dir / 'execution.json').write_text(json.dumps(export_execution, indent=2, sort_keys=True) + '\n')
+    print('WJ24_PATCH_EXPORT', json.dumps(export_execution), flush=True)

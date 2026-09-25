@@ -1,0 +1,18 @@
+{
+  "elapsed_seconds": 1.2613100460002897,
+  "native_solve_run": false,
+  "producer_hashes_after": {
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py": "bef30f24272c11267db7c7dc5d10ab73d23d48320db2e53a7f70c4f1bd9262ee",
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_diagnostic.py": "89ed21548eb4cbd736412f75bf56df9a24f6f23f9afa32dd40b0fd4eae3b4b07",
+    "tests/test_wood_joint_wj24_compositor.py": "6d036c4404636a9cf193730edecea931b0cd33068ef42b95778423e8fdae8454"
+  },
+  "producer_hashes_before": {
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py": "bef30f24272c11267db7c7dc5d10ab73d23d48320db2e53a7f70c4f1bd9262ee",
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_diagnostic.py": "89ed21548eb4cbd736412f75bf56df9a24f6f23f9afa32dd40b0fd4eae3b4b07",
+    "tests/test_wood_joint_wj24_compositor.py": "6d036c4404636a9cf193730edecea931b0cd33068ef42b95778423e8fdae8454"
+  },
+  "producer_hashes_unchanged": true,
+  "release": false,
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 17, in <module>\n  File \"/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py\", line 951, in compose_wj24_geometry\n    _validate_wj18_cut_maps(g18, applied_cutters, new_source_cutter_ids)\n  File \"/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py\", line 671, in _validate_wj18_cut_maps\n    _same_shape_map(\n  File \"/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_compositor.py\", line 370, in _same_shape_map\n    raise ValueError(f\"{context}: exact cutter IDs differ\")\nValueError: retained WJ18 applied source cutters/base_side_left: exact cutter IDs differ\n"
+}

@@ -1,0 +1,28 @@
+import hashlib,json
+from pathlib import Path
+root=Path.cwd()
+reference_path=root/'docs/led-wiring-reference.json'
+reference=json.loads(reference_path.read_text())
+order=reference['routing']['order'];assert len(order)==132 and len(set(order))==132
+panels={row['part_id']:row for row in g18.source_inventory['parts'] if row['part_id'].startswith('main_')}
+assert len(panels)==4
+ownership={}
+for label in order:
+    point=g18.protected['lights']['light_'+label].Center().toTuple()
+    matches=[]
+    for name,row in panels.items():
+        matrix=row['local_to_global_transform'];delta=[point[i]-matrix[i][3] for i in range(3)]
+        local={axis:sum(delta[i]*matrix[i][j] for i in range(3)) for j,axis in enumerate(('X','T','N'))}
+        if all(row['actual_shape_extents_local_mm'][a][0]-1e-6<=local[a]<=row['actual_shape_extents_local_mm'][a][1]+1e-6 for a in ('X','T')):matches.append(name)
+    assert len(matches)==1,(label,matches)
+    ownership[label]=matches[0]
+connector_indices={r['last_installed_index'] for r in reference['routing']['boundaries'][:-1]}
+edges=[]
+for index,(first,last) in enumerate(zip(order,order[1:]),1):
+    if ownership[first]!=ownership[last]:
+        wire=f'wire_{index:03d}_{first}_{last}'
+        assert wire in g18.protected['wires']
+        edges.append({'wire_id':wire,'index':index,'labels':[first,last],'panel_pair':[ownership[first],ownership[last]],'factory_string_boundary':index in connector_indices})
+report={'status':'panel_harness_connectivity_investigation_only','layout_id':g18.layout_id,'trial_id':g18.trial_id,'source_inventory_sha256':g18.source_inventory_sha256,'routing_reference_sha256':hashlib.sha256(reference_path.read_bytes()).hexdigest(),'producer_sha256':hashlib.sha256(Path('/tmp/wj18-panel-harness-topology.py').read_bytes()).hexdigest(),'assignment_method':'project each retained LED solid centroid into canonical panel local X/T rectangle; require exactly one main panel','panel_led_counts':{p:sum(v==p for v in ownership.values()) for p in sorted(panels)},'fixed_led_owner_by_label':ownership,'cross_panel_wire_count':len(edges),'cross_panel_wires':edges,'factory_string_boundaries':[{'index':i,'labels':order[i-1:i+1],'panel_pair':[ownership[order[i-1]],ownership[order[i]]]} for i in sorted(connector_indices)],'factory_disconnects_isolate_main_panels':not any(not r['factory_string_boundary'] for r in edges),'physical_disconnect_or_removal_proven':False,'wire_cuts_or_electrical_modifications_authorized':False,'release':False}
+Path('/tmp/wj18-panel-harness-topology.json').write_text(json.dumps(report,indent=2,sort_keys=True)+'\n')
+print(json.dumps({k:report[k] for k in ['panel_led_counts','cross_panel_wire_count','cross_panel_wires','factory_string_boundaries']}),flush=True)

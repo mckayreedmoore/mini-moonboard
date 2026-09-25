@@ -1,0 +1,17 @@
+{
+  "baseline_composition_exactly_reproduced": true,
+  "elapsed_seconds": 0.22062121098861098,
+  "native_solve_run": false,
+  "producer_sha256_after": {
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_access_relief_probe.py": "d57b0df75eac128e494267be8642090471060b3d6dcbbeb9635665ffa4870eaf",
+    "tests/test_wood_joint_wj24_access_relief_probe.py": "0b67e5b8ad5bf1cbf809e55e8fc08fc74e2dceb33485183dc5df5f5843dd0a46"
+  },
+  "producer_sha256_before": {
+    "/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_access_relief_probe.py": "d57b0df75eac128e494267be8642090471060b3d6dcbbeb9635665ffa4870eaf",
+    "tests/test_wood_joint_wj24_access_relief_probe.py": "0b67e5b8ad5bf1cbf809e55e8fc08fc74e2dceb33485183dc5df5f5843dd0a46"
+  },
+  "release": false,
+  "source_unchanged": true,
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/tmp/run-wj24-relief-resume-20260924.py\", line 20, in <module>\n    access_relief_report = access_relief.build_wj24_access_relief_report(g24)\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_access_relief_probe.py\", line 1666, in build_wj24_access_relief_report\n    identity = _validate_geometry(geometry)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_access_relief_probe.py\", line 236, in _validate_geometry\n    source_identity = _validate_source_identity(geometry)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/mckay-linux/repos/mini-moonboard/scripts/wood_joint_wj24_access_relief_probe.py\", line 350, in _validate_source_identity\n    raise ValueError(\"WJ24 retained family fingerprints and trials are incomplete\")\nValueError: WJ24 retained family fingerprints and trials are incomplete\n"
+}

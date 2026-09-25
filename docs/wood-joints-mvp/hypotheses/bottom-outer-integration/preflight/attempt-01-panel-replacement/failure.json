@@ -1,0 +1,25 @@
+{
+  "attempt": "attempt-01-panel-replacement",
+  "context_variant": "wj18",
+  "phase": "preflight_before_candidate_geometry",
+  "cad_materialization_started": false,
+  "producer_sha256": "2ca6cabbb277fc823e08e7850dbc938497bd0db0733be24c970bd66e109fabe8",
+  "failure": {
+    "gate": "exact parent panel replacement map",
+    "observed_panel_replacements": [
+      "kicker_right",
+      "main_lower_right",
+      "main_upper_right"
+    ],
+    "incorrect_expected_panel_replacements": [
+      "kicker_left",
+      "kicker_right",
+      "main_lower_left",
+      "main_lower_right",
+      "main_upper_left",
+      "main_upper_right"
+    ],
+    "reason": "The retained WJ18 composition overrides the three right panels; the three canonical left panels remain in the full source scene."
+  },
+  "correction": "Require exactly the three right-side overrides for WJ16 and WJ18, then preserve all six panels in the assembled full scene."
+}

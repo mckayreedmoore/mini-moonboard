@@ -1,0 +1,19 @@
+import json,hashlib,time,traceback
+from pathlib import Path
+led_attempt=Path('/tmp/wj24-led-extraction-attempt-01');led_attempt.mkdir(exist_ok=False)
+led_script=Path('/tmp/wj24-led-extraction-probe.py');(led_attempt/'producer.py.snapshot').write_bytes(led_script.read_bytes())
+led_execution={'producer_sha256':hashlib.sha256(led_script.read_bytes()).hexdigest(),'native_solve_run':False,'release':False}
+led_started=time.monotonic()
+try:
+ exec(led_script.read_text())
+ (led_attempt/'geometry.json').write_bytes(Path('/tmp/wj24-led-extraction-probe.json').read_bytes())
+ led_execution['status']='diagnostic_completed'
+except Exception:
+ led_execution['status']='failed';led_execution['traceback']=traceback.format_exc()
+ (led_attempt/'traceback.txt').write_text(led_execution['traceback'])
+ print(led_execution['traceback'],flush=True)
+finally:
+ led_execution['elapsed_seconds']=time.monotonic()-led_started
+ led_execution['producer_unchanged']=led_execution['producer_sha256']==hashlib.sha256(led_script.read_bytes()).hexdigest()
+ (led_attempt/'execution.json').write_text(json.dumps(led_execution,indent=2,sort_keys=True)+'\n')
+ print(json.dumps(led_execution),flush=True)

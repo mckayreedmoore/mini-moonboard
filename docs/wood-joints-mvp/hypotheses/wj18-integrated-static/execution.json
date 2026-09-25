@@ -1,0 +1,25 @@
+{
+  "composition_seconds": 1.9264620639878558,
+  "diagnostic_seconds": 187.0677480729937,
+  "executed_at_utc": "2026-09-24T18:44:33Z",
+  "focused_tests": "4 passed in 2.69s",
+  "input_archives": {
+    "top_outer_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/top-outer-integration/geometry.json",
+      "sha256": "a6b9a6c1cac62e77261b6397e1d7ce6dbcb22c4f5945cf29d2b890798fc03319"
+    },
+    "wj16_composition": {
+      "path": "docs/wood-joints-mvp/hypotheses/wj16-integrated-static/composition.json",
+      "sha256": "c0bc37fdbc364deafcbc86dc04e710d2f5b6809436e560717a97593951f8ebcb"
+    },
+    "wj16_diagnostic": {
+      "path": "docs/wood-joints-mvp/hypotheses/wj16-integrated-static/diagnostic.json",
+      "sha256": "2133e1e329e1f868af6faa1ee27d7093d7c16ed9708bc75ea05c90a4dbdefb43"
+    }
+  },
+  "method": "compose_wj18_geometry(g16, top_geometry), then build_wj18_diagnostic_report(g18), retained geometry only",
+  "native_solve_run": false,
+  "producer_hashes_verified_before_and_after": true,
+  "release": false,
+  "ruff": "passed"
+}

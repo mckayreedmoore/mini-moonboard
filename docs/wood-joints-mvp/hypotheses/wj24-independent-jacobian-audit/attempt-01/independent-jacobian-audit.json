@@ -1,0 +1,191 @@
+{
+  "audit_scope": {
+    "body_count": 5,
+    "element_type": "C3D10",
+    "geometry_volume_reference_field": "WJ24_finished_geometry.volume_mm3",
+    "gmsh_or_cad_imported": false,
+    "input_profile": "wj24_finished_wood",
+    "integration_rule": "Gmsh 4.12.1 Gauss5; tetP5Solin; 14-point order-five tetrahedron rule",
+    "jacobian_convention": "det(dX/drst), positive for the exported element orientation; units mm^3",
+    "mesh_generated": false,
+    "native_solver_run": false,
+    "read_only": true,
+    "report_schema": "wood_joint_wj24_patch_mesh/v1",
+    "report_status": "VERIFIED_WJ24_C3D10_MESH_ONLY_NO_SOLVER",
+    "shape_function_basis": "quadratic barycentric vertex and six edge functions in CalculiX C3D10 order"
+  },
+  "input_artifacts": {
+    "mesh_inp": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/wj24-baseline-patch-mesh/attempt-01/mesh.inp",
+      "sha256": "5f1494e91af5ad2f2e936b94583588ca7c28bbce201881bded4b22bee769a214"
+    },
+    "mesh_json": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/wj24-baseline-patch-mesh/attempt-01/mesh.json",
+      "sha256": "9146c8e4b4874bf3812d751676113be505f54e357901eda8af1b5cc5814010cd"
+    }
+  },
+  "limitations": [
+    "This checks positive Jacobian determinants at the 14 Gauss5 points; it does not prove positivity at every point inside each quadratic element.",
+    "It is a mesh geometry audit only and establishes no material behavior, contact behavior, stiffness, resistance, response, or release."
+  ],
+  "per_body": {
+    "base_principal_center_right": {
+      "adapter_integrated_volume_mm3": 13064725.110479217,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 13346,
+      "imported_cad_volume_mm3": 13064685.127338944,
+      "imported_cad_vs_source_geometry_relative_difference": 2.4413804311507192e-12,
+      "independent_vs_adapter_volume_relative_difference": 0.0,
+      "independently_integrated_volume_mm3": 13064725.110479217,
+      "jacobian_determinant_count": 186844,
+      "maximum_gauss5_jacobian_determinant_mm3": 69037.83001650928,
+      "minimum_gauss5_jacobian_determinant_mm3": 1.5292878761987154,
+      "minimum_location": {
+        "element_id": 36622,
+        "point_index": 13,
+        "reference_point_rst": [
+          0.0455037041256,
+          0.0455037041256,
+          0.454496295874
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_WJ24_finished_geometry": 3.060395867837684e-06,
+      "relative_volume_error_vs_source_geometry": 3.060395867837684e-06,
+      "relative_volume_tolerance": 0.001,
+      "source_geometry_volume_field": "WJ24_finished_geometry.volume_mm3",
+      "source_geometry_volume_mm3": 13064685.12737084
+    },
+    "base_rail_service_lower_right": {
+      "adapter_integrated_volume_mm3": 5300099.076489674,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 11662,
+      "imported_cad_volume_mm3": 5300088.3267453965,
+      "imported_cad_vs_source_geometry_relative_difference": 7.921441280700492e-12,
+      "independent_vs_adapter_volume_relative_difference": 0.0,
+      "independently_integrated_volume_mm3": 5300099.076489674,
+      "jacobian_determinant_count": 163268,
+      "maximum_gauss5_jacobian_determinant_mm3": 72702.17757094254,
+      "minimum_gauss5_jacobian_determinant_mm3": 2.1830173530884585,
+      "minimum_location": {
+        "element_id": 10825,
+        "point_index": 9,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.454496295874
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_WJ24_finished_geometry": 2.028227757522316e-06,
+      "relative_volume_error_vs_source_geometry": 2.028227757522316e-06,
+      "relative_volume_tolerance": 0.001,
+      "source_geometry_volume_field": "WJ24_finished_geometry.volume_mm3",
+      "source_geometry_volume_mm3": 5300088.326703412
+    },
+    "base_rail_service_upper_right": {
+      "adapter_integrated_volume_mm3": 5300099.868608499,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 11633,
+      "imported_cad_volume_mm3": 5300088.326718564,
+      "imported_cad_vs_source_geometry_relative_difference": 2.8623770020885786e-12,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-16,
+      "independently_integrated_volume_mm3": 5300099.8686085,
+      "jacobian_determinant_count": 162862,
+      "maximum_gauss5_jacobian_determinant_mm3": 69910.90759410693,
+      "minimum_gauss5_jacobian_determinant_mm3": 2.5180108730093034,
+      "minimum_location": {
+        "element_id": 12265,
+        "point_index": 9,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.454496295874
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_WJ24_finished_geometry": 2.1776816525598264e-06,
+      "relative_volume_error_vs_source_geometry": 2.1776816525598264e-06,
+      "relative_volume_tolerance": 0.001,
+      "source_geometry_volume_field": "WJ24_finished_geometry.volume_mm3",
+      "source_geometry_volume_mm3": 5300088.326703394
+    },
+    "wj04_lower_full_stock_cleat": {
+      "adapter_integrated_volume_mm3": 930312.0407905175,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 5085,
+      "imported_cad_volume_mm3": 930304.3102369452,
+      "imported_cad_vs_source_geometry_relative_difference": 3.248512570053208e-13,
+      "independent_vs_adapter_volume_relative_difference": 2.220446049250313e-16,
+      "independently_integrated_volume_mm3": 930312.0407905176,
+      "jacobian_determinant_count": 71190,
+      "maximum_gauss5_jacobian_determinant_mm3": 23111.75677574833,
+      "minimum_gauss5_jacobian_determinant_mm3": 7.833728339576119,
+      "minimum_location": {
+        "element_id": 41135,
+        "point_index": 11,
+        "reference_point_rst": [
+          0.454496295874,
+          0.0455037041256,
+          0.0455037041256
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_WJ24_finished_geometry": 8.309704458531186e-06,
+      "relative_volume_error_vs_source_geometry": 8.309704458531186e-06,
+      "relative_volume_tolerance": 0.001,
+      "source_geometry_volume_field": "WJ24_finished_geometry.volume_mm3",
+      "source_geometry_volume_mm3": 930304.310236643
+    },
+    "wj04_upper_g7_crosscut_full_stock_cleat": {
+      "adapter_integrated_volume_mm3": 671086.654964745,
+      "all_gauss5_jacobians_positive": true,
+      "element_count": 4903,
+      "imported_cad_volume_mm3": 671079.0222362225,
+      "imported_cad_vs_source_geometry_relative_difference": 6.266098750984384e-13,
+      "independent_vs_adapter_volume_relative_difference": 4.440892098500626e-16,
+      "independently_integrated_volume_mm3": 671086.6549647453,
+      "jacobian_determinant_count": 68642,
+      "maximum_gauss5_jacobian_determinant_mm3": 19767.934631721175,
+      "minimum_gauss5_jacobian_determinant_mm3": 11.732318584658545,
+      "minimum_location": {
+        "element_id": 46234,
+        "point_index": 2,
+        "reference_point_rst": [
+          0.0927352503109,
+          0.721794249067,
+          0.0927352503109
+        ]
+      },
+      "nonpositive_determinants": [],
+      "relative_volume_error_vs_WJ24_finished_geometry": 1.1373814184922892e-05,
+      "relative_volume_error_vs_source_geometry": 1.1373814184922892e-05,
+      "relative_volume_tolerance": 0.001,
+      "source_geometry_volume_field": "WJ24_finished_geometry.volume_mm3",
+      "source_geometry_volume_mm3": 671079.022236643
+    }
+  },
+  "quadrature_rule_provenance": {
+    "gmsh_version": "4.12.1",
+    "minimum_weight": 0.00709100346285,
+    "point_count": 14,
+    "source_archive_sha256": "59ee2118ba7b099e9d1502572c9af4221501af955103d2b687aaa3890d13325e",
+    "source_archive_url": "https://gmsh.info/src/gmsh-4.12.1-source.tgz",
+    "source_file_path": "src/numeric/GaussQuadratureTet.cpp",
+    "source_file_sha256": "d09ae2bd9a21927daf4e272e25dfd516bf453d0b78a8ecc66100603be4c3c24f",
+    "source_rule_weight_sum": 0.1666666666667,
+    "source_symbol": "tetP5Solin[14]"
+  },
+  "schema": "c3d10_gauss5_independent_jacobian_audit/v1",
+  "status": "PASSED_INDEPENDENT_GAUSS5_JACOBIAN_AND_VOLUME_AUDIT",
+  "totals": {
+    "all_5_WJ24_finished_wood_bodies_pass_recorded_relative_volume_tolerance": true,
+    "element_count": 46629,
+    "gauss5_jacobian_determinant_count": 652806,
+    "maximum_relative_volume_error_vs_WJ24_finished_geometry": 1.1373814184922892e-05,
+    "maximum_relative_volume_error_vs_source_geometry": 1.1373814184922892e-05,
+    "minimum_gauss5_jacobian_determinant_mm3": 1.5292878761987154,
+    "node_count": 89743,
+    "nonpositive_gauss5_jacobian_count": 0
+  }
+}

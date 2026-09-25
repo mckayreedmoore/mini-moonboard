@@ -1,0 +1,24 @@
+{
+  "attempt": "attempt-03-wj03-tool-constant-provider",
+  "context_variant": "wj18",
+  "phase": "after_local_candidate_build_and_receiver_previews",
+  "parent_full_host_union_composition_completed": false,
+  "producer_sha256": "e1797cf889fbd63e614403144ebd4f1cf9f69421e754e9449b159fb6ed40f9ef",
+  "tests_sha256": "a5713319c9e1415a8cee8f290fda2ba731ab2fe1674763fef4bcddf3700cc29c",
+  "producer_snapshot": "producer.py.snapshot",
+  "tests_snapshot": "tests.py.snapshot",
+  "failure": {
+    "gate": "WJ03 recorded tool-envelope metadata construction",
+    "exception": "AttributeError",
+    "missing_attribute": "TOOL_DIAMETER_MM",
+    "incorrect_provider": "scripts.wood_joint_wj03_compact_outer_probe",
+    "correct_provider": "mini_moonboard.wood_joint_frame",
+    "related_missing_attribute": "TOOL_LENGTH_MM",
+    "related_incorrect_provider": "scripts.wood_joint_wj03_compact_outer_probe",
+    "correct_related_provider": "mini_moonboard.wood_joint_frame",
+    "geometry_objects_materialized_before_failure": "local bottom-outer cleats, stacks, shared-host receiver previews, layer and washer screens",
+    "full_parent_composition_not_completed": true,
+    "runtime_seconds": null
+  },
+  "correction_scope": "Read the recorded WJ03 tool-envelope dimensions from the frame module that defines them; pin the compact-outer hypothesis by its exact trial ID rather than list position, and regression-test metadata without CAD materialization."
+}

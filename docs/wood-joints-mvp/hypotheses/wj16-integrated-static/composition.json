@@ -1,0 +1,5204 @@
+{
+  "schema": "wood_joint_wj16_compositor/v1",
+  "layout_id": "wj16-sixteen-duty-left-service-composition-v1",
+  "trial_id": "wj16-wj12-plus-left-service-four-duty-v1",
+  "status": "unaccepted_integrated_hypothesis",
+  "claim_boundary": "Source-bound nominal diagnostic composition only. It does not establish cross-family clearance, access, joint capacity, installation, fabrication, inspection, or acceptance.",
+  "source": {
+    "candidate": "compact-floor-flush-wood-joints-development",
+    "source_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "runtime_module_sha256": {
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "scripts/simple_owner_duty_ledger.py": "9b90c8703a260c98b1363c965c70716ac933627786f6e0af70dbdb48068ade53"
+    }
+  },
+  "producer_hashes_sha256": {
+    "left_service": "e2f7536acfcad39937d2529f648dd0e35d15e13fa06a2e264a9abdadfd80c031",
+    "wj12_compositor": "7622fc87c9882abb7c91028b8002077a76a4d8e7a29c9eee61e59c8c01020109",
+    "wj12_diagnostic": "c49e223a4abb004b1eeb6626a2678d94db2d7728d46d9af14589be9d307805d8",
+    "wj16_compositor": "913d1037d8ecf0d8f8e8b77de363d22f36188fb65457650b5fa2f9a1026e99e3",
+    "wj16_diagnostic": "bfd9fdcd169aefbe660dead429f608c40dafb3cd44eb232e0d7655ec71e3c32e"
+  },
+  "family_trial_ids": {
+    "center_x190": "wj05-center-node-posts-x190-outward-v1",
+    "left_service": "left_service_mirrored_inner_outer_hypothesis",
+    "wj03_outer": "compact_bridge_rear_bevel_4x6_spine_137_7",
+    "wj04_g7": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+    "wj05_backer": "compact_bridge_rear_bevel_4x6_spine_137_7",
+    "wj06_outer_pair": "right_outer_full_4x4_paired_rail_hypothesis"
+  },
+  "family_source_fingerprints_sha256": {
+    "center_x190": {
+      "docs/led-wiring-reference.json": "b0f93c4f48139561c06491d3d1031b9e3ceb830f40e1fcf78bdf846146f3f1f0",
+      "docs/round-service-wiring-reference.json": "b335fe3732c89e66625bac0525e959ccc562e2c7cd0e1e1551a4720fc26497f8",
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/wood_joint_wj05_center_node_probe.py": "eafffbc95d5989bcc21a7cfed90ff25e917c778bf9758154b915cbba0ec3d173",
+      "scripts/wood_joint_wj05_center_offset_adapter.py": "e60269df6de450ec06684459a8197ad4fc56fda1af2acc6f8e84d8eb929070ad",
+      "scripts/wood_joint_wj05_center_post_x190_probe.py": "b97723f66caabb200f1504011196543ceb1e4f7f2587c09be0300cd72f43f9d8",
+      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+    },
+    "center_x190_tools": {
+      "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+      "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+      "scripts/wood_joint_wj05_center_offset_adapter.py": "e60269df6de450ec06684459a8197ad4fc56fda1af2acc6f8e84d8eb929070ad",
+      "scripts/wood_joint_wj05_center_post_x190_probe.py": "b97723f66caabb200f1504011196543ceb1e4f7f2587c09be0300cd72f43f9d8",
+      "scripts/wood_joint_wj05_center_tools.py": "3d14041588fb49c2664e410e8dff9b74ab5a9d026a39e4c24feea0f5501c3723"
+    },
+    "left_service": {
+      "docs/wood-joints-mvp/hypotheses/current-hardware-schedule-audit.md": "cc6a74bcd3f3143bdeb26b89661f10f72e33fb041262fa09ee65f1cf684f26e6",
+      "docs/wood-joints-mvp/hypotheses/remaining-duty-sequence.md": "2f02e8507e2c24b0bb26e781958e7a1e5fa26b908a7c9b0048e50c0ca194ba5d",
+      "docs/wood-joints-mvp/hypotheses/right-rail-integration.md": "8156c02a3f30e5c91d502bf6bdfdbba649a6c9522f054f2b6223e6ecb0c74575",
+      "docs/wood-joints-mvp/hypotheses/wj04-full-stock-stagger-probe.json": "2c247cf249b0dddcd403c1466efe6d8a7ddd32366f8b8b3294657318bd42da6a",
+      "docs/wood-joints-mvp/ordinary-hardware-basis.md": "b66983d6ed267814289707cc5f3b5503dfe39ce723529b663092544e29ee8bf4",
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "docs/wood-joints-mvp/stock-and-cut-basis.md": "a6089794eb0789dda022b90a3a2f2d82eff2e57e8fc20616ac4f05f0aa8c17f3",
+      "docs/wood-joints-mvp/wj03-hardware-procurement.md": "dba2e10295358859d7bae5a9a9b1c71382aa212441186022be3fbdc3579db3fc",
+      "docs/wood-joints-mvp/wood-limit-state-basis.md": "1110e664a88f704773a463e83a2aeac3954b978048d811e4bff1effa55aa7c2e",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+      "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+      "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+      "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+      "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+      "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+      "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+      "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+      "scripts/wood_joint_left_rail_integration.py": "e2f7536acfcad39937d2529f648dd0e35d15e13fa06a2e264a9abdadfd80c031",
+      "scripts/wood_joint_right_rail_integration.py": "0c2ea604b4b26cd775b84d2f3b145a132ebea89c49b2d1dbad350d7ecee95005",
+      "scripts/wood_joint_wj04_full_stock_probe.py": "965b997a2b3f4ecb4c39e161fc9dde1757ff8a4c8d7bc8acc90d851a122f8bde",
+      "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
+      "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+      "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9",
+      "scripts/wood_joint_wj04_upper_pair_probe.py": "7e042ed35b6670191e2549f4f4922af4643db8d6552fef09b6998546ae123860",
+      "scripts/wood_joint_wj06_outer_pair_probe.py": "daaf03d3b56b4284435e207c23c9223e474d2213ca599f67ceb482933440afb0",
+      "scripts/wood_joint_wj06_residual_probe.py": "c3c3a05e2d89cf0142b0d8bf32f9de08ae84cbd771857d240205d06f7efe2795"
+    },
+    "right_rail": {
+      "docs/wood-joints-mvp/hypotheses/current-hardware-schedule-audit.md": "cc6a74bcd3f3143bdeb26b89661f10f72e33fb041262fa09ee65f1cf684f26e6",
+      "docs/wood-joints-mvp/hypotheses/wj04-full-stock-stagger-probe.json": "2c247cf249b0dddcd403c1466efe6d8a7ddd32366f8b8b3294657318bd42da6a",
+      "docs/wood-joints-mvp/ordinary-hardware-basis.md": "b66983d6ed267814289707cc5f3b5503dfe39ce723529b663092544e29ee8bf4",
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "docs/wood-joints-mvp/stock-and-cut-basis.md": "a6089794eb0789dda022b90a3a2f2d82eff2e57e8fc20616ac4f05f0aa8c17f3",
+      "docs/wood-joints-mvp/wj03-hardware-procurement.md": "dba2e10295358859d7bae5a9a9b1c71382aa212441186022be3fbdc3579db3fc",
+      "docs/wood-joints-mvp/wood-limit-state-basis.md": "1110e664a88f704773a463e83a2aeac3954b978048d811e4bff1effa55aa7c2e",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+      "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+      "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+      "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+      "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+      "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+      "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+      "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+      "scripts/wood_joint_right_rail_integration.py": "0c2ea604b4b26cd775b84d2f3b145a132ebea89c49b2d1dbad350d7ecee95005",
+      "scripts/wood_joint_wj04_full_stock_probe.py": "965b997a2b3f4ecb4c39e161fc9dde1757ff8a4c8d7bc8acc90d851a122f8bde",
+      "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
+      "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+      "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9",
+      "scripts/wood_joint_wj04_upper_pair_probe.py": "7e042ed35b6670191e2549f4f4922af4643db8d6552fef09b6998546ae123860",
+      "scripts/wood_joint_wj06_outer_pair_probe.py": "daaf03d3b56b4284435e207c23c9223e474d2213ca599f67ceb482933440afb0",
+      "scripts/wood_joint_wj06_residual_probe.py": "c3c3a05e2d89cf0142b0d8bf32f9de08ae84cbd771857d240205d06f7efe2795"
+    },
+    "wj03_compact_outer": {
+      "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+      "docs/floor-flush-construction-kerf-right/stock-profiles.json": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8",
+      "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+      "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+      "scripts/wood_joint_wj03_compact_outer_access.py": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc",
+      "scripts/wood_joint_wj03_compact_outer_probe.py": "1b87fffdb250e7e3021f43913bb26d2e0c6f4a3b3f198d31c6bd8b875320065e",
+      "scripts/wood_joint_wj03_sequence.py": "27d62b50bdbe3084c68caa35f186785e57cff412fb9e68eb5fafe423ed260386",
+      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+    }
+  },
+  "counts": {
+    "target_duties": 16,
+    "source_hosts": 13,
+    "replaced_source_sds_axes": 96,
+    "replaced_source_cutter_operations": 96,
+    "candidate_bores": 72,
+    "candidate_installed_hardware_axes": 72,
+    "candidate_installed_hardware_components": 360,
+    "candidate_parts": 20,
+    "panel_replacements": 3,
+    "fixed_panel_axes": 66,
+    "redirected_panel_receiver_axes": 4,
+    "additional_finished_source_parts": 3,
+    "additional_purchased_panel_receiver_axes": 8,
+    "retained_frame_bolts": 12,
+    "retained_frame_bolt_installed_components": 60,
+    "retained_frame_bolt_source_occupied_axes": 12,
+    "retained_frame_bolt_shapes": 72,
+    "retained_legacy_clips": 8,
+    "retained_legacy_sds_axes": 48
+  },
+  "target_duties": [
+    {
+      "station_id": "clip_angle_base_left",
+      "legacy_host_members": [
+        "base_header",
+        "base_side_left"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_angle_base_left_beam_1",
+        "clip_angle_base_left_beam_2",
+        "clip_angle_base_left_beam_3",
+        "clip_angle_base_left_upright_1",
+        "clip_angle_base_left_upright_2",
+        "clip_angle_base_left_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_angle_base_right",
+      "legacy_host_members": [
+        "base_header",
+        "base_side_right"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_angle_base_right_beam_1",
+        "clip_angle_base_right_beam_2",
+        "clip_angle_base_right_beam_3",
+        "clip_angle_base_right_upright_1",
+        "clip_angle_base_right_upright_2",
+        "clip_angle_base_right_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_horizontal_lower_left_1",
+      "legacy_host_members": [
+        "base_rail_service_lower_left",
+        "base_side_left"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_horizontal_lower_left_1_beam_1",
+        "clip_horizontal_lower_left_1_beam_2",
+        "clip_horizontal_lower_left_1_beam_3",
+        "clip_horizontal_lower_left_1_upright_1",
+        "clip_horizontal_lower_left_1_upright_2",
+        "clip_horizontal_lower_left_1_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_horizontal_lower_left_2",
+      "legacy_host_members": [
+        "base_rail_service_lower_left",
+        "base_principal_center_left"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_horizontal_lower_left_2_beam_1",
+        "clip_horizontal_lower_left_2_beam_2",
+        "clip_horizontal_lower_left_2_beam_3",
+        "clip_horizontal_lower_left_2_upright_1",
+        "clip_horizontal_lower_left_2_upright_2",
+        "clip_horizontal_lower_left_2_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_horizontal_lower_right_1",
+      "legacy_host_members": [
+        "base_rail_service_lower_right",
+        "base_principal_center_right"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_horizontal_lower_right_1_beam_1",
+        "clip_horizontal_lower_right_1_beam_2",
+        "clip_horizontal_lower_right_1_beam_3",
+        "clip_horizontal_lower_right_1_upright_1",
+        "clip_horizontal_lower_right_1_upright_2",
+        "clip_horizontal_lower_right_1_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_horizontal_lower_right_2",
+      "legacy_host_members": [
+        "base_rail_service_lower_right",
+        "base_side_right"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_horizontal_lower_right_2_beam_1",
+        "clip_horizontal_lower_right_2_beam_2",
+        "clip_horizontal_lower_right_2_beam_3",
+        "clip_horizontal_lower_right_2_upright_1",
+        "clip_horizontal_lower_right_2_upright_2",
+        "clip_horizontal_lower_right_2_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_horizontal_upper_left_1",
+      "legacy_host_members": [
+        "base_rail_service_upper_left",
+        "base_side_left"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_horizontal_upper_left_1_beam_1",
+        "clip_horizontal_upper_left_1_beam_2",
+        "clip_horizontal_upper_left_1_beam_3",
+        "clip_horizontal_upper_left_1_upright_1",
+        "clip_horizontal_upper_left_1_upright_2",
+        "clip_horizontal_upper_left_1_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_horizontal_upper_left_2",
+      "legacy_host_members": [
+        "base_rail_service_upper_left",
+        "base_principal_center_left"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_horizontal_upper_left_2_beam_1",
+        "clip_horizontal_upper_left_2_beam_2",
+        "clip_horizontal_upper_left_2_beam_3",
+        "clip_horizontal_upper_left_2_upright_1",
+        "clip_horizontal_upper_left_2_upright_2",
+        "clip_horizontal_upper_left_2_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_horizontal_upper_right_1",
+      "legacy_host_members": [
+        "base_rail_service_upper_right",
+        "base_principal_center_right"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_horizontal_upper_right_1_beam_1",
+        "clip_horizontal_upper_right_1_beam_2",
+        "clip_horizontal_upper_right_1_beam_3",
+        "clip_horizontal_upper_right_1_upright_1",
+        "clip_horizontal_upper_right_1_upright_2",
+        "clip_horizontal_upper_right_1_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_horizontal_upper_right_2",
+      "legacy_host_members": [
+        "base_rail_service_upper_right",
+        "base_side_right"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_horizontal_upper_right_2_beam_1",
+        "clip_horizontal_upper_right_2_beam_2",
+        "clip_horizontal_upper_right_2_beam_3",
+        "clip_horizontal_upper_right_2_upright_1",
+        "clip_horizontal_upper_right_2_upright_2",
+        "clip_horizontal_upper_right_2_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_split_base_center_left",
+      "legacy_host_members": [
+        "base_header",
+        "base_principal_center_left"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_split_base_center_left_beam_1",
+        "clip_split_base_center_left_beam_2",
+        "clip_split_base_center_left_beam_3",
+        "clip_split_base_center_left_upright_1",
+        "clip_split_base_center_left_upright_2",
+        "clip_split_base_center_left_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_split_base_center_right",
+      "legacy_host_members": [
+        "base_header",
+        "base_principal_center_right"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_split_base_center_right_beam_1",
+        "clip_split_base_center_right_beam_2",
+        "clip_split_base_center_right_beam_3",
+        "clip_split_base_center_right_upright_1",
+        "clip_split_base_center_right_upright_2",
+        "clip_split_base_center_right_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_split_header_center_left",
+      "legacy_host_members": [
+        "base_header",
+        "base_post_center_left"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_split_header_center_left_beam_1",
+        "clip_split_header_center_left_beam_2",
+        "clip_split_header_center_left_beam_3",
+        "clip_split_header_center_left_upright_1",
+        "clip_split_header_center_left_upright_2",
+        "clip_split_header_center_left_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_split_header_center_right",
+      "legacy_host_members": [
+        "base_header",
+        "base_post_center_right"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_split_header_center_right_beam_1",
+        "clip_split_header_center_right_beam_2",
+        "clip_split_header_center_right_beam_3",
+        "clip_split_header_center_right_upright_1",
+        "clip_split_header_center_right_upright_2",
+        "clip_split_header_center_right_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_timber_header_outer_left",
+      "legacy_host_members": [
+        "base_header",
+        "base_post_outer_left"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_timber_header_outer_left_beam_1",
+        "clip_timber_header_outer_left_beam_2",
+        "clip_timber_header_outer_left_beam_3",
+        "clip_timber_header_outer_left_upright_1",
+        "clip_timber_header_outer_left_upright_2",
+        "clip_timber_header_outer_left_upright_3"
+      ]
+    },
+    {
+      "station_id": "clip_timber_header_outer_right",
+      "legacy_host_members": [
+        "base_header",
+        "base_post_outer_right"
+      ],
+      "replaced_source_sds_axis_ids": [
+        "clip_timber_header_outer_right_beam_1",
+        "clip_timber_header_outer_right_beam_2",
+        "clip_timber_header_outer_right_beam_3",
+        "clip_timber_header_outer_right_upright_1",
+        "clip_timber_header_outer_right_upright_2",
+        "clip_timber_header_outer_right_upright_3"
+      ]
+    }
+  ],
+  "source_reconstruction": {
+    "base_header": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_post_center_left": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_post_center_right": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_post_outer_left": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_post_outer_right": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_principal_center_left": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_principal_center_right": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_rail_service_lower_left": {
+      "added_material_mm3": 0.0,
+      "missing_material_mm3": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "native_source_cutters_applied": 13,
+      "candidate_purchase_cutters_excluded": true,
+      "matches_source_finished_member": true
+    },
+    "base_rail_service_lower_right": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_rail_service_upper_left": {
+      "added_material_mm3": 0.0,
+      "missing_material_mm3": 0.0,
+      "symmetric_difference_mm3": 0.0,
+      "native_source_cutters_applied": 13,
+      "candidate_purchase_cutters_excluded": true,
+      "matches_source_finished_member": true
+    },
+    "base_rail_service_upper_right": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_side_left": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    },
+    "base_side_right": {
+      "symmetric_difference_mm3": 0.0,
+      "matches_source_finished_member": true
+    }
+  },
+  "source_cut_operations": {
+    "base_header": {
+      "native_source_cut_ids": [
+        "clip_angle_base_left_beam_1",
+        "clip_angle_base_left_beam_2",
+        "clip_angle_base_left_beam_3",
+        "clip_angle_base_right_beam_1",
+        "clip_angle_base_right_beam_2",
+        "clip_angle_base_right_beam_3",
+        "clip_split_base_center_left_beam_1",
+        "clip_split_base_center_left_beam_2",
+        "clip_split_base_center_left_beam_3",
+        "clip_split_base_center_right_beam_1",
+        "clip_split_base_center_right_beam_2",
+        "clip_split_base_center_right_beam_3",
+        "clip_split_header_center_left_beam_1",
+        "clip_split_header_center_left_beam_2",
+        "clip_split_header_center_left_beam_3",
+        "clip_split_header_center_right_beam_1",
+        "clip_split_header_center_right_beam_2",
+        "clip_split_header_center_right_beam_3",
+        "clip_timber_header_outer_left_beam_1",
+        "clip_timber_header_outer_left_beam_2",
+        "clip_timber_header_outer_left_beam_3",
+        "clip_timber_header_outer_right_beam_1",
+        "clip_timber_header_outer_right_beam_2",
+        "clip_timber_header_outer_right_beam_3",
+        "kicker_header_left_1",
+        "kicker_header_left_2",
+        "kicker_header_left_3",
+        "kicker_header_left_4",
+        "kicker_header_left_5",
+        "kicker_header_right_1",
+        "kicker_header_right_2",
+        "kicker_header_right_3",
+        "kicker_header_right_4",
+        "kicker_header_right_5"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_angle_base_left_beam_1",
+        "clip_angle_base_left_beam_2",
+        "clip_angle_base_left_beam_3",
+        "clip_angle_base_right_beam_1",
+        "clip_angle_base_right_beam_2",
+        "clip_angle_base_right_beam_3",
+        "clip_split_base_center_left_beam_1",
+        "clip_split_base_center_left_beam_2",
+        "clip_split_base_center_left_beam_3",
+        "clip_split_base_center_right_beam_1",
+        "clip_split_base_center_right_beam_2",
+        "clip_split_base_center_right_beam_3",
+        "clip_split_header_center_left_beam_1",
+        "clip_split_header_center_left_beam_2",
+        "clip_split_header_center_left_beam_3",
+        "clip_split_header_center_right_beam_1",
+        "clip_split_header_center_right_beam_2",
+        "clip_split_header_center_right_beam_3",
+        "clip_timber_header_outer_left_beam_1",
+        "clip_timber_header_outer_left_beam_2",
+        "clip_timber_header_outer_left_beam_3",
+        "clip_timber_header_outer_right_beam_1",
+        "clip_timber_header_outer_right_beam_2",
+        "clip_timber_header_outer_right_beam_3",
+        "kicker_header_left_1",
+        "kicker_header_left_2",
+        "kicker_header_left_3",
+        "kicker_header_left_4",
+        "kicker_header_left_5",
+        "kicker_header_right_1",
+        "kicker_header_right_2",
+        "kicker_header_right_3",
+        "kicker_header_right_4",
+        "kicker_header_right_5",
+        "panel_purchase/kicker_header_left_1",
+        "panel_purchase/kicker_header_left_2",
+        "panel_purchase/kicker_header_left_3",
+        "panel_purchase/kicker_header_left_4",
+        "panel_purchase/kicker_header_left_5",
+        "panel_purchase/kicker_header_right_1",
+        "panel_purchase/kicker_header_right_2",
+        "panel_purchase/kicker_header_right_3",
+        "panel_purchase/kicker_header_right_4",
+        "panel_purchase/kicker_header_right_5"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/kicker_header_left_1",
+        "panel_purchase/kicker_header_left_2",
+        "panel_purchase/kicker_header_left_3",
+        "panel_purchase/kicker_header_left_4",
+        "panel_purchase/kicker_header_left_5",
+        "panel_purchase/kicker_header_right_1",
+        "panel_purchase/kicker_header_right_2",
+        "panel_purchase/kicker_header_right_3",
+        "panel_purchase/kicker_header_right_4",
+        "panel_purchase/kicker_header_right_5"
+      ]
+    },
+    "base_post_center_left": {
+      "native_source_cut_ids": [
+        "clip_split_header_center_left_upright_1",
+        "clip_split_header_center_left_upright_2",
+        "clip_split_header_center_left_upright_3",
+        "round_kicker_left_center_1",
+        "round_kicker_left_center_2"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_split_header_center_left_upright_1",
+        "clip_split_header_center_left_upright_2",
+        "clip_split_header_center_left_upright_3"
+      ],
+      "purchased_panel_cut_ids_applied": []
+    },
+    "base_post_center_right": {
+      "native_source_cut_ids": [
+        "clip_split_header_center_right_upright_1",
+        "clip_split_header_center_right_upright_2",
+        "clip_split_header_center_right_upright_3",
+        "round_kicker_right_center_1",
+        "round_kicker_right_center_2"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_split_header_center_right_upright_1",
+        "clip_split_header_center_right_upright_2",
+        "clip_split_header_center_right_upright_3"
+      ],
+      "purchased_panel_cut_ids_applied": []
+    },
+    "base_post_outer_left": {
+      "native_source_cut_ids": [
+        "clip_timber_header_outer_left_upright_1",
+        "clip_timber_header_outer_left_upright_2",
+        "clip_timber_header_outer_left_upright_3",
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "round_kicker_left_rim_1",
+        "round_kicker_left_rim_2"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_timber_header_outer_left_upright_1",
+        "clip_timber_header_outer_left_upright_2",
+        "clip_timber_header_outer_left_upright_3",
+        "panel_purchase/round_kicker_left_rim_1",
+        "panel_purchase/round_kicker_left_rim_2",
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "round_kicker_left_rim_1",
+        "round_kicker_left_rim_2"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_kicker_left_rim_1",
+        "panel_purchase/round_kicker_left_rim_2"
+      ]
+    },
+    "base_post_outer_right": {
+      "native_source_cut_ids": [
+        "clip_timber_header_outer_right_upright_1",
+        "clip_timber_header_outer_right_upright_2",
+        "clip_timber_header_outer_right_upright_3",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2",
+        "round_kicker_right_rim_1",
+        "round_kicker_right_rim_2"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_timber_header_outer_right_upright_1",
+        "clip_timber_header_outer_right_upright_2",
+        "clip_timber_header_outer_right_upright_3",
+        "panel_purchase/round_kicker_right_rim_1",
+        "panel_purchase/round_kicker_right_rim_2",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2",
+        "round_kicker_right_rim_1",
+        "round_kicker_right_rim_2"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_kicker_right_rim_1",
+        "panel_purchase/round_kicker_right_rim_2"
+      ]
+    },
+    "base_principal_center_left": {
+      "native_source_cut_ids": [
+        "clip_horizontal_bottom_left_2_upright_1",
+        "clip_horizontal_bottom_left_2_upright_2",
+        "clip_horizontal_bottom_left_2_upright_3",
+        "clip_horizontal_lower_left_2_upright_1",
+        "clip_horizontal_lower_left_2_upright_2",
+        "clip_horizontal_lower_left_2_upright_3",
+        "clip_horizontal_upper_left_2_upright_1",
+        "clip_horizontal_upper_left_2_upright_2",
+        "clip_horizontal_upper_left_2_upright_3",
+        "clip_split_base_center_left_upright_1",
+        "clip_split_base_center_left_upright_2",
+        "clip_split_base_center_left_upright_3",
+        "clip_split_top_center_left_upright_1",
+        "clip_split_top_center_left_upright_2",
+        "clip_split_top_center_left_upright_3",
+        "round_panel_lower_left_center_1",
+        "round_panel_lower_left_center_2",
+        "round_panel_lower_left_center_3",
+        "round_panel_lower_left_center_4",
+        "round_panel_upper_left_center_1",
+        "round_panel_upper_left_center_2",
+        "round_panel_upper_left_center_3",
+        "round_panel_upper_left_center_4",
+        "service/0/bore_base_principal_center_left_060"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_horizontal_bottom_left_2_upright_1",
+        "clip_horizontal_bottom_left_2_upright_2",
+        "clip_horizontal_bottom_left_2_upright_3",
+        "clip_horizontal_lower_left_2_upright_1",
+        "clip_horizontal_lower_left_2_upright_2",
+        "clip_horizontal_lower_left_2_upright_3",
+        "clip_horizontal_upper_left_2_upright_1",
+        "clip_horizontal_upper_left_2_upright_2",
+        "clip_horizontal_upper_left_2_upright_3",
+        "clip_split_base_center_left_upright_1",
+        "clip_split_base_center_left_upright_2",
+        "clip_split_base_center_left_upright_3",
+        "clip_split_top_center_left_upright_1",
+        "clip_split_top_center_left_upright_2",
+        "clip_split_top_center_left_upright_3",
+        "panel_purchase/round_panel_lower_left_center_1",
+        "panel_purchase/round_panel_lower_left_center_2",
+        "panel_purchase/round_panel_lower_left_center_3",
+        "panel_purchase/round_panel_lower_left_center_4",
+        "panel_purchase/round_panel_upper_left_center_1",
+        "panel_purchase/round_panel_upper_left_center_2",
+        "panel_purchase/round_panel_upper_left_center_3",
+        "panel_purchase/round_panel_upper_left_center_4",
+        "round_panel_lower_left_center_1",
+        "round_panel_lower_left_center_2",
+        "round_panel_lower_left_center_3",
+        "round_panel_lower_left_center_4",
+        "round_panel_upper_left_center_1",
+        "round_panel_upper_left_center_2",
+        "round_panel_upper_left_center_3",
+        "round_panel_upper_left_center_4",
+        "service/0/bore_base_principal_center_left_060"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_panel_lower_left_center_1",
+        "panel_purchase/round_panel_lower_left_center_2",
+        "panel_purchase/round_panel_lower_left_center_3",
+        "panel_purchase/round_panel_lower_left_center_4",
+        "panel_purchase/round_panel_upper_left_center_1",
+        "panel_purchase/round_panel_upper_left_center_2",
+        "panel_purchase/round_panel_upper_left_center_3",
+        "panel_purchase/round_panel_upper_left_center_4"
+      ]
+    },
+    "base_principal_center_right": {
+      "native_source_cut_ids": [
+        "clip_horizontal_bottom_right_1_upright_1",
+        "clip_horizontal_bottom_right_1_upright_2",
+        "clip_horizontal_bottom_right_1_upright_3",
+        "clip_horizontal_lower_right_1_upright_1",
+        "clip_horizontal_lower_right_1_upright_2",
+        "clip_horizontal_lower_right_1_upright_3",
+        "clip_horizontal_upper_right_1_upright_1",
+        "clip_horizontal_upper_right_1_upright_2",
+        "clip_horizontal_upper_right_1_upright_3",
+        "clip_split_base_center_right_upright_1",
+        "clip_split_base_center_right_upright_2",
+        "clip_split_base_center_right_upright_3",
+        "clip_split_top_center_right_upright_1",
+        "clip_split_top_center_right_upright_2",
+        "clip_split_top_center_right_upright_3",
+        "round_panel_lower_right_center_1",
+        "round_panel_lower_right_center_2",
+        "round_panel_lower_right_center_3",
+        "round_panel_lower_right_center_4",
+        "round_panel_upper_right_center_1",
+        "round_panel_upper_right_center_2",
+        "round_panel_upper_right_center_3",
+        "round_panel_upper_right_center_4",
+        "service/1/bore_base_principal_center_right_072"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_horizontal_bottom_right_1_upright_1",
+        "clip_horizontal_bottom_right_1_upright_2",
+        "clip_horizontal_bottom_right_1_upright_3",
+        "clip_horizontal_lower_right_1_upright_1",
+        "clip_horizontal_lower_right_1_upright_2",
+        "clip_horizontal_lower_right_1_upright_3",
+        "clip_horizontal_upper_right_1_upright_1",
+        "clip_horizontal_upper_right_1_upright_2",
+        "clip_horizontal_upper_right_1_upright_3",
+        "clip_split_base_center_right_upright_1",
+        "clip_split_base_center_right_upright_2",
+        "clip_split_base_center_right_upright_3",
+        "clip_split_top_center_right_upright_1",
+        "clip_split_top_center_right_upright_2",
+        "clip_split_top_center_right_upright_3",
+        "panel_purchase/round_panel_lower_right_center_1",
+        "panel_purchase/round_panel_lower_right_center_2",
+        "panel_purchase/round_panel_lower_right_center_3",
+        "panel_purchase/round_panel_lower_right_center_4",
+        "panel_purchase/round_panel_upper_right_center_1",
+        "panel_purchase/round_panel_upper_right_center_2",
+        "panel_purchase/round_panel_upper_right_center_3",
+        "panel_purchase/round_panel_upper_right_center_4",
+        "round_panel_lower_right_center_1",
+        "round_panel_lower_right_center_2",
+        "round_panel_lower_right_center_3",
+        "round_panel_lower_right_center_4",
+        "round_panel_upper_right_center_1",
+        "round_panel_upper_right_center_2",
+        "round_panel_upper_right_center_3",
+        "round_panel_upper_right_center_4",
+        "service/1/bore_base_principal_center_right_072"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_panel_lower_right_center_1",
+        "panel_purchase/round_panel_lower_right_center_2",
+        "panel_purchase/round_panel_lower_right_center_3",
+        "panel_purchase/round_panel_lower_right_center_4",
+        "panel_purchase/round_panel_upper_right_center_1",
+        "panel_purchase/round_panel_upper_right_center_2",
+        "panel_purchase/round_panel_upper_right_center_3",
+        "panel_purchase/round_panel_upper_right_center_4"
+      ]
+    },
+    "base_rail_service_lower_left": {
+      "native_source_cut_ids": [
+        "clip_horizontal_lower_left_1_beam_1",
+        "clip_horizontal_lower_left_1_beam_2",
+        "clip_horizontal_lower_left_1_beam_3",
+        "clip_horizontal_lower_left_2_beam_1",
+        "clip_horizontal_lower_left_2_beam_2",
+        "clip_horizontal_lower_left_2_beam_3",
+        "round_panel_lower_left_service_1",
+        "round_panel_lower_left_service_2",
+        "service/10/bore_base_rail_service_lower_left_042",
+        "service/11/bore_base_rail_service_lower_left_054",
+        "service/7/bore_base_rail_service_lower_left_006",
+        "service/8/bore_base_rail_service_lower_left_018",
+        "service/9/bore_base_rail_service_lower_left_030"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_horizontal_lower_left_1_beam_1",
+        "clip_horizontal_lower_left_1_beam_2",
+        "clip_horizontal_lower_left_1_beam_3",
+        "clip_horizontal_lower_left_2_beam_1",
+        "clip_horizontal_lower_left_2_beam_2",
+        "clip_horizontal_lower_left_2_beam_3",
+        "panel_purchase/round_panel_lower_left_service_1",
+        "panel_purchase/round_panel_lower_left_service_2",
+        "round_panel_lower_left_service_1",
+        "round_panel_lower_left_service_2",
+        "service/10/bore_base_rail_service_lower_left_042",
+        "service/11/bore_base_rail_service_lower_left_054",
+        "service/7/bore_base_rail_service_lower_left_006",
+        "service/8/bore_base_rail_service_lower_left_018",
+        "service/9/bore_base_rail_service_lower_left_030"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_panel_lower_left_service_1",
+        "panel_purchase/round_panel_lower_left_service_2"
+      ]
+    },
+    "base_rail_service_lower_right": {
+      "native_source_cut_ids": [
+        "clip_horizontal_lower_right_1_beam_1",
+        "clip_horizontal_lower_right_1_beam_2",
+        "clip_horizontal_lower_right_1_beam_3",
+        "clip_horizontal_lower_right_2_beam_1",
+        "clip_horizontal_lower_right_2_beam_2",
+        "clip_horizontal_lower_right_2_beam_3",
+        "round_panel_lower_right_service_1",
+        "round_panel_lower_right_service_2",
+        "service/22/bore_base_rail_service_lower_right_078",
+        "service/23/bore_base_rail_service_lower_right_090",
+        "service/24/bore_base_rail_service_lower_right_102",
+        "service/25/bore_base_rail_service_lower_right_114",
+        "service/26/bore_base_rail_service_lower_right_126"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_horizontal_lower_right_1_beam_1",
+        "clip_horizontal_lower_right_1_beam_2",
+        "clip_horizontal_lower_right_1_beam_3",
+        "clip_horizontal_lower_right_2_beam_1",
+        "clip_horizontal_lower_right_2_beam_2",
+        "clip_horizontal_lower_right_2_beam_3",
+        "panel_purchase/round_panel_lower_right_service_1",
+        "panel_purchase/round_panel_lower_right_service_2",
+        "round_panel_lower_right_service_1",
+        "round_panel_lower_right_service_2",
+        "service/22/bore_base_rail_service_lower_right_078",
+        "service/23/bore_base_rail_service_lower_right_090",
+        "service/24/bore_base_rail_service_lower_right_102",
+        "service/25/bore_base_rail_service_lower_right_114",
+        "service/26/bore_base_rail_service_lower_right_126"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_panel_lower_right_service_1",
+        "panel_purchase/round_panel_lower_right_service_2"
+      ]
+    },
+    "base_rail_service_upper_left": {
+      "native_source_cut_ids": [
+        "clip_horizontal_upper_left_1_beam_1",
+        "clip_horizontal_upper_left_1_beam_2",
+        "clip_horizontal_upper_left_1_beam_3",
+        "clip_horizontal_upper_left_2_beam_1",
+        "clip_horizontal_upper_left_2_beam_2",
+        "clip_horizontal_upper_left_2_beam_3",
+        "round_panel_upper_left_service_1",
+        "round_panel_upper_left_service_2",
+        "service/12/bore_base_rail_service_upper_left_007",
+        "service/13/bore_base_rail_service_upper_left_017",
+        "service/14/bore_base_rail_service_upper_left_031",
+        "service/15/bore_base_rail_service_upper_left_041",
+        "service/16/bore_base_rail_service_upper_left_055"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_horizontal_upper_left_1_beam_1",
+        "clip_horizontal_upper_left_1_beam_2",
+        "clip_horizontal_upper_left_1_beam_3",
+        "clip_horizontal_upper_left_2_beam_1",
+        "clip_horizontal_upper_left_2_beam_2",
+        "clip_horizontal_upper_left_2_beam_3",
+        "panel_purchase/round_panel_upper_left_service_1",
+        "panel_purchase/round_panel_upper_left_service_2",
+        "round_panel_upper_left_service_1",
+        "round_panel_upper_left_service_2",
+        "service/12/bore_base_rail_service_upper_left_007",
+        "service/13/bore_base_rail_service_upper_left_017",
+        "service/14/bore_base_rail_service_upper_left_031",
+        "service/15/bore_base_rail_service_upper_left_041",
+        "service/16/bore_base_rail_service_upper_left_055"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_panel_upper_left_service_1",
+        "panel_purchase/round_panel_upper_left_service_2"
+      ]
+    },
+    "base_rail_service_upper_right": {
+      "native_source_cut_ids": [
+        "clip_horizontal_upper_right_1_beam_1",
+        "clip_horizontal_upper_right_1_beam_2",
+        "clip_horizontal_upper_right_1_beam_3",
+        "clip_horizontal_upper_right_2_beam_1",
+        "clip_horizontal_upper_right_2_beam_2",
+        "clip_horizontal_upper_right_2_beam_3",
+        "round_panel_upper_right_service_1",
+        "round_panel_upper_right_service_2",
+        "service/27/bore_base_rail_service_upper_right_079",
+        "service/28/bore_base_rail_service_upper_right_089",
+        "service/29/bore_base_rail_service_upper_right_103",
+        "service/30/bore_base_rail_service_upper_right_113",
+        "service/31/bore_base_rail_service_upper_right_127"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_horizontal_upper_right_1_beam_1",
+        "clip_horizontal_upper_right_1_beam_2",
+        "clip_horizontal_upper_right_1_beam_3",
+        "clip_horizontal_upper_right_2_beam_1",
+        "clip_horizontal_upper_right_2_beam_2",
+        "clip_horizontal_upper_right_2_beam_3",
+        "panel_purchase/round_panel_upper_right_service_1",
+        "panel_purchase/round_panel_upper_right_service_2",
+        "round_panel_upper_right_service_1",
+        "round_panel_upper_right_service_2",
+        "service/27/bore_base_rail_service_upper_right_079",
+        "service/28/bore_base_rail_service_upper_right_089",
+        "service/29/bore_base_rail_service_upper_right_103",
+        "service/30/bore_base_rail_service_upper_right_113",
+        "service/31/bore_base_rail_service_upper_right_127"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_panel_upper_right_service_1",
+        "panel_purchase/round_panel_upper_right_service_2"
+      ]
+    },
+    "base_side_left": {
+      "native_source_cut_ids": [
+        "clip_angle_base_left_upright_1",
+        "clip_angle_base_left_upright_2",
+        "clip_angle_base_left_upright_3",
+        "clip_horizontal_bottom_left_1_upright_1",
+        "clip_horizontal_bottom_left_1_upright_2",
+        "clip_horizontal_bottom_left_1_upright_3",
+        "clip_horizontal_lower_left_1_upright_1",
+        "clip_horizontal_lower_left_1_upright_2",
+        "clip_horizontal_lower_left_1_upright_3",
+        "clip_horizontal_upper_left_1_upright_1",
+        "clip_horizontal_upper_left_1_upright_2",
+        "clip_horizontal_upper_left_1_upright_3",
+        "clip_single_top_left_1_upright_1",
+        "clip_single_top_left_1_upright_2",
+        "clip_single_top_left_1_upright_3",
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "round_panel_lower_left_rim_1",
+        "round_panel_lower_left_rim_2",
+        "round_panel_lower_left_rim_3",
+        "round_panel_lower_left_rim_4",
+        "round_panel_upper_left_rim_1",
+        "round_panel_upper_left_rim_2",
+        "round_panel_upper_left_rim_3",
+        "round_panel_upper_left_rim_4"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_angle_base_left_upright_1",
+        "clip_angle_base_left_upright_2",
+        "clip_angle_base_left_upright_3",
+        "clip_horizontal_bottom_left_1_upright_1",
+        "clip_horizontal_bottom_left_1_upright_2",
+        "clip_horizontal_bottom_left_1_upright_3",
+        "clip_horizontal_lower_left_1_upright_1",
+        "clip_horizontal_lower_left_1_upright_2",
+        "clip_horizontal_lower_left_1_upright_3",
+        "clip_horizontal_upper_left_1_upright_1",
+        "clip_horizontal_upper_left_1_upright_2",
+        "clip_horizontal_upper_left_1_upright_3",
+        "clip_single_top_left_1_upright_1",
+        "clip_single_top_left_1_upright_2",
+        "clip_single_top_left_1_upright_3",
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "panel_purchase/round_panel_lower_left_rim_1",
+        "panel_purchase/round_panel_lower_left_rim_2",
+        "panel_purchase/round_panel_lower_left_rim_3",
+        "panel_purchase/round_panel_lower_left_rim_4",
+        "panel_purchase/round_panel_upper_left_rim_1",
+        "panel_purchase/round_panel_upper_left_rim_2",
+        "panel_purchase/round_panel_upper_left_rim_3",
+        "panel_purchase/round_panel_upper_left_rim_4",
+        "round_panel_lower_left_rim_1",
+        "round_panel_lower_left_rim_2",
+        "round_panel_lower_left_rim_3",
+        "round_panel_lower_left_rim_4",
+        "round_panel_upper_left_rim_1",
+        "round_panel_upper_left_rim_2",
+        "round_panel_upper_left_rim_3",
+        "round_panel_upper_left_rim_4"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_panel_lower_left_rim_1",
+        "panel_purchase/round_panel_lower_left_rim_2",
+        "panel_purchase/round_panel_lower_left_rim_3",
+        "panel_purchase/round_panel_lower_left_rim_4",
+        "panel_purchase/round_panel_upper_left_rim_1",
+        "panel_purchase/round_panel_upper_left_rim_2",
+        "panel_purchase/round_panel_upper_left_rim_3",
+        "panel_purchase/round_panel_upper_left_rim_4"
+      ]
+    },
+    "base_side_right": {
+      "native_source_cut_ids": [
+        "clip_angle_base_right_upright_1",
+        "clip_angle_base_right_upright_2",
+        "clip_angle_base_right_upright_3",
+        "clip_horizontal_bottom_right_2_upright_1",
+        "clip_horizontal_bottom_right_2_upright_2",
+        "clip_horizontal_bottom_right_2_upright_3",
+        "clip_horizontal_lower_right_2_upright_1",
+        "clip_horizontal_lower_right_2_upright_2",
+        "clip_horizontal_lower_right_2_upright_3",
+        "clip_horizontal_upper_right_2_upright_1",
+        "clip_horizontal_upper_right_2_upright_2",
+        "clip_horizontal_upper_right_2_upright_3",
+        "clip_single_top_right_2_upright_1",
+        "clip_single_top_right_2_upright_2",
+        "clip_single_top_right_2_upright_3",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2",
+        "round_panel_lower_right_rim_1",
+        "round_panel_lower_right_rim_2",
+        "round_panel_lower_right_rim_3",
+        "round_panel_lower_right_rim_4",
+        "round_panel_upper_right_rim_1",
+        "round_panel_upper_right_rim_2",
+        "round_panel_upper_right_rim_3",
+        "round_panel_upper_right_rim_4"
+      ],
+      "applied_candidate_cut_ids": [
+        "clip_angle_base_right_upright_1",
+        "clip_angle_base_right_upright_2",
+        "clip_angle_base_right_upright_3",
+        "clip_horizontal_bottom_right_2_upright_1",
+        "clip_horizontal_bottom_right_2_upright_2",
+        "clip_horizontal_bottom_right_2_upright_3",
+        "clip_horizontal_lower_right_2_upright_1",
+        "clip_horizontal_lower_right_2_upright_2",
+        "clip_horizontal_lower_right_2_upright_3",
+        "clip_horizontal_upper_right_2_upright_1",
+        "clip_horizontal_upper_right_2_upright_2",
+        "clip_horizontal_upper_right_2_upright_3",
+        "clip_single_top_right_2_upright_1",
+        "clip_single_top_right_2_upright_2",
+        "clip_single_top_right_2_upright_3",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2",
+        "panel_purchase/round_panel_lower_right_rim_1",
+        "panel_purchase/round_panel_lower_right_rim_2",
+        "panel_purchase/round_panel_lower_right_rim_3",
+        "panel_purchase/round_panel_lower_right_rim_4",
+        "panel_purchase/round_panel_upper_right_rim_1",
+        "panel_purchase/round_panel_upper_right_rim_2",
+        "panel_purchase/round_panel_upper_right_rim_3",
+        "panel_purchase/round_panel_upper_right_rim_4",
+        "round_panel_lower_right_rim_1",
+        "round_panel_lower_right_rim_2",
+        "round_panel_lower_right_rim_3",
+        "round_panel_lower_right_rim_4",
+        "round_panel_upper_right_rim_1",
+        "round_panel_upper_right_rim_2",
+        "round_panel_upper_right_rim_3",
+        "round_panel_upper_right_rim_4"
+      ],
+      "purchased_panel_cut_ids_applied": [
+        "panel_purchase/round_panel_lower_right_rim_1",
+        "panel_purchase/round_panel_lower_right_rim_2",
+        "panel_purchase/round_panel_lower_right_rim_3",
+        "panel_purchase/round_panel_lower_right_rim_4",
+        "panel_purchase/round_panel_upper_right_rim_1",
+        "panel_purchase/round_panel_upper_right_rim_2",
+        "panel_purchase/round_panel_upper_right_rim_3",
+        "panel_purchase/round_panel_upper_right_rim_4"
+      ]
+    }
+  },
+  "replaced_source_axes": [
+    {
+      "axis_id": "clip_angle_base_left_beam_1",
+      "legacy_station_id": "clip_angle_base_left",
+      "source_cut_ids_removed": [
+        "clip_angle_base_left_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_left_beam_2",
+      "legacy_station_id": "clip_angle_base_left",
+      "source_cut_ids_removed": [
+        "clip_angle_base_left_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_left_beam_3",
+      "legacy_station_id": "clip_angle_base_left",
+      "source_cut_ids_removed": [
+        "clip_angle_base_left_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_left_upright_1",
+      "legacy_station_id": "clip_angle_base_left",
+      "source_cut_ids_removed": [
+        "clip_angle_base_left_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_left_upright_2",
+      "legacy_station_id": "clip_angle_base_left",
+      "source_cut_ids_removed": [
+        "clip_angle_base_left_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_left_upright_3",
+      "legacy_station_id": "clip_angle_base_left",
+      "source_cut_ids_removed": [
+        "clip_angle_base_left_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_right_beam_1",
+      "legacy_station_id": "clip_angle_base_right",
+      "source_cut_ids_removed": [
+        "clip_angle_base_right_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_right_beam_2",
+      "legacy_station_id": "clip_angle_base_right",
+      "source_cut_ids_removed": [
+        "clip_angle_base_right_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_right_beam_3",
+      "legacy_station_id": "clip_angle_base_right",
+      "source_cut_ids_removed": [
+        "clip_angle_base_right_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_right_upright_1",
+      "legacy_station_id": "clip_angle_base_right",
+      "source_cut_ids_removed": [
+        "clip_angle_base_right_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_right_upright_2",
+      "legacy_station_id": "clip_angle_base_right",
+      "source_cut_ids_removed": [
+        "clip_angle_base_right_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_angle_base_right_upright_3",
+      "legacy_station_id": "clip_angle_base_right",
+      "source_cut_ids_removed": [
+        "clip_angle_base_right_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_1_beam_1",
+      "legacy_station_id": "clip_horizontal_lower_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_1_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_1_beam_2",
+      "legacy_station_id": "clip_horizontal_lower_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_1_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_1_beam_3",
+      "legacy_station_id": "clip_horizontal_lower_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_1_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_1_upright_1",
+      "legacy_station_id": "clip_horizontal_lower_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_1_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_1_upright_2",
+      "legacy_station_id": "clip_horizontal_lower_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_1_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_1_upright_3",
+      "legacy_station_id": "clip_horizontal_lower_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_1_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_2_beam_1",
+      "legacy_station_id": "clip_horizontal_lower_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_2_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_2_beam_2",
+      "legacy_station_id": "clip_horizontal_lower_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_2_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_2_beam_3",
+      "legacy_station_id": "clip_horizontal_lower_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_2_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_2_upright_1",
+      "legacy_station_id": "clip_horizontal_lower_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_2_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_2_upright_2",
+      "legacy_station_id": "clip_horizontal_lower_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_2_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_left_2_upright_3",
+      "legacy_station_id": "clip_horizontal_lower_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_left_2_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_1_beam_1",
+      "legacy_station_id": "clip_horizontal_lower_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_1_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_1_beam_2",
+      "legacy_station_id": "clip_horizontal_lower_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_1_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_1_beam_3",
+      "legacy_station_id": "clip_horizontal_lower_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_1_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_1_upright_1",
+      "legacy_station_id": "clip_horizontal_lower_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_1_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_1_upright_2",
+      "legacy_station_id": "clip_horizontal_lower_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_1_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_1_upright_3",
+      "legacy_station_id": "clip_horizontal_lower_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_1_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_2_beam_1",
+      "legacy_station_id": "clip_horizontal_lower_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_2_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_2_beam_2",
+      "legacy_station_id": "clip_horizontal_lower_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_2_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_2_beam_3",
+      "legacy_station_id": "clip_horizontal_lower_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_2_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_2_upright_1",
+      "legacy_station_id": "clip_horizontal_lower_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_2_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_2_upright_2",
+      "legacy_station_id": "clip_horizontal_lower_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_2_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_lower_right_2_upright_3",
+      "legacy_station_id": "clip_horizontal_lower_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_lower_right_2_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_1_beam_1",
+      "legacy_station_id": "clip_horizontal_upper_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_1_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_1_beam_2",
+      "legacy_station_id": "clip_horizontal_upper_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_1_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_1_beam_3",
+      "legacy_station_id": "clip_horizontal_upper_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_1_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_1_upright_1",
+      "legacy_station_id": "clip_horizontal_upper_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_1_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_1_upright_2",
+      "legacy_station_id": "clip_horizontal_upper_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_1_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_1_upright_3",
+      "legacy_station_id": "clip_horizontal_upper_left_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_1_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_2_beam_1",
+      "legacy_station_id": "clip_horizontal_upper_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_2_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_2_beam_2",
+      "legacy_station_id": "clip_horizontal_upper_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_2_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_2_beam_3",
+      "legacy_station_id": "clip_horizontal_upper_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_2_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_2_upright_1",
+      "legacy_station_id": "clip_horizontal_upper_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_2_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_2_upright_2",
+      "legacy_station_id": "clip_horizontal_upper_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_2_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_left_2_upright_3",
+      "legacy_station_id": "clip_horizontal_upper_left_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_left_2_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_1_beam_1",
+      "legacy_station_id": "clip_horizontal_upper_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_1_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_1_beam_2",
+      "legacy_station_id": "clip_horizontal_upper_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_1_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_1_beam_3",
+      "legacy_station_id": "clip_horizontal_upper_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_1_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_1_upright_1",
+      "legacy_station_id": "clip_horizontal_upper_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_1_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_1_upright_2",
+      "legacy_station_id": "clip_horizontal_upper_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_1_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_1_upright_3",
+      "legacy_station_id": "clip_horizontal_upper_right_1",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_1_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_2_beam_1",
+      "legacy_station_id": "clip_horizontal_upper_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_2_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_2_beam_2",
+      "legacy_station_id": "clip_horizontal_upper_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_2_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_2_beam_3",
+      "legacy_station_id": "clip_horizontal_upper_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_2_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_2_upright_1",
+      "legacy_station_id": "clip_horizontal_upper_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_2_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_2_upright_2",
+      "legacy_station_id": "clip_horizontal_upper_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_2_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_horizontal_upper_right_2_upright_3",
+      "legacy_station_id": "clip_horizontal_upper_right_2",
+      "source_cut_ids_removed": [
+        "clip_horizontal_upper_right_2_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_left_beam_1",
+      "legacy_station_id": "clip_split_base_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_left_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_left_beam_2",
+      "legacy_station_id": "clip_split_base_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_left_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_left_beam_3",
+      "legacy_station_id": "clip_split_base_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_left_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_left_upright_1",
+      "legacy_station_id": "clip_split_base_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_left_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_left_upright_2",
+      "legacy_station_id": "clip_split_base_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_left_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_left_upright_3",
+      "legacy_station_id": "clip_split_base_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_left_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_right_beam_1",
+      "legacy_station_id": "clip_split_base_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_right_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_right_beam_2",
+      "legacy_station_id": "clip_split_base_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_right_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_right_beam_3",
+      "legacy_station_id": "clip_split_base_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_right_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_right_upright_1",
+      "legacy_station_id": "clip_split_base_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_right_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_right_upright_2",
+      "legacy_station_id": "clip_split_base_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_right_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_split_base_center_right_upright_3",
+      "legacy_station_id": "clip_split_base_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_base_center_right_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_left_beam_1",
+      "legacy_station_id": "clip_split_header_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_left_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_left_beam_2",
+      "legacy_station_id": "clip_split_header_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_left_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_left_beam_3",
+      "legacy_station_id": "clip_split_header_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_left_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_left_upright_1",
+      "legacy_station_id": "clip_split_header_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_left_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_left_upright_2",
+      "legacy_station_id": "clip_split_header_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_left_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_left_upright_3",
+      "legacy_station_id": "clip_split_header_center_left",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_left_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_right_beam_1",
+      "legacy_station_id": "clip_split_header_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_right_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_right_beam_2",
+      "legacy_station_id": "clip_split_header_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_right_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_right_beam_3",
+      "legacy_station_id": "clip_split_header_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_right_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_right_upright_1",
+      "legacy_station_id": "clip_split_header_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_right_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_right_upright_2",
+      "legacy_station_id": "clip_split_header_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_right_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_split_header_center_right_upright_3",
+      "legacy_station_id": "clip_split_header_center_right",
+      "source_cut_ids_removed": [
+        "clip_split_header_center_right_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_left_beam_1",
+      "legacy_station_id": "clip_timber_header_outer_left",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_left_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_left_beam_2",
+      "legacy_station_id": "clip_timber_header_outer_left",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_left_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_left_beam_3",
+      "legacy_station_id": "clip_timber_header_outer_left",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_left_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_left_upright_1",
+      "legacy_station_id": "clip_timber_header_outer_left",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_left_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_left_upright_2",
+      "legacy_station_id": "clip_timber_header_outer_left",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_left_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_left_upright_3",
+      "legacy_station_id": "clip_timber_header_outer_left",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_left_upright_3"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_right_beam_1",
+      "legacy_station_id": "clip_timber_header_outer_right",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_right_beam_1"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_right_beam_2",
+      "legacy_station_id": "clip_timber_header_outer_right",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_right_beam_2"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_right_beam_3",
+      "legacy_station_id": "clip_timber_header_outer_right",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_right_beam_3"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_right_upright_1",
+      "legacy_station_id": "clip_timber_header_outer_right",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_right_upright_1"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_right_upright_2",
+      "legacy_station_id": "clip_timber_header_outer_right",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_right_upright_2"
+      ]
+    },
+    {
+      "axis_id": "clip_timber_header_outer_right_upright_3",
+      "legacy_station_id": "clip_timber_header_outer_right",
+      "source_cut_ids_removed": [
+        "clip_timber_header_outer_right_upright_3"
+      ]
+    }
+  ],
+  "candidate_axes": {
+    "backer_header_left_1": {
+      "family": "wj05_backer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "inner_kicker_backer_left",
+        "base_header"
+      ],
+      "station_id": "wj05_backer_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -38.65,
+          -31.35,
+          -100.65,
+          -93.35,
+          0.0,
+          277.0
+        ],
+        "volume_mm3": 11593.521471,
+        "shape_sha256": "ecac64ff52fe6c1261606b62081e2082dd1774b231ed69337c17c7dbbd277f9f"
+      },
+      "installed_component_roles": [
+        "bottom_head",
+        "bottom_washer",
+        "shaft",
+        "top_nut",
+        "top_washer"
+      ]
+    },
+    "backer_header_left_2": {
+      "family": "wj05_backer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "inner_kicker_backer_left",
+        "base_header"
+      ],
+      "station_id": "wj05_backer_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -38.65,
+          -31.35,
+          -66.65,
+          -59.35,
+          0.0,
+          277.0
+        ],
+        "volume_mm3": 11593.521471,
+        "shape_sha256": "c0550c0fb3f0ba908f0be88c42f253a4c9c3301deae555d6c244977212d77b4e"
+      },
+      "installed_component_roles": [
+        "bottom_head",
+        "bottom_washer",
+        "shaft",
+        "top_nut",
+        "top_washer"
+      ]
+    },
+    "backer_header_right_1": {
+      "family": "wj05_backer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "inner_kicker_backer_right",
+        "base_header"
+      ],
+      "station_id": "wj05_backer_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          37.35,
+          44.65,
+          -101.65,
+          -94.35,
+          0.0,
+          277.0
+        ],
+        "volume_mm3": 11593.521471,
+        "shape_sha256": "fffaf8b58f8f9edba9e2c05088ba739e9e5ee64790ec74ba07e00bd8f982472f"
+      },
+      "installed_component_roles": [
+        "bottom_head",
+        "bottom_washer",
+        "shaft",
+        "top_nut",
+        "top_washer"
+      ]
+    },
+    "backer_header_right_2": {
+      "family": "wj05_backer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "inner_kicker_backer_right",
+        "base_header"
+      ],
+      "station_id": "wj05_backer_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          21.35,
+          28.65,
+          -79.65,
+          -72.35,
+          0.0,
+          277.0
+        ],
+        "volume_mm3": 11593.521471,
+        "shape_sha256": "76a9994b61fe3b73201b50d12355f35aafbe0b2ed3075697cc0b712cfe4d2d74"
+      },
+      "installed_component_roles": [
+        "bottom_head",
+        "bottom_washer",
+        "shaft",
+        "top_nut",
+        "top_washer"
+      ]
+    },
+    "center_post_header_left_1": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "center_post_cleat_left",
+        "base_header"
+      ],
+      "station_id": "clip_split_header_center_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -257.65,
+          -250.35,
+          -152.4,
+          -145.1,
+          110.0,
+          277.0
+        ],
+        "volume_mm3": 6989.595977,
+        "shape_sha256": "cd85b5eb5f5e660df8bd68c9bd4247947d19762f6cf23e8375eea67377662fa0"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_post_header_left_2": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "center_post_cleat_left",
+        "base_header"
+      ],
+      "station_id": "clip_split_header_center_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -257.65,
+          -250.35,
+          -117.4,
+          -110.1,
+          110.0,
+          277.0
+        ],
+        "volume_mm3": 6989.595977,
+        "shape_sha256": "d3dad50b2c57211ece016215d1f64a4f586d02f904af0f75187c65049f5a7cc7"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_post_header_right_1": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "center_post_cleat_right",
+        "base_header"
+      ],
+      "station_id": "clip_split_header_center_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          250.35,
+          257.65,
+          -152.4,
+          -145.1,
+          110.0,
+          277.0
+        ],
+        "volume_mm3": 6989.595977,
+        "shape_sha256": "aada6698d9d372095b16e2f344f2d83c4940a33ded1da629541a3a6aedfe4fea"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_post_header_right_2": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "center_post_cleat_right",
+        "base_header"
+      ],
+      "station_id": "clip_split_header_center_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          250.35,
+          257.65,
+          -117.4,
+          -110.1,
+          110.0,
+          277.0
+        ],
+        "volume_mm3": 6989.595977,
+        "shape_sha256": "26e3ce9dde77b58433d70ea81d88cf244913469805344e61f7a64fbcb7923708"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_post_left_1": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_post_center_left",
+        "center_post_cleat_left"
+      ],
+      "station_id": "clip_split_header_center_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -297.95,
+          -170.95,
+          -134.9,
+          -127.6,
+          141.35,
+          148.65
+        ],
+        "volume_mm3": 5315.441252,
+        "shape_sha256": "572cc5ea2d5be3092b5062cfa4f72d43379dedabbedfd90d7a54c5618faa445a"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_post_left_2": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_post_center_left",
+        "center_post_cleat_left"
+      ],
+      "station_id": "clip_split_header_center_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -297.95,
+          -170.95,
+          -134.9,
+          -127.6,
+          191.35,
+          198.65
+        ],
+        "volume_mm3": 5315.441252,
+        "shape_sha256": "1794072b26398ea81ca0879aa9f8dc31cbf1f953f21b3ba8dbec2462eb50ec17"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_post_right_1": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_post_center_right",
+        "center_post_cleat_right"
+      ],
+      "station_id": "clip_split_header_center_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          170.95,
+          297.95,
+          -134.9,
+          -127.6,
+          141.35,
+          148.65
+        ],
+        "volume_mm3": 5315.441252,
+        "shape_sha256": "30550b3af77059fc7845d18087c4bda59194c76fd75ae1f09cadff984294f495"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_post_right_2": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_post_center_right",
+        "center_post_cleat_right"
+      ],
+      "station_id": "clip_split_header_center_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          170.95,
+          297.95,
+          -134.9,
+          -127.6,
+          191.35,
+          198.65
+        ],
+        "volume_mm3": 5315.441252,
+        "shape_sha256": "0a4d1fea15c0914cfa64a0c2c5f1a6d8a4b96bd1970bcc1b5407771daa180a57"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_principal_header_left_1": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_header",
+        "center_principal_cleat_left"
+      ],
+      "station_id": "clip_split_base_center_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -119.65,
+          -112.35,
+          -143.05,
+          -135.75,
+          238.9,
+          339.815644
+        ],
+        "volume_mm3": 4223.710056,
+        "shape_sha256": "a11251207059c8d8ec3cfc7bada8c4725c8e0809cce586cd32217e464a63e50a"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_principal_header_left_2": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_header",
+        "center_principal_cleat_left"
+      ],
+      "station_id": "clip_split_base_center_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -154.65,
+          -147.35,
+          -143.05,
+          -135.75,
+          238.9,
+          339.815644
+        ],
+        "volume_mm3": 4223.710056,
+        "shape_sha256": "e917b08e4ba4d37dce357d4e044512179e7c2d9f589520142c344e660687ad50"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_principal_header_right_1": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_header",
+        "center_principal_cleat_right"
+      ],
+      "station_id": "clip_split_base_center_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          112.35,
+          119.65,
+          -143.05,
+          -135.75,
+          238.9,
+          339.815644
+        ],
+        "volume_mm3": 4223.710056,
+        "shape_sha256": "4c0ba1ee488cbad09e367dd5f46d9199f1d12bd1170e607a1dc291b2757b2b2f"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_principal_header_right_2": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_header",
+        "center_principal_cleat_right"
+      ],
+      "station_id": "clip_split_base_center_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          147.35,
+          154.65,
+          -143.05,
+          -135.75,
+          238.9,
+          339.815644
+        ],
+        "volume_mm3": 4223.710056,
+        "shape_sha256": "53be85d0fe8ef59465b2cd4b6719e63f17c91cdce237106ad169a282c7246883"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_principal_left_1": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_principal_center_left",
+        "center_principal_cleat_left"
+      ],
+      "station_id": "clip_split_base_center_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -177.95,
+          -50.95,
+          -153.739079,
+          -146.439079,
+          292.118089,
+          299.418089
+        ],
+        "volume_mm3": 5315.441252,
+        "shape_sha256": "d9d070d4ee99b267208a0895d4cfc349b9d8154acab8400042c537af17ceef5d"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_principal_left_2": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_principal_center_left",
+        "center_principal_cleat_left"
+      ],
+      "station_id": "clip_split_base_center_left",
+      "bore": {
+        "bounds_xyz_mm": [
+          -177.95,
+          -50.95,
+          -132.527088,
+          -125.227088,
+          317.397555,
+          324.697555
+        ],
+        "volume_mm3": 5315.441252,
+        "shape_sha256": "0be1d7ee779eff3982016f4518690182e883e3de58b4f0050a580760b1843143"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_principal_right_1": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_principal_center_right",
+        "center_principal_cleat_right"
+      ],
+      "station_id": "clip_split_base_center_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          50.95,
+          177.95,
+          -153.739079,
+          -146.439079,
+          292.118089,
+          299.418089
+        ],
+        "volume_mm3": 5315.441252,
+        "shape_sha256": "85f65393d0b35805cbe69cf7b2700473eaed6e7a40e52a49f73ca968f792e143"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "center_principal_right_2": {
+      "family": "wj05_center_x190",
+      "family_trial_id": "wj05-center-node-posts-x190-outward-v1",
+      "receiver_ids": [
+        "base_principal_center_right",
+        "center_principal_cleat_right"
+      ],
+      "station_id": "clip_split_base_center_right",
+      "bore": {
+        "bounds_xyz_mm": [
+          50.95,
+          177.95,
+          -132.527088,
+          -125.227088,
+          317.397555,
+          324.697555
+        ],
+        "volume_mm3": 5315.441252,
+        "shape_sha256": "e01f237380f2a81e6e1f326d886e47161488b7e88fc5f09dc0fa82618fe98c90"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_bridge_link_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_under_header_link"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1026.1,
+          -1018.6,
+          -220.15,
+          -93.15,
+          190.7,
+          198.2
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "8f9605d6f72d37e4efca5af77bf0538a74200280b4c948bef840189931d0bfeb"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_bridge_link_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_under_header_link"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -953.75,
+          -946.25,
+          -220.15,
+          -93.15,
+          190.7,
+          198.2
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "7b2637c94eb30ba461efef9e58081f0ada0ba6e947e9863b453ba559722a6485"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_bridge_spine_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_spine"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1283.75,
+          -1276.25,
+          -220.15,
+          -42.35,
+          186.05,
+          193.55
+        ],
+        "volume_mm3": 7854.963382,
+        "shape_sha256": "f673802a8aa3bbb0af322467a43f1dcbc24e85c64041724512a7378b68c6696d"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_bridge_spine_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_left_rear_bridge",
+        "knee_outer_left_spine"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1248.75,
+          -1241.25,
+          -220.15,
+          -42.35,
+          186.05,
+          193.55
+        ],
+        "volume_mm3": 7854.963382,
+        "shape_sha256": "70283a2120006cd5b3b2f77080a17b03086592f9220785d3dc6c3a841871abc8"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_header_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "base_header",
+        "knee_outer_left_under_header_link"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1083.75,
+          -1076.25,
+          -141.35,
+          -133.85,
+          150.0,
+          277.0
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "68a85c1da2578c63020ae1ddb4031f09ace65c1d123e9628fb252e09fa699d2e"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_header_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "base_header",
+        "knee_outer_left_under_header_link"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1048.75,
+          -1041.25,
+          -141.35,
+          -133.85,
+          150.0,
+          277.0
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "2bcd53274cf0cb2ba0b4eabe48cb125fcbd0706ee4cc49a2498ff529ef0010de"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_post_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_left_spine",
+        "base_post_outer_left"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1308.1,
+          -1181.1,
+          -141.35,
+          -133.85,
+          167.7,
+          175.2
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "256dc80b3efb31f8a86d295e845de4741271d72175c62da477923d6430665483"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_post_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_left_spine",
+        "base_post_outer_left"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1308.1,
+          -1181.1,
+          -141.35,
+          -133.85,
+          209.75,
+          217.25
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "c08906972f5733f215af4e7f91d804252796abdaab1cdc9e7dfe067588c0c69c"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_side_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_left_spine",
+        "base_side_left"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1308.1,
+          -1130.3,
+          -109.978087,
+          -102.478087,
+          327.565553,
+          335.065553
+        ],
+        "volume_mm3": 7854.963382,
+        "shape_sha256": "4d149f03b1301fc1fab20285133ca708d7c0cb592f6324074f10fa27f0b4d77e"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_left_side_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_left_spine",
+        "base_side_left"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          -1308.1,
+          -1130.3,
+          -81.052644,
+          -73.552644,
+          362.037553,
+          369.537553
+        ],
+        "volume_mm3": 7854.963382,
+        "shape_sha256": "cb79e1d99fde0ff2b45bc3eccc1a648f8339667ca4db77ff6f53f5aa9c388c25"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_bridge_link_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_under_header_link"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1015.425,
+          1022.925,
+          -220.15,
+          -93.15,
+          190.7,
+          198.2
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "2d387bc1a0e598cbb774121b0388c7a7fb8fdc935401d8e37873e3510888e3af"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_bridge_link_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_under_header_link"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          943.075,
+          950.575,
+          -220.15,
+          -93.15,
+          190.7,
+          198.2
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "67669f360844ffea951b4b154755d723d7c8d60c5678b1e44ba0b22216ddca26"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_bridge_spine_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_spine"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1273.075,
+          1280.575,
+          -220.15,
+          -42.35,
+          186.05,
+          193.55
+        ],
+        "volume_mm3": 7854.963382,
+        "shape_sha256": "3e427c5214d10108ad9f6e64d174bea439c4d31589cd412d9c2c34a4520ab14e"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_bridge_spine_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_right_rear_bridge",
+        "knee_outer_right_spine"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1238.075,
+          1245.575,
+          -220.15,
+          -42.35,
+          186.05,
+          193.55
+        ],
+        "volume_mm3": 7854.963382,
+        "shape_sha256": "a8e7ec839259825aaacfff46ab7a6c5173d8b4a8732f449c7a1bf6a62303fa0b"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_header_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "base_header",
+        "knee_outer_right_under_header_link"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1073.075,
+          1080.575,
+          -141.35,
+          -133.85,
+          150.0,
+          277.0
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "d47799ed81cf99fa438118eb088c0065ef239dd07c4aca9a88f4acc36d39d9aa"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_header_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "base_header",
+        "knee_outer_right_under_header_link"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1038.075,
+          1045.575,
+          -141.35,
+          -133.85,
+          150.0,
+          277.0
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "f14046b47f007d4abba38dd2b34cb689faa512c36006cdeb80553e80be4331ec"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_post_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_right_spine",
+        "base_post_outer_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1177.925,
+          1304.925,
+          -141.35,
+          -133.85,
+          167.7,
+          175.2
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "733aeca1f638f29a6f923e41a102c7ff8a496d04f5846ae59439e03c738a651e"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_post_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_right_spine",
+        "base_post_outer_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1177.925,
+          1304.925,
+          -141.35,
+          -133.85,
+          209.75,
+          217.25
+        ],
+        "volume_mm3": 5610.68813,
+        "shape_sha256": "27b4045ed8ba72a4b34b2bad7901d95cacc60b2fb2aca1c59c3b319b9e074b7a"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_side_1": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_right_spine",
+        "base_side_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1127.125,
+          1304.925,
+          -109.978087,
+          -102.478087,
+          327.565553,
+          335.065553
+        ],
+        "volume_mm3": 7854.963382,
+        "shape_sha256": "e10042884a255855c4a506f0e5455b8d303ca08d616a875223aa8e7758f3e414"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "knee_outer_right_side_2": {
+      "family": "wj03_outer",
+      "family_trial_id": "compact_bridge_rear_bevel_4x6_spine_137_7",
+      "receiver_ids": [
+        "knee_outer_right_spine",
+        "base_side_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1127.125,
+          1304.925,
+          -81.052644,
+          -73.552644,
+          362.037553,
+          369.537553
+        ],
+        "volume_mm3": 7854.963382,
+        "shape_sha256": "665a6425f06a077e27ea63dc3db73f9e1b89095205f36aaaeb4f6d28a700008c"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_outer_lower_cleat",
+        "base_rail_service_lower_left"
+      ],
+      "station_id": "clip_horizontal_lower_left_1",
+      "bore": {
+        "bounds_xyz_mm": [
+          -1088.6,
+          -1081.1,
+          633.549942,
+          721.057859,
+          1181.058175,
+          1283.319935
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "a8382571482a6650a9d9703325a89782da48273413a8056c38553f7646d3c7ba"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_outer_lower_cleat",
+        "base_rail_service_lower_left"
+      ],
+      "station_id": "clip_horizontal_lower_left_1",
+      "bore": {
+        "bounds_xyz_mm": [
+          -1088.6,
+          -1081.1,
+          608.270475,
+          695.778393,
+          1202.270166,
+          1304.531926
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "29497ea764687e2e925f12b2526fdf7121ee49234d0ef75b35cbebbfe53fff91"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_outer_lower_cleat",
+        "base_side_left"
+      ],
+      "station_id": "clip_horizontal_lower_left_1",
+      "bore": {
+        "bounds_xyz_mm": [
+          -1219.3,
+          -1041.3,
+          662.585415,
+          670.085415,
+          1241.036766,
+          1248.536766
+        ],
+        "volume_mm3": 7863.799111,
+        "shape_sha256": "0c3b7dde703549a749e2618085b686c5ec3c760dc83fb3a6ebb0e15f9a3bba75"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_outer_lower_cleat",
+        "base_side_left"
+      ],
+      "station_id": "clip_horizontal_lower_left_1",
+      "bore": {
+        "bounds_xyz_mm": [
+          -1219.3,
+          -1041.3,
+          683.797406,
+          691.297406,
+          1266.316233,
+          1273.816233
+        ],
+        "volume_mm3": 7863.799111,
+        "shape_sha256": "ca560209fbf62f0be4952b2cab33205890572c50741cd4abee3d57bf4fad5e5d"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_inner_lower_cleat",
+        "base_principal_center_left"
+      ],
+      "station_id": "clip_horizontal_lower_left_2",
+      "bore": {
+        "bounds_xyz_mm": [
+          -178.05,
+          -50.85,
+          662.585415,
+          670.085415,
+          1241.036766,
+          1248.536766
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "7ae2d02b8da0c4a52dd29d834960be04596fcd5769a495491a2d062cc7b37852"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_inner_lower_cleat",
+        "base_principal_center_left"
+      ],
+      "station_id": "clip_horizontal_lower_left_2",
+      "bore": {
+        "bounds_xyz_mm": [
+          -178.05,
+          -50.85,
+          683.797406,
+          691.297406,
+          1266.316233,
+          1273.816233
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "df92ceafec0d8e971d401bc2ecf96696f3178077289b5283009cce94a9009baa"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_inner_lower_cleat",
+        "base_rail_service_lower_left"
+      ],
+      "station_id": "clip_horizontal_lower_left_2",
+      "bore": {
+        "bounds_xyz_mm": [
+          -138.25,
+          -130.75,
+          633.549942,
+          721.057859,
+          1181.058175,
+          1283.319935
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "a47073058af3f7dc3a844cae3d5f1128f369d08c6d89d7190c76ee25db6e5274"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_inner_lower_cleat",
+        "base_rail_service_lower_left"
+      ],
+      "station_id": "clip_horizontal_lower_left_2",
+      "bore": {
+        "bounds_xyz_mm": [
+          -138.25,
+          -130.75,
+          608.270475,
+          695.778393,
+          1202.270166,
+          1304.531926
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "8c896b4a3ee0ba91c3a7a61cd1ec10814c0f284b25886d9e24140a8c26885299"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_rail_1": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "base_rail_service_upper_left",
+        "left_service_outer_upper_cleat"
+      ],
+      "station_id": "clip_horizontal_upper_left_1",
+      "bore": {
+        "bounds_xyz_mm": [
+          -1088.6,
+          -1081.1,
+          726.143497,
+          813.651415,
+          1291.406877,
+          1393.668637
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "18662a75c83e6c855a1b01be1886bad44c715f18755b4761893a4a570226270c"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_rail_2": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "base_rail_service_upper_left",
+        "left_service_outer_upper_cleat"
+      ],
+      "station_id": "clip_horizontal_upper_left_1",
+      "bore": {
+        "bounds_xyz_mm": [
+          -1088.6,
+          -1081.1,
+          700.864031,
+          788.371948,
+          1312.618868,
+          1414.880628
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "c00827ea6428ea58d839b894e9b19344212f015cbfe9664eba4a52a0b18ccac5"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_1": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_outer_upper_cleat",
+        "base_side_left"
+      ],
+      "station_id": "clip_horizontal_upper_left_1",
+      "bore": {
+        "bounds_xyz_mm": [
+          -1219.3,
+          -1041.3,
+          755.17897,
+          762.67897,
+          1351.385468,
+          1358.885468
+        ],
+        "volume_mm3": 7863.799111,
+        "shape_sha256": "a6640510fe35d222cb8cc88b8fd7952a1679167dff07c2ef78fa2d9f7ceb4609"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_2": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_outer_upper_cleat",
+        "base_side_left"
+      ],
+      "station_id": "clip_horizontal_upper_left_1",
+      "bore": {
+        "bounds_xyz_mm": [
+          -1219.3,
+          -1041.3,
+          776.390962,
+          783.890962,
+          1376.664935,
+          1384.164935
+        ],
+        "volume_mm3": 7863.799111,
+        "shape_sha256": "7c6a6e92d5b5553d8d26f1a6049d0b9b841a38bf98da7e4353604d8d52c66bc4"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_1": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_inner_upper_cleat",
+        "base_principal_center_left"
+      ],
+      "station_id": "clip_horizontal_upper_left_2",
+      "bore": {
+        "bounds_xyz_mm": [
+          -178.05,
+          -50.85,
+          742.615842,
+          750.115842,
+          1361.927185,
+          1369.427185
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "105ef4f3bf419c0f3dd809112010c2c073036ca401aa34d1f9cad7f17d372074"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_2": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "left_service_inner_upper_cleat",
+        "base_principal_center_left"
+      ],
+      "station_id": "clip_horizontal_upper_left_2",
+      "bore": {
+        "bounds_xyz_mm": [
+          -178.05,
+          -50.85,
+          763.827833,
+          771.327833,
+          1387.206652,
+          1394.706652
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "c063295d323b08154c22ebbc4f33b4ac1d4a74152eaa9722f8b34fa2601ba4ac"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_rail_1": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "base_rail_service_upper_left",
+        "left_service_inner_upper_cleat"
+      ],
+      "station_id": "clip_horizontal_upper_left_2",
+      "bore": {
+        "bounds_xyz_mm": [
+          -138.25,
+          -130.75,
+          713.580368,
+          801.088286,
+          1301.948594,
+          1404.210354
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "36bf883dc6665981ef98efa4ee1db652b1016dd31802d6d9cceb072afe02abf2"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_rail_2": {
+      "family": "left_service",
+      "family_trial_id": "left_service_mirrored_inner_outer_hypothesis",
+      "receiver_ids": [
+        "base_rail_service_upper_left",
+        "left_service_inner_upper_cleat"
+      ],
+      "station_id": "clip_horizontal_upper_left_2",
+      "bore": {
+        "bounds_xyz_mm": [
+          -138.25,
+          -130.75,
+          688.300902,
+          775.808819,
+          1323.160585,
+          1425.422345
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "cc94d834c3f6b0ab7f5be8c2c7990e9447668d08f50a2ea45e74720d06dbfb8a"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1": {
+      "family": "wj04_g7",
+      "family_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "receiver_ids": [
+        "wj04_lower_full_stock_cleat",
+        "base_principal_center_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          50.85,
+          178.05,
+          662.585415,
+          670.085415,
+          1241.036766,
+          1248.536766
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "4874d7723d2604bbd36cfca470beaa16ee92f4c4ea4925ac877c7b25dfb08556"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2": {
+      "family": "wj04_g7",
+      "family_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "receiver_ids": [
+        "wj04_lower_full_stock_cleat",
+        "base_principal_center_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          50.85,
+          178.05,
+          683.797406,
+          691.297406,
+          1266.316233,
+          1273.816233
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "e681eabad0dd2cbdd63f06aeed57076955e1f7a039a29fc39f4659fa71f749a2"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1": {
+      "family": "wj04_g7",
+      "family_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "receiver_ids": [
+        "wj04_lower_full_stock_cleat",
+        "base_rail_service_lower_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          130.75,
+          138.25,
+          633.549942,
+          721.057859,
+          1181.058175,
+          1283.319935
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "742d331f5cc206119a4bc77128290202c41b7febbb30c7a53825388e660bec86"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2": {
+      "family": "wj04_g7",
+      "family_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "receiver_ids": [
+        "wj04_lower_full_stock_cleat",
+        "base_rail_service_lower_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          130.75,
+          138.25,
+          608.270475,
+          695.778393,
+          1202.270166,
+          1304.531926
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "8af7cd8cdb6a2fd8a93673ed7e4a3b1274600197e73831d6383dc6581f128be4"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1": {
+      "family": "wj04_g7",
+      "family_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "receiver_ids": [
+        "wj04_upper_g7_crosscut_full_stock_cleat",
+        "base_principal_center_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          50.85,
+          178.05,
+          742.615842,
+          750.115842,
+          1361.927185,
+          1369.427185
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "309efaf442bf0a98056a087a8e4307a6cf6cbca55294c91f3f1ac7540577e6e9"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2": {
+      "family": "wj04_g7",
+      "family_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "receiver_ids": [
+        "wj04_upper_g7_crosscut_full_stock_cleat",
+        "base_principal_center_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          50.85,
+          178.05,
+          763.827833,
+          771.327833,
+          1387.206652,
+          1394.706652
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "19fa7434bcefe9e06c2ea82595173d19374cd940831af1acc7b4e710e849ac59"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1": {
+      "family": "wj04_g7",
+      "family_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "receiver_ids": [
+        "base_rail_service_upper_right",
+        "wj04_upper_g7_crosscut_full_stock_cleat"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          130.75,
+          138.25,
+          713.580368,
+          801.088286,
+          1301.948594,
+          1404.210354
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "863a61a0a0ac71793150273d3444300687c23c20e74f4f861ff77d1021dc2f33"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2": {
+      "family": "wj04_g7",
+      "family_trial_id": "upper_g7_clearance_n86p9_reversed_rail_hypothesis",
+      "receiver_ids": [
+        "base_rail_service_upper_right",
+        "wj04_upper_g7_crosscut_full_stock_cleat"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          130.75,
+          138.25,
+          688.300902,
+          775.808819,
+          1323.160585,
+          1425.422345
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "14c790f81e87467bdcb53d525e3208781dba17c2df370c3259c22db1d10f8430"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1": {
+      "family": "wj06_outer_pair",
+      "family_trial_id": "right_outer_full_4x4_paired_rail_hypothesis",
+      "receiver_ids": [
+        "wj06_outer_lower_right_cleat",
+        "base_rail_service_lower_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1077.925,
+          1085.425,
+          633.549942,
+          721.057859,
+          1181.058175,
+          1283.319935
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "b5efbaaf14c67b24abf291ed157b5d6af2d564186ef8eca912d377c777c8b40d"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2": {
+      "family": "wj06_outer_pair",
+      "family_trial_id": "right_outer_full_4x4_paired_rail_hypothesis",
+      "receiver_ids": [
+        "wj06_outer_lower_right_cleat",
+        "base_rail_service_lower_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1077.925,
+          1085.425,
+          608.270475,
+          695.778393,
+          1202.270166,
+          1304.531926
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "433c787407b54e5442c465b5ee683383120e0d23b3333aa9bfabafab90c818f3"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1": {
+      "family": "wj06_outer_pair",
+      "family_trial_id": "right_outer_full_4x4_paired_rail_hypothesis",
+      "receiver_ids": [
+        "wj06_outer_lower_right_cleat",
+        "base_side_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1038.125,
+          1216.125,
+          662.585415,
+          670.085415,
+          1241.036766,
+          1248.536766
+        ],
+        "volume_mm3": 7863.799111,
+        "shape_sha256": "0eb72eafa2a197a69d1b96cee1b14c06feeaee5392bc533c6b97a7422ca1601a"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2": {
+      "family": "wj06_outer_pair",
+      "family_trial_id": "right_outer_full_4x4_paired_rail_hypothesis",
+      "receiver_ids": [
+        "wj06_outer_lower_right_cleat",
+        "base_side_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1038.125,
+          1216.125,
+          683.797406,
+          691.297406,
+          1266.316233,
+          1273.816233
+        ],
+        "volume_mm3": 7863.799111,
+        "shape_sha256": "655eeec267605ab550947887db50d46d280dbdccd2bac70146612ab09b2665cb"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_1": {
+      "family": "wj06_outer_pair",
+      "family_trial_id": "right_outer_full_4x4_paired_rail_hypothesis",
+      "receiver_ids": [
+        "base_rail_service_upper_right",
+        "wj06_outer_upper_right_cleat"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1077.925,
+          1085.425,
+          726.143497,
+          813.651415,
+          1291.406877,
+          1393.668637
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "1ff3ab14587f3ac8faa53f313aee5140d7b02607ba2084b1f3e95d0fabd5684c"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_2": {
+      "family": "wj06_outer_pair",
+      "family_trial_id": "right_outer_full_4x4_paired_rail_hypothesis",
+      "receiver_ids": [
+        "base_rail_service_upper_right",
+        "wj06_outer_upper_right_cleat"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1077.925,
+          1085.425,
+          700.864031,
+          788.371948,
+          1312.618868,
+          1414.880628
+        ],
+        "volume_mm3": 5619.523859,
+        "shape_sha256": "1a87c1ca1228e6e7095b9357f9f90218ed993cb0f2dd2258d8714dbe266e2ef9"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_1": {
+      "family": "wj06_outer_pair",
+      "family_trial_id": "right_outer_full_4x4_paired_rail_hypothesis",
+      "receiver_ids": [
+        "wj06_outer_upper_right_cleat",
+        "base_side_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1038.125,
+          1216.125,
+          755.17897,
+          762.67897,
+          1351.385468,
+          1358.885468
+        ],
+        "volume_mm3": 7863.799111,
+        "shape_sha256": "84d63f689854263d661cf62b4b325f79eda61704bb22aa36ae0cd3d1d322c95d"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    },
+    "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_2": {
+      "family": "wj06_outer_pair",
+      "family_trial_id": "right_outer_full_4x4_paired_rail_hypothesis",
+      "receiver_ids": [
+        "wj06_outer_upper_right_cleat",
+        "base_side_right"
+      ],
+      "station_id": null,
+      "bore": {
+        "bounds_xyz_mm": [
+          1038.125,
+          1216.125,
+          776.390962,
+          783.890962,
+          1376.664935,
+          1384.164935
+        ],
+        "volume_mm3": 7863.799111,
+        "shape_sha256": "eed250190f8ac21a357ab15b58b5f84e522884bd9e6363683ba053c847de4dfd"
+      },
+      "installed_component_roles": [
+        "head",
+        "head_washer",
+        "nut",
+        "nut_washer",
+        "shaft"
+      ]
+    }
+  },
+  "candidate_panel_receiver_cuts": {
+    "inner_kicker_backer_left": {
+      "round_kicker_left_center_1": {
+        "candidate_finished_receiver_member": "inner_kicker_backer_left",
+        "shop_purchased_length_mm": 63.5,
+        "cutter": {
+          "bounds_xyz_mm": [
+            -72.0701,
+            -67.9299,
+            -81.24375,
+            -17.74375,
+            57.9299,
+            62.0701
+          ],
+          "volume_mm3": 854.882149,
+          "shape_sha256": "a25500141936e70ac641532d98026a979bf9e7234e29419f853dde17864d194e"
+        }
+      },
+      "round_kicker_left_center_2": {
+        "candidate_finished_receiver_member": "inner_kicker_backer_left",
+        "shop_purchased_length_mm": 63.5,
+        "cutter": {
+          "bounds_xyz_mm": [
+            -72.0701,
+            -67.9299,
+            -81.24375,
+            -17.74375,
+            189.9299,
+            194.0701
+          ],
+          "volume_mm3": 854.882149,
+          "shape_sha256": "4fecce1a14a749badc25a1a633cbf1880d6bcd7aa14996b28e06ab5e5f3ea86c"
+        }
+      }
+    },
+    "inner_kicker_backer_right": {
+      "round_kicker_right_center_1": {
+        "candidate_finished_receiver_member": "inner_kicker_backer_right",
+        "shop_purchased_length_mm": 63.5,
+        "cutter": {
+          "bounds_xyz_mm": [
+            67.9299,
+            72.0701,
+            -81.24375,
+            -17.74375,
+            57.9299,
+            62.0701
+          ],
+          "volume_mm3": 854.882149,
+          "shape_sha256": "ce123d81863e9d9cb450097f6e0ddb0ecbd04f09dc62659f874209148c70bc11"
+        }
+      },
+      "round_kicker_right_center_2": {
+        "candidate_finished_receiver_member": "inner_kicker_backer_right",
+        "shop_purchased_length_mm": 63.5,
+        "cutter": {
+          "bounds_xyz_mm": [
+            67.9299,
+            72.0701,
+            -81.24375,
+            -17.74375,
+            189.9299,
+            194.0701
+          ],
+          "volume_mm3": 854.882149,
+          "shape_sha256": "816e8e52240b826c0167a90defd85a29d309fb86c6f0d37880f3ac9a08f903f4"
+        }
+      }
+    }
+  },
+  "additional_source_panel_cut_operations": {
+    "base_rail_bottom_left": {
+      "panel_purchase/round_panel_lower_left_edge_1": {
+        "bounds_xyz_mm": [
+          -437.1451,
+          -433.0049,
+          -29.82155,
+          21.483542,
+          320.484421,
+          364.473012
+        ],
+        "volume_mm3": 854.882149,
+        "shape_sha256": "05bb898ed2abbef0d4e326f3d8451a9b47447ce8e3628c22b43aea7339e1261a"
+      },
+      "panel_purchase/round_panel_lower_left_edge_2": {
+        "bounds_xyz_mm": [
+          -837.1451,
+          -833.0049,
+          -29.82155,
+          21.483542,
+          320.484421,
+          364.473012
+        ],
+        "volume_mm3": 854.882149,
+        "shape_sha256": "049dd2efbda82ad220464277f4597fc660728a4e1be3acf62de12883a52793aa"
+      }
+    },
+    "base_rail_bottom_right": {
+      "panel_purchase/round_panel_lower_right_edge_1": {
+        "bounds_xyz_mm": [
+          433.0049,
+          437.1451,
+          -29.82155,
+          21.483542,
+          320.484421,
+          364.473012
+        ],
+        "volume_mm3": 854.882149,
+        "shape_sha256": "f62157121134704d6ce2f422fbdbefae1816faf6b40c729dce2baf5ed5fa8fa4"
+      },
+      "panel_purchase/round_panel_lower_right_edge_2": {
+        "bounds_xyz_mm": [
+          833.0049,
+          837.1451,
+          -29.82155,
+          21.483542,
+          320.484421,
+          364.473012
+        ],
+        "volume_mm3": 854.882149,
+        "shape_sha256": "8aa2bbbb6fc5fc363ad67c53b976384258a476ce77037fb5611c501f6013b271"
+      }
+    },
+    "base_rail_top": {
+      "panel_purchase/round_panel_upper_left_edge_1": {
+        "bounds_xyz_mm": [
+          -437.1451,
+          -433.0049,
+          1487.350046,
+          1538.655137,
+          2128.579121,
+          2172.567711
+        ],
+        "volume_mm3": 854.882149,
+        "shape_sha256": "a0a5ee6a5e509acb51cfc5cc59cdc96dd1f98a4d71d92670906da573df1dddab"
+      },
+      "panel_purchase/round_panel_upper_left_edge_2": {
+        "bounds_xyz_mm": [
+          -837.1451,
+          -833.0049,
+          1487.350046,
+          1538.655137,
+          2128.579121,
+          2172.567711
+        ],
+        "volume_mm3": 854.882149,
+        "shape_sha256": "043e3bb31626c60098c748404b8e8d4463bfd05b36bc87496b67fc8c972880b8"
+      },
+      "panel_purchase/round_panel_upper_right_edge_1": {
+        "bounds_xyz_mm": [
+          433.0049,
+          437.1451,
+          1487.350046,
+          1538.655137,
+          2128.579121,
+          2172.567711
+        ],
+        "volume_mm3": 854.882149,
+        "shape_sha256": "91ef567565075f845abad9e3184ebc18d231d855ede0471ad695953f3cc33875"
+      },
+      "panel_purchase/round_panel_upper_right_edge_2": {
+        "bounds_xyz_mm": [
+          833.0049,
+          837.1451,
+          1487.350046,
+          1538.655137,
+          2128.579121,
+          2172.567711
+        ],
+        "volume_mm3": 854.882149,
+        "shape_sha256": "39543cb9dd1c93474b6f479d676800ad934ca6316a5efec412123105731ef9c9"
+      }
+    }
+  },
+  "absorbed_source_overlay_ids": [
+    "base_rail_service_lower_left",
+    "base_rail_service_upper_left"
+  ],
+  "parts": {
+    "raw_hosts": {
+      "base_header": {
+        "bounds_xyz_mm": [
+          -1219.2,
+          1216.025,
+          -175.7,
+          -36.0,
+          238.9,
+          277.0
+        ],
+        "volume_mm3": 12961655.52825,
+        "shape_sha256": "d0a667eee3f195ebe234592d9582e604ddc5700de36e5e1a481a770d8919e7ec"
+      },
+      "base_post_center_left": {
+        "bounds_xyz_mm": [
+          -209.05,
+          -170.95,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1271561.973,
+        "shape_sha256": "228e9012f35bd5e11326f3629a8845c1eff225fff1ce6ce8edc9f6f1aa5381ce"
+      },
+      "base_post_center_right": {
+        "bounds_xyz_mm": [
+          170.95,
+          209.05,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1271561.973,
+        "shape_sha256": "8a7e792414dba4066c26dd698614049995fbd3bf53f0e5242137bbb5d5a8f591"
+      },
+      "base_post_outer_left": {
+        "bounds_xyz_mm": [
+          -1219.2,
+          -1181.1,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1271561.973,
+        "shape_sha256": "9d95af16d2d8788134f22359846d3dec8728a8b735841f6bad788403fb26660d"
+      },
+      "base_post_outer_right": {
+        "bounds_xyz_mm": [
+          1177.925,
+          1216.025,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1271561.973,
+        "shape_sha256": "7ef63af6efe5cf4a16ab17d5247a4a2f54775bba1d37329c155f15182a2217d3"
+      },
+      "base_principal_center_left": {
+        "bounds_xyz_mm": [
+          -89.05,
+          -50.95,
+          -182.7,
+          1511.0943,
+          277.0,
+          2217.104083
+        ],
+        "volume_mm3": 13129650.37053,
+        "shape_sha256": "efb4a8cc926626b8e74fc81a5a152b9283f4af35cdfa7fae480924b8fa9bbddc"
+      },
+      "base_principal_center_right": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.0943,
+          277.0,
+          2217.104083
+        ],
+        "volume_mm3": 13129650.37053,
+        "shape_sha256": "b6bf7090aed2506ad7801b37bc4253491f4a7028638cdda60d676f15d3475d3f"
+      },
+      "base_rail_service_lower_left": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -89.05,
+          577.999394,
+          709.506011,
+          1142.824638,
+          1261.80836
+        ],
+        "volume_mm3": 5542126.0125,
+        "shape_sha256": "bd8be0300da757029a71bb04c8525737e4a37a278d5c0a4a6d5c65bdbcdb385b"
+      },
+      "base_rail_service_lower_right": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          577.999394,
+          709.506011,
+          1142.824638,
+          1261.80836
+        ],
+        "volume_mm3": 5525226.85275,
+        "shape_sha256": "691b1d9aad59aec629c042439200eb87929b508a5dcbe4199d13603f51d5eac8"
+      },
+      "base_rail_service_upper_left": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -89.05,
+          670.592949,
+          802.099566,
+          1253.17334,
+          1372.157062
+        ],
+        "volume_mm3": 5542126.0125,
+        "shape_sha256": "355476ca9f6bc9b8a2056c3cd069e0864b65fa50e0aa6adcef9fb33675616d75"
+      },
+      "base_rail_service_upper_right": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          670.592949,
+          802.099566,
+          1253.17334,
+          1372.157062
+        ],
+        "volume_mm3": 5525226.85275,
+        "shape_sha256": "e65a8a6eca7244a6ee52dc0e63cf61e5e7e4b6596f8227685c294031139f767e"
+      },
+      "base_side_left": {
+        "bounds_xyz_mm": [
+          -1219.2,
+          -1130.3,
+          -175.7,
+          1535.584507,
+          277.0,
+          2246.290376
+        ],
+        "volume_mm3": 31075904.195154,
+        "shape_sha256": "391762c2285e53e22a6907df3afc357a3bb2ef72ffa68a359d1a2d4986802333"
+      },
+      "base_side_right": {
+        "bounds_xyz_mm": [
+          1127.125,
+          1216.025,
+          -175.7,
+          1535.584507,
+          277.0,
+          2246.290376
+        ],
+        "volume_mm3": 31075904.195154,
+        "shape_sha256": "8fa6f222d09695d41cc74ca7138effa3da1db02d4600fea96162b55354c6c60b"
+      }
+    },
+    "finished_hosts": {
+      "base_header": {
+        "bounds_xyz_mm": [
+          -1219.2,
+          1216.025,
+          -175.7,
+          -36.0,
+          238.9,
+          277.0
+        ],
+        "volume_mm3": 12929696.078673,
+        "shape_sha256": "0c00d109f7b0b89b325c0c3e0be61657f1d96d5e48f35bd08e5bbce86029e98e"
+      },
+      "base_post_center_left": {
+        "bounds_xyz_mm": [
+          -209.05,
+          -170.95,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1268372.708249,
+        "shape_sha256": "a60fc182e498bb289411690b49c2f526631f86811db44d37304453ff8a83d39c"
+      },
+      "base_post_center_right": {
+        "bounds_xyz_mm": [
+          170.95,
+          209.05,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1268372.708249,
+        "shape_sha256": "50f970ad9adebab339e6fb156e5de221690a82c727e16e435df23e2561cf7980"
+      },
+      "base_post_outer_left": {
+        "bounds_xyz_mm": [
+          -1219.2,
+          -1181.1,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1259586.945304,
+        "shape_sha256": "11f7f1f5d128d7462af63d442dd17dca06f8a2b666c53e62f3ac366ccebbaf1c"
+      },
+      "base_post_outer_right": {
+        "bounds_xyz_mm": [
+          1177.925,
+          1216.025,
+          -175.7,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1259586.945304,
+        "shape_sha256": "e67cab5160cf03857d50c1f7d0c2f7b8b1e6405659aae9a2b57e0ade2333d350"
+      },
+      "base_principal_center_left": {
+        "bounds_xyz_mm": [
+          -89.05,
+          -50.95,
+          -182.7,
+          1511.0943,
+          277.0,
+          2217.104083
+        ],
+        "volume_mm3": 13064473.889421,
+        "shape_sha256": "c8388e3b6889e4bd67ba2cd45e04f001dc0a3a9e3deb30d95dafc443f4032f38"
+      },
+      "base_principal_center_right": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.0943,
+          277.0,
+          2217.104083
+        ],
+        "volume_mm3": 13064473.889421,
+        "shape_sha256": "4ec409ec4e8c760b20424248ab03071aa6f0dec0cbe58cfdf6d9d3d937b446d8"
+      },
+      "base_rail_service_lower_left": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -89.05,
+          577.999394,
+          709.506011,
+          1142.824638,
+          1261.80836
+        ],
+        "volume_mm3": 5316987.486453,
+        "shape_sha256": "60cbb9c6f8a12e26baa5ead62b79d8fd798a4864be865c83703da3f31f710f54"
+      },
+      "base_rail_service_lower_right": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          577.999394,
+          709.506011,
+          1142.824638,
+          1261.80836
+        ],
+        "volume_mm3": 5300088.326703,
+        "shape_sha256": "da3a767494f24920bc56c4290c29cdf031245df1663ab21d91a20b8aa82331dc"
+      },
+      "base_rail_service_upper_left": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -89.05,
+          670.592949,
+          802.099566,
+          1253.17334,
+          1372.157062
+        ],
+        "volume_mm3": 5316987.486453,
+        "shape_sha256": "8deba83149ea6c75a707209bcec0056f457a2195322f2d7c4c7114ad465be4f1"
+      },
+      "base_rail_service_upper_right": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          670.592949,
+          802.099566,
+          1253.17334,
+          1372.157062
+        ],
+        "volume_mm3": 5300088.326703,
+        "shape_sha256": "4e667c3a34cd63e71938c2fc1c3c8345094a11ad13c882ca1119aa1c00130979"
+      },
+      "base_side_left": {
+        "bounds_xyz_mm": [
+          -1219.2,
+          -1130.3,
+          -175.7,
+          1535.584507,
+          277.0,
+          2246.290376
+        ],
+        "volume_mm3": 31012016.554566,
+        "shape_sha256": "427cfdf11b772ab0961974e45f57e4a649b4c9c2bdefc3f1470026a2bff21991"
+      },
+      "base_side_right": {
+        "bounds_xyz_mm": [
+          1127.125,
+          1216.025,
+          -175.7,
+          1535.584507,
+          277.0,
+          2246.290376
+        ],
+        "volume_mm3": 31012016.554566,
+        "shape_sha256": "d4fbefb46595233786a95151886386415cc88e9a3d31bcc0ee7d961ffe9d448c"
+      }
+    },
+    "additional_finished_source_parts": {
+      "base_rail_bottom_left": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -89.05,
+          -113.093704,
+          18.412912,
+          319.211955,
+          438.195677
+        ],
+        "volume_mm3": 5316776.248504,
+        "shape_sha256": "31d29eed85a3eae459312245325316ada927b52745a4210513eb02c233445b2a"
+      },
+      "base_rail_bottom_right": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          -113.093704,
+          18.412912,
+          319.211955,
+          438.195677
+        ],
+        "volume_mm3": 5299877.088754,
+        "shape_sha256": "cc81c548d3b380e05fb01467aa858171b9c2bad66e7b5d7b7b0dcf3cd11e2b9b"
+      },
+      "base_rail_top": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          1127.125,
+          1404.077891,
+          1535.584507,
+          2127.306654,
+          2246.290376
+        ],
+        "volume_mm3": 11998978.040714,
+        "shape_sha256": "5bc2d6af318faae874db85d054b07bf9f874a228ffe15a5b5557a6244a05c686"
+      }
+    },
+    "raw_candidate_parts": {
+      "center_post_cleat_left": {
+        "bounds_xyz_mm": [
+          -297.95,
+          -209.05,
+          -175.7,
+          -86.8,
+          110.0,
+          238.9
+        ],
+        "volume_mm3": 1018723.769,
+        "shape_sha256": "5cac6ff336c5ad3bf7bd449a26b4cf5223e02f6f8f043fcd40279eaff4f6f2e5"
+      },
+      "center_post_cleat_right": {
+        "bounds_xyz_mm": [
+          209.05,
+          297.95,
+          -175.7,
+          -86.8,
+          110.0,
+          238.9
+        ],
+        "volume_mm3": 1018723.769,
+        "shape_sha256": "92bbd20da848e5fade71ca65538a45cb923e29cb046a73b400cd71ca8029f899"
+      },
+      "center_principal_cleat_left": {
+        "bounds_xyz_mm": [
+          -177.95,
+          -89.05,
+          -223.86273,
+          -61.128761,
+          277.0,
+          339.815644
+        ],
+        "volume_mm3": 643408.603287,
+        "shape_sha256": "457ee33ee620381f22cc7fc40c49e7de5af851020aad82f62d9dc0a75bf736f8"
+      },
+      "center_principal_cleat_right": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          -223.86273,
+          -61.128761,
+          277.0,
+          339.815644
+        ],
+        "volume_mm3": 643408.603287,
+        "shape_sha256": "bf0735c059fc35756861113d4febebb64bcff379446d3d03300460af1a6be070"
+      },
+      "inner_kicker_backer_left": {
+        "bounds_xyz_mm": [
+          -90.4875,
+          -1.5875,
+          -124.9,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1888076.869,
+        "shape_sha256": "fb0b240b75037627484dad039e4a87383a96dbb2b56d384130345348fa19519c"
+      },
+      "inner_kicker_backer_right": {
+        "bounds_xyz_mm": [
+          -1.5875,
+          87.3125,
+          -124.9,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1888076.869,
+        "shape_sha256": "e6511356e748633ab9b73119c6f7667d09fe792b63cb11bda2edd2e80c50bf24"
+      },
+      "knee_outer_left_rear_bridge": {
+        "bounds_xyz_mm": [
+          -1308.1,
+          -924.9,
+          -220.15,
+          -182.05,
+          150.0,
+          238.9
+        ],
+        "volume_mm3": 1297932.888,
+        "shape_sha256": "038ccd3c5d7e70a9865ee64f1e0a68cae9f38da665c4d2e4698bee5a1d058b73"
+      },
+      "knee_outer_left_spine": {
+        "bounds_xyz_mm": [
+          -1308.1,
+          -1219.2,
+          -182.05,
+          -42.35,
+          146.05,
+          416.0
+        ],
+        "volume_mm3": 3352598.1335,
+        "shape_sha256": "53042192ef8ac349c20e3c3e476f498ce2703bc4fa41d9ac3d62f29ce0bf9617"
+      },
+      "knee_outer_left_under_header_link": {
+        "bounds_xyz_mm": [
+          -1110.1,
+          -924.9,
+          -182.05,
+          -93.15,
+          150.0,
+          238.9
+        ],
+        "volume_mm3": 1463674.492,
+        "shape_sha256": "880a59649b293ccebe1602760fa224e13daa85ad3865cf53a7a61f05c3f685cc"
+      },
+      "knee_outer_right_rear_bridge": {
+        "bounds_xyz_mm": [
+          921.725,
+          1304.925,
+          -220.15,
+          -182.05,
+          150.0,
+          238.9
+        ],
+        "volume_mm3": 1297932.888,
+        "shape_sha256": "1c5b60385919a395724c9a934c9839079b2412358da9d5af8482105c9fa75c64"
+      },
+      "knee_outer_right_spine": {
+        "bounds_xyz_mm": [
+          1216.025,
+          1304.925,
+          -182.05,
+          -42.35,
+          146.05,
+          416.0
+        ],
+        "volume_mm3": 3352598.1335,
+        "shape_sha256": "9727a7b471dc6be34c7e5e111179f11c8f3f09f7d3444f6246698ac29d7b7877"
+      },
+      "knee_outer_right_under_header_link": {
+        "bounds_xyz_mm": [
+          921.725,
+          1106.925,
+          -182.05,
+          -93.15,
+          150.0,
+          238.9
+        ],
+        "volume_mm3": 1463674.492,
+        "shape_sha256": "b62d470057a503f1a02e013e93bd539b9a05881de9dd4a04974f89623b69d50f"
+      },
+      "left_service_inner_lower_cleat": {
+        "bounds_xyz_mm": [
+          -177.95,
+          -89.05,
+          602.489602,
+          751.328941,
+          1184.866683,
+          1329.909711
+        ],
+        "volume_mm3": 946014.237,
+        "shape_sha256": "2e1fdda8b48dcc422003b8df703da87405f9c172d5c2660561313bca53128f44"
+      },
+      "left_service_inner_upper_cleat": {
+        "bounds_xyz_mm": [
+          -177.95,
+          -89.05,
+          695.083157,
+          843.922496,
+          1295.215385,
+          1440.258413
+        ],
+        "volume_mm3": 946014.237,
+        "shape_sha256": "d013db82ea94672c1cbf32f61f2d3e1b531914e17385c030937170f95e0efb7a"
+      },
+      "left_service_outer_lower_cleat": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -1041.4,
+          602.489602,
+          751.328941,
+          1184.866683,
+          1329.909711
+        ],
+        "volume_mm3": 946014.237,
+        "shape_sha256": "f24f285d50e87ae1c99d1a645e4c7aaff84e9b6b970674c4698b3428fc0bec22"
+      },
+      "left_service_outer_upper_cleat": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -1041.4,
+          695.083157,
+          843.922496,
+          1295.215385,
+          1440.258413
+        ],
+        "volume_mm3": 946014.237,
+        "shape_sha256": "a66bf921b25e1b07e4842f944aa1640b4f70d082c3cd2499a67883b2660d6e42"
+      },
+      "wj04_lower_full_stock_cleat": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          602.489602,
+          751.328941,
+          1184.866683,
+          1329.909711
+        ],
+        "volume_mm3": 946014.237,
+        "shape_sha256": "e75e5ac5a4c80f52b203fdf338eafb07e427655524497a7139a7033104cc0a16"
+      },
+      "wj04_upper_g7_crosscut_full_stock_cleat": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          695.083157,
+          818.796238,
+          1316.298819,
+          1440.258413
+        ],
+        "volume_mm3": 686788.949,
+        "shape_sha256": "1214ed327c4c8a8ad73d0271a34d9f25a46c67856dd3779632f660939e8905f4"
+      },
+      "wj06_outer_lower_right_cleat": {
+        "bounds_xyz_mm": [
+          1038.225,
+          1127.125,
+          602.489602,
+          751.328941,
+          1184.866683,
+          1329.909711
+        ],
+        "volume_mm3": 946014.237,
+        "shape_sha256": "baab095adafc35c513d8784647f04b6b202760eda95c6a25360f7ad4583baab9"
+      },
+      "wj06_outer_upper_right_cleat": {
+        "bounds_xyz_mm": [
+          1038.225,
+          1127.125,
+          695.083157,
+          843.922496,
+          1295.215385,
+          1440.258413
+        ],
+        "volume_mm3": 946014.237,
+        "shape_sha256": "c335e7ec216f78f860bde5976a9c2e0190e6311846887e31a8d9097c899f321b"
+      }
+    },
+    "finished_candidate_parts": {
+      "center_post_cleat_left": {
+        "bounds_xyz_mm": [
+          -297.95,
+          -209.05,
+          -175.7,
+          -86.8,
+          110.0,
+          238.9
+        ],
+        "volume_mm3": 1000492.224044,
+        "shape_sha256": "51184bfdc6cd4f80173617d96491e1f936396e0ab8a61205e83e17d35befcc49"
+      },
+      "center_post_cleat_right": {
+        "bounds_xyz_mm": [
+          209.05,
+          297.95,
+          -175.7,
+          -86.8,
+          110.0,
+          238.9
+        ],
+        "volume_mm3": 1000492.224044,
+        "shape_sha256": "2b8ce23663b5fe0c2a40a65f36fbe9c1acef5a5a65e34a329009157874dd9f0f"
+      },
+      "center_principal_cleat_left": {
+        "bounds_xyz_mm": [
+          -177.95,
+          -89.05,
+          -223.86273,
+          -61.128761,
+          277.0,
+          339.815644
+        ],
+        "volume_mm3": 630708.830173,
+        "shape_sha256": "e36a9922c676205effbe04816cb587d0e8ec018b07ba9c1280a82dc98d3c0e83"
+      },
+      "center_principal_cleat_right": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          -223.86273,
+          -61.128761,
+          277.0,
+          339.815644
+        ],
+        "volume_mm3": 630708.830173,
+        "shape_sha256": "cc425c5584ba522be77d78c3db34b955aeba6a892032f2335c69f12c48a6a687"
+      },
+      "inner_kicker_backer_left": {
+        "bounds_xyz_mm": [
+          -90.4875,
+          -1.5875,
+          -124.9,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1863048.608185,
+        "shape_sha256": "2e0a9533844e587b3be0a97a489a4ceb249e2405f287430dc22346aff83d6063"
+      },
+      "inner_kicker_backer_right": {
+        "bounds_xyz_mm": [
+          -1.5875,
+          87.3125,
+          -124.9,
+          -36.0,
+          0.0,
+          238.9
+        ],
+        "volume_mm3": 1863048.608185,
+        "shape_sha256": "b07599b036ab0d5d9aace3b974652c7c36b875f08f20c9e01f5833d1967e6656"
+      },
+      "knee_outer_left_rear_bridge": {
+        "bounds_xyz_mm": [
+          -1308.1,
+          -924.9,
+          -220.15,
+          -182.05,
+          150.0,
+          238.9
+        ],
+        "volume_mm3": 1286788.605805,
+        "shape_sha256": "65521f012afd59424b0ed67fa18692bc4d8278bf727c1f8520acc2de3b4905da"
+      },
+      "knee_outer_left_spine": {
+        "bounds_xyz_mm": [
+          -1308.1,
+          -1219.2,
+          -182.05,
+          -42.35,
+          146.05,
+          416.0
+        ],
+        "volume_mm3": 2625189.188787,
+        "shape_sha256": "38c2212e46ca15e57c2b3723656dbefd62ba88afce50dcbaf35e57d0dc812990"
+      },
+      "knee_outer_left_under_header_link": {
+        "bounds_xyz_mm": [
+          -1110.1,
+          -924.9,
+          -182.05,
+          -93.15,
+          150.0,
+          238.9
+        ],
+        "volume_mm3": 1447964.565237,
+        "shape_sha256": "bacd13ce1dfd84d3740455d9700acd80d105c83159fd66cd0128363dad1f8a0b"
+      },
+      "knee_outer_right_rear_bridge": {
+        "bounds_xyz_mm": [
+          921.725,
+          1304.925,
+          -220.15,
+          -182.05,
+          150.0,
+          238.9
+        ],
+        "volume_mm3": 1286788.605805,
+        "shape_sha256": "f09d7a6189573e354e284dce4b96e8295fcd52edd6d6aada5a23565b4148a85f"
+      },
+      "knee_outer_right_spine": {
+        "bounds_xyz_mm": [
+          1216.025,
+          1304.925,
+          -182.05,
+          -42.35,
+          146.05,
+          416.0
+        ],
+        "volume_mm3": 2625189.188787,
+        "shape_sha256": "d0cc46e0bf5ec5d83ce3a3d5c33dfa0c6e43ba6f825689a5abe17f256d954e58"
+      },
+      "knee_outer_right_under_header_link": {
+        "bounds_xyz_mm": [
+          921.725,
+          1106.925,
+          -182.05,
+          -93.15,
+          150.0,
+          238.9
+        ],
+        "volume_mm3": 1447964.565237,
+        "shape_sha256": "f4cd378549501b8ed373de704240db8e55020e65211556afb3b8fb8f03ee729d"
+      },
+      "left_service_inner_lower_cleat": {
+        "bounds_xyz_mm": [
+          -177.95,
+          -89.05,
+          602.489602,
+          751.328941,
+          1184.866683,
+          1329.909711
+        ],
+        "volume_mm3": 930304.310237,
+        "shape_sha256": "94024cc3c77ea08c90d7405607614ca2663d06c9056a51613ef3d1b0e5c942bc"
+      },
+      "left_service_inner_upper_cleat": {
+        "bounds_xyz_mm": [
+          -177.95,
+          -89.05,
+          695.083157,
+          843.922496,
+          1295.215385,
+          1440.258413
+        ],
+        "volume_mm3": 930304.310237,
+        "shape_sha256": "aa5f91543b65494a4e6c78c5899de73dfd706a521132550a7888c8b9a07ec06b"
+      },
+      "left_service_outer_lower_cleat": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -1041.4,
+          602.489602,
+          751.328941,
+          1184.866683,
+          1329.909711
+        ],
+        "volume_mm3": 930304.310237,
+        "shape_sha256": "64e420fd7cf0c05f158dd922e14cbbbfbe2ff32d862ce14eb2eb823ff44dc60d"
+      },
+      "left_service_outer_upper_cleat": {
+        "bounds_xyz_mm": [
+          -1130.3,
+          -1041.4,
+          695.083157,
+          843.922496,
+          1295.215385,
+          1440.258413
+        ],
+        "volume_mm3": 930304.310237,
+        "shape_sha256": "327210b9a8cdb2aba6a96b29f77d6ada62e00655d18cdf280b7bc7e2cedbbc78"
+      },
+      "wj04_lower_full_stock_cleat": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          602.489602,
+          751.328941,
+          1184.866683,
+          1329.909711
+        ],
+        "volume_mm3": 930304.310237,
+        "shape_sha256": "996fa8e6acf3272cc81fe88b010c45aa5774faf12c4bec0acf64f3ca82f7f7f1"
+      },
+      "wj04_upper_g7_crosscut_full_stock_cleat": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          695.083157,
+          818.796238,
+          1316.298819,
+          1440.258413
+        ],
+        "volume_mm3": 671079.022237,
+        "shape_sha256": "05dd3e2030c628d5a88c400fadb3d1b9f41dbe34d4468ffc624cfeab20cbaaee"
+      },
+      "wj06_outer_lower_right_cleat": {
+        "bounds_xyz_mm": [
+          1038.225,
+          1127.125,
+          602.489602,
+          751.328941,
+          1184.866683,
+          1329.909711
+        ],
+        "volume_mm3": 930304.310237,
+        "shape_sha256": "5cba786acc2628417968dcd306d2f1b204b5f638bcd1f8628bf7e7d6410797df"
+      },
+      "wj06_outer_upper_right_cleat": {
+        "bounds_xyz_mm": [
+          1038.225,
+          1127.125,
+          695.083157,
+          843.922496,
+          1295.215385,
+          1440.258413
+        ],
+        "volume_mm3": 930304.310237,
+        "shape_sha256": "1283b63862f9e93b0427c9b08d0b58b74ffee8f7c0e06ac83c3cbc4e5850ca0f"
+      }
+    },
+    "panel_replacements": {
+      "kicker_right": {
+        "bounds_xyz_mm": [
+          -1.5875,
+          1216.025,
+          -36.0,
+          -17.74375,
+          0.0,
+          277.0
+        ],
+        "volume_mm3": 6147014.115123,
+        "shape_sha256": "1d5362b17417e8566d15f44a200d236cd4698760e737d71f0341a70059c0cdcf"
+      },
+      "main_lower_right": {
+        "bounds_xyz_mm": [
+          -1.5875,
+          1216.025,
+          -31.7888,
+          765.882953,
+          276.835286,
+          1222.531562
+        ],
+        "volume_mm3": 26955237.816035,
+        "shape_sha256": "2a6b2a4a838e8d93fe281767ba395fe6a698cc7e881744ad348d814353e7a3dc"
+      },
+      "main_upper_right": {
+        "bounds_xyz_mm": [
+          -1.5875,
+          1216.025,
+          751.897854,
+          1549.569606,
+          1210.796671,
+          2156.492947
+        ],
+        "volume_mm3": 26979469.754657,
+        "shape_sha256": "cdfdb38ecc364dd0b131b0633b4de5faf07bf8ef46c73fd2135a0604b2341d0a"
+      }
+    }
+  },
+  "fixed_panel_axes": [
+    "kicker_header_left_1",
+    "kicker_header_left_2",
+    "kicker_header_left_3",
+    "kicker_header_left_4",
+    "kicker_header_left_5",
+    "kicker_header_right_1",
+    "kicker_header_right_2",
+    "kicker_header_right_3",
+    "kicker_header_right_4",
+    "kicker_header_right_5",
+    "round_kicker_left_center_1",
+    "round_kicker_left_center_2",
+    "round_kicker_left_rim_1",
+    "round_kicker_left_rim_2",
+    "round_kicker_right_center_1",
+    "round_kicker_right_center_2",
+    "round_kicker_right_rim_1",
+    "round_kicker_right_rim_2",
+    "round_panel_lower_left_center_1",
+    "round_panel_lower_left_center_2",
+    "round_panel_lower_left_center_3",
+    "round_panel_lower_left_center_4",
+    "round_panel_lower_left_edge_1",
+    "round_panel_lower_left_edge_2",
+    "round_panel_lower_left_rim_1",
+    "round_panel_lower_left_rim_2",
+    "round_panel_lower_left_rim_3",
+    "round_panel_lower_left_rim_4",
+    "round_panel_lower_left_service_1",
+    "round_panel_lower_left_service_2",
+    "round_panel_lower_right_center_1",
+    "round_panel_lower_right_center_2",
+    "round_panel_lower_right_center_3",
+    "round_panel_lower_right_center_4",
+    "round_panel_lower_right_edge_1",
+    "round_panel_lower_right_edge_2",
+    "round_panel_lower_right_rim_1",
+    "round_panel_lower_right_rim_2",
+    "round_panel_lower_right_rim_3",
+    "round_panel_lower_right_rim_4",
+    "round_panel_lower_right_service_1",
+    "round_panel_lower_right_service_2",
+    "round_panel_upper_left_center_1",
+    "round_panel_upper_left_center_2",
+    "round_panel_upper_left_center_3",
+    "round_panel_upper_left_center_4",
+    "round_panel_upper_left_edge_1",
+    "round_panel_upper_left_edge_2",
+    "round_panel_upper_left_rim_1",
+    "round_panel_upper_left_rim_2",
+    "round_panel_upper_left_rim_3",
+    "round_panel_upper_left_rim_4",
+    "round_panel_upper_left_service_1",
+    "round_panel_upper_left_service_2",
+    "round_panel_upper_right_center_1",
+    "round_panel_upper_right_center_2",
+    "round_panel_upper_right_center_3",
+    "round_panel_upper_right_center_4",
+    "round_panel_upper_right_edge_1",
+    "round_panel_upper_right_edge_2",
+    "round_panel_upper_right_rim_1",
+    "round_panel_upper_right_rim_2",
+    "round_panel_upper_right_rim_3",
+    "round_panel_upper_right_rim_4",
+    "round_panel_upper_right_service_1",
+    "round_panel_upper_right_service_2"
+  ],
+  "frame_bolts": [
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "members": [
+        "base_side_left",
+        "lumber_leg_left"
+      ],
+      "origin_global_xyz_mm": [
+        -1127.125,
+        1125.245692061979,
+        1734.9873155158273
+      ],
+      "axis_global_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "source_occupied_length_mm": 203.2,
+      "source_occupied_diameter_mm": 12.7,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_2",
+      "members": [
+        "base_side_left",
+        "lumber_leg_left"
+      ],
+      "origin_global_xyz_mm": [
+        -1127.125,
+        1143.254307938021,
+        1788.0126844841727
+      ],
+      "axis_global_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "source_occupied_length_mm": 203.2,
+      "source_occupied_diameter_mm": 12.7,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "members": [
+        "base_side_right",
+        "lumber_leg_right"
+      ],
+      "origin_global_xyz_mm": [
+        1123.95,
+        1125.245692061979,
+        1734.9873155158273
+      ],
+      "axis_global_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "source_occupied_length_mm": 203.2,
+      "source_occupied_diameter_mm": 12.7,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_2",
+      "members": [
+        "base_side_right",
+        "lumber_leg_right"
+      ],
+      "origin_global_xyz_mm": [
+        1123.95,
+        1143.254307938021,
+        1788.0126844841727
+      ],
+      "axis_global_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "source_occupied_length_mm": 203.2,
+      "source_occupied_diameter_mm": 12.7,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "rail_front_bolt_left_1",
+      "members": [
+        "base_post_outer_left",
+        "base_floor_left"
+      ],
+      "origin_global_xyz_mm": [
+        -1179.0680000000002,
+        -105.52785892843431,
+        70.17214107156569
+      ],
+      "axis_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 101.6,
+      "source_occupied_diameter_mm": 9.525,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "rail_front_bolt_left_2",
+      "members": [
+        "base_post_outer_left",
+        "base_floor_left"
+      ],
+      "origin_global_xyz_mm": [
+        -1179.0680000000002,
+        -77.59714107156569,
+        98.10285892843432
+      ],
+      "axis_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 101.6,
+      "source_occupied_diameter_mm": 9.525,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "rail_front_bolt_right_1",
+      "members": [
+        "base_post_outer_right",
+        "base_floor_right"
+      ],
+      "origin_global_xyz_mm": [
+        1175.8930000000003,
+        -105.52785892843431,
+        70.17214107156569
+      ],
+      "axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 101.6,
+      "source_occupied_diameter_mm": 9.525,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "rail_front_bolt_right_2",
+      "members": [
+        "base_post_outer_right",
+        "base_floor_right"
+      ],
+      "origin_global_xyz_mm": [
+        1175.8930000000003,
+        -77.59714107156569,
+        98.10285892843432
+      ],
+      "axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 101.6,
+      "source_occupied_diameter_mm": 9.525,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_1",
+      "members": [
+        "base_floor_left",
+        "lumber_leg_left"
+      ],
+      "origin_global_xyz_mm": [
+        -1217.1680000000001,
+        1551.0,
+        69.0
+      ],
+      "axis_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 114.3,
+      "source_occupied_diameter_mm": 9.525,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "rail_rear_bolt_left_2",
+      "members": [
+        "base_floor_left",
+        "lumber_leg_left"
+      ],
+      "origin_global_xyz_mm": [
+        -1217.1680000000001,
+        1517.0,
+        97.5
+      ],
+      "axis_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 114.3,
+      "source_occupied_diameter_mm": 9.525,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_1",
+      "members": [
+        "base_floor_right",
+        "lumber_leg_right"
+      ],
+      "origin_global_xyz_mm": [
+        1213.9930000000002,
+        1551.0,
+        69.0
+      ],
+      "axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 114.3,
+      "source_occupied_diameter_mm": 9.525,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    },
+    {
+      "axis_id": "rail_rear_bolt_right_2",
+      "members": [
+        "base_floor_right",
+        "lumber_leg_right"
+      ],
+      "origin_global_xyz_mm": [
+        1213.9930000000002,
+        1517.0,
+        97.5
+      ],
+      "axis_global_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 114.3,
+      "source_occupied_diameter_mm": 9.525,
+      "candidate_recheck_status": "required",
+      "installed_component_count": 5
+    }
+  ],
+  "protected_inventory_counts": {
+    "fixed_66_hillman_axes_63p5mm": 66,
+    "hold_hole_and_provisional_projection": 142,
+    "lights": 132,
+    "retained_12_frame_bolt_components": 60,
+    "retained_12_frame_bolt_tools_withdrawals": 36,
+    "retained_legacy_clips": 8,
+    "retained_legacy_sds_axes": 48,
+    "tnuts": 142,
+    "wires": 131
+  },
+  "gates": {
+    "cross_family_clearance_checked": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "installation_proven": false,
+    "fabrication_released": false,
+    "structural_released": false
+  }
+}
