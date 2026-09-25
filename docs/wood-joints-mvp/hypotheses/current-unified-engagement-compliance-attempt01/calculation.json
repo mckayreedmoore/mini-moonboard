@@ -1,0 +1,132 @@
+{
+  "artifact_id": "current_unified_engagement_compliance_attempt01",
+  "prepared_date": "2026-09-25",
+  "status": "conditional_nominal_tangent_plus_historical_class_fit_comparator",
+  "scope": {
+    "thread_hypothesis": "1/4-20 UNC, external 2A / internal 2B",
+    "applies_to_delivered_hardware": false,
+    "transfers_to_wj24_provisional_axes": false,
+    "physical_axial_engagement_resolved": false,
+    "capacity_or_resistance_calculated": false,
+    "preload_assumed": false
+  },
+  "source_pins": [
+    {
+      "path": "docs/wood-joints-mvp/current-engagement-evidence-routes.md",
+      "sha256": "76438bd59d07105a4dbd4553ca0cb95fa1de828552adc9815e71fad9233f50bb"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-engagement-analytical-proposal.md",
+      "sha256": "ed71af102b1e8987d71597f72c9a8f7f756e45335e21a9e23d2ee234253b0d9b"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-thread-fit-travel.md",
+      "sha256": "4046318d1fac274bc3a2bb654921d3eaa4bce9c33e2cc2c391b8b83f4ac8d50d"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-ordinary-hardware-basis.md",
+      "sha256": "72ffabef1e449234622f4682eaefcde787abc1b56fbe8814b1e843d1581d1ecc"
+    },
+    {
+      "path": "docs/wood-joints-mvp/steel-elastic-material-scenario.md",
+      "sha256": "e97f7df51e6553698e1542079d722022cdbbedad83f740ee42d85b56e6b394c3"
+    },
+    {
+      "path": "docs/wood-joints-mvp/thread-engagement-method.md",
+      "sha256": "66e899d5e090d11124b011ba150e559f1addebdb55a4aae90e7ece89d4c53503"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/current-engagement-analytical-attempt01/calculation.json",
+      "sha256": "80f73199d77e7d6147d6e4d8a74018c151a45a89070882c6c888a5440d0b44eb"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/thread-fit-travel-attempt01/calculation.json",
+      "sha256": "206ff1dae7d83b739d5af909e27309b2d8e2f1dda399c190f07a4def9898c43b"
+    }
+  ],
+  "post_seating_tangent": {
+    "model": "K_th = A_s * E_b / L_th; L_th = 0.85*d",
+    "basis": "Matsubara and Teranishi (2022), Eqs. (5) and (9), with the nominal Unified tensile-stress-area equation from NBS Handbook 28 Supplement (1963) substituted for their JIS B1082 area input.",
+    "nominal_diameter_mm": 6.35,
+    "threads_per_in": 20.0,
+    "pitch_mm": 1.27,
+    "tensile_stress_area_in2": 0.031820992472115,
+    "tensile_stress_area_mm2": 20.529631503309712,
+    "equivalent_thread_length_ratio": 0.85,
+    "equivalent_thread_length_mm": 5.3975,
+    "generic_reference_E_MPa": 200000.0,
+    "stiffness_N_per_mm": 760708.902392208,
+    "stiffness_kN_per_mm": 760.708902392208,
+    "compliance_mm_per_N": 1.3145632933376896e-06,
+    "compliance_mm_per_kN": 0.0013145632933376896,
+    "extension_at_1kN_mm": 0.0013145632933376896,
+    "meaning": "One post-seating equivalent thread-engagement tangent component only. L_th is an elastic equivalent length, not physical overlap or nut height.",
+    "applicability_limit": "The source's M12 timber tests compare composite joint tightening stiffness; they do not isolate this thread component or validate a 1/4-20 Unified pair. This is a conditional model scenario, not an evidence-derived physical law or bound."
+  },
+  "fit_slack_comparator": {
+    "source": "NBS Handbook H28 (1969), Part I, ideal 60-degree Unified profile relation and 1/4-20 class limits; current ASME B1.1-2024 numerical table confirmation remains open.",
+    "external_2a_pitch_diameter_limits_in": [
+      0.2127,
+      0.2164
+    ],
+    "internal_2b_pitch_diameter_limits_in": [
+      0.2175,
+      0.2224
+    ],
+    "diametral_pitch_clearance_in": [
+      0.0010999999999999899,
+      0.009699999999999986
+    ],
+    "functional_diameter_factor": 1.7321,
+    "total_reversal_travel_mm": [
+      0.016130708388661014,
+      0.14224351942728458
+    ],
+    "one_way_initial_free_travel_mm_if_phase_unknown": [
+      0.0,
+      0.14224351942728458
+    ],
+    "opposing_direction_slack_relation": "For one ideal fixed-rotation matched pair, g_positive + g_negative equals its total flank-to-flank reversal travel within the listed comparator interval; initial phase is unmeasured.",
+    "assumptions": [
+      "ideal full-form 60-degree Unified flanks",
+      "zero pitch/lead, flank-angle, helix-form, taper, and roundness error",
+      "relative nut/bolt rotation fixed",
+      "at least one mutually engaged full-form thread turn",
+      "no preload and no known initial flank phase"
+    ],
+    "meaning": "Historical dimensional fit comparator only; not delivered WJ04 fit, current-edition ASME acceptance limits, or WJ24 hardware evidence."
+  },
+  "conditional_piecewise_law": {
+    "coordinate": "delta is bolt-to-nut relative axial displacement, positive in the chosen tensile direction.",
+    "equations": [
+      "F=0 when -g_negative < delta < g_positive",
+      "F=K_th*(delta-g_positive) when delta >= g_positive",
+      "F=K_th*(delta+g_negative) when delta <= -g_negative",
+      "g_positive >= 0; g_negative >= 0; g_positive + g_negative = b_reversal"
+    ],
+    "interpretation": "This combines a separately conditional post-seating tangent with an idealized fixed-rotation fit gap. It is not a physical 1/4-20 constitutive law until model applicability, class limits, full-form overlap, and assembled fit are supported."
+  },
+  "compliance_partition": {
+    "included": "Post-seating equivalent thread-engagement component K_th only.",
+    "bolt_body": "Bolt shank/threaded-segment/body extension remains in the explicit deformable bolt model as applicable; do not add its EA/L compliance to this engagement connector again.",
+    "nut_body": "A rigid nut contributes no nut-body compliance in the response model. This calculation does not assert that real nut-body compliance is zero; include it only through an explicit deformable nut or a separately justified term.",
+    "other_excluded_compliance": "Washer-seat and timber compression/bearing remain separate explicit components; neither is included in K_th.",
+    "fit_is_not_compliance": "The H28 slack comparator is an initial flank-travel interval, not a spring compliance. Matsubara's K_s term is free threaded-bolt length in a series model, not flank backlash."
+  },
+  "full_height_fit": {
+    "established": false,
+    "catalog_nut_thickness_mm": [
+      5.3848,
+      5.7404
+    ],
+    "nut_thickness_proves_active_thread_height": false,
+    "missing_exact_parameter": "Axial overlap length of mutually complete external and internal full-form threads after bolt runout and nut entry/exit chamfers, measured from the seated nut-bearing plane.",
+    "why_missing": "The current hardware basis gives nominal/standard length screens and nut thickness but no first-full-thread coordinate, female-thread chamfer/active-height coordinate, or delivered matched-pair overlap. Catalog LG/LB or overall length does not supply that intersection."
+  },
+  "applicability_blockers": [
+    "The finite tangent is a literature-based engineering scenario; M&T did not isolate thread-pair stiffness in a 1/4-20 Unified test. The Zhang-Gao-Xu M36 validation is not used or extrapolated.",
+    "The class slack values are from NBS H28 (1969), not verified against numeric ASME B1.1-2024 endpoints; current numeric 2A/2B pitch-diameter limits and delivered effective thread geometry remain unbound.",
+    "No exact active full-form overlap, installed initial flank phase, or rotational-restraint/end-stop condition is established for delivered hardware."
+  ],
+  "evidence_route": "A source-applicable validated analytical/numerical model or directly applicable published test can support a conditional finite law without a brand-specific coupon. This scenario alone does not meet that validation gate and does not create a coupon prerequisite for unrelated sensitivity calculations."
+}
