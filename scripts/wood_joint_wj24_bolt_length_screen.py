@@ -19,7 +19,7 @@ INVENTORY_PATH = (
     ROOT / "docs/wood-joints-mvp/hypotheses/wj24-hardware-inventory/inventory.json"
 )
 
-SCHEMA = "wood_joint_wj24_bolt_length_screen/v1"
+SCHEMA = "wood_joint_wj24_bolt_length_screen/v2"
 TARGET_FAMILY = "wj05_center_x190"
 
 MM_PER_IN = 25.4
@@ -28,7 +28,7 @@ WASHER_MIN_MM = 1.2954
 WASHER_MAX_MM = 2.032
 WASHERS_PER_AXIS = 2
 NUT_MAX_MM = 5.7404
-THREAD_PROJECTION_MM = 3.175
+MODELED_TIP_PROJECTION_MM = 3.175
 WOOD_MEMBER_ALLOWANCE_MM = 0.5
 MAX_THREAD_BEARING_FRACTION = 0.25
 
@@ -177,21 +177,21 @@ def _evaluate_candidate(
     far_nut_face_max_mm = (
         WASHER_MAX_MM + grip_max_mm + WASHER_MAX_MM + NUT_MAX_MM
     )
-    receiving_full_thread_end_min_mm = (
-        far_nut_face_max_mm + THREAD_PROJECTION_MM
+    modeled_tip_target_min_mm = (
+        far_nut_face_max_mm + MODELED_TIP_PROJECTION_MM
     )
     minimum_tip_past_nut_mm = delivered_length_min_mm - far_nut_face_max_mm
-    length_margin_after_projection_mm = (
-        delivered_length_min_mm - receiving_full_thread_end_min_mm
+    minimum_length_margin_to_tip_target_mm = (
+        delivered_length_min_mm - modeled_tip_target_min_mm
     )
 
     nominal_stack_underhead_requirement_mm = (
         grip_mm
         + WASHERS_PER_AXIS * WASHER_NOMINAL_MM
         + NUT_MAX_MM
-        + THREAD_PROJECTION_MM
+        + MODELED_TIP_PROJECTION_MM
     )
-    passes_length_screen = length_margin_after_projection_mm >= 0.0
+    passes_length_screen = minimum_length_margin_to_tip_target_mm >= 0.0
     has_feasible_receiving_transition = transition_window_mm > 0.0
 
     return {
@@ -216,11 +216,11 @@ def _evaluate_candidate(
             far_nut_face_max_mm, 6
         ),
         "minimum_tip_past_far_nut_face_mm": round(minimum_tip_past_nut_mm, 6),
-        "required_full_thread_end_min_mm_from_underhead": round(
-            receiving_full_thread_end_min_mm, 6
+        "modeled_tip_target_min_mm_from_underhead": round(
+            modeled_tip_target_min_mm, 6
         ),
-        "length_margin_after_required_thread_projection_mm": round(
-            length_margin_after_projection_mm, 6
+        "minimum_length_margin_to_modeled_tip_target_mm": round(
+            minimum_length_margin_to_tip_target_mm, 6
         ),
         "receiving_body_end_min_mm_from_underhead": round(
             receiving_body_end_min_mm, 6
@@ -304,7 +304,7 @@ def build_screen(inventory: dict[str, Any] | None = None) -> dict[str, Any]:
             grip_mm
             + WASHERS_PER_AXIS * WASHER_NOMINAL_MM
             + NUT_MAX_MM
-            + THREAD_PROJECTION_MM
+            + MODELED_TIP_PROJECTION_MM
         )
         if not _close(historical_required, expected_historical):
             raise ValueError(f"historical WJ05 stack value changed for {row['axis_id']}")
@@ -397,8 +397,8 @@ def build_screen(inventory: dict[str, Any] | None = None) -> dict[str, Any]:
             "washer_thickness_max_mm": WASHER_MAX_MM,
             "nut_count": 1,
             "finished_hex_nut_max_thickness_mm": NUT_MAX_MM,
-            "minimum_full_form_thread_past_far_nut_face_mm": THREAD_PROJECTION_MM,
-            "minimum_projection_basis": "WJ05 center-node model uses 3.175 mm; this screen preserves that geometric allowance and does not establish a structural engagement requirement",
+            "modeled_minimum_tip_projection_past_far_nut_face_mm": MODELED_TIP_PROJECTION_MM,
+            "tip_projection_basis": "Inherited WJ05/WJ24 physical shaft-end envelope only; not a required full-form thread extension or minimum nut-engagement rule",
         },
         "dimensional_method": {
             "standard": "ASME B18.2.1-2012, Table 12 and Table 13, 1/4-in hex cap screw envelope",
@@ -410,7 +410,10 @@ def build_screen(inventory: dict[str, Any] | None = None) -> dict[str, Any]:
             "wood_member_screen_allowance_status": "screen-only ±0.5 mm per modeled wood layer; not a stock, cut, or receiving tolerance",
             "thread_bearing_condition": "measured body end must leave no more than one quarter of the nut-side wood member threaded if a later lateral method relies on nominal bolt diameter; otherwise use measured root diameter in that method",
             "transition_receiving_condition": "measure actual body end and first full-form thread together; first full-form thread must begin by the earliest nut bearing face",
-            "thread_end_receiving_condition": "measure full-form thread through the entire nut and at least 3.175 mm beyond the far nut face, with thread end no farther than measured bolt tip",
+            "nut_engagement_receiving_condition": "verify the matched nut engages through its full functional thread height and seats without point/runout interference; no full-form thread extension beyond the far nut face is required by this screen",
+            "modeled_tip_receiving_condition": "measure delivered bolt/stack to confirm the physical tip reaches the far nut face plus the inherited 3.175 mm modeled envelope",
+            "full_height_matched_nut_engagement_required": True,
+            "full_form_thread_beyond_far_nut_face_required": False,
             "standard_bounds_are_delivered_measurements": False,
         },
         "axes": axes,

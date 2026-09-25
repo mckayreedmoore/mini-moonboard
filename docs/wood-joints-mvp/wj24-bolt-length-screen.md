@@ -13,7 +13,20 @@ records 16 `wj05_center_x190` bolt axes with modeled wood grips of 100.915644,
 as the WJ05 center-node model. This report leaves that producer and inventory
 unchanged; it adds a separate length screen against those axes.
 
-| Axes | Count | Modeled wood grip | Historical WJ05 under-head screen | Screened nominal length | Minimum delivered length under standard tolerance | Far nut face max + 3.175 mm thread projection | Remaining length margin | Conditional receiving window for measured body end / first full-form thread |
+**Correction dated 2026-09-25:** earlier text described the inherited 3.175 mm
+allowance as required full-form thread beyond the nut. Source tracing shows
+the [WJ05 model](../../scripts/wood_joint_wj05_center_node_probe.py) adds
+`THREAD_PAST_NUT_MM` only to an unthreaded cylindrical shaft length; the
+current WJ24 CAD shaft is likewise an unthreaded occupancy envelope. This
+screen therefore retains 3.175 mm only as a physical bolt-tip
+projection beyond the nut for the existing geometry. It is 0.125 in, 2.5
+pitches at 1/4-20, or 0.5 bolt diameter. It is not a minimum thread-engagement
+rule. Full functional engagement through the matched nut remains required,
+but no additional full-form thread past the nut is required by this screen.
+Older frozen reports and snapshots remain historical and may preserve the
+superseded full-tail-thread receiving wording.
+
+| Axes | Count | Modeled wood grip | Historical WJ05 under-head screen | Screened nominal length | Minimum delivered length under standard tolerance | Far nut face max + 3.175 mm modeled bolt-tip projection | Minimum-length margin to modeled tip target | Conditional receiving window for measured body end / first full-form thread |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | `center_principal_header_{left,right}_{1,2}` | 4 | 100.915644 mm | 113.133044 mm | 4.75 in (120.65 mm) | 118.11 mm | 114.895044 mm | 3.214956 mm | 95.25–101.6 mm |
 | `center_post_{left,right}_{1,2}` and `center_principal_{left,right}_{1,2}` | 8 | 127 mm | 139.2174 mm | 5.75 in (146.05 mm) | 143.51 mm | 140.9794 mm | 2.5306 mm | 120.65–127 mm |
@@ -21,19 +34,21 @@ unchanged; it adds a separate length screen against those axes.
 
 The “historical WJ05 under-head screen” uses the center-node model's nominal
 1.651 mm washer thickness, the 5.7404 mm maximum finished-nut thickness, and
-3.175 mm past the nut. The new candidate lengths use a wider stack screen:
-two Type A narrow washers at their 2.032 mm maximum thickness, the nut at its
-5.7404 mm maximum thickness, plus 0.5 mm allowance on each of the two modeled
-wood members and the same 3.175 mm full-form thread projection. That wood
-allowance is only a screen input. It is not a stock tolerance or a receiving
-acceptance rule.
+3.175 mm of physical shaft extension past the nut. The new candidate lengths
+use a wider stack screen: two Type A narrow washers at their 2.032 mm maximum
+thickness, the nut at its 5.7404 mm maximum thickness, plus 0.5 mm allowance
+on each of the two modeled wood members and the same 3.175 mm modeled bolt-tip
+projection. That wood allowance is only a screen input. It is not a stock
+tolerance or a receiving acceptance rule. The tip projection is retained to
+preserve the previous geometry envelope; it does not require full-form thread
+beyond the nut.
 
 The modeled stack order is bolt head, one 1/4-in washer, the ordered pair of
 wood receivers, one 1/4-in washer, and one 1/4-20 finished hex nut. No
 counterbore is included on these sixteen center axes. The modeled washer
 thickness is 1.651 mm nominal, with a 1.2954–2.032 mm dimensional range; the
-nut maximum thickness is 5.7404 mm. The 3.175 mm thread projection preserves
-the WJ05 center-node model input. It is not a published minimum engagement
+nut maximum thickness is 5.7404 mm. The 3.175 mm bolt-tip projection preserves
+the WJ05 center-node geometry input. It is not a published minimum engagement
 rule and does not establish connection strength. The dimensional inputs and
 their limits are recorded in the [WJ05 center-node source](../../scripts/wood_joint_wj05_center_node_probe.py),
 [preserved WJ05 center-node report](hypotheses/wj05-center-node-relieved.md),
@@ -54,19 +69,23 @@ K.L. Jack's [fastener technical catalog](https://www.kljack.com/docs/default-sou
 and the repository's [source correction for the six-inch dimensions](bolt-dimension-source-correction.md).
 
 At each proposed nominal length, the minimum delivered length still exceeds
-the largest assumed far-nut face plus 3.175 mm. A positive stack margin only
-shows there is room for the assumed nut and projection. Receiving must measure
-each actual bolt and washer stack together and confirm a functional,
-full-height nut engagement. Measure the last thread scratch, first full-form
-thread, full-form thread end, and delivered under-head length. The measured
-body end must meet the table `Lb,min` and, if a later lateral method uses
-nominal bolt diameter, leave no more than one-quarter of the nut-side wood
-member carrying thread. The first full-form thread must begin no later than
-the earliest nut bearing face; full-form thread must pass the complete nut
-and continue at least 3.175 mm beyond its far face, while ending no farther
-than the measured bolt tip. If a later method's threaded-bearing condition is
-not met, use the measured root diameter in that method. These are receiving
-conditions for a dimensional candidate, not strength acceptance.
+the largest assumed far-nut face plus the 3.175 mm modeled tip projection. A
+positive margin only shows there is room for the assumed nut and physical tip
+envelope. Receiving must measure each actual bolt and washer stack together
+and confirm full functional thread engagement through the matched nut, with
+the nut seated without point or runout interference. Measure the last thread
+scratch and first full-form thread to check the table `Lb,min`, the conditional
+thread-bearing limit, and the receiving transition window; inspect the
+full-form thread/runout end as needed to confirm engagement through the nut's
+full functional thread height. The body end must meet `Lb,min` and, if a later
+lateral method uses nominal bolt diameter, leave no more than one-quarter of
+the nut-side wood member carrying thread. The first full-form thread must
+begin no later than the earliest nut bearing face. The physical bolt tip must
+reach the modeled target, but no full-form thread is required to continue
+beyond the nut face by the additional 3.175 mm. If a later method's
+threaded-bearing condition is not met, use the measured root diameter in that
+method. These are receiving conditions for a dimensional candidate, not
+strength acceptance.
 
 For the 167 mm group, an 8 in nominal bolt has ample overall length but fails
 the standard-envelope transition screen: its `Lb,min` is 171.45 mm, while the
@@ -76,8 +95,8 @@ assumed full-height nut engagement within this partial-thread envelope. The
 that has enough total length and a positive measured transition interval. The
 shorter 7.25 in option misses the total-length requirement by 1.4014 mm and
 has a −1.632 mm transition interval. For the other groups, the next shorter
-4.5 in and 5.5 in options miss the worst-case total-length stack by 3.135044
-and 3.8194 mm, respectively.
+4.5 in and 5.5 in options miss the worst-case nut-and-tip envelope by
+3.135044 and 3.8194 mm, respectively.
 
 All sixteen proposed nominal assignments and the source inventory hash are
 reproduced by [`wood_joint_wj24_bolt_length_screen.py`](../../scripts/wood_joint_wj24_bolt_length_screen.py).

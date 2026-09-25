@@ -55,15 +55,15 @@ def test_length_classes_have_stack_and_receiving_reserve(screen):
         127.0: (143.51, 140.9794, 2.5306),
         167.0: (185.928, 180.9794, 4.9486),
     }
-    for grip, (min_delivery, thread_end, reserve) in expected.items():
+    for grip, (min_delivery, tip_target, reserve) in expected.items():
         candidate = by_grip[grip]["selected_length_candidate"]
         assert candidate["minimum_delivered_underhead_length_mm"] == pytest.approx(
             min_delivery
         )
-        assert candidate["required_full_thread_end_min_mm_from_underhead"] == pytest.approx(
-            thread_end
+        assert candidate["modeled_tip_target_min_mm_from_underhead"] == pytest.approx(
+            tip_target
         )
-        assert candidate["length_margin_after_required_thread_projection_mm"] == pytest.approx(
+        assert candidate["minimum_length_margin_to_modeled_tip_target_mm"] == pytest.approx(
             reserve
         )
         assert candidate["measured_transition_window_mm"] > 0
@@ -79,12 +79,25 @@ def test_nominal_length_is_not_used_as_delivered_shank_or_thread_engagement(scre
     eight_in = long_grip["eight_in_candidate"]
     assert eight_in["passes_total_length_screen"] is True
     assert eight_in["minimum_delivered_underhead_length_mm"] > eight_in[
-        "required_full_thread_end_min_mm_from_underhead"
+        "modeled_tip_target_min_mm_from_underhead"
     ]
     assert eight_in["has_feasible_measured_transition_window"] is False
     assert eight_in["b18_2_1_Lb_min_mm"] > eight_in[
         "earliest_nut_bearing_face_mm_from_underhead"
     ]
+
+
+def test_inherited_projection_is_tip_envelope_not_full_thread_extension(screen):
+    assert screen["schema"] == "wood_joint_wj24_bolt_length_screen/v2"
+    assumptions = screen["fastener_assumption"]
+    assert assumptions["modeled_minimum_tip_projection_past_far_nut_face_mm"] == pytest.approx(
+        3.175
+    )
+    assert "minimum_full_form_thread_past_far_nut_face_mm" not in assumptions
+
+    method = screen["dimensional_method"]
+    assert method["full_height_matched_nut_engagement_required"] is True
+    assert method["full_form_thread_beyond_far_nut_face_required"] is False
 
 
 def test_inventory_historical_stack_is_checked_before_assignment():

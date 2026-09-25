@@ -34,12 +34,18 @@ under-head bearing plane.
 | Finished hex nut | 5.3848–5.7404 mm thick | ASME B18.2.2 finished-hex envelope |
 | Earliest nut bearing face | 128.5908 mm | Min head washer + 126 mm wood + min nut washer |
 | Farthest nut face | 137.8044 mm | Max head washer + 128 mm wood + max nut washer + max nut |
-| Required full-form thread endpoint | 140.9794 mm | Farthest nut face + 3.175 mm modeled projection |
+| Modeled bolt-tip target (not a thread endpoint) | 140.9794 mm | Farthest nut face + 3.175 mm inherited modeled tip projection |
 
-The 3.175 mm tail is the existing analysis input; it is not represented as a
-published minimum-engagement rule. With no wood allowance and the modeled
-2.032 mm washer / 5.7404 mm nut stack, the nut spans 131.064–136.8044 mm and
-the corresponding projected endpoint is 139.9794 mm.
+The 3.175 mm projection is inherited from the WJ05 center-node model's
+`THREAD_PAST_NUT_MM` constant and carried into WJ24 as a physical bolt-tip
+envelope. The WJ05 source adds this value to `full_length` for an unthreaded
+cylindrical shaft; WJ24's length screen preserves the allowance, and the
+current WJ24 grip report describes its CAD shaft as an unthreaded occupancy
+envelope. The value is 0.125 in, 2.5 pitches at 1/4-20, or 0.5 bolt diameter
+(D = 6.35 mm). Neither source makes it a published minimum-engagement rule or
+requires full-form thread through the extension beyond the nut. With no wood
+allowance and the modeled 2.032 mm washer / 5.7404 mm nut stack, the nut spans
+131.064–136.8044 mm and the corresponding modeled tip target is 139.9794 mm.
 
 ## Current supplier candidates and package quantities
 
@@ -121,18 +127,17 @@ the same bolt/nut lot:
    Grade 5 evidence, clear-zinc finish, and actual under-head length. For the
    ASME 6 in nominal class the length tolerance gives a 149.86 mm lower bound;
    use the received value for the actual stack.
-2. Thread availability at the conservative stack limits: full-form threads
-   begin no later than 128.5908 mm from the under-head bearing plane, continue
-   through the full 5.7404 mm maximum nut thickness, and continue to at least
-   140.9794 mm for the recorded 3.175 mm tail input. A product-specific
-   complete-thread envelope may state the distances from the under-head face
-   to first complete thread and from the extreme tip to last complete thread;
-   an `LT` reference or `LG` label alone is not a substitute for those
-   delivered bounds.
-3. The exact 1/4-20 nut runs through its full height on the bolt without
-   thread-runout interference and seats against its washer. Record the
-   matched nut's internal class/standard and the check method. The WJ24 model's
-   tail target is not a published engagement rule.
+2. Thread availability at the conservative stack limits: the matched 1/4-20
+   nut engages functionally through its full thread height and seats against
+   its washer without point/runout interference. Its outer face is no farther
+   than 137.8044 mm in this stack. The 140.9794 mm coordinate is the inherited
+   modeled bolt-tip target (3.175 mm beyond that face), not a requirement for
+   full-form thread through the tail. A product-specific thread envelope may
+   establish the actual head-side start, body/thread transition, and thread
+   availability at the nut; an `LT` reference or `LG` label alone is not a
+   substitute for delivered fit evidence.
+3. The measured last-scratch/body boundary is at or beyond 120.382 mm. Record
+   the matched nut's internal class/standard and the engagement-check method.
 4. Washer identity and actual ID/OD/thickness, plus the supported wood
    footprint and any washer resistance needed by the mechanics check. The
    408.14 dimensions are candidate dimensions only.
@@ -148,6 +153,7 @@ physical operation is authorized by this note.
 
 ## Source trail
 
+- [WJ05 center-node probe](../../scripts/wood_joint_wj05_center_node_probe.py) (`THREAD_PAST_NUT_MM` and `_fastener_shapes`) and [WJ24 bolt-length screen](wj24-bolt-length-screen.md) establish the 3.175 mm inherited tip-envelope input, not a full-form-thread extension requirement; [current WJ24 grip screen](current-grip-screen.md) identifies the shaft as an unthreaded occupancy envelope.
 - [ASME B18.2.1 standard record](https://www.asme.org/codes-standards/find-codes-standards/b18-2-1-square-hex-heavy-hex-askew-head-bolts-hex-heavy-hex-hex-flange-lobed-head-lag-screws); ASME lists B18.2.1-2012 (R2021) as the version in effect. Local cached text was checked against that edition. Tables 12 and 13; §§1.3, 4.7, and 4.8.
 - [ASME B18.2.1 partial-thread dimension table](https://www.nickel-systems.com/products/bolts-screws/hex-head-cap/) and [table PDF](https://www.nickel-systems.com/wp-content/uploads/2025/01/Hex-Head-Cap-Screws-Partially-Threaded-Minimum-Body-Maximum-Grip-Gaging-Lengths-1.pdf).
 - [ASME B18.2.2 finished-hex nut dimensions](https://www.nickel-systems.com/products/nuts/finished-hex/).
@@ -178,13 +184,16 @@ pattern or leaves the exact part unbounded:
 | [LH Dottie MB146 product specification](https://lhdottie.com/pdf/product-specification-sheet/MB146) | Exact 1/4-20 × 6 in tap-bolt offering, package 100. | It is Grade A low-carbon steel and fully threaded, so it is not a partially threaded Grade 5 candidate. |
 
 For the existing dimensional screen, the exact product evidence still needed
-is a drawing or matched inspection that bounds the first complete/full-form
-thread at or before 128.5908 mm from the under-head bearing plane, keeps
-complete threads through 140.9794 mm, and leaves the last-scratch/body
-boundary at or beyond 120.382 mm. These three coordinates answer separate
-questions: nut entry, thread coverage through the modeled tail, and the
-maximum thread intrusion into the nut-side wood member. A bare nominal
-`thread length`, `LT` reference, `LG` gage limit, or catalogue standard
-dimension does not supply that delivered-part envelope. Thus the 6 in sourcing
-gap remains open; no product is accepted and no CAD or stack change is
-proposed.
+is a drawing or matched inspection that establishes functional full-height
+engagement of the actual nut, leaves the last-scratch/body boundary at or
+beyond 120.382 mm, and confirms the physical tip reaches the modeled 140.9794
+mm target. If a geometric thread-location bound is used, it must also establish
+that usable thread begins early enough for the nut to engage; thread need not
+continue through the 3.175 mm modeled tail beyond the nut. These checks answer
+separate questions: nut fit, wood-side thread intrusion, and physical tip
+envelope. A bare nominal `thread length`, `LT` reference, `LG` gage limit, or
+catalogue standard dimension does not supply delivered-part fit evidence.
+The 6 in sourcing gap remains open because the head-side `LG,max` coordinate
+still extends 4.7592 mm beyond the conservative earliest nut face and the
+actual matched nut fit is unverified; no product is accepted and no CAD or
+stack change is proposed.
