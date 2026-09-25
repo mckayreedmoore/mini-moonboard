@@ -1,0 +1,47 @@
+{
+  "endpoint_time": 1.0,
+  "execution_sha256": "7156c914b5e15ee0135a3bf0c77716a31bfdae3b066e39ac2399fcac3cf26a93",
+  "fixture_support_force_n": [
+    -1.785536e-13,
+    1.9800799999999908e-14,
+    -1000.0
+  ],
+  "force_accounting": "Global equilibrium uses explicit external CLOAD plus fixture support reactions. Bolt-top nodal forces separately verify MPC transfer; do not double-count them as extra external load. Reference-node RF is zero in this output and is not the transferred axial force.",
+  "force_residual_n": [
+    -1.785536e-13,
+    1.9800799999999908e-14,
+    0.0
+  ],
+  "independent_EA_L_extension_mm": 0.005,
+  "integration_points_per_block": 32,
+  "limits": [
+    "This validates one axial scalar mean constraint in a guided linear-elastic fixture, not actual nut threads, preload, radial engagement, current joint response, or capacity.",
+    "Guides are fixture supports only and must not be transferred to the current joint."
+  ],
+  "manifest_sha256": "f671c3b611f5c7d8945dcfe962a556da9afd6ae3622fca6ef7dbf71f00e671dd",
+  "maximum_affine_displacement_error_mm": 6.904247e-17,
+  "maximum_bottom_nodal_reaction_error_n": 1.591116e-12,
+  "maximum_lateral_guide_reaction_n": 5.212059e-13,
+  "maximum_rotation_guide_moment_nmm": 0.0,
+  "maximum_strain_error": 8.205632e-19,
+  "maximum_stress_error_mpa": 1.262405e-13,
+  "maximum_top_transfer_force_error_n": 6.125217e-13,
+  "moment_residual_nmm": [
+    0.0,
+    0.0,
+    -2.2882935000000005e-12
+  ],
+  "mpc_residual_mm": 0.0,
+  "native_current_joint_run": false,
+  "nodal_rows_per_block": 28,
+  "raw_output_hashes_verified": true,
+  "reference_node_reported_RF": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "reference_u3_mm": 0.005,
+  "solver_warning": "Requested minimum increment1e-8 was changed to1e-6 by CCX. The single actual increment remained1.0 and reached the frozen endpoint.",
+  "status": "PASS_SCALAR_AXIAL_MPC_IMPLEMENTATION_FIXTURE_ONLY",
+  "weighted_face_u3_mm": 0.005
+}

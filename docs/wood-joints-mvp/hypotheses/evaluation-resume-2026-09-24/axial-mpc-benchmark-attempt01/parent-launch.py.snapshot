@@ -1,0 +1,51 @@
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import time
+
+root = Path.cwd()
+sys.path.insert(0, str(root))
+from fea import wood_joint_axial_mpc_benchmark as producer
+
+source = root / 'fea/wood_joint_axial_mpc_benchmark.py'
+base = root / 'fea/results/ccx_wood_joint_axial_mpc_benchmark'
+dest = root / 'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/axial-mpc-benchmark-attempt01'
+pins = {
+    source: '20d43bf46f51d9936d528e5e2f82817a4af9410def3c2240710ade80be7990a1',
+    base / 'axial-mean-mpc.inp': 'a454f6fa6ad3e7e207568bed19098c368f0272d007fe3ead082427bf403f2145',
+    base / 'manifest.json': 'f671c3b611f5c7d8945dcfe962a556da9afd6ae3622fca6ef7dbf71f00e671dd',
+    root / producer.MANUAL_PATH: producer.MANUAL_SHA256,
+}
+def digest(p):
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+assert all(digest(p) == h for p,h in pins.items())
+assert (base / 'axial-mean-mpc.inp').read_text() == producer.render_deck()
+assert json.loads((base / 'manifest.json').read_text()) == producer.manifest_data(producer.render_deck())
+dest.mkdir(exist_ok=False)
+for name in ('axial-mean-mpc.inp','manifest.json'):
+    shutil.copyfile(base/name,dest/name)
+shutil.copyfile(source,dest/'producer.py.snapshot')
+shutil.copyfile(__file__,dest/'parent-launch.py.snapshot')
+name = 'mini-moonboard-axial-mpc-benchmark-attempt01'
+cmd = ['docker','run','--rm','--name',name,'--network','none','--cpus','2','--memory','1g','--user',f'{os.getuid()}:{os.getgid()}','--env','OMP_NUM_THREADS=1','--mount',f'type=bind,src={dest},dst=/work','--workdir','/work',producer.SOLVER_IMAGE,'/usr/bin/ccx','-i','axial-mean-mpc']
+record = {'scope':'Independent scalar axial MPC implementation benchmark only; no current-joint response or capacity.', 'command':cmd, 'source_pins':{str(p.relative_to(root)):h for p,h in pins.items()},'status':'running','candidate_joint_run':False}
+def save():
+    (dest/'execution.json').write_text(json.dumps(record,indent=2)+'\n')
+save()
+start = time.monotonic()
+with (dest/'axial-mean-mpc.log').open('x') as log:
+    try:
+        proc = subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT,timeout=60,check=False)
+        record.update(returncode=proc.returncode,status='completed' if proc.returncode == 0 else 'failed')
+    except subprocess.TimeoutExpired:
+        subprocess.run(['docker','stop','--time','5',name],capture_output=True,check=False)
+        record.update(returncode=None,status='timeout')
+record['seconds'] = time.monotonic()-start
+record['sources_unchanged_after_run'] = all(digest(p)==h for p,h in pins.items())
+record['artifacts_sha256'] = {p.name:digest(p) for p in dest.iterdir() if p.is_file() and p.name != 'execution.json'}
+save()
+print(json.dumps({k:v for k,v in record.items() if k not in {'command','source_pins','artifacts_sha256'}},indent=2),flush=True)

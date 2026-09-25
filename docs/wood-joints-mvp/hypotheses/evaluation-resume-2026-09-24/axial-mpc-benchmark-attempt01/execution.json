@@ -1,0 +1,52 @@
+{
+  "scope": "Independent scalar axial MPC implementation benchmark only; no current-joint response or capacity.",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "mini-moonboard-axial-mpc-benchmark-attempt01",
+    "--network",
+    "none",
+    "--cpus",
+    "2",
+    "--memory",
+    "1g",
+    "--user",
+    "1000:1000",
+    "--env",
+    "OMP_NUM_THREADS=1",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/axial-mpc-benchmark-attempt01,dst=/work",
+    "--workdir",
+    "/work",
+    "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "/usr/bin/ccx",
+    "-i",
+    "axial-mean-mpc"
+  ],
+  "source_pins": {
+    "fea/wood_joint_axial_mpc_benchmark.py": "20d43bf46f51d9936d528e5e2f82817a4af9410def3c2240710ade80be7990a1",
+    "fea/results/ccx_wood_joint_axial_mpc_benchmark/axial-mean-mpc.inp": "a454f6fa6ad3e7e207568bed19098c368f0272d007fe3ead082427bf403f2145",
+    "fea/results/ccx_wood_joint_axial_mpc_benchmark/manifest.json": "f671c3b611f5c7d8945dcfe962a556da9afd6ae3622fca6ef7dbf71f00e671dd",
+    "fea/generated/connection/ccx_2.21.pdf": "16b6bab5a3f1a40a21fff62379f95c804a58d93758ab2e9a489b18d911dc20c8"
+  },
+  "status": "completed",
+  "candidate_joint_run": false,
+  "returncode": 0,
+  "seconds": 0.36669346800772473,
+  "sources_unchanged_after_run": true,
+  "artifacts_sha256": {
+    "axial-mean-mpc.frd": "7cf1fdbf3130186d8e1fd6e48471369945baec19454b9e436d4362ec3655533c",
+    "axial-mean-mpc.dat": "b3552e473e38e6ccea129d673a40fd04e4f7454e147b0ffd446ac5ceb4d050bc",
+    "axial-mean-mpc.inp": "a454f6fa6ad3e7e207568bed19098c368f0272d007fe3ead082427bf403f2145",
+    "spooles.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "axial-mean-mpc.cvg": "65086dedb4572132b815ace04b294909c7f6f337111f9704fc310b02320f67f7",
+    "parent-launch.py.snapshot": "3d29efad0883e455a6e76a605a2d12b6bb6e9a2d30419628160da94285f5a5ff",
+    "axial-mean-mpc.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "manifest.json": "f671c3b611f5c7d8945dcfe962a556da9afd6ae3622fca6ef7dbf71f00e671dd",
+    "producer.py.snapshot": "20d43bf46f51d9936d528e5e2f82817a4af9410def3c2240710ade80be7990a1",
+    "axial-mean-mpc.sta": "01e324ec0ea28f4d1fd7f5e2da1277af53812b873e218be1604c17a4c8e4990d",
+    "axial-mean-mpc.log": "dd846ebd99441dca49e03f01fc3641e8653cf8162631a3fca7dd1a22eb2a38ce"
+  }
+}

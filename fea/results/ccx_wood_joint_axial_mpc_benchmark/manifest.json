@@ -1,0 +1,188 @@
+{
+  "schema": "ccx-wood-joint-axial-mpc-benchmark/v1",
+  "status": "PREPARED_NOT_SOLVED",
+  "purpose": "Verify one explicit scalar area-weighted axial *EQUATION and a finite rigid nut surrogate against a geometrically linear elastic analytic coupon oracle.",
+  "solver": {
+    "product": "CalculiX CrunchiX",
+    "version": "2.21",
+    "pinned_image": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "binary_sha256": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+    "execution_status": "not_run; parent owns frozen native execution"
+  },
+  "manual": {
+    "title": "CalculiX 2.21 User's Manual",
+    "local_path": "fea/generated/connection/ccx_2.21.pdf",
+    "sha256": "16b6bab5a3f1a40a21fff62379f95c804a58d93758ab2e9a489b18d911dc20c8",
+    "url": "https://www.dhondt.de/ccx_2.21.pdf",
+    "keywords_used": [
+      "*ELASTIC",
+      "*EQUATION",
+      "*RIGID BODY",
+      "*NODE PRINT",
+      "*EL PRINT"
+    ]
+  },
+  "units": {
+    "length": "mm",
+    "force": "N",
+    "stress": "N/mm^2",
+    "moment": "N mm"
+  },
+  "fixture": {
+    "bar_dimensions_mm": [
+      10.0,
+      10.0,
+      100.0
+    ],
+    "bar_element_type": "C3D8",
+    "bar_element_count": 4,
+    "elastic_modulus_mpa": 200000.0,
+    "poisson_ratio": 0.3,
+    "material_notice": "Analytic benchmark fixture only; not the WJ24 delivered bolt's sourced material or thread stiffness.",
+    "nut_surrogate": "eight nodes spanning 10 x 10 x 5 mm, rigid-only via *RIGID BODY; no nut solid elements or nut compliance"
+  },
+  "axial_endpoint": {
+    "explicit_equation_count": 1,
+    "law": "sum(A_i/A_face * bolt_top_U3_i) - nut_reference_U3 = 0",
+    "bolt_top_area_weights": {
+      "10": 0.0625,
+      "11": 0.125,
+      "12": 0.0625,
+      "13": 0.125,
+      "14": 0.25,
+      "15": 0.125,
+      "16": 0.0625,
+      "17": 0.125,
+      "18": 0.0625
+    },
+    "dependent_dof": {
+      "node": 14,
+      "dof": 3
+    },
+    "nut_reference_node": 900,
+    "loads_applied_to_dependent_dof": false,
+    "other_endpoint_dofs": "not coupled; bolt/nut transverse motion and bolt-end rotation are outside this scalar axial diagnostic"
+  },
+  "guides_and_gauges": {
+    "bolt_bottom_u3": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "bolt_center_bottom_u1_u2": 5,
+    "bolt_spin_gauge_u2": 6,
+    "nut_reference_u1_u2": 900,
+    "nut_rotation_u1_u3": 901,
+    "reason": "Remove otherwise unloaded lateral translation and rigid spin only; exact affine uniaxial field satisfies these gauges with zero reaction.",
+    "limitation": "These restraints create a one-axis coupon benchmark and do not represent support/contact conditions in the wood joint."
+  },
+  "load": {
+    "applied_at": {
+      "node": 900,
+      "dof": 3
+    },
+    "force_n": [
+      0.0,
+      0.0,
+      1000.0
+    ],
+    "application_point_mm": [
+      5.0,
+      5.0,
+      100.0
+    ]
+  },
+  "oracle": {
+    "axial_extension_mm": 0.005,
+    "reference_node_u3_mm": 0.005,
+    "weighted_bolt_face_mean_u3_mm": 0.005,
+    "axial_strain": 5e-05,
+    "lateral_strain_x_y": -1.5e-05,
+    "stress_mpa_voigt_11_22_33_12_13_23": [
+      0.0,
+      0.0,
+      10.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "bottom_reaction_by_node_n_u3": {
+      "1": -62.5,
+      "2": -125.0,
+      "3": -62.5,
+      "4": -125.0,
+      "5": -250.0,
+      "6": -125.0,
+      "7": -62.5,
+      "8": -125.0,
+      "9": -62.5
+    },
+    "load_force_n": [
+      0.0,
+      0.0,
+      1000.0
+    ],
+    "support_force_n": [
+      0.0,
+      0.0,
+      -1000.0
+    ],
+    "load_moment_about_global_origin_nmm": [
+      5000.0,
+      -5000.0,
+      0.0
+    ],
+    "support_moment_about_global_origin_nmm": [
+      -5000.0,
+      5000.0,
+      0.0
+    ],
+    "force_residual_n": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "moment_residual_nmm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "guide_reactions_expected": "zero; the uniaxial affine field satisfies each gauge exactly"
+  },
+  "required_audit": [
+    "one converged step endpoint",
+    "U3 at reference node and area-weighted bolt-face mean agree with EA/L extension",
+    "all four-element integration-point stress/strain match the uniform affine oracle",
+    "bottom reaction sum and global-origin reaction wrench balance applied load",
+    "transverse and rotation-gauge reactions are zero within numerical tolerance",
+    "the explicit mean-U3 MPC residual is zero within numerical tolerance"
+  ],
+  "absolute_tolerances": {
+    "reference_and_weighted_mean_displacement_mm": 1e-06,
+    "mpc_residual_mm": 1e-06,
+    "integration_point_stress_mpa": 0.02,
+    "integration_point_strain": 1e-07,
+    "bottom_nodal_reaction_n": 0.1,
+    "global_force_residual_n": 0.1,
+    "global_moment_residual_nmm": 1.0,
+    "gauge_force_n": 0.1,
+    "rotation_gauge_moment_nmm": 1.0
+  },
+  "claim_boundary": [
+    "MPC implementation verification only; not an actual bolt or nut test.",
+    "No thread force law, contact, clearance, partial-thread engagement, seating, friction, capacity, or load sharing claim.",
+    "No shear, bending, torsion, pull-through, wood bearing/splitting, fatigue, or joint acceptance result."
+  ],
+  "artifacts": {
+    "input_deck": "axial-mean-mpc.inp",
+    "input_deck_sha256": "a454f6fa6ad3e7e207568bed19098c368f0272d007fe3ead082427bf403f2145",
+    "producer": "fea/wood_joint_axial_mpc_benchmark.py",
+    "producer_sha256": "20d43bf46f51d9936d528e5e2f82817a4af9410def3c2240710ade80be7990a1"
+  }
+}
