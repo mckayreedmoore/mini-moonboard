@@ -38,6 +38,18 @@ candidate selection, and apartment-floor qualification are outside this goal.
 | 7. Finish materials, hardware and cost in parallel | Reconcile lumber blanks, grain, finished patterns and drilling variants. Source suitable bolt grades, lengths, shank/thread transitions, nuts and washers for all 92 candidate and 12 retained stacks. Preserve the 66 purchased Hillman policy and do not infer screw properties from another product. Refresh whole-board quantities, costs and weight as selections resolve. | Source-backed hardware/stock schedule and cost range with missing specifications clearly identified. Nominal CAD length is not delivered shank; physical receiving cells remain blank. Sourcing supports final criteria but need not delay explicitly provisional method diagnostics. |
 | 8. Integrate and review | Update this plan, the completion ledger, criterion evidence and candidate development instructions from validated outputs. Independently review critical calculations and source bindings. Reconcile drawings, dimensions, hardware, cost, access and result summaries. Commit and push completed chunks outside quiet hours. | One coherent reviewable package and clear pass/revise/unresolved conclusion. Selected authority and historical evidence remain intact; apartment notes remain local. No declaration of MVP-E while required evidence is missing. |
 
+Step 2 includes a zero-load, zero-preload free-mode preflight before signed
+force-controlled response cases. Check internal mechanisms for the declared
+contact states as well as removal of global rigid-body motion; do not add
+artificial restraints or stabilization to obtain a response. A detected
+mechanism stops that force-controlled sweep and must be dispositioned before
+interpreting stiffness. Unsupported bolt/nut axial engagement remains
+`UNRESOLVED_ENGAGEMENT`, not a zero bolt force or an accepted restraint.
+Explicitly bounded engagement/stiffness scenarios remain diagnostic only.
+The completed contact benchmark is the independent 100 N fixture's corrected
+output-accounting re-audit; its original duplicate-time parser rejection is
+preserved, and neither result validates current candidate contact behavior.
+
 ### Execution changes now in force
 
 - The parent owns the critical path from frozen input through native execution
