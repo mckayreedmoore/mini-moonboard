@@ -1,0 +1,23 @@
+import { chromium } from 'playwright';
+import {mkdir,writeFile} from 'node:fs/promises';
+const out='/tmp/wj24-consolidated-browser';await mkdir(out,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:'/home/mckay-linux/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome',args:['--enable-unsafe-swiftshader','--use-angle=swiftshader']});
+const page=await browser.newPage({viewport:{width:1500,height:1100}});const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));
+try{
+await page.goto('http://127.0.0.1:8765/wood-joints-wj24-viewer.html');
+await page.waitForFunction(()=>/scene rendered|Viewer unavailable/.test(document.querySelector('#baseline-status').textContent),null,{timeout:60000});
+const modelStatus=await page.locator('#baseline-status').innerText();if(modelStatus.includes('unavailable'))throw Error(modelStatus);
+const counts=await page.locator('#counts').innerText();if(!counts.includes('24 candidate parts')||!counts.includes('92 candidate axes'))throw Error(counts);
+const scope=await page.locator('#scope').innerText();if(!scope.includes('seven designs')||!scope.includes('50 bolt stacks'))throw Error(scope);
+await page.locator('#full').click();await page.screenshot({path:out+'/viewer.png'});
+await page.goto('http://127.0.0.1:8765/wood-joints-midpoint-review.html');
+await page.waitForFunction(()=>document.querySelectorAll('.point').length===491,null,{timeout:15000});
+const maps=await page.locator('.card').count();if(maps!==5)throw Error('Wrong map count');
+await page.locator('.point[aria-label="F1 to G1: flange blocked"]').first().click();
+const detail=await page.locator('#detail').innerText();if(!detail.includes('base principal center right'))throw Error(detail);
+await page.screenshot({path:out+'/midpoints.png',fullPage:true});
+await page.setViewportSize({width:390,height:844});
+if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error('Mobile horizontal overflow');
+const report={modelStatus,counts,scope,midpointStatus:await page.locator('#status').innerText(),maps,points:await page.locator('.point').count(),sampleDetail:detail,errors};
+await writeFile(out+'/browser.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));if(errors.length)process.exitCode=1;
+}finally{await browser.close()}

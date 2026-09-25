@@ -1,5 +1,9 @@
 # Common corner-block study, September 24, 2026
 
+The owner subsequently directed implementation of this consolidation. See the
+[current viewer checkpoint](../consolidated-blocks-two-inner-bolts-2026-09-24/README.md).
+The trial files below retain their original unadopted status and source hashes.
+
 A geometry trial reduces the current 24 blocks from ten distinct finished
 shapes/drilling patterns to seven. Fifteen blocks can share one existing
 pattern on an unchanged 88.9 × 88.9 × 119.7 mm blank. This is an unadopted

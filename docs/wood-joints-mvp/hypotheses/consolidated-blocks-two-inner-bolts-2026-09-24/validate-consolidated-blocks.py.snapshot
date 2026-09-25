@@ -1,0 +1,72 @@
+import json
+from pathlib import Path
+validation_dir=Path('docs/wood-joints-mvp/hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24')
+validation_dir.mkdir(exist_ok=True)
+checks={}
+# Rebuilt solids must match the exact earlier trial, not merely its block count.
+checks['common_trial_part_symmetric_differences_mm3']={}
+for name in common_report['candidate_part_replay']:
+    a=g24_common.finished_candidate_parts[name];b=trial.finished_candidate_parts[name]
+    difference=max(0,a.Volume()+b.Volume()-2*a.intersect(b).Volume())
+    checks['common_trial_part_symmetric_differences_mm3'][name]=difference
+    assert difference<0.03,(name,difference)
+checks['receiver_checks']=[]
+checks['changed_hardware_hits']=[]
+source_parts={p.name:p.shape for p in g24_consolidated.source.parts()}
+all_wood={r['part_id']:source_parts[r['part_id']] for r in g24_consolidated.source_inventory['parts'] if r['kind']=='timber'}
+all_wood.update(g24_consolidated.additional_finished_source_parts)
+all_wood.update(g24_consolidated.finished_hosts)
+all_wood.update(g24_consolidated.finished_candidate_parts)
+raw_wood={**g24_consolidated.raw_hosts,**g24_consolidated.raw_candidate_parts}
+changed_axes=list(common_report['common_block_axis_translations_xyz_mm'])+list(consolidated_report['added_candidate_axes'])
+protected={}
+for family in ['tnuts','hold_hole_and_provisional_projection','lights','wires','retained_12_frame_bolt_components']:
+    protected.update({family+'/'+k:v for k,v in g24_consolidated.protected[family].items()})
+protected.update({'panel_screw/'+k:v for k,v in g24_consolidated.fixed_axes.items()})
+all_hardware={a+'/'+r:s for a,rs in g24_consolidated.candidate_installed_hardware.items() for r,s in rs.items()}
+for axis in changed_axes:
+    roles=g24_consolidated.candidate_installed_hardware[axis]
+    for receiver in g24_consolidated.candidate_bores[axis].receiver_ids:
+        raw_v=roles['shaft'].intersect(raw_wood[receiver]).Volume()
+        finished_v=roles['shaft'].intersect(all_wood[receiver]).Volume()
+        row={'axis':axis,'receiver':receiver,'raw_intersection_mm3':raw_v,'finished_intersection_mm3':finished_v}
+        assert raw_v>1 and finished_v<1e-4,row
+        if axis in g24_trimmed.candidate_installed_hardware:
+            old_v=g24_trimmed.candidate_installed_hardware[axis]['shaft'].intersect(raw_wood[receiver]).Volume()
+            row['before_raw_intersection_mm3']=old_v
+            assert abs(old_v-raw_v)<1e-4,row
+        checks['receiver_checks'].append(row)
+    for role,shape in roles.items():
+        for family,pool in [('timber',all_wood),('candidate_hardware',all_hardware),('protected',protected)]:
+            for name,other in pool.items():
+                if family=='candidate_hardware' and name.startswith(axis+'/'):continue
+                if not above_bbox_overlap(shape,other):continue
+                v=shape.intersect(other).Volume()
+                if v>1e-4:checks['changed_hardware_hits'].append({'axis':axis,'role':role,'neighbor':name,'family':family,'mm3':v})
+    print('CHECKED_AXIS',axis,flush=True)
+assert len(checks['changed_hardware_hits'])==2,checks['changed_hardware_hits']
+assert all(r['axis'] in moved_axes and r['family']=='timber' and r['role']=='shaft' and r['neighbor'].startswith('center_principal_cleat_') for r in checks['changed_hardware_hits'])
+# Screen a stated 30 mm OD / 50 mm axial access envelope for the two new stacks.
+# This does not cover every wrench sweep or the whole installation sequence.
+checks['new_bolt_axial_access']=[]
+for axis in consolidated_report['added_candidate_axes']:
+    roles=g24_consolidated.candidate_installed_hardware[axis]
+    for end in ['head','nut']:
+        center=roles[end].Center();bbox=roles[end].BoundingBox()
+        z=bbox.zmax if end=='head' else bbox.zmin
+        direction=cq.Vector(0,0,1 if end=='head' else -1)
+        probe=cq.Solid.makeCylinder(15,50,cq.Vector(center.x,center.y,z),direction)
+        hits=[]
+        for name,other in {**all_wood,**protected,**{n:s for n,s in all_hardware.items() if not n.startswith(axis+'/')}}.items():
+            if not above_bbox_overlap(probe,other):continue
+            v=probe.intersect(other).Volume()
+            if v>1e-4:hits.append({'neighbor':name,'mm3':v})
+        checks['new_bolt_axial_access'].append({'axis':axis,'end':end,'diameter_mm':30,'length_mm':50,'hits':hits})
+checks['block_grouping']=block_count.count_block_designs(g24_consolidated)
+assert checks['block_grouping']['unique_geometric_designs']==7
+checks['inventory']={'candidate_blocks':24,'candidate_bolt_axes':92,'hardware_roles':460,'panel_screws':len(g24_consolidated.fixed_axes),'starting_frame_bolts':len(g24_consolidated.frame_bolt_records)}
+assert g24_consolidated.fixed_axes is g24_trimmed.fixed_axes
+assert g24_consolidated.frame_bolt_shapes is g24_trimmed.frame_bolt_shapes
+checks['joint_evaluations_run']=False
+(validation_dir/'geometry-checks.json').write_text(json.dumps(checks,indent=2)+'\n')
+print('CONSOLIDATION_VALIDATED',checks['inventory'],checks['new_bolt_axial_access'],flush=True)

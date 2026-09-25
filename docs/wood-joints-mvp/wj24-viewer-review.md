@@ -3,8 +3,8 @@
 ## Earlier owner-directed design review, superseded
 
 This review describes the predecessor model. The current WJ24 viewer uses
-`outer-rear-bridges-under-header-links-removed-v1`; see the [current outer-support
-removal checkpoint](hypotheses/outer-links-removed-2026-09-24/README.md). The
+`common-blocks-two-inner-bolts-oriented-v1`; see the [current consolidation
+and bolt review](hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24/README.md). The
 snapshots and hashes below are preserved evidence for this earlier revision.
 
 At the time of this review, the local [WJ24 viewer](../../site/wood-joints-wj24-viewer.html) read the isolated `owner_wood_joints_design_review_scene/v1` branch at the same URL. The reviewed revision was `lower-rear-blocks-below-plus-bottom-support-up-one-row-v1`: the middle rear blocks were below their rails and the bottom support was raised one hold row. The page reported design-review status, showed only that revision's findings, and stated that earlier static or diagnostic passes did not carry forward. Its link to the [frame-to-kicker options](../../site/wood-joints-kicker-options.html) sat below that revision summary; no option was selected.

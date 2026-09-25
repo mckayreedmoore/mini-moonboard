@@ -1,0 +1,48 @@
+from mini_moonboard import panel_grid_v2
+source=g24_consolidated.source
+led_rows=[]
+normal=source.b.normal().normalized()
+for label,(x,s) in panel_grid_v2.main_led_datums().items():
+    rear=source.b.point(x-source.b.HALF,s,0)
+    probe=cq.Solid.makeCylinder(6.5,50.8,rear,normal)
+    light=g24_consolidated.protected['lights']['light_'+label]
+    for part,shape in g24_consolidated.finished_candidate_parts.items():
+        if not above_bbox_overlap(shape,probe):continue
+        intersection=shape.intersect(probe); v=intersection.Volume()
+        if v>1e-4:
+            local=intersection.rotate((0,0,0),(1,0,0),-50).BoundingBox()
+            first=local.zmin-rear.dot(normal)
+            led_rows.append({'label':label,'part':part,'hole_axis_projection_hit_mm3':v,'first_occupied_depth_mm':first,'light_occupancy_hit_mm3':shape.intersect(light).Volume()})
+print('LED_ROWS',json.dumps(led_rows),flush=True)
+# Three-family body screen: aligned raw stock substitutions, no hole adoption.
+# Main block trial keeps G7's X/T location and its panel-side N face.
+g7='wj04_upper_g7_crosscut_full_stock_cleat'
+r=g24_consolidated.raw_candidate_parts[g7].rotate((0,0,0),(1,0,0),-50).BoundingBox()
+raw_full=cq.Solid.makeBox(r.xlen,r.ylen,119.7,cq.Vector(r.xmin,r.ymin,r.zmin)).rotate((0,0,0),(1,0,0),50)
+# Tall blocks use a 4x6 section and 139.7 mm length; preserve the header seat
+# and current front Y face where possible, or rear Y edge for inner blocks.
+body_proposals={g7:raw_full}
+for side in ['left','right']:
+    for prefix in ['center_post_cleat_','center_principal_cleat_','knee_outer_']:
+        name=prefix+side if prefix!='knee_outer_' else prefix+side+'_inner_frame_block'
+        b=g24_consolidated.raw_candidate_parts[name].BoundingBox()
+        y0=b.ymin if 'inner_frame' in name else b.ymax-139.7
+        z0=b.zmax-139.7 if 'center_post' in name else b.zmin
+        body_proposals[name]=cq.Solid.makeBox(88.9,139.7,139.7,cq.Vector(b.xmin,y0,z0))
+family_body_rows=[]
+for name,proposed in body_proposals.items():
+    old=g24_consolidated.raw_candidate_parts[name]
+    extra=proposed.cut(old).clean()
+    row={'part':name,'added_raw_volume_mm3':extra.Volume(),'new_body_hits':[]}
+    pools={**g24_consolidated.raw_hosts,**g24_consolidated.raw_candidate_parts}
+    for family in ['tnuts','hold_hole_and_provisional_projection','lights','wires']:
+        pools.update({family+'/'+k:v for k,v in g24_consolidated.protected[family].items()})
+    if extra.Volume()<1e-4:
+        family_body_rows.append(row)
+        continue
+    for other,shape in pools.items():
+        if other==name or not above_bbox_overlap(extra,shape):continue
+        v=extra.intersect(shape).Volume()
+        if v>1e-4:row['new_body_hits'].append({'neighbor':other,'mm3':v})
+    family_body_rows.append(row)
+print('THREE_FAMILY_BODY_ROWS',json.dumps(family_body_rows),flush=True)

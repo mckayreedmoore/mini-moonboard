@@ -1,0 +1,38 @@
+inner_second_options=[]
+wood={**g24_common.finished_hosts,**g24_common.finished_candidate_parts}
+for side in ['left','right']:
+    template=f'knee_outer_{side}_inner_header_1'
+    roles=g24_common.candidate_installed_hardware[template]
+    for y in [-155.7,-145.7,-135.7,-125.7,-115.7]:
+        delta=(0,y-roles['shaft'].Center().y,0)
+        proposed={role:s.translate(delta) for role,s in roles.items()}
+        hits=[]
+        for role,shape in proposed.items():
+            for name,other in wood.items():
+                if name in g24_common.candidate_bores[template].receiver_ids:continue
+                if above_bbox_overlap(shape,other):
+                    v=shape.intersect(other).Volume()
+                    if v>1e-4:hits.append((role,name,v))
+            for a,others in g24_common.candidate_installed_hardware.items():
+                for r,other in others.items():
+                    if above_bbox_overlap(shape,other):
+                        v=shape.intersect(other).Volume()
+                        if v>1e-4:hits.append((role,a+'/'+r,v))
+            for family in ['tnuts','hold_hole_and_provisional_projection','lights','wires','retained_12_frame_bolt_components']:
+                for name,other in g24_common.protected[family].items():
+                    if above_bbox_overlap(shape,other):
+                        v=shape.intersect(other).Volume()
+                        if v>1e-4:hits.append((role,family+'/'+name,v))
+            for name,other in g24_common.fixed_axes.items():
+                if above_bbox_overlap(shape,other):
+                    v=shape.intersect(other).Volume()
+                    if v>1e-4:hits.append((role,name,v))
+        inner_second_options.append({'side':side,'y_mm':y,'translation':delta,'hits':hits})
+print('INNER_SECOND_OPTIONS',json.dumps(inner_second_options),flush=True)
+common_count=block_count.count_block_designs(g24_common)
+print('COMMON_REBUILT_COUNT',common_count['unique_geometric_designs'],flush=True)
+for group in common_count['groups']:
+    name=group['representative']; raw=g24_common.raw_candidate_parts[name]
+    b0=raw.BoundingBox(); b1=raw.rotate((0,0,0),(1,0,0),-50).BoundingBox()
+    dims0=[b0.xlen,b0.ylen,b0.zlen]; dims1=[b1.xlen,b1.ylen,b1.zlen]
+    print('STOCK',name,len(group['members']),'global',dims0,'wall',dims1,'volume',raw.Volume(),flush=True)

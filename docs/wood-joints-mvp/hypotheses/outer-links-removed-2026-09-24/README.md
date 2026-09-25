@@ -1,8 +1,12 @@
 # Outer supports removed and corner-block count
 
+This historical checkpoint is superseded by the [common-block and bolt
+revision](../consolidated-blocks-two-inner-bolts-2026-09-24/README.md). Its
+scene, count and midpoint inputs remain preserved for this earlier geometry.
+
 The owner requested removal of both rear crosspieces and both underside
-corner blocks after adding the outer sandwich connections. The current
-viewer revision is `outer-rear-bridges-under-header-links-removed-v1`.
+corner blocks after adding the outer sandwich connections. At this checkpoint the
+viewer revision was `outer-rear-bridges-under-header-links-removed-v1`.
 Four parts and twelve associated bolt stacks are removed. The header and
 outer spines are rebuilt without obsolete holes; the outer post bolts, shared
 sandwich side bolts, and new inner-block header bolts remain. All 66 panel

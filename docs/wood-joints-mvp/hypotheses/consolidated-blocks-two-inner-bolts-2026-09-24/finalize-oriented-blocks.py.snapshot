@@ -1,0 +1,66 @@
+import copy
+import hashlib
+import json
+from pathlib import Path
+from scripts import wood_joint_wj24_bolt_orientation as bolt_orientation
+orientation_audit=json.loads((validation_dir/'orientation-audit.json').read_text())
+g24_oriented, oriented_report=bolt_orientation.build_wj24_bolt_orientation(g24_consolidated,consolidated_report,orientation_audit)
+orientation_validation=[]
+for axis in orientation_audit['flipped_axes']:
+    old=g24_consolidated.candidate_installed_hardware[axis]
+    now=g24_oriented.candidate_installed_hardware[axis]
+    assert g24_oriented.candidate_bores[axis].shape is g24_consolidated.candidate_bores[axis].shape
+    assert tuple(g24_oriented.candidate_bores[axis].receiver_ids)==tuple(reversed(g24_consolidated.candidate_bores[axis].receiver_ids))
+    row={'axis':axis,'role_volume_differences_mm3':{},'raw_grip_differences_mm3':{}}
+    for role in old:
+        diff=abs(old[role].Volume()-now[role].Volume())
+        assert diff<1e-4,(axis,role,diff)
+        row['role_volume_differences_mm3'][role]=diff
+        other=orientation_hardware[axis][role]
+        symmetric=max(0,now[role].Volume()+other.Volume()-2*now[role].intersect(other).Volume())
+        assert symmetric<0.03,(axis,role,symmetric)
+    for receiver in g24_oriented.candidate_bores[axis].receiver_ids:
+        diff=abs(now['shaft'].intersect(raw_wood[receiver]).Volume()-old['shaft'].intersect(raw_wood[receiver]).Volume())
+        assert diff<1e-4,(axis,receiver,diff)
+        row['raw_grip_differences_mm3'][receiver]=diff
+    # Audit used sequential final-state substitutions. Recheck each reversed
+    # stack against the complete final state to catch interactions between flips.
+    final_hits=stack_hits(axis,now)
+    row['final_installed_hits']=final_hits
+    assert not final_hits,(axis,final_hits)
+    orientation_validation.append(row)
+    print('FINAL_ORIENTATION_VALIDATED',axis,flush=True)
+assert g24_oriented.finished_candidate_parts is g24_consolidated.finished_candidate_parts
+assert g24_oriented.finished_hosts is g24_consolidated.finished_hosts
+assert g24_oriented.fixed_axes is g24_trimmed.fixed_axes
+assert g24_oriented.frame_bolt_shapes is g24_trimmed.frame_bolt_shapes
+oriented_report['focused_geometry_checks']=copy.deepcopy(checks)
+oriented_report['focused_geometry_checks']['stage']='consolidation and added-bolt checks before orientation; final orientation checks below supersede those hardware poses'
+oriented_report['orientation_validation']=orientation_validation
+oriented_report['led_hole_review']={'probe_diameter_mm':13,'rear_projection_mm':50.8,'rows':led_rows,'projection_is_not_selected_led_depth':True}
+oriented_report['findings'].append({'title':'G1 LED through-hole backing','detail':'The tall center principal block on model-right backs onto the G1 LED through-hole projection starting 16.706 mm behind the panel. It clears the modeled LED body but obstructs deeper access along that hole.'})
+oriented_report['three_family_body_trial']={'adopted':False,'rows':family_body_rows,'limits':'Added raw body against existing timber, T-nuts, LEDs, wires and provisional hold projections only; shared bore patterns, hardware, access, grain and joint behavior not established. Owner retains necessary drilling exceptions.'}
+oriented_report['findings'].append({'title':'Hardware budget','detail':'Allow $150–200 before tax and shipping for 104 structural bolts, 104 nuts and 208 washers. Final long-bolt lengths/shanks and products remain unresolved; purchased panel screws are excluded from new spend.'})
+raw=json.dumps(oriented_report,indent=2,sort_keys=True).encode()+b'\n'
+oriented_scene=design_export.build_design_review_scene(g24_oriented,oriented_report,revision_report_bytes=raw,revision_report_path='owner-wood-joints-review-report.json')
+scene_raw=design_export.scene_json_bytes(oriented_scene)
+assert oriented_scene['baseline_asset_sha256']==trimmed_scene['baseline_asset_sha256']
+assert len(oriented_scene['solids'])==505
+assert not any(oriented_scene['release'].values())
+(validation_dir/'revision.json').write_bytes(raw)
+(validation_dir/'scene.json.snapshot').write_bytes(scene_raw)
+final_block_grouping=copy.deepcopy(checks['block_grouping']);final_block_grouping['revision_id']=g24_oriented.layout_id
+# Geometry congruence is unchanged; report bore metadata in its new head-to-nut order.
+(validation_dir/'block-designs.json').write_text(json.dumps(final_block_grouping,indent=2)+'\n')
+(validation_dir/'led-hole-review.json').write_text(json.dumps(oriented_report['led_hole_review'],indent=2)+'\n')
+(validation_dir/'three-family-body-trial.json').write_text(json.dumps(oriented_report['three_family_body_trial'],indent=2)+'\n')
+(validation_dir/'orientation-validation.json').write_text(json.dumps(orientation_validation,indent=2)+'\n')
+for module in [common_blocks,second_inner,bolt_orientation,design_export]:
+    path=Path(module.__file__);(validation_dir/(path.name+'.snapshot')).write_bytes(path.read_bytes())
+for name in ['validate-consolidated-blocks.py','check-inner-second-bolts.py','check-current-leds-and-family-bodies.py','audit-bolt-orientations.py','finalize-oriented-blocks.py']:
+    (validation_dir/(name+'.snapshot')).write_bytes(Path('/tmp',name).read_bytes())
+for name,content in [('owner-wood-joints-review-report.json',raw),('owner-wood-joints-wj24-scene.json',scene_raw)]:
+    dest=Path('site',name); temp=dest.with_suffix('.json.tmp');temp.write_bytes(content);temp.replace(dest)
+verification={'scene_sha256':hashlib.sha256(scene_raw).hexdigest(),'revision_report_sha256':hashlib.sha256(raw).hexdigest(),'counts':oriented_scene['counts'],'baseline_assets_unchanged':True,'joint_evaluations_run':False,'source_files_sha256':{str(Path(m.__file__).relative_to(Path.cwd())):hashlib.sha256(Path(m.__file__).read_bytes()).hexdigest() for m in [common_blocks,second_inner,bolt_orientation,design_export]}}
+(validation_dir/'verification.json').write_text(json.dumps(verification,indent=2)+'\n')
+print('ORIENTED_VIEWER_EXPORTED',oriented_scene['counts'],flush=True)

@@ -563,3 +563,18 @@ clears the timber but does not select purchased hardware. The viewer remains
 unchanged, and joint evaluations remain paused. The owner's corrected request
 was to restate the midpoint findings, not rerun them. Completed work may be
 pushed; unfinished drafts need not be published.
+
+### Common patterns, second sandwich bolts and head orientation, September 24, 2026
+
+The owner directed application of the seven-design common-block trial, then
+added a second vertical bolt at each interior sandwich/header connection.
+They requested common-stock sizing and considered three block families,
+subsequently clarifying to retain necessary drilling exceptions. The resulting
+viewer keeps seven finished designs, with fifteen common-pattern blocks and
+92 candidate bolt axes. The separate three-family blank-body trial remains
+unadopted. The owner also requested exterior heads outward and interior heads
+on the side with greater headroom; fifty candidate stacks reverse under the
+bounded geometry/access screen without changing bore solids or bolt lengths.
+The [current checkpoint](../wood-joints-mvp/hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24/README.md)
+records the changes, G1/G2 LED-hole findings and the requested hardware budget.
+No joint-evaluation sign-off was given; evaluations remain paused.

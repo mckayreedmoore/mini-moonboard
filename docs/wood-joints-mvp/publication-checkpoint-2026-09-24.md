@@ -1,5 +1,8 @@
 # Remaining-work publication checkpoint, September 24, 2026
 
+This records the publication state before the later owner-directed
+[common-block and bolt revision](hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24/README.md).
+
 The owner requested publication of completed remaining local work in chunks,
 followed by a restatement of the existing midpoint findings. The owner then
 clarified that unfinished work need not be pushed; those drafts remain local. This request authorizes

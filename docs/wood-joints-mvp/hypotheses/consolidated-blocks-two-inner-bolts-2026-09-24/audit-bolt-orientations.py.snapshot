@@ -1,0 +1,95 @@
+import json
+from pathlib import Path
+from dataclasses import replace
+
+def bearing_data(roles):
+    d=inner_frame._axis_from_roles(roles,'orientation')
+    hw=roles['head_washer']; nw=roles['nut_washer']
+    hb=axial_shape_bounds(hw,d); nb=axial_shape_bounds(nw,d)
+    near=hw.Center()+d*((hb[5]-hb[4])/2)
+    far=nw.Center()-d*((nb[5]-nb[4])/2)
+    return d,near,far
+
+def reverse_roles(roles):
+    d,near,far=bearing_data(roles)
+    pivot=(near+far)*0.5
+    ref=cq.Vector(0,0,1) if abs(d.z)<0.9 else cq.Vector(1,0,0)
+    perpendicular=d.cross(ref).normalized()
+    return {role:shape.rotate(pivot,pivot+perpendicular,180) for role,shape in roles.items()}
+
+orientation_hardware={axis:dict(roles) for axis,roles in g24_consolidated.candidate_installed_hardware.items()}
+orientation_rows=[]
+orientation_fixed_pool={**all_wood,**protected}
+# Main/kicker panels are included for insertion space even though not timber hosts.
+orientation_fixed_pool.update(g24_consolidated.panel_replacements)
+for r in g24_consolidated.source_inventory['parts']:
+    if r['part_id'].startswith('panel') or 'kicker_panel' in r['part_id']:
+        if r['part_id'] in source_parts:
+            orientation_fixed_pool.setdefault(r['part_id'],source_parts[r['part_id']])
+
+def stack_hits(axis,roles):
+    pool=dict(orientation_fixed_pool)
+    pool.update({a+'/'+r:s for a,rs in orientation_hardware.items() if a!=axis for r,s in rs.items()})
+    hits=[]
+    for role,shape in roles.items():
+        for name,other in pool.items():
+            if not above_bbox_overlap(shape,other):continue
+            v=shape.intersect(other).Volume()
+            if v>1e-4:hits.append({'role':role,'neighbor':name,'mm3':v})
+    return hits
+
+def axial_room(axis,origin,direction):
+    start=origin+direction*0.05
+    probe=cq.Solid.makeCylinder(15,350,start,direction)
+    pool=dict(orientation_fixed_pool)
+    pool.update({a+'/'+r:s for a,rs in orientation_hardware.items() if a!=axis for r,s in rs.items()})
+    room=350.; obstacle=None
+    for name,other in pool.items():
+        if not above_bbox_overlap(probe,other):continue
+        intersect=probe.intersect(other)
+        if intersect.Volume()<1e-4:continue
+        b=axial_shape_bounds(intersect,direction)
+        first=max(0,b[4]-start.dot(direction))
+        if first<room:room=first;obstacle=name
+    # The model uses floor Z=0; do not route bolt insertion below that plane.
+    if direction.z < -1e-8:
+        floor_distance=max(0,-start.z/direction.z)
+        if floor_distance<room:room=floor_distance;obstacle='modeled_floor_z0'
+    return {'clear_axial_depth_mm':round(room,4),'first_obstacle':obstacle,'cap_mm':350,'diameter_mm':30}
+
+for axis in sorted(orientation_hardware):
+    roles=orientation_hardware[axis]
+    d,near,far=bearing_data(roles)
+    exterior_side=abs(d.x)>0.99 and max(abs(near.x),abs(far.x))>1000
+    exterior_top=axis.startswith(('top_outer/','top_center/')) and '/rail_' in axis
+    exterior_bottom=False # raised bottom panel rail is inside the overall kicker/frame.
+    if exterior_side:
+        flip=abs(far.x)>abs(near.x)
+        reason='exterior side: head on the outward X face'
+        room_before=room_other=None
+    elif exterior_top:
+        tangent=(source.b.point(0,1,0)-source.b.point(0,0,0)).normalized()
+        flip=far.dot(tangent)>near.dot(tangent)
+        reason='exterior top: head above the top rail'
+        room_before=room_other=None
+    else:
+        room_before=axial_room(axis,near,-d)
+        room_other=axial_room(axis,far,d)
+        flip=room_other['clear_axial_depth_mm']>room_before['clear_axial_depth_mm']+5
+        reason='interior: prefer more axial head-side room; retain orientation within 5 mm or at the 350 mm cap'
+    row={'axis':axis,'rule':reason,'requested_flip':flip,'flipped':False,'head_room_before':room_before,'opposite_room_before':room_other}
+    if flip:
+        proposed=reverse_roles(roles)
+        before=stack_hits(axis,roles);after=stack_hits(axis,proposed)
+        before_hits={(r['role'],r['neighbor']):r['mm3'] for r in before}
+        new_hits=[r for r in after if r['mm3']>before_hits.get((r['role'],r['neighbor']),0)+1e-4]
+        row['proposed_hits']=after;row['new_or_increased_hits']=new_hits
+        if not new_hits:
+            orientation_hardware[axis]=proposed;row['flipped']=True
+        else:row['exception']='preferred orientation creates or increases a modeled collision'
+    orientation_rows.append(row)
+    print('ORIENTATION',axis,row['flipped'],row.get('exception',''),flush=True)
+orientation_dir=Path('docs/wood-joints-mvp/hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24')
+orientation_dir.mkdir(exist_ok=True)
+(orientation_dir/'orientation-audit.json').write_text(json.dumps({'revision_input':g24_consolidated.layout_id,'rows':orientation_rows,'flipped_axes':[r['axis'] for r in orientation_rows if r['flipped']],'limits':'30 mm diameter straight axial space capped at350 mm; no complete installation or wrench-sweep acceptance; bolt lengths unchanged.'},indent=2)+'\n')
+print('ORIENTATIONS_DONE',sum(r['flipped'] for r in orientation_rows),'exceptions',[r['axis'] for r in orientation_rows if 'exception' in r],flush=True)
