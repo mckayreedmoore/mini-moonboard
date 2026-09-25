@@ -1,0 +1,22 @@
+import json
+import hashlib
+from pathlib import Path
+study_dir=Path('docs/wood-joints-mvp/hypotheses/common-corner-block-study-2026-09-24')
+study_dir.mkdir(exist_ok=True)
+trial_report['baseline_hardware_timber_comparison']=[]
+for hit in trial_hits:
+    if hit['kind']!='hardware/timber':continue
+    axis,role=hit['part'].rsplit('/',1)
+    old_volume=g24_trimmed.candidate_installed_hardware[axis][role].intersect(g24_trimmed.finished_candidate_parts[hit['neighbor']]).Volume()
+    trial_report['baseline_hardware_timber_comparison'].append({**hit,'before_mm3':old_volume,'after_mm3':hit['mm3']})
+trial_report['changed_block_protected_neighbors']=trial_body_hits
+trial_report['tail_relief_sensitivity']=tail_relief_checks
+trial_report['source_scene_sha256']=hashlib.sha256(Path('site/owner-wood-joints-wj24-scene.json').read_bytes()).hexdigest()
+trial_report['source_revision_report_sha256']=hashlib.sha256(Path('site/owner-wood-joints-review-report.json').read_bytes()).hexdigest()
+trial_report['current_viewer_modified']=False
+(study_dir/'trial.json').write_text(json.dumps(trial_report,indent=2)+'\n')
+(study_dir/'seven-design-grouping.json').write_text(json.dumps(trial_count,indent=2)+'\n')
+(study_dir/'pattern-comparison.json').write_text(json.dumps(pattern_report,indent=2)+'\n')
+for name in ['compare-corner-hole-patterns.py','check-common-corner-block-trial.py','save-common-block-study.py']:
+    (study_dir/(name+'.snapshot')).write_bytes(Path('/tmp',name).read_bytes())
+print('COMMON_BLOCK_STUDY_SAVED',str(study_dir),flush=True)

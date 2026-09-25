@@ -50,6 +50,19 @@ No native solve, mesh generation, joint evaluation, or midpoint rerun was
 performed for publication. Existing software and archive checks are reported
 with their own narrower scope by the publishing chunks.
 
+The final scripts/tests chunk contains 77 paths, all successfully parsed,
+with its changed-script dependency closure checked. A safe mocked, contract
+and transform subset passed 38 tests. Ruff reports five findings in the
+unchanged, hash-pinned WJ24 hardware identity producer; its bytes match the
+archived snapshot and were preserved. The archived failed Gmsh model under
+`hypotheses/wj04-patch-mesh/attempt-02/failed-gmsh-models/` retains its writer's
+trailing whitespace so its recorded hash remains valid.
+
+The completed [common corner-block study](hypotheses/common-corner-block-study-2026-09-24/README.md)
+is published separately as an unadopted geometry trial. It proposes seven
+designs for the same 24 blocks without changing the current viewer. The
+unfinished access-relief manufacturing document also remains local.
+
 The earlier full pytest run was interrupted for owner design review with
 20 failed, 2,093 passed, 16 deselected and 9 errors. It was not a completed
 passing run. The [local validation checkpoint](local-validation-2026-09-24.md)

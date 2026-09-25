@@ -1,0 +1,47 @@
+import json
+import itertools
+import numpy as np
+from scipy.optimize import linear_sum_assignment
+from OCP.gp import gp_Trsf
+from pathlib import Path
+
+def fitted_transform(rotation,translation):
+    m=np.eye(4);m[:3,:3]=rotation;m[:3,3]=translation
+    t=gp_Trsf();t.SetValues(*m[:3,:].ravel().tolist())
+    return cq.Location(t)
+
+def hole_rows(part):
+    raw=g24_trimmed.raw_candidate_parts[part]
+    rows=[]
+    for axis,bore in g24_trimmed.candidate_bores.items():
+        if part not in bore.receiver_ids:continue
+        occupied=raw.intersect(bore.shape)
+        d=g24_trimmed.candidate_installed_hardware[axis]['nut'].Center()-g24_trimmed.candidate_installed_hardware[axis]['head'].Center()
+        rows.append({'axis':axis,'center':np.array(occupied.Center().toTuple()),'direction':np.array(d.normalized().toTuple()),'occupied':occupied})
+    return rows
+B=np.array([[1,0,0],[0,np.cos(np.deg2rad(50)),-np.sin(np.deg2rad(50))],[0,np.sin(np.deg2rad(50)),np.cos(np.deg2rad(50))]])
+common='left_service_inner_lower_cleat'
+source_rows=hole_rows(common);source_center=np.array(g24_trimmed.raw_candidate_parts[common].Center().toTuple())
+pattern_fits=[]
+main_names=[n for n,p in g24_trimmed.raw_candidate_parts.items() if np.allclose([p.rotate((0,0,0),(1,0,0),-50).BoundingBox().xlen,p.rotate((0,0,0),(1,0,0),-50).BoundingBox().ylen,p.rotate((0,0,0),(1,0,0),-50).BoundingBox().zlen],[88.9,88.9,119.7])]
+for name in sorted(main_names):
+    target_rows=hole_rows(name);target_center=np.array(g24_trimmed.raw_candidate_parts[name].Center().toTuple())
+    choices=[]
+    for perm in [(0,1,2),(1,0,2)]:
+        for signs in itertools.product([-1,1],repeat=3):
+            local=np.eye(3)[:,perm]@np.diag(signs)
+            if np.linalg.det(local)<0:continue
+            rotation=B@local@B.T;translation=target_center-rotation@source_center
+            cost=np.full((4,4),1e6)
+            for i,a in enumerate(source_rows):
+                for j,b in enumerate(target_rows):
+                    if abs(np.dot(rotation@a['direction'],b['direction']))<0.999999:continue
+                    cost[i,j]=np.linalg.norm(rotation@a['center']+translation-b['center'])
+            ii,jj=linear_sum_assignment(cost)
+            pairs=[{'template_axis':source_rows[i]['axis'],'target_axis':target_rows[j]['axis'],'center_shift_mm':float(cost[i,j]),'translation_global_xyz_mm':(rotation@source_rows[i]['center']+translation-target_rows[j]['center']).tolist()} for i,j in zip(ii,jj)]
+            choices.append({'max_shift_mm':max(p['center_shift_mm'] for p in pairs),'sum_shift_mm':sum(p['center_shift_mm'] for p in pairs),'rotation':rotation.tolist(),'translation':translation.tolist(),'pairs':pairs})
+    best=min(choices,key=lambda row:(round(row['max_shift_mm'],5),round(row['sum_shift_mm'],5)))
+    pattern_fits.append({'part':name,**best})
+pattern_report={'template':common,'same_blank_count':len(main_names),'blank_dimensions_X_T_N_mm':[88.9,88.9,119.7],'fits':pattern_fits}
+Path('/tmp/corner-hole-pattern-comparison.json').write_text(json.dumps(pattern_report,indent=2)+'\n')
+print('PATTERN_FITS',[(r['part'],round(r['max_shift_mm'],4),[(p['target_axis'],round(p['center_shift_mm'],4)) for p in r['pairs']]) for r in pattern_fits],flush=True)

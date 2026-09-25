@@ -1,0 +1,55 @@
+from dataclasses import replace
+import json
+from pathlib import Path
+trial_bores=dict(g24_trimmed.candidate_bores)
+trial_hardware={axis:dict(roles) for axis,roles in g24_trimmed.candidate_installed_hardware.items()}
+trial_parts=dict(g24_trimmed.finished_candidate_parts)
+changed_part_names=[];moved_axes=[]
+for fit in pattern_fits:
+    if fit['max_shift_mm']<1e-5:continue
+    name=fit['part'];changed_part_names.append(name)
+    loc=fitted_transform(np.array(fit['rotation']),np.array(fit['translation']))
+    trial_parts[name]=g24_trimmed.finished_candidate_parts[common].moved(loc)
+    for pair in fit['pairs']:
+        axis=pair['target_axis'];delta=pair['translation_global_xyz_mm']
+        if pair['center_shift_mm']<1e-5:continue
+        moved_axes.append(axis)
+        trial_bores[axis]=replace(trial_bores[axis],shape=trial_bores[axis].shape.translate(tuple(delta)))
+        trial_hardware[axis]={role:shape.translate(tuple(delta)) for role,shape in trial_hardware[axis].items()}
+affected_hosts={receiver for axis in moved_axes for receiver in trial_bores[axis].receiver_ids if receiver in g24_trimmed.raw_hosts}
+trial_hosts=dict(g24_trimmed.finished_hosts)
+for host in affected_hosts:
+    cuts=[s for name,s in g24_trimmed.applied_source_cutters_by_host[host].items() if name not in g24_trimmed.replaced_source_cutter_ids]
+    cuts += [b.shape for b in trial_bores.values() if host in b.receiver_ids]
+    trial_hosts[host]=g24_trimmed.raw_hosts[host].cut(*cuts).clean()
+trial=replace(g24_trimmed,layout_id='common-main-corner-block-trial-v1',trial_id='common-main-corner-block-trial-v1',finished_hosts=trial_hosts,finished_candidate_parts=trial_parts,candidate_bores=trial_bores,candidate_installed_hardware=trial_hardware)
+trial_count=block_count.count_block_designs(trial)
+trial_wood={**trial_hosts,**trial_parts}
+trial_hits=[];receiver_checks=[]
+for axis in moved_axes:
+    for receiver in trial_bores[axis].receiver_ids:
+        raw={**trial.raw_hosts,**trial.raw_candidate_parts}[receiver]
+        rv=raw.intersect(trial_hardware[axis]['shaft']).Volume()
+        fv=trial_wood[receiver].intersect(trial_hardware[axis]['shaft']).Volume()
+        receiver_checks.append({'axis':axis,'receiver':receiver,'raw_intersection_mm3':rv,'finished_intersection_mm3':fv})
+    for role,shape in trial_hardware[axis].items():
+        for name,other in trial_wood.items():
+            if not above_bbox_overlap(shape,other):continue
+            v=shape.intersect(other).Volume()
+            if v>1e-4:trial_hits.append({'part':f'{axis}/{role}','neighbor':name,'kind':'hardware/timber','mm3':v})
+        for other_axis,roles in trial_hardware.items():
+            if axis==other_axis:continue
+            for other_role,other in roles.items():
+                if not above_bbox_overlap(shape,other):continue
+                v=shape.intersect(other).Volume()
+                if v>1e-4:trial_hits.append({'part':f'{axis}/{role}','neighbor':f'{other_axis}/{other_role}','kind':'hardware/hardware','mm3':v})
+        for family in ['tnuts','hold_hole_and_provisional_projection','lights','wires','retained_12_frame_bolt_components','fixed_66_hillman_axes_63p5mm']:
+            # The protected fixed-axis map is historical; current fixed_axes is authoritative.
+            pool=trial.fixed_axes if family=='fixed_66_hillman_axes_63p5mm' else trial.protected[family]
+            for name,other in pool.items():
+                if not above_bbox_overlap(shape,other):continue
+                v=shape.intersect(other).Volume()
+                if v>1e-4:trial_hits.append({'part':f'{axis}/{role}','neighbor':name,'kind':family,'mm3':v})
+trial_report={'base_revision_id':g24_trimmed.layout_id,'trial_id':trial.layout_id,'template_part':common,'placed_blocks':24,'unique_designs_before':10,'unique_designs_after':trial_count['unique_geometric_designs'],'same_blank_blocks':15,'changed_blocks':changed_part_names,'moved_axes':moved_axes,'pattern_fits':pattern_fits,'receiver_checks':receiver_checks,'hits':trial_hits,'adopted':False,'joint_evaluations_run':False,'limits':'Nominal geometric trial only; current viewer untouched, no full installation-access or joint-capacity proof.'}
+Path('/tmp/common-corner-block-trial.json').write_text(json.dumps(trial_report,indent=2)+'\n')
+print('COMMON_BLOCK_TRIAL',trial_count['unique_geometric_designs'],len(moved_axes),'axes',trial_hits,'receiver_failures',[r for r in receiver_checks if r['raw_intersection_mm3']<1 or r['finished_intersection_mm3']>1e-4],flush=True)

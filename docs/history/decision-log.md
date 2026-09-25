@@ -550,3 +550,16 @@ records support and existing-hardware obstructions; it does not authenticate a
 future manufacturer's layout. Joint evaluations remain paused pending sign-off.
 The owner authorized chunked commits/pushes and explicitly requested Luna Max
 agents for that work; shared-index writes are serialized.
+
+### Common corner-block comparison, September 24, 2026
+
+The owner asked whether similar corner blocks could share a design. An
+unadopted [geometry trial](../wood-joints-mvp/hypotheses/common-corner-block-study-2026-09-24/README.md)
+reduces ten designs to seven by giving fifteen identical blanks one existing
+drilling pattern. Seven blocks and 24 corresponding bolt axes change, with
+modeled raw-receiver grip preserved. Two existing bottom-center bolt-tail
+clashes require a length/shank detail; a 3 mm shorter occupied-tail sensitivity
+clears the timber but does not select purchased hardware. The viewer remains
+unchanged, and joint evaluations remain paused. The owner's corrected request
+was to restate the midpoint findings, not rerun them. Completed work may be
+pushed; unfinished drafts need not be published.
