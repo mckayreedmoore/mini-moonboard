@@ -17,6 +17,14 @@ when their dependent inputs are not ready.
 
 ## Completed evaluation checkpoints
 
+- [Current ordinary-joint inputs](ordinary-patch-inputs-attempt01/inventory.json):
+  exact STEP export of the bottom-center right cleat, rail and principal,
+  four current bolt stacks and all three finite wood contacts. The 27 STEP
+  artifacts preserve the 20 source hardware roles and four verified
+  head/shaft unions; the physical mesh inventory is three wood and sixteen
+  metal bodies. The exporter uses current live axis datums rather than stale
+  historical stack rows. All artifact hashes and eight focused exporter tests
+  pass. These are geometry inputs, not contact laws or joint response.
 - [Geometry replay](geometry-replay-audit.json): the current construction
   entrypoint reproduces 683 shape metric records, and all 40 changed finished
   timber/block solids have negligible symmetric difference from the reviewed

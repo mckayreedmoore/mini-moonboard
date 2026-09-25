@@ -1,0 +1,3544 @@
+{
+  "candidate": {
+    "current_review_pins": {
+      "current_grip_screen": {
+        "candidate_axis_count": 92,
+        "collector_source_sha256": "dfa260764d485e2a1abffe695f914c0cbddc21bf58157277a22112023525d5a1",
+        "geometry_snapshot": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/geometry-snapshot.json",
+        "geometry_snapshot_sha256": "0b92357af648604ee8ce42d2f8906e0a4e5498e9e4b835a07938b81dc151d187",
+        "report": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/grip-screen-attempt02.json",
+        "report_sha256": "9f84a15ed05ca9832f594c4a0b2c8d1322b90e74e462aa7c725b031bad69643a",
+        "scene_report": "site/owner-wood-joints-review-report.json",
+        "scene_report_sha256": "148f97623573558cd6a6c53f8a5399f2b30549d6aa1ed13c326dfe1bc3e9d695",
+        "schema": "wood_joint_current_grip_screen/v1",
+        "status": "exact_geometry_projection_screen_only"
+      },
+      "implementation_revision": "b1e8707d",
+      "implementation_revision_source": "parent task context; not read from Git",
+      "input_adapter_source_sha256": "aad61df4d6a7f39dd7d14eac48193f1d94545887f56e50d8f86e6ec4f5dec0bc",
+      "report_claim_boundary": "current viewer geometry review only; no joint evaluation or acceptance",
+      "revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+      "revision_report": "docs/wood-joints-mvp/hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/revision.json",
+      "revision_report_sha256": "148f97623573558cd6a6c53f8a5399f2b30549d6aa1ed13c326dfe1bc3e9d695",
+      "scene_sha256": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf",
+      "scene_snapshot": "docs/wood-joints-mvp/hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/scene.json.snapshot",
+      "source_files_sha256": {
+        "scripts/export_wood_joint_design_review_scene.py": "02baedfa61f281854da947cd5787b83d10b1c91161aa05c252ef3960c9cf3537",
+        "scripts/wood_joint_wj24_2x6_outer_blocks.py": "fb7e49e354f1ffe718c86caeeb588c129088a604498ef465028320defd13540e",
+        "scripts/wood_joint_wj24_led_clearance.py": "4c33379985baaf4dd19b0909abbd1a9f361fd8fe50c5d91260167c74425f35a9"
+      },
+      "verification_report": "docs/wood-joints-mvp/hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/verification.json",
+      "verification_report_sha256": "73c47a32d02480b61e95ef8f5f5854f7d38c5430137eb7b0183012ae9995751c"
+    },
+    "implementation_revision": "b1e8707d",
+    "revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+    "source_inventory_baseline_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+  },
+  "geometry_binding": {
+    "layout_id": "led-clearance-2x6-runner-seated-blocks-v1",
+    "source_inputs_sha256": {
+      "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+      "docs/floor-flush-construction-kerf-right/stock-profiles.json": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8",
+      "docs/led-wiring-reference.json": "b0f93c4f48139561c06491d3d1031b9e3ceb830f40e1fcf78bdf846146f3f1f0",
+      "docs/panel-insert-reference.json": "3d0353b0c24fb32d6698308dd3a4dafdd83e6a96dfaf196a4ad4ce8f3352d908",
+      "docs/round-service-wiring-reference.json": "b335fe3732c89e66625bac0525e959ccc562e2c7cd0e1e1551a4720fc26497f8",
+      "docs/wood-joints-mvp/hypotheses/bottom-duty-investigation.md": "7c7cee1cf9fb815a9612c2c5f57fff8b9a4142be0152671ddbc4b940590a01f9",
+      "docs/wood-joints-mvp/hypotheses/current-hardware-schedule-audit.md": "cc6a74bcd3f3143bdeb26b89661f10f72e33fb041262fa09ee65f1cf684f26e6",
+      "docs/wood-joints-mvp/hypotheses/remaining-duty-sequence.md": "2f02e8507e2c24b0bb26e781958e7a1e5fa26b908a7c9b0048e50c0ca194ba5d",
+      "docs/wood-joints-mvp/hypotheses/right-rail-integration.md": "8156c02a3f30e5c91d502bf6bdfdbba649a6c9522f054f2b6223e6ecb0c74575",
+      "docs/wood-joints-mvp/hypotheses/wj04-full-stock-stagger-probe.json": "2c247cf249b0dddcd403c1466efe6d8a7ddd32366f8b8b3294657318bd42da6a",
+      "docs/wood-joints-mvp/ordinary-hardware-basis.md": "b66983d6ed267814289707cc5f3b5503dfe39ce723529b663092544e29ee8bf4",
+      "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "docs/wood-joints-mvp/stock-and-cut-basis.md": "a6089794eb0789dda022b90a3a2f2d82eff2e57e8fc20616ac4f05f0aa8c17f3",
+      "docs/wood-joints-mvp/wj03-hardware-procurement.md": "dba2e10295358859d7bae5a9a9b1c71382aa212441186022be3fbdc3579db3fc",
+      "docs/wood-joints-mvp/wood-limit-state-basis.md": "1110e664a88f704773a463e83a2aeac3954b978048d811e4bff1effa55aa7c2e",
+      "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+      "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+      "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+      "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+      "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+      "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+      "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+      "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+      "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+      "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+      "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+      "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+      "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+      "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+      "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+      "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+      "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+      "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+      "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+      "mini_moonboard/wood_joint_frame.py": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545",
+      "mini_moonboard/wood_joint_geometry.py": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e",
+      "mini_moonboard/wood_joint_panel_machining.py": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd",
+      "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+      "mini_moonboard/wood_joint_wj05_socket.py": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913",
+      "scripts/owner_layout_protected.py": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58",
+      "scripts/wood_joint_bottom_center_integration.py": "2fd69088b0e1fffc3fa2e5390ded6bfbe2072686f30823fe0331e0ac5973c425",
+      "scripts/wood_joint_bottom_outer_integration.py": "5727ece25cda9a702f88e0b71eb717e7e1081573c556a95eb891a26fd2288f11",
+      "scripts/wood_joint_clearance.py": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d",
+      "scripts/wood_joint_left_rail_integration.py": "e2f7536acfcad39937d2529f648dd0e35d15e13fa06a2e264a9abdadfd80c031",
+      "scripts/wood_joint_right_rail_integration.py": "0c2ea604b4b26cd775b84d2f3b145a132ebea89c49b2d1dbad350d7ecee95005",
+      "scripts/wood_joint_top_center_integration.py": "c92d92b47e8ee480d1aafe9e21ac3dbab5c5dc82c9c428b005bd6178e4cc0399",
+      "scripts/wood_joint_top_outer_integration.py": "010e018c28722af6d25a78baf653a99c635ac3caa987f68071e7e55167c9bbdb",
+      "scripts/wood_joint_wj03_compact_outer_access.py": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc",
+      "scripts/wood_joint_wj03_compact_outer_probe.py": "1b87fffdb250e7e3021f43913bb26d2e0c6f4a3b3f198d31c6bd8b875320065e",
+      "scripts/wood_joint_wj03_sequence.py": "27d62b50bdbe3084c68caa35f186785e57cff412fb9e68eb5fafe423ed260386",
+      "scripts/wood_joint_wj04_full_stock_probe.py": "965b997a2b3f4ecb4c39e161fc9dde1757ff8a4c8d7bc8acc90d851a122f8bde",
+      "scripts/wood_joint_wj04_probe.py": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94",
+      "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+      "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9",
+      "scripts/wood_joint_wj04_upper_pair_probe.py": "7e042ed35b6670191e2549f4f4922af4643db8d6552fef09b6998546ae123860",
+      "scripts/wood_joint_wj05_center_node_probe.py": "eafffbc95d5989bcc21a7cfed90ff25e917c778bf9758154b915cbba0ec3d173",
+      "scripts/wood_joint_wj05_center_offset_adapter.py": "e60269df6de450ec06684459a8197ad4fc56fda1af2acc6f8e84d8eb929070ad",
+      "scripts/wood_joint_wj05_center_post_x190_probe.py": "b97723f66caabb200f1504011196543ceb1e4f7f2587c09be0300cd72f43f9d8",
+      "scripts/wood_joint_wj05_center_tools.py": "3d14041588fb49c2664e410e8dff9b74ab5a9d026a39e4c24feea0f5501c3723",
+      "scripts/wood_joint_wj06_outer_pair_probe.py": "daaf03d3b56b4284435e207c23c9223e474d2213ca599f67ceb482933440afb0",
+      "scripts/wood_joint_wj06_residual_probe.py": "c3c3a05e2d89cf0142b0d8bf32f9de08ae84cbd771857d240205d06f7efe2795",
+      "scripts/wood_joint_wj12_compositor.py": "7622fc87c9882abb7c91028b8002077a76a4d8e7a29c9eee61e59c8c01020109",
+      "scripts/wood_joint_wj12_diagnostic.py": "c49e223a4abb004b1eeb6626a2678d94db2d7728d46d9af14589be9d307805d8",
+      "scripts/wood_joint_wj16_compositor.py": "913d1037d8ecf0d8f8e8b77de363d22f36188fb65457650b5fa2f9a1026e99e3",
+      "scripts/wood_joint_wj16_diagnostic.py": "bfd9fdcd169aefbe660dead429f608c40dafb3cd44eb232e0d7655ec71e3c32e",
+      "scripts/wood_joint_wj18_compositor.py": "ec0a800cc361a7bbcfdc9051b87bdc5cae0fd16b5f537ab83565288e05afa64d",
+      "scripts/wood_joint_wj18_diagnostic.py": "f0462eb92e0af545399ed2af2a0f973d320559a296f1fecc400c0c3110259a75",
+      "scripts/wood_joints_wj05_center_backer_transfer_probe.py": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+    },
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "status": "unaccepted_viewer_geometry_revision",
+    "trial_id": "led-clearance-2x6-runner-seated-blocks-v1"
+  },
+  "limitations": [
+    "The source inventory commit and current implementation revision are distinct provenance pins.",
+    "STEP inputs are the already composed nominal CAD solids, not inspected or received wood or hardware.",
+    "Head and shaft CAD roles remain separate shapes but are counted as one physical bolt per axis.",
+    "Four derived bolt solids are explicit OCC unions of their source head/shaft roles; washers and nuts remain individual physical bodies.",
+    "Coplanar face overlap is a geometric input record; it does not establish a contact law or active pressure region.",
+    "Projected receiver intervals are raw geometry containment evidence, not installation or strength conclusions.",
+    "A physical-metal mesher must use the four derived bolt unions and twelve separate washers/nuts, not treat all twenty duplicated role solids as twenty physical bodies."
+  ],
+  "migration_blockers": [],
+  "physical_bolts": [
+    {
+      "axis_direction_head_to_nut_global_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "axis_origin_datum": "live head underface / head-washer headward face on verified current shaft centerline",
+      "axis_origin_global_xyz_mm": [
+        134.5,
+        85.424771398,
+        511.257737945
+      ],
+      "axis_source": "current grip-screen attempt02 + live washer-center and solid-axis projections",
+      "bore_receiver_ids_membership_only": [
+        "base_rail_bottom_right",
+        "bottom_center_right_cleat"
+      ],
+      "cad_role_count": 5,
+      "head_and_shaft_are_one_physical_bolt": true,
+      "occupancy_bore": {
+        "bounds_xyz_mm": [
+          130.75,
+          138.25,
+          -0.452344878,
+          87.055572397,
+          409.926433379,
+          512.188193617
+        ],
+        "cad_shape_sha256": "9beb252d1ec067b7af558599ca519a7b4b6204d67b5d0a9319b429af07479149",
+        "centroid_global_xyz_mm": [
+          134.5,
+          43.30161376,
+          461.057313498
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5619.523859109
+      },
+      "physical_bolt_count": 1,
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "physical_bolt_roles": [
+        "head",
+        "shaft"
+      ],
+      "physical_hardware_roles": [
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -5.684341886080802e-14,
+              152.39999999999998
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              131.325,
+              137.675,
+              -14.968251425,
+              87.856962505,
+              392.471714152,
+              513.298588605
+            ],
+            "cad_shape_sha256": "6057b1ff1344b90c1197acd2dceaa9d5d035eef7d1a38123782c96ca73f468b8",
+            "centroid_global_xyz_mm": [
+              134.5,
+              36.44435554,
+              452.885151379
+            ],
+            "solid_count": 1,
+            "volume_mm3": 4826.388738404
+          },
+          "role": "shaft",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/shaft.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -4.14020000000005,
+              0.0
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              128.0865,
+              140.9135,
+              80.511745362,
+              92.999066695,
+              507.13521961,
+              518.551833483
+            ],
+            "cad_shape_sha256": "75fafd2b5cc52f42d221bc782037413d7c6fa9f2764c86697533102f5abf2d7c",
+            "centroid_global_xyz_mm": [
+              134.5,
+              86.755406028,
+              512.843526546
+            ],
+            "solid_count": 1,
+            "volume_mm3": 535.009374522
+          },
+          "role": "head",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/head.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -5.684341886080802e-14,
+              2.0319999999999823
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              124.9877,
+              144.0123,
+              76.831782419,
+              92.711615954,
+              503.586747056,
+              517.372126524
+            ],
+            "cad_shape_sha256": "af77562b99974485d51a01cfa3af97e91e15c0705b1fa19333d3e2ae154df564",
+            "centroid_global_xyz_mm": [
+              134.5,
+              84.771699186,
+              510.47943679
+            ],
+            "solid_count": 1,
+            "volume_mm3": 480.581673905
+          },
+          "role": "head_washer",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              129.03199999999998,
+              131.06400000000002
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              124.9877,
+              144.0123,
+              -6.108388435,
+              9.771445101,
+              404.742500472,
+              418.52787994
+            ],
+            "cad_shape_sha256": "70c9885243cd6b664dde408e5e528d5465a5e48eea632994462f9197a1797296",
+            "centroid_global_xyz_mm": [
+              134.5,
+              1.831528333,
+              411.635190206
+            ],
+            "solid_count": 1,
+            "volume_mm3": 480.581673905
+          },
+          "role": "nut_washer",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              131.06399999999996,
+              136.80440000000004
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              128.0865,
+              140.9135,
+              -7.424427909,
+              6.091482158,
+              402.336969196,
+              414.979407386
+            ],
+            "cad_shape_sha256": "efd58ccecc80f49f60e969768a1c6325f99beac5c93954afcc922679e7b6097d",
+            "centroid_global_xyz_mm": [
+              134.5,
+              -0.666472876,
+              408.658188291
+            ],
+            "solid_count": 1,
+            "volume_mm3": 741.792138908
+          },
+          "role": "nut",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut.step"
+        }
+      ],
+      "physical_metal_body_ids": [
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut"
+      ],
+      "raw_receiver_projected_intervals": [
+        {
+          "current_shaft_covers_raw_receiver": true,
+          "long_probe_minus_current_shaft_volume_mm3": 1.5006662579253316e-11,
+          "member_id": "bottom_center_right_cleat",
+          "projected_intervals_from_underhead_datum_mm": [
+            [
+              2.0319999991094733,
+              90.93199999910956
+            ]
+          ],
+          "projected_material_length_mm": 88.90000000000009,
+          "projection_gaps_mm": [],
+          "receiver_order_head_to_nut": 1
+        },
+        {
+          "current_shaft_covers_raw_receiver": true,
+          "long_probe_minus_current_shaft_volume_mm3": 5.9117155615240335e-12,
+          "member_id": "base_rail_bottom_right",
+          "projected_intervals_from_underhead_datum_mm": [
+            [
+              90.93199999910956,
+              129.03199999910953
+            ]
+          ],
+          "projected_material_length_mm": 38.099999999999966,
+          "projection_gaps_mm": [],
+          "receiver_order_head_to_nut": 2
+        }
+      ],
+      "receivers_head_to_nut": [
+        "bottom_center_right_cleat",
+        "base_rail_bottom_right"
+      ],
+      "stack_row_source": "source-bound current-grip report plus live solid projections and raw receiver probes"
+    },
+    {
+      "axis_direction_head_to_nut_global_xyz": [
+        0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "axis_origin_datum": "live head underface / head-washer headward face on verified current shaft centerline",
+      "axis_origin_global_xyz_mm": [
+        134.5,
+        60.145304775,
+        532.469729064
+      ],
+      "axis_source": "current grip-screen attempt02 + live washer-center and solid-axis projections",
+      "bore_receiver_ids_membership_only": [
+        "base_rail_bottom_right",
+        "bottom_center_right_cleat"
+      ],
+      "cad_role_count": 5,
+      "head_and_shaft_are_one_physical_bolt": true,
+      "occupancy_bore": {
+        "bounds_xyz_mm": [
+          130.75,
+          138.25,
+          -25.731811501,
+          61.776105774,
+          431.138424499,
+          533.400184737
+        ],
+        "cad_shape_sha256": "3e70b3aa034d67610a840deb8b9360cd95e08b60330f78a189f6204449a17616",
+        "centroid_global_xyz_mm": [
+          134.5,
+          18.022147137,
+          482.269304618
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5619.523859109
+      },
+      "physical_bolt_count": 1,
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "physical_bolt_roles": [
+        "head",
+        "shaft"
+      ],
+      "physical_hardware_roles": [
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -5.684341886080802e-14,
+              152.39999999999998
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              131.325,
+              137.675,
+              -40.247718049,
+              62.577495881,
+              413.683705272,
+              534.510579725
+            ],
+            "cad_shape_sha256": "850a6d09b5d480706161e23f9392fdaf46e9563ec57f8e80fdfee05055e5a19e",
+            "centroid_global_xyz_mm": [
+              134.5,
+              11.164888916,
+              474.097142499
+            ],
+            "solid_count": 1,
+            "volume_mm3": 4826.388738404
+          },
+          "role": "shaft",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -4.14020000000005,
+              0.0
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              128.0865,
+              140.9135,
+              55.232278739,
+              67.719600072,
+              528.34721073,
+              539.763824602
+            ],
+            "cad_shape_sha256": "7ba70378e32b2382e784ad3a535a6a6ddcd6e40602efa12baf14ddd54ce08580",
+            "centroid_global_xyz_mm": [
+              134.5,
+              61.475939405,
+              534.055517666
+            ],
+            "solid_count": 1,
+            "volume_mm3": 535.009374522
+          },
+          "role": "head",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/head.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              0.0,
+              2.0319999999999823
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              124.9877,
+              144.0123,
+              51.552315795,
+              67.432149331,
+              524.798738176,
+              538.584117644
+            ],
+            "cad_shape_sha256": "ef22f37f248fca1e98b225782003cfe9bd9dbff299e688dbf1cf673818f6d501",
+            "centroid_global_xyz_mm": [
+              134.5,
+              59.492232563,
+              531.69142791
+            ],
+            "solid_count": 1,
+            "volume_mm3": 480.581673905
+          },
+          "role": "head_washer",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              129.03199999999998,
+              131.06400000000002
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              124.9877,
+              144.0123,
+              -31.387855058,
+              -15.508021522,
+              425.954491592,
+              439.739871059
+            ],
+            "cad_shape_sha256": "af61c5874c571de5619cb55a4a6f0ff10509027b0d8c45aeac30364150c52b49",
+            "centroid_global_xyz_mm": [
+              134.5,
+              -23.44793829,
+              432.847181326
+            ],
+            "solid_count": 1,
+            "volume_mm3": 480.581673905
+          },
+          "role": "nut_washer",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              131.06400000000002,
+              136.80440000000004
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              128.0865,
+              140.9135,
+              -32.703894532,
+              -19.187984465,
+              423.548960315,
+              436.191398506
+            ],
+            "cad_shape_sha256": "d3fb456dd0268b080f48e72ec587dbb113b90c0f8eb495c3199d1c25b0beac10",
+            "centroid_global_xyz_mm": [
+              134.5,
+              -25.945939499,
+              429.870179411
+            ],
+            "solid_count": 1,
+            "volume_mm3": 741.792138908
+          },
+          "role": "nut",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut.step"
+        }
+      ],
+      "physical_metal_body_ids": [
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut"
+      ],
+      "raw_receiver_projected_intervals": [
+        {
+          "current_shaft_covers_raw_receiver": true,
+          "long_probe_minus_current_shaft_volume_mm3": 1.6825651982799172e-11,
+          "member_id": "bottom_center_right_cleat",
+          "projected_intervals_from_underhead_datum_mm": [
+            [
+              2.0319999991094733,
+              90.93199999910956
+            ]
+          ],
+          "projected_material_length_mm": 88.90000000000009,
+          "projection_gaps_mm": [],
+          "receiver_order_head_to_nut": 1
+        },
+        {
+          "current_shaft_covers_raw_receiver": true,
+          "long_probe_minus_current_shaft_volume_mm3": 9.094947017729282e-12,
+          "member_id": "base_rail_bottom_right",
+          "projected_intervals_from_underhead_datum_mm": [
+            [
+              90.93199999910951,
+              129.0319999991096
+            ]
+          ],
+          "projected_material_length_mm": 38.10000000000008,
+          "projection_gaps_mm": [],
+          "receiver_order_head_to_nut": 2
+        }
+      ],
+      "receivers_head_to_nut": [
+        "bottom_center_right_cleat",
+        "base_rail_bottom_right"
+      ],
+      "stack_row_source": "source-bound current-grip report plus live solid projections and raw receiver probes"
+    },
+    {
+      "axis_direction_head_to_nut_global_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "axis_origin_datum": "live head underface / head-washer headward face on verified current shaft centerline",
+      "axis_origin_global_xyz_mm": [
+        179.982,
+        32.333128244,
+        473.655024602
+      ],
+      "axis_source": "current grip-screen attempt02 + live washer-center and solid-axis projections",
+      "bore_receiver_ids_membership_only": [
+        "base_principal_center_right",
+        "bottom_center_right_cleat"
+      ],
+      "cad_role_count": 5,
+      "head_and_shaft_are_one_physical_bolt": true,
+      "occupancy_bore": {
+        "bounds_xyz_mm": [
+          50.85,
+          178.05,
+          28.583128244,
+          36.083128244,
+          469.905024602,
+          477.405024602
+        ],
+        "cad_shape_sha256": "e502905d89ed5463cad10e7b0b421ea6c2baf3959c73c8d4189561e9348b6ca1",
+        "centroid_global_xyz_mm": [
+          114.45,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5619.523859109
+      },
+      "physical_bolt_count": 1,
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "physical_bolt_roles": [
+        "head",
+        "shaft"
+      ],
+      "physical_hardware_roles": [
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              0.0,
+              152.4
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              27.582,
+              179.982,
+              29.158128244,
+              35.508128244,
+              470.480024602,
+              476.830024602
+            ],
+            "cad_shape_sha256": "546877a16f6433770706b5b53a3f94d7e7f04e73a5a8cee952e293590d55751e",
+            "centroid_global_xyz_mm": [
+              103.782,
+              32.333128244,
+              473.655024602
+            ],
+            "solid_count": 1,
+            "volume_mm3": 4826.388738404
+          },
+          "role": "shaft",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/shaft.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -4.140199999999993,
+              0.0
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              179.982,
+              184.1222,
+              25.919628244,
+              38.746628244,
+              467.241524602,
+              480.068524602
+            ],
+            "cad_shape_sha256": "5931a4fcb5c3382eaba2b32cc68adb869fc7a5f0d7701c34bf3ef2af5e02e806",
+            "centroid_global_xyz_mm": [
+              182.0521,
+              32.333128244,
+              473.655024602
+            ],
+            "solid_count": 1,
+            "volume_mm3": 535.009374522
+          },
+          "role": "head",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/head.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              0.0,
+              2.0320000000000107
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              177.95,
+              179.982,
+              22.820828244,
+              41.845428244,
+              464.142724602,
+              483.167324602
+            ],
+            "cad_shape_sha256": "57e14c560c78d6c5b667c6b0e9d9bcf87201f1d3a8eb63f71ee58d020a6352f9",
+            "centroid_global_xyz_mm": [
+              178.966,
+              32.333128244,
+              473.655024602
+            ],
+            "solid_count": 1,
+            "volume_mm3": 480.581673905
+          },
+          "role": "head_washer",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              129.03199999999998,
+              131.06400000000002
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              48.918,
+              50.95,
+              22.820828244,
+              41.845428244,
+              464.142724602,
+              483.167324602
+            ],
+            "cad_shape_sha256": "875d6556235b95af3e3a0843276c948e6882da75aedbebc61e3bec472b496c14",
+            "centroid_global_xyz_mm": [
+              49.934,
+              32.333128244,
+              473.655024602
+            ],
+            "solid_count": 1,
+            "volume_mm3": 480.581673905
+          },
+          "role": "nut_washer",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              131.064,
+              136.8044
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              43.1776,
+              48.918,
+              25.919628244,
+              38.746628244,
+              467.241524602,
+              480.068524602
+            ],
+            "cad_shape_sha256": "cbb8abd45332fda661ffa6f0fe432688c66e126f4e975e591a69b8f52c25bda9",
+            "centroid_global_xyz_mm": [
+              46.0478,
+              32.333128244,
+              473.655024602
+            ],
+            "solid_count": 1,
+            "volume_mm3": 741.792138908
+          },
+          "role": "nut",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut.step"
+        }
+      ],
+      "physical_metal_body_ids": [
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut"
+      ],
+      "raw_receiver_projected_intervals": [
+        {
+          "current_shaft_covers_raw_receiver": true,
+          "long_probe_minus_current_shaft_volume_mm3": 7.275957614183426e-12,
+          "member_id": "bottom_center_right_cleat",
+          "projected_intervals_from_underhead_datum_mm": [
+            [
+              2.0319999999999823,
+              90.93199999999999
+            ]
+          ],
+          "projected_material_length_mm": 88.9,
+          "projection_gaps_mm": [],
+          "receiver_order_head_to_nut": 1
+        },
+        {
+          "current_shaft_covers_raw_receiver": true,
+          "long_probe_minus_current_shaft_volume_mm3": 2.2737367544323206e-12,
+          "member_id": "base_principal_center_right",
+          "projected_intervals_from_underhead_datum_mm": [
+            [
+              90.93199999999993,
+              129.03199999999995
+            ]
+          ],
+          "projected_material_length_mm": 38.10000000000002,
+          "projection_gaps_mm": [],
+          "receiver_order_head_to_nut": 2
+        }
+      ],
+      "receivers_head_to_nut": [
+        "bottom_center_right_cleat",
+        "base_principal_center_right"
+      ],
+      "stack_row_source": "source-bound current-grip report plus live solid projections and raw receiver probes"
+    },
+    {
+      "axis_direction_head_to_nut_global_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "axis_origin_datum": "live head underface / head-washer headward face on verified current shaft centerline",
+      "axis_origin_global_xyz_mm": [
+        179.982,
+        53.545119364,
+        498.934491225
+      ],
+      "axis_source": "current grip-screen attempt02 + live washer-center and solid-axis projections",
+      "bore_receiver_ids_membership_only": [
+        "base_principal_center_right",
+        "bottom_center_right_cleat"
+      ],
+      "cad_role_count": 5,
+      "head_and_shaft_are_one_physical_bolt": true,
+      "occupancy_bore": {
+        "bounds_xyz_mm": [
+          50.85,
+          178.05,
+          49.795119364,
+          57.295119364,
+          495.184491225,
+          502.684491225
+        ],
+        "cad_shape_sha256": "d5c0bd33a1c3c8cf503cc442aa0dab56f98d8244017338658017bdf452770da5",
+        "centroid_global_xyz_mm": [
+          114.45,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5619.523859109
+      },
+      "physical_bolt_count": 1,
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "physical_bolt_roles": [
+        "head",
+        "shaft"
+      ],
+      "physical_hardware_roles": [
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -2.842170943040401e-14,
+              152.4
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              27.582,
+              179.982,
+              50.370119364,
+              56.720119364,
+              495.759491225,
+              502.109491225
+            ],
+            "cad_shape_sha256": "cc74f511900cdf86a737e844265bc6e72bac5196df9b7d7f76e4340fdc51991c",
+            "centroid_global_xyz_mm": [
+              103.782,
+              53.545119364,
+              498.934491225
+            ],
+            "solid_count": 1,
+            "volume_mm3": 4826.388738404
+          },
+          "role": "shaft",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/shaft.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -4.140200000000021,
+              0.0
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              179.982,
+              184.1222,
+              47.131619364,
+              59.958619364,
+              492.520991225,
+              505.347991225
+            ],
+            "cad_shape_sha256": "a3893b858baef8bf772fcccbe9f5496ee231d82917c98848bff8019f7caa479c",
+            "centroid_global_xyz_mm": [
+              182.0521,
+              53.545119364,
+              498.934491225
+            ],
+            "solid_count": 1,
+            "volume_mm3": 535.009374522
+          },
+          "role": "head",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/head.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              -2.842170943040401e-14,
+              2.0319999999999823
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              177.95,
+              179.982,
+              44.032819364,
+              63.057419364,
+              489.422191225,
+              508.446791225
+            ],
+            "cad_shape_sha256": "4928c39133ef2d94aeeba68a8ef900741e56d080a8a7b0c246d3ad4133b5085d",
+            "centroid_global_xyz_mm": [
+              178.966,
+              53.545119364,
+              498.934491225
+            ],
+            "solid_count": 1,
+            "volume_mm3": 480.581673905
+          },
+          "role": "head_washer",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              129.03199999999998,
+              131.064
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              48.918,
+              50.95,
+              44.032819364,
+              63.057419364,
+              489.422191225,
+              508.446791225
+            ],
+            "cad_shape_sha256": "202697163211e271091ef9d73f2753a02ff9e40d1b6bfe8ae53f69985b56337f",
+            "centroid_global_xyz_mm": [
+              49.934,
+              53.545119364,
+              498.934491225
+            ],
+            "solid_count": 1,
+            "volume_mm3": 480.581673905
+          },
+          "role": "nut_washer",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer.step"
+        },
+        {
+          "axial_projection_from_underhead_datum_mm": [
+            [
+              131.064,
+              136.8044
+            ]
+          ],
+          "cad_shape": {
+            "bounds_xyz_mm": [
+              43.1776,
+              48.918,
+              47.131619364,
+              59.958619364,
+              492.520991225,
+              505.347991225
+            ],
+            "cad_shape_sha256": "9827d0dbebb63bc7769be85c8964a4e4c3488d7259d0751688d74c65a4426678",
+            "centroid_global_xyz_mm": [
+              46.0478,
+              53.545119364,
+              498.934491225
+            ],
+            "solid_count": 1,
+            "volume_mm3": 741.792138908
+          },
+          "role": "nut",
+          "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut.step"
+        }
+      ],
+      "physical_metal_body_ids": [
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer",
+        "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut"
+      ],
+      "raw_receiver_projected_intervals": [
+        {
+          "current_shaft_covers_raw_receiver": true,
+          "long_probe_minus_current_shaft_volume_mm3": 5.4569682106375694e-12,
+          "member_id": "bottom_center_right_cleat",
+          "projected_intervals_from_underhead_datum_mm": [
+            [
+              2.0319999999999823,
+              90.932
+            ]
+          ],
+          "projected_material_length_mm": 88.90000000000002,
+          "projection_gaps_mm": [],
+          "receiver_order_head_to_nut": 1
+        },
+        {
+          "current_shaft_covers_raw_receiver": true,
+          "long_probe_minus_current_shaft_volume_mm3": 2.5011104298755527e-12,
+          "member_id": "base_principal_center_right",
+          "projected_intervals_from_underhead_datum_mm": [
+            [
+              90.93199999999995,
+              129.03199999999998
+            ]
+          ],
+          "projected_material_length_mm": 38.10000000000004,
+          "projection_gaps_mm": [],
+          "receiver_order_head_to_nut": 2
+        }
+      ],
+      "receivers_head_to_nut": [
+        "bottom_center_right_cleat",
+        "base_principal_center_right"
+      ],
+      "stack_row_source": "source-bound current-grip report plus live solid projections and raw receiver probes"
+    }
+  ],
+  "physical_metal_bodies": [
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+      "physical_kind": "bolt_head_plus_shaft_union",
+      "solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -14.968251425,
+          92.999066695,
+          392.471714152,
+          518.551833483
+        ],
+        "cad_shape_sha256": "6323872f70dfde56f9b5211a1200997f16a3b81932bbf2cb2cf691b6806e865a",
+        "centroid_global_xyz_mm": [
+          134.5,
+          41.464852635,
+          458.868346829
+        ],
+        "physical_bolt_union": {
+          "allowed_volume_difference_mm3": 6.3613981e-05,
+          "expected_volume_by_inclusion_exclusion_mm3": 5361.398112926,
+          "head_shaft_overlap_volume_mm3": 0.0,
+          "inclusion_exclusion_volume_difference_mm3": 0.0,
+          "method": "one OCC fuse of source CAD head and shaft roles; no other stack role included",
+          "observed_fused_volume_mm3": 5361.398112926,
+          "solid_count": 1,
+          "source_role_ids": [
+            "bottom_center/clip_horizontal_bottom_right_1/rail_1/head",
+            "bottom_center/clip_horizontal_bottom_right_1/rail_1/shaft"
+          ],
+          "source_role_shape_sha256": {
+            "head": "75fafd2b5cc52f42d221bc782037413d7c6fa9f2764c86697533102f5abf2d7c",
+            "shaft": "6057b1ff1344b90c1197acd2dceaa9d5d035eef7d1a38123782c96ca73f468b8"
+          },
+          "symmetric_difference_passed": true,
+          "symmetric_difference_volume_mm3": 0.0,
+          "valid": true
+        },
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1/head",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1/shaft"
+      ],
+      "step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt.step",
+      "union_identity": {
+        "allowed_volume_difference_mm3": 6.3613981e-05,
+        "expected_volume_by_inclusion_exclusion_mm3": 5361.398112926,
+        "head_shaft_overlap_volume_mm3": 0.0,
+        "inclusion_exclusion_volume_difference_mm3": 0.0,
+        "method": "one OCC fuse of source CAD head and shaft roles; no other stack role included",
+        "observed_fused_volume_mm3": 5361.398112926,
+        "solid_count": 1,
+        "source_role_ids": [
+          "bottom_center/clip_horizontal_bottom_right_1/rail_1/head",
+          "bottom_center/clip_horizontal_bottom_right_1/rail_1/shaft"
+        ],
+        "source_role_shape_sha256": {
+          "head": "75fafd2b5cc52f42d221bc782037413d7c6fa9f2764c86697533102f5abf2d7c",
+          "shaft": "6057b1ff1344b90c1197acd2dceaa9d5d035eef7d1a38123782c96ca73f468b8"
+        },
+        "symmetric_difference_passed": true,
+        "symmetric_difference_volume_mm3": 0.0,
+        "valid": true
+      }
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer",
+      "physical_kind": "head_washer",
+      "solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          76.831782419,
+          92.711615954,
+          503.586747056,
+          517.372126524
+        ],
+        "cad_shape_sha256": "af77562b99974485d51a01cfa3af97e91e15c0705b1fa19333d3e2ae154df564",
+        "centroid_global_xyz_mm": [
+          134.5,
+          84.771699186,
+          510.47943679
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer",
+      "physical_kind": "nut_washer",
+      "solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          -6.108388435,
+          9.771445101,
+          404.742500472,
+          418.52787994
+        ],
+        "cad_shape_sha256": "70c9885243cd6b664dde408e5e528d5465a5e48eea632994462f9197a1797296",
+        "centroid_global_xyz_mm": [
+          134.5,
+          1.831528333,
+          411.635190206
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut",
+      "physical_kind": "nut",
+      "solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -7.424427909,
+          6.091482158,
+          402.336969196,
+          414.979407386
+        ],
+        "cad_shape_sha256": "efd58ccecc80f49f60e969768a1c6325f99beac5c93954afcc922679e7b6097d",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -0.666472876,
+          408.658188291
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+      "physical_kind": "bolt_head_plus_shaft_union",
+      "solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -40.247718049,
+          67.719600072,
+          413.683705272,
+          539.763824602
+        ],
+        "cad_shape_sha256": "4692d15f0de4740b57bbaefdbf1189589e72bcfc385c4219cffeb8f209baf649",
+        "centroid_global_xyz_mm": [
+          134.5,
+          16.185386012,
+          480.080337949
+        ],
+        "physical_bolt_union": {
+          "allowed_volume_difference_mm3": 6.3613981e-05,
+          "expected_volume_by_inclusion_exclusion_mm3": 5361.398112926,
+          "head_shaft_overlap_volume_mm3": 0.0,
+          "inclusion_exclusion_volume_difference_mm3": 0.0,
+          "method": "one OCC fuse of source CAD head and shaft roles; no other stack role included",
+          "observed_fused_volume_mm3": 5361.398112926,
+          "solid_count": 1,
+          "source_role_ids": [
+            "bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+            "bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft"
+          ],
+          "source_role_shape_sha256": {
+            "head": "7ba70378e32b2382e784ad3a535a6a6ddcd6e40602efa12baf14ddd54ce08580",
+            "shaft": "850a6d09b5d480706161e23f9392fdaf46e9563ec57f8e80fdfee05055e5a19e"
+          },
+          "symmetric_difference_passed": true,
+          "symmetric_difference_volume_mm3": 0.0,
+          "valid": true
+        },
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft"
+      ],
+      "step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt.step",
+      "union_identity": {
+        "allowed_volume_difference_mm3": 6.3613981e-05,
+        "expected_volume_by_inclusion_exclusion_mm3": 5361.398112926,
+        "head_shaft_overlap_volume_mm3": 0.0,
+        "inclusion_exclusion_volume_difference_mm3": 0.0,
+        "method": "one OCC fuse of source CAD head and shaft roles; no other stack role included",
+        "observed_fused_volume_mm3": 5361.398112926,
+        "solid_count": 1,
+        "source_role_ids": [
+          "bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+          "bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft"
+        ],
+        "source_role_shape_sha256": {
+          "head": "7ba70378e32b2382e784ad3a535a6a6ddcd6e40602efa12baf14ddd54ce08580",
+          "shaft": "850a6d09b5d480706161e23f9392fdaf46e9563ec57f8e80fdfee05055e5a19e"
+        },
+        "symmetric_difference_passed": true,
+        "symmetric_difference_volume_mm3": 0.0,
+        "valid": true
+      }
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+      "physical_kind": "head_washer",
+      "solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          51.552315795,
+          67.432149331,
+          524.798738176,
+          538.584117644
+        ],
+        "cad_shape_sha256": "ef22f37f248fca1e98b225782003cfe9bd9dbff299e688dbf1cf673818f6d501",
+        "centroid_global_xyz_mm": [
+          134.5,
+          59.492232563,
+          531.69142791
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+      "physical_kind": "nut_washer",
+      "solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          -31.387855058,
+          -15.508021522,
+          425.954491592,
+          439.739871059
+        ],
+        "cad_shape_sha256": "af61c5874c571de5619cb55a4a6f0ff10509027b0d8c45aeac30364150c52b49",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -23.44793829,
+          432.847181326
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+      "physical_kind": "nut",
+      "solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -32.703894532,
+          -19.187984465,
+          423.548960315,
+          436.191398506
+        ],
+        "cad_shape_sha256": "d3fb456dd0268b080f48e72ec587dbb113b90c0f8eb495c3199d1c25b0beac10",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -25.945939499,
+          429.870179411
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+      "physical_kind": "bolt_head_plus_shaft_union",
+      "solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          184.1222,
+          25.919628244,
+          38.746628244,
+          467.241524602,
+          480.068524602
+        ],
+        "cad_shape_sha256": "32a227e21bb6a25e1ca9555dfd3a51c7ac60c60b8f54c4754e07b041175e1323",
+        "centroid_global_xyz_mm": [
+          111.592506954,
+          32.333128244,
+          473.655024602
+        ],
+        "physical_bolt_union": {
+          "allowed_volume_difference_mm3": 6.3613981e-05,
+          "expected_volume_by_inclusion_exclusion_mm3": 5361.398112926,
+          "head_shaft_overlap_volume_mm3": 0.0,
+          "inclusion_exclusion_volume_difference_mm3": 0.0,
+          "method": "one OCC fuse of source CAD head and shaft roles; no other stack role included",
+          "observed_fused_volume_mm3": 5361.398112926,
+          "solid_count": 1,
+          "source_role_ids": [
+            "bottom_center/clip_horizontal_bottom_right_1/principal_1/head",
+            "bottom_center/clip_horizontal_bottom_right_1/principal_1/shaft"
+          ],
+          "source_role_shape_sha256": {
+            "head": "5931a4fcb5c3382eaba2b32cc68adb869fc7a5f0d7701c34bf3ef2af5e02e806",
+            "shaft": "546877a16f6433770706b5b53a3f94d7e7f04e73a5a8cee952e293590d55751e"
+          },
+          "symmetric_difference_passed": true,
+          "symmetric_difference_volume_mm3": 0.0,
+          "valid": true
+        },
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1/head",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1/shaft"
+      ],
+      "step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt.step",
+      "union_identity": {
+        "allowed_volume_difference_mm3": 6.3613981e-05,
+        "expected_volume_by_inclusion_exclusion_mm3": 5361.398112926,
+        "head_shaft_overlap_volume_mm3": 0.0,
+        "inclusion_exclusion_volume_difference_mm3": 0.0,
+        "method": "one OCC fuse of source CAD head and shaft roles; no other stack role included",
+        "observed_fused_volume_mm3": 5361.398112926,
+        "solid_count": 1,
+        "source_role_ids": [
+          "bottom_center/clip_horizontal_bottom_right_1/principal_1/head",
+          "bottom_center/clip_horizontal_bottom_right_1/principal_1/shaft"
+        ],
+        "source_role_shape_sha256": {
+          "head": "5931a4fcb5c3382eaba2b32cc68adb869fc7a5f0d7701c34bf3ef2af5e02e806",
+          "shaft": "546877a16f6433770706b5b53a3f94d7e7f04e73a5a8cee952e293590d55751e"
+        },
+        "symmetric_difference_passed": true,
+        "symmetric_difference_volume_mm3": 0.0,
+        "valid": true
+      }
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer",
+      "physical_kind": "head_washer",
+      "solid": {
+        "bounds_xyz_mm": [
+          177.95,
+          179.982,
+          22.820828244,
+          41.845428244,
+          464.142724602,
+          483.167324602
+        ],
+        "cad_shape_sha256": "57e14c560c78d6c5b667c6b0e9d9bcf87201f1d3a8eb63f71ee58d020a6352f9",
+        "centroid_global_xyz_mm": [
+          178.966,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer",
+      "physical_kind": "nut_washer",
+      "solid": {
+        "bounds_xyz_mm": [
+          48.918,
+          50.95,
+          22.820828244,
+          41.845428244,
+          464.142724602,
+          483.167324602
+        ],
+        "cad_shape_sha256": "875d6556235b95af3e3a0843276c948e6882da75aedbebc61e3bec472b496c14",
+        "centroid_global_xyz_mm": [
+          49.934,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut",
+      "physical_kind": "nut",
+      "solid": {
+        "bounds_xyz_mm": [
+          43.1776,
+          48.918,
+          25.919628244,
+          38.746628244,
+          467.241524602,
+          480.068524602
+        ],
+        "cad_shape_sha256": "cbb8abd45332fda661ffa6f0fe432688c66e126f4e975e591a69b8f52c25bda9",
+        "centroid_global_xyz_mm": [
+          46.0478,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+      "physical_kind": "bolt_head_plus_shaft_union",
+      "solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          184.1222,
+          47.131619364,
+          59.958619364,
+          492.520991225,
+          505.347991225
+        ],
+        "cad_shape_sha256": "b108c2d1d6c165cf86209ec3eaf2e9017692ecd9cf3e7d3a6226400341b267ba",
+        "centroid_global_xyz_mm": [
+          111.592506954,
+          53.545119364,
+          498.934491225
+        ],
+        "physical_bolt_union": {
+          "allowed_volume_difference_mm3": 6.3613981e-05,
+          "expected_volume_by_inclusion_exclusion_mm3": 5361.398112926,
+          "head_shaft_overlap_volume_mm3": 0.0,
+          "inclusion_exclusion_volume_difference_mm3": 0.0,
+          "method": "one OCC fuse of source CAD head and shaft roles; no other stack role included",
+          "observed_fused_volume_mm3": 5361.398112926,
+          "solid_count": 1,
+          "source_role_ids": [
+            "bottom_center/clip_horizontal_bottom_right_1/principal_2/head",
+            "bottom_center/clip_horizontal_bottom_right_1/principal_2/shaft"
+          ],
+          "source_role_shape_sha256": {
+            "head": "a3893b858baef8bf772fcccbe9f5496ee231d82917c98848bff8019f7caa479c",
+            "shaft": "cc74f511900cdf86a737e844265bc6e72bac5196df9b7d7f76e4340fdc51991c"
+          },
+          "symmetric_difference_passed": true,
+          "symmetric_difference_volume_mm3": 0.0,
+          "valid": true
+        },
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2/head",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2/shaft"
+      ],
+      "step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt.step",
+      "union_identity": {
+        "allowed_volume_difference_mm3": 6.3613981e-05,
+        "expected_volume_by_inclusion_exclusion_mm3": 5361.398112926,
+        "head_shaft_overlap_volume_mm3": 0.0,
+        "inclusion_exclusion_volume_difference_mm3": 0.0,
+        "method": "one OCC fuse of source CAD head and shaft roles; no other stack role included",
+        "observed_fused_volume_mm3": 5361.398112926,
+        "solid_count": 1,
+        "source_role_ids": [
+          "bottom_center/clip_horizontal_bottom_right_1/principal_2/head",
+          "bottom_center/clip_horizontal_bottom_right_1/principal_2/shaft"
+        ],
+        "source_role_shape_sha256": {
+          "head": "a3893b858baef8bf772fcccbe9f5496ee231d82917c98848bff8019f7caa479c",
+          "shaft": "cc74f511900cdf86a737e844265bc6e72bac5196df9b7d7f76e4340fdc51991c"
+        },
+        "symmetric_difference_passed": true,
+        "symmetric_difference_volume_mm3": 0.0,
+        "valid": true
+      }
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer",
+      "physical_kind": "head_washer",
+      "solid": {
+        "bounds_xyz_mm": [
+          177.95,
+          179.982,
+          44.032819364,
+          63.057419364,
+          489.422191225,
+          508.446791225
+        ],
+        "cad_shape_sha256": "4928c39133ef2d94aeeba68a8ef900741e56d080a8a7b0c246d3ad4133b5085d",
+        "centroid_global_xyz_mm": [
+          178.966,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer",
+      "physical_kind": "nut_washer",
+      "solid": {
+        "bounds_xyz_mm": [
+          48.918,
+          50.95,
+          44.032819364,
+          63.057419364,
+          489.422191225,
+          508.446791225
+        ],
+        "cad_shape_sha256": "202697163211e271091ef9d73f2753a02ff9e40d1b6bfe8ae53f69985b56337f",
+        "centroid_global_xyz_mm": [
+          49.934,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer.step"
+    },
+    {
+      "axis_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut",
+      "physical_kind": "nut",
+      "solid": {
+        "bounds_xyz_mm": [
+          43.1776,
+          48.918,
+          47.131619364,
+          59.958619364,
+          492.520991225,
+          505.347991225
+        ],
+        "cad_shape_sha256": "9827d0dbebb63bc7769be85c8964a4e4c3488d7259d0751688d74c65a4426678",
+        "centroid_global_xyz_mm": [
+          46.0478,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      },
+      "source_cad_role_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut"
+      ],
+      "step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut.step"
+    }
+  ],
+  "schema": "wood_joint_current_patch_inputs/v1",
+  "scope": {
+    "arbitrary_member_cuts": false,
+    "boundary_method": "pending",
+    "contact_law_assigned": false,
+    "derived_physical_bolt_unions": 4,
+    "finished_wood_bodies": 3,
+    "full_finished_members_exported": true,
+    "meshed": false,
+    "modeled_hardware_cad_roles": 20,
+    "native_solve_run": false,
+    "physical_bolts": 4,
+    "physical_metal_bodies": 16,
+    "step_artifacts": 27,
+    "strength_or_joint_acceptance_claim": false,
+    "wood_interfaces": 3
+  },
+  "status": "current_geometry_patch_inputs_only",
+  "step_artifacts": {
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/head": {
+      "file": "head.step",
+      "file_sha256": "870aefd40c5ac6089f5b4c5cd7bdf410cc7fb3c89d73d87d7c78cf3f72715ce9",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000535009,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          179.982,
+          184.1222,
+          25.919628244,
+          38.746628244,
+          467.241524602,
+          480.068524602
+        ],
+        "cad_shape_sha256": "5931a4fcb5c3382eaba2b32cc68adb869fc7a5f0d7701c34bf3ef2af5e02e806",
+        "centroid_global_xyz_mm": [
+          182.0521,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 535.009374522
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          179.982,
+          184.1222,
+          25.919628244,
+          38.746628244,
+          467.241524602,
+          480.068524602
+        ],
+        "cad_shape_sha256": "5ed13ce8c5803ceacdafa1be31b0aebba51128a74ef60c5dfd80550e22765c1e",
+        "centroid_global_xyz_mm": [
+          182.0521,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 535.009374522
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer": {
+      "file": "head_washer.step",
+      "file_sha256": "90cc358c67c138de53af702ef07e7dea795398884d6af5d7a55ea6e043a27325",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000480582,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          177.95,
+          179.982,
+          22.820828244,
+          41.845428244,
+          464.142724602,
+          483.167324602
+        ],
+        "cad_shape_sha256": "57e14c560c78d6c5b667c6b0e9d9bcf87201f1d3a8eb63f71ee58d020a6352f9",
+        "centroid_global_xyz_mm": [
+          178.966,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          177.95,
+          179.982,
+          22.820828244,
+          41.845428244,
+          464.142724602,
+          483.167324602
+        ],
+        "cad_shape_sha256": "29dbd20b39a655c4af523fc9d75df25ef1c26dfa4feda0f4d34a3f46ac83531b",
+        "centroid_global_xyz_mm": [
+          178.966,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut": {
+      "file": "nut.step",
+      "file_sha256": "035fde9d8a18d5d8c480f35fa3d031a1c468adf80052f32849bc0e56cf3d0785",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000741792,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          43.1776,
+          48.918,
+          25.919628244,
+          38.746628244,
+          467.241524602,
+          480.068524602
+        ],
+        "cad_shape_sha256": "cbb8abd45332fda661ffa6f0fe432688c66e126f4e975e591a69b8f52c25bda9",
+        "centroid_global_xyz_mm": [
+          46.0478,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          43.1776,
+          48.918,
+          25.919628244,
+          38.746628244,
+          467.241524602,
+          480.068524602
+        ],
+        "cad_shape_sha256": "511a817fa000fd4b9f7a231fee087ffbd89b7b54844c5952b6f026df7c294c76",
+        "centroid_global_xyz_mm": [
+          46.0478,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer": {
+      "file": "nut_washer.step",
+      "file_sha256": "746121c12591aa0acd3da1eaaf8d372adc69a9c03a58ca7f6c03e16d682912a7",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000480582,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          48.918,
+          50.95,
+          22.820828244,
+          41.845428244,
+          464.142724602,
+          483.167324602
+        ],
+        "cad_shape_sha256": "875d6556235b95af3e3a0843276c948e6882da75aedbebc61e3bec472b496c14",
+        "centroid_global_xyz_mm": [
+          49.934,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          48.918,
+          50.95,
+          22.820828244,
+          41.845428244,
+          464.142724602,
+          483.167324602
+        ],
+        "cad_shape_sha256": "2f83b61d57942a83589512df0a5f646e8486d18b8c26ff1fa277e970ed942a6c",
+        "centroid_global_xyz_mm": [
+          49.934,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/shaft": {
+      "file": "shaft.step",
+      "file_sha256": "1dba9c0aa3fb0674607fdd4874bd06253b4d6b11db2abf0c9fb69b073b214ed0",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001004826389,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          179.982,
+          29.158128244,
+          35.508128244,
+          470.480024602,
+          476.830024602
+        ],
+        "cad_shape_sha256": "546877a16f6433770706b5b53a3f94d7e7f04e73a5a8cee952e293590d55751e",
+        "centroid_global_xyz_mm": [
+          103.782,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 4826.388738404
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          179.982,
+          29.158128244,
+          35.508128244,
+          470.480024602,
+          476.830024602
+        ],
+        "cad_shape_sha256": "28c1ef12be01ddb196c80597962888eb4ddc0cdb01a681058e00fcb63abf18c2",
+        "centroid_global_xyz_mm": [
+          103.782,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 4826.388738404
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/head": {
+      "file": "head.step",
+      "file_sha256": "a0afe6f2774ed191d36411fe2cd4ba581bdd9c4f1de9281c57479fe5f45f2925",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000535009,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          179.982,
+          184.1222,
+          47.131619364,
+          59.958619364,
+          492.520991225,
+          505.347991225
+        ],
+        "cad_shape_sha256": "a3893b858baef8bf772fcccbe9f5496ee231d82917c98848bff8019f7caa479c",
+        "centroid_global_xyz_mm": [
+          182.0521,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 535.009374522
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          179.982,
+          184.1222,
+          47.131619364,
+          59.958619364,
+          492.520991225,
+          505.347991225
+        ],
+        "cad_shape_sha256": "070d46fdfa555b11ed73940318af05ed335c04bf030782baa28eba4effbcbf4a",
+        "centroid_global_xyz_mm": [
+          182.0521,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 535.009374522
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer": {
+      "file": "head_washer.step",
+      "file_sha256": "86fb5268eec7ca3e5fed3e6f9607132ab9d663980732226e67f94d4aa724af6a",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000480582,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          177.95,
+          179.982,
+          44.032819364,
+          63.057419364,
+          489.422191225,
+          508.446791225
+        ],
+        "cad_shape_sha256": "4928c39133ef2d94aeeba68a8ef900741e56d080a8a7b0c246d3ad4133b5085d",
+        "centroid_global_xyz_mm": [
+          178.966,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          177.95,
+          179.982,
+          44.032819364,
+          63.057419364,
+          489.422191225,
+          508.446791225
+        ],
+        "cad_shape_sha256": "7e86fe3037d4a13e578c07c3af277e1bbda8a4f81ed5f45416672caca88eeee4",
+        "centroid_global_xyz_mm": [
+          178.966,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut": {
+      "file": "nut.step",
+      "file_sha256": "84e1cf74ca8c370a2d29827f6a8fec15d8329510a8dbbc6691edba9aa9bd2b75",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000741792,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          43.1776,
+          48.918,
+          47.131619364,
+          59.958619364,
+          492.520991225,
+          505.347991225
+        ],
+        "cad_shape_sha256": "9827d0dbebb63bc7769be85c8964a4e4c3488d7259d0751688d74c65a4426678",
+        "centroid_global_xyz_mm": [
+          46.0478,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          43.1776,
+          48.918,
+          47.131619364,
+          59.958619364,
+          492.520991225,
+          505.347991225
+        ],
+        "cad_shape_sha256": "30de83112f6283e1febffbca83466d07d4f177e627026e5c127f0a9fd2c06e49",
+        "centroid_global_xyz_mm": [
+          46.0478,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer": {
+      "file": "nut_washer.step",
+      "file_sha256": "b5f7c7e61f623ecf9f486312693fcd92a057f5359df6d6033cfe83afd3775137",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000480582,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          48.918,
+          50.95,
+          44.032819364,
+          63.057419364,
+          489.422191225,
+          508.446791225
+        ],
+        "cad_shape_sha256": "202697163211e271091ef9d73f2753a02ff9e40d1b6bfe8ae53f69985b56337f",
+        "centroid_global_xyz_mm": [
+          49.934,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          48.918,
+          50.95,
+          44.032819364,
+          63.057419364,
+          489.422191225,
+          508.446791225
+        ],
+        "cad_shape_sha256": "b9ca0bf966fa09cf3d30f7c8cfded68b08e79c6b2cdf30f12e973c46dc5e3f11",
+        "centroid_global_xyz_mm": [
+          49.934,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/shaft": {
+      "file": "shaft.step",
+      "file_sha256": "9b4c190b2356b95dfe658d57a917664bc60d7d31567ad3692e1087af104cd3a6",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001004826389,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          179.982,
+          50.370119364,
+          56.720119364,
+          495.759491225,
+          502.109491225
+        ],
+        "cad_shape_sha256": "cc74f511900cdf86a737e844265bc6e72bac5196df9b7d7f76e4340fdc51991c",
+        "centroid_global_xyz_mm": [
+          103.782,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 4826.388738404
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          179.982,
+          50.370119364,
+          56.720119364,
+          495.759491225,
+          502.109491225
+        ],
+        "cad_shape_sha256": "c7599eba3b43dab67c454b9862be498449e5c08ef7a2a1f91debdf4ee8ad14a8",
+        "centroid_global_xyz_mm": [
+          103.782,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 4826.388738404
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/head": {
+      "file": "head.step",
+      "file_sha256": "428f1e028b4d81a5031afb5d2bedc5191f7d1bde9c0ce02bda868f721ad3d190",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000535009,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          80.511745362,
+          92.999066695,
+          507.13521961,
+          518.551833483
+        ],
+        "cad_shape_sha256": "75fafd2b5cc52f42d221bc782037413d7c6fa9f2764c86697533102f5abf2d7c",
+        "centroid_global_xyz_mm": [
+          134.5,
+          86.755406028,
+          512.843526546
+        ],
+        "solid_count": 1,
+        "volume_mm3": 535.009374522
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          80.511745362,
+          92.999066695,
+          507.13521961,
+          518.551833483
+        ],
+        "cad_shape_sha256": "77b07146f0183221ef95669df8f964334b116b6105519230f287d886daebf367",
+        "centroid_global_xyz_mm": [
+          134.5,
+          86.755406028,
+          512.843526546
+        ],
+        "solid_count": 1,
+        "volume_mm3": 535.009374522
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer": {
+      "file": "head_washer.step",
+      "file_sha256": "02f82642d81096323b6017ef5cade6400ffda9f39121daa45f070715ffc13659",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000480582,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          76.831782419,
+          92.711615954,
+          503.586747056,
+          517.372126524
+        ],
+        "cad_shape_sha256": "af77562b99974485d51a01cfa3af97e91e15c0705b1fa19333d3e2ae154df564",
+        "centroid_global_xyz_mm": [
+          134.5,
+          84.771699186,
+          510.47943679
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          76.831782419,
+          92.711615954,
+          503.586747056,
+          517.372126524
+        ],
+        "cad_shape_sha256": "505ec70b1cd91c64a1c6c9cfdf411beb2e1ae6d31cd470ee203c45c73a4edbb6",
+        "centroid_global_xyz_mm": [
+          134.5,
+          84.771699186,
+          510.47943679
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut": {
+      "file": "nut.step",
+      "file_sha256": "960bc17658551dc574110b7a20dfc4d27c8ee57a9802b5599dc897cdad8e8e84",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000741792,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -7.424427909,
+          6.091482158,
+          402.336969196,
+          414.979407386
+        ],
+        "cad_shape_sha256": "efd58ccecc80f49f60e969768a1c6325f99beac5c93954afcc922679e7b6097d",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -0.666472876,
+          408.658188291
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -7.424427909,
+          6.091482158,
+          402.336969196,
+          414.979407386
+        ],
+        "cad_shape_sha256": "19dd3993a8a676275bcaad7275e97e7efee23d093e25efdb6be954858347fce2",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -0.666472876,
+          408.658188291
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer": {
+      "file": "nut_washer.step",
+      "file_sha256": "8437bffc5c5e2cc15d5046ca2c8874e4fb1057629fa071b76e9a017f69b9dab3",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000480582,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          -6.108388435,
+          9.771445101,
+          404.742500472,
+          418.52787994
+        ],
+        "cad_shape_sha256": "70c9885243cd6b664dde408e5e528d5465a5e48eea632994462f9197a1797296",
+        "centroid_global_xyz_mm": [
+          134.5,
+          1.831528333,
+          411.635190206
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          -6.108388435,
+          9.771445101,
+          404.742500472,
+          418.52787994
+        ],
+        "cad_shape_sha256": "528860f86f05f42a8938eaccadc7998bb37e8cf8e57f6e426046a9683844401e",
+        "centroid_global_xyz_mm": [
+          134.5,
+          1.831528333,
+          411.635190206
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/shaft": {
+      "file": "shaft.step",
+      "file_sha256": "34ef1f83920d7729bd27ac8c2d732beed09b0f5dd9e2b5372ffad27675095e0e",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001004826389,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          131.325,
+          137.675,
+          -14.968251425,
+          87.856962505,
+          392.471714152,
+          513.298588605
+        ],
+        "cad_shape_sha256": "6057b1ff1344b90c1197acd2dceaa9d5d035eef7d1a38123782c96ca73f468b8",
+        "centroid_global_xyz_mm": [
+          134.5,
+          36.44435554,
+          452.885151379
+        ],
+        "solid_count": 1,
+        "volume_mm3": 4826.388738404
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          131.325,
+          137.675,
+          -14.968251425,
+          87.856962505,
+          392.471714152,
+          513.298588605
+        ],
+        "cad_shape_sha256": "b835d3e221270901f5cbafd76d0c2140699f931e9dfc9cdc27373c0b3bc9b6cb",
+        "centroid_global_xyz_mm": [
+          134.5,
+          36.44435554,
+          452.885151379
+        ],
+        "solid_count": 1,
+        "volume_mm3": 4826.388738404
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/head": {
+      "file": "head.step",
+      "file_sha256": "0f23eab9a071a99e4886838bed161ad2988288c3ef497c9cbe053d63ac9f8c46",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000535009,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          55.232278739,
+          67.719600072,
+          528.34721073,
+          539.763824602
+        ],
+        "cad_shape_sha256": "7ba70378e32b2382e784ad3a535a6a6ddcd6e40602efa12baf14ddd54ce08580",
+        "centroid_global_xyz_mm": [
+          134.5,
+          61.475939405,
+          534.055517666
+        ],
+        "solid_count": 1,
+        "volume_mm3": 535.009374522
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          55.232278739,
+          67.719600072,
+          528.34721073,
+          539.763824602
+        ],
+        "cad_shape_sha256": "0757dea3a1aafbc2842da0e0cca0b65de7e781c03acce339b86d097b97d03a62",
+        "centroid_global_xyz_mm": [
+          134.5,
+          61.475939405,
+          534.055517666
+        ],
+        "solid_count": 1,
+        "volume_mm3": 535.009374522
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer": {
+      "file": "head_washer.step",
+      "file_sha256": "39ca598c42cd643121ae9af393077c25052f31302645942b379a6e13cda7b4ec",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000480582,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          51.552315795,
+          67.432149331,
+          524.798738176,
+          538.584117644
+        ],
+        "cad_shape_sha256": "ef22f37f248fca1e98b225782003cfe9bd9dbff299e688dbf1cf673818f6d501",
+        "centroid_global_xyz_mm": [
+          134.5,
+          59.492232563,
+          531.69142791
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          51.552315795,
+          67.432149331,
+          524.798738176,
+          538.584117644
+        ],
+        "cad_shape_sha256": "6a22d630037f3e436fb1ca7ec9f92971a4fa8258fae81a64d911bc88052f3a0f",
+        "centroid_global_xyz_mm": [
+          134.5,
+          59.492232563,
+          531.69142791
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut": {
+      "file": "nut.step",
+      "file_sha256": "b483ca329a793b0b48b9d30586156887a14b80163565708e4977983fe39ef62d",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000741792,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -32.703894532,
+          -19.187984465,
+          423.548960315,
+          436.191398506
+        ],
+        "cad_shape_sha256": "d3fb456dd0268b080f48e72ec587dbb113b90c0f8eb495c3199d1c25b0beac10",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -25.945939499,
+          429.870179411
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -32.703894532,
+          -19.187984465,
+          423.548960315,
+          436.191398506
+        ],
+        "cad_shape_sha256": "9592455e61a44e1cdb82cb367e7acdf7504bafc8e0f44ad0b6c4cf91769445a2",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -25.945939499,
+          429.870179411
+        ],
+        "solid_count": 1,
+        "volume_mm3": 741.792138908
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer": {
+      "file": "nut_washer.step",
+      "file_sha256": "e8316dc0e20894a09d2d1745a0e93b286d818e8ad75d3899822eb7327f4dad09",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001000480582,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          -31.387855058,
+          -15.508021522,
+          425.954491592,
+          439.739871059
+        ],
+        "cad_shape_sha256": "af61c5874c571de5619cb55a4a6f0ff10509027b0d8c45aeac30364150c52b49",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -23.44793829,
+          432.847181326
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          124.9877,
+          144.0123,
+          -31.387855058,
+          -15.508021522,
+          425.954491592,
+          439.739871059
+        ],
+        "cad_shape_sha256": "92af3ef5bcf1287207ddd5a3d267a9623fc0cd282db7f9005664eeaaf2503f9c",
+        "centroid_global_xyz_mm": [
+          134.5,
+          -23.44793829,
+          432.847181326
+        ],
+        "solid_count": 1,
+        "volume_mm3": 480.581673905
+      }
+    },
+    "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft": {
+      "file": "shaft.step",
+      "file_sha256": "c6448e21aa4d3dcdffbff49617b8fb491e32eb7ddabfa51d8046a22e6f6711ae",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001004826389,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          131.325,
+          137.675,
+          -40.247718049,
+          62.577495881,
+          413.683705272,
+          534.510579725
+        ],
+        "cad_shape_sha256": "850a6d09b5d480706161e23f9392fdaf46e9563ec57f8e80fdfee05055e5a19e",
+        "centroid_global_xyz_mm": [
+          134.5,
+          11.164888916,
+          474.097142499
+        ],
+        "solid_count": 1,
+        "volume_mm3": 4826.388738404
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          131.325,
+          137.675,
+          -40.247718049,
+          62.577495881,
+          413.683705272,
+          534.510579725
+        ],
+        "cad_shape_sha256": "1187900b8388f982a871bac48f8b09c14903cf9a266269f4751ca6b46e9507b5",
+        "centroid_global_xyz_mm": [
+          134.5,
+          11.164888916,
+          474.097142499
+        ],
+        "solid_count": 1,
+        "volume_mm3": 4826.388738404
+      }
+    },
+    "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt": {
+      "file": "bolt.step",
+      "file_sha256": "f94cf5f73de05628738e5e9ece4337ea507f1527fb128c3efba3406001f81c8b",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001005361398,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          184.1222,
+          25.919628244,
+          38.746628244,
+          467.241524602,
+          480.068524602
+        ],
+        "cad_shape_sha256": "32a227e21bb6a25e1ca9555dfd3a51c7ac60c60b8f54c4754e07b041175e1323",
+        "centroid_global_xyz_mm": [
+          111.592506954,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          184.1222,
+          25.919628244,
+          38.746628244,
+          467.241524602,
+          480.068524602
+        ],
+        "cad_shape_sha256": "be7cd398eb5da88e9b459f17062dacbc53d6081f1ec0565d5b7fe043df4c4064",
+        "centroid_global_xyz_mm": [
+          111.592506954,
+          32.333128244,
+          473.655024602
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      }
+    },
+    "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt": {
+      "file": "bolt.step",
+      "file_sha256": "68204cb8c6ca58e253df62b545434e2e334d9c3acb0d0529222e3e399699b07c",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001005361398,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          184.1222,
+          47.131619364,
+          59.958619364,
+          492.520991225,
+          505.347991225
+        ],
+        "cad_shape_sha256": "b108c2d1d6c165cf86209ec3eaf2e9017692ecd9cf3e7d3a6226400341b267ba",
+        "centroid_global_xyz_mm": [
+          111.592506954,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          27.582,
+          184.1222,
+          47.131619364,
+          59.958619364,
+          492.520991225,
+          505.347991225
+        ],
+        "cad_shape_sha256": "3d544d2787dc284e493ac01adcc67ddc9cbdaa71823ceee851edae85e827c8d2",
+        "centroid_global_xyz_mm": [
+          111.592506954,
+          53.545119364,
+          498.934491225
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      }
+    },
+    "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt": {
+      "file": "bolt.step",
+      "file_sha256": "eabb595994fbea2350df7d0067ed360feed7c5985e29dfe4f801de32ec82da25",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001005361398,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -14.968251425,
+          92.999066695,
+          392.471714152,
+          518.551833483
+        ],
+        "cad_shape_sha256": "6323872f70dfde56f9b5211a1200997f16a3b81932bbf2cb2cf691b6806e865a",
+        "centroid_global_xyz_mm": [
+          134.5,
+          41.464852635,
+          458.868346829
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -14.968251425,
+          92.999066695,
+          392.471714152,
+          518.551833483
+        ],
+        "cad_shape_sha256": "280de0c971e071ff8f778eb27aab7922cbe36c17af5f1ac5159f4e15b30de9d2",
+        "centroid_global_xyz_mm": [
+          134.5,
+          41.464852635,
+          458.868346829
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      }
+    },
+    "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt": {
+      "file": "bolt.step",
+      "file_sha256": "596829b41cb8b2ec712673de65a6f90812864d2737dab4e5d25ce9fa17956d6f",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.001005361398,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -40.247718049,
+          67.719600072,
+          413.683705272,
+          539.763824602
+        ],
+        "cad_shape_sha256": "4692d15f0de4740b57bbaefdbf1189589e72bcfc385c4219cffeb8f209baf649",
+        "centroid_global_xyz_mm": [
+          134.5,
+          16.185386012,
+          480.080337949
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          128.0865,
+          140.9135,
+          -40.247718049,
+          67.719600072,
+          413.683705272,
+          539.763824602
+        ],
+        "cad_shape_sha256": "6b6b2bae2de7909d7c25c67b4d5e80b73646d1ad1d36d0fa3c959a3ec88a8512",
+        "centroid_global_xyz_mm": [
+          134.5,
+          16.185386012,
+          480.080337949
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5361.398112926
+      }
+    },
+    "wood/base_principal_center_right": {
+      "file": "base_principal_center_right.step",
+      "file_sha256": "079b349ab932f536d741d1336d81deededa013f5f2e0dcc698b62447c923e250",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.014064685127,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.094299554,
+          277.0,
+          2217.104082866
+        ],
+        "cad_shape_sha256": "f67d7d41b5d0f95fc18d38ef6b34cd98d0917be6f2303b48cb8eab5746c5f0bf",
+        "centroid_global_xyz_mm": [
+          70.0,
+          666.972296508,
+          1230.58080951
+        ],
+        "solid_count": 1,
+        "volume_mm3": 13064685.127370844
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.094299555,
+          277.0,
+          2217.104082866
+        ],
+        "cad_shape_sha256": "e92fe3f77dc3d268424ae437f3f87a824f1fd77f893072fb1a2821c1bfcc9e4b",
+        "centroid_global_xyz_mm": [
+          70.0,
+          666.972296508,
+          1230.580809509
+        ],
+        "solid_count": 1,
+        "volume_mm3": 13064685.127338944
+      }
+    },
+    "wood/base_rail_bottom_right": {
+      "file": "base_rail_bottom_right.step",
+      "file_sha256": "bc1c963715273d418b29f84371676b583e5f4f4d5b36162b855588cc375a7076",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.006300088327,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          -63.663337108,
+          67.843279525,
+          378.120772375,
+          497.104494731
+        ],
+        "cad_shape_sha256": "ecf90560ecf15bc79c0fcae87def9ab8a65b840a229cd2dfb0c98a5a3f1c7749",
+        "centroid_global_xyz_mm": [
+          607.968873625,
+          2.081655626,
+          437.619611155
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703396
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          -63.663337107,
+          67.843279525,
+          378.120772375,
+          497.104494731
+        ],
+        "cad_shape_sha256": "f47177fd9fd22ba2848445587054a7f785d79ed6f0ec3eacf838a10849566c51",
+        "centroid_global_xyz_mm": [
+          607.968873625,
+          2.081655626,
+          437.619611155
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703131
+      }
+    },
+    "wood/bottom_center_right_cleat": {
+      "file": "bottom_center_right_cleat.step",
+      "file_sha256": "757aa41d8cd1c3cb6058a58a5a376b6d0737c76d8803e17e1ec9fc898f0fc60b",
+      "identity_checks": {
+        "bounds": true,
+        "centroid": true,
+        "face_ordinal_used": false,
+        "solid_count": true,
+        "symmetric_difference": {
+          "allowed_volume_difference_mm3": 0.00193030431,
+          "passed": true,
+          "source_only_volume_mm3": 0.0,
+          "step_only_volume_mm3": 0.0,
+          "symmetric_difference_volume_mm3": 0.0
+        },
+        "volume": true
+      },
+      "source_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          -31.512684747,
+          117.326653595,
+          413.734941755,
+          558.777969627
+        ],
+        "cad_shape_sha256": "d9b6fd8474831a9d26919e01f633f702a7d79ece5c611e5c74d8220746794a19",
+        "centroid_global_xyz_mm": [
+          133.491556566,
+          42.906713057,
+          486.256132289
+        ],
+        "solid_count": 1,
+        "volume_mm3": 930304.310236643
+      },
+      "step_readback_solid": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          -31.512684747,
+          117.326653595,
+          413.734941755,
+          558.777969627
+        ],
+        "cad_shape_sha256": "0c17aba9d6eeaa46c52a55b1bf128d8da9ffa295331915715fe27c13ba3bf12d",
+        "centroid_global_xyz_mm": [
+          133.491556566,
+          42.906713057,
+          486.256132289
+        ],
+        "solid_count": 1,
+        "volume_mm3": 930304.310236585
+      }
+    }
+  },
+  "wood_bodies": [
+    {
+      "arbitrary_patch_cut_applied": false,
+      "finished_geometry": {
+        "bounds_xyz_mm": [
+          89.05,
+          177.95,
+          -31.512684747,
+          117.326653595,
+          413.734941755,
+          558.777969627
+        ],
+        "cad_shape_sha256": "d9b6fd8474831a9d26919e01f633f702a7d79ece5c611e5c74d8220746794a19",
+        "centroid_global_xyz_mm": [
+          133.491556566,
+          42.906713057,
+          486.256132289
+        ],
+        "solid_count": 1,
+        "volume_mm3": 930304.310236643
+      },
+      "full_finished_member_exported": true,
+      "geometry_role": "finished_candidate_part",
+      "grain": {
+        "grain_axis_global_xyz": [
+          0.0,
+          -0.766044443,
+          0.64278761
+        ],
+        "grain_axis_local_name": "N",
+        "grain_basis": "common-block local N mapped by the bottom-center source-local frame; source inventory base_rail_bottom_right.local_axes.N",
+        "source_part_id": "base_rail_bottom_right"
+      },
+      "part_id": "bottom_center_right_cleat",
+      "step_artifact_key": "wood/bottom_center_right_cleat.step"
+    },
+    {
+      "arbitrary_patch_cut_applied": false,
+      "finished_geometry": {
+        "bounds_xyz_mm": [
+          89.05,
+          1127.125,
+          -63.663337108,
+          67.843279525,
+          378.120772375,
+          497.104494731
+        ],
+        "cad_shape_sha256": "ecf90560ecf15bc79c0fcae87def9ab8a65b840a229cd2dfb0c98a5a3f1c7749",
+        "centroid_global_xyz_mm": [
+          607.968873625,
+          2.081655626,
+          437.619611155
+        ],
+        "solid_count": 1,
+        "volume_mm3": 5300088.326703396
+      },
+      "full_finished_member_exported": true,
+      "geometry_role": "finished_source_host",
+      "grain": {
+        "grain_axis_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "grain_basis": "source inventory grain_axis_global_xyz",
+        "source_part_id": "base_rail_bottom_right"
+      },
+      "part_id": "base_rail_bottom_right",
+      "step_artifact_key": "wood/base_rail_bottom_right.step"
+    },
+    {
+      "arbitrary_patch_cut_applied": false,
+      "finished_geometry": {
+        "bounds_xyz_mm": [
+          50.95,
+          89.05,
+          -182.7,
+          1511.094299554,
+          277.0,
+          2217.104082866
+        ],
+        "cad_shape_sha256": "f67d7d41b5d0f95fc18d38ef6b34cd98d0917be6f2303b48cb8eab5746c5f0bf",
+        "centroid_global_xyz_mm": [
+          70.0,
+          666.972296508,
+          1230.58080951
+        ],
+        "solid_count": 1,
+        "volume_mm3": 13064685.127370844
+      },
+      "full_finished_member_exported": true,
+      "geometry_role": "finished_source_host",
+      "grain": {
+        "grain_axis_global_xyz": [
+          0.0,
+          0.64278761,
+          0.766044443
+        ],
+        "grain_basis": "source inventory grain_axis_global_xyz",
+        "source_part_id": "base_principal_center_right"
+      },
+      "part_id": "base_principal_center_right",
+      "step_artifact_key": "wood/base_principal_center_right.step"
+    }
+  ],
+  "wood_interfaces": [
+    {
+      "active_pressure_patch_established": false,
+      "actual_face_pairs": [
+        {
+          "common_area_centroid_global_xyz_mm": [
+            133.49162726,
+            14.335075174,
+            452.205780194
+          ],
+          "common_area_mm2": 10552.972706618,
+          "first_face": {
+            "area_mm2": 10552.972706618,
+            "bounds_xyz_mm": [
+              89.05,
+              177.95,
+              -31.512684747,
+              60.182835094,
+              413.734941755,
+              490.676618634
+            ],
+            "cad_face_sha256": "43b9d13b94cabc22d508521a3cb02355cf819870c86b1b44039d26085e04be35",
+            "centroid_global_xyz_mm": [
+              133.49162726,
+              14.335075174,
+              452.205780194
+            ],
+            "inner_wire_count": 2,
+            "normal_global_xyz": [
+              -0.0,
+              -0.64278761,
+              -0.766044443
+            ],
+            "plane_datum_global_xyz_mm": [
+              133.49162726,
+              14.335075174,
+              452.205780194
+            ],
+            "plane_offset_mm": -355.62413377,
+            "wire_count": 3
+          },
+          "first_member": "bottom_center_right_cleat",
+          "measured_plane_gap_mm": 1e-09,
+          "overlap_method": "OCC common area of actual finished planar faces; existing inner wires retained",
+          "plane_datum_global_xyz_mm": [
+            133.49162726,
+            14.335075174,
+            452.205780194
+          ],
+          "plane_normal_first_member_global_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "plane_normal_second_member_global_xyz": [
+            -0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "second_face": {
+            "area_mm2": 139141.903773389,
+            "bounds_xyz_mm": [
+              89.05,
+              1127.125,
+              -39.173129178,
+              67.843279525,
+              407.307065658,
+              497.104494731
+            ],
+            "cad_face_sha256": "be8588932ee2a5cf67026399e2e7c882f0d5f4a23e5ff1f11021402232a8b76c",
+            "centroid_global_xyz_mm": [
+              607.975102443,
+              14.335075173,
+              452.205780194
+            ],
+            "inner_wire_count": 9,
+            "normal_global_xyz": [
+              -0.0,
+              0.64278761,
+              0.766044443
+            ],
+            "plane_datum_global_xyz_mm": [
+              607.975102443,
+              14.335075173,
+              452.205780194
+            ],
+            "plane_offset_mm": 355.62413377,
+            "wire_count": 10
+          },
+          "second_member": "base_rail_bottom_right"
+        }
+      ],
+      "bolt_axis_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2"
+      ],
+      "contact_law_assigned": false,
+      "finite_opposed_face_pair_count": 1,
+      "finite_overlap_area_centroid_global_xyz_mm": [
+        133.49162726,
+        14.335075174,
+        452.205780194
+      ],
+      "finite_overlap_area_mm2": 10552.972706618,
+      "interface_id": "bottom_center_right_cleat_to_base_rail_bottom_right",
+      "members": [
+        "bottom_center_right_cleat",
+        "base_rail_bottom_right"
+      ],
+      "status": "finite_opposed_coplanar_patch_extracted"
+    },
+    {
+      "active_pressure_patch_established": false,
+      "actual_face_pairs": [
+        {
+          "common_area_centroid_global_xyz_mm": [
+            89.05,
+            42.906715329,
+            486.256134997
+          ],
+          "common_area_mm2": 10552.972706618,
+          "first_face": {
+            "area_mm2": 10552.972706618,
+            "bounds_xyz_mm": [
+              89.05,
+              89.05,
+              -31.512684747,
+              117.326653595,
+              413.734941755,
+              558.777969627
+            ],
+            "cad_face_sha256": "d8dd5fca634de6e14f4f46d7d8788021ec51e4fdee921208b07998d4ec4a0543",
+            "centroid_global_xyz_mm": [
+              89.05,
+              42.906715329,
+              486.256134997
+            ],
+            "inner_wire_count": 2,
+            "normal_global_xyz": [
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "plane_datum_global_xyz_mm": [
+              89.05,
+              42.906715329,
+              486.256134997
+            ],
+            "plane_offset_mm": -89.05,
+            "wire_count": 3
+          },
+          "first_member": "bottom_center_right_cleat",
+          "measured_plane_gap_mm": 0.0,
+          "overlap_method": "OCC common area of actual finished planar faces; existing inner wires retained",
+          "plane_datum_global_xyz_mm": [
+            89.05,
+            42.906715329,
+            486.256134997
+          ],
+          "plane_normal_first_member_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "plane_normal_second_member_global_xyz": [
+            1.0,
+            0.0,
+            -0.0
+          ],
+          "second_face": {
+            "area_mm2": 343033.017207918,
+            "bounds_xyz_mm": [
+              89.05,
+              89.05,
+              -182.7,
+              1511.094299554,
+              277.0,
+              2217.104082866
+            ],
+            "cad_face_sha256": "fee3313946bd524b62c092ce6b229a2af84ea48c841702c2c92eb16181c2431b",
+            "centroid_global_xyz_mm": [
+              89.05,
+              666.994389408,
+              1230.579524109
+            ],
+            "inner_wire_count": 11,
+            "normal_global_xyz": [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            "plane_datum_global_xyz_mm": [
+              89.05,
+              666.994389408,
+              1230.579524109
+            ],
+            "plane_offset_mm": 89.05,
+            "wire_count": 12
+          },
+          "second_member": "base_principal_center_right"
+        }
+      ],
+      "bolt_axis_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2"
+      ],
+      "contact_law_assigned": false,
+      "finite_opposed_face_pair_count": 1,
+      "finite_overlap_area_centroid_global_xyz_mm": [
+        89.05,
+        42.906715329,
+        486.256134997
+      ],
+      "finite_overlap_area_mm2": 10552.972706618,
+      "interface_id": "bottom_center_right_cleat_to_base_principal_center_right",
+      "members": [
+        "bottom_center_right_cleat",
+        "base_principal_center_right"
+      ],
+      "status": "finite_opposed_coplanar_patch_extracted"
+    },
+    {
+      "active_pressure_patch_established": false,
+      "actual_face_pairs": [
+        {
+          "common_area_centroid_global_xyz_mm": [
+            89.05,
+            2.089971209,
+            437.612633553
+          ],
+          "common_area_mm2": 5322.57,
+          "first_face": {
+            "area_mm2": 5322.57,
+            "bounds_xyz_mm": [
+              89.05,
+              89.05,
+              -63.663337108,
+              67.843279525,
+              378.120772375,
+              497.104494731
+            ],
+            "cad_face_sha256": "0708460816a81f324d61b3aaa04d4ddd9437d3edae011e802e735cb37b3e8670",
+            "centroid_global_xyz_mm": [
+              89.05,
+              2.089971209,
+              437.612633553
+            ],
+            "inner_wire_count": 0,
+            "normal_global_xyz": [
+              -1.0,
+              -0.0,
+              0.0
+            ],
+            "plane_datum_global_xyz_mm": [
+              89.05,
+              2.089971209,
+              437.612633553
+            ],
+            "plane_offset_mm": -89.05,
+            "wire_count": 1
+          },
+          "first_member": "base_rail_bottom_right",
+          "measured_plane_gap_mm": 0.0,
+          "overlap_method": "OCC common area of actual finished planar faces; existing inner wires retained",
+          "plane_datum_global_xyz_mm": [
+            89.05,
+            2.089971209,
+            437.612633553
+          ],
+          "plane_normal_first_member_global_xyz": [
+            -1.0,
+            -0.0,
+            0.0
+          ],
+          "plane_normal_second_member_global_xyz": [
+            1.0,
+            0.0,
+            -0.0
+          ],
+          "second_face": {
+            "area_mm2": 343033.017207918,
+            "bounds_xyz_mm": [
+              89.05,
+              89.05,
+              -182.7,
+              1511.094299554,
+              277.0,
+              2217.104082866
+            ],
+            "cad_face_sha256": "fee3313946bd524b62c092ce6b229a2af84ea48c841702c2c92eb16181c2431b",
+            "centroid_global_xyz_mm": [
+              89.05,
+              666.994389408,
+              1230.579524109
+            ],
+            "inner_wire_count": 11,
+            "normal_global_xyz": [
+              1.0,
+              0.0,
+              -0.0
+            ],
+            "plane_datum_global_xyz_mm": [
+              89.05,
+              666.994389408,
+              1230.579524109
+            ],
+            "plane_offset_mm": 89.05,
+            "wire_count": 12
+          },
+          "second_member": "base_principal_center_right"
+        }
+      ],
+      "bolt_axis_ids": [],
+      "contact_law_assigned": false,
+      "finite_opposed_face_pair_count": 1,
+      "finite_overlap_area_centroid_global_xyz_mm": [
+        89.05,
+        2.089971209,
+        437.612633553
+      ],
+      "finite_overlap_area_mm2": 5322.57,
+      "interface_id": "base_rail_bottom_right_to_base_principal_center_right",
+      "members": [
+        "base_rail_bottom_right",
+        "base_principal_center_right"
+      ],
+      "status": "finite_opposed_coplanar_patch_extracted"
+    }
+  ]
+}
