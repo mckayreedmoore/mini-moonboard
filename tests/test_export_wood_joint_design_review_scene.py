@@ -202,6 +202,22 @@ def test_reported_mesh_delta_must_have_revised_geometry_shape():
         exporter.build_design_review_scene(geometry, report, base_scene=parent, base_scene_bytes=raw)
 
 
+def test_electrical_replacement_hides_original_and_requires_current_shape():
+    raw, parent, geometry, report, categories = _fixture()
+    name = "light_G2"
+    report["electrical_replacements"] = {name: "lights"}
+    categories["electrical_replacements"] = [name]
+    geometry.protected = {"lights": {name: _Shape()}}
+    scene = exporter.build_design_review_scene(geometry, report, base_scene=parent, base_scene_bytes=raw)
+    assert name in scene["hidden_baseline_visual_names"]
+    rows = [row for row in scene["solids"] if row["id"] == name]
+    assert len(rows) == 1 and rows[0]["display_class"] == "electrical_replacement"
+    assert scene["baseline_asset_sha256"] == parent["baseline_asset_sha256"]
+    del geometry.protected["lights"][name]
+    with pytest.raises(ValueError, match="electrical replacement is absent"):
+        exporter.build_design_review_scene(geometry, report, base_scene=parent, base_scene_bytes=raw)
+
+
 def test_removed_backer_and_bolt_visuals_require_explicit_removal():
     raw, parent, geometry, report, _categories = _fixture()
     backer = "inner_kicker_backer_left"

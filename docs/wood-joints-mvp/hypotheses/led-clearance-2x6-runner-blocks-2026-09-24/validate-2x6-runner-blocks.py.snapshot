@@ -1,0 +1,49 @@
+import json
+from pathlib import Path
+outer_checks={'revision_id':g24_outer_2x6.layout_id,'blocks':[],'axes':[]}
+outer_wood=dict(new_wood);outer_wood.update(g24_outer_2x6.finished_candidate_parts)
+outer_hardware={a+'/'+r:s for a,rs in g24_outer_2x6.candidate_installed_hardware.items() for r,s in rs.items()}
+for name,change in outer_2x6_report['exterior_block_changes'].items():
+    part=g24_outer_2x6.finished_candidate_parts[name]
+    runner=outer_wood[change['runner_id']]
+    contact=part.intersect(runner)
+    # Face-only common retains zero volume and a positive horizontal contact area.
+    seat_faces=[f for f in part.Faces() if f.geomType()=='PLANE' and abs(f.Center().z-change['runner_seat_z_mm'])<1e-5 and abs(f.normalAt().z)>0.99]
+    seat_area=sum(f.intersect(runner).Area() for f in seat_faces)
+    row={'part':name,'runner':change['runner_id'],'distance_mm':part.distance(runner),'overlap_volume_mm3':contact.Volume(),'contact_area_mm2':seat_area,'block_bottom_area_mm2':38.1*139.7,'rear_y_overhang_mm':6.35,'neighbors':[]}
+    assert row['distance_mm']<1e-5 and row['overlap_volume_mm3']<1e-4 and seat_area>5000,row
+    # The added bottom strip must not intrude into other current parts.
+    added=part.cut(g24_led_clear.finished_candidate_parts[name])
+    for n,s in {**outer_wood,**new_panels,**new_protected,**outer_hardware}.items():
+        if n==name or not above_bbox_overlap(added,s):continue
+        v=added.intersect(s).Volume()
+        if v>1e-4:row['neighbors'].append({'neighbor':n,'mm3':v})
+    assert not row['neighbors'],row
+    outer_checks['blocks'].append(row)
+for axis,change in outer_2x6_report['shortened_exterior_bolt_envelopes'].items():
+    roles=g24_outer_2x6.candidate_installed_hardware[axis]
+    row={'axis':axis,'installed_hits':[],'receiver_grip':[]}
+    for role,shape in roles.items():
+        pool={**outer_wood,**new_panels,**new_protected,**{a:s for a,s in outer_hardware.items() if not a.startswith(axis+'/')}}
+        for n,s in pool.items():
+            if not above_bbox_overlap(shape,s):continue
+            v=shape.intersect(s).Volume()
+            if v>1e-4:row['installed_hits'].append({'role':role,'neighbor':n,'mm3':v})
+    assert not row['installed_hits'],row
+    for name in g24_outer_2x6.candidate_bores[axis].receiver_ids:
+        raw={**g24_outer_2x6.raw_hosts,**g24_outer_2x6.raw_candidate_parts}[name]
+        grip=roles['shaft'].intersect(raw).Volume()
+        assert grip>1
+        row['receiver_grip'].append({'receiver':name,'raw_occupied_volume_mm3':grip,'before_raw_occupied_volume_mm3':g24_led_clear.candidate_installed_hardware[axis]['shaft'].intersect({**g24_led_clear.raw_hosts,**g24_led_clear.raw_candidate_parts}[name]).Volume()})
+    assert roles['nut'] is g24_led_clear.candidate_installed_hardware[axis]['nut']
+    assert roles['nut_washer'] is g24_led_clear.candidate_installed_hardware[axis]['nut_washer']
+    outer_checks['axes'].append(row)
+outer_checks['block_grouping']=block_count.count_block_designs(g24_outer_2x6)
+assert outer_checks['block_grouping']['unique_geometric_designs']==7
+assert g24_outer_2x6.candidate_bores is g24_oriented.candidate_bores
+assert g24_outer_2x6.fixed_axes is g24_oriented.fixed_axes
+assert g24_outer_2x6.frame_bolt_shapes is g24_oriented.frame_bolt_shapes
+outer_checks['joint_evaluations_run']=False
+final_dir=Path('docs/wood-joints-mvp/hypotheses/led-clearance-2x6-runner-blocks-2026-09-24');final_dir.mkdir(exist_ok=True)
+(final_dir/'outer-block-checks.json').write_text(json.dumps(outer_checks,indent=2)+'\n')
+print('RUNNER_SEATED_2X6_VALIDATED',{k:v for k,v in outer_checks.items() if k!='block_grouping'},flush=True)

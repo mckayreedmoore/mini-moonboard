@@ -1,5 +1,7 @@
 # Revised wood-joint hardware budget
 
+This pricing checkpoint predates the [2×6 exterior-block revision](hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/README.md). Four modeled 6-in bolts are now 4-in envelopes and four 11.5-in envelopes are now 9.5-in. Counts are unchanged, but the inventory and prices below describe the earlier checkpoint. The bottom-center tail clashes mentioned below have since been cleared by block trimming. No updated product selection or price quote is implied.
+
 Allow **$150–200 USD for the structural bolts, nuts and washers**, before tax
 and shipping. The detailed allowance is **$130.64–178.00**; the rounded budget
 leaves room for small quantity and price differences. This covers the revised

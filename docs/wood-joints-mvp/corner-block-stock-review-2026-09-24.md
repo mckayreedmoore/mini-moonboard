@@ -18,9 +18,9 @@ box; the main member blocks are tilted with the wall.
 | Common main-member pattern | 15 | 88.9 × 88.9 × 119.7 | 4×4, crosscut to length |
 | Shortened G7 block | 1 | 88.9 × 88.9 × 86.9 | 4×4, shorter crosscut |
 | Kicker center-post blocks | 2 | 88.9 × 88.9 × 128.9 | 4×4, crosscut to length |
-| Tall central principal/header blocks, handed patterns | 2 | 88.9 × 139.7 × 139.7 | 4×6, crosscut to length |
+| Tall central principal/header blocks, handed patterns | 2 | 83.9 × 139.7 × 134.7 | 4×6, trim thickness by 5 mm and crosscut |
 | Interior sandwich blocks | 2 | 88.9 × 133.35 × 139.0 | 4×6, trim the 139.7 mm width by 6.35 mm |
-| Exterior sandwich spines | 2 | 88.9 × 139.7 × 269.95 | 4×6 blank, retain modeled reliefs |
+| Exterior sandwich spines | 2 | 38.1 × 139.7 × 276.3 | 2×6 blank, retain modeled reliefs |
 
 The ordinary dry dressed sizes used here are 3½ × 3½ inches for 4×4 and
 3½ × 5½ inches for 4×6. The inch dimensions are the standard's controlling
@@ -29,13 +29,11 @@ units; their exact conversions are 88.9 and 139.7 mm. See
 This establishes a size convention, not local stock availability or the
 condition of delivered lumber.
 
-Two common stock sections therefore cover all current blocks: **18 pieces
-from 4×4 and six from 4×6**. The modeled lengths total 2,140.2 mm of 4×4 and
-1,097.3 mm of 4×6. For illustration, one 3.175 mm saw kerf per blank adds
-57.15 and 19.05 mm respectively. That leaves a theoretical length requirement
-of 2,197.35 mm (86.51 inches) and 1,116.35 mm (43.95 inches), before end
-squaring, defects, layout mistakes or rejected blanks. These are yield
-estimates, not a purchase quantity commitment.
+Three stock sections cover the revised blocks: **18 pieces from 4×4, four
+from 4×6 and two from 2×6**. The 2×6 convention is 1½ × 5½ inches
+(38.1 × 139.7 mm). Modeled blank lengths total 2,140.2 mm, 547.4 mm and
+552.6 mm respectively, before kerfs, end squaring, defects or rejected blanks.
+These are planning dimensions, not purchase quantities or released cuts.
 
 The full 88.9 mm and 139.7 mm stock faces have no extra planing allowance in
 the model. Rounded mill edges, undersize stock or surfacing loss cannot be
@@ -47,7 +45,7 @@ remains along local N; kicker-post grain remains vertical. A vertical stock
 length is the proposed manufacturing orientation for the newer plumb tall
 blocks, and still needs to be carried into their later joint checks.
 
-## Three blank families are plausible; three drilling patterns are unproven
+## Historical three-family body trial, not adopted
 
 The owner's proposed grouping is a useful simplification target:
 
@@ -75,7 +73,8 @@ them one part. The owner subsequently clarified to keep common patterns
 where they fit and retain necessary exceptions, so this three-family body
 trial is not adopted.
 
-The [current geometry evidence](hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24/README.md)
-records the implemented layout and the separate body trial. No strength,
+The [current geometry evidence](hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/README.md)
+records the revised blocks. The [preceding checkpoint](hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24/README.md)
+retains the separate body trial. No strength,
 edge/end-distance resistance, installation sequence or fabrication release is
 established by this stock review. Joint evaluations remain paused.

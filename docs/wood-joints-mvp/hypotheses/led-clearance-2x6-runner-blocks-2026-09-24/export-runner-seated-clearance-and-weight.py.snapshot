@@ -1,0 +1,67 @@
+import copy
+import hashlib
+import importlib
+import json
+from collections import defaultdict
+from pathlib import Path
+# Reconcile current volume changes into the freshly computed source-bound mass inventory.
+final_weight=copy.deepcopy(weight_estimate)
+final_weight['revision_id']=g24_outer_2x6.layout_id
+final_groups=defaultdict(float)
+for row in final_weight['rows']:
+    if row['name'] in g24_outer_2x6.finished_candidate_parts:
+        row['volume_mm3']=g24_outer_2x6.finished_candidate_parts[row['name']].Volume()
+    elif row['name'] in g24_outer_2x6.panel_replacements:
+        row['volume_mm3']=g24_outer_2x6.panel_replacements[row['name']].Volume()
+    if row['group']=='block bolts nuts washers':
+        axis,role=row['name'].rsplit('/',1)
+        row['volume_mm3']=g24_outer_2x6.candidate_installed_hardware[axis][role].Volume()
+    row['mass_kg']=row['volume_mm3']*row['density_kg_m3']/1e9
+    final_groups[row['group']]+=row['mass_kg']
+final_weight['groups_kg']=dict(final_groups)
+final_weight['modeled_mass_kg']=sum(final_groups.values())
+final_weight['total_estimate_kg']=final_weight['modeled_mass_kg']+25
+final_weight['total_estimate_lb']=final_weight['total_estimate_kg']/0.45359237
+wood_mass=sum(final_groups[k] for k in ['plywood panels','frame timber','corner blocks'])
+metal_mass=final_weight['modeled_mass_kg']-wood_mass
+final_weight['planning_sensitivity']={'wood_density_kg_m3':[500,600],'equipment_allowance_kg':[20,35],'total_kg':[wood_mass*500/600+metal_mass+20,wood_mass+metal_mass+35]}
+final_weight['planning_sensitivity']['total_lb']=[v/0.45359237 for v in final_weight['planning_sensitivity']['total_kg']]
+final_weight['mass_removed_by_block_trim_kg']=weight_estimate['modeled_mass_kg']-final_weight['modeled_mass_kg']
+final_weight['equipment_allowance_is_not_measured']=True
+final_weight['excludes']=['climber','crash pads','apartment floor']
+Path('docs/wood-joints-mvp/board-weight-2026-09-24.json').write_text(json.dumps(final_weight,indent=2)+'\n')
+# Report only current findings at the top level; preserve prior findings in prior_revision_report.
+outer_2x6_report['findings']=[r for r in outer_2x6_report['findings'] if r['title'] not in ['G2 light clearance','Bottom-center bolt tails need a length detail','G1 LED through-hole backing']]
+for row in outer_2x6_report['findings']:
+    if row['title']=='Hardware budget':
+        row['detail']='The earlier $150–200 hardware budget predates the shorter exterior bolts. Counts remain 104 structural bolts, 104 nuts and 208 washers; the four sandwich envelopes are now 9.5 inches rather than 11.5 inches. Purchased lengths and delivered shanks remain unselected.'
+    if row['title']=='Midpoint maps describe the preceding revision':
+        row['detail']='The 491-site midpoint screen is historical. It predates block consolidation, bolt changes and the 5 mm G2 LED move; future LED midpoint review must use the recorded G2 datum override.'
+outer_2x6_report['findings'].append({'title':'Estimated assembled weight','detail':f"Estimated assembled weight {final_weight['total_estimate_kg']:.1f} kg / {final_weight['total_estimate_lb']:.0f} lb includes a 25 kg equipment allowance for holds, hold hardware and electrical equipment. Densities and equipment masses are assumptions."})
+outer_2x6_report['resolved_findings']=['G1 LED-hole projection','G2 LED body and hole projection','two bottom-center rail bolt-tail clashes']
+outer_2x6_report['focused_geometry_checks']={'led_and_tail_clearance':led_checks,'exterior_2x6_and_runner_contact':outer_checks}
+outer_2x6_report['led_hole_review']=led_checks['led_clearance']
+outer_2x6_report['weight_estimate']={k:v for k,v in final_weight.items() if k!='rows'}
+for key in ['orientation_validation','three_family_body_trial','bolt_orientation_audit']:
+    outer_2x6_report.pop(key,None)
+importlib.reload(design_export)
+raw=json.dumps(outer_2x6_report,indent=2,sort_keys=True).encode()+b'\n'
+led_scene=design_export.build_design_review_scene(g24_outer_2x6,outer_2x6_report,revision_report_bytes=raw,revision_report_path='owner-wood-joints-review-report.json')
+assert len(led_scene['solids'])==508
+assert led_scene['baseline_asset_sha256']==oriented_scene['baseline_asset_sha256']
+assert not any(led_scene['release'].values())
+scene_raw=design_export.scene_json_bytes(led_scene)
+(final_dir/'revision.json').write_bytes(raw)
+(final_dir/'scene.json.snapshot').write_bytes(scene_raw)
+(final_dir/'block-designs.json').write_text(json.dumps(outer_checks['block_grouping'],indent=2)+'\n')
+for module in [led_clearance,outer_2x6,design_export]:
+    path=Path(module.__file__);(final_dir/(path.name+'.snapshot')).write_bytes(path.read_bytes())
+for name in ['quick-current-board-weight.py','validate-led-trim.py','validate-2x6-runner-blocks.py','export-runner-seated-clearance-and-weight.py']:
+    (final_dir/(name+'.snapshot')).write_bytes(Path('/tmp',name).read_bytes())
+(final_dir/'wood-joints-wj24-viewer.html.snapshot').write_bytes(Path('site/wood-joints-wj24-viewer.html').read_bytes())
+for name,content in [('owner-wood-joints-review-report.json',raw),('owner-wood-joints-wj24-scene.json',scene_raw)]:
+    dest=Path('site',name); temp=dest.with_suffix('.json.tmp');temp.write_bytes(content);temp.replace(dest)
+verification={'scene_sha256':hashlib.sha256(scene_raw).hexdigest(),'revision_report_sha256':hashlib.sha256(raw).hexdigest(),'counts':led_scene['counts'],'baseline_assets_unchanged':True,'joint_evaluations_run':False,'source_files_sha256':{str(Path(m.__file__).relative_to(Path.cwd())):hashlib.sha256(Path(m.__file__).read_bytes()).hexdigest() for m in [led_clearance,outer_2x6,design_export]}}
+(final_dir/'verification.json').write_text(json.dumps(verification,indent=2)+'\n')
+print('LED_CLEAR_VIEWER_EXPORTED',led_scene['counts'],flush=True)
+print('FINAL_WEIGHT',{k:v for k,v in final_weight.items() if k!='rows'},flush=True)

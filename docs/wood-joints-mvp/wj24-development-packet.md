@@ -7,8 +7,8 @@ or climbing release.
 
 > **Superseded geometry:** The 28-piece, 104-axis composition summarized below
 > predates the latest owner-directed viewer revision. The current model has 24
-> blocks in seven designs and 92 candidate bolt axes; see the [consolidation
-> checkpoint](hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24/README.md). This index
+> blocks in seven designs and 92 candidate bolt axes; see the [clearance and runner-contact
+> checkpoint](hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/README.md). This index
 > remains a historical development record, and its detailed counts do not bind
 > the current scene.
 

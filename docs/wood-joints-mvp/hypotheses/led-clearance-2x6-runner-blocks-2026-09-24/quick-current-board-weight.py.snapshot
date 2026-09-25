@@ -1,0 +1,27 @@
+from collections import defaultdict
+weight_rows=[]
+for r in g24_oriented.source_inventory['parts']:
+    name=r['part_id'];shape=g24_oriented.finished_hosts.get(name,g24_oriented.panel_replacements.get(name,source_parts[name]))
+    group='frame timber' if r['kind']=='timber' else 'plywood panels'
+    weight_rows.append({'name':name,'group':group,'volume_mm3':shape.Volume(),'density_kg_m3':600.0})
+for name,shape in g24_oriented.finished_candidate_parts.items():
+    weight_rows.append({'name':name,'group':'corner blocks','volume_mm3':shape.Volume(),'density_kg_m3':600.0})
+for axis,roles in g24_oriented.candidate_installed_hardware.items():
+    for role,shape in roles.items():
+        weight_rows.append({'name':axis+'/'+role,'group':'block bolts nuts washers','volume_mm3':shape.Volume(),'density_kg_m3':7850.0})
+for name,shape in g24_oriented.protected['retained_12_frame_bolt_components'].items():
+    weight_rows.append({'name':name,'group':'frame bolts nuts washers','volume_mm3':shape.Volume(),'density_kg_m3':7850.0})
+for axis,shape in g24_oriented.fixed_axes.items():
+    # Use the displayed purchased screw body when available; geometry translations do not change mass.
+    shown=source_parts.get('fastener_'+axis,shape)
+    weight_rows.append({'name':axis,'group':'panel kicker screws','volume_mm3':shown.Volume(),'density_kg_m3':7850.0})
+for name,shape in g24_oriented.protected['tnuts'].items():
+    weight_rows.append({'name':name,'group':'hold T-nuts','volume_mm3':shape.Volume(),'density_kg_m3':7850.0})
+weight_groups=defaultdict(float)
+for row in weight_rows:
+    row['mass_kg']=row['volume_mm3']*row['density_kg_m3']/1e9
+    weight_groups[row['group']]+=row['mass_kg']
+weight_estimate={'revision_id':g24_oriented.layout_id,'groups_kg':dict(weight_groups),'modeled_mass_kg':sum(weight_groups.values()),'equipment_allowance_kg':25.0,'total_estimate_kg':sum(weight_groups.values())+25.0,'rows':weight_rows,'no_native_solve_or_joint_evaluation':True}
+weight_estimate['total_estimate_lb']=weight_estimate['total_estimate_kg']/0.45359237
+Path('/tmp/current-board-weight.json').write_text(json.dumps(weight_estimate,indent=2)+'\n')
+print('CURRENT_BOARD_WEIGHT',{k:v for k,v in weight_estimate.items() if k!='rows'},flush=True)

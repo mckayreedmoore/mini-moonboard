@@ -578,3 +578,18 @@ bounded geometry/access screen without changing bore solids or bolt lengths.
 The [current checkpoint](../wood-joints-mvp/hypotheses/consolidated-blocks-two-inner-bolts-2026-09-24/README.md)
 records the changes, G1/G2 LED-hole findings and the requested hardware budget.
 No joint-evaluation sign-off was given; evaluations remain paused.
+
+## 2026-09-24: LED relief and runner-seated 2×6 exterior blocks
+
+The owner requested thinner tall central blocks, permitted trimming for nearby
+bolt tails and a small LED-hole move, then requested single 2×6 exterior
+sandwich blocks abutting the runners. The viewer revision
+`led-clearance-2x6-runner-seated-blocks-v1` trims the tall blocks by 5 mm at
+outer faces and tops, moves G2's LED hole/body and wire endpoints 5 mm outward,
+and extends the thinner exterior blocks down 6.35 mm to the runners without
+moving bolt axes. The new exterior blanks are 38.1 × 139.7 × 276.3 mm.
+Focused geometry checks and an updated mass estimate are recorded in the
+[revision packet](../wood-joints-mvp/hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/README.md).
+Seven block designs, 92 candidate bolt axes, twelve starting frame bolts and
+66 panel/kicker screw axes remain. Owner model review still precedes joint
+evaluations; no strength or fabrication acceptance is transferred.

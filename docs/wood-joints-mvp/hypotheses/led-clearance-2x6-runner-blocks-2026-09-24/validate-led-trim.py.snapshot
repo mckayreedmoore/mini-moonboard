@@ -1,0 +1,71 @@
+import json
+from pathlib import Path
+led_checks={'revision_id':g24_led_clear.layout_id,'led_clearance':[],'bolt_tail_clearance':[],'reseated_hardware':[],'wire_changes':[]}
+new_wood=dict(all_wood);new_wood.update(g24_led_clear.finished_candidate_parts)
+new_panels={r['part_id']:g24_led_clear.panel_replacements.get(r['part_id'],source_parts[r['part_id']]) for r in g24_led_clear.source_inventory['parts'] if r['kind']=='plywood_panel'}
+new_hardware={axis+'/'+role:s for axis,roles in g24_led_clear.candidate_installed_hardware.items() for role,s in roles.items()}
+new_protected={}
+for family in ['tnuts','hold_hole_and_provisional_projection','lights','wires','retained_12_frame_bolt_components']:
+    new_protected.update({family+'/'+n:s for n,s in g24_led_clear.protected[family].items()})
+new_protected.update({'panel_screw/'+n:s for n,s in g24_led_clear.fixed_axes.items()})
+for label in ['G1','G2']:
+    x,station=led_clear_report['led_datum_overrides_mm'].get(label,panel_grid_v2.main_led_datums()[label])
+    rear=source.b.point(x-source.b.HALF,station,0)
+    path=cq.Solid.makeCylinder(6.5,50.8,rear,source.b.normal())
+    hits=[];closest=[]
+    for n,s in new_wood.items():
+        if above_bbox_overlap(path,s):
+            v=path.intersect(s).Volume()
+            if v>1e-4:hits.append({'part':n,'mm3':v})
+        if 'center_principal_cleat' in n or 'bottom_center' in n:
+            closest.append({'part':n,'clearance_mm':path.distance(s)})
+    light=g24_led_clear.protected['lights']['light_'+label]
+    body_hits=[{'part':n,'mm3':light.intersect(s).Volume()} for n,s in new_wood.items() if above_bbox_overlap(light,s) and light.intersect(s).Volume()>1e-4]
+    row={'label':label,'rear_xyz_mm':rear.toTuple(),'path_diameter_mm':13,'path_depth_mm':50.8,'path_timber_hits':hits,'light_body_timber_hits':body_hits,'nearby_block_clearances':closest}
+    led_checks['led_clearance'].append(row)
+    assert not hits and not body_hits,row
+for hit in checks['changed_hardware_hits']:
+    axis=hit['axis'];neighbor=hit['neighbor']
+    shaft=g24_led_clear.candidate_installed_hardware[axis]['shaft']
+    block=g24_led_clear.finished_candidate_parts[neighbor]
+    row={'axis':axis,'neighbor':neighbor,'intersection_mm3':shaft.intersect(block).Volume(),'clearance_mm':shaft.distance(block)}
+    led_checks['bolt_tail_clearance'].append(row)
+    assert row['intersection_mm3']<1e-4 and row['clearance_mm']>0,row
+for axis in led_clear_report['reseated_candidate_axis_ids']:
+    row={'axis':axis,'hits':[],'receiver_wood_grip':[]}
+    for role,shape in g24_led_clear.candidate_installed_hardware[axis].items():
+        pool={**new_wood,**new_panels,**new_protected,**{k:v for k,v in new_hardware.items() if not k.startswith(axis+'/')}}
+        for name,other in pool.items():
+            if not above_bbox_overlap(shape,other):continue
+            v=shape.intersect(other).Volume()
+            if v>1e-4:row['hits'].append({'role':role,'neighbor':name,'mm3':v})
+    for name in g24_led_clear.candidate_bores[axis].receiver_ids:
+        raw={**g24_led_clear.raw_hosts,**g24_led_clear.raw_candidate_parts}[name]
+        shaft=g24_led_clear.candidate_installed_hardware[axis]['shaft']
+        v=raw.intersect(shaft).Volume()
+        assert v>1
+        row['receiver_wood_grip'].append({'receiver':name,'volume_mm3':v,'before_volume_mm3':{**g24_oriented.raw_hosts,**g24_oriented.raw_candidate_parts}[name].intersect(g24_oriented.candidate_installed_hardware[axis]['shaft']).Volume()})
+    led_checks['reseated_hardware'].append(row)
+    assert not row['hits'],row
+for name in led_clear_report['wire_endpoint_revisions']:
+    wire=g24_led_clear.protected['wires'][name];before=g24_oriented.protected['wires'][name]
+    row={'wire':name,'hits':[]}
+    pool={**new_wood,**new_panels,**new_hardware,**{n:s for n,s in new_protected.items() if not n.startswith(('wires/','lights/'))}}
+    for n,s in pool.items():
+        if not above_bbox_overlap(wire,s):continue
+        v=wire.intersect(s).Volume()
+        if v>1e-4:
+            old_v=before.intersect(all_wood.get(n,s)).Volume()
+            row['hits'].append({'neighbor':n,'before_mm3':old_v,'after_mm3':v})
+            assert v<old_v+1e-4,row
+    led_checks['wire_changes'].append(row)
+# The panel loses and gains equal nominal hole area, preserving its outer solid.
+before=g24_oriented.panel_replacements['main_lower_right'];after=g24_led_clear.panel_replacements['main_lower_right']
+led_checks['panel_volume_change_mm3']=after.Volume()-before.Volume()
+assert abs(led_checks['panel_volume_change_mm3'])<1e-3
+led_checks['block_grouping']=block_count.count_block_designs(g24_led_clear)
+assert led_checks['block_grouping']['unique_geometric_designs']==7
+led_checks['joint_evaluations_run']=False
+led_dir=Path('docs/wood-joints-mvp/hypotheses/led-and-tail-clearance-2026-09-24');led_dir.mkdir(exist_ok=True)
+(led_dir/'geometry-checks.json').write_text(json.dumps(led_checks,indent=2)+'\n')
+print('LED_AND_TAIL_CLEARANCE_VALIDATED',{k:v for k,v in led_checks.items() if k!='block_grouping'},flush=True)

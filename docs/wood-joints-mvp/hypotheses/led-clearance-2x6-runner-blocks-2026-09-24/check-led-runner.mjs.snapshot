@@ -1,0 +1,21 @@
+import { chromium } from 'playwright';
+import {mkdir,writeFile} from 'node:fs/promises';
+const out='/tmp/wj24-led-runner-browser';await mkdir(out,{recursive:true});
+const browser=await chromium.launch({headless:true,executablePath:'/home/mckay-linux/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome',args:['--enable-unsafe-swiftshader','--use-angle=swiftshader']});
+const page=await browser.newPage({viewport:{width:1500,height:1100}});const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('requestfailed',r=>errors.push(r.url()));
+try{
+await page.goto('http://127.0.0.1:8765/wood-joints-wj24-viewer.html');
+await page.waitForFunction(()=>/scene rendered|Viewer unavailable/.test(document.querySelector('#baseline-status').textContent),null,{timeout:60000});
+const modelStatus=await page.locator('#baseline-status').innerText();if(modelStatus.includes('unavailable'))throw Error(modelStatus);
+const counts=await page.locator('#counts').innerText();if(!counts.includes('24 candidate parts')||!counts.includes('92 candidate axes'))throw Error(counts);
+const scope=await page.locator('#scope').innerText();if(!scope.includes('2x6')||!scope.includes('floor runners'))throw Error(scope);
+const scene=await page.evaluate(()=>fetch('owner-wood-joints-wj24-scene.json').then(r=>r.json()));
+if(scene.solids.length!==508||Object.values(scene.release).some(Boolean))throw Error('Inventory/release mismatch');
+const electrical=scene.solids.filter(s=>s.display_class==='electrical_replacement');
+if(electrical.length!==3)throw Error('Expected three electrical replacements');
+await page.locator('#full').click();await page.screenshot({path:out+'/viewer.png'});
+await page.setViewportSize({width:390,height:844});
+if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1))throw Error('Mobile horizontal overflow');
+const report={modelStatus,counts,scope,sceneCounts:scene.counts,electrical,errors};
+await writeFile(out+'/browser.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({...report,electrical:electrical.map(s=>s.id)}));if(errors.length)process.exitCode=1;
+}finally{await browser.close()}

@@ -1,5 +1,7 @@
 # Common blocks, added sandwich bolts and bolt orientation
 
+This checkpoint is superseded by the [LED-clearance and runner-seated 2×6 revision](../led-clearance-2x6-runner-blocks-2026-09-24/README.md). Saved evidence below remains unchanged.
+
 The owner directed implementation of the seven-design consolidation, a second
 vertical bolt through each interior sandwich block and the kicker header,
 and bolt heads facing outward at the frame exterior or toward greater
