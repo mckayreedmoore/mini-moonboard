@@ -1,0 +1,210 @@
+"""Focused contracts for the current retained-frame-bolt access collector."""
+
+from __future__ import annotations
+
+from types import SimpleNamespace
+
+import cadquery as cq
+import pytest
+
+from scripts import wood_joint_current_access_screen as current_access
+from scripts.wood_joint_current_retained_access import (
+    CURRENT_REVISION_ID,
+    FRAME_ROLE_ORDER,
+    OCCUPANCY_PROXY_SUFFIX,
+    _frame_targets,
+    _retained_scene_obstacles,
+    _validate_freeze,
+)
+
+
+def _fixture():
+    source_rows = []
+    frame_records = []
+    frame_shapes = {}
+    protected_roles = {}
+    connections = []
+    for axis_index in range(12):
+        axis_id = f"retained_bolt_{axis_index:02d}"
+        receivers = (f"receiver_a_{axis_index:02d}", f"receiver_b_{axis_index:02d}")
+        source_rows.append(
+            {
+                "axis_id": axis_id,
+                "members": list(receivers),
+                "origin_global_xyz_mm": [0.0, 0.0, 0.0],
+                "axis_global_xyz": [1.0, 0.0, 0.0],
+                "source_occupied_length_mm": 14.0,
+                "source_occupied_diameter_mm": 6.0,
+                "source_nominal_length_mm": 14.0,
+                "source_grip_mm": 8.0,
+            }
+        )
+        frame_records.append(
+            {
+                "axis_id": axis_id,
+                "members": receivers,
+                "origin_global_xyz_mm": [0.0, 0.0, 0.0],
+                "axis_global_xyz": [1.0, 0.0, 0.0],
+                "source_occupied_length_mm": 14.0,
+                "source_occupied_diameter_mm": 6.0,
+                "installed_component_count": 5,
+            }
+        )
+        for component_index, role in enumerate(FRAME_ROLE_ORDER, 1):
+            shape = cq.Solid.makeBox(
+                float(component_index),
+                2.0,
+                3.0,
+                cq.Vector(component_index * 20.0, axis_index * 40.0, 0.0),
+            )
+            frame_shapes[f"{axis_id}/installed_component_{component_index}"] = shape
+            protected_roles[f"{axis_id}/{role}"] = shape
+        frame_shapes[f"{axis_id}{OCCUPANCY_PROXY_SUFFIX}"] = cq.Solid.makeCylinder(
+            3.0,
+            14.0,
+            cq.Vector(0.0, axis_index * 40.0, 0.0),
+            cq.Vector(1.0, 0.0, 0.0),
+        )
+        connections.append(
+            SimpleNamespace(
+                name=axis_id,
+                kind="bolt",
+                members=receivers,
+                start=cq.Vector(0.0, 0.0, 0.0),
+                direction=cq.Vector(1.0, 0.0, 0.0),
+                length=14.0,
+                grip=8.0,
+                diameter=6.0,
+            )
+        )
+    geometry = SimpleNamespace(
+        layout_id=CURRENT_REVISION_ID,
+        trial_id=CURRENT_REVISION_ID,
+        source_inventory={"starting_frame_bolts": source_rows},
+        frame_bolt_records=tuple(frame_records),
+        frame_bolt_shapes=frame_shapes,
+        protected={"retained_12_frame_bolt_components": protected_roles},
+        source=SimpleNamespace(connections=lambda: tuple(connections)),
+    )
+    return geometry
+
+
+def _freeze_report():
+    return {
+        "schema": "wood_joint_evaluation_geometry_snapshot/v1",
+        "revision_id": CURRENT_REVISION_ID,
+        "source_sha256": {"scene.json": "a" * 64},
+        "counts": {
+            "candidate_bores": 92,
+            "retained_frame_bolts": 12,
+            "retained_frame_bolt_installed_components": 60,
+            "retained_frame_bolt_source_occupied_axes": 12,
+            "retained_frame_bolt_shapes": 72,
+        },
+    }
+
+
+def test_exact_twelve_stacks_map_to_five_physical_roles_and_one_proxy_each():
+    geometry = _fixture()
+
+    targets, proxy_ids = _frame_targets(geometry)
+
+    assert len(targets) == 12
+    assert len(proxy_ids) == 12
+    for axis_id, target in targets.items():
+        assert tuple(target["roles"]) == FRAME_ROLE_ORDER
+        assert target["receiver_ids"] == (
+            f"receiver_a_{axis_id[-2:]}",
+            f"receiver_b_{axis_id[-2:]}",
+        )
+        assert target["physical_shape_ids_by_role"] == {
+            role: f"{axis_id}/installed_component_{index}"
+            for index, role in enumerate(FRAME_ROLE_ORDER, 1)
+        }
+        assert target["display_only_proxy_id"] == f"{axis_id}{OCCUPANCY_PROXY_SUFFIX}"
+
+
+def test_role_alias_and_live_connection_metadata_fail_closed():
+    geometry = _fixture()
+    first_id = min(row["axis_id"] for row in geometry.frame_bolt_records)
+    del geometry.protected["retained_12_frame_bolt_components"][f"{first_id}/head"]
+
+    with pytest.raises(ValueError, match="classify exactly five roles"):
+        _frame_targets(geometry)
+
+
+def test_ordered_receivers_must_match_inventory_record_and_live_connection():
+    geometry = _fixture()
+    geometry.frame_bolt_records = tuple(
+        {
+            **row,
+            "members": tuple(reversed(row["members"])),
+        }
+        if row["axis_id"] == "retained_bolt_00"
+        else row
+        for row in geometry.frame_bolt_records
+    )
+
+    with pytest.raises(ValueError, match="ordered source receivers"):
+        _frame_targets(geometry)
+
+
+def test_frozen_report_must_bind_the_current_revision_and_exact_shape_census():
+    geometry = _fixture()
+    frozen = _freeze_report()
+
+    assert len(_validate_freeze(frozen, geometry)) == 64
+    frozen["counts"]["retained_frame_bolt_shapes"] = 71
+    with pytest.raises(ValueError, match="retained_frame_bolt_shapes must be 72"):
+        _validate_freeze(frozen, geometry)
+
+
+def test_frozen_report_revision_must_match_live_geometry():
+    geometry = _fixture()
+    frozen = _freeze_report()
+    frozen["revision_id"] = "old-revision"
+
+    with pytest.raises(ValueError, match="revision differs"):
+        _validate_freeze(frozen, geometry)
+
+
+def test_obstacle_scene_keeps_physical_roles_stationary_and_drops_only_proxy_shapes(
+    monkeypatch,
+):
+    geometry = _fixture()
+    targets, _proxy_ids = _frame_targets(geometry)
+    stock = cq.Solid.makeBox(2.0, 2.0, 2.0, cq.Vector(5000.0, 5000.0, 5000.0))
+    candidate_ids = {f"candidate_{index:02d}" for index in range(92)}
+    geometry.candidate_installed_hardware = {
+        axis_id: {role: stock for role in current_access.ORDINARY_ROLES}
+        for axis_id in candidate_ids
+    }
+    live_obstacles = {
+        "wood/static_receiver": stock,
+        "fixed_panel_axis/static_axis": stock,
+    }
+    for shape_id, shape in geometry.frame_bolt_shapes.items():
+        live_obstacles[f"frame_bolt/{shape_id}"] = shape
+    for axis_id, roles in geometry.candidate_installed_hardware.items():
+        for role, shape in roles.items():
+            live_obstacles[f"candidate_stack/{axis_id}/{role}"] = shape
+    monkeypatch.setattr(
+        current_access,
+        "_live_scene_obstacles",
+        lambda _geometry, _finished: dict(live_obstacles),
+    )
+
+    obstacles = _retained_scene_obstacles(geometry, {}, targets)
+
+    assert not any(name.startswith("frame_bolt/") for name in obstacles)
+    assert not any(name.endswith(OCCUPANCY_PROXY_SUFFIX) for name in obstacles)
+    assert (
+        sum(name.startswith("candidate_stack/retained_bolt_") for name in obstacles)
+        == 60
+    )
+    assert (
+        sum(name.startswith("candidate_stack/candidate_") for name in obstacles)
+        == 92 * 5
+    )
+    assert obstacles["wood/static_receiver"] is stock
+    assert obstacles["fixed_panel_axis/static_axis"] is stock

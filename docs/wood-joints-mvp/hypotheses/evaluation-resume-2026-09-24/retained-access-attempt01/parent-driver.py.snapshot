@@ -1,0 +1,23 @@
+import hashlib,importlib,json,time,traceback
+from pathlib import Path
+ret_root=Path.cwd();ret_base=ret_root/'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24';ret_dest=ret_base/'retained-access-attempt01';ret_dest.mkdir(exist_ok=False)
+ret_sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+ret_files=['scripts/wood_joint_current_retained_access.py','tests/test_wood_joint_current_retained_access.py','scripts/wood_joint_current_access_screen.py','scripts/wood_joint_wj12_diagnostic.py','scripts/wood_joint_wj04_tool_access.py','scripts/wood_joint_wj24_tool_operation_probe.py','mini_moonboard/wood_joint_frame.py','site/owner-wood-joints-review-report.json','site/owner-wood-joints-wj24-scene.json','docs/wood-joints-mvp/source-inventory.json']
+ret_hashes={p:ret_sha(ret_root/p) for p in ret_files};ret_started=time.monotonic()
+ret_record={'status':'running','input_sha256':ret_hashes,'native_solve_run':False}
+try:
+ ret_module=importlib.import_module('scripts.wood_joint_current_retained_access')
+ ret_report=ret_module.build_current_retained_access_report(g24_outer_2x6,frozen_review_report)
+ assert all(ret_sha(ret_root/p)==h for p,h in ret_hashes.items())
+ (ret_dest/'access.json').write_text(json.dumps(ret_report,indent=2,sort_keys=True,allow_nan=False)+'\n')
+ ret_record.update(status='completed',report_sha256=ret_sha(ret_dest/'access.json'))
+except Exception as ret_error:
+ ret_record.update(status='failed',error=repr(ret_error),traceback=traceback.format_exc())
+finally:
+ ret_record['seconds']=time.monotonic()-ret_started
+ ret_record['source_files_unchanged']=all(ret_sha(ret_root/p)==h for p,h in ret_hashes.items())
+ (ret_dest/'execution.json').write_text(json.dumps(ret_record,indent=2)+'\n')
+ (ret_dest/'parent-driver.py.snapshot').write_bytes(Path('/tmp/run-current-retained-access.py').read_bytes())
+ for ret_src,ret_name in [('scripts/wood_joint_current_retained_access.py','producer.py.snapshot'),('tests/test_wood_joint_current_retained_access.py','tests.py.snapshot')]:
+  (ret_dest/ret_name).write_bytes((ret_root/ret_src).read_bytes())
+ print('RETAINED_ACCESS',json.dumps({k:v for k,v in ret_record.items() if k!='input_sha256'}),flush=True)

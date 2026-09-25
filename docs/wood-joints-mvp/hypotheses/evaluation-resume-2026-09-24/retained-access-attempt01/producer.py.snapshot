@@ -1,0 +1,686 @@
+"""Screen access to the twelve retained source-frame bolt stacks in live WJ24.
+
+This collector consumes an already materialized current geometry and its
+frozen geometry report. It does not compose CAD, modify candidate geometry,
+or load historical access results. Five installed components per stack are
+mapped from source role metadata; the sixth shape, ``source_occupied_axis``,
+is a display/occupancy proxy and is not treated as a physical obstacle.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+from collections.abc import Mapping
+from typing import Any
+
+import cadquery as cq
+
+from mini_moonboard.wood_joint_frame import _source_shape_fingerprint
+from scripts import wood_joint_current_access_screen as current_access
+from scripts import wood_joint_wj12_diagnostic as wj12_diagnostic
+
+SCHEMA = "wood_joint_current_retained_access/v1"
+CURRENT_REVISION_ID = current_access.CURRENT_REVISION_ID
+EXPECTED_FRAME_BOLT_COUNT = 12
+EXPECTED_INSTALLED_COMPONENTS_PER_BOLT = 5
+EXPECTED_FRAME_BOLT_SHAPES = 72
+FRAME_ROLE_ORDER = ("shaft", "head_washer", "nut_washer", "head", "nut")
+FRAME_COMPONENT_FAMILY = "retained_12_frame_bolt_components"
+OCCUPANCY_PROXY_SUFFIX = "/source_occupied_axis"
+VECTOR_TOLERANCE_MM = 1e-6
+FINGERPRINT_METHOD = "_source_shape_fingerprint exact canonical source-shape hash"
+
+
+def _valid_shape(shape: Any, label: str) -> cq.Shape:
+    if not isinstance(shape, cq.Shape) or not shape.isValid() or not shape.Solids():
+        raise ValueError(f"{label} must be a valid CAD solid")
+    return shape
+
+
+def _vec3(value: Any, label: str) -> tuple[float, float, float]:
+    try:
+        result = tuple(float(component) for component in value)
+    except (TypeError, ValueError) as error:
+        raise ValueError(f"{label} must be a finite 3-vector") from error
+    if len(result) != 3 or not all(math.isfinite(component) for component in result):
+        raise ValueError(f"{label} must be a finite 3-vector")
+    return result
+
+
+def _distance(first: Any, second: Any) -> float:
+    a = _vec3(first, "first vector")
+    b = _vec3(second, "second vector")
+    return math.sqrt(sum((left - right) ** 2 for left, right in zip(a, b, strict=True)))
+
+
+def _record_map(rows: Any, context: str) -> dict[str, Mapping[str, Any]]:
+    if not isinstance(rows, (tuple, list)):
+        raise TypeError(f"{context} must be a tuple or list")
+    result: dict[str, Mapping[str, Any]] = {}
+    for row in rows:
+        if not isinstance(row, Mapping):
+            raise TypeError(f"{context} rows must be mappings")
+        axis_id = row.get("axis_id")
+        if not isinstance(axis_id, str) or not axis_id or axis_id in result:
+            raise ValueError(f"{context} must have unique nonempty axis IDs")
+        result[axis_id] = row
+    return result
+
+
+def _source_connection_map(geometry: Any) -> dict[str, Any]:
+    source = getattr(geometry, "source", None)
+    connections_method = getattr(source, "connections", None)
+    if not callable(connections_method):
+        raise TypeError("live current geometry must expose source.connections()")
+    connections = tuple(
+        row for row in connections_method() if getattr(row, "kind", None) == "bolt"
+    )
+    result = {getattr(row, "name", None): row for row in connections}
+    if len(result) != len(connections) or any(
+        not isinstance(key, str) for key in result
+    ):
+        raise ValueError("live source bolt connections must have unique nonempty names")
+    return result
+
+
+def _check_axis_metadata(
+    axis_id: str,
+    inventory_row: Mapping[str, Any],
+    record: Mapping[str, Any],
+    connection: Any,
+) -> tuple[str, ...]:
+    receivers = inventory_row.get("members")
+    if not isinstance(receivers, (tuple, list)) or len(receivers) != 2:
+        raise ValueError(
+            f"{axis_id}: source inventory must provide two ordered receiver IDs"
+        )
+    ordered_receivers = tuple(receivers)
+    if any(not isinstance(name, str) or not name for name in ordered_receivers):
+        raise ValueError(f"{axis_id}: ordered receiver IDs must be nonempty strings")
+    if len(set(ordered_receivers)) != 2:
+        raise ValueError(f"{axis_id}: receiver IDs must be distinct")
+    if tuple(record.get("members", ())) != ordered_receivers:
+        raise ValueError(
+            f"{axis_id}: composed record changed the ordered source receivers"
+        )
+    if tuple(getattr(connection, "members", ())) != ordered_receivers:
+        raise ValueError(
+            f"{axis_id}: live source connection changed the ordered receivers"
+        )
+
+    origin = _vec3(
+        inventory_row.get("origin_global_xyz_mm"), f"{axis_id} source origin"
+    )
+    direction = _vec3(inventory_row.get("axis_global_xyz"), f"{axis_id} source axis")
+    norm = math.sqrt(sum(component * component for component in direction))
+    if not math.isfinite(norm) or norm <= 0:
+        raise ValueError(f"{axis_id}: source axis direction must be nonzero")
+    direction = tuple(component / norm for component in direction)
+    record_origin = _vec3(
+        record.get("origin_global_xyz_mm"), f"{axis_id} record origin"
+    )
+    record_direction = _vec3(record.get("axis_global_xyz"), f"{axis_id} record axis")
+    record_norm = math.sqrt(
+        sum(component * component for component in record_direction)
+    )
+    if not math.isfinite(record_norm) or record_norm <= 0:
+        raise ValueError(f"{axis_id}: composed record axis must be nonzero")
+    record_direction = tuple(component / record_norm for component in record_direction)
+    if _distance(origin, record_origin) > VECTOR_TOLERANCE_MM:
+        raise ValueError(
+            f"{axis_id}: composed record origin differs from source inventory"
+        )
+    if _distance(direction, record_direction) > VECTOR_TOLERANCE_MM:
+        raise ValueError(
+            f"{axis_id}: composed record direction differs from source inventory"
+        )
+
+    connection_origin = _vec3(
+        connection.start.toTuple(), f"{axis_id} live connection origin"
+    )
+    connection_direction = _vec3(
+        connection.direction.normalized().toTuple(), f"{axis_id} live connection axis"
+    )
+    if _distance(origin, connection_origin) > VECTOR_TOLERANCE_MM:
+        raise ValueError(
+            f"{axis_id}: live source connection origin differs from inventory"
+        )
+    if _distance(direction, connection_direction) > VECTOR_TOLERANCE_MM:
+        raise ValueError(
+            f"{axis_id}: live source connection direction differs from inventory"
+        )
+
+    numeric_pairs = (
+        (
+            record.get("source_occupied_length_mm"),
+            inventory_row.get("source_occupied_length_mm"),
+            "occupied length",
+        ),
+        (
+            record.get("source_occupied_diameter_mm"),
+            inventory_row.get("source_occupied_diameter_mm"),
+            "occupied diameter",
+        ),
+        (
+            connection.length,
+            inventory_row.get(
+                "source_nominal_length_mm",
+                inventory_row.get("source_occupied_length_mm"),
+            ),
+            "nominal length",
+        ),
+        (connection.grip, inventory_row.get("source_grip_mm"), "grip"),
+        (
+            connection.diameter,
+            inventory_row.get("source_occupied_diameter_mm"),
+            "diameter",
+        ),
+    )
+    for actual, expected, name in numeric_pairs:
+        if expected is None or actual is None or not math.isfinite(float(actual)):
+            raise ValueError(f"{axis_id}: source {name} metadata is missing")
+        if abs(float(actual) - float(expected)) > VECTOR_TOLERANCE_MM:
+            raise ValueError(f"{axis_id}: live {name} differs from source inventory")
+    return ordered_receivers
+
+
+def _frame_targets(geometry: Any) -> tuple[dict[str, dict[str, Any]], tuple[str, ...]]:
+    """Validate and map the exact source records to five named physical roles."""
+    if getattr(geometry, "layout_id", None) != CURRENT_REVISION_ID:
+        raise ValueError(
+            f"current retained access requires revision {CURRENT_REVISION_ID!r}"
+        )
+    if getattr(geometry, "trial_id", None) != CURRENT_REVISION_ID:
+        raise ValueError(
+            "current retained access geometry trial ID differs from its revision"
+        )
+
+    inventory = getattr(geometry, "source_inventory", None)
+    if not isinstance(inventory, Mapping):
+        raise TypeError("live current geometry must expose source_inventory metadata")
+    inventory_rows = _record_map(
+        inventory.get("starting_frame_bolts"), "source starting_frame_bolts"
+    )
+    records = _record_map(
+        getattr(geometry, "frame_bolt_records", None), "composed frame_bolt_records"
+    )
+    if len(inventory_rows) != EXPECTED_FRAME_BOLT_COUNT or set(records) != set(
+        inventory_rows
+    ):
+        raise ValueError(
+            "live current geometry must preserve the exact 12 source frame-bolt IDs"
+        )
+
+    frame_shapes = getattr(geometry, "frame_bolt_shapes", None)
+    if not isinstance(frame_shapes, Mapping):
+        raise TypeError("live current geometry must expose frame_bolt_shapes")
+    expected_frame_shape_ids = {
+        f"{axis_id}/installed_component_{index}"
+        for axis_id in inventory_rows
+        for index in range(1, EXPECTED_INSTALLED_COMPONENTS_PER_BOLT + 1)
+    } | {f"{axis_id}{OCCUPANCY_PROXY_SUFFIX}" for axis_id in inventory_rows}
+    if (
+        set(frame_shapes) != expected_frame_shape_ids
+        or len(frame_shapes) != EXPECTED_FRAME_BOLT_SHAPES
+    ):
+        raise ValueError(
+            "frame-bolt shapes must contain exactly five physical roles and one proxy per source bolt"
+        )
+    for shape_id, shape in frame_shapes.items():
+        _valid_shape(shape, f"frame_bolt_shapes/{shape_id}")
+
+    protected = getattr(geometry, "protected", None)
+    if not isinstance(protected, Mapping):
+        raise TypeError("live current geometry must expose protected role metadata")
+    protected_roles = protected.get(FRAME_COMPONENT_FAMILY)
+    expected_role_ids = {
+        f"{axis_id}/{role}" for axis_id in inventory_rows for role in FRAME_ROLE_ORDER
+    }
+    if (
+        not isinstance(protected_roles, Mapping)
+        or set(protected_roles) != expected_role_ids
+    ):
+        raise ValueError(
+            "protected source metadata must classify exactly five roles on each retained bolt"
+        )
+
+    connections = _source_connection_map(geometry)
+    if set(connections) != set(inventory_rows):
+        raise ValueError(
+            "live source bolt connection IDs differ from the exact 12 source inventory IDs"
+        )
+
+    targets: dict[str, dict[str, Any]] = {}
+    proxy_ids = []
+    for axis_id in sorted(inventory_rows):
+        source_row = inventory_rows[axis_id]
+        record = records[axis_id]
+        if (
+            record.get("installed_component_count")
+            != EXPECTED_INSTALLED_COMPONENTS_PER_BOLT
+        ):
+            raise ValueError(
+                f"{axis_id}: source frame bolt must retain five installed components"
+            )
+        receivers = _check_axis_metadata(
+            axis_id, source_row, record, connections[axis_id]
+        )
+
+        role_shapes = {}
+        role_component_ids = {}
+        installed_by_fingerprint: dict[str, list[str]] = {}
+        for index in range(1, EXPECTED_INSTALLED_COMPONENTS_PER_BOLT + 1):
+            shape_id = f"{axis_id}/installed_component_{index}"
+            shape = frame_shapes[shape_id]
+            installed_by_fingerprint.setdefault(
+                _source_shape_fingerprint(shape), []
+            ).append(shape_id)
+        if any(len(shape_ids) != 1 for shape_ids in installed_by_fingerprint.values()):
+            raise ValueError(
+                f"{axis_id}: installed component fingerprints are not unique"
+            )
+        for role in FRAME_ROLE_ORDER:
+            alias_id = f"{axis_id}/{role}"
+            alias = _valid_shape(
+                protected_roles[alias_id],
+                f"protected/{FRAME_COMPONENT_FAMILY}/{alias_id}",
+            )
+            fingerprint = _source_shape_fingerprint(alias)
+            matches = installed_by_fingerprint.get(fingerprint, [])
+            if len(matches) != 1:
+                raise ValueError(
+                    f"{axis_id}/{role}: protected source role does not map to one installed component"
+                )
+            component_id = matches[0]
+            role_shapes[role] = alias
+            role_component_ids[role] = component_id
+        if set(role_component_ids.values()) != {
+            f"{axis_id}/installed_component_{index}"
+            for index in range(1, EXPECTED_INSTALLED_COMPONENTS_PER_BOLT + 1)
+        }:
+            raise ValueError(
+                f"{axis_id}: source role mapping does not cover five unique physical components"
+            )
+
+        axis_vector = cq.Vector(
+            *_vec3(source_row["axis_global_xyz"], f"{axis_id} source axis")
+        ).normalized()
+        measured_axis = current_access._stack_axis(role_shapes, axis_id)
+        # The source axis points from the head's start-side datum toward the
+        # nut. The shared access helper returns headward (nut-to-head).
+        if measured_axis.dot(axis_vector) > -1.0 + VECTOR_TOLERANCE_MM:
+            raise ValueError(
+                f"{axis_id}: physical headward axis disagrees with source axis orientation"
+            )
+        proxy_id = f"{axis_id}{OCCUPANCY_PROXY_SUFFIX}"
+        proxy_ids.append(proxy_id)
+        targets[axis_id] = {
+            "axis_id": axis_id,
+            "receiver_ids": receivers,
+            "axis_origin_global_xyz_mm": _vec3(
+                source_row["origin_global_xyz_mm"], f"{axis_id} source origin"
+            ),
+            "axis_head_to_nut_global_xyz": tuple(
+                round(value, 12) for value in axis_vector.toTuple()
+            ),
+            "source_occupied_length_mm": float(source_row["source_occupied_length_mm"]),
+            "source_occupied_diameter_mm": float(
+                source_row["source_occupied_diameter_mm"]
+            ),
+            "modeled_nominal_length_mm": float(source_row["source_nominal_length_mm"]),
+            "modeled_grip_mm": float(source_row["source_grip_mm"]),
+            "roles": role_shapes,
+            "physical_shape_ids_by_role": role_component_ids,
+            "display_only_proxy_id": proxy_id,
+            "display_only_proxy_shape": frame_shapes[proxy_id],
+        }
+    return targets, tuple(proxy_ids)
+
+
+def _validate_freeze(frozen_report: Mapping[str, Any], geometry: Any) -> str:
+    if not isinstance(frozen_report, Mapping):
+        raise TypeError(
+            "current retained access requires the frozen geometry report mapping"
+        )
+    if frozen_report.get("schema") != "wood_joint_evaluation_geometry_snapshot/v1":
+        raise ValueError(
+            "current retained access requires the current geometry snapshot schema"
+        )
+    if frozen_report.get("revision_id") != CURRENT_REVISION_ID:
+        raise ValueError(
+            "frozen geometry report revision differs from the live current geometry"
+        )
+    if getattr(geometry, "layout_id", None) != frozen_report.get("revision_id"):
+        raise ValueError("frozen report and live geometry revision IDs differ")
+    counts = frozen_report.get("counts")
+    if not isinstance(counts, Mapping):
+        raise TypeError("frozen geometry report omits its count summary mapping")
+    required_counts = {
+        "candidate_bores": 92,
+        "retained_frame_bolts": EXPECTED_FRAME_BOLT_COUNT,
+        "retained_frame_bolt_installed_components": 60,
+        "retained_frame_bolt_source_occupied_axes": EXPECTED_FRAME_BOLT_COUNT,
+        "retained_frame_bolt_shapes": EXPECTED_FRAME_BOLT_SHAPES,
+    }
+    for name, expected in required_counts.items():
+        if counts.get(name) != expected:
+            raise ValueError(f"frozen report {name} must be {expected}")
+    source_hashes = frozen_report.get("source_sha256")
+    if not isinstance(source_hashes, Mapping) or not source_hashes:
+        raise ValueError(
+            "frozen geometry report must bind nonempty source SHA-256 records"
+        )
+    for path, digest in source_hashes.items():
+        if (
+            not isinstance(path, str)
+            or not path
+            or not isinstance(digest, str)
+            or len(digest) != 64
+        ):
+            raise ValueError(
+                "frozen geometry source hashes must be path-to-SHA-256 mappings"
+            )
+        try:
+            int(digest, 16)
+        except ValueError as error:
+            raise ValueError(
+                "frozen geometry source hashes must be hexadecimal"
+            ) from error
+    canonical = json.dumps(frozen_report, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+
+def _source_inventory_digest(geometry: Any) -> str:
+    digest = getattr(geometry, "source_inventory_sha256", None)
+    if not isinstance(digest, str) or len(digest) != 64:
+        raise ValueError("live current geometry must bind its source inventory SHA-256")
+    try:
+        int(digest, 16)
+    except ValueError as error:
+        raise ValueError(
+            "live source inventory digest must be hexadecimal SHA-256"
+        ) from error
+    binding = getattr(geometry, "source_binding", None)
+    bound_digest = getattr(binding, "inventory_sha256", None)
+    if bound_digest != digest:
+        raise ValueError("live source inventory digest differs from its source binding")
+    return digest
+
+
+def _member_summary(shape: cq.Shape) -> dict[str, Any]:
+    bounds = shape.BoundingBox()
+    return {
+        "min_xyz_mm": [
+            round(value, 9) for value in (bounds.xmin, bounds.ymin, bounds.zmin)
+        ],
+        "max_xyz_mm": [
+            round(value, 9) for value in (bounds.xmax, bounds.ymax, bounds.zmax)
+        ],
+        "volume_mm3": round(shape.Volume(), 9),
+        "center_of_mass_xyz_mm": [
+            round(value, 9) for value in shape.Center().toTuple()
+        ],
+    }
+
+
+def _validate_candidate_stacks(geometry: Any) -> int:
+    candidate_bores = getattr(geometry, "candidate_bores", None)
+    candidate_hardware = getattr(geometry, "candidate_installed_hardware", None)
+    if not isinstance(candidate_bores, Mapping) or not isinstance(
+        candidate_hardware, Mapping
+    ):
+        raise TypeError(
+            "live current geometry must expose candidate bore and installed-hardware maps"
+        )
+    current_access._candidate_axis_groups(
+        candidate_bores,
+        candidate_hardware,
+        include_all_candidate_axes=True,
+    )
+    return len(candidate_bores)
+
+
+def _receiver_summaries(
+    targets: Mapping[str, Mapping[str, Any]], finished_wood: Mapping[str, cq.Shape]
+) -> dict[str, dict[str, Any]]:
+    used = sorted(
+        {receiver for target in targets.values() for receiver in target["receiver_ids"]}
+    )
+    missing = [name for name in used if name not in finished_wood]
+    if missing:
+        raise ValueError(
+            f"live current finished wood omits retained-bolt receivers: {missing}"
+        )
+    return {
+        name: _member_summary(
+            _valid_shape(finished_wood[name], f"finished_wood/{name}")
+        )
+        for name in used
+    }
+
+
+def _retained_scene_obstacles(
+    geometry: Any,
+    finished_wood: Mapping[str, cq.Shape],
+    targets: Mapping[str, Mapping[str, Any]],
+) -> dict[str, cq.Shape]:
+    """Keep the current scene fixed while replacing role-anonymous frame parts."""
+    obstacles = current_access._live_scene_obstacles(geometry, finished_wood)
+    frame_ids = set(targets)
+    candidate_ids = set(geometry.candidate_installed_hardware)
+    if frame_ids & candidate_ids:
+        raise ValueError(
+            "retained frame-bolt IDs overlap the current 92-axis candidate map"
+        )
+
+    expected_frame_obstacles = {
+        f"frame_bolt/{axis_id}/installed_component_{index}"
+        for axis_id in frame_ids
+        for index in range(1, EXPECTED_INSTALLED_COMPONENTS_PER_BOLT + 1)
+    } | {f"frame_bolt/{axis_id}{OCCUPANCY_PROXY_SUFFIX}" for axis_id in frame_ids}
+    observed_frame_obstacles = {
+        name for name in obstacles if name.startswith("frame_bolt/")
+    }
+    if observed_frame_obstacles != expected_frame_obstacles:
+        raise ValueError(
+            "current scene retained frame-bolt obstacle IDs differ from the exact 72-shape map"
+        )
+    if (
+        sum(name.endswith(OCCUPANCY_PROXY_SUFFIX) for name in observed_frame_obstacles)
+        != EXPECTED_FRAME_BOLT_COUNT
+    ):
+        raise ValueError(
+            "current scene must expose exactly twelve source occupancy proxies"
+        )
+
+    for axis_id, target in targets.items():
+        for index in range(1, EXPECTED_INSTALLED_COMPONENTS_PER_BOLT + 1):
+            old_id = f"frame_bolt/{axis_id}/installed_component_{index}"
+            if old_id not in obstacles:
+                raise ValueError(
+                    f"live obstacle scene omits physical retained component {old_id}"
+                )
+            del obstacles[old_id]
+        proxy_id = f"frame_bolt/{target['display_only_proxy_id']}"
+        if proxy_id not in obstacles:
+            raise ValueError(
+                f"live obstacle scene omits retained source proxy {proxy_id}"
+            )
+        del obstacles[proxy_id]
+        for role, shape in target["roles"].items():
+            obstacles[f"candidate_stack/{axis_id}/{role}"] = shape
+
+    if len(obstacles) < 92 * len(current_access.ORDINARY_ROLES):
+        raise ValueError(
+            "live retained-access scene omits current candidate-stack obstacles"
+        )
+    return current_access._shape_map(obstacles, "live_retained_access_obstacles")
+
+
+def build_current_retained_access_report(
+    geometry: Any, frozen_report: Mapping[str, Any]
+) -> dict[str, Any]:
+    """Screen all twelve retained frame bolts against current live WJ24 geometry.
+
+    `geometry` must already be materialized by the caller. The 92 current
+    candidate stacks and all current physical obstacles remain stationary.
+    Each target is screened with its own active hardware roles excluded by the
+    existing access helpers. Historical access results are never loaded.
+    """
+    frozen_hash = _validate_freeze(frozen_report, geometry)
+    inventory_hash = _source_inventory_digest(geometry)
+    targets, proxy_ids = _frame_targets(geometry)
+    current_candidate_axis_count = _validate_candidate_stacks(geometry)
+    _raw_receivers, finished_wood = wj12_diagnostic._composed_wood(geometry)
+    receiver_summaries = _receiver_summaries(targets, finished_wood)
+    obstacles = _retained_scene_obstacles(geometry, finished_wood, targets)
+    obstacle_bounds = current_access._stationary_obstacle_bounds(obstacles)
+    tool = current_access.WJ04_TRIAL.fasteners.tools[0]
+
+    axis_rows: list[dict[str, Any]] = []
+    for axis_id, target in sorted(targets.items()):
+        roles = target["roles"]
+        receivers = target["receiver_ids"]
+        headward = current_access._stack_axis(roles, axis_id)
+        nutward = -headward
+        head_wrench = current_access._wrench_operation(
+            axis_id,
+            roles,
+            obstacles,
+            obstacle_bounds,
+            tool,
+            target_role="head",
+            side_axis=headward,
+        )
+        nut_wrench = current_access._wrench_operation(
+            axis_id,
+            roles,
+            obstacles,
+            obstacle_bounds,
+            tool,
+            target_role="nut",
+            side_axis=nutward,
+        )
+        head_side_bolt = current_access._withdrawal_and_insertion(
+            axis_id,
+            receivers,
+            roles,
+            finished_wood,
+            obstacles,
+            obstacle_bounds,
+        )
+        nut = current_access._detached_role_motion(
+            axis_id,
+            "nut",
+            roles["nut"],
+            roles["shaft"],
+            nutward,
+            obstacles,
+            obstacle_bounds,
+        )
+        nut_washer = current_access._detached_role_motion(
+            axis_id,
+            "nut_washer",
+            roles["nut_washer"],
+            roles["shaft"],
+            nutward,
+            obstacles,
+            obstacle_bounds,
+            prerequisite_absent_roles=("nut",),
+        )
+        axis_rows.append(
+            {
+                "axis_id": axis_id,
+                "receiver_ids_ordered_from_source_connection": list(receivers),
+                "raw_source_receiver_ids_ordered": list(receivers),
+                "live_finished_receiver_ids_ordered": list(receivers),
+                "receiver_remap_applied": False,
+                "receiver_order_semantics": "preserved source inventory order; no head/nut inference from receiver ordering",
+                "axis_origin_global_xyz_mm": list(target["axis_origin_global_xyz_mm"]),
+                "axis_head_to_nut_global_xyz": list(
+                    target["axis_head_to_nut_global_xyz"]
+                ),
+                "source_occupied_length_mm": target["source_occupied_length_mm"],
+                "source_occupied_diameter_mm": target["source_occupied_diameter_mm"],
+                "modeled_nominal_length_mm": target["modeled_nominal_length_mm"],
+                "modeled_grip_mm": target["modeled_grip_mm"],
+                "physical_role_shape_ids": dict(
+                    sorted(target["physical_shape_ids_by_role"].items())
+                ),
+                "display_only_proxy_id": target["display_only_proxy_id"],
+                "current_receiver_geometry": {
+                    receiver: receiver_summaries[receiver] for receiver in receivers
+                },
+                "operations": {
+                    "head_wrench": head_wrench,
+                    "nut_wrench": nut_wrench,
+                    "head_side_bolt": head_side_bolt,
+                    "nut": nut,
+                    "nut_washer": nut_washer,
+                },
+                "complete_joint_assembly_or_disassembly_proven": False,
+            }
+        )
+
+    return {
+        "schema": SCHEMA,
+        "status": "bounded_current_retained_frame_bolt_access_diagnostic",
+        "geometry_revision_id": geometry.layout_id,
+        "geometry_trial_id": geometry.trial_id,
+        "frozen_geometry_report_sha256_canonical_json": frozen_hash,
+        "reviewed_repository_commit": frozen_report.get("reviewed_repository_commit"),
+        "source_inventory_sha256": inventory_hash,
+        "source_inventory_runtime_module_sha256": dict(
+            sorted(
+                getattr(geometry.source_binding, "runtime_module_sha256", {}).items()
+            )
+        ),
+        "scope": {
+            "retained_frame_bolt_targets": len(axis_rows),
+            "exact_retained_frame_bolt_ids": sorted(targets),
+            "installed_physical_role_count": len(axis_rows) * len(FRAME_ROLE_ORDER),
+            "display_only_source_occupied_axis_proxies_excluded_globally": [
+                {
+                    "shape_id": target["display_only_proxy_id"],
+                    "shape_summary": _member_summary(
+                        target["display_only_proxy_shape"]
+                    ),
+                    "classification": "nonphysical source occupied-axis display/occupancy proxy",
+                }
+                for _axis_id, target in sorted(targets.items())
+            ],
+            "display_only_source_occupied_axis_proxy_count_excluded_globally": len(
+                proxy_ids
+            ),
+            "proxy_exclusion_reason": "source-occupied-axis CAD envelope is not an installed hardware part; the five fingerprint-mapped physical roles remain the fastener representation",
+            "current_candidate_axes_stationary": current_candidate_axis_count,
+            "live_scene_obstacle_count_after_role_mapping": len(obstacles),
+            "live_receiver_geometry_summarized_from_current_finished_solids": sorted(
+                receiver_summaries
+            ),
+            "archived_access_or_mechanics_pass_loaded": False,
+            "native_mechanics_run": False,
+            "actual_tools_or_delivered_hardware_validated": False,
+        },
+        "source_role_mapping": {
+            "classification_source": "protected retained_12_frame_bolt_components aliases matched by source-shape fingerprint to installed_component_1..5 in each source inventory axis group",
+            "source_role_order": list(FRAME_ROLE_ORDER),
+            "fingerprint_method": FINGERPRINT_METHOD,
+            "one_to_one_role_mapping_required": True,
+            "sixth_shape_classification": "source_occupied_axis proxy; display/occupancy duplicate, not one of five installed physical roles",
+        },
+        "tool_profile_boundary": current_access.WJ04_TRIAL.trial_id,
+        "axis_operations": axis_rows,
+        "sequence_dependencies": current_access._operation_order_summary(axis_rows),
+        "claim_boundary": {
+            "clear_envelope_proves_installation_or_removal": False,
+            "envelope_overlap_proves_a_real_tool_or_sequence_blocker": False,
+            "thread_unthreading_or_turning_proven": False,
+            "support_transfer_or_capture_proven": False,
+            "physical_assembly_or_disassembly_proven": False,
+            "candidate_accepted": False,
+            "fabrication_or_climbing_release": False,
+        },
+    }
