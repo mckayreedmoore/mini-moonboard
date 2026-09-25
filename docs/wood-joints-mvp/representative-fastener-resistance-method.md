@@ -35,10 +35,11 @@ candidate bounds are:
 | Each washer | Type-A-wide plain steel; ID 7.7978–8.3058 mm; OD 18.4658–19.0246 mm; thickness 1.2954–2.032 mm. | Annulus and support-polygon geometry, stack height, and tool/seat envelope. These bounds do not give plate-bending capacity or prove full wood support. |
 
 The historical `Dr = 0.189 in` entry is a standard-based 1/4-20 root
-*scenario*, not a delivered thread measurement ([root reference](hypotheses/wj04-thread-root-lateral-reference.md)). The current catalog/standard
-records support tolerance and scene-envelope work; they do not establish
-delivered-part conformity, mechanical properties, first full-form thread
-position, functional nut engagement, seat contact, or strength. See
+*scenario*, not a delivered thread measurement ([root reference](hypotheses/wj04-thread-root-lateral-reference.md)). Current supplier grade tables
+can support an explicitly stated conditional Grade 5 property scenario, but
+they do not establish that the candidate SKU or any delivered lot conforms.
+The current sources also do not establish first full-form thread position,
+functional nut engagement, seat contact, or complete-joint strength. See
 [`wood_joint_wj04_config.py`](../../mini_moonboard/wood_joint_wj04_config.py),
 the [source-correction note](bolt-dimension-source-correction.md), and the
 [full-stock thread screen](hypotheses/wj04-full-stock-thread-screen/README.md).
@@ -47,11 +48,13 @@ The thread screen's result is deliberately narrow: all 256 member/corner
 fractions remain below the NDS one-quarter comparison when 127 mm `Lb` is used
 as a *screen boundary*. `Lb` is not the location of the first full-form
 thread. The delivered member-specific thread-bearing lengths therefore remain
-unknown, so neither the NDS full-body-diameter exception nor a smooth-shank
-coverage claim is available. The NDS lateral-yield path must stay on `Dr`
-unless actual bearing/thread locations or a supported detailed analysis close
-that gate. Do not carry old single-bolt angle samples or selected-angle-frame
-results into this G7 family ([historical root reference](hypotheses/wj04-thread-root-lateral-reference.md)).
+unknown, so the full-body-`D` exception or a smooth-shank claim is not
+established for an actual candidate. A conditional lateral-yield calculation
+can use the source-based `Dr` scenario while assuming thread root across each
+bearing region; selecting full-body `D` or actual smooth-shank coverage needs
+supported member-specific thread extents. Do not carry old single-bolt angle
+samples or selected-angle-frame results into this G7 family ([historical root
+reference](hypotheses/wj04-thread-root-lateral-reference.md)).
 
 ## Work that is possible before fresh actions
 
@@ -62,10 +65,10 @@ adequacy.
 | Check | Executable from current frozen inputs? | Evidence and limit |
 |---|---|---|
 | Physical topology and counts | Yes | Reconcile eight unique physical bolt IDs, five component roles per stack, two bolts per each of four named interfaces, receiver order, and one shear plane per bolt. Reject duplicate fastener identity in a load path. |
-| Candidate dimensional envelope | Yes, conditionally | Compare the recorded bolt/nut/washer bounds against the frozen stack datums, finished bore/seat geometry, and access envelope. Keep the 7.5 mm CAD bore as an occupancy envelope, not a drill size. Standard and supplier dimensions are candidate inputs until product identity and delivered dimensions are confirmed. |
-| Grip and thread-location screen | Partly | Reproduce the existing `Lb` boundary and tolerance-stack screen. It does not locate first full-form thread or prove nut engagement. A delivered bolt measurement/guarantee is needed to close either. |
-| Candidate sectional-property manifest | Partly | Record the source and controlling section for `D`, `Dr`, tensile area `At`, and shear-plane area `Av`. Thread geometry can be calculated from an exact thread series/class and its standard; the actual shaft/thread section and which section crosses each plane still need product/delivery evidence. Do not use `Dr` as a substitute for the direct-steel `At` or `Av`. |
-| NDS `Fyb` evidence gate | Yes, as a fail-closed status | Run `nds_fyb_basis_status` with no unsupported value: expected output is unresolved. NDS-2024 §12.3.6.2's permitted routes are ASTM F1575 bending yield or tensile yield determined by ASTM F606 procedures with a supported conversion/evaluation; catalog grade, proof stress, or `Fu` alone does not fill this field. Applicability to the delivered fastener must be recorded. |
+| Candidate dimensional envelope | Yes, conditionally | Compare explicit standard/supplier bounds against the frozen stack datums, finished bore/seat geometry, and access envelope, labeling assumed conformity. Keep the 7.5 mm CAD bore as an occupancy envelope, not a drill size. Delivered identity and dimensions remain separate actual-part evidence. |
+| Grip and thread-location screen | Partly | Reproduce the existing `Lb` boundary and tolerance-stack screen. It does not locate first full-form thread or prove nut engagement. To establish the actual candidate's thread position and nut fit, use a supported product drawing/guarantee or delivered measurement; MVP-E may instead state explicit thread-interval assumptions for a conditional fit scenario. |
+| Candidate sectional-property manifest | Partly | Record the source and controlling section for `D`, `Dr`, tensile area `At`, and shear-plane area `Av`. An exact thread series/class supplies conditional thread geometry; assuming root at each shear plane avoids claiming an unknown smooth-shank interval. Actual shaft/thread section placement or larger smooth-shank `Av` needs product/drawing geometry or delivered measurements. Do not use `Dr` as a substitute for the direct-steel `At` or `Av`. |
+| NDS `Fyb` evidence gate | Yes, as a fail-closed status | Run `nds_fyb_basis_status` with no test-derived evidence: it remains unresolved. NDS-2024 §12.3.6.2's routes are ASTM F1575 bending yield or tensile yield determined by ASTM F606 with a supported evaluation into `Fyb`; grade, proof stress, or `Fu` alone is not normative/test-derived `Fyb`. MVP-E may carry a separately labeled, source-bound material scenario (including the 106 ksi approximate Commentary estimate from the cited 1/4-in Grade 5 project `Fy`/`Fu` minima), while delivered-product applicability/conformance remains a separate MVP-P status. The current helper has no such scenario field and requires applicability to a delivered fastener. See [conditional ordinary-bolt property boundary](hypotheses/evaluation-resume-2026-09-24/ordinary-bolt-resistance-boundary-attempt01/README.md). |
 | Nut, washer, and steel-strength basis completeness | Yes, as a fail-closed status | Identify applicable product standard, grade/material, size and evidence source. Dimensional standard conformity is not a nut proof/thread-strip result or washer bending/spreading resistance. ASTM F606's test procedures do not themselves assign a product property to an unverified part. |
 | Geometry-only wood screens | Yes, within each helper's scope | Projected boundaries and nominal 4D/7D reserves can be reported as geometry. They do not classify the loaded edge, evaluate splitting, or give resistance. Existing `bolted_timber_checks.py` reference values need actual geometry, grain, load direction and adjustments before use. |
 
@@ -142,8 +145,11 @@ design interaction.
 
 1. **Lateral wood/bolt yield:** Project the per-bolt lateral force onto the
    bolt-normal plane and derive its angle to each receiver's grain. Establish
-   the two actual bearing lengths, zero-gap/contact applicability, delivered
-   `D` and `Dr`, and measured thread-bearing lengths for each member. Use
+   the two bearing lengths and zero-gap/contact applicability. For a
+   conditional thread-root scenario, specify `Dr` from the thread class and
+   assume root across each bearing region. To use `D` under the NDS one-quarter
+   exception, establish thread-bearing lengths in each member; actual-candidate
+   claims need supported product/drawing geometry or measurement. Use
    `nds_effective_bolt_diameter_in` and
    `wood_wood_single_shear_reference` only when their input contract is met.
    The latter returns six unadjusted NDS lateral-yield modes for one bolt and
@@ -152,11 +158,16 @@ design interaction.
    two-bolt group, splitting, loaded-edge direction, or complete joint.
    See [NDS-2024 Chapter 12](https://awc.org/wp-content/uploads/2026/08/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-%E2%80%93-Dowel-type-fasteners.pdf)
    and [AWC TR12-2026](https://awc.org/wp-content/uploads/2026/06/TR-12_2026_formatted.V3.pdf).
-2. **Direct bolt steel:** Resolve actual tensile and shear-plane sections and
-   simultaneous signed axial/shear/bending demands per bolt. The current
-   `bolt_first_yield_reference` can report separate, unadjusted tension and
-   pure-shear first-yield references only when `At`, `Av`, certified minimum
-   tensile yield and their product/section bases are present. It always leaves
+2. **Direct bolt steel:** Resolve the conditional or actual tensile and
+   shear-plane sections and simultaneous signed axial/shear/bending demands
+   per bolt. The current `bolt_first_yield_reference` can report separate,
+   unadjusted tension and pure-shear first-yield references only when `At`,
+   `Av`, a minimum tensile-yield input, and their product/section bases are
+   present. For MVP-E the minimum may be an explicitly specified project
+   property scenario sourced to the cited Grade 5 data; delivered conformance
+   must remain separate. The helper's
+   current `certified_min_yield_mpa` field does not distinguish those cases.
+   It always leaves
    the combined interaction unresolved, and it does not check bending,
    fracture, threads, fatigue, pull-through, or nut/thread stripping. Do not
    treat those separate ratios as a pass or as code capacities.
@@ -197,7 +208,7 @@ shape:
 
 | Record | Minimum fields |
 |---|---|
-| Hardware manifest | Candidate/part ID; physical fastener ID; standards and product sources; source hashes; nominal dimensions and tolerances; delivered observations when available; thread, nut and washer identities; `D`, `Dr`, `At`, `Av` bases; Fyb route/evidence/applicability; separate direct-steel material evidence. |
+| Hardware manifest | Candidate/part ID; physical fastener ID; standards and product sources; source hashes; nominal dimensions and tolerances; delivered observations when available; thread, nut and washer identities; `D`, `Dr`, `At`, `Av` bases; separate conditional property-scenario and delivered-conformance fields; Fyb route/evidence/applicability; separate direct-steel material evidence. |
 | Demand record | WJ09 case/run ID and frozen input hash; interface and physical member owners; source point/basis; signed six-vector and units; shifted datum; per-bolt action response ID; bolt/contact/other reaction points; equilibrium residual and response-model bounds. |
 | Component check | Method/version and source clause; geometry/material/action input IDs; units; component demand/reference and applicable adjustment; result state; governing case/mode; explicit exclusions. Keep a component reference distinct from adjusted design resistance. |
 | Summary | Coverage counts for eight bolts/four interfaces/six cases; missing inputs; unresolved interactions; criterion IDs actually covered; source fingerprints; no inherited angle/station result; explicit capacity and release booleans. |

@@ -20,30 +20,51 @@ calculates Fyb from static bending tests ([ASTM F1575/F1575M-24](https://store.a
 ASTM F606 covers mechanical-property testing of threaded fasteners
 ([ASTM F606/F606M](https://store.astm.org/standards/f606)).
 
-Therefore, `nds_fyb_basis_status` accepts a numeric Fyb only when caller also
-records one of those test routes, an evidence reference, and that evidence's
-applicability to the delivered fastener. It does not derive Fyb from a catalog
-grade, proof stress, or minimum tensile strength. For the F606 route, the
-supporting record must show how tested tensile yield was evaluated into Fyb.
-No average-of-yield-and-ultimate formula is applied automatically.
+NDS `Fyb` and direct steel yield strength are separate inputs. NDS-2024
+§12.3.6.2's test-derived route requires an applicable F1575 bending-yield
+basis or an F606 tensile-yield basis with a supported evaluation into `Fyb`.
+The current `nds_fyb_basis_status` helper is deliberately fail-closed: it
+requires an evidence reference and `applies_to_delivered_fastener=True`. That
+is an actual-product evidence check. It is too restrictive if interpreted as
+a prerequisite for *conditional MVP-E* calculations, whose input may instead
+be a clearly specified material scenario with source, scope, and limitations;
+the helper currently has no separate scenario/conformance fields. Keep
+delivered identity and conformance as a separate MVP-P status.
 
-AWC TR12-2026 Appendix A Table A2 lists a 45,000 psi reference Fyb for the
-specified bolt/lag-screw class with diameter at least 3/8 inch; the row names
-SAE J429 Grade 1 as its carbon-steel example. That row does not establish Fyb
-for a proposed 1/4-inch Grade 5 bolt. We assign neither 45 ksi nor a Grade 5
-value to that hardware without an applicable test/evaluation record
-([AWC TR12-2026](https://awc.org/wp-content/uploads/2026/06/TR-12_2026_formatted.V3.pdf)).
+The explicitly stated Grade 5 project minima from the cited supplier sheet can
+support a conditional direct steel yield reference; they do not automatically
+establish NDS `Fyb`. The NDS Commentary
+Appendix I gives the approximate bolt estimate `Fyb ≈ (Fy + Fu)/2`. Applying
+the documented 1/4-in Grade 5 scenario values `Fy = 92 ksi` and `Fu = 120 ksi`
+yields a **106 ksi Commentary estimate** for an explicitly labeled engineering
+scenario. It is not a product-standard minimum, measured bending yield,
+normative/test-derived `Fyb`, or guaranteed lower bound. Do not use that
+estimate to mark an NDS or project criterion passed without a reviewed method
+basis. The source scope, calculation, and limitations are recorded in the
+[conditional ordinary-bolt boundary note](hypotheses/evaluation-resume-2026-09-24/ordinary-bolt-resistance-boundary-attempt01/README.md)
+and [steel-reference calculation](hypotheses/evaluation-resume-2026-09-24/ordinary-bolt-steel-reference-attempt01/README.md).
+
+The conditional source records support explicitly specified Grade 5 project
+property minima for a hypothetical conforming fastener, not the current
+unselected hardware. No actual product conformance is inferred. The
+Commentary's separate 45 ksi
+Table I1 / TR12-2026 example still applies only to bolt/lag-screw diameters
+`D ≥ 3/8 in`; it does not establish `Fyb` for a 1/4-in Grade 5 bolt.
 
 ## NDS full-body or thread-root diameter
 
 NDS-2024 §§12.3.7.1–12.3.7.2 use root diameter `Dr` for threaded fasteners,
-with a limited full-body exception. A threaded full-body bolt may use full-body
+with a limited full-body exception. A conditional thread-root scenario may
+derive `Dr` from the specified Unified thread class and assume that root
+section across the wood-bearing and shear-plane regions; it must label that
+thread-placement assumption. A threaded full-body bolt may use full-body
 diameter `D` only if thread bearing occupies no more than one quarter of the
-complete bearing length in every member holding those threads. Otherwise use
-`Dr`, unless a more detailed threaded-section analysis is supplied. The
-selector in `nds_effective_bolt_diameter_in` checks each wood member separately
-from measured bearing and thread-bearing lengths. It does not infer delivered
-thread placement from bolt length or nominal thread callout.
+complete bearing length in every member holding those threads. Selecting that
+exception for an actual candidate requires product/drawing dimensions or
+measurements that establish the thread-bearing extents; a conditional model
+may instead state and analyze explicit extents. The selector in
+`nds_effective_bolt_diameter_in` checks each wood member separately and does
+not infer thread placement from nominal bolt length or thread callout.
 
 Selected `D` or `Dr` applies to NDS wood lateral-yield calculations only. It
 does not select bolt tensile or shear area. If the selected diameter is below
@@ -57,8 +78,10 @@ when calculating the yield modes; this module only flags that condition.
 - signed axial force in N (tension positive);
 - two-dimensional lateral shear vector in N at the relevant plane;
 - minimum tensile area in mm² for the controlling section;
-- actual shear-plane area in mm², identified as shank or thread-root section;
-- certified minimum material yield strength in MPa;
+- shear-plane area in mm², identified as shank or thread-root section with a
+  conditional-scenario or actual-part basis;
+- minimum material yield strength in MPa with its conditional-scenario or
+  actual-part evidence basis identified;
 - traceable material-property and area-basis descriptions.
 
 It reports separate first-yield references:
@@ -72,8 +95,16 @@ The shear expression is the pure-shear first-yield stress under the von Mises
 criterion ([NIST-hosted technical report](https://nehrpsearch.nist.gov/static/files/NSF/PB91217984.pdf)).
 MPa × mm² gives N. These are unadjusted material references; they are not
 NDS-adjusted capacities, AISC design strengths, or acceptance checks. The
-actual loaded sections must come from delivered bolt geometry. Catalog nominal
-diameter does not establish either area.
+areas require an explicit section basis. In a conditional scenario, a declared
+Unified thread class can supply standard thread geometry, including standard
+tensile stress area and a thread-root shear section if thread root is assumed
+at the shear plane. The current ordinary-patch reference uses nominal
+1/4-20 `At = 0.0318 in²`; see the linked calculation above. Claiming the
+actual shank/thread section at a particular plane, using a larger smooth-shank
+`Av`, or selecting the NDS full-body-`D` case requires product/drawing geometry
+that locates the transition and the thread-bearing extents. Delivered
+measurements are needed only for claims about actual received dimensions or
+conformance, not to run a labeled conditional geometry scenario.
 
 Combined axial tension and lateral shear remain unresolved. ANSI/AISC 360-22
 §J3.7 defines a named interaction for bearing-type connections designed under
@@ -105,6 +136,13 @@ capacity.
 
 The module is [wood_joint_bolt_resistance.py](../../mini_moonboard/wood_joint_bolt_resistance.py).
 Missing Fyb, yield strength, or actual section areas produce unresolved
-results. A basis string records caller evidence but does not authenticate it.
-Combined tension/shear and washer steel resistance always remain unresolved in
-this bounded implementation.
+results. `bolt_first_yield_reference` currently labels its yield input
+`certified_min_yield_mpa`; this API does not yet represent a scenario-only
+specified minimum separately from delivered certification. That current
+implementation limit is not an MVP-E requirement for delivered fastener
+evidence. Record a conditional direct-steel reference with its assumed
+property scenario and keep actual conformance separate; extend the producer
+input contract before passing a scenario through this helper. A basis string
+records caller evidence but does not authenticate it. Combined tension/shear
+and washer steel resistance always remain unresolved in this bounded
+implementation.
