@@ -6,6 +6,15 @@ step and establishes no structural response or capacity. See
 [`parent-audit.json`](parent-audit.json) for the independently recomputed
 ownership, exterior-face and Gauss5 quality checks.
 
+Subsequent contact classification found that the four nut bodies are solid
+display envelopes with no internal bore. Thus the archived inventory's
+`physical_metal` names distinguish component instances from duplicated
+head/shaft roles; they do not prove physical metal occupancy. Do not use the
+solid nut interiors as real metal, infer nut/shaft radial contact, or claim
+that this mesh is a mechanically complete assembly. An explicit nut-seat and
+engagement representation is still required. This finding does not invalidate
+the sampled mesh-quality audit of the exported shapes.
+
 The complete `mesh/` directory is preserved byte-for-byte in
 [`complete-mesh-evidence.tar.gz`](complete-mesh-evidence.tar.gz).
 [`bundle-contents.json`](bundle-contents.json) records archive and member

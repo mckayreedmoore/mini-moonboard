@@ -1,0 +1,1783 @@
+{
+  "blockers": [
+    "nut_internal_bore_unmodeled:bottom_center/clip_horizontal_bottom_right_1/rail_1",
+    "nut_solid_overlaps_bolt_shaft:bottom_center/clip_horizontal_bottom_right_1/rail_1",
+    "nut_internal_bore_unmodeled:bottom_center/clip_horizontal_bottom_right_1/rail_2",
+    "nut_solid_overlaps_bolt_shaft:bottom_center/clip_horizontal_bottom_right_1/rail_2",
+    "nut_internal_bore_unmodeled:bottom_center/clip_horizontal_bottom_right_1/principal_1",
+    "nut_solid_overlaps_bolt_shaft:bottom_center/clip_horizontal_bottom_right_1/principal_1",
+    "nut_internal_bore_unmodeled:bottom_center/clip_horizontal_bottom_right_1/principal_2",
+    "nut_solid_overlaps_bolt_shaft:bottom_center/clip_horizontal_bottom_right_1/principal_2",
+    "no_contact_constitutive_or_enforcement_law_assigned",
+    "assembly_state_and_preload_are_not_established",
+    "nut_thread_engagement_is_not_modeled_or_verified",
+    "bolt_shank_radial_clearances_are_open_on_receiver_members_and_washers",
+    "nut_to_shaft_radial_contact_is_unresolved_where_the_nut_bore_is_unmodeled",
+    "axial_seat_geometry_does_not_constrain_lateral_nut_or_washer_drift",
+    "material_boundary_load_and_joint_response_contracts_are_pending"
+  ],
+  "bolt_hardware_radial_clearances": [
+    {
+      "bolt_shank_contact_active": false,
+      "component_role": "head_washer",
+      "declared_axial_interval_mm": [
+        -5.684341886080802e-14,
+        2.0319999999999823
+      ],
+      "fitted_axis_alignment": 1.0,
+      "fitted_axis_line_distance_mm": 3.809002722179152e-10,
+      "fitted_internal_radius_mm": 3.898899999999996,
+      "fitted_radius_residual_mm": 5.859285502108464e-14,
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "radial_clearance_mm": 0.723900000000004,
+      "radial_status": "OPEN_RADIAL_CLEARANCE",
+      "shaft_radius_mm": 3.174999999999992,
+      "shaft_surface": {
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+        "radius_mm": 3.174999999999992,
+        "transient_cad_entity_tag": 4
+      },
+      "status": "INTERNAL_BORE_BOUND_TO_DECLARED_BOLT_AXIS",
+      "transient_cad_entity_tag": 4,
+      "tri6_face_count": 74
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "component_role": "nut_washer",
+      "declared_axial_interval_mm": [
+        129.03199999999998,
+        131.06400000000002
+      ],
+      "fitted_axis_alignment": 1.0,
+      "fitted_axis_line_distance_mm": 4.123363757563164e-08,
+      "fitted_internal_radius_mm": 3.8989,
+      "fitted_radius_residual_mm": 1.5987211554602254e-14,
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "radial_clearance_mm": 0.723900000000008,
+      "radial_status": "OPEN_RADIAL_CLEARANCE",
+      "shaft_radius_mm": 3.174999999999992,
+      "shaft_surface": {
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+        "radius_mm": 3.174999999999992,
+        "transient_cad_entity_tag": 4
+      },
+      "status": "INTERNAL_BORE_BOUND_TO_DECLARED_BOLT_AXIS",
+      "transient_cad_entity_tag": 4,
+      "tri6_face_count": 74
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "candidate_internal_bore_count": 0,
+      "component_role": "nut",
+      "declared_axial_interval_mm": [
+        131.06399999999996,
+        136.80440000000004
+      ],
+      "interpretation": "internal_bore_wall_missing_or_ambiguous",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "shaft_surface": null,
+      "source_nut_geometry": {
+        "coaxial_overlap_interval_mm": [
+          131.06399999999996,
+          136.80440000000004
+        ],
+        "coaxial_source_overlap_volume_mm3": 181.79397581320632,
+        "cylindrical_surface_count": 1,
+        "external_axis_alignment": 1.0,
+        "external_axis_line_distance_mm": 4.2464856576933606e-08,
+        "external_cylinder_radial_normal_sign": 0.999355287233748,
+        "external_radius_mm": 6.413499999999996,
+        "external_surface_transient_cad_entity_tag": 1,
+        "nut_internal_bore_wall_count": 0,
+        "overlap_basis": "analytic intersection of the fitted continuous bolt-shaft cylinder with the source nut's fitted closed external cylindrical envelope; no OCC boolean was run",
+        "planar_surface_count": 2,
+        "shaft_radius_mm": 3.174999999999992,
+        "status": "COAXIAL_SOLID_NUT_ENVELOPE_OVERLAPS_BOLT_SHAFT"
+      },
+      "status": "MISSING_INTERNAL_BORE_WALL"
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "component_role": "head_washer",
+      "declared_axial_interval_mm": [
+        0.0,
+        2.0319999999999823
+      ],
+      "fitted_axis_alignment": 1.0,
+      "fitted_axis_line_distance_mm": 2.5904724883980573e-10,
+      "fitted_internal_radius_mm": 3.898900000000001,
+      "fitted_radius_residual_mm": 2.1316282072803006e-14,
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "radial_clearance_mm": 0.723900000000008,
+      "radial_status": "OPEN_RADIAL_CLEARANCE",
+      "shaft_radius_mm": 3.174999999999993,
+      "shaft_surface": {
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+        "radius_mm": 3.174999999999993,
+        "transient_cad_entity_tag": 4
+      },
+      "status": "INTERNAL_BORE_BOUND_TO_DECLARED_BOLT_AXIS",
+      "transient_cad_entity_tag": 4,
+      "tri6_face_count": 74
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "component_role": "nut_washer",
+      "declared_axial_interval_mm": [
+        129.03199999999998,
+        131.06400000000002
+      ],
+      "fitted_axis_alignment": 1.0,
+      "fitted_axis_line_distance_mm": 4.05998336488602e-08,
+      "fitted_internal_radius_mm": 3.8989000000000007,
+      "fitted_radius_residual_mm": 1.7763568394002505e-14,
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "radial_clearance_mm": 0.7239000000000075,
+      "radial_status": "OPEN_RADIAL_CLEARANCE",
+      "shaft_radius_mm": 3.174999999999993,
+      "shaft_surface": {
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+        "radius_mm": 3.174999999999993,
+        "transient_cad_entity_tag": 4
+      },
+      "status": "INTERNAL_BORE_BOUND_TO_DECLARED_BOLT_AXIS",
+      "transient_cad_entity_tag": 4,
+      "tri6_face_count": 74
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "candidate_internal_bore_count": 0,
+      "component_role": "nut",
+      "declared_axial_interval_mm": [
+        131.06400000000002,
+        136.80440000000004
+      ],
+      "interpretation": "internal_bore_wall_missing_or_ambiguous",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "shaft_surface": null,
+      "source_nut_geometry": {
+        "coaxial_overlap_interval_mm": [
+          131.06400000000002,
+          136.80440000000004
+        ],
+        "coaxial_source_overlap_volume_mm3": 181.79397581320467,
+        "cylindrical_surface_count": 1,
+        "external_axis_alignment": 1.0,
+        "external_axis_line_distance_mm": 4.1825734279882934e-08,
+        "external_cylinder_radial_normal_sign": 0.9992717069784628,
+        "external_radius_mm": 6.413499999999996,
+        "external_surface_transient_cad_entity_tag": 1,
+        "nut_internal_bore_wall_count": 0,
+        "overlap_basis": "analytic intersection of the fitted continuous bolt-shaft cylinder with the source nut's fitted closed external cylindrical envelope; no OCC boolean was run",
+        "planar_surface_count": 2,
+        "shaft_radius_mm": 3.174999999999993,
+        "status": "COAXIAL_SOLID_NUT_ENVELOPE_OVERLAPS_BOLT_SHAFT"
+      },
+      "status": "MISSING_INTERNAL_BORE_WALL"
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "component_role": "head_washer",
+      "declared_axial_interval_mm": [
+        0.0,
+        2.0320000000000107
+      ],
+      "fitted_axis_alignment": 1.0,
+      "fitted_axis_line_distance_mm": 3.498409078466366e-10,
+      "fitted_internal_radius_mm": 3.898900000000021,
+      "fitted_radius_residual_mm": 6.07087979554246e-14,
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "radial_clearance_mm": 0.7239000000000155,
+      "radial_status": "OPEN_RADIAL_CLEARANCE",
+      "shaft_radius_mm": 3.1750000000000056,
+      "shaft_surface": {
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+        "radius_mm": 3.1750000000000056,
+        "transient_cad_entity_tag": 4
+      },
+      "status": "INTERNAL_BORE_BOUND_TO_DECLARED_BOLT_AXIS",
+      "transient_cad_entity_tag": 4,
+      "tri6_face_count": 74
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "component_role": "nut_washer",
+      "declared_axial_interval_mm": [
+        129.03199999999998,
+        131.06400000000002
+      ],
+      "fitted_axis_alignment": 1.0,
+      "fitted_axis_line_distance_mm": 3.498409078466366e-10,
+      "fitted_internal_radius_mm": 3.898900000000021,
+      "fitted_radius_residual_mm": 6.07087979554246e-14,
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "radial_clearance_mm": 0.7239000000000155,
+      "radial_status": "OPEN_RADIAL_CLEARANCE",
+      "shaft_radius_mm": 3.1750000000000056,
+      "shaft_surface": {
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+        "radius_mm": 3.1750000000000056,
+        "transient_cad_entity_tag": 4
+      },
+      "status": "INTERNAL_BORE_BOUND_TO_DECLARED_BOLT_AXIS",
+      "transient_cad_entity_tag": 4,
+      "tri6_face_count": 74
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "candidate_internal_bore_count": 0,
+      "component_role": "nut",
+      "declared_axial_interval_mm": [
+        131.064,
+        136.8044
+      ],
+      "interpretation": "internal_bore_wall_missing_or_ambiguous",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "shaft_surface": null,
+      "source_nut_geometry": {
+        "coaxial_overlap_interval_mm": [
+          131.064,
+          136.8044
+        ],
+        "coaxial_source_overlap_volume_mm3": 181.7939758132052,
+        "cylindrical_surface_count": 1,
+        "external_axis_alignment": 1.0,
+        "external_axis_line_distance_mm": 3.498392423817709e-10,
+        "external_cylinder_radial_normal_sign": 0.9993419643775366,
+        "external_radius_mm": 6.413499999999994,
+        "external_surface_transient_cad_entity_tag": 1,
+        "nut_internal_bore_wall_count": 0,
+        "overlap_basis": "analytic intersection of the fitted continuous bolt-shaft cylinder with the source nut's fitted closed external cylindrical envelope; no OCC boolean was run",
+        "planar_surface_count": 2,
+        "shaft_radius_mm": 3.1750000000000056,
+        "status": "COAXIAL_SOLID_NUT_ENVELOPE_OVERLAPS_BOLT_SHAFT"
+      },
+      "status": "MISSING_INTERNAL_BORE_WALL"
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "component_role": "head_washer",
+      "declared_axial_interval_mm": [
+        -2.842170943040401e-14,
+        2.0319999999999823
+      ],
+      "fitted_axis_alignment": 1.0,
+      "fitted_axis_line_distance_mm": 3.4973038939314284e-10,
+      "fitted_internal_radius_mm": 3.898900000000021,
+      "fitted_radius_residual_mm": 2.1316282072803006e-14,
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "radial_clearance_mm": 0.7239000000000155,
+      "radial_status": "OPEN_RADIAL_CLEARANCE",
+      "shaft_radius_mm": 3.1750000000000056,
+      "shaft_surface": {
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+        "radius_mm": 3.1750000000000056,
+        "transient_cad_entity_tag": 4
+      },
+      "status": "INTERNAL_BORE_BOUND_TO_DECLARED_BOLT_AXIS",
+      "transient_cad_entity_tag": 4,
+      "tri6_face_count": 74
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "component_role": "nut_washer",
+      "declared_axial_interval_mm": [
+        129.03199999999998,
+        131.064
+      ],
+      "fitted_axis_alignment": 1.0,
+      "fitted_axis_line_distance_mm": 3.4973038939314284e-10,
+      "fitted_internal_radius_mm": 3.898900000000021,
+      "fitted_radius_residual_mm": 2.1316282072803006e-14,
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "radial_clearance_mm": 0.7239000000000155,
+      "radial_status": "OPEN_RADIAL_CLEARANCE",
+      "shaft_radius_mm": 3.1750000000000056,
+      "shaft_surface": {
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+        "radius_mm": 3.1750000000000056,
+        "transient_cad_entity_tag": 4
+      },
+      "status": "INTERNAL_BORE_BOUND_TO_DECLARED_BOLT_AXIS",
+      "transient_cad_entity_tag": 4,
+      "tri6_face_count": 74
+    },
+    {
+      "bolt_shank_contact_active": false,
+      "candidate_internal_bore_count": 0,
+      "component_role": "nut",
+      "declared_axial_interval_mm": [
+        131.064,
+        136.8044
+      ],
+      "interpretation": "internal_bore_wall_missing_or_ambiguous",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "shaft_surface": null,
+      "source_nut_geometry": {
+        "coaxial_overlap_interval_mm": [
+          131.064,
+          136.8044
+        ],
+        "coaxial_source_overlap_volume_mm3": 181.7939758132052,
+        "cylindrical_surface_count": 1,
+        "external_axis_alignment": 1.0,
+        "external_axis_line_distance_mm": 3.497287234019704e-10,
+        "external_cylinder_radial_normal_sign": 0.9993798977591662,
+        "external_radius_mm": 6.413499999999994,
+        "external_surface_transient_cad_entity_tag": 1,
+        "nut_internal_bore_wall_count": 0,
+        "overlap_basis": "analytic intersection of the fitted continuous bolt-shaft cylinder with the source nut's fitted closed external cylindrical envelope; no OCC boolean was run",
+        "planar_surface_count": 2,
+        "shaft_radius_mm": 3.1750000000000056,
+        "status": "COAXIAL_SOLID_NUT_ENVELOPE_OVERLAPS_BOLT_SHAFT"
+      },
+      "status": "MISSING_INTERNAL_BORE_WALL"
+    }
+  ],
+  "bolt_receiver_bore_pairs": [
+    {
+      "bolt_to_wood_bearing_law_assigned": false,
+      "bore_receiver_membership": [
+        "base_rail_bottom_right",
+        "bottom_center_right_cleat"
+      ],
+      "contact_active": false,
+      "head_to_nut_receiver_order": [
+        "bottom_center_right_cleat",
+        "base_rail_bottom_right"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "radial_gap_is_explicitly_open": true,
+      "receiver_bore_walls": [
+        {
+          "declared_receiver_interval_mm": [
+            2.0319999991094733,
+            90.93199999910956
+          ],
+          "fitted_bore_axis_alignment": 1.0,
+          "fitted_bore_axis_line_distance_mm": 1.4762911569354955e-08,
+          "fitted_bore_radius_mm": 3.7499999999999964,
+          "fitted_bore_radius_residual_mm": 7.105427357601002e-14,
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "radial_clearance_mm": 0.5750000000000046,
+          "radial_status": "OPEN_RADIAL_CLEARANCE",
+          "receiver_id": "bottom_center_right_cleat",
+          "shaft_radius_mm": 3.174999999999992,
+          "status": "CYLINDRICAL_BORE_WALL_BOUND_TO_DECLARED_AXIS",
+          "transient_cad_entity_tag": 9,
+          "tri6_face_count": 558
+        },
+        {
+          "declared_receiver_interval_mm": [
+            90.93199999910956,
+            129.03199999910953
+          ],
+          "fitted_bore_axis_alignment": 1.0,
+          "fitted_bore_axis_line_distance_mm": 3.484567822546986e-08,
+          "fitted_bore_radius_mm": 3.7499999999999973,
+          "fitted_bore_radius_residual_mm": 2.842170943040401e-14,
+          "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+          "radial_clearance_mm": 0.5750000000000055,
+          "radial_status": "OPEN_RADIAL_CLEARANCE",
+          "receiver_id": "base_rail_bottom_right",
+          "shaft_radius_mm": 3.174999999999992,
+          "status": "CYLINDRICAL_BORE_WALL_BOUND_TO_DECLARED_AXIS",
+          "transient_cad_entity_tag": 7,
+          "tri6_face_count": 242
+        }
+      ],
+      "shaft_surface": {
+        "axis_interval_mm": [
+          -4.2752357209963066e-10,
+          152.40000000157963
+        ],
+        "fitted_axis_alignment": 1.0,
+        "fitted_axis_line_distance_mm": 2.4158821459120012e-08,
+        "fitted_radius_mm": 3.174999999999992,
+        "fitted_radius_residual_mm": 2.842170943040401e-14,
+        "mesh_body_id": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+        "transient_cad_entity_tag": 4,
+        "tri6_face_count": 3308
+      },
+      "status": "BORE_PAIR_IDENTITY_AND_OPEN_GAP_BOUND"
+    },
+    {
+      "bolt_to_wood_bearing_law_assigned": false,
+      "bore_receiver_membership": [
+        "base_rail_bottom_right",
+        "bottom_center_right_cleat"
+      ],
+      "contact_active": false,
+      "head_to_nut_receiver_order": [
+        "bottom_center_right_cleat",
+        "base_rail_bottom_right"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "radial_gap_is_explicitly_open": true,
+      "receiver_bore_walls": [
+        {
+          "declared_receiver_interval_mm": [
+            2.0319999991094733,
+            90.93199999910956
+          ],
+          "fitted_bore_axis_alignment": 1.0,
+          "fitted_bore_axis_line_distance_mm": 1.4122994075387767e-08,
+          "fitted_bore_radius_mm": 3.7500000000000013,
+          "fitted_bore_radius_residual_mm": 6.07087979554246e-14,
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "radial_clearance_mm": 0.5750000000000082,
+          "radial_status": "OPEN_RADIAL_CLEARANCE",
+          "receiver_id": "bottom_center_right_cleat",
+          "shaft_radius_mm": 3.174999999999993,
+          "status": "CYLINDRICAL_BORE_WALL_BOUND_TO_DECLARED_AXIS",
+          "transient_cad_entity_tag": 10,
+          "tri6_face_count": 550
+        },
+        {
+          "declared_receiver_interval_mm": [
+            90.93199999910951,
+            129.0319999991096
+          ],
+          "fitted_bore_axis_alignment": 1.0,
+          "fitted_bore_axis_line_distance_mm": 3.420570980394289e-08,
+          "fitted_bore_radius_mm": 3.7500000000000013,
+          "fitted_bore_radius_residual_mm": 6.635976784294828e-14,
+          "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+          "radial_clearance_mm": 0.5750000000000082,
+          "radial_status": "OPEN_RADIAL_CLEARANCE",
+          "receiver_id": "base_rail_bottom_right",
+          "shaft_radius_mm": 3.174999999999993,
+          "status": "CYLINDRICAL_BORE_WALL_BOUND_TO_DECLARED_AXIS",
+          "transient_cad_entity_tag": 11,
+          "tri6_face_count": 242
+        }
+      ],
+      "shaft_surface": {
+        "axis_interval_mm": [
+          -9.739296036315181e-10,
+          152.40000000103385
+        ],
+        "fitted_axis_alignment": 1.0,
+        "fitted_axis_line_distance_mm": 2.3518933996214596e-08,
+        "fitted_radius_mm": 3.174999999999993,
+        "fitted_radius_residual_mm": 6.355287432313019e-14,
+        "mesh_body_id": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+        "transient_cad_entity_tag": 4,
+        "tri6_face_count": 3232
+      },
+      "status": "BORE_PAIR_IDENTITY_AND_OPEN_GAP_BOUND"
+    },
+    {
+      "bolt_to_wood_bearing_law_assigned": false,
+      "bore_receiver_membership": [
+        "base_principal_center_right",
+        "bottom_center_right_cleat"
+      ],
+      "contact_active": false,
+      "head_to_nut_receiver_order": [
+        "bottom_center_right_cleat",
+        "base_principal_center_right"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "radial_gap_is_explicitly_open": true,
+      "receiver_bore_walls": [
+        {
+          "declared_receiver_interval_mm": [
+            2.0319999999999823,
+            90.93199999999999
+          ],
+          "fitted_bore_axis_alignment": 1.0,
+          "fitted_bore_axis_line_distance_mm": 3.498392423817709e-10,
+          "fitted_bore_radius_mm": 3.7500000000000084,
+          "fitted_bore_radius_residual_mm": 5.728578676879116e-14,
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "radial_clearance_mm": 0.5750000000000028,
+          "radial_status": "OPEN_RADIAL_CLEARANCE",
+          "receiver_id": "bottom_center_right_cleat",
+          "shaft_radius_mm": 3.1750000000000056,
+          "status": "CYLINDRICAL_BORE_WALL_BOUND_TO_DECLARED_AXIS",
+          "transient_cad_entity_tag": 6,
+          "tri6_face_count": 562
+        },
+        {
+          "declared_receiver_interval_mm": [
+            90.93199999999993,
+            129.03199999999995
+          ],
+          "fitted_bore_axis_alignment": 1.0,
+          "fitted_bore_axis_line_distance_mm": 3.498392423817709e-10,
+          "fitted_bore_radius_mm": 3.7500000000000084,
+          "fitted_bore_radius_residual_mm": 5.728578676879116e-14,
+          "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+          "radial_clearance_mm": 0.5750000000000028,
+          "radial_status": "OPEN_RADIAL_CLEARANCE",
+          "receiver_id": "base_principal_center_right",
+          "shaft_radius_mm": 3.1750000000000056,
+          "status": "CYLINDRICAL_BORE_WALL_BOUND_TO_DECLARED_AXIS",
+          "transient_cad_entity_tag": 12,
+          "tri6_face_count": 248
+        }
+      ],
+      "shaft_surface": {
+        "axis_interval_mm": [
+          0.0,
+          152.4
+        ],
+        "fitted_axis_alignment": 1.0,
+        "fitted_axis_line_distance_mm": 3.498392423817709e-10,
+        "fitted_radius_mm": 3.1750000000000056,
+        "fitted_radius_residual_mm": 5.728578676879116e-14,
+        "mesh_body_id": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+        "transient_cad_entity_tag": 4,
+        "tri6_face_count": 3144
+      },
+      "status": "BORE_PAIR_IDENTITY_AND_OPEN_GAP_BOUND"
+    },
+    {
+      "bolt_to_wood_bearing_law_assigned": false,
+      "bore_receiver_membership": [
+        "base_principal_center_right",
+        "bottom_center_right_cleat"
+      ],
+      "contact_active": false,
+      "head_to_nut_receiver_order": [
+        "bottom_center_right_cleat",
+        "base_principal_center_right"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "radial_gap_is_explicitly_open": true,
+      "receiver_bore_walls": [
+        {
+          "declared_receiver_interval_mm": [
+            2.0319999999999823,
+            90.932
+          ],
+          "fitted_bore_axis_alignment": 1.0,
+          "fitted_bore_axis_line_distance_mm": 3.497287234019704e-10,
+          "fitted_bore_radius_mm": 3.7500000000000084,
+          "fitted_bore_radius_residual_mm": 7.105427357601002e-15,
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "radial_clearance_mm": 0.5750000000000028,
+          "radial_status": "OPEN_RADIAL_CLEARANCE",
+          "receiver_id": "bottom_center_right_cleat",
+          "shaft_radius_mm": 3.1750000000000056,
+          "status": "CYLINDRICAL_BORE_WALL_BOUND_TO_DECLARED_AXIS",
+          "transient_cad_entity_tag": 7,
+          "tri6_face_count": 548
+        },
+        {
+          "declared_receiver_interval_mm": [
+            90.93199999999995,
+            129.03199999999998
+          ],
+          "fitted_bore_axis_alignment": 1.0,
+          "fitted_bore_axis_line_distance_mm": 3.497287234019704e-10,
+          "fitted_bore_radius_mm": 3.7500000000000084,
+          "fitted_bore_radius_residual_mm": 7.105427357601002e-15,
+          "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+          "radial_clearance_mm": 0.5750000000000028,
+          "radial_status": "OPEN_RADIAL_CLEARANCE",
+          "receiver_id": "base_principal_center_right",
+          "shaft_radius_mm": 3.1750000000000056,
+          "status": "CYLINDRICAL_BORE_WALL_BOUND_TO_DECLARED_AXIS",
+          "transient_cad_entity_tag": 11,
+          "tri6_face_count": 250
+        }
+      ],
+      "shaft_surface": {
+        "axis_interval_mm": [
+          0.0,
+          152.4
+        ],
+        "fitted_axis_alignment": 1.0,
+        "fitted_axis_line_distance_mm": 3.497287234019704e-10,
+        "fitted_radius_mm": 3.1750000000000056,
+        "fitted_radius_residual_mm": 7.105427357601002e-15,
+        "mesh_body_id": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+        "transient_cad_entity_tag": 4,
+        "tri6_face_count": 3178
+      },
+      "status": "BORE_PAIR_IDENTITY_AND_OPEN_GAP_BOUND"
+    }
+  ],
+  "candidate_binding": {
+    "hash_index_sha256": "eec82992ff292e36389dec148b2d168d9c3679b069bd1633eeec1d7a8a908c7f",
+    "implementation_revision": "b1e8707d",
+    "inventory_sha256": "70b396e636175abcad7467dc145029d7126c1ea7dff1d053a61f8c5321e1c1d3",
+    "mesh_input_sha256": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh_report_sha256": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "mesh_worker_source_sha256": {
+      "fea/floor_contact.py": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+      "fea/stitch_joint_mesh.py": "9e7bdd4467457cade47f1464e8a3b17cfde69ebb5729719787dd9218011b166e",
+      "fea/wood_joint_current_patch_mesh.py": "8f6cc05c7239fcd3cd7051dcc39aa1d0075142690f3c37b4f7b1ba6dd1d5b5dc",
+      "fea/wood_joint_patch_mesh.py": "915ab6d14efc6e81b4a95c4338ffb8b98cb7e4fac1478d23b592bc8bb377564b",
+      "scripts/wood_joint_current_patch_inputs.py": "aad61df4d6a7f39dd7d14eac48193f1d94545887f56e50d8f86e6ec4f5dec0bc"
+    },
+    "revision_id": "led-clearance-2x6-runner-seated-blocks-v1"
+  },
+  "contact_laws_assigned": false,
+  "geometry_classification_complete": false,
+  "hardware_seats": [
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 81.46614450682807,
+        "candidate_nodal_area_centroid_residual_mm": 3.1236198010063014e-05,
+        "candidate_node_weight_count": 170,
+        "candidate_positive_area_sum_mm2": 81.46614450682809,
+        "candidate_scaled_rank_six_pivot": 0.2289545526017954,
+        "candidate_surface_area_mm2": 236.496072439419,
+        "centroid_global_xyz_mm": [
+          134.5,
+          85.42477139767527,
+          511.2577379445203
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.00021700140028264574,
+        "host_node_weight_count": 207,
+        "host_positive_area_sum_mm2": 81.46614450682807,
+        "host_scaled_rank_six_pivot": 0.3465447871955506,
+        "host_surface_area_mm2": 97.55397106395264,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 7.44516522924008e-12,
+        "refinement_relative_change": 4.853650469685658e-05
+      },
+      "owner_pair": [
+        "M01_A00_HEAD_WASHER",
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_head",
+      "seat_kind": "head_washer_to_head",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 117,
+          "mesh_body_id": "M01_A00_HEAD_WASHER",
+          "outward_normal_global_xyz": [
+            9.211018065972151e-16,
+            0.6427876096868447,
+            0.7660444431187219
+          ],
+          "transient_cad_entity_tag": 3
+        },
+        {
+          "face_count": 83,
+          "mesh_body_id": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+          "outward_normal_global_xyz": [
+            2.4844525278270873e-15,
+            -0.6427876096868732,
+            -0.7660444431186979
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 236.50584072554224,
+        "candidate_nodal_area_centroid_residual_mm": 7.420379480125943e-05,
+        "candidate_node_weight_count": 392,
+        "candidate_positive_area_sum_mm2": 236.505840725542,
+        "candidate_scaled_rank_six_pivot": 0.29438542103659776,
+        "candidate_surface_area_mm2": 236.50584072554201,
+        "centroid_global_xyz_mm": [
+          134.5,
+          84.11862697480665,
+          509.7011356360875
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.004250307667507172,
+        "host_node_weight_count": 46,
+        "host_positive_area_sum_mm2": 236.50584072554207,
+        "host_scaled_rank_six_pivot": 0.04967084717114446,
+        "host_surface_area_mm2": 10553.178021655462,
+        "maximum_normal_alignment_residual": -2.220446049250313e-16,
+        "maximum_plane_residual_mm": 9.041159619642773e-10,
+        "refinement_relative_change": 2.9669504074802607e-05
+      },
+      "owner_pair": [
+        "M01_A00_HEAD_WASHER",
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+      "seat_kind": "head_washer_to_first_receiver",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 168,
+          "mesh_body_id": "M01_A00_HEAD_WASHER",
+          "outward_normal_global_xyz": [
+            -5.275957237605736e-16,
+            -0.6427876096867744,
+            -0.7660444431187808
+          ],
+          "transient_cad_entity_tag": 2
+        },
+        {
+          "face_count": 62,
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "outward_normal_global_xyz": [
+            9.474776428612815e-14,
+            0.6427876096867727,
+            0.7660444431187823
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 81.46614450682165,
+        "candidate_nodal_area_centroid_residual_mm": 2.3789816516672247e-05,
+        "candidate_node_weight_count": 203,
+        "candidate_positive_area_sum_mm2": 81.46614450682176,
+        "candidate_scaled_rank_six_pivot": 0.20428032158075204,
+        "candidate_surface_area_mm2": 236.50584072554193,
+        "centroid_global_xyz_mm": [
+          134.5,
+          1.1784561217180125,
+          410.8568890515698
+        ],
+        "host_nodal_area_centroid_residual_mm": 2.424286941668983e-05,
+        "host_node_weight_count": 137,
+        "host_positive_area_sum_mm2": 81.46614450682169,
+        "host_scaled_rank_six_pivot": 0.3503385548787212,
+        "host_surface_area_mm2": 129.2041243172211,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 5.61303956792992e-12,
+        "refinement_relative_change": 4.8536504703315264e-05
+      },
+      "owner_pair": [
+        "M02_A00_NUT_WASHER",
+        "M03_A00_NUT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_nut",
+      "seat_kind": "nut_washer_to_nut",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 164,
+          "mesh_body_id": "M02_A00_NUT_WASHER",
+          "outward_normal_global_xyz": [
+            -9.507951846443737e-16,
+            -0.6427876096867738,
+            -0.7660444431187813
+          ],
+          "transient_cad_entity_tag": 2
+        },
+        {
+          "face_count": 55,
+          "mesh_body_id": "M03_A00_NUT",
+          "outward_normal_global_xyz": [
+            7.465899333644542e-15,
+            0.6427876096866794,
+            0.7660444431188608
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 236.49607243941855,
+        "candidate_nodal_area_centroid_residual_mm": 9.146436087507087e-06,
+        "candidate_node_weight_count": 283,
+        "candidate_positive_area_sum_mm2": 236.49607243941844,
+        "candidate_scaled_rank_six_pivot": 0.2955108219819205,
+        "candidate_surface_area_mm2": 236.49607243941847,
+        "centroid_global_xyz_mm": [
+          134.5,
+          2.4846005446012116,
+          412.4134913599903
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.0033022631363699454,
+        "host_node_weight_count": 42,
+        "host_positive_area_sum_mm2": 236.49607243941836,
+        "host_scaled_rank_six_pivot": 0.09206101951050046,
+        "host_surface_area_mm2": 139142.90297656922,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 1.985518712839651e-09,
+        "refinement_relative_change": 0.0001475084787466373
+      },
+      "owner_pair": [
+        "M02_A00_NUT_WASHER",
+        "W01_BASE_RAIL_BOTTOM_RIGHT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_last_receiver",
+      "seat_kind": "nut_washer_to_last_receiver",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 117,
+          "mesh_body_id": "M02_A00_NUT_WASHER",
+          "outward_normal_global_xyz": [
+            -6.284761510315006e-19,
+            0.6427876096868397,
+            0.766044443118726
+          ],
+          "transient_cad_entity_tag": 3
+        },
+        {
+          "face_count": 622,
+          "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+          "outward_normal_global_xyz": [
+            1.955358386103843e-13,
+            -0.642787609687242,
+            -0.7660444431183884
+          ],
+          "transient_cad_entity_tag": 2
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 81.46614450682164,
+        "candidate_nodal_area_centroid_residual_mm": 1.9698954653403597e-05,
+        "candidate_node_weight_count": 170,
+        "candidate_positive_area_sum_mm2": 81.46614450682152,
+        "candidate_scaled_rank_six_pivot": 0.22855136235822315,
+        "candidate_surface_area_mm2": 236.49607243941568,
+        "centroid_global_xyz_mm": [
+          134.5,
+          60.145304774535774,
+          532.4697290643498
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.00021759042388804536,
+        "host_node_weight_count": 207,
+        "host_positive_area_sum_mm2": 81.46614450682154,
+        "host_scaled_rank_six_pivot": 0.3465513368380379,
+        "host_surface_area_mm2": 97.5539710639465,
+        "maximum_normal_alignment_residual": 1.1102230246251565e-16,
+        "maximum_plane_residual_mm": 5.36931574731301e-12,
+        "refinement_relative_change": 4.853650470680439e-05
+      },
+      "owner_pair": [
+        "M05_A01_HEAD_WASHER",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_head",
+      "seat_kind": "head_washer_to_head",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 117,
+          "mesh_body_id": "M05_A01_HEAD_WASHER",
+          "outward_normal_global_xyz": [
+            -2.2099349683755647e-16,
+            0.6427876096867674,
+            0.7660444431187868
+          ],
+          "transient_cad_entity_tag": 3
+        },
+        {
+          "face_count": 83,
+          "mesh_body_id": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+          "outward_normal_global_xyz": [
+            -4.185865478503855e-15,
+            -0.6427876096867258,
+            -0.7660444431188216
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 236.50584072554216,
+        "candidate_nodal_area_centroid_residual_mm": 4.6417492885535154e-05,
+        "candidate_node_weight_count": 388,
+        "candidate_positive_area_sum_mm2": 236.50584072554213,
+        "candidate_scaled_rank_six_pivot": 0.294543349221435,
+        "candidate_surface_area_mm2": 236.50584072554213,
+        "centroid_global_xyz_mm": [
+          134.5,
+          58.839160351667644,
+          530.9131267559175
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.0034089830305042584,
+        "host_node_weight_count": 49,
+        "host_positive_area_sum_mm2": 236.50584072554207,
+        "host_scaled_rank_six_pivot": 0.05217519463504109,
+        "host_surface_area_mm2": 10553.17802165546,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 9.176023662523253e-10,
+        "refinement_relative_change": 2.9669504074201715e-05
+      },
+      "owner_pair": [
+        "M05_A01_HEAD_WASHER",
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+      "seat_kind": "head_washer_to_first_receiver",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 166,
+          "mesh_body_id": "M05_A01_HEAD_WASHER",
+          "outward_normal_global_xyz": [
+            -2.8557648688463836e-15,
+            -0.6427876096867738,
+            -0.7660444431187812
+          ],
+          "transient_cad_entity_tag": 2
+        },
+        {
+          "face_count": 62,
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "outward_normal_global_xyz": [
+            9.474776428612815e-14,
+            0.6427876096867727,
+            0.7660444431187823
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 81.46614450682627,
+        "candidate_nodal_area_centroid_residual_mm": 0.0001398511084761721,
+        "candidate_node_weight_count": 206,
+        "candidate_positive_area_sum_mm2": 81.46614450682614,
+        "candidate_scaled_rank_six_pivot": 0.20406906324916532,
+        "candidate_surface_area_mm2": 236.50584072554756,
+        "centroid_global_xyz_mm": [
+          134.5,
+          -24.101010501420074,
+          432.06888017140005
+        ],
+        "host_nodal_area_centroid_residual_mm": 5.7811652141472564e-05,
+        "host_node_weight_count": 137,
+        "host_positive_area_sum_mm2": 81.4661445068261,
+        "host_scaled_rank_six_pivot": 0.350425415113703,
+        "host_surface_area_mm2": 129.20412431722283,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 5.316019652915207e-12,
+        "refinement_relative_change": 4.85365046998234e-05
+      },
+      "owner_pair": [
+        "M06_A01_NUT_WASHER",
+        "M07_A01_NUT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_nut",
+      "seat_kind": "nut_washer_to_nut",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 170,
+          "mesh_body_id": "M06_A01_NUT_WASHER",
+          "outward_normal_global_xyz": [
+            2.023904119954331e-15,
+            -0.6427876096867982,
+            -0.7660444431187609
+          ],
+          "transient_cad_entity_tag": 2
+        },
+        {
+          "face_count": 55,
+          "mesh_body_id": "M07_A01_NUT",
+          "outward_normal_global_xyz": [
+            4.821427963468165e-15,
+            0.6427876096868815,
+            0.7660444431186911
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 236.49607243941435,
+        "candidate_nodal_area_centroid_residual_mm": 8.262414339091238e-06,
+        "candidate_node_weight_count": 283,
+        "candidate_positive_area_sum_mm2": 236.4960724394139,
+        "candidate_scaled_rank_six_pivot": 0.2954587950177549,
+        "candidate_surface_area_mm2": 236.49607243941387,
+        "centroid_global_xyz_mm": [
+          134.5,
+          -22.794866078529992,
+          433.6254824798199
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.004287654895865413,
+        "host_node_weight_count": 45,
+        "host_positive_area_sum_mm2": 236.4960724394138,
+        "host_scaled_rank_six_pivot": 0.024498002007626425,
+        "host_surface_area_mm2": 139142.90297656925,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 1.9948588181767798e-09,
+        "refinement_relative_change": 0.000147508478748924
+      },
+      "owner_pair": [
+        "M06_A01_NUT_WASHER",
+        "W01_BASE_RAIL_BOTTOM_RIGHT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_last_receiver",
+      "seat_kind": "nut_washer_to_last_receiver",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 117,
+          "mesh_body_id": "M06_A01_NUT_WASHER",
+          "outward_normal_global_xyz": [
+            -2.0060764215495633e-16,
+            0.6427876096867878,
+            0.7660444431187697
+          ],
+          "transient_cad_entity_tag": 3
+        },
+        {
+          "face_count": 622,
+          "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+          "outward_normal_global_xyz": [
+            1.955358386103843e-13,
+            -0.642787609687242,
+            -0.7660444431183884
+          ],
+          "transient_cad_entity_tag": 2
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 81.46614450682412,
+        "candidate_nodal_area_centroid_residual_mm": 2.2634086933276438e-05,
+        "candidate_node_weight_count": 170,
+        "candidate_positive_area_sum_mm2": 81.46614450682446,
+        "candidate_scaled_rank_six_pivot": 0.2285689417108214,
+        "candidate_surface_area_mm2": 236.49607243941728,
+        "centroid_global_xyz_mm": [
+          179.982,
+          32.333128244082,
+          473.65502460166
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.00021700140032510147,
+        "host_node_weight_count": 207,
+        "host_positive_area_sum_mm2": 81.46614450682448,
+        "host_scaled_rank_six_pivot": 0.34654478719551773,
+        "host_surface_area_mm2": 97.55397106394977,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 4.853650469842903e-05
+      },
+      "owner_pair": [
+        "M09_A02_HEAD_WASHER",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_head",
+      "seat_kind": "head_washer_to_head",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 117,
+          "mesh_body_id": "M09_A02_HEAD_WASHER",
+          "outward_normal_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 3
+        },
+        {
+          "face_count": 83,
+          "mesh_body_id": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+          "outward_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 236.50584072554338,
+        "candidate_nodal_area_centroid_residual_mm": 6.914760138605357e-05,
+        "candidate_node_weight_count": 396,
+        "candidate_positive_area_sum_mm2": 236.50584072554352,
+        "candidate_scaled_rank_six_pivot": 0.2944294054659496,
+        "candidate_surface_area_mm2": 236.50584072554352,
+        "centroid_global_xyz_mm": [
+          177.95,
+          32.333128244082,
+          473.6550246016792
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.0008552554501900732,
+        "host_node_weight_count": 48,
+        "host_positive_area_sum_mm2": 236.50584072554364,
+        "host_scaled_rank_six_pivot": 0.028289829282812668,
+        "host_surface_area_mm2": 10553.178021655036,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 2.9669504072519033e-05
+      },
+      "owner_pair": [
+        "M09_A02_HEAD_WASHER",
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+      "seat_kind": "head_washer_to_first_receiver",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 170,
+          "mesh_body_id": "M09_A02_HEAD_WASHER",
+          "outward_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 2
+        },
+        {
+          "face_count": 62,
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "outward_normal_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 1
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 81.46614450682435,
+        "candidate_nodal_area_centroid_residual_mm": 0.0001017707415656964,
+        "candidate_node_weight_count": 200,
+        "candidate_positive_area_sum_mm2": 81.46614450682463,
+        "candidate_scaled_rank_six_pivot": 0.21441978535421646,
+        "candidate_surface_area_mm2": 236.50584072554352,
+        "centroid_global_xyz_mm": [
+          48.918,
+          32.33312824408199,
+          473.65502460166
+        ],
+        "host_nodal_area_centroid_residual_mm": 2.869098457209463e-05,
+        "host_node_weight_count": 157,
+        "host_positive_area_sum_mm2": 81.4661445068246,
+        "host_scaled_rank_six_pivot": 0.3478266363581135,
+        "host_surface_area_mm2": 129.20412431722264,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 4.8536504700522366e-05
+      },
+      "owner_pair": [
+        "M10_A02_NUT_WASHER",
+        "M11_A02_NUT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_nut",
+      "seat_kind": "nut_washer_to_nut",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 170,
+          "mesh_body_id": "M10_A02_NUT_WASHER",
+          "outward_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 2
+        },
+        {
+          "face_count": 65,
+          "mesh_body_id": "M11_A02_NUT",
+          "outward_normal_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 236.49607243941742,
+        "candidate_nodal_area_centroid_residual_mm": 1.0311694588845272e-05,
+        "candidate_node_weight_count": 283,
+        "candidate_positive_area_sum_mm2": 236.49607243941728,
+        "candidate_scaled_rank_six_pivot": 0.29561129160511285,
+        "candidate_surface_area_mm2": 236.49607243941728,
+        "centroid_global_xyz_mm": [
+          50.95,
+          32.333128244082,
+          473.65502460166
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.0007938725768889613,
+        "host_node_weight_count": 45,
+        "host_positive_area_sum_mm2": 236.49607243941736,
+        "host_scaled_rank_six_pivot": 0.11910201314244342,
+        "host_surface_area_mm2": 343034.15069403936,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 0.00014750847874711888
+      },
+      "owner_pair": [
+        "M10_A02_NUT_WASHER",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_last_receiver",
+      "seat_kind": "nut_washer_to_last_receiver",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 117,
+          "mesh_body_id": "M10_A02_NUT_WASHER",
+          "outward_normal_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 3
+        },
+        {
+          "face_count": 805,
+          "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+          "outward_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 1
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 81.46614450682428,
+        "candidate_nodal_area_centroid_residual_mm": 1.8271677220002687e-05,
+        "candidate_node_weight_count": 170,
+        "candidate_positive_area_sum_mm2": 81.46614450682436,
+        "candidate_scaled_rank_six_pivot": 0.22861321193528464,
+        "candidate_surface_area_mm2": 236.49607243941716,
+        "centroid_global_xyz_mm": [
+          179.982,
+          53.545119364082,
+          498.93449122466
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.00021700140038100887,
+        "host_node_weight_count": 207,
+        "host_positive_area_sum_mm2": 81.4661445068244,
+        "host_scaled_rank_six_pivot": 0.34654478719551235,
+        "host_surface_area_mm2": 97.55397106394976,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 4.853650469999904e-05
+      },
+      "owner_pair": [
+        "M13_A03_HEAD_WASHER",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_head",
+      "seat_kind": "head_washer_to_head",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 117,
+          "mesh_body_id": "M13_A03_HEAD_WASHER",
+          "outward_normal_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 3
+        },
+        {
+          "face_count": 83,
+          "mesh_body_id": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+          "outward_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 236.50584072554315,
+        "candidate_nodal_area_centroid_residual_mm": 0.00010338624770895911,
+        "candidate_node_weight_count": 396,
+        "candidate_positive_area_sum_mm2": 236.50584072554332,
+        "candidate_scaled_rank_six_pivot": 0.2944645570682242,
+        "candidate_surface_area_mm2": 236.5058407255433,
+        "centroid_global_xyz_mm": [
+          177.95,
+          53.545119364082,
+          498.9344912246792
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.002827845976112523,
+        "host_node_weight_count": 45,
+        "host_positive_area_sum_mm2": 236.50584072554338,
+        "host_scaled_rank_six_pivot": 0.034010098709045505,
+        "host_surface_area_mm2": 10553.178021655036,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 2.9669504072759424e-05
+      },
+      "owner_pair": [
+        "M13_A03_HEAD_WASHER",
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+      "seat_kind": "head_washer_to_first_receiver",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 170,
+          "mesh_body_id": "M13_A03_HEAD_WASHER",
+          "outward_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 2
+        },
+        {
+          "face_count": 62,
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "outward_normal_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 1
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 81.46614450682434,
+        "candidate_nodal_area_centroid_residual_mm": 0.0001459745622872773,
+        "candidate_node_weight_count": 200,
+        "candidate_positive_area_sum_mm2": 81.46614450682452,
+        "candidate_scaled_rank_six_pivot": 0.20419399677350647,
+        "candidate_surface_area_mm2": 236.5058407255433,
+        "centroid_global_xyz_mm": [
+          48.918,
+          53.54511936408199,
+          498.93449122466
+        ],
+        "host_nodal_area_centroid_residual_mm": 6.197401081696595e-05,
+        "host_node_weight_count": 157,
+        "host_positive_area_sum_mm2": 81.46614450682448,
+        "host_scaled_rank_six_pivot": 0.3476872574838807,
+        "host_surface_area_mm2": 129.20412431722264,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 4.853650470226693e-05
+      },
+      "owner_pair": [
+        "M14_A03_NUT_WASHER",
+        "M15_A03_NUT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_nut",
+      "seat_kind": "nut_washer_to_nut",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 170,
+          "mesh_body_id": "M14_A03_NUT_WASHER",
+          "outward_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 2
+        },
+        {
+          "face_count": 65,
+          "mesh_body_id": "M15_A03_NUT",
+          "outward_normal_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 3
+        }
+      ]
+    },
+    {
+      "load_transfer_law_assigned": false,
+      "mesh_overlay": {
+        "area_mm2": 236.49607243941696,
+        "candidate_nodal_area_centroid_residual_mm": 1.3021935578824112e-05,
+        "candidate_node_weight_count": 283,
+        "candidate_positive_area_sum_mm2": 236.49607243941716,
+        "candidate_scaled_rank_six_pivot": 0.2956712546293652,
+        "candidate_surface_area_mm2": 236.49607243941716,
+        "centroid_global_xyz_mm": [
+          50.95,
+          53.545119364082,
+          498.93449122466
+        ],
+        "host_nodal_area_centroid_residual_mm": 0.003350863951197307,
+        "host_node_weight_count": 45,
+        "host_positive_area_sum_mm2": 236.4960724394173,
+        "host_scaled_rank_six_pivot": 0.09072902378594383,
+        "host_surface_area_mm2": 343034.1506940394,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 0.0001475084787448351
+      },
+      "owner_pair": [
+        "M14_A03_NUT_WASHER",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+      ],
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "preload_or_active_pressure_claim": false,
+      "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_last_receiver",
+      "seat_kind": "nut_washer_to_last_receiver",
+      "status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+      "surface_refs": [
+        {
+          "face_count": 117,
+          "mesh_body_id": "M14_A03_NUT_WASHER",
+          "outward_normal_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 3
+        },
+        {
+          "face_count": 805,
+          "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+          "outward_normal_global_xyz": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "transient_cad_entity_tag": 1
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Finite-mesh geometry classification only; it assigns no contact law, tie, preload, or active pressure.",
+    "CAD entity tags are transient pointers and are never used as interface or bore identities.",
+    "Open bolt-shank/bore radial gaps remain explicit and do not transfer load in this classification.",
+    "Geometry and mesh results are not physical joint acceptance or a fabrication release."
+  ],
+  "mesh_owner_maps": {
+    "physical_metal_body_ids": {
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer": "M09_A02_HEAD_WASHER",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut": "M11_A02_NUT",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer": "M10_A02_NUT_WASHER",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer": "M13_A03_HEAD_WASHER",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut": "M15_A03_NUT",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer": "M14_A03_NUT_WASHER",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer": "M01_A00_HEAD_WASHER",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut": "M03_A00_NUT",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer": "M02_A00_NUT_WASHER",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer": "M05_A01_HEAD_WASHER",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut": "M07_A01_NUT",
+      "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer": "M06_A01_NUT_WASHER"
+    },
+    "wood_body_ids": {
+      "base_principal_center_right": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "base_rail_bottom_right": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "bottom_center_right_cleat": "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+    }
+  },
+  "native_solve_ready": false,
+  "response_ready": false,
+  "schema": "wood_joint_current_patch_contact_classification/v1",
+  "scope": {
+    "bolt_receiver_bore_pairs": 4,
+    "head_washer_seats": 4,
+    "nut_bore_radial_clearances_expected": 4,
+    "nut_washer_seats": 4,
+    "physical_bolts": 4,
+    "physical_metal_bodies": 16,
+    "receiver_bore_walls_expected": 8,
+    "washer_hole_radial_clearances_expected": 8,
+    "washer_wood_seats": 8,
+    "wood_finite_interfaces": 3,
+    "wood_members": 3
+  },
+  "seat_nodal_area_centroid_tolerance_mm": 0.02,
+  "seat_overlay_initial_probe_residual_mm": 0.00425031,
+  "seat_overlay_max_nodal_area_centroid_residual_mm": 0.004287654895865413,
+  "seat_overlay_tolerance_basis": "The 0.02 mm limit is a geometry-only coarse-mesh area-lumping tolerance, not a frozen criterion or force/contact accuracy claim.",
+  "status": "CURRENT_PATCH_CONTACT_GEOMETRY_INCOMPLETE_RESPONSE_UNREADY",
+  "thread_engagement_verified": false,
+  "wood_interfaces": [
+    {
+      "active_pressure_claim": false,
+      "first_face": {
+        "body_id": "bottom_center_right_cleat",
+        "face_sha256": "43b9d13b94cabc22d508521a3cb02355cf819870c86b1b44039d26085e04be35",
+        "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "normal_audit": {
+          "maximum_plane_residual_mm": 1.9014020580243596e-08,
+          "minimum_element_outward_normal_alignment": 0.9999999999999998,
+          "source_oriented_normal_alignment": 1.0
+        },
+        "outward_normal_global_xyz": [
+          -1.729032774436715e-13,
+          -0.6427876096867016,
+          -0.7660444431188419
+        ],
+        "transient_cad_entity_tag": 4
+      },
+      "interface_id": "bottom_center_right_cleat_to_base_rail_bottom_right",
+      "load_transfer_law_assigned": false,
+      "members": [
+        "bottom_center_right_cleat",
+        "base_rail_bottom_right"
+      ],
+      "mesh_overlay": {
+        "area_mm2": 10553.110572365264,
+        "candidate_nodal_area_centroid_residual_mm": 0.00031442894296373846,
+        "candidate_node_weight_count": 155,
+        "candidate_positive_area_sum_mm2": 10553.110572365262,
+        "candidate_scaled_rank_six_pivot": 0.20319788026421423,
+        "candidate_surface_area_mm2": 10553.229791524958,
+        "centroid_global_xyz_mm": [
+          133.49164981180598,
+          14.334988780122359,
+          452.2058526870709
+        ],
+        "host_nodal_area_centroid_residual_mm": 2.7468641382301333e-05,
+        "host_node_weight_count": 195,
+        "host_positive_area_sum_mm2": 10553.110572365267,
+        "host_scaled_rank_six_pivot": 0.10873772528043993,
+        "host_surface_area_mm2": 139142.68734820318,
+        "maximum_normal_alignment_residual": 1.1102230246251565e-16,
+        "maximum_plane_residual_mm": 2.2184345027653762e-08,
+        "refinement_relative_change": 3.893373738860081e-05
+      },
+      "second_face": {
+        "body_id": "base_rail_bottom_right",
+        "face_sha256": "be8588932ee2a5cf67026399e2e7c882f0d5f4a23e5ff1f11021402232a8b76c",
+        "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "normal_audit": {
+          "maximum_plane_residual_mm": 2.2681540201574535e-08,
+          "minimum_element_outward_normal_alignment": 0.9999999999999997,
+          "source_oriented_normal_alignment": 0.9999999999999999
+        },
+        "outward_normal_global_xyz": [
+          -4.054469714221792e-13,
+          0.6427876096876008,
+          0.7660444431180873
+        ],
+        "transient_cad_entity_tag": 18
+      },
+      "source_centroid_error_mm": 0.00011501187492530632,
+      "source_common_area_mm2": 10552.972706618,
+      "source_common_centroid_global_xyz_mm": [
+        133.49162726,
+        14.335075174,
+        452.205780194
+      ],
+      "status": "FINITE_MESH_PATCH_OVERLAY_VERIFIED_GEOMETRY_ONLY"
+    },
+    {
+      "active_pressure_claim": false,
+      "first_face": {
+        "body_id": "bottom_center_right_cleat",
+        "face_sha256": "d8dd5fca634de6e14f4f46d7d8788021ec51e4fdee921208b07998d4ec4a0543",
+        "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "normal_audit": {
+          "maximum_plane_residual_mm": 0.0,
+          "minimum_element_outward_normal_alignment": 0.9999999999999999,
+          "source_oriented_normal_alignment": 1.0
+        },
+        "outward_normal_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "transient_cad_entity_tag": 8
+      },
+      "interface_id": "bottom_center_right_cleat_to_base_principal_center_right",
+      "load_transfer_law_assigned": false,
+      "members": [
+        "bottom_center_right_cleat",
+        "base_principal_center_right"
+      ],
+      "mesh_overlay": {
+        "area_mm2": 10553.17802165504,
+        "candidate_nodal_area_centroid_residual_mm": 0.0001562574280657212,
+        "candidate_node_weight_count": 151,
+        "candidate_positive_area_sum_mm2": 10553.178021655036,
+        "candidate_scaled_rank_six_pivot": 0.16691236330427367,
+        "candidate_surface_area_mm2": 10553.178021655036,
+        "centroid_global_xyz_mm": [
+          89.05,
+          42.906715959854616,
+          486.25613574792555
+        ],
+        "host_nodal_area_centroid_residual_mm": 8.381740651115659e-05,
+        "host_node_weight_count": 180,
+        "host_positive_area_sum_mm2": 10553.178021655032,
+        "host_scaled_rank_six_pivot": 0.09831377097332646,
+        "host_surface_area_mm2": 343034.1075680673,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 3.8815351281690755e-05
+      },
+      "second_face": {
+        "body_id": "base_principal_center_right",
+        "face_sha256": "fee3313946bd524b62c092ce6b229a2af84ea48c841702c2c92eb16181c2431b",
+        "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "normal_audit": {
+          "maximum_plane_residual_mm": 0.0,
+          "minimum_element_outward_normal_alignment": 0.9999999999999999,
+          "source_oriented_normal_alignment": 1.0
+        },
+        "outward_normal_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "transient_cad_entity_tag": 3
+      },
+      "source_centroid_error_mm": 9.807480452346405e-07,
+      "source_common_area_mm2": 10552.972706618,
+      "source_common_centroid_global_xyz_mm": [
+        89.05,
+        42.906715329,
+        486.256134997
+      ],
+      "status": "FINITE_MESH_PATCH_OVERLAY_VERIFIED_GEOMETRY_ONLY"
+    },
+    {
+      "active_pressure_claim": false,
+      "first_face": {
+        "body_id": "base_rail_bottom_right",
+        "face_sha256": "0708460816a81f324d61b3aaa04d4ddd9437d3edae011e802e735cb37b3e8670",
+        "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "normal_audit": {
+          "maximum_plane_residual_mm": 0.0,
+          "minimum_element_outward_normal_alignment": 0.9999999999999999,
+          "source_oriented_normal_alignment": 1.0
+        },
+        "outward_normal_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "transient_cad_entity_tag": 1
+      },
+      "interface_id": "base_rail_bottom_right_to_base_principal_center_right",
+      "load_transfer_law_assigned": false,
+      "members": [
+        "base_rail_bottom_right",
+        "base_principal_center_right"
+      ],
+      "mesh_overlay": {
+        "area_mm2": 5322.5700000031875,
+        "candidate_nodal_area_centroid_residual_mm": 8.656383221379485e-13,
+        "candidate_node_weight_count": 43,
+        "candidate_positive_area_sum_mm2": 5322.570000003185,
+        "candidate_scaled_rank_six_pivot": 0.06498018003667302,
+        "candidate_surface_area_mm2": 5322.5699999997305,
+        "centroid_global_xyz_mm": [
+          89.05,
+          2.0899712089890006,
+          437.61263355286934
+        ],
+        "host_nodal_area_centroid_residual_mm": 5.746624195544251e-14,
+        "host_node_weight_count": 51,
+        "host_positive_area_sum_mm2": 5322.570000003185,
+        "host_scaled_rank_six_pivot": 0.059861166335469077,
+        "host_surface_area_mm2": 343034.1075680673,
+        "maximum_normal_alignment_residual": 0.0,
+        "maximum_plane_residual_mm": 0.0,
+        "refinement_relative_change": 1.838616117979218e-13
+      },
+      "second_face": {
+        "body_id": "base_principal_center_right",
+        "face_sha256": "fee3313946bd524b62c092ce6b229a2af84ea48c841702c2c92eb16181c2431b",
+        "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "normal_audit": {
+          "maximum_plane_residual_mm": 0.0,
+          "minimum_element_outward_normal_alignment": 0.9999999999999999,
+          "source_oriented_normal_alignment": 1.0
+        },
+        "outward_normal_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "transient_cad_entity_tag": 3
+      },
+      "source_centroid_error_mm": 1.3114512537759516e-10,
+      "source_common_area_mm2": 5322.57,
+      "source_common_centroid_global_xyz_mm": [
+        89.05,
+        2.089971209,
+        437.612633553
+      ],
+      "status": "FINITE_MESH_PATCH_OVERLAY_VERIFIED_GEOMETRY_ONLY"
+    }
+  ]
+}

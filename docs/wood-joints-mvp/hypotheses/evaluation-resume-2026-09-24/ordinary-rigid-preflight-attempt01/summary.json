@@ -1,0 +1,348 @@
+{
+  "after_six_global_gauges_nullity": 52,
+  "after_six_global_gauges_rank": 62,
+  "artificial_stiffness_added": false,
+  "assumed_axial_mpc_rows": 4,
+  "basis_points": "Three symbolic plane-coordinate points represent the affine row span of each positive-area planar patch. They are not occupied material points or pressure/force locations.",
+  "body_count": 19,
+  "contact_state": "All 3 wood patches and 16 seats treated as closed bilateral tangent equalities for this maximum-restraint diagnostic. Open wood/washer bores add no rows; nut bores are absent. Actual unilateral opening can remove constraints and cannot be inferred from this rank.",
+  "input_sha256": {
+    "classification": "18bdf1b9736ce6ca2cf2b3dd0488a7651da05f35e531605fd465e7b502363f13",
+    "inventory": "70b396e636175abcad7467dc145029d7126c1ea7dff1d053a61f8c5321e1c1d3",
+    "mesh": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "rank_helper": "d59d6ae6fb86f981b78e2c4b2e8578c938e1cfafc646d7c011c0187ef3b53647"
+  },
+  "inputs_unchanged_after_run": true,
+  "limit": "Null motions here identify absent constraints under these assumptions, not a failure or motion of an assembled real joint. No nut lateral drift or wood motion is artificially pinned; accessory spins are tested but not removed.",
+  "metal_component_envelope_count": 16,
+  "native_response_run": false,
+  "nut_model": "Finite rigid seat-only envelope surrogate; solid display interiors are excluded from physical metal/contact inference; axial coupling is an assumed sensitivity only.",
+  "physical_only_nullity": 58,
+  "physical_only_rank": 56,
+  "physical_thread_engagement_established": false,
+  "planar_patch_count": 19,
+  "plane_basis_rows": 57,
+  "scope": "Exact rigid-motion row-space diagnostic for an explicitly maximal closed-face tangent scenario. Not a native tangent/eigenvalue calculation or material/stiffness/capacity result.",
+  "status": "CURRENT_GEOMETRY_KINEMATIC_SENSITIVITY_ONLY",
+  "verified_component_axis_spins": [
+    {
+      "axis": [
+        -0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ],
+      "body_id": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 3.162037853776667e-10
+    },
+    {
+      "axis": [
+        -0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ],
+      "body_id": "M01_A00_HEAD_WASHER",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 3.1629548979950073e-10
+    },
+    {
+      "axis": [
+        -0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ],
+      "body_id": "M02_A00_NUT_WASHER",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 3.1629626695561797e-10
+    },
+    {
+      "axis": [
+        -0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ],
+      "body_id": "M03_A00_NUT",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 3.1629626695561797e-10
+    },
+    {
+      "axis": [
+        0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ],
+      "body_id": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 3.163048156729076e-10
+    },
+    {
+      "axis": [
+        0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ],
+      "body_id": "M05_A01_HEAD_WASHER",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 3.1630476016175635e-10
+    },
+    {
+      "axis": [
+        0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ],
+      "body_id": "M06_A01_NUT_WASHER",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 3.162780592980141e-10
+    },
+    {
+      "axis": [
+        0.0,
+        -0.6427876099290708,
+        -0.7660444429154699
+      ],
+      "body_id": "M07_A01_NUT",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 3.162644035548112e-10
+    },
+    {
+      "axis": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "body_id": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 0.0
+    },
+    {
+      "axis": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "body_id": "M09_A02_HEAD_WASHER",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 0.0
+    },
+    {
+      "axis": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "body_id": "M10_A02_NUT_WASHER",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 0.0
+    },
+    {
+      "axis": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "body_id": "M11_A02_NUT",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 0.0
+    },
+    {
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "body_id": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 0.0
+    },
+    {
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "body_id": "M13_A03_HEAD_WASHER",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 0.0
+    },
+    {
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "body_id": "M14_A03_NUT_WASHER",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 0.0
+    },
+    {
+      "axis": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "body_id": "M15_A03_NUT",
+      "is_null_at_1e_8": true,
+      "maximum_row_residual": 0.0
+    }
+  ],
+  "wood_body_count": 3,
+  "wood_relative_observables": [
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "X",
+      "kind": "translation",
+      "moving_body": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "nullspace_projection_norm": 8.911969002910621e-13,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": false
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "X",
+      "kind": "rotation",
+      "moving_body": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "nullspace_projection_norm": 0.003128392967389267,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": true
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "T",
+      "kind": "translation",
+      "moving_body": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "nullspace_projection_norm": 0.3162277660314807,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": true
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "T",
+      "kind": "rotation",
+      "moving_body": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "nullspace_projection_norm": 1.612823074139072e-14,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": false
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "N",
+      "kind": "translation",
+      "moving_body": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "nullspace_projection_norm": 1.0096219592922264,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": true
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "N",
+      "kind": "rotation",
+      "moving_body": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "nullspace_projection_norm": 3.1441920299111895e-13,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": false
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "X",
+      "kind": "translation",
+      "moving_body": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "nullspace_projection_norm": 2.640408180455332e-11,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": false
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "X",
+      "kind": "rotation",
+      "moving_body": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "nullspace_projection_norm": 0.003128392967553632,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": true
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "T",
+      "kind": "translation",
+      "moving_body": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "nullspace_projection_norm": 0.31622776603148,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": true
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "T",
+      "kind": "rotation",
+      "moving_body": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "nullspace_projection_norm": 2.3186266356917425e-14,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": false
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "N",
+      "kind": "translation",
+      "moving_body": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "nullspace_projection_norm": 1.0017742608154012,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": true
+    },
+    {
+      "datum_global_xyz_mm": [
+        133.49164981180598,
+        14.334988780122359,
+        452.2058526870709
+      ],
+      "direction": "N",
+      "kind": "rotation",
+      "moving_body": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "nullspace_projection_norm": 3.9854505379480034e-13,
+      "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "unresolved_by_declared_rows": false
+    }
+  ]
+}

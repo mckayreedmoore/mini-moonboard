@@ -1,0 +1,103 @@
+import hashlib
+import json
+from pathlib import Path
+import shutil
+import sys
+
+import numpy as np
+
+root=Path.cwd();sys.path.insert(0,str(root))
+from fea import wood_joint_patch_rigid_modes as rm
+base=root/'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+paths={
+ 'classification':base/'ordinary-patch-contact-classification-attempt01/classification.json',
+ 'inventory':base/'ordinary-patch-inputs-attempt01/inventory.json',
+ 'mesh':base/'ordinary-patch-mesh-attempt02/mesh/mesh.json',
+ 'rank_helper':root/'fea/wood_joint_patch_rigid_modes.py',
+}
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+pins={k:sha(p) for k,p in paths.items()}
+classification=json.loads(paths['classification'].read_text());inventory=json.loads(paths['inventory'].read_text());mesh=json.loads(paths['mesh'].read_text())
+assert classification['candidate_binding']['inventory_sha256']==pins['inventory']
+assert classification['candidate_binding']['mesh_report_sha256']==pins['mesh']
+assert len(mesh['bodies'])==19 and len(inventory['physical_bolts'])==4
+assert len(classification['wood_interfaces'])==3 and len(classification['hardware_seats'])==16
+assert classification['response_ready'] is False
+output=base/'ordinary-rigid-preflight-attempt01'
+output.mkdir(exist_ok=False)
+origins={k:np.array(v['imported_cad']['centroid_global_xyz_mm']) for k,v in mesh['bodies'].items()}
+bodies=[rm.RigidBodyDatum(k,tuple(v)) for k,v in origins.items()]
+L=100.
+unit=lambda v:np.array(v,dtype=float)/np.linalg.norm(v)
+contacts=[]
+def plane_rows(name,a,b,centroid,normal,area):
+    assert area>0
+    c=np.array(centroid);n=unit(normal)
+    cardinal=np.eye(3)[int(np.argmin(abs(n)))];t1=unit(np.cross(n,cardinal));t2=np.cross(n,t1)
+    # For rigid motions, normal relative displacement is affine in plane
+    # coordinates. Any finite positive-area planar patch spans these same
+    # three equality rows. These are algebraic basis points, NOT contact
+    # integration points, pressure samples, or force application locations.
+    for i,p in enumerate((c,c+L*t1,c+L*t2)):
+        contacts.append(rm.ActiveContactNormal(f'{name}/plane_basis_{i}',name,name,a,b,tuple(p),tuple(p),tuple(n)))
+for row in classification['wood_interfaces']:
+    plane_rows(row['interface_id'],row['first_face']['mesh_body_id'],row['second_face']['mesh_body_id'],row['mesh_overlay']['centroid_global_xyz_mm'],row['first_face']['outward_normal_global_xyz'],row['mesh_overlay']['area_mm2'])
+for row in classification['hardware_seats']:
+    plane_rows(row['seat_id'],*row['owner_pair'],row['mesh_overlay']['centroid_global_xyz_mm'],row['surface_refs'][0]['outward_normal_global_xyz'],row['mesh_overlay']['area_mm2'])
+metal=classification['mesh_owner_maps']['physical_metal_body_ids']
+threads=[];axes={}
+for bolt in inventory['physical_bolts']:
+    axis_id=bolt['physical_bolt_id'];a=unit(bolt['axis_direction_head_to_nut_global_xyz'])
+    bolt_body=metal[f'physical_metal/{axis_id}/bolt'];nut=metal[f'physical_metal/{axis_id}/nut']
+    c=origins[nut];o=np.array(bolt['axis_origin_global_xyz_mm'])
+    assert np.linalg.norm(np.cross(c-o,a))<1e-6
+    threads.append(rm.ThreadConstraint(axis_id+'/assumed_axial_mpc',axis_id,bolt_body,nut,tuple(c),tuple(c),tuple(a),'assumed bilateral infinite axial engagement; kinematic sensitivity only, not physical thread evidence'))
+    for role in ('bolt','head_washer','nut_washer','nut'):axes[metal[f'physical_metal/{axis_id}/{role}']]=a
+gauge='W02_BASE_PRINCIPAL_CENTER_RIGHT'
+report=rm.audit_rigid_modes(bodies,contacts,threads,assumed_active_set_id='current_ordinary_maximal_closed_planar_faces_open_radial_gaps_axial_mpc_sensitivity',characteristic_length_mm=L,point_alignment_tolerance_mm=1e-6,global_gauge_body_id=gauge)
+ids=report['body_ids_in_coordinate_order'];index={b:i for i,b in enumerate(ids)}
+matrix=np.array(report['with_global_gauge']['dimensionless_constraint_matrix']);null=np.array(report['with_global_gauge']['nullspace_basis_scaled_coordinates'])
+assert np.max(np.abs(matrix@null.T))<1e-8
+spins=[]
+for body,a in axes.items():
+    v=np.zeros(len(ids)*6);v[index[body]*6+3:index[body]*6+6]=a
+    residual=float(np.max(np.abs(matrix@v)))
+    spins.append({'body_id':body,'axis':a.tolist(),'maximum_row_residual':residual,'is_null_at_1e_8':residual<1e-8})
+assert len(spins)==16
+# Inspect relative rigid motion at one common joint datum. These are work-
+# conjugate kinematic observables, not an applied native load distribution.
+c=np.array(classification['wood_interfaces'][0]['mesh_overlay']['centroid_global_xyz_mm'])
+frame={'X':np.array([1.,0.,0.]),'T':unit([0.,.642787610,.766044443]),'N':unit([0.,-.766044443,.642787610])}
+observables=[]
+for moving in ('W00_BOTTOM_CENTER_RIGHT_CLEAT','W01_BASE_RAIL_BOTTOM_RIGHT'):
+    for direction,a in frame.items():
+        for kind in ('translation','rotation'):
+            row=np.zeros(len(ids)*6)
+            for body,sign in ((moving,1.),(gauge,-1.)):
+                start=index[body]*6
+                if kind=='translation':
+                    row[start:start+3]=sign*a
+                    row[start+3:start+6]=sign*np.cross(c-origins[body],a)/L
+                else:row[start+3:start+6]=sign*a/L
+            projection=float(np.linalg.norm(null@row))
+            observables.append({'moving_body':moving,'reference_body':gauge,'kind':kind,'direction':direction,'datum_global_xyz_mm':c.tolist(),'nullspace_projection_norm':projection,'unresolved_by_declared_rows':projection>1e-8})
+assert all(sha(p)==pins[k] for k,p in paths.items())
+summary={
+ 'status':'CURRENT_GEOMETRY_KINEMATIC_SENSITIVITY_ONLY',
+ 'input_sha256':pins,'inputs_unchanged_after_run':True,
+ 'body_count':19,'wood_body_count':3,'metal_component_envelope_count':16,'planar_patch_count':19,'plane_basis_rows':len(contacts),'assumed_axial_mpc_rows':4,
+ 'physical_only_rank':report['physical_only']['rank'],'physical_only_nullity':report['physical_only']['nullity'],
+ 'after_six_global_gauges_rank':report['with_global_gauge']['rank'],'after_six_global_gauges_nullity':report['with_global_gauge']['nullity'],
+ 'verified_component_axis_spins':spins,'wood_relative_observables':observables,
+ 'native_response_run':False,'physical_thread_engagement_established':False,'artificial_stiffness_added':False,
+ 'scope':'Exact rigid-motion row-space diagnostic for an explicitly maximal closed-face tangent scenario. Not a native tangent/eigenvalue calculation or material/stiffness/capacity result.',
+ 'basis_points':'Three symbolic plane-coordinate points represent the affine row span of each positive-area planar patch. They are not occupied material points or pressure/force locations.',
+ 'nut_model':'Finite rigid seat-only envelope surrogate; solid display interiors are excluded from physical metal/contact inference; axial coupling is an assumed sensitivity only.',
+ 'contact_state':'All 3 wood patches and 16 seats treated as closed bilateral tangent equalities for this maximum-restraint diagnostic. Open wood/washer bores add no rows; nut bores are absent. Actual unilateral opening can remove constraints and cannot be inferred from this rank.',
+ 'limit':'Null motions here identify absent constraints under these assumptions, not a failure or motion of an assembled real joint. No nut lateral drift or wood motion is artificially pinned; accessory spins are tested but not removed.'
+}
+(output/'rigid-mode-matrix.json').write_text(json.dumps(report,indent=2,sort_keys=True,allow_nan=False)+'\n')
+(output/'summary.json').write_text(json.dumps(summary,indent=2,sort_keys=True,allow_nan=False)+'\n')
+shutil.copyfile(__file__,output/'parent-driver.py.snapshot')
+print(json.dumps({k:v for k,v in summary.items() if k not in ('verified_component_axis_spins','wood_relative_observables')},indent=2),flush=True)
+print('WOOD_OBSERVABLES',json.dumps(observables),flush=True)
