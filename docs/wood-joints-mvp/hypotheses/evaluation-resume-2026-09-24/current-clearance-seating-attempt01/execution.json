@@ -1,0 +1,26 @@
+{
+  "cad_or_mesh_created": false,
+  "created_utc": "2026-09-25T04:45:00+00:00",
+  "focused_test": {
+    "command": ".venv/bin/pytest -q tests/test_wood_joint_current_clearance_seating.py",
+    "path": "tests/test_wood_joint_current_clearance_seating.py",
+    "result": "2 passed",
+    "sha256": "965978a274a5441f8403409f4c790affb8a104f6b4de648637cd688cba8ff670"
+  },
+  "native_solve_run": false,
+  "producer": {
+    "path": "fea/wood_joint_current_clearance_seating.py",
+    "sha256": "73ac8efd0c6c4adb9916ed9cb9aabf18cdef523b5b49744337bc90418bdc321d"
+  },
+  "ruff": {
+    "command": ".venv/bin/ruff check fea/wood_joint_current_clearance_seating.py tests/test_wood_joint_current_clearance_seating.py",
+    "result": "All checks passed"
+  },
+  "schema": "wood_joint_current_clearance_seating_execution/v1",
+  "status": "GEOMETRY_WITNESS_BUILT_AND_FOCUSED_TESTS_PASS",
+  "witness": {
+    "canonical_record_sha256": "23580bd67ab56ea2c7ad02884fbd89a3fb9ad31661db0623cd726beb6c7f5a52",
+    "path": "geometry-witness.json",
+    "sha256": "c53577c623f11aa6688816cd2ada049762cfbb80ba0beccd3bf01540c0c783cc"
+  }
+}

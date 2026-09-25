@@ -1,0 +1,174 @@
+"""One work-conjugate relative-motion actuator on the current ordinary patch.
+
+The scalar is a linearized displacement observation, dual to equal/opposite
+unit wrenches on the two finite face patches. It is a diagnostic actuator,
+not a physical support, service load, joint spring or runnable analysis.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+from dataclasses import asdict
+from pathlib import Path
+
+from fea import wood_joint_current_patch_contact as contact
+from fea.wood_joint_patch_load_patch import overlay_tri6_surface_patches
+from fea.wood_joint_patch_unit_cases import distribute_wrench_to_nodes
+from fea.wood_joint_patch_wrench import Wrench, cross
+
+INTERFACE_ID = "bottom_center_right_cleat_to_base_principal_center_right"
+DIRECTION_N = (0.0, -0.766044443118978, 0.6427876096865394)
+
+
+def equation_for_distributions(distributions, reference_node_id: int):
+    """Render q=sum(f_unit dot u); keep prescribed q independent in the MPC."""
+    if isinstance(reference_node_id, bool) or not isinstance(reference_node_id, int) or reference_node_id <= 0:
+        raise ValueError("reference node must be a positive integer")
+    terms = []
+    seen = set()
+    for distribution in distributions:
+        for force in distribution.nodal_forces:
+            node = force.node_id
+            if not isinstance(node, int) or node <= 0 or node == reference_node_id:
+                raise ValueError("invalid or colliding physical node")
+            for dof, coefficient in enumerate(force.force_xyz_n, 1):
+                if not math.isfinite(coefficient):
+                    raise ValueError("nonfinite actuator coefficient")
+                if coefficient == 0.0:
+                    continue
+                key = (node, dof)
+                if key in seen:
+                    raise ValueError("overlapping actuator owner DOFs")
+                seen.add(key)
+                terms.append((node, dof, coefficient))
+    if not terms:
+        raise ValueError("actuator has no physical terms")
+    dependent = max(terms, key=lambda term: (abs(term[2]), -term[0], -term[1]))
+    terms.remove(dependent)
+    ordered = [dependent, *sorted(terms), (reference_node_id, 1, -1.0)]
+    scale = dependent[2]
+    normalized = [(node, dof, value / scale) for node, dof, value in ordered]
+    lines = ["*EQUATION", str(len(normalized))]
+    for start in range(0, len(normalized), 4):
+        lines.append(",".join(
+            f"{node},{dof},{value:.17g}"
+            for node, dof, value in normalized[start:start + 4]
+        ))
+    return "\n".join(lines) + "\n", {
+        "dependent_physical_dof": list(dependent[:2]),
+        "independent_actuator_dof": [reference_node_id, 1],
+        "normalization_coefficient": scale,
+        "physical_terms_before_normalization": [list(term) for term in ordered[:-1]],
+        "term_count": len(normalized),
+    }
+
+
+def build_current_seating_actuator(
+    inventory_path, mesh_report_path, mesh_deck_path, classification_path
+):
+    """Bind actual mesh patches and return actuator cards plus audit data."""
+    paths = {name: Path(value).resolve() for name, value in (
+        ("inventory", inventory_path), ("mesh_report", mesh_report_path),
+        ("mesh_deck", mesh_deck_path), ("classification", classification_path),
+    )}
+    hashes = {name: hashlib.sha256(path.read_bytes()).hexdigest()
+              for name, path in paths.items()}
+    helper_paths = {name: Path(__file__).parent / name for name in (
+        "wood_joint_current_seating_actuator.py", "wood_joint_current_patch_contact.py",
+        "wood_joint_patch_load_patch.py", "wood_joint_patch_unit_cases.py",
+        "wood_joint_patch_wrench.py", "floor_contact.py",
+    )}
+    helper_hashes = {name: hashlib.sha256(path.read_bytes()).hexdigest()
+                     for name, path in helper_paths.items()}
+    inventory = json.loads(paths["inventory"].read_text())
+    mesh = json.loads(paths["mesh_report"].read_text())
+    classification = json.loads(paths["classification"].read_text())
+    contact._validate_current_inventory(inventory)
+    bound = contact._validate_source_mesh_binding(
+        paths["inventory"], paths["mesh_report"], paths["mesh_deck"], inventory, mesh
+    )
+    for field in ("inventory_sha256", "mesh_report_sha256", "mesh_input_sha256"):
+        if bound[field] != classification["candidate_binding"][field]:
+            raise ValueError(f"classification source mismatch: {field}")
+    wood_map, _metal_map, bodies = contact._body_maps(inventory, mesh)
+    nodes, elements = contact._parse_deck(paths["mesh_deck"], tuple(bodies))
+    topology = contact._validate_mesh_topology(mesh, bodies, nodes, elements)
+    interfaces = {row["interface_id"]: row for row in inventory["wood_interfaces"]}
+    source = interfaces[INTERFACE_ID]
+    pair = source["actual_face_pairs"][0]
+    owners = contact.INTERFACE_MEMBERS[INTERFACE_ID]
+    surfaces = []
+    for owner, face_key in zip(owners, ("first_face", "second_face"), strict=True):
+        owner_mesh = wood_map[owner]
+        _tag, surface, _audit = contact._source_surface(
+            owner_mesh, bodies[owner_mesh]["surface_inventory"], pair[face_key], topology
+        )
+        surfaces.append(surface)
+    datum = tuple(pair["common_area_centroid_global_xyz_mm"])
+    overlay = overlay_tri6_surface_patches(
+        *surfaces, topology,
+        plane_origin_xyz_mm=pair["plane_datum_global_xyz_mm"],
+        plane_normal_global_xyz=pair["plane_normal_first_member_global_xyz"],
+        datum_xyz_mm=datum, expected_common_area_mm2=pair["common_area_mm2"],
+        plane_tolerance_mm=contact.PLANE_TOLERANCE_MM,
+    )
+    distributions = []
+    for owner, side, sign in zip(
+        owners, (overlay.candidate_patch, overlay.host_patch), (1.0, -1.0), strict=True
+    ):
+        distributions.append(distribute_wrench_to_nodes(
+            side.node_weights, datum,
+            Wrench(tuple(sign * value for value in DIRECTION_N), (0.0, 0.0, 0.0)),
+            owner_body=owner,
+        ))
+    reference_node = max(nodes) + 1000
+    equation, equation_info = equation_for_distributions(distributions, reference_node)
+    force_sum = [0.0, 0.0, 0.0]
+    moment_sum = [0.0, 0.0, 0.0]
+    for distribution in distributions:
+        for row in distribution.nodal_forces:
+            moment = cross(row.point_xyz_mm, row.force_xyz_n)
+            for axis in range(3):
+                force_sum[axis] += row.force_xyz_n[axis]
+                moment_sum[axis] += moment[axis]
+    if max(map(abs, force_sum)) > 1e-9 or max(map(abs, moment_sum)) > 1e-6:
+        raise ValueError("actuator unit forces are not globally self-equilibrated")
+    if hashes != {name: hashlib.sha256(path.read_bytes()).hexdigest()
+                  for name, path in paths.items()}:
+        raise ValueError("actuator inputs changed during preparation")
+    if helper_hashes != {name: hashlib.sha256(path.read_bytes()).hexdigest()
+                         for name, path in helper_paths.items()}:
+        raise ValueError("actuator helpers changed during preparation")
+    cards = (
+        "** Current finite-patch relative-N actuator; no prescribed value or step.\n"
+        "*NODE\n" + f"{reference_node}," + ",".join(f"{v:.17g}" for v in datum) + "\n"
+        "*NSET,NSET=CURRENT_SEATING_ACTUATOR\n" + str(reference_node) + "\n" + equation
+    )
+    report = {
+        "schema": "wood_joint_current_seating_actuator/v1",
+        "status": "CURRENT_PATCH_ACTUATOR_INPUT_ONLY",
+        "geometry_revision_id": classification["candidate_binding"]["revision_id"],
+        "helper_source_sha256": helper_hashes,
+        "input_sha256": hashes, "interface_id": INTERFACE_ID,
+        "owner_order_positive_then_negative": list(owners),
+        "direction_global_xyz": list(DIRECTION_N), "datum_global_xyz_mm": list(datum),
+        "reference_node_id": reference_node,
+        "observation": "q = fitted cleat displacement along N minus fitted principal displacement along N, linearized at the common source datum",
+        "equation": equation_info,
+        "owner_unit_wrench_distributions": [asdict(row) for row in distributions],
+        "global_unit_force_residual_n": force_sum,
+        "global_unit_moment_residual_nmm": moment_sum,
+        "mesh_overlay": contact._overlay_payload(overlay),
+        "cards_sha256": hashlib.sha256(cards.encode()).hexdigest(),
+        "native_solve_run": False, "physical_thread_engagement_verified": False,
+        "limits": [
+            "One prescribed scalar motion is permitted only within a separately frozen diagnostic seating case; no case is emitted here.",
+            "The adjoint nodal pattern defines work conjugacy: an actuator multiplier lambda applies these unit nodal forces times lambda; it is not a physical clamp or service load.",
+            "All other relative motions remain unconstrained by this fragment. Global supports, preload, friction and stabilizing stiffness are absent.",
+            "A linear observation and its initial-coordinate moment balance are not finite-rotation objective. Deformed-coordinate wrench drift must be checked in a response.",
+            "Actuator or other MPC reference-node RF alone is not an authenticated constraint reaction or work measurement.",
+        ],
+    }
+    return cards, report

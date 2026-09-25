@@ -1,0 +1,353 @@
+{
+  "accepted": false,
+  "candidate_null_vector": {
+    "abs_k_abs_v_inf_norm": 1874148.6058827674,
+    "abs_k_abs_v_l2_norm": 46240253.92292383,
+    "absolute_quadratic_scale_sum_abs_v_abs_k_abs_v": 3382216313.6336484,
+    "interpretation": "This tests only the declared cleat translation at this one reference tangent; it does not establish total nullity or response.",
+    "kv_inf_norm": 2.577653958724113e-06,
+    "kv_l2_norm": 1.1819912446256033e-05,
+    "quadratic_form_vtkv": 2.7790036068135e-07,
+    "scaled_quadratic_form": 8.216516476522778e-17,
+    "scaled_residual_acceptance_limit": 1e-08,
+    "scaled_residual_definition": "||Kv||_inf / || |K| |v| ||_inf",
+    "scaled_residual_inf": 1.3753733031805013e-12,
+    "specific_candidate_witness_passed": true,
+    "vector_l2_norm": 96.79359482941018
+  },
+  "capacity_claim": false,
+  "matrix_scope": {
+    "all_matrix_coefficients_finite": true,
+    "coordinate_record_count": 13520701,
+    "deck_audit": {
+      "applied_load_cards": [],
+      "contact_active_set_or_zero_pressure_state_proven": false,
+      "frequency_card": {
+        "frequency_perturbation_option": false,
+        "line": 10,
+        "solver_matrixstorage": true
+      },
+      "frozen_mesh_deck_included": true,
+      "include_tree_sha256": {
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/contact-fragment.inc": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/gauge.inp": "4c2dc916ce4ee62616cbc9b3e448eb5faf6244e9ca5761337cfe38e9ba2a4837",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/preflight.inp": "1508d20c992f739896f071c15a21cd7f31b5d964d5d8d7e3c210147effb96817",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815"
+      },
+      "step_count": 1,
+      "step_perturbation": true,
+      "stress_initial_condition_cards": [],
+      "unloaded_frequency_reference_deck": true
+    },
+    "diagonal_record_count": 334908,
+    "implicit_symmetric_triangle": "upper",
+    "matrix_dimension": 334908,
+    "matrix_kind": "CCX linearized frequency perturbation stiffness tangent",
+    "matrix_semantics_source": {
+      "archive_sha256": "52a20ef7216c6e2de75eae460539915640e3140ec4a2f631a9301e01eda605ad",
+      "dof_semantics": "matrixstorage writes one node.direction label per equation index, with direction IDs from the active degree-of-freedom map.",
+      "gennactdofinv_f_sha256": "ab4cae9907d229b78867a27c2fe70111484b43659097511150d5a7e9cdfdcb75",
+      "matrix_triangle_semantics": "matrixstorage writes neq diagonal entries and nzs off-diagonal entries from one symmetric profile triangle as 1-based row column value, then sorts by column and row. The untransformed branch writes (i+1,irow); the transformed branch explicitly retains row<=column. Determine the actual upper/lower orientation from the emitted coordinate records.",
+      "matrixstorage_c_sha256": "211ec4bbb5bb2b6ec0bc3748520774a6562bb54a22088cdf8911b6d4ba363abe",
+      "version": "2.21"
+    },
+    "maximum_absolute_coefficient": 1249072265607.1,
+    "native_version_observed_in_log": "2.21",
+    "native_version_verified": true,
+    "negative_coefficient_count": 6444315,
+    "off_diagonal_record_count": 13185793,
+    "zero_coefficient_count": 2039
+  },
+  "native_solver_run_by_auditor": false,
+  "positive_elastic_comparison": {
+    "abs_k_abs_v_inf_norm": 499456.61331740627,
+    "abs_k_abs_v_l2_norm": 2870928.9295986984,
+    "absolute_quadratic_scale_sum_abs_v_abs_k_abs_v": 466529.463884144,
+    "interpretation": "A normalized affine-strain vector on the cleat has positive quadratic form as a comparative elastic witness only.",
+    "kv_inf_norm": 422670.1328769643,
+    "kv_l2_norm": 2255873.1529502408,
+    "positive_quadratic_form": true,
+    "quadratic_form_vtkv": 289707.2166726892,
+    "scaled_quadratic_form": 0.6209837515099237,
+    "scaled_residual_definition": "||Kv||_inf / || |K| |v| ||_inf",
+    "scaled_residual_inf": 0.8462599585368911,
+    "vector_l2_norm": 0.9999999999999992
+  },
+  "response_ready": false,
+  "schema": "wood_joint_current_matrix_witness/v1",
+  "source_paths": {
+    "auditor_implementation": "/home/mckay-linux/repos/mini-moonboard/fea/wood_joint_current_matrix_witness.py",
+    "dof": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/preflight.dof",
+    "input_deck": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/preflight.inp",
+    "input_include:contact-fragment.inc": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/contact-fragment.inc",
+    "input_include:gauge.inp": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/gauge.inp",
+    "input_include:materials.inp": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/materials.inp",
+    "input_include:mesh.inp": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/mesh.inp",
+    "input_include:nut-coupling.inp": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/nut-coupling.inp",
+    "input_include:output-sets.inp": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/output-sets.inp",
+    "input_include:preflight.inp": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/preflight.inp",
+    "input_include:rigid-carriers.inp": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/rigid-carriers.inp",
+    "mesh_deck": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.inp",
+    "mesh_report": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.json",
+    "sti": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/preflight.sti"
+  },
+  "source_sha256": {
+    "auditor_implementation": "681602021c6802dcad860b0461d49fe45dea5b920e7ab05dabad5bbd134e0b73",
+    "dof": "965347fe1eaa33fe1e8f8025bc0a79a51447d501ff61f06f9541b8982303ad0b",
+    "input_deck": "1508d20c992f739896f071c15a21cd7f31b5d964d5d8d7e3c210147effb96817",
+    "input_include:contact-fragment.inc": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+    "input_include:gauge.inp": "4c2dc916ce4ee62616cbc9b3e448eb5faf6244e9ca5761337cfe38e9ba2a4837",
+    "input_include:materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "input_include:mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "input_include:nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "input_include:output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "input_include:preflight.inp": "1508d20c992f739896f071c15a21cd7f31b5d964d5d8d7e3c210147effb96817",
+    "input_include:rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "mesh_deck": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh_report": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "native_log": "26f92623834d781cac0ea73d502f3aa6d8f058512e49c5e7a7e88eea095caa8a",
+    "sti": "dbea44f6ecc01d9aec870dc347f04215540938f949910c545da945c5add9a06e"
+  },
+  "status": "CANDIDATE_NULL_VECTOR_WITNESS_PASSED",
+  "structural_acceptance_claim": false,
+  "universal_nullity_claim": false,
+  "vector_scope": {
+    "active_dofs_by_mesh_owner": {
+      "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION": {
+        "direction_counts": {
+          "1": 11345,
+          "2": 11347,
+          "3": 11346
+        },
+        "equation_count": 34038,
+        "nodes_with_active_equations": 11348
+      },
+      "M01_A00_HEAD_WASHER": {
+        "direction_counts": {
+          "1": 1353,
+          "2": 1353,
+          "3": 1353
+        },
+        "equation_count": 4059,
+        "nodes_with_active_equations": 1353
+      },
+      "M02_A00_NUT_WASHER": {
+        "direction_counts": {
+          "1": 1347,
+          "2": 1347,
+          "3": 1347
+        },
+        "equation_count": 4041,
+        "nodes_with_active_equations": 1347
+      },
+      "M03_A00_NUT": {
+        "direction_counts": {},
+        "equation_count": 0,
+        "nodes_with_active_equations": 0
+      },
+      "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION": {
+        "direction_counts": {
+          "1": 10924,
+          "2": 10926,
+          "3": 10925
+        },
+        "equation_count": 32775,
+        "nodes_with_active_equations": 10927
+      },
+      "M05_A01_HEAD_WASHER": {
+        "direction_counts": {
+          "1": 1347,
+          "2": 1347,
+          "3": 1347
+        },
+        "equation_count": 4041,
+        "nodes_with_active_equations": 1347
+      },
+      "M06_A01_NUT_WASHER": {
+        "direction_counts": {
+          "1": 1362,
+          "2": 1362,
+          "3": 1362
+        },
+        "equation_count": 4086,
+        "nodes_with_active_equations": 1362
+      },
+      "M07_A01_NUT": {
+        "direction_counts": {},
+        "equation_count": 0,
+        "nodes_with_active_equations": 0
+      },
+      "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION": {
+        "direction_counts": {
+          "1": 10462,
+          "2": 10462,
+          "3": 10462
+        },
+        "equation_count": 31386,
+        "nodes_with_active_equations": 10464
+      },
+      "M09_A02_HEAD_WASHER": {
+        "direction_counts": {
+          "1": 1362,
+          "2": 1362,
+          "3": 1362
+        },
+        "equation_count": 4086,
+        "nodes_with_active_equations": 1362
+      },
+      "M10_A02_NUT_WASHER": {
+        "direction_counts": {
+          "1": 1363,
+          "2": 1363,
+          "3": 1363
+        },
+        "equation_count": 4089,
+        "nodes_with_active_equations": 1363
+      },
+      "M11_A02_NUT": {
+        "direction_counts": {},
+        "equation_count": 0,
+        "nodes_with_active_equations": 0
+      },
+      "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION": {
+        "direction_counts": {
+          "1": 10569,
+          "2": 10569,
+          "3": 10569
+        },
+        "equation_count": 31707,
+        "nodes_with_active_equations": 10571
+      },
+      "M13_A03_HEAD_WASHER": {
+        "direction_counts": {
+          "1": 1361,
+          "2": 1361,
+          "3": 1361
+        },
+        "equation_count": 4083,
+        "nodes_with_active_equations": 1361
+      },
+      "M14_A03_NUT_WASHER": {
+        "direction_counts": {
+          "1": 1361,
+          "2": 1361,
+          "3": 1361
+        },
+        "equation_count": 4083,
+        "nodes_with_active_equations": 1361
+      },
+      "M15_A03_NUT": {
+        "direction_counts": {},
+        "equation_count": 0,
+        "nodes_with_active_equations": 0
+      },
+      "W00_BOTTOM_CENTER_RIGHT_CLEAT": {
+        "direction_counts": {
+          "1": 9369,
+          "2": 9369,
+          "3": 9369
+        },
+        "equation_count": 28107,
+        "nodes_with_active_equations": 9369
+      },
+      "W01_BASE_RAIL_BOTTOM_RIGHT": {
+        "direction_counts": {
+          "1": 23166,
+          "2": 23166,
+          "3": 23166
+        },
+        "equation_count": 69498,
+        "nodes_with_active_equations": 23166
+      },
+      "W02_BASE_PRINCIPAL_CENTER_RIGHT": {
+        "direction_counts": {
+          "1": 24936,
+          "2": 24934,
+          "3": 24935
+        },
+        "equation_count": 74805,
+        "nodes_with_active_equations": 24936
+      }
+    },
+    "all_control_nodes_zero_in_candidate": true,
+    "all_non_target_active_mesh_equation_entries_zero": true,
+    "candidate_direction_global_xyz": [
+      0.0,
+      -0.766044443118978,
+      0.6427876096865394
+    ],
+    "comparison_witness": "cleat-only centered global-X affine displacement, Euclidean-normalized",
+    "declared_control_node_ids": [
+      116163,
+      116164,
+      116165,
+      116166,
+      116167,
+      116168,
+      116169,
+      116170
+    ],
+    "declared_control_node_ids_in_mesh": [],
+    "dependent_dof_values_reconstructed_by_this_audit": false,
+    "external_control_node_active_directions": {
+      "116163": [
+        1,
+        2,
+        3
+      ],
+      "116164": [
+        1,
+        2,
+        3
+      ],
+      "116165": [
+        1,
+        2,
+        3
+      ],
+      "116166": [
+        1,
+        2,
+        3
+      ],
+      "116167": [
+        1,
+        2,
+        3
+      ],
+      "116168": [
+        1,
+        2,
+        3
+      ],
+      "116169": [
+        1,
+        2,
+        3
+      ],
+      "116170": [
+        1,
+        2,
+        3
+      ]
+    },
+    "observed_nonmesh_control_node_ids": [
+      116163,
+      116164,
+      116165,
+      116166,
+      116167,
+      116168,
+      116169,
+      116170
+    ],
+    "target_active_translation_dof_count": 28107,
+    "target_mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+    "target_mesh_node_count": 9369,
+    "target_source_body_id": "bottom_center_right_cleat"
+  }
+}

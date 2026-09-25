@@ -1,0 +1,137 @@
+{
+  "schema": "wood_joint_current_parent_gauge/v1",
+  "source_paths": {
+    "mesh": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.inp",
+    "mesh_report": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.json",
+    "contact_fragment": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-contact-deck-attempt01/contact-fragment.inc",
+    "actuator_report": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-seating-actuator-attempt02/actuator.json",
+    "contract": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/representative-unit-response-contract.md",
+    "parent_driver": "/tmp/prepare-current-native-preflight.py"
+  },
+  "source_sha256": {
+    "mesh": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh_report": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "contact_fragment": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+    "actuator_report": "66f16b3a6157780c563fa03ad976e0caccd6d604023fa007432dec1da2e1054d",
+    "contract": "edba2e6678edba206e920292770d6bd8f20fc7bb2bfc861cc8d4c0e340a7cb9a",
+    "parent_driver": "3e95603bbc178fa5220e1ff84be2a245c0710ae820eb4238a093e0be50ce2b9e"
+  },
+  "nodes": [
+    {
+      "node_id": 33824,
+      "global_xyz_mm": [
+        70.0,
+        1511.094299554,
+        2127.306653793
+      ],
+      "fixed_global_dofs": [
+        1,
+        2,
+        3
+      ],
+      "owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+    },
+    {
+      "node_id": 43470,
+      "global_xyz_mm": [
+        79.525,
+        1503.7093427790685,
+        2133.5033682994435
+      ],
+      "fixed_global_dofs": [
+        2,
+        3
+      ],
+      "owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+    },
+    {
+      "node_id": 33822,
+      "global_xyz_mm": [
+        70.0,
+        1404.077890851,
+        2217.104082866
+      ],
+      "fixed_global_dofs": [
+        2
+      ],
+      "owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+    }
+  ],
+  "candidate_revision": "led-clearance-2x6-runner-seated-blocks-v1",
+  "remote_T_max_mm": 2600.9241337697295,
+  "rigid_body_matrix": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      -0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      -0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      -6.196714506443641,
+      0.0,
+      9.525000000000006
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      -7.384956774931425,
+      -9.525000000000006,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      -89.79742907300033,
+      0.0,
+      0.0
+    ]
+  ],
+  "singular_values": [
+    90.32551447124017,
+    9.578227875084917,
+    9.51557376307701,
+    1.0,
+    0.9953415120410873,
+    0.9942398478613292
+  ],
+  "rank": 6,
+  "all_gauge_nodes_outside_contact_and_load_nodes": true,
+  "contact_node_count": 43117,
+  "load_node_count": 331,
+  "original_contract_corner_ids": [
+    32537,
+    32554,
+    32538
+  ],
+  "revision_reason": "Contract corner nodes belong to contact surface node sets. Revised far-T triad has rank six and lies outside every contact/load node set; no full-face clamp.",
+  "gauge_cards_sha256": "4c2dc916ce4ee62616cbc9b3e448eb5faf6244e9ca5761337cfe38e9ba2a4837",
+  "physical_support": false,
+  "native_solve_run": false,
+  "limits": [
+    "Reference-frame gauge only, not an anchor or physical load path.",
+    "Native reactions and gauge-location sensitivity remain to audit."
+  ]
+}

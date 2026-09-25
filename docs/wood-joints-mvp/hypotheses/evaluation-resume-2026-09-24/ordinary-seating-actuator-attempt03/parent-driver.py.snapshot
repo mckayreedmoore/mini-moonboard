@@ -1,0 +1,13 @@
+from pathlib import Path
+import hashlib,json,time
+from fea.wood_joint_current_seating_actuator import build_current_seating_actuator
+root=Path.cwd();b=root/'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+out=b/'ordinary-seating-actuator-attempt03';assert not out.exists()
+started=time.monotonic()
+cards,report=build_current_seating_actuator(b/'ordinary-patch-inputs-attempt01/inventory.json',b/'ordinary-patch-mesh-attempt02/mesh/mesh.json',b/'ordinary-patch-mesh-attempt02/mesh/mesh.inp',b/'ordinary-patch-contact-classification-attempt01/classification.json')
+report['parent_prepare_seconds']=time.monotonic()-started
+out.mkdir();(out/'actuator.inp').write_text(cards);(out/'actuator.json').write_text(json.dumps(report,indent=2,sort_keys=True,allow_nan=False)+'\n')
+for source,target in [('fea/wood_joint_current_seating_actuator.py','producer.py.snapshot'),('tests/test_wood_joint_current_seating_actuator.py','tests.py.snapshot')]:
+ (out/target).write_bytes((root/source).read_bytes())
+(out/'parent-driver.py.snapshot').write_bytes(Path(__file__).read_bytes())
+print(json.dumps({k:report[k] for k in ['status','reference_node_id','global_unit_force_residual_n','global_unit_moment_residual_nmm','parent_prepare_seconds']},indent=2));print('report_sha256',hashlib.sha256((out/'actuator.json').read_bytes()).hexdigest());print('physicalterms',report['equation']['term_count']-1)

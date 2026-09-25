@@ -1,0 +1,759 @@
+{
+  "accepted": false,
+  "candidate": {
+    "implementation_revision": "b1e8707d",
+    "revision_id": "led-clearance-2x6-runner-seated-blocks-v1"
+  },
+  "contact_fragment_sha256": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+  "contact_law": {
+    "calculix_version": "2.21",
+    "friction_behavior": "frictionless; optional *FRICTION card omitted",
+    "large_clearance_sigma_infinity": "not entered; CCX 2.21 section 7.129 limits it to node-to-face linear contact; face-to-face requires K only",
+    "manual_theory": "CCX 2.21 section 6: face-to-face contact element active only for positive penetration",
+    "normal_behavior": "unilateral compression-only; opening allowed",
+    "pair_type": "SURFACE TO SURFACE",
+    "penalty_n_per_mm3": 100000.0,
+    "penalty_role": "explicit numerical contact enforcement only, not physical interface stiffness",
+    "pressure_overclosure": "LINEAR",
+    "tension_transfer": false
+  },
+  "intentional_nut_bore_omissions": [
+    {
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "physical_occupancy_or_interference_claim": false,
+      "source_nut_geometry": "solid cylindrical display envelope; no modeled internal bore wall",
+      "status": "INTENTIONAL_NO_NUT_BORE_CONTACT_PAIR"
+    },
+    {
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "physical_occupancy_or_interference_claim": false,
+      "source_nut_geometry": "solid cylindrical display envelope; no modeled internal bore wall",
+      "status": "INTENTIONAL_NO_NUT_BORE_CONTACT_PAIR"
+    },
+    {
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "physical_occupancy_or_interference_claim": false,
+      "source_nut_geometry": "solid cylindrical display envelope; no modeled internal bore wall",
+      "status": "INTENTIONAL_NO_NUT_BORE_CONTACT_PAIR"
+    },
+    {
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "physical_occupancy_or_interference_claim": false,
+      "source_nut_geometry": "solid cylindrical display envelope; no modeled internal bore wall",
+      "status": "INTENTIONAL_NO_NUT_BORE_CONTACT_PAIR"
+    }
+  ],
+  "interface_surface_policy": {
+    "hardware_seat_refs": "complete classified source CAD face refs; seat overlay area is diagnostic finite overlap",
+    "open_bore_shaft_refs": "source bolt cylinder face refs clipped by exact current receiver/washer axial intervals",
+    "open_gap_closure": "no adjust, tie, forced fit, preload, or gap closure emitted",
+    "wood_face_refs": "complete classified source CAD face refs; master can exceed finite common footprint"
+  },
+  "limits": [
+    "Geometry-only current diagnostic; no response, strength, or joint acceptance.",
+    "Displayed nut envelopes are retained only for washer-to-nut seat-controller surfaces; they are not physical nut occupancy or elastic nut compliance.",
+    "No nut-bore radial contact, thread flank contact, bolt axial engagement, material law, or complete joint dynamics is represented.",
+    "Rigid-seat controller semantics, metal representation, engagement, and analysis step require parent disposition.",
+    "The penalty number is caller-supplied numerical enforcement, not timber, steel, or measured contact stiffness."
+  ],
+  "native_solve_run": false,
+  "pair_category_counts": {
+    "head_washer_to_first_receiver": 4,
+    "head_washer_to_head": 4,
+    "nut_washer_to_last_receiver": 4,
+    "nut_washer_to_nut": 4,
+    "open_bolt_shank_to_washer_bore": 8,
+    "open_bolt_shank_to_wood_bore": 8,
+    "wood_wood_finite_interface": 3
+  },
+  "pairs": [
+    {
+      "category": "wood_wood_finite_interface",
+      "classified_normal_dot": -1.0,
+      "contact_surface_domain": "complete CAD face refs; master may exceed finite common footprint",
+      "finite_common_area_mm2": 10552.972706618,
+      "master_face_count": 730,
+      "master_owner": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "maximum_mesh_plane_residual_mm": 2.2184345027653762e-08,
+      "mesh_overlay_area_mm2": 10553.110572365264,
+      "pair_id": "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+      "slave_face_count": 64,
+      "slave_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+    },
+    {
+      "category": "wood_wood_finite_interface",
+      "classified_normal_dot": -1.0,
+      "contact_surface_domain": "complete CAD face refs; master may exceed finite common footprint",
+      "finite_common_area_mm2": 10552.972706618,
+      "master_face_count": 825,
+      "master_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "mesh_overlay_area_mm2": 10553.17802165504,
+      "pair_id": "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+      "slave_face_count": 62,
+      "slave_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+    },
+    {
+      "category": "wood_wood_finite_interface",
+      "classified_normal_dot": -1.0,
+      "contact_surface_domain": "complete CAD face refs; master may exceed finite common footprint",
+      "finite_common_area_mm2": 5322.57,
+      "master_face_count": 825,
+      "master_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "mesh_overlay_area_mm2": 5322.5700000031875,
+      "pair_id": "base_rail_bottom_right_to_base_principal_center_right::wood_to_wood",
+      "slave_face_count": 16,
+      "slave_owner": "W01_BASE_RAIL_BOTTOM_RIGHT"
+    },
+    {
+      "category": "head_washer_to_head",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 81.46614450682807,
+      "master_face_count": 83,
+      "master_owner": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "maximum_mesh_plane_residual_mm": 7.44516522924008e-12,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_head",
+      "slave_face_count": 117,
+      "slave_owner": "M01_A00_HEAD_WASHER"
+    },
+    {
+      "category": "head_washer_to_first_receiver",
+      "classified_normal_dot": -1.0000000000000002,
+      "finite_seat_overlay_area_mm2": 236.50584072554224,
+      "master_face_count": 62,
+      "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "maximum_mesh_plane_residual_mm": 9.041159619642773e-10,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+      "slave_face_count": 168,
+      "slave_owner": "M01_A00_HEAD_WASHER"
+    },
+    {
+      "category": "nut_washer_to_nut",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 81.46614450682165,
+      "master_face_count": 55,
+      "master_owner": "M03_A00_NUT",
+      "maximum_mesh_plane_residual_mm": 5.61303956792992e-12,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_nut",
+      "slave_face_count": 164,
+      "slave_owner": "M02_A00_NUT_WASHER"
+    },
+    {
+      "category": "nut_washer_to_last_receiver",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 236.49607243941855,
+      "master_face_count": 622,
+      "master_owner": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "maximum_mesh_plane_residual_mm": 1.985518712839651e-09,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_last_receiver",
+      "slave_face_count": 117,
+      "slave_owner": "M02_A00_NUT_WASHER"
+    },
+    {
+      "category": "head_washer_to_head",
+      "classified_normal_dot": -0.9999999999999999,
+      "finite_seat_overlay_area_mm2": 81.46614450682164,
+      "master_face_count": 83,
+      "master_owner": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "maximum_mesh_plane_residual_mm": 5.36931574731301e-12,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_head",
+      "slave_face_count": 117,
+      "slave_owner": "M05_A01_HEAD_WASHER"
+    },
+    {
+      "category": "head_washer_to_first_receiver",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 236.50584072554216,
+      "master_face_count": 62,
+      "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "maximum_mesh_plane_residual_mm": 9.176023662523253e-10,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+      "slave_face_count": 166,
+      "slave_owner": "M05_A01_HEAD_WASHER"
+    },
+    {
+      "category": "nut_washer_to_nut",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 81.46614450682627,
+      "master_face_count": 55,
+      "master_owner": "M07_A01_NUT",
+      "maximum_mesh_plane_residual_mm": 5.316019652915207e-12,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_nut",
+      "slave_face_count": 170,
+      "slave_owner": "M06_A01_NUT_WASHER"
+    },
+    {
+      "category": "nut_washer_to_last_receiver",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 236.49607243941435,
+      "master_face_count": 622,
+      "master_owner": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "maximum_mesh_plane_residual_mm": 1.9948588181767798e-09,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_last_receiver",
+      "slave_face_count": 117,
+      "slave_owner": "M06_A01_NUT_WASHER"
+    },
+    {
+      "category": "head_washer_to_head",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 81.46614450682412,
+      "master_face_count": 83,
+      "master_owner": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_head",
+      "slave_face_count": 117,
+      "slave_owner": "M09_A02_HEAD_WASHER"
+    },
+    {
+      "category": "head_washer_to_first_receiver",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 236.50584072554338,
+      "master_face_count": 62,
+      "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+      "slave_face_count": 170,
+      "slave_owner": "M09_A02_HEAD_WASHER"
+    },
+    {
+      "category": "nut_washer_to_nut",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 81.46614450682435,
+      "master_face_count": 65,
+      "master_owner": "M11_A02_NUT",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_nut",
+      "slave_face_count": 170,
+      "slave_owner": "M10_A02_NUT_WASHER"
+    },
+    {
+      "category": "nut_washer_to_last_receiver",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 236.49607243941742,
+      "master_face_count": 805,
+      "master_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_last_receiver",
+      "slave_face_count": 117,
+      "slave_owner": "M10_A02_NUT_WASHER"
+    },
+    {
+      "category": "head_washer_to_head",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 81.46614450682428,
+      "master_face_count": 83,
+      "master_owner": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_head",
+      "slave_face_count": 117,
+      "slave_owner": "M13_A03_HEAD_WASHER"
+    },
+    {
+      "category": "head_washer_to_first_receiver",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 236.50584072554315,
+      "master_face_count": 62,
+      "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+      "slave_face_count": 170,
+      "slave_owner": "M13_A03_HEAD_WASHER"
+    },
+    {
+      "category": "nut_washer_to_nut",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 81.46614450682434,
+      "master_face_count": 65,
+      "master_owner": "M15_A03_NUT",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_nut",
+      "slave_face_count": 170,
+      "slave_owner": "M14_A03_NUT_WASHER"
+    },
+    {
+      "category": "nut_washer_to_last_receiver",
+      "classified_normal_dot": -1.0,
+      "finite_seat_overlay_area_mm2": 236.49607243941696,
+      "master_face_count": 805,
+      "master_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "maximum_mesh_plane_residual_mm": 0.0,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_last_receiver",
+      "slave_face_count": 117,
+      "slave_owner": "M14_A03_NUT_WASHER"
+    },
+    {
+      "axial_interval_mm": [
+        2.0319999991094733,
+        90.93199999910956
+      ],
+      "boundary_excluded_face_count": 62,
+      "category": "open_bolt_shank_to_wood_bore",
+      "contact_or_strength_result": false,
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 558,
+      "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "minimum_bore_inward_radial_alignment": 0.9782035902307329,
+      "minimum_shaft_outward_radial_alignment": 0.9919675590795004,
+      "outside_interval_face_count": 1347,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "radial_clearance_mm": 0.5750000000000046,
+      "receiver_id": "bottom_center_right_cleat",
+      "selected_face_count": 1899,
+      "slave_face_count": 1899,
+      "slave_owner": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        9
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        90.93199999910956,
+        129.03199999910953
+      ],
+      "boundary_excluded_face_count": 63,
+      "category": "open_bolt_shank_to_wood_bore",
+      "contact_or_strength_result": false,
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 242,
+      "master_owner": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "minimum_bore_inward_radial_alignment": 0.9851118731022436,
+      "minimum_shaft_outward_radial_alignment": 0.9913599594412128,
+      "outside_interval_face_count": 2453,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::base_rail_bottom_right::shaft_to_wood_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "radial_clearance_mm": 0.5750000000000055,
+      "receiver_id": "base_rail_bottom_right",
+      "selected_face_count": 792,
+      "slave_face_count": 792,
+      "slave_owner": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        7
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        2.0319999991094733,
+        90.93199999910956
+      ],
+      "boundary_excluded_face_count": 63,
+      "category": "open_bolt_shank_to_wood_bore",
+      "contact_or_strength_result": false,
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 550,
+      "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "minimum_bore_inward_radial_alignment": 0.9869591861645439,
+      "minimum_shaft_outward_radial_alignment": 0.9930195409895876,
+      "outside_interval_face_count": 1358,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "radial_clearance_mm": 0.5750000000000082,
+      "receiver_id": "bottom_center_right_cleat",
+      "selected_face_count": 1811,
+      "slave_face_count": 1811,
+      "slave_owner": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        10
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        90.93199999910951,
+        129.0319999991096
+      ],
+      "boundary_excluded_face_count": 64,
+      "category": "open_bolt_shank_to_wood_bore",
+      "contact_or_strength_result": false,
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 242,
+      "master_owner": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "minimum_bore_inward_radial_alignment": 0.9851118732066272,
+      "minimum_shaft_outward_radial_alignment": 0.9915578327807908,
+      "outside_interval_face_count": 2374,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::base_rail_bottom_right::shaft_to_wood_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "radial_clearance_mm": 0.5750000000000082,
+      "receiver_id": "base_rail_bottom_right",
+      "selected_face_count": 794,
+      "slave_face_count": 794,
+      "slave_owner": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        11
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        2.0319999999999823,
+        90.93199999999999
+      ],
+      "boundary_excluded_face_count": 62,
+      "category": "open_bolt_shank_to_wood_bore",
+      "contact_or_strength_result": false,
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 562,
+      "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "minimum_bore_inward_radial_alignment": 0.9836191278596271,
+      "minimum_shaft_outward_radial_alignment": 0.9916151445042648,
+      "outside_interval_face_count": 1317,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "radial_clearance_mm": 0.5750000000000028,
+      "receiver_id": "bottom_center_right_cleat",
+      "selected_face_count": 1765,
+      "slave_face_count": 1765,
+      "slave_owner": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        6
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        90.93199999999993,
+        129.03199999999995
+      ],
+      "boundary_excluded_face_count": 62,
+      "category": "open_bolt_shank_to_wood_bore",
+      "contact_or_strength_result": false,
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 248,
+      "master_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "minimum_bore_inward_radial_alignment": 0.986294018747113,
+      "minimum_shaft_outward_radial_alignment": 0.9920709052666907,
+      "outside_interval_face_count": 2317,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::base_principal_center_right::shaft_to_wood_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "radial_clearance_mm": 0.5750000000000028,
+      "receiver_id": "base_principal_center_right",
+      "selected_face_count": 765,
+      "slave_face_count": 765,
+      "slave_owner": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        12
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        2.0319999999999823,
+        90.932
+      ],
+      "boundary_excluded_face_count": 61,
+      "category": "open_bolt_shank_to_wood_bore",
+      "contact_or_strength_result": false,
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 548,
+      "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "minimum_bore_inward_radial_alignment": 0.9824571961477581,
+      "minimum_shaft_outward_radial_alignment": 0.9927363175636237,
+      "outside_interval_face_count": 1342,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "radial_clearance_mm": 0.5750000000000028,
+      "receiver_id": "bottom_center_right_cleat",
+      "selected_face_count": 1775,
+      "slave_face_count": 1775,
+      "slave_owner": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        7
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        90.93199999999995,
+        129.03199999999998
+      ],
+      "boundary_excluded_face_count": 62,
+      "category": "open_bolt_shank_to_wood_bore",
+      "contact_or_strength_result": false,
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 250,
+      "master_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "minimum_bore_inward_radial_alignment": 0.9830970864527483,
+      "minimum_shaft_outward_radial_alignment": 0.992434001112486,
+      "outside_interval_face_count": 2333,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::base_principal_center_right::shaft_to_wood_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "radial_clearance_mm": 0.5750000000000028,
+      "receiver_id": "base_principal_center_right",
+      "selected_face_count": 783,
+      "slave_face_count": 783,
+      "slave_owner": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        11
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        -5.684341886080802e-14,
+        2.0319999999999823
+      ],
+      "boundary_excluded_face_count": 30,
+      "category": "open_bolt_shank_to_washer_bore",
+      "contact_or_strength_result": false,
+      "hardware_role": "head_washer",
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 74,
+      "master_owner": "M01_A00_HEAD_WASHER",
+      "minimum_bore_inward_radial_alignment": 0.9914244076635934,
+      "minimum_shaft_outward_radial_alignment": 0.9967152592524564,
+      "outside_interval_face_count": 3249,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::shaft_to_head_washer_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "radial_clearance_mm": 0.723900000000004,
+      "selected_face_count": 29,
+      "slave_face_count": 29,
+      "slave_owner": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        4
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        129.03199999999998,
+        131.06400000000002
+      ],
+      "boundary_excluded_face_count": 63,
+      "category": "open_bolt_shank_to_washer_bore",
+      "contact_or_strength_result": false,
+      "hardware_role": "nut_washer",
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 74,
+      "master_owner": "M02_A00_NUT_WASHER",
+      "minimum_bore_inward_radial_alignment": 0.9914244076635875,
+      "minimum_shaft_outward_radial_alignment": 0.9929515148013519,
+      "outside_interval_face_count": 3228,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::shaft_to_nut_washer_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+      "radial_clearance_mm": 0.723900000000008,
+      "selected_face_count": 17,
+      "slave_face_count": 17,
+      "slave_owner": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        4
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        0.0,
+        2.0319999999999823
+      ],
+      "boundary_excluded_face_count": 31,
+      "category": "open_bolt_shank_to_washer_bore",
+      "contact_or_strength_result": false,
+      "hardware_role": "head_washer",
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 74,
+      "master_owner": "M05_A01_HEAD_WASHER",
+      "minimum_bore_inward_radial_alignment": 0.9914244076644654,
+      "minimum_shaft_outward_radial_alignment": 0.9953219732639405,
+      "outside_interval_face_count": 3169,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::shaft_to_head_washer_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "radial_clearance_mm": 0.723900000000008,
+      "selected_face_count": 32,
+      "slave_face_count": 32,
+      "slave_owner": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        4
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        129.03199999999998,
+        131.06400000000002
+      ],
+      "boundary_excluded_face_count": 62,
+      "category": "open_bolt_shank_to_washer_bore",
+      "contact_or_strength_result": false,
+      "hardware_role": "nut_washer",
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 74,
+      "master_owner": "M06_A01_NUT_WASHER",
+      "minimum_bore_inward_radial_alignment": 0.9914244075833017,
+      "minimum_shaft_outward_radial_alignment": 0.9936297819799683,
+      "outside_interval_face_count": 3153,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::shaft_to_nut_washer_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+      "radial_clearance_mm": 0.7239000000000075,
+      "selected_face_count": 17,
+      "slave_face_count": 17,
+      "slave_owner": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        4
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        0.0,
+        2.0320000000000107
+      ],
+      "boundary_excluded_face_count": 32,
+      "category": "open_bolt_shank_to_washer_bore",
+      "contact_or_strength_result": false,
+      "hardware_role": "head_washer",
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 74,
+      "master_owner": "M09_A02_HEAD_WASHER",
+      "minimum_bore_inward_radial_alignment": 0.9914244076235375,
+      "minimum_shaft_outward_radial_alignment": 0.9952895415598104,
+      "outside_interval_face_count": 3082,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::shaft_to_head_washer_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "radial_clearance_mm": 0.7239000000000155,
+      "selected_face_count": 30,
+      "slave_face_count": 30,
+      "slave_owner": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        4
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        129.03199999999998,
+        131.06400000000002
+      ],
+      "boundary_excluded_face_count": 62,
+      "category": "open_bolt_shank_to_washer_bore",
+      "contact_or_strength_result": false,
+      "hardware_role": "nut_washer",
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 74,
+      "master_owner": "M10_A02_NUT_WASHER",
+      "minimum_bore_inward_radial_alignment": 0.9914244076234981,
+      "minimum_shaft_outward_radial_alignment": 0.9951626323624523,
+      "outside_interval_face_count": 3065,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::shaft_to_nut_washer_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+      "radial_clearance_mm": 0.7239000000000155,
+      "selected_face_count": 17,
+      "slave_face_count": 17,
+      "slave_owner": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        4
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        -2.842170943040401e-14,
+        2.0319999999999823
+      ],
+      "boundary_excluded_face_count": 31,
+      "category": "open_bolt_shank_to_washer_bore",
+      "contact_or_strength_result": false,
+      "hardware_role": "head_washer",
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 74,
+      "master_owner": "M13_A03_HEAD_WASHER",
+      "minimum_bore_inward_radial_alignment": 0.9914244076235448,
+      "minimum_shaft_outward_radial_alignment": 0.9947759682422703,
+      "outside_interval_face_count": 3116,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_head_washer_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "radial_clearance_mm": 0.7239000000000155,
+      "selected_face_count": 31,
+      "slave_face_count": 31,
+      "slave_owner": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        4
+      ]
+    },
+    {
+      "axial_interval_mm": [
+        129.03199999999998,
+        131.064
+      ],
+      "boundary_excluded_face_count": 64,
+      "category": "open_bolt_shank_to_washer_bore",
+      "contact_or_strength_result": false,
+      "hardware_role": "nut_washer",
+      "initial_contact_state": "open radial clearance; no forced fit or closure",
+      "master_face_count": 74,
+      "master_owner": "M14_A03_NUT_WASHER",
+      "minimum_bore_inward_radial_alignment": 0.9914244076235443,
+      "minimum_shaft_outward_radial_alignment": 0.9941251257367756,
+      "outside_interval_face_count": 3096,
+      "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_nut_washer_bore",
+      "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+      "radial_clearance_mm": 0.7239000000000155,
+      "selected_face_count": 18,
+      "slave_face_count": 18,
+      "slave_owner": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "station_selection": "all six C3D10 face nodes lie inside interval",
+      "station_tolerance_mm": 1e-07,
+      "transient_cad_tags": [
+        4,
+        4
+      ]
+    }
+  ],
+  "response_ready": false,
+  "schema": "wood_joint_current_contact_deck_fragment/v1",
+  "scope": {
+    "contact_pairs": 35,
+    "contact_surfaces": 70,
+    "emitted_engagement_or_tie_cards": 0,
+    "emitted_material_cards": 0,
+    "emitted_restraint_or_load_cards": 0,
+    "emitted_solver_step_cards": 0,
+    "intentional_nut_bore_omissions": 4,
+    "physical_metal_bodies": 16,
+    "planar_hardware_seats": 16,
+    "washer_bore_to_shaft_pairs": 8,
+    "wood_bore_to_shaft_pairs": 8,
+    "wood_interfaces": 3,
+    "wood_members": 3
+  },
+  "source_hashes": {
+    "adapter_source_sha256": "768b74bba8c2da010985bfcacf1c8abb8505d386d5f2b53d25c1081da4103e45",
+    "ccx_2_21_manual_pdf_sha256": "16b6bab5a3f1a40a21fff62379f95c804a58d93758ab2e9a489b18d911dc20c8",
+    "classification_sha256": "18bdf1b9736ce6ca2cf2b3dd0488a7651da05f35e531605fd465e7b502363f13",
+    "mesh_deck_sha256": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh_report_sha256": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07"
+  },
+  "status": "UNSOLVED_CURRENT_PATCH_CONTACT_CARDS_ONLY"
+}

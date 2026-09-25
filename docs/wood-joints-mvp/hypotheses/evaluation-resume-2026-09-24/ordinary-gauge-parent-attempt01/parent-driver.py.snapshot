@@ -1,0 +1,59 @@
+import hashlib,json,sys
+from pathlib import Path
+import numpy as np
+root=Path.cwd();sys.path.insert(0,str(root))
+from fea.wood_joint_current_patch_contact import _parse_deck
+from fea.wood_joint_current_native_preflight import prepare
+b=root/'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+paths={
+'mesh':b/'ordinary-patch-mesh-attempt02/mesh/mesh.inp',
+'mesh_report':b/'ordinary-patch-mesh-attempt02/mesh/mesh.json',
+'contact_fragment':b/'ordinary-patch-contact-deck-attempt01/contact-fragment.inc',
+'actuator_report':b/'ordinary-seating-actuator-attempt02/actuator.json',
+'contract':root/'docs/wood-joints-mvp/representative-unit-response-contract.md',
+'parent_driver':Path(__file__),
+}
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+hashes={k:sha(p) for k,p in paths.items()}
+m=json.loads(paths['mesh_report'].read_text()); nodes,elements=_parse_deck(paths['mesh'],tuple(m['bodies']))
+contact_nodes=set();in_nset=False
+for line in paths['contact_fragment'].read_text().splitlines():
+ line=line.strip()
+ if line.startswith('**'):continue
+ if line.startswith('*'):
+  in_nset=line.upper().startswith('*NSET,')
+ elif in_nset:
+  contact_nodes.update(int(x) for x in line.split(',') if x.strip())
+a=json.loads(paths['actuator_report'].read_text());load_nodes={r['node_id'] for d in a['owner_unit_wrench_distributions'] for r in d['nodal_forces']}
+ids=[33824,43470,33822];dofs=[(1,2,3),(2,3),(2,)];grows=[]; origin=np.array(nodes[ids[0]])
+for node,ds in zip(ids,dofs):
+ assert node in m['bodies']['W02_BASE_PRINCIPAL_CENTER_RIGHT']['nodes']
+ assert node not in contact_nodes and node not in load_nodes
+ x,y,z=np.array(nodes[node])-origin
+ rb=np.array([[1,0,0,0,z,-y],[0,1,0,-z,0,x],[0,0,1,y,-x,0]],float)
+ grows.extend(rb[d-1] for d in ds)
+s=np.linalg.svd(grows,compute_uv=False); assert min(s)>1e-3
+T=np.array((0,.6427876096865394,.766044443118978))
+principal_ids=m['bodies']['W02_BASE_PRINCIPAL_CENTER_RIGHT']['nodes']
+tmax=max(np.dot(T,nodes[node]) for node in principal_ids)
+assert all(abs(np.dot(T,nodes[node])-tmax)<1e-7 for node in ids)
+assert all(sha(paths[k])==v for k,v in hashes.items())
+dest=b/'ordinary-gauge-parent-attempt01';dest.mkdir(exist_ok=False)
+cards='** Remote 3-2-1 reference gauge only; six scalar constraints.\n*NSET,NSET=CURRENT_GAUGE_NODES\n'+','.join(map(str,ids))+'\n*BOUNDARY\n'
+cards+=''.join(f'{node},{d},{d},0\n' for node,ds in zip(ids,dofs) for d in ds)
+(dest/'gauge.inp').write_text(cards)
+report={
+'schema':'wood_joint_current_parent_gauge/v1','source_paths':{k:str(p) for k,p in paths.items()},'source_sha256':hashes,
+'nodes':[{'node_id':n,'global_xyz_mm':nodes[n],'fixed_global_dofs':list(ds),'owner':'W02_BASE_PRINCIPAL_CENTER_RIGHT'} for n,ds in zip(ids,dofs)],
+'candidate_revision':'led-clearance-2x6-runner-seated-blocks-v1','remote_T_max_mm':float(tmax),
+'rigid_body_matrix':np.array(grows).tolist(),'singular_values':s.tolist(),'rank':6,
+'all_gauge_nodes_outside_contact_and_load_nodes':True,'contact_node_count':len(contact_nodes),'load_node_count':len(load_nodes),
+'original_contract_corner_ids':[32537,32554,32538],
+'revision_reason':'Contract corner nodes belong to contact surface node sets. Revised far-T triad has rank six and lies outside every contact/load node set; no full-face clamp.',
+'gauge_cards_sha256':sha(dest/'gauge.inp'),'physical_support':False,'native_solve_run':False,
+'limits':['Reference-frame gauge only, not an anchor or physical load path.','Native reactions and gauge-location sensitivity remain to audit.']}
+(dest/'gauge.json').write_text(json.dumps(report,indent=2)+'\n')
+(dest/'parent-driver.py.snapshot').write_bytes(Path(__file__).read_bytes())
+step='*STEP,PERTURBATION\n*FREQUENCY,SOLVER=MATRIXSTORAGE\n*END STEP\n'
+r=prepare(b/'ordinary-native-preflight-attempt01',b/'ordinary-nut-coupling-attempt01',dest,step_cards=step,step_scope='First zero-load, gauge-only native reference-tangent matrix export; undeformed frictionless contact and explicitly assumed six-DOF stiff nut engagement. No eigensolve or force-controlled unit sweep; no strength acceptance.')
+print(json.dumps({'gauge':report['rank'],'nodes':ids,'T_max':tmax,'preflight':r['status'],'artifacts':len(r['artifacts_sha256'])},indent=2))
