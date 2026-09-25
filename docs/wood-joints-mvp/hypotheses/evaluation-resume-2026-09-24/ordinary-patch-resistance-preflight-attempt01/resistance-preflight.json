@@ -1,0 +1,384 @@
+{
+  "schema": "wood_joint_current_patch_resistance_preflight/v1",
+  "status": "PRE_DEMAND_COMPONENT_REFERENCES_ONLY",
+  "candidate": {
+    "revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+    "implementation_revision": "b1e8707d",
+    "wood_member_count": 3,
+    "physical_bolt_count": 4,
+    "bolted_interface_count": 2,
+    "separate_unbolted_butt_interface": "base_rail_bottom_right_to_base_principal_center_right"
+  },
+  "inputs": {
+    "inventory": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-inputs-attempt01/inventory.json",
+      "sha256": "70b396e636175abcad7467dc145029d7126c1ea7dff1d053a61f8c5321e1c1d3"
+    },
+    "contact_classification": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-contact-classification-attempt01/classification.json",
+      "sha256": "18bdf1b9736ce6ca2cf2b3dd0488a7651da05f35e531605fd465e7b502363f13"
+    },
+    "material_map": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-materials-attempt01/material-map.json",
+      "sha256": "9e1cbc8945d33683de3cb71ba716581919f508466d8a27b181865da4cc675fd4"
+    }
+  },
+  "wood_washer_bearing": {
+    "status": "conditional_per_seat_wood_reference_only",
+    "wood_property_basis": "dry DF-L No. 2 Fc-perp = 625 psi per 2024 NDS Supplement Table 4A",
+    "wood_species_grade_verified_for_delivered_stock": false,
+    "washer_product_selected_or_received": false,
+    "washer_dimensional_basis": "1/4-in Type A Wide plain washer dimensional envelope",
+    "washer_dimensions_mm": {
+      "inner_diameter": {
+        "min": 7.7978,
+        "max": 8.3058
+      },
+      "outer_diameter": {
+        "min": 18.4658,
+        "max": 19.0246
+      }
+    },
+    "wood_bore_diameter_mm": {
+      "value": 7.5,
+      "meaning": "current CAD occupancy geometry, not a drilling instruction"
+    },
+    "calculation": "625 psi \u00d7 \u03c0/4 \u00d7 (washer OD\u00b2 \u2212 max(wood bore, washer ID)\u00b2); no bearing-area increase",
+    "lower_per_seat": {
+      "annulus_area_mm2": 213.6278731875051,
+      "reference_lbf": 206.9524160552277,
+      "reference_N": 920.570210427248
+    },
+    "upper_per_seat": {
+      "annulus_area_mm2": 236.50672928371526,
+      "reference_lbf": 229.11635222630358,
+      "reference_N": 1019.1603103826817
+    },
+    "limitations": [
+      "Conditional on delivered wood meeting dry DF-L No. 2 applicability; current stock is unobserved.",
+      "Ideal uniform compression over a complete annulus, full washer footprint on sound wood, no preload, and no bearing-area-factor increase.",
+      "Not actual contact pressure, per-bolt force, adjusted design resistance, washer steel resistance, or joint capacity.",
+      "Bounds apply per washer seat and are not summed across the eight seats."
+    ],
+    "seat_count": 8,
+    "seats": [
+      {
+        "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+        "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+        "seat_kind": "head_washer_to_first_receiver",
+        "wood_receiver_id": "bottom_center_right_cleat",
+        "geometry_status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+        "mesh_overlay_area_mm2": 236.50584072554338,
+        "pressure_or_preload_established": false,
+        "per_seat_reference_range_N": [
+          920.570210427248,
+          1019.1603103826817
+        ],
+        "result_state": "CONDITIONAL_WOOD_BEARING_REFERENCE_ONLY"
+      },
+      {
+        "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_last_receiver",
+        "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+        "seat_kind": "nut_washer_to_last_receiver",
+        "wood_receiver_id": "base_principal_center_right",
+        "geometry_status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+        "mesh_overlay_area_mm2": 236.49607243941742,
+        "pressure_or_preload_established": false,
+        "per_seat_reference_range_N": [
+          920.570210427248,
+          1019.1603103826817
+        ],
+        "result_state": "CONDITIONAL_WOOD_BEARING_REFERENCE_ONLY"
+      },
+      {
+        "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+        "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+        "seat_kind": "head_washer_to_first_receiver",
+        "wood_receiver_id": "bottom_center_right_cleat",
+        "geometry_status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+        "mesh_overlay_area_mm2": 236.50584072554315,
+        "pressure_or_preload_established": false,
+        "per_seat_reference_range_N": [
+          920.570210427248,
+          1019.1603103826817
+        ],
+        "result_state": "CONDITIONAL_WOOD_BEARING_REFERENCE_ONLY"
+      },
+      {
+        "seat_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_last_receiver",
+        "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+        "seat_kind": "nut_washer_to_last_receiver",
+        "wood_receiver_id": "base_principal_center_right",
+        "geometry_status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+        "mesh_overlay_area_mm2": 236.49607243941696,
+        "pressure_or_preload_established": false,
+        "per_seat_reference_range_N": [
+          920.570210427248,
+          1019.1603103826817
+        ],
+        "result_state": "CONDITIONAL_WOOD_BEARING_REFERENCE_ONLY"
+      },
+      {
+        "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+        "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+        "seat_kind": "head_washer_to_first_receiver",
+        "wood_receiver_id": "bottom_center_right_cleat",
+        "geometry_status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+        "mesh_overlay_area_mm2": 236.50584072554224,
+        "pressure_or_preload_established": false,
+        "per_seat_reference_range_N": [
+          920.570210427248,
+          1019.1603103826817
+        ],
+        "result_state": "CONDITIONAL_WOOD_BEARING_REFERENCE_ONLY"
+      },
+      {
+        "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_last_receiver",
+        "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+        "seat_kind": "nut_washer_to_last_receiver",
+        "wood_receiver_id": "base_rail_bottom_right",
+        "geometry_status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+        "mesh_overlay_area_mm2": 236.49607243941855,
+        "pressure_or_preload_established": false,
+        "per_seat_reference_range_N": [
+          920.570210427248,
+          1019.1603103826817
+        ],
+        "result_state": "CONDITIONAL_WOOD_BEARING_REFERENCE_ONLY"
+      },
+      {
+        "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+        "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+        "seat_kind": "head_washer_to_first_receiver",
+        "wood_receiver_id": "bottom_center_right_cleat",
+        "geometry_status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+        "mesh_overlay_area_mm2": 236.50584072554216,
+        "pressure_or_preload_established": false,
+        "per_seat_reference_range_N": [
+          920.570210427248,
+          1019.1603103826817
+        ],
+        "result_state": "CONDITIONAL_WOOD_BEARING_REFERENCE_ONLY"
+      },
+      {
+        "seat_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_last_receiver",
+        "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+        "seat_kind": "nut_washer_to_last_receiver",
+        "wood_receiver_id": "base_rail_bottom_right",
+        "geometry_status": "FINITE_OPPOSED_PLANAR_SEAT_GEOMETRY_VERIFIED",
+        "mesh_overlay_area_mm2": 236.49607243941435,
+        "pressure_or_preload_established": false,
+        "per_seat_reference_range_N": [
+          920.570210427248,
+          1019.1603103826817
+        ],
+        "result_state": "CONDITIONAL_WOOD_BEARING_REFERENCE_ONLY"
+      }
+    ]
+  },
+  "two_bolt_group_geometry": [
+    {
+      "interface_id": "bottom_center_right_cleat_to_base_rail_bottom_right",
+      "physical_bolt_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2"
+      ],
+      "bolt_center_pitch_mm": 32.99999999963498,
+      "axial_datum_offset_mm": 1.0997595722983533e-08,
+      "modeled_shaft_diameter_mm": 6.35,
+      "pitch_over_modeled_shaft_diameter": 5.196850393643304,
+      "diameter_basis": "6.35 mm unthreaded CAD occupancy envelope; not delivered bolt D",
+      "receiver_axis_grain_geometry": [
+        {
+          "wood_member_id": "bottom_center_right_cleat",
+          "bolt_axis_to_declared_grain_angle_degrees": 90.0,
+          "bolt_group_pitch_to_declared_grain_angle_degrees": 0.0,
+          "meaning": "geometry orientation of bolt axes and pair line only; not a wood load-to-grain angle or NDS spacing disposition"
+        },
+        {
+          "wood_member_id": "base_rail_bottom_right",
+          "bolt_axis_to_declared_grain_angle_degrees": 90.0,
+          "bolt_group_pitch_to_declared_grain_angle_degrees": 90.0,
+          "meaning": "geometry orientation of bolt axes and pair line only; not a wood load-to-grain angle or NDS spacing disposition"
+        }
+      ],
+      "classification": "GEOMETRY_ONLY_NO_NDS_SPACING_OR_GROUP_PASS"
+    },
+    {
+      "interface_id": "bottom_center_right_cleat_to_base_principal_center_right",
+      "physical_bolt_ids": [
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2"
+      ],
+      "bolt_center_pitch_mm": 33.000000000277694,
+      "axial_datum_offset_mm": 0.0,
+      "modeled_shaft_diameter_mm": 6.35,
+      "pitch_over_modeled_shaft_diameter": 5.196850393744519,
+      "diameter_basis": "6.35 mm unthreaded CAD occupancy envelope; not delivered bolt D",
+      "receiver_axis_grain_geometry": [
+        {
+          "wood_member_id": "bottom_center_right_cleat",
+          "bolt_axis_to_declared_grain_angle_degrees": 90.0,
+          "bolt_group_pitch_to_declared_grain_angle_degrees": 89.99999998223558,
+          "meaning": "geometry orientation of bolt axes and pair line only; not a wood load-to-grain angle or NDS spacing disposition"
+        },
+        {
+          "wood_member_id": "base_principal_center_right",
+          "bolt_axis_to_declared_grain_angle_degrees": 90.0,
+          "bolt_group_pitch_to_declared_grain_angle_degrees": 0.0,
+          "meaning": "geometry orientation of bolt axes and pair line only; not a wood load-to-grain angle or NDS spacing disposition"
+        }
+      ],
+      "classification": "GEOMETRY_ONLY_NO_NDS_SPACING_OR_GROUP_PASS"
+    }
+  ],
+  "resistance_gates": {
+    "NDS_dowel_yield_and_member_bearing": {
+      "status": "unresolved",
+      "missing_resistance_inputs": [
+        "delivered bolt identity and measured/applicable D and Dr",
+        "member-specific thread-bearing length in the 88.9 mm cleat and 38.1 mm host for each bolt",
+        "ASTM F1575 bending-yield test or ASTM F606 tensile-yield evaluation with an applicable Fyb derivation for delivered bolts",
+        "verified wood species/grade and applicable NDS design adjustments"
+      ],
+      "later_demand_and_response_inputs": [
+        "fresh per-bolt lateral actions at each wood shear plane",
+        "physically supported bolt/contact load-sharing response for the current complete joint"
+      ],
+      "prohibited_substitution": "Do not assign SAE J429 Grade 5 yield or an old bolt/angle capacity as Fyb.",
+      "source_method": "NDS-2024 \u00a7\u00a712.3.6.2, 12.3.7.1\u201312.3.7.2; see bolt-resistance-basis.md",
+      "member_thread_fraction_limits": {
+        "status": "NDS_THREAD_FRACTION_LIMITS_COMPUTED_OCCUPANCY_UNVERIFIED",
+        "method": "NDS-2024 \u00a7\u00a712.3.7.1\u201312.3.7.2: full-body D exception only if thread bearing is at most one-quarter of the complete bearing length in each member holding threads; otherwise use Dr unless detailed analysis is supplied.",
+        "per_bolt_member_limits": [
+          {
+            "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+            "members": [
+              {
+                "wood_member_id": "bottom_center_right_cleat",
+                "projected_bearing_length_mm": 88.9,
+                "maximum_thread_bearing_length_for_full_body_D_mm": 22.225,
+                "delivered_thread_bearing_length_mm": null,
+                "thread_fraction_status": "unverified_no_delivered_thread_location"
+              },
+              {
+                "wood_member_id": "base_principal_center_right",
+                "projected_bearing_length_mm": 38.10000000000002,
+                "maximum_thread_bearing_length_for_full_body_D_mm": 9.525000000000006,
+                "delivered_thread_bearing_length_mm": null,
+                "thread_fraction_status": "unverified_no_delivered_thread_location"
+              }
+            ]
+          },
+          {
+            "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+            "members": [
+              {
+                "wood_member_id": "bottom_center_right_cleat",
+                "projected_bearing_length_mm": 88.90000000000002,
+                "maximum_thread_bearing_length_for_full_body_D_mm": 22.225000000000005,
+                "delivered_thread_bearing_length_mm": null,
+                "thread_fraction_status": "unverified_no_delivered_thread_location"
+              },
+              {
+                "wood_member_id": "base_principal_center_right",
+                "projected_bearing_length_mm": 38.10000000000004,
+                "maximum_thread_bearing_length_for_full_body_D_mm": 9.52500000000001,
+                "delivered_thread_bearing_length_mm": null,
+                "thread_fraction_status": "unverified_no_delivered_thread_location"
+              }
+            ]
+          },
+          {
+            "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+            "members": [
+              {
+                "wood_member_id": "bottom_center_right_cleat",
+                "projected_bearing_length_mm": 88.90000000000009,
+                "maximum_thread_bearing_length_for_full_body_D_mm": 22.225000000000023,
+                "delivered_thread_bearing_length_mm": null,
+                "thread_fraction_status": "unverified_no_delivered_thread_location"
+              },
+              {
+                "wood_member_id": "base_rail_bottom_right",
+                "projected_bearing_length_mm": 38.099999999999966,
+                "maximum_thread_bearing_length_for_full_body_D_mm": 9.524999999999991,
+                "delivered_thread_bearing_length_mm": null,
+                "thread_fraction_status": "unverified_no_delivered_thread_location"
+              }
+            ]
+          },
+          {
+            "physical_bolt_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+            "members": [
+              {
+                "wood_member_id": "bottom_center_right_cleat",
+                "projected_bearing_length_mm": 88.90000000000009,
+                "maximum_thread_bearing_length_for_full_body_D_mm": 22.225000000000023,
+                "delivered_thread_bearing_length_mm": null,
+                "thread_fraction_status": "unverified_no_delivered_thread_location"
+              },
+              {
+                "wood_member_id": "base_rail_bottom_right",
+                "projected_bearing_length_mm": 38.10000000000008,
+                "maximum_thread_bearing_length_for_full_body_D_mm": 9.52500000000002,
+                "delivered_thread_bearing_length_mm": null,
+                "thread_fraction_status": "unverified_no_delivered_thread_location"
+              }
+            ]
+          }
+        ],
+        "limits": "These are thresholds, not evidence that the delivered threads satisfy them; bolt nominal length or the 6.35 mm CAD shaft does not locate thread bearing."
+      }
+    },
+    "NDS_end_edge_spacing_and_group_modes": {
+      "status": "unresolved_geometry_and_demand_classification",
+      "available_geometry": "Two current two-bolt center pitches are computed from frozen bolt axes below.",
+      "missing_geometry_and_classification_inputs": [
+        "source-bound distances from each bolt center to actual finished member ends and edges, resolved in receiver grain/local axes rather than from overall bounds",
+        "fresh signed per-bolt force direction to identify the loaded end/edge and the governing NDS spacing/end-distance cases",
+        "member-specific splitting/group action and applicable NDS adjustment basis"
+      ],
+      "later_demand_and_response_inputs": [
+        "fresh per-bolt force magnitudes and group/contact distribution to compare with applicable component/group references"
+      ],
+      "limits": "Center pitch alone is not a minimum-spacing, loaded-end, edge, tear-out, splitting, or group-resistance check."
+    },
+    "washer_steel_bending_spreading": {
+      "status": "unresolved",
+      "missing": [
+        "selected/delivered washer identity, material and dimensions",
+        "applicable washer bending/spreading method for the actual wood support and load footprint",
+        "fresh bolt force and supported contact/load distribution at each seat"
+      ],
+      "limits": "The conditional wood Fc-perp annulus reference does not bound washer steel response."
+    },
+    "bolt_tension_shear_and_nut_thread_resistance": {
+      "status": "unresolved",
+      "missing": [
+        "delivered bolt/nut product and grade evidence",
+        "controlling delivered tensile/shear sections and certified steel yield property",
+        "functional thread fit/engagement and applicable nut proof/strip basis",
+        "applicable tension/shear interaction method for the timber joint"
+      ],
+      "later_demand_inputs": [
+        "fresh per-fastener force resultants"
+      ],
+      "limits": "No Grade 5 property or resistance is inferred from a catalog candidate or generic steel elastic scenario."
+    }
+  },
+  "demand_and_acceptance": {
+    "fresh_complete_joint_actions_present": false,
+    "fastener_response_or_load_shares_present": false,
+    "historical_demands_or_capacities_imported": false,
+    "joint_adequacy_claim": false,
+    "criteria_passed": []
+  },
+  "claim_boundary": [
+    "The washer result is a conditional per-seat wood-bearing reference, not an adjusted design resistance or acceptance check.",
+    "Finite opposed seat geometry does not establish active pressure, preload, or load transfer.",
+    "No per-seat references are summed and no equal bolt load share is assumed.",
+    "The 3-member patch and its separate unbolted butt contact remain part of the complete load path; the two bolted interfaces are not an isolated accepted joint.",
+    "No historical WJ04/WJ12/WJ24 demand or pass is inherited; no wood species/grade or delivered hardware is verified."
+  ]
+}
