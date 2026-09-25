@@ -1,0 +1,257 @@
+{
+  "schema": "retained_wire_obstacle_subset/v1",
+  "status": "BOUNDED_OBSTACLE_SUBSET_DERIVATION",
+  "revision": "led-clearance-2x6-runner-seated-blocks-v1",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/retained-access-attempt03/access.json": "fffa0027926a57583cc13ffbcef552fc8e5f8da96964d50c64ef63ffd4ce4c97",
+    "scripts/wood_joint_current_access_screen.py": "e28b2f2f1877afe8834f316d5d4f867d4355fee88def795127efb4c8c66edb18",
+    "scripts/wood_joint_current_retained_access.py": "ad97928a4ae9690efa4131a6c99197082b0179613af9b0126a9fa9c50457679d"
+  },
+  "excluded_obstacle_ids": [
+    "protected/wires/wire_010_A10_A11",
+    "protected/wires/wire_130_K10_K11"
+  ],
+  "original_installed_obstacle_count": 1041,
+  "subset_installed_obstacle_count": 1039,
+  "proof_basis": "The frozen producer visits every non-excluded obstacle for each full sweep, without early exit or hit truncation. Removing only two obstacles can remove recorded intersections but cannot introduce an intersection with unchanged obstacles. Reverse travel uses the identical swept occupancy.",
+  "source_hit_threshold_preserved": true,
+  "all_unrelated_obstacles_unchanged": true,
+  "rows": [
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "direction": "withdrawal",
+      "headward_axis_xyz": [
+        1.0,
+        -0.0,
+        0.0
+      ],
+      "derived_travel_mm": 200.025,
+      "remaining_hits_mm3": {
+        "head_translation_enclosure": {},
+        "head_washer_translation_enclosure": {},
+        "shaft_exact_coaxial_cylinder_translation_sweep": {}
+      },
+      "removed_hits_mm3": {
+        "head_translation_enclosure": {
+          "protected/wires/wire_010_A10_A11": 289.435523
+        },
+        "head_washer_translation_enclosure": {
+          "protected/wires/wire_010_A10_A11": 277.665999
+        },
+        "shaft_exact_coaxial_cylinder_translation_sweep": {
+          "protected/wires/wire_010_A10_A11": 163.212433
+        }
+      },
+      "all_three_envelopes_clear_in_subset": true,
+      "physical_service_path_established": false
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "direction": "reverse_assembly",
+      "headward_axis_xyz": [
+        1.0,
+        -0.0,
+        0.0
+      ],
+      "derived_travel_mm": 200.025,
+      "remaining_hits_mm3": {
+        "head_translation_enclosure": {},
+        "head_washer_translation_enclosure": {},
+        "shaft_exact_coaxial_cylinder_translation_sweep": {}
+      },
+      "removed_hits_mm3": {
+        "head_translation_enclosure": {
+          "protected/wires/wire_010_A10_A11": 289.435523
+        },
+        "head_washer_translation_enclosure": {
+          "protected/wires/wire_010_A10_A11": 277.665999
+        },
+        "shaft_exact_coaxial_cylinder_translation_sweep": {
+          "protected/wires/wire_010_A10_A11": 163.212433
+        }
+      },
+      "all_three_envelopes_clear_in_subset": true,
+      "physical_service_path_established": false
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_2",
+      "direction": "withdrawal",
+      "headward_axis_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "derived_travel_mm": 200.025,
+      "remaining_hits_mm3": {
+        "head_translation_enclosure": {},
+        "head_washer_translation_enclosure": {},
+        "shaft_exact_coaxial_cylinder_translation_sweep": {}
+      },
+      "removed_hits_mm3": {
+        "head_translation_enclosure": {
+          "protected/wires/wire_010_A10_A11": 226.901252
+        },
+        "head_washer_translation_enclosure": {
+          "protected/wires/wire_010_A10_A11": 331.949494
+        },
+        "shaft_exact_coaxial_cylinder_translation_sweep": {
+          "protected/wires/wire_010_A10_A11": 43.357046
+        }
+      },
+      "all_three_envelopes_clear_in_subset": true,
+      "physical_service_path_established": false
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_2",
+      "direction": "reverse_assembly",
+      "headward_axis_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "derived_travel_mm": 200.025,
+      "remaining_hits_mm3": {
+        "head_translation_enclosure": {},
+        "head_washer_translation_enclosure": {},
+        "shaft_exact_coaxial_cylinder_translation_sweep": {}
+      },
+      "removed_hits_mm3": {
+        "head_translation_enclosure": {
+          "protected/wires/wire_010_A10_A11": 226.901252
+        },
+        "head_washer_translation_enclosure": {
+          "protected/wires/wire_010_A10_A11": 331.949494
+        },
+        "shaft_exact_coaxial_cylinder_translation_sweep": {
+          "protected/wires/wire_010_A10_A11": 43.357046
+        }
+      },
+      "all_three_envelopes_clear_in_subset": true,
+      "physical_service_path_established": false
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "direction": "withdrawal",
+      "headward_axis_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "derived_travel_mm": 200.025,
+      "remaining_hits_mm3": {
+        "head_translation_enclosure": {},
+        "head_washer_translation_enclosure": {},
+        "shaft_exact_coaxial_cylinder_translation_sweep": {}
+      },
+      "removed_hits_mm3": {
+        "head_translation_enclosure": {
+          "protected/wires/wire_130_K10_K11": 289.436544
+        },
+        "head_washer_translation_enclosure": {
+          "protected/wires/wire_130_K10_K11": 277.665101
+        },
+        "shaft_exact_coaxial_cylinder_translation_sweep": {
+          "protected/wires/wire_130_K10_K11": 163.21171
+        }
+      },
+      "all_three_envelopes_clear_in_subset": true,
+      "physical_service_path_established": false
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "direction": "reverse_assembly",
+      "headward_axis_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "derived_travel_mm": 200.025,
+      "remaining_hits_mm3": {
+        "head_translation_enclosure": {},
+        "head_washer_translation_enclosure": {},
+        "shaft_exact_coaxial_cylinder_translation_sweep": {}
+      },
+      "removed_hits_mm3": {
+        "head_translation_enclosure": {
+          "protected/wires/wire_130_K10_K11": 289.436544
+        },
+        "head_washer_translation_enclosure": {
+          "protected/wires/wire_130_K10_K11": 277.665101
+        },
+        "shaft_exact_coaxial_cylinder_translation_sweep": {
+          "protected/wires/wire_130_K10_K11": 163.21171
+        }
+      },
+      "all_three_envelopes_clear_in_subset": true,
+      "physical_service_path_established": false
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_2",
+      "direction": "withdrawal",
+      "headward_axis_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "derived_travel_mm": 200.025,
+      "remaining_hits_mm3": {
+        "head_translation_enclosure": {},
+        "head_washer_translation_enclosure": {},
+        "shaft_exact_coaxial_cylinder_translation_sweep": {}
+      },
+      "removed_hits_mm3": {
+        "head_translation_enclosure": {
+          "protected/wires/wire_130_K10_K11": 226.901167
+        },
+        "head_washer_translation_enclosure": {
+          "protected/wires/wire_130_K10_K11": 331.946791
+        },
+        "shaft_exact_coaxial_cylinder_translation_sweep": {
+          "protected/wires/wire_130_K10_K11": 43.357047
+        }
+      },
+      "all_three_envelopes_clear_in_subset": true,
+      "physical_service_path_established": false
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_2",
+      "direction": "reverse_assembly",
+      "headward_axis_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "derived_travel_mm": 200.025,
+      "remaining_hits_mm3": {
+        "head_translation_enclosure": {},
+        "head_washer_translation_enclosure": {},
+        "shaft_exact_coaxial_cylinder_translation_sweep": {}
+      },
+      "removed_hits_mm3": {
+        "head_translation_enclosure": {
+          "protected/wires/wire_130_K10_K11": 226.901167
+        },
+        "head_washer_translation_enclosure": {
+          "protected/wires/wire_130_K10_K11": 331.946791
+        },
+        "shaft_exact_coaxial_cylinder_translation_sweep": {
+          "protected/wires/wire_130_K10_K11": 43.357047
+        }
+      },
+      "all_three_envelopes_clear_in_subset": true,
+      "physical_service_path_established": false
+    }
+  ],
+  "clear_component_direction_screens": 24,
+  "new_cad_or_native_run": false,
+  "approved_geometry_changed": false,
+  "harness_removability_established": false,
+  "complete_assembly_or_transport_established": false,
+  "limits": [
+    "Only the two named BReps are hypothetically absent; this is not a physically demonstrated wire state.",
+    "All other installed obstacles, panels, LEDs, wires and non-target hardware remain as in source attempt03.",
+    "Same zero terminal allowance, volume-hit tolerance, target-role exclusions and rigid-envelope assumptions as the source.",
+    "This is a derivation from completed sweeps, not a new live-CAD sweep or actual hardware observation.",
+    "Connector halves, PWR1, strand staging, anchor/slack/bend limits, support, capture and tools remain unresolved."
+  ]
+}

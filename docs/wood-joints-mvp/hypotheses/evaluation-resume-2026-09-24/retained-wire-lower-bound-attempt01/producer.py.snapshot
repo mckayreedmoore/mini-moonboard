@@ -1,0 +1,78 @@
+"""Derive an obstacle-subset diagnostic from a complete frozen collision map."""
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path.cwd()
+BASE = ROOT / 'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+SOURCE = BASE / 'retained-access-attempt03/access.json'
+EXPECTED = 'fffa0027926a57583cc13ffbcef552fc8e5f8da96964d50c64ef63ffd4ce4c97'
+
+def sha(p):
+    return hashlib.sha256(p.read_bytes()).hexdigest()
+
+assert sha(SOURCE) == EXPECTED
+source = json.loads(SOURCE.read_text())
+excluded = {'protected/wires/wire_010_A10_A11', 'protected/wires/wire_130_K10_K11'}
+targets = {f'lumber_leg_bolt_{side}_{i}' for side in ('left', 'right') for i in (1, 2)}
+rows = []
+for row in source['axis_operations']:
+    if row['axis_id'] not in targets:
+        continue
+    op = row['operations']['head_side_bolt']
+    assert op['shaft_sweep_method'] == 'exact_coaxial_cylinder_translation_sweep'
+    assert all(value.startswith('exact_') for value in op['component_sweep_methods'].values())
+    for direction in ('withdrawal', 'reverse_assembly'):
+        motion = op[direction]
+        collision = motion['collision_screen']
+        assert len(motion['moving_envelope_names']) == 3
+        remaining = {}
+        removed = {}
+        for component in motion['moving_envelope_names']:
+            hits = collision['external_envelope_hits_mm3'].get(component, {})
+            remaining[component] = {k: v for k, v in hits.items() if k not in excluded}
+            removed[component] = {k: v for k, v in hits.items() if k in excluded}
+        rows.append({'axis_id': row['axis_id'], 'direction': direction,
+                     'headward_axis_xyz': op['headward_axis_xyz'],
+                     'derived_travel_mm': op['derived_travel_mm'],
+                     'remaining_hits_mm3': remaining, 'removed_hits_mm3': removed,
+                     'all_three_envelopes_clear_in_subset': not any(remaining.values()),
+                     'physical_service_path_established': False})
+assert {r['axis_id'] for r in rows} == targets and len(rows) == 8
+assert all(len(r['removed_hits_mm3']) == 3 for r in rows)
+assert {k for r in rows for hits in r['removed_hits_mm3'].values() for k in hits} == excluded
+sources = {str(SOURCE.relative_to(ROOT)): EXPECTED}
+for name in ['scripts/wood_joint_current_access_screen.py', 'scripts/wood_joint_current_retained_access.py']:
+    sources[name] = sha(ROOT / name)
+report = {
+    'schema': 'retained_wire_obstacle_subset/v1',
+    'status': 'BOUNDED_OBSTACLE_SUBSET_DERIVATION',
+    'revision': source['geometry_revision_id'],
+    'source_sha256': sources,
+    'excluded_obstacle_ids': sorted(excluded),
+    'original_installed_obstacle_count': 1041,
+    'subset_installed_obstacle_count': 1039,
+    'proof_basis': 'The frozen producer visits every non-excluded obstacle for each full sweep, without early exit or hit truncation. Removing only two obstacles can remove recorded intersections but cannot introduce an intersection with unchanged obstacles. Reverse travel uses the identical swept occupancy.',
+    'source_hit_threshold_preserved': True,
+    'all_unrelated_obstacles_unchanged': True,
+    'rows': rows,
+    'clear_component_direction_screens': sum(not h for r in rows for h in r['remaining_hits_mm3'].values()),
+    'new_cad_or_native_run': False,
+    'approved_geometry_changed': False,
+    'harness_removability_established': False,
+    'complete_assembly_or_transport_established': False,
+    'limits': [
+        'Only the two named BReps are hypothetically absent; this is not a physically demonstrated wire state.',
+        'All other installed obstacles, panels, LEDs, wires and non-target hardware remain as in source attempt03.',
+        'Same zero terminal allowance, volume-hit tolerance, target-role exclusions and rigid-envelope assumptions as the source.',
+        'This is a derivation from completed sweeps, not a new live-CAD sweep or actual hardware observation.',
+        'Connector halves, PWR1, strand staging, anchor/slack/bend limits, support, capture and tools remain unresolved.'
+    ]
+}
+assert report['clear_component_direction_screens'] == 24
+assert sha(SOURCE) == EXPECTED
+out = BASE / 'retained-wire-lower-bound-attempt01'
+out.mkdir(exist_ok=False)
+(out / 'report.json').write_text(json.dumps(report, indent=2) + '\n')
+(out / 'producer.py.snapshot').write_bytes(Path(__file__).read_bytes())
+print(json.dumps({'report_sha256': sha(out/'report.json'), 'clear_component_direction_screens': report['clear_component_direction_screens']}))
