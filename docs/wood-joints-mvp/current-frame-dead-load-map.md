@@ -34,15 +34,18 @@ The owner-reviewed [weight inventory](board-weight-2026-09-24.json) totals
 | Solid block set: `knee_outer_left_spine`, `knee_outer_right_spine`, `wj06_outer_lower_right_cleat`, `wj04_lower_full_stock_cleat`, `wj04_upper_g7_crosscut_full_stock_cleat`, `wj06_outer_upper_right_cleat`, `center_post_cleat_left/right`, `center_principal_cleat_left/right`, `left_service_outer_upper_cleat`, `left_service_inner_upper_cleat`, `left_service_inner_lower_cleat`, `left_service_outer_lower_cleat`, `top_outer_left/right_cleat`, `top_center_left/right_cleat`, `bottom_outer_left/right_cleat`, `bottom_center_left/right_cleat`, `knee_outer_left_inner_frame_block`, `knee_outer_right_inner_frame_block` | 24 solids; 15.558465 kg at 600 kg/m³ | Put density on each current block solid. Use the current candidate part identity and volume; do not substitute a removed angle or historical backer. |
 | Candidate block bolts, nuts, and washers: the 92 installed candidate axes, each with `/shaft`, `/head`, `/head_washer`, `/nut_washer`, and `/nut` roles | 460 role solids; 5.381384 kg at 7,850 kg/m³ | Include the physical role volumes once each at their current locations. If the FE representation uses reduced connectors, retain each omitted metal role’s mass once at its source-derived center of mass. |
 | Starting frame bolts, nuts, and washers: the 12 retained frame-bolt axes, with five role solids per axis | 60 role solids; 1.904015 kg at 7,850 kg/m³ | Keep all 12 existing stacks in the mass map. Their structural recheck status does not remove their physical mass. Use the installed component geometry once each. |
-| Panel/kicker screws: all 66 current screw axes, consisting of 58 fixed and 8 moved axes | 66 screw solids; 0.442914 kg at 7,850 kg/m³ | Include one physical screw body at each current axis. The eight moved screws keep their mass but use their current locations. Do not add their old positions as second masses. |
+| Panel/kicker screws: all 66 current screw axes, consisting of 58 fixed and 8 moved axes | 66 cylindrical screw-axis envelopes; 0.442914 kg at 7,850 kg/m³ | Retain the inventory's approximate screw mass once at each current axis. These envelopes are the original weight producer's fallback, not detailed purchased screw solids. The eight moved screws keep their mass but use their current locations. Do not add their old positions as second masses. |
 | Hold T-nuts: `hold_tnut_main_A1` through `hold_tnut_main_K12`, plus `hold_tnut_kicker_1` through `hold_tnut_kicker_10` | 142 T-nuts; 1.530098 kg at 7,850 kg/m³ | Include the 142 current steel T-nut bodies once. This 1.53 kg is already in the modeled subtotal, separate from the 25 kg accessory allowance. |
 | Holds, their attachment bolts, and electrical equipment (including the scene’s changed `light_G2`, `wire_073_G1_G2`, and `wire_074_G2_G3` identities) | 25.0 kg unitemized equipment allowance; no per-item mass or center in the weight inventory | Keep the full 25 kg as an additional equipment mass. To prevent duplication, treat it as the non-modeled hold bodies, hold bolts, and electrical equipment; do not add the already modeled T-nuts or the listed frame, block, and panel fasteners to it again. Its location is not established by the geometry inventory. |
 
-The weight JSON binds each modeled inventory row to mass and volume but does not
-provide a general center-of-mass field. For reduced gravity loads, obtain each
-listed part or metal-role centroid from its corresponding current geometry
-solid, then preserve that individual mass and first moment. This geometry
-extraction is separate from the unresolved accessory-mass split above.
+The weight JSON binds each modeled inventory row to mass and volume. The
+subsequent reviewed [mass-center export](hypotheses/evaluation-resume-2026-09-24/current-mass-centroids-attempt01/README.md)
+adds current centers for all 778 rows, retaining the screw-envelope estimate
+and checking all eight moved positions without double translation. Use those
+row-level centers to preserve individual mass and first moment in reduced
+gravity loads. The export is a parent read of existing CAD objects, not an
+independent serialized BRep replay. Reduced-model transfer ownership and the
+separate accessory-mass split remain unresolved.
 
 For volumetric solids in SI units, apply body force using
 `rho * [0, 0, -9.80665]` with density in kg/m³ and coordinates in metres. In the native
@@ -95,8 +98,10 @@ does not enumerate actual hold/bolt/light masses. That is not the current
 WJ24 placement map, and its old two-point split must not be imported into the
 current six cases without a separate source for the aggregate center of mass.
 
-The existing [ordinary-joint preflight](hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/README.md)
-meshed three timber members and local metal bodies. Its [mass audit](hypotheses/evaluation-resume-2026-09-24/ordinary-native-mass-audit-attempt02/audit.json)
+The existing ordinary-joint preflight (local workspace record
+`hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/README.md`)
+meshed three timber members and local metal bodies. Its local mass audit
+(`hypotheses/evaluation-resume-2026-09-24/ordinary-native-mass-audit-attempt02/audit.json`)
 checked two timber translations and four bolt/nut translations; it did not
 cover the 20 frame timbers, six panels, 24 blocks, or complete installed
 hardware inventory. The four local nut-carrier CAD bodies were intentionally
@@ -141,5 +146,6 @@ The implementation identities above are bound to these current inputs:
 | [Separate selected-candidate design basis](../current-design-basis.md) | `c2b18a1cec2546372118aedae1f001a4034239bac9ab3f9ea1aa239195f448fb` |
 | Weight inventory producer snapshot | `53eb7e9caf303cc473cb87b9177585a7d14f151a8cb4d7e5ff36271ddafeeef7` |
 | Final weight reconciliation producer snapshot | `1b4260a6938dc83a09be3c569b360089647765c71347df0849961aaa3d976b35` |
-| [Local zero-load preflight README](hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/README.md) | `0f4a02e23b3b10e2b1e15ade285b4954b8ce18685e3a1f83c56444cfab2640c8` |
-| [Local native mass audit](hypotheses/evaluation-resume-2026-09-24/ordinary-native-mass-audit-attempt02/audit.json) | `c0fbd0bee8a1dece951b180e69dc6272c06223bbce336b0f3196a64d111fdf9a` |
+| Local zero-load preflight README (workspace path above) | `0f4a02e23b3b10e2b1e15ade285b4954b8ce18685e3a1f83c56444cfab2640c8` |
+| Local native mass audit (workspace path above) | `c0fbd0bee8a1dece951b180e69dc6272c06223bbce336b0f3196a64d111fdf9a` |
+| [Current mass centers](hypotheses/evaluation-resume-2026-09-24/current-mass-centroids-attempt01/mass-centroids.json) | `4c107b76d42d2a6f49b81c4857ba20bb236920932a7c34392c63e70d0882099a` |
