@@ -1,0 +1,500 @@
+{
+  "schema": "wood-joints-current-hardware-coverage/v1",
+  "prepared_date": "2026-09-25",
+  "status": "Inventory reconciliation only; no SKU selected, delivered fit/capacity conclusion, purchase, or fabrication release.",
+  "axis_source": {
+    "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/grip-screen-attempt02.json",
+    "sha256": "9f84a15ed05ca9832f594c4a0b2c8d1322b90e74e462aa7c725b031bad69643a",
+    "candidate_axis_count": 92
+  },
+  "source_document_pins": [
+    {
+      "path": "docs/wood-joints-mvp/current-hardware-schedule.md",
+      "sha256": "47a1de21705570cfd23fb493c640d8983945ee410623e15484cf53ed7596bffa"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-ordinary-hardware-basis.md",
+      "sha256": "72ffabef1e449234622f4682eaefcde787abc1b56fbe8814b1e843d1581d1ecc"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-ordinary-hardware-sourcing-followup.md",
+      "sha256": "7a82ef19662c76b07902dc44f320c379382c2dd0142b726a707880587a7f8033"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-ordinary-hardware-spacer-option.md",
+      "sha256": "6dbbc841e8122061cb23d65595d78419880897218aa9fb99afa2eaa62c578c4d"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-side-hardware-option.md",
+      "sha256": "19906c7d8eba3aa035a36de9d6e936cdca222c8e24fde6325863585ecc145522"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-outer-post-hardware-option.md",
+      "sha256": "40dbdc2eded704a61f689e3caaceb5461f3fb69398d60b0374f41151a4aecf01"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-center-sandwich-hardware-options.md",
+      "sha256": "644ddb4c42b3c14513739f96e44dc4d860de42ab4f4431af1d963ec1c6ef4a1c"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-thread-fit-travel.md",
+      "sha256": "4046318d1fac274bc3a2bb654921d3eaa4bce9c33e2cc2c391b8b83f4ac8d50d"
+    },
+    {
+      "path": "docs/wood-joints-mvp/current-frame-bolt-review.md",
+      "sha256": "20067540bd318a3639e90278874bf793445a14c34bd316e18c6e508c2a518c89"
+    },
+    {
+      "path": "docs/wood-joints-mvp/wj24-retained-frame-bolt-audit.md",
+      "sha256": "05f534b8a616e65fd6be1d3d6533b1e59ad16e43db1059a1d92e1334bbca6ff9"
+    }
+  ],
+  "quantity_reconciliation": {
+    "candidate": {
+      "axes": 92,
+      "bolts": 92,
+      "nuts": 92,
+      "separate_washers": 184
+    },
+    "retained": {
+      "axes": 12,
+      "bolts": 12,
+      "nuts": 12,
+      "separate_washers": 24
+    },
+    "structural_total": {
+      "axes": 104,
+      "bolts": 104,
+      "nuts": 104,
+      "separate_washers": 208
+    },
+    "separate_Hillman_policy": {
+      "axes": 66,
+      "screws": 66,
+      "included": false
+    },
+    "removed_SDS25112": {
+      "axes": 144,
+      "included": false
+    },
+    "warning": "Historical inventory: 104 candidate axes / 216 candidate washer equivalents, with 12 retained frame stacks separate. This differs from the current 92 candidate + 12 retained = 104 structural stacks / 208 washers; four historical candidate backer stacks had extra washer roles."
+  },
+  "candidate_family_coverage": [
+    {
+      "family_id": "candidate_ordinary_48",
+      "family": "ordinary_6in_127mm_grip",
+      "count": 48,
+      "axis_ids": [
+        "bottom_center/clip_horizontal_bottom_left_2/principal_1",
+        "bottom_center/clip_horizontal_bottom_left_2/principal_2",
+        "bottom_center/clip_horizontal_bottom_left_2/rail_1",
+        "bottom_center/clip_horizontal_bottom_left_2/rail_2",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+        "bottom_outer/clip_horizontal_bottom_left_1/rail_1",
+        "bottom_outer/clip_horizontal_bottom_left_1/rail_2",
+        "bottom_outer/clip_horizontal_bottom_right_2/rail_1",
+        "bottom_outer/clip_horizontal_bottom_right_2/rail_2",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_rail_1",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_rail_2",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_1",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_2",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_rail_1",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_rail_2",
+        "top_center/clip_split_top_center_left/principal_1",
+        "top_center/clip_split_top_center_left/principal_2",
+        "top_center/clip_split_top_center_left/rail_1",
+        "top_center/clip_split_top_center_left/rail_2",
+        "top_center/clip_split_top_center_right/principal_1",
+        "top_center/clip_split_top_center_right/principal_2",
+        "top_center/clip_split_top_center_right/rail_1",
+        "top_center/clip_split_top_center_right/rail_2",
+        "top_outer/clip_single_top_left_1/rail_1",
+        "top_outer/clip_single_top_left_1/rail_2",
+        "top_outer/clip_single_top_right_2/rail_1",
+        "top_outer/clip_single_top_right_2/rail_2",
+        "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+        "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+        "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+        "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2",
+        "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+        "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2",
+        "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+        "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2",
+        "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1",
+        "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2",
+        "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_1",
+        "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 152.4,
+        "wood_grip_mm": 127.0,
+        "bolts": 48,
+        "nuts": 48,
+        "separate_washer_roles": 96
+      },
+      "catalog_or_length_screen": "K.L. Jack 25C600HCS5Z 1/4-20 x 6 in Grade 5 cap screw (page says 2A, 3/4-in thread length, $82.14/100 box on 2026-09-25); alternate W\u00fcrth 072.14.6 has 1-in product-page / 0.75-in catalogue conflict. KL Jack 25CNFH5Z nut candidate; USS washer identity remains separate/unresolved or use W\u00fcrth 408.14 candidate.",
+      "provisional_axial_and_engagement_disposition": "LGmax 133.35 mm is 4.7592 mm beyond earliest bearing 128.5908. Min-length tip screen passes by 8.8806 mm; LBmin 127 exceeds NDS nominal-D threshold 120.382 by 6.618. Functional nut engagement unresolved; two-spacer option 6.096-6.604 mm is proposal only.",
+      "source_docs": "current-ordinary-hardware-basis.md; current-ordinary-hardware-sourcing-followup.md; current-ordinary-hardware-spacer-option.md"
+    },
+    {
+      "family_id": "candidate_side_16",
+      "family": "side_8in_177.8mm_grip",
+      "count": 16,
+      "axis_ids": [
+        "bottom_outer/clip_horizontal_bottom_left_1/side_1",
+        "bottom_outer/clip_horizontal_bottom_left_1/side_2",
+        "bottom_outer/clip_horizontal_bottom_right_2/side_1",
+        "bottom_outer/clip_horizontal_bottom_right_2/side_2",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_1",
+        "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_2",
+        "top_outer/clip_single_top_left_1/side_1",
+        "top_outer/clip_single_top_left_1/side_2",
+        "top_outer/clip_single_top_right_2/side_1",
+        "top_outer/clip_single_top_right_2/side_2",
+        "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1",
+        "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2",
+        "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_1",
+        "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 203.2,
+        "wood_grip_mm": 177.8,
+        "bolts": 16,
+        "nuts": 16,
+        "separate_washer_roles": 32
+      },
+      "catalog_or_length_screen": "Lawson/FalconGrip FA21103 1/4-20 x 8 in Grade 5 partial-thread cap screw, pack25; K.L. Jack 25CNFH5Z Grade5 2B nut; K.L. Jack 25NWUS Type A Wide washer candidate.",
+      "provisional_axial_and_engagement_disposition": "Conditional 8-in axial route clears physical 3.175-mm tip target at standard minimum; LG margin +2.5908 mm. Functional matched-nut engagement, actual transition, washer support/finish and delivered endpoint remain open; min length is 4.572 mm shorter than current CAD endpoint.",
+      "source_docs": "current-side-hardware-option.md"
+    },
+    {
+      "family_id": "candidate_outer_post_4",
+      "family": "outer_post_4in_76.2mm_grip",
+      "count": 4,
+      "axis_ids": [
+        "knee_outer_left_post_1",
+        "knee_outer_left_post_2",
+        "knee_outer_right_post_1",
+        "knee_outer_right_post_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 101.6,
+        "wood_grip_mm": 76.2,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_or_length_screen": "K.L. Jack 25C400HCS5Z 1/4-20 x 4 in Grade5 cap-screw lead; K.L. Jack 25CNFH5Z / 25NWUS candidate stack.",
+      "provisional_axial_and_engagement_disposition": "Physical-tip minimum screen margin +10.8966 mm. LGmax 82.55 lies 2.286-3.7592 mm past current nut-bearing range; no necessary failure inferred, but matched functional engagement unresolved. Product detail and price unresolved/conflicting.",
+      "source_docs": "current-outer-post-hardware-option.md"
+    },
+    {
+      "family_id": "candidate_center_post_4",
+      "family": "center_post_5.75in_127mm_grip",
+      "count": 4,
+      "axis_ids": [
+        "center_post_left_1",
+        "center_post_left_2",
+        "center_post_right_1",
+        "center_post_right_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 139.217,
+        "wood_grip_mm": 127.0,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_or_length_screen": "5.75-in is screened shortest quarter-inch class; no exact SKU/price/availability located.",
+      "provisional_axial_and_engagement_disposition": "Min-length margin to physical tip +3.5306 mm; LG margin +2.5908 mm; NDS receiver-body screen inside by 1.143 mm at LBmin. Full nut engagement/SKU unresolved.",
+      "source_docs": "current-center-sandwich-hardware-options.md"
+    },
+    {
+      "family_id": "candidate_center_principal_4",
+      "family": "center_principal_5.5in_122mm_grip",
+      "count": 4,
+      "axis_ids": [
+        "center_principal_left_1",
+        "center_principal_left_2",
+        "center_principal_right_1",
+        "center_principal_right_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 139.217,
+        "wood_grip_mm": 122.0,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_or_length_screen": "K.L. Jack 25C550HCS5Z Grade5 1/4-20 x 5.5-in listing lead, $30.59/box100 on 2026-09-25; detail page timed out.",
+      "provisional_axial_and_engagement_disposition": "Min-length margin to tip +2.1806 mm; LG margin +3.9408 mm. Nominal-D NDS quarter-thread screen misses by 0.207 mm at LBmin; part-specific measurement or Dr/detailed method if used. Full fit unverified.",
+      "source_docs": "current-center-sandwich-hardware-options.md"
+    },
+    {
+      "family_id": "candidate_center_post_header_4",
+      "family": "center_post_header_7.5in_167mm_grip",
+      "count": 4,
+      "axis_ids": [
+        "center_post_header_left_1",
+        "center_post_header_left_2",
+        "center_post_header_right_1",
+        "center_post_header_right_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 179.217,
+        "wood_grip_mm": 167.0,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_or_length_screen": "7.5-in screened shortest class; no exact SKU/price/availability verified.",
+      "provisional_axial_and_engagement_disposition": "Min-length margin to tip +5.9486 mm; LG margin +4.4908 mm; receiver quarter-thread screen inside by21.943 mm. Functional engagement/SKU unresolved.",
+      "source_docs": "current-center-sandwich-hardware-options.md"
+    },
+    {
+      "family_id": "candidate_center_principal_header_4",
+      "family": "center_principal_header_7.5in_172.8mm_grip",
+      "count": 4,
+      "axis_ids": [
+        "center_principal_header_left_1",
+        "center_principal_header_left_2",
+        "center_principal_header_right_1",
+        "center_principal_header_right_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 190.017,
+        "wood_grip_mm": 172.8,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_or_length_screen": "7.5-in screened shortest class; no exact SKU/price/availability verified.",
+      "provisional_axial_and_engagement_disposition": "Min-length margin to tip only +0.1486 mm; minimum length is4.089 mm shorter than modeled endpoint. Required LB 165.307 is0.207 mm greater than LGmax165.100; tabular limits alone do not establish NDS nominal-D exception. Functional engagement/SKU unresolved.",
+      "source_docs": "current-center-sandwich-hardware-options.md"
+    },
+    {
+      "family_id": "candidate_knee_inner_header_4",
+      "family": "knee_inner_header_7.75in_shortest_8in_alternative",
+      "count": 4,
+      "axis_ids": [
+        "knee_outer_left_inner_header_1",
+        "knee_outer_left_inner_header_2",
+        "knee_outer_right_inner_header_1",
+        "knee_outer_right_inner_header_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 202.5,
+        "wood_grip_mm": 177.1,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_or_length_screen": "7.75-in shortest class has no SKU. Lawson FA21103 8-in is a named alternative shared with side16; K.L. Jack 25CNFH5Z and 25NWUS are nut/washer candidates.",
+      "provisional_axial_and_engagement_disposition": "7.75-in screen: physical-tip margin +2.1986; LG margin +8.2408; 38.1-mm receiver NDS thread screen exceeds quarter by4.507 unless actual LB>=169.607. 8-in alternative: physical-tip margin +8.5486; LG margin +1.8908; NDS screen inside both far receivers; min length is3.872 mm shorter than CAD endpoint. Functional fit unresolved.",
+      "source_docs": "current-center-sandwich-hardware-options.md; current-side-hardware-option.md"
+    },
+    {
+      "family_id": "candidate_knee_side_4",
+      "family": "knee_side_9.25in_215.9mm_grip",
+      "count": 4,
+      "axis_ids": [
+        "knee_outer_left_side_1",
+        "knee_outer_left_side_2",
+        "knee_outer_right_side_1",
+        "knee_outer_right_side_2"
+      ],
+      "modeled": {
+        "shaft_envelope_diameter_mm": 6.35,
+        "underhead_to_tip_mm": 241.3,
+        "wood_grip_mm": 215.9,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_or_length_screen": "9.25-in is screened shortest quarter-inch class; no exact SKU/price/availability verified.",
+      "provisional_axial_and_engagement_disposition": "Min-length margin to tip +1.4986 mm; minimum length is10.922 mm shorter than CAD endpoint; LG margin +8.9408 mm; receiver quarter-thread screen inside by7.493 mm. Functional engagement/SKU unresolved.",
+      "source_docs": "current-center-sandwich-hardware-options.md"
+    }
+  ],
+  "retained_family_coverage": [
+    {
+      "family_id": "retained_lumber_leg_4",
+      "family": "lumber_leg upper 1/2-in x 8-in",
+      "count": 4,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "modeled": {
+        "D_mm": 12.7,
+        "L_mm": 203.2,
+        "grip_mm": 177.8,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_references": "Bolt Depot #407 1/2-13 x 8 in Grade5; #2573 nut; #15025 USS washers.",
+      "disposition": "Selected-baseline catalog references only; no stock/fit acceptance for WJ24. Recheck matched nut, thread transition, actual dimensions/support, stack and current actions. CAD nut envelope 11.5316 mm exceeds #2573 noted maximum 11.3792 mm; schedule says recheck; retained audit notes only 2.7432 mm tip past tallest modeled nut at minimum bolt length/maximum washer stack."
+    },
+    {
+      "family_id": "retained_rail_front_4",
+      "family": "front rail/post 3/8-in x 4-in",
+      "count": 4,
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2"
+      ],
+      "modeled": {
+        "D_mm": 9.525,
+        "L_mm": 101.6,
+        "grip_mm": 76.2,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_references": "Bolt Depot #367 3/8-16 x 4 in Grade5; #2571 nut; #15023 USS washers.",
+      "disposition": "Selected-baseline catalog references only; no stock/fit acceptance for WJ24. No delivered body/thread transition (full-body threshold 69.3166 mm), nut engagement, washer support, or current mechanics result."
+    },
+    {
+      "family_id": "retained_rail_rear_4",
+      "family": "rear rail/leg 3/8-in x 4.5-in",
+      "count": 4,
+      "axis_ids": [
+        "rail_rear_bolt_left_1",
+        "rail_rear_bolt_left_2",
+        "rail_rear_bolt_right_1",
+        "rail_rear_bolt_right_2"
+      ],
+      "modeled": {
+        "D_mm": 9.525,
+        "L_mm": 114.3,
+        "grip_mm": 88.9,
+        "bolts": 4,
+        "nuts": 4,
+        "separate_washer_roles": 8
+      },
+      "catalog_references": "Bolt Depot #368 3/8-16 x 4.5 in Grade5; #2571 nut; #15023 USS washers.",
+      "disposition": "Selected-baseline catalog references only; no stock/fit acceptance for WJ24. No delivered body/thread transition (full-body threshold 78.8416 mm); verify 50.8-mm remaining leg bearing section, nut engagement, washer support, and current mechanics."
+    }
+  ],
+  "package_scenarios": [
+    {
+      "id": "lawson8_shared_20_candidate_axes",
+      "families": [
+        "candidate_side_16",
+        "candidate_knee_inner_header_4"
+      ],
+      "axes": 20,
+      "bolts": 20,
+      "nuts": 20,
+      "washers": 40,
+      "bolt_pack": 25,
+      "nut_pack": 100,
+      "washer_pack": 100,
+      "surplus": {
+        "bolts": 5,
+        "nuts": 80,
+        "washers": 60
+      },
+      "price_context": {
+        "bolt": null,
+        "nut_usd_per_100": 4.71,
+        "washer_usd_per_100": 3.47,
+        "checked": "2026-09-25"
+      },
+      "rule": "One shared scenario, not 16-axis plus 4-axis packages; see notes for isolated quantities."
+    },
+    {
+      "id": "kljack_ordinary_6in_alternative",
+      "families": [
+        "candidate_ordinary_48"
+      ],
+      "bolts": 48,
+      "nuts": 48,
+      "bolts_per_100_box_surplus": 52,
+      "nuts_per_100_box_surplus": 52,
+      "price_context": {
+        "bolt_usd_per_100": 82.14,
+        "nut_usd_per_100": 4.71,
+        "checked": "2026-09-25"
+      },
+      "rule": "Washer remains a separate unresolved specification; this route is alternative to W\u00fcrth, not additive."
+    },
+    {
+      "id": "kljack_5_5in_center_principal_lead",
+      "families": [
+        "candidate_center_principal_4"
+      ],
+      "bolts": 4,
+      "box_qty": 100,
+      "surplus": 96,
+      "price_context": {
+        "usd_per_box": 30.59,
+        "checked": "2026-09-25",
+        "availability": "unverified"
+      }
+    },
+    {
+      "id": "kljack_4in_outer_post_lead",
+      "families": [
+        "candidate_outer_post_4"
+      ],
+      "bolts": 4,
+      "nut_qty": 4,
+      "washer_qty": 8,
+      "listed_boxes": {
+        "bolt": 100,
+        "nut": 100,
+        "washer": 100
+      },
+      "price_context": "Not assigned; displays conflict or were not fully retrievable."
+    },
+    {
+      "id": "wurth_ordinary_6in_alternative",
+      "families": [
+        "candidate_ordinary_48"
+      ],
+      "bolts": 48,
+      "bolt_pack_qty": 25,
+      "bolt_packs": 2,
+      "bolt_surplus": 2,
+      "nuts_per_pack": 200,
+      "nut_packs": 1,
+      "nut_surplus": 152,
+      "washers_required": 96,
+      "washer_pack_qty": 100,
+      "washer_packs": 1,
+      "washer_surplus": 4,
+      "price_context": "No stable price basis used; 072.14.6 thread-length sources conflict."
+    }
+  ],
+  "cross_cutting_open_facts": [
+    "Candidate CAD shaft sizes are occupancy envelopes; no delivered shank/thread geometry or matched functional nut engagement is established.",
+    "Catalog length, minimum thread length, LT, LG or LB alone does not prove full-height functional nut engagement.",
+    "current-thread-fit-travel.md is an ideal fixed-rotation 2A/2B geometry comparator, not installed travel or actual fit.",
+    "No wood/bolt/nut/washer/joint capacities are assigned. Retained frame groups require current-candidate rechecks; no selected-angle passes transfer."
+  ]
+}
