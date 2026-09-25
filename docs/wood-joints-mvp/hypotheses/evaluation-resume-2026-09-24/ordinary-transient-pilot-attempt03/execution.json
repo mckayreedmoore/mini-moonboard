@@ -1,0 +1,60 @@
+{
+  "schema": "wood_joint_current_transient_execution/v1",
+  "status": "bounded_timeout",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "wj-current-native-ordinary-transient-pilot-attempt03",
+    "--network",
+    "none",
+    "--cpus",
+    "4",
+    "--memory",
+    "10g",
+    "--user",
+    "1000:1000",
+    "--env",
+    "OMP_NUM_THREADS=4",
+    "--env",
+    "CCX_NPROC_EQUATION_SOLVER=4",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-pilot-attempt03,dst=/work",
+    "--workdir",
+    "/work",
+    "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "solver_binary_sha256": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+  "input_freeze_sha256": "7a7c23a3f0ad6fe0f2342fcc9cc1f06ed2c85b9fbb194c1b39bb88c289222fe5",
+  "timeout_seconds": 600,
+  "mechanical_acceptance": false,
+  "observations": [
+    {
+      "time_seconds": 0.0025,
+      "q_mm": 6.989744242963423e-06,
+      "maximum_loaded_displacement_mm": 5.553280450705837e-06,
+      "maximum_controller_rotation_rad": 3.434742355982487e-09,
+      "stop_reasons": []
+    }
+  ],
+  "scope": "Gauge-free 0.025 s motion pilot; 1 N smooth ramp over 0.1 s; provisional stiff engagement, no capacity or quasistatic claim.",
+  "returncode": 137,
+  "elapsed_seconds": 606.731694335991,
+  "frozen_inputs_unchanged": true,
+  "outputs_sha256": {
+    "spooles.out": "df98dec4730fbc880a1a21e1086970474f3c09018950845692236cf3d3d794df",
+    "pilot.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot.frd": "64113dd62b4e97d923dae71500e2ddbd3b294dd97d8cbf00757f5ddd98968a38",
+    "parent-launch.py.snapshot": "84d29b1fef4a1821a1acb8e1f249829eb0efa0b0f376c636346e624bbfab200f",
+    "README.md": "9c754add3f774c11266467f8659380263537681f8221ce6928e1bdc65995bd6c",
+    "input-freeze.json": "7a7c23a3f0ad6fe0f2342fcc9cc1f06ed2c85b9fbb194c1b39bb88c289222fe5",
+    "pilot.cvg": "485f771ff984356c970d9d51d50c2a32f877636a698141e9822c99d6205efc22",
+    "pilot.log": "ef14e5ebf36211edbd5dcf0163c772f8a284bb7f1343bab056cf8d4eed6b0102",
+    "pilot.sta": "4d7bf3dcf44eda1aff8483983e33ea9fa0503278b5183a9caf316030bb5960c7",
+    "pilot.dat": "cbbca38de8de43d718be48442cc0c6f61ccbc6ff85b15014df47485aca0868f7"
+  }
+}
