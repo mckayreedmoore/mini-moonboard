@@ -76,6 +76,14 @@ The next concrete milestone is step 2's first current-joint response, not anothe
 viewer, planning report, or historical adapter migration. Steps 3–7 may overlap
 only where their inputs are ready; all remain necessary for the final package.
 
+The subsequent [execution checkpoint](completion-ledger.md#current-evaluation-checkpoint-september-24-evening)
+records completed current mesh, material and contact classification, the full
+timber/panel contact graph and all 92 candidate axial-motion screens. These
+advance the preparation described in the table. The current rigid-motion
+preflight identifies unresolved slip under open bolt-hole clearances; clearance
+seating and engagement are the immediate response-model task. No current-joint
+or six-case full-frame response has yet been accepted.
+
 ## Current priority: evaluate the owner-reviewed model
 
 The owner has approved resuming evaluation of

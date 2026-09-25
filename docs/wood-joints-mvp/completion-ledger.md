@@ -18,6 +18,19 @@ inputs and serialized native execution. Current evidence is collected in the
 [evaluation-resume packet](hypotheses/evaluation-resume-2026-09-24/README.md).
 The selected angle-frame and historical evidence remain preserved.
 
+Current preparation now includes the complete 50-member timber/panel contact
+graph, an independently audited ordinary-joint mesh, its contact classification
+and material mapping, and all 92 candidate axial hardware-operation screens.
+The exact component sweeps leave four nut-slide and two nut-washer-slide
+overlaps; actual tools and alternate staged removal remain to be checked.
+The current joint's zero-preload, open-clearance rigid-motion preflight retains
+wood slip modes even under closed-face tangent assumptions. It therefore does
+not justify a unique initial force-controlled stiffness. The immediate task is
+to model clearance seating and bolt/nut engagement without artificial supports,
+then obtain and audit a current-joint response. Neither independent numerical
+fixture is that response. All 47 structural/layout/hardware criteria remain
+pending; no current complete-frame load case has run.
+
 
 Source commit: `df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb`
 

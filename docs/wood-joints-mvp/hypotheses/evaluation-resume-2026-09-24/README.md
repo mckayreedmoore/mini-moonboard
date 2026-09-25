@@ -17,6 +17,44 @@ when their dependent inputs are not ready.
 
 ## Completed evaluation checkpoints
 
+- [Current rigid-motion preflight](ordinary-rigid-preflight-attempt01/README.md):
+  the declared maximum-restraint, closed-face tangent still has 52 free
+  rigid-body motions after six global gauges. The timber projection spans
+  four independent motions, including slip; accessory spins are distinct.
+  Independent matrix reconstruction agrees. Open bolt-hole clearances and
+  assumed axial engagement do not define a unique initial force-controlled
+  stiffness. This diagnoses the stated model, not failure of the assembled
+  board. Clearance seating and engagement must be represented before general
+  current-joint response can be interpreted.
+- [Current contact classification](ordinary-patch-contact-classification-attempt01/README.md):
+  three wood interfaces, sixteen hardware seats and sixteen open radial bore
+  walls are classified. Four displayed nuts have no internal bore, so their
+  solid interiors cannot supply physical metal occupancy or thread behavior.
+  Mesh-area lumping and its geometric tolerance remain separate from response
+  accuracy. Complete contact and engagement laws are still pending.
+- [Current material map](ordinary-patch-materials-attempt01/README.md):
+  source-bound grain and elastic scenarios now cover the nineteen mesh owners,
+  with two radial/tangential alternatives and explicitly limited nut branches.
+  Four focused tests pass, including reading authenticated mesh artifacts from
+  the archive on a fresh checkout. These are input assignments, not native
+  response or measured material properties.
+- [Complete timber/panel contact graph](../../current-contact-graph.md):
+  all 44 timbers and six panels are inventoried, with all 1,225 unordered
+  member pairs classified. The 147 exact BRep candidates yield 115 finite
+  opposed face contacts and no positive-volume overlaps; six tangencies have
+  no finite bearing area. All 92 candidate bolt, twelve retained frame bolt,
+  and 66 panel-screw memberships reconcile. Attempt 02 corrects one unchanged
+  plywood panel's kind label; pair geometry and contact states are unchanged.
+  Graph connectivity does not establish force transfer or capacity.
+- [Scalar axial MPC benchmark](axial-mpc-benchmark-attempt01/parent-audit.json):
+  the independent guided elastic-bar fixture reproduces the 0.005 mm
+  extension under 1,000 N, the area-weighted force transfer and all 32 stress
+  and strain integration-point values within its frozen tolerances. Fixture
+  support forces and moments balance the applied load. This validates one
+  numerical axial mean constraint, not physical thread engagement or current
+  joint response. The reference node's printed RF is zero; the independently
+  checked bolt-face forces carry the transfer and must not be double-counted
+  as additional external load.
 - [Current ordinary-joint mesh audit](ordinary-patch-mesh-attempt02/parent-audit.json):
   the pinned Gmsh run completed in 13.50 seconds and produced 19 disjoint body
   owners, 116,162 nodes and 57,643 C3D10 elements. Independent saved-deck
@@ -27,6 +65,9 @@ when their dependent inputs are not ready.
   container-launch failure because the image has `python3`, not `python`.
   This establishes mesh geometry at the sampled integration points only;
   contact behavior, materials, response and capacity remain unaccepted.
+  Subsequent classification identifies the four nuts as solid display
+  envelopes without internal bores; their physical mechanics representation
+  remains unresolved despite successful meshing.
 - [Current ordinary-joint inputs](ordinary-patch-inputs-attempt01/inventory.json):
   exact STEP export of the bottom-center right cleat, rail and principal,
   four current bolt stacks and all three finite wood contacts. The 27 STEP
@@ -54,12 +95,14 @@ when their dependent inputs are not ready.
 - [Current load contract](current-load-cases.json): six load cases use the
   explicitly extracted [current face and midplane datums](current-load-datums.json).
   These are applied forces and moments, not member demands or reactions.
-- [Access screen](access-screen-attempt01.json): the 16 recently changed bolt
-  stacks were screened against 1,231 live scene obstacles. Hardware movement
-  and provisional tool envelopes remain separate; the other 76 candidate
-  axes and a complete assembly sequence are outside this bounded screen.
-  All 16 axial bolt/nut/washer motion screens have zero reported collisions;
-  provisional wrench envelopes still intersect nearby objects.
+- [Access screen](access-screen-attempt03-exact-components.json): all 92
+  candidate stacks were screened against 1,231 live scene obstacles. Exact
+  source-cylinder and annular-cylinder sweeps remove most intersections from
+  attempt02's box enclosures. All shaft/head/head-washer withdrawal paths are
+  clear in this CAD screen; four nut and two nut-washer axial-slide paths
+  retain overlaps. Provisional wrench results are unchanged. The twelve
+  retained frame-bolt operations, real tools, capture and full staging remain
+  outside this result. No geometry changed during the screen.
 - [Grip screen](grip-screen-attempt02.json): all 92 finite shaft envelopes
   cover the independent long-probe intersections with their raw receivers
   and span their modeled nut envelopes. Twenty-eight axes, including all 16
