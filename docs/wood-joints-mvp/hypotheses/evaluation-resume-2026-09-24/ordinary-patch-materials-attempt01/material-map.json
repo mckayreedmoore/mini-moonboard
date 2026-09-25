@@ -1,0 +1,1275 @@
+{
+  "candidate": {
+    "implementation_revision": "b1e8707d",
+    "mesh_accepted": false,
+    "mesh_status": "VERIFIED_C3D10_CURRENT_PATCH_MESH_ONLY_NO_SOLVER",
+    "revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+    "solver_run": false
+  },
+  "elset_body_map": [
+    {
+      "component_role": null,
+      "element_count": 5157,
+      "elset_name": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "owner_kind": "wood_member",
+      "physical_body_id": null,
+      "source_body_id": "bottom_center_right_cleat",
+      "source_step_artifact_key": "wood/bottom_center_right_cleat",
+      "source_step_sha256": "757aa41d8cd1c3cb6058a58a5a376b6d0737c76d8803e17e1ec9fc898f0fc60b"
+    },
+    {
+      "component_role": null,
+      "element_count": 11593,
+      "elset_name": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "owner_kind": "wood_member",
+      "physical_body_id": null,
+      "source_body_id": "base_rail_bottom_right",
+      "source_step_artifact_key": "wood/base_rail_bottom_right",
+      "source_step_sha256": "bc1c963715273d418b29f84371676b583e5f4f4d5b36162b855588cc375a7076"
+    },
+    {
+      "component_role": null,
+      "element_count": 13350,
+      "elset_name": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+      "owner_kind": "wood_member",
+      "physical_body_id": null,
+      "source_body_id": "base_principal_center_right",
+      "source_step_artifact_key": "wood/base_principal_center_right",
+      "source_step_sha256": "079b349ab932f536d741d1336d81deededa013f5f2e0dcc698b62447c923e250"
+    },
+    {
+      "component_role": "bolt_head_plus_shaft_union",
+      "element_count": 5490,
+      "elset_name": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "mesh_body_id": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+      "source_body_id": null,
+      "source_step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+      "source_step_sha256": "eabb595994fbea2350df7d0067ed360feed7c5985e29dfe4f801de32ec82da25"
+    },
+    {
+      "component_role": "head_washer",
+      "element_count": 594,
+      "elset_name": "M01_A00_HEAD_WASHER",
+      "mesh_body_id": "M01_A00_HEAD_WASHER",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer",
+      "source_step_sha256": "02f82642d81096323b6017ef5cade6400ffda9f39121daa45f070715ffc13659"
+    },
+    {
+      "component_role": "nut_washer",
+      "element_count": 594,
+      "elset_name": "M02_A00_NUT_WASHER",
+      "mesh_body_id": "M02_A00_NUT_WASHER",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer",
+      "source_step_sha256": "8437bffc5c5e2cc15d5046ca2c8874e4fb1057629fa071b76e9a017f69b9dab3"
+    },
+    {
+      "component_role": "nut",
+      "element_count": 519,
+      "elset_name": "M03_A00_NUT",
+      "mesh_body_id": "M03_A00_NUT",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut",
+      "source_step_sha256": "960bc17658551dc574110b7a20dfc4d27c8ee57a9802b5599dc897cdad8e8e84"
+    },
+    {
+      "component_role": "bolt_head_plus_shaft_union",
+      "element_count": 5225,
+      "elset_name": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "mesh_body_id": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+      "source_body_id": null,
+      "source_step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+      "source_step_sha256": "596829b41cb8b2ec712673de65a6f90812864d2737dab4e5d25ce9fa17956d6f"
+    },
+    {
+      "component_role": "head_washer",
+      "element_count": 591,
+      "elset_name": "M05_A01_HEAD_WASHER",
+      "mesh_body_id": "M05_A01_HEAD_WASHER",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+      "source_step_sha256": "39ca598c42cd643121ae9af393077c25052f31302645942b379a6e13cda7b4ec"
+    },
+    {
+      "component_role": "nut_washer",
+      "element_count": 600,
+      "elset_name": "M06_A01_NUT_WASHER",
+      "mesh_body_id": "M06_A01_NUT_WASHER",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+      "source_step_sha256": "e8316dc0e20894a09d2d1745a0e93b286d818e8ad75d3899822eb7327f4dad09"
+    },
+    {
+      "component_role": "nut",
+      "element_count": 511,
+      "elset_name": "M07_A01_NUT",
+      "mesh_body_id": "M07_A01_NUT",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+      "source_step_sha256": "b483ca329a793b0b48b9d30586156887a14b80163565708e4977983fe39ef62d"
+    },
+    {
+      "component_role": "bolt_head_plus_shaft_union",
+      "element_count": 4938,
+      "elset_name": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "mesh_body_id": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+      "source_body_id": null,
+      "source_step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+      "source_step_sha256": "f94cf5f73de05628738e5e9ece4337ea507f1527fb128c3efba3406001f81c8b"
+    },
+    {
+      "component_role": "head_washer",
+      "element_count": 600,
+      "elset_name": "M09_A02_HEAD_WASHER",
+      "mesh_body_id": "M09_A02_HEAD_WASHER",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer",
+      "source_step_sha256": "90cc358c67c138de53af702ef07e7dea795398884d6af5d7a55ea6e043a27325"
+    },
+    {
+      "component_role": "nut_washer",
+      "element_count": 601,
+      "elset_name": "M10_A02_NUT_WASHER",
+      "mesh_body_id": "M10_A02_NUT_WASHER",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer",
+      "source_step_sha256": "746121c12591aa0acd3da1eaaf8d372adc69a9c03a58ca7f6c03e16d682912a7"
+    },
+    {
+      "component_role": "nut",
+      "element_count": 549,
+      "elset_name": "M11_A02_NUT",
+      "mesh_body_id": "M11_A02_NUT",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut",
+      "source_step_sha256": "035fde9d8a18d5d8c480f35fa3d031a1c468adf80052f32849bc0e56cf3d0785"
+    },
+    {
+      "component_role": "bolt_head_plus_shaft_union",
+      "element_count": 4988,
+      "elset_name": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "mesh_body_id": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+      "source_body_id": null,
+      "source_step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+      "source_step_sha256": "68204cb8c6ca58e253df62b545434e2e334d9c3acb0d0529222e3e399699b07c"
+    },
+    {
+      "component_role": "head_washer",
+      "element_count": 599,
+      "elset_name": "M13_A03_HEAD_WASHER",
+      "mesh_body_id": "M13_A03_HEAD_WASHER",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer",
+      "source_step_sha256": "86fb5268eec7ca3e5fed3e6f9607132ab9d663980732226e67f94d4aa724af6a"
+    },
+    {
+      "component_role": "nut_washer",
+      "element_count": 599,
+      "elset_name": "M14_A03_NUT_WASHER",
+      "mesh_body_id": "M14_A03_NUT_WASHER",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer",
+      "source_step_sha256": "b5f7c7e61f623ecf9f486312693fcd92a057f5359df6d6033cfe83afd3775137"
+    },
+    {
+      "component_role": "nut",
+      "element_count": 545,
+      "elset_name": "M15_A03_NUT",
+      "mesh_body_id": "M15_A03_NUT",
+      "owner_kind": "physical_metal",
+      "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut",
+      "source_body_id": null,
+      "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut",
+      "source_step_sha256": "84e1cf74ca8c370a2d29827f6a8fec15d8329510a8dbbc6691edba9aa9bd2b75"
+    }
+  ],
+  "helper_and_source_bindings": {
+    "helpers_and_mesh_workers": {
+      "fea/floor_contact.py": {
+        "path": "fea/floor_contact.py",
+        "sha256_after": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+        "sha256_before": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825",
+        "sha256_current": "f72c9de2f046f6f207974779de555bfa37f5964484ffae2293fc450c35025825"
+      },
+      "fea/stitch_joint_mesh.py": {
+        "path": "fea/stitch_joint_mesh.py",
+        "sha256_after": "9e7bdd4467457cade47f1464e8a3b17cfde69ebb5729719787dd9218011b166e",
+        "sha256_before": "9e7bdd4467457cade47f1464e8a3b17cfde69ebb5729719787dd9218011b166e",
+        "sha256_current": "9e7bdd4467457cade47f1464e8a3b17cfde69ebb5729719787dd9218011b166e"
+      },
+      "fea/wood_joint_current_patch_materials.py": {
+        "path": "fea/wood_joint_current_patch_materials.py",
+        "sha256": "d9cfd32fab91df125856b4bb2fee2cb33735fc39c2e77f3760df23c0202c9587"
+      },
+      "fea/wood_joint_current_patch_mesh.py": {
+        "path": "fea/wood_joint_current_patch_mesh.py",
+        "sha256_after": "8f6cc05c7239fcd3cd7051dcc39aa1d0075142690f3c37b4f7b1ba6dd1d5b5dc",
+        "sha256_before": "8f6cc05c7239fcd3cd7051dcc39aa1d0075142690f3c37b4f7b1ba6dd1d5b5dc",
+        "sha256_current": "8f6cc05c7239fcd3cd7051dcc39aa1d0075142690f3c37b4f7b1ba6dd1d5b5dc"
+      },
+      "fea/wood_joint_patch_materials.py": {
+        "path": "fea/wood_joint_patch_materials.py",
+        "sha256": "ecbbd11a8a0e99ece69aeb5cb4159e7cf17e0aa18c509c78b5c8f5a2e573ae78"
+      },
+      "fea/wood_joint_patch_mesh.py": {
+        "path": "fea/wood_joint_patch_mesh.py",
+        "sha256_after": "915ab6d14efc6e81b4a95c4338ffb8b98cb7e4fac1478d23b592bc8bb377564b",
+        "sha256_before": "915ab6d14efc6e81b4a95c4338ffb8b98cb7e4fac1478d23b592bc8bb377564b",
+        "sha256_current": "915ab6d14efc6e81b4a95c4338ffb8b98cb7e4fac1478d23b592bc8bb377564b"
+      },
+      "fea/wood_joint_patch_steel_material.py": {
+        "path": "fea/wood_joint_patch_steel_material.py",
+        "sha256": "0cf45f5194231f61500df14ed580adb9742f6b0c7df659382ea658c7598e8d02"
+      },
+      "scripts/wood_joint_current_patch_inputs.py": {
+        "path": "scripts/wood_joint_current_patch_inputs.py",
+        "sha256_after": "aad61df4d6a7f39dd7d14eac48193f1d94545887f56e50d8f86e6ec4f5dec0bc",
+        "sha256_before": "aad61df4d6a7f39dd7d14eac48193f1d94545887f56e50d8f86e6ec4f5dec0bc",
+        "sha256_current": "aad61df4d6a7f39dd7d14eac48193f1d94545887f56e50d8f86e6ec4f5dec0bc"
+      }
+    },
+    "material_helper_expected_source_sha256": {
+      "calculix_manual": "16b6bab5a3f1a40a21fff62379f95c804a58d93758ab2e9a489b18d911dc20c8",
+      "steel_scenario": "e97f7df51e6553698e1542079d722022cdbbedad83f740ee42d85b56e6b394c3",
+      "timber_scenario": "f6b723ddfc911284958df7a5348162f6d659396bbc03b83a74fcfbb125b3477f"
+    },
+    "scenario_source_documents": {
+      "docs/wood-joints-mvp/orthotropic-material-scenario.md": {
+        "path": "docs/wood-joints-mvp/orthotropic-material-scenario.md",
+        "sha256": "f6b723ddfc911284958df7a5348162f6d659396bbc03b83a74fcfbb125b3477f"
+      },
+      "docs/wood-joints-mvp/steel-elastic-material-scenario.md": {
+        "path": "docs/wood-joints-mvp/steel-elastic-material-scenario.md",
+        "sha256": "e97f7df51e6553698e1542079d722022cdbbedad83f740ee42d85b56e6b394c3"
+      },
+      "fea/generated/connection/ccx_2.21.pdf": {
+        "path": "fea/generated/connection/ccx_2.21.pdf",
+        "sha256": "16b6bab5a3f1a40a21fff62379f95c804a58d93758ab2e9a489b18d911dc20c8"
+      }
+    }
+  },
+  "inp_fragments": {
+    "source_transverse_a__elastic_reference_all_16_metal_bodies": {
+      "elastic_section_elset_names": [
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M01_A00_HEAD_WASHER",
+        "M02_A00_NUT_WASHER",
+        "M03_A00_NUT",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M05_A01_HEAD_WASHER",
+        "M06_A01_NUT_WASHER",
+        "M07_A01_NUT",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M09_A02_HEAD_WASHER",
+        "M10_A02_NUT_WASHER",
+        "M11_A02_NUT",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M13_A03_HEAD_WASHER",
+        "M14_A03_NUT_WASHER",
+        "M15_A03_NUT"
+      ],
+      "fragment_sha256": "4d87a1b819f906a30e6917cdd26eb03739cbdcb2ad3eb408607f585509a26e99",
+      "inp_fragment": "** Current patch elastic material and section assignments; scenario inputs only.\n** Select one R/T and one metal branch; do not combine fragments.\n** No contact, tie, load, restraint, rigid-body definition, or solve cards are included.\n** Nut STEP bodies are solid cylindrical viewer envelopes without internal bores, not physical nut compliance or response-ready geometry.\n*MATERIAL,NAME=WOOD_ELASTIC_DIAGNOSTIC\n*ELASTIC,TYPE=ENGINEERING CONSTANTS\n11032,750.17600000000004,551.60000000000002,0.29199999999999998,0.44900000000000001,0.39000000000000001,706.048,860.49599999999998\n77.224000000000004\n*MATERIAL,NAME=STEEL_ELASTIC_DIAGNOSTIC\n*ELASTIC,TYPE=ISO\n200000,0.3\n** Nut elastic sections are generic references only, not physical nut compliance:\n** the four source STEP nut bodies are solid cylindrical viewer envelopes without bores.\n*ORIENTATION,NAME=ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_SOURCE_TRANSVERSE_A\n0,-0.76604444299999996,0.64278760999999995,1,0,0\n*ORIENTATION,NAME=ORI_W01_BASE_RAIL_BOTTOM_RIGHT_SOURCE_TRANSVERSE_A\n1,0,0,0,0.64278760968653936,0.76604444311897801\n*ORIENTATION,NAME=ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_SOURCE_TRANSVERSE_A\n0,0.64278760999999995,0.76604444299999996,1,0,0\n*SOLID SECTION,ELSET=W00_BOTTOM_CENTER_RIGHT_CLEAT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_SOURCE_TRANSVERSE_A\n*SOLID SECTION,ELSET=W01_BASE_RAIL_BOTTOM_RIGHT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W01_BASE_RAIL_BOTTOM_RIGHT_SOURCE_TRANSVERSE_A\n*SOLID SECTION,ELSET=W02_BASE_PRINCIPAL_CENTER_RIGHT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_SOURCE_TRANSVERSE_A\n*SOLID SECTION,ELSET=M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M01_A00_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M02_A00_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M03_A00_NUT,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M05_A01_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M06_A01_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M07_A01_NUT,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M09_A02_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M10_A02_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M11_A02_NUT,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M13_A03_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M14_A03_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M15_A03_NUT,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n",
+      "metal_branch": "elastic_reference_all_16_metal_bodies",
+      "nut_rigid_body_candidate_elsets": [],
+      "rigid_body_cards_emitted": false,
+      "unassigned_nut_elsets": [],
+      "wood_orientation_case": "source_transverse_a"
+    },
+    "source_transverse_a__nuts_reserved_for_downstream_rigid_body": {
+      "elastic_section_elset_names": [
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M01_A00_HEAD_WASHER",
+        "M02_A00_NUT_WASHER",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M05_A01_HEAD_WASHER",
+        "M06_A01_NUT_WASHER",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M09_A02_HEAD_WASHER",
+        "M10_A02_NUT_WASHER",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M13_A03_HEAD_WASHER",
+        "M14_A03_NUT_WASHER"
+      ],
+      "fragment_sha256": "0e65da1f006cce53b9604c2b6b79c0e77bb360e3281743fa31d056f01c2dd3e1",
+      "inp_fragment": "** Current patch elastic material and section assignments; scenario inputs only.\n** Select one R/T and one metal branch; do not combine fragments.\n** No contact, tie, load, restraint, rigid-body definition, or solve cards are included.\n** Nut STEP bodies are solid cylindrical viewer envelopes without internal bores, not physical nut compliance or response-ready geometry.\n*MATERIAL,NAME=WOOD_ELASTIC_DIAGNOSTIC\n*ELASTIC,TYPE=ENGINEERING CONSTANTS\n11032,750.17600000000004,551.60000000000002,0.29199999999999998,0.44900000000000001,0.39000000000000001,706.048,860.49599999999998\n77.224000000000004\n*MATERIAL,NAME=STEEL_ELASTIC_DIAGNOSTIC\n*ELASTIC,TYPE=ISO\n200000,0.3\n*ORIENTATION,NAME=ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_SOURCE_TRANSVERSE_A\n0,-0.76604444299999996,0.64278760999999995,1,0,0\n*ORIENTATION,NAME=ORI_W01_BASE_RAIL_BOTTOM_RIGHT_SOURCE_TRANSVERSE_A\n1,0,0,0,0.64278760968653936,0.76604444311897801\n*ORIENTATION,NAME=ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_SOURCE_TRANSVERSE_A\n0,0.64278760999999995,0.76604444299999996,1,0,0\n*SOLID SECTION,ELSET=W00_BOTTOM_CENTER_RIGHT_CLEAT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_SOURCE_TRANSVERSE_A\n*SOLID SECTION,ELSET=W01_BASE_RAIL_BOTTOM_RIGHT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W01_BASE_RAIL_BOTTOM_RIGHT_SOURCE_TRANSVERSE_A\n*SOLID SECTION,ELSET=W02_BASE_PRINCIPAL_CENTER_RIGHT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_SOURCE_TRANSVERSE_A\n*SOLID SECTION,ELSET=M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M01_A00_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M02_A00_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M05_A01_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M06_A01_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M09_A02_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M10_A02_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M13_A03_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M14_A03_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n** Nut ELSETs intentionally have no elastic section in this alternative:\n** M03_A00_NUT, M07_A01_NUT, M11_A02_NUT, M15_A03_NUT\n** A downstream rigid-body branch may consume these ELSETs; no rigid card is emitted here.\n",
+      "metal_branch": "nuts_reserved_for_downstream_rigid_body",
+      "nut_rigid_body_candidate_elsets": [
+        "M03_A00_NUT",
+        "M07_A01_NUT",
+        "M11_A02_NUT",
+        "M15_A03_NUT"
+      ],
+      "rigid_body_cards_emitted": false,
+      "unassigned_nut_elsets": [
+        "M03_A00_NUT",
+        "M07_A01_NUT",
+        "M11_A02_NUT",
+        "M15_A03_NUT"
+      ],
+      "wood_orientation_case": "source_transverse_a"
+    },
+    "source_transverse_b__elastic_reference_all_16_metal_bodies": {
+      "elastic_section_elset_names": [
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M01_A00_HEAD_WASHER",
+        "M02_A00_NUT_WASHER",
+        "M03_A00_NUT",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M05_A01_HEAD_WASHER",
+        "M06_A01_NUT_WASHER",
+        "M07_A01_NUT",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M09_A02_HEAD_WASHER",
+        "M10_A02_NUT_WASHER",
+        "M11_A02_NUT",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M13_A03_HEAD_WASHER",
+        "M14_A03_NUT_WASHER",
+        "M15_A03_NUT"
+      ],
+      "fragment_sha256": "d30e52a1643d2debb269048107d9ddf5fb2d86b08eadbe237b4694b9c1334e80",
+      "inp_fragment": "** Current patch elastic material and section assignments; scenario inputs only.\n** Select one R/T and one metal branch; do not combine fragments.\n** No contact, tie, load, restraint, rigid-body definition, or solve cards are included.\n** Nut STEP bodies are solid cylindrical viewer envelopes without internal bores, not physical nut compliance or response-ready geometry.\n*MATERIAL,NAME=WOOD_ELASTIC_DIAGNOSTIC\n*ELASTIC,TYPE=ENGINEERING CONSTANTS\n11032,750.17600000000004,551.60000000000002,0.29199999999999998,0.44900000000000001,0.39000000000000001,706.048,860.49599999999998\n77.224000000000004\n*MATERIAL,NAME=STEEL_ELASTIC_DIAGNOSTIC\n*ELASTIC,TYPE=ISO\n200000,0.3\n** Nut elastic sections are generic references only, not physical nut compliance:\n** the four source STEP nut bodies are solid cylindrical viewer envelopes without bores.\n*ORIENTATION,NAME=ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_SOURCE_TRANSVERSE_B\n0,-0.76604444299999996,0.64278760999999995,0,0.64278760968653936,0.76604444311897801\n*ORIENTATION,NAME=ORI_W01_BASE_RAIL_BOTTOM_RIGHT_SOURCE_TRANSVERSE_B\n1,0,0,0,-0.76604444311897801,0.64278760968653936\n*ORIENTATION,NAME=ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_SOURCE_TRANSVERSE_B\n0,0.64278760999999995,0.76604444299999996,0,-0.76604444311897801,0.64278760968653936\n*SOLID SECTION,ELSET=W00_BOTTOM_CENTER_RIGHT_CLEAT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_SOURCE_TRANSVERSE_B\n*SOLID SECTION,ELSET=W01_BASE_RAIL_BOTTOM_RIGHT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W01_BASE_RAIL_BOTTOM_RIGHT_SOURCE_TRANSVERSE_B\n*SOLID SECTION,ELSET=W02_BASE_PRINCIPAL_CENTER_RIGHT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_SOURCE_TRANSVERSE_B\n*SOLID SECTION,ELSET=M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M01_A00_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M02_A00_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M03_A00_NUT,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M05_A01_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M06_A01_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M07_A01_NUT,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M09_A02_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M10_A02_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M11_A02_NUT,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M13_A03_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M14_A03_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M15_A03_NUT,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n",
+      "metal_branch": "elastic_reference_all_16_metal_bodies",
+      "nut_rigid_body_candidate_elsets": [],
+      "rigid_body_cards_emitted": false,
+      "unassigned_nut_elsets": [],
+      "wood_orientation_case": "source_transverse_b"
+    },
+    "source_transverse_b__nuts_reserved_for_downstream_rigid_body": {
+      "elastic_section_elset_names": [
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M01_A00_HEAD_WASHER",
+        "M02_A00_NUT_WASHER",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M05_A01_HEAD_WASHER",
+        "M06_A01_NUT_WASHER",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M09_A02_HEAD_WASHER",
+        "M10_A02_NUT_WASHER",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M13_A03_HEAD_WASHER",
+        "M14_A03_NUT_WASHER"
+      ],
+      "fragment_sha256": "bdc4eeb152bf3b5bd2673b2f2e9b58de254f7af8a6e926238e5cb3ca006928b0",
+      "inp_fragment": "** Current patch elastic material and section assignments; scenario inputs only.\n** Select one R/T and one metal branch; do not combine fragments.\n** No contact, tie, load, restraint, rigid-body definition, or solve cards are included.\n** Nut STEP bodies are solid cylindrical viewer envelopes without internal bores, not physical nut compliance or response-ready geometry.\n*MATERIAL,NAME=WOOD_ELASTIC_DIAGNOSTIC\n*ELASTIC,TYPE=ENGINEERING CONSTANTS\n11032,750.17600000000004,551.60000000000002,0.29199999999999998,0.44900000000000001,0.39000000000000001,706.048,860.49599999999998\n77.224000000000004\n*MATERIAL,NAME=STEEL_ELASTIC_DIAGNOSTIC\n*ELASTIC,TYPE=ISO\n200000,0.3\n*ORIENTATION,NAME=ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_SOURCE_TRANSVERSE_B\n0,-0.76604444299999996,0.64278760999999995,0,0.64278760968653936,0.76604444311897801\n*ORIENTATION,NAME=ORI_W01_BASE_RAIL_BOTTOM_RIGHT_SOURCE_TRANSVERSE_B\n1,0,0,0,-0.76604444311897801,0.64278760968653936\n*ORIENTATION,NAME=ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_SOURCE_TRANSVERSE_B\n0,0.64278760999999995,0.76604444299999996,0,-0.76604444311897801,0.64278760968653936\n*SOLID SECTION,ELSET=W00_BOTTOM_CENTER_RIGHT_CLEAT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_SOURCE_TRANSVERSE_B\n*SOLID SECTION,ELSET=W01_BASE_RAIL_BOTTOM_RIGHT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W01_BASE_RAIL_BOTTOM_RIGHT_SOURCE_TRANSVERSE_B\n*SOLID SECTION,ELSET=W02_BASE_PRINCIPAL_CENTER_RIGHT,MATERIAL=WOOD_ELASTIC_DIAGNOSTIC,ORIENTATION=ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_SOURCE_TRANSVERSE_B\n*SOLID SECTION,ELSET=M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M01_A00_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M02_A00_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M05_A01_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M06_A01_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M09_A02_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M10_A02_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M13_A03_HEAD_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n*SOLID SECTION,ELSET=M14_A03_NUT_WASHER,MATERIAL=STEEL_ELASTIC_DIAGNOSTIC\n** Nut ELSETs intentionally have no elastic section in this alternative:\n** M03_A00_NUT, M07_A01_NUT, M11_A02_NUT, M15_A03_NUT\n** A downstream rigid-body branch may consume these ELSETs; no rigid card is emitted here.\n",
+      "metal_branch": "nuts_reserved_for_downstream_rigid_body",
+      "nut_rigid_body_candidate_elsets": [
+        "M03_A00_NUT",
+        "M07_A01_NUT",
+        "M11_A02_NUT",
+        "M15_A03_NUT"
+      ],
+      "rigid_body_cards_emitted": false,
+      "unassigned_nut_elsets": [
+        "M03_A00_NUT",
+        "M07_A01_NUT",
+        "M11_A02_NUT",
+        "M15_A03_NUT"
+      ],
+      "wood_orientation_case": "source_transverse_b"
+    }
+  },
+  "input_bindings": {
+    "inventory": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-inputs-attempt01/inventory.json",
+      "sha256": "70b396e636175abcad7467dc145029d7126c1ea7dff1d053a61f8c5321e1c1d3"
+    },
+    "mesh_input": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.inp",
+      "sha256": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803"
+    },
+    "mesh_report": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.json",
+      "sha256": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07"
+    },
+    "source_inventory": {
+      "path": "docs/wood-joints-mvp/source-inventory.json",
+      "pinned_by_geometry_binding_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "pinned_by_input_candidate_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+      "source_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb"
+    }
+  },
+  "material_scenarios": {
+    "steel": {
+      "calculix_elastic_type": "ISO",
+      "current_assignment_scope": "The E=200000 MPa, nu=0.30 baseline is assigned as a generic diagnostic reference to current patch metal ELSETs; only the numerical values are reused from the helper scenario, whose earlier body count does not transfer.",
+      "delivered_material_properties_verified": false,
+      "derived_shear_modulus_mpa": 76923.07692307692,
+      "material_basis": "generic isotropic steel elastic reference for diagnostics",
+      "plasticity_defined": false,
+      "poisson_ratio": 0.3,
+      "qualified_for_design": false,
+      "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+      "scenario_sha256": "596a2abf25d9bd211f3e2697716e74ac4fd8928218a108358f4199c77cc4d53a",
+      "source_document": "docs/wood-joints-mvp/steel-elastic-material-scenario.md",
+      "source_document_sha256": "e97f7df51e6553698e1542079d722022cdbbedad83f740ee42d85b56e6b394c3",
+      "source_references": [
+        {
+          "authors": "Adel Mashayekh and Chia-Ming Uang",
+          "publication": "AISC Engineering Journal, Second Quarter 2018, pp. 109\u2013122",
+          "sha256": "c31583aaa194f454c50d822db417e9493fd39edf804de10e5d6eecc143c62f36",
+          "title": "Experimental Evaluation of a Procedure for SMF Continuity Plate and Weld Design",
+          "url": "https://ej.aisc.org/index.php/engj/article/download/1127/1126/1126",
+          "use": "Primary published FE study reporting typical steel model values E=29,000 ksi and nu=0.3."
+        },
+        {
+          "authors": "American Institute of Steel Construction",
+          "publication": "2022, Table B4.1a",
+          "sha256": null,
+          "title": "ANSI/AISC 360-22, Specification for Structural Steel Buildings",
+          "url": "https://www.aisc.org/aisc/publications/current-standards/aisc-360/",
+          "use": "Primary standard source for the stated steel elastic modulus E=29,000 ksi (200,000 MPa)."
+        }
+      ],
+      "status": "proposal_only_unmeasured_unaccepted",
+      "steel_grade_assigned": false,
+      "strength_or_resistance_claim": false,
+      "units": {
+        "elastic_moduli": "MPa",
+        "poisson_ratio": "dimensionless"
+      },
+      "youngs_modulus_mpa": 200000.0
+    },
+    "wood": {
+      "engineering_constant_order": [
+        "E_L",
+        "E_R",
+        "E_T",
+        "nu_LR",
+        "nu_LT",
+        "nu_RT",
+        "G_LR",
+        "G_LT",
+        "G_RT"
+      ],
+      "engineering_constants_mpa": [
+        11032.0,
+        750.176,
+        551.6,
+        0.292,
+        0.449,
+        0.39,
+        706.048,
+        860.496,
+        77.224
+      ],
+      "grade_specific_measured_properties_claim": false,
+      "material_axes": [
+        "L",
+        "R",
+        "T"
+      ],
+      "material_basis": "Douglas-fir diagnostic elastic scenario",
+      "qualified_for_design": false,
+      "resistance_claim": false,
+      "scenario_id": "douglas_fir_orthotropic_elastic_diagnostic_2026-09-24",
+      "scenario_sha256": "e4d015ecbf515fd94906bd8d232865402c78f6e4d3d82a8bba59adb321139726",
+      "source_document": "docs/wood-joints-mvp/orthotropic-material-scenario.md",
+      "source_document_sha256": "f6b723ddfc911284958df7a5348162f6d659396bbc03b83a74fcfbb125b3477f",
+      "status": "proposal_only_unmeasured_unaccepted",
+      "stock_properties_measured": false,
+      "units": {
+        "compliance": "MPa^-1",
+        "moduli": "MPa"
+      }
+    }
+  },
+  "metal_assignment": {
+    "body_count": 16,
+    "candidate_metal_bodies": [
+      {
+        "component_role": "bolt_head_plus_shaft_union",
+        "delivered_part_properties_verified": false,
+        "element_count": 5490,
+        "elset_name": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/bolt",
+        "source_step_sha256": "eabb595994fbea2350df7d0067ed360feed7c5985e29dfe4f801de32ec82da25"
+      },
+      {
+        "component_role": "head_washer",
+        "delivered_part_properties_verified": false,
+        "element_count": 594,
+        "elset_name": "M01_A00_HEAD_WASHER",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M01_A00_HEAD_WASHER",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer",
+        "source_step_sha256": "02f82642d81096323b6017ef5cade6400ffda9f39121daa45f070715ffc13659"
+      },
+      {
+        "component_role": "nut_washer",
+        "delivered_part_properties_verified": false,
+        "element_count": 594,
+        "elset_name": "M02_A00_NUT_WASHER",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M02_A00_NUT_WASHER",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer",
+        "source_step_sha256": "8437bffc5c5e2cc15d5046ca2c8874e4fb1057629fa071b76e9a017f69b9dab3"
+      },
+      {
+        "component_role": "nut",
+        "delivered_part_properties_verified": false,
+        "element_count": 519,
+        "elset_name": "M03_A00_NUT",
+        "generic_assignment_is_physical_nut_compliance": false,
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M03_A00_NUT",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut",
+        "physical_nut_response_ready": false,
+        "representation_limit": "The four nut STEP bodies are solid cylindrical viewer envelopes without internal thread bores; an elastic assignment is only a generic numerical reference, not physical nut compliance or a response-ready nut model.",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_1/nut",
+        "source_step_sha256": "960bc17658551dc574110b7a20dfc4d27c8ee57a9802b5599dc897cdad8e8e84"
+      },
+      {
+        "component_role": "bolt_head_plus_shaft_union",
+        "delivered_part_properties_verified": false,
+        "element_count": 5225,
+        "elset_name": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/bolt",
+        "source_step_sha256": "596829b41cb8b2ec712673de65a6f90812864d2737dab4e5d25ce9fa17956d6f"
+      },
+      {
+        "component_role": "head_washer",
+        "delivered_part_properties_verified": false,
+        "element_count": 591,
+        "elset_name": "M05_A01_HEAD_WASHER",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M05_A01_HEAD_WASHER",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+        "source_step_sha256": "39ca598c42cd643121ae9af393077c25052f31302645942b379a6e13cda7b4ec"
+      },
+      {
+        "component_role": "nut_washer",
+        "delivered_part_properties_verified": false,
+        "element_count": 600,
+        "elset_name": "M06_A01_NUT_WASHER",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M06_A01_NUT_WASHER",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+        "source_step_sha256": "e8316dc0e20894a09d2d1745a0e93b286d818e8ad75d3899822eb7327f4dad09"
+      },
+      {
+        "component_role": "nut",
+        "delivered_part_properties_verified": false,
+        "element_count": 511,
+        "elset_name": "M07_A01_NUT",
+        "generic_assignment_is_physical_nut_compliance": false,
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M07_A01_NUT",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+        "physical_nut_response_ready": false,
+        "representation_limit": "The four nut STEP bodies are solid cylindrical viewer envelopes without internal thread bores; an elastic assignment is only a generic numerical reference, not physical nut compliance or a response-ready nut model.",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+        "source_step_sha256": "b483ca329a793b0b48b9d30586156887a14b80163565708e4977983fe39ef62d"
+      },
+      {
+        "component_role": "bolt_head_plus_shaft_union",
+        "delivered_part_properties_verified": false,
+        "element_count": 4938,
+        "elset_name": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/bolt",
+        "source_step_sha256": "f94cf5f73de05628738e5e9ece4337ea507f1527fb128c3efba3406001f81c8b"
+      },
+      {
+        "component_role": "head_washer",
+        "delivered_part_properties_verified": false,
+        "element_count": 600,
+        "elset_name": "M09_A02_HEAD_WASHER",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M09_A02_HEAD_WASHER",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer",
+        "source_step_sha256": "90cc358c67c138de53af702ef07e7dea795398884d6af5d7a55ea6e043a27325"
+      },
+      {
+        "component_role": "nut_washer",
+        "delivered_part_properties_verified": false,
+        "element_count": 601,
+        "elset_name": "M10_A02_NUT_WASHER",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M10_A02_NUT_WASHER",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer",
+        "source_step_sha256": "746121c12591aa0acd3da1eaaf8d372adc69a9c03a58ca7f6c03e16d682912a7"
+      },
+      {
+        "component_role": "nut",
+        "delivered_part_properties_verified": false,
+        "element_count": 549,
+        "elset_name": "M11_A02_NUT",
+        "generic_assignment_is_physical_nut_compliance": false,
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M11_A02_NUT",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut",
+        "physical_nut_response_ready": false,
+        "representation_limit": "The four nut STEP bodies are solid cylindrical viewer envelopes without internal thread bores; an elastic assignment is only a generic numerical reference, not physical nut compliance or a response-ready nut model.",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_1/nut",
+        "source_step_sha256": "035fde9d8a18d5d8c480f35fa3d031a1c468adf80052f32849bc0e56cf3d0785"
+      },
+      {
+        "component_role": "bolt_head_plus_shaft_union",
+        "delivered_part_properties_verified": false,
+        "element_count": 4988,
+        "elset_name": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/bolt",
+        "source_step_sha256": "68204cb8c6ca58e253df62b545434e2e334d9c3acb0d0529222e3e399699b07c"
+      },
+      {
+        "component_role": "head_washer",
+        "delivered_part_properties_verified": false,
+        "element_count": 599,
+        "elset_name": "M13_A03_HEAD_WASHER",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M13_A03_HEAD_WASHER",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer",
+        "source_step_sha256": "86fb5268eec7ca3e5fed3e6f9607132ab9d663980732226e67f94d4aa724af6a"
+      },
+      {
+        "component_role": "nut_washer",
+        "delivered_part_properties_verified": false,
+        "element_count": 599,
+        "elset_name": "M14_A03_NUT_WASHER",
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M14_A03_NUT_WASHER",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer",
+        "source_step_sha256": "b5f7c7e61f623ecf9f486312693fcd92a057f5359df6d6033cfe83afd3775137"
+      },
+      {
+        "component_role": "nut",
+        "delivered_part_properties_verified": false,
+        "element_count": 545,
+        "elset_name": "M15_A03_NUT",
+        "generic_assignment_is_physical_nut_compliance": false,
+        "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+        "mesh_body_id": "M15_A03_NUT",
+        "owner_kind": "physical_metal",
+        "physical_body_id": "physical_metal/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut",
+        "physical_nut_response_ready": false,
+        "representation_limit": "The four nut STEP bodies are solid cylindrical viewer envelopes without internal thread bores; an elastic assignment is only a generic numerical reference, not physical nut compliance or a response-ready nut model.",
+        "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24",
+        "source_body_id": null,
+        "source_step_artifact_key": "hardware/bottom_center/clip_horizontal_bottom_right_1/principal_2/nut",
+        "source_step_sha256": "84e1cf74ca8c370a2d29827f6a8fec15d8329510a8dbbc6691edba9aa9bd2b75"
+      }
+    ],
+    "material_name": "STEEL_ELASTIC_DIAGNOSTIC",
+    "mutually_exclusive_branches": [
+      "elastic_reference_all_16_metal_bodies",
+      "nuts_reserved_for_downstream_rigid_body"
+    ],
+    "nut_elsets": [
+      "M03_A00_NUT",
+      "M07_A01_NUT",
+      "M11_A02_NUT",
+      "M15_A03_NUT"
+    ],
+    "nut_representation_limit": "The four nut STEP bodies are solid cylindrical viewer envelopes without internal thread bores; an elastic assignment is only a generic numerical reference, not physical nut compliance or a response-ready nut model.",
+    "nut_role_count": 4,
+    "scenario_id": "steel_elastic_diagnostic_baseline_2026-09-24"
+  },
+  "record_sha256": "d1087368a3f6654a1185d35b79d23e6b3793fd473ffb212ded43f245b0eee53e",
+  "schema": "wood_joint_current_patch_material_binding/v1",
+  "scope": {
+    "contact_or_tie_cards_emitted": false,
+    "delivered_metal_properties_verified": false,
+    "delivered_wood_properties_verified": false,
+    "limitations": [
+      "Elastic constants are proposal-only diagnostic scenarios, not measured or verified properties of delivered wood or hardware.",
+      "No species/grade-specific wood properties, steel grade, yield strength, plasticity, resistance, or capacity are assigned.",
+      "No contact, tie, load, restraint, rigid-body definition, native solve, or acceptance result is emitted.",
+      "The result maps 19 mesh body ELSETs (3 timber bodies and 16 metal-role envelopes); it does not claim a 19-component physical assembly.",
+      "The four nut STEP bodies are solid cylindrical viewer envelopes without internal thread bores; an elastic assignment is only a generic numerical reference, not physical nut compliance or a response-ready nut model."
+    ],
+    "load_or_restraint_cards_emitted": false,
+    "material_mapping_only": true,
+    "mesh_body_elset_count": 19,
+    "metal_role_body_count": 16,
+    "native_solve_run": false,
+    "rigid_body_cards_emitted": false,
+    "strength_or_capacity_claim": false,
+    "timber_body_count": 3
+  },
+  "status": "proposal_only_current_patch_material_map",
+  "wood_orientation_alternatives": [
+    {
+      "body_orientations": [
+        {
+          "component_role": null,
+          "delivered_stock_observed": false,
+          "element_count": 5157,
+          "elset_name": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "grain_axis_global_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "grain_axis_local_name": "N",
+          "grain_basis": "common-block local N mapped by the bottom-center source-local frame; source inventory base_rail_bottom_right.local_axes.N",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443118978,
+              0.6427876096865394
+            ],
+            "T": [
+              0.0,
+              0.6427876096865394,
+              0.766044443118978
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "material_name": "WOOD_ELASTIC_DIAGNOSTIC",
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "orientation": {
+            "calculix_orientation_points_global_xyz": [
+              0.0,
+              -0.766044443,
+              0.64278761,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "material_axes_global_xyz": {
+              "L": [
+                0.0,
+                -0.766044443,
+                0.64278761
+              ],
+              "R": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "T": [
+                -0.0,
+                0.64278761,
+                0.766044443
+              ]
+            },
+            "proposal_only": true,
+            "radial_axis_local_name": "X",
+            "right_handed": true,
+            "scenario_id": "ring_R_on_X",
+            "schema": "wood_joint_material_orientation/v1",
+            "source_grain_axis_local_name": "N",
+            "status": "explicit_source_grain_with_ring_orientation_scenario",
+            "tangential_axis_local_name": "T"
+          },
+          "orientation_name": "ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_source_transverse_a",
+          "owner_kind": "wood_member",
+          "part_id": "bottom_center_right_cleat",
+          "physical_body_id": null,
+          "scenario_id": "douglas_fir_orthotropic_elastic_diagnostic_2026-09-24",
+          "source_body_id": "bottom_center_right_cleat",
+          "source_frame_owner": "base_rail_bottom_right",
+          "source_step_artifact_key": "wood/bottom_center_right_cleat",
+          "source_step_sha256": "757aa41d8cd1c3cb6058a58a5a376b6d0737c76d8803e17e1ec9fc898f0fc60b"
+        },
+        {
+          "component_role": null,
+          "delivered_stock_observed": false,
+          "element_count": 11593,
+          "elset_name": "W01_BASE_RAIL_BOTTOM_RIGHT",
+          "grain_axis_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "grain_axis_local_name": "X",
+          "grain_basis": "source inventory grain_axis_global_xyz",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443118978,
+              0.6427876096865394
+            ],
+            "T": [
+              0.0,
+              0.6427876096865394,
+              0.766044443118978
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "material_name": "WOOD_ELASTIC_DIAGNOSTIC",
+          "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+          "orientation": {
+            "calculix_orientation_points_global_xyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.6427876096865394,
+              0.766044443118978
+            ],
+            "material_axes_global_xyz": {
+              "L": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "R": [
+                0.0,
+                0.6427876096865394,
+                0.766044443118978
+              ],
+              "T": [
+                0.0,
+                -0.766044443118978,
+                0.6427876096865394
+              ]
+            },
+            "proposal_only": true,
+            "radial_axis_local_name": "T",
+            "right_handed": true,
+            "scenario_id": "ring_R_on_T",
+            "schema": "wood_joint_material_orientation/v1",
+            "source_grain_axis_local_name": "X",
+            "status": "explicit_source_grain_with_ring_orientation_scenario",
+            "tangential_axis_local_name": "N"
+          },
+          "orientation_name": "ORI_W01_BASE_RAIL_BOTTOM_RIGHT_source_transverse_a",
+          "owner_kind": "wood_member",
+          "part_id": "base_rail_bottom_right",
+          "physical_body_id": null,
+          "scenario_id": "douglas_fir_orthotropic_elastic_diagnostic_2026-09-24",
+          "source_body_id": "base_rail_bottom_right",
+          "source_frame_owner": "base_rail_bottom_right",
+          "source_step_artifact_key": "wood/base_rail_bottom_right",
+          "source_step_sha256": "bc1c963715273d418b29f84371676b583e5f4f4d5b36162b855588cc375a7076"
+        },
+        {
+          "component_role": null,
+          "delivered_stock_observed": false,
+          "element_count": 13350,
+          "elset_name": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+          "grain_axis_global_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "grain_axis_local_name": "T",
+          "grain_basis": "source inventory grain_axis_global_xyz",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443118978,
+              0.6427876096865394
+            ],
+            "T": [
+              0.0,
+              0.6427876096865394,
+              0.766044443118978
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "material_name": "WOOD_ELASTIC_DIAGNOSTIC",
+          "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+          "orientation": {
+            "calculix_orientation_points_global_xyz": [
+              0.0,
+              0.64278761,
+              0.766044443,
+              1.0,
+              0.0,
+              0.0
+            ],
+            "material_axes_global_xyz": {
+              "L": [
+                0.0,
+                0.64278761,
+                0.766044443
+              ],
+              "R": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "T": [
+                0.0,
+                0.766044443,
+                -0.64278761
+              ]
+            },
+            "proposal_only": true,
+            "radial_axis_local_name": "X",
+            "right_handed": true,
+            "scenario_id": "ring_R_on_X",
+            "schema": "wood_joint_material_orientation/v1",
+            "source_grain_axis_local_name": "T",
+            "status": "explicit_source_grain_with_ring_orientation_scenario",
+            "tangential_axis_local_name": "N"
+          },
+          "orientation_name": "ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_source_transverse_a",
+          "owner_kind": "wood_member",
+          "part_id": "base_principal_center_right",
+          "physical_body_id": null,
+          "scenario_id": "douglas_fir_orthotropic_elastic_diagnostic_2026-09-24",
+          "source_body_id": "base_principal_center_right",
+          "source_frame_owner": "base_principal_center_right",
+          "source_step_artifact_key": "wood/base_principal_center_right",
+          "source_step_sha256": "079b349ab932f536d741d1336d81deededa013f5f2e0dcc698b62447c923e250"
+        }
+      ],
+      "case_id": "source_transverse_a",
+      "description": "For each member, assign radial R to the first transverse source axis in the existing X/T/N helper order; the helper signs T for a right-handed frame.",
+      "selection_policy": "same helper-order alternative is applied to each of the three wood bodies; this is not a measured growth-ring map"
+    },
+    {
+      "body_orientations": [
+        {
+          "component_role": null,
+          "delivered_stock_observed": false,
+          "element_count": 5157,
+          "elset_name": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "grain_axis_global_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "grain_axis_local_name": "N",
+          "grain_basis": "common-block local N mapped by the bottom-center source-local frame; source inventory base_rail_bottom_right.local_axes.N",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443118978,
+              0.6427876096865394
+            ],
+            "T": [
+              0.0,
+              0.6427876096865394,
+              0.766044443118978
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "material_name": "WOOD_ELASTIC_DIAGNOSTIC",
+          "mesh_body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+          "orientation": {
+            "calculix_orientation_points_global_xyz": [
+              0.0,
+              -0.766044443,
+              0.64278761,
+              0.0,
+              0.6427876096865394,
+              0.766044443118978
+            ],
+            "material_axes_global_xyz": {
+              "L": [
+                0.0,
+                -0.766044443,
+                0.64278761
+              ],
+              "R": [
+                0.0,
+                0.6427876096865394,
+                0.766044443118978
+              ],
+              "T": [
+                -1.000000000110346,
+                0.0,
+                0.0
+              ]
+            },
+            "proposal_only": true,
+            "radial_axis_local_name": "T",
+            "right_handed": true,
+            "scenario_id": "ring_R_on_T",
+            "schema": "wood_joint_material_orientation/v1",
+            "source_grain_axis_local_name": "N",
+            "status": "explicit_source_grain_with_ring_orientation_scenario",
+            "tangential_axis_local_name": "X"
+          },
+          "orientation_name": "ORI_W00_BOTTOM_CENTER_RIGHT_CLEAT_source_transverse_b",
+          "owner_kind": "wood_member",
+          "part_id": "bottom_center_right_cleat",
+          "physical_body_id": null,
+          "scenario_id": "douglas_fir_orthotropic_elastic_diagnostic_2026-09-24",
+          "source_body_id": "bottom_center_right_cleat",
+          "source_frame_owner": "base_rail_bottom_right",
+          "source_step_artifact_key": "wood/bottom_center_right_cleat",
+          "source_step_sha256": "757aa41d8cd1c3cb6058a58a5a376b6d0737c76d8803e17e1ec9fc898f0fc60b"
+        },
+        {
+          "component_role": null,
+          "delivered_stock_observed": false,
+          "element_count": 11593,
+          "elset_name": "W01_BASE_RAIL_BOTTOM_RIGHT",
+          "grain_axis_global_xyz": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "grain_axis_local_name": "X",
+          "grain_basis": "source inventory grain_axis_global_xyz",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443118978,
+              0.6427876096865394
+            ],
+            "T": [
+              0.0,
+              0.6427876096865394,
+              0.766044443118978
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "material_name": "WOOD_ELASTIC_DIAGNOSTIC",
+          "mesh_body_id": "W01_BASE_RAIL_BOTTOM_RIGHT",
+          "orientation": {
+            "calculix_orientation_points_global_xyz": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              -0.766044443118978,
+              0.6427876096865394
+            ],
+            "material_axes_global_xyz": {
+              "L": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "R": [
+                0.0,
+                -0.766044443118978,
+                0.6427876096865394
+              ],
+              "T": [
+                0.0,
+                -0.6427876096865394,
+                -0.766044443118978
+              ]
+            },
+            "proposal_only": true,
+            "radial_axis_local_name": "N",
+            "right_handed": true,
+            "scenario_id": "ring_R_on_N",
+            "schema": "wood_joint_material_orientation/v1",
+            "source_grain_axis_local_name": "X",
+            "status": "explicit_source_grain_with_ring_orientation_scenario",
+            "tangential_axis_local_name": "T"
+          },
+          "orientation_name": "ORI_W01_BASE_RAIL_BOTTOM_RIGHT_source_transverse_b",
+          "owner_kind": "wood_member",
+          "part_id": "base_rail_bottom_right",
+          "physical_body_id": null,
+          "scenario_id": "douglas_fir_orthotropic_elastic_diagnostic_2026-09-24",
+          "source_body_id": "base_rail_bottom_right",
+          "source_frame_owner": "base_rail_bottom_right",
+          "source_step_artifact_key": "wood/base_rail_bottom_right",
+          "source_step_sha256": "bc1c963715273d418b29f84371676b583e5f4f4d5b36162b855588cc375a7076"
+        },
+        {
+          "component_role": null,
+          "delivered_stock_observed": false,
+          "element_count": 13350,
+          "elset_name": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+          "grain_axis_global_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "grain_axis_local_name": "T",
+          "grain_basis": "source inventory grain_axis_global_xyz",
+          "local_axes_global_xyz": {
+            "N": [
+              0.0,
+              -0.766044443118978,
+              0.6427876096865394
+            ],
+            "T": [
+              0.0,
+              0.6427876096865394,
+              0.766044443118978
+            ],
+            "X": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "material_name": "WOOD_ELASTIC_DIAGNOSTIC",
+          "mesh_body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+          "orientation": {
+            "calculix_orientation_points_global_xyz": [
+              0.0,
+              0.64278761,
+              0.766044443,
+              0.0,
+              -0.766044443118978,
+              0.6427876096865394
+            ],
+            "material_axes_global_xyz": {
+              "L": [
+                0.0,
+                0.64278761,
+                0.766044443
+              ],
+              "R": [
+                0.0,
+                -0.766044443118978,
+                0.6427876096865394
+              ],
+              "T": [
+                1.000000000110346,
+                0.0,
+                -0.0
+              ]
+            },
+            "proposal_only": true,
+            "radial_axis_local_name": "N",
+            "right_handed": true,
+            "scenario_id": "ring_R_on_N",
+            "schema": "wood_joint_material_orientation/v1",
+            "source_grain_axis_local_name": "T",
+            "status": "explicit_source_grain_with_ring_orientation_scenario",
+            "tangential_axis_local_name": "X"
+          },
+          "orientation_name": "ORI_W02_BASE_PRINCIPAL_CENTER_RIGHT_source_transverse_b",
+          "owner_kind": "wood_member",
+          "part_id": "base_principal_center_right",
+          "physical_body_id": null,
+          "scenario_id": "douglas_fir_orthotropic_elastic_diagnostic_2026-09-24",
+          "source_body_id": "base_principal_center_right",
+          "source_frame_owner": "base_principal_center_right",
+          "source_step_artifact_key": "wood/base_principal_center_right",
+          "source_step_sha256": "079b349ab932f536d741d1336d81deededa013f5f2e0dcc698b62447c923e250"
+        }
+      ],
+      "case_id": "source_transverse_b",
+      "description": "For each member, assign radial R to the second transverse source axis in the existing X/T/N helper order; the helper signs T for a right-handed frame.",
+      "selection_policy": "same helper-order alternative is applied to each of the three wood bodies; this is not a measured growth-ring map"
+    }
+  ]
+}

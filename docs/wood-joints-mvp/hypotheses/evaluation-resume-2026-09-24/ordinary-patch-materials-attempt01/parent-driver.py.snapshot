@@ -1,0 +1,24 @@
+from pathlib import Path
+import hashlib
+import json
+import shutil
+import sys
+
+root=Path.cwd();sys.path.insert(0,str(root))
+from fea.wood_joint_current_patch_materials import build_current_patch_materials
+base=root/'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+source=root/'fea/wood_joint_current_patch_materials.py'
+digest=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+expected='d9cfd32fab91df125856b4bb2fee2cb33735fc39c2e77f3760df23c0202c9587'
+assert digest(source)==expected
+record=build_current_patch_materials(base/'ordinary-patch-inputs-attempt01/inventory.json',base/'ordinary-patch-mesh-attempt02/mesh/mesh.json')
+assert digest(source)==expected
+dest=base/'ordinary-patch-materials-attempt01';dest.mkdir(exist_ok=False)
+(dest/'material-map.json').write_text(json.dumps(record,indent=2,sort_keys=True,allow_nan=False)+'\n')
+for name,fragment in record['inp_fragments'].items():
+    text=fragment['inp_fragment'];assert hashlib.sha256(text.encode()).hexdigest()==fragment['fragment_sha256']
+    (dest/(name+'.inp')).write_text(text)
+shutil.copyfile(source,dest/'producer.py.snapshot')
+shutil.copyfile(__file__,dest/'parent-driver.py.snapshot')
+(dest/'parent-freeze.json').write_text(json.dumps({'source_sha256':expected,'source_unchanged_after_build':True,'material_map_sha256':digest(dest/'material-map.json'),'canonical_record_sha256':record['record_sha256'],'fragments':{name:fragment['fragment_sha256'] for name,fragment in record['inp_fragments'].items()},'native_solve_run':False},indent=2)+'\n')
+print('Material map',digest(dest/'material-map.json'),len(record['elset_body_map']),'ELSETs',len(record['inp_fragments']),'alternative fragments; no response claim.',flush=True)
