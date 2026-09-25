@@ -17,11 +17,11 @@
     "preserved_barrel_authority_path": "barrel-nut-candidate.json",
     "preserved_barrel_candidate": "compact-floor-flush-bolted-development",
     "preserved_barrel_authority_git_blob": "8b3702cb5c9218df886a75f71f0c751fc2ab315c",
-    "relationship_to_dirty_bolted_docs": "The owner block direction remains active in the parallel compact-floor-flush-bolted-development lane; this handoff creates a stricter separate identity with all 66 panel/kicker axes fixed."
+    "relationship_to_dirty_bolted_docs": "Historical handoff: a stricter separate identity initially fixed all 66 axes. The current_development_revision and recorded eight owner-directed moves now govern this lane."
   },
   "invariants": {
-    "climbing_surface": "fixed kerf-right surface, panel outlines, hold grid, kicker geometry and service function",
-    "panel_kicker_screw_axes_fixed": true,
+    "climbing_surface": "Preserve kerf-right panel outlines, hold T-nut grid and kicker; current owner-approved G2 LED hole datum moves 5 mm outward, with matching light and wire endpoints.",
+    "panel_kicker_screw_axes_fixed": false,
     "panel_screws": 48,
     "kicker_screws": 18,
     "panel_kicker_screw_axes": 66,
@@ -50,7 +50,8 @@
       ]
     },
     "individual_member_transport": true,
-    "floor_support": "Existing no-slip floor support remains an unverified analytical assumption; no floor anchor or new floor-bearing connector contact is credited."
+    "floor_support": "Existing no-slip floor support remains an unverified analytical assumption; no floor anchor or new floor-bearing connector contact is credited.",
+    "panel_kicker_screw_axis_policy": "Preserve current 66-axis layout: 58 original axes and eight recorded owner-directed moves in the current development report. The initial fixed-axis restriction is superseded for those recorded moves only."
   },
   "release": false,
   "release_flags": {
@@ -92,5 +93,25 @@
     "wj05_receiver_audit": "docs/wood-joints-mvp/wj05-receiver-audit.json",
     "duty_registry": "docs/wood-joints-mvp/duty-registry.json"
   },
-  "limits": "WJ-00 through WJ-02 are complete. WJ-03 remains partial: the integrated sequence is diagnostic; 35 fixed LEDs overlap the right lower-panel return only at the terminal 250 mm pose because the kerf-right panel and service bores shift while electrical parts remain at earlier datums. Both staged panel and kicker poses have 0 mm nominal floor gap. The permanent rear envelope is +86.018477 mm beyond the ordinary reference; the 315.648756 mm bolt stroke is separate temporary workspace. WJ-04 remains a diagnostic 95.25 x 38.1 x 119.7 mm grain-N trial: local body excess is 0 mm, generic 50 mm rail-tool gap is 0.764 mm, and temporary nut exit exceeds the ordinary limit by 21.872532 mm. Tool-access envelopes overlap modeled solids but establish neither actual access nor physical impossibility. Mechanics now uses probe finite-contact areas, but its six historical angle-demand cases remain unreplayed with four mismatched source files per case; fresh demand and capacity are unresolved. The 2x6 rip requires post-rip regrading. WJ-05 transfer and receiver reports remain diagnostic; the receiver path is blocked and backer/header duties are unresolved. WJ-06 registry maps 24 duties / 144 former SDS axes, retains 66 screw axes / 12 frame-bolt arrangements, and accepts zero replacements; 540 corridors remain potential, with zero materialized corridors or full stacks. No complete joint resistance, integrated layout acceptance, MVP-L, or release is established."
+  "limits": "Historical handoff checkpoint; current development revision is recorded separately. WJ-00 through WJ-02 are complete. WJ-03 remains partial: the integrated sequence is diagnostic; 35 fixed LEDs overlap the right lower-panel return only at the terminal 250 mm pose because the kerf-right panel and service bores shift while electrical parts remain at earlier datums. Both staged panel and kicker poses have 0 mm nominal floor gap. The permanent rear envelope is +86.018477 mm beyond the ordinary reference; the 315.648756 mm bolt stroke is separate temporary workspace. WJ-04 remains a diagnostic 95.25 x 38.1 x 119.7 mm grain-N trial: local body excess is 0 mm, generic 50 mm rail-tool gap is 0.764 mm, and temporary nut exit exceeds the ordinary limit by 21.872532 mm. Tool-access envelopes overlap modeled solids but establish neither actual access nor physical impossibility. Mechanics now uses probe finite-contact areas, but its six historical angle-demand cases remain unreplayed with four mismatched source files per case; fresh demand and capacity are unresolved. The 2x6 rip requires post-rip regrading. WJ-05 transfer and receiver reports remain diagnostic; the receiver path is blocked and backer/header duties are unresolved. WJ-06 registry maps 24 duties / 144 former SDS axes, retains 66 screw axes / 12 frame-bolt arrangements, and accepts zero replacements; 540 corridors remain potential, with zero materialized corridors or full stacks. No complete joint resistance, integrated layout acceptance, MVP-L, or release is established.",
+  "current_development_revision": {
+    "revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+    "reviewed_repository_commit": "b1e8707d",
+    "scene": "site/owner-wood-joints-wj24-scene.json",
+    "report": "site/owner-wood-joints-review-report.json",
+    "geometry_archive": "docs/wood-joints-mvp/hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/README.md",
+    "owner_review_status": "approved_to_resume_evaluation",
+    "joint_evaluation_pause_lifted": true,
+    "native_execution": "Parent-owned readiness and serialized execution; method benchmarks and candidate mechanics authorized when ready.",
+    "candidate_blocks": 24,
+    "finished_block_designs": 7,
+    "candidate_bolt_axes": 92,
+    "panel_kicker_screw_axes": 66,
+    "unchanged_panel_kicker_axes": 58,
+    "previously_owner_directed_moved_axes": 8,
+    "starting_frame_bolts": 12,
+    "runner_contact": "The exterior blocks abut the existing runners. This timber-to-timber contact is a candidate joint interface requiring mechanics evidence, not a new floor anchor or verified floor support.",
+    "history_policy": "Original source and historical WJ-00 through WJ-06 limits describe the initial handoff unless explicitly superseded here. No historical capacity or layout pass transfers.",
+    "release": false
+  }
 }

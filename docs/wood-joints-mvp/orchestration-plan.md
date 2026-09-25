@@ -1,5 +1,18 @@
 # Wood-joints MVP orchestration plan
 
+## Current evaluation checkpoint, September 24 evening
+
+The owner has reviewed `led-clearance-2x6-runner-seated-blocks-v1` and explicitly
+resumed evaluation with Luna/max agents. This supersedes the viewer-phase pause
+and the historical layout counts below. The current model has 24 blocks in
+seven designs, 92 candidate bolt axes, 66 panel/kicker axes (58 fixed and eight
+recorded moves), and twelve starting frame-bolt arrangements. Geometry review
+is permission to evaluate, not structural acceptance. The parent owns frozen
+inputs and serialized native execution. Current evidence is collected in the
+[evaluation-resume packet](hypotheses/evaluation-resume-2026-09-24/README.md).
+The selected angle-frame and historical evidence remain preserved.
+
+
 Status: active parent-owned persistent goal, 2026-09-24.
 
 ## Owner-directed viewer phase, September 24

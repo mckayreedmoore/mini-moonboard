@@ -132,3 +132,16 @@ A later owner-directed pause supersedes the execution timing: joint evaluations
 remain on hold until the owner explicitly signs off on the current revised
 model. This pause does not revoke lane authorization or add another approval
 prerequisite.
+
+## Wood-joint evaluation resumed after owner model review
+
+On September 24, 2026, after reviewing the runner-seated exterior 2×6 blocks,
+the owner explicitly directed continuing evaluation with Luna agents at maximum
+reasoning effort. This satisfies the preceding model-review pause for
+`led-clearance-2x6-runner-seated-blocks-v1`. Resume candidate-specific joint
+work and native method checks when ready, with parent-owned frozen inputs,
+serialized native execution and final validation. It does not authorize
+fabrication or transfer any historical candidate pass. Preserve the current
+66 Hillman axes (58 unchanged and eight previously owner-directed moves),
+92 candidate bolt axes and twelve starting frame-bolt arrangements as the
+reviewed geometry; report required changes before altering that model.

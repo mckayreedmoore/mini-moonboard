@@ -8,39 +8,31 @@ loads, materials, hardware, and floor assumptions. It is not an inspected
 build or an unconditional climbing rating. WJ-11 physical receiving and
 prototype observations belong to the later MVP-P record.
 
-## Current priority: owner review of the 3D model
+## Current priority: evaluate the owner-reviewed model
 
-On September 24 the owner directed a model MVP and design review before
-further engineering calculations. The complete WJ24 model is available in
-the local viewer at `http://localhost:8765/wood-joints-wj24-viewer.html`.
-The current model includes the bottom support 76.9 mm along T above its
-original station, four lower service cleats below their rails, center kicker
-posts shifted outside the central T-nuts, removal of two inner kicker backers
-and their four bolts, and redirection of four center kicker screws onto the
-moved posts. It also includes the outer rim/header sandwich blocks and the
-redesigned plumb full-section center principal/header blocks, with their
-updated bolt stations. The later owner request removes both outer rear
-crosspieces and underside blocks, leaving 24 blocks with ten distinct finished
-shapes and drilling patterns. See the [current outer-support removal and block count](hypotheses/outer-links-removed-2026-09-24/README.md)
-and [hypothetical denser-layout midpoint screen](hypotheses/midpoint-clearance-2026-09-24/README.md). The older [kicker-joint concept sketches](../../site/wood-joints-kicker-options.html)
-are historical; the viewer and review record supersede them.
+The owner has approved resuming evaluation of
+`led-clearance-2x6-runner-seated-blocks-v1`, reviewed at commit `b1e8707d`.
+This supersedes the earlier viewer-phase pause. Use Luna agents at maximum
+reasoning effort for bounded independent tasks; the parent owns integration,
+frozen inputs and serialized native execution. The current viewer remains at
+`http://localhost:8765/wood-joints-wj24-viewer.html`.
 
-The owner requires explicit sign-off on this current viewer geometry before
-joint evaluations resume. Keep mechanics implementation and calculations
-paused until that sign-off; the execution sequence below remains the later
-engineering plan. Preserve existing results as named diagnostics and recheck
-evidence affected by design changes. Model review does not select a
-construction-ready candidate.
+The current [geometry packet](hypotheses/led-clearance-2x6-runner-blocks-2026-09-24/README.md)
+has 24 blocks in seven finished designs, 92 candidate bolt axes, 66 panel/kicker
+screws (58 unchanged and eight recorded moves) and twelve starting frame bolts.
+Exterior sandwich blocks are single 2×6 blanks seated on the runners; the tall
+central blocks are trimmed, and G2's LED hole/body and wire endpoints move 5 mm
+outward. Current geometry must drive the mechanics and receiver checks.
+The historical 28-block/104-axis mesh, backer and contact records below do not
+transfer by shared part name or by solver convergence.
 
-The earlier [September 24 support revision](hypotheses/bottom-support-above-tnuts-2026-09-24/README.md)
-records the lowered position 5 mm above the first T-nut flange and four moved
-panel screws. The current model carries that support 76.9 mm along T above its
-original station and includes the later post, backer, outer-sandwich, and
-center-block revisions. The geometry screen reports ten wire crossings at the
-bottom rails and a new F1–G1 wire crossing at the taller right center block,
-along with a G2 light overlap and provisional G6 hold-bolt overlap. Lower
-panel-edge support and these wire/light/hold clearances remain open design
-details; see the [kicker/block review](hypotheses/kicker-block-review-2026-09-24/README.md).
+Begin with focused current fastener/receiver checks and independent method
+benchmarks. Establish complete joint inputs and numerical prerequisites before
+candidate-native responses and the six full-frame cases. The
+[evaluation-resume packet](hypotheses/evaluation-resume-2026-09-24/README.md)
+records this work. Open wiring, G6/G12 hold-clearance, panel-edge-support,
+assembly and hardware-selection obligations remain explicit. Owner model
+review is permission to evaluate, not structural or fabrication acceptance.
 
 ## Plan-authoring baseline and non-transfer rules
 
@@ -86,9 +78,8 @@ The owner authorized WJ-09 native mechanics execution on 2026-09-24 after
 clarification of the earlier prohibition; see the
 [decision record](../history/decision-log.md#wood-joint-native-mechanics-authorization-september-24-2026).
 Finish and freeze the candidate geometry, methods, and evidence contract before
-running the six cases serially. That authorization remains subject to the
-current owner-directed geometry review: obtain explicit owner sign-off on the
-viewer model before resuming joint evaluations. Historical actions cannot
+running the six cases serially. The later owner sign-off on the current viewer
+model now permits joint evaluations to resume. Historical actions cannot
 replace fresh demands, and required missing mechanics evidence still prevents
 MVP-E completion.
 No fresh candidate cases have run at this checkpoint. The

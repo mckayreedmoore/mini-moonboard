@@ -593,3 +593,13 @@ Focused geometry checks and an updated mass estimate are recorded in the
 Seven block designs, 92 candidate bolt axes, twelve starting frame bolts and
 66 panel/kicker screw axes remain. Owner model review still precedes joint
 evaluations; no strength or fabrication acceptance is transferred.
+
+## 2026-09-24: Owner resumes evaluation of the reviewed block model
+
+The owner approved the current appearance and explicitly requested continuing
+evaluation with Luna/max subagents. The viewer-phase mechanics pause is lifted
+for `led-clearance-2x6-runner-seated-blocks-v1` at reviewed commit `b1e8707d`.
+The parent will freeze current inputs, complete candidate-specific checks and
+validate methods before serialized native joint/full-frame work. Historical
+mesh, contact and force results remain historical; none transfers by station
+name alone. No fabrication or climbing release is granted.

@@ -1,0 +1,31 @@
+from pathlib import Path
+import hashlib,json,math
+from scripts.wood_joint_wj24_inner_frame_blocks import _axis_from_roles
+freeze_dir=Path('docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24')
+freeze_dir.mkdir(exist_ok=True)
+g=g24_outer_2x6
+assert g.layout_id=='led-clearance-2x6-runner-seated-blocks-v1'
+scene_path=Path('site/owner-wood-joints-wj24-scene.json'); report_path=Path('site/owner-wood-joints-review-report.json')
+scene=json.loads(scene_path.read_text()); report=json.loads(report_path.read_text())
+assert report['revision_id']==g.layout_id and not any(scene['release'].values())
+def bounds(shape):
+ b=shape.BoundingBox(); return {'min_xyz_mm':[b.xmin,b.ymin,b.zmin],'max_xyz_mm':[b.xmax,b.ymax,b.zmax]}
+def point(p):return list(p.toTuple())
+def shaft_diameter(shape,d):
+ b=shape.moved(cq.Location(cq.Plane(origin=(0,0,0),normal=d)).inverse).BoundingBox()
+ diam=2*math.sqrt(shape.Volume()/(math.pi*b.zlen))
+ assert abs(b.xlen-diam)<1e-4 and abs(b.ylen-diam)<1e-4
+ return diam
+def shape_row(shape):return {**bounds(shape),'volume_mm3':shape.Volume(),'center_of_mass_xyz_mm':point(shape.Center())}
+raw={**g.raw_hosts,**g.raw_candidate_parts}
+finished={**g.finished_hosts,**g.finished_candidate_parts}
+data={'schema':'wood_joint_evaluation_geometry_snapshot/v1','revision_id':g.layout_id,'reviewed_repository_commit':'b1e8707d','owner_authorization':'Owner approved current appearance and explicitly requested continuing evaluation with Luna max agents. Analysis authorization only.','counts':scene['counts'],'source_sha256':{str(p):hashlib.sha256(p.read_bytes()).hexdigest() for p in [scene_path,report_path,Path('current-candidate.json'),Path('wood-joints-candidate.json')]},'members':{},'axes':{},'panel_screws':scene['model_inventory']['moved_panel_axes'],'limits':['Bounding extents are geometric information, not directional fastener edge/end checks.','Raw receiver identity does not prove support, strength, tool access or resistance.','No historical mechanics or mesh pass transfers to this geometry.'],'release':False}
+for name,s in finished.items():
+ data['members'][name]={'raw':shape_row(raw[name]),'finished':shape_row(s)}
+for axis,roles in g.candidate_installed_hardware.items():
+ d=_axis_from_roles(roles,axis); c=roles['shaft'].Center()
+ data['axes'][axis]={'receiver_ids':list(g.candidate_bores[axis].receiver_ids),'axis_head_to_nut_global':point(d),'shaft_center_xyz_mm':point(c),'shaft_diameter_mm':shaft_diameter(roles['shaft'],d),'bore':shape_row(g.candidate_bores[axis].shape),'hardware':{role:shape_row(s) for role,s in roles.items()}}
+assert len(data['axes'])==92 and len(g.finished_candidate_parts)==24
+(freeze_dir/'geometry-snapshot.json').write_text(json.dumps(data,indent=2)+'\n')
+(freeze_dir/'freeze-current-evaluation.py.snapshot').write_bytes(Path('/tmp/freeze-current-evaluation.py').read_bytes())
+print('EVALUATION_FROZEN',len(data['members']),len(data['axes']),flush=True)
