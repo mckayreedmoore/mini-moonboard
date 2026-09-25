@@ -1,0 +1,305 @@
+"""Export frozen WJ24 geometry for a later D6 member-motion screen.
+
+This module is intentionally inert on import. Call
+``export_d6_member_breps`` from the already materialized live WJ24 session;
+it exports existing single-solid BReps and never composes, cuts, moves, or
+otherwise mutates their shapes. The exported state is only the proposed D6
+member-removal state described in README.md, not a completed access test.
+"""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+from collections.abc import Mapping
+from pathlib import Path
+from typing import Any
+
+
+SCHEMA = "wood_joint_wj24_d6_member_brep_export/v1"
+EXPECTED_TIMBER_SOURCE_COUNT = 20
+EXPECTED_FINISHED_HOST_COUNT = 16
+EXPECTED_RETAINED_BOLT_ROLE_COUNT = 60
+
+
+def _sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _verify_source_files(hashes: Mapping[str, Any], context: str) -> None:
+    for relative_path, expected in hashes.items():
+        if not isinstance(relative_path, str) or not isinstance(expected, str):
+            raise ValueError(f"{context} must map relative paths to SHA-256 strings")
+        path = Path(relative_path)
+        if path.is_absolute() or ".." in path.parts or not path.is_file():
+            raise ValueError(f"{context} source path is unavailable or unsafe: {relative_path}")
+        if _sha256(path) != expected:
+            raise ValueError(f"{context} source file changed: {relative_path}")
+
+
+def _shape_map(value: Any, context: str) -> dict[str, Any]:
+    if isinstance(value, Mapping):
+        pairs = list(value.items())
+    elif isinstance(value, (tuple, list)):
+        pairs = [(getattr(row, "name", None), getattr(row, "shape", None)) for row in value]
+    else:
+        raise TypeError(f"{context} must be a mapping or named-part sequence")
+    result: dict[str, Any] = {}
+    for name, shape in pairs:
+        if not isinstance(name, str) or not name or name in result:
+            raise ValueError(f"{context} must have unique nonempty names")
+        result[name] = shape
+    return result
+
+
+def _shape_metadata(shape: Any, name: str) -> dict[str, Any]:
+    import cadquery as cq
+
+    if not isinstance(shape, cq.Shape) or not shape.isValid():
+        raise ValueError(f"{name} must be a valid CadQuery shape")
+    solids = shape.Solids()
+    if not solids:
+        raise ValueError(f"{name} must contain at least one solid")
+    bounds = shape.BoundingBox()
+    numbers = (
+        bounds.xmin,
+        bounds.xmax,
+        bounds.ymin,
+        bounds.ymax,
+        bounds.zmin,
+        bounds.zmax,
+        shape.Volume(),
+        *shape.Center().toTuple(),
+    )
+    if not all(math.isfinite(float(value)) for value in numbers):
+        raise ValueError(f"{name} has non-finite geometry metadata")
+    return {
+        "solid_count": len(solids),
+        "bounds_xyz_mm": [round(float(value), 9) for value in numbers[:6]],
+        "volume_mm3": round(float(numbers[6]), 9),
+        "center_of_mass_xyz_mm": [round(float(value), 9) for value in numbers[7:10]],
+    }
+
+
+def _safe_part_id(value: str) -> str:
+    if not value or value in {".", ".."} or any(char in value for char in "/\\\0"):
+        raise ValueError(f"unsafe exported shape ID: {value!r}")
+    return value
+
+
+def export_d6_member_breps(
+    geometry: Any,
+    frozen_geometry_snapshot: Mapping[str, Any],
+    output_dir: str | Path,
+) -> dict[str, Any]:
+    """Export exactly the geometry inputs for a later D6 member-path screen.
+
+    ``geometry`` must be the existing ``g24_outer_2x6`` object,
+    ``frozen_geometry_snapshot`` the matching geometry snapshot mapping used by the
+    existing retained-access collector. Unmodified source members are read
+    once from ``geometry.source.parts()`` after source, inventory, and runtime
+    pins are checked. The output directory must not already exist. Target and
+    obstacle roles exported are the twenty
+    original timber members, sixty physical roles in the twelve retained frame
+    bolts, and every modeled wire solid. Candidate blocks/fasteners, panels,
+    panel axes, holds/T-nuts, and light bodies are omitted only under the
+    explicit prior-step assumptions in the accompanying README.
+    """
+    import cadquery as cq
+
+    from mini_moonboard.wood_joint_frame import _source_shape_fingerprint
+    from scripts import wood_joint_current_retained_access as retained
+
+    if not isinstance(frozen_geometry_snapshot, Mapping):
+        raise TypeError("frozen_geometry_snapshot must be a geometry snapshot mapping")
+    frozen_hash = retained._validate_freeze(frozen_geometry_snapshot, geometry)
+    source_inventory_hash = retained._source_inventory_digest(geometry)
+    _verify_source_files(frozen_geometry_snapshot["source_sha256"], "frozen snapshot")
+    inventory_path = retained.wj12_diagnostic.SOURCE_INVENTORY_PATH
+    if _sha256(Path(inventory_path)) != source_inventory_hash:
+        raise ValueError("current source-inventory.json differs from the live geometry binding")
+    runtime_hashes = getattr(
+        getattr(geometry, "source_binding", None), "runtime_module_sha256", {}
+    )
+    if not isinstance(runtime_hashes, Mapping) or not runtime_hashes:
+        raise ValueError("live geometry must provide runtime source-module hashes")
+    _verify_source_files(runtime_hashes, "live source binding")
+    targets, _proxy_ids = retained._frame_targets(geometry)
+    if retained._validate_candidate_stacks(geometry) != 92:
+        raise ValueError("current D6 state must bind all 92 candidate-axis prerequisites")
+
+    inventory = getattr(geometry, "source_inventory", None)
+    if not isinstance(inventory, Mapping):
+        raise TypeError("live geometry must expose source_inventory")
+    timber_ids = {
+        row.get("part_id")
+        for row in inventory.get("parts", ())
+        if isinstance(row, Mapping) and row.get("kind") == "timber"
+    }
+    if len(timber_ids) != EXPECTED_TIMBER_SOURCE_COUNT or any(
+        not isinstance(name, str) or not name for name in timber_ids
+    ):
+        raise ValueError("current source inventory must identify exactly 20 timber members")
+
+    finished_hosts = getattr(geometry, "finished_hosts", None)
+    if not isinstance(finished_hosts, Mapping) or len(finished_hosts) != EXPECTED_FINISHED_HOST_COUNT:
+        raise ValueError("live current geometry must expose exactly 16 finished hosts")
+    host_ids = set(finished_hosts)
+    if not host_ids <= timber_ids:
+        raise ValueError("finished host IDs must be current source timber IDs")
+    source = getattr(geometry, "source", None)
+    if source is None:
+        raise ValueError("live geometry must expose its bound source object")
+    source_map = _shape_map(
+        retained.wj12_diagnostic._part_shapes(source, "parts"),
+        "geometry.source.parts()",
+    )
+    if not timber_ids <= source_map.keys():
+        raise ValueError("geometry.source.parts() omits current source timber members")
+
+    source_rows = {
+        row["part_id"]: row
+        for row in inventory["parts"]
+        if isinstance(row, Mapping) and isinstance(row.get("part_id"), str)
+    }
+    members: dict[str, Any] = {}
+    for member_id in sorted(timber_ids):
+        source_shape = source_map[member_id]
+        expected_source_hash = source_rows.get(member_id, {}).get("source_shape_sha256")
+        if not isinstance(expected_source_hash, str):
+            raise ValueError(f"{member_id}: source inventory lacks its shape fingerprint")
+        members[member_id] = (
+            finished_hosts[member_id] if member_id in host_ids else source_shape
+        )
+
+    physical_frame_roles: dict[str, Any] = {}
+    for axis_id, target in sorted(targets.items()):
+        for role, shape in sorted(target["roles"].items()):
+            physical_frame_roles[f"{axis_id}/{role}"] = shape
+    if len(targets) != 12 or len(physical_frame_roles) != EXPECTED_RETAINED_BOLT_ROLE_COUNT:
+        raise ValueError("retained frame-bolt export must contain 12 stacks / 60 physical roles")
+
+    protected = getattr(geometry, "protected", None)
+    if not isinstance(protected, Mapping):
+        raise TypeError("live geometry must expose protected shape families")
+    wire_shapes = _shape_map(protected.get("wires"), "protected/wires")
+    if not wire_shapes:
+        raise ValueError("current geometry must expose modeled wire solids for the D6 state")
+
+    retained_dependencies: dict[str, list[str]] = {
+        member_id: [] for member_id in sorted(timber_ids)
+    }
+    candidate_dependencies: dict[str, list[str]] = {
+        member_id: [] for member_id in sorted(timber_ids)
+    }
+    for axis_id, target in targets.items():
+        for member_id in target["receiver_ids"]:
+            if member_id in retained_dependencies:
+                retained_dependencies[member_id].append(axis_id)
+    for axis_id, bore in geometry.candidate_bores.items():
+        receiver_ids = retained.current_access._axis_receivers(bore, axis_id)
+        for member_id in receiver_ids:
+            if member_id in candidate_dependencies:
+                candidate_dependencies[member_id].append(axis_id)
+    member_dependencies = {
+        member_id: {
+            "retained_frame_bolt_axes_to_remove_before_member_motion": sorted(
+                retained_dependencies[member_id]
+            ),
+            "candidate_axes_assumed_removed_by_prior_connector_operations": sorted(
+                candidate_dependencies[member_id]
+            ),
+        }
+        for member_id in sorted(timber_ids)
+    }
+
+    output_path = Path(output_dir)
+    if output_path.exists():
+        raise FileExistsError(f"refusing to overwrite existing output directory: {output_path}")
+    output_path.mkdir(parents=True)
+
+    export_groups = (
+        ("timber", members),
+        ("retained_frame_bolt_roles", physical_frame_roles),
+        ("modeled_wires", wire_shapes),
+    )
+    rows = []
+    for category, shapes in export_groups:
+        for shape_id, shape in sorted(shapes.items()):
+            parts = [_safe_part_id(part) for part in shape_id.split("/")]
+            destination = output_path / category
+            for part in parts[:-1]:
+                destination = destination / part
+            destination.mkdir(parents=True, exist_ok=True)
+            step_path = destination / f"{parts[-1]}.step"
+            metadata = _shape_metadata(shape, f"{category}/{shape_id}")
+            cq.exporters.export(shape, str(step_path))
+            if not step_path.is_file() or step_path.stat().st_size == 0:
+                raise ValueError(f"STEP export failed for {category}/{shape_id}")
+            rows.append(
+                {
+                    "category": category,
+                    "shape_id": shape_id,
+                    "path": step_path.relative_to(output_path).as_posix(),
+                    "sha256": _sha256(step_path),
+                    "bytes": step_path.stat().st_size,
+                    "source_shape_fingerprint": _source_shape_fingerprint(shape),
+                    **metadata,
+                }
+            )
+
+    manifest = {
+        "schema": SCHEMA,
+        "status": "exact_source_brep_bundle_for_future_d6_screen_only",
+        "producer_sha256": _sha256(Path(__file__).resolve()),
+        "geometry_revision_id": getattr(geometry, "layout_id", None),
+        "geometry_trial_id": getattr(geometry, "trial_id", None),
+        "reviewed_repository_commit": frozen_geometry_snapshot.get("reviewed_repository_commit"),
+        "frozen_geometry_report_sha256_canonical_json": frozen_hash,
+        "source_inventory_sha256": source_inventory_hash,
+        "source_sha256": dict(sorted(frozen_geometry_snapshot["source_sha256"].items())),
+        "source_inventory_runtime_module_sha256": dict(sorted(runtime_hashes.items())),
+        "unchanged_source_member_binding": {
+            "shape_source": "one geometry.source.parts() extraction after frozen source-inventory and runtime-module pins validate",
+            "per_shape_inventory_fingerprint_compared": False,
+            "fingerprint_note": "source_shape_sha256 embeds unrounded planar-face descriptors; the exporter uses one canonical extraction bound by the frozen inventory and runtime-module pins instead of comparing a second extraction",
+        },
+        "operation_state_assumptions": [
+            "D6 begins only after the candidate connector bodies and their 92 bolt stacks have been removed under separately screened operations.",
+            "Panels, their 66 Hillman screw axes, holds/T-nuts, and light bodies have been removed and staged under separately screened operations.",
+            "The continuous modeled wire solids remain installed and are stationary obstacles.",
+            "A retained frame-bolt stack is removed only after adjacent timber members are independently supported; a member moves only after all fasteners attaching that member are removed.",
+        ],
+        "exported_counts": {
+            "original_timber_member_shapes": len(members),
+            "retained_frame_bolt_stacks": len(targets),
+            "retained_frame_bolt_physical_roles": len(physical_frame_roles),
+            "modeled_wire_shapes": len(wire_shapes),
+            "step_files": len(rows),
+        },
+        "member_removal_dependencies": member_dependencies,
+        "omitted_state_shapes": {
+            "current_candidate_connector_bodies": "assumed removed before D6; not screened here",
+            "current_candidate_bolt_roles": "assumed removed before D6; not screened here",
+            "panels_and_66_panel_screw_axes": "assumed removed before D6; panel transport not established",
+            "holds_tnuts_and_light_bodies": "assumed removed/staged before D6; service operations not established",
+            "source_occupied_axis_proxies": "nonphysical display proxies excluded",
+            "wrench_tool_proxies": "existing retained-stack proxy results remain in retained-access-attempt03; no actual tools exported",
+            "temporary_supports_and_staging_surfaces": "not modeled or exported",
+        },
+        "member_path_status": "not_screened; named translation/rotation paths and stable staging poses are not supplied by the current sequence record",
+        "actual_product_or_tool_validation": False,
+        "files": rows,
+    }
+    manifest_payload = json.dumps(manifest, sort_keys=True, separators=(",", ":"))
+    manifest["manifest_payload_sha256"] = hashlib.sha256(
+        manifest_payload.encode("utf-8")
+    ).hexdigest()
+    manifest_path = output_path / "manifest.json"
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+    return manifest
