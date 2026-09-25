@@ -54,6 +54,9 @@ def observations(text, freeze):
                 break
         if set(rows) != expected:
             continue
+        sample_time = float(block.group(1).replace("D", "E"))
+        if not math.isfinite(sample_time):
+            raise ValueError("nonfinite native sample time")
         load_nodes = freeze["serialized_unit_load_nodes"]
         q = math.fsum(
             float(f) * rows[int(node)][axis]
@@ -84,7 +87,7 @@ def observations(text, freeze):
                 reasons.append(label)
         result.append(
             {
-                "time_seconds": float(block.group(1).replace("D", "E")),
+                "time_seconds": sample_time,
                 "q_mm": q,
                 "maximum_loaded_displacement_mm": displacement,
                 "maximum_controller_rotation_rad": rotation,
@@ -100,6 +103,81 @@ def digest(path):
         for block in iter(lambda: stream.read(4 * 1024 * 1024), b""):
             h.update(block)
     return h.hexdigest()
+
+
+class IncrementalMonitor:
+    """Read each appended DAT byte once, retaining only one monitor block.
+
+    A poll ends at the size observed on entry. Partial lines and monitor blocks
+    survive the next poll; truncated or replaced output is an error.
+    """
+
+    def __init__(self, freeze):
+        self.freeze = freeze
+        self.offset = 0
+        self.identity = None
+        self.pending = b""
+        self.block = []
+        self.nodes = set()
+        self.expected = set(freeze["monitor_nodes"])
+        self.results = []
+
+    def _line(self, raw):
+        line = raw.decode("ascii", errors="replace")
+        if HEADER.search(line):
+            self.block = [line]
+            self.nodes = set()
+            return
+        if not self.block:
+            return
+        fields = line.split()
+        if not fields and not self.nodes:
+            return
+        if len(fields) != 4 or not fields[0].isdigit():
+            self.block = []
+            self.nodes = set()
+            return
+        node = int(fields[0])
+        if node not in self.expected or node in self.nodes:
+            raise ValueError("unexpected or duplicate monitor node")
+        if not all(math.isfinite(float(v.replace("D", "E"))) for v in fields[1:]):
+            raise ValueError("nonfinite native motion")
+        self.nodes.add(node)
+        self.block.append(line)
+        if self.nodes == self.expected:
+            self.results.extend(observations("\n".join(self.block) + "\n", self.freeze))
+            self.block = []
+            self.nodes = set()
+
+    def poll(self, path):
+        path = Path(path)
+        if not path.exists():
+            if self.identity is not None:
+                raise ValueError("native output disappeared")
+            return self.results
+        with path.open("rb") as stream:
+            stat = os.fstat(stream.fileno())
+            identity = (stat.st_dev, stat.st_ino)
+            if self.identity is not None and identity != self.identity:
+                raise ValueError("native output was replaced")
+            if stat.st_size < self.offset:
+                raise ValueError("native output was truncated")
+            self.identity = identity
+            stream.seek(self.offset)
+            remaining = stat.st_size - self.offset
+            while remaining:
+                chunk = stream.read(min(1024 * 1024, remaining))
+                if not chunk:
+                    raise ValueError("native output changed during read")
+                self.offset += len(chunk)
+                remaining -= len(chunk)
+                lines = (self.pending + chunk).split(b"\n")
+                self.pending = lines.pop()
+                if len(self.pending) > 1024 * 1024:
+                    raise ValueError("native output line exceeds monitor bound")
+                for line in lines:
+                    self._line(line)
+        return self.results
 
 
 def run(directory, *, timeout_seconds=600, threads=1):
@@ -190,18 +268,16 @@ def run(directory, *, timeout_seconds=600, threads=1):
 
     save()
     started = time.monotonic()
+    monitor = IncrementalMonitor(freeze)
     with (directory / "pilot.log").open("x") as output:
         process = subprocess.Popen(command, stdout=output, stderr=subprocess.STDOUT)
         try:
             while process.poll() is None:
                 dat = directory / "pilot.dat"
-                if dat.exists():
-                    record["observations"] = observations(
-                        dat.read_text(errors="replace"), freeze
-                    )
-                    if any(row["stop_reasons"] for row in record["observations"]):
-                        stop("sampled_motion_limit")
-                        break
+                record["observations"] = monitor.poll(dat)
+                if any(row["stop_reasons"] for row in record["observations"]):
+                    stop("sampled_motion_limit")
+                    break
                 if time.monotonic() - started > timeout_seconds:
                     stop("bounded_timeout")
                     break
@@ -216,11 +292,9 @@ def run(directory, *, timeout_seconds=600, threads=1):
             "process_finished" if record["returncode"] == 0 else "process_failed"
         )
     dat = directory / "pilot.dat"
-    if dat.exists():
+    if dat.exists() or monitor.identity is not None:
         try:
-            record["observations"] = observations(
-                dat.read_text(errors="replace"), freeze
-            )
+            record["observations"] = monitor.poll(dat)
             if any(row["stop_reasons"] for row in record["observations"]):
                 record["sampled_motion_limit_observed"] = True
         except ValueError as exc:

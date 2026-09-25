@@ -5,7 +5,7 @@ import tracemalloc
 import pytest
 
 from fea.wood_joint_current_transient import load_pattern, numeric
-from fea.wood_joint_current_transient_launch import observations
+from fea.wood_joint_current_transient_launch import IncrementalMonitor, observations
 
 
 def test_serialized_load_work_and_wrench():
@@ -100,3 +100,72 @@ def test_monitor_does_not_expand_unrelated_contact_history(freeze):
     assert all(row["q_mm"] == pytest.approx(0.4) for row in result)
     # Parsing a few monitor rows must not allocate a list of all contact rows.
     assert peak < len(text) // 2
+
+
+@pytest.mark.parametrize("chunk_size", [1, 7, 53, 1000])
+def test_incremental_monitor_matches_complete_parser_across_partial_writes(
+    freeze, tmp_path, chunk_size
+):
+    header = " displacements (vx,vy,vz) for set PILOT_MONITOR and time 1\n\n"
+    block = header + "1 2 0 0\n2 -2 0 0\n3 0 0 1.2E-03\n"
+    text = (
+        "unrelated output\n"
+        + block
+        + "contact output\n"
+        + block.replace("time 1", "time 2")
+    )
+    text += header + "1 0 0 0\n2 0 0 0\n3 0 0 1.2E"
+    path = tmp_path / "pilot.dat"
+    monitor = IncrementalMonitor(freeze)
+    assert monitor.poll(path) == []
+    for start in range(0, len(text), chunk_size):
+        with path.open("ab") as stream:
+            stream.write(text[start : start + chunk_size].encode())
+        assert monitor.poll(path) == observations(text[: start + chunk_size], freeze)
+    assert monitor.offset == len(text)
+    assert monitor.poll(path) == observations(text, freeze)
+    with path.open("ab") as stream:
+        stream.write(b"-02\n")
+    assert monitor.poll(path) == observations(text + "-02\n", freeze)
+
+
+@pytest.mark.parametrize("mutation", ["truncate", "replace", "remove"])
+def test_incremental_monitor_rejects_lost_output(freeze, tmp_path, mutation):
+    path = tmp_path / "pilot.dat"
+    path.write_text("unrelated output\n")
+    monitor = IncrementalMonitor(freeze)
+    monitor.poll(path)
+    if mutation == "truncate":
+        path.write_text("")
+    elif mutation == "replace":
+        replacement = tmp_path / "replacement.dat"
+        replacement.write_text("replacement native output\n")
+        replacement.replace(path)
+    else:
+        path.unlink()
+    with pytest.raises(ValueError):
+        monitor.poll(path)
+
+
+@pytest.mark.parametrize("rows", ["1 0 0 0\n1 0 0 0\n", "1 NaN 0 0\n"])
+def test_incremental_monitor_rejects_invalid_motion(freeze, tmp_path, rows):
+    path = tmp_path / "pilot.dat"
+    path.write_text(
+        "displacements (vx,vy,vz) for set PILOT_MONITOR and time 1\n" + rows
+    )
+    with pytest.raises(ValueError):
+        IncrementalMonitor(freeze).poll(path)
+
+
+@pytest.mark.parametrize("sample_time", ["NaN", "Inf", "-Inf"])
+def test_nonfinite_time_rejected_by_both_monitors(freeze, tmp_path, sample_time):
+    text = (
+        f"displacements (vx,vy,vz) for set PILOT_MONITOR and time {sample_time}\n"
+        "1 0 0 0\n2 0 0 0\n3 0 0 0\n"
+    )
+    with pytest.raises(ValueError, match="nonfinite native sample time"):
+        observations(text, freeze)
+    path = tmp_path / "pilot.dat"
+    path.write_text(text)
+    with pytest.raises(ValueError, match="nonfinite native sample time"):
+        IncrementalMonitor(freeze).poll(path)
