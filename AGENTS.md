@@ -114,3 +114,21 @@ The selected-candidate stock/geometry constraints above remain binding only
 for selected-baseline changes. The bolted candidate must keep the panel/screw
 hardware policy and prove any new receiver/backer connections rather
 than inheriting the old member identities or case passes.
+
+
+## Wood-joint native mechanics authorization, September 24, 2026
+
+The owner explicitly authorized overriding the no-native-solve restriction
+for `compact-floor-flush-wood-joints-development`: run its native mechanics
+checks when the candidate and methods are ready. This later authorization
+supersedes the earlier prohibition for this development lane only. Parent
+owns readiness, frozen inputs, serialized heavy runs, and final validation.
+Preserve selected-baseline and historical evidence; do not transfer their
+passes or treat solver convergence as joint acceptance. Quiet-hours commit
+restrictions remain in force. This authorizes analysis, not physical work,
+drilling, fabrication, candidate selection, or climbing release.
+
+A later owner-directed pause supersedes the execution timing: joint evaluations
+remain on hold until the owner explicitly signs off on the current revised
+model. This pause does not revoke lane authorization or add another approval
+prerequisite.

@@ -1,12 +1,46 @@
 # Wood-joint candidate: next plan to MVP-E
 
-Status: execution plan, 2026-09-23. This plan continues the
+Status: execution plan, updated 2026-09-24. This plan continues the
 [`compact-floor-flush-wood-joints-development`](../../wood-joints-candidate.json)
 lane from its recorded WJ-03 partial result. The endpoint is **MVP-E**, a
 conditional engineering-development and shop-document package under stated
 loads, materials, hardware, and floor assumptions. It is not an inspected
 build or an unconditional climbing rating. WJ-11 physical receiving and
 prototype observations belong to the later MVP-P record.
+
+## Current priority: owner review of the 3D model
+
+On September 24 the owner directed a model MVP and design review before
+further engineering calculations. The complete WJ24 model is available in
+the local viewer at `http://localhost:8765/wood-joints-wj24-viewer.html`.
+The current model includes the bottom support 76.9 mm along T above its
+original station, four lower service cleats below their rails, center kicker
+posts shifted outside the central T-nuts, removal of two inner kicker backers
+and their four bolts, and redirection of four center kicker screws onto the
+moved posts. It also includes the outer rim/header sandwich blocks and the
+redesigned plumb full-section center principal/header blocks, with their
+updated bolt stations. The later owner request removes both outer rear
+crosspieces and underside blocks, leaving 24 blocks with ten distinct finished
+shapes and drilling patterns. See the [current outer-support removal and block count](hypotheses/outer-links-removed-2026-09-24/README.md)
+and [hypothetical denser-layout midpoint screen](hypotheses/midpoint-clearance-2026-09-24/README.md). The older [kicker-joint concept sketches](../../site/wood-joints-kicker-options.html)
+are historical; the viewer and review record supersede them.
+
+The owner requires explicit sign-off on this current viewer geometry before
+joint evaluations resume. Keep mechanics implementation and calculations
+paused until that sign-off; the execution sequence below remains the later
+engineering plan. Preserve existing results as named diagnostics and recheck
+evidence affected by design changes. Model review does not select a
+construction-ready candidate.
+
+The earlier [September 24 support revision](hypotheses/bottom-support-above-tnuts-2026-09-24/README.md)
+records the lowered position 5 mm above the first T-nut flange and four moved
+panel screws. The current model carries that support 76.9 mm along T above its
+original station and includes the later post, backer, outer-sandwich, and
+center-block revisions. The geometry screen reports ten wire crossings at the
+bottom rails and a new F1–G1 wire crossing at the taller right center block,
+along with a G2 light overlap and provisional G6 hold-bolt overlap. Lower
+panel-edge support and these wire/light/hold clearances remain open design
+details; see the [kicker/block review](hypotheses/kicker-block-review-2026-09-24/README.md).
 
 ## Plan-authoring baseline and non-transfer rules
 
@@ -39,19 +73,211 @@ Do not change selected authority to make this development lane appear complete.
 This checkpoint is source and geometry work only. Component tests and nominal
 clearance do not close a stage gate.
 
+The owner confirmed the repository quiet-hours schedule on 2026-09-24:
+Monday–Thursday, 07:30 inclusive to 18:00 exclusive, America/Denver with
+seasonal daylight-saving transitions, as recorded in the clone's common Git
+`QUIET_HOURS.md`. During that window continue local implementation, review and
+serialized validation; leave changes uncommitted and unpublished. Outside it,
+follow the local resume procedure, finish required validation, and commit and
+push the intended increments normally. No further timing permission is needed.
+This does not change the selected baseline or development gates.
+
+The owner authorized WJ-09 native mechanics execution on 2026-09-24 after
+clarification of the earlier prohibition; see the
+[decision record](../history/decision-log.md#wood-joint-native-mechanics-authorization-september-24-2026).
+Finish and freeze the candidate geometry, methods, and evidence contract before
+running the six cases serially. That authorization remains subject to the
+current owner-directed geometry review: obtain explicit owner sign-off on the
+viewer model before resuming joint evaluations. Historical actions cannot
+replace fresh demands, and required missing mechanics evidence still prevents
+MVP-E completion.
+No fresh candidate cases have run at this checkpoint. The
+[native adapter readiness plan](native-adapter-readiness.md) identifies reusable
+runner infrastructure and the missing candidate-specific mechanics inputs.
+The [full-stock input report](hypotheses/wj16-full-stock-mechanics-inputs/README.md)
+now extracts eight bolts and four interfaces from the actual WJ16 composition,
+with authenticated axes, grain, and contact planes. It provides no fresh
+demands, joint stiffness, resistance, or native-readiness acceptance.
+
 ### Latest follow-up and next actions
+
+The [complete WJ24 composition](hypotheses/wj24-integrated-static/README.md)
+now passes all eighteen implemented static and source-tracking checks. It
+contains sixteen rebuilt hosts, twenty-eight connector pieces, 104 proposed
+bolt axes and 520 CAD hardware roles. All 24 duties and 144 former SDS axes
+map to modeled WJ24 paths, and no legacy angles/SDS or source-only receiver
+overlays remain in the proposed layout. This is path mapping, not accepted
+replacement: the composition still has zero accepted duties. The 66 fixed
+panel/kicker axes, four backer redirects, candidate-shifted center posts and
+twelve retained frame bolts reconcile. Eleven focused compositor tests pass.
+Three preparation failures and one failed full diagnostic are preserved with
+the corrected integration defects.
+
+The layout remains `REVISE`. G1 and G12 provisional rear hold-bolt envelopes
+intersect the right bottom-center and top-center cleats by 745.512902 and
+562.789151 mm³. The left bottom-center rail face measures 10,385.137652 mm²,
+with a 0.984095945 contact-slab material fraction after the E1–E2 passage;
+finite area does not establish bearing adequacy. The [continuous LED
+extraction screen](hypotheses/wj24-led-extraction/README.md) tests all 132
+lights against 842 stationary shapes: G7's 19.25625 mm rearward withdrawal
+intersects the lower full-stock cleat by 319.657955 mm³. The other 131 sweeps
+have no positive-volume hits in that operation; whole-harness feeding,
+support, slack and panel transport remain unproved. A durable access-relief
+attempt 03 exists and its canonical README is being updated. This checkpoint
+does not report its result; the baseline G1/G12/G7 findings remain open pending
+the report and review.
+
+The [source-bound inventory](hypotheses/wj24-hardware-inventory/README.md)
+now reconciles 104 proposed bolts, 104 nuts and 216 washers, separately from
+the retained frame bolts and Hillman screws. It identifies 52 ordered receiver
+pair groups and 28 connector blanks. The [conditional center-axis length
+screen](wj24-bolt-length-screen.md) groups its 16 axes as 4 × 4.75 in,
+8 × 5.75 in and 4 × 7.5 in nominal lengths; no SKU, supplier, final stack or
+receiving dimensions are selected or accepted. The [cost screen](wj24-development-costs.md)
+shows a $71.72 each-price subtotal and a $63.96 mixed-pack/loose illustration
+for 84 nominal 6-in/8-in comparison bolts plus 104 nuts and 216 washers.
+Twenty bolt prices and all 28 timber blank costs remain open; stock, grade,
+availability, shipping and tax are unverified.
+
+The compact [WJ24 viewer](wj24-viewer-review.md) is 9,181,070 bytes and has
+been browser-reviewed locally. It has not been published; screen-reader review
+remains pending. A representative WJ04 physical-steel mesh
+([report](hypotheses/wj04-hardware-patch-mesh/README.md)) contains 32 metal
+bodies and 62,193 C3D10 elements. An independent 14-point audit recomputed
+870,702 positive integration-point Jacobians; response is pending, and this is
+not a WJ24 mesh. Five representative finished solids from current WJ24 were
+exported to STEP ([reconciliation](hypotheses/wj24-patch-reconciliation/README.md)).
+The older WJ16 mesh does not match the changed principal; no WJ24 mesh or
+response exists.
+
+Next, review and disposition the durable access-relief report when its
+canonical README is ready, then close the integrated access and transport
+findings. Resolve delivered hardware stacks and product/receiving evidence,
+complete timber stock and full cost, and close the candidate-specific center
+backer/header load paths and frozen WJ-08 mechanics contract. Keep the fresh
+six-case WJ-09 run gated until its geometry, methods and evidence inputs are
+frozen. No duty replacement, assembly, capacity, or release is accepted.
+
+### Preserved integration checkpoints
+
+The accounts below describe their named snapshots. Statements about residual
+duties, unintegrated hypotheses and the narrow WJ04 trial are historical;
+the WJ24 checkpoint above governs current development work. Preserve their
+source-bound reports without transferring acceptance to WJ24.
 
 The active WJ-04 configuration remains
 `narrow_x95p25_ordinary_bolt_candidate`; deployed viewer remains at `40b97ecf`.
-The newer geometry below remains isolated diagnostic work until parent review
-and integration. The [part-count review](hypotheses/part-count-and-merge-review.md)
+The completed WJ24 geometry remains a separate diagnostic; its viewer and
+registry promotion are pending, and it carries no acceptance. The [part-count review](hypotheses/part-count-and-merge-review.md)
 projects 28 connector pieces and 104 candidate bolt positions against the
 original 10–14-piece aim. No simple documented merge meets that aim under
-current constraints. Review complexity before copying the remaining twelve
-duties; this is a planning decision, not a new acceptance gate.
+current constraints. WJ24 confirms those counts. Review assembly complexity
+and costs using that full layout; this is not a new acceptance gate.
 
-Immediate sequence: resolve the right four-duty adapter source check and rerun
-its combined report. First attempt materialized family geometry for 66.77 s,
+The [eighteen-duty composition](hypotheses/wj18-integrated-static/README.md)
+now passes all eighteen implemented static/provenance checks. It merges the
+top outer pair into WJ16, rebuilds fourteen shared hosts, combines twenty-two
+connector pieces and eighty proposed bolt stations, and removes 108 former
+SDS axes. Two remaining bottom-rail overlays retain four purchase-length cuts.
+The six remaining duties are the two top-center and four bottom connections.
+All 66 fixed screw axes and twelve starting frame-bolt arrangements reconcile.
+No assembly, capacity, or replacement acceptance follows from these checks.
+The separate [top-center pair](hypotheses/top-center-integration/README.md)
+now clears its local nominal wood, installed hardware, receiver, and source
+reconstruction screens against WJ18. Its two unique tool-envelope overlaps
+are between nut tools for different physical bolts; assess sequential
+operation before changing geometry. Actual counterhold, turning, tolerances,
+and final acceptance remain open. This pair is now included in WJ24.
+The representative joint's [coarse mesh](hypotheses/wj04-patch-mesh/README.md)
+also passes its implemented quality and independent ownership checks after
+two preserved adapter failures. It contains no structural response or
+capacity result. The [surface classification](hypotheses/wj04-patch-surfaces/README.md)
+now binds all four wood interfaces and sixteen bore/member pairs; a separate
+parent audit verifies signed planar mesh normals. The mechanics model and
+response remain pending.
+The [local validation checkpoint](local-validation-2026-09-24.md) records a
+pre-existing selected-baseline source mismatch that stops its required CI
+check. Authority/export byte preservation passes independently; do not
+interpret that narrower result as a current baseline analysis pass.
+The [bottom-outer pair](hypotheses/bottom-outer-integration/README.md) now
+clears local nominal wood, installed hardware, receiver-layer and washer-seat
+checks against WJ18. Head-tool approaches hit two wire runs, and new rail-bolt
+hardware occupies existing WJ03 nut-tool envelopes. Resolve wiring state and
+supported operation order; the pair is included in WJ24 but remains unaccepted. The
+[bottom-duty investigation](hypotheses/bottom-duty-investigation.md) retains
+the source station map. The [bottom-center local report](hypotheses/bottom-center-integration/README.md)
+clears installed wood/hardware and washer/layer checks but has a left rail
+contact-slab material fraction of 98.4095945%, a G1 hold-projection overlap,
+and timber/wire/tool access findings. All six residual duties now have local
+diagnostic producers and are now included in WJ24. The disposition of their
+contact/access findings remains unfinished; no replacements are accepted.
+The [finite-contact supplement](hypotheses/bottom-center-contact-and-hold/README.md)
+attributes the entire left contact shortfall to the existing E1–E2 service
+passage and measures 10,385.137652 mm² of actual shared bearing face. G1's
+provisional hold envelope first intersects the right cleat 10 mm behind the
+panel. Neither finding establishes bearing adequacy or an acceptable hold-bolt
+length; both remain explicit mechanics/access obligations.
+
+The [corrected twelve-duty composition](hypotheses/wj12-integrated-static/README.md)
+now passes all seventeen implemented static/provenance checks. It reconstructs
+eleven joint hosts and combines sixteen connector pieces, 56 proposed bolt
+stations, and all 66 fixed screw axes. Five additional canonical finished
+rails receive twelve candidate-only purchased-length cuts, independently
+replayed against the source. This resolves the twelve 157.513719 mm³ overlaps
+preserved in the [first combined run](hypotheses/wj12-before-receiver-completion/README.md).
+Raw receiver material and clearance are present at all 66 axes; this is not
+an embedment, support, or load-path acceptance. The twelve retained frame-bolt
+arrangements reconcile as 60 installed components plus twelve axis proxies.
+The [sampled cut sections](hypotheses/wj12-sampled-sections/README.md) now
+quantify representative bevel, crosscut, wire-relief, and both backer
+counterbore/bolt planes. These are local geometry measures, not minimum
+sections or adequacy checks. Continue capacity-independent backer/contact
+mechanics and bounded left-service investigation before broad replication.
+The [backer unit-wrench witnesses](hypotheses/wj12-backer-unit-statics/README.md)
+now close all twenty-four signed synthetic cases with finite patches checked
+in both actual finished members. Actual demands, fastener bearing, wood and
+washer resistance, and complete backer/header acceptance remain open.
+The [remaining-duty sequence](hypotheses/remaining-duty-sequence.md) records
+their host pairs and the left-side kerf/service asymmetries that prevent
+blind mirroring or reuse of the older residual-probe scope.
+The [left service diagnostic](hypotheses/left-service-integration/README.md)
+now reconstructs all four left hosts and clears its local sixteen-stack
+nominal screens with the full-depth upper inner cleat. The sixteen-duty
+composition now integrates those shared-host cuts and rechecks the combined
+scene; WJ18 now extends that integrated static evidence with the top outer pair.
+
+The [upper-right rail motion diagnostic](hypotheses/wj12-right-rail-motion/README.md)
+now uses all six panels and the complete finished-wood obstacle map. The seated
+pose clears, but the +25 and +50 mm N samples intersect five modeled wire runs;
+negative motion also intersects panel/hold geometry. Clear distant poses do
+not establish a path. Investigate supported panel/wiring staging before
+accepting assembly, reverse removal, or transport; no wire disconnection or
+new machining is inferred from this report.
+
+The [WJ18 harness topology probe](hypotheses/wj18-panel-harness-topology/README.md)
+now maps all 132 lights to the four main panels. Twelve wires cross panel
+boundaries; neither factory string connector lies at one of those crossings.
+Unplugging only the supplied string connectors therefore does not isolate the
+panels. Investigate reverse whole-strand feeding and supported bulb/panel
+handling under the existing lights-last passage concept, without inferring
+wire cutting or treating an unwired build as a transport solution.
+
+The [WJ16 unwired continuous enclosure](hypotheses/wj16-unwired-rail-sweep/README.md)
+now finds no positive-volume intersection through 0–200 mm +N translation
+of the same rail subassembly against 839 stationary shapes. Five zero-gap
+timber contacts remain. The entire lighting harness is not yet installed in
+this modeled initial-build state; this does not resolve the wired transport
+path, support, tool access, or tolerance clearance.
+
+The [right four-duty report](hypotheses/right-rail-integration.md)
+now completes: all four native source hosts reconstruct at zero reported
+symmetric difference, sixteen modeled stacks are present, and all implemented
+installed-geometry checks pass. Installation, complete-layout clearance,
+tolerances, and capacity remain open. Parent verified the archived input
+hashes; no authority, acceptance count, or viewer was promoted.
+
+Earlier right-adapter attempts are implementation history. The first
+materialized family geometry for 66.77 s,
 then stopped assembling the combined report on missing
 `wj04_base._source_inventory`. After loader repair, the second stopped at a
 source-reconstruction mismatch of 1,260.109751 mm³ for
@@ -60,25 +286,33 @@ explain the principal delta. The separate rail-hole mismatch is also traced:
 each rail's three outer-duty SDS axes shift by −3.175 mm through
 `WidthAdapter.connections`, while finished-rail trim retains the original
 holes. Official native cuts reconstruct 0/0; the per-host translated side
-requires shifted cuts. The owner is separating per-host native cuts from
-candidate purchase cuts. No combined report or geometry verdict exists; no
-tolerance is waived.
+requires shifted cuts. The repaired adapter separates per-host native cuts
+from candidate purchase cuts. The later report also corrects a candidate-cleat
+lookup in the machining summary. No reconstruction tolerance was waived.
 Static review of shared-host machining and the 6.604 mm WJ-06 side-shaft
 occupancy sensitivity is complete; nominal shaft diameter remains 6.35 mm,
 and sensitivity adds no strength claim. The [exact WJ-03 coaxial-cylinder
 supplement](hypotheses/wj03-head-withdrawal-exact-shaft.md) has run: all 20
 shafts clear fixed obstacles and all four separately sampled counterhold
 headings, the 80 coarse self-bore/washer hit pairs disappear, and there are no
-exact-only hits. Full operation-route summary remains pending; this sampled
-shaft result alone does not establish physical access.
-After local geometry reports, compose the existing twelve-duty hypotheses into
-one coherent diagnostic model before updating the viewer. Mechanical review
-found no categorical topology incompatibility. Then run bounded,
+exact-only hits. This sampled shaft result alone does not establish physical
+access. The subsequently
+archived [bound route summary](hypotheses/wj03-head-withdrawal-bound-summary.md)
+now records 244 clear sampled combinations at 14 of 20 stacks. Six stacks
+retain counterhold or detached-hardware exit proxy overlaps against the
+under-header links or bottom rails. The separate
+[maximum-shaft sensitivity](hypotheses/wj03-head-withdrawal-max-shaft.md)
+clears all 20 installed and withdrawing shafts at 6.604 mm occupancy, but
+does not retest complete tool routes against enlarged peer shafts. Neither
+result accepts a complete removal sequence.
+The twelve-duty hypotheses now share one coherent static diagnostic model;
+the viewer awaits parent review and the end of quiet hours. Mechanical review
+found no categorical topology incompatibility. Run bounded,
 capacity-independent checks for net sections (bevels, G7 crosscut, center
 relief, backer counterbores), backer-to-header resistance, and signed wrench
 closure/contact/bolt-demand triage. Use historical actions as diagnostics;
 these results inform the parent’s broader-replication choice, not a new gate.
-No native solve is authorized. Keep the deployed viewer and active registry
+Native execution is authorized after model/method readiness. Keep the deployed viewer and active registry
 unchanged until parent review.
 
 - **WJ-03:** the current `wj03-sequence-diagnostic.json` includes the WJ-05
@@ -151,9 +385,10 @@ unchanged until parent review.
   entry still has 540 potential generic corridors, none materialized there,
   and replacement complete-stack evidence remains zero. Separate commit
   `b69ca5fa` now materializes installed-state geometry for two far-end right
-  rail pairs; right four-duty integration is in progress. This hypothesis does
-  not change registry counts or acceptance. Verify complete interfaces and
-  stacks before updating any acceptance count.
+  rail pairs; the later [right four-duty integration](hypotheses/right-rail-integration.md)
+  now completes its implemented static checks. These hypotheses do not change
+  registry counts or acceptance. Verify complete interfaces and stacks before
+  updating any acceptance count.
 
 ### Isolated installed-fit hypotheses, 2026-09-24
 
@@ -186,30 +421,21 @@ viewer. None is integrated, promoted, or accepted.
   sampled counterhold headings (20/20 each). It removes 80 coarse self-bore/
   washer pairs and reports no exact-only hits. Minimum Z is 126.251 mm above
   the analytical floor. This nominal proxy result does not establish physical
-  tool fit or a complete removal route; summarize that route separately.
+  tool fit or a complete removal route; the bound route summary above retains six unresolved stacks.
 - **WJ-04 upper G7 crosscut** (`5555c646`, [archived probe](hypotheses/wj04-upper-g7-crosscut.md)) crosscuts the upper cleat and reverses its upper-rail bolt stack. Bodies, stacks, and all 16 washer seats clear, but all four rail-bolt insertion paths are blocked with neighboring parts retained. The duty-registry workstream is planning rail-plus-cleat subassemblies outside the frame.
 - **WJ-04 local +N access** ([refined sampled screen](hypotheses/wj04-pair-access-local-n.md)) tests lower and upper right rail/cleat moves with far-end duties retained. Each move has eight distinct obstacle pairs with sampled exact intersections: three retained outer-duty SDS beams and five service wires. The report remains an unaccepted discrete screen; it proves neither continuous blockage nor a physical route.
 - **WJ-05 center wire-relief** ([archived probe](hypotheses/wj05-center-node-relieved.md)) clears the L = 82 mm wire-relief body geometry. The right station is 2.303793 mm from the wire; the mirrored left result is a 9.25 mm bounding-box lower bound. It retains 48 + 18 fixed axes. Two properly seated generic head-tool proxies overlap the center posts at upper-header row 2 (left and right), 1,481.459916 mm³ each. This generic proxy-to-wood screen establishes neither actual wrench access nor a complete operation path; see the catalog-sized comparison below for current tool-envelope evidence.
 - **WJ-05 center tool screen** ([catalog-envelope comparison](hypotheses/wj05-center-tools/README.md)) records overlaps for socket/extension, counterhold, and ratchet proxies at both upper-header row-2 stations. Opposite ratchet strokes still hit lower-post washer/timber. These are external envelopes, not proof of tool fit or impossibility; the separate ±190 mm trial below screens a preferred modeled route.
 - **WJ-05 ±190 mm center-post variant** ([corrected geometry archive](hypotheses/wj05-center-post-x190/README.md)) moves both posts, lower cleats, and eight lower axes outward 10 mm. The corrected report is `nominal_geometry_clear_diagnostic`: body, bore, installed hardware, receiver, washer-seat, contact-face, wire, and preferred modeled tool-route checks pass. Rejected ratchet sectors retain diagnostic hits. This variant widens post and lower-bolt-group spacing while reducing upper-cleat/post overlap; fresh mechanics, physical access, and complete-joint evidence remain open.
-- **WJ-06 right outer paired rails** ([installed-geometry archive](hypotheses/wj06-outer-pair.md), `b69ca5fa`) materializes two far-end right rail-pair geometries and eight provisional bolt stacks. It is static installed geometry only; whether +N insertion needs side release is untested. The next screen tests the rail and two cleats moving +N with principal/side members retained and X bolts absent. Assembly sequence, wrench access, and capacity remain untested. Right four-duty integration has no combined report. Eight extra candidate purchased-length cuts explain the principal source delta. Each rail's three outer-duty SDS axes shift by −3.175 mm through `WidthAdapter.connections`, but finished-rail trim retains original holes; native cuts reconstruct 0/0, while the per-host translated side requires shifted cuts. The owner is separating per-host native cuts from candidate purchase cuts. No replacement is accepted.
+- **WJ-06 right outer paired rails** ([installed-geometry archive](hypotheses/wj06-outer-pair.md), `b69ca5fa`) materializes two far-end right rail-pair geometries and eight provisional bolt stacks. It is static installed geometry only; whether +N insertion needs side release is untested. The next screen tests the rail and two cleats moving +N with principal/side members retained and X bolts absent. Assembly sequence, wrench access, and capacity remain untested. The later [four-duty integration](hypotheses/right-rail-integration.md) combines both rail families and passes its implemented static checks. It reconstructs all four hosts from native cuts before applying candidate purchase cuts and sixteen stack bores. No replacement is accepted.
 
-The right shared-host adapter's first run materialized family geometry for
-66.77 s, then failed while assembling the combined report with
-`AttributeError: wj04_base._source_inventory`. Its second run passed that loader
-point but failed source reconstruction at `base_principal_center_right` by
-1,260.109751 mm³. Eight extra candidate purchased-length cuts explain the
-principal delta. The separate rail-hole mismatch is traced to each rail's
-three outer-duty SDS axes shifting −3.175 mm through
-`WidthAdapter.connections` while finished-rail trim retains the original
-holes. Official native cuts reconstruct 0/0; the per-host translated side
-requires shifted cuts. Owner is splitting per-host native cuts from candidate
-purchase cuts. No combined report or geometry verdict exists, and no
-tolerance is waived.
-Static review of shared-host machining and the 6.604 mm ordinary-body
-occupancy sensitivity is complete. That sensitivity applies only to four
-WJ-06 side-bolt shafts; modeled steel diameter stays 6.35 mm. No combined
-report or acceptance exists.
+The right-adapter loader, native replay, and candidate-cleat report-key
+failures are preserved as implementation history in the latest-follow-up
+section and the integrated report note. Its successful report includes the
+6.604 mm ordinary-body occupancy sensitivity for the four WJ-06 side-bolt
+shafts; nominal modeled steel diameter remains 6.35 mm. Neither that
+sensitivity nor static clearance establishes an installation route or
+capacity.
 
 Keep these as separate hypotheses. Continue tool, withdrawal, and staged-motion
 work against retained obstacles; integrate only after parent review of
@@ -221,6 +447,13 @@ No joint has accepted resistance or capacity. MVP-L, fresh six-case evidence,
 and MVP-E remain gated by the work below.
 
 ## Critical path
+
+This table retains the original stage obligations. Development now uses the
+complete WJ24 diagnostic, including its compact outer-node revision and
+full-stock ordinary cleats. The narrow WJ04 trial remains preserved in the
+registry, but is not the geometry being prepared for mechanics. Rebind each
+affected stage to the reviewed final WJ24 revision before closing it; narrow
+trial dimensions, old tool routes and old demands cannot establish its pass.
 
 | Stage | Work | Gate to advance |
 | --- | --- | --- |

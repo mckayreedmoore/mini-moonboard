@@ -475,3 +475,78 @@ node. Any later promotion still requires the complete layout, joint mechanics,
 fresh full-frame cases, coherent shop package, and observed physical gates.
 No drilling, fabrication, structural, or climbing release follows from opening
 this lane.
+
+
+## Wood-joint native mechanics authorization, September 24, 2026
+
+After clarification of the repository's native-solve restriction, the owner
+instructed: “You can go and override this and run these native checks when it
+makes sense.” This authorizes native structural analysis for the separate
+`compact-floor-flush-wood-joints-development` lane when its candidate geometry,
+contact/fastener model, resistance methods, and case contract are ready.
+The parent will serialize heavy runs and preserve failures and source-bound
+evidence. It supersedes the earlier no-native-solve instruction for this lane;
+no further execution permission is required within this scope. It does not
+select the candidate, establish capacity, authorize physical work, or relax
+the fixed surface/66-axis and baseline-preservation constraints. Quiet-hours
+commit restrictions and the weekly-usage stop instruction remain unchanged.
+
+## Owner review of wood-joint geometry, September 24, 2026
+
+The owner directed model and viewer revisions before further force calculations.
+Move the four corner blocks on the lower middle rear rails beneath those rails.
+Raise the lowest rear cross-member pair by one T-nut row (200 mm along the
+climbing surface), adjusting the affected panel screw locations as needed.
+This later permission relaxes the fixed-axis rule for that development revision;
+the 66-screw count, purchased screw policy and panel outlines remain unchanged.
+The owner also requested alternatives to the current 4×6 frame-to-kicker-box
+connections. Explore those connections for design review before selecting a
+replacement. Preserve the previous WJ24 geometry and its evidence as history;
+its results do not qualify the revised geometry. The selected baseline remains
+unchanged.
+
+The owner subsequently lowered the bottom support from that one-row-raised
+position to just above the T-nut row beneath it. The review model uses a 5 mm
+gap above the first-row flange envelope, moving the rail and its associated
+blocks, bolt stacks and four panel screws down 123.1 mm along the climbing
+surface from the preceding review. This supersedes the 200 mm-raised layout
+for the current viewer; the preceding revision remains history.
+
+The owner then directed the two central kicker posts to sit adjacent to the
+central kicker T-nuts on their outward sides, with the four center kicker
+screws moved onto the posts and the two adjoining center backing pieces
+removed. The next connection layout adds an interior block beside each outer
+4×6 rim: common through-bolts pass through the exterior block, rim and interior
+block, and each interior block bolts vertically through the kicker header.
+The owner also requested redesigned blocks between the central principals
+and header using the space below the moved bottom rails. Complete these
+viewer changes and notify the owner; joint evaluations must wait for the
+owner's subsequent sign-off.
+
+### Kicker block model review completed, September 24, 2026
+
+The requested kicker-post/screw moves, center-backer removal, outer 4×6
+sandwich blocks with common through-bolts and vertical header bolts, and
+taller central principal/header blocks are now incorporated in the local
+wood-joint viewer. The bottom support retains its latest position 5 mm above
+the first T-nut flange row. The [review checkpoint](../wood-joints-mvp/hypotheses/kicker-block-review-2026-09-24/README.md)
+records geometry checks and unresolved wire, hold/light clearance, and panel
+edge-support details. The owner explicitly requested notification after these
+modifications and will provide sign-off before joint evaluations resume.
+That sign-off remains pending. No joint evaluations were run for this change.
+
+### Outer support removal and hypothetical midpoint review, September 24, 2026
+
+The owner directed removal of both rear outer crosspieces and underside
+corner blocks after adding the sandwich blocks. The updated viewer contains
+24 candidate blocks and 90 candidate bolt axes, with obsolete holes restored
+in retained timber. A finished-solid comparison finds ten distinct geometric
+block designs, counting rotated copies together and handed patterns separately.
+The [current checkpoint](../wood-joints-mvp/hypotheses/outer-links-removed-2026-09-24/README.md)
+records the changes. The owner also requested horizontal and vertical
+midpoints between current LEDs and hold T-nuts for a hypothetical denser
+setting. The [491-site geometry screen](../wood-joints-mvp/hypotheses/midpoint-clearance-2026-09-24/README.md)
+records support and existing-hardware obstructions; it does not authenticate a
+future manufacturer's layout. Joint evaluations remain paused pending sign-off.
+The owner authorized chunked commits/pushes and explicitly requested Luna Max
+agents for that work; shared-index writes are serialized.

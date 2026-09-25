@@ -2,6 +2,183 @@
 
 Status: active parent-owned persistent goal, 2026-09-24.
 
+## Owner-directed viewer phase, September 24
+
+The owner now requests a 3D model MVP and design review before further
+engineering calculations. Prioritize the local viewer and owner design
+adjustments. Hold mechanics implementation, native runs, and additional
+engineering calculations until that review is complete. Preserve existing
+diagnostics and unfinished work as checkpoints; no previous pass transfers to
+a changed design. The broader conditional engineering MVP remains unfinished.
+The owner explicitly requires a further sign-off before joint evaluations
+resume. Finish the current kicker-post relocation, center-backer removal,
+outer-rim sandwich blocks and center-principal/header block redesign, then
+notify the owner and wait for that sign-off.
+The local WJ24 viewer is served at
+`http://127.0.0.1:8765/wood-joints-wj24-viewer.html` by parent tool session
+`27963`. Quiet-hours publication restrictions remain unchanged.
+
+## Resumed session, September 24, 15:14 Denver time
+
+The owner reloaded the session and requested useful saturation of the new
+twenty-subagent limit. The parent recovered the preceding conversation and
+current working tree, restored the full MVP goal, and verified twenty workers
+running concurrently. The older allocation table below is historical. Existing
+tracked edits, untracked implementations, and diagnostic archives are retained.
+No prior Python/CAD session or full-test process survived the reload.
+
+The complete WJ24 composition remains the current integrated diagnostic:
+24 duties, 28 connector pieces, 104 proposed bolts, and zero accepted
+replacements. The public viewer and selected authority are unchanged. The
+local viewer HTML expects the new compact encoding, while its scene still
+contains the earlier large payload; regenerate and browser-check them together.
+The interrupted full pytest log reaches approximately 46% and contains
+failures, without a final summary. It is not a completed validation run.
+
+| Worker | Bounded responsibility |
+| --- | --- |
+| `access_relief` | Connector-only G1/G12 hold and G7 LED relief experiments and producer checks. |
+| `steel_mesh` | Physical hardware mesh adapter and independent output audit. |
+| `contact_adapter` | Authenticated contact surfaces and preparation fragments. |
+| `joint_boundary` | Representative unit-load, restraint, and free-mode contract. |
+| `material_contract` | Explicit orthotropic scenario and material-axis validation. |
+| `reaction_accounting` | Signed interface wrenches and equilibrium accounting. |
+| `hardware_lengths` | Sixteen unresolved bolt lengths and conditional stack fit. |
+| `hardware_costs` | Source-backed quantities, package prices, and unknown costs. |
+| `timber_yield` | Connector blanks, grain, and bounded stock yield. |
+| `viewer_review` | Complete-layout viewer behavior and browser verification. |
+| `test_triage` | Interrupted test failures and bounded reproduction planning. |
+| `transport_sequence` | Complete-layout assembly, support, and harness dependencies. |
+| `full_layout_tools` | Bolt-station tool and removal evidence coverage. |
+| `backer_loadpath` | Redirected screw receivers through backers and headers. |
+| `frame_bolts` | Twelve retained frame-bolt obligations in changed hosts. |
+| `fixed_receivers` | All 66 fixed axes, receiver support, and kerf-right edges. |
+| `geometry_reconcile` | Earlier representative mesh versus complete-layout geometry. |
+| `criteria_coverage` | Candidate-specific demand and resistance evidence gaps. |
+| `source_integrity` | Independent source hashes and preservation audit. |
+| `shop_packet` | Coherent development packet using the bounded outputs above. |
+
+Each worker has separate file ownership. Parent owns integration, archived
+report generation, and serialized heavy CAD, mesh, and native execution.
+The first physical hardware mesh was launched only after its adapter, tests,
+dependency hashes, and pinned container invocation were rechecked. This is
+mesh preparation, not a structural response. Failures remain evidence.
+
+At 15:26 the owner asked whether multiple local processes could run together.
+The parent measured sixteen logical CPUs, approximately 18 GiB available of
+29 GiB RAM, a one-minute load of 0.85, and no current memory or I/O pressure.
+The earlier blanket CAD/verification serialization is therefore relaxed to
+two independent jobs with separate outputs and monitoring. Shared live-model
+writes and native load-case runs remain serialized under parent control.
+
+After the owner's velocity question at approximately 16:05, the parent
+rechecked resources: about 17.2 GiB remained available, with no current memory
+or I/O pressure. Up to three independent local jobs may overlap when they
+have separate outputs and bounded memory. This allows a mesh or numerical
+audit alongside the full test suite and one live CAD operation. The shared
+Python/CAD session still accepts only one operation at a time, and native
+solver cases remain serialized. Stop adding jobs if resource pressure appears.
+Agent priority is now the representative mechanics pipeline and the complete
+layout's access/hardware decisions. Defer supplementary reports and optional
+helper features; use one implementer and one reviewer per critical deliverable.
+
+Denver quiet hours continue until 18:00: leave work uncommitted and unpublished.
+Weekly usage at resume was 26% used, 74% remaining; retain the owner's stop
+instruction at 20% remaining and check fresh telemetry during continued work.
+
+### Subsequent parent integration checkpoint
+
+The full WJ24 model was reconstructed in 290.10 seconds using one shared
+right-family source object throughout WJ12 and WJ16. Its composition report
+exactly equals the archived WJ24 report, with all 68 input hashes unchanged.
+The recovery record is `/tmp/wj24-session-recovery-20260924-attempt01/`;
+the live parent Python process is tool session `37771`. Reuse its `g16`,
+`g18`, and `g24` objects after confirming the process remains live.
+
+The compact viewer export now exists: 9,181,070 bytes, scene SHA-256
+`b80baec6b4435f4cfad724efdc25df787d04251f1a1b7203ba63782fb4b485f0`.
+The export completed in 12.47 seconds without source changes and reused the
+same-configuration static diagnostic. Browser review now passes the implemented
+desktop/mobile, layer, camera, keyboard, and error checks; parent reviewed the
+desktop and 320-pixel screenshots. Nothing is published. Its launch record and frozen sources
+are in `/tmp/wj24-viewer-resume-20260924-attempt01/`.
+
+The [physical hardware mesh](hypotheses/wj04-hardware-patch-mesh/README.md)
+and independent deck audit are archived. Parent's separate 18-test batch for
+the material and equilibrium helpers passed; later portability/completeness
+edits require their own validation. The independent geometry comparison now
+proves four representative bodies unchanged, while the principal loses
+6,732.825756 mm³ and gains 6,944.063705 mm³ through four new bolt bores and
+six removed legacy holes. The old principal mesh is not the final geometry.
+
+Access-relief attempt 01 stopped before geometry on an adapter schema defect:
+it incorrectly required source-bundle names and trial names to match. Actual
+WJ24 has nine bundles and ten trials. The corrected producer validates each
+set independently and the exact 68-path merged closure. Attempt 02 completed
+in 50.80 seconds, preserving source geometry and all fixed axes. Both attempts
+are now archived in `hypotheses/wj24-access-relief/`. Parent and independent
+review found a conservative summary bug: four bolts have eight washer seats,
+all individually resolved, but the aggregate expected four. The producer is
+corrected in the v2 producer to distinguish eight seats, local section losses
+versus an unchanged sampled minimum elsewhere, and nominal LED motion versus
+an enlarged clearance envelope. Attempt 03 completed in 55.0528 seconds with
+source hashes unchanged. All nine variants retain the local contact and eight
+washer-seat probes; local sampled area losses remain explicit. The nominal G7
+LED route clears the relieved wood but intersects two fixed wire envelopes.
+No relief or handling sequence is accepted. The retained parent Python session
+is idle and remains available; confirm it is live before reusing it.
+
+The separate steel Jacobian audit has also completed: all 870,702 recomputed
+integration-point determinants are positive. The equilibrium helper was made
+independent of CadQuery without changing existing `mini_moonboard` sources;
+its new pure-wrench module, wood/steel material helpers, equilibrium checks,
+and independent Jacobian audit pass the parent's 49-test batch.
+The metadata-only cross-packet equality bug is repaired in two historical
+bolted-screen producers, with geometry-mismatch regressions. The stale native
+input test's exact expected mismatch set was updated to include the
+historically attributed September 22 kerf-right CSV change, leaving its saved
+hashes and non-ready state untouched; its focused 12-test batch passed. The
+current full-suite process started at 15:37 and has passed 45% progress with
+at least one failure marker; wait for its terminal trace before claiming a
+result. Its handle is `79198`, log
+`/tmp/wood-joints-full-pytest-20260924-1537.log`.
+Weekly telemetry most recently showed 71% remaining.
+
+The current WJ24 representative five-body STEP export completed with
+reconciliation SHA-256
+`256af45c2a6b2b48726d86f95e2f4febdd8cad726d690738e9cb1fad87a89711`.
+It has its own WJ24 schema and does not reuse old mesh geometry. The separate
+WJ24 mesh attempt 01 completed in 13.8156 seconds: 89,743 nodes and 46,629
+C3D10 elements across five current bodies. Output is
+`fea/generated/wj24-baseline-patch-mesh/attempt-01/`, launch record
+`/tmp/wj24-baseline-mesh-attempt-01/`. Independent deck/archive review belongs
+to `steel_mesh`. The original hardware-only Jacobian auditor rejected this
+new input schema; `geometry_reconcile` is adding an explicit WJ24 wood contract
+before the parent retries the audit. Preserve the rejected attempt's scope;
+no Jacobians were recomputed in it. Contact engagement, objective constraint
+kinematics, finite loading patches, and internal free-mode treatment remain
+the representative native model's critical path. The full-layout tool helper
+now uses separate role sweeps to avoid a whole-bolt bounding box falsely
+dragging head width through the receiver during withdrawal. Its actual
+attempt 01 completed in 305.6821 seconds in live Python session `37771`, launched by
+`/tmp/run-wj24-tool-operation-20260924-attempt01.py`. Its raw report is
+`/tmp/wj24-tool-operation-20260924-attempt01/geometry.json`. It includes 36
+temporary frame-bolt operation proxies; `full_layout_tools` is preparing a
+separate JSON classification to distinguish those temporal comparisons from
+retained geometry envelopes, preserving the raw report. `transport_sequence`
+is deriving removal dependencies from those results rather than assuming all
+other parts must remain installed during every operation. The backer mechanics
+extraction also completed against `g24` in 0.3493 seconds, with unchanged source
+hashes: `/tmp/wj24-backer-mechanics-20260924-attempt01/`. It binds two interfaces,
+four bolts and four fixed Hillman entry axes. `backer_loadpath` owns its archive
+and readback check. The retained Python session is idle again.
+
+Parent independently verified all seven members of the archived WJ24 STEP
+bundle, all five corrected relief payloads, and all 33 viewer archive files
+against their recorded sizes and hashes. The unit-case helper also passes
+18 parent tests. Quiet hours still apply, and no publication or commit has
+occurred during this resumed work.
+
 ## Goal and authority boundary
 
 Continue `compact-floor-flush-wood-joints-development` toward the conditional
@@ -12,7 +189,9 @@ separate paused Luna session was not resumed.
 
 Preserve selected candidate authority, baseline source pin
 `df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb`, all 66 panel/kicker screw axes,
-and the separate-development lane. Do not run native solves or physical work.
+and the separate-development lane. The owner authorized native mechanics for
+this lane on 2026-09-24 after model/method readiness; parent serializes execution.
+Physical work remains outside scope.
 No task here authorizes cut, drill, fabrication, structural use, climbing, or
 release. Keep every release flag false until its evidence gate passes.
 Continue frequent, dependency-closed commits and pushes through parent. Keep
@@ -129,8 +308,9 @@ Pages run `35959025255` succeeded. Parent verified live HTML SHA-256
 | CI workflow and run status | `luna_checkpoint_prep` | Owns `.github/workflows/ci.yml` only. Current run records below; no worker stages, commits, or pushes. |
 | Integration test and CI failure triage | `luna_integration_checks` | WJ04 config/report parity and WJ03 dependency/T-nut/reverse-order tests pass (7 and 8); now doing bounded CI failure investigation, with no producer edits. |
 
-No native solves are authorized or run; another solve requires new user
-authorization. Keep one owner per shared file. Parent owns report regeneration
+The owner authorized native mechanics on 2026-09-24; no fresh wood-candidate
+cases have run. Freeze model and methods before execution. Keep one owner per
+shared file. Parent owns report regeneration
 that requires serialized CAD, integrated checks, and all Git actions.
 
 ## Next dependency order
