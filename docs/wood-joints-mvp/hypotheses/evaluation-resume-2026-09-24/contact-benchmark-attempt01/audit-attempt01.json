@@ -1,0 +1,15 @@
+{
+  "status": "PARSER_REJECTED_DUPLICATE_TIMES",
+  "scenarios": [
+    "upper_slave",
+    "lower_slave"
+  ],
+  "native_solver_return_codes": [
+    0,
+    0
+  ],
+  "error": "Contact report times are duplicate or out of order",
+  "cause_under_review": "Frozen deck requests CF, CFN, CFS; each produces a same-time identically labelled statistics block. The parser expected one block per time.",
+  "tolerances_changed": false,
+  "joint_or_capacity_pass": false
+}

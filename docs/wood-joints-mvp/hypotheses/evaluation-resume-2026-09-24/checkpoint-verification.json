@@ -1,0 +1,92 @@
+{
+  "schema": "current_evaluation_checkpoint/v1",
+  "revision": "led-clearance-2x6-runner-seated-blocks-v1",
+  "outputs_sha256": {
+    "geometry-replay-audit.json": "cc2737a8c8a210ad3d3d1845bcb5cb85be78d82b1e97d3a361b06394a33f91bb",
+    "receiver-screen-attempt04.json": "851495f2ccc80f286a7eae97fc54bcf602a478bb7d4e13eb28e2ae44cfb87991",
+    "grip-screen-attempt02.json": "9f84a15ed05ca9832f594c4a0b2c8d1322b90e74e462aa7c725b031bad69643a",
+    "access-screen-attempt01.json": "83f53ada10afda7566af7a872c246718e88ad145b9ee2dd12ab6f9a878095c81",
+    "current-load-datums.json": "c3a561b84eb56472264e92eacabae7c2e06fe33633ebba96f1de9ee974924022",
+    "current-load-cases.json": "9c7c43c51ce635ebfeaeddabdbbe2a0ac80dfd7819ec357662dd132db648b83a",
+    "contact-benchmark-attempt01/reaudit02/audit-record.json": "c851e80816b5a0f2af944ffa27bfa66b166fc851a9501683437f0a78e3964054"
+  },
+  "producer_sha256": {
+    "scripts/wood_joint_current_geometry.py": "d76c0a8f5ca4b8fa5666735d9e5048b527851f41e7b9e6009cbfe2af75567e8f",
+    "scripts/wood_joint_current_receiver_screen.py": "e5e970b41aaa64d1029277f8f6a6122e3623f488f8feed72f43696581c6f0ff0",
+    "scripts/wood_joint_current_grip_screen.py": "dfa260764d485e2a1abffe695f914c0cbddc21bf58157277a22112023525d5a1",
+    "scripts/wood_joint_current_access_screen.py": "d1806f8ca0c69fd87b15c2edea4d948d541829be9a0b57ded1695fcf0dc96a24",
+    "scripts/wood_joint_current_load_cases.py": "46f67d66c9490d3a435c0f1098ed42ce0f95dee7de81d4c62bd8835ed607b534",
+    "fea/contact_wrench_benchmark.py": "2034ab0e368c1f4661c306f86c4540821571519e14459f134b1a0ac1fcb9e8f7"
+  },
+  "supporting_source_sha256": {
+    "scripts/wood_joint_wj04_tool_access.py": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8",
+    "scripts/wood_joint_wj24_tool_operation_probe.py": "5e20a74f94eb9bfdb78dc374eb916d52fb77484aad3249a88c104633d78398c1",
+    "scripts/wood_joint_wj12_diagnostic.py": "c49e223a4abb004b1eeb6626a2678d94db2d7728d46d9af14589be9d307805d8",
+    "scripts/wood_joint_wj24_inner_frame_blocks.py": "07c5f982e21f7a184264e414c463281f5c2925feb2add80f58e79343fa54205a",
+    "mini_moonboard/wood_joint_wj04_config.py": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be",
+    "site/owner-wood-joints-wj24-scene.json": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf",
+    "site/owner-wood-joints-review-report.json": "148f97623573558cd6a6c53f8a5399f2b30549d6aa1ed13c326dfe1bc3e9d695",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+  },
+  "validation": {
+    "parent_focused_tests_completed": 104,
+    "test_scope": "33 load-patch/replay/material tests; 40 benchmark/receiver/access tests; 23 contact-contract/load-case tests; eight grip tests. The separate in-progress patch exporter is excluded.",
+    "current_finished_wood_replay_comparisons": 40,
+    "current_shape_metric_comparisons": 683,
+    "receiver_axes": 66,
+    "grip_axes": 92,
+    "priority_access_axes": 16,
+    "applied_load_cases": 6,
+    "native_output_benchmark_cases": 2,
+    "native_candidate_joint_or_frame_cases": 0
+  },
+  "authority_preservation": {
+    "all_release_flags_false": true,
+    "authority_files": {
+      "barrel-nut-candidate.json": {
+        "current_sha256": "61b76d0648604529988ddf6c6264c158f2dde85d334d235a95864d3595a14e9c",
+        "handoff_sha256": "61b76d0648604529988ddf6c6264c158f2dde85d334d235a95864d3595a14e9c",
+        "matches_handoff": true
+      },
+      "current-candidate.json": {
+        "current_sha256": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+        "handoff_sha256": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+        "matches_handoff": true
+      }
+    },
+    "candidate": "compact-floor-flush-wood-joints-development",
+    "claim_limit": "Byte-preservation evidence only; no design, geometry, capacity, case, physical inspection or release is established.",
+    "handoff_commit": "df7f5eca86ae831b35a8bcf9e6dcd7ae8af852bb",
+    "preservation_check_passes": true,
+    "repository_head": "656d075862a106453ac9a50367c20af9245521b6",
+    "schema": "wood_joint_authority_integrity/v1",
+    "selected_kerf_right_exports": {
+      "all_export_bytes_match_handoff": true,
+      "baseline_manifest_sha256": "42f2a6591de4e3213271b712e4c9f23cec86413285f4aee2d493f5c2bda9fe1c",
+      "current_export_tree_sha256": "fbfc7fdbe68ff6668813242dbc220166a19a290e4ed9125ee2312661487dc331",
+      "differing_export_paths": [],
+      "handoff_export_tree_sha256": "fbfc7fdbe68ff6668813242dbc220166a19a290e4ed9125ee2312661487dc331",
+      "manifest_matches_handoff": true,
+      "manifest_sha256": "42f2a6591de4e3213271b712e4c9f23cec86413285f4aee2d493f5c2bda9fe1c",
+      "part_count": 725,
+      "path": "site/hybrid/compact-floor-flush-kerf-right/parts.json"
+    },
+    "wood_joint_release_flags": {
+      "climbing_released": false,
+      "drilling_released": false,
+      "engineering_mvp_complete": false,
+      "fabrication_released": false,
+      "geometry_accepted": false,
+      "layout_complete": false,
+      "physical_prototype_complete": false,
+      "structural_released": false
+    }
+  },
+  "limits": [
+    "Geometry measurements are nominal CAD envelope evidence, not actual hardware observations.",
+    "No current candidate strength criterion or complete frame case is accepted by this checkpoint.",
+    "Historical intermediate attempts remain trace evidence; the listed latest outputs are authoritative for these bounded screens.",
+    "The supplied historical starting geometry is a parent-owned input; full viewer-scene regeneration was not performed."
+  ],
+  "release": false
+}

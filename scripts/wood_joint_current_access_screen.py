@@ -1,0 +1,717 @@
+"""Bounded access and bolt-movement screen for the current WJ24 geometry.
+
+The collector accepts an already materialized
+``led-clearance-2x6-runner-seated-blocks-v1`` geometry. It selects the eight
+exterior-block and eight trimmed-tall-block stacks changed by that revision,
+then screens separate hardware-motion envelopes and provisional wrench poses
+against the retained scene. It does not load archived WJ24 reports, compose
+geometry, modify shapes, prove an assembly order, or establish physical fit.
+"""
+
+from __future__ import annotations
+
+import copy
+import math
+from collections.abc import Mapping
+from typing import Any
+
+import cadquery as cq
+
+from mini_moonboard.wood_joint_wj04_config import WJ04_TRIAL
+from scripts import wood_joint_wj04_tool_access as tool_access
+from scripts import wood_joint_wj12_diagnostic as wj12_diagnostic
+from scripts.wood_joint_wj24_tool_operation_probe import (
+    _exact_cylindrical_translation_sweep,
+    _projected_vertex_extrema,
+    _vector_unit,
+)
+
+SCHEMA = "wood_joint_current_access_screen/v1"
+CURRENT_REVISION_ID = "led-clearance-2x6-runner-seated-blocks-v1"
+EXPECTED_CANDIDATE_AXIS_COUNT = 92
+EXPECTED_PRIORITY_AXES_PER_GROUP = 8
+ORDINARY_ROLES = frozenset({"head", "head_washer", "shaft", "nut", "nut_washer"})
+HEAD_WITHDRAWAL_ROLES = ("head", "head_washer", "shaft")
+PRIORITY_RECEIVERS = {
+    "exterior_2x6": frozenset(
+        {"knee_outer_left_spine", "knee_outer_right_spine"}
+    ),
+    "trimmed_tall_center": frozenset(
+        {"center_principal_cleat_left", "center_principal_cleat_right"}
+    ),
+}
+SAMPLED_STROKE_DEGREES = (0.0, -15.0, 15.0, -30.0, 30.0)
+PROTECTED_FAMILY_ALIASES = frozenset(
+    {"fixed_66_hillman_axes_63p5mm", "retained_12_frame_bolt_components"}
+)
+
+
+def _valid_shape(shape: Any, context: str) -> cq.Shape:
+    if not isinstance(shape, cq.Shape) or not shape.isValid() or not shape.Solids():
+        raise ValueError(f"{context} must be a valid CAD solid")
+    return shape
+
+
+def _shape_map(value: Any, context: str) -> dict[str, cq.Shape]:
+    if not isinstance(value, Mapping):
+        raise TypeError(f"{context} must be a mapping")
+    result = dict(value)
+    for name, shape in result.items():
+        if not isinstance(name, str) or not name:
+            raise ValueError(f"{context} names must be nonempty strings")
+        _valid_shape(shape, f"{context}/{name}")
+    return result
+
+
+def _axis_receivers(bore: Any, axis_id: str) -> tuple[str, ...]:
+    receivers = getattr(bore, "receiver_ids", None)
+    if not isinstance(receivers, (tuple, list)) or len(receivers) < 2:
+        raise ValueError(
+            f"{axis_id}: live candidate bore must identify at least two receivers"
+        )
+    if any(not isinstance(value, str) or not value for value in receivers):
+        raise ValueError(f"{axis_id}: receiver IDs must be nonempty strings")
+    if len(set(receivers)) != len(receivers):
+        raise ValueError(f"{axis_id}: receiver IDs must be distinct")
+    return tuple(receivers)
+
+
+def _priority_axis_groups(
+    candidate_bores: Mapping[str, Any],
+    candidate_hardware: Mapping[str, Mapping[str, cq.Shape]],
+) -> dict[str, tuple[str, ...]]:
+    """Select changed current-revision stacks from their live receiver IDs."""
+    if set(candidate_bores) != set(candidate_hardware):
+        raise ValueError("current bore and installed-hardware axis IDs differ")
+    if len(candidate_bores) != EXPECTED_CANDIDATE_AXIS_COUNT:
+        raise ValueError(
+            "current access screen requires the live 92-axis WJ24 revision"
+        )
+    group_rows: dict[str, list[str]] = {name: [] for name in PRIORITY_RECEIVERS}
+    for axis_id, bore in candidate_bores.items():
+        receivers = set(_axis_receivers(bore, axis_id))
+        matching = [
+            group
+            for group, group_receivers in PRIORITY_RECEIVERS.items()
+            if receivers & group_receivers
+        ]
+        if len(matching) > 1:
+            raise ValueError(f"{axis_id}: current axis matches multiple priority groups")
+        if matching:
+            group_rows[matching[0]].append(axis_id)
+        roles = candidate_hardware[axis_id]
+        if not isinstance(roles, Mapping) or set(roles) != ORDINARY_ROLES:
+            raise ValueError(f"{axis_id}: current stack must have five ordinary roles")
+        for role, shape in roles.items():
+            _valid_shape(shape, f"candidate_installed_hardware/{axis_id}/{role}")
+
+    for group, axis_ids in group_rows.items():
+        if len(axis_ids) != EXPECTED_PRIORITY_AXES_PER_GROUP:
+            raise ValueError(
+                f"{group}: expected eight live axes, found {len(axis_ids)}"
+            )
+    all_selected = [axis for rows in group_rows.values() for axis in rows]
+    if len(set(all_selected)) != len(all_selected):
+        raise ValueError("priority groups overlap")
+    return {group: tuple(sorted(rows)) for group, rows in group_rows.items()}
+
+
+def _live_scene_obstacles(
+    geometry: Any, finished_wood: Mapping[str, cq.Shape] | None = None
+) -> dict[str, cq.Shape]:
+    """Build the obstacle scene from the supplied live geometry object only."""
+    if finished_wood is None:
+        _raw_receivers, finished_wood = wj12_diagnostic._composed_wood(geometry)
+    obstacles: dict[str, cq.Shape] = {
+        f"wood/{name}": shape for name, shape in finished_wood.items()
+    }
+    obstacles.update(
+        {f"fixed_panel_axis/{name}": shape for name, shape in geometry.fixed_axes.items()}
+    )
+    obstacles.update(
+        {f"frame_bolt/{name}": shape for name, shape in geometry.frame_bolt_shapes.items()}
+    )
+    for family, shapes in geometry.protected.items():
+        if family in PROTECTED_FAMILY_ALIASES:
+            continue
+        for shape_id, shape in shapes.items():
+            obstacles[f"protected/{family}/{shape_id}"] = shape
+    for axis_id, role_map in geometry.candidate_installed_hardware.items():
+        for role, shape in role_map.items():
+            obstacles[f"candidate_stack/{axis_id}/{role}"] = shape
+    if len(obstacles) < 92 * len(ORDINARY_ROLES):
+        raise ValueError("live WJ24 obstacle scene omits candidate stack hardware")
+    return _shape_map(obstacles, "live_scene_obstacles")
+
+
+def _stack_axis(roles: Mapping[str, cq.Shape], axis_id: str) -> cq.Vector:
+    return _vector_unit(
+        roles["head"].Center() - roles["nut"].Center(),
+        f"{axis_id} head-to-nut axis",
+    )
+
+
+def _face_reference(axis: cq.Vector) -> cq.Vector:
+    cardinal = min(
+        (cq.Vector(1, 0, 0), cq.Vector(0, 1, 0), cq.Vector(0, 0, 1)),
+        key=lambda candidate: abs(candidate.dot(axis)),
+    )
+    return _vector_unit(
+        cardinal - axis * cardinal.dot(axis), "synthetic wrench face reference"
+    )
+
+
+def _target_obstacle_ids(axis_id: str, roles: Mapping[str, cq.Shape]) -> tuple[str, ...]:
+    return tuple(f"candidate_stack/{axis_id}/{role}" for role in roles)
+
+
+def _hit_rows(collision: Mapping[str, Any]) -> Mapping[str, Mapping[str, Any]]:
+    hits = collision.get("external_envelope_hits_mm3")
+    if not isinstance(hits, Mapping):
+        raise TypeError("collision report omitted its external hit map")
+    return hits
+
+
+def _blocker_ids(collision: Mapping[str, Any]) -> tuple[str, ...]:
+    return tuple(
+        sorted(
+            {
+                obstacle_id
+                for obstacle_hits in _hit_rows(collision).values()
+                for obstacle_id in obstacle_hits
+            }
+        )
+    )
+
+
+def _motion_collision(
+    axis_id: str,
+    named_sweeps: Mapping[str, cq.Shape],
+    obstacles: Mapping[str, cq.Shape],
+    *,
+    excluded_roles: tuple[str, ...],
+    phase: str,
+    direction_text: str,
+) -> dict[str, Any]:
+    exclusions = tuple(f"candidate_stack/{axis_id}/{role}" for role in excluded_roles)
+    collision = tool_access.collision_report(
+        named_sweeps,
+        obstacles,
+        excluded_target_ids=exclusions,
+        exclusion_scope=(
+            f"{phase}: {direction_text}. Excluded target stack roles represent the "
+            "active moving part or a documented prerequisite removal / intended "
+            "coaxial engagement. All other live geometry remains an obstacle."
+        ),
+    )
+    return {
+        "status": "diagnostic_envelope_screened",
+        "motion_direction": direction_text,
+        "moving_envelope_names": sorted(named_sweeps),
+        "collision_screen": collision,
+        "potential_blocker_ids": list(_blocker_ids(collision)),
+        "physical_motion_established": False,
+    }
+
+
+def _withdrawal_and_insertion(
+    axis_id: str,
+    receivers: tuple[str, ...],
+    roles: Mapping[str, cq.Shape],
+    finished_wood: Mapping[str, cq.Shape],
+    obstacles: Mapping[str, cq.Shape],
+) -> dict[str, Any]:
+    missing = sorted(set(receivers) - finished_wood.keys())
+    if missing:
+        raise ValueError(f"{axis_id}: live receiver solids are missing: {missing}")
+    headward = _stack_axis(roles, axis_id)
+    head_receiver = max(receivers, key=lambda name: finished_wood[name].Center().dot(headward))
+    receiver_outer_face = max(
+        _projected_vertex_extrema(finished_wood[name], headward)[1]
+        for name in receivers
+    )
+    shaft_inner_end = _projected_vertex_extrema(roles["shaft"], headward)[0]
+    travel = receiver_outer_face - shaft_inner_end
+    if not math.isfinite(travel) or travel <= 0:
+        raise ValueError(f"{axis_id}: live shaft withdrawal travel is not positive")
+    displacement = headward * travel
+
+    shaft_sweep = _exact_cylindrical_translation_sweep(
+        roles["shaft"], displacement.toTuple()
+    )
+    shaft_method = "exact_coaxial_cylinder_translation_sweep"
+    if shaft_sweep is None:
+        shaft_sweep = tool_access.translation_sweep(
+            roles["shaft"], displacement.toTuple()
+        )
+        shaft_method = "conservative_oriented_box_translation_enclosure"
+    withdrawal_sweeps = {
+        "head_translation_enclosure": tool_access.translation_sweep(
+            roles["head"], displacement.toTuple()
+        ),
+        "head_washer_translation_enclosure": tool_access.translation_sweep(
+            roles["head_washer"], displacement.toTuple()
+        ),
+        f"shaft_{shaft_method}": shaft_sweep,
+    }
+    target_roles = tuple(sorted(roles))
+    withdrawal = _motion_collision(
+        axis_id,
+        withdrawal_sweeps,
+        obstacles,
+        excluded_roles=target_roles,
+        phase="head-side bolt withdrawal after captured nut and washer removal",
+        direction_text="head, head washer, and shaft translate together toward the head side",
+    )
+    insertion = copy.deepcopy(withdrawal)
+    insertion.update(
+        {
+            "motion_direction": (
+                "reverse of the screened head-side withdrawal envelope; bolt, "
+                "head washer, and shaft are introduced from the head side"
+            ),
+            "swept_occupancy_is_direction_symmetric": True,
+            "reverse_installation_path_screened": True,
+            "physical_installation_established": False,
+        }
+    )
+    return {
+        "head_side_receiver_id_by_live_centroid": head_receiver,
+        "headward_axis_xyz": [round(value, 9) for value in headward.toTuple()],
+        "derived_travel_mm": round(travel, 6),
+        "travel_basis": (
+            "live finished receiver vertex extrema and current shaft envelope; "
+            "zero terminal allowance, no added physical clearance"
+        ),
+        "shaft_sweep_method": shaft_method,
+        "withdrawal": withdrawal,
+        "reverse_assembly": insertion,
+        "support_transfer_and_capture_established": False,
+    }
+
+
+def _detached_role_motion(
+    axis_id: str,
+    role_name: str,
+    role_shape: cq.Shape,
+    shaft_shape: cq.Shape,
+    outward: cq.Vector,
+    obstacles: Mapping[str, cq.Shape],
+    *,
+    prerequisite_absent_roles: tuple[str, ...] = (),
+) -> dict[str, Any]:
+    shaft_max = _projected_vertex_extrema(shaft_shape, outward)[1]
+    moving_min = _projected_vertex_extrema(role_shape, outward)[0]
+    travel = max(0.0, shaft_max - moving_min)
+    if not math.isfinite(travel):
+        raise ValueError(f"{axis_id}/{role_name}: removal travel must be finite")
+    sweep = tool_access.translation_sweep(role_shape, (outward * travel).toTuple())
+    exclusions = (role_name, "shaft", *prerequisite_absent_roles)
+    removal = _motion_collision(
+        axis_id,
+        {f"{role_name}_axial_slide_enclosure": sweep},
+        obstacles,
+        excluded_roles=exclusions,
+        phase=f"{role_name} removal after the nut has been fully unthreaded",
+        direction_text="active part slides axially outward along the bolt after thread disengagement",
+    )
+    assembly = copy.deepcopy(removal)
+    assembly.update(
+        {
+            "motion_direction": "reverse of the screened axial removal envelope",
+            "swept_occupancy_is_direction_symmetric": True,
+            "physical_installation_established": False,
+        }
+    )
+    return {
+        "derived_axial_travel_mm": round(travel, 6),
+        "terminal_allowance_mm": 0.0,
+        "travel_basis": "current shaft tip and moving-part vertex extrema; thread motion omitted",
+        "removal": removal,
+        "reverse_assembly": assembly,
+        "threaded_disengagement_or_part_capture_established": False,
+    }
+
+
+def _tool_center(
+    roles: Mapping[str, cq.Shape], axis: cq.Vector, target_role: str, thickness: float
+) -> tuple[float, float, float]:
+    head = roles["head"]
+    nut = roles["nut"]
+    axis_point = (head.Center() + nut.Center()) * 0.5
+    return tool_access._seated_tool_center(
+        axis_point.toTuple(), axis, roles[target_role], thickness
+    )
+
+
+def _wrench_operation(
+    axis_id: str,
+    roles: Mapping[str, cq.Shape],
+    obstacles: Mapping[str, cq.Shape],
+    tool: Any,
+    *,
+    target_role: str,
+    side_axis: cq.Vector,
+) -> dict[str, Any]:
+    reference = _face_reference(side_axis)
+    center = _tool_center(roles, side_axis, target_role, tool.head_thickness_mm)
+    center_vector = cq.Vector(center)
+    target_exclusions = (target_role, "shaft")
+    pose_rows = []
+    for heading in tool.head_offsets_degrees:
+        seated = tool_access.build_catalog_wrench_envelope(
+            center,
+            side_axis.toTuple(),
+            reference.toTuple(),
+            tool,
+            offset_degrees=float(heading),
+        )
+        approach_start = seated.translate(side_axis * tool.head_width_mm)
+        approach_sweep = tool_access.translation_sweep(
+            approach_start, -side_axis * tool.head_width_mm
+        )
+        approach = _motion_collision(
+            axis_id,
+            {"axial_seated_tool_approach_enclosure": approach_sweep},
+            obstacles,
+            excluded_roles=target_exclusions,
+            phase=f"{target_role} wrench approach proxy",
+            direction_text=(
+                "one nominal head width along the fastener axis; open-end jaw "
+                "engagement and hand clearance are not represented"
+            ),
+        )
+        sampled = []
+        for angle in SAMPLED_STROKE_DEGREES:
+            rotated = seated.rotate(
+                center_vector,
+                center_vector + side_axis,
+                float(angle),
+            )
+            collision = tool_access.collision_report(
+                {f"tool_pose_{angle:g}_degrees": rotated},
+                obstacles,
+                excluded_target_ids=tuple(
+                    f"candidate_stack/{axis_id}/{role}" for role in target_exclusions
+                ),
+                exclusion_scope=(
+                    "Target fastener and own shaft excluded for nominal contact. "
+                    "Washers and every other live obstacle remain. These are "
+                    "discrete synthetic wrench-envelope pose samples."
+                ),
+            )
+            sampled.append(
+                {
+                    "turn_sample_degrees": angle,
+                    "collision_screen": collision,
+                    "potential_blocker_ids": list(_blocker_ids(collision)),
+                }
+            )
+        angular_rows = []
+        for stroke_direction in (-1.0, 1.0):
+            angular = tool_access.rotational_sweep(
+                seated,
+                center,
+                side_axis.toTuple(),
+                stroke_direction * 30.0,
+            )
+            angular_collision = tool_access.collision_report(
+                {f"continuous_{stroke_direction:+g}_30_degree_AABB_enclosure": angular},
+                obstacles,
+                excluded_target_ids=tuple(
+                    f"candidate_stack/{axis_id}/{role}" for role in target_exclusions
+                ),
+                exclusion_scope=(
+                    "Target fastener and own shaft excluded for nominal contact. "
+                    "The angular envelope encloses an AABB rotation bound; it is not "
+                    "an exact wrench sweep. Washers and all other live obstacles remain."
+                ),
+            )
+            angular_rows.append(
+                {
+                    "stroke_direction": "loosening" if stroke_direction < 0 else "tightening",
+                    "rotation_degrees": stroke_direction * 30.0,
+                    "collision_screen": angular_collision,
+                    "potential_blocker_ids": list(_blocker_ids(angular_collision)),
+                    "exact_tool_sweep": False,
+                }
+            )
+        pose_rows.append(
+            {
+                "synthetic_heading_sample_degrees": float(heading),
+                "approach_proxy": approach,
+                "discrete_turn_pose_samples": sampled,
+                "continuous_30_degree_AABB_enclosures": angular_rows,
+            }
+        )
+    return {
+        "target_role": target_role,
+        "side_axis_xyz": [round(value, 9) for value in side_axis.toTuple()],
+        "status": "limited_provisional_envelope_and_pose_samples",
+        "profile_source": {
+            "trial_id": WJ04_TRIAL.trial_id,
+            "manufacturer": tool.manufacturer,
+            "candidate_id": tool.candidate_id,
+            "head_width_mm": tool.head_width_mm,
+            "head_thickness_mm": tool.head_thickness_mm,
+            "overall_length_mm": tool.overall_length_mm,
+            "synthetic_heading_samples_degrees": list(tool.head_offsets_degrees),
+            "profile_is_current_selected_tool_or_fit": False,
+        },
+        "sampled_turn_angles_degrees": list(SAMPLED_STROKE_DEGREES),
+        "pose_rows": pose_rows,
+        "unthreading_or_torque_screened": False,
+        "actual_tool_access_established": False,
+    }
+
+
+def _sequence_edges(
+    axis_rows: list[Mapping[str, Any]], *, direction: str
+) -> list[dict[str, Any]]:
+    """Derive conditional order edges from live stack-to-stack envelope hits."""
+    if direction not in {"assembly", "removal"}:
+        raise ValueError("direction must be assembly or removal")
+    edges: dict[tuple[str, str], set[str]] = {}
+    selected = {str(row["axis_id"]) for row in axis_rows}
+    for row in axis_rows:
+        axis_id = str(row["axis_id"])
+        operations = row["operations"]
+        source_operations = (
+            ("head_side_insertion", operations["head_side_bolt"]["reverse_assembly"]),
+            ("nut_washer_insertion", operations["nut_washer"]["reverse_assembly"]),
+            ("nut_insertion", operations["nut"]["reverse_assembly"]),
+        ) if direction == "assembly" else (
+            ("nut_removal", operations["nut"]["removal"]),
+            ("nut_washer_removal", operations["nut_washer"]["removal"]),
+            ("head_side_withdrawal", operations["head_side_bolt"]["withdrawal"]),
+        )
+        for operation_name, operation in source_operations:
+            for obstacle_id in operation["potential_blocker_ids"]:
+                parts = obstacle_id.split("/")
+                if len(parts) < 3 or parts[0] != "candidate_stack":
+                    continue
+                blocker_axis = parts[1]
+                if blocker_axis == axis_id:
+                    continue
+                edge = (
+                    (axis_id, blocker_axis)
+                    if direction == "assembly"
+                    else (blocker_axis, axis_id)
+                )
+                edges.setdefault(edge, set()).add(operation_name)
+    return [
+        {
+            "before_axis_id": before,
+            "after_axis_id": after,
+            "basis_operations": sorted(basis),
+            "conditional_on_envelope_overlap_representing_a_real_blockage": True,
+            "both_axes_in_screened_subset": before in selected and after in selected,
+        }
+        for (before, after), basis in sorted(edges.items())
+    ]
+
+
+def _cycle_components(edges: list[Mapping[str, Any]], nodes: set[str]) -> list[list[str]]:
+    """Return cyclic SCCs for the induced graph on the screened nodes."""
+    adjacency = {node: set() for node in nodes}
+    for edge in edges:
+        before = edge["before_axis_id"]
+        after = edge["after_axis_id"]
+        if before in nodes and after in nodes:
+            adjacency[before].add(after)
+
+    index = 0
+    indices: dict[str, int] = {}
+    lowlink: dict[str, int] = {}
+    stack: list[str] = []
+    on_stack: set[str] = set()
+    cycles: list[list[str]] = []
+
+    def visit(node: str) -> None:
+        nonlocal index
+        indices[node] = index
+        lowlink[node] = index
+        index += 1
+        stack.append(node)
+        on_stack.add(node)
+        for successor in sorted(adjacency[node]):
+            if successor not in indices:
+                visit(successor)
+                lowlink[node] = min(lowlink[node], lowlink[successor])
+            elif successor in on_stack:
+                lowlink[node] = min(lowlink[node], indices[successor])
+        if lowlink[node] == indices[node]:
+            component = []
+            while True:
+                member = stack.pop()
+                on_stack.remove(member)
+                component.append(member)
+                if member == node:
+                    break
+            if len(component) > 1 or node in adjacency[node]:
+                cycles.append(sorted(component))
+
+    for node in sorted(nodes):
+        if node not in indices:
+            visit(node)
+    return sorted(cycles)
+
+
+def _operation_order_summary(axis_rows: list[Mapping[str, Any]]) -> dict[str, Any]:
+    assembly_edges = _sequence_edges(axis_rows, direction="assembly")
+    removal_edges = _sequence_edges(axis_rows, direction="removal")
+    nodes = {str(row["axis_id"]) for row in axis_rows}
+    external_dependencies = sorted(
+        {
+            edge["after_axis_id"]
+            for edge in assembly_edges
+            if edge["after_axis_id"] not in nodes
+        }
+        | {
+            edge["before_axis_id"]
+            for edge in removal_edges
+            if edge["before_axis_id"] not in nodes
+        }
+    )
+    return {
+        "assembly_precedence_edges": assembly_edges,
+        "assembly_cycles_within_screened_subset": _cycle_components(assembly_edges, nodes),
+        "removal_precedence_edges": removal_edges,
+        "removal_cycles_within_screened_subset": _cycle_components(removal_edges, nodes),
+        "out_of_subset_axis_dependencies": external_dependencies,
+        "graph_complete_for_all_92_axes_or_all_build_states": False,
+        "order_constraints_are_provisional": True,
+    }
+
+
+def build_current_access_report(geometry: Any) -> dict[str, Any]:
+    """Screen current live WJ24 stacks changed by the 2x6/trimmed revision.
+
+    The caller owns geometry materialization and serialization. This function
+    is intentionally a collector: it only reads shapes from ``geometry`` and
+    returns a plain-data report.
+    """
+    if getattr(geometry, "layout_id", None) != CURRENT_REVISION_ID:
+        raise ValueError(
+            f"current access screen requires revision {CURRENT_REVISION_ID!r}"
+        )
+    if getattr(geometry, "trial_id", None) != CURRENT_REVISION_ID:
+        raise ValueError("current geometry trial ID differs from its selected revision")
+    candidate_bores = getattr(geometry, "candidate_bores", None)
+    candidate_hardware = getattr(geometry, "candidate_installed_hardware", None)
+    if not isinstance(candidate_bores, Mapping) or not isinstance(candidate_hardware, Mapping):
+        raise TypeError("live current geometry must expose bore and hardware maps")
+    groups = _priority_axis_groups(candidate_bores, candidate_hardware)
+    _raw_receivers, finished_wood = wj12_diagnostic._composed_wood(geometry)
+    obstacles = _live_scene_obstacles(geometry, finished_wood)
+    tool = WJ04_TRIAL.fasteners.tools[0]
+
+    axis_rows: list[dict[str, Any]] = []
+    for group_name, axis_ids in groups.items():
+        for axis_id in axis_ids:
+            bore = candidate_bores[axis_id]
+            receivers = _axis_receivers(bore, axis_id)
+            roles = candidate_hardware[axis_id]
+            headward = _stack_axis(roles, axis_id)
+            nutward = -headward
+            head_side = _wrench_operation(
+                axis_id,
+                roles,
+                obstacles,
+                tool,
+                target_role="head",
+                side_axis=headward,
+            )
+            nut_side = _wrench_operation(
+                axis_id,
+                roles,
+                obstacles,
+                tool,
+                target_role="nut",
+                side_axis=nutward,
+            )
+            head_side_bolt = _withdrawal_and_insertion(
+                axis_id, receivers, roles, finished_wood, obstacles
+            )
+            nut = _detached_role_motion(
+                axis_id,
+                "nut",
+                roles["nut"],
+                roles["shaft"],
+                nutward,
+                obstacles,
+            )
+            nut_washer = _detached_role_motion(
+                axis_id,
+                "nut_washer",
+                roles["nut_washer"],
+                roles["shaft"],
+                nutward,
+                obstacles,
+                prerequisite_absent_roles=("nut",),
+            )
+            axis_rows.append(
+                {
+                    "axis_id": axis_id,
+                    "priority_group": group_name,
+                    "receiver_ids": list(receivers),
+                    "hardware_role_ids": sorted(roles),
+                    "modeled_hardware_status": (
+                        "current CAD envelopes; no SKU, delivered hardware, "
+                        "or installation tolerance selected"
+                    ),
+                    "operations": {
+                        "head_wrench": head_side,
+                        "nut_wrench": nut_side,
+                        "head_side_bolt": head_side_bolt,
+                        "nut": nut,
+                        "nut_washer": nut_washer,
+                    },
+                    "operation_dependencies": [
+                        "screen seated head and nut tool proxies before removal",
+                        "unthread nut with counterhold; thread motion is not modeled",
+                        "capture and slide nut off, then capture and slide nut washer off",
+                        "withdraw head, head washer, and shaft together",
+                        "assembly reverses this order after receivers are in their current geometry",
+                    ],
+                    "complete_joint_assembly_or_disassembly_proven": False,
+                }
+            )
+
+    axis_rows.sort(key=lambda row: row["axis_id"])
+    return {
+        "schema": SCHEMA,
+        "status": "bounded_current_revision_geometry_diagnostic",
+        "geometry_revision_id": geometry.layout_id,
+        "geometry_trial_id": geometry.trial_id,
+        "source_inventory_sha256": getattr(geometry, "source_inventory_sha256", None),
+        "scope": {
+            "current_candidate_axes": len(candidate_bores),
+            "screened_candidate_axes": len(axis_rows),
+            "screened_priority_groups": {
+                name: list(axis_ids) for name, axis_ids in groups.items()
+            },
+            "unmodeled_current_candidate_axes": sorted(
+                set(candidate_bores) - {row["axis_id"] for row in axis_rows}
+            ),
+            "live_scene_obstacle_count": len(obstacles),
+            "archived_wj24_access_or_mechanics_pass_loaded": False,
+            "actual_tools_or_workspace_validated": False,
+            "all_assembly_operations_screened": False,
+        },
+        "profile_boundary": (
+            "The WJ04 FACOM envelope is a provisional external shape with synthetic "
+            "heading samples. It is not a current selected tool, delivered part, "
+            "jaw-fit result, or hand-clearance model."
+        ),
+        "axis_operations": axis_rows,
+        "sequence_dependencies": _operation_order_summary(axis_rows),
+        "claim_boundary": {
+            "clear_envelope_proves_installation_or_removal": False,
+            "envelope_overlap_proves_a_real_tool_or_sequence_blocker": False,
+            "thread_unthreading_or_turning_proven": False,
+            "support_transfer_or_capture_proven": False,
+            "physical_assembly_or_disassembly_proven": False,
+            "fabrication_or_climbing_release": False,
+        },
+    }

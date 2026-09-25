@@ -1,0 +1,357 @@
+"""Source-bound geometry screen for the current WJ24 panel screw receivers.
+
+The collector consumes an already materialized current geometry object. It
+does not rebuild the candidate, run a solver, or turn geometric contact into a
+capacity or load-sharing claim.
+"""
+
+from __future__ import annotations
+
+import math
+from collections import Counter
+from collections.abc import Mapping, Sequence
+from typing import Any
+
+CURRENT_REVISION_ID = "led-clearance-2x6-runner-seated-blocks-v1"
+SCHEMA = "wood_joint_current_receiver_screen/v1"
+EXPECTED_MOVED_AXIS_IDS = frozenset(
+    {
+        *(f"round_panel_lower_{side}_edge_{index}" for side in ("left", "right") for index in (1, 2)),
+        *(f"round_kicker_{side}_center_{index}" for side in ("left", "right") for index in (1, 2)),
+    }
+)
+EXPECTED_KICKER_CENTER_RECEIVERS = {
+    f"round_kicker_{side}_center_{index}": f"base_post_center_{side}"
+    for side in ("left", "right")
+    for index in (1, 2)
+}
+
+
+def build_current_panel_axis_map(
+    source_inventory: Mapping[str, Any],
+    report: Mapping[str, Any],
+    fixed_axis_ids: Sequence[str] | set[str] | frozenset[str] | None = None,
+) -> list[dict[str, Any]]:
+    """Join 58 source-station axes to the eight report-recorded current moves."""
+    if report.get("revision_id") != CURRENT_REVISION_ID:
+        raise ValueError(
+            f"expected report for {CURRENT_REVISION_ID}, found {report.get('revision_id')!r}"
+        )
+
+    source_rows = source_inventory.get("fixed_panel_kicker_screws")
+    if not isinstance(source_rows, Sequence) or isinstance(source_rows, (str, bytes)):
+        raise ValueError("source inventory lacks fixed panel/kicker screw rows")
+    by_id = {str(row["axis_id"]): row for row in source_rows}
+    if len(by_id) != len(source_rows) or len(by_id) != 66:
+        raise ValueError(f"expected 66 unique source panel axes, found {len(by_id)}")
+
+    moved_rows = report.get("moved_panel_axes")
+    if not isinstance(moved_rows, Sequence) or isinstance(moved_rows, (str, bytes)):
+        raise ValueError("current report lacks moved_panel_axes rows")
+    moved_by_id = {str(row["axis_id"]): row for row in moved_rows}
+    if len(moved_by_id) != len(moved_rows):
+        raise ValueError("current report contains duplicate moved panel axis IDs")
+    if set(moved_by_id) != EXPECTED_MOVED_AXIS_IDS:
+        raise ValueError(
+            "current report moved-axis set differs from the eight reviewed axis moves"
+        )
+
+    if fixed_axis_ids is not None and set(map(str, fixed_axis_ids)) != set(by_id):
+        raise ValueError("materialized fixed axis IDs differ from the 66 source IDs")
+
+    result: list[dict[str, Any]] = []
+    for axis_id in sorted(by_id):
+        source = by_id[axis_id]
+        moved = moved_by_id.get(axis_id)
+        if moved is None:
+            origin = source["origin_global_xyz_mm"]
+            direction = source["axis_global_xyz"]
+            receiver = source.get(
+                "candidate_finished_receiver_member",
+                source["source_finished_receiver_member"],
+            )
+            previous_receiver = source.get("source_finished_receiver_member")
+            movement = [0.0, 0.0, 0.0]
+        else:
+            origin = moved["new_start_global_xyz_mm"]
+            direction = moved["axis_global_xyz_unchanged"]
+            receiver = moved["receiver_member"]
+            previous_receiver = moved.get(
+                "previous_receiver_member", source.get("source_finished_receiver_member")
+            )
+            movement = moved["translation_global_xyz_mm"]
+            if moved["panel_member"] != source["panel_member"]:
+                raise ValueError(f"moved panel member changed for {axis_id}")
+
+        if len(origin) != 3 or len(direction) != 3 or len(movement) != 3:
+            raise ValueError(f"invalid coordinate vector for {axis_id}")
+        norm = math.sqrt(sum(float(v) ** 2 for v in direction))
+        if not math.isclose(norm, 1.0, abs_tol=1e-6):
+            raise ValueError(f"non-unit current axis direction for {axis_id}")
+        if axis_id in EXPECTED_KICKER_CENTER_RECEIVERS and receiver != EXPECTED_KICKER_CENTER_RECEIVERS[axis_id]:
+            raise ValueError(f"current kicker center receiver changed for {axis_id}")
+
+        result.append(
+            {
+                "axis_id": axis_id,
+                "panel_member": source["panel_member"],
+                "receiver_member": receiver,
+                "previous_receiver_member": previous_receiver,
+                "origin_global_xyz_mm": [float(v) for v in origin],
+                "axis_global_xyz": [float(v) for v in direction],
+                "translation_from_source_xyz_mm": [float(v) for v in movement],
+                "source_occupied_length_mm": float(source["source_occupied_length_mm"]),
+                "source_occupied_diameter_mm": float(source["source_occupied_diameter_mm"]),
+                "purchased_length_mm": float(source["shop_purchased_length_mm"]),
+                "current_location_status": "moved" if moved is not None else "source_station_retained",
+            }
+        )
+    return result
+
+
+def _bbox_values(shape: Any) -> tuple[float, float, float, float, float, float]:
+    box = shape.BoundingBox()
+    return (box.xmin, box.xmax, box.ymin, box.ymax, box.zmin, box.zmax)
+
+
+def _boxes_overlap(a: Any, b: Any, tolerance: float = 1e-7) -> bool:
+    aa, bb = _bbox_values(a), _bbox_values(b)
+    return all(
+        not (aa[2 * axis + 1] < bb[2 * axis] - tolerance or bb[2 * axis + 1] < aa[2 * axis] - tolerance)
+        for axis in range(3)
+    )
+
+
+def _point_tuple(point: Any) -> tuple[float, float, float]:
+    return (float(point.x), float(point.y), float(point.z))
+
+
+def _projection_span(shape: Any, origin: Sequence[float], direction: Sequence[float]) -> list[float] | None:
+    vertices = shape.Vertices()
+    if not vertices:
+        return None
+    values = []
+    for vertex in vertices:
+        point = _point_tuple(vertex.Center())
+        values.append(
+            sum((point[i] - float(origin[i])) * float(direction[i]) for i in range(3))
+        )
+    return [min(values), max(values)]
+
+
+def _shape_intersection(axis_shape: Any, receiver_shape: Any) -> dict[str, Any]:
+    if not _boxes_overlap(axis_shape, receiver_shape):
+        return {"bbox_candidate": False, "intersection_volume_mm3": 0.0, "axial_span_from_axis_start_mm": None}
+    common = axis_shape.intersect(receiver_shape)
+    return {"bbox_candidate": True, "shape": common, "intersection_volume_mm3": float(common.Volume())}
+
+
+def _axis_host_result(
+    axis_shape: Any,
+    raw_receiver: Any,
+    finished_receiver: Any | None,
+    row: Mapping[str, Any],
+    *,
+    volume_tolerance_mm3: float,
+) -> dict[str, Any]:
+    raw = _shape_intersection(axis_shape, raw_receiver)
+    raw_common = raw.pop("shape", None)
+    raw_span = (
+        None
+        if raw_common is None
+        else _projection_span(
+            raw_common,
+            row["origin_global_xyz_mm"],
+            row["axis_global_xyz"],
+        )
+    )
+    diameter = float(row["source_occupied_diameter_mm"])
+    area = math.pi * (diameter / 2.0) ** 2
+    raw_volume = float(raw["intersection_volume_mm3"])
+    result: dict[str, Any] = {
+        "raw_receiver_bbox_candidate": bool(raw["bbox_candidate"]),
+        "raw_receiver_axis_envelope_intersection_volume_mm3": raw_volume,
+        "raw_receiver_intersection_axial_span_from_axis_start_mm": raw_span,
+        "raw_receiver_full_section_equivalent_length_mm": raw_volume / area if area else None,
+        "raw_receiver_axis_envelope_intersects": raw_volume > volume_tolerance_mm3,
+        "occupied_envelope_basis": {
+            "length_mm": float(row["source_occupied_length_mm"]),
+            "diameter_mm": diameter,
+            "status": "source CAD analysis envelope; not measured Hillman screw geometry",
+        },
+    }
+    if finished_receiver is not None:
+        finished = _shape_intersection(axis_shape, finished_receiver)
+        result["finished_receiver_axis_envelope_overlap_volume_mm3"] = float(
+            finished["intersection_volume_mm3"]
+        )
+        result["finished_receiver_axis_envelope_clear"] = (
+            float(finished["intersection_volume_mm3"]) <= volume_tolerance_mm3
+        )
+    else:
+        result["finished_receiver_axis_envelope_clear"] = None
+    return result
+
+
+def _transverse_bbox_margins(
+    receiver: Any, origin: Sequence[float], direction: Sequence[float]
+) -> dict[str, dict[str, float]]:
+    """Return centerline margins to axis-aligned receiver extents only."""
+    bounds = _bbox_values(receiver)
+    coordinates = {"x": (0, 1), "y": (2, 3), "z": (4, 5)}
+    dominant = max(range(3), key=lambda i: abs(float(direction[i])))
+    result: dict[str, dict[str, float]] = {}
+    for name, index in (("x", 0), ("y", 1), ("z", 2)):
+        if index == dominant:
+            continue
+        lo, hi = coordinates[name]
+        result[name] = {
+            "to_min_bbox_face_mm": float(origin[index]) - bounds[lo],
+            "to_max_bbox_face_mm": bounds[hi] - float(origin[index]),
+        }
+    return result
+
+
+def collect_current_receiver_screen(geometry: Any, report: Mapping[str, Any]) -> dict[str, Any]:
+    """Measure current modeled screw-envelope intersections with declared raw receivers.
+
+    The work is limited to one bbox-filtered receiver solid per screw axis and
+    four declared candidate-bolt interfaces for the center-kicker check. It
+    does not evaluate support requirements, fastener resistance, or transfer
+    capacity.
+    """
+    if getattr(geometry, "layout_id", None) != CURRENT_REVISION_ID:
+        raise ValueError("geometry object is not the owner-reviewed current revision")
+    source_inventory = getattr(geometry, "source_inventory", None)
+    fixed_axes = getattr(geometry, "fixed_axes", None)
+    if not isinstance(source_inventory, Mapping) or not isinstance(fixed_axes, Mapping):
+        raise ValueError("current geometry lacks its source inventory or fixed axis solids")
+    axes = build_current_panel_axis_map(source_inventory, report, set(fixed_axes))
+
+    # Import only when the live CAD collector is called; pure mapping tests do
+    # not need CAD or a solver process.
+    import cadquery as cq
+
+    raw_hosts = getattr(geometry, "raw_hosts", {})
+    finished_hosts = getattr(geometry, "finished_hosts", {})
+    raw_parts = getattr(geometry, "raw_candidate_parts", {})
+    axis_results: list[dict[str, Any]] = []
+    receiver_counts: Counter[str] = Counter()
+    for row in axes:
+        receiver_id = str(row["receiver_member"])
+        raw_receiver = raw_hosts.get(receiver_id, raw_parts.get(receiver_id))
+        finished_receiver = finished_hosts.get(receiver_id)
+        if raw_receiver is None:
+            raise ValueError(f"current raw receiver is absent: {receiver_id}")
+        axis_shape = fixed_axes[row["axis_id"]]
+        delta = row["translation_from_source_xyz_mm"]
+        if any(abs(value) > 1e-9 for value in delta):
+            axis_shape = axis_shape.translate(cq.Vector(*delta))
+        measured = _axis_host_result(
+            axis_shape,
+            raw_receiver,
+            finished_receiver,
+            row,
+            volume_tolerance_mm3=1e-6,
+        )
+        receiver_counts[receiver_id] += 1
+        axis_results.append({**row, **measured})
+
+    kicker_axes = [
+        row for row in axis_results if row["axis_id"] in EXPECTED_KICKER_CENTER_RECEIVERS
+    ]
+    kicker_receivers = {row["receiver_member"] for row in kicker_axes}
+    if len(kicker_axes) != 4 or kicker_receivers != {
+        "base_post_center_left",
+        "base_post_center_right",
+    }:
+        raise ValueError("current kicker-center receiver mapping is incomplete")
+
+    kicker_side_geometry: dict[str, Any] = {}
+    for side in ("left", "right"):
+        post_id = f"base_post_center_{side}"
+        post = raw_hosts.get(post_id)
+        if post is None:
+            raise ValueError(f"current kicker receiver post is absent: {post_id}")
+        matching = [row for row in kicker_axes if row["receiver_member"] == post_id]
+        post_bounds = _bbox_values(post)
+        kicker_side_geometry[side] = {
+            "receiver_member": post_id,
+            "raw_receiver_bounds_xyz_mm": [
+                [post_bounds[0], post_bounds[1]],
+                [post_bounds[2], post_bounds[3]],
+                [post_bounds[4], post_bounds[5]],
+            ],
+            "axis_count": len(matching),
+            "axes": [
+                {
+                    "axis_id": row["axis_id"],
+                    "origin_global_xyz_mm": row["origin_global_xyz_mm"],
+                    "centerline_to_receiver_bbox_side_margins_mm": _transverse_bbox_margins(
+                        post,
+                        row["origin_global_xyz_mm"],
+                        row["axis_global_xyz"],
+                    ),
+                    "raw_receiver_axis_envelope_intersects": row[
+                        "raw_receiver_axis_envelope_intersects"
+                    ],
+                    "raw_receiver_axis_envelope_intersection_volume_mm3": row[
+                        "raw_receiver_axis_envelope_intersection_volume_mm3"
+                    ],
+                    "raw_receiver_intersection_axial_span_from_axis_start_mm": row[
+                        "raw_receiver_intersection_axial_span_from_axis_start_mm"
+                    ],
+                    "raw_receiver_full_section_equivalent_length_mm": row[
+                        "raw_receiver_full_section_equivalent_length_mm"
+                    ],
+                    "finished_receiver_axis_envelope_clear": row[
+                        "finished_receiver_axis_envelope_clear"
+                    ],
+                }
+                for row in matching
+            ],
+        }
+
+    old_backer_ids = {"inner_kicker_backer_left", "inner_kicker_backer_right"}
+    old_backers_present = sorted(
+        old_backer_ids & (set(raw_hosts) | set(raw_parts) | set(finished_hosts))
+    )
+    posts = {
+        side: raw_hosts[f"base_post_center_{side}"] for side in ("left", "right")
+    }
+    left_bounds = _bbox_values(posts["left"])
+    right_bounds = _bbox_values(posts["right"])
+    post_gap = right_bounds[0] - left_bounds[1]
+
+    return {
+        "schema": SCHEMA,
+        "revision_id": CURRENT_REVISION_ID,
+        "scope": "current nominal geometry screen; no force, resistance, capacity, installation, or acceptance result",
+        "counts": {
+            "panel_kicker_axes_total": len(axis_results),
+            "unchanged_source_station_axes": sum(
+                row["current_location_status"] == "source_station_retained"
+                for row in axis_results
+            ),
+            "moved_axes": sum(row["current_location_status"] == "moved" for row in axis_results),
+            "current_receiver_member_counts": dict(sorted(receiver_counts.items())),
+        },
+        "limits": [
+            "Source occupied cylinders are CAD analysis envelopes, not measured Hillman 42605 geometry or delivered embedment.",
+            "Raw receiver overlap and finite interface contact are geometric facts only; neither supplies required support, load sharing, or resistance.",
+            "Bounding-box margins below are nominal geometric distances, not adopted fastener edge/end checks.",
+        ],
+        "axes": axis_results,
+        "four_moved_kicker_center_receiver_check": {
+            "current_receiver_map": EXPECTED_KICKER_CENTER_RECEIVERS,
+            "previous_backer_shapes_present_in_current_composition": bool(old_backers_present),
+            "previous_backer_shape_ids_present": old_backers_present,
+            "side_to_side_center_post_bbox_gap_x_mm": post_gap,
+            "center_posts": kicker_side_geometry,
+            "limits": [
+                "The measured post gap is the open X interval between the two current post bounding boxes, not a conclusion about panel seam capacity.",
+                "A geometric shaft-envelope intersection does not prove screw engagement, installed length, or transfer capacity.",
+            ],
+        },
+        "release": False,
+    }

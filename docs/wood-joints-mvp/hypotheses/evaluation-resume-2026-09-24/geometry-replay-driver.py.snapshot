@@ -1,0 +1,31 @@
+import hashlib,json,math
+from pathlib import Path
+
+def metric(shape):
+ b=shape.BoundingBox()
+ return [shape.Volume(),*shape.Center().toTuple(),b.xmin,b.xmax,b.ymin,b.ymax,b.zmin,b.zmax]
+rows=[]
+for group in ['raw_hosts','finished_hosts','raw_candidate_parts','finished_candidate_parts','panel_replacements','fixed_axes','frame_bolt_shapes']:
+ left=getattr(g24_outer_2x6,group);right=getattr(rebuilt_current,group)
+ assert set(left)==set(right),group
+ for key in left:
+  lm,rm=metric(left[key]),metric(right[key]); diffs=[abs(a-b) for a,b in zip(lm,rm)]
+  assert diffs[0]<1e-3 and max(diffs[1:])<1e-5,(group,key,diffs)
+  rows.append({'group':group,'id':key,'volume_delta_mm3':diffs[0],'maximum_position_delta_mm':max(diffs[1:])})
+for axis,roles in g24_outer_2x6.candidate_installed_hardware.items():
+ assert set(roles)==set(rebuilt_current.candidate_installed_hardware[axis])
+ for role,shape in roles.items():
+  diffs=[abs(a-b) for a,b in zip(metric(shape),metric(rebuilt_current.candidate_installed_hardware[axis][role]))]
+  assert diffs[0]<1e-3 and max(diffs[1:])<1e-5,(axis,role,diffs)
+  rows.append({'group':'candidate_hardware','id':axis+'/'+role,'volume_delta_mm3':diffs[0],'maximum_position_delta_mm':max(diffs[1:])})
+wood=[]
+for group in ['finished_hosts','finished_candidate_parts']:
+ for key,left in getattr(g24_outer_2x6,group).items():
+  right=getattr(rebuilt_current,group)[key]
+  delta=left.cut(right).Volume()+right.cut(left).Volume()
+  assert delta<1e-3,(group,key,delta)
+  wood.append({'id':key,'symmetric_difference_mm3':delta})
+data={'status':'GEOMETRY_REPLAY_COMPARISON_PASS_ONLY','revision':rebuilt_current.layout_id,'entrypoint_sha256':hashlib.sha256(Path('scripts/wood_joint_current_geometry.py').read_bytes()).hexdigest(),'baseline':'reused live historical g24; from-scratch source composition not rerun','metrics_tolerance':{'volume_mm3':1e-3,'coordinates_mm':1e-5},'shape_metric_comparisons':rows,'finished_wood_symmetric_difference':wood,'viewer_report_parity_claimed':False,'mechanics_run':False,'release':False}
+(freeze_dir/'geometry-replay-audit.json').write_text(json.dumps(data,indent=2)+'\n')
+(freeze_dir/'geometry-replay-driver.py.snapshot').write_bytes(Path('/tmp/audit-current-replay.py').read_bytes())
+print('REPLAY_AUDITED',len(rows),len(wood),flush=True)

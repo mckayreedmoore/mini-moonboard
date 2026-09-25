@@ -1,0 +1,5268 @@
+{
+  "schema": "wood_joint_current_receiver_screen/v1",
+  "revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+  "scope": "current nominal geometry screen; no force, resistance, capacity, installation, or acceptance result",
+  "counts": {
+    "panel_kicker_axes_total": 66,
+    "unchanged_source_station_axes": 58,
+    "moved_axes": 8,
+    "current_receiver_member_counts": {
+      "base_header": 10,
+      "base_post_center_left": 2,
+      "base_post_center_right": 2,
+      "base_post_outer_left": 2,
+      "base_post_outer_right": 2,
+      "base_principal_center_left": 8,
+      "base_principal_center_right": 8,
+      "base_rail_bottom_left": 2,
+      "base_rail_bottom_right": 2,
+      "base_rail_service_lower_left": 2,
+      "base_rail_service_lower_right": 2,
+      "base_rail_service_upper_left": 2,
+      "base_rail_service_upper_right": 2,
+      "base_rail_top": 4,
+      "base_side_left": 8,
+      "base_side_right": 8
+    }
+  },
+  "limits": [
+    "Source occupied cylinders are CAD analysis envelopes, not measured Hillman 42605 geometry or delivered embedment.",
+    "Raw receiver overlap and finite interface contact are geometric facts only; neither supplies required support, load sharing, or resistance.",
+    "Bounding-box margins below are nominal geometric distances, not adopted fastener edge/end checks."
+  ],
+  "axes": [
+    {
+      "axis_id": "kicker_header_left_1",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        -200.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.103531355573,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999994,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -3.552713678800501e-15,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140200000000021
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000021,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141408,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_left_2",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        -400.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555726,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999966,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.4868995751603507e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000005,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141401,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_left_3",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        -600.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555748,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.4868995751603507e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000005,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214145,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_left_4",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        -800.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555748,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.4868995751603507e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140200000000021
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000021,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214145,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_left_5",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        -1000.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555748,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.4868995751603507e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140200000000021
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000021,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214145,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_right_1",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        200.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.103531355573,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999994,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -3.552713678800501e-15,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140200000000021
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000021,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141408,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_right_2",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        400.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555726,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.4868995751603507e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140200000000021
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000021,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141401,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_right_3",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        600.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555748,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.4868995751603507e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140200000000021
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000021,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214145,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_right_4",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        800.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555748,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.4868995751603507e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000005,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214145,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "kicker_header_right_5",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_header",
+      "previous_receiver_member": "base_header",
+      "origin_global_xyz_mm": [
+        1000.0,
+        -17.743750000000002,
+        257.95
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555748,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.4868995751603507e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000005,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214145,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_kicker_left_center_1",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_post_center_left",
+      "previous_receiver_member": "inner_kicker_backer_left",
+      "origin_global_xyz_mm": [
+        -161.71000000000004,
+        -17.743750000000002,
+        60.0
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        -91.71000000000004,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "moved",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555728,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999994,
+        63.500000000000014
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000034,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.500000000000014
+        ],
+        "axial_length_mm": 63.500000000000014,
+        "transverse_center_offset_mm": [
+          -3.552713678800501e-15,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140199999999993
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141398,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_kicker_left_center_2",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_post_center_left",
+      "previous_receiver_member": "inner_kicker_backer_left",
+      "origin_global_xyz_mm": [
+        -161.71000000000004,
+        -17.743750000000002,
+        192.0
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        -91.71000000000004,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "moved",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555732,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999994,
+        63.500000000000014
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000005,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.500000000000014
+        ],
+        "axial_length_mm": 63.500000000000014,
+        "transverse_center_offset_mm": [
+          -3.552713678800501e-15,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140199999999993
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141401,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_kicker_left_rim_1",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_post_outer_left",
+      "previous_receiver_member": "base_post_outer_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        -17.743750000000002,
+        60.0
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555791,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -8.881784197001252e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140199999999993
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141545,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_kicker_left_rim_2",
+      "panel_member": "kicker_left",
+      "receiver_member": "base_post_outer_left",
+      "previous_receiver_member": "base_post_outer_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        -17.743750000000002,
+        192.0
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555794,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000001,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -8.881784197001252e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140199999999993
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214155,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_kicker_right_center_1",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_post_center_right",
+      "previous_receiver_member": "inner_kicker_backer_right",
+      "origin_global_xyz_mm": [
+        160.3499999999999,
+        -17.743750000000002,
+        60.0
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        90.34999999999991,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "moved",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555728,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999994,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000002,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -3.552713678800501e-15,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140199999999993
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141401,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_kicker_right_center_2",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_post_center_right",
+      "previous_receiver_member": "inner_kicker_backer_right",
+      "origin_global_xyz_mm": [
+        160.3499999999999,
+        -17.743750000000002,
+        192.0
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        90.34999999999991,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "moved",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555732,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999994,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000034,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -3.552713678800501e-15,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140199999999993
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141405,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_kicker_right_rim_1",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_post_outer_right",
+      "previous_receiver_member": "base_post_outer_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        -17.743750000000002,
+        60.0
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555724,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -8.881784197001252e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140199999999993
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141398,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_kicker_right_rim_2",
+      "panel_member": "kicker_right",
+      "receiver_member": "base_post_outer_right",
+      "previous_receiver_member": "base_post_outer_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        -17.743750000000002,
+        192.0
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555726,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -8.881784197001252e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140199999999993
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141401,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_center_1",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_principal_center_left",
+      "previous_receiver_member": "base_principal_center_left",
+      "origin_global_xyz_mm": [
+        -70.0,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555743,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999874,
+        63.49999999999995
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000009,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -5.684341886080802e-14,
+          63.49999999999995
+        ],
+        "axial_length_mm": 63.50000000000001,
+        "transverse_center_offset_mm": [
+          -9.947598300641403e-14,
+          -1.1368683772161603e-13
+        ],
+        "transverse_extents_mm": [
+          4.140200000000199,
+          4.140200000000277
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000277,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141414,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_center_2",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_principal_center_left",
+      "previous_receiver_member": "base_principal_center_left",
+      "origin_global_xyz_mm": [
+        -70.0,
+        250.51727342536697,
+        596.6077710476499
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555726,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000016,
+        63.50000000000006
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243749999999984,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.50000000000006
+        ],
+        "axial_length_mm": 63.50000000000006,
+        "transverse_center_offset_mm": [
+          -2.842170943040401e-14,
+          -1.1368683772161603e-13
+        ],
+        "transverse_extents_mm": [
+          4.14020000000005,
+          4.1402000000001635
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000001635,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141408,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_center_3",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_principal_center_left",
+      "previous_receiver_member": "base_principal_center_left",
+      "origin_global_xyz_mm": [
+        -70.0,
+        480.8816396101945,
+        871.1453320541062
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555726,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000016,
+        63.500000000000114
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000003,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.500000000000114
+        ],
+        "axial_length_mm": 63.500000000000114,
+        "transverse_center_offset_mm": [
+          0.0,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.14020000000005,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000005,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141394,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_center_4",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_principal_center_left",
+      "previous_receiver_member": "base_principal_center_left",
+      "origin_global_xyz_mm": [
+        -70.0,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555749,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999981,
+        63.50000000000026
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000034,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.50000000000026
+        ],
+        "axial_length_mm": 63.50000000000038,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001755,
+          4.140200000001869
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000001869,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141353,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_edge_1",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_rail_bottom_left",
+      "previous_receiver_member": "base_rail_bottom_left",
+      "origin_global_xyz_mm": [
+        -435.075,
+        69.583274425,
+        380.979027717
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        49.430367185,
+        58.908817676
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "moved",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555715,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999694944,
+        63.49999999969492
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000055,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -3.050786290259566e-10,
+          63.49999999969492
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.0052937088621547e-10,
+          2.391402631474193e-10
+        ],
+        "transverse_extents_mm": [
+          4.14020000000005,
+          4.1402000000001635
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000001635,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141362,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_edge_2",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_rail_bottom_left",
+      "previous_receiver_member": "base_rail_bottom_left",
+      "origin_global_xyz_mm": [
+        -835.075,
+        69.583274425,
+        380.979027717
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        49.430367185,
+        58.908817676
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "moved",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555735,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999694774,
+        63.499999999694865
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -3.051354724448174e-10,
+          63.499999999694865
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.006430577239371e-10,
+          2.390834197285585e-10
+        ],
+        "transverse_extents_mm": [
+          4.14020000000005,
+          4.140200000000277
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000277,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141405,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_rim_1",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_side_left",
+      "previous_receiver_member": "base_side_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555801,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000084,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          -5.684341886080802e-14,
+          -5.684341886080802e-14
+        ],
+        "transverse_extents_mm": [
+          4.1402000000002275,
+          4.1402000000001635
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000002275,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141545,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_rim_2",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_side_left",
+      "previous_receiver_member": "base_side_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        250.51727342536697,
+        596.6077710476499
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555785,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999968,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000012,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.5
+        ],
+        "axial_length_mm": 63.50000000000023,
+        "transverse_center_offset_mm": [
+          0.0,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.140199999999993,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000005,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141499,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_rim_3",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_side_left",
+      "previous_receiver_member": "base_side_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        480.8816396101945,
+        871.1453320541062
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555785,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000136,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000012,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.50000000000023,
+        "transverse_center_offset_mm": [
+          0.0,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.140200000000107,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000107,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141499,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_rim_4",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_side_left",
+      "previous_receiver_member": "base_side_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555807,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999968,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000023,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.5
+        ],
+        "axial_length_mm": 63.50000000000023,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001755,
+          4.140200000001869
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000001869,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141513,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_service_1",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_rail_service_lower_left",
+      "previous_receiver_member": "base_rail_service_lower_left",
+      "origin_global_xyz_mm": [
+        -435.07500000000005,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555738,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999966,
+        63.500000000000284
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000029,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.500000000000284
+        ],
+        "axial_length_mm": 63.5000000000004,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.1402000000016415
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000001869,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141343,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_left_service_2",
+      "panel_member": "main_lower_left",
+      "receiver_member": "base_rail_service_lower_left",
+      "previous_receiver_member": "base_rail_service_lower_left",
+      "origin_global_xyz_mm": [
+        -835.075,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555757,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.50000000000034
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000024,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.50000000000034
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.4627110121414,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_center_1",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_principal_center_right",
+      "previous_receiver_member": "base_principal_center_right",
+      "origin_global_xyz_mm": [
+        70.0,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555743,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999895,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000105,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.842170943040401e-14,
+          63.5
+        ],
+        "axial_length_mm": 63.50000000000003,
+        "transverse_center_offset_mm": [
+          -8.526512829121202e-14,
+          -1.1368683772161603e-13
+        ],
+        "transverse_extents_mm": [
+          4.140200000000171,
+          4.140200000000277
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000277,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214141,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_center_2",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_principal_center_right",
+      "previous_receiver_member": "base_principal_center_right",
+      "origin_global_xyz_mm": [
+        70.0,
+        250.51727342536697,
+        596.6077710476499
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555726,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999994,
+        63.50000000000003
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243749999999984,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.842170943040401e-14,
+          63.50000000000003
+        ],
+        "axial_length_mm": 63.50000000000006,
+        "transverse_center_offset_mm": [
+          -2.842170943040401e-14,
+          -1.1368683772161603e-13
+        ],
+        "transverse_extents_mm": [
+          4.14020000000005,
+          4.1402000000001635
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000001635,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141408,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_center_3",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_principal_center_right",
+      "previous_receiver_member": "base_principal_center_right",
+      "origin_global_xyz_mm": [
+        70.0,
+        480.8816396101945,
+        871.1453320541062
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555726,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.500000000000114
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000003,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.500000000000114
+        ],
+        "axial_length_mm": 63.500000000000114,
+        "transverse_center_offset_mm": [
+          -5.684341886080802e-14,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.1402000000001635,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000001635,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141394,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_center_4",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_principal_center_right",
+      "previous_receiver_member": "base_principal_center_right",
+      "origin_global_xyz_mm": [
+        70.0,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555749,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999981,
+        63.500000000000256
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000033,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.500000000000256
+        ],
+        "axial_length_mm": 63.50000000000037,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001755,
+          4.140200000001869
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000001869,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141355,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_edge_1",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_rail_bottom_right",
+      "previous_receiver_member": "base_rail_bottom_right",
+      "origin_global_xyz_mm": [
+        435.075,
+        69.583274425,
+        380.979027717
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        49.430367185,
+        58.908817676
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "moved",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555715,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999694944,
+        63.49999999969492
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -3.050786290259566e-10,
+          63.49999999969492
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.006714794333675e-10,
+          2.391402631474193e-10
+        ],
+        "transverse_extents_mm": [
+          4.140199999999993,
+          4.1402000000001635
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000001635,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141359,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_edge_2",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_rail_bottom_right",
+      "previous_receiver_member": "base_rail_bottom_right",
+      "origin_global_xyz_mm": [
+        835.075,
+        69.583274425,
+        380.979027717
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        49.430367185,
+        58.908817676
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "moved",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555736,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999694887,
+        63.499999999694865
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000007,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -3.051354724448174e-10,
+          63.499999999694865
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          2.006714794333675e-10,
+          2.390834197285585e-10
+        ],
+        "transverse_extents_mm": [
+          4.140199999999993,
+          4.14020000000022
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000022,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141405,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_rim_1",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_side_right",
+      "previous_receiver_member": "base_side_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        20.152907240539378,
+        322.0702100411935
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555735,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000084,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          5.684341886080802e-14,
+          -1.1368683772161603e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402,
+          4.140200000000277
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000000277,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141398,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_rim_2",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_side_right",
+      "previous_receiver_member": "base_side_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        250.51727342536697,
+        596.6077710476499
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555718,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24374999999995,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.5
+        ],
+        "axial_length_mm": 63.5,
+        "transverse_center_offset_mm": [
+          0.0,
+          -1.1368683772161603e-13
+        ],
+        "transverse_extents_mm": [
+          4.140199999999993,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000005,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141401,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_rim_3",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_side_right",
+      "previous_receiver_member": "base_side_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        480.8816396101945,
+        871.1453320541062
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555717,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000136,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.2437500000001,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.50000000000023,
+        "transverse_center_offset_mm": [
+          0.0,
+          0.0
+        ],
+        "transverse_extents_mm": [
+          4.14020000000005,
+          4.14020000000005
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.14020000000005,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141353,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_rim_4",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_side_right",
+      "previous_receiver_member": "base_side_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555741,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999968,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000039,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.500000000000455,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000001869
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000001869,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214132,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_service_1",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_rail_service_lower_right",
+      "previous_receiver_member": "base_rail_service_lower_right",
+      "origin_global_xyz_mm": [
+        435.07500000000005,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555738,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999966,
+        63.500000000000284
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000029,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.500000000000284
+        ],
+        "axial_length_mm": 63.5000000000004,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000001869
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000001869,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141343,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_lower_right_service_2",
+      "panel_member": "main_lower_right",
+      "receiver_member": "base_rail_service_lower_right",
+      "previous_receiver_member": "base_rail_service_lower_right",
+      "origin_global_xyz_mm": [
+        835.075,
+        711.246005795022,
+        1145.6828930605627
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555757,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.50000000000034
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000032,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.50000000000034
+        ],
+        "axial_length_mm": 63.500000000000455,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000001869
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000001869,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141376,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_center_1",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_principal_center_left",
+      "previous_receiver_member": "base_principal_center_left",
+      "origin_global_xyz_mm": [
+        -70.0,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555768,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999724,
+        63.500000000000206
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000041,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.500000000000206
+        ],
+        "axial_length_mm": 63.50000000000032,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141375,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_center_2",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_principal_center_left",
+      "previous_receiver_member": "base_principal_center_left",
+      "origin_global_xyz_mm": [
+        -70.0,
+        1034.2039271551957,
+        1530.5691560983082
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555772,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999632,
+        63.500000000000206
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000042,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.500000000000206
+        ],
+        "axial_length_mm": 63.50000000000032,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214138,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_center_3",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_principal_center_left",
+      "previous_receiver_member": "base_principal_center_left",
+      "origin_global_xyz_mm": [
+        -70.0,
+        1264.5682933400235,
+        1805.1067171047646
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555703,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999703,
+        63.50000000000032
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000011,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.50000000000032
+        ],
+        "axial_length_mm": 63.50000000000055,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001414,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214132,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_center_4",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_principal_center_left",
+      "previous_receiver_member": "base_principal_center_left",
+      "origin_global_xyz_mm": [
+        -70.0,
+        1494.9326595248508,
+        2079.644278111221
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555722,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999362,
+        63.50000000000009
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000134,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.50000000000009
+        ],
+        "axial_length_mm": 63.50000000000032,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.1402000000016415
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000016415,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141353,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_edge_1",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_rail_top",
+      "previous_receiver_member": "base_rail_top",
+      "origin_global_xyz_mm": [
+        -435.07500000000005,
+        1537.324502383678,
+        2130.1649091349173
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.10353135557,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.500000000000114
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000001,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.500000000000114
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141341,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_edge_2",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_rail_top",
+      "previous_receiver_member": "base_rail_top",
+      "origin_global_xyz_mm": [
+        -835.075,
+        1537.324502383678,
+        2130.1649091349173
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555719,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.500000000000114
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000002,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.500000000000114
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.1402000000016415
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000016415,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141382,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_1",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_side_left",
+      "previous_receiver_member": "base_side_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555826,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000035,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.50000000000023,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214152,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_2",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_side_left",
+      "previous_receiver_member": "base_side_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        1034.2039271551957,
+        1530.5691560983082
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.103531355583,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999454,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000035,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.5
+        ],
+        "axial_length_mm": 63.50000000000023,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214153,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_3",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_side_left",
+      "previous_receiver_member": "base_side_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        1264.5682933400235,
+        1805.1067171047646
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555761,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999991,
+        63.500000000000455
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000005,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          0.0,
+          63.500000000000455
+        ],
+        "axial_length_mm": 63.500000000000455,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.1402000000016415
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000016415,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141467,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_rim_4",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_side_left",
+      "previous_receiver_member": "base_side_left",
+      "origin_global_xyz_mm": [
+        -1200.15,
+        1494.9326595248508,
+        2079.644278111221
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555778,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999454,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000007,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.5
+        ],
+        "axial_length_mm": 63.50000000000023,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.1402000000016415
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000016415,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141499,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_service_1",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_rail_service_upper_left",
+      "previous_receiver_member": "base_rail_service_upper_left",
+      "origin_global_xyz_mm": [
+        -435.07500000000005,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555751,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999974,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000033,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001755,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214136,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_left_service_2",
+      "panel_member": "main_upper_left",
+      "receiver_member": "base_rail_service_upper_left",
+      "previous_receiver_member": "base_rail_service_upper_left",
+      "origin_global_xyz_mm": [
+        -835.075,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.103531355577,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999568,
+        63.500000000000114
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000304,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.500000000000114
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214141,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_center_1",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_principal_center_right",
+      "previous_receiver_member": "base_principal_center_right",
+      "origin_global_xyz_mm": [
+        70.0,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555768,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999724,
+        63.5000000000002
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000404,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.5000000000002
+        ],
+        "axial_length_mm": 63.50000000000031,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141376,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_center_2",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_principal_center_right",
+      "previous_receiver_member": "base_principal_center_right",
+      "origin_global_xyz_mm": [
+        70.0,
+        1034.2039271551957,
+        1530.5691560983082
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555772,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999625,
+        63.5000000000002
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000041,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.5000000000002
+        ],
+        "axial_length_mm": 63.50000000000031,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.140200000001869
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000001869,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141382,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_center_3",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_principal_center_right",
+      "previous_receiver_member": "base_principal_center_right",
+      "origin_global_xyz_mm": [
+        70.0,
+        1264.5682933400235,
+        1805.1067171047646
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555703,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999696,
+        63.50000000000031
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000105,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.50000000000031
+        ],
+        "axial_length_mm": 63.50000000000054,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001414,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141321,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_center_4",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_principal_center_right",
+      "previous_receiver_member": "base_principal_center_right",
+      "origin_global_xyz_mm": [
+        70.0,
+        1494.9326595248508,
+        2079.644278111221
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555722,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999355,
+        63.500000000000085
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000013,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.500000000000085
+        ],
+        "axial_length_mm": 63.50000000000031,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.1402000000016415
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000016415,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141355,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_edge_1",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_rail_top",
+      "previous_receiver_member": "base_rail_top",
+      "origin_global_xyz_mm": [
+        435.07500000000005,
+        1537.324502383678,
+        2130.1649091349173
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.10353135557,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.500000000000114
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000001,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.500000000000114
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141341,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_edge_2",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_rail_top",
+      "previous_receiver_member": "base_rail_top",
+      "origin_global_xyz_mm": [
+        835.075,
+        1537.324502383678,
+        2130.1649091349173
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555719,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256250000000023,
+        63.500000000000114
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000002,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.500000000000114
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141382,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_1",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_side_right",
+      "previous_receiver_member": "base_side_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555759,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999968,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.2437500000005,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.500000000000455,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141327,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_2",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_side_right",
+      "previous_receiver_member": "base_side_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        1034.2039271551957,
+        1530.5691560983082
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555764,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999454,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000051,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.500000000000455,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141334,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_3",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_side_right",
+      "previous_receiver_member": "base_side_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        1264.5682933400235,
+        1805.1067171047646
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555694,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999968,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000004,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.500000000000455,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141321,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_rim_4",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_side_right",
+      "previous_receiver_member": "base_side_right",
+      "origin_global_xyz_mm": [
+        1196.9750000000001,
+        1494.9326595248508,
+        2079.644278111221
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555712,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.256249999999454,
+        63.5
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000006,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -2.2737367544323206e-13,
+          63.5
+        ],
+        "axial_length_mm": 63.50000000000023,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -9.094947017729282e-13
+        ],
+        "transverse_extents_mm": [
+          4.1402000000016415,
+          4.1402000000016415
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.1402000000016415,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141355,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_service_1",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_rail_service_upper_right",
+      "previous_receiver_member": "base_rail_service_upper_right",
+      "origin_global_xyz_mm": [
+        435.07500000000005,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.103531355575,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999974,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.24375000000032,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.462711012141362,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    },
+    {
+      "axis_id": "round_panel_upper_right_service_2",
+      "panel_member": "main_upper_right",
+      "receiver_member": "base_rail_service_upper_right",
+      "previous_receiver_member": "base_rail_service_upper_right",
+      "origin_global_xyz_mm": [
+        835.075,
+        803.839560970368,
+        1256.0315950918516
+      ],
+      "axis_global_xyz": [
+        0.0,
+        -0.7660444431189781,
+        0.6427876096865394
+      ],
+      "translation_from_source_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_occupied_length_mm": 50.8,
+      "source_occupied_diameter_mm": 4.1402,
+      "purchased_length_mm": 63.5,
+      "current_location_status": "source_station_retained",
+      "raw_receiver_bbox_candidate": true,
+      "raw_receiver_axis_envelope_intersection_volume_mm3": 609.103531355577,
+      "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+        18.25624999999968,
+        63.50000000000023
+      ],
+      "raw_receiver_full_section_equivalent_length_mm": 45.243750000000304,
+      "raw_receiver_axis_envelope_intersects": true,
+      "materialized_axis_envelope": {
+        "axial_bounds_from_reported_origin_mm": [
+          -1.1368683772161603e-13,
+          63.50000000000023
+        ],
+        "axial_length_mm": 63.50000000000034,
+        "transverse_center_offset_mm": [
+          -9.094947017729282e-13,
+          -1.1368683772161603e-12
+        ],
+        "transverse_extents_mm": [
+          4.140200000001869,
+          4.140200000002096
+        ],
+        "diameter_from_aligned_shape_bounds_mm": 4.140200000002096,
+        "cross_section_area_from_shape_volume_mm2": 13.46271101214141,
+        "status": "current CAD occupied geometry; not measured Hillman screw geometry"
+      },
+      "source_inventory_envelope_fields": {
+        "length_mm": 50.8,
+        "diameter_mm": 4.1402,
+        "status": "source inventory fields; distinct from current fixed-axis BRep bounds"
+      },
+      "finished_receiver_axis_envelope_overlap_volume_mm3": 0.0,
+      "finished_receiver_axis_envelope_clear": true
+    }
+  ],
+  "four_moved_kicker_center_receiver_check": {
+    "current_receiver_map": {
+      "round_kicker_left_center_1": "base_post_center_left",
+      "round_kicker_left_center_2": "base_post_center_left",
+      "round_kicker_right_center_1": "base_post_center_right",
+      "round_kicker_right_center_2": "base_post_center_right"
+    },
+    "previous_backer_shapes_present_in_current_composition": false,
+    "previous_backer_shape_ids_present": [],
+    "side_to_side_center_post_bbox_gap_x_mm": 283.9599999999999,
+    "center_posts": {
+      "left": {
+        "receiver_member": "base_post_center_left",
+        "raw_receiver_bounds_xyz_mm": [
+          [
+            -180.76000000000005,
+            -142.66000000000003
+          ],
+          [
+            -175.7,
+            -36.0
+          ],
+          [
+            0.0,
+            238.9
+          ]
+        ],
+        "axis_count": 2,
+        "axes": [
+          {
+            "axis_id": "round_kicker_left_center_1",
+            "origin_global_xyz_mm": [
+              -161.71000000000004,
+              -17.743750000000002,
+              60.0
+            ],
+            "centerline_to_receiver_bbox_side_margins_mm": {
+              "x": {
+                "to_min_bbox_face_mm": 19.05000000000001,
+                "to_max_bbox_face_mm": 19.05000000000001
+              },
+              "z": {
+                "to_min_bbox_face_mm": 60.0,
+                "to_max_bbox_face_mm": 178.9
+              }
+            },
+            "raw_receiver_axis_envelope_intersects": true,
+            "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555728,
+            "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+              18.256249999999994,
+              63.500000000000014
+            ],
+            "raw_receiver_full_section_equivalent_length_mm": 45.243750000000034,
+            "finished_receiver_axis_envelope_clear": true
+          },
+          {
+            "axis_id": "round_kicker_left_center_2",
+            "origin_global_xyz_mm": [
+              -161.71000000000004,
+              -17.743750000000002,
+              192.0
+            ],
+            "centerline_to_receiver_bbox_side_margins_mm": {
+              "x": {
+                "to_min_bbox_face_mm": 19.05000000000001,
+                "to_max_bbox_face_mm": 19.05000000000001
+              },
+              "z": {
+                "to_min_bbox_face_mm": 192.0,
+                "to_max_bbox_face_mm": 46.900000000000006
+              }
+            },
+            "raw_receiver_axis_envelope_intersects": true,
+            "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555732,
+            "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+              18.256249999999994,
+              63.500000000000014
+            ],
+            "raw_receiver_full_section_equivalent_length_mm": 45.24375000000005,
+            "finished_receiver_axis_envelope_clear": true
+          }
+        ]
+      },
+      "right": {
+        "receiver_member": "base_post_center_right",
+        "raw_receiver_bounds_xyz_mm": [
+          [
+            141.2999999999999,
+            179.39999999999992
+          ],
+          [
+            -175.7,
+            -36.0
+          ],
+          [
+            0.0,
+            238.9
+          ]
+        ],
+        "axis_count": 2,
+        "axes": [
+          {
+            "axis_id": "round_kicker_right_center_1",
+            "origin_global_xyz_mm": [
+              160.3499999999999,
+              -17.743750000000002,
+              60.0
+            ],
+            "centerline_to_receiver_bbox_side_margins_mm": {
+              "x": {
+                "to_min_bbox_face_mm": 19.05000000000001,
+                "to_max_bbox_face_mm": 19.05000000000001
+              },
+              "z": {
+                "to_min_bbox_face_mm": 60.0,
+                "to_max_bbox_face_mm": 178.9
+              }
+            },
+            "raw_receiver_axis_envelope_intersects": true,
+            "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555728,
+            "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+              18.256249999999994,
+              63.5
+            ],
+            "raw_receiver_full_section_equivalent_length_mm": 45.24375000000002,
+            "finished_receiver_axis_envelope_clear": true
+          },
+          {
+            "axis_id": "round_kicker_right_center_2",
+            "origin_global_xyz_mm": [
+              160.3499999999999,
+              -17.743750000000002,
+              192.0
+            ],
+            "centerline_to_receiver_bbox_side_margins_mm": {
+              "x": {
+                "to_min_bbox_face_mm": 19.05000000000001,
+                "to_max_bbox_face_mm": 19.05000000000001
+              },
+              "z": {
+                "to_min_bbox_face_mm": 192.0,
+                "to_max_bbox_face_mm": 46.900000000000006
+              }
+            },
+            "raw_receiver_axis_envelope_intersects": true,
+            "raw_receiver_axis_envelope_intersection_volume_mm3": 609.1035313555732,
+            "raw_receiver_intersection_axial_bounds_from_axis_start_mm": [
+              18.256249999999994,
+              63.5
+            ],
+            "raw_receiver_full_section_equivalent_length_mm": 45.243750000000034,
+            "finished_receiver_axis_envelope_clear": true
+          }
+        ]
+      }
+    },
+    "limits": [
+      "The measured post gap is the open X interval between the two current post bounding boxes, not a conclusion about panel seam capacity.",
+      "A geometric shaft-envelope intersection does not prove screw engagement, installed length, or transfer capacity."
+    ]
+  },
+  "panel_to_receiver_interfaces": {
+    "scope": "one exact panel-to-finished-receiver check per distinct panel/receiver pair in the current 66-axis map",
+    "interfaces": [
+      {
+        "panel_member": "kicker_left",
+        "receiver_member": "base_header",
+        "fixed_hillman_axis_ids": [
+          "kicker_header_left_1",
+          "kicker_header_left_2",
+          "kicker_header_left_3",
+          "kicker_header_left_4",
+          "kicker_header_left_5"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 46323.72269493927,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "kicker_left",
+        "receiver_member": "base_post_center_left",
+        "fixed_hillman_axis_ids": [
+          "round_kicker_left_center_1",
+          "round_kicker_left_center_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 9075.164577975715,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "kicker_left",
+        "receiver_member": "base_post_outer_left",
+        "fixed_hillman_axis_ids": [
+          "round_kicker_left_rim_1",
+          "round_kicker_left_rim_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 9075.164577975693,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "kicker_right",
+        "receiver_member": "base_header",
+        "fixed_hillman_axis_ids": [
+          "kicker_header_right_1",
+          "kicker_header_right_2",
+          "kicker_header_right_3",
+          "kicker_header_right_4",
+          "kicker_header_right_5"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 46323.72269493927,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "kicker_right",
+        "receiver_member": "base_post_center_right",
+        "fixed_hillman_axis_ids": [
+          "round_kicker_right_center_1",
+          "round_kicker_right_center_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 9075.164577975715,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "kicker_right",
+        "receiver_member": "base_post_outer_right",
+        "fixed_hillman_axis_ids": [
+          "round_kicker_right_rim_1",
+          "round_kicker_right_rim_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 9075.164577975747,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_left",
+        "receiver_member": "base_principal_center_left",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_left_center_1",
+          "round_panel_lower_left_center_2",
+          "round_panel_lower_left_center_3",
+          "round_panel_lower_left_center_4"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 46297.58195997397,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_left",
+        "receiver_member": "base_rail_bottom_left",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_left_edge_1",
+          "round_panel_lower_left_edge_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 8.038873388460929e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 39594.65597998701,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_left",
+        "receiver_member": "base_rail_service_lower_left",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_left_service_1",
+          "round_panel_lower_left_service_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 39594.65597998695,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_left",
+        "receiver_member": "base_side_left",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_left_rim_1",
+          "round_panel_lower_left_rim_2",
+          "round_panel_lower_left_rim_3",
+          "round_panel_lower_left_rim_4"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 108232.94195997421,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_right",
+        "receiver_member": "base_principal_center_right",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_right_center_1",
+          "round_panel_lower_right_center_2",
+          "round_panel_lower_right_center_3",
+          "round_panel_lower_right_center_4"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 46297.581959974086,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_right",
+        "receiver_member": "base_rail_bottom_right",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_right_edge_1",
+          "round_panel_lower_right_edge_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 8.038873388460929e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 39473.68847998701,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_right",
+        "receiver_member": "base_rail_service_lower_right",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_right_service_1",
+          "round_panel_lower_right_service_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 39473.68847998695,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_right",
+        "receiver_member": "base_side_right",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_right_rim_1",
+          "round_panel_lower_right_rim_2",
+          "round_panel_lower_right_rim_3",
+          "round_panel_lower_right_rim_4"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 108232.94195997393,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_upper_left",
+        "receiver_member": "base_principal_center_left",
+        "fixed_hillman_axis_ids": [
+          "round_panel_upper_left_center_1",
+          "round_panel_upper_left_center_2",
+          "round_panel_upper_left_center_3",
+          "round_panel_upper_left_center_4"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 44946.05915595142,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_upper_left",
+        "receiver_member": "base_rail_service_upper_left",
+        "fixed_hillman_axis_ids": [
+          "round_panel_upper_left_service_1",
+          "round_panel_upper_left_service_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 1.1368683772161603e-13,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 39644.69957797565,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_upper_left",
+        "receiver_member": "base_rail_top",
+        "fixed_hillman_axis_ids": [
+          "round_panel_upper_left_edge_1",
+          "round_panel_upper_left_edge_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 42977.020827975604,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_upper_left",
+        "receiver_member": "base_side_left",
+        "fixed_hillman_axis_ids": [
+          "round_panel_upper_left_rim_1",
+          "round_panel_upper_left_rim_2",
+          "round_panel_upper_left_rim_3",
+          "round_panel_upper_left_rim_4"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 108333.02915595158,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_upper_right",
+        "receiver_member": "base_principal_center_right",
+        "fixed_hillman_axis_ids": [
+          "round_panel_upper_right_center_1",
+          "round_panel_upper_right_center_2",
+          "round_panel_upper_right_center_3",
+          "round_panel_upper_right_center_4"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 1.1368683772161603e-13,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 44845.97195997408,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_upper_right",
+        "receiver_member": "base_rail_service_upper_right",
+        "fixed_hillman_axis_ids": [
+          "round_panel_upper_right_service_1",
+          "round_panel_upper_right_service_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 39473.688479986995,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_upper_right",
+        "receiver_member": "base_rail_top",
+        "fixed_hillman_axis_ids": [
+          "round_panel_upper_right_edge_1",
+          "round_panel_upper_right_edge_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 42926.97722998695,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_upper_right",
+        "receiver_member": "base_side_right",
+        "fixed_hillman_axis_ids": [
+          "round_panel_upper_right_rim_1",
+          "round_panel_upper_right_rim_2",
+          "round_panel_upper_right_rim_3",
+          "round_panel_upper_right_rim_4"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 1.1368683772161603e-13,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 108232.94195997398,
+        "geometry_state": "finite_planar_face_contact"
+      }
+    ],
+    "moved_axis_interfaces": [
+      {
+        "panel_member": "kicker_left",
+        "receiver_member": "base_post_center_left",
+        "fixed_hillman_axis_ids": [
+          "round_kicker_left_center_1",
+          "round_kicker_left_center_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 9075.164577975715,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "kicker_right",
+        "receiver_member": "base_post_center_right",
+        "fixed_hillman_axis_ids": [
+          "round_kicker_right_center_1",
+          "round_kicker_right_center_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 9075.164577975715,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_left",
+        "receiver_member": "base_rail_bottom_left",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_left_edge_1",
+          "round_panel_lower_left_edge_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 8.038873388460929e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 39594.65597998701,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "panel_member": "main_lower_right",
+        "receiver_member": "base_rail_bottom_right",
+        "fixed_hillman_axis_ids": [
+          "round_panel_lower_right_edge_1",
+          "round_panel_lower_right_edge_2"
+        ],
+        "bbox_candidate": true,
+        "minimum_separation_mm": 8.038873388460929e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 39473.68847998701,
+        "geometry_state": "finite_planar_face_contact"
+      }
+    ],
+    "kicker_center_seam": {
+      "kicker_left_outermost_x_face_mm": -1.5875000000000454,
+      "kicker_right_innermost_x_face_mm": -1.5875,
+      "panel_edge_to_edge_x_gap_mm": 4.551914400963142e-14,
+      "panel_edge_planes_touch_by_x_extent": true,
+      "left_panel_edge_to_left_center_post_inner_face_x_mm": 141.0725,
+      "right_center_post_inner_face_to_right_panel_edge_x_mm": 142.8874999999999,
+      "nearest_moved_kicker_axis_to_panel_seam_center_x_mm": 160.1225,
+      "panel_to_panel_interface": {
+        "bbox_candidate": true,
+        "minimum_separation_mm": 9.103828801926284e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 5056.9573502358035,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      "limits": [
+        "Panel and post edge planes are compared in global X; this does not evaluate panel bending or support capacity.",
+        "A screw receiver path through a post does not establish continuous support under the kicker center seam."
+      ]
+    }
+  },
+  "bolt_declared_and_runner_contact_graph": {
+    "scope": "adjacent receiver pairs declared by the current 92 candidate bolt stacks, plus the two current exterior block-to-runner seats",
+    "interfaces": [
+      {
+        "members": [
+          "base_floor_left",
+          "knee_outer_left_spine"
+        ],
+        "interface_basis": "reported exterior block seat on floor runner",
+        "candidate_bolt_axis_ids": [],
+        "candidate_bolt_axis_count": 0,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 5080.634999999985,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_floor_right",
+          "knee_outer_right_spine"
+        ],
+        "interface_basis": "reported exterior block seat on floor runner",
+        "candidate_bolt_axis_ids": [],
+        "candidate_bolt_axis_count": 0,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.2737367544323206e-13,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 5080.634999999985,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_header",
+          "center_post_cleat_left"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "center_post_header_left_1",
+          "center_post_header_left_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 7819.502263745107,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_header",
+          "center_post_cleat_right"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "center_post_header_right_1",
+          "center_post_header_right_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 7819.502263745107,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_header",
+          "center_principal_cleat_left"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "center_principal_header_left_1",
+          "center_principal_header_left_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 11637.122263745114,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_header",
+          "center_principal_cleat_right"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "center_principal_header_right_1",
+          "center_principal_header_right_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 11637.122263745114,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_header",
+          "knee_outer_left_inner_frame_block"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "knee_outer_left_inner_header_1",
+          "knee_outer_left_inner_header_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 11766.457706617795,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_header",
+          "knee_outer_right_inner_frame_block"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "knee_outer_right_inner_header_1",
+          "knee_outer_right_inner_header_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 11766.457706617732,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_post_center_left",
+          "center_post_cleat_left"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "center_post_left_1",
+          "center_post_left_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 11375.5022637451,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_post_center_right",
+          "center_post_cleat_right"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "center_post_right_1",
+          "center_post_right_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 11375.5022637451,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_post_outer_left",
+          "knee_outer_left_spine"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "knee_outer_left_post_1",
+          "knee_outer_left_post_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 13139.962706617785,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_post_outer_right",
+          "knee_outer_right_spine"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "knee_outer_right_post_1",
+          "knee_outer_right_post_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 13139.962706617785,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_left",
+          "bottom_center_left_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "bottom_center/clip_horizontal_bottom_left_2/principal_1",
+          "bottom_center/clip_horizontal_bottom_left_2/principal_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 4.263256414560601e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617791,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_left",
+          "center_principal_cleat_left"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "center_principal_left_1",
+          "center_principal_left_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 16208.819807267872,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_left",
+          "left_service_inner_lower_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1",
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617797,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_left",
+          "left_service_inner_upper_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_1",
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.97270661774,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_left",
+          "top_center_left_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "top_center/clip_split_top_center_left/principal_1",
+          "top_center/clip_split_top_center_left/principal_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 4.263256414560601e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.9727066177,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_right",
+          "bottom_center_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+          "bottom_center/clip_horizontal_bottom_right_1/principal_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 4.263256414560601e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.97270661779,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_right",
+          "center_principal_cleat_right"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "center_principal_right_1",
+          "center_principal_right_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 15068.727979298503,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_right",
+          "top_center_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "top_center/clip_split_top_center_right/principal_1",
+          "top_center/clip_split_top_center_right/principal_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.7000623958883807e-13,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.9727066177,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_right",
+          "wj04_lower_full_stock_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617797,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_principal_center_right",
+          "wj04_upper_g7_crosscut_full_stock_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 7637.052706617795,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_bottom_left",
+          "bottom_center_left_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "bottom_center/clip_horizontal_bottom_left_2/rail_1",
+          "bottom_center/clip_horizontal_bottom_left_2/rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.842170943040401e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10385.137651769512,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_bottom_left",
+          "bottom_outer_left_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "bottom_outer/clip_horizontal_bottom_left_1/rail_1",
+          "bottom_outer/clip_horizontal_bottom_left_1/rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617795,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_bottom_right",
+          "bottom_center_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+          "bottom_center/clip_horizontal_bottom_right_1/rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 3.552713678800501e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617787,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_bottom_right",
+          "bottom_outer_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "bottom_outer/clip_horizontal_bottom_right_2/rail_1",
+          "bottom_outer/clip_horizontal_bottom_right_2/rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 1.4210854715202004e-14,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617795,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_service_lower_left",
+          "left_service_inner_lower_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1",
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.3054114035265413e-07,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10385.137639274411,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_service_lower_left",
+          "left_service_outer_lower_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1",
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.3054114037788223e-07,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617797,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_service_lower_right",
+          "wj04_lower_full_stock_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.3054114037959213e-07,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.97270661779,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_service_lower_right",
+          "wj06_outer_lower_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1",
+          "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.3054114037788223e-07,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972694122685,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_service_upper_left",
+          "left_service_inner_upper_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_rail_1",
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.3009746789488176e-07,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10385.13763926737,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_service_upper_left",
+          "left_service_outer_upper_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_rail_1",
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.3009746789488176e-07,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617797,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_service_upper_right",
+          "wj04_upper_g7_crosscut_full_stock_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_1",
+          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.3050789399826266e-07,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 7637.052706617791,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_service_upper_right",
+          "wj06_outer_upper_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_1",
+          "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.3009746789488176e-07,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972694115648,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_top",
+          "top_center_left_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "top_center/clip_split_top_center_left/rail_1",
+          "top_center/clip_split_top_center_left/rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617784,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_top",
+          "top_center_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "top_center/clip_split_top_center_right/rail_1",
+          "top_center/clip_split_top_center_right/rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.9727066178,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_top",
+          "top_outer_left_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "top_outer/clip_single_top_left_1/rail_1",
+          "top_outer/clip_single_top_left_1/rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617797,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_rail_top",
+          "top_outer_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "top_outer/clip_single_top_right_2/rail_1",
+          "top_outer/clip_single_top_right_2/rail_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617766,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_left",
+          "bottom_outer_left_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "bottom_outer/clip_horizontal_bottom_left_1/side_1",
+          "bottom_outer/clip_horizontal_bottom_left_1/side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.97270661779,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_left",
+          "knee_outer_left_inner_frame_block"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "knee_outer_left_side_1",
+          "knee_outer_left_side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 15653.565397993701,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_left",
+          "knee_outer_left_spine"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "knee_outer_left_side_1",
+          "knee_outer_left_side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 15653.565397993705,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_left",
+          "left_service_outer_lower_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1",
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617797,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_left",
+          "left_service_outer_upper_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_1",
+          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.97270661774,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_left",
+          "top_outer_left_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "top_outer/clip_single_top_left_1/side_1",
+          "top_outer/clip_single_top_left_1/side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617742,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_right",
+          "bottom_outer_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "bottom_outer/clip_horizontal_bottom_right_2/side_1",
+          "bottom_outer/clip_horizontal_bottom_right_2/side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.97270661779,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_right",
+          "knee_outer_right_inner_frame_block"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "knee_outer_right_side_1",
+          "knee_outer_right_side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 15653.565397993701,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_right",
+          "knee_outer_right_spine"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "knee_outer_right_side_1",
+          "knee_outer_right_side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.2737367544323206e-13,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 15653.565397993705,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_right",
+          "top_outer_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "top_outer/clip_single_top_right_2/side_1",
+          "top_outer/clip_single_top_right_2/side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 2.2737367544323206e-13,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617742,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_right",
+          "wj06_outer_lower_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1",
+          "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.972706617797,
+        "geometry_state": "finite_planar_face_contact"
+      },
+      {
+        "members": [
+          "base_side_right",
+          "wj06_outer_upper_right_cleat"
+        ],
+        "interface_basis": "adjacent receiver IDs in current candidate-bolt stack",
+        "candidate_bolt_axis_ids": [
+          "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_1",
+          "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_2"
+        ],
+        "candidate_bolt_axis_count": 2,
+        "bbox_candidate": true,
+        "minimum_separation_mm": 0.0,
+        "common_volume_mm3": 0.0,
+        "finite_shared_planar_face_area_mm2": 10552.97270661774,
+        "geometry_state": "finite_planar_face_contact"
+      }
+    ],
+    "candidate_bolt_interface_count": 48,
+    "runner_seat_interface_count": 2,
+    "limits": [
+      "Bolt-declared adjacency is a layout record, not proof of a force path, compatibility, or load sharing.",
+      "Only finite coplanar face intersections are reported as face contact; common solid volume is kept separate as overlap.",
+      "Runner contact area is geometric only and does not establish bearing capacity or floor anchorage."
+    ]
+  },
+  "release": false
+}

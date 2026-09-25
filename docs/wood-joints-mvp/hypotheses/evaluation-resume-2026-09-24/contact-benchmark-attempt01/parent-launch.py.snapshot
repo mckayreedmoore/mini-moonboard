@@ -1,0 +1,28 @@
+import hashlib,json,os,shutil,subprocess,time
+from pathlib import Path
+from fea.contact_wrench_benchmark import load_manifest,prepared_record
+root=Path.cwd(); base=root/'fea/results/ccx_contact_wrench_benchmark'; dest=root/'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-benchmark-attempt01'
+manifest=load_manifest(); prepared=prepared_record()
+assert hashlib.sha256((base/'manifest.json').read_bytes()).hexdigest()=='7e33f55d17cd39989a7140306c7dc3df8f8ad217a78c5855b7d0d218df9f3a5d'
+dest.mkdir(exist_ok=False)
+for name in ['manifest.json','upper-slave.inp','lower-slave.inp']:shutil.copyfile(base/name,dest/name)
+shutil.copyfile(root/'fea/contact_wrench_benchmark.py',dest/'producer.py.snapshot');shutil.copyfile('/tmp/run-current-contact-benchmark.py',dest/'parent-launch.py.snapshot')
+(dest/'prepared.json').write_text(json.dumps(prepared,indent=2)+'\n')
+image='sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0'
+record={'scope':'Standalone numerical contact-output benchmark, not candidate geometry or capacity.','image_id':image,'executable':'/usr/bin/ccx','executable_sha256':'6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b','version':'2.21','native_benchmark_run':True,'native_candidate_run':False,'runs':[]}
+for name in ['upper-slave','lower-slave']:
+ cmd=['docker','run','--rm','--network','none','--cpus','2','--memory','1g','--user',f'{os.getuid()}:{os.getgid()}','--env','OMP_NUM_THREADS=2','--mount',f'type=bind,src={dest},dst=/work','--workdir','/work',image,'/usr/bin/ccx','-i',name]
+ start=time.monotonic()
+ with (dest/(name+'.log')).open('x') as f:
+  try:
+   proc=subprocess.run(cmd,stdout=f,stderr=subprocess.STDOUT,timeout=60,check=False); code=proc.returncode; status='completed' if code==0 else 'failed'
+  except subprocess.TimeoutExpired:
+   code=None;status='timeout'
+ row={'case':name,'command':cmd,'status':status,'returncode':code,'seconds':time.monotonic()-start};record['runs'].append(row)
+ (dest/'execution.json').write_text(json.dumps(record,indent=2)+'\n')
+ print(row,flush=True)
+ if status!='completed':break
+for relative,expected in manifest['source_files_sha256'].items():assert hashlib.sha256((root/relative).read_bytes()).hexdigest()==expected,relative
+record['source_unchanged_after_run']=True
+record['artifacts_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in dest.iterdir() if p.name!='execution.json'}
+(dest/'execution.json').write_text(json.dumps(record,indent=2)+'\n')

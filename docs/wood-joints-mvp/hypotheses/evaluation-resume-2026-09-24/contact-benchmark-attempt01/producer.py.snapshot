@@ -1,0 +1,520 @@
+"""Prepare and audit a tiny CalculiX 2.21 contact-force/wrench benchmark.
+
+The two generated decks reverse only the slave/master orientation of one
+frictionless, face-to-face contact pair.  This checks solver contact-output
+ownership, force location, and wrench accounting.  It does not model a wood
+joint, establish a stiffness or resistance, or qualify any structure.  The
+module never invokes CalculiX.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import math
+import re
+from pathlib import Path
+from typing import Any
+
+from fea.wood_joint_patch_wrench import Wrench, shift_wrench
+
+
+ROOT = Path(__file__).resolve().parents[1]
+ARTIFACT_DIR = ROOT / "fea" / "results" / "ccx_contact_wrench_benchmark"
+MANIFEST_PATH = ARTIFACT_DIR / "manifest.json"
+SCENARIOS = ("upper_slave", "lower_slave")
+DECK_NAMES = {"upper_slave": "upper-slave.inp", "lower_slave": "lower-slave.inp"}
+SOURCE_NAMES = {
+    "fea/contact_wrench_benchmark.py",
+    "fea/results/ccx_contact_wrench_benchmark/upper-slave.inp",
+    "fea/results/ccx_contact_wrench_benchmark/lower-slave.inp",
+}
+
+MANUAL = {
+    "title": "CalculiX 2.21 User's Manual",
+    "url": "https://www.dhondt.de/ccx_2.21.pdf",
+    "contact_print_pages": [430, 431],
+}
+LOAD_FORCE_N = (0.0, 0.0, -100.0)
+LOAD_MOMENT_NMM = (-1000.0, 1000.0, 0.0)
+CONTACT_CENTROID_MM = (10.0, 10.0, 0.0)
+CONTACT_AREA_MM2 = 400.0
+NORMAL_PENALTY_N_PER_MM3 = 10000.0
+
+_SCENARIO_ROWS: dict[str, dict[str, Any]] = {
+    "upper_slave": {
+        "slave_surface": "UPPER_INTERFACE",
+        "master_surface": "LOWER_INTERFACE",
+        "cf_owner_body": "UPPER",
+        "expected_slave_mean_normal": [0.0, 0.0, -1.0],
+        "expected_cf_force_n": [0.0, 0.0, 100.0],
+        "expected_cfn_compression_magnitude_n": 100.0,
+        "expected_contact_normal_force_signed_n": -100.0,
+        "expected_cfs_shear_magnitude_n": 0.0,
+        "expected_cf_moment_global_origin_nmm": [1000.0, -1000.0, 0.0],
+        "expected_contact_centroid_xyz_mm": list(CONTACT_CENTROID_MM),
+        "expected_cf_moment_at_contact_centroid_nmm": [0.0, 0.0, 0.0],
+        "expected_master_action_force_n": [0.0, 0.0, -100.0],
+        "expected_master_action_moment_global_origin_nmm": [-1000.0, 1000.0, 0.0],
+    },
+    "lower_slave": {
+        "slave_surface": "LOWER_INTERFACE",
+        "master_surface": "UPPER_INTERFACE",
+        "cf_owner_body": "LOWER",
+        "expected_slave_mean_normal": [0.0, 0.0, 1.0],
+        "expected_cf_force_n": [0.0, 0.0, -100.0],
+        "expected_cfn_compression_magnitude_n": 100.0,
+        "expected_contact_normal_force_signed_n": -100.0,
+        "expected_cfs_shear_magnitude_n": 0.0,
+        "expected_cf_moment_global_origin_nmm": [-1000.0, 1000.0, 0.0],
+        "expected_contact_centroid_xyz_mm": list(CONTACT_CENTROID_MM),
+        "expected_cf_moment_at_contact_centroid_nmm": [0.0, 0.0, 0.0],
+        "expected_master_action_force_n": [0.0, 0.0, 100.0],
+        "expected_master_action_moment_global_origin_nmm": [1000.0, -1000.0, 0.0],
+    },
+}
+
+
+def _sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _dot_deck(scenario: str) -> str:
+    if scenario not in SCENARIOS:
+        raise ValueError(f"Unsupported scenario: {scenario}")
+    pair = _SCENARIO_ROWS[scenario]
+    contact_pair = f"{pair['slave_surface']},{pair['master_surface']}"
+    return f"""** CCX 2.21 contact force/wrench output benchmark; not a joint model.
+** One 20 x 20 x 10 mm linear-elastic block per side; interface at z=0.
+** The 100 N total compressive top load acts at (10,10,10) mm.
+** Fixture elastic constants and contact penalty are numerical inputs only.
+*NODE
+1,0,0,-10
+2,20,0,-10
+3,20,20,-10
+4,0,20,-10
+5,0,0,0
+6,20,0,0
+7,20,20,0
+8,0,20,0
+11,0,0,0
+12,20,0,0
+13,20,20,0
+14,0,20,0
+15,0,0,10
+16,20,0,10
+17,20,20,10
+18,0,20,10
+*ELEMENT,TYPE=C3D8,ELSET=LOWER
+1,1,2,3,4,5,6,7,8
+*ELEMENT,TYPE=C3D8,ELSET=UPPER
+2,11,12,13,14,15,16,17,18
+*NSET,NSET=BOTTOM
+1,2,3,4
+*NSET,NSET=UPPER
+11,12,13,14,15,16,17,18
+*NSET,NSET=TOP
+15,16,17,18
+*MATERIAL,NAME=FIXTURE_ONLY
+*ELASTIC
+1000,0
+*SOLID SECTION,ELSET=LOWER,MATERIAL=FIXTURE_ONLY
+,
+*SOLID SECTION,ELSET=UPPER,MATERIAL=FIXTURE_ONLY
+,
+*SURFACE,NAME=LOWER_INTERFACE,TYPE=ELEMENT
+1,S2
+*SURFACE,NAME=UPPER_INTERFACE,TYPE=ELEMENT
+2,S1
+*SURFACE INTERACTION,NAME=FRICTIONLESS
+*SURFACE BEHAVIOR,PRESSURE-OVERCLOSURE=LINEAR
+{NORMAL_PENALTY_N_PER_MM3:g}
+*CONTACT PAIR,INTERACTION=FRICTIONLESS,TYPE=SURFACE TO SURFACE
+{contact_pair}
+*BOUNDARY
+BOTTOM,1,3,0
+UPPER,1,2,0
+*STEP,NLGEOM,INC=100
+*STATIC
+1,1,1e-6,1
+*CLOAD
+15,3,-25
+16,3,-25
+17,3,-25
+18,3,-25
+*NODE PRINT,NSET=TOP
+U,RF
+*NODE PRINT,NSET=BOTTOM
+RF
+*CONTACT PRINT,FREQUENCY=1
+CDIS,CSTR
+*CONTACT PRINT,SLAVE={pair['slave_surface']},MASTER={pair['master_surface']},FREQUENCY=1
+CF,CFN,CFS
+*END STEP
+"""
+
+
+def _manifest_data() -> dict[str, Any]:
+    return {
+        "schema": "ccx-contact-wrench-benchmark/v1",
+        "solver": {"product": "CalculiX CrunchiX", "version": "2.21"},
+        "scenario_order": list(SCENARIOS),
+        "manual": MANUAL,
+        "units": {"length": "mm", "force": "N", "moment": "N mm", "stress": "N/mm^2"},
+        "fixture": {
+            "body_dimensions_mm": [20.0, 20.0, 10.0],
+            "interface_plane_z_mm": 0.0,
+            "element_type": "C3D8",
+            "elements_per_body": 1,
+            "elastic_modulus_n_per_mm2": 1000.0,
+            "poisson_ratio": 0.0,
+            "fixture_material_notice": "Arbitrary linear-elastic fixture values used only to regularize the output probe; no wood property or capacity is represented.",
+            "normal_penalty_n_per_mm3": NORMAL_PENALTY_N_PER_MM3,
+            "contact_penalty_notice": "Numerical enforcement parameter for this output probe; not joint stiffness or resistance.",
+        },
+        "load": {
+            "body": "UPPER",
+            "top_nodes": [15, 16, 17, 18],
+            "force_per_node_n": [0.0, 0.0, -25.0],
+            "resultant_force_n": list(LOAD_FORCE_N),
+            "resultant_moment_global_origin_nmm": list(LOAD_MOMENT_NMM),
+            "resultant_application_point_mm": [10.0, 10.0, 10.0],
+        },
+        "contact_patch": {
+            "area_mm2": CONTACT_AREA_MM2,
+            "nominal_centroid_xyz_mm": list(CONTACT_CENTROID_MM),
+            "reported_centroid_xy_mm": list(CONTACT_CENTROID_MM[:2]),
+            "reported_centroid_z_bounds_mm": [-0.003, 0.0001],
+            "reported_centroid_z_interpretation": (
+                "The 2.21 manual calls this the contact-area center of gravity without specifying reference/deformed coordinates. "
+                "Accept the nominal z=0 plane or the predicted compressed interface: the lower block shortens 0.0025 mm "
+                "at 100 N and the 10000 N/mm^3 penalty adds about 0.000025 mm closure."
+            ),
+            "expected_normal_force_magnitude_n": 100.0,
+        },
+        "result_tolerances": {
+            "force_component_abs_n": 0.01,
+            "force_component_relative": 1e-4,
+            "moment_component_abs_nmm": 0.1,
+            "moment_component_relative": 1e-4,
+            "normal_force_abs_n": 0.01,
+            "shear_force_abs_n": 0.01,
+            "centroid_xy_abs_mm": 1e-4,
+            "area_abs_mm2": 0.01,
+            "mean_normal_component_abs": 1e-8,
+            "step_end_time_abs": 1e-9,
+        },
+        "solver_completion_contract": {
+            "maximum_increments": 100,
+            "step_end_time": 1.0,
+            "step_kind": "one quasi-static nonlinear contact step",
+            "required_dat_output": "one final CF/CFN/CFS pair report for the named slave/master surfaces",
+            "audit_scope": "contact resultant, reported force location, and equilibrium with the known top load only",
+        },
+        "scenarios": _SCENARIO_ROWS,
+        "source_files_sha256": {
+            relative: _sha256(ROOT / relative)
+            for relative in sorted(SOURCE_NAMES)
+            if (ROOT / relative).is_file()
+        },
+    }
+
+
+def prepare_artifacts() -> dict[str, Any]:
+    """Write deterministic input decks and their source-pinned manifest."""
+    ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
+    for scenario, name in DECK_NAMES.items():
+        (ARTIFACT_DIR / name).write_text(_dot_deck(scenario), encoding="utf-8")
+    manifest = _manifest_data()
+    if set(manifest["source_files_sha256"]) != SOURCE_NAMES:
+        raise ValueError("Could not hash the complete contact-wrench source inventory")
+    MANIFEST_PATH.write_text(json.dumps(manifest, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    return manifest
+
+
+def load_manifest(*, verify_hashes: bool = True) -> dict[str, Any]:
+    """Load the fixed contract and reject a changed deck or producer source."""
+    manifest = json.loads(MANIFEST_PATH.read_text(encoding="utf-8"))
+    if manifest.get("schema") != "ccx-contact-wrench-benchmark/v1":
+        raise ValueError("Unsupported contact-wrench benchmark manifest schema")
+    if manifest.get("solver") != {"product": "CalculiX CrunchiX", "version": "2.21"}:
+        raise ValueError("Contact-wrench benchmark solver pin changed")
+    if tuple(manifest.get("scenario_order", ())) != SCENARIOS:
+        raise ValueError("Contact-wrench benchmark scenarios are incomplete or reordered")
+    files = manifest.get("source_files_sha256")
+    if not isinstance(files, dict) or set(files) != SOURCE_NAMES:
+        raise ValueError("Contact-wrench benchmark source file inventory changed")
+    if verify_hashes:
+        for relative, expected in files.items():
+            path = ROOT / relative
+            if not path.is_file() or _sha256(path) != expected:
+                raise ValueError(f"Contact-wrench benchmark source hash mismatch: {relative}")
+    if set(manifest.get("scenarios", {})) != set(SCENARIOS):
+        raise ValueError("Contact-wrench benchmark scenarios are incomplete")
+    if manifest.get("scenarios") != _SCENARIO_ROWS:
+        raise ValueError("Contact-wrench benchmark analytical contract changed")
+    if manifest.get("result_tolerances") != _manifest_data()["result_tolerances"]:
+        raise ValueError("Contact-wrench benchmark tolerances changed")
+    return manifest
+
+
+def expected_wrench(scenario: str) -> dict[str, Any]:
+    """Return the analytical contact-side wrench and its named owner."""
+    if scenario not in SCENARIOS:
+        raise ValueError(f"Unsupported scenario: {scenario}")
+    manifest = load_manifest()
+    row = manifest["scenarios"][scenario]
+    return {
+        "scenario": scenario,
+        "slave_surface": row["slave_surface"],
+        "master_surface": row["master_surface"],
+        "cf_owner_body": row["cf_owner_body"],
+        "units": manifest["units"],
+        "expected_cf_force_n": row["expected_cf_force_n"],
+        "expected_cfn_compression_magnitude_n": row["expected_cfn_compression_magnitude_n"],
+        "expected_contact_normal_force_signed_n": row["expected_contact_normal_force_signed_n"],
+        "expected_cfs_shear_magnitude_n": row["expected_cfs_shear_magnitude_n"],
+        "expected_cf_moment_global_origin_nmm": row["expected_cf_moment_global_origin_nmm"],
+        "expected_contact_centroid_xyz_mm": row["expected_contact_centroid_xyz_mm"],
+        "expected_cf_moment_at_contact_centroid_nmm": row["expected_cf_moment_at_contact_centroid_nmm"],
+        "expected_contact_area_mm2": manifest["contact_patch"]["area_mm2"],
+        "expected_master_action_force_n": row["expected_master_action_force_n"],
+        "expected_master_action_moment_global_origin_nmm": row["expected_master_action_moment_global_origin_nmm"],
+    }
+
+
+def prepared_record() -> dict[str, Any]:
+    """Return pinned inputs and comparison contract without running a solver."""
+    manifest = load_manifest()
+    return {
+        "schema": "ccx-contact-wrench-prepared-run/v1",
+        "status": "PREPARED_NOT_SOLVED",
+        "native_run_performed": False,
+        "benchmark_scope": "standalone frictionless contact output, force-location, and wrench accounting probe",
+        "not_a_joint_acceptance": True,
+        "manifest_sha256": _sha256(MANIFEST_PATH),
+        "source_files_sha256": manifest["source_files_sha256"],
+        "manual": manifest["manual"],
+        "units": manifest["units"],
+        "fixture": manifest["fixture"],
+        "load": manifest["load"],
+        "contact_patch": manifest["contact_patch"],
+        "result_tolerances": manifest["result_tolerances"],
+        "solver_completion_contract": manifest["solver_completion_contract"],
+        "scenarios": {name: expected_wrench(name) for name in SCENARIOS},
+    }
+
+
+_REPORT_START = re.compile(
+    r"^\s*statistics for slave set\s+(\S+),\s*master set\s+(\S+)\s+and time\s+([0-9.Ee+\-]+)\s*$",
+    re.IGNORECASE | re.MULTILINE,
+)
+
+
+def _numeric_row_after(lines: list[str], label_index: int, count: int, label: str) -> tuple[float, ...]:
+    for line in lines[label_index + 1 :]:
+        fields = line.split()
+        if not fields:
+            continue
+        try:
+            values = tuple(float(value) for value in fields)
+        except ValueError as error:
+            raise ValueError(f"Malformed numeric row after {label}") from error
+        if len(values) != count or not all(math.isfinite(value) for value in values):
+            raise ValueError(f"Invalid numeric row after {label}")
+        return values
+    raise ValueError(f"Missing numeric row after {label}")
+
+
+def parse_contact_reports(data_text: str) -> list[dict[str, Any]]:
+    """Parse CalculiX 2.21 face-to-face CF report blocks from a .dat file."""
+    starts = list(_REPORT_START.finditer(data_text))
+    if not starts:
+        raise ValueError("No CalculiX contact resultant report found")
+    reports = []
+    for index, match in enumerate(starts):
+        stop = starts[index + 1].start() if index + 1 < len(starts) else len(data_text)
+        block = data_text[match.end() : stop]
+        lines = block.splitlines()
+        labels = (
+            "total surface force (fx,fy,fz) and moment about the origin (mx,my,mz)",
+            "center of gravity and mean normal",
+            "moment about the center of gravity(mx,my,mz)",
+            "area,  normal force (+ = tension) and shear force (size)",
+        )
+        positions = []
+        for label in labels:
+            matches = [i for i, line in enumerate(lines) if label in line.lower()]
+            if len(matches) != 1:
+                raise ValueError(f"Expected one {label!r} line in each contact report")
+            positions.append(matches[0])
+        if positions != sorted(positions):
+            raise ValueError("Contact report fields are out of order")
+        values = (
+            _numeric_row_after(lines, positions[0], 6, labels[0]),
+            _numeric_row_after(lines, positions[1], 6, labels[1]),
+            _numeric_row_after(lines, positions[2], 3, labels[2]),
+            _numeric_row_after(lines, positions[3], 3, labels[3]),
+        )
+        try:
+            time = float(match.group(3))
+        except ValueError as error:
+            raise ValueError("Invalid contact report step time") from error
+        if not math.isfinite(time):
+            raise ValueError("Nonfinite contact report step time")
+        reports.append(
+            {
+                "slave_surface": match.group(1),
+                "master_surface": match.group(2),
+                "time": time,
+                "force_n": values[0][:3],
+                "moment_global_origin_nmm": values[0][3:],
+                "centroid_xyz_mm": values[1][:3],
+                "mean_normal": values[1][3:],
+                "moment_at_centroid_nmm": values[2],
+                "area_mm2": values[3][0],
+                "normal_force_signed_n": values[3][1],
+                "shear_force_magnitude_n": values[3][2],
+            }
+        )
+    return reports
+
+
+def _assert_vector_close(actual: tuple[float, ...], expected: tuple[float, ...], absolute: float, relative: float, label: str) -> None:
+    if len(actual) != len(expected):
+        raise ValueError(f"{label} component count differs")
+    for index, (value, target) in enumerate(zip(actual, expected, strict=True)):
+        limit = max(absolute, relative * abs(target))
+        if abs(value - target) > limit:
+            raise ValueError(f"{label} component {index} differs: {value} vs {target} (tol {limit})")
+
+
+def audit_data(data_text: str, scenario: str) -> dict[str, Any]:
+    """Audit contact output location and equilibrium against the known load."""
+    contract = expected_wrench(scenario)
+    manifest = load_manifest()
+    tolerance = manifest["result_tolerances"]
+    reports = parse_contact_reports(data_text)
+    expected_pair = (contract["slave_surface"], contract["master_surface"])
+    if any((report["slave_surface"], report["master_surface"]) != expected_pair for report in reports):
+        raise ValueError("Contact report surfaces differ from the prepared pair")
+    times = [report["time"] for report in reports]
+    if any(time <= 0.0 or time > manifest["solver_completion_contract"]["step_end_time"] + tolerance["step_end_time_abs"] for time in times):
+        raise ValueError("Contact report time lies outside the prepared step")
+    if any(right <= left for left, right in zip(times, times[1:])):
+        raise ValueError("Contact report times are duplicate or out of order")
+    final = reports[-1]
+    step_end = manifest["solver_completion_contract"]["step_end_time"]
+    if abs(final["time"] - step_end) > tolerance["step_end_time_abs"]:
+        raise ValueError("Contact report does not reach the end of the prepared step")
+
+    expected_force = tuple(contract["expected_cf_force_n"])
+    expected_moment = tuple(contract["expected_cf_moment_global_origin_nmm"])
+    expected_centroid_xy = tuple(contract["expected_contact_centroid_xyz_mm"][:2])
+    expected_centroid_moment = tuple(contract["expected_cf_moment_at_contact_centroid_nmm"])
+    _assert_vector_close(
+        final["force_n"], expected_force, tolerance["force_component_abs_n"],
+        tolerance["force_component_relative"], "CF force",
+    )
+    _assert_vector_close(
+        final["moment_global_origin_nmm"], expected_moment,
+        tolerance["moment_component_abs_nmm"], tolerance["moment_component_relative"],
+        "CF origin moment",
+    )
+    _assert_vector_close(
+        final["centroid_xyz_mm"][:2], expected_centroid_xy, tolerance["centroid_xy_abs_mm"], 0.0,
+        "contact centroid x/y",
+    )
+    z_min, z_max = manifest["contact_patch"]["reported_centroid_z_bounds_mm"]
+    if not z_min <= final["centroid_xyz_mm"][2] <= z_max:
+        raise ValueError(
+            f"Reported contact centroid z lies outside predeclared bounds [{z_min}, {z_max}] mm"
+        )
+    _assert_vector_close(
+        final["mean_normal"], tuple(_SCENARIO_ROWS[scenario]["expected_slave_mean_normal"]),
+        tolerance["mean_normal_component_abs"], 0.0, "slave mean normal",
+    )
+    _assert_vector_close(
+        final["moment_at_centroid_nmm"], expected_centroid_moment,
+        tolerance["moment_component_abs_nmm"], tolerance["moment_component_relative"],
+        "CF moment at contact centroid",
+    )
+    area = contract["expected_contact_area_mm2"]
+    if abs(final["area_mm2"] - area) > tolerance["area_abs_mm2"]:
+        raise ValueError(f"Contact area differs: {final['area_mm2']} vs {area}")
+    normal_force = contract["expected_contact_normal_force_signed_n"]
+    if abs(final["normal_force_signed_n"] - normal_force) > tolerance["normal_force_abs_n"]:
+        raise ValueError("Signed contact normal force differs from compressive expectation")
+    if abs(abs(final["normal_force_signed_n"]) - contract["expected_cfn_compression_magnitude_n"]) > tolerance["normal_force_abs_n"]:
+        raise ValueError("Contact normal compression magnitude differs")
+    if abs(final["shear_force_magnitude_n"] - contract["expected_cfs_shear_magnitude_n"]) > tolerance["shear_force_abs_n"]:
+        raise ValueError("Frictionless contact reports nonzero shear force")
+
+    reported = Wrench(tuple(final["force_n"]), tuple(final["moment_global_origin_nmm"]))
+    about_centroid = shift_wrench(reported, (0.0, 0.0, 0.0), tuple(final["centroid_xyz_mm"]))
+    _assert_vector_close(
+        about_centroid.moment_nmm, tuple(final["moment_at_centroid_nmm"]),
+        tolerance["moment_component_abs_nmm"], tolerance["moment_component_relative"],
+        "origin-to-centroid wrench shift",
+    )
+
+    sign = 1.0 if contract["cf_owner_body"] == "UPPER" else -1.0
+    upper_force = tuple(sign * component for component in final["force_n"])
+    upper_moment = tuple(sign * component for component in final["moment_global_origin_nmm"])
+    residual_force = tuple(a + b for a, b in zip(LOAD_FORCE_N, upper_force, strict=True))
+    residual_moment = tuple(a + b for a, b in zip(LOAD_MOMENT_NMM, upper_moment, strict=True))
+    _assert_vector_close(
+        residual_force, (0.0, 0.0, 0.0), tolerance["force_component_abs_n"], 0.0,
+        "loaded-upper-body force equilibrium",
+    )
+    _assert_vector_close(
+        residual_moment, (0.0, 0.0, 0.0), tolerance["moment_component_abs_nmm"], 0.0,
+        "loaded-upper-body moment equilibrium",
+    )
+    return {
+        "schema": "ccx-contact-wrench-benchmark-audit/v1",
+        "status": "CONTACT_WRENCH_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY",
+        "native_output_audited": True,
+        "scenario": scenario,
+        "units": manifest["units"],
+        "solver": manifest["solver"],
+        "scope": "standalone contact output side, centroid, and loaded-body equilibrium only",
+        "contact_report_count": len(reports),
+        "final_time": final["time"],
+        "contact_owner_body": contract["cf_owner_body"],
+        "contact_action_on_loaded_upper_wrench_n_nmm": list(upper_force + upper_moment),
+        "reported_slave_wrench_n_nmm": list(final["force_n"] + final["moment_global_origin_nmm"]),
+        "contact_centroid_xyz_mm": list(final["centroid_xyz_mm"]),
+        "reported_centroid_z_bounds_mm": manifest["contact_patch"]["reported_centroid_z_bounds_mm"],
+        "contact_moment_at_centroid_nmm": list(final["moment_at_centroid_nmm"]),
+        "contact_area_mm2": final["area_mm2"],
+        "signed_normal_force_n": final["normal_force_signed_n"],
+        "shear_force_magnitude_n": final["shear_force_magnitude_n"],
+        "loaded_upper_equilibrium_residual_force_n": list(residual_force),
+        "loaded_upper_equilibrium_residual_moment_nmm": list(residual_moment),
+        "tolerances": tolerance,
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    modes = parser.add_mutually_exclusive_group(required=True)
+    modes.add_argument("--prepare", action="store_true", help="Write the two input decks and source-pinned manifest")
+    modes.add_argument("--verify", action="store_true", help="Verify source pins and print the prepared run contract")
+    modes.add_argument("--audit", nargs=2, metavar=("SCENARIO", "DAT"), help="Audit one native .dat output; never starts a solver")
+    args = parser.parse_args()
+    if args.prepare:
+        prepare_artifacts()
+        print(json.dumps(prepared_record(), indent=2, allow_nan=False))
+        return 0
+    if args.verify:
+        print(json.dumps(prepared_record(), indent=2, allow_nan=False))
+        return 0
+    scenario, data_path = args.audit
+    print(json.dumps(audit_data(Path(data_path).read_text(encoding="utf-8", errors="replace"), scenario), indent=2, allow_nan=False))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

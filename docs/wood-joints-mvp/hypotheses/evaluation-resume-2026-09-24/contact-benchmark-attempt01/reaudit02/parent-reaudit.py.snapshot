@@ -1,0 +1,18 @@
+import hashlib,json,shutil
+from pathlib import Path
+from fea.contact_wrench_benchmark import audit_run
+root=Path.cwd(); d=Path('docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-benchmark-attempt01');out=d/'reaudit02'
+out.mkdir(exist_ok=True)
+assert not any(out.iterdir())
+producer=root/'fea/contact_wrench_benchmark.py';manifest=root/'fea/results/ccx_contact_wrench_benchmark/manifest.json'
+assert hashlib.sha256(producer.read_bytes()).hexdigest()=='2034ab0e368c1f4661c306f86c4540821571519e14459f134b1a0ac1fcb9e8f7'
+old=json.loads((d/'execution.json').read_text())
+for name,digest in old['artifacts_sha256'].items():
+ assert hashlib.sha256((d/name).read_bytes()).hexdigest()==digest,name
+results=[]
+for case in ['upper-slave','lower-slave']:
+ r=audit_run((d/(case+'.dat')).read_text(),(d/(case+'.sta')).read_text(),(d/(case+'.log')).read_text(),case.replace('-', '_'),0,(d/(case+'.inp')).read_text())
+ (out/(case+'.json')).write_text(json.dumps(r,indent=2)+'\n');results.append({'case':case,'status':r['status']})
+shutil.copyfile(producer,out/'auditor.py.snapshot');shutil.copyfile(manifest,out/'auditor-manifest.json');shutil.copyfile('/tmp/reaudit-current-contact-benchmark.py',out/'parent-reaudit.py.snapshot')
+record={'scope':'Re-audit unchanged native attempt01 outputs with corrected strict CF/CFN/CFS interpretation; no new native run or candidate solve.','results':results,'original_prepared_contract_preserved':True,'original_raw_artifacts_verified':True,'original_parser_rejection_preserved':'../audit-attempt01.json','acceptance_change':'Same predeclared numeric force/moment/location tolerances; explicitly disambiguate requested CF/CFN/CFS triplets and add independent fixture/support equilibrium and completion/deck checks.','release':False,'artifacts_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir()}}
+(out/'audit-record.json').write_text(json.dumps(record,indent=2)+'\n');print(json.dumps(results))

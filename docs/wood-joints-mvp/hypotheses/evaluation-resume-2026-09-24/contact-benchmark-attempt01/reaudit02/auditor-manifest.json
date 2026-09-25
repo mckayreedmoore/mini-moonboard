@@ -1,0 +1,253 @@
+{
+  "schema": "ccx-contact-wrench-benchmark/v1",
+  "solver": {
+    "product": "CalculiX CrunchiX",
+    "version": "2.21"
+  },
+  "scenario_order": [
+    "upper_slave",
+    "lower_slave"
+  ],
+  "manual": {
+    "title": "CalculiX 2.21 User's Manual",
+    "url": "https://www.dhondt.de/ccx_2.21.pdf",
+    "contact_print_pages": [
+      430,
+      431
+    ]
+  },
+  "units": {
+    "length": "mm",
+    "force": "N",
+    "moment": "N mm",
+    "stress": "N/mm^2"
+  },
+  "fixture": {
+    "body_dimensions_mm": [
+      20.0,
+      20.0,
+      10.0
+    ],
+    "interface_plane_z_mm": 0.0,
+    "element_type": "C3D8",
+    "elements_per_body": 1,
+    "elastic_modulus_n_per_mm2": 1000.0,
+    "poisson_ratio": 0.0,
+    "fixture_material_notice": "Arbitrary linear-elastic fixture values used only to regularize the output probe; no wood property or capacity is represented.",
+    "normal_penalty_n_per_mm3": 10000.0,
+    "contact_penalty_notice": "Numerical enforcement parameter for this output probe; not joint stiffness or resistance."
+  },
+  "load": {
+    "body": "UPPER",
+    "top_nodes": [
+      15,
+      16,
+      17,
+      18
+    ],
+    "force_per_node_n": [
+      0.0,
+      0.0,
+      -25.0
+    ],
+    "resultant_force_n": [
+      0.0,
+      0.0,
+      -100.0
+    ],
+    "resultant_moment_global_origin_nmm": [
+      -1000.0,
+      1000.0,
+      0.0
+    ],
+    "resultant_application_point_mm": [
+      10.0,
+      10.0,
+      10.0
+    ],
+    "support_nodes": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "contact_patch": {
+    "area_mm2": 400.0,
+    "nominal_centroid_xyz_mm": [
+      10.0,
+      10.0,
+      0.0
+    ],
+    "reported_centroid_xy_mm": [
+      10.0,
+      10.0
+    ],
+    "reported_centroid_z_bounds_mm": [
+      -0.003,
+      0.0001
+    ],
+    "reported_centroid_z_interpretation": "The 2.21 manual calls this the contact-area center of gravity without specifying reference/deformed coordinates. Accept the nominal z=0 plane or the predicted compressed interface: the lower block shortens 0.0025 mm at 100 N and the 10000 N/mm^3 penalty adds about 0.000025 mm closure.",
+    "expected_normal_force_magnitude_n": 100.0
+  },
+  "result_tolerances": {
+    "force_component_abs_n": 0.01,
+    "force_component_relative": 0.0001,
+    "moment_component_abs_nmm": 0.1,
+    "moment_component_relative": 0.0001,
+    "normal_force_abs_n": 0.01,
+    "shear_force_abs_n": 0.01,
+    "centroid_xy_abs_mm": 0.0001,
+    "area_abs_mm2": 0.01,
+    "mean_normal_component_abs": 1e-08,
+    "guide_displacement_abs_mm": 1e-09,
+    "step_end_time_abs": 1e-09
+  },
+  "solver_completion_contract": {
+    "maximum_increments": 100,
+    "step_end_time": 1.0,
+    "step_kind": "one quasi-static nonlinear contact step",
+    "required_dat_output": "one ordered CF, CFN, CFS report group at every accepted increment for the named pair",
+    "contact_report_quantity_order": [
+      "CF",
+      "CFN",
+      "CFS"
+    ],
+    "required_status": "one converged step 1 endpoint at time 1.0 with no trailing unconverged attempt",
+    "required_log_marker": "Job finished",
+    "audit_scope": "contact resultant, reported force location, and equilibrium with the known top load only"
+  },
+  "scenarios": {
+    "upper_slave": {
+      "slave_surface": "UPPER_INTERFACE",
+      "master_surface": "LOWER_INTERFACE",
+      "cf_owner_body": "UPPER",
+      "expected_slave_mean_normal": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "expected_cf_force_n": [
+        0.0,
+        0.0,
+        100.0
+      ],
+      "expected_cfn_force_n": [
+        0.0,
+        0.0,
+        100.0
+      ],
+      "expected_cfs_force_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_cfn_compression_magnitude_n": 100.0,
+      "expected_contact_normal_force_signed_n": -100.0,
+      "expected_cfs_shear_magnitude_n": 0.0,
+      "expected_cf_moment_global_origin_nmm": [
+        1000.0,
+        -1000.0,
+        0.0
+      ],
+      "expected_cfn_moment_global_origin_nmm": [
+        1000.0,
+        -1000.0,
+        0.0
+      ],
+      "expected_cfs_moment_global_origin_nmm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        10.0,
+        10.0,
+        0.0
+      ],
+      "expected_cf_moment_at_contact_centroid_nmm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_master_action_force_n": [
+        0.0,
+        0.0,
+        -100.0
+      ],
+      "expected_master_action_moment_global_origin_nmm": [
+        -1000.0,
+        1000.0,
+        0.0
+      ]
+    },
+    "lower_slave": {
+      "slave_surface": "LOWER_INTERFACE",
+      "master_surface": "UPPER_INTERFACE",
+      "cf_owner_body": "LOWER",
+      "expected_slave_mean_normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "expected_cf_force_n": [
+        0.0,
+        0.0,
+        -100.0
+      ],
+      "expected_cfn_force_n": [
+        0.0,
+        0.0,
+        -100.0
+      ],
+      "expected_cfs_force_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_cfn_compression_magnitude_n": 100.0,
+      "expected_contact_normal_force_signed_n": -100.0,
+      "expected_cfs_shear_magnitude_n": 0.0,
+      "expected_cf_moment_global_origin_nmm": [
+        -1000.0,
+        1000.0,
+        0.0
+      ],
+      "expected_cfn_moment_global_origin_nmm": [
+        -1000.0,
+        1000.0,
+        0.0
+      ],
+      "expected_cfs_moment_global_origin_nmm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        10.0,
+        10.0,
+        0.0
+      ],
+      "expected_cf_moment_at_contact_centroid_nmm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "expected_master_action_force_n": [
+        0.0,
+        0.0,
+        100.0
+      ],
+      "expected_master_action_moment_global_origin_nmm": [
+        1000.0,
+        -1000.0,
+        0.0
+      ]
+    }
+  },
+  "source_files_sha256": {
+    "fea/contact_wrench_benchmark.py": "2034ab0e368c1f4661c306f86c4540821571519e14459f134b1a0ac1fcb9e8f7",
+    "fea/results/ccx_contact_wrench_benchmark/lower-slave.inp": "12c7808982a88fc5c30d642ec432a2fed4a96a2d1fe4decb71470eb788431c19",
+    "fea/results/ccx_contact_wrench_benchmark/upper-slave.inp": "fa8459d004516c417234fe076d35ccbbddd1e37b63e69692602b2cb6116db64d"
+  }
+}

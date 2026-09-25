@@ -1,0 +1,25 @@
+{
+  "scope": "Re-audit unchanged native attempt01 outputs with corrected strict CF/CFN/CFS interpretation; no new native run or candidate solve.",
+  "results": [
+    {
+      "case": "upper-slave",
+      "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY"
+    },
+    {
+      "case": "lower-slave",
+      "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY"
+    }
+  ],
+  "original_prepared_contract_preserved": true,
+  "original_raw_artifacts_verified": true,
+  "original_parser_rejection_preserved": "../audit-attempt01.json",
+  "acceptance_change": "Same predeclared numeric force/moment/location tolerances; explicitly disambiguate requested CF/CFN/CFS triplets and add independent fixture/support equilibrium and completion/deck checks.",
+  "release": false,
+  "artifacts_sha256": {
+    "parent-reaudit.py.snapshot": "cc4d0f0bf35d89962ddca74584b31b91e27711c35ebef83f0d5802627f85d89f",
+    "upper-slave.json": "85242eaad20711e3f69e3cf38e89762ff229af30743f142cec1d7ab03fcaa48e",
+    "auditor-manifest.json": "d00f3023cac919dd09288706370d2927d8e58afc3e6fe4df0e4fc0c175f8e2c9",
+    "auditor.py.snapshot": "2034ab0e368c1f4661c306f86c4540821571519e14459f134b1a0ac1fcb9e8f7",
+    "lower-slave.json": "6c49b2bc415f2ab7e60390f7624139000697b8668252b87f49976f716fbba206"
+  }
+}

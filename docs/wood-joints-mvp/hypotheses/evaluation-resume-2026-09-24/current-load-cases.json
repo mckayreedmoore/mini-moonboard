@@ -1,0 +1,565 @@
+{
+  "schema": "wood_joint_current_load_case_contract/v1",
+  "candidate": "compact-floor-flush-wood-joints-development",
+  "geometry_revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+  "reviewed_repository_commit": "b1e8707d",
+  "load_basis": {
+    "pounds": 250.0,
+    "dynamic_factor": 2.0,
+    "pounds_to_kg": 0.45359237,
+    "gravity_m_per_s2": 9.80665,
+    "vertical_force_global_z_n": -2224.11080763025,
+    "horizontal_components": "Global X/Y components exactly as frozen in the six case producer.",
+    "patch_size_mm": 20.0,
+    "patch_definition": "20 mm square patch centered at the explicit current hold face datum.",
+    "standoff_mm": 100.0,
+    "standoff_definition": "100 mm from the explicit hold face datum along the explicit outward panel normal.",
+    "moment_definition": "(standoff force point - explicit panel-midplane reference point) cross global force; N mm."
+  },
+  "current_geometry_inputs": {
+    "coordinate_frame": "global_xyz_mm_and_global_xyz_n",
+    "panel_outward_normal_global_xyz": [
+      -0.0,
+      0.7660444431189781,
+      -0.6427876096865394
+    ],
+    "hold_face_datums_global_xyz_mm": {
+      "A12": [
+        -1019.2,
+        1472.9493232735708,
+        2053.4455581565517
+      ],
+      "K12": [
+        980.8,
+        1472.9493232735708,
+        2053.4455581565517
+      ],
+      "A1": [
+        -1019.2,
+        45.96082976945401,
+        352.8268944324205
+      ]
+    },
+    "panel_midplane_applicationpoints_global_xyz_mm": {
+      "A12": [
+        -1019.2,
+        1465.9567738412254,
+        2059.313003806222
+      ],
+      "K12": [
+        980.8,
+        1465.9567738412254,
+        2059.313003806222
+      ],
+      "A1": [
+        -1019.2,
+        38.9682803371085,
+        358.6943400820905
+      ]
+    }
+  },
+  "current_geometry_input_sha256": "8a8dd0ec19fe180688eb6fec1faf193b9a5388096e6611fb24e173c6d0470020",
+  "source_provenance": {
+    "geometry_revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+    "reviewed_repository_commit": "b1e8707d",
+    "geometry_snapshot": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/geometry-snapshot.json",
+    "snapshot_bound_source_sha256": {
+      "current-candidate.json": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+      "site/owner-wood-joints-review-report.json": "148f97623573558cd6a6c53f8a5399f2b30549d6aa1ed13c326dfe1bc3e9d695",
+      "site/owner-wood-joints-wj24-scene.json": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf",
+      "wood-joints-candidate.json": "2d1c43eae6f1515ad9fbb052d208b14648f4bf4f9003f49a7268d2ecb8ec545d"
+    },
+    "files": {
+      "current-candidate.json": {
+        "sha256": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+        "role": "source bound by the reviewed geometry snapshot"
+      },
+      "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/current-load-datums-driver.py.snapshot": {
+        "sha256": "f7d142fa9099abc8f92276a8bb038b5d17d29a71dbf03f0eacee9a78b9fa333f",
+        "role": "source bound by the explicit current datum artifact"
+      },
+      "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/current-load-datums.json": {
+        "sha256": "c3a561b84eb56472264e92eacabae7c2e06fe33633ebba96f1de9ee974924022",
+        "role": "explicit current hold/panel global-datum input artifact"
+      },
+      "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/geometry-snapshot.json": {
+        "sha256": "0b92357af648604ee8ce42d2f8906e0a4e5498e9e4b835a07938b81dc151d187",
+        "role": "reviewed current geometry snapshot and revision identity"
+      },
+      "fea/current_response_model.py": {
+        "sha256": "faae5b14c47c3c485f41d56eb77ec9e9a6c1801e5a143276a91afc3a294a9894",
+        "role": "historical force scaling and standoff-wrench convention; never imported"
+      },
+      "fea/current_response_run.py": {
+        "sha256": "2e981f24616afcd441cca911a89942b0f12784f97aa13a59933a4d002ca5f955",
+        "role": "historical current-frame producer/loader provenance; never invoked"
+      },
+      "fea/horizontal_panel_frame.py": {
+        "sha256": "9ac5ceb2bd76ffddb6c048f92e54082a4672d72aab635ba2230e4352253378d9",
+        "role": "historical patch/wrench distribution convention; never imported"
+      },
+      "mini_moonboard/box_frame.py": {
+        "sha256": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+        "role": "source bound by the explicit current datum artifact"
+      },
+      "mini_moonboard/model.py": {
+        "sha256": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+        "role": "source bound by the explicit current datum artifact"
+      },
+      "mini_moonboard/no_shoes_frame.py": {
+        "sha256": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+        "role": "source bound by the explicit current datum artifact"
+      },
+      "mini_moonboard/panel_grid_v2.py": {
+        "sha256": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+        "role": "historical hold labels only; local datums are not current coordinates"
+      },
+      "mini_moonboard/product_frame.py": {
+        "sha256": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+        "role": "source bound by the explicit current datum artifact"
+      },
+      "scripts/clear_space_batch.py": {
+        "sha256": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a",
+        "role": "frozen six case IDs, horizontal inputs, 250 lb and 20 mm override"
+      },
+      "scripts/wood_joint_current_load_cases.py": {
+        "sha256": "46f67d66c9490d3a435c0f1098ed42ce0f95dee7de81d4c62bd8835ed607b534",
+        "role": "independent frozen current force/wrench contract producer"
+      },
+      "site/owner-wood-joints-review-report.json": {
+        "sha256": "148f97623573558cd6a6c53f8a5399f2b30549d6aa1ed13c326dfe1bc3e9d695",
+        "role": "source bound by the explicit current datum artifact"
+      },
+      "site/owner-wood-joints-wj24-scene.json": {
+        "sha256": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf",
+        "role": "source bound by the explicit current datum artifact"
+      },
+      "wood-joints-candidate.json": {
+        "sha256": "2d1c43eae6f1515ad9fbb052d208b14648f4bf4f9003f49a7268d2ecb8ec545d",
+        "role": "source bound by the reviewed geometry snapshot"
+      }
+    },
+    "current_transform_source": {
+      "source_id": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/current-load-datums.json",
+      "sha256": "c3a561b84eb56472264e92eacabae7c2e06fe33633ebba96f1de9ee974924022",
+      "description": "Reviewed explicit current global hold-face and panel-midplane datums; no T-nut center used.",
+      "source_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/current-load-datums.json",
+      "source_sha256": {
+        "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/current-load-datums-driver.py.snapshot": "f7d142fa9099abc8f92276a8bb038b5d17d29a71dbf03f0eacee9a78b9fa333f",
+        "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+        "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+        "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+        "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+        "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+        "site/owner-wood-joints-review-report.json": "148f97623573558cd6a6c53f8a5399f2b30549d6aa1ed13c326dfe1bc3e9d695",
+        "site/owner-wood-joints-wj24-scene.json": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf"
+      }
+    },
+    "source_use_note": "Repository files are read only for source identity. The historical local hold/T-nut datum table is not used to create current global coordinates."
+  },
+  "cases": [
+    {
+      "case_id": "a12-rear",
+      "hold_id": "A12",
+      "case_inputs": {
+        "horizontal_force_global_xy_n": [
+          0.0,
+          300.0
+        ],
+        "pounds": 250.0,
+        "dynamic_factor": 2.0
+      },
+      "applied_force_global_xyz_n": [
+        0.0,
+        300.0,
+        -2224.11080763025
+      ],
+      "panel_patch": {
+        "size_mm": 20.0,
+        "center_global_xyz_mm": [
+          -1019.2,
+          1472.9493232735708,
+          2053.4455581565517
+        ],
+        "scope": "20 mm square panel load patch centered on the explicit hold face datum"
+      },
+      "standoff": {
+        "distance_mm": 100.0,
+        "direction_global_xyz": [
+          -0.0,
+          0.7660444431189781,
+          -0.6427876096865394
+        ],
+        "force_application_point_global_xyz_mm": [
+          -1019.2,
+          1549.5537675854687,
+          1989.1667971878978
+        ]
+      },
+      "panel_midplane_applicationpoint_global_xyz_mm": [
+        -1019.2,
+        1465.9567738412254,
+        2059.313003806222
+      ],
+      "moment_about_panel_midplane_applicationpoint_global_xyz_nmm": [
+        -164885.11528647266,
+        0.0,
+        0.0
+      ],
+      "applied_wrench": {
+        "reference_point_global_xyz_mm": [
+          -1019.2,
+          1465.9567738412254,
+          2059.313003806222
+        ],
+        "force_global_xyz_n": [
+          0.0,
+          300.0,
+          -2224.11080763025
+        ],
+        "moment_global_xyz_nmm": [
+          -164885.11528647266,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "case_id": "a12-forward",
+      "hold_id": "A12",
+      "case_inputs": {
+        "horizontal_force_global_xy_n": [
+          0.0,
+          -300.0
+        ],
+        "pounds": 250.0,
+        "dynamic_factor": 2.0
+      },
+      "applied_force_global_xyz_n": [
+        0.0,
+        -300.0,
+        -2224.11080763025
+      ],
+      "panel_patch": {
+        "size_mm": 20.0,
+        "center_global_xyz_mm": [
+          -1019.2,
+          1472.9493232735708,
+          2053.4455581565517
+        ],
+        "scope": "20 mm square panel load patch centered on the explicit hold face datum"
+      },
+      "standoff": {
+        "distance_mm": 100.0,
+        "direction_global_xyz": [
+          -0.0,
+          0.7660444431189781,
+          -0.6427876096865394
+        ],
+        "force_application_point_global_xyz_mm": [
+          -1019.2,
+          1549.5537675854687,
+          1989.1667971878978
+        ]
+      },
+      "panel_midplane_applicationpoint_global_xyz_mm": [
+        -1019.2,
+        1465.9567738412254,
+        2059.313003806222
+      ],
+      "moment_about_panel_midplane_applicationpoint_global_xyz_nmm": [
+        -206972.839257467,
+        0.0,
+        -0.0
+      ],
+      "applied_wrench": {
+        "reference_point_global_xyz_mm": [
+          -1019.2,
+          1465.9567738412254,
+          2059.313003806222
+        ],
+        "force_global_xyz_n": [
+          0.0,
+          -300.0,
+          -2224.11080763025
+        ],
+        "moment_global_xyz_nmm": [
+          -206972.839257467,
+          0.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "case_id": "a12-left",
+      "hold_id": "A12",
+      "case_inputs": {
+        "horizontal_force_global_xy_n": [
+          -300.0,
+          0.0
+        ],
+        "pounds": 250.0,
+        "dynamic_factor": 2.0
+      },
+      "applied_force_global_xyz_n": [
+        -300.0,
+        0.0,
+        -2224.11080763025
+      ],
+      "panel_patch": {
+        "size_mm": 20.0,
+        "center_global_xyz_mm": [
+          -1019.2,
+          1472.9493232735708,
+          2053.4455581565517
+        ],
+        "scope": "20 mm square panel load patch centered on the explicit hold face datum"
+      },
+      "standoff": {
+        "distance_mm": 100.0,
+        "direction_global_xyz": [
+          -0.0,
+          0.7660444431189781,
+          -0.6427876096865394
+        ],
+        "force_application_point_global_xyz_mm": [
+          -1019.2,
+          1549.5537675854687,
+          1989.1667971878978
+        ]
+      },
+      "panel_midplane_applicationpoint_global_xyz_mm": [
+        -1019.2,
+        1465.9567738412254,
+        2059.313003806222
+      ],
+      "moment_about_panel_midplane_applicationpoint_global_xyz_nmm": [
+        -185928.97727196984,
+        21043.861985497188,
+        25079.09812327298
+      ],
+      "applied_wrench": {
+        "reference_point_global_xyz_mm": [
+          -1019.2,
+          1465.9567738412254,
+          2059.313003806222
+        ],
+        "force_global_xyz_n": [
+          -300.0,
+          0.0,
+          -2224.11080763025
+        ],
+        "moment_global_xyz_nmm": [
+          -185928.97727196984,
+          21043.861985497188,
+          25079.09812327298
+        ]
+      }
+    },
+    {
+      "case_id": "k12-right",
+      "hold_id": "K12",
+      "case_inputs": {
+        "horizontal_force_global_xy_n": [
+          300.0,
+          0.0
+        ],
+        "pounds": 250.0,
+        "dynamic_factor": 2.0
+      },
+      "applied_force_global_xyz_n": [
+        300.0,
+        0.0,
+        -2224.11080763025
+      ],
+      "panel_patch": {
+        "size_mm": 20.0,
+        "center_global_xyz_mm": [
+          980.8,
+          1472.9493232735708,
+          2053.4455581565517
+        ],
+        "scope": "20 mm square panel load patch centered on the explicit hold face datum"
+      },
+      "standoff": {
+        "distance_mm": 100.0,
+        "direction_global_xyz": [
+          -0.0,
+          0.7660444431189781,
+          -0.6427876096865394
+        ],
+        "force_application_point_global_xyz_mm": [
+          980.8,
+          1549.5537675854687,
+          1989.1667971878978
+        ]
+      },
+      "panel_midplane_applicationpoint_global_xyz_mm": [
+        980.8,
+        1465.9567738412254,
+        2059.313003806222
+      ],
+      "moment_about_panel_midplane_applicationpoint_global_xyz_nmm": [
+        -185928.97727196984,
+        -21043.861985497188,
+        -25079.09812327298
+      ],
+      "applied_wrench": {
+        "reference_point_global_xyz_mm": [
+          980.8,
+          1465.9567738412254,
+          2059.313003806222
+        ],
+        "force_global_xyz_n": [
+          300.0,
+          0.0,
+          -2224.11080763025
+        ],
+        "moment_global_xyz_nmm": [
+          -185928.97727196984,
+          -21043.861985497188,
+          -25079.09812327298
+        ]
+      }
+    },
+    {
+      "case_id": "k12-rear",
+      "hold_id": "K12",
+      "case_inputs": {
+        "horizontal_force_global_xy_n": [
+          0.0,
+          300.0
+        ],
+        "pounds": 250.0,
+        "dynamic_factor": 2.0
+      },
+      "applied_force_global_xyz_n": [
+        0.0,
+        300.0,
+        -2224.11080763025
+      ],
+      "panel_patch": {
+        "size_mm": 20.0,
+        "center_global_xyz_mm": [
+          980.8,
+          1472.9493232735708,
+          2053.4455581565517
+        ],
+        "scope": "20 mm square panel load patch centered on the explicit hold face datum"
+      },
+      "standoff": {
+        "distance_mm": 100.0,
+        "direction_global_xyz": [
+          -0.0,
+          0.7660444431189781,
+          -0.6427876096865394
+        ],
+        "force_application_point_global_xyz_mm": [
+          980.8,
+          1549.5537675854687,
+          1989.1667971878978
+        ]
+      },
+      "panel_midplane_applicationpoint_global_xyz_mm": [
+        980.8,
+        1465.9567738412254,
+        2059.313003806222
+      ],
+      "moment_about_panel_midplane_applicationpoint_global_xyz_nmm": [
+        -164885.11528647266,
+        0.0,
+        0.0
+      ],
+      "applied_wrench": {
+        "reference_point_global_xyz_mm": [
+          980.8,
+          1465.9567738412254,
+          2059.313003806222
+        ],
+        "force_global_xyz_n": [
+          0.0,
+          300.0,
+          -2224.11080763025
+        ],
+        "moment_global_xyz_nmm": [
+          -164885.11528647266,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "case_id": "a1-rear",
+      "hold_id": "A1",
+      "case_inputs": {
+        "horizontal_force_global_xy_n": [
+          0.0,
+          300.0
+        ],
+        "pounds": 250.0,
+        "dynamic_factor": 2.0
+      },
+      "applied_force_global_xyz_n": [
+        0.0,
+        300.0,
+        -2224.11080763025
+      ],
+      "panel_patch": {
+        "size_mm": 20.0,
+        "center_global_xyz_mm": [
+          -1019.2,
+          45.96082976945401,
+          352.8268944324205
+        ],
+        "scope": "20 mm square panel load patch centered on the explicit hold face datum"
+      },
+      "standoff": {
+        "distance_mm": 100.0,
+        "direction_global_xyz": [
+          -0.0,
+          0.7660444431189781,
+          -0.6427876096865394
+        ],
+        "force_application_point_global_xyz_mm": [
+          -1019.2,
+          122.56527408135182,
+          288.54813346376653
+        ]
+      },
+      "panel_midplane_applicationpoint_global_xyz_mm": [
+        -1019.2,
+        38.9682803371085,
+        358.6943400820905
+      ],
+      "moment_about_panel_midplane_applicationpoint_global_xyz_nmm": [
+        -164885.11528647278,
+        0.0,
+        0.0
+      ],
+      "applied_wrench": {
+        "reference_point_global_xyz_mm": [
+          -1019.2,
+          38.9682803371085,
+          358.6943400820905
+        ],
+        "force_global_xyz_n": [
+          0.0,
+          300.0,
+          -2224.11080763025
+        ],
+        "moment_global_xyz_nmm": [
+          -164885.11528647278,
+          0.0,
+          0.0
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Applied forces and equivalent global wrenches only; no frame reactions or connection demands are computed.",
+    "No joint law, contact law, stiffness, resistance, load sharing, or capacity is assumed by this contract.",
+    "The 20 mm patch and 100 mm standoff are distinct: patch center is the hold-face datum; the wrench force point is 100 mm outward from it.",
+    "Caller-supplied current global geometry is mandatory and is never inferred from historical T-nut-center coordinates."
+  ],
+  "contract_sha256": "19fe8aa9b370f2f82758610b8e0231bf0d3972036cf849ef2ffea16e5bf05776"
+}

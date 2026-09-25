@@ -1,0 +1,147 @@
+{
+  "schema": "ccx-contact-wrench-benchmark-audit/v1",
+  "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY",
+  "dat_output_audited": true,
+  "scenario": "lower_slave",
+  "units": {
+    "length": "mm",
+    "force": "N",
+    "moment": "N mm",
+    "stress": "N/mm^2"
+  },
+  "solver": {
+    "product": "CalculiX CrunchiX",
+    "version": "2.21"
+  },
+  "scope": "ordered CF/CFN/CFS output, contact resultant location, loaded-body wrench, and fixture global balance only",
+  "contact_report_count": 3,
+  "contact_report_quantity_order": [
+    "CF",
+    "CFN",
+    "CFS"
+  ],
+  "final_time": 1.0,
+  "contact_owner_body": "LOWER",
+  "contact_components": {
+    "CF": {
+      "force_n": [
+        0.0,
+        0.0,
+        -100.0
+      ],
+      "moment_global_origin_nmm": [
+        -1000.0,
+        1000.0,
+        0.0
+      ],
+      "normal_force_signed_n": -100.0,
+      "shear_force_magnitude_n": 0.0
+    },
+    "CFN": {
+      "force_n": [
+        0.0,
+        0.0,
+        -100.0
+      ],
+      "moment_global_origin_nmm": [
+        -1000.0,
+        1000.0,
+        0.0
+      ],
+      "normal_force_signed_n": -100.0,
+      "shear_force_magnitude_n": 0.0
+    },
+    "CFS": {
+      "force_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "moment_global_origin_nmm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "normal_force_signed_n": 0.0,
+      "shear_force_magnitude_n": 0.0
+    }
+  },
+  "contact_action_on_loaded_upper_wrench_n_nmm": [
+    -0.0,
+    -0.0,
+    100.0,
+    1000.0,
+    -1000.0,
+    -0.0
+  ],
+  "contact_centroid_xyz_mm": [
+    10.0,
+    10.0,
+    -0.002500938
+  ],
+  "reported_centroid_z_bounds_mm": [
+    -0.003,
+    0.0001
+  ],
+  "contact_area_mm2": 400.0,
+  "loaded_upper_equilibrium_residual_force_n": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "loaded_upper_equilibrium_residual_moment_nmm": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "fixture_global_balance": {
+    "top_force_wrench_n_nmm": [
+      4.572834e-15,
+      4.5728345000000006e-15,
+      -100.0,
+      -1000.0000000000001,
+      1000.0000000000001,
+      1.9556499999999978e-15
+    ],
+    "support_reaction_wrench_n_nmm": [
+      -1.0634030000000001e-16,
+      7.673214999999999e-16,
+      100.0,
+      1000.0,
+      -1000.0,
+      9.707435999999998e-15
+    ],
+    "global_force_residual_n": [
+      4.4664937e-15,
+      5.340156e-15,
+      0.0
+    ],
+    "global_moment_residual_nmm": [
+      -1.1368683772161603e-13,
+      1.1368683772161603e-13,
+      1.1663085999999996e-14
+    ]
+  },
+  "tolerances": {
+    "force_component_abs_n": 0.01,
+    "force_component_relative": 0.0001,
+    "moment_component_abs_nmm": 0.1,
+    "moment_component_relative": 0.0001,
+    "normal_force_abs_n": 0.01,
+    "shear_force_abs_n": 0.01,
+    "centroid_xy_abs_mm": 0.0001,
+    "area_abs_mm2": 0.01,
+    "mean_normal_component_abs": 1e-08,
+    "guide_displacement_abs_mm": 1e-09,
+    "step_end_time_abs": 1e-09
+  },
+  "solver_completion": {
+    "exit_code": 0,
+    "job_finished_marker_count": 1,
+    "accepted_increment_count": 1,
+    "final_step_time": 1.0,
+    "final_iterations": 2,
+    "unconverged_attempts": 0
+  },
+  "run_input_deck_sha256": "12c7808982a88fc5c30d642ec432a2fed4a96a2d1fe4decb71470eb788431c19"
+}

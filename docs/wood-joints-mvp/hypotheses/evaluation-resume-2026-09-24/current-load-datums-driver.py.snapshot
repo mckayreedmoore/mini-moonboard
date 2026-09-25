@@ -1,0 +1,30 @@
+import hashlib,json
+from pathlib import Path
+from mini_moonboard import panel_grid_v2,product_frame
+from scripts.wood_joint_wj12_diagnostic import _composed_wood
+(freeze_dir/'current-load-datums-driver.py.snapshot').write_bytes(Path('/tmp/freeze-current-load-datums.py').read_bytes())
+model=g24_outer_2x6.source.source
+b=model.b
+normal=b.normal().normalized()
+origin=b.point(0,0,0)
+frame=cq.Location(cq.Plane(origin=origin,xDir=(1,0,0),normal=normal))
+raw,finished=_composed_wood(g24_outer_2x6)
+rows={}
+for hold in ['A12','K12','A1']:
+ x,s=panel_grid_v2.main_tnut_datums()[hold]; x-=b.HALF
+ name=f"main_{'lower' if s<b.HALF else 'upper'}_{'left' if x<0 else 'right'}"
+ rb=raw[name].moved(frame.inverse).BoundingBox()
+ assert abs(rb.zmax)<1e-5 and abs(rb.zmin+product_frame.FACE_THICKNESS_MM)<1e-5,(name,rb.zmin,rb.zmax)
+ assert rb.xmin<x<rb.xmax and rb.ymin<s<rb.ymax
+ thickness=rb.zmax-rb.zmin
+ face=b.point(x,s,rb.zmin)
+ mid=b.point(x,s,(rb.zmin+rb.zmax)/2)
+ tangent=cq.Vector(0,normal.z,-normal.y)
+ ring=[mid+cq.Vector(20,0,0),mid-cq.Vector(20,0,0),mid+20*tangent,mid-20*tangent]
+ assert all(raw[name].isInside(q,1e-6) for q in ring),name
+ rows[hold]={'panel_id':name,'face_datum_global_mm':list(face.toTuple()),'panel_midplane_reference_global_mm':list(mid.toTuple()),'outward_normal_global':list((-normal).toTuple()),'panel_local_hold_x_s_mm':[x,s],'raw_panel_local_normal_bounds_mm':[rb.zmin,rb.zmax],'category_thickness_mm':thickness,'basis':'Current source point transform and fixed grid; current raw panel solid projection and four material samples 20 mm around the intentionally bored hold axis checked. Face is n=min, support/back face n=0. No T-nut center used.'}
+paths=[str(freeze_dir/'current-load-datums-driver.py.snapshot'),'mini_moonboard/no_shoes_frame.py','mini_moonboard/panel_grid_v2.py','mini_moonboard/box_frame.py','mini_moonboard/model.py','mini_moonboard/product_frame.py','site/owner-wood-joints-wj24-scene.json','site/owner-wood-joints-review-report.json']
+result={'revision_id':g24_outer_2x6.layout_id,'holds':rows,'source_sha256':{p:hashlib.sha256(Path(p).read_bytes()).hexdigest() for p in paths},'not_a_load_or_mechanics_result':True}
+(freeze_dir/'current-load-datums.json').write_text(json.dumps(result,indent=2)+'\n')
+(freeze_dir/'current-load-datums-driver.py.snapshot').write_bytes(Path('/tmp/freeze-current-load-datums.py').read_bytes())
+print('LOAD_DATUMS',rows,flush=True)
