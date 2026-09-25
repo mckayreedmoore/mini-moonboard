@@ -1,5 +1,11 @@
 # Wood-joint MVP completion ledger
 
+The [refined execution plan](next-mvp-plan.md#refined-execution-plan-september-24-evening)
+is the current work sequence. Its immediate milestone is one verified response
+of the frozen current ordinary joint before broad family expansion. Current
+geometry and numerical-method preparation do not close structural criteria;
+all 47 entries in the current coverage register remain pending.
+
 ## Current evaluation checkpoint, September 24 evening
 
 The owner has reviewed `led-clearance-2x6-runner-seated-blocks-v1` and explicitly

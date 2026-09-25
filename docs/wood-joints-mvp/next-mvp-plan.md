@@ -8,6 +8,62 @@ loads, materials, hardware, and floor assumptions. It is not an inspected
 build or an unconditional climbing rating. WJ-11 physical receiving and
 prototype observations belong to the later MVP-P record.
 
+## Refined execution plan, September 24 evening
+
+This section is the current execution sequence. It supersedes sequencing and
+current-status language in the preserved checkpoints below, without changing
+adopted criteria or transferring historical results. The owner requested this
+plan before creation of the refined execution goal.
+
+**Endpoint:** complete a source-bound engineering evaluation of the reviewed
+`led-clearance-2x6-runner-seated-blocks-v1` design and a coordinated conditional
+development package. Report each applicable criterion as supported pass,
+supported failure, or specifically unresolved, with evidence and consequences.
+An unresolved item is not closed merely by listing it: pursue available
+analysis and sourcing, and record the concrete limit if it cannot be resolved.
+MVP-E requires the applicable gates to pass; a completed adverse evaluation
+does not make MVP-E complete. Fabrication, physical receiving, climbing release,
+candidate selection, and apartment-floor qualification are outside this goal.
+
+### Ordered work and completion evidence
+
+| Step | Remaining work | Required result and dependency |
+| --- | --- | --- |
+| 1. Freeze and reconcile | Keep the approved viewer/model stable. Bind current geometry, axes, grain scenarios, hardware roles, source files, and applied loads. Use the current geometry entry point and exact STEP exports; archive older adapters without migrating unused ones. | One consistent revision: 24 blocks, 92 candidate bolts, 12 retained frame bolts, and 66 Hillman axes (58 unchanged plus eight recorded moves). Geometry replay and current receiver/grip screens are available; full contact graph remains open. |
+| 2. Finish one joint end to end | Mesh the exported ordinary bottom-center right joint: three full timber members, four bolt stacks, and all three wood contacts. Verify ownership, volumes, element quality, contact coverage and normals. Freeze material, clearance, assembly/preload, bolt/nut engagement, boundary and load assumptions. Validate only the missing numerical methods, then run a bounded joint response. | Authenticated mesh and contact inputs, audited equilibrium and transferred wrenches, interpretable opening/slip/rotation and bolt/wood actions, with mesh and assumption sensitivity. Solver convergence alone is insufficient. The contact-output benchmark passed its limited checks; current-joint response has not run. |
+| 3. Cover all complete joints | Reuse the validated method where geometry, grain, hardware and loading justify it. Evaluate ordinary, tall-center and complete exterior sandwich joints; include both inner-header bolts per side, direct seats, retained host connections and all twelve frame bolts. Close the complete timber/panel contact and attachment graph and all 24 replaced angle duties. | A documented equivalence or separate evaluation for every station; complete center-kicker/header paths and kerf-right edge support. No acceptance by block shape alone, shared part name, or historical pass. |
+| 4. Establish full-frame response | Build the current complete-frame model with justified joint response or reduced stiffness and sensitivity. Include current panel/kicker load transfer, dead load, actual recess/sections and conditional no-slip supports. Freeze the model and six source-bound applied-load cases; run heavy/native cases serially. | Fresh six-case reactions, signed member/joint demands, displacements and stability evidence; force/moment closure and numerical/model sensitivity. No arbitrary force split or inherited old actions. Local unit responses are not these load cases. |
+| 5. Resolve structural criteria | Apply the [47-item register](current-criteria-coverage.md) to fresh demands. Check complete-joint wood/bolt resistance, axial and lateral interaction, signed grain/end/edge/group effects, washer support/bending, splitting, bearing, finished/net sections, taper/notch/shear/torsion and stability. Confirm method applicability and hardware basis. | Evidence-linked disposition for all 36 inherited criteria and 11 candidate obligations. Unsupported capacities remain unresolved. A failed adopted check or missing path stops the affected operation and produces a specific finding before any model change. |
+| 6. Finish fit and use checks in parallel | Extend beyond the 16 priority bolt access screens to all candidate and retained stacks. Check real installation/counterhold/removal envelopes and sequence, tolerances, individual-member transport, panel screw operations, current holds/T-nuts, LEDs and wiring service. Reconcile G6/G12 and any other historical findings against the current model. Restate the hypothetical denser-grid midpoint review separately from actual product compatibility. | Current complete layout/access disposition, explicit unresolved real-tool or physical-observation limits, and dimensioned ordinary-N exceptions where applicable. Feed findings back to mechanics only when analyzed geometry, receivers or paths change. |
+| 7. Finish materials, hardware and cost in parallel | Reconcile lumber blanks, grain, finished patterns and drilling variants. Source suitable bolt grades, lengths, shank/thread transitions, nuts and washers for all 92 candidate and 12 retained stacks. Preserve the 66 purchased Hillman policy and do not infer screw properties from another product. Refresh whole-board quantities, costs and weight as selections resolve. | Source-backed hardware/stock schedule and cost range with missing specifications clearly identified. Nominal CAD length is not delivered shank; physical receiving cells remain blank. Sourcing supports final criteria but need not delay explicitly provisional method diagnostics. |
+| 8. Integrate and review | Update this plan, the completion ledger, criterion evidence and candidate development instructions from validated outputs. Independently review critical calculations and source bindings. Reconcile drawings, dimensions, hardware, cost, access and result summaries. Commit and push completed chunks outside quiet hours. | One coherent reviewable package and clear pass/revise/unresolved conclusion. Selected authority and historical evidence remain intact; apartment notes remain local. No declaration of MVP-E while required evidence is missing. |
+
+### Execution changes now in force
+
+- The parent owns the critical path from frozen input through native execution
+  and acceptance review. Use one implementer and one focused reviewer per
+  dependent deliverable; hand off actual input/output artifacts, not speculative
+  schemas. Keep independent Luna/max work active where it advances the plan.
+- Exercise each new adapter on the actual frozen artifact promptly. Finish the
+  first current joint response before building a general family framework or
+  duplicating the preparation across every joint.
+- Reuse the current geometry entry point and frozen exports. Do not repeatedly
+  rebuild the baseline or repair historical adapters that no current consumer
+  needs. Keep the viewer stable; only an identified defect warrants viewer work.
+- Run independent lightweight reviews, sourcing and documentation alongside the
+  critical path. Serialize heavy/native jobs and shared CAD mutations. Cache
+  repeated obstacle bounds when extending access checks; verify equivalence
+  before treating cached output as evidence.
+- Test changed behavior and the actual integration boundary. Repeat passed
+  checks only after relevant changes or a specific unresolved concern. Keep one
+  current progress record here and in the ledger; preserve old reports as history.
+- Do not alter the reviewed model to make a result pass. Report a required
+  geometry change and its affected evidence before implementing it.
+
+The next concrete milestone is step 2's first current-joint response, not another
+viewer, planning report, or historical adapter migration. Steps 3–7 may overlap
+only where their inputs are ready; all remain necessary for the final package.
+
 ## Current priority: evaluate the owner-reviewed model
 
 The owner has approved resuming evaluation of
