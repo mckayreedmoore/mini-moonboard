@@ -186,7 +186,11 @@ def run(directory, *, timeout_seconds=600, threads=1):
     directory = Path(directory).resolve()
     freeze = json.loads((directory / "input-freeze.json").read_text())
     if (
-        freeze["schema"] != "wood_joint_current_transient/v1"
+        freeze["schema"]
+        not in {
+            "wood_joint_current_transient/v1",
+            "wood_joint_current_spring_actuator_input/v1",
+        }
         or freeze["solver_image"] != SOLVER_IMAGE
     ):
         raise ValueError("not the frozen current transient")
@@ -255,6 +259,7 @@ def run(directory, *, timeout_seconds=600, threads=1):
         "mechanical_acceptance": False,
         "observations": [],
         "scope": freeze["step_scope"],
+        "input_schema": freeze["schema"],
     }
 
     def save():
