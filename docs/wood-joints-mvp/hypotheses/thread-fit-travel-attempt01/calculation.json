@@ -1,0 +1,71 @@
+{
+  "artifact_id": "thread_fit_travel_attempt01",
+  "prepared": "2026-09-25",
+  "status": "conditional_fixed_rotation_ideal_profile_comparator",
+  "physical_wj24_gap_established": false,
+  "hardware_selected": false,
+  "capacity_calculated": false,
+  "hypothetical_pair": {
+    "designation": "1/4-20 UNC",
+    "external_class": "2A",
+    "internal_class": "2B",
+    "delivered_pair_verified": false,
+    "nominal_diameter_in": 0.25,
+    "threads_per_in": 20,
+    "pitch_in": 0.05,
+    "pitch_mm": 1.27
+  },
+  "reference_limits_in": {
+    "external_2a_pitch_diameter_min": 0.2127,
+    "external_2a_pitch_diameter_max": 0.2164,
+    "internal_2b_pitch_diameter_min": 0.2175,
+    "internal_2b_pitch_diameter_max": 0.2224,
+    "minimum_diametral_clearance": 0.0011,
+    "maximum_diametral_clearance": 0.0097
+  },
+  "conversion": {
+    "unified_60deg_functional_diameter_factor": 1.7321,
+    "axial_reversal_play_equation": "diametral_pitch_diameter_clearance / 1.7321",
+    "basis": "Derived by inverting the Unified 60 degree functional-diameter relation δE=1.7321δp in NBS Handbook H28 (1969) Part I section 9, for an ideal 60 degree flank-profile comparator."
+  },
+  "fixed_rotation_axial_reversal_play": {
+    "minimum_in": 0.000635067259396,
+    "minimum_mm": 0.016130708389,
+    "maximum_in": 0.005600138560129,
+    "maximum_mm": 0.142243519427
+  },
+  "helix": {
+    "basic_pitch_diameter_in": 0.21752405,
+    "basic_pitch_diameter_mm": 5.52511087,
+    "helix_angle_deg": 4.184680434,
+    "axial_advance_per_revolution_mm": 1.27,
+    "rotation_deg_per_axial_mm": 283.464566929,
+    "self_locking_determined": false
+  },
+  "conditional_assumptions": [
+    "Final class dimensions agree with cited reference limits and are confirmed against current ASME B1.1 before physical acceptance use.",
+    "At least one mutually engaged full-form thread turn exists outside nut entry/exit chamfers and bolt thread runout.",
+    "Nominal single-start helix and ideal 60 degree flank profile; zero pitch/lead, helix-form, flank-angle, taper, and roundness deviations.",
+    "No coating or plating outside the final accepted class dimensions.",
+    "Relative nut/bolt rotation is restrained during the axial movement considered.",
+    "No initial centered phase or preload is assumed."
+  ],
+  "unresolved_actual_attributes": [
+    "Current-edition class limit table and selected/delivered thread classes and final profile measurements.",
+    "Full-form internal and external engagement coordinates after entry/exit chamfers and thread runout.",
+    "Installed axial/rotational phase and initial active flank state.",
+    "Rotational restraint, friction, and actual end stops limiting helical travel."
+  ],
+  "sources": [
+    {
+      "source_id": "nbs_h28_1969_part_i",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/hb/nbshandbook28-1969p1.pdf",
+      "scope": "Primary federal Unified thread dimensional limits, 1/4-20 class 2A/2B values, and section 9 functional-diameter/lead-error relation."
+    },
+    {
+      "source_id": "asme_b1_1_2024",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/b1-1-unified-inch-screw-threads-un-unr-thread-form",
+      "scope": "Current ASME standard record and scope; numeric tables unavailable in the public preview."
+    }
+  ]
+}
