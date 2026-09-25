@@ -1,0 +1,91 @@
+{
+  "artifact_id": "current_engagement_analytical_attempt01",
+  "prepared": "2026-09-25",
+  "status": "conditional_post_seating_tangent_scenario_only",
+  "claim_boundary": {
+    "physical_engagement_accepted": false,
+    "hardware_sku_selected": false,
+    "preload_assumed": false,
+    "thread_slack_calculated": false,
+    "thread_strength_or_capacity_calculated": false,
+    "whole_joint_stiffness_calculated": false,
+    "wj04_hardware_or_sku_transferred": false
+  },
+  "nominal_geometry_hypothesis": {
+    "thread_form": "Unified inch, 60 degree, UNC coarse-series hypothesis",
+    "nominal_diameter_in": 0.25,
+    "nominal_diameter_mm": 6.35,
+    "threads_per_in": 20,
+    "pitch_in": 0.05,
+    "pitch_mm": 1.27,
+    "external_class": null,
+    "internal_class": null,
+    "matched_fit_verified": false,
+    "source": "ASME B1.1-2024 defines geometry and class limits; current WJ24 hardware basis selects no pair."
+  },
+  "model": {
+    "equation": "K_th = A_s * E_b / L_th",
+    "equivalent_length_equation": "L_th = 0.85 * d",
+    "equivalent_length_ratio": 0.85,
+    "source": "Matsubara and Teranishi (2022), Eqs. (5) and (9); their model cites JIS B1082 area and validates aggregate timber-joint tightening stiffness for M12 specimens.",
+    "area_equation_inch_units": "A_s = 0.7854 * (D - 0.9743/n)^2 in^2",
+    "area_source": "NBS Handbook 28 Supplement (1963), Unified-thread tensile stress area equation; use in K_th is an explicit adaptation of the Matsubara effective area term.",
+    "use_domain": "local axial tangent after a load-bearing thread flank has seated and while that same active contact branch remains engaged"
+  },
+  "inputs": {
+    "D_in": 0.25,
+    "n_per_in": 20,
+    "area_in2": 0.031820992472115,
+    "area_mm2": 20.529631503310,
+    "d_mm": 6.35,
+    "L_th_mm": 5.3975,
+    "reference_E_MPa": 200000,
+    "E_sensitivity_MPa": [180000, 200000, 220000]
+  },
+  "outputs": [
+    {
+      "E_MPa": 180000,
+      "K_N_per_mm": 684638.012152987,
+      "K_kN_per_mm": 684.638012153,
+      "C_mm_per_kN": 0.001460625881
+    },
+    {
+      "E_MPa": 200000,
+      "K_N_per_mm": 760708.902392208,
+      "K_kN_per_mm": 760.708902392,
+      "C_mm_per_kN": 0.001314563293
+    },
+    {
+      "E_MPa": 220000,
+      "K_N_per_mm": 836779.792631429,
+      "K_kN_per_mm": 836.779792631,
+      "C_mm_per_kN": 0.001195057539
+    }
+  ],
+  "interpretation": {
+    "E_sensitivity_is_physical_bound": false,
+    "equivalent_length_is_physical_engagement_length": false,
+    "tensile_stress_area_is_local_elastic_area": false,
+    "zero_slack_is_physical_initial_state": false,
+    "Matsubara_validation_applies_directly_to_1_4_20_UNC": false,
+    "seating_or_backlash_requires_class_fit_profile_and_contact_state": true,
+    "stripping_pullout_requires_separate_material_and_strength_evidence": true
+  },
+  "sources": [
+    {
+      "source_id": "matsubara_teranishi_2022",
+      "url": "https://link.springer.com/article/10.1186/s10086-022-02038-1",
+      "scope": "Eqs. (5) and (9) give the thread-engagement equivalent spring form; validation compares aggregate tightening stiffness for M12 timber-joint tests."
+    },
+    {
+      "source_id": "asme_b1_1_2024",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/b1-1-unified-inch-screw-threads-un-unr-thread-form",
+      "scope": "Unified thread geometry, series, class, tolerance and dimensional standard; not an engagement-compliance model."
+    },
+    {
+      "source_id": "nbs_handbook_28_supplement_1963",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/hb/nbshandbook28supp1963.pdf",
+      "scope": "Nominal Unified inch tensile stress-area definition and equation; used as an explicit area-term adaptation, not an elastic validation."
+    }
+  ]
+}
