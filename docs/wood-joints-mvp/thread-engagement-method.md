@@ -18,23 +18,30 @@ capacity, or evidence that the thread is engaged.
 
 For an axial response diagnostic without a helical solid mesh, use one
 source-bound, one-dimensional axial connector per physical bolt, between the
-bolt and nut. Its force law must come from a separate thread-engagement coupon
-or a directly applicable test for the same thread form, size, class, nut,
-engagement length, and material scenario. Do not assign its stiffness from
-nominal diameter, `E A/L`, the nut's catalog grade, the wood stack, or the
-radial contact penalty. No eligible force-displacement curve or test is in the
-current evidence, so the proposed connector has no numeric law yet and the
-physical thread response remains `UNRESOLVED_AXIAL_ENGAGEMENT`. A thread
-coupon is not a prerequisite for every conditional diagnostic: the separate
+bolt and nut. Its finite force law needs an applicable evidence route: a
+matched thread-engagement test, directly applicable published test data, or a
+validated analytical/numerical model whose documented scope covers the
+declared thread specification, bolt and nut geometry/material ranges,
+engagement/fit, and loading range. A brand-specific test is not implied when a
+validated model and bounded specification cover those attributes; any
+product-specific dependency left outside that scope must remain an explicit
+condition or unresolved item. Do not assign its stiffness from nominal
+diameter, `E A/L`, the nut's catalog grade, the wood stack, or the radial
+contact penalty. No eligible law or applicable model is in the current
+evidence, so the proposed connector has no numeric law yet and the physical
+thread response remains `UNRESOLVED_AXIAL_ENGAGEMENT`. A product-matched
+measured curve or coupon is not a prerequisite for every conditional
+diagnostic: the separate
 [WJ24 bottom-center sensitivity method](thread-engagement-sensitivity-options.md)
 defines parametric spring and zero-slack/no-slip diagnostic branches using an
 elastic bolt and a finite rigid nut. That route is specific to its three-wood,
 four-stack WJ24 patch; none of its assumed intervals, parameter values, or
 results transfer to this WJ04 patch. A WJ04 stiff-limit route would need its
 own source-bound input and one-time connector/member check. Neither sensitivity
-is a finite delivered-thread law or product-specific result. A finite physical
-engagement stiffness still needs a matched coupon or other directly applicable
-source/test/model evidence.
+is a finite delivered-thread law or product-specific result. See the
+[current engagement evidence routes](current-engagement-evidence-routes.md)
+for the distinction between an adopted check, a conditional law, and a
+sensitivity-only branch.
 
 Keep the spring endpoints on the bolt axis at the centroids of the finite
 engagement regions, clipped to the **measured full-form thread overlap** inside
