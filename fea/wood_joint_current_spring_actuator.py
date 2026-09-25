@@ -699,7 +699,7 @@ def build_current_spring_actuator(
             "equation_sha256": _sha256(equation_bytes),
             "mpc_coefficient_format": "16 digits after decimal, <=20 characters",
             "mpc_coefficient_max_rounding_error": max(
-                abs(weight - float(_mpc_token(-weight)))
+                abs(weight + float(_mpc_token(-weight)))
                 for _node, _dof, weight in terms
             ),
             "source_reference_load_scale_n": scale,

@@ -152,11 +152,27 @@ def test_current_frozen_weights_drive_proxy_and_target_without_double_drive(tmp_
             "physical_terms_before_normalization"
         ]
     }
+    source_weights = {
+        (int(node), int(dof)): float(weight)
+        for node, dof, weight in original_actuator["equation"][
+            "physical_terms_before_normalization"
+        ]
+    }
     actual = {
         (node, dof): coefficient for node, dof, coefficient, _token in mpc_terms[1:]
     }
     assert actual.keys() == expected.keys()
     assert max(abs(actual[key] - expected[key]) for key in expected) < 5.1e-17
+    emitted_rounding_error = max(
+        abs(source_weights[key] + actual[key]) for key in source_weights
+    )
+    reported_rounding_error = driver["source_unit_pattern"][
+        "mpc_coefficient_max_rounding_error"
+    ]
+    assert reported_rounding_error == pytest.approx(
+        emitted_rounding_error, rel=1e-12, abs=1e-30
+    )
+    assert 0.0 < reported_rounding_error < 5.1e-17
     assert driver["source_unit_pattern"]["terms_count"] == len(expected) == 662
     assert driver["source_unit_pattern"]["source_reference_only"] is True
     assert driver["driver_nodes"]["proxy_is_first_dependent_mpc_term"] is True
