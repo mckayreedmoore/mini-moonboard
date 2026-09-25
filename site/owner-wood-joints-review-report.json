@@ -1,5 +1,13 @@
 {
-  "base_revision_id": "center-principal-header-blocks-plumb-full-section-v1",
+  "affected_receiver_ids": {
+    "raw_hosts": [
+      "base_header"
+    ],
+    "retained_candidate_parts": [
+      "knee_outer_left_spine",
+      "knee_outer_right_spine"
+    ]
+  },
   "baseline_display_translations_mm": {
     "fastener_round_kicker_left_center_1": [
       -91.71000000000004,
@@ -42,77 +50,28 @@
       58.908817676
     ]
   },
-  "basic_contacts": {
-    "knee_outer_left_inner_frame_block/base_header": {
-      "distance_mm": 0.0,
-      "intersection_volume_mm3": 0.0,
-      "touches_without_solid_overlap": true
+  "candidate_part_replay": {
+    "knee_outer_left_spine": {
+      "candidate_bore_axis_ids": [
+        "knee_outer_left_post_1",
+        "knee_outer_left_post_2",
+        "knee_outer_left_side_1",
+        "knee_outer_left_side_2"
+      ],
+      "finished_shape_sha256": "82c2cb94686939941334f0f3f1560948f3a046dfe3e61da7de1bd2af0bcf0225",
+      "retained_purchased_panel_cutter_ids": []
     },
-    "knee_outer_left_inner_frame_block/base_side_left": {
-      "distance_mm": 0.0,
-      "intersection_volume_mm3": 0.0,
-      "touches_without_solid_overlap": true
-    },
-    "knee_outer_left_inner_frame_block/remachined_header": {
-      "distance_mm": 0.0,
-      "intersection_volume_mm3": 0.0,
-      "touches_without_solid_overlap": true
-    },
-    "knee_outer_left_inner_frame_block/remachined_left_rim": {
-      "distance_mm": 0.0,
-      "intersection_volume_mm3": 0.0,
-      "touches_without_solid_overlap": true
-    },
-    "knee_outer_right_inner_frame_block/base_header": {
-      "distance_mm": 0.0,
-      "intersection_volume_mm3": 0.0,
-      "touches_without_solid_overlap": true
-    },
-    "knee_outer_right_inner_frame_block/base_side_right": {
-      "distance_mm": 0.0,
-      "intersection_volume_mm3": 0.0,
-      "touches_without_solid_overlap": true
-    },
-    "knee_outer_right_inner_frame_block/remachined_header": {
-      "distance_mm": 0.0,
-      "intersection_volume_mm3": 0.0,
-      "touches_without_solid_overlap": true
-    },
-    "knee_outer_right_inner_frame_block/remachined_right_rim": {
-      "distance_mm": 0.0,
-      "intersection_volume_mm3": 0.0,
-      "touches_without_solid_overlap": true
+    "knee_outer_right_spine": {
+      "candidate_bore_axis_ids": [
+        "knee_outer_right_post_1",
+        "knee_outer_right_post_2",
+        "knee_outer_right_side_1",
+        "knee_outer_right_side_2"
+      ],
+      "finished_shape_sha256": "debda9dfa629042bcbc835c6617a86f28655f325489daba3c997eab421169443",
+      "retained_purchased_panel_cutter_ids": []
     }
   },
-  "block_dimensions_xyz_mm_by_side": {
-    "left": [
-      88.9,
-      133.35,
-      139.0
-    ],
-    "right": [
-      88.9,
-      133.35,
-      139.0
-    ]
-  },
-  "block_ids_by_side": {
-    "left": "knee_outer_left_inner_frame_block",
-    "right": "knee_outer_right_inner_frame_block"
-  },
-  "block_min_corner_xyz_mm_by_side": {
-    "left": [
-      -1130.3,
-      -175.7,
-      277.0
-    ],
-    "right": [
-      1038.225,
-      -175.7,
-      277.0
-    ]
-  },
-  "blocks_seated_on_header_top_global_z_mm": 277.0,
   "changed_display_solid_ids": {
     "candidate_installed_hardware": [
       "bottom_center/clip_horizontal_bottom_left_2/principal_1/head",
@@ -426,19 +385,19 @@
     ]
   },
   "checks": {
-    "all_12_starting_frame_bolts_preserved": true,
-    "all_66_fixed_panel_axes_preserved": true,
+    "affected_raw_hosts_rebuilt_without_removed_source_or_candidate_holes": true,
+    "all_66_fixed_panel_axes_and_12_starting_frame_bolts_preserved": true,
+    "all_twelve_attached_candidate_axes_and_sixty_hardware_roles_removed": true,
+    "both_outer_rear_bridges_and_under_header_links_removed": true,
     "complete_joint_acceptance": false,
+    "exterior_spine_rim_inner_block_side_bolts_preserved": true,
     "fabrication_released": false,
-    "four_outer_side_axes_extend_through_spine_rim_and_inner_block": true,
-    "hardware_envelopes_are_not_purchase_selections": true,
+    "inner_block_to_header_vertical_bolts_preserved": true,
     "installation_proven": false,
-    "no_forces_or_joint_capacity_claimed": true,
-    "one_vertical_inner_block_to_header_axis_per_side": true,
+    "retained_outer_spines_and_all_candidate_receiver_holes_replayed": true,
     "structural_released": false,
-    "two_inner_full_section_blocks_created": true
+    "viewer_geometry_only_no_mechanics_or_joint_acceptance": true
   },
-  "claim_boundary": "geometry and member-envelope model only; no force, capacity, delivered-hardware, assembly, installation, or fabrication conclusion",
   "findings": [
     {
       "detail": "Support along the raised lower-panel edge and the kicker center seam after removing the center backer still needs a complete detail.",
@@ -457,289 +416,26 @@
       "title": "G6 hold-bolt clearance"
     }
   ],
-  "focused_geometry_checks": {
-    "bolt_receivers": {
-      "center_principal_header_left_1": {
-        "base_header": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846009154
-        },
-        "center_principal_cleat_left": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 4424.189676870014
-        }
-      },
-      "center_principal_header_left_2": {
-        "base_header": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846009254
-        },
-        "center_principal_cleat_left": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 4424.189676870057
-        }
-      },
-      "center_principal_header_right_1": {
-        "base_header": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846009154
-        },
-        "center_principal_cleat_right": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 4424.189676870015
-        }
-      },
-      "center_principal_header_right_2": {
-        "base_header": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846009254
-        },
-        "center_principal_cleat_right": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 4424.189676870058
-        }
-      },
-      "center_principal_left_1": {
-        "base_principal_center_left": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.597184600916
-        },
-        "center_principal_cleat_left": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354707
-        }
-      },
-      "center_principal_left_2": {
-        "base_principal_center_left": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846009156
-        },
-        "center_principal_cleat_left": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354707
-        }
-      },
-      "center_principal_right_1": {
-        "base_principal_center_right": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846009165
-        },
-        "center_principal_cleat_right": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.393430735471
-        }
-      },
-      "center_principal_right_2": {
-        "base_principal_center_right": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846009156
-        },
-        "center_principal_cleat_right": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354702
-        }
-      },
-      "knee_outer_left_inner_header_1": {
-        "base_header": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846008797
-        },
-        "knee_outer_left_inner_frame_block": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 4402.02122465938
-        }
-      },
-      "knee_outer_left_side_1": {
-        "base_side_left": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354707
-        },
-        "knee_outer_left_inner_frame_block": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354693
-        },
-        "knee_outer_left_spine": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.39343073547
-        }
-      },
-      "knee_outer_left_side_2": {
-        "base_side_left": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354684
-        },
-        "knee_outer_left_inner_frame_block": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354693
-        },
-        "knee_outer_left_spine": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.39343073547
-        }
-      },
-      "knee_outer_right_inner_header_1": {
-        "base_header": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 1206.5971846008888
-        },
-        "knee_outer_right_inner_frame_block": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 4402.02122465938
-        }
-      },
-      "knee_outer_right_side_1": {
-        "base_side_right": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354707
-        },
-        "knee_outer_right_inner_frame_block": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.39343073547
-        },
-        "knee_outer_right_spine": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354693
-        }
-      },
-      "knee_outer_right_side_2": {
-        "base_side_right": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354693
-        },
-        "knee_outer_right_inner_frame_block": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354702
-        },
-        "knee_outer_right_spine": {
-          "finished_shaft_overlap_mm3": 0.0,
-          "raw_shaft_occupation_mm3": 2815.3934307354702
-        }
-      }
-    },
-    "central_block_contacts": {
-      "left/base_header": {
-        "gap_mm": 0.0,
-        "mm3": 0.0
-      },
-      "left/base_principal_center_left": {
-        "gap_mm": 0.0,
-        "mm3": 0.0
-      },
-      "right/base_header": {
-        "gap_mm": 0.0,
-        "mm3": 0.0
-      },
-      "right/base_principal_center_right": {
-        "gap_mm": 0.0,
-        "mm3": 0.0
-      }
-    },
-    "hardware_pair_hits": [],
-    "hardware_wood_hits": [],
-    "neighbor_hits": [
-      {
-        "mm3": 562.789149,
-        "neighbor": "hold_hole_and_provisional_projection/hold_tnut_main_G6",
-        "part": "wj04_lower_full_stock_cleat"
-      },
-      {
-        "mm3": 56.796528,
-        "neighbor": "lights/light_G2",
-        "part": "bottom_center_right_cleat"
-      },
-      {
-        "mm3": 1128.054108,
-        "neighbor": "wires/wire_072_F1_G1",
-        "part": "center_principal_cleat_right"
-      },
-      {
-        "mm3": 532.196292,
-        "neighbor": "wires/wire_001_A1_A2",
-        "part": "base_rail_bottom_left"
-      },
-      {
-        "mm3": 532.170966,
-        "neighbor": "wires/wire_023_B2_B1",
-        "part": "base_rail_bottom_left"
-      },
-      {
-        "mm3": 532.196292,
-        "neighbor": "wires/wire_025_C1_C2",
-        "part": "base_rail_bottom_left"
-      },
-      {
-        "mm3": 532.170966,
-        "neighbor": "wires/wire_047_D2_D1",
-        "part": "base_rail_bottom_left"
-      },
-      {
-        "mm3": 532.196292,
-        "neighbor": "wires/wire_049_E1_E2",
-        "part": "base_rail_bottom_left"
-      },
-      {
-        "mm3": 532.196292,
-        "neighbor": "wires/wire_073_G1_G2",
-        "part": "base_rail_bottom_right"
-      },
-      {
-        "mm3": 532.170966,
-        "neighbor": "wires/wire_095_H2_H1",
-        "part": "base_rail_bottom_right"
-      },
-      {
-        "mm3": 532.196292,
-        "neighbor": "wires/wire_097_I1_I2",
-        "part": "base_rail_bottom_right"
-      },
-      {
-        "mm3": 532.170966,
-        "neighbor": "wires/wire_119_J2_J1",
-        "part": "base_rail_bottom_right"
-      },
-      {
-        "mm3": 532.196292,
-        "neighbor": "wires/wire_121_K1_K2",
-        "part": "base_rail_bottom_right"
-      }
-    ],
-    "scope": "Basic modeled solid/axis checks only; no joint, capacity or assembly-access evaluation."
-  },
-  "host_rebuild_method": "raw current hosts minus all retained source/panel cuts and all current candidate bores",
-  "kicker_post_geometry_checks": {
-    "panel_holes": {
-      "round_kicker_left_center_1": {
-        "new_hole_wood_overlap_mm3": 0.0,
-        "new_receiver_occupied_volume_mm3": 609.1035313555728,
-        "old_hole_restored_mm3": 122.33889954199462
-      },
-      "round_kicker_left_center_2": {
-        "new_hole_wood_overlap_mm3": 0.0,
-        "new_receiver_occupied_volume_mm3": 609.1035313555732,
-        "old_hole_restored_mm3": 122.3388995419945
-      },
-      "round_kicker_right_center_1": {
-        "new_hole_wood_overlap_mm3": 0.0,
-        "new_receiver_occupied_volume_mm3": 609.1035313555728,
-        "old_hole_restored_mm3": 122.33889954199462
-      },
-      "round_kicker_right_center_2": {
-        "new_hole_wood_overlap_mm3": 0.0,
-        "new_receiver_occupied_volume_mm3": 609.1035313555732,
-        "old_hole_restored_mm3": 122.3388995419945
-      }
-    },
-    "post_clearance": {
-      "left": 5.0,
-      "right": 5.0
-    },
-    "removed_header_holes": {
-      "backer_header_left_1": 1594.6323756558456,
-      "backer_header_left_2": 1594.6323756558456,
-      "backer_header_right_1": 1594.6323756558456,
-      "backer_header_right_2": 1594.632375655846
+  "host_replay": {
+    "base_header": {
+      "candidate_bore_axis_ids": [
+        "center_post_header_left_1",
+        "center_post_header_left_2",
+        "center_post_header_right_1",
+        "center_post_header_right_2",
+        "center_principal_header_left_1",
+        "center_principal_header_left_2",
+        "center_principal_header_right_1",
+        "center_principal_header_right_2",
+        "knee_outer_left_inner_header_1",
+        "knee_outer_right_inner_header_1"
+      ],
+      "excluded_replaced_source_cutter_count": 24,
+      "finished_shape_sha256": "fc2b3c72939458b98c69de8716fef5680851a232c6e3a63364bfdd5cbe95ae42",
+      "retained_source_and_purchase_cutter_count": 20
     }
   },
+  "input_revision_id": "outer-rim-inner-frame-blocks-v1",
   "moved_candidate_axis_ids": [
     "center_post_header_left_1",
     "center_post_header_left_2",
@@ -980,264 +676,41 @@
       "visual_name": "fastener_round_kicker_right_center_2"
     }
   ],
-  "outer_rim_side_bolts": {
-    "knee_outer_left_side_1": {
-      "axis_global_xyz": [
-        1.0,
-        0.0,
-        -0.0
-      ],
-      "envelope_is_not_a_purchased_length_selection": true,
-      "new_nominal_under_head_envelope_mm": 292.1,
-      "preserved_global_yz_station_mm": [
-        -106.228087,
-        331.315553
-      ],
-      "previous_nominal_under_head_envelope_mm": 203.2,
-      "receiver_ids_head_to_nut": [
-        "knee_outer_left_spine",
-        "base_side_left",
-        "knee_outer_left_inner_frame_block"
-      ],
-      "wood_grip_mm": 266.7
-    },
-    "knee_outer_left_side_2": {
-      "axis_global_xyz": [
-        1.0,
-        0.0,
-        0.0
-      ],
-      "envelope_is_not_a_purchased_length_selection": true,
-      "new_nominal_under_head_envelope_mm": 292.1,
-      "preserved_global_yz_station_mm": [
-        -77.302644,
-        365.787553
-      ],
-      "previous_nominal_under_head_envelope_mm": 203.2,
-      "receiver_ids_head_to_nut": [
-        "knee_outer_left_spine",
-        "base_side_left",
-        "knee_outer_left_inner_frame_block"
-      ],
-      "wood_grip_mm": 266.7
-    },
-    "knee_outer_right_side_1": {
-      "axis_global_xyz": [
-        -1.0,
-        0.0,
-        0.0
-      ],
-      "envelope_is_not_a_purchased_length_selection": true,
-      "new_nominal_under_head_envelope_mm": 292.1,
-      "preserved_global_yz_station_mm": [
-        -106.228087,
-        331.315553
-      ],
-      "previous_nominal_under_head_envelope_mm": 203.2,
-      "receiver_ids_head_to_nut": [
-        "knee_outer_right_spine",
-        "base_side_right",
-        "knee_outer_right_inner_frame_block"
-      ],
-      "wood_grip_mm": 266.7
-    },
-    "knee_outer_right_side_2": {
-      "axis_global_xyz": [
-        -1.0,
-        0.0,
-        0.0
-      ],
-      "envelope_is_not_a_purchased_length_selection": true,
-      "new_nominal_under_head_envelope_mm": 292.1,
-      "preserved_global_yz_station_mm": [
-        -77.302644,
-        365.787553
-      ],
-      "previous_nominal_under_head_envelope_mm": 203.2,
-      "receiver_ids_head_to_nut": [
-        "knee_outer_right_spine",
-        "base_side_right",
-        "knee_outer_right_inner_frame_block"
-      ],
-      "wood_grip_mm": 266.7
-    }
+  "owner_review_gate": "Joint evaluations remain paused until the owner signs off on the revised model.",
+  "preserved_counts": {
+    "candidate_axes_before_after": [
+      102,
+      90
+    ],
+    "candidate_hardware_roles_before_after": [
+      510,
+      450
+    ],
+    "candidate_parts_before_after": [
+      28,
+      24
+    ],
+    "fixed_panel_axes": 66,
+    "starting_frame_bolts": 12
   },
-  "owner_review_gate": "Joint evaluations remain paused until the owner signs off on this model revision.",
+  "preserved_ids": {
+    "inner_block_header_axes": [
+      "knee_outer_left_inner_header_1",
+      "knee_outer_right_inner_header_1"
+    ],
+    "outer_spines": [
+      "knee_outer_left_spine",
+      "knee_outer_right_spine"
+    ],
+    "shared_spine_rim_inner_block_axes": [
+      "knee_outer_left_side_1",
+      "knee_outer_left_side_2",
+      "knee_outer_right_side_1",
+      "knee_outer_right_side_2"
+    ]
+  },
   "prior_revision_report": {
-    "axes": {
-      "center_principal_header_left_1": {
-        "bore_radius_mm": 3.65,
-        "candidate_part_id": "center_principal_cleat_left",
-        "direction_global_xyz": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "old_wood_grip_mm": 100.915644,
-        "origin_global_xyz_mm": [
-          -116.0,
-          -140.0,
-          238.9
-        ],
-        "receiver_order_head_to_nut": [
-          "base_header",
-          "center_principal_cleat_left"
-        ],
-        "wood_grip_mm": 177.8
-      },
-      "center_principal_header_left_2": {
-        "bore_radius_mm": 3.65,
-        "candidate_part_id": "center_principal_cleat_left",
-        "direction_global_xyz": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "old_wood_grip_mm": 100.915644,
-        "origin_global_xyz_mm": [
-          -116.0,
-          -75.0,
-          238.9
-        ],
-        "receiver_order_head_to_nut": [
-          "base_header",
-          "center_principal_cleat_left"
-        ],
-        "wood_grip_mm": 177.8
-      },
-      "center_principal_header_right_1": {
-        "bore_radius_mm": 3.65,
-        "candidate_part_id": "center_principal_cleat_right",
-        "direction_global_xyz": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "old_wood_grip_mm": 100.915644,
-        "origin_global_xyz_mm": [
-          116.0,
-          -140.0,
-          238.9
-        ],
-        "receiver_order_head_to_nut": [
-          "base_header",
-          "center_principal_cleat_right"
-        ],
-        "wood_grip_mm": 177.8
-      },
-      "center_principal_header_right_2": {
-        "bore_radius_mm": 3.65,
-        "candidate_part_id": "center_principal_cleat_right",
-        "direction_global_xyz": [
-          0.0,
-          0.0,
-          1.0
-        ],
-        "old_wood_grip_mm": 100.915644,
-        "origin_global_xyz_mm": [
-          116.0,
-          -75.0,
-          238.9
-        ],
-        "receiver_order_head_to_nut": [
-          "base_header",
-          "center_principal_cleat_right"
-        ],
-        "wood_grip_mm": 177.8
-      },
-      "center_principal_left_1": {
-        "candidate_part_id": "center_principal_cleat_left",
-        "direction_after_global_xyz": [
-          -1.0,
-          -0.0,
-          0.0
-        ],
-        "direction_before_global_xyz": [
-          -1.0,
-          -0.0,
-          0.0
-        ],
-        "receiver_order_head_to_nut": [
-          "base_principal_center_left",
-          "center_principal_cleat_left"
-        ],
-        "translation_global_xyz_mm": [
-          0.0,
-          25.711504387,
-          30.641777725
-        ],
-        "wood_grip_preserved_mm": 127.0
-      },
-      "center_principal_left_2": {
-        "candidate_part_id": "center_principal_cleat_left",
-        "direction_after_global_xyz": [
-          -1.0,
-          0.0,
-          -0.0
-        ],
-        "direction_before_global_xyz": [
-          -1.0,
-          0.0,
-          -0.0
-        ],
-        "receiver_order_head_to_nut": [
-          "base_principal_center_left",
-          "center_principal_cleat_left"
-        ],
-        "translation_global_xyz_mm": [
-          0.0,
-          38.567256581,
-          45.962666587
-        ],
-        "wood_grip_preserved_mm": 127.0
-      },
-      "center_principal_right_1": {
-        "candidate_part_id": "center_principal_cleat_right",
-        "direction_after_global_xyz": [
-          1.0,
-          -0.0,
-          0.0
-        ],
-        "direction_before_global_xyz": [
-          1.0,
-          -0.0,
-          0.0
-        ],
-        "receiver_order_head_to_nut": [
-          "base_principal_center_right",
-          "center_principal_cleat_right"
-        ],
-        "translation_global_xyz_mm": [
-          0.0,
-          25.711504387,
-          30.641777725
-        ],
-        "wood_grip_preserved_mm": 127.0
-      },
-      "center_principal_right_2": {
-        "candidate_part_id": "center_principal_cleat_right",
-        "direction_after_global_xyz": [
-          1.0,
-          0.0,
-          -0.0
-        ],
-        "direction_before_global_xyz": [
-          1.0,
-          0.0,
-          -0.0
-        ],
-        "receiver_order_head_to_nut": [
-          "base_principal_center_right",
-          "center_principal_cleat_right"
-        ],
-        "translation_global_xyz_mm": [
-          0.0,
-          38.567256581,
-          45.962666587
-        ],
-        "wood_grip_preserved_mm": 127.0
-      }
-    },
+    "base_revision_id": "center-principal-header-blocks-plumb-full-section-v1",
     "baseline_display_translations_mm": {
       "fastener_round_kicker_left_center_1": [
         -91.71000000000004,
@@ -1280,20 +753,77 @@
         58.908817676
       ]
     },
-    "block_bounds_right_global_mm": {
-      "x": [
-        89.05,
-        177.95
+    "basic_contacts": {
+      "knee_outer_left_inner_frame_block/base_header": {
+        "distance_mm": 0.0,
+        "intersection_volume_mm3": 0.0,
+        "touches_without_solid_overlap": true
+      },
+      "knee_outer_left_inner_frame_block/base_side_left": {
+        "distance_mm": 0.0,
+        "intersection_volume_mm3": 0.0,
+        "touches_without_solid_overlap": true
+      },
+      "knee_outer_left_inner_frame_block/remachined_header": {
+        "distance_mm": 0.0,
+        "intersection_volume_mm3": 0.0,
+        "touches_without_solid_overlap": true
+      },
+      "knee_outer_left_inner_frame_block/remachined_left_rim": {
+        "distance_mm": 0.0,
+        "intersection_volume_mm3": 0.0,
+        "touches_without_solid_overlap": true
+      },
+      "knee_outer_right_inner_frame_block/base_header": {
+        "distance_mm": 0.0,
+        "intersection_volume_mm3": 0.0,
+        "touches_without_solid_overlap": true
+      },
+      "knee_outer_right_inner_frame_block/base_side_right": {
+        "distance_mm": 0.0,
+        "intersection_volume_mm3": 0.0,
+        "touches_without_solid_overlap": true
+      },
+      "knee_outer_right_inner_frame_block/remachined_header": {
+        "distance_mm": 0.0,
+        "intersection_volume_mm3": 0.0,
+        "touches_without_solid_overlap": true
+      },
+      "knee_outer_right_inner_frame_block/remachined_right_rim": {
+        "distance_mm": 0.0,
+        "intersection_volume_mm3": 0.0,
+        "touches_without_solid_overlap": true
+      }
+    },
+    "block_dimensions_xyz_mm_by_side": {
+      "left": [
+        88.9,
+        133.35,
+        139.0
       ],
-      "y": [
-        -175.7,
-        -36.0
-      ],
-      "z": [
-        277.0,
-        416.7
+      "right": [
+        88.9,
+        133.35,
+        139.0
       ]
     },
+    "block_ids_by_side": {
+      "left": "knee_outer_left_inner_frame_block",
+      "right": "knee_outer_right_inner_frame_block"
+    },
+    "block_min_corner_xyz_mm_by_side": {
+      "left": [
+        -1130.3,
+        -175.7,
+        277.0
+      ],
+      "right": [
+        1038.225,
+        -175.7,
+        277.0
+      ]
+    },
+    "blocks_seated_on_header_top_global_z_mm": 277.0,
     "changed_display_solid_ids": {
       "candidate_installed_hardware": [
         "bottom_center/clip_horizontal_bottom_left_2/principal_1/head",
@@ -1456,6 +986,36 @@
         "center_principal_right_2/nut",
         "center_principal_right_2/nut_washer",
         "center_principal_right_2/shaft",
+        "knee_outer_left_inner_header_1/head",
+        "knee_outer_left_inner_header_1/head_washer",
+        "knee_outer_left_inner_header_1/nut",
+        "knee_outer_left_inner_header_1/nut_washer",
+        "knee_outer_left_inner_header_1/shaft",
+        "knee_outer_left_side_1/head",
+        "knee_outer_left_side_1/head_washer",
+        "knee_outer_left_side_1/nut",
+        "knee_outer_left_side_1/nut_washer",
+        "knee_outer_left_side_1/shaft",
+        "knee_outer_left_side_2/head",
+        "knee_outer_left_side_2/head_washer",
+        "knee_outer_left_side_2/nut",
+        "knee_outer_left_side_2/nut_washer",
+        "knee_outer_left_side_2/shaft",
+        "knee_outer_right_inner_header_1/head",
+        "knee_outer_right_inner_header_1/head_washer",
+        "knee_outer_right_inner_header_1/nut",
+        "knee_outer_right_inner_header_1/nut_washer",
+        "knee_outer_right_inner_header_1/shaft",
+        "knee_outer_right_side_1/head",
+        "knee_outer_right_side_1/head_washer",
+        "knee_outer_right_side_1/nut",
+        "knee_outer_right_side_1/nut_washer",
+        "knee_outer_right_side_1/shaft",
+        "knee_outer_right_side_2/head",
+        "knee_outer_right_side_2/head_washer",
+        "knee_outer_right_side_2/nut",
+        "knee_outer_right_side_2/nut_washer",
+        "knee_outer_right_side_2/shaft",
         "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head",
         "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head_washer",
         "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/nut",
@@ -1546,6 +1106,10 @@
         "center_post_cleat_right",
         "center_principal_cleat_left",
         "center_principal_cleat_right",
+        "knee_outer_left_inner_frame_block",
+        "knee_outer_left_spine",
+        "knee_outer_right_inner_frame_block",
+        "knee_outer_right_spine",
         "left_service_inner_lower_cleat",
         "left_service_outer_lower_cleat",
         "wj04_lower_full_stock_cleat",
@@ -1573,72 +1137,320 @@
       ]
     },
     "checks": {
-      "all_66_fixed_panel_axes_and_12_frame_bolts_preserved": true,
+      "all_12_starting_frame_bolts_preserved": true,
+      "all_66_fixed_panel_axes_preserved": true,
       "complete_joint_acceptance": false,
       "fabrication_released": false,
-      "four_header_bolts_restationed_and_extended_through_new_blocks": true,
-      "four_principal_cross_bolts_moved_along_50_degree_T_by_40_and_60_mm": true,
-      "geometry_only_no_force_or_joint_acceptance_calculation": true,
+      "four_outer_side_axes_extend_through_spine_rim_and_inner_block": true,
+      "hardware_envelopes_are_not_purchase_selections": true,
+      "installation_proven": false,
+      "no_forces_or_joint_capacity_claimed": true,
+      "one_vertical_inner_block_to_header_axis_per_side": true,
       "structural_released": false,
-      "three_receiver_hosts_rebuilt_from_raw_retained_cuts_and_all_current_bores": true,
-      "two_center_principal_blocks_replaced_with_plumb_full_section_boxes": true
+      "two_inner_full_section_blocks_created": true
     },
-    "host_replay": {
-      "base_header": {
-        "candidate_bore_axis_ids": [
-          "center_post_header_left_1",
-          "center_post_header_left_2",
-          "center_post_header_right_1",
-          "center_post_header_right_2",
-          "center_principal_header_left_1",
-          "center_principal_header_left_2",
-          "center_principal_header_right_1",
-          "center_principal_header_right_2",
-          "knee_outer_left_header_1",
-          "knee_outer_left_header_2",
-          "knee_outer_right_header_1",
-          "knee_outer_right_header_2"
-        ],
-        "excluded_replaced_source_cutter_count": 24,
-        "finished_shape_sha256": "37d84dee3073d2b27ea1b635be40503b5fdea5d0599eb3acfc9bbe969c3e182b",
-        "retained_source_and_purchase_cutter_count": 20
+    "claim_boundary": "geometry and member-envelope model only; no force, capacity, delivered-hardware, assembly, installation, or fabrication conclusion",
+    "findings": [
+      {
+        "detail": "Support along the raised lower-panel edge and the kicker center seam after removing the center backer still needs a complete detail.",
+        "title": "Panel edge support remains open"
       },
-      "base_principal_center_left": {
-        "candidate_bore_axis_ids": [
-          "bottom_center/clip_horizontal_bottom_left_2/principal_1",
-          "bottom_center/clip_horizontal_bottom_left_2/principal_2",
-          "center_principal_left_1",
-          "center_principal_left_2",
-          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1",
-          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2",
-          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_1",
-          "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_2",
-          "top_center/clip_split_top_center_left/principal_1",
-          "top_center/clip_split_top_center_left/principal_2"
-        ],
-        "excluded_replaced_source_cutter_count": 15,
-        "finished_shape_sha256": "64e871315ae379af9078a8482205c0849e45c68a49bfa1840d9ede4d02405b49",
-        "retained_source_and_purchase_cutter_count": 17
+      {
+        "detail": "The bottom rails cross ten modeled wire segments. The taller right central block also crosses the wire between F1 and G1.",
+        "title": "Wire routing needs revision"
       },
-      "base_principal_center_right": {
-        "candidate_bore_axis_ids": [
-          "bottom_center/clip_horizontal_bottom_right_1/principal_1",
-          "bottom_center/clip_horizontal_bottom_right_1/principal_2",
-          "center_principal_right_1",
-          "center_principal_right_2",
-          "top_center/clip_split_top_center_right/principal_1",
-          "top_center/clip_split_top_center_right/principal_2",
-          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
-          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
-          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
-          "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
-        ],
-        "excluded_replaced_source_cutter_count": 15,
-        "finished_shape_sha256": "b0e091279e2ce605694a73586c5fc82bf3017582f2849c1245299560d9ca1431",
-        "retained_source_and_purchase_cutter_count": 17
+      {
+        "detail": "The lower right center corner block intersects the modeled light behind G2.",
+        "title": "G2 light clearance"
+      },
+      {
+        "detail": "A middle corner block intersects the provisional clearance envelope behind G6; hold-bolt length and access remain unresolved.",
+        "title": "G6 hold-bolt clearance"
+      }
+    ],
+    "focused_geometry_checks": {
+      "bolt_receivers": {
+        "center_principal_header_left_1": {
+          "base_header": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846009154
+          },
+          "center_principal_cleat_left": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 4424.189676870014
+          }
+        },
+        "center_principal_header_left_2": {
+          "base_header": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846009254
+          },
+          "center_principal_cleat_left": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 4424.189676870057
+          }
+        },
+        "center_principal_header_right_1": {
+          "base_header": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846009154
+          },
+          "center_principal_cleat_right": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 4424.189676870015
+          }
+        },
+        "center_principal_header_right_2": {
+          "base_header": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846009254
+          },
+          "center_principal_cleat_right": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 4424.189676870058
+          }
+        },
+        "center_principal_left_1": {
+          "base_principal_center_left": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.597184600916
+          },
+          "center_principal_cleat_left": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354707
+          }
+        },
+        "center_principal_left_2": {
+          "base_principal_center_left": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846009156
+          },
+          "center_principal_cleat_left": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354707
+          }
+        },
+        "center_principal_right_1": {
+          "base_principal_center_right": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846009165
+          },
+          "center_principal_cleat_right": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.393430735471
+          }
+        },
+        "center_principal_right_2": {
+          "base_principal_center_right": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846009156
+          },
+          "center_principal_cleat_right": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354702
+          }
+        },
+        "knee_outer_left_inner_header_1": {
+          "base_header": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846008797
+          },
+          "knee_outer_left_inner_frame_block": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 4402.02122465938
+          }
+        },
+        "knee_outer_left_side_1": {
+          "base_side_left": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354707
+          },
+          "knee_outer_left_inner_frame_block": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354693
+          },
+          "knee_outer_left_spine": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.39343073547
+          }
+        },
+        "knee_outer_left_side_2": {
+          "base_side_left": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354684
+          },
+          "knee_outer_left_inner_frame_block": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354693
+          },
+          "knee_outer_left_spine": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.39343073547
+          }
+        },
+        "knee_outer_right_inner_header_1": {
+          "base_header": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 1206.5971846008888
+          },
+          "knee_outer_right_inner_frame_block": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 4402.02122465938
+          }
+        },
+        "knee_outer_right_side_1": {
+          "base_side_right": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354707
+          },
+          "knee_outer_right_inner_frame_block": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.39343073547
+          },
+          "knee_outer_right_spine": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354693
+          }
+        },
+        "knee_outer_right_side_2": {
+          "base_side_right": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354693
+          },
+          "knee_outer_right_inner_frame_block": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354702
+          },
+          "knee_outer_right_spine": {
+            "finished_shaft_overlap_mm3": 0.0,
+            "raw_shaft_occupation_mm3": 2815.3934307354702
+          }
+        }
+      },
+      "central_block_contacts": {
+        "left/base_header": {
+          "gap_mm": 0.0,
+          "mm3": 0.0
+        },
+        "left/base_principal_center_left": {
+          "gap_mm": 0.0,
+          "mm3": 0.0
+        },
+        "right/base_header": {
+          "gap_mm": 0.0,
+          "mm3": 0.0
+        },
+        "right/base_principal_center_right": {
+          "gap_mm": 0.0,
+          "mm3": 0.0
+        }
+      },
+      "hardware_pair_hits": [],
+      "hardware_wood_hits": [],
+      "neighbor_hits": [
+        {
+          "mm3": 562.789149,
+          "neighbor": "hold_hole_and_provisional_projection/hold_tnut_main_G6",
+          "part": "wj04_lower_full_stock_cleat"
+        },
+        {
+          "mm3": 56.796528,
+          "neighbor": "lights/light_G2",
+          "part": "bottom_center_right_cleat"
+        },
+        {
+          "mm3": 1128.054108,
+          "neighbor": "wires/wire_072_F1_G1",
+          "part": "center_principal_cleat_right"
+        },
+        {
+          "mm3": 532.196292,
+          "neighbor": "wires/wire_001_A1_A2",
+          "part": "base_rail_bottom_left"
+        },
+        {
+          "mm3": 532.170966,
+          "neighbor": "wires/wire_023_B2_B1",
+          "part": "base_rail_bottom_left"
+        },
+        {
+          "mm3": 532.196292,
+          "neighbor": "wires/wire_025_C1_C2",
+          "part": "base_rail_bottom_left"
+        },
+        {
+          "mm3": 532.170966,
+          "neighbor": "wires/wire_047_D2_D1",
+          "part": "base_rail_bottom_left"
+        },
+        {
+          "mm3": 532.196292,
+          "neighbor": "wires/wire_049_E1_E2",
+          "part": "base_rail_bottom_left"
+        },
+        {
+          "mm3": 532.196292,
+          "neighbor": "wires/wire_073_G1_G2",
+          "part": "base_rail_bottom_right"
+        },
+        {
+          "mm3": 532.170966,
+          "neighbor": "wires/wire_095_H2_H1",
+          "part": "base_rail_bottom_right"
+        },
+        {
+          "mm3": 532.196292,
+          "neighbor": "wires/wire_097_I1_I2",
+          "part": "base_rail_bottom_right"
+        },
+        {
+          "mm3": 532.170966,
+          "neighbor": "wires/wire_119_J2_J1",
+          "part": "base_rail_bottom_right"
+        },
+        {
+          "mm3": 532.196292,
+          "neighbor": "wires/wire_121_K1_K2",
+          "part": "base_rail_bottom_right"
+        }
+      ],
+      "scope": "Basic modeled solid/axis checks only; no joint, capacity or assembly-access evaluation."
+    },
+    "host_rebuild_method": "raw current hosts minus all retained source/panel cuts and all current candidate bores",
+    "kicker_post_geometry_checks": {
+      "panel_holes": {
+        "round_kicker_left_center_1": {
+          "new_hole_wood_overlap_mm3": 0.0,
+          "new_receiver_occupied_volume_mm3": 609.1035313555728,
+          "old_hole_restored_mm3": 122.33889954199462
+        },
+        "round_kicker_left_center_2": {
+          "new_hole_wood_overlap_mm3": 0.0,
+          "new_receiver_occupied_volume_mm3": 609.1035313555732,
+          "old_hole_restored_mm3": 122.3388995419945
+        },
+        "round_kicker_right_center_1": {
+          "new_hole_wood_overlap_mm3": 0.0,
+          "new_receiver_occupied_volume_mm3": 609.1035313555728,
+          "old_hole_restored_mm3": 122.33889954199462
+        },
+        "round_kicker_right_center_2": {
+          "new_hole_wood_overlap_mm3": 0.0,
+          "new_receiver_occupied_volume_mm3": 609.1035313555732,
+          "old_hole_restored_mm3": 122.3388995419945
+        }
+      },
+      "post_clearance": {
+        "left": 5.0,
+        "right": 5.0
+      },
+      "removed_header_holes": {
+        "backer_header_left_1": 1594.6323756558456,
+        "backer_header_left_2": 1594.6323756558456,
+        "backer_header_right_1": 1594.6323756558456,
+        "backer_header_right_2": 1594.632375655846
       }
     },
-    "input_revision_id": "kicker-posts-outside-central-tnuts-v1",
     "moved_candidate_axis_ids": [
       "center_post_header_left_1",
       "center_post_header_left_2",
@@ -1879,14 +1691,264 @@
         "visual_name": "fastener_round_kicker_right_center_2"
       }
     ],
-    "preserved_counts": {
-      "candidate_axes": 100,
-      "candidate_hardware_roles": 500,
-      "candidate_parts": 26,
-      "fixed_panel_axes": 66,
-      "frame_bolts": 12
+    "outer_rim_side_bolts": {
+      "knee_outer_left_side_1": {
+        "axis_global_xyz": [
+          1.0,
+          0.0,
+          -0.0
+        ],
+        "envelope_is_not_a_purchased_length_selection": true,
+        "new_nominal_under_head_envelope_mm": 292.1,
+        "preserved_global_yz_station_mm": [
+          -106.228087,
+          331.315553
+        ],
+        "previous_nominal_under_head_envelope_mm": 203.2,
+        "receiver_ids_head_to_nut": [
+          "knee_outer_left_spine",
+          "base_side_left",
+          "knee_outer_left_inner_frame_block"
+        ],
+        "wood_grip_mm": 266.7
+      },
+      "knee_outer_left_side_2": {
+        "axis_global_xyz": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "envelope_is_not_a_purchased_length_selection": true,
+        "new_nominal_under_head_envelope_mm": 292.1,
+        "preserved_global_yz_station_mm": [
+          -77.302644,
+          365.787553
+        ],
+        "previous_nominal_under_head_envelope_mm": 203.2,
+        "receiver_ids_head_to_nut": [
+          "knee_outer_left_spine",
+          "base_side_left",
+          "knee_outer_left_inner_frame_block"
+        ],
+        "wood_grip_mm": 266.7
+      },
+      "knee_outer_right_side_1": {
+        "axis_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "envelope_is_not_a_purchased_length_selection": true,
+        "new_nominal_under_head_envelope_mm": 292.1,
+        "preserved_global_yz_station_mm": [
+          -106.228087,
+          331.315553
+        ],
+        "previous_nominal_under_head_envelope_mm": 203.2,
+        "receiver_ids_head_to_nut": [
+          "knee_outer_right_spine",
+          "base_side_right",
+          "knee_outer_right_inner_frame_block"
+        ],
+        "wood_grip_mm": 266.7
+      },
+      "knee_outer_right_side_2": {
+        "axis_global_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "envelope_is_not_a_purchased_length_selection": true,
+        "new_nominal_under_head_envelope_mm": 292.1,
+        "preserved_global_yz_station_mm": [
+          -77.302644,
+          365.787553
+        ],
+        "previous_nominal_under_head_envelope_mm": 203.2,
+        "receiver_ids_head_to_nut": [
+          "knee_outer_right_spine",
+          "base_side_right",
+          "knee_outer_right_inner_frame_block"
+        ],
+        "wood_grip_mm": 266.7
+      }
     },
+    "owner_review_gate": "Joint evaluations remain paused until the owner signs off on this model revision.",
     "prior_revision_report": {
+      "axes": {
+        "center_principal_header_left_1": {
+          "bore_radius_mm": 3.65,
+          "candidate_part_id": "center_principal_cleat_left",
+          "direction_global_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "old_wood_grip_mm": 100.915644,
+          "origin_global_xyz_mm": [
+            -116.0,
+            -140.0,
+            238.9
+          ],
+          "receiver_order_head_to_nut": [
+            "base_header",
+            "center_principal_cleat_left"
+          ],
+          "wood_grip_mm": 177.8
+        },
+        "center_principal_header_left_2": {
+          "bore_radius_mm": 3.65,
+          "candidate_part_id": "center_principal_cleat_left",
+          "direction_global_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "old_wood_grip_mm": 100.915644,
+          "origin_global_xyz_mm": [
+            -116.0,
+            -75.0,
+            238.9
+          ],
+          "receiver_order_head_to_nut": [
+            "base_header",
+            "center_principal_cleat_left"
+          ],
+          "wood_grip_mm": 177.8
+        },
+        "center_principal_header_right_1": {
+          "bore_radius_mm": 3.65,
+          "candidate_part_id": "center_principal_cleat_right",
+          "direction_global_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "old_wood_grip_mm": 100.915644,
+          "origin_global_xyz_mm": [
+            116.0,
+            -140.0,
+            238.9
+          ],
+          "receiver_order_head_to_nut": [
+            "base_header",
+            "center_principal_cleat_right"
+          ],
+          "wood_grip_mm": 177.8
+        },
+        "center_principal_header_right_2": {
+          "bore_radius_mm": 3.65,
+          "candidate_part_id": "center_principal_cleat_right",
+          "direction_global_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "old_wood_grip_mm": 100.915644,
+          "origin_global_xyz_mm": [
+            116.0,
+            -75.0,
+            238.9
+          ],
+          "receiver_order_head_to_nut": [
+            "base_header",
+            "center_principal_cleat_right"
+          ],
+          "wood_grip_mm": 177.8
+        },
+        "center_principal_left_1": {
+          "candidate_part_id": "center_principal_cleat_left",
+          "direction_after_global_xyz": [
+            -1.0,
+            -0.0,
+            0.0
+          ],
+          "direction_before_global_xyz": [
+            -1.0,
+            -0.0,
+            0.0
+          ],
+          "receiver_order_head_to_nut": [
+            "base_principal_center_left",
+            "center_principal_cleat_left"
+          ],
+          "translation_global_xyz_mm": [
+            0.0,
+            25.711504387,
+            30.641777725
+          ],
+          "wood_grip_preserved_mm": 127.0
+        },
+        "center_principal_left_2": {
+          "candidate_part_id": "center_principal_cleat_left",
+          "direction_after_global_xyz": [
+            -1.0,
+            0.0,
+            -0.0
+          ],
+          "direction_before_global_xyz": [
+            -1.0,
+            0.0,
+            -0.0
+          ],
+          "receiver_order_head_to_nut": [
+            "base_principal_center_left",
+            "center_principal_cleat_left"
+          ],
+          "translation_global_xyz_mm": [
+            0.0,
+            38.567256581,
+            45.962666587
+          ],
+          "wood_grip_preserved_mm": 127.0
+        },
+        "center_principal_right_1": {
+          "candidate_part_id": "center_principal_cleat_right",
+          "direction_after_global_xyz": [
+            1.0,
+            -0.0,
+            0.0
+          ],
+          "direction_before_global_xyz": [
+            1.0,
+            -0.0,
+            0.0
+          ],
+          "receiver_order_head_to_nut": [
+            "base_principal_center_right",
+            "center_principal_cleat_right"
+          ],
+          "translation_global_xyz_mm": [
+            0.0,
+            25.711504387,
+            30.641777725
+          ],
+          "wood_grip_preserved_mm": 127.0
+        },
+        "center_principal_right_2": {
+          "candidate_part_id": "center_principal_cleat_right",
+          "direction_after_global_xyz": [
+            1.0,
+            0.0,
+            -0.0
+          ],
+          "direction_before_global_xyz": [
+            1.0,
+            0.0,
+            -0.0
+          ],
+          "receiver_order_head_to_nut": [
+            "base_principal_center_right",
+            "center_principal_cleat_right"
+          ],
+          "translation_global_xyz_mm": [
+            0.0,
+            38.567256581,
+            45.962666587
+          ],
+          "wood_grip_preserved_mm": 127.0
+        }
+      },
       "baseline_display_translations_mm": {
         "fastener_round_kicker_left_center_1": [
           -91.71000000000004,
@@ -1927,6 +1989,20 @@
           0.0,
           49.430367185,
           58.908817676
+        ]
+      },
+      "block_bounds_right_global_mm": {
+        "x": [
+          89.05,
+          177.95
+        ],
+        "y": [
+          -175.7,
+          -36.0
+        ],
+        "z": [
+          277.0,
+          416.7
         ]
       },
       "changed_display_solid_ids": {
@@ -2051,6 +2127,46 @@
           "center_post_right_2/nut",
           "center_post_right_2/nut_washer",
           "center_post_right_2/shaft",
+          "center_principal_header_left_1/head",
+          "center_principal_header_left_1/head_washer",
+          "center_principal_header_left_1/nut",
+          "center_principal_header_left_1/nut_washer",
+          "center_principal_header_left_1/shaft",
+          "center_principal_header_left_2/head",
+          "center_principal_header_left_2/head_washer",
+          "center_principal_header_left_2/nut",
+          "center_principal_header_left_2/nut_washer",
+          "center_principal_header_left_2/shaft",
+          "center_principal_header_right_1/head",
+          "center_principal_header_right_1/head_washer",
+          "center_principal_header_right_1/nut",
+          "center_principal_header_right_1/nut_washer",
+          "center_principal_header_right_1/shaft",
+          "center_principal_header_right_2/head",
+          "center_principal_header_right_2/head_washer",
+          "center_principal_header_right_2/nut",
+          "center_principal_header_right_2/nut_washer",
+          "center_principal_header_right_2/shaft",
+          "center_principal_left_1/head",
+          "center_principal_left_1/head_washer",
+          "center_principal_left_1/nut",
+          "center_principal_left_1/nut_washer",
+          "center_principal_left_1/shaft",
+          "center_principal_left_2/head",
+          "center_principal_left_2/head_washer",
+          "center_principal_left_2/nut",
+          "center_principal_left_2/nut_washer",
+          "center_principal_left_2/shaft",
+          "center_principal_right_1/head",
+          "center_principal_right_1/head_washer",
+          "center_principal_right_1/nut",
+          "center_principal_right_1/nut_washer",
+          "center_principal_right_1/shaft",
+          "center_principal_right_2/head",
+          "center_principal_right_2/head_washer",
+          "center_principal_right_2/nut",
+          "center_principal_right_2/nut_washer",
+          "center_principal_right_2/shaft",
           "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head",
           "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head_washer",
           "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/nut",
@@ -2139,6 +2255,8 @@
           "bottom_outer_right_cleat",
           "center_post_cleat_left",
           "center_post_cleat_right",
+          "center_principal_cleat_left",
+          "center_principal_cleat_right",
           "left_service_inner_lower_cleat",
           "left_service_outer_lower_cleat",
           "wj04_lower_full_stock_cleat",
@@ -2166,14 +2284,72 @@
         ]
       },
       "checks": {
-        "all_66_panel_screw_ids_preserved": true,
-        "center_posts_outside_nearest_central_kicker_tnut_flanges": true,
+        "all_66_fixed_panel_axes_and_12_frame_bolts_preserved": true,
         "complete_joint_acceptance": false,
-        "four_center_kicker_screw_receivers_moved_to_posts": true,
-        "kicker_center_edge_support_verified": false,
-        "twelve_existing_frame_bolts_unchanged": true,
-        "two_center_backers_and_four_backer_bolts_removed": true
+        "fabrication_released": false,
+        "four_header_bolts_restationed_and_extended_through_new_blocks": true,
+        "four_principal_cross_bolts_moved_along_50_degree_T_by_40_and_60_mm": true,
+        "geometry_only_no_force_or_joint_acceptance_calculation": true,
+        "structural_released": false,
+        "three_receiver_hosts_rebuilt_from_raw_retained_cuts_and_all_current_bores": true,
+        "two_center_principal_blocks_replaced_with_plumb_full_section_boxes": true
       },
+      "host_replay": {
+        "base_header": {
+          "candidate_bore_axis_ids": [
+            "center_post_header_left_1",
+            "center_post_header_left_2",
+            "center_post_header_right_1",
+            "center_post_header_right_2",
+            "center_principal_header_left_1",
+            "center_principal_header_left_2",
+            "center_principal_header_right_1",
+            "center_principal_header_right_2",
+            "knee_outer_left_header_1",
+            "knee_outer_left_header_2",
+            "knee_outer_right_header_1",
+            "knee_outer_right_header_2"
+          ],
+          "excluded_replaced_source_cutter_count": 24,
+          "finished_shape_sha256": "37d84dee3073d2b27ea1b635be40503b5fdea5d0599eb3acfc9bbe969c3e182b",
+          "retained_source_and_purchase_cutter_count": 20
+        },
+        "base_principal_center_left": {
+          "candidate_bore_axis_ids": [
+            "bottom_center/clip_horizontal_bottom_left_2/principal_1",
+            "bottom_center/clip_horizontal_bottom_left_2/principal_2",
+            "center_principal_left_1",
+            "center_principal_left_2",
+            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1",
+            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2",
+            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_1",
+            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_2",
+            "top_center/clip_split_top_center_left/principal_1",
+            "top_center/clip_split_top_center_left/principal_2"
+          ],
+          "excluded_replaced_source_cutter_count": 15,
+          "finished_shape_sha256": "64e871315ae379af9078a8482205c0849e45c68a49bfa1840d9ede4d02405b49",
+          "retained_source_and_purchase_cutter_count": 17
+        },
+        "base_principal_center_right": {
+          "candidate_bore_axis_ids": [
+            "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+            "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+            "center_principal_right_1",
+            "center_principal_right_2",
+            "top_center/clip_split_top_center_right/principal_1",
+            "top_center/clip_split_top_center_right/principal_2",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
+          ],
+          "excluded_replaced_source_cutter_count": 15,
+          "finished_shape_sha256": "b0e091279e2ce605694a73586c5fc82bf3017582f2849c1245299560d9ca1431",
+          "retained_source_and_purchase_cutter_count": 17
+        }
+      },
+      "input_revision_id": "kicker-posts-outside-central-tnuts-v1",
       "moved_candidate_axis_ids": [
         "center_post_header_left_1",
         "center_post_header_left_2",
@@ -2182,7 +2358,15 @@
         "center_post_left_1",
         "center_post_left_2",
         "center_post_right_1",
-        "center_post_right_2"
+        "center_post_right_2",
+        "center_principal_header_left_1",
+        "center_principal_header_left_2",
+        "center_principal_header_right_1",
+        "center_principal_header_right_2",
+        "center_principal_left_1",
+        "center_principal_left_2",
+        "center_principal_right_1",
+        "center_principal_right_2"
       ],
       "moved_panel_axes": [
         {
@@ -2406,32 +2590,35 @@
           "visual_name": "fastener_round_kicker_right_center_2"
         }
       ],
-      "placements": {
-        "left": {
-          "flange_gap_mm": 5.0,
-          "post_center_x_mm": -161.71000000000004,
-          "post_id": "base_post_center_left",
-          "tnut_id": "hold_tnut_kicker_5",
-          "translation_global_xyz_mm": [
-            28.289999999999964,
-            0.0,
-            0.0
-          ]
-        },
-        "right": {
-          "flange_gap_mm": 5.0,
-          "post_center_x_mm": 160.3499999999999,
-          "post_id": "base_post_center_right",
-          "tnut_id": "hold_tnut_kicker_6",
-          "translation_global_xyz_mm": [
-            -29.65000000000009,
-            0.0,
-            0.0
-          ]
-        }
+      "preserved_counts": {
+        "candidate_axes": 100,
+        "candidate_hardware_roles": 500,
+        "candidate_parts": 26,
+        "fixed_panel_axes": 66,
+        "frame_bolts": 12
       },
       "prior_revision_report": {
         "baseline_display_translations_mm": {
+          "fastener_round_kicker_left_center_1": [
+            -91.71000000000004,
+            0.0,
+            0.0
+          ],
+          "fastener_round_kicker_left_center_2": [
+            -91.71000000000004,
+            0.0,
+            0.0
+          ],
+          "fastener_round_kicker_right_center_1": [
+            90.34999999999991,
+            0.0,
+            0.0
+          ],
+          "fastener_round_kicker_right_center_2": [
+            90.34999999999991,
+            0.0,
+            0.0
+          ],
           "fastener_round_panel_lower_left_edge_1": [
             0.0,
             49.430367185,
@@ -2535,6 +2722,46 @@
             "bottom_outer/clip_horizontal_bottom_right_2/side_2/nut",
             "bottom_outer/clip_horizontal_bottom_right_2/side_2/nut_washer",
             "bottom_outer/clip_horizontal_bottom_right_2/side_2/shaft",
+            "center_post_header_left_1/head",
+            "center_post_header_left_1/head_washer",
+            "center_post_header_left_1/nut",
+            "center_post_header_left_1/nut_washer",
+            "center_post_header_left_1/shaft",
+            "center_post_header_left_2/head",
+            "center_post_header_left_2/head_washer",
+            "center_post_header_left_2/nut",
+            "center_post_header_left_2/nut_washer",
+            "center_post_header_left_2/shaft",
+            "center_post_header_right_1/head",
+            "center_post_header_right_1/head_washer",
+            "center_post_header_right_1/nut",
+            "center_post_header_right_1/nut_washer",
+            "center_post_header_right_1/shaft",
+            "center_post_header_right_2/head",
+            "center_post_header_right_2/head_washer",
+            "center_post_header_right_2/nut",
+            "center_post_header_right_2/nut_washer",
+            "center_post_header_right_2/shaft",
+            "center_post_left_1/head",
+            "center_post_left_1/head_washer",
+            "center_post_left_1/nut",
+            "center_post_left_1/nut_washer",
+            "center_post_left_1/shaft",
+            "center_post_left_2/head",
+            "center_post_left_2/head_washer",
+            "center_post_left_2/nut",
+            "center_post_left_2/nut_washer",
+            "center_post_left_2/shaft",
+            "center_post_right_1/head",
+            "center_post_right_1/head_washer",
+            "center_post_right_1/nut",
+            "center_post_right_1/nut_washer",
+            "center_post_right_1/shaft",
+            "center_post_right_2/head",
+            "center_post_right_2/head_washer",
+            "center_post_right_2/nut",
+            "center_post_right_2/nut_washer",
+            "center_post_right_2/shaft",
             "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head",
             "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head_washer",
             "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/nut",
@@ -2621,12 +2848,17 @@
             "bottom_center_right_cleat",
             "bottom_outer_left_cleat",
             "bottom_outer_right_cleat",
+            "center_post_cleat_left",
+            "center_post_cleat_right",
             "left_service_inner_lower_cleat",
             "left_service_outer_lower_cleat",
             "wj04_lower_full_stock_cleat",
             "wj06_outer_lower_right_cleat"
           ],
           "finished_hosts": [
+            "base_header",
+            "base_post_center_left",
+            "base_post_center_right",
             "base_principal_center_left",
             "base_principal_center_right",
             "base_rail_bottom_left",
@@ -2638,272 +2870,31 @@
           ],
           "fixed_panel_axes": [],
           "panel_replacements": [
+            "kicker_left",
+            "kicker_right",
             "main_lower_left",
             "main_lower_right"
           ]
         },
         "checks": {
-          "all_16_target_bores_and_80_hardware_roles_reflected": true,
-          "baseline_native_source_reconstruction_is_not_reused_as_revision_validation": true,
-          "capacity_established": false,
+          "all_66_panel_screw_ids_preserved": true,
+          "center_posts_outside_nearest_central_kicker_tnut_flanges": true,
           "complete_joint_acceptance": false,
-          "complete_lower_edge_support_geometry_rechecked": false,
-          "complete_static_scene_diagnostic": false,
-          "fabrication_released": false,
-          "four_bottom_cleats_and_all_16_bolt_axes_translated": true,
-          "four_fixed_hillman_axes_moved_with_66_axis_count_preserved": true,
-          "four_lower_service_cleats_reflected_about_raw_rail_center_T": true,
-          "input_is_frozen_complete_wj24_baseline": true,
-          "installation_proven": false,
-          "lowest_rear_support_pair_translated_by_recorded_T_offset": true,
-          "no_force_or_structural_acceptance_calculation_performed": true,
-          "purchased_hillman_screw_policy_preserved": true,
-          "six_affected_hosts_rebuilt_from_raw_retained_cuts_and_candidate_bores": true,
-          "six_current_receiver_hosts_rebuilt_from_raw_and_current_cut_maps": true,
-          "structural_released": false,
-          "two_lower_panel_meshes_remachined_without_old_screw_holes": true
+          "four_center_kicker_screw_receivers_moved_to_posts": true,
+          "kicker_center_edge_support_verified": false,
+          "twelve_existing_frame_bolts_unchanged": true,
+          "two_center_backers_and_four_backer_bolts_removed": true
         },
-        "findings": [
-          {
-            "detail": "The bottom rail and four panel screws remain above their original positions. Support along the lower panel edge remains part of the kicker connection review.",
-            "title": "Lower panel edge support needs a revised detail"
-          },
-          {
-            "detail": "The rail crosses 10 segments of the current LED wiring model. The wire route or rail passages need updating.",
-            "title": "Wire routing at the bottom rail"
-          },
-          {
-            "detail": "A corner block intersects the provisional clearance envelope behind hold G6. Hold-bolt length and access here remain to be resolved.",
-            "title": "G6 hold-bolt clearance"
-          },
-          {
-            "detail": "The inner corner block on the right bottom rail overlaps the G2 LED envelope. This clearance needs a further design adjustment.",
-            "title": "G2 LED clearance"
-          }
+        "moved_candidate_axis_ids": [
+          "center_post_header_left_1",
+          "center_post_header_left_2",
+          "center_post_header_right_1",
+          "center_post_header_right_2",
+          "center_post_left_1",
+          "center_post_left_2",
+          "center_post_right_1",
+          "center_post_right_2"
         ],
-        "focused_geometry_checks": {
-          "contacts": {
-            "bottom_center_left_cleat/base_principal_center_left": {
-              "gap_mm": 4.263256414560601e-14,
-              "overlap_mm3": 0.0
-            },
-            "bottom_center_left_cleat/base_rail_bottom_left": {
-              "gap_mm": 2.1316282072803006e-14,
-              "overlap_mm3": 0.0
-            },
-            "bottom_center_right_cleat/base_principal_center_right": {
-              "gap_mm": 4.263256414560601e-14,
-              "overlap_mm3": 0.0
-            },
-            "bottom_center_right_cleat/base_rail_bottom_right": {
-              "gap_mm": 2.1316282072803006e-14,
-              "overlap_mm3": 0.0
-            },
-            "bottom_outer_left_cleat/base_rail_bottom_left": {
-              "gap_mm": 0.0,
-              "overlap_mm3": 0.0
-            },
-            "bottom_outer_left_cleat/base_side_left": {
-              "gap_mm": 0.0,
-              "overlap_mm3": 0.0
-            },
-            "bottom_outer_right_cleat/base_rail_bottom_right": {
-              "gap_mm": 1.4210854715202004e-14,
-              "overlap_mm3": 0.0
-            },
-            "bottom_outer_right_cleat/base_side_right": {
-              "gap_mm": 0.0,
-              "overlap_mm3": 0.0
-            }
-          },
-          "panel_bounds": {
-            "main_lower_left": 0.0,
-            "main_lower_right": 0.0
-          },
-          "screw_holes": {
-            "round_panel_lower_left_edge_1": {
-              "new_hole_overlap_mm3": 0.0,
-              "original_position_filled_mm3": 702.5828358057086,
-              "previous_raised_position_filled_mm3": 702.582835805709
-            },
-            "round_panel_lower_left_edge_2": {
-              "new_hole_overlap_mm3": 0.0,
-              "original_position_filled_mm3": 702.5828358057094,
-              "previous_raised_position_filled_mm3": 702.5828358057098
-            },
-            "round_panel_lower_right_edge_1": {
-              "new_hole_overlap_mm3": 0.0,
-              "original_position_filled_mm3": 702.5828358057086,
-              "previous_raised_position_filled_mm3": 702.582835805709
-            },
-            "round_panel_lower_right_edge_2": {
-              "new_hole_overlap_mm3": 0.0,
-              "original_position_filled_mm3": 702.5828358057094,
-              "previous_raised_position_filled_mm3": 702.5828358057098
-            }
-          }
-        },
-        "focused_neighbor_hits": [
-          {
-            "intersection_mm3": 562.789149,
-            "neighbor": "hold_hole_and_provisional_projection/hold_tnut_main_G6",
-            "part": "wj04_lower_full_stock_cleat"
-          },
-          {
-            "intersection_mm3": 56.796528,
-            "neighbor": "lights/light_G2",
-            "part": "bottom_center_right_cleat"
-          },
-          {
-            "intersection_mm3": 532.196292,
-            "neighbor": "wires/wire_001_A1_A2",
-            "part": "base_rail_bottom_left"
-          },
-          {
-            "intersection_mm3": 532.170966,
-            "neighbor": "wires/wire_023_B2_B1",
-            "part": "base_rail_bottom_left"
-          },
-          {
-            "intersection_mm3": 532.196292,
-            "neighbor": "wires/wire_025_C1_C2",
-            "part": "base_rail_bottom_left"
-          },
-          {
-            "intersection_mm3": 532.170966,
-            "neighbor": "wires/wire_047_D2_D1",
-            "part": "base_rail_bottom_left"
-          },
-          {
-            "intersection_mm3": 532.196292,
-            "neighbor": "wires/wire_049_E1_E2",
-            "part": "base_rail_bottom_left"
-          },
-          {
-            "intersection_mm3": 532.196292,
-            "neighbor": "wires/wire_073_G1_G2",
-            "part": "base_rail_bottom_right"
-          },
-          {
-            "intersection_mm3": 532.170966,
-            "neighbor": "wires/wire_095_H2_H1",
-            "part": "base_rail_bottom_right"
-          },
-          {
-            "intersection_mm3": 532.196292,
-            "neighbor": "wires/wire_097_I1_I2",
-            "part": "base_rail_bottom_right"
-          },
-          {
-            "intersection_mm3": 532.170966,
-            "neighbor": "wires/wire_119_J2_J1",
-            "part": "base_rail_bottom_right"
-          },
-          {
-            "intersection_mm3": 532.196292,
-            "neighbor": "wires/wire_121_K1_K2",
-            "part": "base_rail_bottom_right"
-          }
-        ],
-        "host_replay": {
-          "base_principal_center_left": {
-            "candidate_bore_axis_ids": [
-              "bottom_center/clip_horizontal_bottom_left_2/principal_1",
-              "bottom_center/clip_horizontal_bottom_left_2/principal_2",
-              "center_principal_left_1",
-              "center_principal_left_2",
-              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1",
-              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2",
-              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_1",
-              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_2",
-              "top_center/clip_split_top_center_left/principal_1",
-              "top_center/clip_split_top_center_left/principal_2"
-            ],
-            "candidate_bore_count": 10,
-            "excluded_replaced_source_cut_count": 15,
-            "finished_shape_sha256": "70a0c785a7f618f4562d91a74a3bad3f765f41b446cc015258c5b832b0ab8b6d",
-            "retained_source_and_purchase_cut_count": 17
-          },
-          "base_principal_center_right": {
-            "candidate_bore_axis_ids": [
-              "bottom_center/clip_horizontal_bottom_right_1/principal_1",
-              "bottom_center/clip_horizontal_bottom_right_1/principal_2",
-              "center_principal_right_1",
-              "center_principal_right_2",
-              "top_center/clip_split_top_center_right/principal_1",
-              "top_center/clip_split_top_center_right/principal_2",
-              "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
-              "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
-              "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
-              "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
-            ],
-            "candidate_bore_count": 10,
-            "excluded_replaced_source_cut_count": 15,
-            "finished_shape_sha256": "28d031f3a2e8218983369c39613ce6f895a36dd0a581ba6f03222a29fe2400f7",
-            "retained_source_and_purchase_cut_count": 17
-          },
-          "base_rail_bottom_left": {
-            "candidate_bore_axis_ids": [
-              "bottom_center/clip_horizontal_bottom_left_2/rail_1",
-              "bottom_center/clip_horizontal_bottom_left_2/rail_2",
-              "bottom_outer/clip_horizontal_bottom_left_1/rail_1",
-              "bottom_outer/clip_horizontal_bottom_left_1/rail_2"
-            ],
-            "candidate_bore_count": 4,
-            "excluded_replaced_source_cut_count": 6,
-            "finished_shape_sha256": "8ed7faba67444c8974fcfb019bc16debd1c5688360c876df87026e8800168231",
-            "retained_source_and_purchase_cut_count": 9
-          },
-          "base_rail_bottom_right": {
-            "candidate_bore_axis_ids": [
-              "bottom_center/clip_horizontal_bottom_right_1/rail_1",
-              "bottom_center/clip_horizontal_bottom_right_1/rail_2",
-              "bottom_outer/clip_horizontal_bottom_right_2/rail_1",
-              "bottom_outer/clip_horizontal_bottom_right_2/rail_2"
-            ],
-            "candidate_bore_count": 4,
-            "excluded_replaced_source_cut_count": 6,
-            "finished_shape_sha256": "7a53a7bdf3638020c1fd64c680ff7ea71f7730e2351e7e4e406ed2747e2ec2f9",
-            "retained_source_and_purchase_cut_count": 9
-          },
-          "base_side_left": {
-            "candidate_bore_axis_ids": [
-              "bottom_outer/clip_horizontal_bottom_left_1/side_1",
-              "bottom_outer/clip_horizontal_bottom_left_1/side_2",
-              "knee_outer_left_side_1",
-              "knee_outer_left_side_2",
-              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1",
-              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2",
-              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_1",
-              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_2",
-              "top_outer/clip_single_top_left_1/side_1",
-              "top_outer/clip_single_top_left_1/side_2"
-            ],
-            "candidate_bore_count": 10,
-            "excluded_replaced_source_cut_count": 15,
-            "finished_shape_sha256": "6e8239154b229da1967dcabd8bf4d22fea168d200957e515720c89b4b87abd8e",
-            "retained_source_and_purchase_cut_count": 18
-          },
-          "base_side_right": {
-            "candidate_bore_axis_ids": [
-              "bottom_outer/clip_horizontal_bottom_right_2/side_1",
-              "bottom_outer/clip_horizontal_bottom_right_2/side_2",
-              "knee_outer_right_side_1",
-              "knee_outer_right_side_2",
-              "top_outer/clip_single_top_right_2/side_1",
-              "top_outer/clip_single_top_right_2/side_2",
-              "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1",
-              "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2",
-              "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_1",
-              "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_2"
-            ],
-            "candidate_bore_count": 10,
-            "excluded_replaced_source_cut_count": 15,
-            "finished_shape_sha256": "86b7ff4719e61521e858586d0181dd9e98b08f0f9a291c52566e7945286acdd0",
-            "retained_source_and_purchase_cut_count": 18
-          }
-        },
-        "input_revision_id": "lower-rear-blocks-below-v1",
         "moved_panel_axes": [
           {
             "axis_global_xyz_unchanged": [
@@ -3012,467 +3003,249 @@
               58.908817676
             ],
             "visual_name": "fastener_round_panel_lower_right_edge_2"
+          },
+          {
+            "axis_global_xyz_unchanged": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "axis_id": "round_kicker_left_center_1",
+            "new_start_global_xyz_mm": [
+              -161.71000000000004,
+              -17.743750000000002,
+              60.0
+            ],
+            "old_start_global_xyz_mm": [
+              -70.0,
+              -17.743750000000002,
+              60.0
+            ],
+            "panel_member": "kicker_left",
+            "previous_receiver_member": "inner_kicker_backer_left",
+            "purchased_product_policy": "Hillman 42605; existing purchased screw and pilot policy retained",
+            "receiver_member": "base_post_center_left",
+            "translation_global_xyz_mm": [
+              -91.71000000000004,
+              0.0,
+              0.0
+            ],
+            "visual_name": "fastener_round_kicker_left_center_1"
+          },
+          {
+            "axis_global_xyz_unchanged": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "axis_id": "round_kicker_left_center_2",
+            "new_start_global_xyz_mm": [
+              -161.71000000000004,
+              -17.743750000000002,
+              192.0
+            ],
+            "old_start_global_xyz_mm": [
+              -70.0,
+              -17.743750000000002,
+              192.0
+            ],
+            "panel_member": "kicker_left",
+            "previous_receiver_member": "inner_kicker_backer_left",
+            "purchased_product_policy": "Hillman 42605; existing purchased screw and pilot policy retained",
+            "receiver_member": "base_post_center_left",
+            "translation_global_xyz_mm": [
+              -91.71000000000004,
+              0.0,
+              0.0
+            ],
+            "visual_name": "fastener_round_kicker_left_center_2"
+          },
+          {
+            "axis_global_xyz_unchanged": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "axis_id": "round_kicker_right_center_1",
+            "new_start_global_xyz_mm": [
+              160.3499999999999,
+              -17.743750000000002,
+              60.0
+            ],
+            "old_start_global_xyz_mm": [
+              70.0,
+              -17.743750000000002,
+              60.0
+            ],
+            "panel_member": "kicker_right",
+            "previous_receiver_member": "inner_kicker_backer_right",
+            "purchased_product_policy": "Hillman 42605; existing purchased screw and pilot policy retained",
+            "receiver_member": "base_post_center_right",
+            "translation_global_xyz_mm": [
+              90.34999999999991,
+              0.0,
+              0.0
+            ],
+            "visual_name": "fastener_round_kicker_right_center_1"
+          },
+          {
+            "axis_global_xyz_unchanged": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "axis_id": "round_kicker_right_center_2",
+            "new_start_global_xyz_mm": [
+              160.3499999999999,
+              -17.743750000000002,
+              192.0
+            ],
+            "old_start_global_xyz_mm": [
+              70.0,
+              -17.743750000000002,
+              192.0
+            ],
+            "panel_member": "kicker_right",
+            "previous_receiver_member": "inner_kicker_backer_right",
+            "purchased_product_policy": "Hillman 42605; existing purchased screw and pilot policy retained",
+            "receiver_member": "base_post_center_right",
+            "translation_global_xyz_mm": [
+              90.34999999999991,
+              0.0,
+              0.0
+            ],
+            "visual_name": "fastener_round_kicker_right_center_2"
           }
         ],
-        "position_reference": {
-          "flange_clearance_mm": 5.0,
-          "flange_top_global_T_mm": 312.52413376959936,
-          "movement_from_previous_viewer_along_T_mm": -123.09999999999985,
-          "rail_lower_edge_global_T_mm": 317.52413376959936,
-          "tnut_ids": [
-            "hold_tnut_main_A1",
-            "hold_tnut_main_B1",
-            "hold_tnut_main_C1",
-            "hold_tnut_main_D1",
-            "hold_tnut_main_E1",
-            "hold_tnut_main_F1",
-            "hold_tnut_main_G1",
-            "hold_tnut_main_H1",
-            "hold_tnut_main_I1",
-            "hold_tnut_main_J1",
-            "hold_tnut_main_K1"
-          ]
-        },
-        "preserved_counts": {
-          "candidate_axes": 104,
-          "candidate_hardware_roles": 520,
-          "fixed_panel_axes": 66,
-          "retained_frame_bolts": 12
-        },
-        "remachined_panel_ids": [
-          "main_lower_left",
-          "main_lower_right"
-        ],
-        "replayed_host_ids": [
-          "base_principal_center_left",
-          "base_principal_center_right",
-          "base_rail_bottom_left",
-          "base_rail_bottom_right",
-          "base_side_left",
-          "base_side_right"
-        ],
-        "revision_id": "lower-rear-blocks-below-plus-bottom-support-above-tnuts-v1",
-        "schema": "wood_joint_wj24_bottom_support_above_tnuts/v1",
-        "scope": "viewer geometry only; no source-level approval, force calculation, structural acceptance, drilling, or fabrication release",
-        "status": "unaccepted_viewer_geometry_revision",
-        "summary": "Bottom support just above the first T-nut row; middle blocks remain below their rails",
-        "supersedes_revision_id": "lower-rear-blocks-below-plus-bottom-support-up-one-row-v1",
-        "support_question": "The two lower-edge support rails and their receiver/backing relationships have moved; lower-panel edge support and complete load transfer remain a design-review item.",
-        "target_cleat_ids": [
-          "bottom_center_left_cleat",
-          "bottom_center_right_cleat",
-          "bottom_outer_left_cleat",
-          "bottom_outer_right_cleat"
-        ],
-        "target_rail_ids": [
-          "base_rail_bottom_left",
-          "base_rail_bottom_right"
-        ],
-        "target_structural_axis_ids": [
-          "bottom_center/clip_horizontal_bottom_left_2/principal_1",
-          "bottom_center/clip_horizontal_bottom_left_2/principal_2",
-          "bottom_center/clip_horizontal_bottom_left_2/rail_1",
-          "bottom_center/clip_horizontal_bottom_left_2/rail_2",
-          "bottom_center/clip_horizontal_bottom_right_1/principal_1",
-          "bottom_center/clip_horizontal_bottom_right_1/principal_2",
-          "bottom_center/clip_horizontal_bottom_right_1/rail_1",
-          "bottom_center/clip_horizontal_bottom_right_1/rail_2",
-          "bottom_outer/clip_horizontal_bottom_left_1/rail_1",
-          "bottom_outer/clip_horizontal_bottom_left_1/rail_2",
-          "bottom_outer/clip_horizontal_bottom_left_1/side_1",
-          "bottom_outer/clip_horizontal_bottom_left_1/side_2",
-          "bottom_outer/clip_horizontal_bottom_right_2/rail_1",
-          "bottom_outer/clip_horizontal_bottom_right_2/rail_2",
-          "bottom_outer/clip_horizontal_bottom_right_2/side_1",
-          "bottom_outer/clip_horizontal_bottom_right_2/side_2"
-        ],
-        "translation_global_xyz_mm": [
-          0.0,
-          49.430367185,
-          58.908817676
-        ],
-        "translation_wall_T_mm": 76.9000000000002,
-        "upstream_revision_report": {
-          "axes": {
-            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1": {
-              "candidate_part_id": "left_service_outer_lower_cleat",
-              "direction_after_global_xyz": [
-                -0.0,
-                0.642787609,
-                0.766044443
-              ],
-              "direction_before_global_xyz": [
-                0.0,
-                -0.64278761,
-                -0.766044443
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "left_service_outer_lower_cleat",
-              "nut_receiver": "base_rail_service_lower_left",
-              "receiver_order_head_to_nut": [
-                "left_service_outer_lower_cleat",
-                "base_rail_service_lower_left"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_left_1"
-            },
-            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2": {
-              "candidate_part_id": "left_service_outer_lower_cleat",
-              "direction_after_global_xyz": [
-                0.0,
-                0.642787609,
-                0.766044443
-              ],
-              "direction_before_global_xyz": [
-                -0.0,
-                -0.64278761,
-                -0.766044443
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "left_service_outer_lower_cleat",
-              "nut_receiver": "base_rail_service_lower_left",
-              "receiver_order_head_to_nut": [
-                "left_service_outer_lower_cleat",
-                "base_rail_service_lower_left"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_left_1"
-            },
-            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1": {
-              "candidate_part_id": "left_service_outer_lower_cleat",
-              "direction_after_global_xyz": [
-                -1.0,
-                0.0,
-                0.0
-              ],
-              "direction_before_global_xyz": [
-                -1.0,
-                -0.0,
-                -0.0
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "left_service_outer_lower_cleat",
-              "nut_receiver": "base_side_left",
-              "receiver_order_head_to_nut": [
-                "left_service_outer_lower_cleat",
-                "base_side_left"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_left_1"
-            },
-            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2": {
-              "candidate_part_id": "left_service_outer_lower_cleat",
-              "direction_after_global_xyz": [
-                -1.0,
-                0.0,
-                -0.0
-              ],
-              "direction_before_global_xyz": [
-                -1.0,
-                0.0,
-                -0.0
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "left_service_outer_lower_cleat",
-              "nut_receiver": "base_side_left",
-              "receiver_order_head_to_nut": [
-                "left_service_outer_lower_cleat",
-                "base_side_left"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_left_1"
-            },
-            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1": {
-              "candidate_part_id": "left_service_inner_lower_cleat",
-              "direction_after_global_xyz": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "direction_before_global_xyz": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "left_service_inner_lower_cleat",
-              "nut_receiver": "base_principal_center_left",
-              "receiver_order_head_to_nut": [
-                "left_service_inner_lower_cleat",
-                "base_principal_center_left"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_left_2"
-            },
-            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2": {
-              "candidate_part_id": "left_service_inner_lower_cleat",
-              "direction_after_global_xyz": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "direction_before_global_xyz": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "left_service_inner_lower_cleat",
-              "nut_receiver": "base_principal_center_left",
-              "receiver_order_head_to_nut": [
-                "left_service_inner_lower_cleat",
-                "base_principal_center_left"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_left_2"
-            },
-            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1": {
-              "candidate_part_id": "left_service_inner_lower_cleat",
-              "direction_after_global_xyz": [
-                -0.0,
-                0.642787609,
-                0.766044443
-              ],
-              "direction_before_global_xyz": [
-                0.0,
-                -0.64278761,
-                -0.766044443
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "left_service_inner_lower_cleat",
-              "nut_receiver": "base_rail_service_lower_left",
-              "receiver_order_head_to_nut": [
-                "left_service_inner_lower_cleat",
-                "base_rail_service_lower_left"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_left_2"
-            },
-            "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2": {
-              "candidate_part_id": "left_service_inner_lower_cleat",
-              "direction_after_global_xyz": [
-                -0.0,
-                0.642787609,
-                0.766044443
-              ],
-              "direction_before_global_xyz": [
-                -0.0,
-                -0.64278761,
-                -0.766044443
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "left_service_inner_lower_cleat",
-              "nut_receiver": "base_rail_service_lower_left",
-              "receiver_order_head_to_nut": [
-                "left_service_inner_lower_cleat",
-                "base_rail_service_lower_left"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_left_2"
-            },
-            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1": {
-              "candidate_part_id": "wj04_lower_full_stock_cleat",
-              "direction_after_global_xyz": [
-                -1.0,
-                0.0,
-                0.0
-              ],
-              "direction_before_global_xyz": [
-                -1.0,
-                0.0,
-                0.0
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "wj04_lower_full_stock_cleat",
-              "nut_receiver": "base_principal_center_right",
-              "receiver_order_head_to_nut": [
-                "wj04_lower_full_stock_cleat",
-                "base_principal_center_right"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_right_1"
-            },
-            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2": {
-              "candidate_part_id": "wj04_lower_full_stock_cleat",
-              "direction_after_global_xyz": [
-                -1.0,
-                0.0,
-                0.0
-              ],
-              "direction_before_global_xyz": [
-                -1.0,
-                0.0,
-                0.0
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "wj04_lower_full_stock_cleat",
-              "nut_receiver": "base_principal_center_right",
-              "receiver_order_head_to_nut": [
-                "wj04_lower_full_stock_cleat",
-                "base_principal_center_right"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_right_1"
-            },
-            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1": {
-              "candidate_part_id": "wj04_lower_full_stock_cleat",
-              "direction_after_global_xyz": [
-                0.0,
-                0.642787609,
-                0.766044443
-              ],
-              "direction_before_global_xyz": [
-                0.0,
-                -0.64278761,
-                -0.766044443
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "wj04_lower_full_stock_cleat",
-              "nut_receiver": "base_rail_service_lower_right",
-              "receiver_order_head_to_nut": [
-                "wj04_lower_full_stock_cleat",
-                "base_rail_service_lower_right"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_right_1"
-            },
-            "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2": {
-              "candidate_part_id": "wj04_lower_full_stock_cleat",
-              "direction_after_global_xyz": [
-                0.0,
-                0.642787609,
-                0.766044443
-              ],
-              "direction_before_global_xyz": [
-                0.0,
-                -0.64278761,
-                -0.766044443
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "wj04_lower_full_stock_cleat",
-              "nut_receiver": "base_rail_service_lower_right",
-              "receiver_order_head_to_nut": [
-                "wj04_lower_full_stock_cleat",
-                "base_rail_service_lower_right"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_right_1"
-            },
-            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1": {
-              "candidate_part_id": "wj06_outer_lower_right_cleat",
-              "direction_after_global_xyz": [
-                0.0,
-                0.642787609,
-                0.766044443
-              ],
-              "direction_before_global_xyz": [
-                -0.0,
-                -0.64278761,
-                -0.766044443
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "wj06_outer_lower_right_cleat",
-              "nut_receiver": "base_rail_service_lower_right",
-              "receiver_order_head_to_nut": [
-                "wj06_outer_lower_right_cleat",
-                "base_rail_service_lower_right"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_right_2"
-            },
-            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2": {
-              "candidate_part_id": "wj06_outer_lower_right_cleat",
-              "direction_after_global_xyz": [
-                0.0,
-                0.642787609,
-                0.766044443
-              ],
-              "direction_before_global_xyz": [
-                -0.0,
-                -0.64278761,
-                -0.766044443
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "wj06_outer_lower_right_cleat",
-              "nut_receiver": "base_rail_service_lower_right",
-              "receiver_order_head_to_nut": [
-                "wj06_outer_lower_right_cleat",
-                "base_rail_service_lower_right"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_right_2"
-            },
-            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1": {
-              "candidate_part_id": "wj06_outer_lower_right_cleat",
-              "direction_after_global_xyz": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "direction_before_global_xyz": [
-                1.0,
-                -0.0,
-                -0.0
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "wj06_outer_lower_right_cleat",
-              "nut_receiver": "base_side_right",
-              "receiver_order_head_to_nut": [
-                "wj06_outer_lower_right_cleat",
-                "base_side_right"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_right_2"
-            },
-            "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2": {
-              "candidate_part_id": "wj06_outer_lower_right_cleat",
-              "direction_after_global_xyz": [
-                1.0,
-                0.0,
-                0.0
-              ],
-              "direction_before_global_xyz": [
-                1.0,
-                0.0,
-                -0.0
-              ],
-              "direction_label": "head_to_nut",
-              "head_receiver": "wj06_outer_lower_right_cleat",
-              "nut_receiver": "base_side_right",
-              "receiver_order_head_to_nut": [
-                "wj06_outer_lower_right_cleat",
-                "base_side_right"
-              ],
-              "receiver_order_preserved": true,
-              "station_id": "clip_horizontal_lower_right_2"
-            }
+        "placements": {
+          "left": {
+            "flange_gap_mm": 5.0,
+            "post_center_x_mm": -161.71000000000004,
+            "post_id": "base_post_center_left",
+            "tnut_id": "hold_tnut_kicker_5",
+            "translation_global_xyz_mm": [
+              28.289999999999964,
+              0.0,
+              0.0
+            ]
           },
-          "base_composition_checks_preserved_separately": {
-            "all_104_candidate_axes_and_520_roles_preserved": true,
-            "all_16_hosts_rebuilt_from_raw_union_native_purchase_cuts_and_candidate_bores": true,
-            "all_24_legacy_duties_and_144_source_sds_axes_replaced": true,
-            "all_28_candidate_parts_preserved": true,
-            "all_66_fixed_axes_and_twelve_frame_bolts_preserved": true,
-            "all_five_historical_receiver_overlays_absorbed": true,
-            "all_previous_wj18_cutter_removals_and_backer_redirects_preserved": true,
-            "all_tool_or_access_intersections_clear": false,
-            "canonical_inventory_hash_and_source_binding_match": true,
-            "capacity_established": false,
-            "complete_joint_acceptance": false,
-            "complete_static_scene_diagnostic": false,
-            "exact_three_local_two_duty_delta_contracts": true,
-            "exact_wj18_base_contract": true,
-            "fabrication_released": false,
-            "four_backer_panel_cuts_preserved": true,
-            "installation_proven": false,
-            "no_source_only_overlays_remain": true,
-            "structural_released": false,
-            "zero_retained_legacy_clips_or_sds_axes": true
+          "right": {
+            "flange_gap_mm": 5.0,
+            "post_center_x_mm": 160.3499999999999,
+            "post_id": "base_post_center_right",
+            "tnut_id": "hold_tnut_kicker_6",
+            "translation_global_xyz_mm": [
+              -29.65000000000009,
+              0.0,
+              0.0
+            ]
+          }
+        },
+        "prior_revision_report": {
+          "baseline_display_translations_mm": {
+            "fastener_round_panel_lower_left_edge_1": [
+              0.0,
+              49.430367185,
+              58.908817676
+            ],
+            "fastener_round_panel_lower_left_edge_2": [
+              0.0,
+              49.430367185,
+              58.908817676
+            ],
+            "fastener_round_panel_lower_right_edge_1": [
+              0.0,
+              49.430367185,
+              58.908817676
+            ],
+            "fastener_round_panel_lower_right_edge_2": [
+              0.0,
+              49.430367185,
+              58.908817676
+            ]
           },
-          "base_layout_id": "wj24-twenty-four-duty-integrated-static-v1",
-          "base_trial_id": "wj24-wj18-plus-top-center-bottom-pairs-v1",
           "changed_display_solid_ids": {
             "candidate_installed_hardware": [
+              "bottom_center/clip_horizontal_bottom_left_2/principal_1/head",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_1/head_washer",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_1/nut",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_1/nut_washer",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_1/shaft",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_2/head",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_2/head_washer",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_2/nut",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_2/nut_washer",
+              "bottom_center/clip_horizontal_bottom_left_2/principal_2/shaft",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_1/head",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_1/head_washer",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_1/nut",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_1/nut_washer",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_1/shaft",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_2/head",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_2/head_washer",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_2/nut",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_2/nut_washer",
+              "bottom_center/clip_horizontal_bottom_left_2/rail_2/shaft",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_1/head",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_1/shaft",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_2/head",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer",
+              "bottom_center/clip_horizontal_bottom_right_1/principal_2/shaft",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_1/head",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_1/shaft",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_2/head",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer",
+              "bottom_center/clip_horizontal_bottom_right_1/rail_2/shaft",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_1/head",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_1/head_washer",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_1/nut",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_1/nut_washer",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_1/shaft",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_2/head",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_2/head_washer",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_2/nut_washer",
+              "bottom_outer/clip_horizontal_bottom_left_1/rail_2/shaft",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_1/head",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_1/head_washer",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_1/nut",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_1/nut_washer",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_1/shaft",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_2/head",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_2/head_washer",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_2/nut",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_2/nut_washer",
+              "bottom_outer/clip_horizontal_bottom_left_1/side_2/shaft",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_1/head",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_1/head_washer",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_1/nut",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_1/nut_washer",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_1/shaft",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_2/head",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_2/head_washer",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_2/nut_washer",
+              "bottom_outer/clip_horizontal_bottom_right_2/rail_2/shaft",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_1/head",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_1/head_washer",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_1/nut",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_1/nut_washer",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_1/shaft",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_2/head",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_2/head_washer",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_2/nut",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_2/nut_washer",
+              "bottom_outer/clip_horizontal_bottom_right_2/side_2/shaft",
               "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head",
               "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head_washer",
               "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/nut",
@@ -3555,6 +3328,10 @@
               "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2/shaft"
             ],
             "finished_candidate_parts": [
+              "bottom_center_left_cleat",
+              "bottom_center_right_cleat",
+              "bottom_outer_left_cleat",
+              "bottom_outer_right_cleat",
               "left_service_inner_lower_cleat",
               "left_service_outer_lower_cleat",
               "wj04_lower_full_stock_cleat",
@@ -3563,19 +3340,182 @@
             "finished_hosts": [
               "base_principal_center_left",
               "base_principal_center_right",
+              "base_rail_bottom_left",
+              "base_rail_bottom_right",
               "base_rail_service_lower_left",
               "base_rail_service_lower_right",
               "base_side_left",
               "base_side_right"
             ],
             "fixed_panel_axes": [],
-            "panel_replacements": []
+            "panel_replacements": [
+              "main_lower_left",
+              "main_lower_right"
+            ]
           },
-          "g7_relief_and_retained_source_cuts": {
-            "all_nonreplaced_applied_source_and_panel_cuts_replayed": true,
-            "replaced_source_cutter_ids_excluded_before_candidate_bores": true,
-            "upper_wj04_g7_crosscut_candidate_unchanged": true
+          "checks": {
+            "all_16_target_bores_and_80_hardware_roles_reflected": true,
+            "baseline_native_source_reconstruction_is_not_reused_as_revision_validation": true,
+            "capacity_established": false,
+            "complete_joint_acceptance": false,
+            "complete_lower_edge_support_geometry_rechecked": false,
+            "complete_static_scene_diagnostic": false,
+            "fabrication_released": false,
+            "four_bottom_cleats_and_all_16_bolt_axes_translated": true,
+            "four_fixed_hillman_axes_moved_with_66_axis_count_preserved": true,
+            "four_lower_service_cleats_reflected_about_raw_rail_center_T": true,
+            "input_is_frozen_complete_wj24_baseline": true,
+            "installation_proven": false,
+            "lowest_rear_support_pair_translated_by_recorded_T_offset": true,
+            "no_force_or_structural_acceptance_calculation_performed": true,
+            "purchased_hillman_screw_policy_preserved": true,
+            "six_affected_hosts_rebuilt_from_raw_retained_cuts_and_candidate_bores": true,
+            "six_current_receiver_hosts_rebuilt_from_raw_and_current_cut_maps": true,
+            "structural_released": false,
+            "two_lower_panel_meshes_remachined_without_old_screw_holes": true
           },
+          "findings": [
+            {
+              "detail": "The bottom rail and four panel screws remain above their original positions. Support along the lower panel edge remains part of the kicker connection review.",
+              "title": "Lower panel edge support needs a revised detail"
+            },
+            {
+              "detail": "The rail crosses 10 segments of the current LED wiring model. The wire route or rail passages need updating.",
+              "title": "Wire routing at the bottom rail"
+            },
+            {
+              "detail": "A corner block intersects the provisional clearance envelope behind hold G6. Hold-bolt length and access here remain to be resolved.",
+              "title": "G6 hold-bolt clearance"
+            },
+            {
+              "detail": "The inner corner block on the right bottom rail overlaps the G2 LED envelope. This clearance needs a further design adjustment.",
+              "title": "G2 LED clearance"
+            }
+          ],
+          "focused_geometry_checks": {
+            "contacts": {
+              "bottom_center_left_cleat/base_principal_center_left": {
+                "gap_mm": 4.263256414560601e-14,
+                "overlap_mm3": 0.0
+              },
+              "bottom_center_left_cleat/base_rail_bottom_left": {
+                "gap_mm": 2.1316282072803006e-14,
+                "overlap_mm3": 0.0
+              },
+              "bottom_center_right_cleat/base_principal_center_right": {
+                "gap_mm": 4.263256414560601e-14,
+                "overlap_mm3": 0.0
+              },
+              "bottom_center_right_cleat/base_rail_bottom_right": {
+                "gap_mm": 2.1316282072803006e-14,
+                "overlap_mm3": 0.0
+              },
+              "bottom_outer_left_cleat/base_rail_bottom_left": {
+                "gap_mm": 0.0,
+                "overlap_mm3": 0.0
+              },
+              "bottom_outer_left_cleat/base_side_left": {
+                "gap_mm": 0.0,
+                "overlap_mm3": 0.0
+              },
+              "bottom_outer_right_cleat/base_rail_bottom_right": {
+                "gap_mm": 1.4210854715202004e-14,
+                "overlap_mm3": 0.0
+              },
+              "bottom_outer_right_cleat/base_side_right": {
+                "gap_mm": 0.0,
+                "overlap_mm3": 0.0
+              }
+            },
+            "panel_bounds": {
+              "main_lower_left": 0.0,
+              "main_lower_right": 0.0
+            },
+            "screw_holes": {
+              "round_panel_lower_left_edge_1": {
+                "new_hole_overlap_mm3": 0.0,
+                "original_position_filled_mm3": 702.5828358057086,
+                "previous_raised_position_filled_mm3": 702.582835805709
+              },
+              "round_panel_lower_left_edge_2": {
+                "new_hole_overlap_mm3": 0.0,
+                "original_position_filled_mm3": 702.5828358057094,
+                "previous_raised_position_filled_mm3": 702.5828358057098
+              },
+              "round_panel_lower_right_edge_1": {
+                "new_hole_overlap_mm3": 0.0,
+                "original_position_filled_mm3": 702.5828358057086,
+                "previous_raised_position_filled_mm3": 702.582835805709
+              },
+              "round_panel_lower_right_edge_2": {
+                "new_hole_overlap_mm3": 0.0,
+                "original_position_filled_mm3": 702.5828358057094,
+                "previous_raised_position_filled_mm3": 702.5828358057098
+              }
+            }
+          },
+          "focused_neighbor_hits": [
+            {
+              "intersection_mm3": 562.789149,
+              "neighbor": "hold_hole_and_provisional_projection/hold_tnut_main_G6",
+              "part": "wj04_lower_full_stock_cleat"
+            },
+            {
+              "intersection_mm3": 56.796528,
+              "neighbor": "lights/light_G2",
+              "part": "bottom_center_right_cleat"
+            },
+            {
+              "intersection_mm3": 532.196292,
+              "neighbor": "wires/wire_001_A1_A2",
+              "part": "base_rail_bottom_left"
+            },
+            {
+              "intersection_mm3": 532.170966,
+              "neighbor": "wires/wire_023_B2_B1",
+              "part": "base_rail_bottom_left"
+            },
+            {
+              "intersection_mm3": 532.196292,
+              "neighbor": "wires/wire_025_C1_C2",
+              "part": "base_rail_bottom_left"
+            },
+            {
+              "intersection_mm3": 532.170966,
+              "neighbor": "wires/wire_047_D2_D1",
+              "part": "base_rail_bottom_left"
+            },
+            {
+              "intersection_mm3": 532.196292,
+              "neighbor": "wires/wire_049_E1_E2",
+              "part": "base_rail_bottom_left"
+            },
+            {
+              "intersection_mm3": 532.196292,
+              "neighbor": "wires/wire_073_G1_G2",
+              "part": "base_rail_bottom_right"
+            },
+            {
+              "intersection_mm3": 532.170966,
+              "neighbor": "wires/wire_095_H2_H1",
+              "part": "base_rail_bottom_right"
+            },
+            {
+              "intersection_mm3": 532.196292,
+              "neighbor": "wires/wire_097_I1_I2",
+              "part": "base_rail_bottom_right"
+            },
+            {
+              "intersection_mm3": 532.170966,
+              "neighbor": "wires/wire_119_J2_J1",
+              "part": "base_rail_bottom_right"
+            },
+            {
+              "intersection_mm3": 532.196292,
+              "neighbor": "wires/wire_121_K1_K2",
+              "part": "base_rail_bottom_right"
+            }
+          ],
           "host_replay": {
             "base_principal_center_left": {
               "candidate_bore_axis_ids": [
@@ -3591,9 +3531,9 @@
                 "top_center/clip_split_top_center_left/principal_2"
               ],
               "candidate_bore_count": 10,
-              "excluded_replaced_source_cutter_count": 15,
-              "finished_shape_sha256": "0b09f2d2ad18146d4fd4d7f6e051afc6eaf3b01d37383aacb75d5306e177adf3",
-              "retained_source_and_purchase_cutter_count": 17
+              "excluded_replaced_source_cut_count": 15,
+              "finished_shape_sha256": "70a0c785a7f618f4562d91a74a3bad3f765f41b446cc015258c5b832b0ab8b6d",
+              "retained_source_and_purchase_cut_count": 17
             },
             "base_principal_center_right": {
               "candidate_bore_axis_ids": [
@@ -3609,33 +3549,33 @@
                 "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
               ],
               "candidate_bore_count": 10,
-              "excluded_replaced_source_cutter_count": 15,
-              "finished_shape_sha256": "7ad10f442d4f255a3a0d199cb029e273686e912fb387aba9ebef0b9b0f296984",
-              "retained_source_and_purchase_cutter_count": 17
+              "excluded_replaced_source_cut_count": 15,
+              "finished_shape_sha256": "28d031f3a2e8218983369c39613ce6f895a36dd0a581ba6f03222a29fe2400f7",
+              "retained_source_and_purchase_cut_count": 17
             },
-            "base_rail_service_lower_left": {
+            "base_rail_bottom_left": {
               "candidate_bore_axis_ids": [
-                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1",
-                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2",
-                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1",
-                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2"
+                "bottom_center/clip_horizontal_bottom_left_2/rail_1",
+                "bottom_center/clip_horizontal_bottom_left_2/rail_2",
+                "bottom_outer/clip_horizontal_bottom_left_1/rail_1",
+                "bottom_outer/clip_horizontal_bottom_left_1/rail_2"
               ],
               "candidate_bore_count": 4,
-              "excluded_replaced_source_cutter_count": 6,
-              "finished_shape_sha256": "6e517811629add64f9b0ca7b0a670da167939fa92952c94268a2e51c477eb31a",
-              "retained_source_and_purchase_cutter_count": 9
+              "excluded_replaced_source_cut_count": 6,
+              "finished_shape_sha256": "8ed7faba67444c8974fcfb019bc16debd1c5688360c876df87026e8800168231",
+              "retained_source_and_purchase_cut_count": 9
             },
-            "base_rail_service_lower_right": {
+            "base_rail_bottom_right": {
               "candidate_bore_axis_ids": [
-                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
-                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2",
-                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1",
-                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2"
+                "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+                "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+                "bottom_outer/clip_horizontal_bottom_right_2/rail_1",
+                "bottom_outer/clip_horizontal_bottom_right_2/rail_2"
               ],
               "candidate_bore_count": 4,
-              "excluded_replaced_source_cutter_count": 6,
-              "finished_shape_sha256": "9d01201e7a2ca5f6f4b3888108fb5a306c99d815975fb7694f832768e584ef70",
-              "retained_source_and_purchase_cutter_count": 9
+              "excluded_replaced_source_cut_count": 6,
+              "finished_shape_sha256": "7a53a7bdf3638020c1fd64c680ff7ea71f7730e2351e7e4e406ed2747e2ec2f9",
+              "retained_source_and_purchase_cut_count": 9
             },
             "base_side_left": {
               "candidate_bore_axis_ids": [
@@ -3651,9 +3591,9 @@
                 "top_outer/clip_single_top_left_1/side_2"
               ],
               "candidate_bore_count": 10,
-              "excluded_replaced_source_cutter_count": 15,
-              "finished_shape_sha256": "bb13a9cf7169829d1d6047ad3efee9dc6e1334e560dadaaffb4071b99a07a738",
-              "retained_source_and_purchase_cutter_count": 18
+              "excluded_replaced_source_cut_count": 15,
+              "finished_shape_sha256": "6e8239154b229da1967dcabd8bf4d22fea168d200957e515720c89b4b87abd8e",
+              "retained_source_and_purchase_cut_count": 18
             },
             "base_side_right": {
               "candidate_bore_axis_ids": [
@@ -3669,132 +3609,948 @@
                 "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_2"
               ],
               "candidate_bore_count": 10,
-              "excluded_replaced_source_cutter_count": 15,
-              "finished_shape_sha256": "90ac58ef4963e348d3c88613b555694ed3e1f2b21ab0f18d8bd58aa1e0eff99d",
-              "retained_source_and_purchase_cutter_count": 18
+              "excluded_replaced_source_cut_count": 15,
+              "finished_shape_sha256": "86b7ff4719e61521e858586d0181dd9e98b08f0f9a291c52566e7945286acdd0",
+              "retained_source_and_purchase_cut_count": 18
             }
           },
-          "planes_by_raw_rail": {
-            "base_rail_service_lower_left": {
-              "center_global_t_mm": 1334.824134,
-              "normal_global_xyz": [
+          "input_revision_id": "lower-rear-blocks-below-v1",
+          "moved_panel_axes": [
+            {
+              "axis_global_xyz_unchanged": [
                 0.0,
-                0.64278761,
-                0.766044443
+                -0.7660444431189781,
+                0.6427876096865394
               ],
-              "plane_point_global_xyz_mm": [
-                -1130.3,
-                697.260907,
-                1157.417784
+              "axis_id": "round_panel_lower_left_edge_1",
+              "new_start_global_xyz_mm": [
+                -435.075,
+                69.583274425,
+                380.979027717
               ],
-              "rail_id": "base_rail_service_lower_left",
-              "raw_t_bounds_local_mm": [
-                -38.1,
-                0.0
+              "old_start_global_xyz_mm": [
+                -435.075,
+                20.152907241,
+                322.070210041
               ],
-              "raw_t_width_mm": 38.1
+              "panel_member": "main_lower_left",
+              "purchased_product_policy": "Hillman 42605; 63.5 mm nominal; no SPAX resistance, stiffness, pilot, or installation transfer",
+              "receiver_member": "base_rail_bottom_left",
+              "translation_global_xyz_mm": [
+                0.0,
+                49.430367185,
+                58.908817676
+              ],
+              "visual_name": "fastener_round_panel_lower_left_edge_1"
             },
-            "base_rail_service_lower_right": {
-              "center_global_t_mm": 1334.824134,
-              "normal_global_xyz": [
+            {
+              "axis_global_xyz_unchanged": [
                 0.0,
-                0.64278761,
-                0.766044443
+                -0.7660444431189781,
+                0.6427876096865394
               ],
-              "plane_point_global_xyz_mm": [
-                89.05,
-                697.260907,
-                1157.417784
+              "axis_id": "round_panel_lower_left_edge_2",
+              "new_start_global_xyz_mm": [
+                -835.075,
+                69.583274425,
+                380.979027717
               ],
-              "rail_id": "base_rail_service_lower_right",
-              "raw_t_bounds_local_mm": [
-                -38.1,
-                0.0
+              "old_start_global_xyz_mm": [
+                -835.075,
+                20.152907241,
+                322.070210041
               ],
-              "raw_t_width_mm": 38.1
+              "panel_member": "main_lower_left",
+              "purchased_product_policy": "Hillman 42605; 63.5 mm nominal; no SPAX resistance, stiffness, pilot, or installation transfer",
+              "receiver_member": "base_rail_bottom_left",
+              "translation_global_xyz_mm": [
+                0.0,
+                49.430367185,
+                58.908817676
+              ],
+              "visual_name": "fastener_round_panel_lower_left_edge_2"
+            },
+            {
+              "axis_global_xyz_unchanged": [
+                0.0,
+                -0.7660444431189781,
+                0.6427876096865394
+              ],
+              "axis_id": "round_panel_lower_right_edge_1",
+              "new_start_global_xyz_mm": [
+                435.075,
+                69.583274425,
+                380.979027717
+              ],
+              "old_start_global_xyz_mm": [
+                435.075,
+                20.152907241,
+                322.070210041
+              ],
+              "panel_member": "main_lower_right",
+              "purchased_product_policy": "Hillman 42605; 63.5 mm nominal; no SPAX resistance, stiffness, pilot, or installation transfer",
+              "receiver_member": "base_rail_bottom_right",
+              "translation_global_xyz_mm": [
+                0.0,
+                49.430367185,
+                58.908817676
+              ],
+              "visual_name": "fastener_round_panel_lower_right_edge_1"
+            },
+            {
+              "axis_global_xyz_unchanged": [
+                0.0,
+                -0.7660444431189781,
+                0.6427876096865394
+              ],
+              "axis_id": "round_panel_lower_right_edge_2",
+              "new_start_global_xyz_mm": [
+                835.075,
+                69.583274425,
+                380.979027717
+              ],
+              "old_start_global_xyz_mm": [
+                835.075,
+                20.152907241,
+                322.070210041
+              ],
+              "panel_member": "main_lower_right",
+              "purchased_product_policy": "Hillman 42605; 63.5 mm nominal; no SPAX resistance, stiffness, pilot, or installation transfer",
+              "receiver_member": "base_rail_bottom_right",
+              "translation_global_xyz_mm": [
+                0.0,
+                49.430367185,
+                58.908817676
+              ],
+              "visual_name": "fastener_round_panel_lower_right_edge_2"
             }
+          ],
+          "position_reference": {
+            "flange_clearance_mm": 5.0,
+            "flange_top_global_T_mm": 312.52413376959936,
+            "movement_from_previous_viewer_along_T_mm": -123.09999999999985,
+            "rail_lower_edge_global_T_mm": 317.52413376959936,
+            "tnut_ids": [
+              "hold_tnut_main_A1",
+              "hold_tnut_main_B1",
+              "hold_tnut_main_C1",
+              "hold_tnut_main_D1",
+              "hold_tnut_main_E1",
+              "hold_tnut_main_F1",
+              "hold_tnut_main_G1",
+              "hold_tnut_main_H1",
+              "hold_tnut_main_I1",
+              "hold_tnut_main_J1",
+              "hold_tnut_main_K1"
+            ]
           },
           "preserved_counts": {
-            "candidate_axes_before_after": [
-              104,
-              104
-            ],
-            "candidate_hardware_roles_before_after": [
-              520,
-              520
-            ],
-            "candidate_parts_before_after": [
-              28,
-              28
-            ],
+            "candidate_axes": 104,
+            "candidate_hardware_roles": 520,
             "fixed_panel_axes": 66,
-            "frame_bolts": 12
+            "retained_frame_bolts": 12
           },
-          "rebuilt_host_ids": [
+          "remachined_panel_ids": [
+            "main_lower_left",
+            "main_lower_right"
+          ],
+          "replayed_host_ids": [
             "base_principal_center_left",
             "base_principal_center_right",
-            "base_rail_service_lower_left",
-            "base_rail_service_lower_right",
+            "base_rail_bottom_left",
+            "base_rail_bottom_right",
             "base_side_left",
             "base_side_right"
           ],
-          "revision_id": "lower-rear-blocks-below-v1",
-          "schema": "wood_joint_wj24_lower_blocks_below/v1",
-          "scope": "viewer geometry only; no source composition, force calculation, or acceptance claim",
+          "revision_id": "lower-rear-blocks-below-plus-bottom-support-above-tnuts-v1",
+          "schema": "wood_joint_wj24_bottom_support_above_tnuts/v1",
+          "scope": "viewer geometry only; no source-level approval, force calculation, structural acceptance, drilling, or fabrication release",
           "status": "unaccepted_viewer_geometry_revision",
-          "summary": "Four lower rear-service cleats and their bolt stacks are reflected below the raw rail center-T planes; six receivers are replayed from raw hosts and retained cuts.",
-          "target_axis_count": 16,
-          "target_candidate_part_ids": [
-            "left_service_inner_lower_cleat",
-            "left_service_outer_lower_cleat",
-            "wj04_lower_full_stock_cleat",
-            "wj06_outer_lower_right_cleat"
+          "summary": "Bottom support just above the first T-nut row; middle blocks remain below their rails",
+          "supersedes_revision_id": "lower-rear-blocks-below-plus-bottom-support-up-one-row-v1",
+          "support_question": "The two lower-edge support rails and their receiver/backing relationships have moved; lower-panel edge support and complete load transfer remain a design-review item.",
+          "target_cleat_ids": [
+            "bottom_center_left_cleat",
+            "bottom_center_right_cleat",
+            "bottom_outer_left_cleat",
+            "bottom_outer_right_cleat"
           ],
-          "target_hardware_role_count": 80,
-          "target_receiver_contacts": {
-            "left_service_inner_lower_cleat/base_principal_center_left": {
-              "distance_mm": 0.0,
-              "intersection_volume_mm3": 0.0,
-              "no_solid_interpenetration": true
+          "target_rail_ids": [
+            "base_rail_bottom_left",
+            "base_rail_bottom_right"
+          ],
+          "target_structural_axis_ids": [
+            "bottom_center/clip_horizontal_bottom_left_2/principal_1",
+            "bottom_center/clip_horizontal_bottom_left_2/principal_2",
+            "bottom_center/clip_horizontal_bottom_left_2/rail_1",
+            "bottom_center/clip_horizontal_bottom_left_2/rail_2",
+            "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+            "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+            "bottom_center/clip_horizontal_bottom_right_1/rail_1",
+            "bottom_center/clip_horizontal_bottom_right_1/rail_2",
+            "bottom_outer/clip_horizontal_bottom_left_1/rail_1",
+            "bottom_outer/clip_horizontal_bottom_left_1/rail_2",
+            "bottom_outer/clip_horizontal_bottom_left_1/side_1",
+            "bottom_outer/clip_horizontal_bottom_left_1/side_2",
+            "bottom_outer/clip_horizontal_bottom_right_2/rail_1",
+            "bottom_outer/clip_horizontal_bottom_right_2/rail_2",
+            "bottom_outer/clip_horizontal_bottom_right_2/side_1",
+            "bottom_outer/clip_horizontal_bottom_right_2/side_2"
+          ],
+          "translation_global_xyz_mm": [
+            0.0,
+            49.430367185,
+            58.908817676
+          ],
+          "translation_wall_T_mm": 76.9000000000002,
+          "upstream_revision_report": {
+            "axes": {
+              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1": {
+                "candidate_part_id": "left_service_outer_lower_cleat",
+                "direction_after_global_xyz": [
+                  -0.0,
+                  0.642787609,
+                  0.766044443
+                ],
+                "direction_before_global_xyz": [
+                  0.0,
+                  -0.64278761,
+                  -0.766044443
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "left_service_outer_lower_cleat",
+                "nut_receiver": "base_rail_service_lower_left",
+                "receiver_order_head_to_nut": [
+                  "left_service_outer_lower_cleat",
+                  "base_rail_service_lower_left"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_left_1"
+              },
+              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2": {
+                "candidate_part_id": "left_service_outer_lower_cleat",
+                "direction_after_global_xyz": [
+                  0.0,
+                  0.642787609,
+                  0.766044443
+                ],
+                "direction_before_global_xyz": [
+                  -0.0,
+                  -0.64278761,
+                  -0.766044443
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "left_service_outer_lower_cleat",
+                "nut_receiver": "base_rail_service_lower_left",
+                "receiver_order_head_to_nut": [
+                  "left_service_outer_lower_cleat",
+                  "base_rail_service_lower_left"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_left_1"
+              },
+              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1": {
+                "candidate_part_id": "left_service_outer_lower_cleat",
+                "direction_after_global_xyz": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_before_global_xyz": [
+                  -1.0,
+                  -0.0,
+                  -0.0
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "left_service_outer_lower_cleat",
+                "nut_receiver": "base_side_left",
+                "receiver_order_head_to_nut": [
+                  "left_service_outer_lower_cleat",
+                  "base_side_left"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_left_1"
+              },
+              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2": {
+                "candidate_part_id": "left_service_outer_lower_cleat",
+                "direction_after_global_xyz": [
+                  -1.0,
+                  0.0,
+                  -0.0
+                ],
+                "direction_before_global_xyz": [
+                  -1.0,
+                  0.0,
+                  -0.0
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "left_service_outer_lower_cleat",
+                "nut_receiver": "base_side_left",
+                "receiver_order_head_to_nut": [
+                  "left_service_outer_lower_cleat",
+                  "base_side_left"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_left_1"
+              },
+              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1": {
+                "candidate_part_id": "left_service_inner_lower_cleat",
+                "direction_after_global_xyz": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_before_global_xyz": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "left_service_inner_lower_cleat",
+                "nut_receiver": "base_principal_center_left",
+                "receiver_order_head_to_nut": [
+                  "left_service_inner_lower_cleat",
+                  "base_principal_center_left"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_left_2"
+              },
+              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2": {
+                "candidate_part_id": "left_service_inner_lower_cleat",
+                "direction_after_global_xyz": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_before_global_xyz": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "left_service_inner_lower_cleat",
+                "nut_receiver": "base_principal_center_left",
+                "receiver_order_head_to_nut": [
+                  "left_service_inner_lower_cleat",
+                  "base_principal_center_left"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_left_2"
+              },
+              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1": {
+                "candidate_part_id": "left_service_inner_lower_cleat",
+                "direction_after_global_xyz": [
+                  -0.0,
+                  0.642787609,
+                  0.766044443
+                ],
+                "direction_before_global_xyz": [
+                  0.0,
+                  -0.64278761,
+                  -0.766044443
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "left_service_inner_lower_cleat",
+                "nut_receiver": "base_rail_service_lower_left",
+                "receiver_order_head_to_nut": [
+                  "left_service_inner_lower_cleat",
+                  "base_rail_service_lower_left"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_left_2"
+              },
+              "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2": {
+                "candidate_part_id": "left_service_inner_lower_cleat",
+                "direction_after_global_xyz": [
+                  -0.0,
+                  0.642787609,
+                  0.766044443
+                ],
+                "direction_before_global_xyz": [
+                  -0.0,
+                  -0.64278761,
+                  -0.766044443
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "left_service_inner_lower_cleat",
+                "nut_receiver": "base_rail_service_lower_left",
+                "receiver_order_head_to_nut": [
+                  "left_service_inner_lower_cleat",
+                  "base_rail_service_lower_left"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_left_2"
+              },
+              "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1": {
+                "candidate_part_id": "wj04_lower_full_stock_cleat",
+                "direction_after_global_xyz": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_before_global_xyz": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "wj04_lower_full_stock_cleat",
+                "nut_receiver": "base_principal_center_right",
+                "receiver_order_head_to_nut": [
+                  "wj04_lower_full_stock_cleat",
+                  "base_principal_center_right"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_right_1"
+              },
+              "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2": {
+                "candidate_part_id": "wj04_lower_full_stock_cleat",
+                "direction_after_global_xyz": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_before_global_xyz": [
+                  -1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "wj04_lower_full_stock_cleat",
+                "nut_receiver": "base_principal_center_right",
+                "receiver_order_head_to_nut": [
+                  "wj04_lower_full_stock_cleat",
+                  "base_principal_center_right"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_right_1"
+              },
+              "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1": {
+                "candidate_part_id": "wj04_lower_full_stock_cleat",
+                "direction_after_global_xyz": [
+                  0.0,
+                  0.642787609,
+                  0.766044443
+                ],
+                "direction_before_global_xyz": [
+                  0.0,
+                  -0.64278761,
+                  -0.766044443
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "wj04_lower_full_stock_cleat",
+                "nut_receiver": "base_rail_service_lower_right",
+                "receiver_order_head_to_nut": [
+                  "wj04_lower_full_stock_cleat",
+                  "base_rail_service_lower_right"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_right_1"
+              },
+              "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2": {
+                "candidate_part_id": "wj04_lower_full_stock_cleat",
+                "direction_after_global_xyz": [
+                  0.0,
+                  0.642787609,
+                  0.766044443
+                ],
+                "direction_before_global_xyz": [
+                  0.0,
+                  -0.64278761,
+                  -0.766044443
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "wj04_lower_full_stock_cleat",
+                "nut_receiver": "base_rail_service_lower_right",
+                "receiver_order_head_to_nut": [
+                  "wj04_lower_full_stock_cleat",
+                  "base_rail_service_lower_right"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_right_1"
+              },
+              "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1": {
+                "candidate_part_id": "wj06_outer_lower_right_cleat",
+                "direction_after_global_xyz": [
+                  0.0,
+                  0.642787609,
+                  0.766044443
+                ],
+                "direction_before_global_xyz": [
+                  -0.0,
+                  -0.64278761,
+                  -0.766044443
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "wj06_outer_lower_right_cleat",
+                "nut_receiver": "base_rail_service_lower_right",
+                "receiver_order_head_to_nut": [
+                  "wj06_outer_lower_right_cleat",
+                  "base_rail_service_lower_right"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_right_2"
+              },
+              "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2": {
+                "candidate_part_id": "wj06_outer_lower_right_cleat",
+                "direction_after_global_xyz": [
+                  0.0,
+                  0.642787609,
+                  0.766044443
+                ],
+                "direction_before_global_xyz": [
+                  -0.0,
+                  -0.64278761,
+                  -0.766044443
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "wj06_outer_lower_right_cleat",
+                "nut_receiver": "base_rail_service_lower_right",
+                "receiver_order_head_to_nut": [
+                  "wj06_outer_lower_right_cleat",
+                  "base_rail_service_lower_right"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_right_2"
+              },
+              "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1": {
+                "candidate_part_id": "wj06_outer_lower_right_cleat",
+                "direction_after_global_xyz": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_before_global_xyz": [
+                  1.0,
+                  -0.0,
+                  -0.0
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "wj06_outer_lower_right_cleat",
+                "nut_receiver": "base_side_right",
+                "receiver_order_head_to_nut": [
+                  "wj06_outer_lower_right_cleat",
+                  "base_side_right"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_right_2"
+              },
+              "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2": {
+                "candidate_part_id": "wj06_outer_lower_right_cleat",
+                "direction_after_global_xyz": [
+                  1.0,
+                  0.0,
+                  0.0
+                ],
+                "direction_before_global_xyz": [
+                  1.0,
+                  0.0,
+                  -0.0
+                ],
+                "direction_label": "head_to_nut",
+                "head_receiver": "wj06_outer_lower_right_cleat",
+                "nut_receiver": "base_side_right",
+                "receiver_order_head_to_nut": [
+                  "wj06_outer_lower_right_cleat",
+                  "base_side_right"
+                ],
+                "receiver_order_preserved": true,
+                "station_id": "clip_horizontal_lower_right_2"
+              }
             },
-            "left_service_inner_lower_cleat/base_rail_service_lower_left": {
-              "distance_mm": 2.31e-07,
-              "intersection_volume_mm3": 0.0,
-              "no_solid_interpenetration": true
+            "base_composition_checks_preserved_separately": {
+              "all_104_candidate_axes_and_520_roles_preserved": true,
+              "all_16_hosts_rebuilt_from_raw_union_native_purchase_cuts_and_candidate_bores": true,
+              "all_24_legacy_duties_and_144_source_sds_axes_replaced": true,
+              "all_28_candidate_parts_preserved": true,
+              "all_66_fixed_axes_and_twelve_frame_bolts_preserved": true,
+              "all_five_historical_receiver_overlays_absorbed": true,
+              "all_previous_wj18_cutter_removals_and_backer_redirects_preserved": true,
+              "all_tool_or_access_intersections_clear": false,
+              "canonical_inventory_hash_and_source_binding_match": true,
+              "capacity_established": false,
+              "complete_joint_acceptance": false,
+              "complete_static_scene_diagnostic": false,
+              "exact_three_local_two_duty_delta_contracts": true,
+              "exact_wj18_base_contract": true,
+              "fabrication_released": false,
+              "four_backer_panel_cuts_preserved": true,
+              "installation_proven": false,
+              "no_source_only_overlays_remain": true,
+              "structural_released": false,
+              "zero_retained_legacy_clips_or_sds_axes": true
             },
-            "left_service_outer_lower_cleat/base_rail_service_lower_left": {
-              "distance_mm": 2.31e-07,
-              "intersection_volume_mm3": 0.0,
-              "no_solid_interpenetration": true
+            "base_layout_id": "wj24-twenty-four-duty-integrated-static-v1",
+            "base_trial_id": "wj24-wj18-plus-top-center-bottom-pairs-v1",
+            "changed_display_solid_ids": {
+              "candidate_installed_hardware": [
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/head_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/nut",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/nut_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1/shaft",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2/head",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2/head_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2/nut",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2/nut_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2/shaft",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1/head",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1/head_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1/nut",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1/nut_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1/shaft",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2/head",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2/head_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2/nut",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2/nut_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2/shaft",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1/head",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1/head_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1/nut",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1/nut_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1/shaft",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2/head",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2/head_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2/nut",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2/nut_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2/shaft",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1/head",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1/head_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1/nut",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1/nut_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1/shaft",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2/head",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2/head_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2/nut",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2/nut_washer",
+                "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2/shaft",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1/head",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1/head_washer",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1/nut",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1/nut_washer",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1/shaft",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2/head",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2/head_washer",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2/nut",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2/nut_washer",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2/shaft",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1/head",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1/head_washer",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1/nut",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1/nut_washer",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1/shaft",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2/head",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2/head_washer",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2/nut",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2/nut_washer",
+                "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2/shaft",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1/head",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1/head_washer",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1/nut",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1/nut_washer",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1/shaft",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2/head",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2/head_washer",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2/nut",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2/nut_washer",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2/shaft",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1/head",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1/head_washer",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1/nut",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1/nut_washer",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1/shaft",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2/head",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2/head_washer",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2/nut",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2/nut_washer",
+                "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2/shaft"
+              ],
+              "finished_candidate_parts": [
+                "left_service_inner_lower_cleat",
+                "left_service_outer_lower_cleat",
+                "wj04_lower_full_stock_cleat",
+                "wj06_outer_lower_right_cleat"
+              ],
+              "finished_hosts": [
+                "base_principal_center_left",
+                "base_principal_center_right",
+                "base_rail_service_lower_left",
+                "base_rail_service_lower_right",
+                "base_side_left",
+                "base_side_right"
+              ],
+              "fixed_panel_axes": [],
+              "panel_replacements": []
             },
-            "left_service_outer_lower_cleat/base_side_left": {
-              "distance_mm": 0.0,
-              "intersection_volume_mm3": 0.0,
-              "no_solid_interpenetration": true
+            "g7_relief_and_retained_source_cuts": {
+              "all_nonreplaced_applied_source_and_panel_cuts_replayed": true,
+              "replaced_source_cutter_ids_excluded_before_candidate_bores": true,
+              "upper_wj04_g7_crosscut_candidate_unchanged": true
             },
-            "wj04_lower_full_stock_cleat/base_principal_center_right": {
-              "distance_mm": 0.0,
-              "intersection_volume_mm3": 0.0,
-              "no_solid_interpenetration": true
+            "host_replay": {
+              "base_principal_center_left": {
+                "candidate_bore_axis_ids": [
+                  "bottom_center/clip_horizontal_bottom_left_2/principal_1",
+                  "bottom_center/clip_horizontal_bottom_left_2/principal_2",
+                  "center_principal_left_1",
+                  "center_principal_left_2",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_1",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_principal_2",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_1",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_2/upper_principal_2",
+                  "top_center/clip_split_top_center_left/principal_1",
+                  "top_center/clip_split_top_center_left/principal_2"
+                ],
+                "candidate_bore_count": 10,
+                "excluded_replaced_source_cutter_count": 15,
+                "finished_shape_sha256": "0b09f2d2ad18146d4fd4d7f6e051afc6eaf3b01d37383aacb75d5306e177adf3",
+                "retained_source_and_purchase_cutter_count": 17
+              },
+              "base_principal_center_right": {
+                "candidate_bore_axis_ids": [
+                  "bottom_center/clip_horizontal_bottom_right_1/principal_1",
+                  "bottom_center/clip_horizontal_bottom_right_1/principal_2",
+                  "center_principal_right_1",
+                  "center_principal_right_2",
+                  "top_center/clip_split_top_center_right/principal_1",
+                  "top_center/clip_split_top_center_right/principal_2",
+                  "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_1",
+                  "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_principal_2",
+                  "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_1",
+                  "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/upper_principal_2"
+                ],
+                "candidate_bore_count": 10,
+                "excluded_replaced_source_cutter_count": 15,
+                "finished_shape_sha256": "7ad10f442d4f255a3a0d199cb029e273686e912fb387aba9ebef0b9b0f296984",
+                "retained_source_and_purchase_cutter_count": 17
+              },
+              "base_rail_service_lower_left": {
+                "candidate_bore_axis_ids": [
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_1",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_rail_2",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_1",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_2/lower_rail_2"
+                ],
+                "candidate_bore_count": 4,
+                "excluded_replaced_source_cutter_count": 6,
+                "finished_shape_sha256": "6e517811629add64f9b0ca7b0a670da167939fa92952c94268a2e51c477eb31a",
+                "retained_source_and_purchase_cutter_count": 9
+              },
+              "base_rail_service_lower_right": {
+                "candidate_bore_axis_ids": [
+                  "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_1",
+                  "wj04_g7/upper_g7_clearance_n86p9_reversed_rail_hypothesis/lower_rail_2",
+                  "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_1",
+                  "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_rail_2"
+                ],
+                "candidate_bore_count": 4,
+                "excluded_replaced_source_cutter_count": 6,
+                "finished_shape_sha256": "9d01201e7a2ca5f6f4b3888108fb5a306c99d815975fb7694f832768e584ef70",
+                "retained_source_and_purchase_cutter_count": 9
+              },
+              "base_side_left": {
+                "candidate_bore_axis_ids": [
+                  "bottom_outer/clip_horizontal_bottom_left_1/side_1",
+                  "bottom_outer/clip_horizontal_bottom_left_1/side_2",
+                  "knee_outer_left_side_1",
+                  "knee_outer_left_side_2",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_1",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_lower_left_1/lower_side_2",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_1",
+                  "left_service/left_service_mirrored_inner_outer_hypothesis/clip_horizontal_upper_left_1/upper_side_2",
+                  "top_outer/clip_single_top_left_1/side_1",
+                  "top_outer/clip_single_top_left_1/side_2"
+                ],
+                "candidate_bore_count": 10,
+                "excluded_replaced_source_cutter_count": 15,
+                "finished_shape_sha256": "bb13a9cf7169829d1d6047ad3efee9dc6e1334e560dadaaffb4071b99a07a738",
+                "retained_source_and_purchase_cutter_count": 18
+              },
+              "base_side_right": {
+                "candidate_bore_axis_ids": [
+                  "bottom_outer/clip_horizontal_bottom_right_2/side_1",
+                  "bottom_outer/clip_horizontal_bottom_right_2/side_2",
+                  "knee_outer_right_side_1",
+                  "knee_outer_right_side_2",
+                  "top_outer/clip_single_top_right_2/side_1",
+                  "top_outer/clip_single_top_right_2/side_2",
+                  "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_1",
+                  "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/lower_side_2",
+                  "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_1",
+                  "wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side_2"
+                ],
+                "candidate_bore_count": 10,
+                "excluded_replaced_source_cutter_count": 15,
+                "finished_shape_sha256": "90ac58ef4963e348d3c88613b555694ed3e1f2b21ab0f18d8bd58aa1e0eff99d",
+                "retained_source_and_purchase_cutter_count": 18
+              }
             },
-            "wj04_lower_full_stock_cleat/base_rail_service_lower_right": {
-              "distance_mm": 2.31e-07,
-              "intersection_volume_mm3": 0.0,
-              "no_solid_interpenetration": true
+            "planes_by_raw_rail": {
+              "base_rail_service_lower_left": {
+                "center_global_t_mm": 1334.824134,
+                "normal_global_xyz": [
+                  0.0,
+                  0.64278761,
+                  0.766044443
+                ],
+                "plane_point_global_xyz_mm": [
+                  -1130.3,
+                  697.260907,
+                  1157.417784
+                ],
+                "rail_id": "base_rail_service_lower_left",
+                "raw_t_bounds_local_mm": [
+                  -38.1,
+                  0.0
+                ],
+                "raw_t_width_mm": 38.1
+              },
+              "base_rail_service_lower_right": {
+                "center_global_t_mm": 1334.824134,
+                "normal_global_xyz": [
+                  0.0,
+                  0.64278761,
+                  0.766044443
+                ],
+                "plane_point_global_xyz_mm": [
+                  89.05,
+                  697.260907,
+                  1157.417784
+                ],
+                "rail_id": "base_rail_service_lower_right",
+                "raw_t_bounds_local_mm": [
+                  -38.1,
+                  0.0
+                ],
+                "raw_t_width_mm": 38.1
+              }
             },
-            "wj06_outer_lower_right_cleat/base_rail_service_lower_right": {
-              "distance_mm": 2.31e-07,
-              "intersection_volume_mm3": 0.0,
-              "no_solid_interpenetration": true
+            "preserved_counts": {
+              "candidate_axes_before_after": [
+                104,
+                104
+              ],
+              "candidate_hardware_roles_before_after": [
+                520,
+                520
+              ],
+              "candidate_parts_before_after": [
+                28,
+                28
+              ],
+              "fixed_panel_axes": 66,
+              "frame_bolts": 12
             },
-            "wj06_outer_lower_right_cleat/base_side_right": {
-              "distance_mm": 0.0,
-              "intersection_volume_mm3": 0.0,
-              "no_solid_interpenetration": true
+            "rebuilt_host_ids": [
+              "base_principal_center_left",
+              "base_principal_center_right",
+              "base_rail_service_lower_left",
+              "base_rail_service_lower_right",
+              "base_side_left",
+              "base_side_right"
+            ],
+            "revision_id": "lower-rear-blocks-below-v1",
+            "schema": "wood_joint_wj24_lower_blocks_below/v1",
+            "scope": "viewer geometry only; no source composition, force calculation, or acceptance claim",
+            "status": "unaccepted_viewer_geometry_revision",
+            "summary": "Four lower rear-service cleats and their bolt stacks are reflected below the raw rail center-T planes; six receivers are replayed from raw hosts and retained cuts.",
+            "target_axis_count": 16,
+            "target_candidate_part_ids": [
+              "left_service_inner_lower_cleat",
+              "left_service_outer_lower_cleat",
+              "wj04_lower_full_stock_cleat",
+              "wj06_outer_lower_right_cleat"
+            ],
+            "target_hardware_role_count": 80,
+            "target_receiver_contacts": {
+              "left_service_inner_lower_cleat/base_principal_center_left": {
+                "distance_mm": 0.0,
+                "intersection_volume_mm3": 0.0,
+                "no_solid_interpenetration": true
+              },
+              "left_service_inner_lower_cleat/base_rail_service_lower_left": {
+                "distance_mm": 2.31e-07,
+                "intersection_volume_mm3": 0.0,
+                "no_solid_interpenetration": true
+              },
+              "left_service_outer_lower_cleat/base_rail_service_lower_left": {
+                "distance_mm": 2.31e-07,
+                "intersection_volume_mm3": 0.0,
+                "no_solid_interpenetration": true
+              },
+              "left_service_outer_lower_cleat/base_side_left": {
+                "distance_mm": 0.0,
+                "intersection_volume_mm3": 0.0,
+                "no_solid_interpenetration": true
+              },
+              "wj04_lower_full_stock_cleat/base_principal_center_right": {
+                "distance_mm": 0.0,
+                "intersection_volume_mm3": 0.0,
+                "no_solid_interpenetration": true
+              },
+              "wj04_lower_full_stock_cleat/base_rail_service_lower_right": {
+                "distance_mm": 2.31e-07,
+                "intersection_volume_mm3": 0.0,
+                "no_solid_interpenetration": true
+              },
+              "wj06_outer_lower_right_cleat/base_rail_service_lower_right": {
+                "distance_mm": 2.31e-07,
+                "intersection_volume_mm3": 0.0,
+                "no_solid_interpenetration": true
+              },
+              "wj06_outer_lower_right_cleat/base_side_right": {
+                "distance_mm": 0.0,
+                "intersection_volume_mm3": 0.0,
+                "no_solid_interpenetration": true
+              }
             }
           }
-        }
+        },
+        "removed_candidate_axis_ids": [
+          "backer_header_left_1",
+          "backer_header_left_2",
+          "backer_header_right_1",
+          "backer_header_right_2"
+        ],
+        "removed_candidate_part_ids": [
+          "inner_kicker_backer_left",
+          "inner_kicker_backer_right"
+        ],
+        "removed_display_solid_ids": [
+          "backer_header_left_1/bottom_head",
+          "backer_header_left_1/bottom_washer",
+          "backer_header_left_1/shaft",
+          "backer_header_left_1/top_nut",
+          "backer_header_left_1/top_washer",
+          "backer_header_left_2/bottom_head",
+          "backer_header_left_2/bottom_washer",
+          "backer_header_left_2/shaft",
+          "backer_header_left_2/top_nut",
+          "backer_header_left_2/top_washer",
+          "backer_header_right_1/bottom_head",
+          "backer_header_right_1/bottom_washer",
+          "backer_header_right_1/shaft",
+          "backer_header_right_1/top_nut",
+          "backer_header_right_1/top_washer",
+          "backer_header_right_2/bottom_head",
+          "backer_header_right_2/bottom_washer",
+          "backer_header_right_2/shaft",
+          "backer_header_right_2/top_nut",
+          "backer_header_right_2/top_washer",
+          "inner_kicker_backer_left",
+          "inner_kicker_backer_right"
+        ],
+        "revision_id": "kicker-posts-outside-central-tnuts-v1",
+        "schema": "wood_joint_wj24_kicker_posts_outside_tnuts/v1",
+        "scope": "Owner geometry review; no mechanics, installation, or fabrication acceptance",
+        "summary": "Kicker uprights outside the central T-nuts; center backing removed",
+        "supersedes_revision_id": "lower-rear-blocks-below-plus-bottom-support-above-tnuts-v1"
       },
+      "rebuilt_host_ids": [
+        "base_header",
+        "base_principal_center_left",
+        "base_principal_center_right"
+      ],
       "removed_candidate_axis_ids": [
         "backer_header_left_1",
         "backer_header_left_2",
@@ -3829,16 +4585,30 @@
         "inner_kicker_backer_left",
         "inner_kicker_backer_right"
       ],
-      "revision_id": "kicker-posts-outside-central-tnuts-v1",
-      "schema": "wood_joint_wj24_kicker_posts_outside_tnuts/v1",
-      "scope": "Owner geometry review; no mechanics, installation, or fabrication acceptance",
-      "summary": "Kicker uprights outside the central T-nuts; center backing removed",
-      "supersedes_revision_id": "lower-rear-blocks-below-plus-bottom-support-above-tnuts-v1"
+      "revision_id": "center-principal-header-blocks-plumb-full-section-v1",
+      "schema": "wood_joint_wj24_center_header_blocks/v1",
+      "scope": "viewer geometry only; no source recomposition, force calculation, joint acceptance, fabrication, or drilling release",
+      "status": "unaccepted_viewer_geometry_revision",
+      "summary": "Two center principal/header blocks are plumb full-section 4x6 boxes with a flat header seat; four vertical header bolts move clear of the center posts and four cross-principal bolts move 40/60 mm along T.",
+      "target_axis_ids": [
+        "center_principal_header_left_1",
+        "center_principal_header_left_2",
+        "center_principal_header_right_1",
+        "center_principal_header_right_2",
+        "center_principal_left_1",
+        "center_principal_left_2",
+        "center_principal_right_1",
+        "center_principal_right_2"
+      ],
+      "target_candidate_part_ids": [
+        "center_principal_cleat_left",
+        "center_principal_cleat_right"
+      ]
     },
     "rebuilt_host_ids": [
       "base_header",
-      "base_principal_center_left",
-      "base_principal_center_right"
+      "base_side_left",
+      "base_side_right"
     ],
     "removed_candidate_axis_ids": [
       "backer_header_left_1",
@@ -3874,40 +4644,78 @@
       "inner_kicker_backer_left",
       "inner_kicker_backer_right"
     ],
-    "revision_id": "center-principal-header-blocks-plumb-full-section-v1",
-    "schema": "wood_joint_wj24_center_header_blocks/v1",
-    "scope": "viewer geometry only; no source recomposition, force calculation, joint acceptance, fabrication, or drilling release",
+    "revision_id": "outer-rim-inner-frame-blocks-v1",
+    "schema": "wood_joint_wj24_inner_frame_blocks/v1",
     "status": "unaccepted_viewer_geometry_revision",
-    "summary": "Two center principal/header blocks are plumb full-section 4x6 boxes with a flat header seat; four vertical header bolts move clear of the center posts and four cross-principal bolts move 40/60 mm along T.",
-    "target_axis_ids": [
-      "center_principal_header_left_1",
-      "center_principal_header_left_2",
-      "center_principal_header_right_1",
-      "center_principal_header_right_2",
-      "center_principal_left_1",
-      "center_principal_left_2",
-      "center_principal_right_1",
-      "center_principal_right_2"
-    ],
-    "target_candidate_part_ids": [
-      "center_principal_cleat_left",
-      "center_principal_cleat_right"
-    ]
+    "summary": "The kicker center uprights and four screws sit outside the central T-nuts, and the center backer is removed. Taller central blocks sit flat on the kicker header. New inner blocks sandwich the outer 4\u00d76s with the exterior blocks; common side bolts pass through all three timbers, and each inner block has a vertical header bolt.",
+    "vertical_block_header_bolts": {
+      "knee_outer_left_inner_header_1": {
+        "axis_global_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "envelope_is_not_a_purchased_length_selection": true,
+        "nominal_under_head_envelope_mm": 202.5,
+        "nut_access_side": "below base_header in the clear front strip",
+        "origin_global_xyz_mm": [
+          -1085.85,
+          -62.35,
+          416.0
+        ],
+        "receiver_ids_head_to_nut": [
+          "knee_outer_left_inner_frame_block",
+          "base_header"
+        ],
+        "wood_grip_mm": 177.1
+      },
+      "knee_outer_right_inner_header_1": {
+        "axis_global_xyz": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "envelope_is_not_a_purchased_length_selection": true,
+        "nominal_under_head_envelope_mm": 202.5,
+        "nut_access_side": "below base_header in the clear front strip",
+        "origin_global_xyz_mm": [
+          1082.675,
+          -62.35,
+          416.0
+        ],
+        "receiver_ids_head_to_nut": [
+          "knee_outer_right_inner_frame_block",
+          "base_header"
+        ],
+        "wood_grip_mm": 177.1
+      }
+    }
   },
-  "rebuilt_host_ids": [
-    "base_header",
-    "base_side_left",
-    "base_side_right"
-  ],
   "removed_candidate_axis_ids": [
     "backer_header_left_1",
     "backer_header_left_2",
     "backer_header_right_1",
-    "backer_header_right_2"
+    "backer_header_right_2",
+    "knee_outer_left_bridge_link_1",
+    "knee_outer_left_bridge_link_2",
+    "knee_outer_left_bridge_spine_1",
+    "knee_outer_left_bridge_spine_2",
+    "knee_outer_left_header_1",
+    "knee_outer_left_header_2",
+    "knee_outer_right_bridge_link_1",
+    "knee_outer_right_bridge_link_2",
+    "knee_outer_right_bridge_spine_1",
+    "knee_outer_right_bridge_spine_2",
+    "knee_outer_right_header_1",
+    "knee_outer_right_header_2"
   ],
   "removed_candidate_part_ids": [
     "inner_kicker_backer_left",
-    "inner_kicker_backer_right"
+    "inner_kicker_backer_right",
+    "knee_outer_left_rear_bridge",
+    "knee_outer_left_under_header_link",
+    "knee_outer_right_rear_bridge",
+    "knee_outer_right_under_header_link"
   ],
   "removed_display_solid_ids": [
     "backer_header_left_1/bottom_head",
@@ -3931,52 +4739,86 @@
     "backer_header_right_2/top_nut",
     "backer_header_right_2/top_washer",
     "inner_kicker_backer_left",
-    "inner_kicker_backer_right"
+    "inner_kicker_backer_right",
+    "knee_outer_left_bridge_link_1/head",
+    "knee_outer_left_bridge_link_1/head_washer",
+    "knee_outer_left_bridge_link_1/nut",
+    "knee_outer_left_bridge_link_1/nut_washer",
+    "knee_outer_left_bridge_link_1/shaft",
+    "knee_outer_left_bridge_link_2/head",
+    "knee_outer_left_bridge_link_2/head_washer",
+    "knee_outer_left_bridge_link_2/nut",
+    "knee_outer_left_bridge_link_2/nut_washer",
+    "knee_outer_left_bridge_link_2/shaft",
+    "knee_outer_left_bridge_spine_1/head",
+    "knee_outer_left_bridge_spine_1/head_washer",
+    "knee_outer_left_bridge_spine_1/nut",
+    "knee_outer_left_bridge_spine_1/nut_washer",
+    "knee_outer_left_bridge_spine_1/shaft",
+    "knee_outer_left_bridge_spine_2/head",
+    "knee_outer_left_bridge_spine_2/head_washer",
+    "knee_outer_left_bridge_spine_2/nut",
+    "knee_outer_left_bridge_spine_2/nut_washer",
+    "knee_outer_left_bridge_spine_2/shaft",
+    "knee_outer_left_header_1/head",
+    "knee_outer_left_header_1/head_washer",
+    "knee_outer_left_header_1/nut",
+    "knee_outer_left_header_1/nut_washer",
+    "knee_outer_left_header_1/shaft",
+    "knee_outer_left_header_2/head",
+    "knee_outer_left_header_2/head_washer",
+    "knee_outer_left_header_2/nut",
+    "knee_outer_left_header_2/nut_washer",
+    "knee_outer_left_header_2/shaft",
+    "knee_outer_left_rear_bridge",
+    "knee_outer_left_under_header_link",
+    "knee_outer_right_bridge_link_1/head",
+    "knee_outer_right_bridge_link_1/head_washer",
+    "knee_outer_right_bridge_link_1/nut",
+    "knee_outer_right_bridge_link_1/nut_washer",
+    "knee_outer_right_bridge_link_1/shaft",
+    "knee_outer_right_bridge_link_2/head",
+    "knee_outer_right_bridge_link_2/head_washer",
+    "knee_outer_right_bridge_link_2/nut",
+    "knee_outer_right_bridge_link_2/nut_washer",
+    "knee_outer_right_bridge_link_2/shaft",
+    "knee_outer_right_bridge_spine_1/head",
+    "knee_outer_right_bridge_spine_1/head_washer",
+    "knee_outer_right_bridge_spine_1/nut",
+    "knee_outer_right_bridge_spine_1/nut_washer",
+    "knee_outer_right_bridge_spine_1/shaft",
+    "knee_outer_right_bridge_spine_2/head",
+    "knee_outer_right_bridge_spine_2/head_washer",
+    "knee_outer_right_bridge_spine_2/nut",
+    "knee_outer_right_bridge_spine_2/nut_washer",
+    "knee_outer_right_bridge_spine_2/shaft",
+    "knee_outer_right_header_1/head",
+    "knee_outer_right_header_1/head_washer",
+    "knee_outer_right_header_1/nut",
+    "knee_outer_right_header_1/nut_washer",
+    "knee_outer_right_header_1/shaft",
+    "knee_outer_right_header_2/head",
+    "knee_outer_right_header_2/head_washer",
+    "knee_outer_right_header_2/nut",
+    "knee_outer_right_header_2/nut_washer",
+    "knee_outer_right_header_2/shaft",
+    "knee_outer_right_rear_bridge",
+    "knee_outer_right_under_header_link"
   ],
-  "revision_id": "outer-rim-inner-frame-blocks-v1",
-  "schema": "wood_joint_wj24_inner_frame_blocks/v1",
+  "removed_hole_restoration_mm3": {
+    "knee_outer_left_bridge_spine_1/knee_outer_left_spine": 6171.756942747565,
+    "knee_outer_left_bridge_spine_2/knee_outer_left_spine": 6171.756942747565,
+    "knee_outer_left_header_1/base_header": 1683.2064389311624,
+    "knee_outer_left_header_2/base_header": 1683.2064389311624,
+    "knee_outer_right_bridge_spine_1/knee_outer_right_spine": 6171.756942747565,
+    "knee_outer_right_bridge_spine_2/knee_outer_right_spine": 6171.756942747565,
+    "knee_outer_right_header_1/base_header": 1683.2064389311652,
+    "knee_outer_right_header_2/base_header": 1683.2064389311652
+  },
+  "retained_neighbor_findings_geometry_identity_checked": true,
+  "revision_id": "outer-rear-bridges-under-header-links-removed-v1",
+  "schema": "wood_joint_wj24_remove_outer_links/v1",
+  "scope": "viewer geometry only; no mechanics, force calculation, joint acceptance, fabrication, or drilling release",
   "status": "unaccepted_viewer_geometry_revision",
-  "summary": "The kicker center uprights and four screws sit outside the central T-nuts, and the center backer is removed. Taller central blocks sit flat on the kicker header. New inner blocks sandwich the outer 4\u00d76s with the exterior blocks; common side bolts pass through all three timbers, and each inner block has a vertical header bolt.",
-  "vertical_block_header_bolts": {
-    "knee_outer_left_inner_header_1": {
-      "axis_global_xyz": [
-        0.0,
-        0.0,
-        -1.0
-      ],
-      "envelope_is_not_a_purchased_length_selection": true,
-      "nominal_under_head_envelope_mm": 202.5,
-      "nut_access_side": "below base_header in the clear front strip",
-      "origin_global_xyz_mm": [
-        -1085.85,
-        -62.35,
-        416.0
-      ],
-      "receiver_ids_head_to_nut": [
-        "knee_outer_left_inner_frame_block",
-        "base_header"
-      ],
-      "wood_grip_mm": 177.1
-    },
-    "knee_outer_right_inner_header_1": {
-      "axis_global_xyz": [
-        0.0,
-        0.0,
-        -1.0
-      ],
-      "envelope_is_not_a_purchased_length_selection": true,
-      "nominal_under_head_envelope_mm": 202.5,
-      "nut_access_side": "below base_header in the clear front strip",
-      "origin_global_xyz_mm": [
-        1082.675,
-        -62.35,
-        416.0
-      ],
-      "receiver_ids_head_to_nut": [
-        "knee_outer_right_inner_frame_block",
-        "base_header"
-      ],
-      "wood_grip_mm": 177.1
-    }
-  }
+  "summary": "The rear crosspieces and underside corner blocks are removed on both sides, along with their twelve bolt stacks. The outer sandwich blocks remain, with common side bolts through all three timbers and one vertical header bolt per inner block. Obsolete bridge holes are removed from the outer spines while their post and shared side-bolt holes remain."
 }
