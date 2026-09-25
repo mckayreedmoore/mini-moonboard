@@ -1,0 +1,488 @@
+"""Read-only audit of the current-patch attempt-02 deck and C3D10 quality."""
+
+from __future__ import annotations
+
+import hashlib
+import json
+import math
+import sys
+from pathlib import Path
+from typing import Any
+
+ROOT = Path("/home/mckay-linux/repos/mini-moonboard")
+sys.path.insert(0, str(ROOT))
+
+from fea import wood_joint_current_patch_mesh as current_mesh
+from fea import wood_joint_mesh_jacobian_audit as jacobian_audit
+
+BUNDLE_DIR = ROOT / (
+    "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/"
+    "ordinary-patch-inputs-attempt01"
+)
+RUN_DIR = ROOT / (
+    "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/"
+    "ordinary-patch-mesh-attempt02"
+)
+MESH_DIR = RUN_DIR / "mesh"
+EXPECTED_BUNDLE_INVENTORY_SHA256 = (
+    "70b396e636175abcad7467dc145029d7126c1ea7dff1d053a61f8c5321e1c1d3"
+)
+EXPECTED_BUNDLE_HASH_INDEX_SHA256 = (
+    "eec82992ff292e36389dec148b2d168d9c3679b069bd1633eeec1d7a8a908c7f"
+)
+EXPECTED_EXPORTER_SHA256 = (
+    "aad61df4d6a7f39dd7d14eac48193f1d94545887f56e50d8f86e6ec4f5dec0bc"
+)
+EXPECTED_MESH_ADAPTER_SHA256 = (
+    "8f6cc05c7239fcd3cd7051dcc39aa1d0075142690f3c37b4f7b1ba6dd1d5b5dc"
+)
+EXPECTED_IMAGE_ID = (
+    "sha256:083de8eefd4d9d9029d28ac1fdbb933a3b1e024225d8048165d6ef580d1b8f59"
+)
+FACE_NODES_C3D10 = (
+    (0, 1, 2, 4, 5, 6),
+    (0, 3, 1, 7, 8, 4),
+    (1, 3, 2, 8, 9, 5),
+    (2, 3, 0, 9, 7, 6),
+)
+EXPECTED_SETTINGS = {
+    "wood": {
+        "global_max_size_mm": 40.0,
+        "axis_local_min_size_mm": 3.0,
+        "axis_refinement_band_mm": 12.0,
+    },
+    "physical_metal": {
+        "global_max_size_mm": 4.0,
+        "axis_local_min_size_mm": 1.5,
+        "axis_refinement_band_mm": 3.0,
+    },
+}
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def require(condition: bool, message: str) -> None:
+    if not condition:
+        raise ValueError(message)
+
+
+def edge_midpoints(face: tuple[int, ...]) -> dict[tuple[int, int], int]:
+    require(len(face) == 6 and len(set(face)) == 6, "invalid TRI6 C3D10 face")
+    return {
+        tuple(sorted((face[0], face[1]))): face[3],
+        tuple(sorted((face[1], face[2]))): face[4],
+        tuple(sorted((face[2], face[0]))): face[5],
+    }
+
+
+def exterior_faces(
+    elements: dict[int, tuple[int, ...]],
+) -> dict[tuple[int, int], tuple[int, ...]]:
+    by_corners: dict[tuple[int, int, int], list[tuple[int, int, tuple[int, ...]]]] = {}
+    for element_id, nodes in elements.items():
+        require(len(nodes) == 10 and len(set(nodes)) == 10, "invalid C3D10 connectivity")
+        for face_index, local in enumerate(FACE_NODES_C3D10, start=1):
+            face = tuple(nodes[index] for index in local)
+            by_corners.setdefault(tuple(sorted(face[:3])), []).append(
+                (element_id, face_index, face)
+            )
+    result: dict[tuple[int, int], tuple[int, ...]] = {}
+    for attached in by_corners.values():
+        if len(attached) == 1:
+            element_id, face_index, face = attached[0]
+            result[(element_id, face_index)] = face
+        elif len(attached) == 2:
+            require(
+                edge_midpoints(attached[0][2]) == edge_midpoints(attached[1][2]),
+                "interior C3D10 face has incompatible midside nodes",
+            )
+        else:
+            raise ValueError("nonmanifold C3D10 face has more than two elements")
+    return result
+
+
+def expected_owner_rows(inventory: dict[str, Any]) -> list[dict[str, str]]:
+    result = []
+    for index, wood_row in enumerate(inventory["wood_bodies"]):
+        part_id = wood_row["part_id"]
+        result.append(
+            {
+                "mesh_body_id": f"W{index:02d}_{part_id.upper()}",
+                "source_body_id": part_id,
+                "physical_body_id": "",
+                "owner_kind": "wood_member",
+            }
+        )
+    axis_order = list(current_mesh.AXIS_RECEIVERS)
+    for index, metal_row in enumerate(inventory["physical_metal_bodies"]):
+        axis_index = axis_order.index(metal_row["axis_id"])
+        result.append(
+            {
+                "mesh_body_id": (
+                    f"M{index:02d}_A{axis_index:02d}_"
+                    f"{metal_row['physical_kind'].upper()}"
+                ),
+                "source_body_id": "",
+                "physical_body_id": metal_row["physical_body_id"],
+                "owner_kind": "physical_metal",
+            }
+        )
+    return result
+
+
+def audit() -> dict[str, Any]:
+    bundle = current_mesh.load_current_patch_bundle(
+        BUNDLE_DIR,
+        expected_inventory_sha256=EXPECTED_BUNDLE_INVENTORY_SHA256,
+        expected_hash_index_sha256=EXPECTED_BUNDLE_HASH_INDEX_SHA256,
+    )
+    inventory = bundle["inventory"]
+    report_path = MESH_DIR / "mesh.json"
+    deck_path = MESH_DIR / "mesh.inp"
+    execution_path = RUN_DIR / "execution.json"
+    log_path = RUN_DIR / "mesh.log"
+    report = json.loads(report_path.read_text())
+    execution = json.loads(execution_path.read_text())
+    require(report["schema"] == "wood_joint_current_patch_mesh/v1", "wrong mesh report schema")
+    require(
+        report["status"] == "VERIFIED_C3D10_CURRENT_PATCH_MESH_ONLY_NO_SOLVER",
+        "mesh report does not have the verified mesh-only status",
+    )
+    require(
+        report.get("native_solve_run") is False
+        and report.get("accepted") is False
+        and report.get("solved") is False
+        and report.get("contact_or_interface_classification_assigned") is False,
+        "mesh report exceeds its geometry-only claim boundary",
+    )
+    require(
+        report.get("output_contains_material_contact_or_solver_cards") is False,
+        "mesh report claims material/contact/solver cards",
+    )
+    require(report.get("configuration") == EXPECTED_SETTINGS, "mesh settings differ from launch")
+    require(report.get("mesh_input_file") == "mesh.inp", "mesh report deck path changed")
+    require(report.get("mesh_input_sha256") == digest(deck_path), "mesh deck hash differs")
+    require(
+        report.get("input_bundle_inventory_sha256") == EXPECTED_BUNDLE_INVENTORY_SHA256,
+        "mesh report has a different parent-pinned input inventory",
+    )
+    require(
+        report.get("input_bundle_hash_index_sha256") == EXPECTED_BUNDLE_HASH_INDEX_SHA256,
+        "mesh report has a different parent-pinned input index",
+    )
+    require(
+        report.get("input_bundle_file_sha256_before")
+        == report.get("input_bundle_file_sha256_after")
+        == bundle["input_file_sha256"],
+        "input source bytes changed during meshing",
+    )
+    require(
+        report.get("mesh_worker_source_sha256")
+        == report.get("mesh_worker_source_sha256_after"),
+        "worker sources changed during meshing",
+    )
+    require(
+        report["mesh_worker_source_sha256"][current_mesh.EXPORTER_SOURCE_PATH]
+        == EXPECTED_EXPORTER_SHA256,
+        "run snapshot is not bound to the frozen current exporter",
+    )
+    require(
+        report["mesh_worker_source_sha256"]["fea/wood_joint_current_patch_mesh.py"]
+        == EXPECTED_MESH_ADAPTER_SHA256,
+        "run snapshot is not bound to the frozen mesh adapter",
+    )
+    for relative, expected in report["mesh_worker_source_sha256"].items():
+        snapshot = MESH_DIR / "sources" / f"{relative}.snapshot"
+        require(snapshot.is_file() and digest(snapshot) == expected, f"source snapshot changed: {relative}")
+        require(digest(ROOT / relative) == expected, f"live source changed since run: {relative}")
+
+    require(execution.get("returncode") == 0, "parent launcher did not complete cleanly")
+    require(execution.get("source_unchanged_after_run") is True, "launcher source pin drifted")
+    require(execution.get("native_structural_solve_run") is False, "launcher ran a solver")
+    require(execution.get("image_id") == EXPECTED_IMAGE_ID, "launcher image differs from frozen pin")
+    require(execution.get("input_pins", {}).get(
+        "fea/wood_joint_current_patch_mesh.py"
+    ) == EXPECTED_MESH_ADAPTER_SHA256, "launcher did not pin the mesh adapter")
+    require(
+        execution.get("input_pins", {}).get(current_mesh.EXPORTER_SOURCE_PATH)
+        == EXPECTED_EXPORTER_SHA256,
+        "launcher did not pin the current exporter",
+    )
+    command = execution.get("command")
+    require(isinstance(command, list) and "python3" in command, "launcher omitted python3")
+    require(
+        "fea.wood_joint_current_patch_mesh" in command,
+        "launcher did not invoke the current-patch adapter",
+    )
+    require("--wood-global-max-size-mm" in command and "40" in command, "wrong wood size")
+    require("--wood-axis-local-size-mm" in command and "3" in command, "wrong wood refinement")
+    require("--metal-global-max-size-mm" in command and "4" in command, "wrong metal size")
+    require("--metal-axis-local-size-mm" in command and "1.5" in command, "wrong metal refinement")
+    for relative, expected in execution["input_pins"].items():
+        require(digest(ROOT / relative) == expected, f"launcher input changed: {relative}")
+
+    owner_rows = expected_owner_rows(inventory)
+    expected_body_order = [row["mesh_body_id"] for row in owner_rows]
+    body_records = report.get("bodies")
+    require(isinstance(body_records, dict), "mesh report body map is missing")
+    require(list(report.get("mesh_body_owner_order", ())) == expected_body_order, "reported owner order changed")
+    require(set(body_records) == set(expected_body_order), "mesh body map differs from current bundle")
+    require(report.get("body_count") == 19, "report body count differs from the current 3+16 contract")
+    require(report.get("wood_body_count") == 3, "reported wood body count changed")
+    require(report.get("physical_metal_body_count") == 16, "reported physical metal count changed")
+    require(report.get("runtime", {}).get("gmsh_version") == "4.12.1", "unexpected Gmsh version")
+    require(report.get("runtime", {}).get("python") == "3.12.3", "unexpected pinned Python version")
+    require(report.get("runtime", {}).get("numpy_version") == "1.26.4", "unexpected pinned NumPy version")
+
+    node_coordinates, deck_bodies = jacobian_audit.parse_c3d10_deck(
+        deck_path,
+        expected_body_ids=frozenset(expected_body_order),
+        elset_prefix="",
+    )
+    require(list(deck_bodies) == expected_body_order, "deck ELSETs are not in expected body order")
+    require(report.get("node_count") == len(node_coordinates), "node count differs from deck")
+    require(
+        report.get("element_count")
+        == sum(len(rows) for rows in deck_bodies.values()),
+        "element count differs from deck",
+    )
+    require(len(node_coordinates) == 116162, "attempt-02 node count changed")
+    require(report.get("element_count") == 57643, "attempt-02 element count changed")
+    quadrature_summary = jacobian_audit.validate_gauss5_rule()
+
+    global_nodes: set[int] = set()
+    global_elements: set[int] = set()
+    body_results: dict[str, Any] = {}
+    total_determinants = 0
+    total_nonpositive = 0
+    global_minimum = math.inf
+    global_maximum = -math.inf
+    max_volume_error = 0.0
+    all_cards = ["*HEADING", "*NODE"] + [
+        f"*ELEMENT,TYPE=C3D10,ELSET={body_id}" for body_id in expected_body_order
+    ]
+    for owner, body_id in zip(owner_rows, expected_body_order, strict=True):
+        body = body_records[body_id]
+        elements = deck_bodies[body_id]
+        require(body.get("mesh_body_id") == body_id, f"{body_id}: report key mismatch")
+        require(body.get("element_elset_name") == body_id, f"{body_id}: ELSET name mismatch")
+        require(body.get("owner_kind") == owner["owner_kind"], f"{body_id}: owner kind mismatch")
+        require((body.get("source_body_id", "") or "") == owner["source_body_id"], f"{body_id}: source body ID mismatch")
+        require((body.get("physical_body_id", "") or "") == owner["physical_body_id"], f"{body_id}: physical body ID mismatch")
+        element_ids = {int(value) for value in body.get("elements", ())}
+        node_ids = {int(value) for value in body.get("nodes", ())}
+        require(element_ids == set(elements), f"{body_id}: ELSET differs from report element ownership")
+        connectivity_nodes = {node for row in elements.values() for node in row}
+        require(node_ids == connectivity_nodes, f"{body_id}: node owner set differs from connectivity")
+        require(not global_nodes.intersection(node_ids), f"{body_id}: node IDs shared across bodies")
+        require(not global_elements.intersection(element_ids), f"{body_id}: element IDs shared across bodies")
+        global_nodes.update(node_ids)
+        global_elements.update(element_ids)
+
+        exterior = exterior_faces(elements)
+        surfaces = body.get("surface_inventory")
+        require(isinstance(surfaces, dict) and bool(surfaces), f"{body_id}: surface inventory missing")
+        covered: list[tuple[int, int]] = []
+        surface_face_count = 0
+        for surface_tag, surface in surfaces.items():
+            require(surface.get("cad_entity_tag") == int(surface_tag), f"{body_id}/{surface_tag}: CAD tag mismatch")
+            require(
+                isinstance(surface.get("cad_type"), str) and bool(surface["cad_type"]),
+                f"{body_id}/{surface_tag}: missing CAD type",
+            )
+            area = float(surface.get("cad_area_mm2", math.nan))
+            centroid = surface.get("cad_centroid_global_xyz_mm")
+            bounds = surface.get("bounds_xyz_mm")
+            require(math.isfinite(area) and area > 0, f"{body_id}/{surface_tag}: invalid CAD area")
+            require(isinstance(centroid, list) and len(centroid) == 3 and all(math.isfinite(float(v)) for v in centroid), f"{body_id}/{surface_tag}: invalid CAD centroid")
+            require(isinstance(bounds, list) and len(bounds) == 6 and all(math.isfinite(float(v)) for v in bounds), f"{body_id}/{surface_tag}: invalid CAD bounds")
+            refs = surface.get("tri6_exterior_face_refs")
+            require(isinstance(refs, list) and bool(refs), f"{body_id}/{surface_tag}: empty TRI6 face refs")
+            expected_nodes: set[int] = set()
+            seen_refs = set()
+            for ref in refs:
+                require(isinstance(ref, list) and len(ref) == 2, f"{body_id}/{surface_tag}: malformed face ref")
+                pair = (int(ref[0]), int(ref[1]))
+                require(pair in exterior, f"{body_id}/{surface_tag}: face ref is not exterior")
+                require(pair not in seen_refs, f"{body_id}/{surface_tag}: duplicate face ref")
+                seen_refs.add(pair)
+                expected_nodes.update(exterior[pair])
+            reported_nodes = {int(value) for value in surface.get("tri6_node_ids", ())}
+            require(reported_nodes == expected_nodes, f"{body_id}/{surface_tag}: TRI6 node union mismatch")
+            analytic = surface.get("analytic_surface_parameters")
+            require(isinstance(analytic, dict), f"{body_id}/{surface_tag}: analytic descriptor missing")
+            if surface["cad_type"] == "Cylinder":
+                require(analytic.get("status", "").startswith("least-squares analytic-cylinder fit"), f"{body_id}/{surface_tag}: cylinder fit unavailable")
+                require(float(analytic.get("radius_mm", 0.0)) > 0, f"{body_id}/{surface_tag}: invalid cylinder radius")
+                require(float(analytic.get("probe_fit_max_residual_mm", math.inf)) < 1e-6, f"{body_id}/{surface_tag}: cylinder probe fit residual too large")
+            covered.extend(seen_refs)
+            surface_face_count += len(refs)
+        require(len(covered) == len(set(covered)), f"{body_id}: exterior face assigned to multiple CAD surfaces")
+        require(set(covered) == set(exterior), f"{body_id}: CAD surfaces fail exact exterior coverage")
+        require(body.get("exterior_tri6_face_count") == len(exterior), f"{body_id}: exterior face count mismatch")
+
+        source = body.get("source_solid_metadata")
+        imported = body.get("imported_cad")
+        adapter = body.get("integrated_mesh_audit")
+        require(isinstance(source, dict) and isinstance(imported, dict) and isinstance(adapter, dict), f"{body_id}: CAD or volume records missing")
+        source_volume = float(source["volume_mm3"])
+        imported_volume = float(imported["volume_mm3"])
+        tolerance_import = float(imported["relative_volume_tolerance"])
+        import_error = abs(imported_volume / source_volume - 1.0)
+        require(import_error <= tolerance_import, f"{body_id}: Gmsh import volume differs from source STEP")
+        for key in ("centroid_global_xyz_mm", "bounds_xyz_mm"):
+            source_values = source[key]
+            imported_values = imported[key]
+            require(len(source_values) == len(imported_values), f"{body_id}: imported {key} length mismatch")
+            require(
+                max(abs(float(a) - float(b)) for a, b in zip(source_values, imported_values, strict=True))
+                <= float(imported["position_tolerance_mm"]),
+                f"{body_id}: Gmsh imported {key} differs from STEP report",
+            )
+        require(body.get("integration_rule", {}).get("weights_per_element") == 14, f"{body_id}: report lacks 14-point Gauss5 rule")
+        for label in ("minimum_weight", "maximum_weight"):
+            require(
+                math.isclose(
+                    float(body["integration_rule"][label]),
+                    float(quadrature_summary["minimum_weight" if label == "minimum_weight" else "maximum_weight"]),
+                    rel_tol=0.0,
+                    abs_tol=1e-14,
+                ),
+                f"{body_id}: report quadrature {label} differs from pinned Gauss5",
+            )
+
+        element_volumes = []
+        determinants = []
+        for connectivity in elements.values():
+            coordinates = tuple(node_coordinates[node] for node in connectivity)
+            for reference_point, weight in jacobian_audit.GAUSS5_TETRAHEDRON_14:
+                determinant = jacobian_audit.c3d10_jacobian_determinant(
+                    coordinates, reference_point
+                )
+                determinants.append(determinant)
+                element_volumes.append(determinant * weight)
+        integrated_volume = math.fsum(element_volumes)
+        minimum = min(determinants)
+        maximum = max(determinants)
+        nonpositive = sum(value <= 0 for value in determinants)
+        adapter_volume = float(adapter["integrated_mesh_volume_mm3"])
+        adapter_cad_volume = float(adapter["cad_volume_mm3"])
+        adapter_error = float(adapter["relative_volume_error"])
+        volume_error = abs(integrated_volume / source_volume - 1.0)
+        volume_tolerance = float(adapter["relative_volume_tolerance"])
+        require(nonpositive == 0, f"{body_id}: nonpositive independent Gauss5 Jacobian")
+        require(volume_error <= volume_tolerance, f"{body_id}: independent mesh volume exceeds tolerance")
+        require(
+            math.isclose(integrated_volume, adapter_volume, rel_tol=2e-9, abs_tol=1e-7),
+            f"{body_id}: independently integrated volume differs from mesh report",
+        )
+        require(
+            math.isclose(minimum, float(adapter["minimum_integration_jacobian"]), rel_tol=2e-8, abs_tol=1e-10),
+            f"{body_id}: independently recomputed minimum differs from mesh report",
+        )
+        require(
+            math.isclose(adapter_cad_volume, imported_volume, rel_tol=0.0, abs_tol=1e-8),
+            f"{body_id}: integrated audit CAD volume differs from imported STEP",
+        )
+        require(
+            math.isclose(adapter_error, abs(adapter_volume / adapter_cad_volume - 1.0), rel_tol=1e-8, abs_tol=1e-12),
+            f"{body_id}: recorded relative volume error is inconsistent",
+        )
+        total_determinants += len(determinants)
+        total_nonpositive += nonpositive
+        global_minimum = min(global_minimum, minimum)
+        global_maximum = max(global_maximum, maximum)
+        max_volume_error = max(max_volume_error, volume_error)
+        body_results[body_id] = {
+            "owner_kind": owner["owner_kind"],
+            "source_body_id": owner["source_body_id"] or None,
+            "physical_body_id": owner["physical_body_id"] or None,
+            "node_count": len(node_ids),
+            "element_count": len(elements),
+            "surface_count": len(surfaces),
+            "exterior_tri6_face_count": len(exterior),
+            "all_gauss5_determinants_positive": nonpositive == 0,
+            "gauss5_determinant_count": len(determinants),
+            "minimum_gauss5_jacobian_mm3": minimum,
+            "maximum_gauss5_jacobian_mm3": maximum,
+            "independently_integrated_mesh_volume_mm3": integrated_volume,
+            "source_step_volume_mm3": source_volume,
+            "relative_volume_error_vs_source_step": volume_error,
+            "volume_tolerance": volume_tolerance,
+        }
+    require(global_nodes == set(node_coordinates), "body node ownership fails to cover all deck nodes")
+    require(global_elements == {element for rows in deck_bodies.values() for element in rows}, "body element ownership fails to cover all deck elements")
+
+    all_cards = ["*HEADING", "*NODE"] + [
+        f"*ELEMENT,TYPE=C3D10,ELSET={body_id}" for body_id in expected_body_order
+    ]
+    mesh_log = log_path.read_text(errors="replace")
+    warnings = [
+        line.strip()
+        for line in mesh_log.splitlines()
+        if "Volume mesh: worst distortion" in line
+    ]
+    return {
+        "status": "PASSED_INDEPENDENT_CURRENT_PATCH_DECK_OWNERSHIP_GAUSS5_AUDIT",
+        "audit_scope": {
+            "read_only": True,
+            "gmsh_or_cad_imported": False,
+            "mesh_generated": False,
+            "native_solver_run": False,
+            "C3D10_jacobians_independently_recomputed": True,
+            "integration_rule": (
+                "14-point order-five Gmsh 4.12.1 tetP5Solin Gauss5 rule"
+            ),
+            "positivity_limit": (
+                "positive only at the 14 quadrature points per element; not a proof "
+                "of positivity at every interior point"
+            ),
+        },
+        "inputs": {
+            "bundle_inventory_sha256": bundle["inventory_sha256"],
+            "bundle_hash_index_sha256": bundle["hash_index_sha256"],
+            "mesh_report_sha256": digest(report_path),
+            "mesh_deck_sha256": digest(deck_path),
+            "execution_sha256": digest(execution_path),
+            "mesh_log_sha256": digest(log_path),
+            "mesh_adapter_sha256": EXPECTED_MESH_ADAPTER_SHA256,
+            "exporter_sha256": EXPECTED_EXPORTER_SHA256,
+        },
+        "totals": {
+            "body_count": len(body_records),
+            "wood_body_count": 3,
+            "physical_metal_body_count": 16,
+            "node_count": len(node_coordinates),
+            "element_count": sum(len(rows) for rows in deck_bodies.values()),
+            "shared_global_node_ids_between_bodies": 0,
+            "gauss5_determinant_count": total_determinants,
+            "nonpositive_gauss5_determinant_count": total_nonpositive,
+            "minimum_gauss5_jacobian_mm3": global_minimum,
+            "maximum_gauss5_jacobian_mm3": global_maximum,
+            "maximum_relative_mesh_volume_error": max_volume_error,
+            "deck_cards": all_cards,
+            "solver_or_material_contact_tie_load_cards_present": False,
+        },
+        "pre_high_order_distortion_warning_count": len(warnings),
+        "pre_high_order_distortion_warnings": warnings,
+        "warning_interpretation": (
+            "The log records Volume mesh distortion warnings from Gmsh generation. "
+            "They are not the final C3D10 quality result: the adapter then calls "
+            "HighOrder optimization. This audit checks the saved final deck directly "
+            "at all 14 pinned Gauss5 points per element."
+        ),
+        "per_body": body_results,
+        "limitations": [
+            "Positive Gauss5 determinants do not prove positive Jacobians everywhere inside quadratic elements.",
+            "Mesh quality does not establish contact, load transfer, stiffness, resistance, solver response, or acceptance.",
+        ],
+    }
+
+
+if __name__ == "__main__":
+    result = audit()
+    output = RUN_DIR / "parent-audit.json"
+    output.write_text(json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n")
+    print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))

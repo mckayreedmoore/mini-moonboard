@@ -1,0 +1,60 @@
+import hashlib
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import time
+
+root = Path.cwd()
+base = root / 'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+bundle = base / 'ordinary-patch-inputs-attempt01'
+dest = base / 'ordinary-patch-mesh-attempt01'
+pins = {
+    'fea/wood_joint_current_patch_mesh.py': '8f6cc05c7239fcd3cd7051dcc39aa1d0075142690f3c37b4f7b1ba6dd1d5b5dc',
+    'scripts/wood_joint_current_patch_inputs.py': 'aad61df4d6a7f39dd7d14eac48193f1d94545887f56e50d8f86e6ec4f5dec0bc',
+    str((bundle / 'inventory.json').relative_to(root)): '70b396e636175abcad7467dc145029d7126c1ea7dff1d053a61f8c5321e1c1d3',
+    str((bundle / 'sha256.json').relative_to(root)): 'eec82992ff292e36389dec148b2d168d9c3679b069bd1633eeec1d7a8a908c7f',
+}
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+for relative, expected in pins.items():
+    assert digest(root / relative) == expected, relative
+dest.mkdir(exist_ok=False)
+shutil.copyfile(__file__, dest / 'parent-launch.py.snapshot')
+image = 'sha256:083de8eefd4d9d9029d28ac1fdbb933a3b1e024225d8048165d6ef580d1b8f59'
+name = 'mini-moonboard-current-ordinary-mesh-attempt01'
+cmd = [
+    'docker', 'run', '--rm', '--name', name, '--network', 'none',
+    '--cpus', '2', '--memory', '4g', '--user', f'{os.getuid()}:{os.getgid()}',
+    '--tmpfs', '/tmp:rw,size=512m', '--env', 'OMP_NUM_THREADS=1',
+    '--env', 'PYTHONDONTWRITEBYTECODE=1',
+    '--mount', f'type=bind,src={root},dst=/work,readonly',
+    '--mount', f'type=bind,src={dest},dst=/out', '--workdir', '/work', image,
+    'python', '-m', 'fea.wood_joint_current_patch_mesh',
+    '/work/' + str(bundle.relative_to(root)), '/out/mesh',
+    '--expected-inventory-sha256', pins[str((bundle / 'inventory.json').relative_to(root))],
+    '--expected-hash-index-sha256', pins[str((bundle / 'sha256.json').relative_to(root))],
+    '--wood-global-max-size-mm', '40', '--wood-axis-local-size-mm', '3',
+    '--wood-axis-refinement-band-mm', '12', '--metal-global-max-size-mm', '4',
+    '--metal-axis-local-size-mm', '1.5', '--metal-axis-refinement-band-mm', '3',
+]
+record = {'scope': 'Current ordinary-joint mesh only; no response or capacity.',
+          'image_id': image, 'command': cmd, 'input_pins': pins,
+          'status': 'running', 'native_structural_solve_run': False}
+def save():
+    (dest / 'execution.json').write_text(json.dumps(record, indent=2) + '\n')
+save()
+start = time.monotonic()
+with (dest / 'mesh.log').open('x') as log:
+    try:
+        proc = subprocess.run(cmd, stdout=log, stderr=subprocess.STDOUT, timeout=600, check=False)
+        record.update(returncode=proc.returncode, status='completed' if proc.returncode == 0 else 'failed')
+    except subprocess.TimeoutExpired:
+        subprocess.run(['docker', 'stop', '--time', '5', name], capture_output=True, check=False)
+        record.update(returncode=None, status='timeout')
+record['seconds'] = time.monotonic() - start
+record['source_unchanged_after_run'] = all(digest(root / r) == h for r, h in pins.items())
+record['artifacts_sha256'] = {str(p.relative_to(dest)): digest(p) for p in dest.rglob('*') if p.is_file() and p.name != 'execution.json'}
+save()
+print(json.dumps({k:v for k,v in record.items() if k not in {'command', 'artifacts_sha256', 'input_pins'}}, indent=2), flush=True)

@@ -17,6 +17,16 @@ when their dependent inputs are not ready.
 
 ## Completed evaluation checkpoints
 
+- [Current ordinary-joint mesh audit](ordinary-patch-mesh-attempt02/parent-audit.json):
+  the pinned Gmsh run completed in 13.50 seconds and produced 19 disjoint body
+  owners, 116,162 nodes and 57,643 C3D10 elements. Independent saved-deck
+  reconstruction verifies exterior TRI6 ownership and all 807,002 Gauss5
+  Jacobians as positive. Maximum relative body-volume error is
+  `5.6912050e-5` (about 0.0057%). The two distortion warnings precede high-order
+  optimization; the audit checks the final deck. Attempt 01 preserves a
+  container-launch failure because the image has `python3`, not `python`.
+  This establishes mesh geometry at the sampled integration points only;
+  contact behavior, materials, response and capacity remain unaccepted.
 - [Current ordinary-joint inputs](ordinary-patch-inputs-attempt01/inventory.json):
   exact STEP export of the bottom-center right cleat, rail and principal,
   four current bolt stacks and all three finite wood contacts. The 27 STEP
