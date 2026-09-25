@@ -1,0 +1,44 @@
+import hashlib
+import importlib
+import json
+import time
+from pathlib import Path
+
+all_access_module = importlib.reload(importlib.import_module('scripts.wood_joint_current_access_screen'))
+all_access_root = Path.cwd()
+all_access_dir = all_access_root / 'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+all_access_target = all_access_dir / 'access-screen-attempt02-all92.json'
+assert not all_access_target.exists()
+all_access_source = all_access_root / 'scripts/wood_joint_current_access_screen.py'
+all_access_sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+all_access_expected = 'aa4735dfc5dd32c2ad4e26164007c3c91ba115e5c833b0e38986d3fd3ccef5f9'
+assert all_access_sha(all_access_source) == all_access_expected
+all_access_pins = {r: all_access_sha(all_access_root / r) for r in (
+    'scripts/wood_joint_current_access_screen.py',
+    'scripts/wood_joint_wj04_tool_access.py',
+    'site/owner-wood-joints-review-report.json',
+    'site/owner-wood-joints-wj24-scene.json',
+)}
+all_access_started = time.monotonic()
+try:
+    all_access_result = all_access_module.build_current_access_report(g24_outer_2x6, include_all_candidate_axes=True)
+except Exception as all_access_error:
+    all_access_target.write_text(json.dumps({'status':'collector_failed_no_acceptance','error':f'{type(all_access_error).__name__}: {all_access_error}','source_sha256':all_access_pins,'seconds':time.monotonic()-all_access_started},indent=2)+'\n')
+    raise
+assert all(all_access_sha(all_access_root/r)==h for r,h in all_access_pins.items())
+all_access_previous = json.loads((all_access_dir / 'access-screen-attempt01.json').read_text())
+all_access_byid = {row['axis_id']: row for row in all_access_result['axis_operations']}
+all_access_changed_priority = [row['axis_id'] for row in all_access_previous['axis_operations'] if row != all_access_byid[row['axis_id']]]
+all_access_result['parent_run'] = {
+    'source_sha256':all_access_pins,
+    'source_unchanged_after_run':True,
+    'seconds':time.monotonic()-all_access_started,
+    'previous_priority_report_sha256':all_access_sha(all_access_dir/'access-screen-attempt01.json'),
+    'priority_16_rows_identical_to_previous_report':not all_access_changed_priority,
+    'priority_rows_with_differences':all_access_changed_priority,
+}
+all_access_target.write_text(json.dumps(all_access_result,indent=2,sort_keys=True,allow_nan=False)+'\n')
+(all_access_dir / 'all-access-driver.py.snapshot').write_bytes(Path('/tmp/freeze-current-all-access.py').read_bytes())
+print('ALL92_ACCESS',json.dumps(all_access_result['scope']),flush=True)
+print('ALL92_ACCESS_PARENT',json.dumps(all_access_result['parent_run']),flush=True)
+print('ALL92_ACCESS_SHA256',all_access_sha(all_access_target),flush=True)

@@ -1,10 +1,93 @@
-# Current WJ24 bolt access screen
+# Current WJ24 bolt access screens
 
-On September 24, 2026, the current `led-clearance-2x6-runner-seated-blocks-v1` geometry was screened for axial bolt movement and limited wrench-envelope poses. The run covered the eight exterior 2×6 block stacks and eight stacks through the trimmed tall center blocks: 16 of 92 candidate axes. It consumed the live current-revision geometry; it did not reuse the archived 104-axis WJ24 access result.
+On September 24, 2026, the live current `led-clearance-2x6-runner-seated-blocks-v1` scene was screened for the withdrawal/insertion motions of all 92 candidate axes and limited wrench-envelope poses. This current attempt02 report supersedes attempt01 for candidate-axis coverage. The earlier 16-axis priority report and its detailed rows remain below as a preserved initial run; attempt02 confirms those 16 rows are identical.
 
-The complete machine-readable result is [access-screen-attempt01.json](hypotheses/evaluation-resume-2026-09-24/access-screen-attempt01.json). It records all per-axis reports and the conditional order graph.
+## Expanded current screen: attempt02, all 92 candidate axes
 
-## Axial movement
+The [machine-readable result](hypotheses/evaluation-resume-2026-09-24/access-screen-attempt02-all92.json)
+records all 92 candidate axes, 1,231 live-scene obstacle entries and the
+conditional sequence graph. It covers the same current scene and source
+inventory as attempt01, does not load the archived 104-axis result, and reports
+zero unmodeled candidate axes. Runtime was 116.76 seconds. The 16 priority-axis
+rows match attempt01 exactly; the run records `source_unchanged_after_run: true`.
+Report SHA-256: `104b2caa98decfcd78d92a1c4686b99583321d8ee2fafb2f47d9df0a4bea28c5`.
+
+### Axial withdrawal and insertion envelopes
+
+All 92 modeled shafts had zero intersections during the exact coaxial-cylinder
+translation sweep. This is a continuous geometric sweep of the modeled
+cylindrical shaft, not a pose-sampled path. The head and head washer travel
+with the shaft through separate conservative translation enclosures; nuts and
+nut washers have conservative axial-slide enclosures. Their reported overlap
+counts are:
+
+| Moving envelope | Axes with one or more overlaps | Moving-envelope / obstacle pairs | Largest reported overlap |
+| --- | ---: | ---: | --- |
+| Exact shaft-cylinder sweep | 0 / 92 | 0 | None |
+| Head translation enclosure | 32 / 92 | 32 | 739.656 mm³, `bottom_outer/clip_horizontal_bottom_left_1/rail_1` vs `wood/bottom_outer_left_cleat` |
+| Head-washer translation enclosure | 32 / 92 | 32 | 3,333.316 mm³, same axis and obstacle |
+| Nut axial-slide enclosure | 32 / 92 | 68 | 1,258.780 mm³, `bottom_center/clip_horizontal_bottom_left_2/rail_2` vs `wood/center_principal_cleat_left` |
+| Nut-washer axial-slide enclosure | 32 / 92 | 36 | 3,333.316 mm³, `bottom_outer/clip_horizontal_bottom_left_1/rail_2` vs `wood/base_rail_bottom_left` |
+
+The non-shaft entries are conservative envelope intersections with modeled
+scene solids. They identify geometry for review; they do not establish that a
+real head, washer or nut cannot be captured or moved. Thread disengagement,
+counterholding, loose-part capture and support transfer remain unmodeled.
+Modeled hardware roles are current CAD envelopes without selected SKUs,
+delivered dimensions or installation tolerances.
+
+### Synthetic wrench-envelope overlaps
+
+The same unselected WJ04 FACOM profile is used: 22 mm head width, 3 mm head
+thickness and 100 mm overall length. The two synthetic heading rows per axis
+produce these counts. “Pose reports” counts individual tested proxies with an
+overlap; it is not a count of failed joints or obstructed real tools.
+
+| Side | Proxy test | Overlapping pose reports | Axes with at least one overlapping report |
+| --- | --- | ---: | ---: |
+| Head | One-head-width axial approach | 129 / 184 | 70 / 92 |
+| Head | Discrete synthetic turn poses | 427 / 920 | 70 / 92 |
+| Head | ±30° angular AABB enclosures | 322 / 368 | 92 / 92 |
+| Nut | One-head-width axial approach | 147 / 184 | 82 / 92 |
+| Nut | Discrete synthetic turn poses | 480 / 920 | 81 / 92 |
+| Nut | ±30° angular AABB enclosures | 336 / 368 | 92 / 92 |
+
+These are intersections of conservative proxies with modeled obstacles. The
+angular method uses an axis-aligned bound during rotation, the approach does
+not model open-jaw fit or hand clearance, and the discrete angles are samples.
+All 92 head sides and all 92 nut sides have at least one sampled proxy
+overlap, but the report explicitly does not establish actual-tool blockage or
+tool access. Select and screen the intended tools, counterhold, full stroke,
+re-indexing, hand/workspace clearance and tolerances before drawing either
+conclusion.
+
+### Conditional order graph and exclusions
+
+Attempt02 contains 32 assembly precedence edges and 32 removal precedence
+edges, with zero cycles in each reported graph. The constraints are conditional
+on a conservative envelope overlap representing an actual blockage. Seven
+out-of-subset dependency group IDs remain (`bottom_center`, `bottom_outer`,
+`left_service`, `top_center`, `top_outer`, `wj04_g7` and `wj06_outer_pair`);
+the report marks the graph incomplete for all build states. It does not model
+thread travel, counterholding, actual turning, tool-driven precedence, part
+capture or support transfer. The no-cycle result is not an assembly or
+disassembly sequence proof.
+
+The 12 retained frame-bolt arrangements are included in the live obstacle
+scene but are not target axes in this operation map; neither their tool access
+nor their withdrawal is screened here. The unchanged legs and runners remain
+in the composed source-wood obstacle map. No historical WJ24 pass is loaded.
+
+## Priority 16-axis attempt01 — preserved initial run
+
+The initial run covered the eight exterior 2×6 block stacks and eight stacks
+through the trimmed tall center blocks: 16 of 92 candidate axes. It consumed
+live current-revision geometry rather than the archived 104-axis WJ24 result.
+The complete [attempt01 report](hypotheses/evaluation-resume-2026-09-24/access-screen-attempt01.json)
+records its per-axis rows and conditional graph. Attempt02 confirms that the
+16 per-axis rows are unchanged.
+
+### Axial movement
 
 All 16 shafts used the exact coaxial-cylinder translation sweep. The swept shaft BRep had zero measured intersections with the current retained-scene BReps on every axis. The separate head, head-washer, nut, and nut-washer movement envelopes also reported zero intersections. Head and washer translations and nut-side slides use conservative bounding envelopes.
 
@@ -19,7 +102,7 @@ The travel values below run from the current shaft envelope to the outermost rec
 
 Receiver projections used every ordered receiver in each live bore, including three-member sandwich stacks. The zero-hit result applies to the modeled geometry and a zero terminal-clearance allowance. It does not establish delivered-part fit, dimensional tolerance, bolt capture, support transfer, or a physical withdrawal path.
 
-## Wrench envelopes
+### Wrench envelopes
 
 The probe used the WJ04 FACOM `facom_34_7_16` profile as an unselected external proxy: 22 mm head width, 3 mm head thickness, and 100 mm overall length. For each head and nut side it screened two synthetic headings, an axial approach proxy, discrete poses at 0° and ±15°/±30°, and separate conservative AABB enclosures for ±30° rotation.
 
@@ -34,16 +117,16 @@ The probe used the WJ04 FACOM `facom_34_7_16` profile as an unselected external 
 
 These are intersections of synthetic wrench-proxy solids with the current scene solids. The approach proxy translates the model along the fastener axis; the tool profile uses circular head envelopes and a full-width handle; the angular result encloses an axis-aligned bounding box during rotation. The reported volumes are geometric overlaps for those proxies, not evidence that a real wrench is blocked. The profile is not a selected or delivered tool, and jaw fit, actual approach, hand clearance, torque, and a full tightening or loosening stroke remain unmodeled.
 
-## Conditional order graph
+### Conditional order graph
 
 The axial-motion dependency graph produced zero assembly precedence edges, zero removal precedence edges, and no cycles among the 16 screened axes. This graph only derives conditional ordering from the screened bolt, nut, and washer movement envelopes. It does not derive an order from the wrench-proxy hits and does not cover the other 76 candidate axes or every build state, so it is not a complete assembly sequence.
 
 Within each stack, the modeled removal preconditions remain: counterhold and fully unthread the nut; capture and slide off the nut; capture and slide off the nut washer; then withdraw the head, head washer, and shaft. Assembly reverses that order. Thread travel, part capture, support changes, and actual tightening are not modeled.
 
-## Scope and provenance
+### Scope and provenance
 
 The live obstacle map contained 1,231 shape entries. For this run it included the composed finished source wood, all 16 current finished hosts, all 24 current candidate parts, current panel replacements, 66 fixed panel axes, 72 retained frame-bolt shapes, non-duplicate protected families, and all 460 installed candidate-hardware role shapes across the 92 axes. Unchanged source members, including legs and runners, remained in the composed source-wood map.
 
-The raw report identifies revision and trial `led-clearance-2x6-runner-seated-blocks-v1`, and source inventory SHA-256 `07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78`. Report SHA-256: `83f53ada10afda7566af7a872c246718e88ad145b9ee2dd12ab6f9a878095c81`. Collector: [wood_joint_current_access_screen.py](../../scripts/wood_joint_current_access_screen.py) (SHA-256 `d1806f8ca0c69fd87b15c2edea4d948d541829be9a0b57ded1695fcf0dc96a24`).
+The attempt01 report identifies revision and trial `led-clearance-2x6-runner-seated-blocks-v1`, and source inventory SHA-256 `07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78`. Report SHA-256: `83f53ada10afda7566af7a872c246718e88ad145b9ee2dd12ab6f9a878095c81`. The attempt01 collector snapshot SHA-256 was `d1806f8ca0c69fd87b15c2edea4d948d541829be9a0b57ded1695fcf0dc96a24`; attempt02 records its collector and scene hashes in `parent_run`.
 
-This is a bounded geometry diagnostic. It does not validate actual tools or workspace, select delivered hardware, prove assembly or disassembly, establish structural behavior, authorize physical work, or release climbing use.
+Both attempts are bounded geometry diagnostics. They do not validate actual tools or workspace, select delivered hardware, prove assembly or disassembly, establish structural behavior, authorize physical work, or release climbing use.
