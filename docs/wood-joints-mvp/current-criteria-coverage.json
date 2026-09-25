@@ -77,7 +77,7 @@
         "k12-rear",
         "a1-rear"
       ],
-      "basis": "250 lb × 2 dynamic factor, 20 mm face patch, 100 mm outward standoff; six global applied force/wrench cases at A12, K12 and A1.",
+      "basis": "250 lb \u00d7 2 dynamic factor, 20 mm face patch, 100 mm outward standoff; six global applied force/wrench cases at A12, K12 and A1.",
       "limit": "Applied-load input only. It computes no frame reactions, connection/bolt actions, contact response, load sharing, stiffness, resistance or acceptance.",
       "transform_dependency_sha256": {
         "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/current-load-datums-driver.py.snapshot": "f7d142fa9099abc8f92276a8bb038b5d17d29a71dbf03f0eacee9a78b9fa333f",
@@ -217,7 +217,7 @@
       "source_text": "Recompute the existing nominal bolt-lateral comparison for applicable bolts; the angle-based name does not make it obsolete.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M2 → R1 → C1/F1",
+      "method_reference": "M2 \u2192 R1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Current 92-axis/460-role inventory only; no wood/bolt lateral demand or resistance result.",
       "next_dependency_stage": "WJ-08 + WJ-09",
@@ -229,7 +229,7 @@
       "source_text": "Retain this adopted obligation.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M2 → R1 → C1/F1",
+      "method_reference": "M2 \u2192 R1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Current axis count and receivers only; no candidate group factors or bolt-group actions.",
       "next_dependency_stage": "WJ-06 + WJ-08/WJ-09",
@@ -241,7 +241,7 @@
       "source_text": "Use actual material and load-to-grain orientation in every receiving member.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M2 → R1 → C1/F1",
+      "method_reference": "M2 \u2192 R1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Snapshot has member bounds/counts, not authenticated material/grain frames or current contact/bolt actions.",
       "next_dependency_stage": "WJ-06 + WJ-08/WJ-09",
@@ -265,10 +265,10 @@
       "source_text": "Include every bore, housing, notch, and service relief in finished sections.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M2 → C1/F1",
+      "method_reference": "G1 + M2 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Snapshot enumerates 40 changed timber/block solids but is not exact native finished-section geometry; no current section checks.",
-      "next_dependency_stage": "Parent geometry freeze → WJ-06/WJ-09",
+      "next_dependency_stage": "Parent geometry freeze \u2192 WJ-06/WJ-09",
       "next_dependency": "Freeze exact finished solids and every bore/cut/housing, then sample critical sections and check simultaneous actions for all affected members."
     },
     {
@@ -277,7 +277,7 @@
       "source_text": "Changed connection stiffness cannot inherit old restraint assumptions.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M1 → C1/F1",
+      "method_reference": "M1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "No current full-frame response or joint stiffness; old frame response is excluded.",
       "next_dependency_stage": "WJ-08 + WJ-09",
@@ -289,7 +289,7 @@
       "source_text": "Use actual contact faces and signed forces.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M1 + G1 → C1/F1",
+      "method_reference": "M1 + G1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Current scene is geometry-only; no signed active bearing pressure or complete contact face set.",
       "next_dependency_stage": "WJ-06 + WJ-08/WJ-09",
@@ -301,7 +301,7 @@
       "source_text": "Retain unless explicitly revised with justification.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M1 + G1 → C1/F1",
+      "method_reference": "M1 + G1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "No active-face pressure result or quarter-area sensitivity for current layout.",
       "next_dependency_stage": "WJ-08/WJ-09",
@@ -313,10 +313,10 @@
       "source_text": "Check the retained original notch and any candidate changes.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M2 → C1/F1",
+      "method_reference": "G1 + M2 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Current geometry snapshot is not a finished-section/notch shear check; no candidate force result.",
-      "next_dependency_stage": "Parent geometry freeze → WJ-06/WJ-09",
+      "next_dependency_stage": "Parent geometry freeze \u2192 WJ-06/WJ-09",
       "next_dependency": "Confirm the retained base-end notch and all candidate cuts from exact geometry, then check notch shear under fresh simultaneous member actions."
     },
     {
@@ -325,11 +325,11 @@
       "source_text": "Check all new and retained groups.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + R1 → C1/L1",
+      "method_reference": "G1 + R1 \u2192 C1/L1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Scene provides 92 current candidate axes and receiver identities only; not product-specific minimum spacing, edge/end, or tolerance results.",
+      "current_evidence": "The frozen 92-axis geometry and contact graph reconcile current bolt receiver memberships; they do not report product-specific minimum spacing, local grain/cut edge-end classification, or tolerance results. See [attempt 02 contact graph](hypotheses/evaluation-resume-2026-09-24/complete-contact-graph-attempt02.json), SHA-256 `7806242ac48b\u2026`.",
       "next_dependency_stage": "WJ-06 + WJ-07/WJ-08",
-      "next_dependency": "Bind exact bolt diameters, axes, grain/cut boundaries and tolerances; calculate applicable group spacings and separately screen physical fit/tool clearances."
+      "next_dependency": "Use the frozen 92 axes to bind applicable product/body diameters and member grain/finished-cut boundaries; compute the adopted group-spacing and local edge/end checks, then assess dimensional tolerance separately from tool-access proxies."
     },
     {
       "criterion_id": "catalog_washer_bounds",
@@ -337,11 +337,11 @@
       "source_text": "Check all selected new and retained stacks and actual washer support.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + H1 → C1",
+      "method_reference": "G1 + H1 \u2192 C1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Current 460 hardware roles are model roles; no washer/nut/bolt SKUs or sourced bounds are selected.",
+      "current_evidence": "The current schedule reconciles 92 candidate CAD stacks (184 washer roles) and 12 retained starting stacks (24 washer roles). Conditional vendor-dimension candidates were reviewed for exact 16 side and four outer-post axes; no product is selected or received, and the all-stack fit/support audit remains open. See [hardware schedule](current-hardware-schedule.md), [side-axis review](hypotheses/current-side-hardware-option-review-2026-09-25.md), and [outer-post review](hypotheses/current-outer-post-hardware-option-review-2026-09-25.md).",
       "next_dependency_stage": "WJ-10",
-      "next_dependency": "Select/source product dimensions and material properties for all 92 candidate stacks plus retained bolts; compare every stack and seat against modeled geometry."
+      "next_dependency": "Select and verify applicable products for all 92 candidate and 12 retained stacks; compare bolt, nut, and washer dimensions/material against finished seats and supported footprints, then evaluate resistance separately."
     },
     {
       "criterion_id": "directional_edges",
@@ -349,7 +349,7 @@
       "source_text": "Check both hosts per interface with signed load, grain, and cut boundaries.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + R1 → C1/F1",
+      "method_reference": "G1 + R1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Geometry snapshot bounds are explicitly not directional edge/end checks; no signed candidate action/grain pairing exists.",
       "next_dependency_stage": "WJ-06 + WJ-08/WJ-09",
@@ -361,11 +361,11 @@
       "source_text": "Use actual selected bolt and thread/shank resistance with axial and lateral actions.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "R1 + H1 → C1/F1",
+      "method_reference": "R1 + H1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "No selected bolt product, grade, delivered thread section, or combined action result.",
+      "current_evidence": "Source-backed conditional bolt/grade options were reviewed for the exact 16 side-axis and four outer-post-axis subsets; no product is selected or received across the 104 structural stacks, and no delivered thread section or combined-action result is established. See [side-axis review](hypotheses/current-side-hardware-option-review-2026-09-25.md) and [outer-post review](hypotheses/current-outer-post-hardware-option-review-2026-09-25.md).",
       "next_dependency_stage": "WJ-10 + WJ-08/WJ-09",
-      "next_dependency": "Select the actual bolt product and properties, then implement sourced tension/shear/bending and combined-action checks using fresh connector actions."
+      "next_dependency": "Select and verify each bolt product, material/grade, usable shank and thread section; apply a supported direct-steel resistance/interaction method to fresh simultaneous per-fastener actions."
     },
     {
       "criterion_id": "washer_bearing",
@@ -373,11 +373,11 @@
       "source_text": "Use actual supported contact area; do not assume a generic fender washer.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M2 + G1 → R1/C1/F1",
+      "method_reference": "M2 + G1 \u2192 R1/C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Current role geometry does not establish washer support polygons, pressure, or axial demand.",
+      "current_evidence": "Conditional Type A Wide washer dimensions/material are source-reviewed for the exact 16 side and four outer-post axes. The 92-stack CAD schedule does not establish delivered washer support polygons, contact pressure, or axial demand. See [side-axis review](hypotheses/current-side-hardware-option-review-2026-09-25.md) and [outer-post review](hypotheses/current-outer-post-hardware-option-review-2026-09-25.md).",
       "next_dependency_stage": "WJ-06 + WJ-08/WJ-09",
-      "next_dependency": "Select washer/product, freeze seat geometry, resolve support/contact pressure, and check actual supported footprint under signed axial action."
+      "next_dependency": "Bind the selected washer parts across the 184 candidate and 24 retained roles; verify each seat/support footprint and resolve pressure against fresh signed axial connector actions."
     },
     {
       "criterion_id": "washer_bending",
@@ -385,11 +385,11 @@
       "source_text": "Use actual thickness and stiffness, not outside diameter alone.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "R1 + H1 → C1/F1",
+      "method_reference": "R1 + H1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "No washer bending/stiffness method or selected washer data is available for the current stacks.",
+      "current_evidence": "A source-backed Type A Wide dimensional/material candidate is reviewed for 16 side and four outer-post axes, but no washer plate-response/capacity method, selected all-stack product, or washer stiffness result is accepted. See [side-axis review](hypotheses/current-side-hardware-option-review-2026-09-25.md) and [outer-post review](hypotheses/current-outer-post-hardware-option-review-2026-09-25.md).",
       "next_dependency_stage": "WJ-10 + WJ-08",
-      "next_dependency": "Source actual washer material/thickness/opening and support span; implement a supported plate response/capacity method and bind its loads."
+      "next_dependency": "Freeze applicable washer material, dimensions, and support span for each selected part; apply a supported plate response/capacity method to actual washer loads."
     },
     {
       "criterion_id": "receiver_fit",
@@ -399,9 +399,9 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + L1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Scene/snapshot provide nominal receiver identities and extents, not complete tolerance-aware fit or actual selected hardware fit.",
-      "next_dependency_stage": "Parent geometry freeze → WJ-07",
-      "next_dependency": "Freeze each finished receiver and product envelope, then recheck all 92 stacks, panel receiver support and tolerances in the integrated layout."
+      "current_evidence": "Attempt 04 maps all 66 current Hillman CAD envelopes: 66/66 intersect raw receivers and clear the finished receiver; its 22 panel/receiver pairs and 52 named frame/block interfaces have finite planar contact. These are nominal CAD envelopes, not selected/delivered hardware fit or tolerances for the 92 structural stacks. See [receiver screen](hypotheses/evaluation-resume-2026-09-24/receiver-screen-attempt04.json), SHA-256 `851495f2ccc8\u2026`.",
+      "next_dependency_stage": "Parent geometry freeze \u2192 WJ-07",
+      "next_dependency": "Retain the current receiver map; compare actual selected/delivered screw, bolt, nut, and washer envelopes plus fit tolerances against each finished host and seat, including all 92 structural stacks and the eight moved panel axes."
     },
     {
       "criterion_id": "overlap_contact",
@@ -411,9 +411,9 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + M1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Current evidence inventories bodies/axes; it does not define the current finite contact surfaces, gaps, active sets, or pressure.",
-      "next_dependency_stage": "Parent geometry freeze → WJ-08",
-      "next_dependency": "Extract exact current contact faces and gaps; define unilateral contact without numerical glue and audit ownership/action-reaction at every interface."
+      "current_evidence": "Attempt 02 classifies 1,225 pairs among all 50 current timber/panel nodes: 115 finite opposed planar contacts, six zero-area/unresolved tangencies, and no positive-volume overlaps. This is geometric classification only; active sets, pressure, and force transfer remain unresolved. See [contact graph](hypotheses/evaluation-resume-2026-09-24/complete-contact-graph-attempt02.json), SHA-256 `7806242ac48b\u2026`.",
+      "next_dependency_stage": "Parent geometry freeze \u2192 WJ-08",
+      "next_dependency": "Bind exact current face owners/gaps to finite unilateral contact laws; keep zero-area tangencies and separated pairs out of bearing, and audit signed action/reaction and pressure under current candidate response."
     },
     {
       "criterion_id": "all_machining_represented",
@@ -457,7 +457,7 @@
       "source_text": "Replace the inapplicable ML24Z calculation with complete new-joint resistance across all duties and physical interfaces; zero angles cannot make this pass.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "R1 → C1/F1 replacement",
+      "method_reference": "R1 \u2192 C1/F1 replacement",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Current geometry has zero retained legacy clips; there is no angle capacity to transfer and no replacement joint capacity output.",
       "next_dependency_stage": "WJ-08 + WJ-09",
@@ -469,7 +469,7 @@
       "source_text": "Preserve the explicitly conditional no-slip floor support basis.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M2 + M1 → C1/F1",
+      "method_reference": "M2 + M1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "The no-slip floor support is a stated analytical assumption; no current candidate floor-bearing reaction or bearing check is present.",
       "next_dependency_stage": "WJ-06 + WJ-08/WJ-09",
@@ -483,10 +483,10 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + L1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Scene preserves 66 panel/kicker axes (58 fixed, 8 moved); no current revalidation of kerf-right cutouts, inner edge support and receiver load paths.",
+      "current_evidence": "Attempt 04 screens all 66 current panel/kicker CAD envelopes against raw and finished receivers, including the four moved lower-edge axes and four center-kicker axes. The center screws enter center posts, but the 283.96 mm post gap leaves no continuous direct backing under the kicker seam; inner-edge coverage, finished cutout tolerance, and screw transfer remain unproven. See [receiver screen](hypotheses/evaluation-resume-2026-09-24/receiver-screen-attempt04.json), SHA-256 `851495f2ccc8\u2026`.",
       "next_dependency_stage": "WJ-06 + WJ-07",
-      "next_dependency": "Freeze both kicker cutouts/supports and all 66 axes; specifically reconcile the eight moved axes, backing, edge support and load transfer.",
-      "current_scope_note": "The legacy source says “66 fixed”; current owner-approved revision carries 66 axes and the purchased policy as 58 unchanged + 8 moved. Treat the fixed-66 location clause as superseded by that explicit revision; recheck all eight changed receivers/support/load transfers and both inner edge supports."
+      "next_dependency": "Verify kerf-right finished cutout sections and project support coverage over both required inner edge strips; reconcile all eight moved axes and establish receiver-to-frame transfer under fresh actions.",
+      "current_scope_note": "The legacy source says \u201c66 fixed\u201d; current owner-approved revision carries 66 axes and the purchased policy as 58 unchanged + 8 moved. Treat the fixed-66 location clause as superseded by that explicit revision; recheck all eight changed receivers/support/load transfers and both inner edge supports."
     },
     {
       "criterion_id": "taper_native_actual_taper",
@@ -497,7 +497,7 @@
       "method_reference": "G1 + M2",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Revision record identifies the retained rear recess but has no current native taper mechanics result.",
-      "next_dependency_stage": "Parent geometry freeze → WJ-06",
+      "next_dependency_stage": "Parent geometry freeze \u2192 WJ-06",
       "next_dependency": "Verify exact current recess/taper dimensions and finished host identity from frozen native geometry before recomputing the affected taper checks."
     },
     {
@@ -530,7 +530,7 @@
       "source_text": "Preserve the existing specific slope screen.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M2 → C1",
+      "method_reference": "G1 + M2 \u2192 C1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "No current taper transition section or resistance calculation.",
       "next_dependency_stage": "WJ-06 + WJ-09",
@@ -566,7 +566,7 @@
       "source_text": "Use actual retained geometry and new actions.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M2 → C1/F1",
+      "method_reference": "G1 + M2 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "No current net section nor normal force demand/capacity output at the taper.",
       "next_dependency_stage": "WJ-06 + WJ-09",
@@ -578,7 +578,7 @@
       "source_text": "Verify method applicability after new cuts.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M2 → C1/F1",
+      "method_reference": "G1 + M2 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "No current taper-region shear/torsion section samples or actions.",
       "next_dependency_stage": "WJ-06 + WJ-09",
@@ -590,11 +590,11 @@
       "source_text": "Do not apply an unbored-section method across a newly drilled region.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M2 → C1",
+      "method_reference": "G1 + M2 \u2192 C1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "No evidence yet that the adopted unbored torsion treatment applies to the current tapered geometry and loading.",
       "next_dependency_stage": "WJ-08 method decision",
-      "next_dependency": "Verify the current taper region is unbored in frozen geometry and document the adopted torsion method’s applicability, or provide a justified replacement."
+      "next_dependency": "Verify the current taper region is unbored in frozen geometry and document the adopted torsion method\u2019s applicability, or provide a justified replacement."
     },
     {
       "criterion_id": "component_layouts",
@@ -604,9 +604,9 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + H1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Scene inventories current 24 parts, 92 axes and 460 model component roles; there is no source-bound product BOM or accepted complete layout.",
+      "current_evidence": "The current scene inventories 24 candidate parts, 92 bolt axes/460 modeled roles, 12 retained frame-bolt stacks, and 66 panel axes (58 unchanged, eight moved); the current graph reconciles member and receiver memberships. The schedule gives quantity arithmetic, not a selected product BOM or accepted joint layout. See [contact graph](hypotheses/evaluation-resume-2026-09-24/complete-contact-graph-attempt02.json) and [hardware schedule](current-hardware-schedule.md).",
       "next_dependency_stage": "WJ-06 + WJ-10",
-      "next_dependency": "Freeze current geometry plus every candidate/retained component pose; bind selected hardware identities, whole-frame counts and fit."
+      "next_dependency": "Bind every current candidate and retained component pose to selected/source-backed products and whole-frame quantities; check finished-host fit and complete-joint interfaces without importing old angle layouts or capacities."
     },
     {
       "criterion_id": "flush_face_normal_contact",
@@ -614,11 +614,11 @@
       "source_text": "Reconcile the old six interfaces to the new physical contact graph.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M1 → C1/F1",
+      "method_reference": "G1 + M1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "No current contact normals, active pressure, opening state or signed interface result.",
+      "current_evidence": "The current contact graph and receiver screen identify finite opposed planar geometries at named interfaces; neither reports an active/opening state or signed face pressure. See [contact graph](hypotheses/evaluation-resume-2026-09-24/complete-contact-graph-attempt02.json) and [receiver screen](hypotheses/evaluation-resume-2026-09-24/receiver-screen-attempt04.json).",
       "next_dependency_stage": "WJ-06 + WJ-08/WJ-09",
-      "next_dependency": "Freeze flush faces/normals and gaps; resolve unilateral normal contact and audit action-reaction under fresh candidate actions."
+      "next_dependency": "Freeze normals/gaps and interface ownership for each flush face, define unilateral contact, and audit signed active pressure/reaction and action balance under fresh candidate response."
     },
     {
       "criterion_id": "flush_face_wood_bearing",
@@ -626,11 +626,11 @@
       "source_text": "Use the reconciled contact graph, actual forces, and areas.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "M2 + G1 → R1/C1/F1",
+      "method_reference": "M2 + G1 \u2192 R1/C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Current geometry does not establish active bearing area or wood bearing demand/capacity.",
+      "current_evidence": "Current screens measure finite planar contact areas at named wood interfaces, but provide no active bearing footprint, pressure, or member-specific wood-bearing demand/capacity. See [contact graph](hypotheses/evaluation-resume-2026-09-24/complete-contact-graph-attempt02.json) and [receiver screen](hypotheses/evaluation-resume-2026-09-24/receiver-screen-attempt04.json).",
       "next_dependency_stage": "WJ-06 + WJ-08/WJ-09",
-      "next_dependency": "Resolve active contact footprint and pressure on each flush wood face, then check member-specific bearing resistance using the material basis."
+      "next_dependency": "Resolve active contact footprint and pressure on each flush wood face, then check member-specific bearing resistance with the frozen material/grain basis."
     },
     {
       "criterion_id": "flush_sampled_taper_top_clearance",
@@ -650,11 +650,11 @@
       "source_text": "Map all 24 legacy duties to complete physical load paths.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M1 → C1/F1",
+      "method_reference": "G1 + M1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Scene lists 24 block duties and current axes, but no closed current joint graph or fresh actions.",
+      "current_evidence": "The current graph inventories 50 timber/panel nodes and 1,225 member pairs; it reconciles 92 candidate bolt, 12 retained frame-bolt, and 66 panel-screw memberships. The graph is geometric only: connectivity does not establish compatible force transfer, complete support routes, or capacity. See [contact graph](hypotheses/evaluation-resume-2026-09-24/complete-contact-graph-attempt02.json), SHA-256 `7806242ac48b\u2026`.",
       "next_dependency_stage": "WJ-06 graph closure",
-      "next_dependency": "Build one current member/interface/fastener graph for all 24 duties and 12 retained frame-bolt stacks; include remote boundaries explicitly and prove every load route reaches declared supports."
+      "next_dependency": "Join the geometry graph to current contact/connector laws and fresh actions; close all 24 duties through panel fasteners, candidate and retained stacks, and declared support boundaries, then demonstrate action/reaction and demand coverage. Declare and sensitivity-test any remote cuts."
     },
     {
       "criterion_id": "center_kicker_receiver_paths",
@@ -662,11 +662,11 @@
       "source_text": "Connect both fixed-axis center-kicker receivers or backers to the frame and preserve both inner kicker edge-support paths.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M1 → C1/F1",
+      "method_reference": "G1 + M1 \u2192 C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Current count says zero redirected panel receiver axes; eight panel axes moved. The old fixed backer redirect contract is stale for this scene.",
+      "current_evidence": "Attempt 04 maps all four center-kicker screws directly to `base_post_center_left/right`; the old backers are absent. Each kicker/post and kicker/header face is geometrically finite, while the center posts are 283.96 mm apart and do not provide continuous direct backing under the seam. Edge-strip support and load transfer remain open. See [receiver screen](hypotheses/evaluation-resume-2026-09-24/receiver-screen-attempt04.json), SHA-256 `851495f2ccc8\u2026`.",
       "next_dependency_stage": "WJ-06 + WJ-07",
-      "next_dependency": "Reconcile all four center kicker axes to their current direct receivers and both inner edge supports; prove receiver/backer-to-frame routes without assuming old backer bolts."
+      "next_dependency": "Measure both inner kicker edge-support strips and establish panel/screw-to-center-post/header routes through the actual post, cleat, and principal interfaces under fresh actions; keep parallel seat and cleat paths distinct and do not assume the old backer bolts."
     },
     {
       "criterion_id": "connector_body_behavior",
@@ -686,10 +686,10 @@
       "source_text": "Check any housing or notch shoulders, splitting, bearing, and combined net-section effects; no primary-member notch is the default.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "G1 + M2 → R1/C1",
+      "method_reference": "G1 + M2 \u2192 R1/C1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Snapshot does not authenticate native housing/notch faces or resulting splitting/bearing/net-section behavior.",
-      "next_dependency_stage": "Parent geometry freeze → WJ-06/WJ-08",
+      "next_dependency_stage": "Parent geometry freeze \u2192 WJ-06/WJ-08",
       "next_dependency": "Inventory every actual seat/housing/shoulder and resulting section; check bearing, splitting, and combined net-section effects. Keep primary-member notches absent unless explicit geometry proves otherwise."
     },
     {
@@ -698,7 +698,7 @@
       "source_text": "Resolve unilateral bearing, opening, bolt tension, shear, and simultaneous moments.",
       "status": "pending",
       "historical_result_transferred": false,
-      "method_reference": "LC1 input → M1/C1/F1",
+      "method_reference": "LC1 input \u2192 M1/C1/F1",
       "method_status": "reference_only_or_candidate_method_required",
       "current_evidence": "Current source-bound six-case applied force/wrench contract exists; no frame reactions, complete-joint actions, contact result, opening state, bolt tension/shear or simultaneous-moment response exists.",
       "next_dependency_stage": "WJ-08 then WJ-09",
@@ -724,9 +724,9 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + L1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Current revision checks cover selected viewer geometry only; they do not establish full installed tolerance envelopes for hardware, holds/T-nuts, LEDs and wire.",
+      "current_evidence": "Attempt 03 screens all 92 candidate stacks against 1,231 live-scene obstacles using current CAD hardware envelopes and component sweeps. It is a nominal geometry screen; it does not establish tolerance-aware installed envelopes for selected hardware, holds/T-nuts, LEDs/wire, or service states. The 12 retained frame-bolt operations are outside this screen. See [access screen](hypotheses/evaluation-resume-2026-09-24/access-screen-attempt03-exact-components.json), SHA-256 `bd2b97c0677b\u2026`.",
       "next_dependency_stage": "WJ-07 parallel after parent geometry freeze",
-      "next_dependency": "Check tolerance-aware installed envelopes in parallel with bounded mechanics after freeze; feed back any changes only if they alter the analyzed geometry, hardware envelope or load path."
+      "next_dependency": "Add applicable product and obstacle dimensions/tolerances and screen the complete installed envelope for wood, finite hardware, holds/T-nuts, LEDs/wire, and service states; feed changes into mechanics only when they alter the analyzed geometry or load path."
     },
     {
       "criterion_id": "assembly_and_removal_access",
@@ -736,9 +736,9 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + L1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Current snapshot does not contain tool poses/strokes or forward/reverse assembly sequences.",
+      "current_evidence": "Attempt 03 screens operation envelopes for all 92 candidate-stack axes against 1,231 scene obstacles: head/shaft/head-washer withdrawal proxies clear, while four nut and two nut-washer axial-slide paths retain modeled overlaps. Generic wrench poses are provisional; real tool fit, capture/sequencing, the 12 retained-bolt operations, and complete reversible assembly/removal are unproven. See [access screen](hypotheses/evaluation-resume-2026-09-24/access-screen-attempt03-exact-components.json), SHA-256 `bd2b97c0677b\u2026`.",
       "next_dependency_stage": "WJ-07 parallel after parent geometry freeze",
-      "next_dependency": "Run the current fit/access and forward/reverse install/remove sequence check in parallel with bounded mechanics once the scene is frozen; feed back only geometry changes that alter the analyzed model."
+      "next_dependency": "Resolve the six modeled slide overlaps or their geometry alternatives; screen named actual tools, fit, strokes/regrips, counterhold, support/capture, and reversible sequence for all 92 candidate axes plus 12 retained bolts."
     },
     {
       "criterion_id": "demountable_transport",
@@ -772,9 +772,9 @@
       "historical_result_transferred": false,
       "method_reference": "H1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "The current scene contains modeled component roles/counts only; products, source citations, shop/tool data and cost are not bound.",
+      "current_evidence": "The schedule reconciles 92 candidate bolts/nuts/184 washer roles, 12 retained bolts/nuts/24 washer roles, and 66 separate Hillman screws. Conditional catalog candidates and dated package/price facts are reviewed for the exact 16 side and four outer-post axes; there is no selected whole-frame BOM, verified stock/tool set, or current complete cost. See [hardware schedule](current-hardware-schedule.md), [side-axis review](hypotheses/current-side-hardware-option-review-2026-09-25.md), and [outer-post review](hypotheses/current-outer-post-hardware-option-review-2026-09-25.md).",
       "next_dependency_stage": "WJ-10",
-      "next_dependency": "Select sourced hardware and materials; reconcile quantities across 92 candidate axes, 12 retained frame bolts and separate 66 Hillman panel/kicker screws; bind stock, tools and cost."
+      "next_dependency": "Complete axis-by-axis source/selection and receiving attributes for all 92 candidate and 12 retained structural stacks, keep the 66 Hillman screws separate, and reconcile stock, tools, package quantities, and current cost without extrapolating conditional options."
     }
   ],
   "first_patch_recommendation": {
@@ -791,11 +791,11 @@
       "bottom_center/clip_horizontal_bottom_right_1/principal_2"
     ],
     "required_interfaces": [
-      "bottom_center_right_cleat ↔ base_rail_bottom_right",
-      "bottom_center_right_cleat ↔ base_principal_center_right",
-      "base_rail_bottom_right ↔ base_principal_center_right (direct butt seat; parent live geometry review reports 5322.57 mm²)"
+      "bottom_center_right_cleat \u2194 base_rail_bottom_right",
+      "bottom_center_right_cleat \u2194 base_principal_center_right",
+      "base_rail_bottom_right \u2194 base_principal_center_right (direct butt seat; parent live geometry review reports 5322.57 mm\u00b2)"
     ],
-    "boundary_and_load_method": "Start with all three full current timber members; treat all three physical wood interfaces as separate finite unilateral contacts, including the direct rail/principal butt seat reported as 5322.57 mm² and apply bounded unit-response wrenches. The four physical stacks have 20 source-CAD component roles, not 20 required FE bodies. No truncation or remote cut is required for the first patch. If a later model truncates the rail or principal, declare those remote cuts and run cut-distance sensitivity; freeze contact, bolt, stiffness, gap and output assumptions in the patch contract before any mesh/run.",
+    "boundary_and_load_method": "Start with all three full current timber members; treat all three physical wood interfaces as separate finite unilateral contacts, including the direct rail/principal butt seat reported as 5322.57 mm\u00b2 and apply bounded unit-response wrenches. The four physical stacks have 20 source-CAD component roles, not 20 required FE bodies. No truncation or remote cut is required for the first patch. If a later model truncates the rail or principal, declare those remote cuts and run cut-distance sensitivity; freeze contact, bolt, stiffness, gap and output assumptions in the patch contract before any mesh/run.",
     "patch_specific_unknowns": [
       "Exact current native finished faces, bores, local frames and face gaps/normals.",
       "Member material/grain frames and current adopted properties.",
@@ -809,9 +809,9 @@
       "The old `wj04_lower_full_stock_cleat` diagnostic geometry is not a proxy for these current IDs."
     ],
     "source_cad_component_roles": 20,
-    "role_interpretation": "These are four physical stacks × five modeled source-CAD component roles. They are not 20 required FE bodies; represent bolts/washers by the justified connector/contact formulation in the frozen patch contract.",
+    "role_interpretation": "These are four physical stacks \u00d7 five modeled source-CAD component roles. They are not 20 required FE bodies; represent bolts/washers by the justified connector/contact formulation in the frozen patch contract.",
     "scene_binding_note": "Bind source hashes and identity for the full changed plus unchanged scene. This does not require meshing the full scene for the initial local patch.",
-    "contact_closure_note": "Represent all three physical wood contacts as separate finite unilateral interfaces. Confirm the direct rail/principal butt-seat footprint and reported 5322.57 mm² area against the exact parent-frozen member shapes before meshing; do not omit or merge it with either cleat face."
+    "contact_closure_note": "Represent all three physical wood contacts as separate finite unilateral interfaces. Confirm the direct rail/principal butt-seat footprint and reported 5322.57 mm\u00b2 area against the exact parent-frozen member shapes before meshing; do not omit or merge it with either cleat face."
   },
   "complete_exterior_node_closure": {
     "scope": "Whole-node follow-on only; the four transverse axes in the left/right outer sandwich do not close this path.",
@@ -857,7 +857,7 @@
   "independent_native_benchmark": {
     "name": "isolated contact-wrench instrumentation benchmark",
     "runner_or_oracle": "fea/contact_wrench_benchmark.py is the analytic oracle; the native job uses the separately frozen source-pinned manifest and two decks prepared by the benchmark worker.",
-    "case": "400 mm² patch with 100 N load; check CalculiX CF/CFN/CFS output fields, sign and transferred wrench.",
+    "case": "400 mm\u00b2 patch with 100 N load; check CalculiX CF/CFN/CFS output fields, sign and transferred wrench.",
     "why_independent": "It checks solver output interpretation and wrench transfer, not current joint geometry, joint resistance, complete-frame demand or criteria acceptance. Run only after the source-pinned manifest/decks are frozen and available.",
     "candidate_geometry_independent": true,
     "prepared_manifest_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-benchmark-attempt01/manifest.json",
