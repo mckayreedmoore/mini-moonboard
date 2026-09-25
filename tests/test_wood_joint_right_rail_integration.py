@@ -74,6 +74,236 @@ def test_shared_host_rejects_removing_an_axis_missing_from_source_cutters():
         )
 
 
+def test_source_and_candidate_panel_cuts_use_separate_member_datums():
+    rail_id = integration.wj04_g7.LOWER_RAIL
+    side_id = integration.wj06_outer.SIDE_HOST
+    panel_ids = [f"panel_{index:02d}" for index in range(66)]
+
+    def connection(name, start, members):
+        return SimpleNamespace(
+            name=name,
+            kind="screw",
+            members=members,
+            diameter=0.5,
+            length=50.8,
+            start=cq.Vector(*start),
+            direction=cq.Vector(0.0, 0.0, 1.0),
+        )
+
+    native_connections = [
+        connection("shared_old_axis", (20.0, 2.0, 4.0), ("clip", rail_id, side_id)),
+        connection("panel_00", (30.0, 3.0, 4.0), ("main_lower_right", side_id)),
+    ]
+    current_connections = [
+        connection("shared_old_axis", (16.825, 2.0, 4.0), ("clip", rail_id, side_id)),
+        connection("panel_00", (26.825, 3.0, 4.0), ("main_lower_right", side_id)),
+    ]
+    for axis_id in panel_ids[1:]:
+        native_connections.append(connection(axis_id, (1.0, 1.0, 1.0), ("other",)))
+        current_connections.append(connection(axis_id, (1.0, 1.0, 1.0), ("other",)))
+
+    native_source = SimpleNamespace(
+        connections=lambda: tuple(native_connections),
+        service_cutters=lambda: (),
+        additional_machining_cutters=lambda: (),
+    )
+    current_source = SimpleNamespace(
+        option=integration.KERF_RIGHT,
+        source=native_source,
+        connections=lambda: tuple(current_connections),
+    )
+    inventory = {
+        "fixed_panel_kicker_screws": [
+            {"axis_id": axis_id, "shop_purchased_length_mm": 63.5}
+            for axis_id in panel_ids
+        ]
+    }
+
+    native_cutters = integration.source_native_cutters_by_host(
+        current_source, frozenset({rail_id, side_id})
+    )
+    purchase_cutters = integration.candidate_panel_purchase_cutters_by_host(
+        current_source, inventory, frozenset({rail_id, side_id})
+    )
+    axis_audit = integration._source_axis_datum_audit(
+        current_source,
+        frozenset({"shared_old_axis", "panel_00"}),
+        frozenset({rail_id, side_id}),
+    )
+
+    assert native_cutters[rail_id][
+        "shared_old_axis"
+    ].BoundingBox().xmin == pytest.approx(19.75)
+    assert native_cutters[side_id][
+        "shared_old_axis"
+    ].BoundingBox().xmin == pytest.approx(16.575)
+    assert "panel_purchase/panel_00" not in native_cutters[side_id]
+    assert purchase_cutters[side_id][
+        "panel_purchase/panel_00"
+    ].BoundingBox().zlen == pytest.approx(63.5)
+    assert purchase_cutters[rail_id] == {}
+    assert axis_audit["shared_old_axis"]["native_start_xyz_mm"][0] == pytest.approx(
+        20.0
+    )
+    assert axis_audit["shared_old_axis"]["current_adapter_start_xyz_mm"][
+        0
+    ] == pytest.approx(16.825)
+    assert axis_audit["shared_old_axis"]["shared_host_native_replay_starts_xyz_mm"][
+        rail_id
+    ][0] == pytest.approx(20.0)
+    assert axis_audit["shared_old_axis"]["shared_host_current_adapter_starts_xyz_mm"][
+        rail_id
+    ][0] == pytest.approx(16.825)
+    assert axis_audit["shared_old_axis"]["shared_host_native_replay_starts_xyz_mm"][
+        side_id
+    ][0] == pytest.approx(16.825)
+
+
+def test_cut_record_separates_native_and_purchased_panel_cutters():
+    axis = _axis(2.0, 2.0)
+
+    record = integration._cut_record(
+        "shared_rail",
+        {
+            "retained_native_axis": axis,
+            "replaced_sds_axis": axis,
+            "service/0/fixed_service": axis,
+            "panel_purchase/round_panel_1": axis,
+        },
+        frozenset({"replaced_sds_axis"}),
+        {},
+        input_part_origin="source_uncut_member",
+    )
+
+    assert record["retained_source_cutter_ids"] == [
+        "retained_native_axis",
+        "service/0/fixed_service",
+    ]
+    assert record["candidate_panel_purchase_cutter_ids"] == [
+        "panel_purchase/round_panel_1"
+    ]
+    assert record["source_cutter_counts"] == {
+        "named_connections": 1,
+        "connection_head_cutters": 0,
+        "service_cutters": 1,
+        "additional_cutters": 0,
+        "purchased_panel_screw_cutters": 1,
+    }
+    assert record["source_cutters_retained"] == 2
+    assert record["candidate_panel_purchase_cutters_applied"] == 1
+    assert record["input_part_origin"] == "source_uncut_member"
+    assert record["cut_union_applied_to_raw_stock"] is True
+    assert record["cut_union_applied_to_input_part"] is True
+
+    candidate_cleat = integration._cut_record(
+        "candidate_cleat",
+        {},
+        frozenset(),
+        {"candidate/upper_bolt": axis},
+        input_part_origin="producer_candidate_cleat",
+    )
+    assert candidate_cleat["retained_source_cutter_ids"] == []
+    assert candidate_cleat["source_stock"] is None
+    assert candidate_cleat["input_part_origin"] == "producer_candidate_cleat"
+    assert candidate_cleat["cut_union_applied_to_raw_stock"] is False
+    assert candidate_cleat["cut_union_applied_to_input_part"] is True
+
+
+def test_source_reconstruction_preflight_runs_before_joint_family_builders(monkeypatch):
+    stations = (
+        (
+            integration.wj04_g7.LOWER_STATION,
+            [integration.wj04_g7.LOWER_RAIL, integration.wj04_g7.PRINCIPAL],
+        ),
+        (
+            integration.wj04_g7.UPPER_STATION,
+            [integration.wj04_g7.UPPER_RAIL, integration.wj04_g7.PRINCIPAL],
+        ),
+        (
+            integration.wj06_outer.LOWER_STATION,
+            [integration.wj06_outer.LOWER_RAIL, integration.wj06_outer.SIDE_HOST],
+        ),
+        (
+            integration.wj06_outer.UPPER_STATION,
+            [integration.wj06_outer.UPPER_RAIL, integration.wj06_outer.SIDE_HOST],
+        ),
+    )
+    inventory_duties = []
+    axes = []
+    connection_index = 0
+    for station_id, hosts in stations:
+        duty_axes = []
+        for index in range(6):
+            axis_id = f"{station_id}_synthetic_sds_{index + 1}"
+            host_id = hosts[0] if index < 3 else hosts[1]
+            duty_axes.append({"axis_id": axis_id, "shop_opening_kind": "sds_wood"})
+            axes.append(
+                SimpleNamespace(
+                    name=axis_id,
+                    kind="screw",
+                    members=("legacy_clip", host_id),
+                    diameter=0.5,
+                    length=8.0,
+                    start=cq.Vector(10.0 + connection_index, 10.0, 10.0),
+                    direction=cq.Vector(0.0, 0.0, 1.0),
+                )
+            )
+            connection_index += 1
+        inventory_duties.append(
+            {
+                "legacy_station_id": station_id,
+                "legacy_host_members": hosts,
+                "legacy_sds_axes": duty_axes,
+            }
+        )
+
+    inventory = {"legacy_duties": inventory_duties}
+    binding = SimpleNamespace(
+        inventory_sha256=integration.WJ04_TRIAL.source_inventory_sha256
+    )
+    raw_shapes = {
+        host_id: cq.Solid.makeBox(100.0, 100.0, 100.0)
+        for host_id in integration.SHARED_HOSTS
+    }
+    source = SimpleNamespace(
+        uncut_wood_parts=lambda: tuple(
+            SimpleNamespace(name=name, shape=shape)
+            for name, shape in raw_shapes.items()
+        ),
+        parts=lambda: tuple(
+            SimpleNamespace(name=name, shape=shape)
+            for name, shape in raw_shapes.items()
+        ),
+        connections=lambda: tuple(axes),
+        service_cutters=lambda: (),
+        additional_machining_cutters=lambda: (),
+    )
+    base_geometry = SimpleNamespace(
+        config=SimpleNamespace(
+            canonical_sha256=integration.WJ04_TRIAL.canonical_sha256
+        ),
+        source=source,
+        source_binding=binding,
+    )
+    monkeypatch.setattr(integration, "validate_source_binding", lambda _: binding)
+    monkeypatch.setattr(
+        integration, "_load_pinned_source_inventory", lambda _: inventory
+    )
+
+    def family_builder_must_not_run(*args, **kwargs):
+        pytest.fail("family geometry ran before source reconstruction passed")
+
+    monkeypatch.setattr(
+        integration.wj04_g7, "materialize_geometry", family_builder_must_not_run
+    )
+    monkeypatch.setattr(
+        integration.wj06_outer, "materialize_geometry", family_builder_must_not_run
+    )
+
+    with pytest.raises(ValueError, match="raw-stock retained-cut pass differs"):
+        integration.materialize_right_rail_geometry(base_geometry)
+
+
 def test_retained_sds_protection_uses_occupied_source_axis_extent():
     source_axis = SimpleNamespace(
         name="retained_sds",
@@ -230,6 +460,7 @@ def test_diagnostic_report_is_json_safe_and_keeps_release_gates_closed():
         source_reconstruction={},
         machining={},
         candidate_body_hits={},
+        source_axis_datum_audit={},
         body_solid_checks={
             "candidate_cleat": {
                 "valid": True,

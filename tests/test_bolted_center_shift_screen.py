@@ -3,9 +3,39 @@
 import json
 from pathlib import Path
 
-from scripts.bolted_candidate_center_shift import screen_center_shift
+from scripts.bolted_candidate_center_shift import (
+    _same_axis_geometry,
+    screen_center_shift,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_width_packet_axis_comparison_ignores_status_prose_but_rejects_geometry():
+    official = {
+        "name": "center_panel_screw",
+        "kind": "screw",
+        "first_member": "main_lower_left",
+        "second_member": "base_principal_center_left",
+        "start_x_mm": "-70.0",
+        "start_y_mm": "20.152907240539378",
+        "start_z_mm": "322.0702100411935",
+        "direction_x": "0.0",
+        "direction_y": "-0.766044443118978",
+        "direction_z": "0.6427876096865393",
+        "modeled_length_mm": "50.8",
+        "modeled_diameter_mm": "4.1402",
+        "occupied_length_mm": "50.8",
+        "occupied_diameter_mm": "4.1402",
+        "shop_opening_kind": "hillman_panel",
+        "shop_finished_opening_min_mm": "",
+        "shop_finished_opening_max_mm": "",
+        "assessment_status": "official width status",
+    }
+    kerf_right = {**official, "assessment_status": "kerf-right width status"}
+
+    assert _same_axis_geometry([official], [kerf_right])
+    assert not _same_axis_geometry([official], [{**kerf_right, "start_x_mm": "-65.0"}])
 
 
 def test_outward_shift_retains_all_twenty_center_panel_axes() -> None:

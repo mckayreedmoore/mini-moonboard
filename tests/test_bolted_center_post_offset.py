@@ -6,9 +6,37 @@ from pathlib import Path
 import pytest
 
 from scripts.bolted_candidate_center_post_offset import (
+    _same_axis_geometry,
     fixed_pattern_header_min_pair_spacing_mm,
     screen_center_post_offsets,
 )
+
+
+def test_width_packet_axis_comparison_ignores_status_prose_but_rejects_geometry():
+    official = {
+        "name": "center_kicker_screw",
+        "kind": "screw",
+        "first_member": "kicker_left",
+        "second_member": "base_post_center_left",
+        "start_x_mm": "-70.0",
+        "start_y_mm": "-17.74375",
+        "start_z_mm": "60.0",
+        "direction_x": "0.0",
+        "direction_y": "-1.0",
+        "direction_z": "0.0",
+        "modeled_length_mm": "50.8",
+        "modeled_diameter_mm": "4.1402",
+        "occupied_length_mm": "50.8",
+        "occupied_diameter_mm": "4.1402",
+        "shop_opening_kind": "hillman_panel",
+        "shop_finished_opening_min_mm": "",
+        "shop_finished_opening_max_mm": "",
+        "assessment_status": "official width status",
+    }
+    kerf_right = {**official, "assessment_status": "kerf-right width status"}
+
+    assert _same_axis_geometry([official], [kerf_right])
+    assert not _same_axis_geometry([official], [{**kerf_right, "start_x_mm": "-65.0"}])
 
 
 def test_post_only_offsets_keep_top_axes_fixed_and_separate_underside_axes():

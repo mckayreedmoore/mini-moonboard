@@ -16,6 +16,8 @@ from typing import Any
 
 import cadquery as cq
 
+from mini_moonboard import floor_flush_width
+from mini_moonboard.floor_flush_width import KERF_RIGHT
 from mini_moonboard.wood_joint_frame import validate_source_binding
 from mini_moonboard.wood_joint_geometry import BoltStack, washer_support_report
 from mini_moonboard.wood_joint_panel_machining import RIGHT_PANEL_NAMES
@@ -88,6 +90,7 @@ class RightRailIntegrationGeometry:
     body_solid_checks: dict[str, dict[str, Any]]
     machining: dict[str, dict[str, Any]]
     source_reconstruction: dict[str, dict[str, Any]]
+    source_axis_datum_audit: dict[str, dict[str, Any]]
     diagnostic_gates: dict[str, Any]
     release: dict[str, bool]
 
@@ -206,6 +209,7 @@ def diagnostic_report(geometry: RightRailIntegrationGeometry) -> dict[str, Any]:
             "candidate_panel_bodies": len(geometry.panels),
         },
         "source_reconstruction": geometry.source_reconstruction,
+        "source_axis_datum_audit": geometry.source_axis_datum_audit,
         "machining": geometry.machining,
         "candidate_bodies": body_checks,
         "candidate_body_hits": geometry.candidate_body_hits,
@@ -457,33 +461,92 @@ def _source_screw_axis_shape(connection: Any) -> cq.Shape:
     )
 
 
-def _source_cutter_map(
+def _native_source_model(source: Any) -> Any:
+    """Return the model whose uncut ``parts()`` geometry is actually finished."""
+    if getattr(source, "option", None) == KERF_RIGHT:
+        return source.source
+    return source
+
+
+def _native_cutter_for_host(source: Any, host_id: str, cutter: cq.Shape) -> cq.Shape:
+    """Apply that member's WidthAdapter transform to an official source cut.
+
+    ``WidthAdapter.parts()`` finishes official parts first, then transforms each
+    member. A translated member therefore gets translated cutters. An X-trimmed
+    member keeps the official cutter datum because trimming the finished solid
+    is equivalent to cutting the already trimmed raw solid at that datum.
+    """
+    if (
+        getattr(source, "option", None) == KERF_RIGHT
+        and host_id in floor_flush_width.TRANSLATE_NAMES
+    ):
+        return cutter.translate((-floor_flush_width.KERF_RIGHT_MM, 0.0, 0.0))
+    return cutter
+
+
+def source_native_cutters_by_host(
+    source: Any,
+    host_ids: frozenset[str] | set[str],
+) -> dict[str, dict[str, cq.Shape]]:
+    """Return native source finishing cuts replayed in each member's frame.
+
+    This map deliberately excludes longer purchased panel-screw receivers.
+    Reuse it for strict source reconstruction before applying candidate work.
+    """
+    native_source = _native_source_model(source)
+    result: dict[str, dict[str, cq.Shape]] = {name: {} for name in host_ids}
+    connections = tuple(native_source.connections())
+    by_name = {row.name: row for row in connections}
+    if len(by_name) != len(connections):
+        raise ValueError("native source connections must have unique axis IDs")
+
+    for connection in connections:
+        cutter = _cutters_for_connection(native_source, connection)
+        head_cutter = (
+            connection.components()[1]
+            if connection.kind == "screw"
+            and connection.members
+            and connection.members[0] in result
+            else None
+        )
+        for index, host_id in enumerate(connection.members):
+            if host_id not in result:
+                continue
+            result[host_id][connection.name] = _native_cutter_for_host(
+                source, host_id, cutter
+            )
+            if index == 0 and head_cutter is not None:
+                result[host_id][f"{connection.name}/head"] = _native_cutter_for_host(
+                    source, host_id, head_cutter
+                )
+
+    for index, (member_id, name, cutter) in enumerate(native_source.service_cutters()):
+        if member_id in result:
+            result[member_id][f"service/{index}/{name}"] = _native_cutter_for_host(
+                source, member_id, cutter
+            )
+
+    for index, (member_id, name, operation, cutter) in enumerate(
+        native_source.additional_machining_cutters()
+    ):
+        if member_id in result:
+            result[member_id][f"additional/{index}/{name}/{operation}"] = (
+                _native_cutter_for_host(source, member_id, cutter)
+            )
+    return result
+
+
+def candidate_panel_purchase_cutters_by_host(
     source: Any,
     inventory: dict[str, Any],
     host_ids: frozenset[str],
 ) -> dict[str, dict[str, cq.Shape]]:
-    """Collect exact source operations which finish each selected stock host."""
+    """Build purchased-length receiver envelopes from current source axes."""
     result: dict[str, dict[str, cq.Shape]] = {name: {} for name in host_ids}
     connections = tuple(source.connections())
     by_name = {row.name: row for row in connections}
     if len(by_name) != len(connections):
         raise ValueError("source connections must have unique axis IDs")
-
-    for connection in connections:
-        cutter = _cutters_for_connection(source, connection)
-        for host_id in host_ids.intersection(connection.members):
-            result[host_id][connection.name] = cutter
-
-    service_rows = tuple(source.service_cutters())
-    for index, (member_id, name, cutter) in enumerate(service_rows):
-        if member_id in host_ids:
-            result[member_id][f"service/{index}/{name}"] = cutter
-
-    additional_rows = tuple(source.additional_machining_cutters())
-    for index, (member_id, name, operation, cutter) in enumerate(additional_rows):
-        if member_id in host_ids:
-            result[member_id][f"additional/{index}/{name}/{operation}"] = cutter
-
     panel_rows = inventory.get("fixed_panel_kicker_screws", ())
     if len(panel_rows) != 66:
         raise ValueError("right-rail integration requires all 66 fixed panel axes")
@@ -507,6 +570,95 @@ def _source_cutter_map(
     if len(panel_ids) != 66:
         raise ValueError("fixed panel screw axis IDs must be unique")
     return result
+
+
+def _merge_cutter_maps(
+    first: dict[str, dict[str, cq.Shape]],
+    second: dict[str, dict[str, cq.Shape]],
+) -> dict[str, dict[str, cq.Shape]]:
+    result: dict[str, dict[str, cq.Shape]] = {}
+    for host_id in first.keys() | second.keys():
+        left = first.get(host_id, {})
+        right = second.get(host_id, {})
+        collisions = set(left).intersection(right)
+        if collisions:
+            raise ValueError(
+                f"cutter IDs collide for {host_id}: " + ", ".join(sorted(collisions))
+            )
+        result[host_id] = {**left, **right}
+    return result
+
+
+def _source_axis_datum_audit(
+    source: Any,
+    axis_ids: frozenset[str],
+    host_ids: frozenset[str],
+) -> dict[str, dict[str, Any]]:
+    """Record official/current axis starts and per-member replay datums."""
+    native_source = _native_source_model(source)
+    native_by_id = {row.name: row for row in native_source.connections()}
+    current_by_id = {row.name: row for row in source.connections()}
+    audit: dict[str, dict[str, Any]] = {}
+    for axis_id in sorted(axis_ids):
+        native = native_by_id.get(axis_id)
+        current = current_by_id.get(axis_id)
+        if native is None or current is None:
+            raise ValueError(f"source axis datum missing: {axis_id}")
+        shared_members = sorted(host_ids.intersection(native.members))
+        replay_starts = {}
+        current_starts = {}
+        transforms = {}
+        for host_id in shared_members:
+            # Translate is the only per-member source transform today; report
+            # its exact offset without inferring a datum from an oblique bbox.
+            offset = (
+                cq.Vector(-floor_flush_width.KERF_RIGHT_MM, 0, 0)
+                if (
+                    getattr(source, "option", None) == KERF_RIGHT
+                    and host_id in floor_flush_width.TRANSLATE_NAMES
+                )
+                else cq.Vector(0, 0, 0)
+            )
+            replay_start = native.start + offset
+            replay_starts[host_id] = [
+                round(value, 9) for value in replay_start.toTuple()
+            ]
+            current_starts[host_id] = [
+                round(value, 9) for value in current.start.toTuple()
+            ]
+            if offset.x:
+                transform = "translate_x_minus_3p175"
+            elif host_id in floor_flush_width.TRIM_XMAX_NAMES:
+                transform = "native_axis_preserved_through_x_trim"
+            else:
+                transform = "identity"
+            transforms[host_id] = {"native_replay_member_transform": transform}
+        delta = current.start - native.start
+        audit[axis_id] = {
+            "members": list(native.members),
+            "native_start_xyz_mm": [
+                round(value, 9) for value in native.start.toTuple()
+            ],
+            "current_adapter_start_xyz_mm": [
+                round(value, 9) for value in current.start.toTuple()
+            ],
+            "current_minus_native_xyz_mm": [
+                round(value, 9) for value in delta.toTuple()
+            ],
+            "native_direction_xyz": [
+                round(value, 9) for value in native.direction.normalized().toTuple()
+            ],
+            "current_adapter_direction_xyz": [
+                round(value, 9) for value in current.direction.normalized().toTuple()
+            ],
+            "native_length_mm": round(native.length, 9),
+            "current_adapter_length_mm": round(current.length, 9),
+            "shared_host_native_replay_starts_xyz_mm": replay_starts,
+            "shared_host_current_adapter_starts_xyz_mm": current_starts,
+            "shared_host_transforms": transforms,
+            "candidate_action": "omit_replaced_old_source_sds_cut",
+        }
+    return audit
 
 
 def machine_shared_hosts(
@@ -628,17 +780,37 @@ def _cut_record(
     cutters: dict[str, cq.Shape],
     replaced_axis_ids: frozenset[str],
     candidate_bores: dict[str, cq.Shape],
+    *,
+    input_part_origin: str,
 ) -> dict[str, Any]:
+    if input_part_origin not in {"source_uncut_member", "producer_candidate_cleat"}:
+        raise ValueError(f"unsupported cut-record input origin: {input_part_origin}")
+    is_source_uncut_member = input_part_origin == "source_uncut_member"
     removed = sorted(replaced_axis_ids.intersection(cutters))
-    retained_source = sorted(set(cutters) - set(removed))
+    candidate_panel_purchase = sorted(
+        name for name in cutters if name.startswith("panel_purchase/")
+    )
+    retained_source = sorted(
+        set(cutters) - set(removed) - set(candidate_panel_purchase)
+    )
     return {
-        "source_stock": "kerf-right uncut_wood_parts() member shape",
+        "input_part_origin": input_part_origin,
+        "source_stock": (
+            "kerf-right uncut_wood_parts() member shape"
+            if is_source_uncut_member
+            else None
+        ),
         "removed_source_sds_axis_ids": removed,
         "retained_source_cutter_ids": retained_source,
+        "candidate_panel_purchase_cutter_ids": candidate_panel_purchase,
         "source_cutter_counts": {
             "named_connections": sum(
-                not name.startswith(("service/", "additional/", "panel_purchase/"))
+                not name.startswith(("service/", "additional/"))
+                and not name.endswith("/head")
                 for name in retained_source
+            ),
+            "connection_head_cutters": sum(
+                name.endswith("/head") for name in retained_source
             ),
             "service_cutters": sum(
                 name.startswith("service/") for name in retained_source
@@ -646,15 +818,15 @@ def _cut_record(
             "additional_cutters": sum(
                 name.startswith("additional/") for name in retained_source
             ),
-            "purchased_panel_screw_cutters": sum(
-                name.startswith("panel_purchase/") for name in retained_source
-            ),
+            "purchased_panel_screw_cutters": len(candidate_panel_purchase),
         },
         "candidate_bore_ids": sorted(candidate_bores),
         "source_cutters_retained": len(retained_source),
+        "candidate_panel_purchase_cutters_applied": len(candidate_panel_purchase),
         "candidate_bores_applied": len(candidate_bores),
         "old_sds_restored": False,
-        "cut_union_applied_to_raw_stock": True,
+        "cut_union_applied_to_raw_stock": is_source_uncut_member,
+        "cut_union_applied_to_input_part": True,
     }
 
 
@@ -679,6 +851,69 @@ def materialize_right_rail_geometry(
     if binding_before.inventory_sha256 != WJ04_TRIAL.source_inventory_sha256:
         raise ValueError("right-rail source inventory differs from canonical pin")
 
+    inventory = _load_pinned_source_inventory(binding_before)
+    inventory_target_duties = {
+        row["legacy_station_id"]: row
+        for row in inventory["legacy_duties"]
+        if row["legacy_station_id"] in TARGET_STATIONS
+    }
+    expected_replaced_axis_ids = frozenset(
+        axis["axis_id"]
+        for row in inventory_target_duties.values()
+        for axis in row["legacy_sds_axes"]
+    )
+    expected_duties = _selected_duties(inventory, expected_replaced_axis_ids)
+    raw_wood_parts = {part.name: part.shape for part in source.uncut_wood_parts()}
+    current_wood_parts = {
+        part.name: part.shape for part in source.parts() if part.name in raw_wood_parts
+    }
+    if not SHARED_HOSTS <= raw_wood_parts.keys():
+        raise ValueError("source raw stock is missing one or more shared rail hosts")
+    if not SHARED_HOSTS <= current_wood_parts.keys():
+        raise ValueError("source finished stock is missing one or more shared hosts")
+
+    # Reconstruct and validate native source machining before materializing the
+    # two family hypotheses. Purchased-length panel cuts stay candidate-only.
+    native_source_cutters = source_native_cutters_by_host(source, SHARED_HOSTS)
+    for host_id in SHARED_HOSTS:
+        replaced_for_host = expected_replaced_axis_ids.intersection(
+            native_source_cutters[host_id]
+        )
+        if len(replaced_for_host) != 6:
+            raise ValueError(
+                f"{host_id}: expected six replaced source SDS cutters, "
+                f"found {len(replaced_for_host)}"
+            )
+    source_reconstruction: dict[str, dict[str, Any]] = {}
+    for host_id in sorted(SHARED_HOSTS):
+        rebuilt = (
+            raw_wood_parts[host_id]
+            .cut(*native_source_cutters[host_id].values())
+            .clean()
+        )
+        added = rebuilt.cut(current_wood_parts[host_id]).Volume()
+        missing = current_wood_parts[host_id].cut(rebuilt).Volume()
+        delta = added + missing
+        source_reconstruction[host_id] = {
+            "added_material_mm3": round(added, 9),
+            "missing_material_mm3": round(missing, 9),
+            "symmetric_difference_mm3": round(delta, 6),
+            "native_source_cutters_applied": len(native_source_cutters[host_id]),
+            "candidate_purchase_cutters_excluded": True,
+            "matches_source_finished_member": (
+                delta <= SOURCE_RECONSTRUCTION_TOLERANCE_MM3
+            ),
+        }
+        if delta > SOURCE_RECONSTRUCTION_TOLERANCE_MM3:
+            raise ValueError(
+                f"{host_id}: raw-stock retained-cut pass differs from source by "
+                f"{delta:.6f} mm3"
+            )
+
+    source_axis_datum_audit = _source_axis_datum_audit(
+        source, expected_replaced_axis_ids, SHARED_HOSTS
+    )
+
     g7 = wj04_g7.materialize_geometry(base_geometry)
     outer = wj06_outer.materialize_geometry(source=source)
     if g7.base.source is not source or outer.source is not source:
@@ -689,43 +924,16 @@ def materialize_right_rail_geometry(
     ):
         raise ValueError("right-rail producer source bindings differ")
 
-    inventory = _load_pinned_source_inventory(binding_before)
     replaced_axis_ids = frozenset(g7.removed_axis_ids | outer.removed_axis_ids)
+    if replaced_axis_ids != expected_replaced_axis_ids:
+        raise ValueError("right-rail producers differ from preflight source duties")
     duties = _selected_duties(inventory, replaced_axis_ids)
-    raw_wood_parts = {part.name: part.shape for part in source.uncut_wood_parts()}
-    current_wood_parts = {
-        part.name: part.shape for part in source.parts() if part.name in raw_wood_parts
-    }
-    if not SHARED_HOSTS <= raw_wood_parts.keys():
-        raise ValueError("source raw stock is missing one or more shared rail hosts")
-    if not SHARED_HOSTS <= current_wood_parts.keys():
-        raise ValueError("source finished stock is missing one or more shared hosts")
-
-    # Baseline source reconstruction proves cutter inventory is complete before
-    # the selected old SDS axes are omitted.
-    source_cutters = _source_cutter_map(source, inventory, SHARED_HOSTS)
-    for host_id in SHARED_HOSTS:
-        replaced_for_host = replaced_axis_ids.intersection(source_cutters[host_id])
-        if len(replaced_for_host) != 6:
-            raise ValueError(
-                f"{host_id}: expected six replaced source SDS cutters, "
-                f"found {len(replaced_for_host)}"
-            )
-    source_reconstruction: dict[str, dict[str, Any]] = {}
-    for host_id in sorted(SHARED_HOSTS):
-        rebuilt = raw_wood_parts[host_id].cut(*source_cutters[host_id].values()).clean()
-        delta = _shape_difference_volume(rebuilt, current_wood_parts[host_id])
-        source_reconstruction[host_id] = {
-            "symmetric_difference_mm3": round(delta, 6),
-            "matches_source_finished_member": (
-                delta <= SOURCE_RECONSTRUCTION_TOLERANCE_MM3
-            ),
-        }
-        if delta > SOURCE_RECONSTRUCTION_TOLERANCE_MM3:
-            raise ValueError(
-                f"{host_id}: raw-stock retained-cut pass differs from source by "
-                f"{delta:.6f} mm3"
-            )
+    if duties != expected_duties:
+        raise ValueError("right-rail source duties changed after preflight")
+    source_cutters = _merge_cutter_maps(
+        native_source_cutters,
+        candidate_panel_purchase_cutters_by_host(source, inventory, SHARED_HOSTS),
+    )
 
     panel_parts = {
         name: shape for name, shape in g7.panels.items() if name in RIGHT_PANEL_NAMES
@@ -1094,9 +1302,14 @@ def materialize_right_rail_geometry(
     machining = {
         host_id: _cut_record(
             host_id,
-            source_cutters[host_id],
+            source_cutters.get(host_id, {}),
             replaced_axis_ids,
             candidate_bores_by_host[host_id],
+            input_part_origin=(
+                "source_uncut_member"
+                if host_id in SHARED_HOSTS
+                else "producer_candidate_cleat"
+            ),
         )
         for host_id in sorted(parts)
     }
@@ -1197,6 +1410,7 @@ def materialize_right_rail_geometry(
         body_solid_checks=body_solid_checks,
         machining=machining,
         source_reconstruction=source_reconstruction,
+        source_axis_datum_audit=source_axis_datum_audit,
         diagnostic_gates=diagnostic_gates,
         release=release,
     )

@@ -1,0 +1,689 @@
+from __future__ import annotations
+
+import hashlib
+import json
+from types import SimpleNamespace
+
+import cadquery as cq
+import pytest
+
+from mini_moonboard.wood_joint_frame import _source_shape_fingerprint
+from scripts import wood_joint_wj12_diagnostic as shared_diagnostic
+from scripts import wood_joint_wj24_access_relief_probe as probe
+
+
+def _cylinder(
+    start: tuple[float, float, float],
+    axis: tuple[float, float, float],
+    length: float,
+    radius: float,
+) -> cq.Shape:
+    return cq.Solid.makeCylinder(radius, length, cq.Vector(*start), cq.Vector(*axis))
+
+
+def _bore(shape: cq.Shape, receivers: tuple[str, ...]) -> SimpleNamespace:
+    return SimpleNamespace(shape=shape, receiver_ids=receivers)
+
+
+def _contact_geometry(*, duplicate_contact_face: bool = False) -> SimpleNamespace:
+    connector_id = "test_connector"
+    left_id = "test_left_host"
+    right_id = "test_right_host"
+    if duplicate_contact_face:
+        right_id = "test_other_left_host"
+    raw_connector = cq.Solid.makeBox(10, 10, 10, cq.Vector(0, 0, 0))
+    host_boxes = {
+        left_id: cq.Solid.makeBox(5, 10, 10, cq.Vector(-5, 0, 0)),
+        right_id: cq.Solid.makeBox(
+            5, 10, 10, cq.Vector(-5 if duplicate_contact_face else 10, 0, 0)
+        ),
+    }
+    first_bore = _cylinder((-5, 3, 5), (1, 0, 0), 20, 0.5)
+    second_bore = _cylinder((-5, 7, 5), (1, 0, 0), 20, 0.5)
+    bore_map = {
+        "left_axis": _bore(first_bore, (connector_id, left_id)),
+        "right_axis": _bore(second_bore, (connector_id, right_id)),
+    }
+    raw_finished = raw_connector.cut(first_bore, second_bore).clean()
+    finished_hosts = {
+        left_id: host_boxes[left_id].cut(first_bore).clean(),
+        right_id: host_boxes[right_id].cut(second_bore).clean(),
+    }
+    return SimpleNamespace(
+        raw_candidate_parts={connector_id: raw_connector},
+        finished_candidate_parts={connector_id: raw_finished},
+        finished_hosts=finished_hosts,
+        candidate_bores=bore_map,
+    )
+
+
+def test_radial_relief_keeps_the_finite_source_corridor_and_reports_no_shape_object() -> (
+    None
+):
+    source = _cylinder((1, 2, 3), (1, 0, 0), 50.8, 11.1125 / 2)
+    before = _source_shape_fingerprint(source)
+
+    expanded, parameters = probe._cylinder_with_radial_clearance(
+        source, 0.5, "hold_tnut_main_G1"
+    )
+
+    assert parameters["core_diameter_mm"] == pytest.approx(11.1125)
+    assert parameters["relief_diameter_mm"] == pytest.approx(12.1125)
+    assert parameters["core_length_mm"] == pytest.approx(50.8)
+    assert expanded.BoundingBox().xlen == pytest.approx(50.8)
+    assert "cutter" not in parameters
+    json.dumps(parameters)
+    assert _source_shape_fingerprint(source) == before
+
+
+def test_two_receiver_contact_faces_are_unique_and_probe_net_material() -> None:
+    geometry = _contact_geometry()
+    connector_id = "test_connector"
+
+    report = probe._contact_face_checks(
+        geometry,
+        connector_id,
+        geometry.finished_candidate_parts[connector_id],
+        tolerance_mm3=probe.HIT_TOLERANCE_MM3,
+    )
+
+    assert report["all_two_faces_mapped"] is True
+    assert report["distinct_connector_contact_face_count"] == 2
+    assert report["all_selected_contact_probe_slabs_fully_supported"] is True
+    assert report["found_contact_face_count"] == 2
+    assert all(row["match_count"] == 1 for row in report["per_host"].values())
+
+
+def test_two_hosts_cannot_both_claim_the_same_connector_face() -> None:
+    geometry = _contact_geometry(duplicate_contact_face=True)
+
+    report = probe._contact_face_checks(
+        geometry,
+        "test_connector",
+        geometry.finished_candidate_parts["test_connector"],
+        tolerance_mm3=probe.HIT_TOLERANCE_MM3,
+    )
+
+    assert report["found_contact_face_count"] == 2
+    assert report["distinct_connector_contact_face_count"] == 1
+    assert report["all_two_faces_mapped"] is False
+
+
+def _washer_geometry() -> tuple[SimpleNamespace, str, cq.Shape, cq.Shape]:
+    connector_id = "washer_test_connector"
+    raw = cq.Solid.makeBox(10, 10, 10, cq.Vector(0, 0, 0))
+    bores = {}
+    hardware = {}
+    for index, y in enumerate((3.0, 7.0), start=1):
+        axis_id = f"washer_axis_{index}"
+        bore_shape = _cylinder((0, y, 5), (1, 0, 0), 10, 1.0)
+        bores[axis_id] = _bore(bore_shape, (connector_id, "other_receiver"))
+        head_outer = _cylinder((-1, y, 5), (1, 0, 0), 1, 3.0)
+        head_inner = _cylinder((-1, y, 5), (1, 0, 0), 1, 1.2)
+        nut_outer = _cylinder((10, y, 5), (1, 0, 0), 1, 3.0)
+        nut_inner = _cylinder((10, y, 5), (1, 0, 0), 1, 1.2)
+        hardware[axis_id] = {
+            "head_washer": head_outer.cut(head_inner).clean(),
+            "nut_washer": nut_outer.cut(nut_inner).clean(),
+        }
+    finished = raw.cut(*(bore.shape for bore in bores.values())).clean()
+    unsupported = finished.cut(
+        _cylinder((0, 3, 5), (1, 0, 0), probe.WASHER_PROBE_DEPTH_MM, 3.0)
+    ).clean()
+    geometry = SimpleNamespace(
+        candidate_bores=bores,
+        candidate_installed_hardware=hardware,
+        finished_candidate_parts={connector_id: finished},
+        finished_hosts={
+            "other_receiver": cq.Solid.makeBox(1, 1, 1, cq.Vector(20, 20, 20))
+        },
+    )
+    return geometry, connector_id, finished, unsupported
+
+
+def test_four_annular_washer_seats_are_probed_and_loss_is_not_hidden() -> None:
+    geometry, connector_id, finished, unsupported = _washer_geometry()
+
+    baseline = probe._washer_seat_checks(
+        geometry, connector_id, finished, tolerance_mm3=probe.HIT_TOLERANCE_MM3
+    )
+    variant = probe._washer_seat_checks(
+        geometry, connector_id, unsupported, tolerance_mm3=probe.HIT_TOLERANCE_MM3
+    )
+
+    assert baseline["candidate_bore_count_for_connector"] == 2
+    assert baseline["washer_role_probe_count"] == 4
+    assert baseline["expected_washer_role_probe_count"] == 4
+    assert baseline["all_washer_roles_resolved"] is True
+    assert baseline["all_variant_annular_seats_fully_supported"] is True
+    assert baseline["expected_connector_side_washer_role_probe_count"] == 2
+    assert baseline["baseline_connector_side_washer_role_probe_count"] == 4
+    assert (
+        baseline["all_baseline_other_receiver_side_annular_seats_fully_supported"]
+        is False
+    )
+    assert variant["all_washer_roles_resolved"] is True
+    assert variant["all_variant_annular_seats_fully_supported"] is False
+
+
+def test_four_axes_report_eight_washer_roles_split_across_both_receivers() -> None:
+    connector_id = "four_axis_washer_connector"
+    host_id = "four_axis_washer_host"
+    raw_connector = cq.Solid.makeBox(10, 20, 20, cq.Vector(0, 0, 0))
+    raw_host = cq.Solid.makeBox(9, 20, 20, cq.Vector(-9, 0, 0))
+    bores = {}
+    hardware = {}
+    for index, y in enumerate((4.0, 8.0, 12.0, 16.0), start=1):
+        axis_id = f"axis_{index}"
+        bore_shape = _cylinder((-9, y, 10), (1, 0, 0), 19, 0.5)
+        bores[axis_id] = _bore(bore_shape, (connector_id, host_id))
+        hardware[axis_id] = {
+            "head_washer": _cylinder((-10, y, 10), (1, 0, 0), 1, 3.0).cut(
+                _cylinder((-10, y, 10), (1, 0, 0), 1, 1.2)
+            ),
+            "nut_washer": _cylinder((10, y, 10), (1, 0, 0), 1, 3.0).cut(
+                _cylinder((10, y, 10), (1, 0, 0), 1, 1.2)
+            ),
+        }
+    connector = raw_connector.cut(*(bore.shape for bore in bores.values())).clean()
+    host = raw_host.cut(*(bore.shape for bore in bores.values())).clean()
+    geometry = SimpleNamespace(
+        candidate_bores=bores,
+        candidate_installed_hardware=hardware,
+        finished_candidate_parts={connector_id: connector},
+        finished_hosts={host_id: host},
+    )
+
+    report = probe._washer_seat_checks(
+        geometry, connector_id, connector, tolerance_mm3=probe.HIT_TOLERANCE_MM3
+    )
+
+    assert report["candidate_bore_count_for_connector"] == 4
+    assert report["washer_role_probe_count"] == 8
+    assert report["expected_washer_role_probe_count"] == 8
+    assert report["all_washer_roles_resolved"] is True
+    assert report["all_baseline_annular_seats_fully_supported"] is True
+    assert report["all_variant_annular_seats_fully_supported"] is True
+    assert report["baseline_connector_side_washer_role_probe_count"] == 4
+    assert report["baseline_other_receiver_side_washer_role_probe_count"] == 4
+    assert report["variant_connector_side_washer_role_probe_count"] == 4
+    assert report["variant_other_receiver_side_washer_role_probe_count"] == 4
+    assert report["all_baseline_connector_side_annular_seats_fully_supported"] is True
+    assert (
+        report["all_baseline_other_receiver_side_annular_seats_fully_supported"] is True
+    )
+    assert report["all_variant_connector_side_annular_seats_fully_supported"] is True
+    assert (
+        report["all_variant_other_receiver_side_annular_seats_fully_supported"] is True
+    )
+
+
+def test_washer_seat_is_attributed_to_the_declared_host_receiver() -> None:
+    connector_id = "washer_host_test_connector"
+    host_id = "washer_host_test_host"
+    connector_raw = cq.Solid.makeBox(10, 10, 10, cq.Vector(0, 0, 0))
+    host_raw = cq.Solid.makeBox(9, 10, 10, cq.Vector(-9, 0, 0))
+    bore_shape = _cylinder((-9, 5, 5), (1, 0, 0), 19, 0.5)
+    washer_left = _cylinder((-10, 5, 5), (1, 0, 0), 1, 3.0).cut(
+        _cylinder((-10, 5, 5), (1, 0, 0), 1, 1.2)
+    )
+    washer_right = _cylinder((10, 5, 5), (1, 0, 0), 1, 3.0).cut(
+        _cylinder((10, 5, 5), (1, 0, 0), 1, 1.2)
+    )
+    bore = _bore(bore_shape, (connector_id, host_id))
+    connector = connector_raw.cut(bore_shape).clean()
+    host = host_raw.cut(bore_shape).clean()
+    geometry = SimpleNamespace(
+        candidate_bores={"axis": bore},
+        candidate_installed_hardware={
+            "axis": {
+                "head_washer": washer_left,
+                "nut_washer": washer_right,
+            }
+        },
+        finished_candidate_parts={connector_id: connector},
+        finished_hosts={host_id: host},
+    )
+
+    report = probe._washer_seat_checks(
+        geometry,
+        connector_id,
+        connector,
+        tolerance_mm3=probe.HIT_TOLERANCE_MM3,
+    )
+
+    left = report["per_axis"]["axis"]["head_washer"]
+    right = report["per_axis"]["axis"]["nut_washer"]
+    assert left["resolved"] is True
+    assert left["baseline_support_by_receiver_mm3"][host_id] > 0
+    assert left["baseline_support_by_receiver_mm3"][connector_id] == 0
+    assert right["resolved"] is True
+    assert right["baseline_support_by_receiver_mm3"][connector_id] > 0
+    assert right["baseline_support_by_receiver_mm3"][host_id] == 0
+    assert report["washer_role_probe_count"] == 2
+    assert report["baseline_connector_side_washer_role_probe_count"] == 1
+    assert report["baseline_other_receiver_side_washer_role_probe_count"] == 1
+    assert left["baseline_support_side"] == "other_receiver"
+    assert right["baseline_support_side"] == "connector"
+
+
+def test_bolt_report_binds_finite_axis_and_all_five_component_shapes() -> None:
+    connector_id = "bolt_report_connector"
+    raw = cq.Solid.makeBox(10, 10, 10, cq.Vector(0, 0, 0))
+    bore_shape = _cylinder((0, 5, 5), (1, 0, 0), 10, 0.5)
+    washer_outer = _cylinder((-1, 5, 5), (1, 0, 0), 1, 3.0)
+    washer_inner = _cylinder((-1, 5, 5), (1, 0, 0), 1, 1.2)
+    hardware = {
+        "shaft": _cylinder((-1, 5, 5), (1, 0, 0), 12, 0.5),
+        "head": _cylinder((-2, 5, 5), (1, 0, 0), 1, 2.0),
+        "head_washer": washer_outer.cut(washer_inner).clean(),
+        "nut_washer": washer_outer.translate(cq.Vector(12, 0, 0))
+        .cut(washer_inner.translate(cq.Vector(12, 0, 0)))
+        .clean(),
+        "nut": _cylinder((11, 5, 5), (1, 0, 0), 1, 2.0),
+    }
+    geometry = SimpleNamespace(
+        candidate_bores={"axis": _bore(bore_shape, (connector_id, "receiver"))},
+        candidate_installed_hardware={"axis": hardware},
+    )
+
+    report = probe._bore_checks(
+        geometry,
+        connector_id,
+        raw.cut(bore_shape).clean(),
+        cq.Solid.makeBox(1, 1, 1, cq.Vector(20, 20, 20)),
+    )
+
+    row = report["per_axis"]["axis"]
+    assert row["ordinary_hardware_role_set_exact"] is True
+    assert row["bore_cylinder_geometry"]["diameter_mm"] == pytest.approx(1.0)
+    assert row["bore_cylinder_geometry"]["length_mm"] == pytest.approx(10.0)
+    assert set(row["installed_hardware_role_shapes"]) == set(hardware)
+    assert all(
+        "shape_sha256" in item
+        for item in row["installed_hardware_role_shapes"].values()
+    )
+
+
+def test_section_stations_include_bore_tangencies_and_regular_interval_samples() -> (
+    None
+):
+    raw = cq.Solid.makeBox(10, 10, 20, cq.Vector(0, 0, 0))
+    bore = _cylinder((5, 5, 10), (1, 0, 0), 4, 1.0)
+    frame = {
+        "origin": cq.Vector(0, 0, 0),
+        "X": cq.Vector(1, 0, 0),
+        "T": cq.Vector(0, 1, 0),
+        "N": cq.Vector(0, 0, 1),
+    }
+
+    low, high, stations = probe._section_stations(raw, frame, {"axis": bore}, bore)
+    tagged = {tag for _, label in stations for tag in label.split(";")}
+
+    assert (low, high) == pytest.approx((0, 20))
+    assert any("axis:grain_tangent_low" in tag for tag in tagged)
+    assert any("axis:axis_center" in tag for tag in tagged)
+    assert any("axis:grain_tangent_high" in tag for tag in tagged)
+    assert "regular_interval_sample" in tagged
+
+
+def test_local_section_reduction_is_reported_when_global_sampled_minimum_is_unchanged() -> (
+    None
+):
+    rows = [
+        {
+            "station_N_mm": 5.0,
+            "station_tags": ["near_relief"],
+            "baseline_finished_section_slab_equivalent_area_mm2": 100.0,
+            "relieved_finished_section_slab_equivalent_area_mm2": 90.0,
+        },
+        {
+            "station_N_mm": 10.0,
+            "station_tags": ["global_minimum"],
+            "baseline_finished_section_slab_equivalent_area_mm2": 60.0,
+            "relieved_finished_section_slab_equivalent_area_mm2": 60.0,
+        },
+    ]
+
+    summary = probe._sampled_section_reduction_summary(rows)
+
+    assert min(
+        row["baseline_finished_section_slab_equivalent_area_mm2"] for row in rows
+    ) == min(row["relieved_finished_section_slab_equivalent_area_mm2"] for row in rows)
+    assert summary["changed_sampled_station_count"] == 1
+    assert summary["largest_sampled_section_area_reduction_mm2"] == pytest.approx(10.0)
+    assert summary["largest_reduction_station_N_mm"] == 5.0
+    assert summary["largest_reduction_station_tags"] == ["near_relief"]
+
+
+def test_led_sweep_keeps_nominal_core_fixed_as_clearance_envelope_grows() -> None:
+    light = _cylinder((0, 0, 0), (0, 0, 1), 30.25625, 6.35)
+    geometry = SimpleNamespace(
+        protected={"lights": {probe.LED_ID: light}},
+        source_inventory={
+            "parts": [
+                {
+                    "part_id": probe.LED_OWNER_PANEL_ID,
+                    "local_to_global_transform": [
+                        [1, 0, 0, 0],
+                        [0, 1, 0, 0],
+                        [0, 0, 1, 0],
+                        [0, 0, 0, 1],
+                    ],
+                    "local_axes": {"N": [0, 0, 1]},
+                    "actual_shape_extents_local_mm": {"N": [0, 18.25625]},
+                }
+            ]
+        },
+    )
+    before = _source_shape_fingerprint(light)
+
+    rows = [
+        probe._led_sweep(geometry, radial_clearance_mm=clearance)
+        for clearance in (0.0, 0.5, 1.0)
+    ]
+
+    assert [parameters["core_diameter_mm"] for _, parameters in rows] == [12.7] * 3
+    assert [parameters["swept_diameter_mm"] for _, parameters in rows] == pytest.approx(
+        [12.7, 13.7, 14.7]
+    )
+    assert [
+        parameters["rearward_stroke_mm"] for _, parameters in rows
+    ] == pytest.approx([19.25625] * 3)
+    assert [
+        parameters["swept_axial_length_mm"] for _, parameters in rows
+    ] == pytest.approx([49.5125] * 3)
+    assert [parameters["sweep_kind"] for _, parameters in rows] == [
+        "nominal_physical_LED_core_path",
+        "enlarged_clearance_envelope_not_physical_LED_geometry",
+        "enlarged_clearance_envelope_not_physical_LED_geometry",
+    ]
+    assert all(
+        parameters["radial_clearance_changes_physical_LED_diameter"] is False
+        for _, parameters in rows
+    )
+    assert _source_shape_fingerprint(light) == before
+
+
+def test_led_relief_variants_check_both_nominal_core_and_enlarged_envelope_routes(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    connector = cq.Solid.makeBox(10, 10, 10, cq.Vector(0, 0, 0))
+    geometry = SimpleNamespace(
+        protected={"lights": {probe.LED_ID: cq.Solid.makeBox(1, 1, 1)}},
+        finished_candidate_parts={probe.LED_CONNECTOR_ID: connector},
+        candidate_bores={},
+        candidate_installed_hardware={},
+        fixed_axes={},
+        frame_bolt_records=(),
+    )
+    route_sweep_volumes = []
+
+    def fake_led_sweep(_geometry, *, radial_clearance_mm):
+        sweep = cq.Solid.makeCylinder(
+            1 + radial_clearance_mm, 2, cq.Vector(4, 4, 0), cq.Vector(0, 0, 1)
+        )
+        return sweep, {
+            "core_diameter_mm": 2.0,
+            "swept_diameter_mm": 2 * (1 + radial_clearance_mm),
+            "rearward_stroke_mm": probe.LED_WITHDRAWAL_STROKE_MM,
+            "radial_clearance_mm": radial_clearance_mm,
+        }
+
+    def fake_route(_geometry, sweep, **kwargs):
+        route_sweep_volumes.append(float(sweep.Volume()))
+        return {
+            "all_recorded_rigid_obstacle_hits_empty": False,
+            "removed_connector_id": (
+                probe.LED_CONNECTOR_ID if kwargs["removed_connector"] else None
+            ),
+        }
+
+    monkeypatch.setattr(probe, "_led_sweep", fake_led_sweep)
+    monkeypatch.setattr(probe, "_led_route_checks", fake_route)
+    monkeypatch.setattr(
+        probe,
+        "_modified_connector_row",
+        lambda _geometry, connector_id, *_args, **_kwargs: {
+            "connector_id": connector_id
+        },
+    )
+
+    variants, summary = probe._led_relief_scenarios(
+        geometry,
+        radial_clearances_mm=(0.0, 0.5, 1.0),
+        tolerance_mm3=probe.HIT_TOLERANCE_MM3,
+        scene_maps=({}, {}, {}, {}, {}),
+    )
+
+    assert len(variants) == 3
+    assert len(route_sweep_volumes) == 8  # baseline, 2 × 3 variants, staged
+    nominal_volume = route_sweep_volumes[0]
+    assert (
+        summary["baseline_nominal_core_route_checks"][
+            "all_recorded_rigid_obstacle_hits_empty"
+        ]
+        is False
+    )
+    assert [
+        row["connector"]["LED_nominal_core_route_after_relief"] for row in variants
+    ] == [
+        {"all_recorded_rigid_obstacle_hits_empty": False, "removed_connector_id": None}
+    ] * 3
+    assert variants[0]["connector"]["LED_clearance_envelope_route_after_relief"] == {
+        "all_recorded_rigid_obstacle_hits_empty": False,
+        "removed_connector_id": None,
+    }
+    # Calls are baseline, then nominal/envelope per variant, then staged core.
+    assert route_sweep_volumes[1] == pytest.approx(nominal_volume)
+    assert route_sweep_volumes[2] == pytest.approx(nominal_volume)
+    assert route_sweep_volumes[3] == pytest.approx(nominal_volume)
+    assert route_sweep_volumes[4] > nominal_volume
+    assert route_sweep_volumes[5] == pytest.approx(nominal_volume)
+    assert route_sweep_volumes[6] > route_sweep_volumes[4]
+    assert route_sweep_volumes[7] == pytest.approx(nominal_volume)
+    assert summary["staged_state_candidate"]["route_checks"][
+        "removed_connector_id"
+    ] == (probe.LED_CONNECTOR_ID)
+
+
+def test_led_route_uses_relief_state_and_staging_removes_exact_connector_stack(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    connector = cq.Solid.makeBox(10, 10, 10, cq.Vector(0, 0, 0))
+    sweep = cq.Solid.makeBox(5, 10, 10, cq.Vector(0, 0, 0))
+    modified = connector.cut(sweep).clean()
+    remote = cq.Solid.makeBox(1, 1, 1, cq.Vector(20, 20, 20))
+    bore = _bore(
+        _cylinder((0, 0, 0), (1, 0, 0), 10, 0.5), (probe.LED_CONNECTOR_ID, "host")
+    )
+    geometry = SimpleNamespace(
+        protected={
+            "lights": {probe.LED_ID: remote, "other_light": remote},
+            "hold_hole_and_provisional_projection": {"hold": remote},
+            "retained_12_frame_bolt_tools_withdrawals": {"frame_tool": remote},
+            "retained_12_frame_bolt_components": {},
+        },
+        frame_bolt_shapes={},
+        frame_bolt_records=(),
+        candidate_bores={"g7_axis": bore},
+        candidate_installed_hardware={"g7_axis": {"shaft": remote}},
+        finished_candidate_parts={probe.LED_CONNECTOR_ID: connector},
+        fixed_axes={},
+    )
+    monkeypatch.setattr(
+        shared_diagnostic,
+        "_composed_wood",
+        lambda _geometry: ({}, {probe.LED_CONNECTOR_ID: connector}),
+    )
+
+    relieved_route = probe._led_route_checks(
+        geometry,
+        sweep,
+        removed_connector=False,
+        modified_connector_shape=modified,
+        tolerance_mm3=probe.HIT_TOLERANCE_MM3,
+    )
+    staged_route = probe._led_route_checks(
+        geometry,
+        sweep,
+        removed_connector=True,
+        tolerance_mm3=probe.HIT_TOLERANCE_MM3,
+    )
+
+    assert relieved_route["other_candidate_body_hits_mm3"] == {}
+    assert staged_route["other_candidate_body_hits_mm3"] == {}
+    assert staged_route["removed_connector_id"] == probe.LED_CONNECTOR_ID
+    assert staged_route["removed_candidate_axis_ids"] == ["g7_axis"]
+    assert staged_route["removed_candidate_hardware_role_count"] == 1
+    assert staged_route["all_recorded_rigid_obstacle_hits_empty"] is True
+
+
+def test_connector_variant_report_is_json_serializable_and_does_not_mutate_inputs(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    connector_id = "json_test_connector"
+    raw = cq.Solid.makeBox(10, 10, 10, cq.Vector(0, 0, 0))
+    cutter = cq.Solid.makeCylinder(1, 10, cq.Vector(5, 5, 0), cq.Vector(0, 0, 1))
+    geometry = SimpleNamespace(
+        raw_candidate_parts={connector_id: raw},
+        finished_candidate_parts={connector_id: raw},
+        candidate_bores={},
+    )
+    for function_name in (
+        "_scene_checks",
+        "_contact_face_checks",
+        "_bore_checks",
+        "_washer_seat_checks",
+        "_sampled_grain_sections",
+    ):
+        monkeypatch.setattr(probe, function_name, lambda *args, **kwargs: {})
+    before = _source_shape_fingerprint(raw)
+
+    row = probe._modified_connector_row(
+        geometry,
+        connector_id,
+        "test_cutter",
+        cutter,
+        {"radial_clearance_mm": 0.5},
+        tolerance_mm3=probe.HIT_TOLERANCE_MM3,
+    )
+
+    json.dumps(row)
+    assert row["source_connector_geometry_unchanged"] is True
+    assert _source_shape_fingerprint(raw) == before
+
+
+def test_builder_rejects_scenarios_outside_the_bounded_three_clearance_set() -> None:
+    with pytest.raises(ValueError, match="exactly 0, 0.5, and 1.0"):
+        probe.build_wj24_access_relief_report(
+            object(), hold_radial_clearances_mm=(0.0, 2.0)
+        )
+
+
+def test_source_identity_rejects_a_changed_target_duty_set() -> None:
+    geometry = SimpleNamespace(
+        layout_id=probe.wj24.LAYOUT_ID,
+        trial_id=probe.wj24.TRIAL_ID,
+        target_station_ids=("different_duty",),
+    )
+
+    with pytest.raises(ValueError, match="exact target-duty identity"):
+        probe._validate_geometry(geometry)
+
+
+def _source_identity_fixture(tmp_path, monkeypatch):
+    inventory = {"candidate": "test-candidate", "source_commit": "test-revision"}
+    inventory_path = tmp_path / probe.wj24.INVENTORY_PATH
+    inventory_path.parent.mkdir(parents=True, exist_ok=True)
+    inventory_bytes = json.dumps(inventory, sort_keys=True).encode()
+    inventory_path.write_bytes(inventory_bytes)
+    inventory_sha = hashlib.sha256(inventory_bytes).hexdigest()
+    input_path = "docs/source-input.json"
+    input_file = tmp_path / input_path
+    input_file.parent.mkdir(parents=True, exist_ok=True)
+    input_bytes = b"source input\n"
+    input_file.write_bytes(input_bytes)
+    input_sha = hashlib.sha256(input_bytes).hexdigest()
+    family_trials = probe.wj24.bottom_outer._expected_context_family_trials("wj18")
+    family_trials.update(
+        {
+            "top_center": probe.wj24.top_center.TRIAL_ID,
+            "bottom_outer": probe.wj24.bottom_outer.TRIAL_ID,
+            "bottom_center": probe.wj24.bottom_center.TRIAL_ID,
+        }
+    )
+    binding = SimpleNamespace(
+        inventory_sha256=inventory_sha,
+        runtime_module_sha256={"source_module.py": "1" * 64},
+        uncut_part_shapes_sha256="2" * 64,
+        uncut_host_shape_sha256={"host": "3" * 64},
+        duty_host_mapping={"duty": ("host", "connector")},
+        fixed_screw_axes_sha256="4" * 64,
+        frame_bolt_axes_sha256="5" * 64,
+    )
+    geometry = SimpleNamespace(
+        source=object(),
+        source_binding=binding,
+        source_inventory_sha256=inventory_sha,
+        source_inventory=inventory,
+        source_inputs_sha256={input_path: input_sha},
+        family_source_fingerprints={
+            family: {input_path: input_sha}
+            for family in probe.EXPECTED_FAMILY_SOURCE_FINGERPRINT_LABELS
+        },
+        family_trial_ids=family_trials,
+    )
+    monkeypatch.setattr(probe, "ROOT", tmp_path)
+    monkeypatch.setattr(probe.wj24, "ROOT", tmp_path)
+    monkeypatch.setattr(probe, "validate_source_binding", lambda _source: binding)
+    return geometry
+
+
+def test_source_identity_rechecks_canonical_inventory_and_exact_family_closure(
+    tmp_path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    geometry = _source_identity_fixture(tmp_path, monkeypatch)
+
+    identity = probe._validate_source_identity(geometry)
+
+    assert identity["source_inventory_sha256"] == geometry.source_inventory_sha256
+    assert identity["family_source_fingerprints_sha256"]["top_center"] == (
+        geometry.source_inputs_sha256
+    )
+    assert set(identity["family_source_fingerprints_sha256"]) == (
+        probe.EXPECTED_FAMILY_SOURCE_FINGERPRINT_LABELS
+    )
+    assert len(identity["family_source_fingerprints_sha256"]) == 9
+    assert "center_x190_tools" in identity["family_source_fingerprints_sha256"]
+    assert identity["family_trial_ids"] == geometry.family_trial_ids
+    assert len(identity["family_trial_ids"]) == 10
+    assert identity["source_binding"]["fixed_screw_axes_sha256"] == "4" * 64
+
+
+def test_source_identity_rejects_family_pins_that_do_not_close_source_inputs(
+    tmp_path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    geometry = _source_identity_fixture(tmp_path, monkeypatch)
+    other_path = "docs/other-input.json"
+    other_file = tmp_path / other_path
+    other_file.write_bytes(b"different source input\n")
+    geometry.family_source_fingerprints["top_center"] = {
+        other_path: hashlib.sha256(other_file.read_bytes()).hexdigest()
+    }
+
+    with pytest.raises(ValueError, match="exact source-input closure"):
+        probe._validate_source_identity(geometry)
+
+
+def test_source_identity_rejects_stale_in_memory_inventory_even_when_hash_matches(
+    tmp_path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    geometry = _source_identity_fixture(tmp_path, monkeypatch)
+    geometry.source_inventory = {
+        "candidate": "different",
+        "source_commit": "test-revision",
+    }
+
+    with pytest.raises(ValueError, match="differs from canonical source inventory"):
+        probe._validate_source_identity(geometry)

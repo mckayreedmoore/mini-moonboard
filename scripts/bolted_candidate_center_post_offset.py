@@ -23,6 +23,44 @@ NOMINAL_BOLT_DIAMETER_MM = 12.7
 WOOD_DEPTH_MM = 38.1
 SHORT_OFFSETS_MM = (0.8125 * 25.4, 2.6875 * 25.4)
 LONG_OFFSETS_MM = (1.4375 * 25.4, 3.3125 * 25.4)
+_AXIS_GEOMETRY_FIELDS = (
+    "kind",
+    "first_member",
+    "second_member",
+    "start_x_mm",
+    "start_y_mm",
+    "start_z_mm",
+    "direction_x",
+    "direction_y",
+    "direction_z",
+    "modeled_length_mm",
+    "modeled_diameter_mm",
+    "occupied_length_mm",
+    "occupied_diameter_mm",
+    "shop_opening_kind",
+    "shop_finished_opening_min_mm",
+    "shop_finished_opening_max_mm",
+)
+
+
+def _same_axis_geometry(
+    left: list[dict[str, str]], right: list[dict[str, str]]
+) -> bool:
+    """Compare axis identity and geometry, excluding packet-specific prose."""
+
+    def keyed(rows: list[dict[str, str]]) -> dict[str, tuple[str, ...]]:
+        return {
+            row["name"]: tuple(row[field] for field in _AXIS_GEOMETRY_FIELDS)
+            for row in rows
+        }
+
+    left_by_name = keyed(left)
+    right_by_name = keyed(right)
+    return (
+        len(left_by_name) == len(left)
+        and len(right_by_name) == len(right)
+        and left_by_name == right_by_name
+    )
 
 
 def fixed_pattern_header_min_pair_spacing_mm(outward_shift_mm: float) -> float:
@@ -95,7 +133,9 @@ def screen_center_post_offsets(
         and row["second_member"] in post_names
     ]
     post_rows = relevant(kerf_rows)
-    if len(post_rows) != 4 or post_rows != relevant(official_rows):
+    if len(post_rows) != 4 or not _same_axis_geometry(
+        post_rows, relevant(official_rows)
+    ):
         raise ValueError("Kerf-right and official post panel axes diverged")
     frozen_kicker_axis_inner_edge_reserves = []
     modeled_occupied_inner_edge_reserves = []

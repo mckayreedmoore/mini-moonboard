@@ -136,6 +136,15 @@ def test_stack_layers_grips_and_side_lengths_are_explicitly_provisional():
         rows[name]["wood_grip_mm"] == pytest.approx(127.0)
         for name in ("lower_rail_1", "lower_rail_2", "upper_rail_1", "upper_rail_2")
     )
+    # The same six-inch SKU must use the canonical 0.10-inch minus tolerance
+    # at every outer rail, independent of the shorter WJ-04 rail bolt's bound.
+    assert all(
+        rows[name]["minimum_length_bound_mm"] == pytest.approx(149.86)
+        for name in ("lower_rail_1", "lower_rail_2", "upper_rail_1", "upper_rail_2")
+    )
+    assert plan["provisional_length_arithmetic"][
+        "rail_min_length_margin_with_layer_allowance_mm"
+    ] == pytest.approx(9.5156)
     assert all(
         rows[name]["wood_grip_mm"] == pytest.approx(177.8)
         for name in ("lower_side_1", "lower_side_2", "upper_side_1", "upper_side_2")

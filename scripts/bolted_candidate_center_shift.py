@@ -31,6 +31,44 @@ INNER_RAILS = {
 SUPPORT_WIDTH_MM = 38.1
 BASELINE_CLEAR_GAP_MM = 101.9
 BASELINE_PANEL_OVERHANG_MM = 50.95
+_AXIS_GEOMETRY_FIELDS = (
+    "kind",
+    "first_member",
+    "second_member",
+    "start_x_mm",
+    "start_y_mm",
+    "start_z_mm",
+    "direction_x",
+    "direction_y",
+    "direction_z",
+    "modeled_length_mm",
+    "modeled_diameter_mm",
+    "occupied_length_mm",
+    "occupied_diameter_mm",
+    "shop_opening_kind",
+    "shop_finished_opening_min_mm",
+    "shop_finished_opening_max_mm",
+)
+
+
+def _same_axis_geometry(
+    left: list[dict[str, str]], right: list[dict[str, str]]
+) -> bool:
+    """Compare axis identity and geometry, excluding packet-specific prose."""
+
+    def keyed(rows: list[dict[str, str]]) -> dict[str, tuple[str, ...]]:
+        return {
+            row["name"]: tuple(row[field] for field in _AXIS_GEOMETRY_FIELDS)
+            for row in rows
+        }
+
+    left_by_name = keyed(left)
+    right_by_name = keyed(right)
+    return (
+        len(left_by_name) == len(left)
+        and len(right_by_name) == len(right)
+        and left_by_name == right_by_name
+    )
 
 
 def _panel_axes(path: Path, members: set[str]) -> list[dict[str, str]]:
@@ -76,8 +114,11 @@ def screen_center_shift(deltas_mm: tuple[float, ...] = (0, 5, 10, 15)) -> dict[s
     rail_rows = _rail_panel_axes()
     if len(rail_rows) != 12 or {row["second_member"] for row in rail_rows} != INNER_RAILS:
         raise ValueError("frozen center-adjacent rail panel-axis schedule changed")
-    if rows + rail_rows != _panel_axes(OFFICIAL_AXES, CENTER_MEMBERS) + _panel_axes(
-            OFFICIAL_AXES, INNER_RAILS):
+    if not _same_axis_geometry(
+        rows + rail_rows,
+        _panel_axes(OFFICIAL_AXES, CENTER_MEMBERS)
+        + _panel_axes(OFFICIAL_AXES, INNER_RAILS),
+    ):
         raise ValueError("official/kerf-right relevant panel axes diverged")
     rail_cylinders = [(row, _occupied_cylinder(row)) for row in rail_rows]
     rail_edges = {name: round(shape.BoundingBox().xmax if name.endswith("left")

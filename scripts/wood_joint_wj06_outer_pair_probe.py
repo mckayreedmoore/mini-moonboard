@@ -65,8 +65,15 @@ SIDE_BOLT_CATALOG_URL = (
     "https://shop.forcesinc.ca/products/hex-head-bolt-1-4-20-x-8-"
     "partial-thread-plain-steel-grade-5"
 )
-RAIL_BOLT_LENGTH_MM = 152.4
-RAIL_BOLT_MIN_LENGTH_MM = 150.876  # K.L. Jack 6 in candidate less 1.524 mm.
+RAIL_BOLT_CANDIDATE = next(
+    bolt for bolt in WJ04_TRIAL.fasteners.bolts if bolt.sku == "25C600HCS5Z"
+)
+RAIL_BOLT_LENGTH_MM = RAIL_BOLT_CANDIDATE.nominal_length_mm
+# The shared 6-in cap-screw basis uses a 0.10-in minus tolerance, not the
+# 0.06-in tolerance of the shorter 3-3/4-in WJ-04 rail candidate.
+RAIL_BOLT_MIN_LENGTH_MM = (
+    RAIL_BOLT_LENGTH_MM - RAIL_BOLT_CANDIDATE.length_minus_tolerance_mm
+)
 RAIL_BOLT_X_MIN_FROM_BUTT_MM = 45.45
 NOMINAL_4D_MM = 4 * 6.35
 NOMINAL_5D_MM = 5 * 6.35
@@ -587,7 +594,9 @@ def trial_plan(inventory: dict[str, Any] | None = None) -> dict[str, Any]:
             "rail_farthest_nut_face_mm": 137.8044,
             "rail_6in_min_length_bound_mm": RAIL_BOLT_MIN_LENGTH_MM,
             "rail_required_length_with_reserve_mm": 140.3444,
-            "rail_min_length_margin_with_layer_allowance_mm": 10.5316,
+            "rail_min_length_margin_with_layer_allowance_mm": round(
+                RAIL_BOLT_MIN_LENGTH_MM - 140.3444, 6
+            ),
             "side_grip_nominal_min_max_mm": [177.8, 176.8, 178.8],
             "side_earliest_nut_bearing_face_mm": 179.3908,
             "side_farthest_nut_face_mm": 188.6044,

@@ -61,8 +61,10 @@ def test_saved_native_input_is_explicitly_stale_until_v4_candidate_is_frozen() -
     saved = json.loads(Path("docs/bolted-candidate-native-input.json").read_text())
     current = validate_contract()["source_sha256"]
     old = saved["source_sha256"]
-    # V4 changed owner authority and the conditional timber helper. This old
-    # non-ready input was not regenerated as evidence for a new native solve.
+    # V4 changed owner authority and the conditional timber helper. The saved
+    # input also predates the 2026-09-22 15:52 kerf-right axis refresh, which
+    # moved right-side geometry inward for the narrower width packet. Keep this
+    # old non-ready fingerprint; it is not evidence for a new native solve.
     assert {
         path
         for path in old.keys() | current.keys()
@@ -70,6 +72,7 @@ def test_saved_native_input_is_explicitly_stale_until_v4_candidate_is_frozen() -
     } == {
         "docs/bolted-candidate-owner-inputs.json",
         "mini_moonboard/bolted_timber_checks.py",
+        "docs/floor-flush-construction-kerf-right/connection-axes.csv",
     }
     assert saved["native_ready"] is False
     assert saved["no_native_cases_run"] is True
