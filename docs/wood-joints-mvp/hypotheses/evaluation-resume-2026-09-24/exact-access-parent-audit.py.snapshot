@@ -1,0 +1,41 @@
+from pathlib import Path
+import collections, hashlib, json
+root=Path.cwd()
+b=root/'docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24'
+oldp=b/'access-screen-attempt02-all92.json'; newp=b/'access-screen-attempt03-exact-components.json'
+sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+old=json.loads(oldp.read_text());new=json.loads(newp.read_text())
+assert sha(newp)=='bd2b97c0677b2e0ab5b09898ba7f2227758088744cd93f7e3c9b266bce5c5215'
+oldrows={r['axis_id']:r for r in old['axis_operations']};newrows={r['axis_id']:r for r in new['axis_operations']}
+assert len(newrows)==92 and set(oldrows)==set(newrows)
+assert new['parent_run']['source_unchanged_after_run']
+assert all(sha(root/p)==h for p,h in new['parent_run']['source_sha256'].items())
+assert new['geometry_revision_id']==old['geometry_revision_id'] and new['source_inventory_sha256']==old['source_inventory_sha256']
+methods=collections.Counter();hits=[]
+shaft_key='shaft_exact_coaxial_cylinder_translation_sweep'
+for axis,row in newrows.items():
+ o=oldrows[axis]['operations'];n=row['operations']
+ for side in ('head_wrench','nut_wrench'):assert n[side]==o[side]
+ oldhead=o['head_side_bolt'];head=n['head_side_bolt']
+ assert head['derived_travel_mm']==oldhead['derived_travel_mm'] and head['headward_axis_xyz']==oldhead['headward_axis_xyz']
+ for phase in ('withdrawal','reverse_assembly'):
+  c=head[phase]['collision_screen'];oc=oldhead[phase]['collision_screen']
+  assert c['excluded_target_obstacle_ids']==oc['excluded_target_obstacle_ids']
+  assert c['external_envelope_hits_mm3'].get(shaft_key,{})==oc['external_envelope_hits_mm3'].get(shaft_key,{})=={}
+  assert c['external_envelope_hits_mm3']=={}
+ methods.update(head['component_sweep_methods'].values())
+ for part in ('nut','nut_washer'):
+  assert n[part]['derived_axial_travel_mm']==o[part]['derived_axial_travel_mm']
+  methods[n[part]['translation_sweep_method']]+=1
+  forward=n[part]['removal']['collision_screen'];reverse=n[part]['reverse_assembly']['collision_screen']
+  assert forward['external_envelope_hits_mm3']==reverse['external_envelope_hits_mm3']
+  assert forward['excluded_target_obstacle_ids']==o[part]['removal']['collision_screen']['excluded_target_obstacle_ids']
+  for envelope,items in forward['external_envelope_hits_mm3'].items():
+   for obstacle,volume in items.items():hits.append({'axis_id':axis,'part':part,'obstacle':obstacle,'volume_mm3':volume})
+assert methods=={'exact_source_brep_cylinder_translation_sweep':184,'exact_source_brep_annular_cylinder_translation_sweep':184}
+assert collections.Counter(h['part'] for h in hits)=={'nut':4,'nut_washer':2}
+audit={'status':'PARENT_REPORT_COMPARISON_ONLY','report_sha256':sha(newp),'previous_report_sha256':sha(oldp),'axis_count':92,'source_pins_unchanged':True,'wrench_rows_exactly_unchanged':True,'shaft_hit_maps_exactly_unchanged_and_clear':True,'same_axial_travel_and_exclusions':True,'component_sweep_methods':dict(methods),'remaining_axial_slide_hits':hits,'seconds':new['parent_run']['seconds'],'physical_access_or_complete_sequence_proven':False,'limit':'Checks report consistency and frozen sources; does not independently recompute BRep sweeps. Exact means supplied CAD cylinder/annulus, not delivered hardware or real tools.'}
+(b/'exact-access-parent-audit.json').write_text(json.dumps(audit,indent=2,sort_keys=True)+'\n')
+(b/'exact-access-parent-audit.py.snapshot').write_bytes(Path(__file__).read_bytes())
+for source,target in [('scripts/wood_joint_current_access_screen.py','exact-access-collector.py.snapshot'),('tests/test_wood_joint_current_access_screen.py','exact-access-tests.py.snapshot')]: (b/target).write_bytes((root/source).read_bytes())
+print(json.dumps(audit,indent=2))
