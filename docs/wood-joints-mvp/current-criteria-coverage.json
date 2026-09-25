@@ -724,7 +724,7 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + L1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Attempt 03 screens all 92 candidate stacks against 1,231 live-scene obstacles using current CAD hardware envelopes and component sweeps. It is a nominal geometry screen; it does not establish tolerance-aware installed envelopes for selected hardware, holds/T-nuts, LEDs/wire, or service states. The 12 retained frame-bolt operations are outside this screen. See [access screen](hypotheses/evaluation-resume-2026-09-24/access-screen-attempt03-exact-components.json), SHA-256 `bd2b97c0677b\u2026`.",
+      "current_evidence": "The candidate access attempt03 screens all 92 stacks against 1,231 modeled obstacles. The separate [retained-bolt screen](current-retained-access.md) covers all 12 retained stacks against 1,041 modeled installed obstacle shapes, including their 60 installed roles; its source report hash is `fffa0027926a57583cc13ffbcef552fc8e5f8da96964d50c64ef63ffd4ce4c97`. These are nominal source-BRep screens, not tolerance-aware selected-product, actual-tool, hold, wiring-service or physical-fit acceptance. See the [candidate access report](hypotheses/evaluation-resume-2026-09-24/access-screen-attempt03-exact-components.json).",
       "next_dependency_stage": "WJ-07 parallel after parent geometry freeze",
       "next_dependency": "Add applicable product and obstacle dimensions/tolerances and screen the complete installed envelope for wood, finite hardware, holds/T-nuts, LEDs/wire, and service states; feed changes into mechanics only when they alter the analyzed geometry or load path."
     },
@@ -736,7 +736,7 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + L1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Attempt 03 screens operation envelopes for all 92 candidate-stack axes against 1,231 scene obstacles: head/shaft/head-washer withdrawal proxies clear, while four nut and two nut-washer axial-slide paths retain modeled overlaps. Generic wrench poses are provisional; real tool fit, capture/sequencing, the 12 retained-bolt operations, and complete reversible assembly/removal are unproven. See [access screen](hypotheses/evaluation-resume-2026-09-24/access-screen-attempt03-exact-components.json), SHA-256 `bd2b97c0677b\u2026`.",
+      "current_evidence": "The 92-axis candidate screen finds four nut and two nut-washer slide overlaps. The separate [retained-bolt screen](current-retained-access.md) finds four lumber-leg bolt withdrawal paths intersecting two modeled wire spans; the other eight bolt withdrawals and all twelve nut/nut-washer translations clear their nominal modeled envelopes after assumed full thread disengagement and, for washer motion, nut removal. The [wire obstacle lower bound](current-retained-wire-sequence.md) removes only those two spans from the recorded collision maps, leaving all 24 affected component/direction checks clear. This does not establish harness staging. Actual tools, thread disengagement, capture, tolerances and complete reversible sequence remain unproven.",
       "next_dependency_stage": "WJ-07 parallel after parent geometry freeze",
       "next_dependency": "Resolve the six modeled slide overlaps or their geometry alternatives; screen named actual tools, fit, strokes/regrips, counterhold, support/capture, and reversible sequence for all 92 candidate axes plus 12 retained bolts."
     },
@@ -748,7 +748,7 @@
       "historical_result_transferred": false,
       "method_reference": "G1 + L1 + H1",
       "method_status": "reference_only_or_candidate_method_required",
-      "current_evidence": "Current scene keeps 66 panel axes and 12 frame-bolt arrangements in its inventory, but no disassembly sequence or individual-part transport evidence.",
+      "current_evidence": "The model preserves 66 panel axes and twelve frame-bolt arrangements. Candidate and retained-bolt operation screens and the [retained-wire staging study](current-retained-wire-sequence.md) provide bounded path evidence, including a two-wire obstacle lower bound. They do not establish removable harness boundaries, supported panel/member sequencing, or complete individual-part transport. Exact whole-member removal paths remain to be evaluated.",
       "next_dependency_stage": "WJ-07/WJ-10 parallel after parent geometry freeze",
       "next_dependency": "Verify individual-part transport and removal sequence in parallel with bounded mechanics; preserve the 66 panel-screw policy and zero routine structural wood-thread removal. Feed back only resulting geometry or hardware changes."
     },
