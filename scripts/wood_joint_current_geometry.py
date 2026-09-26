@@ -70,9 +70,14 @@ def _verify_recovery_inputs() -> dict[str, Any]:
     return reference
 
 
-def _compose_baseline_geometry() -> Any:
+def _compose_baseline_geometry(progress: Callable[[str], None] | None = None) -> Any:
     """Replay the exact parent-session baseline recovery sequence lazily."""
+    def report(step: str) -> None:
+        if progress is not None:
+            progress(step)
+
     reference = _verify_recovery_inputs()
+    report("baseline source fingerprints verified")
 
     # Keep imports inside the callable: users with an existing parent-session
     # geometry should be able to import this module without loading CadQuery.
@@ -89,13 +94,16 @@ def _compose_baseline_geometry() -> Any:
 
     inventory = json.loads(wj12.WJ03_SOURCE_INVENTORY.read_text())
     hosts = wj12.source_host_ids(inventory)
+    report("materialize right rail source geometry")
     right_geometry = right.materialize_right_rail_geometry()
     preflight = wj12.preflight_source_cutter_map(
         right_geometry.source,
         right.source_native_cutters_by_host(right_geometry.source, hosts),
         inventory,
     )
+    report("materialize WJ12 compact access geometry")
     compact = wj12.compact_access.materialize_geometry()
+    report("materialize WJ12 center probe geometry")
     center = wj12.center_x190_probe.materialize_geometry()
     g12 = wj12.compose_trial_geometry(
         preflight,
@@ -106,15 +114,21 @@ def _compose_baseline_geometry() -> Any:
             right_geometry.source, inventory, hosts
         ),
     )
+    report("compose WJ12 baseline")
     left_geometry = left.materialize_left_service_geometry(right_geometry)
+    report("compose WJ16 left rail")
     g16 = wj16.compose_wj16_geometry(g12, left_geometry)
+    report("compose WJ18 top outer")
     top_outer_geometry = top_outer.build_top_outer_integration(g16)
     g18 = wj18.compose_wj18_geometry(g16, top_outer_geometry)
+    report("compose WJ18 top center")
     top_center_geometry = top_center.build_top_center_integration(g18)
+    report("compose WJ18 bottom supports")
     bottom_outer_geometry = bottom_outer.build_bottom_outer_integration(
         g18, context_variant="wj18"
     )
     bottom_center_geometry = bottom_center.build_bottom_center_integration(g18)
+    report("compose WJ24 baseline")
     baseline = wj24.compose_wj24_geometry(
         g18, top_center_geometry, bottom_outer_geometry, bottom_center_geometry
     )
@@ -243,7 +257,12 @@ def build_current_geometry(
     leaves source/authority metadata outside this frozen geometry replay. If
     omitted, the original source-pinned composition sequence is rebuilt first.
     """
-    baseline = base_geometry if base_geometry is not None else _compose_baseline_geometry()
+    if base_geometry is not None:
+        baseline = base_geometry
+    elif progress is None:
+        baseline = _compose_baseline_geometry()
+    else:
+        baseline = _compose_baseline_geometry(progress)
     helpers = _load_revision_helpers()
 
     lower_geometry, lower_report = helpers.lower_blocks.build_wj24_lower_blocks_below(

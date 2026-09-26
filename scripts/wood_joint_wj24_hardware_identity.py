@@ -66,7 +66,7 @@ def _sha256_file(path: Path) -> str:
 def _read_json(path: Path) -> dict[str, Any]:
     value = json.loads(path.read_text())
     if not isinstance(value, dict):
-        raise ValueError(f"{path.relative_to(ROOT)} must contain a JSON object")
+        raise TypeError(f"{path.relative_to(ROOT)} must contain a JSON object")
     return value
 
 
@@ -141,7 +141,7 @@ def _verify_old_mesh_archive() -> tuple[dict[str, Any], dict[str, str]]:
     mesh_member = contents.get("mesh.json")
     inp_member = contents.get("mesh.inp")
     if not isinstance(mesh_member, dict) or not isinstance(inp_member, dict):
-        raise ValueError("archived WJ04 metal mesh contents index is incomplete")
+        raise TypeError("archived WJ04 metal mesh contents index is incomplete")
     with tarfile.open(archive_path, "r:gz") as archive:
         mesh_file = archive.extractfile("mesh.json")
         inp_file = archive.extractfile("mesh.inp")
@@ -297,8 +297,6 @@ def build_identity_report() -> dict[str, Any]:
     report_rows: list[dict[str, Any]] = []
     role_counts = {role: 0 for role in PHYSICAL_ROLES}
     selected_geometry = hardware_inventory.get("selected_hardware_geometry", {})
-    principal_delta_rows = body_comparisons["base_principal_center_right"].get("delta_solids", [])
-
     for stack_id in STACK_IDS:
         axis_id = f"{FAMILY_ID}/{stack_id}"
         old = old_rows[stack_id]
@@ -307,7 +305,7 @@ def build_identity_report() -> dict[str, Any]:
         wj24_axis = current_axes.get(axis_id)
         current_schedule = schedule.get(axis_id)
         if not isinstance(wj24_axis, dict) or not isinstance(current_schedule, dict):
-            raise ValueError(f"WJ24 source is missing representative candidate axis {axis_id}")
+            raise TypeError(f"WJ24 source is missing representative candidate axis {axis_id}")
 
         old_receivers = [row["member_id"] for row in old.get("receivers_head_to_nut", [])]
         expected_receivers = old_receivers
@@ -503,7 +501,7 @@ def build_identity_report() -> dict[str, Any]:
     for body_id in WOOD_BODY_IDS:
         artifact = reconciliation.get("step_artifacts", {}).get(body_id)
         if not isinstance(artifact, dict):
-            raise ValueError(f"WJ24 reconciliation has no source-bound STEP artifact for {body_id}")
+            raise TypeError(f"WJ24 reconciliation has no source-bound STEP artifact for {body_id}")
         identity = artifact.get("identity_checks", {})
         difference = identity.get("symmetric_difference", {})
         if any(identity.get(name) is not True for name in ("solid_count", "volume", "centroid", "bounds")):

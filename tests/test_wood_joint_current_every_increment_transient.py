@@ -49,6 +49,10 @@ def _sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+@pytest.mark.skipif(
+    not (SOURCE / "input-freeze.json").is_file(),
+    reason="the archived source solver bundle is intentionally not stored in the repository",
+)
 def test_every_increment_derivative_preserves_force_model_and_only_changes_time_controls(
     tmp_path,
 ):

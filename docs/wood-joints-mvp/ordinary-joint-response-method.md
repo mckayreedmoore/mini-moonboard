@@ -5,6 +5,38 @@ G7 family, 2026-09-24. This is a response-model path, not a solved joint,
 capacity result, material inspection, or release. It does not describe the
 active narrow-x95.25 trial.
 
+## Current WJ24 first-patch method decision, September 26
+
+For the owner-reviewed `led-clearance-2x6-runner-seated-blocks-v1` revision,
+the first current ordinary joint is the bottom-center right, defined in the
+[current criteria coverage](current-criteria-coverage.md): three full timber
+members, four bolt stacks, and three finite timber contacts. Keep the direct
+contact model as the selected method for this bounded characterization. It
+represents the load-transfer mechanisms in question directly: bolt/bore
+clearance and contact, timber faces that can open, the separate direct seat,
+and the explicitly assumed bolt/nut axial-engagement route. Engagement is a
+model scenario only; delivered hardware has not been inspected.
+
+No current reduced connector law has supported applicability bounds for those
+mechanisms. A generic end-connected beam bolt omits interaction between its
+shank and bore surfaces, so it cannot supply the clearance-sensitive transfer
+result on its own. The documented static-rank probe also did not produce a
+unique response by prescribing one coordinate; holding that coordinate during
+response adds an actuator load path. Do not adopt either shortcut to obtain a
+converged result. A reduced model may be reconsidered only after it preserves
+the same required load paths and demonstrates bounded response against the
+direct patch.
+
+The current diagnostic reached the first reported cleat-bore contact at
+accepted state 39 (0.0195 s) and one complete following state 40. This is a
+bounded, authenticated contact-event observation. It does not close whole-joint
+equilibrium, time/mesh/contact sensitivity, physical engagement, bolt/wood
+resistance, or current full-frame demands. Its next method gate is to set
+source-backed equilibrium and response-comparison tolerances, then compare the
+same frozen patch under the declared timestep/mesh/contact and engagement
+sensitivities. A new run or instrumentation branch must state which of those
+decisions it will settle and what executes next.
+
 ## Bound geometry and current evidence
 
 The source-bound input report covers five wood bodies: the lower and upper

@@ -68,7 +68,7 @@ adequacy.
 | Candidate dimensional envelope | Yes, conditionally | Compare explicit standard/supplier bounds against the frozen stack datums, finished bore/seat geometry, and access envelope, labeling assumed conformity. Keep the 7.5 mm CAD bore as an occupancy envelope, not a drill size. Delivered identity and dimensions remain separate actual-part evidence. |
 | Grip and thread-location screen | Partly | Reproduce the existing `Lb` boundary and tolerance-stack screen. It does not locate first full-form thread or prove nut engagement. To establish the actual candidate's thread position and nut fit, use a supported product drawing/guarantee or delivered measurement; MVP-E may instead state explicit thread-interval assumptions for a conditional fit scenario. |
 | Candidate sectional-property manifest | Partly | Record the source and controlling section for `D`, `Dr`, tensile area `At`, and shear-plane area `Av`. An exact thread series/class supplies conditional thread geometry; assuming root at each shear plane avoids claiming an unknown smooth-shank interval. Actual shaft/thread section placement or larger smooth-shank `Av` needs product/drawing geometry or delivered measurements. Do not use `Dr` as a substitute for the direct-steel `At` or `Av`. |
-| NDS `Fyb` evidence gate | Yes, as a fail-closed status | Run `nds_fyb_basis_status` with no test-derived evidence: it remains unresolved. NDS-2024 §12.3.6.2's routes are ASTM F1575 bending yield or tensile yield determined by ASTM F606 with a supported evaluation into `Fyb`; grade, proof stress, or `Fu` alone is not normative/test-derived `Fyb`. MVP-E may carry a separately labeled, source-bound material scenario (including the 106 ksi approximate Commentary estimate from the cited 1/4-in Grade 5 project `Fy`/`Fu` minima), while delivered-product applicability/conformance remains a separate MVP-P status. The current helper has no such scenario field and requires applicability to a delivered fastener. See [conditional ordinary-bolt property boundary](hypotheses/evaluation-resume-2026-09-24/ordinary-bolt-resistance-boundary-attempt01/README.md). |
+| NDS `Fyb` evidence gate | Yes, with separate scenario, method, and delivery fields | `nds_fyb_basis_status` records an explicitly specified Fyb scenario before receiving. NDS-2024 §12.3.6.2 still requires ASTM F1575 bending yield or tensile yield tested under ASTM F606 with a supported evaluation into `Fyb`; grade, proof stress, or `Fu` alone is not normative/test-derived `Fyb`. An F606 record also needs its Fyb-derivation reference. Delivery conformance is a distinct caller record and is not authenticated by the helper. See [conditional ordinary-bolt property boundary](hypotheses/evaluation-resume-2026-09-24/ordinary-bolt-resistance-boundary-attempt01/README.md). |
 | Nut, washer, and steel-strength basis completeness | Yes, as a fail-closed status | Identify applicable product standard, grade/material, size and evidence source. Dimensional standard conformity is not a nut proof/thread-strip result or washer bending/spreading resistance. ASTM F606's test procedures do not themselves assign a product property to an unverified part. |
 | Geometry-only wood screens | Yes, within each helper's scope | Projected boundaries and nominal 4D/7D reserves can be reported as geometry. They do not classify the loaded edge, evaluate splitting, or give resistance. Existing `bolted_timber_checks.py` reference values need actual geometry, grain, load direction and adjustments before use. |
 
@@ -161,16 +161,15 @@ design interaction.
 2. **Direct bolt steel:** Resolve the conditional or actual tensile and
    shear-plane sections and simultaneous signed axial/shear/bending demands
    per bolt. The current `bolt_first_yield_reference` can report separate,
-   unadjusted tension and pure-shear first-yield references only when `At`,
-   `Av`, a minimum tensile-yield input, and their product/section bases are
-   present. For MVP-E the minimum may be an explicitly specified project
-   property scenario sourced to the cited Grade 5 data; delivered conformance
-   must remain separate. The helper's
-   current `certified_min_yield_mpa` field does not distinguish those cases.
-   It always leaves
-   the combined interaction unresolved, and it does not check bending,
-   fracture, threads, fatigue, pull-through, or nut/thread stripping. Do not
-   treat those separate ratios as a pass or as code capacities.
+   unadjusted tension and pure-shear first-yield references when `At`, `Av`, a
+   specified minimum yield scenario, and their product/section bases are
+   present. Delivered conformance is a separate receiving record. A nominal
+   von Mises axial/shear material interaction is available only when one
+   co-located section area and basis are supplied; separate `At` and `Av` do
+   not establish that co-location. The result uses average shear stress and
+   is not an AISC connection rule, design strength, or acceptance. Bending,
+   fracture, thread failure, fatigue, pull-through, and nut/thread stripping
+   remain outside this helper. Do not treat individual ratios as a pass.
 3. **Nut and thread engagement:** Confirm exact thread compatibility,
    full-form thread through the required nut thickness plus the named project
    projection reserve (if retained), delivered fit, and any chosen proof or
@@ -182,9 +181,12 @@ design interaction.
    footprint. `wood_washer_annulus_reference_lbf` supplies only an ideal
    full-annulus DF-L No. 2 compression-perpendicular reference under its
    625 psi assumption. It does not prove the pressure field or washer support.
-   `washer_steel_resistance_status` correctly leaves metal bending/spreading
-   unresolved. A method for plate bending and load spreading, plus compatible
-   delivered washer properties, would be required to claim a steel-side limit.
+   `washer_steel_resistance_status` now records a separate washer scenario and
+   delivery status. It still returns the specific
+   `washer_steel_bending_and_load_spreading_on_timber` method gap, even when
+   scenario inputs are complete. A reviewed plate-bending/load-spreading
+   method for the timber support contact is required before steel resistance
+   can bound this limit state; additional sourcing alone will not supply it.
 5. **Wood group and member modes:** Check loaded-end/edge and spacing rules,
    row/group tear-out, net section through all bores/cuts, splitting and
    perpendicular-to-grain actions on each finished receiving member. Existing

@@ -1,10 +1,72 @@
 # Wood-joint MVP completion ledger
 
 The [refined execution plan](next-mvp-plan.md#refined-execution-plan-september-24-evening)
-is the current work sequence. Its immediate milestone is one verified response
-of the frozen current ordinary joint before broad family expansion. Current
-geometry and numerical-method preparation do not close structural criteria;
-all 47 entries in the current coverage register remain pending.
+is the current work sequence. Its immediate milestone is to finish the selected
+direct ordinary-joint method/sensitivity gate while current-frame demand
+preparation proceeds in parallel. Current geometry and numerical-method
+preparation do not close structural criteria; all 47 entries in the current
+coverage register remain pending.
+
+## September 26 MVP review disposition
+
+For the reviewed 92-axis revision, retain the direct contact model for the
+first ordinary-joint method demonstration. The current load path includes
+bolt/bore clearance and transfer, finite timber contacts that can open, and an
+explicitly assumed bolt/nut axial-engagement route. No reduced representation
+has qualified current bounds for these mechanisms. The latest diagnostic
+located the first reported cleat-bore contact and a complete following
+accepted state. That demonstrates an interpretable contact event, not an
+accepted joint response.
+
+| Progress state | Current status | Evidence still needed to advance |
+| --- | --- | --- |
+| `inputs_ready` | Partial for the representative patch; current geometry, mesh ownership, contact mapping and source pins are recorded. Delivered engagement remains unobserved and must stay a named scenario. | Freeze the exact response assumptions and comparison inputs for the chosen run. |
+| `method_demonstrated` | Partial; event output and state framing are authenticated. | Adopt a justified force/moment tolerance and complete timestep, mesh/contact, and assumption sensitivity on the same named patch. |
+| `current_demands_available` | Not reached for the reviewed full frame. | Fresh signed reactions/actions from the current six source-bound cases. |
+| `criterion_resolved` | 0 of 47 formally accepted; this is a criterion disposition count, not a measure of completed preparation. | Apply complete, applicable resistance and limit-state methods to fresh demands; preserve method gaps as unresolved. |
+
+The next checkpoint must advance one of those state transitions. Before another
+solver or instrumentation branch, its record must name the decision, the
+settling observation, and the next executable step. Full-frame demand
+preparation and non-native input work may continue alongside the local method
+gate.
+
+For practical integration, the September 26 forward/reverse sequence hypothesis
+is recorded in [transport operations](transport-operations.md#current-reviewed-revision-sequence-hypothesis-to-validate)
+for the same 24-block/92-bolt revision. It makes no assembly or removal pass:
+support, service handling, complete tool paths, and tolerance-aware motion must
+still be established operation by operation. The earlier 104-axis sequence is
+retained as history and does not transfer.
+
+### Source/geometry integration status, September 26
+
+[`scripts/wood_joint_development_candidate_check.py`](../../scripts/wood_joint_development_candidate_check.py)
+passes the owner-reviewed revision fingerprint/count check, rebuilds all 24
+candidate blocks, reconciles 92 candidate bolt axes, 66 panel/kicker axes, and
+12 starting frame bolts, and round-trips all 24 block solids through temporary
+STEP files. This validates the source-bound geometry and file exchange only;
+it does not establish joint mechanics, capacity, assembly, or release.
+
+The selected-baseline
+[`current_candidate --check-exports`](../../scripts/current_candidate.py)
+still fails its source-identity gate: the current
+`mini_moonboard/compact_floor_flush_frame.py` fingerprint differs from the
+stored analyzed geometry fingerprint. Do not repair that mismatch by changing
+the stored hash alone; the selected candidate's old case passes do not transfer
+to a changed model. The selected geometry/evidence relationship needs its own
+authenticated review before that check can pass.
+CI now runs each validation gate independently and reports all results before
+returning failure, so this selected-baseline finding does not skip the separate
+wood-joint candidate integration result.
+
+Focused local validation passes: maintained-code Ruff, the CadQuery smoke test,
+56 tests across the changed resistance/contact/current-geometry screens, and
+the separate current-gauge test. One historical every-increment producer test
+skips because its source solver bundle is not stored in the repository. A
+local all-repository pytest run reached roughly 67% and showed failures/errors
+in older owner-barrel/PB04 suites before I stopped the long native/geometry
+run; it did not produce a final test summary. CI retains the full suite and
+will report that gate alongside both candidate checks.
 
 Current checkpoint, September 26: the
 [third corrected trajectory](hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt03/execution.json)
@@ -1196,7 +1258,7 @@ the stage acceptance gates in the table below.
 | WJ-06 | Complete diagnostic composition; 0 accepted replacements | The [full WJ24 layout](hypotheses/wj24-integrated-static/README.md) contains sixteen rebuilt hosts, twenty-eight connector pieces, 104 proposed bolt axes, 520 CAD roles and all 144 removed SDS axes. No legacy angles/SDS or source-only overlays remain. All 66 fixed axes, four backer redirects, shifted center posts and twelve frame bolts reconcile; the parent independently matched all fourteen retained raw-host records and 68 source-input hashes. | Resolve G1/G12 provisional hold clearance, reduced bottom-center bearing face, tools, tolerances and mechanics for every duty. Publish the complete diagnostic viewer after quiet hours; no joint is accepted. |
 | WJ-07 | Diagnostic partial; no MVP-L acceptance | [Full WJ24 static diagnostic](hypotheses/wj24-integrated-static/README.md): all eighteen implemented static/source-tracking gates pass. [Individual LED extraction](hypotheses/wj24-led-extraction/README.md) tests 132 continuous rearward sweeps against 842 stationary shapes; G7 intersects the lower full-stock cleat by 319.657955 mm³. Earlier wired rail hits and unwired zero-gap contacts remain preserved. | Resolve G7 extraction and G1/G12 hold access, supported panel/wiring staging, whole-strand feeding, local tool conflicts, tolerances, assembly and reverse removal. Static fit and 131 clear LED sweeps do not prove transport. |
 | WJ-08 | Diagnostic partial; no mechanics acceptance | `criteria.json` contains planning migration only. [Backer unit-wrench witnesses](hypotheses/wj12-backer-unit-statics/README.md) close 24 signed synthetic cases with finite patches checked in both finished members; [sampled sections](hypotheses/wj12-sampled-sections/README.md) quantify named local cuts. [Full-stock input extraction](hypotheses/wj16-full-stock-mechanics-inputs/README.md) binds eight WJ16 bolts and four contact planes with explicit grain and hardware datums. The [full-stock thread-bearing screen](hypotheses/wj04-full-stock-thread-screen/README.md) covers eight bolts and 256 member/corner fractions; the maximum beyond the recorded Lb boundary is 7.8549%, below the conditional one-quarter geometry limit. None supplies actual demand or resistance. | Complete connection mechanics, actual demands, critical sections, bearing/wood/washer resistance, and the evidence-bound criteria contract. |
-| WJ-09 | Preparation partial; execution authorized, model/method readiness pending | Owner authorized native mechanics on 2026-09-24; decision recorded in `docs/history/decision-log.md`. The [representative five-body coarse mesh](hypotheses/wj04-patch-mesh/README.md) has 91,089 independent nodes and 47,469 quadratic tetrahedra and passes implemented geometry/ownership audits; two failed preparation attempts are preserved. The [surface classification](hypotheses/wj04-patch-surfaces/README.md) binds four wood interfaces and sixteen bore/member pairs, with independently verified outward planar normals. No fresh structural response or candidate cases run | Complete hardware/contact mechanics and numerical sensitivities. Freeze the complete candidate, cases, and methods, then run native cases serially. Fresh same-configuration six-case evidence remains required; historical actions cannot replace it. |
+| WJ-09 | Current joint diagnostic partial; no response or criterion accepted | For the owner-reviewed `led-clearance-2x6-runner-seated-blocks-v1`, the current direct three-member/four-stack/three-contact diagnostic reached the first reported cleat-bore event at accepted state 39 (0.0195 s) and a complete following state 40. Corrected physical acceleration, energy, contact-vector coverage and framing checks are recorded; the state-39/40 global moment residuals fall within conditional printed-token bounds only. These checks do not establish a force tolerance, whole-joint equilibrium, time/mesh sensitivity, delivered engagement, resistance or current full-frame demand. | Define supported acceptance tolerances; complete targeted timestep/mesh/contact and engagement-scenario sensitivity; audit a representative response; then characterize the remaining joint families. Fresh current-revision six-case demands and criteria remain required. |
 | WJ-10 | Inventory partial; no shop-package acceptance | [Complete-layout inventory](hypotheses/wj24-hardware-inventory/README.md) reconciles 104 proposed bolts, 104 nuts and 216 washers, 52 ordered receiver pair groups and 28 connector blanks. Retained frame bolts and Hillman screws remain separate. | Assign sixteen remaining bolt lengths; verify all hardware fit and specifications, stock yield, prices, tools and coordinated instructions. Complete independent review and the conditional MVP-E packet. |
 | WJ-11 | Owner/shop | None | Physical receiving and observed prototype records; MVP-P |
 

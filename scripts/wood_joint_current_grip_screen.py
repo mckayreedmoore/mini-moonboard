@@ -15,7 +15,6 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parents[1]
 CURRENT_REVISION_ID = "led-clearance-2x6-runner-seated-blocks-v1"
 SCHEMA = "wood_joint_current_grip_screen/v1"
@@ -426,7 +425,7 @@ def _scope_rows(snapshot: Mapping[str, Any], report: Mapping[str, Any]) -> dict[
         raise ValueError("current report must name the exact eight shortened exterior bolt axes")
     moved = report.get("reseated_candidate_axis_ids")
     if not isinstance(moved, Sequence) or isinstance(moved, (str, bytes)):
-        raise ValueError("current report lacks tall-block head-move axis IDs")
+        raise TypeError("current report lacks tall-block head-move axis IDs")
     if set(map(str, moved)) != EXPECTED_TALL_BLOCK_HEAD_MOVE_IDS:
         raise ValueError("current report must name the exact eight tall-block head-move axes")
     return {
@@ -457,7 +456,7 @@ def collect(geometry: Any, report: Mapping[str, Any]) -> dict[str, Any]:
     hardware = getattr(geometry, "candidate_installed_hardware", None)
     bores = getattr(geometry, "candidate_bores", None)
     if not isinstance(hardware, Mapping) or not isinstance(bores, Mapping):
-        raise ValueError("current geometry lacks installed candidate hardware or bores")
+        raise TypeError("current geometry lacks installed candidate hardware or bores")
     if set(hardware) != set(snapshot["axes"]) or set(bores) != set(snapshot["axes"]):
         raise ValueError("live current geometry axis IDs differ from the frozen 92-axis snapshot")
 

@@ -1,6 +1,6 @@
+import copy
 import json
 import math
-import copy
 import sys
 import types
 import unittest
@@ -8,13 +8,11 @@ from pathlib import Path
 from unittest import mock
 
 from scripts.wood_joint_current_receiver_screen import (
-    CURRENT_REVISION_ID,
     EXPECTED_KICKER_CENTER_RECEIVERS,
     EXPECTED_MOVED_AXIS_IDS,
     _validate_current_axis_shape,
     build_current_panel_axis_map,
 )
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -105,7 +103,7 @@ class CurrentReceiverAxisMapTests(unittest.TestCase):
             )
 
     def test_moved_axis_record_must_match_source_origin_translation_and_direction(self):
-        moved_axis_id = sorted(EXPECTED_MOVED_AXIS_IDS)[0]
+        moved_axis_id = min(EXPECTED_MOVED_AXIS_IDS)
 
         stale_old_start = copy.deepcopy(self.report)
         stale_old_start["moved_panel_axes"][0]["old_start_global_xyz_mm"][0] += 0.01

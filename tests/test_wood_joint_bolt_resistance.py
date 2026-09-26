@@ -50,47 +50,68 @@ def test_nds_non_full_body_fastener_uses_root_even_with_short_threads():
     assert result["full_body_rule_applied"] is False
 
 
-def test_fyb_requires_f1575_or_f606_evidence_for_delivered_fastener():
-    missing = nds_fyb_basis_status(
-        fyb_psi=None,
+def test_fyb_scenario_and_delivered_conformance_are_separate():
+    scenario_only = nds_fyb_basis_status(
+        fyb_psi=106_000,
         test_method=None,
-        evidence_reference=None,
-        applies_to_delivered_fastener=None,
+        evidence_reference="documented Grade 5 Commentary estimate",
+        scenario_id="grade-5-commentary-estimate-1/4-in",
     )
-    grade_only = nds_fyb_basis_status(
-        fyb_psi=45_000,
-        test_method="SAE J429 Grade 5 catalog",
-        evidence_reference="catalog listing",
-        applies_to_delivered_fastener=True,
-    )
-    sourced = nds_fyb_basis_status(
+    test_basis = nds_fyb_basis_status(
         fyb_psi=72_000,
         test_method="ASTM F1575",
-        evidence_reference="lot report 24-017",
-        applies_to_delivered_fastener=True,
+        evidence_reference="test report 24-017",
+        scenario_id="lot-24-017-test-result",
     )
 
-    assert missing["status"] == "unresolved"
-    assert missing["fyb_psi"] is None
-    assert grade_only["status"] == "unresolved"
-    assert grade_only["fyb_psi"] is None
-    assert sourced["status"] == "basis_recorded"
-    assert sourced["fyb_psi"] == 72_000
+    assert scenario_only["status"] == "specified_scenario_recorded"
+    assert scenario_only["specified_scenario"]["fyb_psi"] == 106_000
+    assert scenario_only["nds_test_basis"]["status"] == "unresolved"
+    assert scenario_only["delivered_fastener_conformance"]["status"] == "not_assessed"
+    assert test_basis["nds_test_basis"]["status"] == "recorded"
+    assert test_basis["delivered_fastener_conformance"]["status"] == "not_assessed"
 
 
-def test_bolt_tension_and_shear_yield_references_are_separate():
+def test_f606_requires_an_explicit_fyb_derivation_reference():
+    result = nds_fyb_basis_status(
+        fyb_psi=72_000,
+        test_method="ASTM F606",
+        evidence_reference="tensile test report 24-017",
+        scenario_id="lot-24-017-test-result",
+    )
+    with_derivation = nds_fyb_basis_status(
+        fyb_psi=72_000,
+        test_method="ASTM F606",
+        evidence_reference="tensile test report 24-017",
+        scenario_id="lot-24-017-test-result",
+        fyb_derivation_reference="evaluation note 24-017-A",
+    )
+
+    assert result["nds_test_basis"]["status"] == "unresolved"
+    assert result["nds_test_basis"]["missing"] == [
+        "supported F606 tensile-yield-to-Fyb derivation"
+    ]
+    assert with_derivation["nds_test_basis"]["status"] == "recorded"
+
+
+def test_bolt_component_references_and_common_section_interaction():
     result = bolt_first_yield_reference(
         axial_force_n=5_000,
         lateral_shear_vector_n=(3_000, 4_000),
         minimum_tensile_area_mm2=100,
         shear_plane_area_mm2=80,
-        certified_min_yield_mpa=250,
+        specified_min_yield_mpa=250,
+        property_scenario_id="example-grade-property-scenario",
         material_basis="certified ASTM product standard; lot report 24-017",
         tensile_area_basis="minimum measured threaded section area",
         shear_area_basis="root area at wood shear plane, measured lot report 24-017",
+        combined_action_area_mm2=100,
+        combined_action_section_basis=(
+            "illustrative same threaded section; uniform nominal average shear"
+        ),
     )
 
-    assert result["status"] == "component_references_only"
+    assert result["status"] == "material_first_yield_reference_only"
     assert result["lateral_shear_demand_n"] == pytest.approx(5_000)
     assert result["tension_first_yield_reference_n"] == pytest.approx(25_000)
     assert result["shear_first_yield_reference_n"] == pytest.approx(
@@ -100,8 +121,30 @@ def test_bolt_tension_and_shear_yield_references_are_separate():
     assert result["shear_first_yield_utilization"] == pytest.approx(
         5_000 / (80 * 250 / math.sqrt(3))
     )
+    assert result["interaction_rule"] == "nominal_von_mises_same_section_average_shear"
+    assert result["interaction_equivalent_stress_mpa"] == pytest.approx(100)
+    assert result["interaction_utilization"] == pytest.approx(0.4)
+    assert result["delivered_fastener_conformance"]["status"] == "not_assessed"
+    assert result["bending_first_yield_status"] == "unresolved_not_evaluated"
+
+
+def test_bolt_interaction_stays_open_without_a_common_section_basis():
+    result = bolt_first_yield_reference(
+        axial_force_n=5_000,
+        lateral_shear_vector_n=(3_000, 4_000),
+        minimum_tensile_area_mm2=100,
+        shear_plane_area_mm2=80,
+        specified_min_yield_mpa=250,
+        property_scenario_id="example-grade-property-scenario",
+        material_basis="explicitly specified steel scenario",
+        tensile_area_basis="minimum tensile section",
+        shear_area_basis="thread-root section at shear plane",
+    )
+
+    assert result["status"] == "material_first_yield_reference_only"
     assert result["interaction_rule"] == "unresolved"
     assert result["interaction_utilization"] is None
+    assert "one co-located section area" in result["interaction_missing"][0]
 
 
 def test_missing_bolt_material_inputs_fail_closed():
@@ -110,7 +153,8 @@ def test_missing_bolt_material_inputs_fail_closed():
         lateral_shear_vector_n=(0, 0),
         minimum_tensile_area_mm2=None,
         shear_plane_area_mm2=None,
-        certified_min_yield_mpa=None,
+        specified_min_yield_mpa=None,
+        property_scenario_id=None,
         material_basis=None,
         tensile_area_basis=None,
         shear_area_basis=None,
@@ -121,7 +165,7 @@ def test_missing_bolt_material_inputs_fail_closed():
     assert result["tension_first_yield_reference_n"] is None
     assert result["shear_first_yield_reference_n"] is None
     assert result["interaction_utilization"] is None
-    assert len(result["missing"]) == 6
+    assert len(result["missing"]) == 7
 
 
 def test_washer_annulus_only_reports_idealized_wood_reference():
@@ -134,7 +178,45 @@ def test_washer_annulus_only_reports_idealized_wood_reference():
     assert result["status"] == "conditional_wood_reference_only"
     assert result["wood_bearing_reference_lbf"] == pytest.approx(397, abs=1)
     assert result["washer_steel_bending_spreading"] == "unresolved"
-    assert washer_steel_resistance_status()["resistance_n"] is None
+    steel = washer_steel_resistance_status(
+        scenario_id="type-a-wide-plain-steel-reference",
+        washer_standard="ASME B18.21.1 Type A wide",
+        material_basis="unspecified plain steel scenario",
+        outer_diameter_in=0.75,
+        inner_diameter_in=0.312,
+        thickness_in=0.06,
+        specified_yield_strength_psi=36_000,
+        evidence_reference="illustrative dimensional/material scenario",
+    )
+    assert steel["status"] == "method_gap"
+    assert steel["specified_scenario_status"] == "recorded"
+    assert steel["resistance_n"] is None
+    assert steel["delivered_washer_conformance"]["status"] == "not_assessed"
+    assert steel["method_gap"]["id"] == "washer_steel_bending_and_load_spreading_on_timber"
+
+
+def test_delivery_status_requires_evidence_and_never_authenticates_it():
+    result = nds_fyb_basis_status(
+        fyb_psi=72_000,
+        test_method="ASTM F1575",
+        evidence_reference="lot report 24-017",
+        scenario_id="lot-24-017-test-result",
+        delivered_conformance_status="conforming",
+        delivered_evidence_reference="receiving inspection 2026-09-26",
+    )
+
+    assert result["specified_scenario"]["status"] == "recorded"
+    assert result["delivered_fastener_conformance"]["status"] == "recorded_by_caller"
+    assert result["delivered_fastener_conformance"]["recorded_conformance"] == "conforming"
+    assert "does not authenticate" in result["delivered_fastener_conformance"]["limits"]
+    with pytest.raises(ValueError, match="requires an evidence reference"):
+        nds_fyb_basis_status(
+            fyb_psi=72_000,
+            test_method="ASTM F1575",
+            evidence_reference="test report 24-017",
+            scenario_id="lot-24-017-test-result",
+            delivered_conformance_status="conforming",
+        )
 
 
 @pytest.mark.parametrize(

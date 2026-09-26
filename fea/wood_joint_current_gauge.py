@@ -107,7 +107,7 @@ def _contact_node_union(fragment: bytes) -> set[int]:
         if line.startswith("*"):
             active = False
             current_name = None
-            match = re.match(r"^\*NSET\s*,\s*NSET\s*=\s*([^,]+)", line, re.I)
+            match = re.match(r"^\*NSET\s*,\s*NSET\s*=\s*([^,]+)", line, re.IGNORECASE)
             if match and match.group(1).strip().upper().startswith("WJCP_N_"):
                 active = True
                 current_name = match.group(1).strip()
@@ -206,12 +206,12 @@ def build_current_gauge() -> tuple[str, dict[str, Any]]:
     source_rows = source_inventory.get("parts", [])
     source_part = next((row for row in source_rows if row.get("part_id") == PRINCIPAL_PART_ID), None)
     if not isinstance(source_part, dict):
-        raise ValueError("source inventory lacks the principal member frame")
+        raise TypeError("source inventory lacks the principal member frame")
     transform = source_part.get("local_to_global_transform")
     axes = source_part.get("local_axes")
     extents = source_part.get("actual_shape_extents_local_mm")
     if not isinstance(transform, list) or not isinstance(axes, dict) or not isinstance(extents, dict):
-        raise ValueError("principal source local frame or extents are missing")
+        raise TypeError("principal source local frame or extents are missing")
     origin = tuple(float(transform[i][3]) for i in range(3))
     local_axes = {name: tuple(float(value) for value in axes[name]) for name in ("X", "T", "N")}
     contract_axes = {
@@ -303,7 +303,6 @@ def build_current_gauge() -> tuple[str, dict[str, Any]]:
         point = mesh_nodes[node_id]
         return min(math.dist(point, mesh_nodes[other]) for other in other_nodes)
 
-    labels_by_node = {node: label for label, node in GAUGE_NODES.items()}
     chosen = []
     dofs_by_node = {33824: [1, 2, 3], 43470: [2, 3], 33822: [2]}
     for label, node_id in GAUGE_NODES.items():

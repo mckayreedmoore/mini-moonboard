@@ -2,8 +2,8 @@ import json
 import math
 
 import pytest
-import fea.contact_wrench_benchmark as benchmark
 
+import fea.contact_wrench_benchmark as benchmark
 from fea.contact_wrench_benchmark import (
     ARTIFACT_DIR,
     SCENARIOS,

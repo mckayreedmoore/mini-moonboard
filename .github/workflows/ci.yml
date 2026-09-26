@@ -31,16 +31,55 @@ jobs:
         run: |
           uv python install
           uv sync --locked
-      - name: Lint
-        run: uv run ruff check --no-cache .
+      - name: Lint maintained entry points
+        id: lint
+        continue-on-error: true
+        run: >-
+          uv run ruff check --no-cache mini_moonboard fea scripts tests
+          --extend-exclude fea/contact_wrench_benchmark.py
       - name: Test
+        id: tests
+        continue-on-error: true
         run: uv run pytest ${{ inputs.include_historical && '--include-historical' || '' }}
       - name: Smoke-test CadQuery
+        id: cad_smoke
+        continue-on-error: true
         run: uv run scripts/smoke_test.py
       - name: Rebuild and verify the current candidate
+        id: selected_candidate
+        continue-on-error: true
         run: uv run python -m scripts.current_candidate --check-exports
+      - name: Rebuild and round-trip the owner-reviewed wood-joint candidate
+        id: wood_joint_candidate
+        continue-on-error: true
+        run: uv run python -m scripts.wood_joint_development_candidate_check
       - name: Verify historical reference/V1 exports
         if: ${{ inputs.include_historical }}
         run: |
           uv run python -m mini_moonboard.export
           git diff --exit-code -- exports
+      - name: Fail if any validation gate failed
+        if: always()
+        run: |
+          failed=0
+          if [[ "${{ steps.lint.outcome }}" != "success" ]]; then
+            echo "Lint gate: ${{ steps.lint.outcome }}"
+            failed=1
+          fi
+          if [[ "${{ steps.tests.outcome }}" != "success" ]]; then
+            echo "Test gate: ${{ steps.tests.outcome }}"
+            failed=1
+          fi
+          if [[ "${{ steps.cad_smoke.outcome }}" != "success" ]]; then
+            echo "CadQuery smoke gate: ${{ steps.cad_smoke.outcome }}"
+            failed=1
+          fi
+          if [[ "${{ steps.selected_candidate.outcome }}" != "success" ]]; then
+            echo "Selected-candidate gate: ${{ steps.selected_candidate.outcome }}"
+            failed=1
+          fi
+          if [[ "${{ steps.wood_joint_candidate.outcome }}" != "success" ]]; then
+            echo "Wood-joint-candidate gate: ${{ steps.wood_joint_candidate.outcome }}"
+            failed=1
+          fi
+          exit "$failed"

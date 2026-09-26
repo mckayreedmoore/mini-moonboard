@@ -7,6 +7,7 @@ capacity or load-sharing claim.
 
 from __future__ import annotations
 
+import itertools
 import math
 from collections import Counter
 from collections.abc import Mapping, Sequence
@@ -40,14 +41,14 @@ def build_current_panel_axis_map(
 
     source_rows = source_inventory.get("fixed_panel_kicker_screws")
     if not isinstance(source_rows, Sequence) or isinstance(source_rows, (str, bytes)):
-        raise ValueError("source inventory lacks fixed panel/kicker screw rows")
+        raise TypeError("source inventory lacks fixed panel/kicker screw rows")
     by_id = {str(row["axis_id"]): row for row in source_rows}
     if len(by_id) != len(source_rows) or len(by_id) != 66:
         raise ValueError(f"expected 66 unique source panel axes, found {len(by_id)}")
 
     moved_rows = report.get("moved_panel_axes")
     if not isinstance(moved_rows, Sequence) or isinstance(moved_rows, (str, bytes)):
-        raise ValueError("current report lacks moved_panel_axes rows")
+        raise TypeError("current report lacks moved_panel_axes rows")
     moved_by_id = {str(row["axis_id"]): row for row in moved_rows}
     if len(moved_by_id) != len(moved_rows):
         raise ValueError("current report contains duplicate moved panel axis IDs")
@@ -260,7 +261,7 @@ def _axis_host_result(
     origin = row["origin_global_xyz_mm"]
     direction = row["axis_global_xyz"]
     raw = _shape_intersection(axis_shape, raw_receiver, origin, direction)
-    raw_common = raw.pop("shape", None)
+    raw.pop("shape", None)
     diameter = max(model["transverse_extents_mm"])
     model_area = float(axis_shape.Volume()) / model["axial_length_mm"]
     raw_volume = float(raw["intersection_volume_mm3"])
@@ -334,7 +335,6 @@ def _finite_shared_planar_face_area(first: Any, second: Any, tolerance: float) -
         if face.geomType() == "PLANE" and float(face.Area()) > 1e-8
     ]
     for face_a in first_faces:
-        bounds_a = face_a.BoundingBox()
         normal_a = face_a.normalAt().normalized()
         center_a = face_a.Center()
         for face_b in second_faces:
@@ -394,7 +394,7 @@ def _contact_graph_interfaces(geometry: Any, report: Mapping[str, Any]) -> list[
         receiver_ids = tuple(map(str, getattr(bore, "receiver_ids", ())))
         if len(receiver_ids) < 2:
             continue
-        for first_id, second_id in zip(receiver_ids, receiver_ids[1:]):
+        for first_id, second_id in itertools.pairwise(receiver_ids):
             pair = tuple(sorted((first_id, second_id)))
             row = grouped.setdefault(
                 pair,
@@ -525,7 +525,7 @@ def collect_current_receiver_screen(geometry: Any, report: Mapping[str, Any]) ->
     source_inventory = getattr(geometry, "source_inventory", None)
     fixed_axes = getattr(geometry, "fixed_axes", None)
     if not isinstance(source_inventory, Mapping) or not isinstance(fixed_axes, Mapping):
-        raise ValueError("current geometry lacks its source inventory or fixed axis solids")
+        raise TypeError("current geometry lacks its source inventory or fixed axis solids")
     axes = build_current_panel_axis_map(source_inventory, report, set(fixed_axes))
 
     raw_hosts = getattr(geometry, "raw_hosts", {})

@@ -23,13 +23,13 @@ ASTM F606 covers mechanical-property testing of threaded fasteners
 NDS `Fyb` and direct steel yield strength are separate inputs. NDS-2024
 §12.3.6.2's test-derived route requires an applicable F1575 bending-yield
 basis or an F606 tensile-yield basis with a supported evaluation into `Fyb`.
-The current `nds_fyb_basis_status` helper is deliberately fail-closed: it
-requires an evidence reference and `applies_to_delivered_fastener=True`. That
-is an actual-product evidence check. It is too restrictive if interpreted as
-a prerequisite for *conditional MVP-E* calculations, whose input may instead
-be a clearly specified material scenario with source, scope, and limitations;
-the helper currently has no separate scenario/conformance fields. Keep
-delivered identity and conformance as a separate MVP-P status.
+`nds_fyb_basis_status` now records the specified scenario, recognized NDS test
+basis, and delivered-fastener conformance separately. A source-backed scenario
+can be recorded before receiving evidence exists. ASTM F606 also requires a
+separate reference to the supported evaluation that derives `Fyb`; a tensile
+test reference alone does not complete that route. Any delivery status is
+retained as a caller record with a source reference, not independently
+authenticated by this helper.
 
 The explicitly stated Grade 5 project minima from the cited supplier sheet can
 support a conditional direct steel yield reference; they do not automatically
@@ -106,14 +106,31 @@ that locates the transition and the thread-bearing extents. Delivered
 measurements are needed only for claims about actual received dimensions or
 conformance, not to run a labeled conditional geometry scenario.
 
-Combined axial tension and lateral shear remain unresolved. ANSI/AISC 360-22
-§J3.7 defines a named interaction for bearing-type connections designed under
-its structural-steel provisions ([AISC 360-22](https://www.aisc.org/aisc/publications/current-standards/aisc-360/)),
-but its use for this timber-to-timber bolt joint has not been established. This
-module returns separate component utilizations and `interaction_rule:
-unresolved`; neither utilization alone can close the bolt check. No preload,
-friction, fatigue, thread stripping, or head/nut pull-through resistance is
-credited.
+The helper can calculate a **nominal material first-yield interaction** for
+simultaneous axial and lateral shear only when the caller identifies one
+co-located section area and its basis:
+
+```text
+sigma = |N| / A
+tau   = V / A
+sigma_vm = sqrt(sigma^2 + 3 tau^2)
+utilization = sigma_vm / Fy
+```
+
+This applies the von Mises material-yield criterion for plane stress
+([NIST technical report](https://nehrpsearch.nist.gov/static/files/NSF/PB2009106744.pdf));
+the shear stress is an average over the declared section. Separate minimum
+tensile and shear-plane areas do not prove that the stresses act at the same
+section. Without the common-section input and source basis, interaction stays
+unresolved even when the separate component references are available. This is
+not an AISC connection interaction or a bolt design strength. ANSI/AISC 360-22
+§J3.7 is not applied because its use for this timber-to-timber bolt joint has
+not been established
+([AISC 360-22](https://www.aisc.org/aisc/publications/current-standards/aisc-360/)).
+Bolt bending remains unresolved and is not included in the nominal interaction.
+No preload, friction, fatigue, thread stripping, nut/head pull-through, or
+load-sharing resistance is credited. Neither this material utilization nor
+the separate component references close the connection check.
 
 ## Washer bearing
 
@@ -126,23 +143,24 @@ washer footprint bears on sound wood. It omits bearing-area increase and
 preload.
 
 That value is only a conditional wood-bearing component reference. It does not
-establish actual contact or load distribution. No washer steel bending,
-spreading, dish, local yield, or through-hole resistance method is established;
-those fields stay unresolved until the delivered washer and a supported model
-are identified. A wood annulus reference is not a bolt tension or complete-joint
-capacity.
+establish actual contact or load distribution. `washer_steel_resistance_status`
+now records a specified washer scenario separately from delivered-washer
+conformance, including standard/product definition, material basis, dimensions,
+yield input, and source reference. Even a complete scenario returns the named
+`washer_steel_bending_and_load_spreading_on_timber` method gap. Additional
+catalog sourcing cannot close that gap: a reviewed method is still needed for
+plate bending/spreading with the washer's support contact on timber. Until then
+the steel-side resistance is not calculated, and the wood annulus reference
+cannot close washer failure, bolt tension transfer, or complete-joint capacity.
 
 ## Machine-readable boundary
 
 The module is [wood_joint_bolt_resistance.py](../../mini_moonboard/wood_joint_bolt_resistance.py).
-Missing Fyb, yield strength, or actual section areas produce unresolved
-results. `bolt_first_yield_reference` currently labels its yield input
-`certified_min_yield_mpa`; this API does not yet represent a scenario-only
-specified minimum separately from delivered certification. That current
-implementation limit is not an MVP-E requirement for delivered fastener
-evidence. Record a conditional direct-steel reference with its assumed
-property scenario and keep actual conformance separate; extend the producer
-input contract before passing a scenario through this helper. A basis string
-records caller evidence but does not authenticate it. Combined tension/shear
-and washer steel resistance always remain unresolved in this bounded
-implementation.
+Missing property-scenario values, source references, or component section bases
+produce unresolved component results. `bolt_first_yield_reference` accepts a
+specified minimum yield scenario and keeps delivered conformance in a separate
+record. Its optional nominal von Mises interaction requires one common section
+area and basis; it does not calculate bolt bending or a code design strength.
+The washer helper accepts scenario and receiving inputs but returns the exact
+steel bending/spreading method gap even when those inputs are complete. Basis
+strings and caller conformance records are not independently authenticated.

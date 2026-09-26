@@ -7,6 +7,12 @@ composition and individual LED sweep records establish bounded geometry only;
 they do not establish capacity, real tool fit, continuous movement, support,
 safe handling, tolerance, or release.
 
+This is the preserved sequence record for the earlier 28-body, 104-axis WJ24
+layout. The reviewed `led-clearance-2x6-runner-seated-blocks-v1` revision has
+24 blocks, 92 candidate bolt axes, 12 starting frame-bolt arrangements, and 66
+panel/kicker axes. Use the current [sequence hypothesis](transport-operations.md#current-reviewed-revision-sequence-hypothesis-to-validate)
+for that revision; no order or pass in this historical record transfers.
+
 ## Current layout and evidence boundary
 
 The [integrated static record](hypotheses/wj24-integrated-static/README.md)

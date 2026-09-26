@@ -25,15 +25,46 @@ MVP-E requires the applicable gates to pass; a completed adverse evaluation
 does not make MVP-E complete. Fabrication, physical receiving, climbing release,
 candidate selection, and apartment-floor qualification are outside this goal.
 
+## MVP finishing amendment, September 26
+
+The second-pass review found both a mechanics-method bottleneck and unfinished
+resistance contracts. Keep the reviewed candidate and geometry stable while
+three deliverables converge on that same revision:
+
+| Deliverable | Required outcome |
+| --- | --- |
+| Ordinary-joint method | Use the current three-member, four-stack, three-contact direct model for the first representative response. It retains bolt/bore transfer and clearance, finite timber contacts and opening, and an explicit axial-engagement scenario. No currently documented reduced law has validated bounds for those mechanisms. The reported first bore-contact state and following accepted state demonstrate a bounded diagnostic, not an accepted joint response. |
+| Resistance and hardware contract | Calculate only from identified, source-bound property scenarios. Keep scenario values distinct from receiving/conformance records. Compute the nominal bolt tension/shear material interaction only when one common section and its basis are supplied. Keep bolt bending, connection design resistance, and washer steel bending/spreading as named open methods until supported bases exist. |
+| Current-candidate integration | Run lint and tests on maintained code, smoke-test CadQuery, verify selected-candidate exports, and independently rebuild and STEP-round-trip the owner-reviewed wood-joint development revision. Check identity and counts against its own authority and keep every release flag false. |
+
+Use these progress states in the plan and completion ledger:
+
+| State | Meaning |
+| --- | --- |
+| `inputs_ready` | Frozen geometry, load/material/hardware inputs, source fingerprints, units, and owners are complete for the named check. A missing physical receiving observation may remain explicit when the result is only a specified scenario. |
+| `method_demonstrated` | The named method produced reproducible response with audited transfer/equilibrium and the required numerical/assumption sensitivity. Solver convergence or a contact event alone does not meet this state. |
+| `current_demands_available` | Fresh signed demands from the current full-frame six-case run are bound to the same geometry and source inputs. Historical demands do not qualify the current revision. |
+| `criterion_resolved` | The applicable resistance, adjustment, interaction, and limit-state methods have been applied to those demands; result is a supported pass or failure. A named method gap stays unresolved. |
+
+Before another solver change, instrumentation addition, or diagnostic branch,
+record: (1) the required engineering decision it unblocks, (2) the observable
+result that will settle that decision, and (3) the next executable step after
+that result. Confirmed defects in a selected method remain in scope. Prepare the
+full-frame model and complete source/input manifests alongside local joint
+characterization where ready, but do not issue final criteria from unsupported
+connection behavior or stale loads. If an adopted criterion fails, identify
+the affected detail and evidence first, then make only the documented targeted
+revision and revalidate its dependencies.
+
 ### Ordered work and completion evidence
 
 | Step | Remaining work | Required result and dependency |
 | --- | --- | --- |
 | 1. Freeze and reconcile | Keep the approved viewer/model stable. Bind current geometry, axes, grain scenarios, hardware roles, source files, and applied loads. Use the current geometry entry point and exact STEP exports; archive older adapters without migrating unused ones. | One consistent revision: 24 blocks, 92 candidate bolts, 12 retained frame bolts, and 66 Hillman axes (58 unchanged plus eight recorded moves). Geometry replay, current receiver/grip screens and the 50-member geometric contact graph are available; complete mechanical attachment and transfer models remain open. |
-| 2. Finish one joint end to end | Mesh the exported ordinary bottom-center right joint: three full timber members, four bolt stacks, and all three wood contacts. Verify ownership, volumes, element quality, contact coverage and normals. Freeze material, clearance, assembly/preload, bolt/nut engagement, boundary and load assumptions. Validate only the missing numerical methods, then run a bounded joint response. | Authenticated mesh and contact inputs, audited equilibrium and transferred wrenches, interpretable opening/slip/rotation and bolt/wood actions, with mesh and assumption sensitivity. Solver convergence alone is insufficient. The contact-output benchmark passed its limited checks. Current-joint transient diagnostics have run; physical engagement, numerical sensitivity, and an accepted joint response remain unresolved. |
-| 3. Cover all complete joints | Reuse the validated method where geometry, grain, hardware and loading justify it. Evaluate ordinary, tall-center and complete exterior sandwich joints; include both inner-header bolts per side, direct seats, retained host connections and all twelve frame bolts. Close the complete timber/panel contact and attachment graph and all 24 replaced angle duties. | A documented equivalence or separate evaluation for every station; complete center-kicker/header paths and kerf-right edge support. No acceptance by block shape alone, shared part name, or historical pass. |
-| 4. Establish full-frame response | Build the current complete-frame model with justified joint response or reduced stiffness and sensitivity. Include current panel/kicker load transfer, dead load, actual recess/sections and conditional no-slip supports. Freeze the model and six source-bound applied-load cases; run heavy/native cases serially. | Fresh six-case reactions, signed member/joint demands, displacements and stability evidence; force/moment closure and numerical/model sensitivity. No arbitrary force split or inherited old actions. Local unit responses are not these load cases. |
-| 5. Resolve structural criteria | Apply the [47-item register](current-criteria-coverage.md) to fresh demands. Check complete-joint wood/bolt resistance, axial and lateral interaction, signed grain/end/edge/group effects, washer support/bending, splitting, bearing, finished/net sections, taper/notch/shear/torsion and stability. Confirm method applicability and hardware basis. | Evidence-linked disposition for all 36 inherited criteria and 11 candidate obligations. Unsupported capacities remain unresolved. A failed adopted check or missing path stops the affected operation and produces a specific finding before any model change. |
+| 2. Characterize the ordinary joint | Use the current bottom-center right joint: three full timber members, four bolt stacks, and all three wood contacts. Verify mesh ownership, volumes, element quality, contact coverage and normals. Freeze material, clearance, assembly/preload, bolt/nut engagement scenario, boundary and load assumptions. Continue the direct contact model unless a reduced method first demonstrates equivalent required transfer and bounded applicability. | Authenticated inputs and an audited representative response with opening/slip/rotation, signed bolt/wood actions, and mesh, timestep/contact, and assumption sensitivity. Current diagnostics reached the first reported cleat-bore contact plus a following accepted state; force tolerance, numerical sensitivity, physical engagement, and accepted response remain open. |
+| 3. Characterize all connection families | Establish a usable analysis representation and applicability for ordinary, tall-center, and complete exterior sandwich joints; include both inner-header bolts per side, direct seats, retained host connections, and all twelve frame bolts. Close the current timber/panel contact and attachment graph and all 24 replaced duties. Do not require final demand-to-capacity qualification before current-frame demands exist. | A documented representation/equivalence or separate method for every station; complete center-kicker/header paths and kerf-right edge support. No acceptance by block shape, shared part name, or historical pass. |
+| 4. Produce current-frame demands | Prepare the full current-frame model and source manifests alongside connection characterization wherever inputs are ready. Once the connection behavior is defensible for the intended cases, freeze the model and six source-bound applied-load cases and run heavy/native cases serially. Include panel/kicker transfer, dead load, actual recess/sections, and the conditional no-slip support assumption. | Fresh six-case reactions, signed member/joint demands, displacements and stability evidence; force/moment closure and numerical/model sensitivity. No arbitrary force split or inherited old actions. Local unit responses are not these load cases. |
+| 5. Resolve structural criteria | Apply the [47-item register](current-criteria-coverage.md) to fresh demands using the completed methods and hardware contracts. Check complete-joint wood/bolt resistance, axial/lateral interaction, signed grain/end/edge/group effects, washer support/bending, splitting, bearing, finished/net sections, taper/notch/shear/torsion and stability. | Evidence-linked disposition for all 36 inherited criteria and 11 candidate obligations. A specifically identified unsupported method remains unresolved and names its consequence. A failed adopted check or missing load path stops the affected operation and produces a finding before a targeted model change. |
 | 6. Finish fit and use checks in parallel | Extend beyond the 16 priority bolt access screens to all candidate and retained stacks. Check real installation/counterhold/removal envelopes and sequence, tolerances, individual-member transport, panel screw operations, current holds/T-nuts, LEDs and wiring service. Reconcile G6/G12 and any other historical findings against the current model. Restate the hypothetical denser-grid midpoint review separately from actual product compatibility. | Current complete layout/access disposition, explicit unresolved real-tool or physical-observation limits, and dimensioned ordinary-N exceptions where applicable. Feed findings back to mechanics only when analyzed geometry, receivers or paths change. |
 | 7. Finish materials, hardware and cost in parallel | Reconcile lumber blanks, grain, finished patterns and drilling variants. Source suitable bolt grades, lengths, shank/thread transitions, nuts and washers for all 92 candidate and 12 retained stacks. Preserve the 66 purchased Hillman policy and do not infer screw properties from another product. Refresh whole-board quantities, costs and weight as selections resolve. | Source-backed hardware/stock schedule and cost range with missing specifications clearly identified. Nominal CAD length is not delivered shank; physical receiving cells remain blank. Sourcing supports final criteria but need not delay explicitly provisional method diagnostics. |
 | 8. Integrate and review | Update this plan, the completion ledger, criterion evidence and candidate development instructions from validated outputs. Independently review critical calculations and source bindings. Reconcile drawings, dimensions, hardware, cost, access and result summaries. Commit and push completed chunks outside quiet hours. | One coherent reviewable package and clear pass/revise/unresolved conclusion. Selected authority and historical evidence remain intact; apartment notes remain local. No declaration of MVP-E while required evidence is missing. |
@@ -72,9 +103,10 @@ preserved, and neither result validates current candidate contact behavior.
 - Do not alter the reviewed model to make a result pass. Report a required
   geometry change and its affected evidence before implementing it.
 
-The next concrete milestone is step 2's first current-joint response, not another
-viewer, planning report, or historical adapter migration. Steps 3–7 may overlap
-only where their inputs are ready; all remain necessary for the final package.
+The next concrete milestone is to close the selected direct method's bounded
+response/sensitivity gate and keep current-frame demand preparation moving in
+parallel. Steps 3–7 may overlap only where their inputs are ready; all remain
+necessary for the final package.
 
 Latest corrected-run checkpoint, September 25: the
 [parent pressure observation](hypotheses/evaluation-resume-2026-09-24/parent-bore-pressure-prefix-attempt01/README.md)
