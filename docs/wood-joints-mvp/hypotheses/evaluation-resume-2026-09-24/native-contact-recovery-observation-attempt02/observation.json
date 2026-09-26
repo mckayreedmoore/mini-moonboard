@@ -1,0 +1,52 @@
+{
+  "scope": "Immutable accepted-increment observation during live pilot04; not terminal or mechanical acceptance",
+  "observed_at_utc": "2026-09-25T07:14:17.363696+00:00",
+  "source_directory": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-pilot-attempt04",
+  "source_input_freeze_sha256": "77090f458d68afc20abfa34203496527030d075c96868ae99d2aed7091043e66",
+  "files": {
+    "pilot-log-prefix.txt": "a71dd22f222cb0153ee360700206edeae40d842de36a6b36ad32e8e22f973623",
+    "pilot-sta-prefix.txt": "a9d79ede9953f2e8cd3030072a06c5fa057031447a9d5cfb8cbf69f1cefe4ac6"
+  },
+  "cutoff": "Before increment 5 attempt 1; four accepted increments",
+  "observations": [
+    {
+      "time_seconds": 0.0025,
+      "q_mm": 6.9449049005846465e-06,
+      "maximum_loaded_displacement_mm": 5.511127445996281e-06,
+      "maximum_controller_rotation_rad": 2.693943831895289e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002577707,
+      "q_mm": 7.394199435380431e-06,
+      "maximum_loaded_displacement_mm": 5.86563991376362e-06,
+      "maximum_controller_rotation_rad": 2.851149124190565e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002655415,
+      "q_mm": 7.883951865933156e-06,
+      "maximum_loaded_displacement_mm": 6.250055064965973e-06,
+      "maximum_controller_rotation_rad": 2.9108664777778508e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002733122,
+      "q_mm": 8.420136482348913e-06,
+      "maximum_loaded_displacement_mm": 6.684876827139233e-06,
+      "maximum_controller_rotation_rad": 2.9007763277373198e-09,
+      "stop_reasons": []
+    }
+  ],
+  "original_stiffness_restored": {
+    "increment": 2,
+    "attempt": 3,
+    "iteration": 7
+  },
+  "second_increment_accepted": {
+    "attempt": 3,
+    "iteration": 20,
+    "time_seconds": 0.002577707
+  },
+  "mechanical_acceptance": false
+}

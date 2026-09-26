@@ -1,0 +1,153 @@
+{
+  "applied_load_first_increment": {
+    "amplitude_at_endpoint": 0.001915,
+    "amplitude_at_t0": 0.0,
+    "cleat_endpoint_force_N_n": 0.0019149999999999987,
+    "cleat_unit_force_resultant_N_n": 0.9999999999999993,
+    "cleat_unit_force_resultant_xyz_n": [
+      0.0,
+      -0.7660444431189779,
+      0.6427876096865386
+    ],
+    "continuous_impulse_relative_error_vs_discrete": 0.4379035891274965,
+    "continuous_piecewise_linear_sampled_ramp_impulse_Ns": 1.664749999999999e-06,
+    "direction_global_xyz": [
+      0.0,
+      -0.766044443118978,
+      0.6427876096865394
+    ],
+    "discrete_minus_continuous_impulse_Ns": 7.289999999999995e-07,
+    "firstpoint_cleat_load_weighted_displacement_mm": 5.533875213055521e-06,
+    "firstpoint_cleat_nodal_endpoint_trapezoid_work_Nmm": 5.2986855165006574e-09,
+    "firstpoint_pair_load_weighted_displacement_mm": 6.989744093982028e-06,
+    "firstpoint_pair_nodal_endpoint_trapezoid_work_Nmm": 6.692679969987788e-09,
+    "firstpoint_principal_load_weighted_displacement_mm": 1.455868880926507e-06,
+    "native_free_body_endpoint_displacement_N_mm": 5.360544609481423e-06,
+    "native_free_body_endpoint_velocity_N_mm_per_s": 0.004288435687585138,
+    "native_newmark_endpoint_trapezoid_impulse_Ns": 2.3937499999999985e-06,
+    "native_operator_momentum_minus_discrete_impulse_Ns": -2.237055899477849e-14,
+    "paired_global_unit_force_residual_xyz_n": [
+      0.0,
+      0.0,
+      -1.7763568394002505e-15
+    ],
+    "principal_unit_force_resultant_xyz_n": [
+      0.0,
+      0.7660444431189779,
+      -0.6427876096865404
+    ],
+    "ramp_sample_count_total": 101,
+    "time_step_seconds": 0.0025
+  },
+  "frozen_inputs_sha256": {
+    "actuator.json": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "pilot.inp": "29c23fddf0800d8808ef9c28cea93caf4d019719aa68a3f089a7dd09d7870e4c"
+  },
+  "helpers_sha256": {
+    "audit.py": "f484e6ad94803cac2b92a0ac64745296bd0c1d69afef5b5650a4ca9550250ec1",
+    "dynamic_momentum.py": "f97f0214a8dcd6ae8e539ed3f1377603031776e1b84235bb5dd058e48fd104e3",
+    "dynamic_momentum_qualification.md": "9e9c9957d9e3543a75b27af97512b7f9af726b46352fe181a3c738cf8b480d76",
+    "gmsh_integration_image": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+    "wood_joint_mesh_jacobian_audit.py": "3f9cb7768f2ba0efb4e5b26f56222422a09048bfe5e1acdf5ded26f749d861c0"
+  },
+  "limits": [
+    "The four-point operator is the source-reconstructed untransformed CalculiX 2.21 C3D10 reference mass; current contact-path mass transformations are not qualified by this firstpoint audit.",
+    "Gauss8 is the separate physical consistent reference-volume operator; report it separately from the solver-source four-point operator.",
+    "The no-contact free-body terms are checks only. Actual cleat momentum differs by contact and other momentum-transfer impulses; initial X/T wood-face normals carry no N component only while their planar normals remain undeformed.",
+    "No assumption equates the actuator patch coordinate q with cleat COM translation. Load work is assembled over the actual cleat CLOAD nodes.",
+    "This is one first increment only. It does not establish time accuracy, stiffness, capacity, convergence of the remainder, or joint acceptance."
+  ],
+  "mesh_and_material": {
+    "density_scenario_kg_per_m3": 600.0,
+    "density_tonne_per_mm3": 6e-10,
+    "element_count": 5157,
+    "element_type": "C3D10",
+    "mass_operators": [
+      {
+        "displacement_com_n_mm": 5.360544678078256e-06,
+        "displacement_com_xyz_mm": [
+          -6.2344815920580514e-09,
+          -4.090314796868064e-06,
+          3.464879726627349e-06
+        ],
+        "kinetic_energy_nmm": 5.137626578766447e-09,
+        "mass_kg": 0.5581872212587484,
+        "mass_tonne": 0.0005581872212587484,
+        "momentum_com_n_ns": 2.3937499776294395e-06,
+        "momentum_com_xyz_ns": [
+          -2.7840104142847697e-09,
+          -1.8265290370795993e-06,
+          1.547241333827442e-06
+        ],
+        "operator": "CalculiX 2.21 source-reconstructed four-point C3D10 mass",
+        "reference_com_xyz_mm": [
+          133.49156048275984,
+          42.90671285533169,
+          486.2561290691481
+        ],
+        "velocity_com_n_mm_per_s": 0.004288435647507977,
+        "velocity_com_xyz_mm_per_s": [
+          -4.987592528554569e-06,
+          -0.0032722516165107785,
+          0.0027719038969367883
+        ]
+      },
+      {
+        "displacement_com_n_mm": 5.360544678549431e-06,
+        "displacement_com_xyz_mm": [
+          -6.234480775348775e-09,
+          -4.090314797279124e-06,
+          3.464879726870485e-06
+        ],
+        "kinetic_energy_nmm": 5.137626575070397e-09,
+        "mass_kg": 0.5581872213976632,
+        "mass_tonne": 0.0005581872213976631,
+        "momentum_com_n_ns": 2.3937499784322353e-06,
+        "momentum_com_xyz_ns": [
+          -2.7840100502803292e-09,
+          -1.8265290377139401e-06,
+          1.547241334320393e-06
+        ],
+        "operator": "physical consistent C3D10 mass, Gmsh Gauss8",
+        "reference_com_xyz_mm": [
+          133.491560365559,
+          42.906712719615776,
+          486.2561290585116
+        ],
+        "velocity_com_n_mm_per_s": 0.004288435647878944,
+        "velocity_com_xyz_mm_per_s": [
+          -4.9875918751944125e-06,
+          -0.0032722516168328516,
+          0.0027719038971300795
+        ]
+      }
+    ],
+    "mesh_audit_gauss5_mass_tonne": 0.0005581872213976391,
+    "mesh_audit_gauss5_volume_mm3": 930312.0356627317,
+    "node_count": 9369,
+    "source_cad_centroid_xyz_mm": [
+      133.4915565656364,
+      42.9067130573358,
+      486.2561322886723
+    ],
+    "source_cad_volume_mm3": 930304.3102365846,
+    "wood_elset": "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+  },
+  "schema": "wood_joint_first_transient_cleat_momentum_audit/v1",
+  "scope": "The first completed .0025 s increment only; no full-pilot response or acceptance claim.",
+  "snapshot": {
+    "frd_fields": [
+      "DISP",
+      "VELO"
+    ],
+    "frd_node_count_per_field": 116162,
+    "snapshot_frd_sha256": "64113dd62b4e97d923dae71500e2ddbd3b294dd97d8cbf00757f5ddd98968a38",
+    "snapshot_input_freeze_sha256": "7a7c23a3f0ad6fe0f2342fcc9cc1f06ed2c85b9fbb194c1b39bb88c289222fe5",
+    "snapshot_json_sha256": "82db7e5ccb0ad52d54a2b2c32499e6cac55b6cfb637fa2f6777a34b549f9d88f",
+    "snapshot_source_process_still_running": true,
+    "target_time_seconds": 0.0025
+  }
+}

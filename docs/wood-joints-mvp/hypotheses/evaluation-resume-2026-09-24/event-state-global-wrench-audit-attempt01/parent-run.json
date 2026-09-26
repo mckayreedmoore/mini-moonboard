@@ -1,0 +1,79 @@
+{
+  "schema": "parent_event_state_global_wrench_run/v1",
+  "status": "TWO_ACCEPTED_STATES_RECONSTRUCTED_DIAGNOSTIC_ONLY",
+  "native_solve_performed": false,
+  "cad_operation_performed": false,
+  "mechanical_acceptance": false,
+  "runtime_pass": false,
+  "trajectory": {
+    "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt03",
+    "execution_record_sha256": "fef69a37664f9dea002394270547f6c3e3adec0cb53669daa2b0b2f4de9d0052",
+    "execution_status": "parent_stopped",
+    "native_returncode": 137,
+    "timed_out": false,
+    "oom_killed": false,
+    "accepted_horizon_0_025_s": false,
+    "selected_states": [
+      {"step": 1, "increment": 39, "time_seconds": "0.01950000000000001", "complete_and_accepted": true},
+      {"step": 1, "increment": 40, "time_seconds": "0.019750000000000011", "complete_and_accepted": true}
+    ]
+  },
+  "adapter": {
+    "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/first-state-global-angular-diagnostic-attempt04/reconstruct_full_acc.py",
+    "sha256": "8fe8d2f3c72a9ab27e25ba9b30e31830e01aaaa154550345a7ddd5c98a56e4d7",
+    "independent_source_review": "The attempt04 source, pins, and terminal state selection were reviewed read-only; no source defect was found."
+  },
+  "environment": {
+    "image_sha256": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+    "gmsh_version": "4.12.1",
+    "python_version": "3.12.3",
+    "numpy_version": "2.5.2",
+    "cpus": 4,
+    "memory_limit_bytes": 10737418240,
+    "network": "none",
+    "repository_mount": "read_only_at_original_absolute_path",
+    "output_mount": "read_write_separate_parent_audit_directory"
+  },
+  "inputs": {
+    "binary_sha256": "3b63e1590b143be79c4c869c218286fc83c081fd89802a63658cd13776b60ab0",
+    "source_index_sha256": "b55323a611704378ad84f1e688075e284859bdbd09b75d853c0bb8ef0b9ef19f",
+    "dat_sha256": "bfcc73d49159936a24fe3d90579733388d1b8e637b3ea30ce3e722c11c167459",
+    "frd_sha256": "98fde323093a49c9a8b268cbbccadb0db2c1a0728c27e11036f8fc87ed210204",
+    "sta_sha256": "abf3ce7ec9d88b6f3b9ef18a816596f088758746474b811837b5d2be28d07393",
+    "physical_acc_sha256": "de2eb0194a89b1e6be415171dc41888bcbe27da52aec27dcb345409c4771b5b5",
+    "authored_mpc_hook_sha256": "01faa0858f904750503c8736bc390654fd1afb75ae7f3d12e0ae3d405827fd08",
+    "monitor_preflight": {
+      "path": "monitor-preflight.json",
+      "sha256": "9314da1b5ea0daab4826711eefb155280d164e4f1609204ecddb0f0178020da0"
+    }
+  },
+  "outputs": {
+    "state39": {
+      "path": "state39.json",
+      "sha256": "4bc735ccfadfc93a3d62668f542e560640f9c581e2df9f91d4217714fb4a826e",
+      "residual_force_n": [9.261492148925427e-12, -1.9638181182582718e-10, -1.8884310100653112e-10],
+      "residual_origin_moment_nmm": [-1.1173995422145491e-06, 1.2494866274276317e-07, 8.392162139173043e-08],
+      "conditional_moment_output_token_bound_nmm": [9.09829325826763e-05, 2.0027269531088552e-05, 2.409358289040467e-05]
+    },
+    "state40": {
+      "path": "state40.json",
+      "sha256": "14465ec8d53e2537b1d6e8bf6fcdc8293ae9d17b172c008af12dd547c3f98498",
+      "residual_force_n": [5.781519124376837e-13, -3.7640551875801255e-12, 3.049285680260376e-13],
+      "residual_origin_moment_nmm": [-8.418759424484723e-07, -2.1131365457102702e-07, -1.5028443242637302e-07],
+      "conditional_moment_output_token_bound_nmm": [6.733896558800168e-05, 2.0860800715753817e-05, 6.429047823199443e-05]
+    }
+  },
+  "interpretation": {
+    "moment_residual_components_within_conditional_output_token_bounds": true,
+    "global_equilibrium_pass": false,
+    "local_resistance_or_capacity": false,
+    "continuous_time_contact_onset": false,
+    "time_accuracy": false,
+    "bounds_exclude": [
+      "C3D10 integration and mass assembly arithmetic uncertainty",
+      "residual MPC multiplier uncertainty inherited from reconstructed M*a",
+      "native operator and solver uncertainty",
+      "broader model uncertainty"
+    ]
+  }
+}

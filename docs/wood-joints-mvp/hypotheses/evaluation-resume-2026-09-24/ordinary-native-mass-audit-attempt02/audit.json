@@ -1,0 +1,89 @@
+{
+  "status": "CURRENT_NATIVE_MASS_PROJECTION_AUDIT",
+  "all_six_checks_pass": true,
+  "input_sha256": {
+    "preflight.mas": "91532f4bc32cb353bc42ccd9421f90bfaaf2f30cca2ca1a8e5b9a86045974076",
+    "preflight.dof": "965347fe1eaa33fe1e8f8025bc0a79a51447d501ff61f06f9541b8982303ad0b",
+    "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "nut-coupling.json": "d13b4b3ea18e8192fac7b673b3e8f30c2666a2f419794f5f9e758e914f428e6d",
+    "input-freeze.json": "630c0819c51e1cdf727c182ba52ebaeacd23d2e8184e21cf5b01bcec4d447e26",
+    "execution.json": "0ba6907c82486040c09ad60e8f600017c000f0a11ba82239f42f497ccdf0dfab"
+  },
+  "coordinate_entries": 13520701,
+  "equations": 334908,
+  "direction": [
+    0.0,
+    -0.766044443118978,
+    0.6427876096865394
+  ],
+  "checks": [
+    {
+      "owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "density": 6e-10,
+      "reference": null,
+      "observed_projected_mass_tonne": 0.0005581872212587507,
+      "expected_source_integrated_mass_tonne": 0.0005581872213976391,
+      "relative_error": 2.488203831176209e-10,
+      "passed": true
+    },
+    {
+      "owner": "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "density": 6e-10,
+      "reference": null,
+      "observed_projected_mass_tonne": 0.003180060044796609,
+      "expected_source_integrated_mass_tonne": 0.0031800600378420764,
+      "relative_error": 2.1869185969087434e-09,
+      "passed": true
+    },
+    {
+      "owner": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "density": 7.85e-09,
+      "reference": 116163,
+      "rotation": 116164,
+      "zero_mass_carrier": "M03_A00_NUT",
+      "observed_projected_mass_tonne": 4.208482861852602e-05,
+      "expected_source_integrated_mass_tonne": 4.20848286185365e-05,
+      "relative_error": 2.4908928227408715e-13,
+      "passed": true
+    },
+    {
+      "owner": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "density": 7.85e-09,
+      "reference": 116165,
+      "rotation": 116166,
+      "zero_mass_carrier": "M07_A01_NUT",
+      "observed_projected_mass_tonne": 4.208467089846692e-05,
+      "expected_source_integrated_mass_tonne": 4.208467088709431e-05,
+      "relative_error": 2.702316472852884e-10,
+      "passed": true
+    },
+    {
+      "owner": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "density": 7.85e-09,
+      "reference": 116167,
+      "rotation": 116168,
+      "zero_mass_carrier": "M11_A02_NUT",
+      "observed_projected_mass_tonne": 4.2084579930417747e-05,
+      "expected_source_integrated_mass_tonne": 4.208457993042652e-05,
+      "relative_error": 2.0851488474072112e-13,
+      "passed": true
+    },
+    {
+      "owner": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "density": 7.85e-09,
+      "reference": 116169,
+      "rotation": 116170,
+      "zero_mass_carrier": "M15_A03_NUT",
+      "observed_projected_mass_tonne": 4.2084600887923165e-05,
+      "expected_source_integrated_mass_tonne": 4.208460088793149e-05,
+      "relative_error": 1.978877727647048e-13,
+      "passed": true
+    }
+  ],
+  "seconds": 7.063191361987265,
+  "limits": [
+    "Checks current assembled consistent mass, not physical delivered mass.",
+    "Four bolt-plus-rigid-nut translations must equal bolt-only mass; this tests exclusion of nut display-volume mass.",
+    "No stiffness, strength, contact-pressure or loaded-response acceptance."
+  ]
+}

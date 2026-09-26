@@ -1,0 +1,43 @@
+{
+  "schema": "wood_joint_parent_terminal_review/v1",
+  "reviewed_at_utc": "2026-09-25T18:36:02.593543+00:00",
+  "execution_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt02/execution.json",
+  "execution_sha256": "dc05d60c14eca3ce8ceb726193fdb13807c0963e80bf4ac24301979a58919d64",
+  "checks": {
+    "input:pilot.inp": true,
+    "input:mesh.inp": true,
+    "input:materials.inp": true,
+    "input:nut-coupling.inp": true,
+    "input:rigid-carriers.inp": true,
+    "input:contact-fragment.inc": true,
+    "input:output-sets.inp": true,
+    "input:pilot-sets.inp": true,
+    "output:ResultsForLastIterations.frd": true,
+    "output:pilot.12d": true,
+    "output:pilot.cel": true,
+    "output:pilot.cvg": true,
+    "output:pilot.dat": true,
+    "output:pilot.frd": true,
+    "output:pilot.log": true,
+    "output:pilot.sta": true,
+    "output:spooles.out": true,
+    "output:wj-dependent-residual-audit.csv": true
+  },
+  "native_returncode": 1,
+  "status": "instrumentation_failed_after_first_accepted_increment",
+  "accepted_sta_state": {
+    "step": 1,
+    "increment": 1,
+    "time_seconds": 0.0005,
+    "dt_seconds": 0.0005,
+    "iterations": 23
+  },
+  "diagnostic_error": "frozen all-node ACC map expects 116162 mesh nodes plus eight controls and 57643 C3D10 solids",
+  "missing_outputs": [
+    "pilot.wj-contact-energy-map.csv",
+    "wj-all-physical-acceleration.csv"
+  ],
+  "interpretation": "Existing local MPC writer passed its ne0 guard; the new full ACC writer rejected runtime nk. Exact runtime node handling requires source review. Corrected LOG energy printed, but map output and full ACC are absent. No full-state energy-map comparison or angular interpretation is available.",
+  "mechanical_acceptance": false,
+  "whole_horizon_success": false
+}

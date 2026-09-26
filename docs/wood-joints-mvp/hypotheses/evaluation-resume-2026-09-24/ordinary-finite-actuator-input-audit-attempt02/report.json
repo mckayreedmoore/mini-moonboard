@@ -1,0 +1,28 @@
+{
+  "scope": "Independent input-only check; no native response or joint acceptance",
+  "status": "PASSED_CURRENT_FINITE_ACTUATOR_INPUT_CHECK",
+  "audit_sha256": "6b4227b002d53289d0b4c811f80f11ad0e38d97a7ade1b1379c8d48dc5222fc7",
+  "input_freeze_sha256": "8ea71d56271212b39ef8fc948b0ac8d3d312fb7afd74480c512bf4d75572ba32",
+  "pilot_sha256": "840daddc53194bb2956d214d4e7d83cb69a21a93f3e830ab915f754ebc16791b",
+  "source_input_freeze_sha256": "4f5d892d6f6270ae2d645463255a048b8b719331a0906412c4c4b85fd304f367",
+  "unchanged_physical_includes": [
+    "mesh.inp",
+    "materials.inp",
+    "nut-coupling.inp",
+    "rigid-carriers.inp",
+    "contact-fragment.inc",
+    "output-sets.inp"
+  ],
+  "source_and_child_pins_verified": true,
+  "source_pin_count": 23,
+  "child_pin_count": 12,
+  "physical_mpc_term_count": 662,
+  "maximum_unit_weight_serialization_error": 5.0306980803327406e-17,
+  "output_request_count": 42,
+  "every_accepted_increment_requested": true,
+  "single_physical_and_driver_frd_union": true,
+  "contact_pair_count": 35,
+  "amplitude_samples": 201,
+  "maximum_amplitude_error_vs_exact_quintic": 1e-15,
+  "mechanical_acceptance": false
+}

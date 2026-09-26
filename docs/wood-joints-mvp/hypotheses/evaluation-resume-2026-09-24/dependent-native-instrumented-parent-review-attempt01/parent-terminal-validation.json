@@ -1,0 +1,50 @@
+{
+  "schema": "wj_dependent_native_parent_terminal_validation/v1",
+  "execution_sha256": "bb103133a63954751e926cde03c2f92299280cbe8d3ae89600da11343eba98a9",
+  "file_hash_checks": {
+    "pilot.inp": true,
+    "mesh.inp": true,
+    "materials.inp": true,
+    "nut-coupling.inp": true,
+    "rigid-carriers.inp": true,
+    "contact-fragment.inc": true,
+    "output-sets.inp": true,
+    "pilot-sets.inp": true,
+    "ResultsForLastIterations.frd": true,
+    "pilot.12d": true,
+    "pilot.cel": true,
+    "pilot.cvg": true,
+    "pilot.dat": true,
+    "pilot.frd": true,
+    "pilot.log": true,
+    "pilot.sta": true,
+    "spooles.out": true,
+    "wj-dependent-residual-audit.csv": true
+  },
+  "all_hashes_match": true,
+  "terminal_bind_mounts_verified": true,
+  "native_exit_code": 201,
+  "accepted_increments": 1,
+  "rejected_attempts": 1,
+  "elapsed_seconds": 650.0248069980007,
+  "hook": {
+    "sha256": "42e77159443284aba9149201377d5af04b06cc792ad86a8bdcb548b51ae21bc6",
+    "accepted_states": 1,
+    "step": 1,
+    "increment": 1,
+    "total_time": 0.0005,
+    "dtime": 0.0005,
+    "mpc_rows": 24,
+    "acceleration_nodes": 337,
+    "exact_support_ids_verified": true
+  },
+  "byte_identical_to_upstream": {
+    "pilot.log": true,
+    "pilot.sta": true,
+    "pilot.cvg": true,
+    "pilot.cel": true
+  },
+  "runtime_pass": false,
+  "output_equivalence": "PENDING_FULL_ACCEPTED_PREFIX_COMPARISON",
+  "mechanical_acceptance": false
+}

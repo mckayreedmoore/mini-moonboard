@@ -1,0 +1,942 @@
+{
+  "applied_pair_first_increment": {
+    "actuator_datum_global_xyz_mm": [
+      89.05,
+      42.906715329,
+      486.256134997
+    ],
+    "cleat_loaded_node_count": 151,
+    "continuous_sampled_ramp_linear_impulse_Ns": [
+      0.0,
+      4.46712247582031e-23,
+      -2.916955532055813e-21
+    ],
+    "endpoint_amplitude": 0.001915,
+    "endpoint_force_pair_resultant_N": [
+      0.0,
+      5.138633152843306e-20,
+      -3.3554406630946877e-18
+    ],
+    "global_angular_momentum_actuator_datum_minus_discrete_pair_impulse_Nmm_s": [
+      -1.1250379316857073e-12,
+      1.540292864214083e-11,
+      1.7004186593657557e-12
+    ],
+    "global_angular_momentum_origin_minus_discrete_pair_impulse_Nmm_s": [
+      -3.9188857947950683e-11,
+      9.90863875237319e-14,
+      1.0021590344690724e-11
+    ],
+    "global_linear_momentum_minus_discrete_pair_impulse_Ns": [
+      -2.3797785310605182e-14,
+      8.197739327425689e-14,
+      4.190929963399267e-14
+    ],
+    "loaded_node_count": 331,
+    "newmark_endpoint_trapezoid_angular_impulse_Nmm_s": [
+      6.275063810790016e-14,
+      -1.738059518530122e-14,
+      -2.0714658255371887e-14
+    ],
+    "newmark_endpoint_trapezoid_angular_impulse_about_actuator_datum_Nmm_s": [
+      6.275082733671761e-14,
+      -1.7380968900203207e-14,
+      -2.0714670999014854e-14
+    ],
+    "newmark_endpoint_trapezoid_linear_impulse_Ns": [
+      0.0,
+      6.423291441054133e-23,
+      -4.1943008288683596e-21
+    ],
+    "principal_loaded_node_count": 180,
+    "ramp_sample_count": 101,
+    "source": "Frozen native03 pilot.inp CLOAD with RAMP_N, read from source mesh node coordinates and firstpoint FRD DISP",
+    "unit_force_pair_resultant_N": [
+      0.0,
+      2.6833593487432408e-17,
+      -1.7521883358196802e-15
+    ],
+    "unit_force_resultant_by_patch_N": {
+      "cleat": [
+        0.0,
+        -0.7660444431189779,
+        0.6427876096865386
+      ],
+      "principal": [
+        0.0,
+        0.7660444431189779,
+        -0.6427876096865404
+      ]
+    },
+    "unit_moment_about_actuator_datum_by_patch_Nmm_endpoint_geometry": {
+      "cleat": [
+        2.843448698719442e-08,
+        4.166240097472555e-09,
+        4.9646690620128004e-09
+      ],
+      "principal": [
+        -2.220042146790197e-09,
+        -1.142721927249217e-08,
+        -1.3618317521131275e-08
+      ]
+    },
+    "unit_moment_about_actuator_datum_pair_Nmm_endpoint_geometry": [
+      2.621444484040422e-08,
+      -7.260979175019616e-09,
+      -8.653648459118476e-09
+    ],
+    "unit_moment_about_origin_by_patch_Nmm_endpoint_geometry": {
+      "cleat": [
+        400.0737151612266,
+        -57.24023663842002,
+        -68.2162576547803
+      ],
+      "principal": [
+        -400.0737151350122,
+        57.2402366311592,
+        68.21625764612666
+      ]
+    },
+    "unit_moment_about_origin_by_patch_Nmm_reference_geometry": {
+      "cleat": [
+        400.0737151327921,
+        -57.24023664258626,
+        -68.21625765974498
+      ],
+      "principal": [
+        -400.0737151327922,
+        57.24023664258642,
+        68.21625765974498
+      ]
+    },
+    "unit_moment_about_origin_pair_Nmm_endpoint_geometry": [
+      2.621436578920111e-08,
+      -7.260823053911736e-09,
+      -8.6536431354034e-09
+    ],
+    "unit_moment_about_origin_pair_Nmm_reference_geometry": [
+      -1.1368683772161603e-13,
+      1.5631940186722204e-13,
+      0.0
+    ]
+  },
+  "dat_el_print": {
+    "ke_four_point_minus_dat_Nmm": -1.0739177118525408e-16,
+    "ke_relative_difference": -1.6830853912392623e-08,
+    "mass_native_minus_dat_tonne": 1.0093211683104286e-09,
+    "mass_relative_difference": 8.571292913400833e-08,
+    "native_total_kinetic_energy_Nmm": 6.380649e-09,
+    "native_total_mass_tonne": 0.0117756,
+    "set": "CURRENT_ALL_ELEMENTS",
+    "units": "consistent mm, N, s, tonne model units; ELKE is N\u00b7mm"
+  },
+  "frd_output_rounding": {
+    "angular_actuator_datum_residual_abs_error_bound_xyz_Nmm_s": [
+      3.3813562877284804e-09,
+      1.4903217306332545e-09,
+      1.614450387536462e-09
+    ],
+    "angular_actuator_datum_residual_within_FRD_rounding_bound_by_component": [
+      true,
+      true,
+      true
+    ],
+    "angular_origin_residual_abs_error_bound_xyz_Nmm_s": [
+      8.792698132976646e-09,
+      3.080807215880386e-09,
+      2.617291679770985e-09
+    ],
+    "angular_origin_residual_within_FRD_rounding_bound_by_component": [
+      true,
+      true,
+      true
+    ],
+    "endpoint_angular_impulse_from_DISP_rounding_abs_error_bound_Nmm_s": [
+      2.6561442397666236e-17,
+      7.895880735558837e-19,
+      9.409941364221534e-19
+    ],
+    "endpoint_applied_moment_from_DISP_rounding_abs_error_bound_unit_Nmm": [
+      1.109616392591801e-11,
+      3.298540255063744e-13,
+      3.931046000719178e-13
+    ],
+    "format_observed": "FRD component fields are 12-character scientific values with five fractional mantissa digits and a signed two-digit exponent.",
+    "half_quantum_formula": "0.5 * 10**(printed_exponent - 5), per component and node.",
+    "interpretation_limit": "These bounds cover FRD decimal formatting only, with a 1e-10 summation guard; they do not cover contact/MPC-transformed mass or solver equation residuals.",
+    "linear_residual_within_FRD_rounding_bound_by_component": [
+      true,
+      true,
+      true
+    ],
+    "maximum_component_half_quantum": {
+      "DISP": [
+        5e-13,
+        5e-12,
+        5e-12
+      ],
+      "VELO": [
+        5e-10,
+        5e-09,
+        5e-09
+      ]
+    },
+    "momentum_residual_abs_error_bound_xyz_Ns": [
+      1.7487877518376762e-12,
+      1.3437563057941796e-11,
+      1.0439138946221732e-11
+    ],
+    "translation_identity_residual_abs_error_bound_xyz_Nmm_s": [
+      1.9156061006960903e-08,
+      6.351093041234191e-09,
+      5.503391793974116e-09
+    ],
+    "translation_identity_residual_within_FRD_rounding_bound_by_component": [
+      true,
+      true,
+      true
+    ]
+  },
+  "frozen_inputs_sha256": {
+    "actuator.json": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+    "contact-fragment.inc": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+    "contact-manifest.json": "50f7d8c9b85197f43732d49d13e75240fa6d5423673d28274e278829878a594d",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "nut-coupling.json": "568ade2437181bc8e9398f64a2818bbf8bd3f46a64dae9639bf363cb68bec960",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0",
+    "pilot.inp": "29c23fddf0800d8808ef9c28cea93caf4d019719aa68a3f089a7dd09d7870e4c",
+    "preflight-input-freeze.json": "630c0819c51e1cdf727c182ba52ebaeacd23d2e8184e21cf5b01bcec4d447e26",
+    "producer.py.snapshot": "be28c15bdd095911979435b53f6e77955fd2d5b0f6ee80272c4e0ffcc29dde08",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815"
+  },
+  "helpers_sha256": {
+    "audit.py": "f484e6ad94803cac2b92a0ac64745296bd0c1d69afef5b5650a4ca9550250ec1",
+    "dynamic_momentum.py": "f97f0214a8dcd6ae8e539ed3f1377603031776e1b84235bb5dd058e48fd104e3",
+    "global_audit.py": "bd86e7c11bf052269b5fcdd5f21c7e74acd5988c91504d1141acb1ad903e69bb",
+    "gmsh_integration_image": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+    "wood_joint_mesh_jacobian_audit.py": "3f9cb7768f2ba0efb4e5b26f56222422a09048bfe5e1acdf5ded26f749d861c0"
+  },
+  "limits": [
+    "All physical mass and state integrals use the untransformed CalculiX 2.21 four-point C3D10 reference mass. The reported scalar ELKE comparison checks this snapshot only; it does not reconstruct or qualify a solver-wide contact/MPC-transformed mass operator.",
+    "The four zero-density nut carriers are not included as physical material inertia. Rigid-body and shaft-fit MPCs are internal model constraints, but this audit does not reconstruct their transformed equations or local reactions.",
+    "The firstpoint applied pair has near-zero net force; its angular impulse is evaluated from the actual nodal CLOAD distribution and endpoint geometry. Componentwise FRD print-rounding bounds distinguish output resolution from exact closure, but are not solver residual bounds.",
+    "This is a single first increment from an immutable snapshot whose source process was still running. It does not establish time accuracy, capacity, response convergence, or joint acceptance."
+  ],
+  "owner_map": {
+    "all_element_count": 57643,
+    "material_densities_tonne_per_mm3": {
+      "NUT_ZERO_MASS_RIGID_CARRIER": 0.0,
+      "STEEL_ELASTIC_DIAGNOSTIC": 7.85e-09,
+      "WOOD_ELASTIC_DIAGNOSTIC": 6e-10
+    },
+    "nut_carrier_element_count": 2124,
+    "output_set_ownership_validated": true,
+    "physical_owners": [
+      "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "M01_A00_HEAD_WASHER",
+      "M02_A00_NUT_WASHER",
+      "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "M05_A01_HEAD_WASHER",
+      "M06_A01_NUT_WASHER",
+      "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "M09_A02_HEAD_WASHER",
+      "M10_A02_NUT_WASHER",
+      "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "M13_A03_HEAD_WASHER",
+      "M14_A03_NUT_WASHER",
+      "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+      "W01_BASE_RAIL_BOTTOM_RIGHT",
+      "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+    ],
+    "physical_positive_density_element_count": 55519,
+    "solid_sections_by_elset": {
+      "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M01_A00_HEAD_WASHER": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M02_A00_NUT_WASHER": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M03_A00_NUT": "NUT_ZERO_MASS_RIGID_CARRIER",
+      "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M05_A01_HEAD_WASHER": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M06_A01_NUT_WASHER": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M07_A01_NUT": "NUT_ZERO_MASS_RIGID_CARRIER",
+      "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M09_A02_HEAD_WASHER": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M10_A02_NUT_WASHER": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M11_A02_NUT": "NUT_ZERO_MASS_RIGID_CARRIER",
+      "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M13_A03_HEAD_WASHER": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M14_A03_NUT_WASHER": "STEEL_ELASTIC_DIAGNOSTIC",
+      "M15_A03_NUT": "NUT_ZERO_MASS_RIGID_CARRIER",
+      "W00_BOTTOM_CENTER_RIGHT_CLEAT": "WOOD_ELASTIC_DIAGNOSTIC",
+      "W01_BASE_RAIL_BOTTOM_RIGHT": "WOOD_ELASTIC_DIAGNOSTIC",
+      "W02_BASE_PRINCIPAL_CENTER_RIGHT": "WOOD_ELASTIC_DIAGNOSTIC"
+    },
+    "zero_density_nut_owners_excluded": [
+      "M03_A00_NUT",
+      "M07_A01_NUT",
+      "M11_A02_NUT",
+      "M15_A03_NUT"
+    ]
+  },
+  "physical_positive_density_patch": {
+    "actuator_datum_global_xyz_mm": [
+      89.05,
+      42.906715329,
+      486.256134997
+    ],
+    "angular_momentum_actuator_datum_from_translation_identity_xyz_Nmm_s": [
+      -1.0622870770097292e-12,
+      1.5385547657866247e-11,
+      1.6797040098600394e-12
+    ],
+    "angular_momentum_actuator_datum_xyz_Nmm_s": [
+      -1.0622871043489898e-12,
+      1.5385547673240626e-11,
+      1.6797039883667408e-12
+    ],
+    "angular_momentum_current_com_xyz_Nmm_s": [
+      2.152473023751402e-11,
+      3.2315158723518733e-11,
+      -1.8609933112823546e-11
+    ],
+    "angular_momentum_origin_xyz_Nmm_s": [
+      -3.912610730984278e-11,
+      8.170579233843068e-14,
+      1.0000875686435352e-11
+    ],
+    "angular_momentum_translation_identity_residual_xyz_Nmm_s": [
+      -2.733926052633145e-20,
+      1.5374379530519778e-20,
+      -2.1493298670070915e-20
+    ],
+    "bodies": {
+      "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          1.822617835898198e-08,
+          -2.0665859416914182e-08,
+          1.7340759497683342e-08
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -2.2974420463776898e-07,
+          -8.11453557222182e-08,
+          6.808919712351587e-08
+        ],
+        "current_com_xyz_mm": [
+          134.49999857029508,
+          41.46509748098802,
+          458.86863562026633
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 5490,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 1.0331035492533615e-14,
+        "linear_momentum_xyz_Ns": [
+          7.053610153486005e-17,
+          5.698870370837167e-10,
+          6.79163735024325e-10
+        ],
+        "mass_kg": 0.042084828618528136,
+        "mass_tonne": 4.2084828618528134e-05,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 11348,
+        "reference_com_xyz_mm": [
+          134.49999857029508,
+          41.46509746406129,
+          458.86863560009385
+        ]
+      },
+      "M01_A00_HEAD_WASHER": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          1.3294477294680404e-09,
+          -2.778265552001669e-09,
+          2.3312413725525417e-09
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -2.106876929801995e-08,
+          -8.241161882093926e-09,
+          6.915155083006116e-09
+        ],
+        "current_com_xyz_mm": [
+          134.49999995865468,
+          84.77169911986694,
+          510.4794365329235
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 594,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 8.511274640519752e-16,
+        "linear_momentum_xyz_Ns": [
+          -1.293701410218963e-20,
+          5.147572947668153e-11,
+          6.134639330490236e-11
+        ],
+        "mass_kg": 0.0037725772497417473,
+        "mass_tonne": 3.7725772497417472e-06,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 1353,
+        "reference_com_xyz_mm": [
+          134.49999995865468,
+          84.77169910281106,
+          510.47943651259703
+        ]
+      },
+      "M02_A00_NUT_WASHER": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          1.302639179528859e-09,
+          -2.7357958989186408e-09,
+          2.295604875884257e-09
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -2.077391332255263e-08,
+          -8.120239238256104e-09,
+          6.813688288631314e-09
+        ],
+        "current_com_xyz_mm": [
+          134.50000000518904,
+          1.8315282798133792,
+          411.6351899387754
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 594,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 8.270224936170828e-16,
+        "linear_momentum_xyz_Ns": [
+          -1.3475783550516936e-20,
+          5.073647851958288e-11,
+          6.04653939672631e-11
+        ],
+        "mass_kg": 0.0037725772497315562,
+        "mass_tonne": 3.772577249731556e-06,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 1347,
+        "reference_com_xyz_mm": [
+          134.50000000518904,
+          1.831528263002429,
+          411.6351899187409
+        ]
+      },
+      "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          -8.105413814526312e-09,
+          -2.5075966932871913e-08,
+          2.1041235958365762e-08
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -2.3105670271666627e-07,
+          -7.945348881929697e-08,
+          6.666939678095313e-08
+        ],
+        "current_com_xyz_mm": [
+          134.50000222256648,
+          16.18557102660739,
+          480.0805612502883
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 5225,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 7.744711176522478e-15,
+        "linear_momentum_xyz_Ns": [
+          -4.1408661039281646e-18,
+          5.12388103817141e-10,
+          6.106403130028469e-10
+        ],
+        "mass_kg": 0.042084670898465466,
+        "mass_tonne": 4.2084670898465464e-05,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 10927,
+        "reference_com_xyz_mm": [
+          134.50000222256648,
+          16.185571011388426,
+          480.08056123215107
+        ]
+      },
+      "M05_A01_HEAD_WASHER": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          -1.1720163344784065e-09,
+          -2.4847712591290186e-09,
+          2.0849707964072576e-09
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -2.1153800470742628e-08,
+          -7.358301669927372e-09,
+          6.17434862879172e-09
+        ],
+        "current_com_xyz_mm": [
+          134.5000000021984,
+          59.49223262748492,
+          531.6914275340112
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 591,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 6.767479813088469e-16,
+        "linear_momentum_xyz_Ns": [
+          -3.3011898637619735e-21,
+          4.5922266504691963e-11,
+          5.472802256252812e-11
+        ],
+        "mass_kg": 0.003772577140945825,
+        "mass_tonne": 3.772577140945825e-06,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 1347,
+        "reference_com_xyz_mm": [
+          134.5000000021984,
+          59.4922326122691,
+          531.6914275158778
+        ]
+      },
+      "M06_A01_NUT_WASHER": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          -1.1740535161772647e-09,
+          -2.484168264920094e-09,
+          2.084464845634796e-09
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -2.115519032449341e-08,
+          -7.357540675771439e-09,
+          6.1737101885597164e-09
+        ],
+        "current_com_xyz_mm": [
+          134.4999999251615,
+          -23.44793826251867,
+          432.84718098850226
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 600,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 6.766111645118615e-16,
+        "linear_momentum_xyz_Ns": [
+          -1.629538116626991e-21,
+          4.5920778695732764e-11,
+          5.472624828814119e-11
+        ],
+        "mass_kg": 0.003772577143170871,
+        "mass_tonne": 3.772577143170871e-06,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 1362,
+        "reference_com_xyz_mm": [
+          134.4999999251615,
+          -23.44793827773399,
+          432.8471809703693
+        ]
+      },
+      "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          5.634292887922754e-14,
+          1.4625068610721254e-07,
+          1.8430738538911765e-07
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -2.3136326516198422e-12,
+          5.621178536221765e-08,
+          1.9225275461135043e-07
+        ],
+        "current_com_xyz_mm": [
+          111.59286291674296,
+          32.33312693149662,
+          473.6550259457233
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 4938,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 2.872481047669915e-13,
+        "linear_momentum_xyz_Ns": [
+          -1.851675488427115e-10,
+          4.917640312649704e-15,
+          4.954280716290009e-16
+        ],
+        "mass_kg": 0.04208457993041815,
+        "mass_tonne": 4.2084579930418146e-05,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 10464,
+        "reference_com_xyz_mm": [
+          111.59286292224283,
+          32.33312693149647,
+          473.65502594572325
+        ]
+      },
+      "M09_A02_HEAD_WASHER": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          -4.614039392902735e-18,
+          3.903169949267924e-10,
+          4.9519395161770175e-11
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          8.945063339228876e-17,
+          -7.834136499043966e-09,
+          7.752362571775487e-10
+        ],
+        "current_com_xyz_mm": [
+          178.96599972411292,
+          32.333128197148255,
+          473.6550246996176
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 600,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 4.516291093269991e-16,
+        "linear_momentum_xyz_Ns": [
+          -1.691382972486951e-11,
+          -1.6970663524393898e-19,
+          2.690436720811394e-19
+        ],
+        "mass_kg": 0.003772577259049597,
+        "mass_tonne": 3.772577259049597e-06,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 1362,
+        "reference_com_xyz_mm": [
+          178.9659997297171,
+          32.333128197148255,
+          473.6550246996176
+        ]
+      },
+      "M10_A02_NUT_WASHER": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          6.087577952705974e-18,
+          3.6732149020225455e-10,
+          5.627519480277909e-12
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -2.069336747665035e-16,
+          -8.130175568212578e-09,
+          7.554375064868419e-10
+        ],
+        "current_com_xyz_mm": [
+          49.93399972452247,
+          32.33312813128828,
+          473.6550249220859
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 601,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 3.2720497938626396e-16,
+        "linear_momentum_xyz_Ns": [
+          -1.747535186832385e-11,
+          4.392844950470507e-19,
+          1.359992258400848e-20
+        ],
+        "mass_kg": 0.003772577132605194,
+        "mass_tonne": 3.7725771326051938e-06,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 1363,
+        "reference_com_xyz_mm": [
+          49.93399973031273,
+          32.33312813128828,
+          473.65502492208594
+        ]
+      },
+      "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          -2.5647303243972012e-14,
+          1.5710202648297513e-07,
+          2.0517888743840535e-07
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -5.298429533935421e-13,
+          6.621372570589735e-09,
+          2.1845722988770519e-07
+        ],
+        "current_com_xyz_mm": [
+          111.59279971365349,
+          53.545118383490994,
+          498.93449009207444
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 4988,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 3.462315391095246e-13,
+        "linear_momentum_xyz_Ns": [
+          -3.094679863901834e-10,
+          9.843213631480707e-16,
+          -5.957889881385741e-16
+        ],
+        "mass_kg": 0.04208460088792307,
+        "mass_tonne": 4.208460088792307e-05,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 10571,
+        "reference_com_xyz_mm": [
+          111.59279972284533,
+          53.54511838349096,
+          498.93449009207444
+        ]
+      },
+      "M13_A03_HEAD_WASHER": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          6.03036468825581e-20,
+          -1.758524843269619e-10,
+          5.426500939790492e-10
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          6.401623632425311e-17,
+          -1.420656591502189e-08,
+          1.7807050572178012e-09
+        ],
+        "current_com_xyz_mm": [
+          178.9659997201761,
+          53.545119319510626,
+          498.93449131541104
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 599,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 5.641519995895943e-16,
+        "linear_momentum_xyz_Ns": [
+          -2.8854573647972023e-11,
+          -1.5962323047361162e-19,
+          -3.184080237869185e-19
+        ],
+        "mass_kg": 0.003772577260139827,
+        "mass_tonne": 3.7725772601398267e-06,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 1361,
+        "reference_com_xyz_mm": [
+          178.96599972973672,
+          53.545119319510626,
+          498.9344913154111
+        ]
+      },
+      "M14_A03_NUT_WASHER": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          2.7802823355540124e-18,
+          -1.9015658336203324e-10,
+          5.22465243990922e-10
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          1.1151073364545399e-17,
+          -1.4077029566380282e-08,
+          1.7478278919102171e-09
+        ],
+        "current_com_xyz_mm": [
+          49.933999719761104,
+          53.545119268567035,
+          498.9344915125562
+        ],
+        "density_tonne_per_mm3": 7.85e-09,
+        "element_count": 599,
+        "kind": "steel",
+        "kinetic_energy_Nmm": 4.911947259490239e-16,
+        "linear_momentum_xyz_Ns": [
+          -2.855876145407181e-11,
+          6.807172048979686e-22,
+          2.0280727347758245e-19
+        ],
+        "mass_kg": 0.003772577132844934,
+        "mass_tonne": 3.7725771328449337e-06,
+        "material": "STEEL_ELASTIC_DIAGNOSTIC",
+        "node_count": 1361,
+        "reference_com_xyz_mm": [
+          49.93399972922372,
+          53.545119268567035,
+          498.9344915125562
+        ]
+      },
+      "W00_BOTTOM_CENTER_RIGHT_CLEAT": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          6.734615741044758e-08,
+          -6.673797699232363e-05,
+          -7.874586115980902e-05
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          0.0009546153396433248,
+          -0.00020587355991349884,
+          -0.00024127881916942862
+        ],
+        "current_com_xyz_mm": [
+          133.49156047652534,
+          42.90670876501689,
+          486.25613253402776
+        ],
+        "density_tonne_per_mm3": 6e-10,
+        "element_count": 5157,
+        "kind": "wood",
+        "kinetic_energy_Nmm": 5.137626578766447e-09,
+        "linear_momentum_xyz_Ns": [
+          -2.7840104142847697e-09,
+          -1.8265290370795993e-06,
+          1.547241333827442e-06
+        ],
+        "mass_kg": 0.5581872212587484,
+        "mass_tonne": 0.0005581872212587484,
+        "material": "WOOD_ELASTIC_DIAGNOSTIC",
+        "node_count": 9369,
+        "reference_com_xyz_mm": [
+          133.49156048275984,
+          42.90671285533169,
+          486.2561290691481
+        ]
+      },
+      "W01_BASE_RAIL_BOTTOM_RIGHT": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          -7.77511292934324e-08,
+          9.175873421746594e-05,
+          9.688186018311997e-05
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          3.606037949044774e-06,
+          0.00010468002556664961,
+          9.506707261846753e-05
+        ],
+        "current_com_xyz_mm": [
+          607.968941743386,
+          2.0817118665889303,
+          437.61956343359657
+        ],
+        "density_tonne_per_mm3": 6e-10,
+        "element_count": 11593,
+        "kind": "wood",
+        "kinetic_energy_Nmm": 3.122939355836346e-11,
+        "linear_momentum_xyz_Ns": [
+          2.4725278025686807e-08,
+          -8.466110039010809e-09,
+          -1.0089536436686735e-08
+        ],
+        "mass_kg": 3.180060044796606,
+        "mass_tonne": 0.0031800600447966063,
+        "material": "WOOD_ELASTIC_DIAGNOSTIC",
+        "node_count": 23166,
+        "reference_com_xyz_mm": [
+          607.9689417336672,
+          2.08171186991674,
+          437.6195634375625
+        ]
+      },
+      "W02_BASE_PRINCIPAL_CENTER_RIGHT": {
+        "angular_momentum_actuator_datum_xyz_Nmm_s": [
+          -2.902706856187839e-12,
+          -2.5268261354277517e-05,
+          -1.8573782156033626e-05
+        ],
+        "angular_momentum_origin_xyz_Nmm_s": [
+          -0.0009576764612941887,
+          0.00010136662526617844,
+          0.00014563515186453147
+        ],
+        "current_com_xyz_mm": [
+          69.99999975715377,
+          666.9722894145254,
+          1230.5806364211248
+        ],
+        "density_tonne_per_mm3": 6e-10,
+        "element_count": 13350,
+        "kind": "wood",
+        "kinetic_energy_Nmm": 1.2111364992029552e-09,
+        "linear_momentum_xyz_Ns": [
+          -2.1354853423623108e-08,
+          1.8337188927998336e-06,
+          -1.538672825487416e-06
+        ],
+        "mass_kg": 7.83883444536225,
+        "mass_tonne": 0.00783883444536225,
+        "material": "WOOD_ELASTIC_DIAGNOSTIC",
+        "node_count": 24937,
+        "reference_com_xyz_mm": [
+          69.99999976055906,
+          666.9722891221161,
+          1230.5806366664854
+        ]
+      }
+    },
+    "current_com_xyz_mm": [
+      219.1887817740171,
+      447.19639586139533,
+      968.4685031794154
+    ],
+    "element_count": 55519,
+    "frd_print_rounding_abs_error_bounds": {
+      "angular_momentum_actuator_datum_xyz_Nmm_s": [
+        3.381356261167038e-09,
+        1.4903217298436663e-09,
+        1.614450386595468e-09
+      ],
+      "angular_momentum_origin_xyz_Nmm_s": [
+        8.792698106415204e-09,
+        3.080807215090798e-09,
+        2.617291678829991e-09
+      ],
+      "linear_momentum_xyz_Ns": [
+        1.7487877518376762e-12,
+        1.3437563057941796e-11,
+        1.0439138946221732e-11
+      ]
+    },
+    "frd_rounding_bound_safety_factor": 1.0000000001,
+    "kinetic_energy_Nmm": 6.380648892608229e-09,
+    "linear_momentum_xyz_Ns": [
+      -2.3797785310605182e-14,
+      8.19773933384898e-14,
+      4.190929543969184e-14
+    ],
+    "mass_kg": 11.77560100932117,
+    "mass_tonne": 0.011775601009321169,
+    "node_count_unique_across_physical_mesh": 111638,
+    "physical_body_count": 15,
+    "reference_com_xyz_mm": [
+      219.1887817740171,
+      447.19639586139533,
+      968.4685031794153
+    ],
+    "steel_body_count": 12,
+    "wood_body_count": 3
+  },
+  "rigid_carrier_mpc": {
+    "carrier_bodies": [
+      "M03_A00_NUT",
+      "M07_A01_NUT",
+      "M11_A02_NUT",
+      "M15_A03_NUT"
+    ],
+    "carrier_element_counts": {
+      "M03_A00_NUT": 519,
+      "M07_A01_NUT": 511,
+      "M11_A02_NUT": 549,
+      "M15_A03_NUT": 545
+    },
+    "carrier_rigid_node_sets_match_all_body_nodes": true,
+    "control_nodes_added_by_nut_coupling": [
+      116163,
+      116164,
+      116165,
+      116166,
+      116167,
+      116168,
+      116169,
+      116170
+    ],
+    "dat_current_nut_carrier_kinetic_energy_Nmm": 0.0,
+    "interpretation": "The four carrier solids have zero density and are omitted from physical inertia. Their *RIGID BODY constraints and shaft-fit *EQUATION controls can mediate internal force/moment transfer but add no carrier material mass; reference and rotation control nodes are not mass owners.",
+    "nut_coupling_equation_card_count": 24,
+    "nut_density_tonne_per_mm3": 0.0,
+    "reference_nodes": [
+      116163,
+      116165,
+      116167,
+      116169
+    ],
+    "rigid_body_card_count": 4,
+    "rotation_nodes": [
+      116164,
+      116166,
+      116168,
+      116170
+    ]
+  },
+  "schema": "wood_joint_first_transient_global_momentum_audit/v1",
+  "scope": "The first completed .0025 s increment only; no full-pilot response or acceptance claim.",
+  "snapshot": {
+    "frd_fields": [
+      "DISP",
+      "VELO"
+    ],
+    "mechanical_acceptance": false,
+    "physical_frd_nodes": 116162,
+    "snapshot_dat_sha256": "cbbca38de8de43d718be48442cc0c6f61ccbc6ff85b15014df47485aca0868f7",
+    "snapshot_frd_sha256": "64113dd62b4e97d923dae71500e2ddbd3b294dd97d8cbf00757f5ddd98968a38",
+    "snapshot_input_freeze_sha256": "7a7c23a3f0ad6fe0f2342fcc9cc1f06ed2c85b9fbb194c1b39bb88c289222fe5",
+    "snapshot_json_sha256": "82db7e5ccb0ad52d54a2b2c32499e6cac55b6cfb637fa2f6777a34b549f9d88f",
+    "snapshot_source_process_still_running": true,
+    "target_time_seconds": 0.0025
+  }
+}

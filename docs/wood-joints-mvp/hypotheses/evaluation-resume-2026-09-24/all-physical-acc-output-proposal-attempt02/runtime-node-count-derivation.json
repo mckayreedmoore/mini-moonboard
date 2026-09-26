@@ -1,0 +1,84 @@
+{
+  "authored_control_nodes": [
+    116163,
+    116164,
+    116165,
+    116166,
+    116167,
+    116168,
+    116169,
+    116170
+  ],
+  "authored_input_node_count": 116170,
+  "authored_mesh_nodes": 116162,
+  "ccx_upstream_source_archive_sha256": "52a20ef7216c6e2de75eae460539915640e3140ec4a2f631a9301e01eda605ad",
+  "claim": "For these four explicit nut rigid bodies, runtime node count must include one generated rigid MPC node per positive NSET member, in addition to the 116170 authored mesh/control node IDs.",
+  "failed_attempt": {
+    "execution_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt02/execution.json",
+    "execution_sha256": "dc05d60c14eca3ce8ceb726193fdb13807c0963e80bf4ac24301979a58919d64",
+    "pilot_deck_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt02/pilot.inp",
+    "pilot_deck_sha256": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3",
+    "pilot_log_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt02/pilot.log",
+    "pilot_log_sha256": "ec356e1304f9f05d9d447b105935985fb2941315f42799c399f5a80ed1d60e1e",
+    "rigid_carriers_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt02/rigid-carriers.inp",
+    "rigid_carriers_sha256": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815"
+  },
+  "frozen_mesh_node_map_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt01/node-map-audit.json",
+  "frozen_mesh_node_map_sha256": "9a67c44ecdf5832116e4344e19f22b049b9f025e714c55999a672e257f127141",
+  "nut_nset_member_count_sum": 4524,
+  "nut_nset_member_union_count": 4524,
+  "nut_rigid_nsets": {
+    "M03_A00_NUT_RIGID_NODES": {
+      "count": 1107,
+      "max_node_id": 72627,
+      "min_node_id": 71521,
+      "ref_rotation_excluded_from_nset": true,
+      "rigid_body_card": "*RIGID BODY,NSET=M03_A00_NUT_RIGID_NODES,REF NODE=116163,ROT NODE=116164",
+      "unique_count": 1107
+    },
+    "M07_A01_NUT_RIGID_NODES": {
+      "count": 1101,
+      "max_node_id": 87364,
+      "min_node_id": 86264,
+      "ref_rotation_excluded_from_nset": true,
+      "rigid_body_card": "*RIGID BODY,NSET=M07_A01_NUT_RIGID_NODES,REF NODE=116165,ROT NODE=116166",
+      "unique_count": 1101
+    },
+    "M11_A02_NUT_RIGID_NODES": {
+      "count": 1160,
+      "max_node_id": 101713,
+      "min_node_id": 100554,
+      "ref_rotation_excluded_from_nset": true,
+      "rigid_body_card": "*RIGID BODY,NSET=M11_A02_NUT_RIGID_NODES,REF NODE=116167,ROT NODE=116168",
+      "unique_count": 1160
+    },
+    "M15_A03_NUT_RIGID_NODES": {
+      "count": 1156,
+      "max_node_id": 116162,
+      "min_node_id": 115007,
+      "ref_rotation_excluded_from_nset": true,
+      "rigid_body_card": "*RIGID BODY,NSET=M15_A03_NUT_RIGID_NODES,REF NODE=116169,ROT NODE=116170",
+      "unique_count": 1156
+    }
+  },
+  "schema": "ccx_wj_rigid_mpc_generated_node_count_derivation/v1",
+  "scope_limits": [
+    "This is a source-derived minimum, not a claimed observed scalar from the C hook; the failed attempt predates a runtime count diagnostic.",
+    "The output writer authenticates physical output ownership from exact C3D10 connectivity, not from the total nk count alone.",
+    "Additional suffix nodes are tolerated only while the frozen original C3D10 count/type/ID-union invariants pass."
+  ],
+  "source_derivation": "rigidbodys.f iterates each node in NSET and invokes rigidmpc once, skipping only explicit REF/ROT nodes. rigidmpc.f increments nk unconditionally once per call before generating that node\u2019s RIGID MPC. The four cards supply explicit REF/ROT nodes not present in their NSETs, so rigidbodys.f creates no extra default REF/ROT nodes.",
+  "source_derived_minimum_runtime_nk": 120694,
+  "source_files": {
+    "rigidbodys.f": {
+      "sha256": "d55c2ffc0c51fb6207ae75b055f73283b6826c467490a7114416f55b7a329f2f",
+      "snapshot_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt02/ccx-source-context/rigidbodys.f",
+      "upstream_manifest_path": "./CalculiX/ccx_2.21/src/rigidbodys.f"
+    },
+    "rigidmpc.f": {
+      "sha256": "325223215722ed9622d1c766fe7cbd823fefbbdfa08e2ebf77e0a27c050e1b45",
+      "snapshot_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt02/ccx-source-context/rigidmpc.f",
+      "upstream_manifest_path": "./CalculiX/ccx_2.21/src/rigidmpc.f"
+    }
+  }
+}

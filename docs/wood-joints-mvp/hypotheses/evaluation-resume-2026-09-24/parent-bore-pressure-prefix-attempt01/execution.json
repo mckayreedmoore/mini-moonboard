@@ -1,0 +1,113 @@
+{
+  "schema": "parent_bounded_bore_pressure_observation/v1",
+  "started_utc": "2026-09-25T20:20:31.670670+00:00",
+  "producer_sha256": "245abc405eac650eff26d28e69ea6fd4455e71deaae7d233e4596b1d0acc2182",
+  "parent_producer_sha256": "b1d1acbd6d96af664b0fabdb676abd6d014fd0f9d77408fc64bd79b18680f86e",
+  "monitor_checkpoint_sha256": "d1e1e33c211c0daaa5121875eb0f4682e122144bcf662f560c05855e9bdac6f9",
+  "max_bytes": 1615635208,
+  "before": {
+    "container_id": "e104dafd66343b264759bbc0eb38772344d9ba4ab7ef0430de058452fed79051",
+    "state": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 528933,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-09-25T19:05:18.210879145Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt03",
+        "Destination": "/work",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/reader-acc-mt-build-attempt02/ccx-wj-contact-energy-reader-acc-mt-2.21",
+        "Destination": "/usr/bin/ccx",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ],
+    "input_sha256": {
+      "pilot.inp": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3",
+      "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+      "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+      "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+      "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+      "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+      "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+      "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0"
+    }
+  },
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "/home/mckay-linux/repos/mini-moonboard/fea/wood_joint_current_cep_pair_summary.py",
+    "--dat",
+    "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt03/pilot.dat",
+    "--max-bytes",
+    "1615635208",
+    "--output",
+    "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/parent-bore-pressure-prefix-attempt01/report.json"
+  ],
+  "native_action": false,
+  "returncode": 0,
+  "stdout": "{\"output\": \"/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/parent-bore-pressure-prefix-attempt01/report.json\", \"states\": 39}\n",
+  "stderr": "",
+  "elapsed_seconds": 17.463868719001766,
+  "after": {
+    "container_id": "e104dafd66343b264759bbc0eb38772344d9ba4ab7ef0430de058452fed79051",
+    "state": {
+      "Status": "running",
+      "Running": true,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 528933,
+      "ExitCode": 0,
+      "Error": "",
+      "StartedAt": "2026-09-25T19:05:18.210879145Z",
+      "FinishedAt": "0001-01-01T00:00:00Z"
+    },
+    "mounts": [
+      {
+        "Type": "bind",
+        "Source": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt03",
+        "Destination": "/work",
+        "Mode": "",
+        "RW": true,
+        "Propagation": "rprivate"
+      },
+      {
+        "Type": "bind",
+        "Source": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/reader-acc-mt-build-attempt02/ccx-wj-contact-energy-reader-acc-mt-2.21",
+        "Destination": "/usr/bin/ccx",
+        "Mode": "",
+        "RW": false,
+        "Propagation": "rprivate"
+      }
+    ],
+    "input_sha256": {
+      "pilot.inp": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3",
+      "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+      "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+      "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+      "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+      "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+      "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+      "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0"
+    }
+  },
+  "report_sha256": "dce5c8c21f3672ae1189e6a9949419ebfea874d34315fc909bf71a6bfe06a0ae",
+  "prefix_sha256_after": "161cfb516e629c8aab2d8f6f911d937f38552adf78f5cd3486d2a76baa68a2ce"
+}

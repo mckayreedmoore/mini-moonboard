@@ -1,0 +1,290 @@
+{
+  "schema": "wood_joint_current_transient_history/v1",
+  "status": "work_unavailable",
+  "accepted_increment_count": 7,
+  "rejected_attempt_count": 4,
+  "load_scale_from_actual_cload": 100.0,
+  "actual_cload_proportional_to_frozen_unit_pattern": true,
+  "time_match_tolerance_seconds": 1e-08,
+  "monitor_coverage": {
+    "status": "incomplete",
+    "missing_accepted_times_seconds": [
+      0.00100486,
+      0.00100971,
+      0.00101506,
+      0.00102093,
+      0.0010274,
+      0.00103451
+    ],
+    "unmatched_monitor_times_seconds": [],
+    "initial_zero_time_monitor_blocks_ignored": 0
+  },
+  "force_impulse": {
+    "status": "available",
+    "interpretation": "integral of the scalar force coefficient load_scale*A(t), in N*s, multiplying the frozen unit-load nodal pattern; it is not a net-resultant vector impulse or transferred contact impulse",
+    "intervals": [
+      {
+        "increment": 1,
+        "start_time_seconds": 0.0,
+        "end_time_seconds": 0.001,
+        "start_time_print_bound_seconds": 0.0,
+        "end_time_print_bound_seconds": 5e-10,
+        "end_time_source": "complete_dat_monitor_header",
+        "start_amplitude": 0.0,
+        "end_amplitude": 0.000298,
+        "start_amplitude_time_bound": 0.0,
+        "end_amplitude_time_bound": 4.4299999996458284e-10,
+        "piecewise_linear_pattern_impulse_ns": 1.49e-05,
+        "piecewise_linear_impulse_time_print_bound_ns": 1.490002215e-11,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 1.49e-05,
+        "endpoint_trapezoid_time_print_bound_ns": 2.9600011073229136e-11,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      },
+      {
+        "increment": 2,
+        "start_time_seconds": 0.001,
+        "end_time_seconds": 0.00100486,
+        "start_time_print_bound_seconds": 5e-10,
+        "end_time_print_bound_seconds": 5e-09,
+        "end_time_source": "accepted_sta_label_no_complete_dat_block",
+        "start_amplitude": 0.000298,
+        "end_amplitude": 0.00030230595999999996,
+        "start_amplitude_time_bound": 4.4299999996458284e-10,
+        "end_amplitude_time_bound": 4.429999999971089e-09,
+        "piecewise_linear_pattern_impulse_ns": 1.458743482799993e-07,
+        "piecewise_linear_impulse_time_print_bound_ns": 1.6605521714999997e-10,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 1.458743482799993e-07,
+        "endpoint_trapezoid_time_print_bound_ns": 1.6626961807498435e-10,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      },
+      {
+        "increment": 3,
+        "start_time_seconds": 0.00100486,
+        "end_time_seconds": 0.00100971,
+        "start_time_print_bound_seconds": 5e-09,
+        "end_time_print_bound_seconds": 5e-09,
+        "end_time_source": "accepted_sta_label_no_complete_dat_block",
+        "start_amplitude": 0.00030230595999999996,
+        "end_amplitude": 0.00030660306,
+        "start_amplitude_time_bound": 4.429999999971089e-09,
+        "end_amplitude_time_bound": 4.429999999971089e-09,
+        "piecewise_linear_pattern_impulse_ns": 1.476604373500011e-07,
+        "piecewise_linear_impulse_time_print_bound_ns": 3.0445894e-10,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 1.476604373500011e-07,
+        "endpoint_trapezoid_time_print_bound_ns": 3.0660748999998596e-10,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      },
+      {
+        "increment": 4,
+        "start_time_seconds": 0.00100971,
+        "end_time_seconds": 0.00101506,
+        "start_time_print_bound_seconds": 5e-09,
+        "end_time_print_bound_seconds": 5e-09,
+        "end_time_source": "accepted_sta_label_no_complete_dat_block",
+        "start_amplitude": 0.00030660306,
+        "end_amplitude": 0.0003113431599999999,
+        "start_amplitude_time_bound": 4.429999999971089e-09,
+        "end_amplitude_time_bound": 4.429999999971089e-09,
+        "piecewise_linear_pattern_impulse_ns": 1.6530061384999646e-07,
+        "piecewise_linear_impulse_time_print_bound_ns": 3.0897753999999995e-10,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 1.6530061384999646e-07,
+        "endpoint_trapezoid_time_print_bound_ns": 3.1134758999998437e-10,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      },
+      {
+        "increment": 5,
+        "start_time_seconds": 0.00101506,
+        "end_time_seconds": 0.00102093,
+        "start_time_print_bound_seconds": 5e-09,
+        "end_time_print_bound_seconds": 5e-09,
+        "end_time_source": "accepted_sta_label_no_complete_dat_block",
+        "start_amplitude": 0.0003113431599999999,
+        "end_amplitude": 0.00031654397999999995,
+        "start_amplitude_time_bound": 4.429999999971089e-09,
+        "end_amplitude_time_bound": 4.429999999971089e-09,
+        "piecewise_linear_pattern_impulse_ns": 1.8428487559000152e-07,
+        "piecewise_linear_impulse_time_print_bound_ns": 3.1394799999999997e-10,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 1.8428487559000152e-07,
+        "endpoint_trapezoid_time_print_bound_ns": 3.165484099999829e-10,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      },
+      {
+        "increment": 6,
+        "start_time_seconds": 0.00102093,
+        "end_time_seconds": 0.0010274,
+        "start_time_print_bound_seconds": 5e-09,
+        "end_time_print_bound_seconds": 5e-09,
+        "end_time_source": "accepted_sta_label_no_complete_dat_block",
+        "start_amplitude": 0.00031654397999999995,
+        "end_amplitude": 0.0003222763999999999,
+        "start_amplitude_time_bound": 4.429999999971089e-09,
+        "end_amplitude_time_bound": 4.429999999971089e-09,
+        "piecewise_linear_pattern_impulse_ns": 2.0665839292999857e-07,
+        "piecewise_linear_impulse_time_print_bound_ns": 3.194146199999999e-10,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 2.0665839292999857e-07,
+        "endpoint_trapezoid_time_print_bound_ns": 3.222808299999811e-10,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      },
+      {
+        "increment": 7,
+        "start_time_seconds": 0.0010274,
+        "end_time_seconds": 0.00103451,
+        "start_time_print_bound_seconds": 5e-09,
+        "end_time_print_bound_seconds": 5e-09,
+        "end_time_source": "accepted_sta_label_no_complete_dat_block",
+        "start_amplitude": 0.0003222763999999999,
+        "end_amplitude": 0.00032857585999999993,
+        "start_amplitude_time_bound": 4.429999999971089e-09,
+        "end_amplitude_time_bound": 4.429999999971089e-09,
+        "piecewise_linear_pattern_impulse_ns": 2.3137797843000183e-07,
+        "piecewise_linear_impulse_time_print_bound_ns": 3.254305599999999e-10,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 2.3137797843000183e-07,
+        "endpoint_trapezoid_time_print_bound_ns": 3.285802899999794e-10,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      }
+    ],
+    "cumulative_piecewise_linear_pattern_impulse_ns": 1.5981156646429997e-05,
+    "cumulative_piecewise_linear_impulse_time_print_bound_ns": 1.7531848992999997e-09,
+    "cumulative_endpoint_trapezoid_pattern_impulse_ns": 1.5981156646429997e-05,
+    "cumulative_endpoint_trapezoid_time_print_bound_ns": 1.7812342391481271e-09
+  },
+  "work": {
+    "status": "unavailable_missing_accepted_displacements",
+    "coordinate": "signed complete-field virtual-work projection on the frozen 1 N reference-force pattern, reported in mm-equivalent; not center of mass",
+    "reconstruction": "sum 0.5*(A_i+A_prev)*(q_i-q_prev)*load_scale over accepted increments",
+    "cumulative_discrete_work_nmm": null,
+    "native_comparison_status": "unavailable_missing_accepted_native_work_or_displacements",
+    "native_missing_accepted_times_seconds": [
+      0.00100486,
+      0.00100971,
+      0.00101506,
+      0.00102093,
+      0.0010274,
+      0.00103451
+    ],
+    "accepted_rows": [],
+    "print_bound_scope": "q-coordinate displacement print rounding, sampled ramp-amplitude change from DAT timestamp print rounding, and native external-work print rounding; solver integration error and stepwise-versus-continuous work error are not included"
+  },
+  "accepted_status_rows": [
+    {
+      "step": 1,
+      "increment": 1,
+      "attempt": 1,
+      "unaccepted": false,
+      "iterations": 25,
+      "total_time_seconds": 0.001,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.001,
+      "increment_time_seconds": 0.001
+    },
+    {
+      "step": 1,
+      "increment": 2,
+      "attempt": 5,
+      "unaccepted": false,
+      "iterations": 6,
+      "total_time_seconds": 0.00100486,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.00100486,
+      "increment_time_seconds": 4.85671e-06
+    },
+    {
+      "step": 1,
+      "increment": 3,
+      "attempt": 1,
+      "unaccepted": false,
+      "iterations": 7,
+      "total_time_seconds": 0.00100971,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.00100971,
+      "increment_time_seconds": 4.85671e-06
+    },
+    {
+      "step": 1,
+      "increment": 4,
+      "attempt": 1,
+      "unaccepted": false,
+      "iterations": 8,
+      "total_time_seconds": 0.00101506,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.00101506,
+      "increment_time_seconds": 5.34238e-06
+    },
+    {
+      "step": 1,
+      "increment": 5,
+      "attempt": 1,
+      "unaccepted": false,
+      "iterations": 8,
+      "total_time_seconds": 0.00102093,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.00102093,
+      "increment_time_seconds": 5.87662e-06
+    },
+    {
+      "step": 1,
+      "increment": 6,
+      "attempt": 1,
+      "unaccepted": false,
+      "iterations": 9,
+      "total_time_seconds": 0.0010274,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.0010274,
+      "increment_time_seconds": 6.46429e-06
+    },
+    {
+      "step": 1,
+      "increment": 7,
+      "attempt": 1,
+      "unaccepted": false,
+      "iterations": 10,
+      "total_time_seconds": 0.00103451,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.00103451,
+      "increment_time_seconds": 7.11071e-06
+    }
+  ],
+  "limits": [
+    "Discrete work is evaluated only from complete U blocks at every accepted .sta time; missing samples make the work history unavailable rather than bridged.",
+    "The exact load-factor integral follows the deck's serialized piecewise-linear amplitude table; it is not contact force or transferred impulse.",
+    "The native external-work comparison does not validate contact equilibrium, material response, or quasi-static behavior."
+  ],
+  "implementation_sha256": {
+    "history_helper_sha256": "7c8d3ff46161576f3ed13605e666c9ea3aba14bdeaa439ede52a7cab562f374c",
+    "launcher_observations_source_sha256": "664251cec9197d6c4a6ee2993eb493fe5024e9191ac5007c9dc44ddbe2eed142"
+  },
+  "provenance": {
+    "execution_status": "process_failed",
+    "input_freeze_sha256": "c3349f42bb8aaa3721e90f8f36ffd823c985ba9e0cffc6d8474b8154e1c5e267",
+    "frozen_input_artifacts_sha256": {
+      "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+      "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+      "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+      "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0",
+      "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+      "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+      "pilot.inp": "48649259ba8441429a5dd094ae08487e3713d6b5b860ac39ca1acf71b837d963",
+      "actuator.json": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+      "contact-fragment.inc": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+      "producer.py.snapshot": "0aa5c4a85b17cf75be42da0acc612d11eaa4a349f6308f5e49c49275fa4a567b",
+      "nut-coupling.json": "568ade2437181bc8e9398f64a2818bbf8bd3f46a64dae9639bf363cb68bec960",
+      "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+      "contact-manifest.json": "50f7d8c9b85197f43732d49d13e75240fa6d5423673d28274e278829878a594d",
+      "preflight-input-freeze.json": "630c0819c51e1cdf727c182ba52ebaeacd23d2e8184e21cf5b01bcec4d447e26",
+      "parent-input-freeze.json": "77090f458d68afc20abfa34203496527030d075c96868ae99d2aed7091043e66",
+      "scale-producer.py.snapshot": "c6496ab61e4c126f7358920e5833f812e671013ee9e92eda6bcd9c16bdbe3cc3",
+      "timing-parent-input-freeze.json": "6024c734d50148ec959f972f41f15bc3f8f87ec42fbad65e13261e720fe5d9fa",
+      "timed-producer.py.snapshot": "bc2be9d10f0ef8c2be53730ef228e5d09fe20ca5acd9efc7e64bdf372a676268"
+    },
+    "implementation_sha256": {
+      "history_helper_sha256": "7c8d3ff46161576f3ed13605e666c9ea3aba14bdeaa439ede52a7cab562f374c",
+      "launcher_observations_source_sha256": "664251cec9197d6c4a6ee2993eb493fe5024e9191ac5007c9dc44ddbe2eed142"
+    },
+    "execution_sha256": "8fea0dc6d393c08a130925e5c7c3933b8a47e209dadd2eb1167f534f035d0f3b",
+    "terminal_output_sha256": {
+      "pilot.sta": "df83ffc8034053127c66ad194313dbeae4324126dc5b8490600d3e98a7bc8362",
+      "pilot.dat": "9bdf44cb6f7216128e0ba97f0c734011a0f0502b339d840ad99d33195e7b8123",
+      "pilot.log": "2f3de631bbb46c270f6afd76a7738dbc67e399f400100751189c56cc513d2093"
+    }
+  }
+}

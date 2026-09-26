@@ -1,0 +1,1411 @@
+{
+  "all_balance_components_within_print_bounds": {
+    "calculix_221_four_point_reconstruction": true,
+    "gauss8_physical_consistent_mass": true
+  },
+  "balances": {
+    "calculix_221_four_point_reconstruction": {
+      "cleat": {
+        "FRD_plus_CLOAD_plus_contact_print_bound_n_s": [
+          2.241491387444335e-09,
+          3.57523737320225e-09,
+          3.292444878394676e-09
+        ],
+        "applied_CLOAD_impulse_n_s": [
+          0.0,
+          -5.676389323511626e-05,
+          4.7630561877772516e-05
+        ],
+        "balance_residual_n_s": [
+          -1.2654054836440257e-11,
+          -5.531523793156877e-13,
+          1.1227349819699188e-12
+        ],
+        "cleat_contact_impulse_n_s": [
+          -4.19011525331422e-06,
+          2.8765374349755e-07,
+          3.428165720459e-07
+        ],
+        "delta_linear_momentum_n_s": [
+          -4.190127907369056e-06,
+          -5.6476240044771095e-05,
+          4.79733795725534e-05
+        ],
+        "residual_within_reported_print_bound_by_component": [
+          true,
+          true,
+          true
+        ]
+      },
+      "global": {
+        "FRD_plus_input_time_ramp_bound_n_s": [
+          2.9844391419736186e-10,
+          6.045146983164134e-10,
+          4.944808406009824e-10
+        ],
+        "applied_CLOAD_impulse_n_s": [
+          0.0,
+          2.3122905e-21,
+          -1.296576606e-19
+        ],
+        "balance_residual_n_s": [
+          -5.092497374428447e-12,
+          -1.5366507707322892e-11,
+          -1.2215284055800364e-11
+        ],
+        "delta_linear_momentum_n_s": [
+          -5.092497374428447e-12,
+          -1.5366507705010603e-11,
+          -1.2215284185458025e-11
+        ],
+        "residual_within_reported_print_bound_by_component": [
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    "gauss8_physical_consistent_mass": {
+      "cleat": {
+        "FRD_plus_CLOAD_plus_contact_print_bound_n_s": [
+          2.241491486234968e-09,
+          3.5752373265920337e-09,
+          3.2924438627932927e-09
+        ],
+        "applied_CLOAD_impulse_n_s": [
+          0.0,
+          -5.676389323511626e-05,
+          4.7630561877772516e-05
+        ],
+        "balance_residual_n_s": [
+          -1.2665366836936995e-11,
+          -6.128531316869183e-13,
+          1.161798616837982e-12
+        ],
+        "cleat_contact_impulse_n_s": [
+          -4.19011525331422e-06,
+          2.8765374349755e-07,
+          3.428165720459e-07
+        ],
+        "delta_linear_momentum_n_s": [
+          -4.190127918681057e-06,
+          -5.647624010447185e-05,
+          4.797337961161703e-05
+        ],
+        "residual_within_reported_print_bound_by_component": [
+          true,
+          true,
+          true
+        ]
+      },
+      "global": {
+        "FRD_plus_input_time_ramp_bound_n_s": [
+          2.984440936501423e-10,
+          6.045146190833778e-10,
+          4.944797962333699e-10
+        ],
+        "applied_CLOAD_impulse_n_s": [
+          0.0,
+          2.3122905e-21,
+          -1.296576606e-19
+        ],
+        "balance_residual_n_s": [
+          -4.998813658146694e-12,
+          -1.5440308646572066e-11,
+          -1.2195523396171855e-11
+        ],
+        "delta_linear_momentum_n_s": [
+          -4.998813658146694e-12,
+          -1.5440308644259776e-11,
+          -1.2195523525829516e-11
+        ],
+        "residual_within_reported_print_bound_by_component": [
+          true,
+          true,
+          true
+        ]
+      }
+    }
+  },
+  "contact_coverage": {
+    "0.001": {
+      "cleat_incident_complete_count": 10,
+      "cleat_incident_count": 10,
+      "cleat_incident_pair_ids": [
+        "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+        "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore"
+      ],
+      "complete_triplet_count": 35,
+      "incomplete_nonincident_pairs_used_as_zero": false,
+      "nonincident_incomplete_pairs": [],
+      "pair_count": 35
+    },
+    "0.0015": {
+      "cleat_incident_complete_count": 10,
+      "cleat_incident_count": 10,
+      "cleat_incident_pair_ids": [
+        "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+        "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore"
+      ],
+      "complete_triplet_count": 35,
+      "incomplete_nonincident_pairs_used_as_zero": false,
+      "nonincident_incomplete_pairs": [],
+      "pair_count": 35
+    },
+    "0.002": {
+      "cleat_incident_complete_count": 10,
+      "cleat_incident_count": 10,
+      "cleat_incident_pair_ids": [
+        "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+        "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore"
+      ],
+      "complete_triplet_count": 32,
+      "incomplete_nonincident_pairs_used_as_zero": false,
+      "nonincident_incomplete_pairs": [
+        {
+          "CFN_status": "complete_fields",
+          "CFS_status": "partial_fields",
+          "CF_status": "complete_fields",
+          "coverage_status": "partial",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::shaft_to_nut_washer_bore",
+          "pair_index": 33
+        },
+        {
+          "CFN_status": "missing",
+          "CFS_status": "missing",
+          "CF_status": "missing",
+          "coverage_status": "missing",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_head_washer_bore",
+          "pair_index": 34
+        },
+        {
+          "CFN_status": "missing",
+          "CFS_status": "missing",
+          "CF_status": "missing",
+          "coverage_status": "missing",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_nut_washer_bore",
+          "pair_index": 35
+        }
+      ],
+      "pair_count": 35
+    }
+  },
+  "contact_force_endpoints": [
+    {
+      "CF_print_half_bounds_n": [
+        2.006000000000015e-06,
+        2.00015000015e-06,
+        2.00015000015e-06
+      ],
+      "cleat_force_n": [
+        -0.00019303100003547946,
+        8.35909492482e-05,
+        9.96199378836e-05
+      ],
+      "interfaces": [
+        {
+          "CF_on_slave_n": [
+            8.648369e-14,
+            0.0006797324,
+            0.0008100736
+          ],
+          "CF_token_half_quantum_n": [
+            5e-21,
+            5e-11,
+            5e-11
+          ],
+          "cleat_applied_force_n": [
+            8.648369e-14,
+            0.0006797324,
+            0.0008100736
+          ],
+          "cleat_force_sign_from_CF_on_slave": 1,
+          "owner_role": "slave",
+          "pair_id": "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+          "pair_index": 1
+        },
+        {
+          "CF_on_slave_n": [
+            0.01646534,
+            2.367817e-10,
+            -2.082656e-10
+          ],
+          "CF_token_half_quantum_n": [
+            5e-09,
+            5e-17,
+            5e-17
+          ],
+          "cleat_applied_force_n": [
+            0.01646534,
+            2.367817e-10,
+            -2.082656e-10
+          ],
+          "cleat_force_sign_from_CF_on_slave": 1,
+          "owner_role": "slave",
+          "pair_id": "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+          "pair_index": 2
+        },
+        {
+          "CF_on_slave_n": [
+            8.188867e-14,
+            0.000342082,
+            0.0004076775
+          ],
+          "CF_token_half_quantum_n": [
+            5e-21,
+            5e-11,
+            5e-11
+          ],
+          "cleat_applied_force_n": [
+            -8.188867e-14,
+            -0.000342082,
+            -0.0004076775
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+          "pair_index": 5
+        },
+        {
+          "CF_on_slave_n": [
+            4.007449e-14,
+            0.0002540594,
+            0.0003027762
+          ],
+          "CF_token_half_quantum_n": [
+            5e-21,
+            5e-11,
+            5e-11
+          ],
+          "cleat_applied_force_n": [
+            -4.007449e-14,
+            -0.0002540594,
+            -0.0003027762
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+          "pair_index": 9
+        },
+        {
+          "CF_on_slave_n": [
+            0.008393082,
+            1.518193e-10,
+            -1.16681e-10
+          ],
+          "CF_token_half_quantum_n": [
+            5e-10,
+            5e-17,
+            5e-17
+          ],
+          "cleat_applied_force_n": [
+            -0.008393082,
+            -1.518193e-10,
+            1.16681e-10
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+          "pair_index": 13
+        },
+        {
+          "CF_on_slave_n": [
+            0.008265289,
+            1.357142e-10,
+            -1.294682e-10
+          ],
+          "CF_token_half_quantum_n": [
+            5e-10,
+            5e-17,
+            5e-17
+          ],
+          "cleat_applied_force_n": [
+            -0.008265289,
+            -1.357142e-10,
+            1.294682e-10
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+          "pair_index": 17
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 20
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 22
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 24
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 26
+        }
+      ],
+      "time_seconds": 0.001
+    },
+    {
+      "CF_print_half_bounds_n": [
+        2.0150000000015e-06,
+        2.0006000015e-06,
+        2.0010500015e-06
+      ],
+      "cleat_force_n": [
+        -0.00336024000103765,
+        0.00026941207758,
+        0.000321075378566
+      ],
+      "interfaces": [
+        {
+          "CF_on_slave_n": [
+            1.537585e-12,
+            0.001917433,
+            0.002285108
+          ],
+          "CF_token_half_quantum_n": [
+            5e-19,
+            5e-10,
+            5e-10
+          ],
+          "cleat_applied_force_n": [
+            1.537585e-12,
+            0.001917433,
+            0.002285108
+          ],
+          "cleat_force_sign_from_CF_on_slave": 1,
+          "owner_role": "slave",
+          "pair_id": "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+          "pair_index": 1
+        },
+        {
+          "CF_on_slave_n": [
+            0.0403494,
+            2.748081e-09,
+            -2.478869e-09
+          ],
+          "CF_token_half_quantum_n": [
+            5e-09,
+            5e-16,
+            5e-16
+          ],
+          "cleat_applied_force_n": [
+            0.0403494,
+            2.748081e-09,
+            -2.478869e-09
+          ],
+          "cleat_force_sign_from_CF_on_slave": 1,
+          "owner_role": "slave",
+          "pair_id": "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+          "pair_index": 2
+        },
+        {
+          "CF_on_slave_n": [
+            1.550366e-12,
+            0.0009280301,
+            0.001105983
+          ],
+          "CF_token_half_quantum_n": [
+            5e-19,
+            5e-11,
+            5e-10
+          ],
+          "cleat_applied_force_n": [
+            -1.550366e-12,
+            -0.0009280301,
+            -0.001105983
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+          "pair_index": 5
+        },
+        {
+          "CF_on_slave_n": [
+            1.024869e-12,
+            0.0007199898,
+            0.0008580504
+          ],
+          "CF_token_half_quantum_n": [
+            5e-19,
+            5e-11,
+            5e-11
+          ],
+          "cleat_applied_force_n": [
+            -1.024869e-12,
+            -0.0007199898,
+            -0.0008580504
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+          "pair_index": 9
+        },
+        {
+          "CF_on_slave_n": [
+            0.02210622,
+            1.987221e-09,
+            -1.564569e-09
+          ],
+          "CF_token_half_quantum_n": [
+            5e-09,
+            5e-16,
+            5e-16
+          ],
+          "cleat_applied_force_n": [
+            -0.02210622,
+            -1.987221e-09,
+            1.564569e-09
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+          "pair_index": 13
+        },
+        {
+          "CF_on_slave_n": [
+            0.02160342,
+            1.78328e-09,
+            -1.692866e-09
+          ],
+          "CF_token_half_quantum_n": [
+            5e-09,
+            5e-16,
+            5e-16
+          ],
+          "cleat_applied_force_n": [
+            -0.02160342,
+            -1.78328e-09,
+            1.692866e-09
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+          "pair_index": 17
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 20
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 22
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 24
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 26
+        }
+      ],
+      "time_seconds": 0.0015
+    },
+    {
+      "CF_print_half_bounds_n": [
+        2.015000000015e-06,
+        2.0015000105e-06,
+        2.001500006e-06
+      ],
+      "cleat_force_n": [
+        -0.0098469500111461,
+        0.000528199869582,
+        0.000629495593168
+      ],
+      "interfaces": [
+        {
+          "CF_on_slave_n": [
+            1.400796e-11,
+            0.004133391,
+            0.004925983
+          ],
+          "CF_token_half_quantum_n": [
+            5e-18,
+            5e-10,
+            5e-10
+          ],
+          "cleat_applied_force_n": [
+            1.400796e-11,
+            0.004133391,
+            0.004925983
+          ],
+          "cleat_force_sign_from_CF_on_slave": 1,
+          "owner_role": "slave",
+          "pair_id": "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+          "pair_index": 1
+        },
+        {
+          "CF_on_slave_n": [
+            0.07581585,
+            1.491024e-08,
+            -1.378633e-08
+          ],
+          "CF_token_half_quantum_n": [
+            5e-09,
+            5e-15,
+            5e-15
+          ],
+          "cleat_applied_force_n": [
+            0.07581585,
+            1.491024e-08,
+            -1.378633e-08
+          ],
+          "cleat_force_sign_from_CF_on_slave": 1,
+          "owner_role": "slave",
+          "pair_id": "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+          "pair_index": 2
+        },
+        {
+          "CF_on_slave_n": [
+            1.407563e-11,
+            0.001995968,
+            0.002378702
+          ],
+          "CF_token_half_quantum_n": [
+            5e-18,
+            5e-10,
+            5e-10
+          ],
+          "cleat_applied_force_n": [
+            -1.407563e-11,
+            -0.001995968,
+            -0.002378702
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+          "pair_index": 5
+        },
+        {
+          "CF_on_slave_n": [
+            1.107843e-11,
+            0.001609217,
+            0.00191779
+          ],
+          "CF_token_half_quantum_n": [
+            5e-18,
+            5e-10,
+            5e-10
+          ],
+          "cleat_applied_force_n": [
+            -1.107843e-11,
+            -0.001609217,
+            -0.00191779
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+          "pair_index": 9
+        },
+        {
+          "CF_on_slave_n": [
+            0.04354826,
+            1.108464e-08,
+            -8.9551e-09
+          ],
+          "CF_token_half_quantum_n": [
+            5e-09,
+            5e-15,
+            5e-16
+          ],
+          "cleat_applied_force_n": [
+            -0.04354826,
+            -1.108464e-08,
+            8.9551e-09
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+          "pair_index": 13
+        },
+        {
+          "CF_on_slave_n": [
+            0.04211454,
+            9.956018e-09,
+            -9.424398e-09
+          ],
+          "CF_token_half_quantum_n": [
+            5e-09,
+            5e-16,
+            5e-16
+          ],
+          "cleat_applied_force_n": [
+            -0.04211454,
+            -9.956018e-09,
+            9.424398e-09
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+          "pair_index": 17
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 20
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 22
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 24
+        },
+        {
+          "CF_on_slave_n": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "CF_token_half_quantum_n": [
+            5e-07,
+            5e-07,
+            5e-07
+          ],
+          "cleat_applied_force_n": [
+            -0.0,
+            -0.0,
+            -0.0
+          ],
+          "cleat_force_sign_from_CF_on_slave": -1,
+          "owner_role": "master",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pair_index": 26
+        }
+      ],
+      "time_seconds": 0.002
+    }
+  ],
+  "endpoint_momenta": [
+    {
+      "CLOAD_force_resultant_cleat_n": [
+        0.0,
+        -76.6044443118978,
+        64.27876096865387
+      ],
+      "CLOAD_force_resultant_global_n": [
+        0.0,
+        3.1205e-15,
+        -1.749766e-13
+      ],
+      "FRD_DISP_time_token": "1.00000E-03",
+      "FRD_VELO_time_token": "1.00000E-03",
+      "cleat_contact_force_n": [
+        -0.00019303100003547946,
+        8.35909492482e-05,
+        9.96199378836e-05
+      ],
+      "operators": {
+        "calculix_221_four_point_reconstruction": {
+          "cleat": {
+            "FRD_velocity_print_bound_n_s": [
+              1.7948007609060284e-11,
+              4.0021888629715054e-11,
+              3.7703729261804884e-11
+            ],
+            "linear_momentum_n_s": [
+              6.412768226023223e-07,
+              -1.1370412693541987e-05,
+              9.629553287127006e-06
+            ],
+            "mass_tonne": 0.0005581872212587484
+          },
+          "global": {
+            "FRD_velocity_print_bound_n_s": [
+              6.596265810233274e-11,
+              6.239045093634235e-11,
+              5.896724797635469e-11
+            ],
+            "linear_momentum_n_s": [
+              1.899379925708449e-13,
+              7.239326578741726e-13,
+              -5.318482853807943e-13
+            ],
+            "mass_tonne": 0.011775601009321169
+          }
+        },
+        "gauss8_physical_consistent_mass": {
+          "cleat": {
+            "FRD_velocity_print_bound_n_s": [
+              1.7948021687283312e-11,
+              4.0021886416865506e-11,
+              3.7703736035186274e-11
+            ],
+            "linear_momentum_n_s": [
+              6.412768141207353e-07,
+              -1.1370412716362638e-05,
+              9.629553300825862e-06
+            ],
+            "mass_tonne": 0.0005581872213976631
+          },
+          "global": {
+            "FRD_velocity_print_bound_n_s": [
+              6.596266242343516e-11,
+              6.239044566525278e-11,
+              5.896725240947801e-11
+            ],
+            "linear_momentum_n_s": [
+              2.5775059820408646e-13,
+              6.997361576052552e-13,
+              -5.294935669248889e-13
+            ],
+            "mass_tonne": 0.01177560099634377
+          }
+        }
+      },
+      "time_seconds": 0.001,
+      "time_token": "0.100000E-02"
+    },
+    {
+      "CLOAD_force_resultant_cleat_n": [
+        0.0,
+        -76.6044443118978,
+        64.27876096865387
+      ],
+      "CLOAD_force_resultant_global_n": [
+        0.0,
+        3.1205e-15,
+        -1.749766e-13
+      ],
+      "FRD_DISP_time_token": "2.00000E-03",
+      "FRD_VELO_time_token": "2.00000E-03",
+      "cleat_contact_force_n": [
+        -0.0098469500111461,
+        0.000528199869582,
+        0.000629495593168
+      ],
+      "operators": {
+        "calculix_221_four_point_reconstruction": {
+          "cleat": {
+            "FRD_velocity_print_bound_n_s": [
+              3.472400369157386e-11,
+              3.302908207080812e-10,
+              2.390753875322875e-10
+            ],
+            "linear_momentum_n_s": [
+              -3.548851084766734e-06,
+              -6.784665273831308e-05,
+              5.760293285968041e-05
+            ],
+            "mass_tonne": 0.0005581872212587484
+          },
+          "global": {
+            "FRD_velocity_print_bound_n_s": [
+              2.324812560950291e-10,
+              5.42124247380071e-10,
+              4.3551359262462505e-10
+            ],
+            "linear_momentum_n_s": [
+              -4.9025593818576024e-12,
+              -1.464257504713643e-11,
+              -1.2747132470838819e-11
+            ],
+            "mass_tonne": 0.011775601009321169
+          }
+        },
+        "gauss8_physical_consistent_mass": {
+          "cleat": {
+            "FRD_velocity_print_bound_n_s": [
+              3.472408840398387e-11,
+              3.3029077631071436e-10,
+              2.390743651575226e-10
+            ],
+            "linear_momentum_n_s": [
+              -3.548851104560321e-06,
+              -6.784665282083449e-05,
+              5.7602932912442896e-05
+            ],
+            "mass_tonne": 0.0005581872213976631
+          },
+          "global": {
+            "FRD_velocity_print_bound_n_s": [
+              2.3248143122670714e-10,
+              5.42124173418125e-10,
+              4.3551254382388916e-10
+            ],
+            "linear_momentum_n_s": [
+              -4.741063059942608e-12,
+              -1.474057248665452e-11,
+              -1.2725017092754405e-11
+            ],
+            "mass_tonne": 0.01177560099634377
+          }
+        }
+      },
+      "time_seconds": 0.002,
+      "time_token": "0.200000E-02"
+    }
+  ],
+  "impulses": {
+    "cleat_CLOAD": {
+      "RAMP_N_integral_corners_seconds": [
+        7.409906970324135e-07,
+        7.410155610641655e-07,
+        7.40984439e-07,
+        7.41009303031752e-07
+      ],
+      "RAMP_N_integral_seconds": 7.41e-07,
+      "applied_force_resultant_at_unit_amplitude_n": [
+        0.0,
+        -76.6044443118978,
+        64.27876096865387
+      ],
+      "endpoint_time_half_bounds_seconds": [
+        1.05e-08,
+        1.05e-08
+      ],
+      "input_CLOAD_impulse_n_s": [
+        0.0,
+        -5.676389323511626e-05,
+        4.7630561877772516e-05
+      ],
+      "load_basis": "The 662 serialized CLOAD magnitudes are the applied reference pattern; this integral uses only the frozen RAMP_N table, not actuator RF.",
+      "time_and_piecewise_ramp_bound_n_s": [
+        0.0,
+        1.192046673299913e-09,
+        1.0002459239120597e-09
+      ]
+    },
+    "cleat_contact": {
+      "DAT_CF_and_time_print_bound_n_s": [
+        2.188819376143701e-09,
+        2.0128779905645406e-09,
+        2.015419837688524e-09
+      ],
+      "bound_formula": "segmentwise dt*qF + abs(Favg)*qdt + qdt*qF, summed conservatively",
+      "integration": "two accepted-state trapezoids: .001-.0015 and .0015-.002 s",
+      "segments": [
+        {
+          "DAT_CF_and_time_print_bound_n_s": [
+            1.0426015660116466e-09,
+            1.0039360400692134e-09,
+            1.0047593138352382e-09
+          ],
+          "accepted_dt_seconds": 0.0005,
+          "bound_formula": "dt*qF + abs(Favg)*qdt + qdt*qF (includes the second-order product term)",
+          "conservative_endpoint_time_half_bound_seconds": [
+            1.05e-08,
+            1.05e-08
+          ],
+          "force_average_half_bound_n": [
+            2.0105000000007573e-06,
+            2.000375000825e-06,
+            2.000600000825e-06
+          ],
+          "force_average_n": [
+            -0.0017766355005365648,
+            0.0001765015134141,
+            0.0002103476582248
+          ],
+          "trapezoidal_contact_impulse_n_s": [
+            -8.883177502682824e-07,
+            8.825075670705e-08,
+            1.051738291124e-07
+          ]
+        },
+        {
+          "DAT_CF_and_time_print_bound_n_s": [
+            1.1462178101320546e-09,
+            1.008941950495327e-09,
+            1.0106605238532858e-09
+          ],
+          "accepted_dt_seconds": 0.0005,
+          "bound_formula": "dt*qF + abs(Favg)*qdt + qdt*qF (includes the second-order product term)",
+          "conservative_endpoint_time_half_bound_seconds": [
+            1.05e-08,
+            1.05e-08
+          ],
+          "force_average_half_bound_n": [
+            2.01500000000825e-06,
+            2.001050006e-06,
+            2.00127500375e-06
+          ],
+          "force_average_n": [
+            -0.006603595006091875,
+            0.000398805973581,
+            0.000475285485867
+          ],
+          "trapezoidal_contact_impulse_n_s": [
+            -3.3017975030459374e-06,
+            1.994029867905e-07,
+            2.376427429335e-07
+          ]
+        }
+      ],
+      "trapezoidal_contact_impulse_n_s": [
+        -4.19011525331422e-06,
+        2.8765374349755e-07,
+        3.428165720459e-07
+      ]
+    },
+    "global_CLOAD": {
+      "RAMP_N_integral_corners_seconds": [
+        7.409906970324135e-07,
+        7.410155610641655e-07,
+        7.40984439e-07,
+        7.41009303031752e-07
+      ],
+      "RAMP_N_integral_seconds": 7.41e-07,
+      "applied_force_resultant_at_unit_amplitude_n": [
+        0.0,
+        3.1205e-15,
+        -1.749766e-13
+      ],
+      "endpoint_time_half_bounds_seconds": [
+        1.05e-08,
+        1.05e-08
+      ],
+      "input_CLOAD_impulse_n_s": [
+        0.0,
+        2.3122905e-21,
+        -1.296576606e-19
+      ],
+      "load_basis": "The 662 serialized CLOAD magnitudes are the applied reference pattern; this integral uses only the frozen RAMP_N table, not actuator RF.",
+      "time_and_piecewise_ramp_bound_n_s": [
+        0.0,
+        4.855830072844275e-26,
+        2.7228221000610274e-24
+      ]
+    }
+  },
+  "limits": [
+    "This is endpoint linear-momentum bookkeeping, not joint strength, stiffness, resistance, capacity, contact qualification, or acceptance.",
+    "The cleat contact impulse uses piecewise trapezoids over two accepted 0.5 ms intervals. Print/time-token bounds do not cover between-increment contact-force variation or time-discretization error.",
+    "The residual bound covers FRD velocity conversion/print, DAT CF print, and STA/FRD/DAT time-token representation plus the second-order product term. It does not bound equilibrium residual or solver arithmetic.",
+    "Only global and bottom-center-right cleat balances are reported; local balances for other owners are not assessed.",
+    "Snapshot files were captured non-atomically while the solver process was live. Only complete reports matched to the three accepted states are used; later/partial output is unavailable, not zero."
+  ],
+  "mechanical_acceptance": false,
+  "positive_mass_operators": {
+    "calculix_221_four_point_reconstruction": {
+      "cleat_mass_kg": 0.5581872212587484,
+      "cleat_mass_tonne": 0.0005581872212587484,
+      "global_positive_mass_kg": 11.77560100932117,
+      "global_positive_mass_tonne": 0.011775601009321169,
+      "positive_density_body_ids": [
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M01_A00_HEAD_WASHER",
+        "M02_A00_NUT_WASHER",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M05_A01_HEAD_WASHER",
+        "M06_A01_NUT_WASHER",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M09_A02_HEAD_WASHER",
+        "M10_A02_NUT_WASHER",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M13_A03_HEAD_WASHER",
+        "M14_A03_NUT_WASHER",
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+      ]
+    },
+    "gauss8_physical_consistent_mass": {
+      "cleat_mass_kg": 0.5581872213976632,
+      "cleat_mass_tonne": 0.0005581872213976631,
+      "global_positive_mass_kg": 11.77560099634377,
+      "global_positive_mass_tonne": 0.01177560099634377,
+      "positive_density_body_ids": [
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M01_A00_HEAD_WASHER",
+        "M02_A00_NUT_WASHER",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M05_A01_HEAD_WASHER",
+        "M06_A01_NUT_WASHER",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M09_A02_HEAD_WASHER",
+        "M10_A02_NUT_WASHER",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M13_A03_HEAD_WASHER",
+        "M14_A03_NUT_WASHER",
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+      ]
+    }
+  },
+  "provenance": {
+    "CLOAD_loaded_node_count": 331,
+    "CLOAD_term_count": 662,
+    "input_artifacts_sha256": {
+      "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+      "contact-manifest.json": "e0a698bde664469f2d079ae5d6d98cd89a3b74af735752d3b9d5666d933beee7",
+      "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+      "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+      "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+      "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+      "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+      "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0",
+      "pilot.inp": "1763d0ad15c2d53d86bdcf25ea136f3a3d267739b682d0dcd5d3cb2167387485",
+      "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815"
+    },
+    "input_case_read_scope": "Hash-pinned source input closure only; no source-case DAT, FRD, STA, LOG, or live response files were opened.",
+    "input_freeze_sha256": "ea24423f587795743d0c1189c798f77d83159208c76d5d1d3a9fa5554eda4f56",
+    "serialized_force_resultant_cleat_at_unit_amplitude_n": [
+      0.0,
+      -76.6044443118978,
+      64.27876096865387
+    ],
+    "serialized_force_resultant_global_at_unit_amplitude_n": [
+      0.0,
+      3.1205e-15,
+      -1.749766e-13
+    ],
+    "serialized_force_resultant_principal_at_unit_amplitude_n": [
+      0.0,
+      76.6044443118978,
+      -64.27876096865404
+    ],
+    "snapshot_capture_policy": "Each file copied through its size at open, STA first. Non-atomic across files. Only complete reports at accepted STA times may be compared. Missing/partial output is unavailable, not zero.",
+    "snapshot_manifest_sha256": "07566ead8aa5e7c9b48d0bbd1a026240c507cd2da805d5dc9a256eccb21c1483",
+    "snapshot_output_sha256": {
+      "execution.json": "d96dde6bd664a7e9e5a775b861f3770ddf0d7e737d7d6ba3bbd1169b45a03f52",
+      "input-freeze.json": "ea24423f587795743d0c1189c798f77d83159208c76d5d1d3a9fa5554eda4f56",
+      "pilot.dat": "4b79c455b7d3510b2e53fb4b133ec5bc0fd28edc7cd4181f8b134589db1f6bd5",
+      "pilot.frd": "2cc511c3371b66071f3ab80a2156183c2f9a92d57e1a1b559ebcf583cc0dc60d",
+      "pilot.sta": "008a90001b3b88291123e636528c39de23e512d3106f5facdbc8ef6fed06fdc5",
+      "snapshot.json": "07566ead8aa5e7c9b48d0bbd1a026240c507cd2da805d5dc9a256eccb21c1483"
+    },
+    "source_helpers_sha256": {
+      "c3d10_mesh_helper": "3f9cb7768f2ba0efb4e5b26f56222422a09048bfe5e1acdf5ded26f749d861c0",
+      "dynamic_momentum_helper": "f97f0214a8dcd6ae8e539ed3f1377603031776e1b84235bb5dd058e48fd104e3",
+      "finite_actuator_mass_frd_helper": "d03ee3ea95c00f7137a07cf8d3a5b474bfd5f0c03786686838a66eeb935bbf1f",
+      "first_knot_contact_report_parser": "8d32aed77f1bffdec3101747c1e2c40eb9cc5e3fb8707ddee89e24d1a458c40c",
+      "force_seating_contact_coverage_api": "37114577aac614952db215b5aa7c361df2b7e16b01133736d480db1a128c87ae",
+      "force_seating_momentum_audit_api": "3771729a6e032a49b594ed922d8864241003bb045b9aa962fcc853a5b9474760",
+      "numeric_status_parser": "c43341d3a72904641a973b017e591b02fdc32bc342f192f5148de5746cf212c6",
+      "terminal_contact_parser": "d97c57f64d5d8a37b5617e45c353334be37ca3bbcc43f64039425bdd6e968b14"
+    },
+    "terminal_contact_parse_issues_outside_accepted_target_blocks": []
+  },
+  "schema": "wood_joint_halfdt_early_momentum_audit/v1",
+  "scope": {
+    "cleat_contact_interfaces": [
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": 1,
+        "cleat_is": "slave",
+        "master_owner": "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "pair_id": "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+        "pair_index": 1,
+        "slave_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": 1,
+        "cleat_is": "slave",
+        "master_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "pair_id": "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+        "pair_index": 2,
+        "slave_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+        "pair_index": 5,
+        "slave_owner": "M01_A00_HEAD_WASHER"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+        "pair_index": 9,
+        "slave_owner": "M05_A01_HEAD_WASHER"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+        "pair_index": 13,
+        "slave_owner": "M09_A02_HEAD_WASHER"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+        "pair_index": 17,
+        "slave_owner": "M13_A03_HEAD_WASHER"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "pair_index": 20,
+        "slave_owner": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+        "pair_index": 22,
+        "slave_owner": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "pair_index": 24,
+        "slave_owner": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore",
+        "pair_index": 26,
+        "slave_owner": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION"
+      }
+    ],
+    "cleat_contact_treatment": "All ten manifest-derived cleat-incident CF/CFN/CFS triplets are complete at .001, .0015, and .002 s. At .002, nonincident pair 033 is partial and 034/035 are missing; they are not imputed or used. CF acts on the slave and is reversed for a master-side cleat; CFN/CFS are not added.",
+    "complete_pair_triplet_count_required_per_used_state": 10,
+    "contact_impulse_states_seconds": [
+      0.001,
+      0.0015,
+      0.002
+    ],
+    "contact_output_contract": {
+      "frequency": 1,
+      "global_requests": 1,
+      "pair_order_matches_manifest": true,
+      "pair_requests": 35,
+      "request_quantities": "CF,CFN,CFS"
+    },
+    "external_force_basis": "Frozen 662-term *CLOAD,AMPLITUDE=RAMP_N pattern integrated over the piecewise-linear source table; no actuator RF substituted.",
+    "global_internal_contact_treatment": "Contact is internal to the positive-mass global system and is not added to the global external impulse.",
+    "interval_seconds": [
+      0.001,
+      0.002
+    ],
+    "mass_operators": "Authenticated Gauss8 physical consistent-mass operator and source-reconstructed CalculiX 2.21 four-point operator, reported separately.",
+    "mass_scope": "All positive-density C3D10 bodies (three wood and twelve steel); zero-density display carriers and massless controls excluded.",
+    "momentum_endpoint_states_seconds": [
+      0.001,
+      0.002
+    ],
+    "ramp_integration": "All frozen RAMP_N knots inside the interval are inserted. The .001 and .002 endpoints are table knots; the interval is one linear segment.",
+    "rejected_status_rows": 0,
+    "snapshot_accepted_state_count": 4
+  },
+  "status": "BOUNDED_EARLY_ENDPOINT_MOMENTUM_BOOKKEEPING_NOT_JOINT_ACCEPTANCE"
+}

@@ -1,0 +1,541 @@
+{
+  "disposition": {
+    "combined_q_plus_relative_six_as_a_service_case": "NO; q is an internal cleat seat coordinate, not a physical service restraint. It may only be a separate, labeled clearance-seating diagnostic unless a physical fixture/load case justifies it.",
+    "current_direct_patch_or_reduced_bound_route_ready": false,
+    "current_static_q_response_or_stiffness_accepted": false,
+    "single_q_plus_six_global_gauges_for_static_joint_stiffness": "NO",
+    "six_relative_rail_principal_controls_as_component_test_kinematics": "YES_AS_PHYSICALLY_INTERPRETABLE_BOUNDARY_CONDITION_BUT_NOT_SUFFICIENT_FOR_THIS_CURRENT_PATCH"
+  },
+  "expanded_nullspace": {
+    "additional_nonspin_hardware_nullity": 32,
+    "classification_limit": "The sixteen pure component-axis spins are null under the modeled normal-only seat and axial-MPC equations. They are gauge-like for non-torsional response only under an axisymmetric/no-torque connection idealization; thread torque, nut seating, or friction can make them response-affecting. The other thirty-two are not global gauges or these pure spins; they remain unclassified internal hardware mechanisms and cannot be presumed energetically irrelevant or stabilized away.",
+    "maximum_augmented_row_residual_for_spin_vectors": 3.163048711840588e-10,
+    "maximum_relative_wood_interface_observable_null_projection": 8.052894612162449e-11,
+    "maximum_spin_projection_error_from_nullspace": 3.163044839188402e-10,
+    "metal_body_null_participation_fraction": 0.9999999999999999,
+    "nullity": 48,
+    "per_body_null_participation_fraction": {
+      "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION": 0.06250000000000003,
+      "M01_A00_HEAD_WASHER": 0.06249999999999999,
+      "M02_A00_NUT_WASHER": 0.06249999999999997,
+      "M03_A00_NUT": 0.06249999999999999,
+      "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION": 0.06249999999999999,
+      "M05_A01_HEAD_WASHER": 0.06249999999999999,
+      "M06_A01_NUT_WASHER": 0.06249999999999999,
+      "M07_A01_NUT": 0.06249999999999997,
+      "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION": 0.06249999999999999,
+      "M09_A02_HEAD_WASHER": 0.06249999999999999,
+      "M10_A02_NUT_WASHER": 0.06249999999999999,
+      "M11_A02_NUT": 0.06249999999999999,
+      "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION": 0.06249999999999999,
+      "M13_A03_HEAD_WASHER": 0.06249999999999999,
+      "M14_A03_NUT_WASHER": 0.06249999999999999,
+      "M15_A03_NUT": 0.06249999999999999,
+      "W00_BOTTOM_CENTER_RIGHT_CLEAT": 2.7721565357608857e-22,
+      "W01_BASE_RAIL_BOTTOM_RIGHT": 5.393204697151717e-22,
+      "W02_BASE_PRINCIPAL_CENTER_RIGHT": 3.4868739474698595e-31
+    },
+    "relative_wood_interface_observables": {
+      "base_rail_bottom_right_to_base_principal_center_right": {
+        "rotation_X": 3.664982935240383e-17,
+        "rotation_Y": 2.2398829679925016e-13,
+        "rotation_Z": 2.0520918596496536e-13,
+        "translation_N": 3.405877814176388e-15,
+        "translation_T": 3.1313385145854907e-15,
+        "translation_X": 1.072956241257358e-11
+      },
+      "bottom_center_right_cleat_to_base_principal_center_right": {
+        "rotation_X": 8.542696281982547e-13,
+        "rotation_Y": 2.6299577765952145e-13,
+        "rotation_Z": 2.447024429167124e-13,
+        "translation_N": 2.9845354739859124e-15,
+        "translation_T": 5.109769541312034e-11,
+        "translation_X": 1.4930522310035967e-11
+      },
+      "bottom_center_right_cleat_to_base_rail_bottom_right": {
+        "rotation_X": 8.542697419334136e-13,
+        "rotation_Y": 4.869840734233714e-13,
+        "rotation_Z": 4.499116226825015e-13,
+        "translation_N": 3.93374704848639e-11,
+        "translation_T": 8.052894612162449e-11,
+        "translation_X": 1.549493173648508e-11
+      }
+    },
+    "verified_component_axis_spin_body_ids": [
+      "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "M01_A00_HEAD_WASHER",
+      "M02_A00_NUT_WASHER",
+      "M03_A00_NUT",
+      "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "M05_A01_HEAD_WASHER",
+      "M06_A01_NUT_WASHER",
+      "M07_A01_NUT",
+      "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "M09_A02_HEAD_WASHER",
+      "M10_A02_NUT_WASHER",
+      "M11_A02_NUT",
+      "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+      "M13_A03_HEAD_WASHER",
+      "M14_A03_NUT_WASHER",
+      "M15_A03_NUT"
+    ],
+    "verified_component_axis_spin_count": 16,
+    "verified_component_axis_spin_rank": 16,
+    "wood_body_null_participation_fraction": 8.165361236399476e-22
+  },
+  "frozen_input_sha256": {
+    "accepted_inc1_comparison": "b1d9750339de6042b3943158d9af981b46ac86ec2aec51b7110267ebf03a93bd",
+    "actuator": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+    "classification": "18bdf1b9736ce6ca2cf2b3dd0488a7651da05f35e531605fd465e7b502363f13",
+    "current_criteria_coverage": "ccda149cf7add227a7a038311625595764331c57a43af6b23de973a88d1b6e0a",
+    "engagement_applicability": "5e5e530b45812519e6c8dc6811bee740cd717b3b8ffe2cba5070f83691645305",
+    "instrumented_attempt_execution": "bb103133a63954751e926cde03c2f92299280cbe8d3ae89600da11343eba98a9",
+    "inventory": "70b396e636175abcad7467dc145029d7126c1ea7dff1d053a61f8c5321e1c1d3",
+    "material_scenarios": "dd76354c0fa68a01a336cef22fe1cf854baaaf1ceda22dd11ceb881a274bb3c4",
+    "mesh_bundle": "3bd1b28bdbc9c109c6c96183a01e132cbd4c15f86867dca54e0c6ec3a309f4ac",
+    "mesh_report": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "native_matrix_witness": "ff4b701f4df42b45e8e69c914a7208c822f1673148125755df4a697a34d74413",
+    "native_preflight_execution": "0ba6907c82486040c09ad60e8f600017c000f0a11ba82239f42f497ccdf0dfab",
+    "native_preflight_readme": "0f4a02e23b3b10e2b1e15ade285b4954b8ce18685e3a1f83c56444cfab2640c8",
+    "ordinary_response_method": "57175468e43da005078d0b9e807da3e92c20a7a433fcb1c4a2693493c57c0c0b",
+    "rigid_mode_helper": "d59d6ae6fb86f981b78e2c4b2e8578c938e1cfafc646d7c011c0187ef3b53647",
+    "rigid_mode_matrix": "de205bd0b94cde0687f2ae8e666866a1cd2b0323050a89b3de4b373d2588f282",
+    "rigid_mode_summary": "c500031cd50b07b5f232e27db8c521ab8cc76d2d72883b7605bd80e680c03db1",
+    "tiny_static_q_outcome": "966555b992e875692bb3a6a7acd67853549309dcfb17cc96126db35316536d6c",
+    "unit_response_contract": "edba2e6678edba206e920292770d6bd8f20fc7bb2bfc861cc8d4c0e340a7cb9a",
+    "upstream_attempt_execution": "6cd07953d6756a2e8d1a5ae7b080523ec499bdb759f8504fd7277bec66f77234",
+    "upstream_attempt_outcome": "88d76715a01dd4c33efeef6b5e33c1babc6996981cfb88385bde81d339ce28d5"
+  },
+  "limits": [
+    "The rigid matrix is a sensitivity under assumed closed bilateral face-normal constraints and assumed axial MPCs; unilateral contacts and finite clearances can add mechanisms.",
+    "The six relative controls are kinematic inputs; they do not prove internal cleat/hardware equilibrium after controls are released.",
+    "No stiffness, resistance, capacity, service demand, material property, product choice, or release conclusion is produced.",
+    "Six-axis torque response cannot dismiss bolt/nut axis spins as harmless without a torsional applicability basis."
+  ],
+  "native_evidence": {
+    "interpretation": "The candidate cleat-slip vector has a near-zero residual in the emitted zero-load reference tangent. The native record does not prove the contact active set or zero-pressure state, so this is not proof of a physically equilibrated free mechanism. It does not establish total nullity or make q control a service restraint.",
+    "native_matrix_probe": {
+      "contact_active_set_proven": false,
+      "displacement": "1 mm translation of all 9,369 cleat nodes along local N with other bodies/control zero",
+      "maximum_nodal_residual_n": 2.577653958724113e-06,
+      "scaled_residual": 1.3753733031805013e-12,
+      "scaled_residual_limit": 1e-08
+    },
+    "paired_output_instrumentation_comparison": {
+      "accepted_inc1_prefix_output_comparison_passed": true,
+      "accepted_states_compared": 1,
+      "attempt": "dependent-native-upstream-attempt01",
+      "comparison_report_sha256": "b1d9750339de6042b3943158d9af981b46ac86ec2aec51b7110267ebf03a93bd",
+      "comparison_report_status": "ACCEPTED_INC1_PREFIX_OUTPUT_DIAGNOSTIC_ONLY_RUNTIME_NOT_ACCEPTED",
+      "dat_contact_max_abs_difference": "0",
+      "frd_datasets_compared": 6,
+      "full_run_solver_exit_codes": {
+        "instrumented": 201,
+        "unmodified_upstream": 201
+      },
+      "full_step_pass": false,
+      "full_trajectory_neutrality": false,
+      "interpretation": "The accepted first-increment (0.0005 s) output comparison passed as a bounded diagnostic: six accepted-state FRD datasets and 35-pair contact triplets agree within frozen print bounds. Both full runs later exited 201 at the endpoint; runtime, full-step, full-trajectory, and mechanical acceptance remain false.",
+      "mechanical_acceptance": false,
+      "runtime_pass": false,
+      "timed_out": false
+    },
+    "reference_tangent_preflight_completed": true
+  },
+  "producer_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/static-q-rank-disposition-attempt01/rank_analysis.py",
+  "producer_sha256": "46e6e808c94a91d542099084716e3bc86c3ab649e805410bd6166e9541ce75f2",
+  "q_coordinate": {
+    "actuator_artifact_is_input_only": true,
+    "analytic_relative_displacement_row_scale": 1.0000000000000016,
+    "datum_global_xyz_mm": [
+      89.05,
+      42.906715329,
+      486.256134997
+    ],
+    "direction_global_xyz": [
+      0.0,
+      -0.766044443118978,
+      0.6427876096865394
+    ],
+    "moving_body": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+    "physical_nodal_equation_terms": 662,
+    "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+    "relative_row_error": 2.6033860957748083e-16,
+    "role_limit": "q is an exact work-conjugate finite-patch coordinate and a possible separately labeled clearance-seating input. It is not a physical service restraint or an accepted static joint load case.",
+    "source_actuator_status": "CURRENT_PATCH_ACTUATOR_INPUT_ONLY",
+    "source_interface_id": "bottom_center_right_cleat_to_base_principal_center_right",
+    "unit_wrench_force_residual_n": [
+      0.0,
+      8.968520370800093e-16,
+      -1.8301332671555315e-16
+    ],
+    "unit_wrench_moment_residual_nmm": [
+      -5.144773496112975e-13,
+      2.1149748619109232e-14,
+      7.460698725481052e-14
+    ]
+  },
+  "q_does_not_resolve_wood_modes_alone": {
+    "maximum_wood_relative_observable_null_projection_by_case": {
+      "six_global_gauges_only": 1.4280975005862135,
+      "six_global_gauges_plus_relative_rail_principal_six": 0.9999999999999973,
+      "six_global_gauges_plus_relative_six_plus_q": 8.052894612162449e-11,
+      "six_global_gauges_plus_single_q": 1.0195403256243114
+    },
+    "note": "The exact q row removes one null direction. Six rail/principal controls without q leave one cleat-related wood mode in this screen. Combining q with all six controls removes the tested rigid relative wood observables only while both sets of kinematics are enforced.",
+    "null_projection_of_q_after_q_control": 3.3103129059936384e-15,
+    "null_projection_of_q_after_six_relative_controls_without_q": 0.9999999999999973,
+    "wood_relative_observables_by_case": {
+      "six_global_gauges_only": {
+        "base_rail_bottom_right_to_base_principal_center_right": {
+          "rotation_X": 0.003128392967553632,
+          "rotation_Y": 2.903993835227011e-13,
+          "rotation_Z": 2.739415282528542e-13,
+          "translation_N": 1.0000000000000062,
+          "translation_T": 0.3162277660350723,
+          "translation_X": 1.8811801377677795e-11
+        },
+        "bottom_center_right_cleat_to_base_principal_center_right": {
+          "rotation_X": 0.003128392967389267,
+          "rotation_Y": 2.304922338531538e-13,
+          "rotation_Z": 2.144595187204361e-13,
+          "translation_N": 1.0000000000000004,
+          "translation_T": 0.31622776603507274,
+          "translation_X": 1.3084614271476667e-11
+        },
+        "bottom_center_right_cleat_to_base_rail_bottom_right": {
+          "rotation_X": 8.841701016750349e-13,
+          "rotation_Y": 5.208916171493431e-13,
+          "rotation_Z": 4.884010341278927e-13,
+          "translation_N": 1.4280975005862135,
+          "translation_T": 8.371142232900145e-11,
+          "translation_X": 2.551289162693614e-11
+        }
+      },
+      "six_global_gauges_plus_relative_rail_principal_six": {
+        "base_rail_bottom_right_to_base_principal_center_right": {
+          "rotation_X": 4.117521020715506e-17,
+          "rotation_Y": 2.2399192720513627e-13,
+          "rotation_Z": 2.0521193716472548e-13,
+          "translation_N": 3.036339889734073e-15,
+          "translation_T": 9.676011776334352e-15,
+          "translation_X": 1.0727271562995402e-11
+        },
+        "bottom_center_right_cleat_to_base_principal_center_right": {
+          "rotation_X": 8.54276001312803e-13,
+          "rotation_Y": 2.629958663724269e-13,
+          "rotation_Z": 2.4470307663782924e-13,
+          "translation_N": 0.9999999999999973,
+          "translation_T": 5.109803033187537e-11,
+          "translation_X": 1.4932890720711354e-11
+        },
+        "bottom_center_right_cleat_to_base_rail_bottom_right": {
+          "rotation_X": 8.542698801498806e-13,
+          "rotation_Y": 4.869877700647116e-13,
+          "rotation_Z": 4.4991500706157385e-13,
+          "translation_N": 0.999999999999986,
+          "translation_T": 8.052948341710435e-11,
+          "translation_X": 1.5495077581439175e-11
+        }
+      },
+      "six_global_gauges_plus_relative_six_plus_q": {
+        "base_rail_bottom_right_to_base_principal_center_right": {
+          "rotation_X": 3.664982935240383e-17,
+          "rotation_Y": 2.2398829679925016e-13,
+          "rotation_Z": 2.0520918596496536e-13,
+          "translation_N": 3.405877814176388e-15,
+          "translation_T": 3.1313385145854907e-15,
+          "translation_X": 1.072956241257358e-11
+        },
+        "bottom_center_right_cleat_to_base_principal_center_right": {
+          "rotation_X": 8.542696281982547e-13,
+          "rotation_Y": 2.6299577765952145e-13,
+          "rotation_Z": 2.447024429167124e-13,
+          "translation_N": 2.9845354739859124e-15,
+          "translation_T": 5.109769541312034e-11,
+          "translation_X": 1.4930522310035967e-11
+        },
+        "bottom_center_right_cleat_to_base_rail_bottom_right": {
+          "rotation_X": 8.542697419334136e-13,
+          "rotation_Y": 4.869840734233714e-13,
+          "rotation_Z": 4.499116226825015e-13,
+          "translation_N": 3.93374704848639e-11,
+          "translation_T": 8.052894612162449e-11,
+          "translation_X": 1.549493173648508e-11
+        }
+      },
+      "six_global_gauges_plus_single_q": {
+        "base_rail_bottom_right_to_base_principal_center_right": {
+          "rotation_X": 0.0031283929675536243,
+          "rotation_Y": 2.9040053407879665e-13,
+          "rotation_Z": 2.7393952977397003e-13,
+          "translation_N": 1.0000000000000053,
+          "translation_T": 0.31622776603507263,
+          "translation_X": 1.8810372202001683e-11
+        },
+        "bottom_center_right_cleat_to_base_principal_center_right": {
+          "rotation_X": 0.0031283929673892705,
+          "rotation_Y": 2.3048995768670876e-13,
+          "rotation_Z": 2.1445762057124225e-13,
+          "translation_N": 3.068164916088251e-09,
+          "translation_T": 0.3162277660350731,
+          "translation_X": 1.3085928598810495e-11
+        },
+        "bottom_center_right_cleat_to_base_rail_bottom_right": {
+          "rotation_X": 8.841702567887725e-13,
+          "rotation_Y": 5.208904906280757e-13,
+          "rotation_Z": 4.883971499009479e-13,
+          "translation_N": 1.0195403256243114,
+          "translation_T": 8.371132739793617e-11,
+          "translation_X": 2.5512900679791763e-11
+        }
+      }
+    }
+  },
+  "rank_cases": {
+    "six_global_gauges_only": {
+      "columns": 114,
+      "largest_singular_value": 35.26487818008448,
+      "nullity": 52,
+      "rank": 62,
+      "rank_tolerance_relative": 1e-10,
+      "rows": 67
+    },
+    "six_global_gauges_plus_relative_rail_principal_six": {
+      "columns": 114,
+      "largest_singular_value": 36.76863821766575,
+      "nullity": 49,
+      "rank": 65,
+      "rank_tolerance_relative": 1e-10,
+      "rows": 73
+    },
+    "six_global_gauges_plus_relative_six_plus_q": {
+      "columns": 114,
+      "largest_singular_value": 36.76863842018037,
+      "nullity": 48,
+      "rank": 66,
+      "rank_tolerance_relative": 1e-10,
+      "rows": 74
+    },
+    "six_global_gauges_plus_single_q": {
+      "columns": 114,
+      "largest_singular_value": 35.26487843932922,
+      "nullity": 51,
+      "rank": 63,
+      "rank_tolerance_relative": 1e-10,
+      "rows": 68
+    }
+  },
+  "rank_method": {
+    "active_set_limit": "All three finite wood patches and sixteen hardware seats are treated as closed bilateral normal equalities, with four assumed axial bolt/nut MPC rows. This is a maximal-closure kinematic screen, not the current unilateral zero-load active set or a continuum tangent.",
+    "base_matrix_has_six_global_gauges": true,
+    "base_row_kind_counts": {
+      "assumed_active_contact_normal": 57,
+      "declared_thread_translation:assumed bilateral infinite axial engagement; kinematic sensitivity only, not physical thread evidence": 4,
+      "global_coordinate_gauge": 6
+    },
+    "characteristic_length_mm": 100.0,
+    "description": "SVD row-space rank of the frozen maximal-closure rigid-body matrix, exact actuator row, and explicitly constructed rail/principal relative six-DOF control rows.",
+    "patch_inventory": {
+      "assumed_axial_mpc_rows": 4,
+      "direct_rail_principal_butt_seat_area_mm2": 5322.5700000031875,
+      "full_timber_bodies": 3,
+      "hardware_seats": 16,
+      "physical_hardware_component_bodies": 16,
+      "wood_interfaces": [
+        "bottom_center_right_cleat_to_base_rail_bottom_right",
+        "bottom_center_right_cleat_to_base_principal_center_right",
+        "base_rail_bottom_right_to_base_principal_center_right"
+      ]
+    },
+    "relative_tolerance": 1e-10
+  },
+  "rank_tolerance_sensitivity": {
+    "by_relative_tolerance": {
+      "1e-09": {
+        "six_global_gauges_only": {
+          "next_two_singular_ratios": [
+            5.646083070529378e-12,
+            4.959625676756168e-12
+          ],
+          "nullity": 52,
+          "rank": 62,
+          "smallest_retained_singular_ratio": 0.0008930993168743435
+        },
+        "six_global_gauges_plus_relative_rail_principal_six": {
+          "next_two_singular_ratios": [
+            5.4115928807236585e-12,
+            4.678504999229165e-12
+          ],
+          "nullity": 49,
+          "rank": 65,
+          "smallest_retained_singular_ratio": 8.507583326534284e-05
+        },
+        "six_global_gauges_plus_relative_six_plus_q": {
+          "next_two_singular_ratios": [
+            5.411595585282298e-12,
+            4.678504411441663e-12
+          ],
+          "nullity": 48,
+          "rank": 66,
+          "smallest_retained_singular_ratio": 8.507582885552635e-05
+        },
+        "six_global_gauges_plus_single_q": {
+          "next_two_singular_ratios": [
+            5.646080656201186e-12,
+            4.959630182934748e-12
+          ],
+          "nullity": 51,
+          "rank": 63,
+          "smallest_retained_singular_ratio": 0.0008930993097060056
+        }
+      },
+      "1e-10": {
+        "six_global_gauges_only": {
+          "next_two_singular_ratios": [
+            5.646083070529378e-12,
+            4.959625676756168e-12
+          ],
+          "nullity": 52,
+          "rank": 62,
+          "smallest_retained_singular_ratio": 0.0008930993168743435
+        },
+        "six_global_gauges_plus_relative_rail_principal_six": {
+          "next_two_singular_ratios": [
+            5.4115928807236585e-12,
+            4.678504999229165e-12
+          ],
+          "nullity": 49,
+          "rank": 65,
+          "smallest_retained_singular_ratio": 8.507583326534284e-05
+        },
+        "six_global_gauges_plus_relative_six_plus_q": {
+          "next_two_singular_ratios": [
+            5.411595585282298e-12,
+            4.678504411441663e-12
+          ],
+          "nullity": 48,
+          "rank": 66,
+          "smallest_retained_singular_ratio": 8.507582885552635e-05
+        },
+        "six_global_gauges_plus_single_q": {
+          "next_two_singular_ratios": [
+            5.646080656201186e-12,
+            4.959630182934748e-12
+          ],
+          "nullity": 51,
+          "rank": 63,
+          "smallest_retained_singular_ratio": 0.0008930993097060056
+        }
+      },
+      "1e-11": {
+        "six_global_gauges_only": {
+          "next_two_singular_ratios": [
+            5.646083070529378e-12,
+            4.959625676756168e-12
+          ],
+          "nullity": 52,
+          "rank": 62,
+          "smallest_retained_singular_ratio": 0.0008930993168743435
+        },
+        "six_global_gauges_plus_relative_rail_principal_six": {
+          "next_two_singular_ratios": [
+            5.4115928807236585e-12,
+            4.678504999229165e-12
+          ],
+          "nullity": 49,
+          "rank": 65,
+          "smallest_retained_singular_ratio": 8.507583326534284e-05
+        },
+        "six_global_gauges_plus_relative_six_plus_q": {
+          "next_two_singular_ratios": [
+            5.411595585282298e-12,
+            4.678504411441663e-12
+          ],
+          "nullity": 48,
+          "rank": 66,
+          "smallest_retained_singular_ratio": 8.507582885552635e-05
+        },
+        "six_global_gauges_plus_single_q": {
+          "next_two_singular_ratios": [
+            5.646080656201186e-12,
+            4.959630182934748e-12
+          ],
+          "nullity": 51,
+          "rank": 63,
+          "smallest_retained_singular_ratio": 0.0008930993097060056
+        }
+      },
+      "1e-12": {
+        "six_global_gauges_only": {
+          "next_two_singular_ratios": [
+            1.748714469108293e-16,
+            9.148984352768292e-17
+          ],
+          "nullity": 50,
+          "rank": 64,
+          "smallest_retained_singular_ratio": 4.959625676756168e-12
+        },
+        "six_global_gauges_plus_relative_rail_principal_six": {
+          "next_two_singular_ratios": [
+            1.6792405144898322e-16,
+            9.248183177507143e-17
+          ],
+          "nullity": 47,
+          "rank": 67,
+          "smallest_retained_singular_ratio": 4.678504999229165e-12
+        },
+        "six_global_gauges_plus_relative_six_plus_q": {
+          "next_two_singular_ratios": [
+            1.6792585713978e-16,
+            9.248182158659394e-17
+          ],
+          "nullity": 46,
+          "rank": 68,
+          "smallest_retained_singular_ratio": 4.678504411441663e-12
+        },
+        "six_global_gauges_plus_single_q": {
+          "next_two_singular_ratios": [
+            1.6414177926053524e-16,
+            9.148984283220878e-17
+          ],
+          "nullity": 49,
+          "rank": 65,
+          "smallest_retained_singular_ratio": 4.959630182934748e-12
+        }
+      }
+    },
+    "description": "Exact reported nullities use relative SVD threshold 1e-10. The same integer ranks persist at 1e-9 and 1e-11; at 1e-12 two additional near-singular directions are retained in every case."
+  },
+  "reduced_bound_disposition": {
+    "clearance_basis": "Use a frozen modeled dimensional clearance scenario, explicitly distinguished from clearance measured on a received physical part. A supported provisional dimensional scenario may be analyzed conditionally; it does not imply a received-part measurement.",
+    "currently_qualified_source_bound": false,
+    "next_supported_route": "Obtain a current, applicable fastener/wood slip law or a justified evidence-backed lower/upper connection model; include the frozen modeled dimensional clearance scenario explicitly and keep bolt bending, wood bearing, axial engagement, and seat compliance in series without double counting. Then propagate the bounded laws through fresh whole-frame sensitivity cases. Until those source inputs exist, retain the dynamic seating case as a clearance/contact diagnostic only; do not infer static stiffness from its endpoint or substitute an arbitrary positive K.",
+    "why_not": [
+      "The ordinary-joint method describes an older EN 1995-1-1:2004+A1:2008 K_ser expression as a comparison and explicitly says the 2025 edition must be checked before calling that rule current; the described 460/500/520 kg/m^3 points are not material bounds.",
+      "The four current WJ24 bottom-center stack products are not selected, and source applicability for physical 1/4-20 thread engagement, bolt/nut stiffness/slack, and seat transfer remains unresolved.",
+      "The current six-case applied-load contract does not provide a joint load split or accepted current interface stiffness; a whole-frame sensitivity can only be diagnostic until a defensible law and bounded parameters exist."
+    ]
+  },
+  "relative_interface_control": {
+    "component_rows": [
+      "relative_translation_X",
+      "relative_translation_Y",
+      "relative_translation_Z",
+      "relative_rotation_X",
+      "relative_rotation_Y",
+      "relative_rotation_Z"
+    ],
+    "datum_global_xyz_mm": [
+      89.05,
+      2.0899712089890006,
+      437.61263355286934
+    ],
+    "interface_id": "base_rail_bottom_right_to_base_principal_center_right",
+    "interpretation": "Six relative translation/rotation components at the direct rail/principal butt-seat datum; these are prescribed interface kinematics, not arbitrary internal stabilizers or global gauges.",
+    "moving_body": "W01_BASE_RAIL_BOTTOM_RIGHT",
+    "reference_body": "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+  },
+  "schema": "wood_joint_static_q_rank_disposition/v1",
+  "status": "KINEMATIC_RANK_ONLY_NO_STATIC_JOINT_STIFFNESS_ACCEPTANCE"
+}

@@ -1,0 +1,175 @@
+{
+  "assumed_material_density_tonne_per_mm3": 6e-10,
+  "limitations": [
+    "No exact second moments or rigid-body effective inertia about the interface datum are included; source mesh metadata has no inertia tensors.",
+    "The two-body reduction omits the rail, bolt and washer inertia; current contacts, open clearances, rigid nut-envelope couplings and wood flexibility can change q mobility and frequencies.",
+    "No physical frequency upper or lower bound is inferred. A 200 N/mm actuator spring is a numerical diagnostic choice only; sensitivity and timestep convergence remain necessary.",
+    "The old k1e4 case label refers to contact penalty in N/mm^3, not this actuator spring stiffness in N/mm. Its CLOAD transient is not a static q-stiffness calibration.",
+    "The source model lacks verified physical nut bore/thread engagement; this estimate cannot establish bearing, fastener, or complete-joint response."
+  ],
+  "mass_properties": {
+    "interpretation": "Two independently translating rigid wood members with q=cleat_N_translation-principal_N_translation. No rotation, rail, bolts, washers, contact coupling, or flexible internal modes. This is an illustrative scale for this two-member reduction, not a bound for the assembled joint.",
+    "mass_moment_status": "The frozen mesh metadata provides CAD centroids and volumes but no inertia tensors. This estimate intentionally uses translation-only reduction; the archived .mas is pinned by the separate mass audit but no rigid-body second-moment projection is claimed here.",
+    "members": {
+      "cleat": {
+        "density_tonne_per_mm3": 6e-10,
+        "integrated_mesh_volume_mm3": 930312.0356627317,
+        "mass_kg": 0.5581872213976391,
+        "mass_tonne": 0.0005581872213976391,
+        "mesh_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "source_cad_volume_mm3": 930304.310236643,
+        "source_centroid_global_xyz_mm": [
+          133.491556566,
+          42.906713057,
+          486.256132289
+        ],
+        "volume_relative_error": 8.304192513974943e-06
+      },
+      "principal": {
+        "density_tonne_per_mm3": 6e-10,
+        "integrated_mesh_volume_mm3": 13064724.065352224,
+        "mass_kg": 7.838834439211335,
+        "mass_tonne": 0.007838834439211335,
+        "mesh_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "source_cad_volume_mm3": 13064685.127370844,
+        "source_centroid_global_xyz_mm": [
+          70.0,
+          666.972296508,
+          1230.58080951
+        ],
+        "volume_relative_error": 2.980399527469183e-06
+      }
+    },
+    "translation_only_q_effective_mass_formula": "mu=(mc*mp)/(mc+mp)=1/(1/mc+1/mp)",
+    "translation_only_q_effective_mass_kg": 0.5210820444998316,
+    "translation_only_q_effective_mass_tonne": 0.0005210820444998316
+  },
+  "recommended_first_diagnostic": {
+    "actuator_stiffness_N_per_mm": 200.0,
+    "comparison_points": [
+      {
+        "actuator_stiffness_N_per_mm": 100.0,
+        "free_two_body_frequency_Hz": 69.72155705416829,
+        "free_two_body_omega_rad_per_s": 438.0734628764334,
+        "free_two_body_period_s": 0.014342766315776296,
+        "quintic_ramp_acceleration_force_scale_N": 0.345973887461137,
+        "ramp_periods_at_0p1s": 6.972155705416829,
+        "slow_ramp_lag_scale_mm": 0.00345973887461137,
+        "steps_per_actuator_period_at_dt_0p0005_s": 28.68553263155259
+      },
+      {
+        "actuator_stiffness_N_per_mm": 200.0,
+        "free_two_body_frequency_Hz": 98.60117157577432,
+        "free_two_body_omega_rad_per_s": 619.5294325155986,
+        "free_two_body_period_s": 0.010141867322859413,
+        "quintic_ramp_acceleration_force_scale_N": 0.345973887461137,
+        "ramp_periods_at_0p1s": 9.860117157577433,
+        "slow_ramp_lag_scale_mm": 0.001729869437305685,
+        "steps_per_actuator_period_at_dt_0p0005_s": 20.283734645718827
+      }
+    ],
+    "maximum_time_increment_s": 0.0005,
+    "rationale": "Sets the two-member free q oscillator near 100 Hz from the projected masses, avoiding a large controller stiffness. The 100 N/mm alternate provides a bounded factor-two sensitivity point.",
+    "required_observations": [
+      "actual physical q from the fitted cleat/principal interface displacement, distinct from q_target and qproxy displacement",
+      "actuator spring force Ka*(q_target-q_actual)",
+      "actuator spring energy 0.5*Ka*(q_target-q_actual)^2, reported separately from contact penalty, internal strain, and kinetic energy",
+      "cumulative target work integral of actuator force against dq_target",
+      "contact engagement and transferred force histories before interpreting q response"
+    ],
+    "simple_inertial_force_scale_N": 0.345973887461137,
+    "slow_tracking_lag_scale_mm_at_recommended_stiffness": 0.001729869437305685,
+    "target_q_end_mm": 1.15,
+    "target_ramp_duration_s": 0.1,
+    "target_ramp_max_acceleration_mm_per_s2": 663.9528095680695,
+    "target_ramp_profile": "q_target=1.15*(10*s^3-15*s^4+6*s^5) mm, s=clamp(t/0.1s,0,1)",
+    "time_increment_basis": "At Ka=200 N/mm and mu=0.000521082 tonne, 0.5 ms is 20.28 increments per two-body actuator period; at the 100 N/mm sensitivity point it is 28.69 increments per period. This resolves only this isolated oscillator, not structural or contact modes."
+  },
+  "schema": "current_finite_actuator_scale_estimate/v1",
+  "scope": "Numerical virtual-actuator scale for a diagnostic current-joint q coordinate. Not a physical actuator, joint stiffness, frequency bound, response, capacity, or acceptance result.",
+  "source_bindings": {
+    "actuator_classification": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-contact-classification-attempt01/classification.json",
+      "sha256": "18bdf1b9736ce6ca2cf2b3dd0488a7651da05f35e531605fd465e7b502363f13"
+    },
+    "actuator_source_inventory": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-inputs-attempt01/inventory.json",
+      "sha256": "70b396e636175abcad7467dc145029d7126c1ea7dff1d053a61f8c5321e1c1d3"
+    },
+    "mass_model_deck": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/preflight.inp",
+      "sha256": "1508d20c992f739896f071c15a21cd7f31b5d964d5d8d7e3c210147effb96817"
+    },
+    "mass_model_materials": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-seating-100n-aligned-k1e4-attempt01/materials.inp",
+      "sha256": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb"
+    },
+    "mass_projection_audit": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-mass-audit-attempt02/audit.json",
+      "sha256": "c0fbd0bee8a1dece951b180e69dc6272c06223bbce336b0f3196a64d111fdf9a"
+    },
+    "mesh_deck": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.inp",
+      "sha256": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803"
+    },
+    "mesh_parent_quality_audit": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/parent-audit.json",
+      "sha256": "fb65d21c5d5b214cfb45549384990d6543d59af8c15e672e64fba2f0d04ee525"
+    },
+    "mesh_report": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.json",
+      "sha256": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07"
+    },
+    "native_dof_map": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/preflight.dof",
+      "sha256": "965347fe1eaa33fe1e8f8025bc0a79a51447d501ff61f06f9541b8982303ad0b"
+    },
+    "native_mass_matrix": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/preflight.mas",
+      "sha256": "91532f4bc32cb353bc42ccd9421f90bfaaf2f30cca2ca1a8e5b9a86045974076"
+    },
+    "unit_q_load_freeze": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-seating-100n-aligned-k1e4-attempt01/input-freeze.json",
+      "sha256": "4f5d892d6f6270ae2d645463255a048b8b719331a0906412c4c4b85fd304f367"
+    },
+    "unit_q_load_weights": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-seating-100n-aligned-k1e4-attempt01/actuator.json",
+      "sha256": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7"
+    }
+  },
+  "source_checks": {
+    "actuator_freeze_end_s": 0.025,
+    "actuator_freeze_material_and_mesh_hashes_match": true,
+    "actuator_freeze_ramp_s": 0.1,
+    "current_mesh_revision": "led-clearance-2x6-runner-seated-blocks-v1",
+    "mesh_parent_quality_audit_status": "PASSED_INDEPENDENT_CURRENT_PATCH_DECK_OWNERSHIP_GAUSS5_AUDIT",
+    "native_mass_projection_audit_all_six_checks_pass": true,
+    "native_mass_projection_audit_status": "CURRENT_NATIVE_MASS_PROJECTION_AUDIT",
+    "unit_load_datum_global_xyz_mm": [
+      89.05,
+      42.906715329,
+      486.256134997
+    ],
+    "unit_load_direction_global_xyz": [
+      0.0,
+      -0.766044443118978,
+      0.6427876096865394
+    ],
+    "unit_load_global_force_residual_n": [
+      0.0,
+      8.968520370800093e-16,
+      -1.8301332671555315e-16
+    ],
+    "unit_load_global_moment_residual_nmm": [
+      -5.144773496112975e-13,
+      2.1149748619109232e-14,
+      7.460698725481052e-14
+    ],
+    "unit_load_interface_id": "bottom_center_right_cleat_to_base_principal_center_right",
+    "unit_load_native_solve_run": false,
+    "unit_load_physical_thread_engagement_verified": false,
+    "unit_load_q_observation": "q = fitted cleat displacement along N minus fitted principal displacement along N, linearized at the common source datum",
+    "unit_load_status": "CURRENT_PATCH_ACTUATOR_INPUT_ONLY"
+  },
+  "status": "BOUNDED_TWO_WOOD_MEMBER_RIGID_TRANSLATION_ESTIMATE"
+}

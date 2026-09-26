@@ -1,0 +1,205 @@
+{
+  "branch_results": [
+    {
+      "branch": "K=100000 baseline",
+      "global_output": {
+        "block_complete_by_cnum_and_fields": true,
+        "cdis_record_count": 24280,
+        "cdis_record_fields": [
+          "slave_element",
+          "slave_face",
+          "normal_mm",
+          "tangential_1_mm",
+          "tangential_2_mm"
+        ],
+        "cdis_rows_first_line_1based": 388,
+        "cdis_rows_last_line_1based": 24667,
+        "cnum_header_line_1based": 73235,
+        "cnum_recorded_time_seconds": 0.001,
+        "cnum_total_contact_elements": 24280,
+        "header_line_1based": 386,
+        "maximum_absolute_normal_record": {
+          "normal_mm": 2.616841e-08,
+          "ordinal": 2166,
+          "slave_element": 4846,
+          "slave_face": 4,
+          "tangential_1_mm": 0.0,
+          "tangential_2_mm": 0.0
+        },
+        "maximum_absolute_tangential_component_mm": 0.0,
+        "maximum_positive_overlap_mm": 2.616841e-08,
+        "maximum_positive_record": {
+          "normal_mm": 2.616841e-08,
+          "ordinal": 2166,
+          "slave_element": 4846,
+          "slave_face": 4,
+          "tangential_1_mm": 0.0,
+          "tangential_2_mm": 0.0
+        },
+        "normal_maximum_mm": 2.616841e-08,
+        "normal_minimum_mm": -1.246561e-08,
+        "normal_negative_count": 22231,
+        "normal_positive_overlap_count": 2049,
+        "normal_zero_count": 0,
+        "recorded_time_seconds": 0.001,
+        "row_count_equals_cnum": true
+      },
+      "penalty_stiffness_n_per_mm3": 100000,
+      "provenance": {
+        "contact_print_input": {
+          "contact_print_card_count": 36,
+          "deck_sha256": "48649259ba8441429a5dd094ae08487e3713d6b5b860ac39ca1acf71b837d963",
+          "global_card_count": 1,
+          "global_card_line": 790,
+          "global_request": "CDIS,CSTR,CELS,CNUM",
+          "pair_specific_card_count": 35,
+          "pair_specific_requests": "CF,CFN,CFS in WJCP_001-WJCP_035 order"
+        },
+        "input_freeze_sha256": "c3349f42bb8aaa3721e90f8f36ffd823c985ba9e0cffc6d8474b8154e1c5e267",
+        "pilot_dat_bytes": 4058970,
+        "pilot_dat_sha256": "9bdf44cb6f7216128e0ba97f0c734011a0f0502b339d840ad99d33195e7b8123",
+        "snapshot_json_sha256": "a91a8412e25c92952ab414e5b65e29cb89a6364a9f114a49fa1ef6c7e81d272e",
+        "source_process_running_at_capture": true
+      },
+      "threshold": {
+        "limit_mm": 0.000575,
+        "max_positive_overlap_exceeds_limit": false,
+        "max_positive_overlap_over_limit_ratio": 4.551027826086957e-05
+      }
+    },
+    {
+      "branch": "K=10000 child",
+      "global_output": {
+        "block_complete_by_cnum_and_fields": true,
+        "cdis_record_count": 110318,
+        "cdis_record_fields": [
+          "slave_element",
+          "slave_face",
+          "normal_mm",
+          "tangential_1_mm",
+          "tangential_2_mm"
+        ],
+        "cdis_rows_first_line_1based": 388,
+        "cdis_rows_last_line_1based": 110705,
+        "cnum_header_line_1based": 331349,
+        "cnum_recorded_time_seconds": 0.001,
+        "cnum_total_contact_elements": 110318,
+        "header_line_1based": 386,
+        "maximum_absolute_normal_record": {
+          "normal_mm": -4.303155e-08,
+          "ordinal": 104355,
+          "slave_element": 56864,
+          "slave_face": 1,
+          "tangential_1_mm": 0.0,
+          "tangential_2_mm": 0.0
+        },
+        "maximum_absolute_tangential_component_mm": 0.0,
+        "maximum_positive_overlap_mm": 2.273343e-08,
+        "maximum_positive_record": {
+          "normal_mm": 2.273343e-08,
+          "ordinal": 4966,
+          "slave_element": 8228,
+          "slave_face": 3,
+          "tangential_1_mm": 0.0,
+          "tangential_2_mm": 0.0
+        },
+        "normal_maximum_mm": 2.273343e-08,
+        "normal_minimum_mm": -4.303155e-08,
+        "normal_negative_count": 109376,
+        "normal_positive_overlap_count": 942,
+        "normal_zero_count": 0,
+        "recorded_time_seconds": 0.001,
+        "row_count_equals_cnum": true
+      },
+      "penalty_stiffness_n_per_mm3": 10000,
+      "provenance": {
+        "contact_print_input": {
+          "contact_print_card_count": 36,
+          "deck_sha256": "48649259ba8441429a5dd094ae08487e3713d6b5b860ac39ca1acf71b837d963",
+          "global_card_count": 1,
+          "global_card_line": 790,
+          "global_request": "CDIS,CSTR,CELS,CNUM",
+          "pair_specific_card_count": 35,
+          "pair_specific_requests": "CF,CFN,CFS in WJCP_001-WJCP_035 order"
+        },
+        "input_freeze_sha256": "4f5d892d6f6270ae2d645463255a048b8b719331a0906412c4c4b85fd304f367",
+        "pilot_dat_bytes": 18171708,
+        "pilot_dat_sha256": "b4fb37761c513d2d169ebf76d45459122061ecd2b5c657845f0342cf2bd96137",
+        "snapshot_json_sha256": "168bf36c4d76b232696bf9099c06ec64d4c464c12ba8a4bd083059238ba9943e",
+        "source_process_running_at_capture": true
+      },
+      "threshold": {
+        "limit_mm": 0.000575,
+        "max_positive_overlap_exceeds_limit": false,
+        "max_positive_overlap_over_limit_ratio": 3.95364e-05
+      }
+    }
+  ],
+  "contact_print_deck": {
+    "expected_sha256": "48649259ba8441429a5dd094ae08487e3713d6b5b860ac39ca1acf71b837d963",
+    "global_request": "CDIS,CSTR,CELS,CNUM",
+    "pair_requests": "CF,CFN,CFS for WJCP_001-WJCP_035",
+    "verified_for_both_branches": true
+  },
+  "contract": {
+    "matched_time_seconds": 0.001,
+    "overlap_limit_mm": 0.000575,
+    "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/penalty-comparison-contract.md",
+    "rule": "flag only if global maximum positive normal CDIS exceeds 0.000575 mm",
+    "sha256": "0d854a2d3d75bd395b00eae3c5b563a00e595b9b38da63d4ceb3d8c637ffd9b7",
+    "time_tolerance_seconds": 1e-08
+  },
+  "interpretation_pins": {
+    "manual_local_path": "fea/generated/connection/ccx_2.21.pdf",
+    "manual_section": "7.23 *CONTACT PRINT",
+    "manual_semantics": "For face-to-face penalty contact, CDIS is stored at active integration points in slave faces; its normal component is positive for normal material overlap. CNUM is the scalar total number of contact elements in the model.",
+    "manual_sha256": "16b6bab5a3f1a40a21fff62379f95c804a58d93758ab2e9a489b18d911dc20c8",
+    "manual_url": "https://www.dhondt.de/ccx_2.21.pdf",
+    "source_archive_pin_review": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/native-contact-recovery-review.md",
+      "sha256": "39f1c66c88cddccc93ba88737d3fb42a409290ea74269499f3d5e0b26ff0ab55"
+    },
+    "source_archive_sha256_from_pinned_repository_review": "52a20ef7216c6e2de75eae460539915640e3140ec4a2f631a9301e01eda605ad",
+    "source_archive_url": "https://www.dhondt.de/ccx_2.21.src.tar.bz2",
+    "source_files": {
+      "printout.f": {
+        "lines": {
+          "CDIS_header_and_face_face_mode": "401-415",
+          "CNUM_total_count": "615-621"
+        },
+        "sha256": "8523567b346600ee8dd84b2ea6fb238677313a4f884b83ba0e7ed66c3ba89af8"
+      },
+      "printoutelem.f": {
+        "lines": {
+          "CDIS_record_fields_for_face_face_mode": "78-90"
+        },
+        "sha256": "d0a8d83575eb6525c8f20063fa38adbc8d6cb5a3d3210ac5fd67da91b9bbc056"
+      }
+    },
+    "source_semantics": "printout.f emits the face-face CDIS heading and CNUM scalar (`ne-ne0+1`); printoutelem.f emits each mortar CDIS row as slave element, face, and three CDIS components."
+  },
+  "limits": [
+    "The snapshots each capture one accepted t=0.001 s state while the source process was still running; they are not terminal runs or contact histories.",
+    "Global CDIS records are not attributed to individual WJCP pairs; no pairwise maximum-overlap conclusion is available.",
+    "The screen compares the global maximum positive normal CDIS with the declared numerical triage limit; it is not a wood-bearing, strength, mesh-accuracy, or acceptance criterion.",
+    "A complete global CDIS/CNUM block is separate from the known partial pair-scoped CF/CFN/CFS reports."
+  ],
+  "pair_output_coverage": {
+    "baseline_complete_CF_CFN_CFS_triplets": 33,
+    "baseline_pair_034_only_CF": true,
+    "baseline_pair_035_report_count": 0,
+    "baseline_report_blocks": 100,
+    "child_complete_CF_CFN_CFS_triplets": 34,
+    "child_pair_block_size_distribution": {
+      "2": 1,
+      "3": 34
+    },
+    "child_report_blocks": 104,
+    "interpretation": "Global CDIS row count/CNUM completion does not identify which WJCP pair owns a CDIS row and does not complete any missing pair-scoped CF/CFN/CFS record.",
+    "provenance_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/aligned-first-knot-penalty-contact-comparison-attempt01/comparison.json",
+    "provenance_sha256": "b3161c0652e11ced440990aad681f93f9e3a1e9becc58b3803976ce8dde328df"
+  },
+  "schema": "matched_first_knot_global_cdis_overlap_screen/v1",
+  "scope": "Global model-wide CDIS/CNUM at one immutable accepted output state, t=0.001 s; no subsequent history or per-pair overlap mapping.",
+  "status": "GLOBAL_CDIS_CNUM_COMPLETE_PAIR_CONTACT_COVERAGE_PARTIAL"
+}

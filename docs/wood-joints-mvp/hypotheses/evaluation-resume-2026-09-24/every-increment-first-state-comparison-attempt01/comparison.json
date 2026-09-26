@@ -1,0 +1,53 @@
+{
+  "status": "FIRST_ACCEPTED_MONITOR_COMPARISON_NOT_EQUIVALENCE",
+  "captured_utc": "2026-09-25T11:26:05.514460+00:00",
+  "files": {
+    "old-execution.json": {
+      "sha256": "6c5eedb7b2b33f9841f50bbfc8d50642459fc4d50e4825771ce73fc3bb2b47c0",
+      "bytes": 6781,
+      "source_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-seating-100n-aligned-k1e4-attempt01/execution.json"
+    },
+    "new-execution-prefix.json": {
+      "sha256": "8b022b152ba494bba5b2852ca03ba51539bede6c282e9c13b706c254d9fdc9e7",
+      "bytes": 1817,
+      "source_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-seating-100n-every-increment-k1e4-attempt01/execution.json"
+    },
+    "new-sta-prefix.txt": {
+      "sha256": "8acec807bded1b386b4e551a805e2779fb32dea2222c2117cdc1f0008268070d",
+      "bytes": 170,
+      "source_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-seating-100n-every-increment-k1e4-attempt01/pilot.sta"
+    }
+  },
+  "old_input_freeze_sha256": "4f5d892d6f6270ae2d645463255a048b8b719331a0906412c4c4b85fd304f367",
+  "new_input_freeze_sha256": "f054d6b911fb0d9c9b0a183fa007d16d8a34a422904fd5cbcf73634e87797e66",
+  "time_seconds": 0.001,
+  "monitor_comparison": {
+    "q_mm": {
+      "old": 2.4159449446108006e-05,
+      "new": 2.4127148817204604e-05,
+      "delta": -3.2300628903402824e-08,
+      "relative_change_percent": -0.1336977027372051
+    },
+    "maximum_loaded_displacement_mm": {
+      "old": 1.988248244391439e-05,
+      "new": 1.988967962029869e-05,
+      "delta": 7.1971763842984624e-09,
+      "relative_change_percent": 0.036198580356354676
+    },
+    "maximum_controller_rotation_rad": {
+      "old": 5.6713459780264216e-08,
+      "new": 5.653421007160537e-08,
+      "delta": -1.7924970865884692e-10,
+      "relative_change_percent": -0.3160620236419155
+    }
+  },
+  "old_first_iteration_count": 26,
+  "new_first_iteration_count": 23,
+  "mechanical_acceptance": false,
+  "limits": [
+    "New execution and STA are size-at-read, non-atomic prefixes of a live case.",
+    "Comparison uses launcher monitor scalars; it is not a full field/contact/energy audit.",
+    "Similar first-state results do not prove equivalent solver paths, timestep accuracy or joint acceptance.",
+    "The first-iteration residuals differ; cause has not been established."
+  ]
+}

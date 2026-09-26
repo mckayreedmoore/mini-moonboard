@@ -1,0 +1,91 @@
+{
+  "schema": "wood_joint_parent_terminal_disposition/v1",
+  "recorded_utc": "2026-09-25T10:52:52.254496+00:00",
+  "parent_disposition": "EXPLICIT_DIAGNOSTIC_STOP",
+  "launcher_status": "process_failed",
+  "native_returncode": 137,
+  "elapsed_seconds": 2863.3547686310194,
+  "runtime_bound_seconds": 10800,
+  "runtime_bound_reached": false,
+  "termination_command": [
+    "docker",
+    "stop",
+    "--time",
+    "10",
+    "wj-current-native-ordinary-finite-actuator-k1e4-attempt02"
+  ],
+  "reason": "Bounded force/work accounting evidence obtained; repeated retries reduce the timestep while prescribed-target work is absent from native allwk used by contact control. Specific retry causality is not proven. Prioritize the force-driven every-accepted-output diagnostic under independently audited inputs, preserving reviewed geometry.",
+  "source_review": "../current-native-stiffness-adaptation-energy-addendum.md",
+  "input_freeze_sha256": "8ea71d56271212b39ef8fc948b0ac8d3d312fb7afd74480c512bf4d75572ba32",
+  "verified_input_artifact_count": 12,
+  "frozen_inputs_unchanged": true,
+  "accepted_sta_rows": [
+    "     1          1     1    22  0.500000E-03  0.500000E-03  0.500000E-03",
+    "     1          2     1     7  0.100000E-02  0.100000E-02  0.500000E-03",
+    "     1          3     1     6  0.150000E-02  0.150000E-02  0.500000E-03",
+    "     1          4     1     6  0.200000E-02  0.200000E-02  0.500000E-03",
+    "     1          5     1     8  0.250000E-02  0.250000E-02  0.500000E-03",
+    "     1          6     1     6  0.300000E-02  0.300000E-02  0.500000E-03",
+    "     1          7     2     6  0.350000E-02  0.350000E-02  0.500000E-03",
+    "     1          8     3     6  0.375000E-02  0.375000E-02  0.250000E-03",
+    "     1          9     3     5  0.387500E-02  0.387500E-02  0.125000E-03"
+  ],
+  "unaccepted_sta_rows": [
+    "     1          7     1U    5  0.300000E-02  0.300000E-02  0.500000E-03",
+    "     1          8     1U    6  0.350000E-02  0.350000E-02  0.500000E-03",
+    "     1          8     2U    6  0.350000E-02  0.350000E-02  0.500000E-03",
+    "     1          9     1U    8  0.375000E-02  0.375000E-02  0.250000E-03",
+    "     1          9     2U    5  0.375000E-02  0.375000E-02  0.250000E-03",
+    "     1         10     1U    5  0.387500E-02  0.387500E-02  0.125000E-03",
+    "     1         10     2U    5  0.387500E-02  0.387500E-02  0.125000E-03"
+  ],
+  "accepted_increment_count": 9,
+  "unaccepted_attempt_count": 7,
+  "latest_monitor_observation": {
+    "time_seconds": 0.003875,
+    "q_mm": 0.00022630593433368496,
+    "maximum_loaded_displacement_mm": 0.00018321989465779336,
+    "maximum_controller_rotation_rad": 5.416439843757598e-07,
+    "stop_reasons": []
+  },
+  "terminal_outputs": {
+    "execution.json": {
+      "sha256": "daf6d38a1375d91bab7b4a9135ef08b9f4686167b3e0d1f3479e33db46b51331",
+      "bytes": 4372
+    },
+    "pilot.sta": {
+      "sha256": "d0569f9419aebf43d7a0100e27375ee6f7d4dd181e4e8bc4166b2544e37bc6cb",
+      "bytes": 1250
+    },
+    "pilot.dat": {
+      "sha256": "29473d6e76e83dc69084f246b16e1d5fbb6cef203d0469b42d0cb5bb7a4ee052",
+      "bytes": 184867433
+    },
+    "pilot.log": {
+      "sha256": "1c912f45e7100b527316f0c46fdc16531e5f8f359efe3e15d78a05a76067075f",
+      "bytes": 96662
+    },
+    "pilot.frd": {
+      "sha256": "2c05bc33f852e6b6a21a6b4beb6d2877c0de77082d8b251ff3cef9ddecd9af8e",
+      "bytes": 289416159
+    },
+    "pilot.cvg": {
+      "sha256": "6bd5a6495f90bfb63fe812ab58105f93c991a237b0c49e494886d6e17a474e20",
+      "bytes": 9704
+    },
+    "pilot.cel": {
+      "sha256": "9cd08727bccabfa90a72507b53de4944eeeea46b16acddf593e02c29f245c663",
+      "bytes": 2125446552
+    },
+    "spooles.out": {
+      "sha256": "caccf8bda1f35daf55c0f21ac6be61ea88bd0d9a568d608dc250ec67ff2bde0e",
+      "bytes": 2204
+    }
+  },
+  "mechanical_acceptance": false,
+  "limits": [
+    "Not a natural solver termination or runtime timeout.",
+    "No candidate strength, seating, or time-accuracy conclusion follows from this stop.",
+    "Final output tails may be incomplete; accepted STA and complete output groups govern later audit."
+  ]
+}

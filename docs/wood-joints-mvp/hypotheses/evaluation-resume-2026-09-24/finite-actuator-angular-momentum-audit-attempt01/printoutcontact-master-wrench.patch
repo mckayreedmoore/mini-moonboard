@@ -1,0 +1,134 @@
+--- a/printoutcontact.f
++++ b/printoutcontact.f
+@@ -30,13 +30,15 @@
+ !
+       integer ii,nprint,i,j,k,i1,nope,nopes,iposslave,ne0,ne,nopem,
+      &  iflag,indexe,ipos,itie,ipkon(*),kon(*),mi(*),igauss,jfaces,
+-     &  node,istart,iend,ntie,itiefac(2,*)
++     &  node,istart,iend,ntie,itiefac(2,*),iflagm
+ !
+       real*8 co(3,*),f(0:3),time,pslavsurf(3,*),vold(0:mi(2),*),xi,et,
+      &  weight,ttime,coords(3),xm(3),df(3),cg(3),
+      &  area,xn(3),xnormforc,shearforc,xntot(3),t1(3),t2(3),pl(3,16),
+      &  xsj2s(3),xs2s(3,7),darea,dt1,springarea(2,*),shp2s(7,9),
+-     &  pmastsurf(6,*),stx(6,mi(1),*)
++     &  pmastsurf(6,*),stx(6,mi(1),*),plm(3,16),shp2m(7,9),
++     &  xsj2m(3),xs2m(3,7),pproj(3),fmaster(3),xmaster(3),
++     &  clearproj,normalforce,econtact
+ !
+ !
+       include "gauss.f"
+@@ -62,10 +64,13 @@
+             do i=1,3
+                f(i)=0.d0
+                xm(i)=0.d0
++               fmaster(i)=0.d0
++               xmaster(i)=0.d0
+                cg(i)=0.d0
+                xntot(i)=0.d0
+             enddo
+             area=0.d0
++            econtact=0.d0
+ !
+ !           identifying the appropriate tie
+ !
+@@ -141,6 +146,33 @@
+                   enddo
+                enddo
+ !
++!              current master projection point (scratch-only)
++!
++               xi=pmastsurf(1,igauss)
++               et=pmastsurf(2,igauss)
++               do k=1,nopem
++                  node=kon(indexe+k)
++                  do j=1,3
++                     plm(j,k)=co(j,node)+vold(j,node)
++                  enddo
++               enddo
++               iflagm=2
++               if(nopem.eq.8) then
++                  call shape8q(xi,et,plm,xsj2m,xs2m,shp2m,iflagm)
++               elseif(nopem.eq.4) then
++                  call shape4q(xi,et,plm,xsj2m,xs2m,shp2m,iflagm)
++               elseif(nopem.eq.6) then
++                  call shape6tri(xi,et,plm,xsj2m,xs2m,shp2m,iflagm)
++               else
++                  call shape3tri(xi,et,plm,xsj2m,xs2m,shp2m,iflagm)
++               endif
++               do k=1,3
++                  pproj(k)=0.d0
++                  do j=1,nopem
++                     pproj(k)=pproj(k)+shp2m(4,j)*plm(k,j)
++                  enddo
++               enddo
++!
+ !              normal on the master face
+ !
+                xn(1)=pmastsurf(4,igauss)
+@@ -199,7 +231,18 @@
+ !
+                do i1=1,3
+                   f(i1)=f(i1)+df(i1)
+-               enddo
++                  fmaster(i1)=fmaster(i1)-df(i1)
++               enddo
++               xmaster(1)=xmaster(1)-pproj(2)*df(3)+pproj(3)*df(2)
++               xmaster(2)=xmaster(2)-pproj(3)*df(1)+pproj(1)*df(3)
++               xmaster(3)=xmaster(3)-pproj(1)*df(2)+pproj(2)*df(1)
++               clearproj=(coords(1)-pproj(1))*pmastsurf(4,igauss)+
++     &                   (coords(2)-pproj(2))*pmastsurf(5,igauss)+
++     &                   (coords(3)-pproj(3))*pmastsurf(6,igauss)
++               normalforce=stx(4,1,i)*darea
++               if(prlab(ii)(1:3).eq.'CF ') then
++                  econtact=econtact-0.5d0*normalforce*clearproj
++               endif
+                xm(1)=xm(1)+coords(2)*df(3)-coords(3)*df(2)
+                xm(2)=xm(2)+coords(3)*df(1)-coords(1)*df(3)
+                xm(3)=xm(3)+coords(1)*df(2)-coords(2)*df(1)
+@@ -242,6 +285,45 @@
+             write(5,*)
+             write(5,'(2x,1p,6(1x,e13.6))') (f(j),j=1,3),(xm(j),j=1,3)
+ !
++!           Supplemental side wrenches and pair correction.
++!           Existing CF/CFN/CFS arithmetic above is unchanged.
++!
++            write(5,133) prlab(ii)(1:3),itie,
++     &           tieset(2,itie)(1:index(tieset(2,itie),' ')-2),
++     &           tieset(3,itie)(1:index(tieset(3,itie),' ')-2),
++     &           ttime+time
++ 133        format(' WJ_ANGULAR variable=',A3,', role=slave, tie=',I8,
++     &           ', slave=',A,', master=',A,', time=',1p,e24.16)
++            write(5,'(2x,1p,6(1x,e24.16))')
++     &           (f(j),j=1,3),(xm(j),j=1,3)
++            write(5,134) prlab(ii)(1:3),itie,
++     &           tieset(2,itie)(1:index(tieset(2,itie),' ')-2),
++     &           tieset(3,itie)(1:index(tieset(3,itie),' ')-2),
++     &           ttime+time
++ 134        format(' WJ_ANGULAR variable=',A3,', role=master, tie=',I8,
++     &           ', slave=',A,', master=',A,', time=',1p,e24.16)
++            write(5,'(2x,1p,6(1x,e24.16))')
++     &           (fmaster(j),j=1,3),(xmaster(j),j=1,3)
++            write(5,135) prlab(ii)(1:3),itie,
++     &           tieset(2,itie)(1:index(tieset(2,itie),' ')-2),
++     &           tieset(3,itie)(1:index(tieset(3,itie),' ')-2),
++     &           ttime+time
++ 135        format(' WJ_ANGULAR variable=',A3,
++     &           ', role=pair_offset_couple, tie=',I8,
++     &           ', slave=',A,', master=',A,', time=',1p,e24.16)
++            write(5,'(2x,1p,3(1x,e24.16))')
++     &           (xm(j)+xmaster(j),j=1,3)
++            if(prlab(ii)(1:3).eq.'CF ') then
++               write(5,136) itie,
++     &              tieset(2,itie)(1:index(tieset(2,itie),' ')-2),
++     &              tieset(3,itie)(1:index(tieset(3,itie),' ')-2),
++     &              ttime+time
++ 136           format(' WJ_E_IF_FRICTIONLESS_LINEAR_DYNAMIC pair=',I8,
++     &              ', slave=',A,', master=',A,
++     &              ', time=',1p,e24.16)
++               write(5,'(2x,1p,e24.16)') econtact
++            endif
++!
+ !           center of gravity and mean normal
+ !
+             do i1=1,3

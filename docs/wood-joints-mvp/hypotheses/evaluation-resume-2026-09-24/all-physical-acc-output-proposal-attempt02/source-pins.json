@@ -1,0 +1,80 @@
+{
+  "base_results_c": {
+    "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-energy-point-map-build-attempt01/inputs/results.c",
+    "sha256": "41deef087bdadcdf9bb7a52142c4b6982f8111d3336ab50747c2473f0e11e65c"
+  },
+  "fixture_status": "PARENT_EXTRACTED_HELPER_COMPILED_AND_EXECUTED_WITH_UBSAN_BOUNDS; NO_FULL_CCX_BUILD_OR_NATIVE_RUN",
+  "parent_c_emitter_fixture": {
+    "compile_log_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02/compile.log",
+    "compile_log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "connectivity_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02/connectivity.bin",
+    "connectivity_sha256": "c6b9b75d631d7610c15f725a10a3809f59bb7c19669807a32c069d9e6b17d1b0",
+    "directory": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02",
+    "execution_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02/execution.json",
+    "execution_sha256": "22c6d51ad7c7032615c8faf99c7368a5c8c253efbceea25a750a4d2513cf0bb9",
+    "harness_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02/harness.c",
+    "harness_sha256": "e1e26cc01467215e73553f5ace6d33a3cf5aad4c2a423e8c374de5e21a920d61",
+    "helper_sha256": "8c922b73ac34ebd923b7febedd839c311292c7ebd1e3e4e32fa61b4c58889822",
+    "mass_interpretation": false,
+    "mechanical_acceptance": false,
+    "prepare_script_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02/prepare_fixture.py",
+    "prepare_script_sha256": "f9730d78dc78e9235e1a58a41fdbfe8af5b112e6a02ab69abc1174da3fde0fc7",
+    "production_source_snapshot_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02/production-results.c.snapshot",
+    "production_source_snapshot_sha256": "f385c8e29b65df8be62317d05dea888a18ec4e2887d6e9d6770337e6a0382d16",
+    "result": "PASS; 11 O0 UBSan/bounds cases; valid nk 120694/120695/120702 each emitted identical two complete 116162-row states; authored-only 116170 and 120693 rejected; controls and generated suffix connectivity contamination rejected; source arrays unchanged.",
+    "runner_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02/run_fixture.py",
+    "runner_sha256": "4ba16e37a2a1240d1c7ff4ee4379733d3bf06684059378f467eb64639652c458",
+    "source_binding_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-parent-fixture-attempt02/source-binding.json",
+    "source_binding_sha256": "85a2818babc2a63b128843ae28267cdf1fd870120e48185f44184cecb1d25c74"
+  },
+  "prior_failed_run": {
+    "execution_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt02/execution.json",
+    "execution_sha256": "dc05d60c14eca3ce8ceb726193fdb13807c0963e80bf4ac24301979a58919d64",
+    "failure": "The prior writer had an equality check against authored nk=116170; its error log confirms this check stopped output while the original C3D10 count remained unchanged.",
+    "pilot_log_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt02/pilot.log",
+    "pilot_log_sha256": "ec356e1304f9f05d9d447b105935985fb2941315f42799c399f5a80ed1d60e1e"
+  },
+  "proposal": {
+    "checks": [
+      "nk at least 120694, from 116170 authored nodes plus 4524 source-derived rigid MPC nodes",
+      "ne0 exactly 57643",
+      "mi[1] exactly 3",
+      "all original solid elements C3D10",
+      "each solid connectivity ID lies in 1..116162",
+      "connectivity-derived mesh-node set exactly contiguous IDs 1..116162",
+      "finite acceleration triple for each emitted physical node"
+    ],
+    "csv_contract": "Unchanged version-1 header and STATE/ACC/END row schema. Count diagnostics are stderr only.",
+    "patch_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt02/results.c.patch",
+    "patch_sha256": "0660532431e471cc04416ce37b64e98ebd83e77b041ec6fd9cb2f47b72021648",
+    "proposed_results_c_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt02/proposed-results.c",
+    "proposed_results_c_sha256": "f385c8e29b65df8be62317d05dea888a18ec4e2887d6e9d6770337e6a0382d16"
+  },
+  "schema": "wood_joint_all_mesh_acc_output_proposal_source_pins/v2",
+  "source_derived_runtime_node_count": {
+    "derivation_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt02/runtime-node-count-derivation.json",
+    "derivation_sha256": "abcc1db523568ea8b3d28d8b76210251ed3347deeed52b4dd8497e36b115232b",
+    "expected_generated_rigid_mpc_nodes": 4524,
+    "input_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt02/rigid-carriers.inp.snapshot",
+    "input_sha256": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "minimum_runtime_nk": 120694,
+    "rigidbodys_f_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt02/ccx-source-context/rigidbodys.f",
+    "rigidbodys_f_sha256": "d55c2ffc0c51fb6207ae75b055f73283b6826c467490a7114416f55b7a329f2f",
+    "rigidmpc_f_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt02/ccx-source-context/rigidmpc.f",
+    "rigidmpc_f_sha256": "325223215722ed9622d1c766fe7cbd823fefbbdfa08e2ebf77e0a27c050e1b45",
+    "source_archive_sha256": "52a20ef7216c6e2de75eae460539915640e3140ec4a2f631a9301e01eda605ad"
+  },
+  "status": "PROPOSAL_ONLY_FULL_RESULTS_C_AND_CCX_NOT_BUILT_OR_RUN; EXTRACTED_HELPER_FIXTURE_PASSED",
+  "unchanged_physical_mesh_binding": {
+    "mesh_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-seating-100n-every-increment-k1e4-attempt01/mesh.inp",
+    "mesh_sha256": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "node_count": 116162,
+    "node_ids_contiguous": [
+      1,
+      116162
+    ],
+    "node_map_audit_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/all-physical-acc-output-proposal-attempt01/node-map-audit.json",
+    "node_map_audit_sha256": "9a67c44ecdf5832116e4344e19f22b049b9f025e714c55999a672e257f127141",
+    "original_c3d10_count": 57643
+  }
+}

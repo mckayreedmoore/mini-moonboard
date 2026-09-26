@@ -1,0 +1,25 @@
+{
+  "compiler_command": [
+    "gfortran",
+    "-O0",
+    "-fcheck=all",
+    "-fbacktrace",
+    "fixture.f",
+    "printout.f",
+    "printoutelem.f",
+    "/opt/ccx-upstream-2.21/CalculiX/ccx_2.21/src/ccx_2.21.a",
+    "-lspooles",
+    "-larpack",
+    "-llapack",
+    "-lblas",
+    "-lpthread",
+    "-lm",
+    "-fopenmp",
+    "-o",
+    "fixture"
+  ],
+  "compile_returncode": 0,
+  "fixture_returncode": 0,
+  "output": " PASS printoutelem/base fixture: 8 checks\n",
+  "binary_sha256": "280e70df99d3b338d74b3653615e3e774e071d606a68ba995a3218056ae2fd96"
+}

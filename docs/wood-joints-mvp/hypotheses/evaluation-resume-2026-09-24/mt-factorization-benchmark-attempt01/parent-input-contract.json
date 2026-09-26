@@ -1,0 +1,68 @@
+{
+  "scope": "isolated MT build numerical benchmark; not joint evidence",
+  "image": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "inputs": {
+    "upper-slave.inp": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-benchmark-attempt01/upper-slave.inp",
+      "sha256": "fa8459d004516c417234fe076d35ccbbddd1e37b63e69692602b2cb6116db64d"
+    },
+    "lower-slave.inp": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-benchmark-attempt01/lower-slave.inp",
+      "sha256": "12c7808982a88fc5c30d642ec432a2fed4a96a2d1fe4decb71470eb788431c19"
+    },
+    "auditor.py.snapshot": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-benchmark-attempt01/reaudit02/auditor.py.snapshot",
+      "sha256": "2034ab0e368c1f4661c306f86c4540821571519e14459f134b1a0ac1fcb9e8f7"
+    },
+    "auditor-manifest.json": {
+      "path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-benchmark-attempt01/reaudit02/auditor-manifest.json",
+      "sha256": "d00f3023cac919dd09288706370d2927d8e58afc3e6fe4df0e4fc0c175f8e2c9"
+    }
+  },
+  "arms": [
+    {
+      "name": "serial_reference",
+      "binary": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-energy-point-map-build-attempt01/ccx-wj-contact-energy-map-2.21",
+      "sha256": "af0da93038dda93e7d9807f392a5fe6c4fd5f2b9d0b47d0de5d107936795d174",
+      "threads": 1
+    },
+    {
+      "name": "mt_threads1",
+      "binary": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/mt-factorization-build-review-attempt01/ccx-wj-contact-energy-map-mt-2.21",
+      "sha256": "8f6f15cfc3887310cf71e4b6d661f7a1701c96c1cee0664faccbd514f9f9c38e",
+      "threads": 1
+    },
+    {
+      "name": "mt_threads4",
+      "binary": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/mt-factorization-build-review-attempt01/ccx-wj-contact-energy-map-mt-2.21",
+      "sha256": "8f6f15cfc3887310cf71e4b6d661f7a1701c96c1cee0664faccbd514f9f9c38e",
+      "threads": 4
+    }
+  ],
+  "tolerances": {
+    "force_abs_n": 0.01,
+    "force_rel": 0.0001,
+    "moment_abs_nmm": 0.1,
+    "moment_rel": 0.0001,
+    "centroid_xy_abs_mm": 0.0001,
+    "area_abs_mm2": 0.01,
+    "mean_normal_abs": 1e-08,
+    "time_abs_s": 1e-09,
+    "guide_contact_displacement_abs_mm": 1e-09,
+    "contact_pressure_abs_n_mm2": 1e-08,
+    "raw_scalar_abs": 1e-08,
+    "contact_energy_abs_nmm": 1e-08,
+    "contact_energy_rel": 1e-08
+  },
+  "requirements": [
+    "strict reaudit02 audit_run passes",
+    "complete matching accepted-time arrays and CF/CFN/CFS groups",
+    "matching equation and matrix histories",
+    "compare final TOP U/RF and BOTTOM RF",
+    "compare CDIS/CSTR and WJ_CEP/ANGULAR/aggregate energy records",
+    "28 CEP points and9angular records and1aggregate energy per CF state",
+    "MT4 dispatch up to4 and actual worker count>=2"
+  ],
+  "known_prelaunch_risk": "Historical tiny-fixture spooles.out has actual worker count1; multiworker gate may fail because of graph size. Preserve failure and use a larger independent test if needed.",
+  "joint_acceptance": false
+}

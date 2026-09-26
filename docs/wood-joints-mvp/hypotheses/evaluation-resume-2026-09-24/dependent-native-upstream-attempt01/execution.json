@@ -1,0 +1,501 @@
+{
+  "schema": "ccx_wj_dependent_residual_native_execution/v1",
+  "status": "solver_failed",
+  "completion_status": "solver_failed",
+  "terminal_status": "exited",
+  "oom_killed": false,
+  "arm": "unmodified-upstream",
+  "execution_record_path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-native-upstream-attempt01/execution.json",
+  "run_directory": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-native-upstream-attempt01",
+  "run_log_path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-native-upstream-attempt01/pilot.log",
+  "started_at_utc": "2026-09-25T15:25:08.130552+00:00",
+  "timeout_seconds": 1800,
+  "fixture_manifest_sha256": "8496619179e5fedc6f77def972cf6aa4b749ce96dedc9af4a3dd29896823e11a",
+  "source_pins_sha256": "33a89cca1b342f06c6736b78e153a37a87fa78d4f7fd411b5c95a630abb356dd",
+  "fixture_index_sha256": "60335f348b88d6ccaba1bad02bd10975685a259df38939d8068243875cad1961",
+  "base_input_freeze_sha256": "ea24423f587795743d0c1189c798f77d83159208c76d5d1d3a9fa5554eda4f56",
+  "pilot_input_sha256": "7542af582f91215a3759292726211e15911387640b0f76514946681b8f623da3",
+  "input_sha256": {
+    "pilot.inp": "7542af582f91215a3759292726211e15911387640b0f76514946681b8f623da3",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0"
+  },
+  "input_sha256_after": {
+    "pilot.inp": "7542af582f91215a3759292726211e15911387640b0f76514946681b8f623da3",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0"
+  },
+  "inputs_unchanged": true,
+  "binary": {
+    "host_path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/finite-actuator-angular-momentum-audit-attempt01/angular-output-build-attempt01/ccx-unmodified-upstream-2.21",
+    "mount_target": "/usr/bin/ccx",
+    "readonly": true,
+    "sha256": "cfa7fd110a41c209746137da8b5af0a1c06dee47d58682e797d31b8952b72e4b"
+  },
+  "image_sha256": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "command": [
+    "docker",
+    "run",
+    "--name",
+    "wj-dependent-residual-native-check-attempt01-unmodified-upstream",
+    "--pull=never",
+    "--network",
+    "none",
+    "--cpus",
+    "4",
+    "--memory",
+    "10g",
+    "--user",
+    "1000:1000",
+    "--env",
+    "OMP_NUM_THREADS=4",
+    "--env",
+    "CCX_NPROC_EQUATION_SOLVER=4",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-native-upstream-attempt01,dst=/work",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/finite-actuator-angular-momentum-audit-attempt01/angular-output-build-attempt01/ccx-unmodified-upstream-2.21,dst=/usr/bin/ccx,readonly",
+    "--workdir",
+    "/work",
+    "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "solver_argv": [
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "environment": {
+    "OMP_NUM_THREADS": "4",
+    "CCX_NPROC_EQUATION_SOLVER": "4"
+  },
+  "limits": {
+    "cpus": 4,
+    "memory": "10g",
+    "user": "1000:1000"
+  },
+  "container_name": "wj-dependent-residual-native-check-attempt01-unmodified-upstream",
+  "container_preflight_inspect": [
+    {
+      "id": "3ce404236d66b816713a394ecd3fc767c8135e885051bf6a276a31c44a449e3a",
+      "name": "gwen-app-1",
+      "image": "gwen-app",
+      "command": "/usr/local/bin/docker-entrypoint.sh bun run dev /usr/local/bin/docker-entrypoint.sh bun run dev",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1023,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-23T14:45:39.153194441Z",
+        "FinishedAt": "2026-09-23T14:45:37.503902478Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-25T09:24:24.133558942-06:00",
+              "End": "2026-09-25T09:24:24.216563082-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:34.218094229-06:00",
+              "End": "2026-09-25T09:24:34.276648359-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:44.277370084-06:00",
+              "End": "2026-09-25T09:24:44.365846618-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:54.365969731-06:00",
+              "End": "2026-09-25T09:24:54.458854862-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:25:04.459876757-06:00",
+              "End": "2026-09-25T09:25:04.582654334-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "c3b897abaec393f7ed16ec7a303181671a820f6d2ea6679c86e5b415febc35f9",
+      "name": "gwen-web-1",
+      "image": "gwen-web",
+      "command": "/usr/local/bin/docker-entrypoint.sh bun run dev -- --host 0.0.0.0 /usr/local/bin/docker-entrypoint.sh bun run dev -- --host 0.0.0.0",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1054,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-23T14:45:39.152187119Z",
+        "FinishedAt": "2026-09-23T14:45:37.504251934Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-25T09:24:24.125968911-06:00",
+              "End": "2026-09-25T09:24:24.199416742-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:34.200727181-06:00",
+              "End": "2026-09-25T09:24:34.263575063-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:44.264066525-06:00",
+              "End": "2026-09-25T09:24:44.356641649-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:54.356843802-06:00",
+              "End": "2026-09-25T09:24:54.43611037-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:25:04.437420746-06:00",
+              "End": "2026-09-25T09:25:04.553912694-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "7da9aca7184d59ef2456db108fa17620aa4ed27a47660cf73c2f81cbac2aba70",
+      "name": "gwen-remote-1",
+      "image": "gwen-remote",
+      "command": "/usr/local/bin/docker-entrypoint.sh bun run dev /usr/local/bin/docker-entrypoint.sh bun run dev",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1034,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-23T14:45:39.151048619Z",
+        "FinishedAt": "2026-09-23T14:45:37.504221666Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-25T09:24:24.132230278-06:00",
+              "End": "2026-09-25T09:24:24.204913512-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:34.205953485-06:00",
+              "End": "2026-09-25T09:24:34.269403946-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:44.270542826-06:00",
+              "End": "2026-09-25T09:24:44.362798233-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:54.363152834-06:00",
+              "End": "2026-09-25T09:24:54.437354505-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:25:04.437748928-06:00",
+              "End": "2026-09-25T09:25:04.578160702-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "a14727ea1579722227944997d6a9fafe6f4b165efb5f2c5a51531fd1bdb8438e",
+      "name": "gwen-powersync-compact-scheduler-1",
+      "image": "journeyapps/powersync-service:1.14.0",
+      "command": "/bin/sh -c set -e\nwhile true; do\n  now=$(date -u +%s)\n  next_midnight=$(date -u -d 'tomorrow 00:00' +%s)\n  sleep_seconds=$((next_midnight - now))\n  if [ \"$sleep_seconds\" -gt 0 ]; then\n    echo \"next powersync compact in $sleep_seconds s.\"\n    sleep \"$sleep_seconds\"\n  fi\n  echo \"running powersync compact...\"\n  node /app/service/lib/entry.js compact\ndone\n /bin/sh -c set -e\nwhile true; do\n  now=$(date -u +%s)\n  next_midnight=$(date -u -d 'tomorrow 00:00' +%s)\n  sleep_seconds=$((next_midnight - now))\n  if [ \"$sleep_seconds\" -gt 0 ]; then\n    echo \"next powersync compact in $sleep_seconds s.\"\n    sleep \"$sleep_seconds\"\n  fi\n  echo \"running powersync compact...\"\n  node /app/service/lib/entry.js compact\ndone\n",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1050,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-23T14:45:39.146148258Z",
+        "FinishedAt": "2026-09-23T14:45:37.50393952Z"
+      }
+    },
+    {
+      "id": "84447af2050c4e2b22692c6d9d43036a2c0aa6d453c0f2fa4eede04861780c01",
+      "name": "gwen-powersync-service-1",
+      "image": "journeyapps/powersync-service:1.14.0",
+      "command": "node service/lib/entry.js start -r unified node service/lib/entry.js start -r unified",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1040,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-23T14:45:39.147229525Z",
+        "FinishedAt": "2026-09-23T14:45:37.504642064Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-25T09:24:26.75815086-06:00",
+              "End": "2026-09-25T09:24:26.859209246-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:36.860110501-06:00",
+              "End": "2026-09-25T09:24:36.977881166-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:46.978808839-06:00",
+              "End": "2026-09-25T09:24:47.084455232-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:24:57.084499338-06:00",
+              "End": "2026-09-25T09:24:57.169740814-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            },
+            {
+              "Start": "2026-09-25T09:25:07.170896919-06:00",
+              "End": "2026-09-25T09:25:07.270743247-06:00",
+              "ExitCode": 0,
+              "Output": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "f38e258bbfc8fa912cae38c9f0b6a8ec6719055d748bf569fe4686a6ae500068",
+      "name": "gwen-reverse-proxy-1",
+      "image": "traefik:v3.6.2",
+      "command": "/bin/sh -c set -e\nif [ -f /certs/localtest.me.pem ] && [ -f /certs/localtest.me-key.pem ]; then\n  cat > /tmp/local-certs.yaml <<'eof'\ntls:\n  certificates:\n    - certfile: /certs/localtest.me.pem\n      keyfile: /certs/localtest.me-key.pem\n  stores:\n    default:\n      defaultcertificate:\n        certfile: /certs/localtest.me.pem\n        keyfile: /certs/localtest.me-key.pem\neof\nelse\n  : > /tmp/local-certs.yaml\nfi\nexec traefik \\\n  --providers.docker=true \\\n  --providers.docker.endpoint=unix:///var/run/docker.sock \\\n  --providers.docker.exposedbydefault=false \\\n  '--providers.docker.constraints=label(`com.docker.compose.project`,`gwen`)' \\\n  --providers.file.filename=/tmp/local-certs.yaml \\\n  --entrypoints.web.address=:80 \\\n  --entrypoints.websecure.address=:443 \\\n  --api.dashboard=true \\\n  --api.insecure=true \\\n  --log.level=info \\\n  --accesslog=true\n /bin/sh -c set -e\nif [ -f /certs/localtest.me.pem ] && [ -f /certs/localtest.me-key.pem ]; then\n  cat > /tmp/local-certs.yaml <<'eof'\ntls:\n  certificates:\n    - certfile: /certs/localtest.me.pem\n      keyfile: /certs/localtest.me-key.pem\n  stores:\n    default:\n      defaultcertificate:\n        certfile: /certs/localtest.me.pem\n        keyfile: /certs/localtest.me-key.pem\neof\nelse\n  : > /tmp/local-certs.yaml\nfi\nexec traefik \\\n  --providers.docker=true \\\n  --providers.docker.endpoint=unix:///var/run/docker.sock \\\n  --providers.docker.exposedbydefault=false \\\n  '--providers.docker.constraints=label(`com.docker.compose.project`,`gwen`)' \\\n  --providers.file.filename=/tmp/local-certs.yaml \\\n  --entrypoints.web.address=:80 \\\n  --entrypoints.websecure.address=:443 \\\n  --api.dashboard=true \\\n  --api.insecure=true \\\n  --log.level=info \\\n  --accesslog=true\n",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1063,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-23T14:45:39.142235177Z",
+        "FinishedAt": "2026-09-23T14:45:37.50383308Z"
+      }
+    },
+    {
+      "id": "04637ec0108ed940cbac2df44d72d8fe6c81f9a5201577973254b24d849ee252",
+      "name": "gwen-postgres-1",
+      "image": "postgres:17.7-alpine3.23",
+      "command": "docker-entrypoint.sh postgres -c wal_level=logical -c config_file=/etc/postgresql/postgresql.conf -c hba_file=/etc/postgresql/pg_hba.conf docker-entrypoint.sh postgres -c wal_level=logical -c config_file=/etc/postgresql/postgresql.conf -c hba_file=/etc/postgresql/pg_hba.conf",
+      "state": {
+        "Status": "running",
+        "Running": true,
+        "Paused": false,
+        "Restarting": false,
+        "OOMKilled": false,
+        "Dead": false,
+        "Pid": 1021,
+        "ExitCode": 0,
+        "Error": "",
+        "StartedAt": "2026-09-23T14:45:39.143588983Z",
+        "FinishedAt": "2026-09-23T14:45:37.503838107Z",
+        "Health": {
+          "Status": "healthy",
+          "FailingStreak": 0,
+          "Log": [
+            {
+              "Start": "2026-09-25T09:24:43.93415271-06:00",
+              "End": "2026-09-25T09:24:43.989513618-06:00",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-09-25T09:24:48.989843293-06:00",
+              "End": "2026-09-25T09:24:49.050393638-06:00",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-09-25T09:24:54.050385016-06:00",
+              "End": "2026-09-25T09:24:54.112277434-06:00",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-09-25T09:24:59.113580564-06:00",
+              "End": "2026-09-25T09:24:59.176937741-06:00",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            },
+            {
+              "Start": "2026-09-25T09:25:04.178114002-06:00",
+              "End": "2026-09-25T09:25:04.256160829-06:00",
+              "ExitCode": 0,
+              "Output": "/var/run/postgresql:5432 - accepting connections\n"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "docker_run_returncode": 201,
+  "returncode": 201,
+  "timed_out": false,
+  "stop_result": null,
+  "terminal_state_evidence": {
+    "container_id": "c8bfce5c54216d83e275d0e4e262ff9f1beaf97e768dfb256e27fc9477c6eb1e",
+    "container_name": "wj-dependent-residual-native-check-attempt01-unmodified-upstream",
+    "container_image": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "container_path": "/usr/bin/ccx",
+    "container_args": [
+      "-i",
+      "pilot"
+    ],
+    "container_env": [
+      [
+        "CCX_NPROC_EQUATION_SOLVER",
+        "4"
+      ],
+      [
+        "OMP_NUM_THREADS",
+        "4"
+      ]
+    ],
+    "container_user": "1000:1000",
+    "working_dir": "/work",
+    "host_config": {
+      "network_mode": "none",
+      "nano_cpus": 4000000000,
+      "memory_bytes": 10737418240
+    },
+    "mounts": [
+      {
+        "source": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/finite-actuator-angular-momentum-audit-attempt01/angular-output-build-attempt01/ccx-unmodified-upstream-2.21",
+        "destination": "/usr/bin/ccx",
+        "read_write": false,
+        "type": "bind"
+      },
+      {
+        "source": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-native-upstream-attempt01",
+        "destination": "/work",
+        "read_write": true,
+        "type": "bind"
+      }
+    ],
+    "state": {
+      "status": "exited",
+      "running": false,
+      "oom_killed": false,
+      "exit_code": 201,
+      "finished_at": "2026-09-25T15:35:57.090513089Z",
+      "error": ""
+    }
+  },
+  "terminal_inspect_error": null,
+  "outputs_sha256": {
+    "ResultsForLastIterations.frd": "f88730988a1ae83f22846ab3a13ffdc8595abe000c928558ebb05e728db18b1f",
+    "pilot.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot.cel": "a3490e961a4ca8047cd604bdffaf7024d5b81bd522caf45b72300629efbf63aa",
+    "pilot.cvg": "7acbe1dc6dfcf666a4578cb35d732ef884e8ea453a08e552543cd42548224ca4",
+    "pilot.dat": "9fae04c2c64b2cfaeab4372286151e3e213168e8b2f7e6b6c033fb4ad0be3dad",
+    "pilot.frd": "52dd1c7919a1c5a4f9782a459757c0eb549a32f30c636abda2fbc7f9fca1b86a",
+    "pilot.log": "4c9970493923b23d961979105bc79b147a569bbd2b64487972dabe650ce76eee",
+    "pilot.sta": "452c8663aed5f03d70ad5bdc860a6f86309133c3c0b178c92980d8f21e2ea64f",
+    "spooles.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "comparison_output_sha256": {
+    "pilot.sta": "452c8663aed5f03d70ad5bdc860a6f86309133c3c0b178c92980d8f21e2ea64f",
+    "pilot.frd": "52dd1c7919a1c5a4f9782a459757c0eb549a32f30c636abda2fbc7f9fca1b86a",
+    "pilot.dat": "9fae04c2c64b2cfaeab4372286151e3e213168e8b2f7e6b6c033fb4ad0be3dad",
+    "pilot.log": "4c9970493923b23d961979105bc79b147a569bbd2b64487972dabe650ce76eee"
+  },
+  "required_output_missing": [],
+  "container_cleanup": {
+    "returncode": 0,
+    "removed": true,
+    "stdout": "wj-dependent-residual-native-check-attempt01-unmodified-upstream\n",
+    "stderr": ""
+  },
+  "mechanical_acceptance": false,
+  "scope": "one arm of a bounded binary/output instrumentation comparison; no joint acceptance",
+  "preparation_sha256": "884d2fc08f11ce7e32d2e4fb39d7a27dbaab365c66e68e482921a5e52be0185b",
+  "solver_returncode": 201,
+  "preparation_unchanged": true,
+  "output_sha256": {
+    "ResultsForLastIterations.frd": "f88730988a1ae83f22846ab3a13ffdc8595abe000c928558ebb05e728db18b1f",
+    "pilot.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot.cel": "a3490e961a4ca8047cd604bdffaf7024d5b81bd522caf45b72300629efbf63aa",
+    "pilot.cvg": "7acbe1dc6dfcf666a4578cb35d732ef884e8ea453a08e552543cd42548224ca4",
+    "pilot.dat": "9fae04c2c64b2cfaeab4372286151e3e213168e8b2f7e6b6c033fb4ad0be3dad",
+    "pilot.frd": "52dd1c7919a1c5a4f9782a459757c0eb549a32f30c636abda2fbc7f9fca1b86a",
+    "pilot.log": "4c9970493923b23d961979105bc79b147a569bbd2b64487972dabe650ce76eee",
+    "pilot.sta": "452c8663aed5f03d70ad5bdc860a6f86309133c3c0b178c92980d8f21e2ea64f",
+    "spooles.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "finished_at_utc": "2026-09-25T15:35:57.771832+00:00",
+  "elapsed_seconds": 649.653313518007
+}

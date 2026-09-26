@@ -1,0 +1,36 @@
+{
+  "schema": "wood_joint_parent_stop_decision/v1",
+  "decision_utc": "2026-09-25T13:29:12.542666+00:00",
+  "action": "parent_directed_early_stop",
+  "container": "wj-current-native-ordinary-transient-seating-100n-every-increment-k1e4-attempt01",
+  "observed_container_state": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 3273938,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-09-25T11:16:57.90642895Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "verified_frozen_input_count": 27,
+  "accepted_increment_count_at_decision": 38,
+  "last_accepted_sta_row_at_decision": [
+    "1",
+    "38",
+    "1",
+    "8",
+    "0.217118E-01",
+    "0.217118E-01",
+    "0.184737E-04"
+  ],
+  "rejected_attempt_count_at_decision": 7,
+  "bound_result_sha256": "909deb3929b6c97d0889363eae1fb8726a22c7e35ca975f4295ab91e79f38f16",
+  "parent_validation": "../current-force-energy-readiness-attempt01/contact-storage-bound-attempt01/parent-validation.json",
+  "reason": "First-contact outputs have been captured, momentum and applied work audited, and parent-reproduced source-conditional contact-storage upper bound leaves at least 0.179242268 N mm unexplained at .020 s. Further continuation of this same timestep diagnostic does not resolve that accounting/time-accuracy issue. Prioritize queued printer/CAD checks and a matched-binary timestep refinement. Independent contact-bound review is underway.",
+  "limits": "Explicit stop is not timeout, OOM, proof of nonconvergence, native solver acceptance, or completed .025 s endpoint. Inputs and reviewed geometry unchanged.",
+  "mechanical_acceptance": false
+}

@@ -1,0 +1,603 @@
+{
+  "balances": {
+    "calculix_221_four_point_reconstruction": {
+      "cleat": {
+        "FRD_plus_CLOAD_plus_contact_print_bound_n_s": [
+          1.722734512365301e-07,
+          5.80620003610499e-06,
+          4.899149955066982e-06
+        ],
+        "applied_CLOAD_impulse_n_s": [
+          0.0,
+          -0.0076061318801726435,
+          0.006382302455338611
+        ],
+        "balance_residual_n_s": [
+          8.432133138426556e-12,
+          2.2459075137842843e-09,
+          1.3736404201603047e-09
+        ],
+        "cleat_contact_impulse_n_s": [
+          -0.000645206610535,
+          0.0195994663135,
+          -0.0165300618
+        ],
+        "delta_linear_momentum_n_s": [
+          -0.0006452066021028669,
+          0.01199333667923487,
+          -0.010147757971020969
+        ],
+        "residual_within_reported_bound_by_component": [
+          true,
+          true,
+          true
+        ]
+      },
+      "global": {
+        "FRD_plus_input_time_ramp_bound_n_s": [
+          4.526083957326909e-07,
+          6.822653487617916e-07,
+          6.070264785783867e-07
+        ],
+        "applied_CLOAD_impulse_n_s": [
+          0.0,
+          3.098375655e-19,
+          -1.73736015906e-17
+        ],
+        "balance_residual_n_s": [
+          4.387515588275267e-09,
+          1.3557916168507223e-08,
+          4.936054317009177e-09
+        ],
+        "delta_linear_momentum_n_s": [
+          4.387515588275267e-09,
+          1.355791616881706e-08,
+          4.936054299635575e-09
+        ],
+        "residual_within_reported_bound_by_component": [
+          true,
+          true,
+          true
+        ]
+      }
+    },
+    "gauss8_physical_consistent_mass": {
+      "cleat": {
+        "FRD_plus_CLOAD_plus_contact_print_bound_n_s": [
+          1.7227351357349846e-07,
+          5.806200031495953e-06,
+          4.899149950517418e-06
+        ],
+        "applied_CLOAD_impulse_n_s": [
+          0.0,
+          -0.0076061318801726435,
+          0.006382302455338611
+        ],
+        "balance_residual_n_s": [
+          -2.79076864699232e-11,
+          2.215898289512075e-09,
+          1.3809250305751863e-09
+        ],
+        "cleat_contact_impulse_n_s": [
+          -0.000645206610535,
+          0.0195994663135,
+          -0.0165300618
+        ],
+        "delta_linear_momentum_n_s": [
+          -0.0006452066384426865,
+          0.011993336649225646,
+          -0.010147757963736358
+        ],
+        "residual_within_reported_bound_by_component": [
+          true,
+          true,
+          true
+        ]
+      },
+      "global": {
+        "FRD_plus_input_time_ramp_bound_n_s": [
+          4.5260828137422857e-07,
+          6.822652471131928e-07,
+          6.070264263537233e-07
+        ],
+        "applied_CLOAD_impulse_n_s": [
+          0.0,
+          3.098375655e-19,
+          -1.73736015906e-17
+        ],
+        "balance_residual_n_s": [
+          4.349310755822847e-09,
+          1.3545098212617348e-08,
+          4.935429408714431e-09
+        ],
+        "delta_linear_momentum_n_s": [
+          4.349310755822847e-09,
+          1.3545098212927185e-08,
+          4.935429391340829e-09
+        ],
+        "residual_within_reported_bound_by_component": [
+          true,
+          true,
+          true
+        ]
+      }
+    }
+  },
+  "contact_coverage": {
+    "accepted_pair_triplets_complete_at_0_019": 35,
+    "cleat_incident_pair_count_complete_at_both_endpoints": 10,
+    "endpoint_nonincident_incomplete_triplets": [
+      {
+        "CFN_status": "missing",
+        "CFS_status": "missing",
+        "CF_status": "partial_fields",
+        "coverage_status": "partial",
+        "observed_report_count": 1,
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_head_washer_bore",
+        "pair_index": 34
+      },
+      {
+        "CFN_status": "missing",
+        "CFS_status": "missing",
+        "CF_status": "missing",
+        "coverage_status": "missing",
+        "observed_report_count": 0,
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_nut_washer_bore",
+        "pair_index": 35
+      }
+    ],
+    "nonincident_incomplete_pairs_used_as_zero": false,
+    "other_owner_local_balances": "not assessed"
+  },
+  "endpoint_momenta": [
+    {
+      "CLOAD_force_resultant_cleat_n": [
+        0.0,
+        -76.6044443118978,
+        64.27876096865387
+      ],
+      "CLOAD_force_resultant_global_n": [
+        0.0,
+        3.1205e-15,
+        -1.749766e-13
+      ],
+      "FRD_DISP_time_token": "1.90000E-02",
+      "FRD_VELO_time_token": "1.90000E-02",
+      "cleat_contact_force_n": [
+        -0.47780795487,
+        0.073833036,
+        0.08872574
+      ],
+      "operators": {
+        "calculix_221_four_point_reconstruction": {
+          "cleat": {
+            "FRD_velocity_print_bound_n_s": [
+              1.59834021522047e-08,
+              4.301085600826622e-08,
+              4.2448890473697296e-08
+            ],
+            "linear_momentum_n_s": [
+              -0.003509361864365961,
+              -0.047188910550184614,
+              0.04045441433765595
+            ],
+            "mass_tonne": 0.0005581872212587484
+          },
+          "global": {
+            "FRD_velocity_print_bound_n_s": [
+              2.0065889066107035e-07,
+              2.7815454916035686e-07,
+              2.5638615239255456e-07
+            ],
+            "linear_momentum_n_s": [
+              -3.829844403040243e-09,
+              -8.182026034151947e-09,
+              -3.2608660635323383e-09
+            ],
+            "mass_tonne": 0.011775601009321169
+          }
+        },
+        "gauss8_physical_consistent_mass": {
+          "cleat": {
+            "FRD_velocity_print_bound_n_s": [
+              1.5983425593633007e-08,
+              4.301085365529472e-08,
+              4.2448888156132064e-08
+            ],
+            "linear_momentum_n_s": [
+              -0.0035093618562333645,
+              -0.04718891057184277,
+              0.04045441435550481
+            ],
+            "mass_tonne": 0.0005581872213976631
+          },
+          "global": {
+            "FRD_velocity_print_bound_n_s": [
+              2.0065884963667965e-07,
+              2.781545170567656e-07,
+              2.563861172909152e-07
+            ],
+            "linear_momentum_n_s": [
+              -3.8213368521982455e-09,
+              -8.220126778258209e-09,
+              -3.233395460241382e-09
+            ],
+            "mass_tonne": 0.01177560099634377
+          }
+        }
+      },
+      "time_seconds": 0.019,
+      "time_token": "0.190000E-01"
+    },
+    {
+      "CLOAD_force_resultant_cleat_n": [
+        0.0,
+        -76.6044443118978,
+        64.27876096865387
+      ],
+      "CLOAD_force_resultant_global_n": [
+        0.0,
+        3.1205e-15,
+        -1.749766e-13
+      ],
+      "FRD_DISP_time_token": "2.00000E-02",
+      "FRD_VELO_time_token": "2.00000E-02",
+      "cleat_contact_force_n": [
+        -0.8126052662,
+        39.125099591,
+        -33.14884934
+      ],
+      "operators": {
+        "calculix_221_four_point_reconstruction": {
+          "cleat": {
+            "FRD_velocity_print_bound_n_s": [
+              1.5765522054650407e-08,
+              4.201007000004414e-08,
+              4.1602076282734074e-08
+            ],
+            "linear_momentum_n_s": [
+              -0.004154568466468828,
+              -0.035195573870949744,
+              0.030306656366634984
+            ],
+            "mass_tonne": 0.0005581872212587484
+          },
+          "global": {
+            "FRD_velocity_print_bound_n_s": [
+              2.5194950507162053e-07,
+              4.041107996014346e-07,
+              3.506403261858285e-07
+            ],
+            "linear_momentum_n_s": [
+              5.576711852350237e-10,
+              5.375890134665114e-09,
+              1.6751882361032368e-09
+            ],
+            "mass_tonne": 0.011775601009321169
+          }
+        },
+        "gauss8_physical_consistent_mass": {
+          "cleat": {
+            "FRD_velocity_print_bound_n_s": [
+              1.576556095019046e-08,
+              4.2010067743979334e-08,
+              4.160207405073515e-08
+            ],
+            "linear_momentum_n_s": [
+              -0.004154568494676051,
+              -0.03519557392261712,
+              0.03030665639176845
+            ],
+            "mass_tonne": 0.0005581872213976631
+          },
+          "global": {
+            "FRD_velocity_print_bound_n_s": [
+              2.5194943173754894e-07,
+              4.041107300564271e-07,
+              3.506403090628045e-07
+            ],
+            "linear_momentum_n_s": [
+              5.279739036246015e-10,
+              5.324971434668976e-09,
+              1.702033931099447e-09
+            ],
+            "mass_tonne": 0.01177560099634377
+          }
+        }
+      },
+      "time_seconds": 0.02,
+      "time_token": "0.200000E-01"
+    }
+  ],
+  "impulses": {
+    "cleat_CLOAD": {
+      "RAMP_N_integral_corners_seconds": [
+        9.929001111205064e-05,
+        9.931185111403515e-05,
+        9.927014889e-05,
+        9.92919888919845e-05
+      ],
+      "RAMP_N_integral_seconds": 9.9291e-05,
+      "applied_force_resultant_at_unit_amplitude_n": [
+        0.0,
+        -76.6044443118978,
+        64.27876096865387
+      ],
+      "endpoint_time_half_bounds_seconds": [
+        1.05e-07,
+        1.05e-07
+      ],
+      "input_CLOAD_impulse_n_s": [
+        0.0,
+        -0.0076061318801726435,
+        0.006382302455338611
+      ],
+      "load_basis": "The 662 serialized CLOAD magnitudes are the applied reference pattern; this integral uses only the frozen RAMP_N table, not actuator RF.",
+      "time_and_piecewise_ramp_bound_n_s": [
+        0.0,
+        1.5972880039466787e-06,
+        1.3402837749955506e-06
+      ]
+    },
+    "cleat_contact": {
+      "DAT_CF_and_time_print_bound_n_s": [
+        1.40524527029675e-07,
+        4.12389110615e-06,
+        3.474815213315e-06
+      ],
+      "accepted_dt_seconds": 0.001,
+      "bound_formula": "dt*qF + abs(Favg)*qdt + qdt*qF (includes the second-order product term)",
+      "conservative_endpoint_time_half_bound_seconds": [
+        1.05e-07,
+        1.05e-07
+      ],
+      "force_average_half_bound_n": [
+        5.0300825e-06,
+        8.0015e-06,
+        3.5015e-06
+      ],
+      "force_average_n": [
+        -0.645206610535,
+        19.5994663135,
+        -16.5300618
+      ],
+      "trapezoidal_contact_impulse_n_s": [
+        -0.000645206610535,
+        0.0195994663135,
+        -0.0165300618
+      ]
+    },
+    "global_CLOAD": {
+      "RAMP_N_integral_corners_seconds": [
+        9.929001111205064e-05,
+        9.931185111403515e-05,
+        9.927014889e-05,
+        9.92919888919845e-05
+      ],
+      "RAMP_N_integral_seconds": 9.9291e-05,
+      "applied_force_resultant_at_unit_amplitude_n": [
+        0.0,
+        3.1205e-15,
+        -1.749766e-13
+      ],
+      "endpoint_time_half_bounds_seconds": [
+        1.05e-07,
+        1.05e-07
+      ],
+      "input_CLOAD_impulse_n_s": [
+        0.0,
+        3.098375655e-19,
+        -1.73736015906e-17
+      ],
+      "load_basis": "The 662 serialized CLOAD magnitudes are the applied reference pattern; this integral uses only the frozen RAMP_N table, not actuator RF.",
+      "time_and_piecewise_ramp_bound_n_s": [
+        0.0,
+        6.506590134668557e-23,
+        3.648457040082827e-21
+      ]
+    }
+  },
+  "limits": [
+    "This is a linear momentum bookkeeping comparison, not a joint capacity, strength, angular, stiffness, contact-qualification, or acceptance result.",
+    "The contact impulse is a trapezoid over two accepted endpoints; between-increment contact-force variation, time-resolution error, and solver equilibrium residual are not bounded.",
+    "Reported bounds cover FRD velocity conversion/print, DAT CF print, and STA/FRD/DAT time-token quantization plus the second-order product term. They do not bound solver residual or finite-precision solver arithmetic.",
+    "Only the global system and the bottom-center-right cleat local balance are reported; local balances for other owners are not assessed.",
+    "The immutable output prefix is a non-atomic snapshot captured while source execution was live. Only the pinned .019/.020 accepted rows are used."
+  ],
+  "mechanical_acceptance": false,
+  "positive_mass_operators": {
+    "calculix_221_four_point_reconstruction": {
+      "cleat_mass_kg": 0.5581872212587484,
+      "cleat_mass_tonne": 0.0005581872212587484,
+      "global_positive_mass_kg": 11.77560100932117,
+      "global_positive_mass_tonne": 0.011775601009321169,
+      "positive_density_body_ids": [
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M01_A00_HEAD_WASHER",
+        "M02_A00_NUT_WASHER",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M05_A01_HEAD_WASHER",
+        "M06_A01_NUT_WASHER",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M09_A02_HEAD_WASHER",
+        "M10_A02_NUT_WASHER",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M13_A03_HEAD_WASHER",
+        "M14_A03_NUT_WASHER",
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+      ]
+    },
+    "gauss8_physical_consistent_mass": {
+      "cleat_mass_kg": 0.5581872213976632,
+      "cleat_mass_tonne": 0.0005581872213976631,
+      "global_positive_mass_kg": 11.77560099634377,
+      "global_positive_mass_tonne": 0.01177560099634377,
+      "positive_density_body_ids": [
+        "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M01_A00_HEAD_WASHER",
+        "M02_A00_NUT_WASHER",
+        "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M05_A01_HEAD_WASHER",
+        "M06_A01_NUT_WASHER",
+        "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M09_A02_HEAD_WASHER",
+        "M10_A02_NUT_WASHER",
+        "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION",
+        "M13_A03_HEAD_WASHER",
+        "M14_A03_NUT_WASHER",
+        "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "W02_BASE_PRINCIPAL_CENTER_RIGHT"
+      ]
+    }
+  },
+  "provenance": {
+    "CLOAD_loaded_node_count": 331,
+    "CLOAD_term_count": 662,
+    "input_case_read_scope": "hash-pinned source input files only; no source DAT, FRD, STA, or live response values were read",
+    "rejected_status_rows": 0,
+    "serialized_force_resultant_cleat_at_unit_amplitude_n": [
+      0.0,
+      -76.6044443118978,
+      64.27876096865387
+    ],
+    "serialized_force_resultant_global_at_unit_amplitude_n": [
+      0.0,
+      3.1205e-15,
+      -1.749766e-13
+    ],
+    "serialized_force_resultant_principal_at_unit_amplitude_n": [
+      0.0,
+      76.6044443118978,
+      -64.27876096865404
+    ],
+    "sha256": {
+      "attempt02_mass_frd_audit_helper": "d03ee3ea95c00f7137a07cf8d3a5b474bfd5f0c03786686838a66eeb935bbf1f",
+      "c3d10_mesh_helper": "3f9cb7768f2ba0efb4e5b26f56222422a09048bfe5e1acdf5ded26f749d861c0",
+      "contact_audit_json": "b50ab4608ce3346fbe3f2399794fc98e7ef18a6fe8a3d62ad1e1a075960ec1e4",
+      "contact_audit_script": "37114577aac614952db215b5aa7c361df2b7e16b01133736d480db1a128c87ae",
+      "contact_manifest_json": "e0a698bde664469f2d079ae5d6d98cd89a3b74af735752d3b9d5666d933beee7",
+      "dynamic_momentum_helpers": "f97f0214a8dcd6ae8e539ed3f1377603031776e1b84235bb5dd058e48fd104e3",
+      "input_artifacts": {
+        "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+        "contact-manifest.json": "e0a698bde664469f2d079ae5d6d98cd89a3b74af735752d3b9d5666d933beee7",
+        "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+        "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+        "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+        "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+        "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+        "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0",
+        "pilot.inp": "a9f891c92fed7eaa7e3b78f0656c5829d330a28a3df450ea7128b9ea52eb49c4",
+        "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815"
+      },
+      "input_freeze_json": "f054d6b911fb0d9c9b0a183fa007d16d8a34a422904fd5cbcf73634e87797e66",
+      "numeric_status_helper": "c43341d3a72904641a973b017e591b02fdc32bc342f192f5148de5746cf212c6",
+      "snapshot_json": "001cefdb37a52bdf6bc6d1d590310c93d91d7f5b2f7cf0a35ad2e10c097e0d8a",
+      "snapshot_pilot_dat": "5b9ef4ed407c11008c0d2f31dc92037a08564a41859825c0a54ea587f71fa3e4",
+      "snapshot_pilot_frd": "ae107f6bd8aa2e6a8b41ec187926c5b14f00f713777e3a7e4bd62d7ffc08fe3b",
+      "snapshot_pilot_sta": "f122d34446295f3b6d0a0b3d70605b7c05163829fcf12d56da988de8cd921a30"
+    },
+    "snapshot_capture_policy": "Each file copied through its size at open, with STA first. Files are not atomic with one another. Accepted status rows govern the requested audit; partial or missing state reports remain unavailable. No CEL copied. Source input artifacts verified before capture."
+  },
+  "schema": "wood_joint_force_every_increment_seating_momentum_audit/v1",
+  "scope": {
+    "accepted_states_used": 2,
+    "cleat_contact_interfaces": [
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": 1,
+        "cleat_is": "slave",
+        "master_owner": "W01_BASE_RAIL_BOTTOM_RIGHT",
+        "pair_id": "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+        "pair_index": 1,
+        "slave_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": 1,
+        "cleat_is": "slave",
+        "master_owner": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+        "pair_id": "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+        "pair_index": 2,
+        "slave_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+        "pair_index": 5,
+        "slave_owner": "M01_A00_HEAD_WASHER"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+        "pair_index": 9,
+        "slave_owner": "M05_A01_HEAD_WASHER"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+        "pair_index": 13,
+        "slave_owner": "M09_A02_HEAD_WASHER"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+        "pair_index": 17,
+        "slave_owner": "M13_A03_HEAD_WASHER"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "pair_index": 20,
+        "slave_owner": "M00_A00_BOLT_HEAD_PLUS_SHAFT_UNION"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+        "pair_index": 22,
+        "slave_owner": "M04_A01_BOLT_HEAD_PLUS_SHAFT_UNION"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+        "pair_index": 24,
+        "slave_owner": "M08_A02_BOLT_HEAD_PLUS_SHAFT_UNION"
+      },
+      {
+        "cleat_contact_force_sign_from_CF_on_slave": -1,
+        "cleat_is": "master",
+        "master_owner": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+        "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore",
+        "pair_index": 26,
+        "slave_owner": "M12_A03_BOLT_HEAD_PLUS_SHAFT_UNION"
+      }
+    ],
+    "cleat_contact_treatment": "Ten manifest-derived incident CF vectors; CF acts on the slave and the opposite vector acts on the master. CFN/CFS are not added.",
+    "external_force_basis": "Actual frozen 662-term *CLOAD,AMPLITUDE=RAMP_N input; actuator RF is not used.",
+    "global_internal_contact_treatment": "Contact is internal to the modeled system and is not added to global impulse.",
+    "interval_seconds": [
+      0.019,
+      0.02
+    ],
+    "mass_operators": "Authenticated Gauss8 physical consistent mass and source-reconstructed CalculiX 2.21 four-point mass, reported separately.",
+    "mass_scope": "All positive-density C3D10 bodies (three wood and twelve steel); four zero-density display carriers and massless controls excluded.",
+    "nonincident_pair_34_35": "Pair 034 is partial and 035 is missing at .020; neither is imputed or required for the cleat-local balance.",
+    "other_owner_balances": "not assessed",
+    "snapshot_accepted_state_count": 20
+  },
+  "status": "BOUNDED_ENDPOINT_LINEAR_MOMENTUM_BOOKKEEPING_NOT_JOINT_ACCEPTANCE"
+}

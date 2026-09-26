@@ -1,0 +1,688 @@
+{
+  "intervals": [
+    {
+      "actuator": {
+        "accepted_dt_seconds": "0.000500000",
+        "average_target_rf_half_quantum_n": "2.75E-10",
+        "combined_endpoint_time_half_quantum_seconds": "6.05E-9",
+        "omitted_product_cross_term_cleat_n_s": [
+          "0E-23",
+          "1.274506442239199813875E-18",
+          "1.069437885615978762125E-18"
+        ],
+        "omitted_product_cross_term_global_n_s": [
+          "0E-23",
+          "8.31875E-34",
+          "2.662000E-33"
+        ],
+        "physical_weight_cleat_xyz": [
+          "0",
+          "-0.7660444431189781",
+          "0.6427876096865387"
+        ],
+        "physical_weight_global_xyz": [
+          "0",
+          "5E-16",
+          "-1.6E-15"
+        ]
+      },
+      "cleat_balance": {
+        "calculix_221_four_point_reconstruction": {
+          "balance_residual_n_s": [
+            8.105763542318688e-13,
+            -7.573806935091124e-12,
+            -9.070940865747806e-12
+          ],
+          "corrected_bound_n_s": [
+            1.0009914534488856e-09,
+            1.0077482507306764e-09,
+            1.0061474473925235e-09
+          ],
+          "first_order_reported_bound_n_s": [
+            1.0009793529497606e-09,
+            1.0077361494062575e-09,
+            1.006135346273173e-09
+          ],
+          "omitted_actuator_cross_term_added_n_s": [
+            0.0,
+            1.2745064422391998e-18,
+            1.0694378856159788e-18
+          ],
+          "omitted_contact_cross_term_added_n_s": [
+            1.2100499125e-14,
+            1.2100049912500317e-14,
+            1.2100049912500182e-14
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        },
+        "gauss8_physical_consistent_mass": {
+          "balance_residual_n_s": [
+            8.109330555290067e-13,
+            -7.574776505753759e-12,
+            -9.070446751672063e-12
+          ],
+          "corrected_bound_n_s": [
+            1.0009914536310002e-09,
+            1.007748255967302e-09,
+            1.0061474475913296e-09
+          ],
+          "first_order_reported_bound_n_s": [
+            1.0009793531318752e-09,
+            1.0077361546428832e-09,
+            1.0061353464719791e-09
+          ],
+          "omitted_actuator_cross_term_added_n_s": [
+            0.0,
+            1.2745064422391998e-18,
+            1.0694378856159788e-18
+          ],
+          "omitted_contact_cross_term_added_n_s": [
+            1.2100499125e-14,
+            1.2100049912500317e-14,
+            1.2100049912500182e-14
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "cleat_complete_contact_coverage": true,
+      "contact": {
+        "average_force_half_quantum_n": [
+          "0.000002000082500000000007575",
+          "0.000002000008250000052500002775",
+          "0.00000200000825000003000000075"
+        ],
+        "combined_endpoint_time_half_quantum_seconds": "6.05E-9",
+        "endpoint_cleat_force_half_quantum_sum_n": [
+          [
+            "0.00000200001500000000000015",
+            "0.00000200000150000000000000555",
+            "0.0000020000015000000000000015"
+          ],
+          [
+            "0.000002000150000000000015",
+            "0.000002000015000000105",
+            "0.000002000015000000060"
+          ]
+        ],
+        "endpoint_cleat_force_n": [
+          [
+            "0.0000251054400000018491991",
+            "2.992499999999856777960E-7",
+            "3.56632999999995019556E-7"
+          ],
+          [
+            "0.00014252740000000092863",
+            "0.00000788280000275164",
+            "0.00000939435999390815"
+          ]
+        ],
+        "omitted_product_cross_term_n_s": [
+          "1.210049912500000004582875E-14",
+          "1.210004991250031762501678875E-14",
+          "1.21000499125001815000045375E-14"
+        ]
+      },
+      "end_time_seconds": 0.001,
+      "global_all_positive_mass_bodies": {
+        "calculix_221_four_point_reconstruction": {
+          "balance_residual_n_s": [
+            4.630667623378067e-14,
+            -7.430129548775127e-14,
+            -3.573903730778041e-14
+          ],
+          "corrected_bound_n_s": [
+            1.6952613945790232e-12,
+            3.777179274237676e-12,
+            2.947227829841581e-12
+          ],
+          "first_order_reported_bound_n_s": [
+            1.6952613945790232e-12,
+            3.777179274237676e-12,
+            2.947227829841581e-12
+          ],
+          "omitted_cross_term_added_n_s": [
+            0.0,
+            8.31875e-34,
+            2.662e-33
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        },
+        "gauss8_physical_consistent_mass": {
+          "balance_residual_n_s": [
+            5.027130448399426e-14,
+            -7.605615631092714e-14,
+            -3.5393495409356455e-14
+          ],
+          "corrected_bound_n_s": [
+            1.695261632729936e-12,
+            3.777184313172842e-12,
+            2.947227986212299e-12
+          ],
+          "first_order_reported_bound_n_s": [
+            1.695261632729936e-12,
+            3.777184313172842e-12,
+            2.947227986212299e-12
+          ],
+          "omitted_cross_term_added_n_s": [
+            0.0,
+            8.31875e-34,
+            2.662e-33
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "start_time_seconds": 0.0005
+    },
+    {
+      "actuator": {
+        "accepted_dt_seconds": "0.00050000",
+        "average_target_rf_half_quantum_n": "5E-10",
+        "combined_endpoint_time_half_quantum_seconds": "1.10E-8",
+        "omitted_product_cross_term_cleat_n_s": [
+          "0E-20",
+          "4.213244437154379550E-18",
+          "3.535331853275962850E-18"
+        ],
+        "omitted_product_cross_term_global_n_s": [
+          "0E-20",
+          "2.750E-33",
+          "8.800E-33"
+        ],
+        "physical_weight_cleat_xyz": [
+          "0",
+          "-0.7660444431189781",
+          "0.6427876096865387"
+        ],
+        "physical_weight_global_xyz": [
+          "0",
+          "5E-16",
+          "-1.6E-15"
+        ]
+      },
+      "cleat_balance": {
+        "calculix_221_four_point_reconstruction": {
+          "balance_residual_n_s": [
+            1.1207797911305392e-12,
+            -5.352799311678869e-12,
+            -6.652593261018873e-12
+          ],
+          "corrected_bound_n_s": [
+            1.0052196485557818e-09,
+            1.0439626566279298e-09,
+            1.037234411347711e-09
+          ],
+          "first_order_reported_bound_n_s": [
+            1.0051976394807819e-09,
+            1.0439406520021853e-09,
+            1.037212407399879e-09
+          ],
+          "omitted_actuator_cross_term_added_n_s": [
+            0.0,
+            4.21324443715438e-18,
+            3.535331853275963e-18
+          ],
+          "omitted_contact_cross_term_added_n_s": [
+            2.2009075000000008e-14,
+            2.2000412500008828e-14,
+            2.200041250000858e-14
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        },
+        "gauss8_physical_consistent_mass": {
+          "balance_residual_n_s": [
+            1.1204681323588537e-12,
+            -5.355887764693456e-12,
+            -6.650836410501215e-12
+          ],
+          "corrected_bound_n_s": [
+            1.0052196504189704e-09,
+            1.0439626608279566e-09,
+            1.0372344113288615e-09
+          ],
+          "first_order_reported_bound_n_s": [
+            1.0051976413439704e-09,
+            1.043940656202212e-09,
+            1.0372124073810295e-09
+          ],
+          "omitted_actuator_cross_term_added_n_s": [
+            0.0,
+            4.21324443715438e-18,
+            3.535331853275963e-18
+          ],
+          "omitted_contact_cross_term_added_n_s": [
+            2.2009075000000008e-14,
+            2.2000412500008828e-14,
+            2.200041250000858e-14
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "cleat_complete_contact_coverage": true,
+      "contact": {
+        "average_force_half_quantum_n": [
+          "0.0000020008250000000007575",
+          "0.0000020000375000008025",
+          "0.000002000037500000780"
+        ],
+        "combined_endpoint_time_half_quantum_seconds": "1.10E-8",
+        "endpoint_cleat_force_half_quantum_sum_n": [
+          [
+            "0.000002000150000000000015",
+            "0.000002000015000000105",
+            "0.000002000015000000060"
+          ],
+          [
+            "0.0000020015000000000015",
+            "0.0000020000600000015",
+            "0.0000020000600000015"
+          ]
+        ],
+        "endpoint_cleat_force_n": [
+          [
+            "0.00014252740000000092863",
+            "0.00000788280000275164",
+            "0.00000939435999390815"
+          ],
+          [
+            "0.000135195999998248195",
+            "0.000017795148411682",
+            "0.000021207441141498"
+          ]
+        ],
+        "omitted_product_cross_term_n_s": [
+          "2.200907500000000833250E-14",
+          "2.200041250000882750E-14",
+          "2.20004125000085800E-14"
+        ]
+      },
+      "end_time_seconds": 0.0015,
+      "global_all_positive_mass_bodies": {
+        "calculix_221_four_point_reconstruction": {
+          "balance_residual_n_s": [
+            8.217872147253491e-14,
+            -1.0566186997675905e-13,
+            -1.47124035118407e-13
+          ],
+          "corrected_bound_n_s": [
+            1.202443040306369e-11,
+            1.7586258414595414e-11,
+            1.4647999893114353e-11
+          ],
+          "first_order_reported_bound_n_s": [
+            1.202443040306369e-11,
+            1.7586258414595414e-11,
+            1.4647999893114353e-11
+          ],
+          "omitted_cross_term_added_n_s": [
+            0.0,
+            2.75e-33,
+            8.8e-33
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        },
+        "gauss8_physical_consistent_mass": {
+          "balance_residual_n_s": [
+            9.216742380091542e-14,
+            -1.0988019366234338e-13,
+            -1.4633221776025092e-13
+          ],
+          "corrected_bound_n_s": [
+            1.2024437877937161e-11,
+            1.758626042132364e-11,
+            1.46479995683609e-11
+          ],
+          "first_order_reported_bound_n_s": [
+            1.2024437877937161e-11,
+            1.758626042132364e-11,
+            1.46479995683609e-11
+          ],
+          "omitted_cross_term_added_n_s": [
+            0.0,
+            2.75e-33,
+            8.8e-33
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "start_time_seconds": 0.001
+    },
+    {
+      "actuator": {
+        "accepted_dt_seconds": "0.00050000",
+        "average_target_rf_half_quantum_n": "2.75E-9",
+        "combined_endpoint_time_half_quantum_seconds": "1.10E-8",
+        "omitted_product_cross_term_cleat_n_s": [
+          "0E-21",
+          "2.31728444043490875250E-17",
+          "1.94443251930177956750E-17"
+        ],
+        "omitted_product_cross_term_global_n_s": [
+          "0E-21",
+          "1.51250E-32",
+          "4.84000E-32"
+        ],
+        "physical_weight_cleat_xyz": [
+          "0",
+          "-0.7660444431189781",
+          "0.6427876096865387"
+        ],
+        "physical_weight_global_xyz": [
+          "0",
+          "5E-16",
+          "-1.6E-15"
+        ]
+      },
+      "cleat_balance": {
+        "calculix_221_four_point_reconstruction": {
+          "balance_residual_n_s": [
+            1.0428310608850067e-11,
+            1.7438768803465868e-11,
+            1.923009146482347e-11
+          ],
+          "corrected_bound_n_s": [
+            1.0107920313886867e-09,
+            1.126803288064482e-09,
+            1.1041436985226186e-09
+          ],
+          "first_order_reported_bound_n_s": [
+            1.0107700148886867e-09,
+            1.1267812637366372e-09,
+            1.1041216779232933e-09
+          ],
+          "omitted_actuator_cross_term_added_n_s": [
+            0.0,
+            2.3172844404349088e-17,
+            1.9444325193017795e-17
+          ],
+          "omitted_contact_cross_term_added_n_s": [
+            2.201650000000009e-14,
+            2.200115500033825e-14,
+            2.200115500009075e-14
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        },
+        "gauss8_physical_consistent_mass": {
+          "balance_residual_n_s": [
+            1.042753417860036e-11,
+            1.7433116165514783e-11,
+            1.9233600058250115e-11
+          ],
+          "corrected_bound_n_s": [
+            1.0107920433721097e-09,
+            1.126803277984777e-09,
+            1.1041438032952974e-09
+          ],
+          "first_order_reported_bound_n_s": [
+            1.0107700268721097e-09,
+            1.126781253656932e-09,
+            1.104121782695972e-09
+          ],
+          "omitted_actuator_cross_term_added_n_s": [
+            0.0,
+            2.3172844404349088e-17,
+            1.9444325193017795e-17
+          ],
+          "omitted_contact_cross_term_added_n_s": [
+            2.201650000000009e-14,
+            2.200115500033825e-14,
+            2.200115500009075e-14
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "cleat_complete_contact_coverage": true,
+      "contact": {
+        "average_force_half_quantum_n": [
+          "0.00000200150000000000825",
+          "0.00000200010500003075",
+          "0.00000200010500000825"
+        ],
+        "combined_endpoint_time_half_quantum_seconds": "1.10E-8",
+        "endpoint_cleat_force_half_quantum_sum_n": [
+          [
+            "0.0000020015000000000015",
+            "0.0000020000600000015",
+            "0.0000020000600000015"
+          ],
+          [
+            "0.000002001500000000015",
+            "0.000002000150000060",
+            "0.000002000150000015"
+          ]
+        ],
+        "endpoint_cleat_force_n": [
+          [
+            "0.000135195999998248195",
+            "0.000017795148411682",
+            "0.000021207441141498"
+          ],
+          [
+            "-0.00050071300004951495",
+            "0.00005538216437916",
+            "0.00006600192682249"
+          ]
+        ],
+        "omitted_product_cross_term_n_s": [
+          "2.2016500000000090750E-14",
+          "2.2001155000338250E-14",
+          "2.2001155000090750E-14"
+        ]
+      },
+      "end_time_seconds": 0.002,
+      "global_all_positive_mass_bodies": {
+        "calculix_221_four_point_reconstruction": {
+          "balance_residual_n_s": [
+            -4.2923356680726427e-13,
+            6.30484765620594e-13,
+            8.338062300377028e-14
+          ],
+          "corrected_bound_n_s": [
+            2.942711900441686e-11,
+            6.163078269808333e-11,
+            5.022962837713132e-11
+          ],
+          "first_order_reported_bound_n_s": [
+            2.942711900441686e-11,
+            6.163078269808333e-11,
+            5.022962837713132e-11
+          ],
+          "omitted_cross_term_added_n_s": [
+            0.0,
+            1.5125e-32,
+            4.84e-32
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        },
+        "gauss8_physical_consistent_mass": {
+          "balance_residual_n_s": [
+            -4.1413418380878464e-13,
+            6.227330349354706e-13,
+            8.569907937114441e-14
+          ],
+          "corrected_bound_n_s": [
+            2.942713566553675e-11,
+            6.163076830123808e-11,
+            5.022973120629434e-11
+          ],
+          "first_order_reported_bound_n_s": [
+            2.942713566553675e-11,
+            6.163076830123808e-11,
+            5.022973120629434e-11
+          ],
+          "omitted_cross_term_added_n_s": [
+            0.0,
+            1.5125e-32,
+            4.84e-32
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "start_time_seconds": 0.0015
+    },
+    {
+      "actuator": {
+        "accepted_dt_seconds": "0.00050000",
+        "average_target_rf_half_quantum_n": "5E-9",
+        "combined_endpoint_time_half_quantum_seconds": "1.10E-8",
+        "omitted_product_cross_term_cleat_n_s": [
+          "0E-19",
+          "4.213244437154379550E-17",
+          "3.535331853275962850E-17"
+        ],
+        "omitted_product_cross_term_global_n_s": [
+          "0E-19",
+          "2.750E-32",
+          "8.800E-32"
+        ],
+        "physical_weight_cleat_xyz": [
+          "0",
+          "-0.7660444431189781",
+          "0.6427876096865387"
+        ],
+        "physical_weight_global_xyz": [
+          "0",
+          "5E-16",
+          "-1.6E-15"
+        ]
+      },
+      "cleat_balance": null,
+      "cleat_complete_contact_coverage": false,
+      "end_time_seconds": 0.0025,
+      "global_all_positive_mass_bodies": {
+        "calculix_221_four_point_reconstruction": {
+          "balance_residual_n_s": [
+            -1.0207830130980743e-12,
+            -8.901630376076073e-13,
+            1.4923189958273188e-13
+          ],
+          "corrected_bound_n_s": [
+            9.13103224544484e-11,
+            1.250045423159908e-10,
+            1.0393859307981726e-10
+          ],
+          "first_order_reported_bound_n_s": [
+            9.13103224544484e-11,
+            1.250045423159908e-10,
+            1.0393859307981726e-10
+          ],
+          "omitted_cross_term_added_n_s": [
+            0.0,
+            2.75e-32,
+            8.8e-32
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        },
+        "gauss8_physical_consistent_mass": {
+          "balance_residual_n_s": [
+            -1.006766045673311e-12,
+            -9.015735871737241e-13,
+            1.5291880972333792e-13
+          ],
+          "corrected_bound_n_s": [
+            9.131030408594374e-11,
+            1.2500453137239546e-10,
+            1.0393869174348356e-10
+          ],
+          "first_order_reported_bound_n_s": [
+            9.131030408594374e-11,
+            1.2500453137239546e-10,
+            1.0393869174348356e-10
+          ],
+          "omitted_cross_term_added_n_s": [
+            0.0,
+            2.75e-32,
+            8.8e-32
+          ],
+          "within_corrected_bound": [
+            true,
+            true,
+            true
+          ]
+        }
+      },
+      "start_time_seconds": 0.002
+    }
+  ],
+  "mechanical_acceptance": false,
+  "schema": "wood_joint_finite_actuator_momentum_rounding_bound_addendum/v1",
+  "scope": {
+    "actuator_formula": "cross = |w| * delta_t * delta_RF_average, with delta_RF_average=(epsilon_RF0+epsilon_RF1)/2 and delta_t=sum of both accepted .sta and DAT time half-quanta at the endpoints.",
+    "contact_formula": "cross = delta_t * delta_F_average, with delta_F_average=(epsilon_F0+epsilon_F1)/2 and epsilon_Fi equal to the sum of the ten cleat-side CF component half-quanta; delta_t includes accepted .sta and CF report time half-quanta.",
+    "interpretation": "Original attempt02 output bounds are first-order product-propagation bounds. This addendum adds the omitted delta_time times delta_force cross term from the same frozen print-token intervals.",
+    "limits": [
+      "No mass operators were integrated by this addendum.",
+      "No native solver or CAD was run.",
+      "This corrects print-token product propagation only; it does not bound between-increment force variation, solver equilibrium residual, model uncertainty, or joint acceptance."
+    ],
+    "parent_report_status": "RECONSTRUCTED_LINEAR_MOMENTUM_BALANCE_NOT_JOINT_ACCEPTANCE"
+  },
+  "source_sha256": {
+    "audit.py": "d03ee3ea95c00f7137a07cf8d3a5b474bfd5f0c03786686838a66eeb935bbf1f",
+    "contact-manifest.json": "e0a698bde664469f2d079ae5d6d98cd89a3b74af735752d3b9d5666d933beee7",
+    "current-finite-actuator-work-audit-attempt03/audit.py": "c43341d3a72904641a973b017e591b02fdc32bc342f192f5148de5746cf212c6",
+    "fea/dynamic_momentum.py": "f97f0214a8dcd6ae8e539ed3f1377603031776e1b84235bb5dd058e48fd104e3",
+    "fea/wood_joint_mesh_jacobian_audit.py": "3f9cb7768f2ba0efb4e5b26f56222422a09048bfe5e1acdf5ded26f749d861c0",
+    "finite-actuator-progress-contact-audit-attempt02/contact-audit.json": "9c1d4705f8848cda61fedd17cc18f5099969802e92c355956ffecce433d62cf1",
+    "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "parent-execution.json": "83a908620a33fb847b0c2e3943489f4fdb8db89df96aec698afed3deb75da24f",
+    "pilot.dat": "cede252afb924f93857d26d6a7dd6d2496a210aa3346ab4a2d0d01212e06946b",
+    "pilot.inp": "840daddc53194bb2956d214d4e7d83cb69a21a93f3e830ab915f754ebc16791b",
+    "pilot.sta": "b6bd0ec4e4843d64b9ec308868aa1cb29edf4569fa474f3d68df7352c2f726ec",
+    "report.json": "b4a8ada753a7f00a6c1e5a3697d53a25e7cdb1ae07a6bc70a855eec99f2e9f95",
+    "rounding_bound_addendum.py": "9e29185f039da9a03c919f4693f72cd0cd6fdd96bd1bd91c20dd841ecca81c9d",
+    "snapshot.json": "e315511717f1da5ea94deeee6b582db0f454280487fc19a1ef6698177c3e2051"
+  },
+  "status": "SECOND_ORDER_OUTPUT_PRINT_CROSS_TERMS_INCLUDED"
+}

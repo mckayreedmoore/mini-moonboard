@@ -1,0 +1,32 @@
+{
+  "schema": "wood_joint_corrected_trajectory_parent_readiness/v1",
+  "checked_at_utc": "2026-09-25T18:25:54.099570+00:00",
+  "disposition": "ready for bounded diagnostic launch",
+  "candidate_geometry_unchanged": true,
+  "preparation_sha256": "5bfd733c12d770310cdd5197c5445d3928d983032dfd7e5985d279e24fb62d8b",
+  "binary_sha256": "4e794cae6d0495a5a543e5bd962f5dde2a3539f0cb850432e230ee23494654e9",
+  "source_index_sha256": "c97455660320627d00803d1f2c9bd32a086f58b29dbdf0957b38babe138f761b",
+  "inputs_verified": {
+    "pilot.inp": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0"
+  },
+  "all_build_source_artifact_pins_verified": true,
+  "source_snapshot_index_sha256": "7f9d8d8a496398ad222ea9b5678cc3ca7a12127f1d6ab959ba4bd98779177fec",
+  "full_printout_fixture_review_sha256": "3a44c127ad129a5c4acf35279c2a97cfcdf4dfe49bab2e8753f503af8527c978",
+  "multiworker_numerical_audit_sha256": "fedfcb1f8cc5521ea70165c9612e94e6a6b4794861e785eb06d80c6e8d90c126",
+  "scope": "same eight frozen inputs as attempt01; repair changes energy/controller bookkeeping, fullmesh ACC added, MT dispatch validated on synthetic fixture; current joint still requires its own response audit",
+  "stop_goal": "stop at first cleat-bolt/bore transition plus one complete following accepted state, or earlier if a numerical or source-data defect is observed",
+  "stop_conditions": [
+    "first cleat-bolt/bore transition plus one complete following accepted state",
+    "earlier stop when a numerical or source-data defect is observed"
+  ],
+  "frd_cels_energy_authority": false,
+  "mechanical_acceptance": false,
+  "runtime_complete": false
+}

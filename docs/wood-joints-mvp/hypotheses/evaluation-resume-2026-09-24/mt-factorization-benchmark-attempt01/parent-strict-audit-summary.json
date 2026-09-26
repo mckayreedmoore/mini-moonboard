@@ -1,0 +1,44 @@
+{
+  "cases": [
+    {
+      "arm": "serial_reference",
+      "case": "upper-slave",
+      "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY",
+      "audit_sha256": "df9db36463334b7f873be1851423d0f8c7552412b1acbf3b8f1448134084e249"
+    },
+    {
+      "arm": "serial_reference",
+      "case": "lower-slave",
+      "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY",
+      "audit_sha256": "f63d56f8b3f961fbc0bec87c5bee43982f6863015a3f780eeb94c8b71f087cb3"
+    },
+    {
+      "arm": "mt_threads1",
+      "case": "upper-slave",
+      "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY",
+      "audit_sha256": "df9db36463334b7f873be1851423d0f8c7552412b1acbf3b8f1448134084e249"
+    },
+    {
+      "arm": "mt_threads1",
+      "case": "lower-slave",
+      "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY",
+      "audit_sha256": "f63d56f8b3f961fbc0bec87c5bee43982f6863015a3f780eeb94c8b71f087cb3"
+    },
+    {
+      "arm": "mt_threads4",
+      "case": "upper-slave",
+      "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY",
+      "audit_sha256": "df9db36463334b7f873be1851423d0f8c7552412b1acbf3b8f1448134084e249"
+    },
+    {
+      "arm": "mt_threads4",
+      "case": "lower-slave",
+      "status": "SOLVER_AND_DAT_ACCOUNTING_PASS_ONLY_NOT_JOINT_CAPACITY",
+      "audit_sha256": "f63d56f8b3f961fbc0bec87c5bee43982f6863015a3f780eeb94c8b71f087cb3"
+    }
+  ],
+  "all_six_strict_audits_pass": true,
+  "pairwise_comparison_pending": true,
+  "multiworker_gate_pass": false,
+  "reason": "Both four-thread-requested cases actually use one worker."
+}

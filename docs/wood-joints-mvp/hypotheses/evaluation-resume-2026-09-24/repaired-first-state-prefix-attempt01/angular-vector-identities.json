@@ -1,0 +1,69 @@
+{
+  "schema": "independent_angular_extension_identity_review/v1",
+  "capture_sha256": "7423133652ecb58b2698a7bb66f5b5956f5810e34d2b6dd646913452052269a0",
+  "original_dat_sha256": "ba49c691316bf16f12de20bb127919d3d2b46563fda58d9125226ca03f4a6562",
+  "extended_dat_sha256": "f1d67870f43f425074a18c6f8df17ded39f341494704755610cbe9c0b33e0792",
+  "extension_producer_sha256": "65f48a6af6f3a40b6274f1cca795f60b6824dd1ad8a5f7516201f8b901072f82",
+  "angular_parser_sha256": "9be21ca6856dd9892629c6e8dddec2120cf2e4ab5279dcb32f2c9372a00a22cb",
+  "source_run": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt03",
+  "container_id": "e104dafd66343b264759bbc0eb38772344d9ba4ab7ef0430de058452fed79051",
+  "source_input_hashes_match_capture": true,
+  "source_input_sha256": {
+    "pilot.inp": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0"
+  },
+  "original_prefix_bytes": 40003879,
+  "extended_prefix_bytes": 40004242,
+  "appended_bytes": 363,
+  "byte_for_byte_original_prefix_preserved": true,
+  "accepted_state": {
+    "step": 1,
+    "increment": 1,
+    "time_seconds": "0.000500000",
+    "dtime_seconds": "0.000500000"
+  },
+  "extension_selected_state": {
+    "step": 1,
+    "increment": 1,
+    "time": ".0005"
+  },
+  "angular_coverage": {
+    "header_count": 315,
+    "expected_identity_count": 315
+  },
+  "finite_numeric_value_count": 1575,
+  "vector_identity_checks": {
+    "cf_equals_cfn_plus_cfs": {
+      "component_count": 525,
+      "failed_component_count": 0,
+      "max_abs_difference": "0E-33",
+      "worst_error_over_bound": "0E+8",
+      "max_bound": "1.231488794527069160267274128E-13",
+      "status": "PASS"
+    },
+    "slave_master_force_action_reaction": {
+      "component_count": 315,
+      "failed_component_count": 0,
+      "max_abs_difference": "0E-33",
+      "worst_error_over_bound": "0E+8",
+      "max_bound": "2.852170943040400743484497070E-14",
+      "status": "PASS"
+    },
+    "pair_offset_couple_equals_origin_moment_sum": {
+      "component_count": 315,
+      "failed_component_count": 0,
+      "max_abs_difference": "2.52489267E-17",
+      "worst_error_over_bound": "0.0003870813733314030432552110983",
+      "max_bound": "1.230988794532069164471122349E-13",
+      "status": "PASS"
+    },
+    "rounding_policy": "Each printed value contributes half its textual E-format quantum; arithmetic allowance is the printer-fixture 128*binary64-epsilon*max(1,sum(abs(operands))) bound. This is output-identity validation, not a mechanics tolerance."
+  },
+  "scope": "First accepted-state output identity checks only; no angular equilibrium, full-horizon success, physical joint acceptance, or criterion closure."
+}

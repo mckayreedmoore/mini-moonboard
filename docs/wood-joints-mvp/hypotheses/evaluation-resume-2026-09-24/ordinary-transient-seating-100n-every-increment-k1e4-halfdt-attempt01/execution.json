@@ -1,0 +1,357 @@
+{
+  "schema": "wood_joint_current_transient_execution/v1",
+  "status": "process_failed",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "wj-current-native-ordinary-transient-seating-100n-every-increment-k1e4-halfdt-attempt01",
+    "--network",
+    "none",
+    "--cpus",
+    "4",
+    "--memory",
+    "10g",
+    "--user",
+    "1000:1000",
+    "--env",
+    "OMP_NUM_THREADS=4",
+    "--env",
+    "CCX_NPROC_EQUATION_SOLVER=4",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-seating-100n-every-increment-k1e4-halfdt-attempt01,dst=/work",
+    "--workdir",
+    "/work",
+    "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "solver_binary_sha256": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+  "input_freeze_sha256": "ea24423f587795743d0c1189c798f77d83159208c76d5d1d3a9fa5554eda4f56",
+  "timeout_seconds": 10800,
+  "mechanical_acceptance": false,
+  "observations": [
+    {
+      "time_seconds": 0.0005,
+      "q_mm": 3.7644051950106843e-06,
+      "maximum_loaded_displacement_mm": 3.2067076989145736e-06,
+      "maximum_controller_rotation_rad": 7.030462697893741e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.001,
+      "q_mm": 1.9921449232563886e-05,
+      "maximum_loaded_displacement_mm": 1.7064337481706722e-05,
+      "maximum_controller_rotation_rad": 4.502354735939903e-08,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0015,
+      "q_mm": 6.473286826619103e-05,
+      "maximum_loaded_displacement_mm": 5.410512417777821e-05,
+      "maximum_controller_rotation_rad": 1.589629827758324e-07,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002,
+      "q_mm": 0.00016261583859107268,
+      "maximum_loaded_displacement_mm": 0.00013305010983097684,
+      "maximum_controller_rotation_rad": 4.129869008671649e-07,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0025,
+      "q_mm": 0.0003463928094567915,
+      "maximum_loaded_displacement_mm": 0.0002811024135330974,
+      "maximum_controller_rotation_rad": 8.710942844121848e-07,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.003,
+      "q_mm": 0.0006567916973579448,
+      "maximum_loaded_displacement_mm": 0.0005322185189256571,
+      "maximum_controller_rotation_rad": 1.5940751488503859e-06,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0035,
+      "q_mm": 0.0011436336967550473,
+      "maximum_loaded_displacement_mm": 0.0009258824053448095,
+      "maximum_controller_rotation_rad": 2.651087312222912e-06,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.004,
+      "q_mm": 0.0018649033708187878,
+      "maximum_loaded_displacement_mm": 0.001509518964326825,
+      "maximum_controller_rotation_rad": 4.133435435150268e-06,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0045,
+      "q_mm": 0.002886865743103838,
+      "maximum_loaded_displacement_mm": 0.002337394435821639,
+      "maximum_controller_rotation_rad": 6.162538048457922e-06,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.005,
+      "q_mm": 0.0042831298887714255,
+      "maximum_loaded_displacement_mm": 0.003470037699061912,
+      "maximum_controller_rotation_rad": 8.866419455694851e-06,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0055,
+      "q_mm": 0.006134139810148488,
+      "maximum_loaded_displacement_mm": 0.004973963111072698,
+      "maximum_controller_rotation_rad": 1.2352369820322552e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.006,
+      "q_mm": 0.00852693486766665,
+      "maximum_loaded_displacement_mm": 0.006921227478152485,
+      "maximum_controller_rotation_rad": 1.671468350679012e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0065,
+      "q_mm": 0.011555002286852462,
+      "maximum_loaded_displacement_mm": 0.009389661626263856,
+      "maximum_controller_rotation_rad": 2.205077007418562e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.007,
+      "q_mm": 0.015319257369150725,
+      "maximum_loaded_displacement_mm": 0.012463472406856807,
+      "maximum_controller_rotation_rad": 2.8481430678478222e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0075,
+      "q_mm": 0.019927795413915317,
+      "maximum_loaded_displacement_mm": 0.01623321813874821,
+      "maximum_controller_rotation_rad": 3.6135743584976516e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.008,
+      "q_mm": 0.025496167323582588,
+      "maximum_loaded_displacement_mm": 0.020795634202807594,
+      "maximum_controller_rotation_rad": 4.5146373354318684e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0085,
+      "q_mm": 0.0321468264015906,
+      "maximum_loaded_displacement_mm": 0.02625335956543086,
+      "maximum_controller_rotation_rad": 5.563728550363946e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.009,
+      "q_mm": 0.04000932313148354,
+      "maximum_loaded_displacement_mm": 0.032714567605052786,
+      "maximum_controller_rotation_rad": 6.77383496149148e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0095,
+      "q_mm": 0.049220505889092415,
+      "maximum_loaded_displacement_mm": 0.04029342689265807,
+      "maximum_controller_rotation_rad": 8.158942875775473e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.01,
+      "q_mm": 0.05992551509007777,
+      "maximum_loaded_displacement_mm": 0.049110762357166486,
+      "maximum_controller_rotation_rad": 9.735685745373584e-05,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0105,
+      "q_mm": 0.07227761035749802,
+      "maximum_loaded_displacement_mm": 0.05929395050140866,
+      "maximum_controller_rotation_rad": 0.00011522111497881042,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.011,
+      "q_mm": 0.08643785085502287,
+      "maximum_loaded_displacement_mm": 0.07097659052462932,
+      "maximum_controller_rotation_rad": 0.00013537046715955342,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0115,
+      "q_mm": 0.10257438091107363,
+      "maximum_loaded_displacement_mm": 0.08429776544746426,
+      "maximum_controller_rotation_rad": 0.0001580058561042403,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.012,
+      "q_mm": 0.12086305981580922,
+      "maximum_loaded_displacement_mm": 0.09940232347707673,
+      "maximum_controller_rotation_rad": 0.00018334050602194805,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0125,
+      "q_mm": 0.14148787516109076,
+      "maximum_loaded_displacement_mm": 0.11644214207758032,
+      "maximum_controller_rotation_rad": 0.00021161596173315103,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.013,
+      "q_mm": 0.16464097803418495,
+      "maximum_loaded_displacement_mm": 0.13557580523582555,
+      "maximum_controller_rotation_rad": 0.00024308749382145992,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0135,
+      "q_mm": 0.19052122057510248,
+      "maximum_loaded_displacement_mm": 0.15696709575169726,
+      "maximum_controller_rotation_rad": 0.0002780416819004331,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.014,
+      "q_mm": 0.21933276315829134,
+      "maximum_loaded_displacement_mm": 0.18078408393628267,
+      "maximum_controller_rotation_rad": 0.00031675640618661994,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0145,
+      "q_mm": 0.2512855218216247,
+      "maximum_loaded_displacement_mm": 0.20719997141440438,
+      "maximum_controller_rotation_rad": 0.00035949873259202766,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.015,
+      "q_mm": 0.28659577895820015,
+      "maximum_loaded_displacement_mm": 0.2363932992194034,
+      "maximum_controller_rotation_rad": 0.00040653533767314115,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0155,
+      "q_mm": 0.32548596946303054,
+      "maximum_loaded_displacement_mm": 0.26854813718792114,
+      "maximum_controller_rotation_rad": 0.000458149272964652,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.016,
+      "q_mm": 0.3681841411241945,
+      "maximum_loaded_displacement_mm": 0.30385363469865573,
+      "maximum_controller_rotation_rad": 0.0005146570720374428,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0165,
+      "q_mm": 0.4149237747050552,
+      "maximum_loaded_displacement_mm": 0.3425034172681699,
+      "maximum_controller_rotation_rad": 0.0005763798530513358,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.017,
+      "q_mm": 0.46594196538696186,
+      "maximum_loaded_displacement_mm": 0.3846948115705352,
+      "maximum_controller_rotation_rad": 0.0006435978261707574,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0175,
+      "q_mm": 0.5214792414255198,
+      "maximum_loaded_displacement_mm": 0.4306276890640481,
+      "maximum_controller_rotation_rad": 0.0007165459681637107,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.018,
+      "q_mm": 0.5817814093893658,
+      "maximum_loaded_displacement_mm": 0.4805055983057184,
+      "maximum_controller_rotation_rad": 0.0007955088366659466,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0185,
+      "q_mm": 0.6471022549191793,
+      "maximum_loaded_displacement_mm": 0.5345401647664771,
+      "maximum_controller_rotation_rad": 0.0008807669818203208,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.019,
+      "q_mm": 0.7177045156990713,
+      "maximum_loaded_displacement_mm": 0.5929502758850972,
+      "maximum_controller_rotation_rad": 0.0009726513921275189,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0195,
+      "q_mm": 0.7845222806779838,
+      "maximum_loaded_displacement_mm": 0.6464460958383043,
+      "maximum_controller_rotation_rad": 0.0007712418398299,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.01975,
+      "q_mm": 0.8132985627747273,
+      "maximum_loaded_displacement_mm": 0.6690863137470456,
+      "maximum_controller_rotation_rad": 0.0007040448811226322,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.020025,
+      "q_mm": 0.8443856676578523,
+      "maximum_loaded_displacement_mm": 0.6932875249441388,
+      "maximum_controller_rotation_rad": 0.0010306367650419002,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0203,
+      "q_mm": 0.877554366876459,
+      "maximum_loaded_displacement_mm": 0.7190435082536105,
+      "maximum_controller_rotation_rad": 0.001137094133800495,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0206025,
+      "q_mm": 0.9162111535228602,
+      "maximum_loaded_displacement_mm": 0.7488279253675373,
+      "maximum_controller_rotation_rad": 0.0009274123839907018,
+      "stop_reasons": []
+    }
+  ],
+  "scope": "Input-only half-step derivative of the pinned 1 ms force-driven K1e4 diagnostic. It changes only the first and fourth *DYNAMIC time-control values to 0.0005 s; the requested 0.025 s horizon, 1e-6 s minimum, INC=10000, 662 CLOAD terms, RAMP_N, 35 contacts, physical inputs and every-increment outputs are preserved. The parent run was explicitly stopped at 0.02171185 s, so no coarse 0.025 s endpoint is available. No solver run or acceptance is claimed.",
+  "input_schema": "wood_joint_current_transient/v1",
+  "returncode": 137,
+  "elapsed_seconds": 5560.121936254,
+  "frozen_inputs_unchanged": true,
+  "outputs_sha256": {
+    "spooles.out": "140b080e326128bf1462576743c46cfc3468ab13b8bf28111fe5710ff9dcf10a",
+    "pilot.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot.frd": "6c14eeadaa47d79e08a882dc46f1e762a009143e1f75a0a3c70a474364437691",
+    "parent-launch.py.snapshot": "d1e3feeb9352640f2a06dc1ad6cf40e1ce3b7bbd3f8b974113a39c041c4cdd7c",
+    "input-freeze.json": "ea24423f587795743d0c1189c798f77d83159208c76d5d1d3a9fa5554eda4f56",
+    "pilot.cvg": "41a868b944c47b3d5512436e3150aa6176977e223cdcd52b3ad1e4ab89a451d1",
+    "ResultsForLastIterations.frd": "9951e7194ac4303cbe9efed3be392db43d5225ae84f2c4cda3814e23c9ba2f6e",
+    "pilot.log": "fc7b13a42f5e8e8f44c0f120dcc3712adad3975ad0b3194a0e96c21140c9be34",
+    "parent-stop-decision.json": "4d233dfea41d5d2016b064b858a8d295a94051787a840997261147839ad5a54b",
+    "pilot.sta": "b0c4ba7c141e6ab16d74af492f18fc60d77f6f374f3ea3576432d359978258fa",
+    "pilot.cel": "03ee513a3f3d3a23d2aedd52bbbe57a2b82d36c232e81e61b038e45bc06109f6",
+    "pilot.dat": "2d4d369e56ff8dc2ee21103eb8aa0f49c5558f66eadd32167e70cf08f8499886"
+  }
+}

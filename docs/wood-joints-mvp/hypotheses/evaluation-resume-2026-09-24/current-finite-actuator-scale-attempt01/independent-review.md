@@ -1,0 +1,17 @@
+# Independent review: finite-actuator scale
+
+The proposed `Ka = 200 N/mm`, `q_target = 1.15 mm` quintic ramp over `0.1 s`, and `0.5 ms` maximum increment are suitable for a first bounded diagnostic of the translation-only actuator model. They are not a validated joint stiffness, accepted seating result, or timestep for the assembled joint. The translation-only mass reduction is useful for choosing a starting scale, but leaves out rotation, rail and hardware inertia, flexible modes, contact, and nut coupling; those can change the actual response and contact timing.
+
+I independently evaluated the isolated equation `μ q¨ + Ka(q − q_target) = 0` using the pinned `μ = 0.0005210820445 tonne`. For the tabular drive, I sampled the quintic at every `0.5 ms` knot, held the endpoint at `1.15 mm`, and treated the intervals as linear. Exact segment-by-segment oscillator propagation gives a maximum difference from the continuous-quintic oscillator response of `1.60e-5 mm` in `q` and `0.00320 N` in actuator force. The largest target interpolation error itself is `2.08e-5 mm`. Thus the sampled drive shape is sufficiently close to the ideal ramp for an initial diagnostic.
+
+Time integration is the larger numerical uncertainty. At `Ka = 200 N/mm`, the reduced oscillator period is `10.142 ms`, or `20.28` increments per period at `0.5 ms`. For average-acceleration Newmark, the discrete frequency is about `0.788%` low; over the `0.1 s` ramp this accumulates about `28.0°` of phase lag. Against the continuous-quintic response, the isolated `0.5 ms` estimate has maximum `q` error `0.000136 mm` and actuator-force error `0.0273 N` (about `6.8%` of the ideal peak actuator force). At ramp end, the ideal oscillator is still moving at about `−0.0515 mm/s`; the discrete estimate is about `−0.1268 mm/s`. The small absolute displacement error therefore does not establish converged force or contact-onset timing.
+
+| Maximum increment | Steps per reduced period | Accumulated phase lag over ramp | Max `q` error vs continuous ramp | Max actuator-force error |
+|---:|---:|---:|---:|---:|
+| `0.5 ms` | `20.28` | `28.0°` | `0.000136 mm` | `0.0273 N` |
+| `0.25 ms` | `40.57` | `7.07°` | `0.0000346 mm` | `0.00692 N` |
+| `0.125 ms` | `81.13` | `1.77°` | `0.00000866 mm` | `0.00173 N` |
+
+The scale is input-ready as an initial bounded diagnostic with `0.5 ms` as a maximum increment, provided the recorded target includes all `0.5 ms` knots and the exact ramp-end/hold knot. Record fitted physical `q`, proxy position, target, actuator force, actuator energy and work separately, and retain per-bore gap/contact and transferred-force histories. Continue the hold long enough to see whether the physical interfaces actually engage and settle; `q_target = 1.15 mm` is only a translation-only allowance and does not prove that each bore seats. Do not infer contact reaction or joint stiffness from the proxy spring force.
+
+For numerical comparison, repeat the same frozen diagnostic at `0.25 ms` maximum increment. Compare physical `q`, each bore's engagement/contact history, transferred forces, and actuator work/energy over the same interval. Use `0.125 ms` only if the half-step changes those conclusions materially. A contact or fast flexible mode may require a smaller increment than this isolated oscillator suggests. The `100 N/mm` point remains a factor-two virtual-actuator sensitivity case, not a physical stiffness bound. No physical capacity or acceptance conclusion follows from either run.

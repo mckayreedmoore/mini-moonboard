@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "wj-dependent-mass-rows-attempt01",
+    "--network=none",
+    "--memory=2g",
+    "--cpus=1",
+    "--read-only",
+    "--user",
+    "1000:1000",
+    "--tmpfs",
+    "/tmp:size=128m",
+    "-e",
+    "PYTHONDONTWRITEBYTECODE=1",
+    "-e",
+    "PYTHONPATH=/work:/host-packages",
+    "-v",
+    "/home/mckay-linux/repos/mini-moonboard:/work:ro",
+    "-v",
+    "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-mass-rows-attempt01:/out:rw",
+    "-v",
+    "/home/mckay-linux/repos/mini-moonboard/.venv/lib/python3.12/site-packages:/host-packages:ro",
+    "-w",
+    "/work",
+    "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+    "python3",
+    "/out/driver.py"
+  ],
+  "started_utc": "2026-09-25T14:17:44.442398+00:00",
+  "driver_sha256": "aadc3ad2a4d03186bf4305ad02e8801f4776d99cd7ae45d27fc689fd466d6b29",
+  "scope": "Read-only 21 sparse bolt mass-row extraction; no native solve, no CAD, no hook CSV, no residual result.",
+  "exit_code": 0,
+  "runtime_seconds": 1.6186582299997099,
+  "finished_utc": "2026-09-25T14:17:46.061267+00:00",
+  "outputs_sha256": {
+    "execution.log": "dc010d729f91b101b5daadeac09666bbee4e856ab39d6f868e0f70350de51ed2",
+    "mass-rows.json": "f3c6d76da9391665015095269211dea709968580c169fb39f9f61709364530ad"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "ccx_wj_dependent_residual_contact_trajectory_preparation/v1",
+  "status": "PREPARED_NOT_EXECUTED",
+  "prepared_at_utc": "2026-09-25T17:08:08.495475+00:00",
+  "run_directory": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01",
+  "fixture_index_sha256": "6b067229b306278865c96820eedec7dc8a4e050d99da152ae2bd9a0db6ba3944",
+  "fixture_manifest_sha256": "4b30ecc91a03dd81280bd701e3d193f5d54149cae0fc53b22d083e013f629b9d",
+  "fixture_source_pins_sha256": "b4d5dafdc030d00a181e938d1b1f3b3315e4009ed1cf9e52cb8d1276434bf5b4",
+  "source_pair_manifest_sha256": "8496619179e5fedc6f77def972cf6aa4b749ce96dedc9af4a3dd29896823e11a",
+  "base_input_freeze_sha256": "ea24423f587795743d0c1189c798f77d83159208c76d5d1d3a9fa5554eda4f56",
+  "source_parent_freeze_sha256": "f054d6b911fb0d9c9b0a183fa007d16d8a34a422904fd5cbcf73634e87797e66",
+  "input_sha256": {
+    "pilot.inp": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0"
+  },
+  "pilot_input_sha256": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3",
+  "binary": {
+    "host_path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-energy-point-map-build-attempt01/ccx-wj-contact-energy-map-2.21",
+    "mount_target": "/usr/bin/ccx",
+    "readonly": true,
+    "sha256": "af0da93038dda93e7d9807f392a5fe6c4fd5f2b9d0b47d0de5d107936795d174"
+  },
+  "binary_source_index": {
+    "invocation_path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-energy-point-map-build-attempt01/binary-source-index.json",
+    "run_copy_path": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01/binary-source-index.json",
+    "run_copy_filename": "binary-source-index.json",
+    "sha256": "1b7db302ac72d4511c1a0697763a48b936b72e5c494228c22a7a34bcf4e01745",
+    "schema": "wood_joint_contact_energy_map_binary_source_index/v1"
+  },
+  "image_sha256": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "limits": {
+    "cpus": 4,
+    "memory": "10g",
+    "user": "1000:1000",
+    "environment": {
+      "OMP_NUM_THREADS": "4",
+      "CCX_NPROC_EQUATION_SOLVER": "4",
+      "CCX_WJ_DEP_RESIDUAL_AUDIT": "1"
+    },
+    "max_runtime_seconds": 10800
+  },
+  "solver_argv": [
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "container_name": "wj-dependent-residual-contact-trajectory-attempt01-instrumented",
+  "planned_command": [
+    "docker",
+    "run",
+    "--name",
+    "wj-dependent-residual-contact-trajectory-attempt01-instrumented",
+    "--pull=never",
+    "--network",
+    "none",
+    "--cpus",
+    "4",
+    "--memory",
+    "10g",
+    "--user",
+    "1000:1000",
+    "--stop-timeout",
+    "10",
+    "--env",
+    "OMP_NUM_THREADS=4",
+    "--env",
+    "CCX_NPROC_EQUATION_SOLVER=4",
+    "--env",
+    "CCX_WJ_DEP_RESIDUAL_AUDIT=1",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01,dst=/work",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-energy-point-map-build-attempt01/ccx-wj-contact-energy-map-2.21,dst=/usr/bin/ccx,readonly",
+    "--workdir",
+    "/work",
+    "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "parent_stop_goal": "first cleat-bolt/bore contact transition followed by one complete accepted state",
+  "required_output_names": [
+    "pilot.sta",
+    "pilot.frd",
+    "pilot.dat",
+    "pilot.log",
+    "wj-dependent-residual-audit.csv",
+    "pilot.wj-contact-energy-map.csv"
+  ],
+  "native_execution": false,
+  "mechanical_acceptance": false
+}

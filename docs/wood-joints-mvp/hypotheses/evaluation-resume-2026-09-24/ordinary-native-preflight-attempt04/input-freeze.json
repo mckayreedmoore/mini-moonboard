@@ -1,0 +1,87 @@
+{
+  "schema": "wood_joint_current_native_preflight/v1",
+  "status": "FROZEN_ZERO_LOAD_INPUT_NOT_EXECUTED",
+  "source_paths": {
+    "mesh.inp": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.inp",
+    "mesh.json": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-mesh-attempt02/mesh/mesh.json",
+    "materials-source.inp": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-materials-attempt01/source_transverse_a__nuts_reserved_for_downstream_rigid_body.inp",
+    "contact-fragment.inc": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-contact-deck-attempt01/contact-fragment.inc",
+    "contact-manifest.json": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-patch-contact-deck-attempt01/contact-manifest.json",
+    "nut-coupling.inp": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-nut-coupling-pivot-attempt01/nut-coupling.inp",
+    "nut-coupling.json": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-nut-coupling-pivot-attempt01/nut-coupling.json",
+    "gauge.inp": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-gauge-parent-attempt01/gauge.inp",
+    "gauge.json": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-gauge-parent-attempt01/gauge.json",
+    "producer.py.snapshot": "fea/wood_joint_current_native_preflight.py"
+  },
+  "source_sha256": {
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "materials-source.inp": "0e65da1f006cce53b9604c2b6b79c0e77bb360e3281743fa31d056f01c2dd3e1",
+    "contact-fragment.inc": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+    "contact-manifest.json": "50f7d8c9b85197f43732d49d13e75240fa6d5423673d28274e278829878a594d",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "nut-coupling.json": "d13b4b3ea18e8192fac7b673b3e8f30c2666a2f419794f5f9e758e914f428e6d",
+    "gauge.inp": "4c2dc916ce4ee62616cbc9b3e448eb5faf6244e9ca5761337cfe38e9ba2a4837",
+    "gauge.json": "4ccb9dac9026a69f6ed966f4ec904644b2f690e0ad41e5be0616cfa2d828ae98",
+    "producer.py.snapshot": "f2a4424ce3a86fc3aae9c9a6ebe1dade252307950b4b9505a74fbdad2607f345"
+  },
+  "step_scope": "Zero-load reference contact tangent. Same stiff-engagement relation as03, with algebraically equivalent physical-pivot MPC dependency order to reduce cascading. No mechanical acceptance.",
+  "revision": "led-clearance-2x6-runner-seated-blocks-v1",
+  "wood_density_kg_per_m3_scenario": 600.0,
+  "deformable_metal_density_kg_per_m3_scenario": 7850.0,
+  "density_basis": "nominal current board-weight inventory scenarios, unmeasured",
+  "rigid_carriers": [
+    {
+      "elset": "M03_A00_NUT",
+      "nset": "M03_A00_NUT_RIGID_NODES",
+      "reference_node": 116163,
+      "rotation_node": 116164,
+      "density_tonne_per_mm3": 0.0
+    },
+    {
+      "elset": "M07_A01_NUT",
+      "nset": "M07_A01_NUT_RIGID_NODES",
+      "reference_node": 116165,
+      "rotation_node": 116166,
+      "density_tonne_per_mm3": 0.0
+    },
+    {
+      "elset": "M11_A02_NUT",
+      "nset": "M11_A02_NUT_RIGID_NODES",
+      "reference_node": 116167,
+      "rotation_node": 116168,
+      "density_tonne_per_mm3": 0.0
+    },
+    {
+      "elset": "M15_A03_NUT",
+      "nset": "M15_A03_NUT_RIGID_NODES",
+      "reference_node": 116169,
+      "rotation_node": 116170,
+      "density_tonne_per_mm3": 0.0
+    }
+  ],
+  "solver_image": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+  "artifacts_sha256": {
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "gauge.json": "4ccb9dac9026a69f6ed966f4ec904644b2f690e0ad41e5be0616cfa2d828ae98",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "gauge.inp": "4c2dc916ce4ee62616cbc9b3e448eb5faf6244e9ca5761337cfe38e9ba2a4837",
+    "contact-fragment.inc": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+    "producer.py.snapshot": "f2a4424ce3a86fc3aae9c9a6ebe1dade252307950b4b9505a74fbdad2607f345",
+    "nut-coupling.json": "d13b4b3ea18e8192fac7b673b3e8f30c2666a2f419794f5f9e758e914f428e6d",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "preflight.inp": "1508d20c992f739896f071c15a21cd7f31b5d964d5d8d7e3c210147effb96817",
+    "contact-manifest.json": "50f7d8c9b85197f43732d49d13e75240fa6d5423673d28274e278829878a594d",
+    "materials-source.inp": "0e65da1f006cce53b9604c2b6b79c0e77bb360e3281743fa31d056f01c2dd3e1"
+  },
+  "limits": [
+    "No external load, preload, friction or artificial stabilizing support.",
+    "Nut controls assume six-DOF stiff engagement; actual thread fit and transfer unresolved.",
+    "Zero carrier density and rigid kinematics must be verified in native output.",
+    "A successful zero-load solve is not a unique tangent or a strength pass.",
+    "Contact activity and free-mode interpretation require independent output audit."
+  ]
+}

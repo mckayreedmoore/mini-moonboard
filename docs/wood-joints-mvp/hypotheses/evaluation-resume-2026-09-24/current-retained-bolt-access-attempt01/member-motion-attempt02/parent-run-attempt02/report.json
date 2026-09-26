@@ -1,0 +1,298 @@
+{
+  "actual_tools_or_owner_compatible_transport_established": false,
+  "conservative_convex_hull_status": "conservative_swept_polytope_hit_unresolved_by_pose_samples",
+  "elapsed_seconds": 2.730628,
+  "full_member_removal_sequence_established": false,
+  "input_bundle": {
+    "all_211_step_hashes_verified": true,
+    "frozen_geometry_report_sha256_canonical_json": "50d3d65c6f5eeddbd8df8bf068c7f338754c831c7cc49b25ccc4f4a878902a7a",
+    "geometry_revision_id": "led-clearance-2x6-runner-seated-blocks-v1",
+    "geometry_trial_id": "led-clearance-2x6-runner-seated-blocks-v1",
+    "loaded_shape_readback_checks": {
+      "bounds_centroid_tolerance_mm": 1e-06,
+      "solid_count_exact": true,
+      "volume_tolerance_mm3": "max(1e-05, 1e-09 * source volume)"
+    },
+    "loaded_step_shape_count": 191,
+    "manifest_sha256": "d90a93440575b7871fc429c3f8cec621877f805a068b7ff09a60fddc4b1e538b",
+    "producer_sha256": "fdaf703a4b387d2789998533e857c28c7269fe3401fb222d20b26bd650f35499",
+    "source_inventory_sha256": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78"
+  },
+  "operation_state_assumptions": [
+    "all 92 candidate connector bodies and their bolt stacks have been removed under separately screened operations",
+    "all panels and their 66 Hillman screw axes, all holds/T-nuts, and all light bodies have been removed/staged under separately screened operations",
+    "only the four retained frame-bolt stacks whose receiver metadata names lumber_leg_left are removed before its motion",
+    "all other retained frame-bolt physical roles remain stationary obstacles",
+    "all 131 modeled wire BReps remain installed and stationary",
+    "temporary supports, catch surfaces, staging endpoints, workspace boundaries, and actual cable routes are not modeled"
+  ],
+  "scene_counts": {
+    "candidate_axes_screened_here": 0,
+    "other_stationary_timbers": 19,
+    "remaining_stationary_retained_physical_roles": 40,
+    "removed_retained_frame_bolt_stacks": 4,
+    "removed_retained_physical_roles": 20,
+    "stationary_modeled_wires": 131,
+    "stationary_obstacles": 190,
+    "target_timbers": 1
+  },
+  "schema": "wood_joint_d6_single_member_motion_screen/v2",
+  "scope": "single_member_individual_translation_prototype",
+  "status": "exact_continuous_translation_sweep_clear_for_modeled_scene",
+  "support_and_staging_established": false,
+  "target_member": {
+    "candidate_axes_assumed_removed_by_prior_connector_operations": [],
+    "continuous_swept_envelope": {
+      "broadphase_candidate_count": 1,
+      "clear_envelope_means_no_modelled_solid_overlap_for_entire_linear_translation": false,
+      "conservative_envelope_hits": [
+        {
+          "intersection_mm3": 89894.589576,
+          "obstacle_id": "timber/base_floor_left"
+        }
+      ],
+      "envelope_hit_proves_actual_material_blockage": false,
+      "exact_intersection_test_count": 1,
+      "hit_tolerance_mm3": 1e-06,
+      "hull_point_count": 40,
+      "method": "convex_hull_of_exact_step_brep_vertices_and_translated_vertices",
+      "source_and_endpoint_containment_required": true,
+      "source_vertex_count": 20,
+      "supported": true,
+      "triangular_facet_count": 20,
+      "unsupported_reason": null
+    },
+    "endpoint_condition": "the target's projected bounding interval clears every remaining obstacle's interval by 1.0 mm along -X",
+    "exact_nonconvex_translation_sweep_refinement": {
+      "exact_sweep_contained_in_conservative_convex_hull": {
+        "contained": true,
+        "tolerance_mm3": 0.038461205,
+        "volume_outside_envelope_mm3": 0.0
+      },
+      "interpretation": "The exact nonconvex source-plus-leading-face sweep was checked against the only obstacle hit by the conservative hull. Its containment in that hull transfers the hull's other 189 obstacle clears; this reports modeled solid-volume overlap only, with no positive-clearance margin.",
+      "method_and_face_guards": {
+        "all_cylinders_translation_tangent": true,
+        "boundary_face_checks": [
+          {
+            "area_mm2": 7308.846772,
+            "disposition": "tangent",
+            "face_index": 0,
+            "inner_wire_count": 0,
+            "normal_dot_translation_direction": 0.0,
+            "surface_type": "PLANE"
+          },
+          {
+            "area_mm2": 267816.652403,
+            "disposition": "leading",
+            "face_index": 1,
+            "inner_wire_count": 4,
+            "normal_dot_translation_direction": 1.0,
+            "surface_type": "PLANE"
+          },
+          {
+            "area_mm2": 161243.70354,
+            "disposition": "tangent",
+            "face_index": 2,
+            "inner_wire_count": 0,
+            "normal_dot_translation_direction": 0.0,
+            "surface_type": "PLANE"
+          },
+          {
+            "area_mm2": 22596.50017,
+            "disposition": "trailing",
+            "face_index": 3,
+            "inner_wire_count": 2,
+            "normal_dot_translation_direction": -1.0,
+            "surface_type": "PLANE"
+          },
+          {
+            "area_mm2": 150418.343355,
+            "disposition": "tangent",
+            "face_index": 4,
+            "inner_wire_count": 0,
+            "normal_dot_translation_direction": 0.0,
+            "surface_type": "PLANE"
+          },
+          {
+            "area_mm2": 15383.094735,
+            "disposition": "tangent",
+            "face_index": 5,
+            "inner_wire_count": 0,
+            "normal_dot_translation_direction": 0.0,
+            "surface_type": "PLANE"
+          },
+          {
+            "axis_alignment_abs_dot": 1.0,
+            "disposition": "translation_tangent",
+            "face_index": 6,
+            "surface_type": "CYLINDER"
+          },
+          {
+            "axis_alignment_abs_dot": 1.0,
+            "disposition": "translation_tangent",
+            "face_index": 7,
+            "surface_type": "CYLINDER"
+          },
+          {
+            "axis_alignment_abs_dot": 1.0,
+            "disposition": "translation_tangent",
+            "face_index": 8,
+            "surface_type": "CYLINDER"
+          },
+          {
+            "axis_alignment_abs_dot": 1.0,
+            "disposition": "translation_tangent",
+            "face_index": 9,
+            "surface_type": "CYLINDER"
+          },
+          {
+            "area_mm2": 181349.312233,
+            "disposition": "trailing",
+            "face_index": 10,
+            "inner_wire_count": 2,
+            "normal_dot_translation_direction": -1.0,
+            "surface_type": "PLANE"
+          },
+          {
+            "area_mm2": 64092.230057,
+            "disposition": "trailing",
+            "face_index": 11,
+            "inner_wire_count": 0,
+            "normal_dot_translation_direction": -0.996545758245,
+            "surface_type": "PLANE"
+          }
+        ],
+        "boundary_face_counts": {
+          "CYLINDER": 4,
+          "PLANE": 8
+        },
+        "coverage_basis": "The source solid has only planar or translation-axial cylindrical boundary faces. Every boundary face with outward normal dot translation direction greater than the recorded threshold is included as a prism; all remaining boundary faces trail or are translation-tangent. The source union those leading-face prisms therefore covers the complete straight translation while retaining the nonconvex source profile and its through-openings.",
+        "cylinder_axis_parallel_tolerance": 1e-09,
+        "direction_xyz": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "distance_mm": 62.468,
+        "fused_union_volume_error_mm3": 2.556e-06,
+        "fused_union_volume_tolerance_mm3": 0.038461205,
+        "leading_face_indices": [
+          1
+        ],
+        "leading_face_inner_wire_count": 4,
+        "leading_face_normal_dot_direction": 1.0,
+        "leading_normal_alignment_tolerance": 1e-09,
+        "method": "exact_source_union_with_all_planar_leading_face_prisms",
+        "planar_face_direction_threshold": 0.0,
+        "prism_is_subset_of_true_translation_sweep": true
+      },
+      "modeled_continuous_translation_clear": true,
+      "other_189_obstacles_clear_by_convex_hull_subset": true,
+      "positive_clearance_or_tolerance_margin_established": false,
+      "refined_exact_sweep_hits": [],
+      "refined_obstacle_broadphase_candidate_count": 1,
+      "refined_obstacle_exact_intersection_test_count": 1,
+      "refined_obstacle_id": "timber/base_floor_left",
+      "status": "exact_continuous_translation_sweep_clear_for_modeled_scene",
+      "supported": true,
+      "target_exact_sweep_source_containment": {
+        "contained": true,
+        "tolerance_mm3": 0.021731234,
+        "volume_outside_envelope_mm3": 0.0
+      },
+      "translated_endpoint_containment": {
+        "contained": true,
+        "tolerance_mm3": 0.021731234,
+        "volume_outside_envelope_mm3": 0.0
+      }
+    },
+    "exact_source_brep_pose_samples": {
+      "broadphase_candidate_count": 4,
+      "exact_intersection_test_count": 4,
+      "fractions": [
+        {
+          "clear_at_sampled_pose": true,
+          "modeled_source_brep_hits": [],
+          "translation_fraction": 0.0
+        },
+        {
+          "clear_at_sampled_pose": true,
+          "modeled_source_brep_hits": [],
+          "translation_fraction": 0.25
+        },
+        {
+          "clear_at_sampled_pose": true,
+          "modeled_source_brep_hits": [],
+          "translation_fraction": 0.5
+        },
+        {
+          "clear_at_sampled_pose": true,
+          "modeled_source_brep_hits": [],
+          "translation_fraction": 0.75
+        },
+        {
+          "clear_at_sampled_pose": true,
+          "modeled_source_brep_hits": [],
+          "translation_fraction": 1.0
+        }
+      ],
+      "sampled_clearance_proves_continuous_clearance": false
+    },
+    "retained_axes_removed_before_motion": [
+      "lumber_leg_bolt_left_1",
+      "lumber_leg_bolt_left_2",
+      "rail_rear_bolt_left_1",
+      "rail_rear_bolt_left_2"
+    ],
+    "shape_id": "lumber_leg_left",
+    "source_brep_containment_checks": {
+      "all_sampled_poses_contained": true,
+      "continuous_containment_basis": "the extrusion is convex and contains the exact source solid at both translation endpoints; every intermediate translated point is a convex combination of corresponding endpoint points",
+      "fractions": [
+        {
+          "check_performed": true,
+          "contained": true,
+          "tolerance_mm3": 0.021731234,
+          "translation_fraction": 0.0,
+          "volume_outside_envelope_mm3": 0.0
+        },
+        {
+          "check_performed": true,
+          "contained": true,
+          "tolerance_mm3": 0.021731234,
+          "translation_fraction": 0.25,
+          "volume_outside_envelope_mm3": 0.0
+        },
+        {
+          "check_performed": true,
+          "contained": true,
+          "tolerance_mm3": 0.021731234,
+          "translation_fraction": 0.5,
+          "volume_outside_envelope_mm3": 0.0
+        },
+        {
+          "check_performed": true,
+          "contained": true,
+          "tolerance_mm3": 0.021731234,
+          "translation_fraction": 0.75,
+          "volume_outside_envelope_mm3": 0.0
+        },
+        {
+          "check_performed": true,
+          "contained": true,
+          "tolerance_mm3": 0.021731234,
+          "translation_fraction": 1.0,
+          "volume_outside_envelope_mm3": 0.0
+        }
+      ]
+    },
+    "step_sha256": "f7b5fa5dbaa0ededad1cf819b3ac8376ddf3455c6bc36dac982173d5d953b611",
+    "translation_direction": "-X",
+    "translation_vector_xyz_mm": [
+      -62.468,
+      0.0,
+      0.0
+    ],
+    "travel_mm": 62.468
+  }
+}

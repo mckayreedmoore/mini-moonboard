@@ -1,0 +1,1397 @@
+{
+  "analysis_script_sha256": "426fc93b40f501515b2f74635a4cc87d97344767104975219051ed55465e6e3d",
+  "assumptions_and_limits": [
+    "Friction is omitted; the accepted LOG's friction-energy line is zero.",
+    "No *DAMPING or *INITIAL CONDITIONS card is present; accepted LOG initial energy and damping work are zero.",
+    "The audit bounds only the current LINEAR pressure-overclosure contact storage represented by the endpoint tables and printed positive quadrature areas.",
+    "No exact integration is claimed because the DAT does not expose each springarea alongside its individual pressure and clearance; the per-pair maximum product is an upper bound.",
+    "No numerical dissipation, energy-control cause, or solver acceptance criterion is inferred; the snapshot is an immutable non-atomic prefix, not a terminal run result.",
+    "The logged native contact-energy term may share the separate compact-index issue. Even the full conservative contact-storage envelope is below the work-required contact term here; this does not identify the remaining discrepancy's cause."
+  ],
+  "endpoints": {
+    "0.1900000E-01": {
+      "active_area_printed_total_mm2": "2661.467813",
+      "active_area_upper_total_mm2": "2661.4682185",
+      "active_pair_count": 19,
+      "cdis_rows": 108297,
+      "cnum": 108297,
+      "compression_storage_upper_sum_n_mm": "0.00203777585424052611910663750",
+      "cstr_rows": 108297,
+      "global_extrema_storage_upper_n_mm": "0.65174228635013554877673125",
+      "mapped_rows": 108297,
+      "max_abs_clearance_upper_mm": "0.00022130555",
+      "max_abs_pressure_upper_n_per_mm2": "2.2130555",
+      "open_tensile_residual_storage_upper_sum_n_mm": "1.5053251898750E-16",
+      "pair_bounds": {
+        "WJCP_001": {
+          "active_area_printed_mm2": "857.7325",
+          "active_area_upper_mm2": "857.73255",
+          "clearance_max_printed_mm": "-1.334995E-9",
+          "clearance_min_printed_mm": "-0.000002435434",
+          "compression_storage_upper_n_mm": "0.0000254375220782354039881875",
+          "contact_row_count": 817,
+          "max_abs_clearance_upper_mm": "0.0000024354345",
+          "max_abs_pressure_upper_n_per_mm2": "0.024354345",
+          "open_tensile_residual_storage_upper_n_mm": "1.0721656875E-18",
+          "pair_id": "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+          "pressure_max_printed_n_per_mm2": "0.02435434",
+          "pressure_min_printed_n_per_mm2": "0.00001334995",
+          "sign_counts": {
+            "compression_overlap": 817
+          },
+          "storage_upper_n_mm": "0.0000254375220782354039881875"
+        },
+        "WJCP_002": {
+          "active_area_printed_mm2": "447.9848",
+          "active_area_upper_mm2": "447.98485",
+          "clearance_max_printed_mm": "-9.892962E-9",
+          "clearance_min_printed_mm": "-0.000005550150",
+          "compression_storage_upper_n_mm": "0.0000689990086668156817435625",
+          "contact_row_count": 365,
+          "max_abs_clearance_upper_mm": "0.0000055501505",
+          "max_abs_pressure_upper_n_per_mm2": "0.055501505",
+          "open_tensile_residual_storage_upper_n_mm": "5.599810625E-19",
+          "pair_id": "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+          "pressure_max_printed_n_per_mm2": "0.05550150",
+          "pressure_min_printed_n_per_mm2": "0.00009892962",
+          "sign_counts": {
+            "compression_overlap": 365
+          },
+          "storage_upper_n_mm": "0.0000689990086668156817435625"
+        },
+        "WJCP_003": {
+          "active_area_printed_mm2": "2.214643",
+          "active_area_upper_mm2": "2.2146435",
+          "clearance_max_printed_mm": "-0.00007882766",
+          "clearance_min_printed_mm": "-0.0002213055",
+          "compression_storage_upper_n_mm": "0.00054232352207232130704375",
+          "contact_row_count": 6,
+          "max_abs_clearance_upper_mm": "0.00022130555",
+          "max_abs_pressure_upper_n_per_mm2": "2.2130555",
+          "open_tensile_residual_storage_upper_n_mm": "2.768304375E-17",
+          "pair_id": "base_rail_bottom_right_to_base_principal_center_right::wood_to_wood",
+          "pressure_max_printed_n_per_mm2": "2.213055",
+          "pressure_min_printed_n_per_mm2": "0.7882766",
+          "sign_counts": {
+            "compression_overlap": 6
+          },
+          "storage_upper_n_mm": "0.00054232352207232130704375"
+        },
+        "WJCP_004": {
+          "active_area_printed_mm2": "54.86275",
+          "active_area_upper_mm2": "54.862755",
+          "clearance_max_printed_mm": "-6.309440E-10",
+          "clearance_min_printed_mm": "-0.000009180862",
+          "compression_storage_upper_n_mm": "0.00002312142427215774418359375",
+          "contact_row_count": 8477,
+          "max_abs_clearance_upper_mm": "0.0000091808625",
+          "max_abs_pressure_upper_n_per_mm2": "0.091808625",
+          "open_tensile_residual_storage_upper_n_mm": "6.857844375E-20",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_head",
+          "pressure_max_printed_n_per_mm2": "0.09180862",
+          "pressure_min_printed_n_per_mm2": "0.000006309440",
+          "sign_counts": {
+            "compression_overlap": 8477
+          },
+          "storage_upper_n_mm": "0.00002312142427215774418359375"
+        },
+        "WJCP_005": {
+          "active_area_printed_mm2": "145.2326",
+          "active_area_upper_mm2": "145.23265",
+          "clearance_max_printed_mm": "-3.199012E-10",
+          "clearance_min_printed_mm": "-0.00001382654",
+          "compression_storage_upper_n_mm": "0.00013882305870731864433125",
+          "contact_row_count": 7532,
+          "max_abs_clearance_upper_mm": "0.000013826545",
+          "max_abs_pressure_upper_n_per_mm2": "0.13826545",
+          "open_tensile_residual_storage_upper_n_mm": "1.815408125E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+          "pressure_max_printed_n_per_mm2": "0.1382654",
+          "pressure_min_printed_n_per_mm2": "0.000003199012",
+          "sign_counts": {
+            "compression_overlap": 7532
+          },
+          "storage_upper_n_mm": "0.00013882305870731864433125"
+        },
+        "WJCP_006": {
+          "active_area_printed_mm2": "52.32001",
+          "active_area_upper_mm2": "52.320015",
+          "clearance_max_printed_mm": "-2.292496E-9",
+          "clearance_min_printed_mm": "-0.000008657085",
+          "compression_storage_upper_n_mm": "0.00001960565145997226297326875",
+          "contact_row_count": 8264,
+          "max_abs_clearance_upper_mm": "0.0000086570855",
+          "max_abs_pressure_upper_n_per_mm2": "0.086570855",
+          "open_tensile_residual_storage_upper_n_mm": "6.540001875E-20",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_nut",
+          "pressure_max_printed_n_per_mm2": "0.08657085",
+          "pressure_min_printed_n_per_mm2": "0.00002292496",
+          "sign_counts": {
+            "compression_overlap": 8264
+          },
+          "storage_upper_n_mm": "0.00001960565145997226297326875"
+        },
+        "WJCP_007": {
+          "active_area_printed_mm2": "140.5959",
+          "active_area_upper_mm2": "140.59595",
+          "clearance_max_printed_mm": "-6.223759E-10",
+          "clearance_min_printed_mm": "-0.000006953375",
+          "compression_storage_upper_n_mm": "0.0000339886708073575847449375",
+          "contact_row_count": 5499,
+          "max_abs_clearance_upper_mm": "0.0000069533755",
+          "max_abs_pressure_upper_n_per_mm2": "0.069533755",
+          "open_tensile_residual_storage_upper_n_mm": "1.757449375E-19",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_last_receiver",
+          "pressure_max_printed_n_per_mm2": "0.06953375",
+          "pressure_min_printed_n_per_mm2": "0.000006223759",
+          "sign_counts": {
+            "compression_overlap": 5499
+          },
+          "storage_upper_n_mm": "0.0000339886708073575847449375"
+        },
+        "WJCP_008": {
+          "active_area_printed_mm2": "52.80376",
+          "active_area_upper_mm2": "52.803765",
+          "clearance_max_printed_mm": "-3.122264E-9",
+          "clearance_min_printed_mm": "-0.00001027641",
+          "compression_storage_upper_n_mm": "0.000027881630195163773135625",
+          "contact_row_count": 8347,
+          "max_abs_clearance_upper_mm": "0.000010276415",
+          "max_abs_pressure_upper_n_per_mm2": "0.10276415",
+          "open_tensile_residual_storage_upper_n_mm": "6.600470625E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_head",
+          "pressure_max_printed_n_per_mm2": "0.1027641",
+          "pressure_min_printed_n_per_mm2": "0.00003122264",
+          "sign_counts": {
+            "compression_overlap": 8347
+          },
+          "storage_upper_n_mm": "0.000027881630195163773135625"
+        },
+        "WJCP_009": {
+          "active_area_printed_mm2": "97.41494",
+          "active_area_upper_mm2": "97.414945",
+          "clearance_max_printed_mm": "-9.072096E-10",
+          "clearance_min_printed_mm": "-0.00001260889",
+          "compression_storage_upper_n_mm": "0.000077437201626759143593125",
+          "contact_row_count": 4770,
+          "max_abs_clearance_upper_mm": "0.000012608895",
+          "max_abs_pressure_upper_n_per_mm2": "0.12608895",
+          "open_tensile_residual_storage_upper_n_mm": "1.2176868125E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+          "pressure_max_printed_n_per_mm2": "0.1260889",
+          "pressure_min_printed_n_per_mm2": "0.000009072096",
+          "sign_counts": {
+            "compression_overlap": 4770
+          },
+          "storage_upper_n_mm": "0.000077437201626759143593125"
+        },
+        "WJCP_010": {
+          "active_area_printed_mm2": "50.80198",
+          "active_area_upper_mm2": "50.801985",
+          "clearance_max_printed_mm": "-6.230883E-11",
+          "clearance_min_printed_mm": "-0.000009010735",
+          "compression_storage_upper_n_mm": "0.00002062391782378484428048125",
+          "contact_row_count": 8075,
+          "max_abs_clearance_upper_mm": "0.0000090107355",
+          "max_abs_pressure_upper_n_per_mm2": "0.090107355",
+          "open_tensile_residual_storage_upper_n_mm": "6.350248125E-20",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_nut",
+          "pressure_max_printed_n_per_mm2": "0.09010735",
+          "pressure_min_printed_n_per_mm2": "6.230883E-7",
+          "sign_counts": {
+            "compression_overlap": 8075
+          },
+          "storage_upper_n_mm": "0.00002062391782378484428048125"
+        },
+        "WJCP_011": {
+          "active_area_printed_mm2": "89.09358",
+          "active_area_upper_mm2": "89.093585",
+          "clearance_max_printed_mm": "-1.622132E-9",
+          "clearance_min_printed_mm": "-0.000008735249",
+          "compression_storage_upper_n_mm": "0.00003399124462551372732323125",
+          "contact_row_count": 3060,
+          "max_abs_clearance_upper_mm": "0.0000087352495",
+          "max_abs_pressure_upper_n_per_mm2": "0.087352495",
+          "open_tensile_residual_storage_upper_n_mm": "1.1136698125E-19",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_last_receiver",
+          "pressure_max_printed_n_per_mm2": "0.08735249",
+          "pressure_min_printed_n_per_mm2": "0.00001622132",
+          "sign_counts": {
+            "compression_overlap": 3060
+          },
+          "storage_upper_n_mm": "0.00003399124462551372732323125"
+        },
+        "WJCP_012": {
+          "active_area_printed_mm2": "54.05774",
+          "active_area_upper_mm2": "54.057745",
+          "clearance_max_printed_mm": "-2.034693E-9",
+          "clearance_min_printed_mm": "-0.00002251295",
+          "compression_storage_upper_n_mm": "0.000136991283963810926418125",
+          "contact_row_count": 8148,
+          "max_abs_clearance_upper_mm": "0.000022512955",
+          "max_abs_pressure_upper_n_per_mm2": "0.22512955",
+          "open_tensile_residual_storage_upper_n_mm": "6.757218125E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_head",
+          "pressure_max_printed_n_per_mm2": "0.2251295",
+          "pressure_min_printed_n_per_mm2": "0.00002034693",
+          "sign_counts": {
+            "compression_overlap": 8148
+          },
+          "storage_upper_n_mm": "0.000136991283963810926418125"
+        },
+        "WJCP_013": {
+          "active_area_printed_mm2": "140.4112",
+          "active_area_upper_mm2": "140.41125",
+          "clearance_max_printed_mm": "-3.512870E-10",
+          "clearance_min_printed_mm": "-0.00001446390",
+          "compression_storage_upper_n_mm": "0.00014687336034583205765625",
+          "contact_row_count": 7201,
+          "max_abs_clearance_upper_mm": "0.000014463905",
+          "max_abs_pressure_upper_n_per_mm2": "0.14463905",
+          "open_tensile_residual_storage_upper_n_mm": "1.755140625E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+          "pressure_max_printed_n_per_mm2": "0.1446390",
+          "pressure_min_printed_n_per_mm2": "0.000003512870",
+          "sign_counts": {
+            "compression_overlap": 7201
+          },
+          "storage_upper_n_mm": "0.00014687336034583205765625"
+        },
+        "WJCP_014": {
+          "active_area_printed_mm2": "50.81490",
+          "active_area_upper_mm2": "50.814905",
+          "clearance_max_printed_mm": "-3.486836E-9",
+          "clearance_min_printed_mm": "-0.00002298632",
+          "compression_storage_upper_n_mm": "0.000134245645658414094203125",
+          "contact_row_count": 8058,
+          "max_abs_clearance_upper_mm": "0.000022986325",
+          "max_abs_pressure_upper_n_per_mm2": "0.22986325",
+          "open_tensile_residual_storage_upper_n_mm": "6.351863125E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_nut",
+          "pressure_max_printed_n_per_mm2": "0.2298632",
+          "pressure_min_printed_n_per_mm2": "0.00003486836",
+          "sign_counts": {
+            "compression_overlap": 8058
+          },
+          "storage_upper_n_mm": "0.000134245645658414094203125"
+        },
+        "WJCP_015": {
+          "active_area_printed_mm2": "118.6986",
+          "active_area_upper_mm2": "118.69865",
+          "clearance_max_printed_mm": "-1.078696E-9",
+          "clearance_min_printed_mm": "-0.00001975154",
+          "compression_storage_upper_n_mm": "0.00023153568165412260008125",
+          "contact_row_count": 5347,
+          "max_abs_clearance_upper_mm": "0.000019751545",
+          "max_abs_pressure_upper_n_per_mm2": "0.19751545",
+          "open_tensile_residual_storage_upper_n_mm": "1.483733125E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_last_receiver",
+          "pressure_max_printed_n_per_mm2": "0.1975154",
+          "pressure_min_printed_n_per_mm2": "0.00001078696",
+          "sign_counts": {
+            "compression_overlap": 5347
+          },
+          "storage_upper_n_mm": "0.00023153568165412260008125"
+        },
+        "WJCP_016": {
+          "active_area_printed_mm2": "54.01489",
+          "active_area_upper_mm2": "54.014895",
+          "clearance_max_printed_mm": "-3.082379E-10",
+          "clearance_min_printed_mm": "-0.00001430407",
+          "compression_storage_upper_n_mm": "0.000055259009707194328921875",
+          "contact_row_count": 8055,
+          "max_abs_clearance_upper_mm": "0.000014304075",
+          "max_abs_pressure_upper_n_per_mm2": "0.14304075",
+          "open_tensile_residual_storage_upper_n_mm": "6.751861875E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_head",
+          "pressure_max_printed_n_per_mm2": "0.1430407",
+          "pressure_min_printed_n_per_mm2": "0.000003082379",
+          "sign_counts": {
+            "compression_overlap": 8055
+          },
+          "storage_upper_n_mm": "0.000055259009707194328921875"
+        },
+        "WJCP_017": {
+          "active_area_printed_mm2": "98.63807",
+          "active_area_upper_mm2": "98.638075",
+          "clearance_max_printed_mm": "-7.911513E-10",
+          "clearance_min_printed_mm": "-0.00001296106",
+          "compression_storage_upper_n_mm": "0.000082850659470652653084375",
+          "contact_row_count": 4779,
+          "max_abs_clearance_upper_mm": "0.000012961065",
+          "max_abs_pressure_upper_n_per_mm2": "0.12961065",
+          "open_tensile_residual_storage_upper_n_mm": "1.2329759375E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+          "pressure_max_printed_n_per_mm2": "0.1296106",
+          "pressure_min_printed_n_per_mm2": "0.000007911513",
+          "sign_counts": {
+            "compression_overlap": 4779
+          },
+          "storage_upper_n_mm": "0.000082850659470652653084375"
+        },
+        "WJCP_018": {
+          "active_area_printed_mm2": "49.56175",
+          "active_area_upper_mm2": "49.561755",
+          "clearance_max_printed_mm": "-1.444032E-9",
+          "clearance_min_printed_mm": "-0.00001732310",
+          "compression_storage_upper_n_mm": "0.000074364927072665024994375",
+          "contact_row_count": 7902,
+          "max_abs_clearance_upper_mm": "0.000017323105",
+          "max_abs_pressure_upper_n_per_mm2": "0.17323105",
+          "open_tensile_residual_storage_upper_n_mm": "6.195219375E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_nut",
+          "pressure_max_printed_n_per_mm2": "0.1732310",
+          "pressure_min_printed_n_per_mm2": "0.00001444032",
+          "sign_counts": {
+            "compression_overlap": 7902
+          },
+          "storage_upper_n_mm": "0.000074364927072665024994375"
+        },
+        "WJCP_019": {
+          "active_area_printed_mm2": "104.2132",
+          "active_area_upper_mm2": "104.21325",
+          "clearance_max_printed_mm": "-1.629088E-11",
+          "clearance_min_printed_mm": "-0.00001770962",
+          "compression_storage_upper_n_mm": "0.00016342243403243431640625",
+          "contact_row_count": 3595,
+          "max_abs_clearance_upper_mm": "0.000017709625",
+          "max_abs_pressure_upper_n_per_mm2": "0.17709625",
+          "open_tensile_residual_storage_upper_n_mm": "1.302665625E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_last_receiver",
+          "pressure_max_printed_n_per_mm2": "0.1770962",
+          "pressure_min_printed_n_per_mm2": "1.629088E-7",
+          "sign_counts": {
+            "compression_overlap": 3595
+          },
+          "storage_upper_n_mm": "0.00016342243403243431640625"
+        },
+        "WJCP_020": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_021": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::base_rail_bottom_right::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_022": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_023": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::base_rail_bottom_right::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_024": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_025": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::base_principal_center_right::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_026": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_027": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::base_principal_center_right::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_028": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::shaft_to_head_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_029": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::shaft_to_nut_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_030": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::shaft_to_head_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_031": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::shaft_to_nut_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_032": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::shaft_to_head_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_033": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::shaft_to_nut_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_034": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_head_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_035": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_nut_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        }
+      },
+      "pair_count": 35,
+      "pairwise_storage_upper_sum_n_mm": "0.00203777585424052611910663750",
+      "sign_counts": {
+        "compression_overlap": 108297
+      },
+      "zero_contact_pair_count": 16
+    },
+    "0.2000000E-01": {
+      "active_area_printed_total_mm2": "5226.552534",
+      "active_area_upper_total_mm2": "5226.5537335",
+      "active_pair_count": 23,
+      "cdis_rows": 72155,
+      "cnum": 72155,
+      "compression_storage_upper_sum_n_mm": "0.287187281868343124666393125",
+      "cstr_rows": 72155,
+      "global_extrema_storage_upper_n_mm": "281.935484650830987751671875",
+      "mapped_rows": 72155,
+      "max_abs_clearance_upper_mm": "0.0032845975",
+      "max_abs_pressure_upper_n_per_mm2": "32.845975",
+      "open_tensile_residual_storage_upper_sum_n_mm": "0.00001846973421929102933599740006",
+      "pair_bounds": {
+        "WJCP_001": {
+          "active_area_printed_mm2": "2291.002",
+          "active_area_upper_mm2": "2291.0025",
+          "clearance_max_printed_mm": "1.455560E-7",
+          "clearance_min_printed_mm": "-0.000004853294",
+          "compression_storage_upper_n_mm": "0.000269816719686073810378125",
+          "contact_row_count": 3416,
+          "max_abs_clearance_upper_mm": "0.0000048532945",
+          "max_abs_pressure_upper_n_per_mm2": "0.048532945",
+          "open_tensile_residual_storage_upper_n_mm": "2.4269235191935278253125E-7",
+          "pair_id": "bottom_center_right_cleat_to_base_rail_bottom_right::wood_to_wood",
+          "pressure_max_printed_n_per_mm2": "0.04853294",
+          "pressure_min_printed_n_per_mm2": "-0.001455560",
+          "sign_counts": {
+            "compression_overlap": 3409,
+            "tension_open_residual": 7
+          },
+          "storage_upper_n_mm": "0.000269816719686073810378125"
+        },
+        "WJCP_002": {
+          "active_area_printed_mm2": "2012.528",
+          "active_area_upper_mm2": "2012.5285",
+          "clearance_max_printed_mm": "0.000001345865",
+          "clearance_min_printed_mm": "-0.000003814184",
+          "compression_storage_upper_n_mm": "0.000146391357303389521360625",
+          "contact_row_count": 3318,
+          "max_abs_clearance_upper_mm": "0.0000038141845",
+          "max_abs_pressure_upper_n_per_mm2": "0.038141845",
+          "open_tensile_residual_storage_upper_n_mm": "0.000018227007180345173485625",
+          "pair_id": "bottom_center_right_cleat_to_base_principal_center_right::wood_to_wood",
+          "pressure_max_printed_n_per_mm2": "0.03814184",
+          "pressure_min_printed_n_per_mm2": "-0.01345865",
+          "sign_counts": {
+            "compression_overlap": 3218,
+            "tension_open_residual": 100
+          },
+          "storage_upper_n_mm": "0.000146391357303389521360625"
+        },
+        "WJCP_003": {
+          "active_area_printed_mm2": "2.202285",
+          "active_area_upper_mm2": "2.2022855",
+          "clearance_max_printed_mm": "-0.00001617109",
+          "clearance_min_printed_mm": "-0.0002121138",
+          "compression_storage_upper_n_mm": "0.00049542928832101972661875",
+          "contact_row_count": 6,
+          "max_abs_clearance_upper_mm": "0.00021211385",
+          "max_abs_pressure_upper_n_per_mm2": "2.1211385",
+          "open_tensile_residual_storage_upper_n_mm": "2.752856875E-17",
+          "pair_id": "base_rail_bottom_right_to_base_principal_center_right::wood_to_wood",
+          "pressure_max_printed_n_per_mm2": "2.121138",
+          "pressure_min_printed_n_per_mm2": "0.1617109",
+          "sign_counts": {
+            "compression_overlap": 6
+          },
+          "storage_upper_n_mm": "0.00049542928832101972661875"
+        },
+        "WJCP_004": {
+          "active_area_printed_mm2": "25.44724",
+          "active_area_upper_mm2": "25.447245",
+          "clearance_max_printed_mm": "1.649376E-8",
+          "clearance_min_printed_mm": "-0.00004296516",
+          "compression_storage_upper_n_mm": "0.000234878758868043982475625",
+          "contact_row_count": 3224,
+          "max_abs_clearance_upper_mm": "0.000042965165",
+          "max_abs_pressure_upper_n_per_mm2": "0.42965165",
+          "open_tensile_residual_storage_upper_n_mm": "3.4613887713112000025625E-11",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_head",
+          "pressure_max_printed_n_per_mm2": "0.4296516",
+          "pressure_min_printed_n_per_mm2": "-0.0001649376",
+          "sign_counts": {
+            "compression_overlap": 3223,
+            "tension_open_residual": 1
+          },
+          "storage_upper_n_mm": "0.000234878758868043982475625"
+        },
+        "WJCP_005": {
+          "active_area_printed_mm2": "125.7481",
+          "active_area_upper_mm2": "125.74815",
+          "clearance_max_printed_mm": "2.919083E-10",
+          "clearance_min_printed_mm": "-0.00002504891",
+          "compression_storage_upper_n_mm": "0.00039450221581298545441875",
+          "contact_row_count": 6692,
+          "max_abs_clearance_upper_mm": "0.000025048915",
+          "max_abs_pressure_upper_n_per_mm2": "0.25048915",
+          "open_tensile_residual_storage_upper_n_mm": "5.3575304120841124441875E-14",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/head_washer_to_first_receiver",
+          "pressure_max_printed_n_per_mm2": "0.2504891",
+          "pressure_min_printed_n_per_mm2": "-0.000002919083",
+          "sign_counts": {
+            "compression_overlap": 6691,
+            "tension_open_residual": 1
+          },
+          "storage_upper_n_mm": "0.00039450221581298545441875"
+        },
+        "WJCP_006": {
+          "active_area_printed_mm2": "7.535236",
+          "active_area_upper_mm2": "7.5352365",
+          "clearance_max_printed_mm": "-9.071484E-8",
+          "clearance_min_printed_mm": "-0.0001404408",
+          "compression_storage_upper_n_mm": "0.00074311117193337255185625",
+          "contact_row_count": 1357,
+          "max_abs_clearance_upper_mm": "0.00014044085",
+          "max_abs_pressure_upper_n_per_mm2": "1.4044085",
+          "open_tensile_residual_storage_upper_n_mm": "9.419045625E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_nut",
+          "pressure_max_printed_n_per_mm2": "1.404408",
+          "pressure_min_printed_n_per_mm2": "0.0009071484",
+          "sign_counts": {
+            "compression_overlap": 1357
+          },
+          "storage_upper_n_mm": "0.00074311117193337255185625"
+        },
+        "WJCP_007": {
+          "active_area_printed_mm2": "74.12620",
+          "active_area_upper_mm2": "74.126205",
+          "clearance_max_printed_mm": "-4.354877E-9",
+          "clearance_min_printed_mm": "-0.00005296750",
+          "compression_storage_upper_n_mm": "0.001039826313136892588900625",
+          "contact_row_count": 3713,
+          "max_abs_clearance_upper_mm": "0.000052967505",
+          "max_abs_pressure_upper_n_per_mm2": "0.52967505",
+          "open_tensile_residual_storage_upper_n_mm": "9.265775625E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1/nut_washer_to_last_receiver",
+          "pressure_max_printed_n_per_mm2": "0.5296750",
+          "pressure_min_printed_n_per_mm2": "0.00004354877",
+          "sign_counts": {
+            "compression_overlap": 3713
+          },
+          "storage_upper_n_mm": "0.001039826313136892588900625"
+        },
+        "WJCP_008": {
+          "active_area_printed_mm2": "52.51099",
+          "active_area_upper_mm2": "52.510995",
+          "clearance_max_printed_mm": "-3.261687E-9",
+          "clearance_min_printed_mm": "-0.00002271576",
+          "compression_storage_upper_n_mm": "0.000135479937056721511494375",
+          "contact_row_count": 8114,
+          "max_abs_clearance_upper_mm": "0.000022715765",
+          "max_abs_pressure_upper_n_per_mm2": "0.22715765",
+          "open_tensile_residual_storage_upper_n_mm": "6.563874375E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_head",
+          "pressure_max_printed_n_per_mm2": "0.2271576",
+          "pressure_min_printed_n_per_mm2": "0.00003261687",
+          "sign_counts": {
+            "compression_overlap": 8114
+          },
+          "storage_upper_n_mm": "0.000135479937056721511494375"
+        },
+        "WJCP_009": {
+          "active_area_printed_mm2": "97.47521",
+          "active_area_upper_mm2": "97.475215",
+          "clearance_max_printed_mm": "-1.904672E-9",
+          "clearance_min_printed_mm": "-0.00002645372",
+          "compression_storage_upper_n_mm": "0.000341065565946854088171875",
+          "contact_row_count": 4827,
+          "max_abs_clearance_upper_mm": "0.000026453725",
+          "max_abs_pressure_upper_n_per_mm2": "0.26453725",
+          "open_tensile_residual_storage_upper_n_mm": "1.2184401875E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/head_washer_to_first_receiver",
+          "pressure_max_printed_n_per_mm2": "0.2645372",
+          "pressure_min_printed_n_per_mm2": "0.00001904672",
+          "sign_counts": {
+            "compression_overlap": 4827
+          },
+          "storage_upper_n_mm": "0.000341065565946854088171875"
+        },
+        "WJCP_010": {
+          "active_area_printed_mm2": "7.003848",
+          "active_area_upper_mm2": "7.0038485",
+          "clearance_max_printed_mm": "-1.179989E-8",
+          "clearance_min_printed_mm": "-0.0001686129",
+          "compression_storage_upper_n_mm": "0.00099560851233510896535625",
+          "contact_row_count": 1146,
+          "max_abs_clearance_upper_mm": "0.00016861295",
+          "max_abs_pressure_upper_n_per_mm2": "1.6861295",
+          "open_tensile_residual_storage_upper_n_mm": "8.754810625E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_nut",
+          "pressure_max_printed_n_per_mm2": "1.686129",
+          "pressure_min_printed_n_per_mm2": "0.0001179989",
+          "sign_counts": {
+            "compression_overlap": 1146
+          },
+          "storage_upper_n_mm": "0.00099560851233510896535625"
+        },
+        "WJCP_011": {
+          "active_area_printed_mm2": "47.31020",
+          "active_area_upper_mm2": "47.310205",
+          "clearance_max_printed_mm": "-1.381929E-9",
+          "clearance_min_printed_mm": "-0.00008712496",
+          "compression_storage_upper_n_mm": "0.001795601946463241681255625",
+          "contact_row_count": 1897,
+          "max_abs_clearance_upper_mm": "0.000087124965",
+          "max_abs_pressure_upper_n_per_mm2": "0.87124965",
+          "open_tensile_residual_storage_upper_n_mm": "5.913775625E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2/nut_washer_to_last_receiver",
+          "pressure_max_printed_n_per_mm2": "0.8712496",
+          "pressure_min_printed_n_per_mm2": "0.00001381929",
+          "sign_counts": {
+            "compression_overlap": 1897
+          },
+          "storage_upper_n_mm": "0.001795601946463241681255625"
+        },
+        "WJCP_012": {
+          "active_area_printed_mm2": "29.85782",
+          "active_area_upper_mm2": "29.857825",
+          "clearance_max_printed_mm": "-2.740682E-8",
+          "clearance_min_printed_mm": "-0.00006473692",
+          "compression_storage_upper_n_mm": "0.000625651234442064107578125",
+          "contact_row_count": 4823,
+          "max_abs_clearance_upper_mm": "0.000064736925",
+          "max_abs_pressure_upper_n_per_mm2": "0.64736925",
+          "open_tensile_residual_storage_upper_n_mm": "3.732228125E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_head",
+          "pressure_max_printed_n_per_mm2": "0.6473692",
+          "pressure_min_printed_n_per_mm2": "0.0002740682",
+          "sign_counts": {
+            "compression_overlap": 4823
+          },
+          "storage_upper_n_mm": "0.000625651234442064107578125"
+        },
+        "WJCP_013": {
+          "active_area_printed_mm2": "109.5904",
+          "active_area_upper_mm2": "109.59045",
+          "clearance_max_printed_mm": "-1.478226E-9",
+          "clearance_min_printed_mm": "-0.00004205468",
+          "compression_storage_upper_n_mm": "0.00096910644820184634950625",
+          "contact_row_count": 5497,
+          "max_abs_clearance_upper_mm": "0.000042054685",
+          "max_abs_pressure_upper_n_per_mm2": "0.42054685",
+          "open_tensile_residual_storage_upper_n_mm": "1.369880625E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/head_washer_to_first_receiver",
+          "pressure_max_printed_n_per_mm2": "0.4205468",
+          "pressure_min_printed_n_per_mm2": "0.00001478226",
+          "sign_counts": {
+            "compression_overlap": 5497
+          },
+          "storage_upper_n_mm": "0.00096910644820184634950625"
+        },
+        "WJCP_014": {
+          "active_area_printed_mm2": "7.417548",
+          "active_area_upper_mm2": "7.4175485",
+          "clearance_max_printed_mm": "-1.746671E-7",
+          "clearance_min_printed_mm": "-0.0002608670",
+          "compression_storage_upper_n_mm": "0.00252388087677367707660625",
+          "contact_row_count": 1100,
+          "max_abs_clearance_upper_mm": "0.00026086705",
+          "max_abs_pressure_upper_n_per_mm2": "2.6086705",
+          "open_tensile_residual_storage_upper_n_mm": "9.271935625E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_nut",
+          "pressure_max_printed_n_per_mm2": "2.608670",
+          "pressure_min_printed_n_per_mm2": "0.001746671",
+          "sign_counts": {
+            "compression_overlap": 1100
+          },
+          "storage_upper_n_mm": "0.00252388087677367707660625"
+        },
+        "WJCP_015": {
+          "active_area_printed_mm2": "77.76072",
+          "active_area_upper_mm2": "77.760725",
+          "clearance_max_printed_mm": "-4.457054E-9",
+          "clearance_min_printed_mm": "-0.00009951660",
+          "compression_storage_upper_n_mm": "0.003850537956363959901840625",
+          "contact_row_count": 3933,
+          "max_abs_clearance_upper_mm": "0.000099516605",
+          "max_abs_pressure_upper_n_per_mm2": "0.99516605",
+          "open_tensile_residual_storage_upper_n_mm": "9.720090625E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1/nut_washer_to_last_receiver",
+          "pressure_max_printed_n_per_mm2": "0.9951660",
+          "pressure_min_printed_n_per_mm2": "0.00004457054",
+          "sign_counts": {
+            "compression_overlap": 3933
+          },
+          "storage_upper_n_mm": "0.003850537956363959901840625"
+        },
+        "WJCP_016": {
+          "active_area_printed_mm2": "53.63325",
+          "active_area_upper_mm2": "53.633255",
+          "clearance_max_printed_mm": "-9.721375E-10",
+          "clearance_min_printed_mm": "-0.00003251692",
+          "compression_storage_upper_n_mm": "0.000283545721209772284046875",
+          "contact_row_count": 8361,
+          "max_abs_clearance_upper_mm": "0.000032516925",
+          "max_abs_pressure_upper_n_per_mm2": "0.32516925",
+          "open_tensile_residual_storage_upper_n_mm": "6.704156875E-18",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_head",
+          "pressure_max_printed_n_per_mm2": "0.3251692",
+          "pressure_min_printed_n_per_mm2": "0.000009721375",
+          "sign_counts": {
+            "compression_overlap": 8361
+          },
+          "storage_upper_n_mm": "0.000283545721209772284046875"
+        },
+        "WJCP_017": {
+          "active_area_printed_mm2": "103.4249",
+          "active_area_upper_mm2": "103.42495",
+          "clearance_max_printed_mm": "-2.458775E-9",
+          "clearance_min_printed_mm": "-0.00002341314",
+          "compression_storage_upper_n_mm": "0.00028347504537096910536875",
+          "contact_row_count": 5040,
+          "max_abs_clearance_upper_mm": "0.000023413145",
+          "max_abs_pressure_upper_n_per_mm2": "0.23413145",
+          "open_tensile_residual_storage_upper_n_mm": "1.292811875E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/head_washer_to_first_receiver",
+          "pressure_max_printed_n_per_mm2": "0.2341314",
+          "pressure_min_printed_n_per_mm2": "0.00002458775",
+          "sign_counts": {
+            "compression_overlap": 5040
+          },
+          "storage_upper_n_mm": "0.00028347504537096910536875"
+        },
+        "WJCP_018": {
+          "active_area_printed_mm2": "6.436753",
+          "active_area_upper_mm2": "6.4367535",
+          "clearance_max_printed_mm": "-1.681158E-7",
+          "clearance_min_printed_mm": "-0.0002645478",
+          "compression_storage_upper_n_mm": "0.00225239915037296207776875",
+          "contact_row_count": 905,
+          "max_abs_clearance_upper_mm": "0.00026454785",
+          "max_abs_pressure_upper_n_per_mm2": "2.6454785",
+          "open_tensile_residual_storage_upper_n_mm": "8.045941875E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_nut",
+          "pressure_max_printed_n_per_mm2": "2.645478",
+          "pressure_min_printed_n_per_mm2": "0.001681158",
+          "sign_counts": {
+            "compression_overlap": 905
+          },
+          "storage_upper_n_mm": "0.00225239915037296207776875"
+        },
+        "WJCP_019": {
+          "active_area_printed_mm2": "80.26960",
+          "active_area_upper_mm2": "80.269605",
+          "clearance_max_printed_mm": "-1.801152E-9",
+          "clearance_min_printed_mm": "-0.00007076507",
+          "compression_storage_upper_n_mm": "0.002009828835086636576390625",
+          "contact_row_count": 2868,
+          "max_abs_clearance_upper_mm": "0.000070765075",
+          "max_abs_pressure_upper_n_per_mm2": "0.70765075",
+          "open_tensile_residual_storage_upper_n_mm": "1.0033700625E-17",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2/nut_washer_to_last_receiver",
+          "pressure_max_printed_n_per_mm2": "0.7076507",
+          "pressure_min_printed_n_per_mm2": "0.00001801152",
+          "sign_counts": {
+            "compression_overlap": 2868
+          },
+          "storage_upper_n_mm": "0.002009828835086636576390625"
+        },
+        "WJCP_020": {
+          "active_area_printed_mm2": "2.395896",
+          "active_area_upper_mm2": "2.3958965",
+          "clearance_max_printed_mm": "-0.000001014639",
+          "clearance_min_printed_mm": "-0.003284597",
+          "compression_storage_upper_n_mm": "0.129241614138803474265625",
+          "contact_row_count": 250,
+          "max_abs_clearance_upper_mm": "0.0032845975",
+          "max_abs_pressure_upper_n_per_mm2": "32.845975",
+          "open_tensile_residual_storage_upper_n_mm": "2.994870625E-15",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": "32.84597",
+          "pressure_min_printed_n_per_mm2": "0.01014639",
+          "sign_counts": {
+            "compression_overlap": 250
+          },
+          "storage_upper_n_mm": "0.129241614138803474265625"
+        },
+        "WJCP_021": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::base_rail_bottom_right::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_022": {
+          "active_area_printed_mm2": "6.103547",
+          "active_area_upper_mm2": "6.1035475",
+          "clearance_max_printed_mm": "-2.944184E-7",
+          "clearance_min_printed_mm": "-0.001336105",
+          "compression_storage_upper_n_mm": "0.054479590760600347809375",
+          "contact_row_count": 795,
+          "max_abs_clearance_upper_mm": "0.0013361055",
+          "max_abs_pressure_upper_n_per_mm2": "13.361055",
+          "open_tensile_residual_storage_upper_n_mm": "7.629434375E-15",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": "13.36105",
+          "pressure_min_printed_n_per_mm2": "0.002944184",
+          "sign_counts": {
+            "compression_overlap": 795
+          },
+          "storage_upper_n_mm": "0.054479590760600347809375"
+        },
+        "WJCP_023": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::base_rail_bottom_right::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_024": {
+          "active_area_printed_mm2": "3.977105",
+          "active_area_upper_mm2": "3.9771055",
+          "clearance_max_printed_mm": "-0.000003493699",
+          "clearance_min_printed_mm": "-0.001575722",
+          "compression_storage_upper_n_mm": "0.049373804009956202046875",
+          "contact_row_count": 485,
+          "max_abs_clearance_upper_mm": "0.0015757225",
+          "max_abs_pressure_upper_n_per_mm2": "15.757225",
+          "open_tensile_residual_storage_upper_n_mm": "4.971381875E-15",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": "15.75722",
+          "pressure_min_printed_n_per_mm2": "0.03493699",
+          "sign_counts": {
+            "compression_overlap": 485
+          },
+          "storage_upper_n_mm": "0.049373804009956202046875"
+        },
+        "WJCP_025": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::base_principal_center_right::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_026": {
+          "active_area_printed_mm2": "2.795686",
+          "active_area_upper_mm2": "2.7956865",
+          "clearance_max_printed_mm": "-7.956285E-8",
+          "clearance_min_printed_mm": "-0.001575610",
+          "compression_storage_upper_n_mm": "0.034702135904297509183125",
+          "contact_row_count": 388,
+          "max_abs_clearance_upper_mm": "0.0015756105",
+          "max_abs_pressure_upper_n_per_mm2": "15.756105",
+          "open_tensile_residual_storage_upper_n_mm": "3.494608125E-15",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::bottom_center_right_cleat::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": "15.75610",
+          "pressure_min_printed_n_per_mm2": "0.0007956285",
+          "sign_counts": {
+            "compression_overlap": 388
+          },
+          "storage_upper_n_mm": "0.034702135904297509183125"
+        },
+        "WJCP_027": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::base_principal_center_right::shaft_to_wood_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_028": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::shaft_to_head_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_029": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_1::shaft_to_nut_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_030": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::shaft_to_head_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_031": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/rail_2::shaft_to_nut_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_032": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::shaft_to_head_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_033": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_1::shaft_to_nut_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_034": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_head_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        },
+        "WJCP_035": {
+          "active_area_printed_mm2": "0.000000",
+          "active_area_upper_mm2": "0",
+          "clearance_max_printed_mm": null,
+          "clearance_min_printed_mm": null,
+          "compression_storage_upper_n_mm": "0",
+          "contact_row_count": 0,
+          "max_abs_clearance_upper_mm": "0",
+          "max_abs_pressure_upper_n_per_mm2": "0",
+          "open_tensile_residual_storage_upper_n_mm": "0",
+          "pair_id": "bottom_center/clip_horizontal_bottom_right_1/principal_2::shaft_to_nut_washer_bore",
+          "pressure_max_printed_n_per_mm2": null,
+          "pressure_min_printed_n_per_mm2": null,
+          "sign_counts": {},
+          "storage_upper_n_mm": "0"
+        }
+      },
+      "pair_count": 35,
+      "pairwise_storage_upper_sum_n_mm": "0.287187281868343124666393125",
+      "sign_counts": {
+        "compression_overlap": 72046,
+        "tension_open_residual": 109
+      },
+      "zero_contact_pair_count": 12
+    }
+  },
+  "method": {
+    "area_nonnegative_source_proof": [
+      "Current pinned mesh is C3D10-only. precontact.c loops each tie slave face through slavintpoints.f; faceinfo selects nopes=6 for these C3D10 tetra faces, and slavintpoints.f uses shape6tri and calls treatmasterface for the face overlap.",
+      "treatmasterface.f clips triangular patches with area=abs(det)/2 and supplies seven-point weights as 2*area*weight2d6(i).",
+      "gauss.f defines all seven weight2d6 values as positive; gencontelem_f2f.f consumes those weights and multiplies by the nonnegative shape-function Jacobian norm, then writes that area to springarea(1,igauss), so each generated quadrature spring weight is nonnegative.",
+      "springforc_f2f.f uses elas=-springarea*K*clear and senergy=-elas*clear/2 for LINEAR contact; printoutcontact.f sums springarea(1,igauss) for pair area."
+    ],
+    "cnum_and_row_validation": "For both endpoints CDIS rows = CSTR rows = CNUM; ordered element+face keys match; every row mapped once; three pair-area prints (CF/CFN/CFS) agree for every pair.",
+    "contact_pair_count": 35,
+    "energy_formula": "U_contact = sum_i(0.5 * |p_i| * |clear_i| * springarea_i); upper bound uses each pair's max printed |p| and |clear|, each expanded by half an output ULP, times that pair's summed area expanded by half an output ULP.",
+    "mesh_element_types": [
+      "C3D10"
+    ],
+    "pressure_overclosure_law": "LINEAR K=10000 N/mm^3; reported pressure satisfies p=-K*clear within printed rounding for each row.",
+    "print_quantum": "DAT and pair-area records use E13.6; upper limits add half the last printed decimal unit to pressure, clearance, and positive area before multiplying. LOG energy values use six digits after the mantissa decimal; their intervals use the same half-last-digit rule.",
+    "source_archive_pin_file": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/current-force-energy-readiness-attempt01/source-pins.json",
+    "source_archive_sha256": "52a20ef7216c6e2de75eae460539915640e3140ec4a2f631a9301e01eda605ad",
+    "source_files": {
+      "gauss.f": {
+        "expected_sha256": "aed2d48b6a63e30894e747a531f6edc32e3cd921338e370902dfb62d8e304df2",
+        "observed_sha256": "aed2d48b6a63e30894e747a531f6edc32e3cd921338e370902dfb62d8e304df2"
+      },
+      "gencontelem_f2f.f": {
+        "expected_sha256": "2dd474804f18ef01743a81101d6b852569bd567ef724ccf5c6043352fb482332",
+        "observed_sha256": "2dd474804f18ef01743a81101d6b852569bd567ef724ccf5c6043352fb482332"
+      },
+      "precontact.c": {
+        "expected_sha256": "3f65d07db8abd5ff41b5662cc49bc9f68188225941d4aef23e58ffed9ff54319",
+        "observed_sha256": "3f65d07db8abd5ff41b5662cc49bc9f68188225941d4aef23e58ffed9ff54319"
+      },
+      "printout.f": {
+        "expected_sha256": "8523567b346600ee8dd84b2ea6fb238677313a4f884b83ba0e7ed66c3ba89af8",
+        "observed_sha256": "8523567b346600ee8dd84b2ea6fb238677313a4f884b83ba0e7ed66c3ba89af8"
+      },
+      "printoutcontact.f": {
+        "expected_sha256": "2c4d1da25da0ba5f3157a7d591bf262c388fc652dae05b4de0da2c4a36954c01",
+        "observed_sha256": "2c4d1da25da0ba5f3157a7d591bf262c388fc652dae05b4de0da2c4a36954c01"
+      },
+      "printoutelem.f": {
+        "expected_sha256": "d0a8d83575eb6525c8f20063fa38adbc8d6cb5a3d3210ac5fd67da91b9bbc056",
+        "observed_sha256": "d0a8d83575eb6525c8f20063fa38adbc8d6cb5a3d3210ac5fd67da91b9bbc056"
+      },
+      "shape6tri.f": {
+        "expected_sha256": "32f731a07733f6495a4e3796b0eb37b2369b62be6512bd80311c9f8dc015a198",
+        "observed_sha256": "32f731a07733f6495a4e3796b0eb37b2369b62be6512bd80311c9f8dc015a198"
+      },
+      "slavintpoints.f": {
+        "expected_sha256": "dd6e6f938b418b1ecf5094b36f36b8bc2812b81a268e5d21f9320dc203f6019b",
+        "observed_sha256": "dd6e6f938b418b1ecf5094b36f36b8bc2812b81a268e5d21f9320dc203f6019b"
+      },
+      "springforc_f2f.f": {
+        "expected_sha256": "b06588c45d1b00522cea8f66e08fe20f76f9edb537500d8d8a269074ae3da3a6",
+        "observed_sha256": "b06588c45d1b00522cea8f66e08fe20f76f9edb537500d8d8a269074ae3da3a6"
+      },
+      "treatmasterface.f": {
+        "expected_sha256": "6713f4a05f8e8b53fb6f30d0c977b7021387451c6cfced23e449de487cfd601c",
+        "observed_sha256": "6713f4a05f8e8b53fb6f30d0c977b7021387451c6cfced23e449de487cfd601c"
+      }
+    },
+    "surface_mapping": "Every DAT element+face key matched exactly one slave-face reference in hash-pinned contact-fragment.inc; pair index mapped to hash-pinned contact-manifest.json."
+  },
+  "schema": "current_force_contact_storage_bound/v1",
+  "scope": "Only the immutable accepted .019 and .020 s endpoints; no live output reads.",
+  "snapshot": {
+    "child_implementation_pilot_hash": "a9f891c92fed7eaa7e3b78f0656c5829d330a28a3df450ea7128b9ea52eb49c4",
+    "frozen_geometry_inputs_sha256": {
+      "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+      "contact-manifest.json": "e0a698bde664469f2d079ae5d6d98cd89a3b74af735752d3b9d5666d933beee7",
+      "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+      "pilot.inp": "a9f891c92fed7eaa7e3b78f0656c5829d330a28a3df450ea7128b9ea52eb49c4"
+    },
+    "input_freeze_sha256": "f054d6b911fb0d9c9b0a183fa007d16d8a34a422904fd5cbcf73634e87797e66",
+    "inputs_verified_count": 27,
+    "output_sha256": {
+      "pilot.dat": "0adf58de363e4b08483134802ebd61a493b5373d14bdfe48333ba1c58d4c04f4",
+      "pilot.log": "bcde2b262d1ade3d2ad25f4df9409128d5de93cbb3cec299112db4c9fd9aabc4",
+      "pilot.sta": "343cc6f488f9d9f5fb0950d74d317a50313bf34495ac4d3232e0a94894d3285c"
+    },
+    "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/force-seating-contact-energy-prefix-attempt01",
+    "previous_20_state_prefix_identical": true,
+    "snapshot_is_nonatomic_prefix": true,
+    "snapshot_sha256": "18fac09d22a3b2caab941ad0aa81ff5533d1c60f193a96ae13b39b908407d46e",
+    "snapshot_status": "IMMUTABLE_NONATOMIC_LIVE_OUTPUT_PREFIX",
+    "source_parent_lineage_pilot_hash": "48649259ba8441429a5dd094ae08487e3713d6b5b860ac39ca1acf71b837d963"
+  },
+  "solver_and_source_provenance": {
+    "frozen_solver_image_digest": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "reported_packaged_solver_binary_sha256": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+    "source_archive_is_not_bitwise_provenance_for_packaged_binary": true,
+    "source_interpretation_scope": "Conditional on the pinned upstream CalculiX 2.21 source semantics; the actual endpoint fields independently satisfy p=-10000*clear within printed rounding.",
+    "upstream_source_archive_sha256": "52a20ef7216c6e2de75eae460539915640e3140ec4a2f631a9301e01eda605ad"
+  },
+  "status": "READ_ONLY_BOUNDED_ENDPOINT_AUDIT",
+  "time_0020_energy": {
+    "contact_storage_upper_from_endpoint_n_mm": "0.287187281868343124666393125",
+    "energy_required_nominal_n_mm": "0.4664306",
+    "energy_required_print_interval_n_mm": [
+      "0.46642955",
+      "0.46643165"
+    ],
+    "energy_required_to_close_contact_only": "0.4664306",
+    "external_work_half_ulp_n_mm": "5E-7",
+    "internal_energy_half_ulp_n_mm": "5E-8",
+    "kinetic_energy_half_ulp_n_mm": "5E-7",
+    "log_line_end_1based": 4196,
+    "log_line_start_1based": 4179,
+    "minimum_unaccounted_energy_after_max_contact_storage_n_mm": "0.179242268131656875333606875",
+    "native_contact_energy_is_not_subtracted_from_energy_required": true,
+    "printed": {
+      "absolute_balance": "-4.650846e-01",
+      "damping_work": "0.000000e+00",
+      "external_work": "5.891622e+00",
+      "friction_energy": "0.000000e+00",
+      "initial_energy": "0.000000e+00",
+      "internal_energy": "1.110754e-01",
+      "kinetic_energy": "5.314116e+00",
+      "native_contact_energy": "1.345491e-03",
+      "net_work": "5.891622e+00",
+      "relative_balance_percent": "44.068010",
+      "total_energy": "5.426537e+00"
+    },
+    "sta_row": [
+      "1",
+      "20",
+      "1",
+      "15",
+      "0.200000E-01",
+      "0.200000E-01",
+      "0.100000E-02"
+    ]
+  }
+}

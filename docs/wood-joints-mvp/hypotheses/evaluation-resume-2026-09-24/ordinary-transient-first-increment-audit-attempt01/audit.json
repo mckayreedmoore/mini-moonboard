@@ -1,0 +1,89 @@
+{
+  "applied_wrench_current_coordinates": {
+    "current_moment_norm_nmm": 5.466271081027487e-11,
+    "datum_global_xyz_mm": [
+      89.05,
+      42.906715329,
+      486.256134997
+    ],
+    "force_norm_n": 4.459472169681629e-18,
+    "force_xyz_n": [
+      0.0,
+      2.0574430288806955e-18,
+      -3.956490896624837e-18
+    ],
+    "moment_current_coordinates_nmm": [
+      5.0200110913870347e-11,
+      -1.3904709536252662e-11,
+      -1.6571658639837505e-11
+    ],
+    "moment_reference_coordinates_nmm": [
+      3.2715800554750096e-17,
+      0.0,
+      0.0
+    ]
+  },
+  "coverage": {
+    "CELS_rows": 23531,
+    "CLOAD_components": 662,
+    "CNUM": 23531,
+    "loaded_nodes": 331,
+    "max_deck_vs_serialized_force_difference_n": 0.0,
+    "monitor_rows": 339
+  },
+  "energies_nmm": {
+    "DAT_balance": 2.203707522254132e-12,
+    "DAT_balance_percent_of_work": 0.032927130613832456,
+    "DAT_rounding_difference_from_log_balance": 7.352225413198563e-17,
+    "contact_CELS_sum": 7.466920159732914e-12,
+    "internal": 3.067679e-10,
+    "kinetic": 6.380649e-09,
+    "nut_carrier_internal": 1.170119e-26,
+    "nut_carrier_kinetic": 0.0,
+    "nut_carriers_zero_to_printed_precision": true,
+    "solver_log_balance": 2.203634e-12,
+    "solver_log_balance_percent": 0.032926,
+    "solver_log_contact": 7.46692e-12,
+    "solver_log_internal": 3.067679e-10,
+    "solver_log_kinetic": 6.380649e-09,
+    "solver_log_total": 6.694884e-09,
+    "total": 6.694883820159733e-09
+  },
+  "increment": {
+    "attempt": 1,
+    "increment": 1,
+    "iterations": 13,
+    "step": 1,
+    "time_seconds": 0.0025
+  },
+  "limits": [
+    "A first transient response only; no quasistatic or seated-state interpretation.",
+    "The nut engagement is a stiff surrogate; no physical thread-engagement or capacity claim follows.",
+    "The source process was live when the snapshot was taken; any later increment is excluded."
+  ],
+  "provenance": {
+    "actuator_sha256": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+    "input_freeze_sha256": "7a7c23a3f0ad6fe0f2342fcc9cc1f06ed2c85b9fbb194c1b39bb88c289222fe5",
+    "pilot_input_sha256": "29c23fddf0800d8808ef9c28cea93caf4d019719aa68a3f089a7dd09d7870e4c",
+    "snapshot_files_sha256": {
+      "input-freeze.json": "7a7c23a3f0ad6fe0f2342fcc9cc1f06ed2c85b9fbb194c1b39bb88c289222fe5",
+      "pilot.dat": "cbbca38de8de43d718be48442cc0c6f61ccbc6ff85b15014df47485aca0868f7",
+      "pilot.log": "278aeb948d4296a89c2484f7aba8204c57d0803d1caa73d4297105c565123aa7",
+      "pilot.sta": "4d7bf3dcf44eda1aff8483983e33ea9fa0503278b5183a9caf316030bb5960c7"
+    },
+    "snapshot_json_sha256": "82db7e5ccb0ad52d54a2b2c32499e6cac55b6cfb637fa2f6777a34b549f9d88f",
+    "snapshot_process_was_running": true,
+    "snapshot_utc": "2026-09-25T06:04:14.279758+00:00"
+  },
+  "schema": "ordinary_transient_first_increment_audit/v1",
+  "scope": "First completed increment only; no FRD parse or later-increment audit.",
+  "status": "ACCOUNTING_REPRODUCED_ONLY",
+  "work_nmm": {
+    "difference_from_solver_log": 1.1263747931482446e-16,
+    "discrete_Newmark_endpoint_work": 6.692680112637479e-09,
+    "endpoint_amplitude": 0.001915,
+    "method_note": "0.5 * F_end dot U_end because initial force and displacement are zero. This is discrete endpoint work; a continuous integral of F(t) dot dU(t) needs the within-step displacement history.",
+    "solver_log_external_work": 6.69268e-09,
+    "unit_force_dot_U_mm": 6.989744242963424e-06
+  }
+}

@@ -1,0 +1,807 @@
+{
+  "schema": "ccx-mt-multicopy-contact-fixture/v1",
+  "scope": "synthetic solver exercise only; no wood, joint, material qualification, or structure acceptance",
+  "solver": {
+    "product": "CalculiX CrunchiX",
+    "version": "2.21",
+    "image": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0"
+  },
+  "source_inputs": {
+    "upper_slave_two_block_deck_sha256": "fa8459d004516c417234fe076d35ccbbddd1e37b63e69692602b2cb6116db64d",
+    "strict_reaudit02_parser_sha256": "2034ab0e368c1f4661c306f86c4540821571519e14459f134b1a0ac1fcb9e8f7"
+  },
+  "fixture": {
+    "copies": 16,
+    "translation_axis": "global X",
+    "copy_pitch_mm": 40.0,
+    "body_dimensions_mm": [
+      20.0,
+      20.0,
+      10.0
+    ],
+    "element_type": "C3D8",
+    "elements_per_copy": 2,
+    "total_elements": 32,
+    "nodes_per_copy": 16,
+    "total_nodes": 256,
+    "free_nodal_dofs_per_copy_before_contact_springs": 20,
+    "expected_equations": 320,
+    "expected_contact_spring_elements": 448,
+    "elastic_modulus_n_per_mm2": 1000.0,
+    "poisson_ratio": 0.0,
+    "normal_penalty_n_per_mm3": 10000.0,
+    "notice": "Unchanged fixture-only constants and penalty from the reviewed two-block probe; no wood property, joint stiffness, or capacity is represented."
+  },
+  "load": {
+    "per_copy_force_n": [
+      0.0,
+      0.0,
+      -100.0
+    ],
+    "per_top_node_force_n": [
+      0.0,
+      0.0,
+      -25.0
+    ],
+    "per_copy_moment_global_origin_formula_nmm": [
+      "-1000",
+      "1000 + 100*x_translation_mm",
+      "0"
+    ],
+    "total_force_n": [
+      0.0,
+      0.0,
+      -1600.0
+    ],
+    "total_moment_global_origin_nmm": [
+      -16000.0,
+      496000.0,
+      0.0
+    ]
+  },
+  "copies": [
+    {
+      "copy_index": 0,
+      "x_translation_mm": 0.0,
+      "upper_surface": "UPPER_INTERFACE_00",
+      "lower_surface": "LOWER_INTERFACE_00",
+      "top_node_ids": [
+        15,
+        16,
+        17,
+        18
+      ],
+      "bottom_node_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        10.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        1000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -1000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 1,
+      "x_translation_mm": 40.0,
+      "upper_surface": "UPPER_INTERFACE_01",
+      "lower_surface": "LOWER_INTERFACE_01",
+      "top_node_ids": [
+        35,
+        36,
+        37,
+        38
+      ],
+      "bottom_node_ids": [
+        21,
+        22,
+        23,
+        24
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        50.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        5000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -5000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 2,
+      "x_translation_mm": 80.0,
+      "upper_surface": "UPPER_INTERFACE_02",
+      "lower_surface": "LOWER_INTERFACE_02",
+      "top_node_ids": [
+        55,
+        56,
+        57,
+        58
+      ],
+      "bottom_node_ids": [
+        41,
+        42,
+        43,
+        44
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        90.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        9000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -9000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 3,
+      "x_translation_mm": 120.0,
+      "upper_surface": "UPPER_INTERFACE_03",
+      "lower_surface": "LOWER_INTERFACE_03",
+      "top_node_ids": [
+        75,
+        76,
+        77,
+        78
+      ],
+      "bottom_node_ids": [
+        61,
+        62,
+        63,
+        64
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        130.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        13000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -13000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 4,
+      "x_translation_mm": 160.0,
+      "upper_surface": "UPPER_INTERFACE_04",
+      "lower_surface": "LOWER_INTERFACE_04",
+      "top_node_ids": [
+        95,
+        96,
+        97,
+        98
+      ],
+      "bottom_node_ids": [
+        81,
+        82,
+        83,
+        84
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        170.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        17000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -17000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 5,
+      "x_translation_mm": 200.0,
+      "upper_surface": "UPPER_INTERFACE_05",
+      "lower_surface": "LOWER_INTERFACE_05",
+      "top_node_ids": [
+        115,
+        116,
+        117,
+        118
+      ],
+      "bottom_node_ids": [
+        101,
+        102,
+        103,
+        104
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        210.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        21000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -21000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 6,
+      "x_translation_mm": 240.0,
+      "upper_surface": "UPPER_INTERFACE_06",
+      "lower_surface": "LOWER_INTERFACE_06",
+      "top_node_ids": [
+        135,
+        136,
+        137,
+        138
+      ],
+      "bottom_node_ids": [
+        121,
+        122,
+        123,
+        124
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        250.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        25000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -25000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 7,
+      "x_translation_mm": 280.0,
+      "upper_surface": "UPPER_INTERFACE_07",
+      "lower_surface": "LOWER_INTERFACE_07",
+      "top_node_ids": [
+        155,
+        156,
+        157,
+        158
+      ],
+      "bottom_node_ids": [
+        141,
+        142,
+        143,
+        144
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        290.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        29000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -29000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 8,
+      "x_translation_mm": 320.0,
+      "upper_surface": "UPPER_INTERFACE_08",
+      "lower_surface": "LOWER_INTERFACE_08",
+      "top_node_ids": [
+        175,
+        176,
+        177,
+        178
+      ],
+      "bottom_node_ids": [
+        161,
+        162,
+        163,
+        164
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        330.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        33000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -33000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 9,
+      "x_translation_mm": 360.0,
+      "upper_surface": "UPPER_INTERFACE_09",
+      "lower_surface": "LOWER_INTERFACE_09",
+      "top_node_ids": [
+        195,
+        196,
+        197,
+        198
+      ],
+      "bottom_node_ids": [
+        181,
+        182,
+        183,
+        184
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        370.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        37000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -37000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 10,
+      "x_translation_mm": 400.0,
+      "upper_surface": "UPPER_INTERFACE_10",
+      "lower_surface": "LOWER_INTERFACE_10",
+      "top_node_ids": [
+        215,
+        216,
+        217,
+        218
+      ],
+      "bottom_node_ids": [
+        201,
+        202,
+        203,
+        204
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        410.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        41000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -41000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 11,
+      "x_translation_mm": 440.0,
+      "upper_surface": "UPPER_INTERFACE_11",
+      "lower_surface": "LOWER_INTERFACE_11",
+      "top_node_ids": [
+        235,
+        236,
+        237,
+        238
+      ],
+      "bottom_node_ids": [
+        221,
+        222,
+        223,
+        224
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        450.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        45000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -45000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 12,
+      "x_translation_mm": 480.0,
+      "upper_surface": "UPPER_INTERFACE_12",
+      "lower_surface": "LOWER_INTERFACE_12",
+      "top_node_ids": [
+        255,
+        256,
+        257,
+        258
+      ],
+      "bottom_node_ids": [
+        241,
+        242,
+        243,
+        244
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        490.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        49000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -49000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 13,
+      "x_translation_mm": 520.0,
+      "upper_surface": "UPPER_INTERFACE_13",
+      "lower_surface": "LOWER_INTERFACE_13",
+      "top_node_ids": [
+        275,
+        276,
+        277,
+        278
+      ],
+      "bottom_node_ids": [
+        261,
+        262,
+        263,
+        264
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        530.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        53000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -53000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 14,
+      "x_translation_mm": 560.0,
+      "upper_surface": "UPPER_INTERFACE_14",
+      "lower_surface": "LOWER_INTERFACE_14",
+      "top_node_ids": [
+        295,
+        296,
+        297,
+        298
+      ],
+      "bottom_node_ids": [
+        281,
+        282,
+        283,
+        284
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        570.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        57000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -57000.0,
+        0.0
+      ]
+    },
+    {
+      "copy_index": 15,
+      "x_translation_mm": 600.0,
+      "upper_surface": "UPPER_INTERFACE_15",
+      "lower_surface": "LOWER_INTERFACE_15",
+      "top_node_ids": [
+        315,
+        316,
+        317,
+        318
+      ],
+      "bottom_node_ids": [
+        301,
+        302,
+        303,
+        304
+      ],
+      "expected_contact_centroid_xyz_mm": [
+        610.0,
+        10.0,
+        null
+      ],
+      "expected_load_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        -100.0,
+        -1000.0,
+        61000.0,
+        0.0
+      ],
+      "expected_cf_wrench_global_origin_n_nmm": [
+        0.0,
+        0.0,
+        100.0,
+        1000.0,
+        -61000.0,
+        0.0
+      ]
+    }
+  ],
+  "contact_contract": {
+    "slave_face": "upper block S1",
+    "master_face": "lower block S2",
+    "slave_mean_normal": [
+      0.0,
+      0.0,
+      -1.0
+    ],
+    "per_pair_expected_cf_force_n": [
+      0.0,
+      0.0,
+      100.0
+    ],
+    "per_pair_expected_cfn_force_n": [
+      0.0,
+      0.0,
+      100.0
+    ],
+    "per_pair_expected_cfs_force_n": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "per_pair_expected_area_mm2": 400.0,
+    "per_pair_centroid_z_bounds_mm": [
+      -0.003,
+      0.0001
+    ],
+    "request_order_per_pair": [
+      "CF",
+      "CFN",
+      "CFS"
+    ],
+    "all_pairs_must_appear_once_per_quantity_per_accepted_time": true
+  },
+  "step": {
+    "kind": "one quasi-static nonlinear contact step",
+    "end_time": 1.0,
+    "maximum_increments": 100
+  },
+  "arms": [
+    {
+      "name": "serial_reference",
+      "binary_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-energy-point-map-build-attempt01/ccx-wj-contact-energy-map-2.21",
+      "binary_sha256": "af0da93038dda93e7d9807f392a5fe6c4fd5f2b9d0b47d0de5d107936795d174",
+      "equation_solver_threads": 1,
+      "omp_threads": 1
+    },
+    {
+      "name": "mt_threads1",
+      "binary_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/mt-factorization-build-review-attempt01/ccx-wj-contact-energy-map-mt-2.21",
+      "binary_sha256": "8f6f15cfc3887310cf71e4b6d661f7a1701c96c1cee0664faccbd514f9f9c38e",
+      "equation_solver_threads": 1,
+      "omp_threads": 1
+    },
+    {
+      "name": "mt_threads4",
+      "binary_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/mt-factorization-build-review-attempt01/ccx-wj-contact-energy-map-mt-2.21",
+      "binary_sha256": "8f6f15cfc3887310cf71e4b6d661f7a1701c96c1cee0664faccbd514f9f9c38e",
+      "equation_solver_threads": 4,
+      "omp_threads": 4
+    },
+    {
+      "name": "mt_acc_threads4",
+      "binary_path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/reader-acc-mt-build-attempt01/ccx-wj-contact-energy-reader-acc-mt-2.21",
+      "binary_sha256": "4e794cae6d0495a5a543e5bd962f5dde2a3539f0cb850432e230ee23494654e9",
+      "equation_solver_threads": 4,
+      "omp_threads": 4,
+      "source_build_result": "reader-acc-mt-build-attempt01/build-result.json",
+      "source_build_result_sha256": "322a2bfb15bfeef96e701808aa8f6a09694565832b3162f65ef81c5fe8b34442",
+      "note": "Combined all-physical ACC emitter and MT build; its additional output path is diagnostic and this arm is not merged with the plain MT source arm."
+    }
+  ],
+  "comparison_tolerances": {
+    "time_abs_s": 1e-09,
+    "contact_force_abs_n": 0.01,
+    "contact_force_relative": 0.0001,
+    "contact_moment_abs_nmm": 0.1,
+    "contact_moment_relative": 0.0001,
+    "contact_centroid_xy_abs_mm": 0.0001,
+    "contact_centroid_z_abs_mm": 0.0001,
+    "contact_area_abs_mm2": 0.01,
+    "mean_normal_abs": 1e-08,
+    "contact_normal_force_abs_n": 0.01,
+    "contact_shear_force_abs_n": 0.01,
+    "nodal_displacement_abs_mm": 1e-08,
+    "nodal_force_abs_n": 0.01,
+    "nodal_force_relative": 0.0001,
+    "guide_xy_displacement_abs_mm": 1e-09,
+    "fixture_equilibrium_force_abs_n": 0.01,
+    "fixture_equilibrium_moment_abs_nmm": 0.1
+  },
+  "run_controls": {
+    "docker_cpu_limit": 4,
+    "memory_limit": "2g",
+    "network": "none",
+    "equation_solver_env": "CCX_NPROC_EQUATION_SOLVER",
+    "omp_env": "OMP_NUM_THREADS",
+    "other_env": {
+      "CCX_NPROC_RESULTS": "1",
+      "CCX_NPROC_STIFFNESS": "1",
+      "CCX_WJ_DEP_RESIDUAL_AUDIT": "0"
+    }
+  },
+  "acceptance_contract": {
+    "require_clean_ccx_completion": true,
+    "require_matching_accepted_increment_time_arrays": true,
+    "require_matching_equation_and_contact_spring_histories": true,
+    "require_all_per_pair_cf_cfn_cfs_at_every_accepted_time": true,
+    "require_top_and_bottom_u_rf_output": true,
+    "require_serial_vs_mt1_vs_mt4_numerical_comparison": true,
+    "mt4_minimum_actual_spooles_worker_count": 2,
+    "mt4_minimum_worker_dispatch_messages": 2,
+    "mt1_expected_spooles_worker_count": 1,
+    "serial_and_mt1_need_not_be_bitwise_identical": true,
+    "joint_acceptance": false,
+    "fixture_release": false
+  },
+  "deck_sha256": "58d54566dfadafd79d658aae913f87d3d3b29d651c57c5a5e0bed1d720bae180"
+}

@@ -1,0 +1,118 @@
+{
+  "schema": "wood_joint_current_transient_execution/v1",
+  "status": "process_failed",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "wj-current-native-ordinary-finite-actuator-k1e4-attempt02",
+    "--network",
+    "none",
+    "--cpus",
+    "4",
+    "--memory",
+    "10g",
+    "--user",
+    "1000:1000",
+    "--env",
+    "OMP_NUM_THREADS=4",
+    "--env",
+    "CCX_NPROC_EQUATION_SOLVER=4",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-finite-actuator-k1e4-attempt02,dst=/work",
+    "--workdir",
+    "/work",
+    "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "solver_binary_sha256": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+  "input_freeze_sha256": "8ea71d56271212b39ef8fc948b0ac8d3d312fb7afd74480c512bf4d75572ba32",
+  "timeout_seconds": 10800,
+  "mechanical_acceptance": false,
+  "observations": [
+    {
+      "time_seconds": 0.0005,
+      "q_mm": 6.86225959570503e-08,
+      "maximum_loaded_displacement_mm": 5.845193656394542e-08,
+      "maximum_controller_rotation_rad": 1.2805156962629293e-10,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.001,
+      "q_mm": 7.599412948208632e-07,
+      "maximum_loaded_displacement_mm": 6.489035310612357e-07,
+      "maximum_controller_rotation_rad": 1.5657208163186902e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0015,
+      "q_mm": 3.867035313916997e-06,
+      "maximum_loaded_displacement_mm": 3.2828304744831103e-06,
+      "maximum_controller_rotation_rad": 8.752827029231503e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002,
+      "q_mm": 1.3052587095060843e-05,
+      "maximum_loaded_displacement_mm": 1.0913674553117708e-05,
+      "maximum_controller_rotation_rad": 3.161772214992939e-08,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0025,
+      "q_mm": 3.413351375966836e-05,
+      "maximum_loaded_displacement_mm": 2.8022478069188742e-05,
+      "maximum_controller_rotation_rad": 8.562653581256469e-08,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.003,
+      "q_mm": 7.515452481565782e-05,
+      "maximum_loaded_displacement_mm": 6.101034554520815e-05,
+      "maximum_controller_rotation_rad": 1.888233705288004e-07,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0035,
+      "q_mm": 0.0001463415223405306,
+      "maximum_loaded_displacement_mm": 0.00011860483990209928,
+      "maximum_controller_rotation_rad": 3.5911400951744864e-07,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.00375,
+      "q_mm": 0.00019666672452105257,
+      "maximum_loaded_displacement_mm": 0.0001592677512628674,
+      "maximum_controller_rotation_rad": 4.7492415557910637e-07,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.003875,
+      "q_mm": 0.00022630593433368496,
+      "maximum_loaded_displacement_mm": 0.00018321989465779336,
+      "maximum_controller_rotation_rad": 5.416439843757598e-07,
+      "stop_reasons": []
+    }
+  ],
+  "scope": "input-only current-joint finite-spring actuator diagnostic",
+  "input_schema": "wood_joint_current_spring_actuator_input/v1",
+  "returncode": 137,
+  "elapsed_seconds": 2863.3547686310194,
+  "frozen_inputs_unchanged": true,
+  "outputs_sha256": {
+    "spooles.out": "caccf8bda1f35daf55c0f21ac6be61ea88bd0d9a568d608dc250ec67ff2bde0e",
+    "pilot.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot.frd": "2c05bc33f852e6b6a21a6b4beb6d2877c0de77082d8b251ff3cef9ddecd9af8e",
+    "parent-launch.py.snapshot": "d1e3feeb9352640f2a06dc1ad6cf40e1ce3b7bbd3f8b974113a39c041c4cdd7c",
+    "input-freeze.json": "8ea71d56271212b39ef8fc948b0ac8d3d312fb7afd74480c512bf4d75572ba32",
+    "pilot.cvg": "6bd5a6495f90bfb63fe812ab58105f93c991a237b0c49e494886d6e17a474e20",
+    "ResultsForLastIterations.frd": "106dba7810c0253acff5bfeeb07e2e63675d016cf7bfb505ecde260e2afe4618",
+    "pilot.log": "1c912f45e7100b527316f0c46fdc16531e5f8f359efe3e15d78a05a76067075f",
+    "pilot.sta": "d0569f9419aebf43d7a0100e27375ee6f7d4dd181e4e8bc4166b2544e37bc6cb",
+    "pilot.cel": "9cd08727bccabfa90a72507b53de4944eeeea46b16acddf593e02c29f245c663",
+    "pilot.dat": "29473d6e76e83dc69084f246b16e1d5fbb6cef203d0469b42d0cb5bb7a4ee052"
+  }
+}

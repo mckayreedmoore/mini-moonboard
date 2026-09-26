@@ -1,0 +1,151 @@
+{
+  "schema": "wood_joint_current_transient_history/v1",
+  "status": "complete",
+  "accepted_increment_count": 2,
+  "rejected_attempt_count": 0,
+  "load_scale_from_actual_cload": 100.0,
+  "actual_cload_proportional_to_frozen_unit_pattern": true,
+  "time_match_tolerance_seconds": 1e-08,
+  "monitor_coverage": {
+    "status": "complete",
+    "missing_accepted_times_seconds": [],
+    "unmatched_monitor_times_seconds": [],
+    "initial_zero_time_monitor_blocks_ignored": 0
+  },
+  "force_impulse": {
+    "status": "available",
+    "interpretation": "integral of the scalar force coefficient load_scale*A(t), in N*s, multiplying the frozen unit-load nodal pattern; it is not a net-resultant vector impulse or transferred contact impulse",
+    "intervals": [
+      {
+        "increment": 1,
+        "start_time_seconds": 0.0,
+        "end_time_seconds": 0.001,
+        "start_time_print_bound_seconds": 0.0,
+        "end_time_print_bound_seconds": 5e-10,
+        "end_time_source": "complete_dat_monitor_header",
+        "start_amplitude": 0.0,
+        "end_amplitude": 0.000298,
+        "start_amplitude_time_bound": 0.0,
+        "end_amplitude_time_bound": 4.4299999996458284e-10,
+        "piecewise_linear_pattern_impulse_ns": 1.49e-05,
+        "piecewise_linear_impulse_time_print_bound_ns": 1.490002215e-11,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 1.49e-05,
+        "endpoint_trapezoid_time_print_bound_ns": 2.9600011073229136e-11,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      },
+      {
+        "increment": 2,
+        "start_time_seconds": 0.001,
+        "end_time_seconds": 0.002,
+        "start_time_print_bound_seconds": 5e-10,
+        "end_time_print_bound_seconds": 5e-10,
+        "end_time_source": "complete_dat_monitor_header",
+        "start_amplitude": 0.000298,
+        "end_amplitude": 0.001184,
+        "start_amplitude_time_bound": 4.4299999996458284e-10,
+        "end_amplitude_time_bound": 7.310000003316747e-10,
+        "piecewise_linear_pattern_impulse_ns": 7.409999999999999e-05,
+        "piecewise_linear_impulse_time_print_bound_ns": 7.410005870000002e-11,
+        "whole_interval_endpoint_trapezoid_pattern_impulse_ns": 7.409999999999999e-05,
+        "endpoint_trapezoid_time_print_bound_ns": 1.328000587148129e-10,
+        "endpoint_trapezoid_minus_exact_pattern_impulse_ns": 0.0
+      }
+    ],
+    "cumulative_piecewise_linear_pattern_impulse_ns": 8.899999999999998e-05,
+    "cumulative_piecewise_linear_impulse_time_print_bound_ns": 8.900008085000002e-11,
+    "cumulative_endpoint_trapezoid_pattern_impulse_ns": 8.899999999999998e-05,
+    "cumulative_endpoint_trapezoid_time_print_bound_ns": 1.6240006978804203e-10
+  },
+  "work": {
+    "status": "available",
+    "coordinate": "signed complete-field virtual-work projection on the frozen 1 N reference-force pattern, reported in mm-equivalent; not center of mass",
+    "reconstruction": "sum 0.5*(A_i+A_prev)*(q_i-q_prev)*load_scale over accepted increments",
+    "cumulative_discrete_work_nmm": 1.1834758553228786e-05,
+    "native_comparison_status": "available",
+    "native_missing_accepted_times_seconds": [],
+    "accepted_rows": [
+      {
+        "step": 1,
+        "increment": 1,
+        "attempt": 1,
+        "time_seconds": 0.001,
+        "time_print_bound_seconds": 5e-10,
+        "q_mm": 2.4127148817204604e-05,
+        "q_print_bound_mm": 7.748576290430342e-12,
+        "amplitude": 0.000298,
+        "amplitude_time_print_bound": 4.4299999996458284e-10,
+        "increment_discrete_work_nmm": 3.5949451737634857e-07,
+        "cumulative_discrete_work_nmm": 3.5949451737634857e-07,
+        "native_cumulative_external_work_nmm": 3.594945e-07,
+        "native_work_print_bound_nmm": 5e-14,
+        "cumulative_q_print_bound_nmm": 1.154537867274121e-13,
+        "cumulative_amplitude_time_print_bound_nmm": 5.344165178893211e-13,
+        "combined_work_print_bound_nmm": 6.998703046167332e-13,
+        "work_residual_nmm": 1.7376348552714622e-14,
+        "within_print_bound": true
+      },
+      {
+        "step": 1,
+        "increment": 2,
+        "attempt": 1,
+        "time_seconds": 0.002,
+        "time_print_bound_seconds": 5e-10,
+        "q_mm": 0.00017898901164922133,
+        "q_print_bound_mm": 4.856032046840918e-11,
+        "amplitude": 0.001184,
+        "amplitude_time_print_bound": 7.310000003316747e-10,
+        "increment_discrete_work_nmm": 1.1475264035852438e-05,
+        "cumulative_discrete_work_nmm": 1.1834758553228786e-05,
+        "native_cumulative_external_work_nmm": 1.183476e-05,
+        "native_work_print_bound_nmm": 5e-12,
+        "cumulative_q_print_bound_nmm": 4.28794303655742e-12,
+        "cumulative_amplitude_time_print_bound_nmm": 9.624811173754892e-12,
+        "combined_work_print_bound_nmm": 1.891275421031231e-11,
+        "work_residual_nmm": -1.4467712137089962e-12,
+        "within_print_bound": true
+      }
+    ],
+    "print_bound_scope": "q-coordinate displacement print rounding, sampled ramp-amplitude change from DAT timestamp print rounding, and native external-work print rounding; solver integration error and stepwise-versus-continuous work error are not included"
+  },
+  "accepted_status_rows": [
+    {
+      "step": 1,
+      "increment": 1,
+      "attempt": 1,
+      "unaccepted": false,
+      "iterations": 23,
+      "total_time_seconds": 0.001,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.001,
+      "increment_time_seconds": 0.001
+    },
+    {
+      "step": 1,
+      "increment": 2,
+      "attempt": 1,
+      "unaccepted": false,
+      "iterations": 9,
+      "total_time_seconds": 0.002,
+      "total_time_print_bound_seconds": 5e-09,
+      "step_time_seconds": 0.002,
+      "increment_time_seconds": 0.001
+    }
+  ],
+  "limits": [
+    "Discrete work is evaluated only from complete U blocks at every accepted .sta time; missing samples make the work history unavailable rather than bridged.",
+    "The exact load-factor integral follows the deck's serialized piecewise-linear amplitude table; it is not contact force or transferred impulse.",
+    "The native external-work comparison does not validate contact equilibrium, material response, or quasi-static behavior."
+  ],
+  "implementation_sha256": {
+    "history_helper_sha256": "7c8d3ff46161576f3ed13605e666c9ea3aba14bdeaa439ede52a7cab562f374c",
+    "launcher_observations_source_sha256": "d1e3feeb9352640f2a06dc1ad6cf40e1ce3b7bbd3f8b974113a39c041c4cdd7c"
+  },
+  "mechanical_acceptance": false,
+  "prefix_provenance": {
+    "snapshot_sha256": "015be6dfc6b81df69766d2754ee52a523fbd66ef1809d15c092be7e8f49b249e",
+    "producer_sha256": "e8f287377775bc7f8936dd6721401a8f4d4b749983f1558b602002ce451a24e3",
+    "input_freeze_sha256": "f054d6b911fb0d9c9b0a183fa007d16d8a34a422904fd5cbcf73634e87797e66",
+    "input_artifact_count": 27,
+    "scope": "Immutable non-atomic output prefix; not a terminal run or contact audit."
+  }
+}

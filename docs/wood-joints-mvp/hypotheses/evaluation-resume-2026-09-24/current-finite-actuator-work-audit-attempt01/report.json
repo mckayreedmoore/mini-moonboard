@@ -1,0 +1,208 @@
+{
+  "accepted_interval_work": [
+    {
+      "continuum_else_plus_elke_change_nmm": null,
+      "continuum_energy_comparison_scope": "unavailable_no_prior_native_physical_energy_state",
+      "cumulative_actuator_spring_energy_change_nmm": 1.84448287218276e-10,
+      "cumulative_physical_weighted_work_nmm": 9.31975484646993e-12,
+      "cumulative_proxy_minus_physical_work_nmm": 5.490800698446225e-19,
+      "cumulative_proxy_work_nmm": 9.31975539555e-12,
+      "cumulative_target_work_nmm": 1.93768056195e-10,
+      "delta_actuator_spring_energy_nmm": 1.84448287218276e-10,
+      "delta_actuator_spring_energy_print_bound_nmm": 1.371698829025e-16,
+      "delta_physical_weighted_work_nmm": 9.31975484646993e-12,
+      "delta_physical_weighted_work_print_bound_nmm": 3.628249245111817e-18,
+      "delta_proxy_work_nmm": 9.31975539555e-12,
+      "delta_proxy_work_print_bound_nmm": 2.394623875e-18,
+      "delta_target_work_nmm": 1.93768056195e-10,
+      "delta_target_work_print_bound_nmm": 1.035743875e-16,
+      "increment": 1,
+      "proxy_minus_physical_work_nmm": 5.490800698446225e-19,
+      "target_minus_spring_and_proxy_work_nmm": 1.3581174e-17,
+      "target_spring_proxy_identity_print_bound_nmm": 2.431388942775e-16,
+      "target_spring_proxy_identity_within_print_bound": true,
+      "time_seconds": 0.0005
+    }
+  ],
+  "checks": {
+    "all_accepted_sta_times_have_complete_monitor_and_driver_rows": true,
+    "all_emitted_mpc_physical_projection_rows_match_proxy_with_print_bounds": true,
+    "all_increment_spring_proxy_work_identities_close_with_print_bounds": true,
+    "all_source_weight_projections_match_proxy_with_mpc_rounding_bounds": true,
+    "all_target_rf_rows_match_200_times_target_minus_proxy_with_print_bounds": true
+  },
+  "contact_cels_diagnostic": {
+    "note": "Raw DAT CELS sums/counts are diagnostic only and excluded from accepted energy closure because the pinned output investigation found a sparse writer/printer index mismatch.",
+    "records": [
+      {
+        "cels_count_matches_cnum": true,
+        "cels_raw_sum_nmm_diagnostic_only": 3.7050318962783227e-13,
+        "cels_row_count": 97275,
+        "cnum": 97275,
+        "qualified_for_energy_closure": false,
+        "time_seconds": 0.0005
+      }
+    ]
+  },
+  "coverage": {
+    "accepted_sta_increments": 1,
+    "all_monitor_nodes_per_state": 339,
+    "complete_matched_states": 1,
+    "extra_complete_DAT_state_times_not_used": [],
+    "rejected_sta_attempt_rows": 0
+  },
+  "input_coordinates": {
+    "convention": "q_proxy + sum(a_i U_i) = 0; q_physical_emitted = sum(-a_i U_i)",
+    "initial_driver_state": {
+      "energy_nmm": 0.0,
+      "force_n": 0.0,
+      "gap_mm": 0.0,
+      "q_physical_mm": 0.0,
+      "q_proxy_mm": 0.0,
+      "q_target_mm": 0.0
+    },
+    "initial_physical_or_contact_energy_assigned": false,
+    "max_source_text_half_quantum": 5e-17,
+    "max_source_weight_serialization_error": 5e-17,
+    "physical_mpc_term_count": 662,
+    "proxy_node": 117162,
+    "source_unit_coefficients_checked": 662,
+    "spring_element_id": 57644,
+    "spring_endpoints": [
+      117162,
+      117163
+    ],
+    "stiffness_n_per_mm": 200.0,
+    "target_node": 117163
+  },
+  "mechanical_acceptance": false,
+  "native_global_energy": {
+    "note": "Keep this solver summary separate from reconstructed target work and the physical continuum ELSE+ELKE state changes.",
+    "records": [
+      {
+        "attempt": 1,
+        "increment": 1,
+        "scope": "native global solver summary; not the controller-work oracle",
+        "step": 1,
+        "values": {
+          "actual_total_time": 0.0005,
+          "elastic contact energy": 3.705032e-13,
+          "energy balance (absolute)": 1.941277e-10,
+          "energy balance (relative)": 104.320561,
+          "external work": 0.0,
+          "internal energy": 1.860877e-10,
+          "kinetic energy": 7.669528e-12,
+          "total energy": 1.941277e-10
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "DAT_sha256": "ce0002cb0f646d12a8ef5720e8ca2c6e8259e42e1e6523d5937c73dbeb994f3d",
+    "accepted_status_sha256": "e19dc10ae60752b44fa309652403c9e98ed892f6c2ab6cb0ed0375f253579851",
+    "actuator_driver_metadata_sha256": "8596a3dea5a14c7a34d9959eb940e21228d680ab5ab96a2f930ef75ce5fad4e1",
+    "audit_script_sha256": "f947eaac02dae85752d8568693c641faca02ce47a8fde500cf6bcc36df5a7d21",
+    "initial_driver_state_sha256": "7ee8b610631058fceb2a9b2d6e592369f7e8f6f394a972a5b9880e4405ae0ec0",
+    "input_freeze_sha256": "8ea71d56271212b39ef8fc948b0ac8d3d312fb7afd74480c512bf4d75572ba32",
+    "native_log_sha256": "7bdb9280a13bc0a6d37a9bad0febd99f005ddcb953ffc00e8fc0428a62b1a2d3",
+    "pilot_input_sha256": "840daddc53194bb2956d214d4e7d83cb69a21a93f3e830ab915f754ebc16791b",
+    "snapshot_capture_atomic_across_files": false,
+    "snapshot_capture_policy": "Each file copied only through its size at open; independently captured prefixes may retain partial tails; accepted STA times govern auditing",
+    "snapshot_json_sha256": "2078b21dc37d5c97b95d7f0cfdc4d21ebb034b2445f555e3eeb48c2812a634af",
+    "snapshot_manifest_file_pins": {
+      "actuator-driving.json": "8596a3dea5a14c7a34d9959eb940e21228d680ab5ab96a2f930ef75ce5fad4e1",
+      "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+      "execution.snapshot.json": "358fff8c9ee9db29fd1f06bae288a2b481d7e7216ace4993c57fb89ef7cdd48f",
+      "initial-driver-state.json": "7ee8b610631058fceb2a9b2d6e592369f7e8f6f394a972a5b9880e4405ae0ec0",
+      "input-freeze.json": "8ea71d56271212b39ef8fc948b0ac8d3d312fb7afd74480c512bf4d75572ba32",
+      "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+      "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+      "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+      "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+      "pilot-sets.inp": "5507a1b8a31960a60abd08045c958ff1f7bdfe677eeb0bf97d6df9b5025d1c5e",
+      "pilot.cel": "67efd8b0e86a10b75831d93c85dfbf575f758d202bb63b00eadef16c978cedfd",
+      "pilot.cvg": "a6e6bf90cf31a7304b6e1c5305ebaf136cc06fc6d802d5f290dcd12499d5d92d",
+      "pilot.dat": "ce0002cb0f646d12a8ef5720e8ca2c6e8259e42e1e6523d5937c73dbeb994f3d",
+      "pilot.frd": "d723126c6196041a5461d49ee8222397a1bb01705f27f5600757f3a2ac5dc0e6",
+      "pilot.inp": "840daddc53194bb2956d214d4e7d83cb69a21a93f3e830ab915f754ebc16791b",
+      "pilot.log": "7bdb9280a13bc0a6d37a9bad0febd99f005ddcb953ffc00e8fc0428a62b1a2d3",
+      "pilot.sta": "e19dc10ae60752b44fa309652403c9e98ed892f6c2ab6cb0ed0375f253579851",
+      "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+      "source-actuator-reference.json": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+      "source-input-freeze.json": "4f5d892d6f6270ae2d645463255a048b8b719331a0906412c4c4b85fd304f367",
+      "spring-actuator-producer.py.snapshot": "f5af48234f64f8ca594de569ba751dd8ab367101769905bfbc366788f1b34561"
+    },
+    "snapshot_scope": "First accepted finite-actuator state, not terminal execution or joint acceptance",
+    "source_actuator_reference_sha256": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+    "source_process_status_at_capture": "running",
+    "unread_large_artifacts": [
+      "pilot.cel",
+      "pilot.frd",
+      "pilot.cvg"
+    ],
+    "verified_snapshot_file_hashes": {
+      "actuator-driving.json": "8596a3dea5a14c7a34d9959eb940e21228d680ab5ab96a2f930ef75ce5fad4e1",
+      "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+      "initial-driver-state.json": "7ee8b610631058fceb2a9b2d6e592369f7e8f6f394a972a5b9880e4405ae0ec0",
+      "input-freeze.json": "8ea71d56271212b39ef8fc948b0ac8d3d312fb7afd74480c512bf4d75572ba32",
+      "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+      "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+      "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+      "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+      "pilot-sets.inp": "5507a1b8a31960a60abd08045c958ff1f7bdfe677eeb0bf97d6df9b5025d1c5e",
+      "pilot.dat": "ce0002cb0f646d12a8ef5720e8ca2c6e8259e42e1e6523d5937c73dbeb994f3d",
+      "pilot.inp": "840daddc53194bb2956d214d4e7d83cb69a21a93f3e830ab915f754ebc16791b",
+      "pilot.log": "7bdb9280a13bc0a6d37a9bad0febd99f005ddcb953ffc00e8fc0428a62b1a2d3",
+      "pilot.sta": "e19dc10ae60752b44fa309652403c9e98ed892f6c2ab6cb0ed0375f253579851",
+      "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+      "source-actuator-reference.json": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+      "source-input-freeze.json": "4f5d892d6f6270ae2d645463255a048b8b719331a0906412c4c4b85fd304f367",
+      "spring-actuator-producer.py.snapshot": "f5af48234f64f8ca594de569ba751dd8ab367101769905bfbc366788f1b34561"
+    }
+  },
+  "rejected_sta_rows_are_not_bridged": true,
+  "schema": "wood_joint_current_finite_actuator_work_audit/v1",
+  "scope": "Accepted immutable output prefix only; no complete-joint acceptance, capacity, time-accuracy, or mechanical acceptance.",
+  "states": [
+    {
+      "accepted_time_seconds": 0.0005,
+      "actuator_force_measured_target_rf_n": 0.0002716235,
+      "actuator_force_model_n": 0.00027162348,
+      "actuator_force_model_print_bound_n": 1.01e-10,
+      "actuator_force_residual_bound_n": 1.51e-10,
+      "actuator_force_residual_n": 2e-11,
+      "actuator_force_target_rf_print_bound_n": 5e-11,
+      "actuator_force_within_print_bound": true,
+      "actuator_spring_energy_nmm": 1.84448287218276e-10,
+      "actuator_spring_energy_print_bound_nmm": 1.371698829025e-16,
+      "attempt": 1,
+      "continuum_internal_energy_nmm": 1.639288e-12,
+      "continuum_kinetic_energy_nmm": 7.669528e-12,
+      "dat_time_seconds": 0.0005,
+      "dat_time_token": "0.5000000E-03",
+      "increment": 1,
+      "iterations": 22,
+      "mpc_q_emitted_closure_within_print_bound": true,
+      "mpc_q_emitted_minus_proxy_bound_mm": 1.9083346942380797e-14,
+      "mpc_q_emitted_minus_proxy_mm": -4.042949675793822e-15,
+      "nut_carrier_internal_energy_subset_nmm": 2.969825e-32,
+      "nut_carrier_kinetic_energy_subset_nmm": 0.0,
+      "proxy_raw_rf_n_diagnostic_only": -0.0002716235,
+      "q_physical_emitted_mm": 6.862259595705033e-08,
+      "q_physical_emitted_print_bound_mm": 1.4083346942380797e-14,
+      "q_physical_source_print_bound_mm": 1.4083346942380797e-14,
+      "q_physical_source_weights_mm": 6.862259595705033e-08,
+      "q_proxy_mm": 6.86226e-08,
+      "q_proxy_print_bound_mm": 5e-15,
+      "q_target_mm": 1.42674e-06,
+      "q_target_print_bound_mm": 5e-13,
+      "source_weight_q_minus_proxy_bound_mm": 1.9083347327200766e-14,
+      "source_weight_q_minus_proxy_mm": -4.042949665974684e-15,
+      "source_weight_q_within_print_and_mpc_rounding_bound": true,
+      "spring_gap_mm": 1.3581174e-06,
+      "spring_gap_print_bound_mm": 5.05e-13,
+      "step": 1
+    }
+  ],
+  "status": "ACCOUNTING_REPRODUCED_PREFIX_ONLY"
+}

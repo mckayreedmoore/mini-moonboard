@@ -1,0 +1,1368 @@
+
+************************************************************
+
+CalculiX Version 2.21, Copyright(C) 1998-2023 Guido Dhondt
+CalculiX comes with ABSOLUTELY NO WARRANTY. This is free
+software, and you are welcome to redistribute it under
+certain conditions, see gpl.htm
+
+************************************************************
+
+You are using an executable made on Sat Jul 29 10:52:01 CEST 2023
+
+  The numbers below are estimated upper bounds
+
+  number of:
+
+   nodes:       120702
+   elements:        57643
+   one-dimensional elements:            0
+   two-dimensional elements:            0
+   integration points per element:           15
+   degrees of freedom per node:            3
+   layers per element:            1
+
+   distributed facial loads:            0
+   distributed volumetric loads:            0
+   concentrated loads:          662
+   single point constraints:        13572
+   multiple point constraints:        13597
+   terms in all multiple point constraints:        99853
+   tie constraints:           35
+   dependent nodes tied by cyclic constraints:            0
+   dependent nodes in pre-tension constraints:            0
+
+   sets:          172
+   terms in all sets:       543233
+
+   materials:            4
+   constants per material and temperature:            9
+   temperature points per material:            1
+   plastic data points per material:            0
+
+   orientations:            3
+   amplitudes:            2
+   data points in all amplitudes:          405
+   print requests:          116
+   transformations:            0
+   property cards:            0
+
+ *INFO reading *SURFACE BEHAVIOR: the tension
+       value at large clearances
+       (only relevant for node-to-surface contact)
+       must be strictly positive
+       the following default will be used:  0.16141495349871729     
+       the user is advised to analyze the results
+       carefully
+
+ STEP            1
+
+ *INFO reading *STEP: nonlinear geometric
+       effects are turned on
+
+ *WARNING reading *DYNAMIC: the initial time
+          increment defined by the user will not
+          be used since the time increment is
+          determined automatically by the dynamic
+          procedure based on stability
+          considerations
+ *INFO reading *DYNAMIC: for implicit calculations
+       the calculation of the internal energy
+       is activated.
+ Dynamic analysis was selected
+
+ Newton-Raphson iterative procedure is active
+
+ Nonlinear geometric effects are taken into account
+
+ Decascading the MPC's
+
+ Determining the structure of the matrix:
+ Using up to 4 cpu(s) for setting up the structure of the matrix.
+ number of equations
+ 334914
+ number of nonzero lower triangular matrix elements
+ 12846552
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ increment 1 attempt 1 
+ increment size= 2.500000e-03
+ sum of previous increments=0.000000e+00
+ actual step time=2.500000e-03
+ actual total time=2.500000e-03
+
+ iteration 1
+
+ Number of contact spring elements=93540
+
+ Determining the structure of the matrix:
+
+ Using up to 4 cpu(s) for setting up the structure of the matrix.
+ number of equations
+ 334914
+ number of nonzero lower triangular matrix elements
+ 16221219
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 36658 and dof 1
+ largest increment of disp= 4.208294e-06
+ largest correction to disp= 4.208294e-06 in node 9 and dof 2
+
+ no convergence
+
+ iteration 2
+
+ Number of contact spring elements=88407
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 22727 and dof 3
+ largest increment of disp= 4.208294e-06
+ largest correction to disp= 2.269150e-08 in node 12 and dof 3
+
+ no convergence
+
+ iteration 3
+
+ Number of contact spring elements=60309
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 22726 and dof 3
+ largest increment of disp= 4.208294e-06
+ largest correction to disp= 1.427731e-08 in node 1 and dof 2
+
+ no convergence
+
+ iteration 4
+
+ Number of contact spring elements=38842
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 36465 and dof 1
+ largest increment of disp= 4.208294e-06
+ largest correction to disp= 1.519247e-08 in node 164 and dof 1
+
+ no convergence
+
+ iteration 5
+
+ Number of contact spring elements=29642
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 683 and dof 3
+ largest increment of disp= 4.208294e-06
+ largest correction to disp= 8.453710e-09 in node 9373 and dof 2
+
+ no convergence
+
+ iteration 6
+
+ Number of contact spring elements=24966
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 23322 and dof 3
+ largest increment of disp= 4.208294e-06
+ largest correction to disp= 2.241862e-08 in node 12 and dof 1
+
+ no convergence
+
+ iteration 7
+
+ Number of contact spring elements=23686
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 23245 and dof 3
+ largest increment of disp= 4.208294e-06
+ largest correction to disp= 2.490081e-08 in node 12 and dof 1
+
+ no convergence
+
+ iteration 8
+
+ Number of contact spring elements=23694
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 700 and dof 3
+ largest increment of disp= 4.208294e-06
+ largest correction to disp= 1.207702e-08 in node 12 and dof 1
+
+ *INFO in checkimpacts: due to impact rules the
+       maximum allowed time increment has been
+       changed to   3.1082966782555976E-004
+ convergence
+
+ the increment size exceeds the maximum allowed and is decreased to 3.108297e-04
+
+ initial energy (at start of step) = 0.000000e+00
+
+ since start of the step: 
+ external work = 6.649746e-09
+ work performed by the damping forces = 0.000000e+00
+ netto work = 6.649746e-09
+
+ actual energy: 
+ internal energy = 2.717240e-10
+ kinetic energy = 6.376206e-09
+ elastic contact energy = 2.667251e-12
+ energy lost due to friction = 0.000000e+00
+ total energy  = 6.650597e-09
+
+ energy increase = 6.650597e-09
+
+ energy balance (absolute) = 8.507800e-13 
+ energy balance (relative) = 0.012794 % 
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ increment 2 attempt 1 
+ increment size= 3.108297e-04
+ sum of previous increments=2.500000e-03
+ actual step time=2.810830e-03
+ actual total time=2.810830e-03
+
+ iteration 1
+
+ Number of contact spring elements=22353
+
+ Determining the structure of the matrix:
+
+ Using up to 4 cpu(s) for setting up the structure of the matrix.
+ number of equations
+ 334914
+ number of nonzero lower triangular matrix elements
+ 16221138
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 23245 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 8.327689e-08 in node 12 and dof 2
+
+ no convergence
+
+ iteration 2
+
+ Number of contact spring elements=24392
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 37262 and dof 1
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.023430e-08 in node 2895 and dof 1
+
+ no convergence
+
+ iteration 3
+
+ Number of contact spring elements=25257
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 692 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.817633e-08 in node 36457 and dof 1
+
+ no convergence
+
+ iteration 4
+
+ Number of contact spring elements=24288
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 688 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.115999e-08 in node 36457 and dof 1
+
+ no convergence
+
+ iteration 5
+
+ Number of contact spring elements=22959
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 688 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.188874e-08 in node 2928 and dof 1
+
+ no convergence
+
+ iteration 6
+
+ Number of contact spring elements=24922
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 124 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 2.560284e-08 in node 2875 and dof 1
+
+ no convergence
+
+ iteration 7
+
+ Number of contact spring elements=25075
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 124 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.218360e-08 in node 2875 and dof 1
+
+ no convergence
+
+ iteration 8
+
+ Number of contact spring elements=24585
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 124 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 2.893472e-08 in node 36458 and dof 1
+
+ no convergence
+
+ iteration 9
+
+ Number of contact spring elements=29956
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 9415 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.284189e-08 in node 2927 and dof 1
+
+ no convergence
+
+ iteration 10
+
+ Number of contact spring elements=33233
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 9415 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.165060e-07 in node 33161 and dof 1
+
+ no convergence
+
+ iteration 11
+
+ Number of contact spring elements=31463
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 9415 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 6.393446e-09 in node 2870 and dof 1
+
+ no convergence
+
+ iteration 12
+
+ Number of contact spring elements=29049
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000126 in node 6951 and dof 2
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.790737e-08 in node 2883 and dof 1
+
+ no convergence
+
+ iteration 13
+
+ Number of contact spring elements=29235
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000013 in node 2910 and dof 1
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.173478e-08 in node 2956 and dof 1
+
+ no convergence
+
+ iteration 14
+
+ Number of contact spring elements=38971
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 691 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 9.903012e-09 in node 36333 and dof 1
+
+ no convergence
+
+ iteration 15
+
+ Number of contact spring elements=35377
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 9415 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 2.021027e-08 in node 83 and dof 1
+
+ no convergence
+
+ iteration 16
+
+ Number of contact spring elements=37199
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 125 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 5.902308e-09 in node 243 and dof 1
+
+ no convergence
+
+ iteration 17
+
+ Number of contact spring elements=35965
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 9412 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.305648e-08 in node 33456 and dof 1
+
+ no convergence
+
+ iteration 18
+
+ Number of contact spring elements=35798
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000013 in node 455 and dof 2
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 6.651833e-09 in node 36936 and dof 1
+
+ no convergence
+
+ iteration 19
+
+ Number of contact spring elements=35910
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 691 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.015715e-08 in node 33438 and dof 1
+
+ no convergence
+
+ iteration 20
+
+ Number of contact spring elements=36511
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 710 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.102874e-09 in node 85 and dof 1
+
+ no convergence
+
+ iteration 21
+
+ Number of contact spring elements=36567
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 22727 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.603881e-08 in node 33439 and dof 1
+
+ no convergence
+
+ iteration 22
+
+ Number of contact spring elements=37395
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 125 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.059634e-09 in node 36347 and dof 1
+
+ no convergence
+
+ iteration 23
+
+ Number of contact spring elements=37194
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 710 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.129714e-09 in node 2910 and dof 1
+
+ no convergence
+
+ iteration 24
+
+ Number of contact spring elements=37420
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 125 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 9.692902e-10 in node 22714 and dof 3
+
+ no convergence
+
+ iteration 25
+
+ Number of contact spring elements=37465
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 710 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.783481e-09 in node 2882 and dof 1
+
+ no convergence
+
+ iteration 26
+
+ Number of contact spring elements=38036
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 691 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 7.511701e-10 in node 82 and dof 1
+
+ no convergence
+
+ iteration 27
+
+ Number of contact spring elements=37764
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 9412 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 4.365141e-10 in node 2912 and dof 1
+
+ no convergence
+
+ iteration 28
+
+ Number of contact spring elements=37754
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 126 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 6.212796e-10 in node 36964 and dof 1
+
+ *INFO in checkimpacts: due to impact rules the
+       maximum allowed time increment has been
+       changed to   7.7707416956389940E-005
+divergence allowed: number of contact elements stabilized
+ divergence; the increment size is decreased to 3.108297e-04
+ the increment is reattempted
+
+
+ reducing the constant stiffnesses by a factor of 100 
+
+ increment 2 attempt 2 
+ increment size= 3.108297e-04
+ sum of previous increments=2.500000e-03
+ actual step time=2.810830e-03
+ actual total time=2.810830e-03
+
+ iteration 1
+
+ Number of contact spring elements=22353
+
+ Determining the structure of the matrix:
+
+ Using up to 4 cpu(s) for setting up the structure of the matrix.
+ number of equations
+ 334914
+ number of nonzero lower triangular matrix elements
+ 16221138
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000001
+ time avg. forc= 0.000001
+ largest residual force= 0.000000 in node 23631 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 9.958607e-08 in node 2895 and dof 2
+
+ no convergence
+
+ iteration 2
+
+ Number of contact spring elements=122484
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 22727 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.158986e-07 in node 33161 and dof 1
+
+ no convergence
+
+ iteration 3
+
+ Number of contact spring elements=112980
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 691 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.053638e-08 in node 2870 and dof 1
+
+ no convergence
+
+ iteration 4
+
+ Number of contact spring elements=128720
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 22727 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.665394e-08 in node 2918 and dof 1
+
+ no convergence
+
+ iteration 5
+
+ Number of contact spring elements=141832
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 36658 and dof 1
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.871155e-08 in node 2956 and dof 1
+
+ no convergence
+
+ iteration 6
+
+ Number of contact spring elements=159222
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 35093 and dof 1
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.301009e-08 in node 33455 and dof 1
+
+ no convergence
+
+ iteration 7
+
+ Number of contact spring elements=156910
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 36660 and dof 1
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.301898e-09 in node 36396 and dof 1
+
+ no convergence
+
+ iteration 8
+
+ Number of contact spring elements=157483
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 22727 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.123377e-09 in node 36321 and dof 1
+
+ no convergence
+
+ iteration 9
+
+ Number of contact spring elements=157982
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 36658 and dof 1
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 9.761293e-10 in node 36321 and dof 1
+
+ no convergence
+
+ iteration 10
+
+ Number of contact spring elements=158062
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 36658 and dof 1
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 3.443982e-10 in node 37382 and dof 1
+
+
+ restoring the elastic contact stifnesses to their original values 
+
+divergence allowed: number of contact elements stabilized
+ no convergence
+
+ iteration 11
+
+ Number of contact spring elements=158083
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ Using up to 4 cpu(s) for the symmetric stiffness/mass contributions.
+
+ Factoring the system of equations using the symmetric spooles solver
+ Using up to 4 cpu(s) for spooles.
+
+ Using up to 4 cpu(s) for the stress calculation.
+
+ Using up to 4 cpu(s) for the energy calculation.
+
+ average force= 0.000000
+ time avg. forc= 0.000000
+ largest residual force= 0.000000 in node 710 and dof 3
+ largest increment of disp= 1.112959e-06
+ largest correction to disp= 1.089643e-08 in node 88151 and dof 2
+
+ *INFO in checkimpacts: due to impact rules the
+       maximum allowed time increment has been
+       changed to   7.7707416956389940E-005
+divergence allowed: number of contact elements stabilized
+ divergence; the increment size is decreased to 7.770742e-05
+ the increment is reattempted
+
+
+ reducing the constant stiffnesses by a factor of 100 
+
+ increment 2 attempt 3 
+ increment size= 7.770742e-05
+ sum of previous increments=2.500000e-03
+ actual step time=2.577707e-03
+ actual total time=2.577707e-03
+

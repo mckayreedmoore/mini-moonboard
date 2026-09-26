@@ -1,0 +1,32 @@
+{
+  "schema": "wj_instrumented_prefix_diagnostic_parent_readiness/v1",
+  "decision": "AUTHORIZE_UNCHANGED_FROZEN_INSTRUMENTED_ARM_AS_DIAGNOSTIC",
+  "upstream_execution_sha256": "6cd07953d6756a2e8d1a5ae7b080523ec499bdb759f8504fd7277bec66f77234",
+  "prior_parent_readiness_sha256": "8f03fe4346b9dc6fe8f88eb4f089779ae0ba07dcfe4cd9199cca97e193f40f8b",
+  "launcher_sha256": "da85913fa670d9a2729faf02a428f296dd8f97a0c220641f37f93114cba58159",
+  "instrumented_preparation_sha256": "1f0986b284670e0dbf21986910dc625d80889c808c759350a378c9839c9216ab",
+  "source_sha256": {
+    "nonlingeo.c": "0be7d7d6037868c364a621e12a3802a703f189b09ba200de95cf2e9d1b211f1b",
+    "negativepressure.f": "309d1e06baf55d3cdd204bd7c32ed3c7f128d925bd9a1518a960d5fc3986b3fe",
+    "checkconvergence.c": "a9f417fe198b0bc227a28f1f4775382d2bba22a7e436d60ba6d523ab91713e50"
+  },
+  "cause": "Accepted increment1 is followed by native end-of-step negative-pressure cleanup: ratio -0.2665078 < -0.05. nonlingeo.c sets theta=1-1e-6 and dtheta=1e-6, producing5e-10seconds; this fails the1e-6minimum. This is not an initial-step normalization clamp.",
+  "accepted_state_output_basis": "The scheduled output branch requires icutb==0. Cleanup scheduling resets theta/dtheta but not accepted time/dtime or vold/veold/accold. results() receives time/dtime; hook STATE and FRD use time+ttime. Independent review is ongoing.",
+  "purpose": "Acquire the identical instrumented arm for a separately bounded step1/increment1 output-neutrality and hook-coverage diagnostic. A terminal201 is expected but not presumed. Failed increment2 must be excluded by identity, not rounded time.",
+  "gate_boundaries": {
+    "original_successful_run_gate_remains_failed": true,
+    "accepted_prefix_comparison_not_yet_implemented_or_passed": true,
+    "joint_acceptance": false,
+    "full_step_acceptance": false,
+    "full_trajectory_equivalence": false,
+    "permits_future_long_run_without_further_review": false
+  },
+  "geometry_loads_tolerances_controls_unchanged": true,
+  "serialized_native_preflight": "Parent observed no host CCX/Gmsh and no native solver Docker container before launch; launcher rechecks Docker state. Live CAD interpreter stays idle.",
+  "limits": {
+    "cpus": 4,
+    "memory": "10g",
+    "timeout_seconds": 1800
+  },
+  "reason_to_execute_now": "Both frozen arms already passed input/source/launcher readiness. This bounded acquisition adds actual hook evidence without altering controls to suppress a known terminal condition. Result interpretation remains separately gated."
+}

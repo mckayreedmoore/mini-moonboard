@@ -1,0 +1,43 @@
+{
+  "status": "process_finished",
+  "returncode": 0,
+  "elapsed_seconds": 0.3654968159971759,
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "wj-prescribed-q-native-spring-actuator-attempt03",
+    "--network",
+    "none",
+    "--cpus",
+    "1",
+    "--memory",
+    "1g",
+    "--user",
+    "1000:1000",
+    "--env",
+    "OMP_NUM_THREADS=1",
+    "--env",
+    "CCX_NPROC_EQUATION_SOLVER=1",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/prescribed-q-native-spring-actuator-attempt03,dst=/work",
+    "--workdir",
+    "/work",
+    "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "input_freeze_sha256": "90c395a2d8e4ab8228022de7beae915572bacceedff2d1ea99417d2e73612ca5",
+  "outputs_sha256": {
+    "spooles.out": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot.frd": "d7fde003d307f04de054a6c9c4f7cbbd363dcdf2c443723621b29d073218bffd",
+    "pilot.cvg": "a575aec19338e29044bc0e057624cae3f5a916d2af527921718ed7d9969f290e",
+    "pilot.log": "3b3b64a5e5ee87f328b49f4d104bbd306932c690776fc869fa5fd5946253a7de",
+    "pilot.sta": "66a48647628969e5f2369d207e536c2b8893723bbec66216a236cdf70c9dc6c9",
+    "pilot.dat": "ec36f6d47968b51a78419d9c14632a9832cd88c91b0d4bd2d32c2a6828f5042d"
+  },
+  "mechanical_acceptance": false
+}

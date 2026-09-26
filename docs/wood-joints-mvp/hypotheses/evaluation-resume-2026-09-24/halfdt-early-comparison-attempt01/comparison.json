@@ -1,0 +1,504 @@
+{
+  "audit_provenance": {
+    "coarse_accepted_monitor_blocks_used": 20,
+    "coarse_work_audit_report_sha256": "65078f98f8e71bf8b0e53257bfcc7bc3807bae804c64aa7ae1ca9cffba31c6ce",
+    "coarse_work_audit_status": "complete",
+    "comparison_producer_sha256": "8d0bf3bba73057ffff429675828a65cb49361e1b054e15143e94b07076b145c5",
+    "half_accepted_monitor_blocks_used": 4,
+    "half_energy_rows_extracted_from_native_log": [
+      {
+        "damping_work_nmm": 0.0,
+        "elastic_contact_energy_nmm": 1.09153e-09,
+        "energy_balance_absolute_nmm": 1.056748e-09,
+        "energy_balance_relative_percent": 3.768067,
+        "external_work_nmm": 2.804482e-08,
+        "friction_loss_nmm": 0.0,
+        "internal_energy_nmm": 4.931601e-09,
+        "kinetic_energy_nmm": 2.307844e-08,
+        "time_seconds": 0.0005,
+        "time_token": "5.000000e-04",
+        "total_energy_nmm": 2.910157e-08
+      },
+      {
+        "damping_work_nmm": 0.0,
+        "elastic_contact_energy_nmm": 1.020145e-10,
+        "energy_balance_absolute_nmm": -6.466597e-10,
+        "energy_balance_relative_percent": 0.31,
+        "external_work_nmm": 3.891547e-07,
+        "friction_loss_nmm": 0.0,
+        "internal_energy_nmm": 6.150278e-08,
+        "kinetic_energy_nmm": 3.269033e-07,
+        "time_seconds": 0.001,
+        "time_token": "1.000000e-03",
+        "total_energy_nmm": 3.885081e-07
+      },
+      {
+        "damping_work_nmm": 0.0,
+        "elastic_contact_energy_nmm": 6.46378e-10,
+        "energy_balance_absolute_nmm": -4.237209e-09,
+        "energy_balance_relative_percent": 0.405564,
+        "external_work_nmm": 2.717108e-06,
+        "friction_loss_nmm": 0.0,
+        "internal_energy_nmm": 3.948527e-07,
+        "kinetic_energy_nmm": 2.317372e-06,
+        "time_seconds": 0.0015,
+        "time_token": "1.500000e-03",
+        "total_energy_nmm": 2.712871e-06
+      },
+      {
+        "damping_work_nmm": 0.0,
+        "elastic_contact_energy_nmm": 2.630004e-09,
+        "energy_balance_absolute_nmm": -1.580963e-08,
+        "energy_balance_relative_percent": 0.414064,
+        "external_work_nmm": 1.213834e-05,
+        "friction_loss_nmm": 0.0,
+        "internal_energy_nmm": 1.533219e-06,
+        "kinetic_energy_nmm": 1.058669e-05,
+        "time_seconds": 0.002,
+        "time_token": "2.000000e-03",
+        "total_energy_nmm": 1.212253e-05
+      }
+    ],
+    "half_history_api_status": "complete",
+    "half_history_native_work_status": "available",
+    "half_history_work_within_print_bound_at_every_accepted_state": true,
+    "half_monitor_block_times_retained_seconds": [
+      0.0005,
+      0.001,
+      0.0015,
+      0.002
+    ],
+    "half_ramp_and_load_factors_at_common_times": [
+      {
+        "CLOAD_reference_scale_n": 100.0,
+        "RAMP_N_factor": 0.000298,
+        "coefficient_scale_times_ramp_n": 0.029799999999999997,
+        "interpretation": "scalar coefficient on the frozen self-equilibrated unit-load nodal pattern, not a net resultant force",
+        "time_seconds": 0.001
+      },
+      {
+        "CLOAD_reference_scale_n": 100.0,
+        "RAMP_N_factor": 0.001184,
+        "coefficient_scale_times_ramp_n": 0.11839999999999999,
+        "interpretation": "scalar coefficient on the frozen self-equilibrated unit-load nodal pattern, not a net resultant force",
+        "time_seconds": 0.002
+      }
+    ],
+    "half_work_report": {
+      "accepted_rows": [
+        {
+          "amplitude": 0.000149,
+          "amplitude_time_print_bound": 1.490000001635669e-11,
+          "attempt": 1,
+          "combined_work_print_bound_nmm": 1.3577171787001158e-14,
+          "cumulative_amplitude_time_print_bound_nmm": 2.8044824506305544e-15,
+          "cumulative_discrete_work_nmm": 2.8044818702829597e-08,
+          "cumulative_q_print_bound_nmm": 5.7726893363706045e-15,
+          "increment": 1,
+          "increment_discrete_work_nmm": 2.8044818702829597e-08,
+          "native_cumulative_external_work_nmm": 2.804482e-08,
+          "native_work_print_bound_nmm": 5e-15,
+          "q_mm": 3.7644051950106843e-06,
+          "q_print_bound_mm": 7.748576290430342e-13,
+          "step": 1,
+          "time_print_bound_seconds": 5e-11,
+          "time_seconds": 0.0005,
+          "within_print_bound": true,
+          "work_residual_nmm": -1.2971704024816772e-15
+        },
+        {
+          "amplitude": 0.000298,
+          "amplitude_time_print_bound": 4.4299999996458284e-10,
+          "attempt": 1,
+          "combined_work_print_bound_nmm": 5.549725158090201e-13,
+          "cumulative_amplitude_time_print_bound_nmm": 3.7272013523888466e-13,
+          "cumulative_discrete_work_nmm": 3.891547529421436e-07,
+          "cumulative_q_print_bound_nmm": 1.3225238057013542e-13,
+          "increment": 2,
+          "increment_discrete_work_nmm": 3.61109934239314e-07,
+          "native_cumulative_external_work_nmm": 3.891547e-07,
+          "native_work_print_bound_nmm": 5e-14,
+          "q_mm": 1.9921449232563886e-05,
+          "q_print_bound_mm": 4.884188958597449e-12,
+          "step": 1,
+          "time_print_bound_seconds": 5e-10,
+          "time_seconds": 0.001,
+          "within_print_bound": true,
+          "work_residual_nmm": 5.294214360679496e-14
+        },
+        {
+          "amplitude": 0.0007409999999999999,
+          "amplitude_time_print_bound": 4.4299999996458284e-10,
+          "attempt": 1,
+          "combined_work_print_bound_nmm": 3.854883513999868e-12,
+          "cumulative_amplitude_time_print_bound_nmm": 2.3578667356916637e-12,
+          "cumulative_discrete_work_nmm": 2.717107971739074e-06,
+          "cumulative_q_print_bound_nmm": 9.970167783082041e-13,
+          "increment": 3,
+          "increment_discrete_work_nmm": 2.3279532187969304e-06,
+          "native_cumulative_external_work_nmm": 2.717108e-06,
+          "native_work_print_bound_nmm": 5e-13,
+          "q_mm": 6.473286826619103e-05,
+          "q_print_bound_mm": 1.1761901469469322e-11,
+          "step": 1,
+          "time_print_bound_seconds": 5e-10,
+          "time_seconds": 0.0015,
+          "within_print_bound": true,
+          "work_residual_nmm": -2.826092605987267e-14
+        },
+        {
+          "amplitude": 0.001184,
+          "amplitude_time_print_bound": 7.310000003316747e-10,
+          "attempt": 1,
+          "combined_work_print_bound_nmm": 1.658869925819011e-11,
+          "cumulative_amplitude_time_print_bound_nmm": 8.103598612620176e-12,
+          "cumulative_discrete_work_nmm": 1.2138343865508933e-05,
+          "cumulative_q_print_bound_nmm": 3.4851006455699362e-12,
+          "increment": 4,
+          "increment_discrete_work_nmm": 9.421235893769858e-06,
+          "native_cumulative_external_work_nmm": 1.213834e-05,
+          "native_work_print_bound_nmm": 5e-12,
+          "q_mm": 0.00016261583859107268,
+          "q_print_bound_mm": 1.4088320528055173e-11,
+          "step": 1,
+          "time_print_bound_seconds": 5e-10,
+          "time_seconds": 0.002,
+          "within_print_bound": true,
+          "work_residual_nmm": 3.865508932908435e-12
+        }
+      ],
+      "coordinate": "signed complete-field virtual-work projection on the frozen 1 N reference-force pattern, reported in mm-equivalent; not center of mass",
+      "cumulative_discrete_work_nmm": 1.2138343865508933e-05,
+      "native_comparison_status": "available",
+      "native_missing_accepted_times_seconds": [],
+      "print_bound_scope": "q-coordinate displacement print rounding, sampled ramp-amplitude change from DAT timestamp print rounding, and native external-work print rounding; solver integration error and stepwise-versus-continuous work error are not included",
+      "reconstruction": "sum 0.5*(A_i+A_prev)*(q_i-q_prev)*load_scale over accepted increments",
+      "status": "available"
+    },
+    "source_input_artifacts_verified_by_hash": true,
+    "source_output_files_verified_by_hash": true,
+    "source_snapshots_verified_by_hash": true
+  },
+  "cases": {
+    "coarse": {
+      "accepted_states_in_snapshot": 20,
+      "accepted_states_used": [
+        0.001,
+        0.002
+      ],
+      "input_freeze_sha256": "f054d6b911fb0d9c9b0a183fa007d16d8a34a422904fd5cbcf73634e87797e66",
+      "rejected_attempt_count_in_snapshot_sta": 0,
+      "snapshot": "force-every-increment-seating-prefix-attempt01",
+      "snapshot_manifest_sha256": "001cefdb37a52bdf6bc6d1d590310c93d91d7f5b2f7cf0a35ad2e10c097e0d8a",
+      "status": "IMMUTABLE_LIVE_OUTPUT_PREFIX_SNAPSHOT",
+      "verified_input_artifact_count": 27
+    },
+    "half_dt": {
+      "accepted_states_in_snapshot": 4,
+      "accepted_states_used": [
+        0.0005,
+        0.001,
+        0.0015,
+        0.002
+      ],
+      "capture_policy_note": "snapshot is non-atomic across output files; the .sta prefix governs the four selected accepted states, and later DAT/log records were excluded",
+      "input_freeze_sha256": "ea24423f587795743d0c1189c798f77d83159208c76d5d1d3a9fa5554eda4f56",
+      "rejected_attempt_count_in_snapshot_sta": 0,
+      "snapshot": "halfdt-early-prefix-attempt01",
+      "snapshot_manifest_sha256": "07566ead8aa5e7c9b48d0bbd1a026240c507cd2da805d5dc9a256eccb21c1483",
+      "status": "IMMUTABLE_LIVE_OUTPUT_PREFIX_SNAPSHOT",
+      "verified_input_artifact_count": 34
+    }
+  },
+  "comparison_times_seconds": [
+    0.001,
+    0.002
+  ],
+  "comparisons": [
+    {
+      "actual_ramp_and_load_scale": {
+        "CLOAD_reference_scale_n": 100.0,
+        "RAMP_N_factor": 0.000298,
+        "coefficient_scale_times_ramp_n": 0.029799999999999997,
+        "interpretation": "scalar coefficient on the frozen self-equilibrated unit-load nodal pattern, not a net resultant force",
+        "time_seconds": 0.001
+      },
+      "motion_and_work": {
+        "coarse_work_within_print_bound": true,
+        "half_dt_work_within_print_bound": true,
+        "maximum_controller_rotation_rad": {
+          "coarse": 5.653421007160537e-08,
+          "difference_half_minus_coarse": -1.151066271220634e-08,
+          "difference_percent_of_coarse": -20.360526303678977,
+          "half_dt": 4.502354735939903e-08
+        },
+        "maximum_loaded_displacement_mm": {
+          "coarse": 1.988967962029869e-05,
+          "difference_half_minus_coarse": -2.8253421385919677e-06,
+          "difference_percent_of_coarse": -14.205066107291769,
+          "half_dt": 1.7064337481706722e-05
+        },
+        "native_external_work_nmm": {
+          "coarse": 3.594945e-07,
+          "difference_half_minus_coarse": 2.96602e-08,
+          "difference_percent_of_coarse": 8.250529563039212,
+          "half_dt": 3.891547e-07
+        },
+        "q_mm": {
+          "coarse": 2.4127148817204604e-05,
+          "difference_half_minus_coarse": -4.205699584640717e-06,
+          "difference_percent_of_coarse": -17.431399028971523,
+          "half_dt": 1.9921449232563886e-05
+        },
+        "q_print_bound_mm": {
+          "coarse": 7.748576290430342e-12,
+          "difference_half_minus_coarse": -2.864387331832893e-12,
+          "difference_percent_of_coarse": -36.96662747413964,
+          "half_dt": 4.884188958597449e-12
+        },
+        "reconstructed_cumulative_work_nmm": {
+          "coarse": 3.5949451737634857e-07,
+          "difference_half_minus_coarse": 2.9660235565795054e-08,
+          "difference_percent_of_coarse": 8.25053905752456,
+          "half_dt": 3.891547529421436e-07
+        },
+        "work_print_bound_nmm": {
+          "coarse": 6.998703046167332e-13,
+          "difference_half_minus_coarse": -1.4489778880771313e-13,
+          "difference_percent_of_coarse": -20.703520045340806,
+          "half_dt": 5.549725158090201e-13
+        },
+        "work_reconstruction_residual_nmm": {
+          "coarse": 1.7376348552714622e-14,
+          "difference_half_minus_coarse": 3.556579505408034e-14,
+          "difference_percent_of_coarse": 204.67933723926177,
+          "half_dt": 5.294214360679496e-14
+        }
+      },
+      "native_energy_log": {
+        "damping_work_nmm": {
+          "coarse": 0.0,
+          "difference_half_minus_coarse": 0.0,
+          "difference_percent_of_coarse": null,
+          "half_dt": 0.0
+        },
+        "elastic_contact_energy_nmm": {
+          "coarse": 1.35748e-08,
+          "difference_half_minus_coarse": -1.34727855e-08,
+          "difference_percent_of_coarse": -99.24850089872412,
+          "half_dt": 1.020145e-10
+        },
+        "energy_balance_absolute_nmm": {
+          "coarse": 1.298075e-08,
+          "difference_half_minus_coarse": -1.36274097e-08,
+          "difference_percent_of_coarse": -104.98168210619572,
+          "half_dt": -6.466597e-10
+        },
+        "energy_balance_relative_percent": {
+          "coarse": 3.610834,
+          "difference_half_minus_coarse": -3.300834,
+          "difference_percent_of_coarse": -91.41472579465021,
+          "half_dt": 0.31
+        },
+        "external_work_nmm": {
+          "coarse": 3.594945e-07,
+          "difference_half_minus_coarse": 2.96602e-08,
+          "difference_percent_of_coarse": 8.250529563039212,
+          "half_dt": 3.891547e-07
+        },
+        "friction_loss_nmm": {
+          "coarse": 0.0,
+          "difference_half_minus_coarse": 0.0,
+          "difference_percent_of_coarse": null,
+          "half_dt": 0.0
+        },
+        "internal_energy_nmm": {
+          "coarse": 5.067367e-08,
+          "difference_half_minus_coarse": 1.082911e-08,
+          "difference_percent_of_coarse": 21.37028954089964,
+          "half_dt": 6.150278e-08
+        },
+        "kinetic_energy_nmm": {
+          "coarse": 3.082268e-07,
+          "difference_half_minus_coarse": 1.8676500000000015e-08,
+          "difference_percent_of_coarse": 6.059336825999561,
+          "half_dt": 3.269033e-07
+        },
+        "total_energy_nmm": {
+          "coarse": 3.724753e-07,
+          "difference_half_minus_coarse": 1.603280000000001e-08,
+          "difference_percent_of_coarse": 4.304392801348173,
+          "half_dt": 3.885081e-07
+        }
+      },
+      "time_seconds": 0.001
+    },
+    {
+      "actual_ramp_and_load_scale": {
+        "CLOAD_reference_scale_n": 100.0,
+        "RAMP_N_factor": 0.001184,
+        "coefficient_scale_times_ramp_n": 0.11839999999999999,
+        "interpretation": "scalar coefficient on the frozen self-equilibrated unit-load nodal pattern, not a net resultant force",
+        "time_seconds": 0.002
+      },
+      "motion_and_work": {
+        "coarse_work_within_print_bound": true,
+        "half_dt_work_within_print_bound": true,
+        "maximum_controller_rotation_rad": {
+          "coarse": 4.2692031587172644e-07,
+          "difference_half_minus_coarse": -1.3933415004561557e-08,
+          "difference_percent_of_coarse": -3.263703901303218,
+          "half_dt": 4.129869008671649e-07
+        },
+        "maximum_loaded_displacement_mm": {
+          "coarse": 0.00014499062041119763,
+          "difference_half_minus_coarse": -1.1940510580220787e-05,
+          "difference_percent_of_coarse": -8.23536760264709,
+          "half_dt": 0.00013305010983097684
+        },
+        "native_external_work_nmm": {
+          "coarse": 1.183476e-05,
+          "difference_half_minus_coarse": 3.0358000000000023e-07,
+          "difference_percent_of_coarse": 2.565155524911365,
+          "half_dt": 1.213834e-05
+        },
+        "q_mm": {
+          "coarse": 0.00017898901164922133,
+          "difference_half_minus_coarse": -1.637317305814865e-05,
+          "difference_percent_of_coarse": -9.147585601643764,
+          "half_dt": 0.00016261583859107268
+        },
+        "q_print_bound_mm": {
+          "coarse": 4.856032046840918e-11,
+          "difference_half_minus_coarse": -3.447199994035401e-11,
+          "difference_percent_of_coarse": -70.98799927150337,
+          "half_dt": 1.4088320528055173e-11
+        },
+        "reconstructed_cumulative_work_nmm": {
+          "coarse": 1.1834758553228786e-05,
+          "difference_half_minus_coarse": 3.0358531228014685e-07,
+          "difference_percent_of_coarse": 2.5652007255975833,
+          "half_dt": 1.2138343865508933e-05
+        },
+        "work_print_bound_nmm": {
+          "coarse": 1.891275421031231e-11,
+          "difference_half_minus_coarse": -2.324054952122201e-12,
+          "difference_percent_of_coarse": -12.288294588288965,
+          "half_dt": 1.658869925819011e-11
+        },
+        "work_reconstruction_residual_nmm": {
+          "coarse": -1.4467712137089962e-12,
+          "difference_half_minus_coarse": 5.312280146617431e-12,
+          "difference_percent_of_coarse": 367.1817697422022,
+          "half_dt": 3.865508932908435e-12
+        }
+      },
+      "native_energy_log": {
+        "damping_work_nmm": {
+          "coarse": 0.0,
+          "difference_half_minus_coarse": 0.0,
+          "difference_percent_of_coarse": null,
+          "half_dt": 0.0
+        },
+        "elastic_contact_energy_nmm": {
+          "coarse": 1.568612e-08,
+          "difference_half_minus_coarse": -1.3056116000000002e-08,
+          "difference_percent_of_coarse": -83.2335593505596,
+          "half_dt": 2.630004e-09
+        },
+        "energy_balance_absolute_nmm": {
+          "coarse": -6.012495e-09,
+          "difference_half_minus_coarse": -9.797134999999998e-09,
+          "difference_percent_of_coarse": -162.9462477723474,
+          "half_dt": -1.580963e-08
+        },
+        "energy_balance_relative_percent": {
+          "coarse": 0.098612,
+          "difference_half_minus_coarse": 0.31545199999999995,
+          "difference_percent_of_coarse": 319.8921023810489,
+          "half_dt": 0.414064
+        },
+        "external_work_nmm": {
+          "coarse": 1.183476e-05,
+          "difference_half_minus_coarse": 3.0358000000000023e-07,
+          "difference_percent_of_coarse": 2.565155524911365,
+          "half_dt": 1.213834e-05
+        },
+        "friction_loss_nmm": {
+          "coarse": 0.0,
+          "difference_half_minus_coarse": 0.0,
+          "difference_percent_of_coarse": null,
+          "half_dt": 0.0
+        },
+        "internal_energy_nmm": {
+          "coarse": 1.377712e-06,
+          "difference_half_minus_coarse": 1.5550700000000002e-07,
+          "difference_percent_of_coarse": 11.287337266424332,
+          "half_dt": 1.533219e-06
+        },
+        "kinetic_energy_nmm": {
+          "coarse": 1.043535e-05,
+          "difference_half_minus_coarse": 1.5134000000000082e-07,
+          "difference_percent_of_coarse": 1.4502628086264555,
+          "half_dt": 1.058669e-05
+        },
+        "total_energy_nmm": {
+          "coarse": 1.182875e-05,
+          "difference_half_minus_coarse": 2.9378000000000077e-07,
+          "difference_percent_of_coarse": 2.4836098488851386,
+          "half_dt": 1.212253e-05
+        }
+      },
+      "time_seconds": 0.002
+    }
+  ],
+  "controlled_input_comparison": {
+    "actual_cload_reference_scale": 100.0,
+    "actual_nonzero_cload_scalar_terms": 662,
+    "both_ramp_tables_identical": true,
+    "coarse_dynamic_tuple_seconds": [
+      0.001,
+      0.025,
+      1e-06,
+      0.001
+    ],
+    "common_input_artifact_count": 27,
+    "common_input_artifacts_with_changed_hashes": [
+      "pilot.inp"
+    ],
+    "extra_half_derivative_provenance_artifacts": [
+      "derivative-parent-execution.json",
+      "derivative-parent-input-freeze.json",
+      "derivative-parent-stop-decision.json",
+      "half-step-producer.py.snapshot",
+      "parent-contact-storage-bound.json",
+      "parent-contact-storage-validation.json",
+      "parent-pilot.inp"
+    ],
+    "half_dynamic_tuple_seconds": [
+      0.0005,
+      0.025,
+      1e-06,
+      0.0005
+    ],
+    "history_helper_sha256": "7c8d3ff46161576f3ed13605e666c9ea3aba14bdeaa439ede52a7cab562f374c",
+    "launcher_observations_source_sha256": "d1e3feeb9352640f2a06dc1ad6cf40e1ce3b7bbd3f8b974113a39c041c4cdd7c",
+    "load_scale_interpretation": "100 N scalar scale multiplying a frozen self-equilibrated unit-force nodal pattern before the RAMP_N factor; it is not a constant net 100 N load",
+    "only_changed_common_pinned_source_artifact": "pilot.inp",
+    "pilot_main_deck_diff_scope": "one *DYNAMIC control row; no other main-deck bytes differ",
+    "ramp_points": 101,
+    "reference_load_pattern_nodes": 331,
+    "solver_binary_sha256": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+    "solver_image": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0"
+  },
+  "limits": [
+    "Both source snapshots are non-atomic live-output prefixes, not terminal runs. Only complete states accepted in each captured .sta prefix are included.",
+    "The half-step snapshot has four accepted states through 0.002 s; any later DAT/log records were discarded for this audit.",
+    "The actual load follows the serialized 101-point RAMP_N table and 100 N reference-pattern scale; the 100 N value is not the net applied force at these times.",
+    "The work comparison uses the audited discrete accepted-increment projection and native external-work print. Native energy quantities are copied from CCX log summaries.",
+    "The observed differences establish neither time-step accuracy nor convergence, and do not identify a cause. They do not validate contact equilibrium, material response, quasi-static behavior, joint capacity, or mechanical acceptance."
+  ],
+  "mechanical_acceptance": false,
+  "schema": "wood_joint_current_transient_halfdt_early_comparison/v1",
+  "status": "complete_bounded_common_time_comparison"
+}

@@ -1,0 +1,111 @@
+--- a/CalculiX/ccx_2.21/src/results.c
++++ b/CalculiX/ccx_2.21/src/results.c
+@@ -178,6 +178,99 @@
+   last_inc=*iinc;
+ }
+ 
++
++/* Full accepted acceleration for the frozen current mesh; no solver state changes. */
++static void wjdep_write_all_physical_acc(ITG *nk,ITG *ne0,ITG *kon,
++                                         ITG *ipkon,char *lakon,ITG *mi,
++                                         double *accold,ITG *istep,ITG *iinc,
++                                         double *time,double *ttime,double *dtime){
++  static ITG last_step=-1,last_inc=-1;
++  static int first_output=1;
++  ITG i,j,node,mt,unique_node_count=0;
++  FILE *output;
++  unsigned char *mesh_nodes;
++  const ITG physical_node_count=116162;
++  const ITG input_node_count=116170;
++  const ITG rigid_mpc_generated_node_count=4524;
++  const ITG minimum_runtime_node_count=input_node_count+rigid_mpc_generated_node_count;
++  const ITG original_c3d10_count=57643;
++
++  if(!wjdep_enabled()) return;
++  if(mi[1]!=3) wjdep_fail("all-node ACC writer expects three translational DOFs");
++  if((*nk<minimum_runtime_node_count)||(*ne0!=original_c3d10_count)){
++    fprintf(stderr,"CCX_WJ_ALL_PHYSICAL_ACC_COUNT_GUARD nk=%" ITGFORMAT " ne0=%" ITGFORMAT " minimum_nk=%" ITGFORMAT " expected_ne0=%" ITGFORMAT "\n",
++            *nk,*ne0,minimum_runtime_node_count,original_c3d10_count);
++    wjdep_fail("runtime node/solid count is below the source-derived rigid-node minimum or frozen C3D10 count");
++  }
++  if((*istep==last_step)&&(*iinc==last_inc)) return;
++  mt=mi[1]+1;
++
++  /* Rebuild the physical mesh node set from original solid connectivity. */
++  mesh_nodes=(unsigned char *)calloc((size_t)*nk,sizeof(unsigned char));
++  if(mesh_nodes==NULL) wjdep_fail("cannot allocate exact physical mesh node map");
++  for(i=0;i<*ne0;i++){
++    if(ipkon[i]<0) continue;
++    if(strncmp(&lakon[8*i],"C3D10",5)!=0){
++      free(mesh_nodes);
++      wjdep_fail("non-C3D10 element in frozen physical mesh node map");
++    }
++    for(j=0;j<10;j++){
++      node=kon[ipkon[i]+j];
++      if((node<1)||(node>*nk)||(node>physical_node_count)){
++        free(mesh_nodes);
++        wjdep_fail("nonphysical or out-of-range node ID in original C3D10 connectivity");
++      }
++      mesh_nodes[node-1]=1;
++    }
++  }
++  for(i=0;i<*nk;i++){
++    if(mesh_nodes[i]) unique_node_count++;
++    if((i<physical_node_count)&&(!mesh_nodes[i])){
++      free(mesh_nodes);
++      wjdep_fail("mesh connectivity is missing a pinned physical node ID");
++    }
++    if((i>=physical_node_count)&&(mesh_nodes[i])){
++      free(mesh_nodes);
++      wjdep_fail("generated/control node appears in original physical solid connectivity");
++    }
++  }
++  if(unique_node_count!=physical_node_count){
++    free(mesh_nodes);
++    wjdep_fail("physical connectivity-derived node count changed");
++  }
++
++  output=fopen("wj-all-physical-acceleration.csv",first_output?"w":"a");
++  if(output==NULL){
++    free(mesh_nodes);
++    wjdep_fail("cannot open all-physical-node acceleration output");
++  }
++  if(first_output){
++    fprintf(output,"# CCX_WJ_ALL_PHYSICAL_ACC,1\n");
++    fprintf(output,"# Node IDs are rebuilt from original C3D10 connectivity; controls 116163..116170 are excluded\n");
++    fprintf(stderr,"CCX_WJ_ALL_PHYSICAL_ACC_RUNTIME nk=%" ITGFORMAT " ne0=%" ITGFORMAT " physical_nodes=%" ITGFORMAT " rigid_mpc_nodes_expected=%" ITGFORMAT "\n",
++            *nk,*ne0,physical_node_count,rigid_mpc_generated_node_count);
++    first_output=0;
++  }
++  fprintf(output,"STATE,%" ITGFORMAT ",%" ITGFORMAT ",%.17g,%.17g,%" ITGFORMAT "\n",
++          *istep,*iinc,*ttime+*time,*dtime,physical_node_count);
++  for(i=0;i<*nk;i++){
++    if(!mesh_nodes[i]) continue;
++    if(!isfinite(accold[mt*i+1])||!isfinite(accold[mt*i+2])||
++       !isfinite(accold[mt*i+3])){
++      fclose(output);free(mesh_nodes);
++      wjdep_fail("nonfinite accepted-state physical-node acceleration");
++    }
++    fprintf(output,"ACC,%" ITGFORMAT ",%.17g,%.17g,%.17g\n",
++            i+1,accold[mt*i+1],accold[mt*i+2],accold[mt*i+3]);
++  }
++  fprintf(output,"END,%" ITGFORMAT ",%" ITGFORMAT ",%" ITGFORMAT "\n",
++          *istep,*iinc,physical_node_count);
++  fflush(output);
++  fclose(output);
++  free(mesh_nodes);
++  last_step=*istep;
++  last_inc=*iinc;
++}
+ 
+ /*
+  * Source-map probe for generated face-to-face contact spring energy.
+@@ -673,6 +766,8 @@
+     wjdep_write_output(nk,ne0,kon,ipkon,lakon,mi,accold,ipompc,nodempc,
+                        coefmpc,labmpc,nmpc,fmpc,istep,iinc,time,ttime,dtime,
+                        &calcul_fn,mortartrafoflag);
++    wjdep_write_all_physical_acc(nk,ne0,kon,ipkon,lakon,mi,accold,
++                                 istep,iinc,time,ttime,dtime);
+     wjdep_write_contact_energy_map(ne0,ne,kon,ipkon,lakon,mi,ener,nener,
+                                    stx,springarea,istep,iinc,time,ttime,dtime);
+   }

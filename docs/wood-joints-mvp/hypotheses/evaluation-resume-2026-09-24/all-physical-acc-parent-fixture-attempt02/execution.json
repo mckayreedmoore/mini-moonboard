@@ -1,0 +1,76 @@
+{
+  "status": "passed",
+  "compile_command": [
+    "gcc",
+    "-std=c99",
+    "-O0",
+    "-Wall",
+    "-Wextra",
+    "-fsanitize=undefined,bounds",
+    "-fno-sanitize-recover=all",
+    "harness.c",
+    "-lm",
+    "-o",
+    "harness"
+  ],
+  "source_binding_sha256": "85a2818babc2a63b128843ae28267cdf1fd870120e48185f44184cecb1d25c74",
+  "runner_sha256": "4ba16e37a2a1240d1c7ff4ee4379733d3bf06684059378f467eb64639652c458",
+  "binary_sha256": "37d244dde1c9534aa2989b3fe3bfa1a24e5a830ca39b35dad03c55b99b3308d1",
+  "cases": {
+    "valid": {
+      "returncode": 0,
+      "stderr": "CCX_WJ_ALL_PHYSICAL_ACC_RUNTIME nk=120694 ne0=57643 physical_nodes=116162 rigid_mpc_nodes_expected=4524\n",
+      "complete_states": 2,
+      "physical_rows_per_state": 116162,
+      "output_sha256": "f864da1d8869d170178cd93454351277c336b01d5eb73ed6d2cc014c2da12f42"
+    },
+    "surplus_one": {
+      "returncode": 0,
+      "stderr": "CCX_WJ_ALL_PHYSICAL_ACC_RUNTIME nk=120695 ne0=57643 physical_nodes=116162 rigid_mpc_nodes_expected=4524\n",
+      "complete_states": 2,
+      "physical_rows_per_state": 116162,
+      "output_sha256": "f864da1d8869d170178cd93454351277c336b01d5eb73ed6d2cc014c2da12f42"
+    },
+    "allocated_capacity": {
+      "returncode": 0,
+      "stderr": "CCX_WJ_ALL_PHYSICAL_ACC_RUNTIME nk=120702 ne0=57643 physical_nodes=116162 rigid_mpc_nodes_expected=4524\n",
+      "complete_states": 2,
+      "physical_rows_per_state": 116162,
+      "output_sha256": "f864da1d8869d170178cd93454351277c336b01d5eb73ed6d2cc014c2da12f42"
+    },
+    "authored_only": {
+      "returncode": 42,
+      "stderr": "CCX_WJ_ALL_PHYSICAL_ACC_COUNT_GUARD nk=116170 ne0=57643 minimum_nk=120694 expected_ne0=57643\nruntime node/solid count is below the source-derived rigid-node minimum or frozen C3D10 count\n"
+    },
+    "bad_nk": {
+      "returncode": 42,
+      "stderr": "CCX_WJ_ALL_PHYSICAL_ACC_COUNT_GUARD nk=120693 ne0=57643 minimum_nk=120694 expected_ne0=57643\nruntime node/solid count is below the source-derived rigid-node minimum or frozen C3D10 count\n"
+    },
+    "bad_ne0": {
+      "returncode": 42,
+      "stderr": "CCX_WJ_ALL_PHYSICAL_ACC_COUNT_GUARD nk=120694 ne0=57642 minimum_nk=120694 expected_ne0=57643\nruntime node/solid count is below the source-derived rigid-node minimum or frozen C3D10 count\n"
+    },
+    "control_in_mesh": {
+      "returncode": 42,
+      "stderr": "nonphysical or out-of-range node ID in original C3D10 connectivity\n"
+    },
+    "extra_in_mesh": {
+      "returncode": 42,
+      "stderr": "nonphysical or out-of-range node ID in original C3D10 connectivity\n"
+    },
+    "missing_node": {
+      "returncode": 42,
+      "stderr": "mesh connectivity is missing a pinned physical node ID\n"
+    },
+    "nan": {
+      "returncode": 42,
+      "stderr": "CCX_WJ_ALL_PHYSICAL_ACC_RUNTIME nk=120694 ne0=57643 physical_nodes=116162 rigid_mpc_nodes_expected=4524\nnonfinite accepted-state physical-node acceleration\n"
+    },
+    "bad_kind": {
+      "returncode": 42,
+      "stderr": "non-C3D10 element in frozen physical mesh node map\n"
+    }
+  },
+  "mechanical_acceptance": false,
+  "mass_interpretation": false
+}

@@ -1,0 +1,111 @@
+{
+  "schema": "wood_joint_current_transient_execution/v1",
+  "status": "bounded_timeout",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "wj-current-native-ordinary-transient-pilot-attempt04",
+    "--network",
+    "none",
+    "--cpus",
+    "4",
+    "--memory",
+    "10g",
+    "--user",
+    "1000:1000",
+    "--env",
+    "OMP_NUM_THREADS=4",
+    "--env",
+    "CCX_NPROC_EQUATION_SOLVER=4",
+    "--mount",
+    "type=bind,src=/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/ordinary-transient-pilot-attempt04,dst=/work",
+    "--workdir",
+    "/work",
+    "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0",
+    "/usr/bin/ccx",
+    "-i",
+    "pilot"
+  ],
+  "solver_binary_sha256": "6adaabf5bf0382fc2bfd692b984320ed375dba777f7dc8297562f818043faa1b",
+  "input_freeze_sha256": "77090f458d68afc20abfa34203496527030d075c96868ae99d2aed7091043e66",
+  "timeout_seconds": 2400,
+  "mechanical_acceptance": false,
+  "observations": [
+    {
+      "time_seconds": 0.0025,
+      "q_mm": 6.9449049005846465e-06,
+      "maximum_loaded_displacement_mm": 5.511127445996281e-06,
+      "maximum_controller_rotation_rad": 2.693943831895289e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002577707,
+      "q_mm": 7.394199435380431e-06,
+      "maximum_loaded_displacement_mm": 5.86563991376362e-06,
+      "maximum_controller_rotation_rad": 2.851149124190565e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002655415,
+      "q_mm": 7.883951865933156e-06,
+      "maximum_loaded_displacement_mm": 6.250055064965973e-06,
+      "maximum_controller_rotation_rad": 2.9108664777778508e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002733122,
+      "q_mm": 8.420136482348913e-06,
+      "maximum_loaded_displacement_mm": 6.684876827139233e-06,
+      "maximum_controller_rotation_rad": 2.9007763277373198e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.0028186,
+      "q_mm": 9.066758865984548e-06,
+      "maximum_loaded_displacement_mm": 7.212502006385284e-06,
+      "maximum_controller_rotation_rad": 3.134474876605235e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.002912626,
+      "q_mm": 9.84860976987596e-06,
+      "maximum_loaded_displacement_mm": 7.848709288587025e-06,
+      "maximum_controller_rotation_rad": 3.778324441307922e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.003016055,
+      "q_mm": 1.0790318427805254e-05,
+      "maximum_loaded_displacement_mm": 8.60930616870605e-06,
+      "maximum_controller_rotation_rad": 4.55830530025879e-09,
+      "stop_reasons": []
+    },
+    {
+      "time_seconds": 0.003129826,
+      "q_mm": 1.1920745593467355e-05,
+      "maximum_loaded_displacement_mm": 9.531640628100553e-06,
+      "maximum_controller_rotation_rad": 5.739584326849208e-09,
+      "stop_reasons": []
+    }
+  ],
+  "scope": "Gauge-free 0.025 s motion diagnostic; 1 N sampled cubic ramp over 0.1 s; provisional stiff engagement, no capacity or quasistatic claim.",
+  "returncode": 137,
+  "elapsed_seconds": 2408.0477702250064,
+  "frozen_inputs_unchanged": true,
+  "outputs_sha256": {
+    "spooles.out": "2317a43e98af376be673f58801a2393dc5e02e3dea459b0483593b03b1cf84ae",
+    "pilot.12d": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "pilot.frd": "d3fa1e690f6dce0cbd6e45bd4a36d5552167a9e3dcdddae0047740ff07a57071",
+    "parent-launch.py.snapshot": "84d29b1fef4a1821a1acb8e1f249829eb0efa0b0f376c636346e624bbfab200f",
+    "README.md": "650f0efd7d16e9f4869250e1229058186f931f341c84789619573316f8d7e305",
+    "input-freeze.json": "77090f458d68afc20abfa34203496527030d075c96868ae99d2aed7091043e66",
+    "pilot.cvg": "c0f8c2eb6175d3f1111aa7b86e8f6f5feae6ca7e79f667e5c2f2b18dcf9bcd00",
+    "ResultsForLastIterations.frd": "d6333c6e4955178c90e5175518a9bf09a5c9ac00f0281abd074c4b1373839719",
+    "pilot.log": "e53107afe25e14e62bb699b61ed9d54d340945bcd797133b51639e2ee1f0d557",
+    "pilot.sta": "6e855e24ca1c93b2c825b5c2dd0b66e99b096ee322aa1dc43494533e9359645c",
+    "pilot.cel": "562effce920200be0d0d4f0de6f9f159a4437a32cf85ecb0fffe0fcc155a81fc",
+    "pilot.dat": "5d627aff342aae713e447ca63ac2e82c3951a0f7905f9b581388969748a2a7f3"
+  }
+}

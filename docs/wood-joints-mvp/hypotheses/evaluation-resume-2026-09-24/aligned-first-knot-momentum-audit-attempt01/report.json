@@ -1,0 +1,233 @@
+{
+  "actuator_and_first_increment": {
+    "cleat_COM_momentum_minus_applied_impulse_Ns": 2.1292953768996085e-13,
+    "cleat_load_work_weighted_displacement_N_mm": 1.7583435744071807e-05,
+    "cleat_mean_unaccounted_force_along_N_N": 2.1292953768996085e-10,
+    "cleat_mean_unaccounted_force_along_N_interpretation": "Cleat COM momentum residual divided by the full first increment duration; an average net unaccounted force term aggregating internal contact/constraint transfer and solver/output residuals, not an instantaneous or contact-assigned force.",
+    "continuous_sampled_ramp_impulse_each_side_Ns": 1.4899999999999993e-05,
+    "direction_global_xyz": [
+      0.0,
+      -0.766044443118978,
+      0.6427876096865394
+    ],
+    "endpoint_force_coeff_source": "Actual 100 N per-side CLOAD resultant from the exact frozen deck multiplied by its linearly interpolated RAMP_N amplitude at t=0.001 s.",
+    "endpoint_force_pair_resultant_xyz_N": [
+      0.0,
+      0.0,
+      -5.081801646156236e-17
+    ],
+    "exact_Newmark_first_step_impulse_each_side_Ns": 1.4899999999999993e-05,
+    "exact_Newmark_first_step_impulse_xyz_Ns": [
+      0.0,
+      -1.1414062202472771e-05,
+      9.577535384329426e-06
+    ],
+    "free_cleat_COM_endpoint_velocity_N_mm_per_s": 0.026693552687214024,
+    "free_cleat_Newmark_endpoint_displacement_N_mm": 1.3346776343607011e-05,
+    "input_reference_force_each_side_N": 100.0,
+    "no_force_partition_claim": "The per-side actuator nodal CLOAD is known; the contact/bolt/washer force split is not resolved by this cleat-only momentum audit.",
+    "pair_q_minus_snapshot_q_mm": -9.969236367142736e-13,
+    "pair_relative_load_work_coordinate_q_mm": 2.318686612406593e-05,
+    "paired_CLOAD_coeff_resultant_xyz_N": [
+      0.0,
+      0.0,
+      -1.7053025658242404e-13
+    ],
+    "per_side_CLOAD_coeff_resultant_xyz_N": [
+      0.0,
+      -76.6044443118978,
+      64.27876096865387
+    ],
+    "per_side_endpoint_force_N": 0.029799999999999986,
+    "principal_load_work_weighted_displacement_N_mm": -5.603430379994116e-06,
+    "ramp_amplitude_at_endpoint": 0.000298,
+    "serialized_CLOAD_nonzero_component_terms": 662,
+    "serialized_CLOAD_unique_loaded_nodes": 331,
+    "snapshot_reported_pair_q_mm": 2.3186867120989566e-05
+  },
+  "cleat_mass_and_state": {
+    "COM_displacement_N_mm": 1.3346777317091998e-05,
+    "COM_displacement_xyz_mm": [
+      -4.485623367100557e-07,
+      -1.0172715262582336e-05,
+      8.64052952337966e-06
+    ],
+    "COM_momentum_N_Ns": 1.490000021292953e-05,
+    "COM_momentum_xyz_Ns": [
+      -5.007630973417298e-07,
+      -1.1356559062898698e-05,
+      9.64606528876183e-06
+    ],
+    "COM_reference_xyz_mm": [
+      133.49156048275984,
+      42.90671285533169,
+      486.2561290691481
+    ],
+    "COM_velocity_N_mm_per_s": 0.026693553068680185,
+    "body_id": "W00_BOTTOM_CENTER_RIGHT_CLEAT",
+    "density_tonne_per_mm3": 6e-10,
+    "element_count": 5157,
+    "element_type": "C3D10",
+    "kinetic_energy_Nmm": 2.173004283613423e-07,
+    "mass_kg": 0.5581872212587484,
+    "mass_tonne": 0.0005581872212587484,
+    "node_count": 9369,
+    "source_mass_operator": "CCX 2.21 four-point C3D10 mass"
+  },
+  "geometric_rigid_fit_decomposition": {
+    "cleat": {
+      "actual_work_weighted_owner_q_mm": 1.7583435744071807e-05,
+      "fit_condition_estimate_inf_norm": 96.82606956588404,
+      "fit_weighting": "equal weight per unique owned C3D10 node, including midside and interior nodes; geometric least squares, not mass-weighted and mesh-density dependent",
+      "infinitesimal_rotation_xyz_rad": [
+        -6.27484436096922e-10,
+        6.036637582851642e-08,
+        7.156501885894045e-08
+      ],
+      "node_displacement_residual_max_mm": 6.713777782115802e-07,
+      "node_displacement_residual_rms_mm": 5.644313906834845e-08,
+      "nonrigid_residual_contribution_to_owner_q_mm": 8.159542095140276e-08,
+      "q_decomposition_residual_mm": 0.0,
+      "reference_xyz_mm": [
+        133.49156048275984,
+        42.90671285533169,
+        486.2561290691481
+      ],
+      "rigid_fit_actuator_q_mm": 1.7501840323120405e-05,
+      "rotation_contribution_to_owner_actuator_q_mm": 4.160829694551047e-06,
+      "translation_along_N_mm": 1.3341010628569358e-05,
+      "translation_at_reference_xyz_mm": [
+        -4.71782688693023e-07,
+        -1.0169947416563168e-05,
+        8.634856739079998e-06
+      ]
+    },
+    "fit_definition": "Existing fit_rigid_motion helper from wood_joint_current_nut_coupling.py; infinitesimal 6-DOF LS fit over all unique owned C3D10 nodes with equal node weights; reference is each owner's consistent-mass COM.",
+    "principal": {
+      "actual_work_weighted_owner_q_mm": -5.603430379994116e-06,
+      "fit_condition_estimate_inf_norm": 87981.4564907011,
+      "fit_weighting": "equal weight per unique owned C3D10 node, including midside and interior nodes; geometric least squares, not mass-weighted and mesh-density dependent",
+      "infinitesimal_rotation_xyz_rad": [
+        2.202348740827898e-09,
+        1.1094494227111077e-08,
+        1.2230642327537689e-08
+      ],
+      "node_displacement_residual_max_mm": 5.215398301161383e-06,
+      "node_displacement_residual_rms_mm": 1.3598198547095937e-06,
+      "nonrigid_residual_contribution_to_owner_q_mm": -1.914785241227777e-06,
+      "q_decomposition_residual_mm": 0.0,
+      "reference_xyz_mm": [
+        69.99999976055906,
+        666.9722891221161,
+        1230.5806366664854
+      ],
+      "rigid_fit_actuator_q_mm": -3.688645138766339e-06,
+      "rotation_contribution_to_owner_actuator_q_mm": -2.4535381792732935e-06,
+      "translation_along_N_mm": -1.2351069594930454e-06,
+      "translation_at_reference_xyz_mm": [
+        -2.281028396062557e-07,
+        9.45429778921015e-07,
+        -7.947659900297794e-07
+      ]
+    },
+    "relative_pair_q_components": {
+      "cleat_nonrigid_contribution_mm": 8.159542095140276e-08,
+      "cleat_rotation_contribution_mm": 4.160829694551047e-06,
+      "cleat_translation_N_mm": 1.3341010628569358e-05,
+      "principal_nonrigid_contribution_mm": -1.914785241227777e-06,
+      "principal_rotation_contribution_mm": -2.4535381792732935e-06,
+      "principal_translation_N_mm": -1.2351069594930454e-06,
+      "relative_nonrigid_contribution_mm": 1.9963806621791797e-06,
+      "relative_rotation_contribution_mm": 6.6143678738243405e-06,
+      "relative_translation_contribution_mm": 1.4576117588062403e-05,
+      "source_work_weighted_pair_q_mm": 2.318686612406593e-05,
+      "sum_of_relative_components_mm": 2.3186866124065922e-05
+    }
+  },
+  "helpers_sha256": {
+    "audit.py": "6fd31a2f95135d68c880c68d588ef85329215afcdeef9556ff2abbe59b81802e",
+    "dynamic_momentum.py": "f97f0214a8dcd6ae8e539ed3f1377603031776e1b84235bb5dd058e48fd104e3",
+    "first_momentum_audit.py": "f484e6ad94803cac2b92a0ac64745296bd0c1d69afef5b5650a4ca9550250ec1",
+    "gmsh_integration_image": "sha256:37671083a88ded305c4fcd83960a767dad4c2acb480976cb75fab5df261e2646",
+    "nut_coupling_rigid_fit.py": "7a8ee3499da7f3f4313162f574e28aeba5cfa6850db6b892c23cfc3de903a113",
+    "wood_joint_mesh_jacobian_audit.py": "3f9cb7768f2ba0efb4e5b26f56222422a09048bfe5e1acdf5ded26f749d861c0"
+  },
+  "limits": [
+    "The four-point C3D10 operator is the source-reconstructed untransformed CalculiX 2.21 reference mass, verified here only for the isolated W00 body geometry/material scenario.",
+    "This audit computes cleat COM momentum and the source-work-weighted actuator coordinate q separately; q is not cleat COM translation.",
+    "Momentum difference from external cleat impulse comprises internal contact and constraint transfer plus solver/output residuals; it is not an assigned contact-force result.",
+    "Whole-patch P/H/KE were not recomputed; the existing native run and mesh were not repeated or altered.",
+    "The snapshot is a single converged increment from a live process at capture, not the terminal run, time-accuracy validation, or mechanical acceptance."
+  ],
+  "post_generation_synchronization_note": "After initial numeric post-processing, only README prose, the audit-script self-hash, and the residual-force field label/interpretation were synchronized. Numeric results and source inputs are unchanged; mass integration was not rerun.",
+  "principal_mass_and_fit_reference": {
+    "COM_displacement_N_mm": -9.503964204456556e-07,
+    "COM_reference_xyz_mm": [
+      69.99999976055906,
+      666.9722891221161,
+      1230.5806366664854
+    ],
+    "body_id": "W02_BASE_PRINCIPAL_CENTER_RIGHT",
+    "density_tonne_per_mm3": 6e-10,
+    "element_count": 13350,
+    "mass_kg": 7.83883444536225,
+    "node_count": 24937
+  },
+  "run_artifact_hashes_sha256": {
+    "actuator.json": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+    "contact-fragment.inc": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+    "contact-manifest.json": "50f7d8c9b85197f43732d49d13e75240fa6d5423673d28274e278829878a594d",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "nut-coupling.json": "568ade2437181bc8e9398f64a2818bbf8bd3f46a64dae9639bf363cb68bec960",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "parent-input-freeze.json": "77090f458d68afc20abfa34203496527030d075c96868ae99d2aed7091043e66",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0",
+    "pilot.inp": "48649259ba8441429a5dd094ae08487e3713d6b5b860ac39ca1acf71b837d963",
+    "preflight-input-freeze.json": "630c0819c51e1cdf727c182ba52ebaeacd23d2e8184e21cf5b01bcec4d447e26",
+    "producer.py.snapshot": "0aa5c4a85b17cf75be42da0acc612d11eaa4a349f6308f5e49c49275fa4a567b",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "scale-producer.py.snapshot": "c6496ab61e4c126f7358920e5833f812e671013ee9e92eda6bcd9c16bdbe3cc3",
+    "timed-producer.py.snapshot": "bc2be9d10f0ef8c2be53730ef228e5d09fe20ca5acd9efc7e64bdf372a676268",
+    "timing-parent-input-freeze.json": "6024c734d50148ec959f972f41f15bc3f8f87ec42fbad65e13261e720fe5d9fa"
+  },
+  "schema": "wood_joint_aligned_first_knot_cleat_momentum_audit/v1",
+  "scope": "Cleat W00 only at the immutable first aligned ramp knot t=0.001 s; no whole-patch response or acceptance claim.",
+  "snapshot": {
+    "converged_iterations": 25,
+    "dat_sha256": "9bdf44cb6f7216128e0ba97f0c734011a0f0502b339d840ad99d33195e7b8123",
+    "fields": [
+      "DISP",
+      "VELO"
+    ],
+    "frd_sha256": "452a6eac88fc7aa679172bd7a4274082c1de7516e68985b6a4433dfcedada538",
+    "input_freeze_sha256": "c3349f42bb8aaa3721e90f8f36ffd823c985ba9e0cffc6d8474b8154e1c5e267",
+    "physical_frd_node_count_per_field": 116162,
+    "snapshot_json_sha256": "a91a8412e25c92952ab414e5b65e29cb89a6364a9f114a49fa1ef6c7e81d272e",
+    "source_process_still_running_at_capture": true,
+    "target_time_seconds": 0.001
+  },
+  "source_hashes_sha256": {
+    "actuator.json": "cc452f06600b72e576616adcd16f521c38f8bdfdcc7d90029f4eee0fb461b9a7",
+    "contact-fragment.inc": "35a4513b7877b04b0c2be053f3084d07178a148c606780d12d54388636574b24",
+    "contact-manifest.json": "50f7d8c9b85197f43732d49d13e75240fa6d5423673d28274e278829878a594d",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "mesh.json": "1043bd4a7ac03e589d6f8819f98231b33a866ee917d1e9c7099d0104092d0a07",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "nut-coupling.json": "568ade2437181bc8e9398f64a2818bbf8bd3f46a64dae9639bf363cb68bec960",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "parent-input-freeze.json": "77090f458d68afc20abfa34203496527030d075c96868ae99d2aed7091043e66",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0",
+    "pilot.inp": "c13576d78c46c52d11c2fd13bdc79c80f821ab2707710c9f8ec3bf8b1478774b",
+    "preflight-input-freeze.json": "630c0819c51e1cdf727c182ba52ebaeacd23d2e8184e21cf5b01bcec4d447e26",
+    "producer.py.snapshot": "0aa5c4a85b17cf75be42da0acc612d11eaa4a349f6308f5e49c49275fa4a567b",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "scale-producer.py.snapshot": "c6496ab61e4c126f7358920e5833f812e671013ee9e92eda6bcd9c16bdbe3cc3",
+    "time-point-review.md": "3b7d99503afb507557e523b0065133cfcbe42875ccc51237cfb1115a519bfc0d",
+    "timed-producer.py.snapshot": "bc2be9d10f0ef8c2be53730ef228e5d09fe20ca5acd9efc7e64bdf372a676268",
+    "timing-parent-input-freeze.json": "6024c734d50148ec959f972f41f15bc3f8f87ec42fbad65e13261e720fe5d9fa"
+  }
+}

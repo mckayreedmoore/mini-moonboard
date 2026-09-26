@@ -1,0 +1,94 @@
+{
+  "schema": "parent_authenticated_live_prefix/v1",
+  "captured_utc": "2026-09-25T19:13:45.605444+00:00",
+  "source_run": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt03",
+  "container_id": "e104dafd66343b264759bbc0eb38772344d9ba4ab7ef0430de058452fed79051",
+  "container_state_observed": {
+    "Status": "running",
+    "Running": true,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 528933,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-09-25T19:05:18.210879145Z",
+    "FinishedAt": "0001-01-01T00:00:00Z"
+  },
+  "mounts": [
+    {
+      "Type": "bind",
+      "Source": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt03",
+      "Destination": "/work",
+      "Mode": "",
+      "RW": true,
+      "Propagation": "rprivate"
+    },
+    {
+      "Type": "bind",
+      "Source": "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/reader-acc-mt-build-attempt02/ccx-wj-contact-energy-reader-acc-mt-2.21",
+      "Destination": "/usr/bin/ccx",
+      "Mode": "",
+      "RW": false,
+      "Propagation": "rprivate"
+    }
+  ],
+  "input_sha256": {
+    "pilot.inp": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3",
+    "mesh.inp": "117fdc67c8d3f7f7e3bf1df41d842c9d8e7fa57e1c941676bccd882878bb4803",
+    "materials.inp": "e0063d0ebc2232b6699f020488944617b1f44f7bfa38f931f47907d08202a3bb",
+    "nut-coupling.inp": "af5b36dce4e85b19a6a5b4805dd6b00259da88ccc1a849769642db2ecbf62903",
+    "rigid-carriers.inp": "a15eebb0537a4a3f096531f2c4e48ecd26b6ec53908d61178ead7dfe3bc27815",
+    "contact-fragment.inc": "e70fc43593e8e5a5b8e445f88122fb5e675dc788207be6e6031aae9c1f71cac5",
+    "output-sets.inp": "e86adac9dfbe2a80bc62abcba3ea081efcad2e0262df100db22efc1e5020213c",
+    "pilot-sets.inp": "7f5c158659658d60f6a3e48f714f4d8239cc7848c42732f747304b47fef9f5e0"
+  },
+  "output_prefixes": {
+    "pilot.dat": {
+      "bytes": 40003879,
+      "sha256": "ba49c691316bf16f12de20bb127919d3d2b46563fda58d9125226ca03f4a6562"
+    },
+    "pilot.log": {
+      "bytes": 20917,
+      "sha256": "38353a39397ab063b0eae4a044793ece877525b58495ec0ac41bac5f0488017a"
+    },
+    "pilot.sta": {
+      "bytes": 170,
+      "sha256": "ccc90a7fc440241c1eb5c7096a001fe39557c7ba927b0471ecd73f14b54cbdfb"
+    },
+    "pilot.frd": {
+      "bytes": 50804260,
+      "sha256": "dacbfb865a4cf6d20b7b4e429ce4237b6270b461cd5ba9c88cc5030b15367651"
+    },
+    "pilot.wj-contact-energy-map.csv": {
+      "bytes": 23673593,
+      "sha256": "ceecbf0fe70ca4ca923c644da17ce168461f9c0c6d9c1838485e4a5f29cae7d9"
+    },
+    "wj-all-physical-acceleration.csv": {
+      "bytes": 8310734,
+      "sha256": "91d06dd0f4002b29592540d4a7dced59d3e7879d7ca4d79a267307b7c6903e25"
+    },
+    "wj-dependent-residual-audit.csv": {
+      "bytes": 25117,
+      "sha256": "725ffdfe38d17244b1c92a99e60a4a6bdfbe9ad2054dd5815d2586a7cee28d1d"
+    },
+    "live-execution.json": {
+      "bytes": 22509,
+      "sha256": "ff9d1c5e6687c8a4a6cd6ea261c08fd0f47166ae445afbee2426b07cfa08ff1b"
+    },
+    "live-binary-source-index.json": {
+      "bytes": 14925,
+      "sha256": "b55323a611704378ad84f1e688075e284859bdbd09b75d853c0bb8ef0b9ef19f"
+    },
+    "live-pilot.inp": {
+      "bytes": 26049,
+      "sha256": "211d0d9b6f96fa2215347306a5c24d37cfe71f1d67a49a99349535321462a4a3"
+    }
+  },
+  "producer_sha256": "0dca6ca71586a374602adf45a6ae0b08067e3269e380083251dfa9886ed43483",
+  "reader_helper_sha256": "607742ec48228a473923031dacccab1062478cdef43c28e886aaeb621f65b716",
+  "terminal_execution": false,
+  "whole_horizon_success": false,
+  "mechanical_acceptance": false
+}

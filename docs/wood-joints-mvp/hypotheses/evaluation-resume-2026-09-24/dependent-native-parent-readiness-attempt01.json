@@ -1,0 +1,36 @@
+{
+  "status": "PARENT_READY_FOR_ONE_BOUNDED_UPSTREAM_DIAGNOSTIC",
+  "created_at_utc": "2026-09-25T15:25:07.333814+00:00",
+  "launcher_sha256": "da85913fa670d9a2729faf02a428f296dd8f97a0c220641f37f93114cba58159",
+  "tests_sha256": "ca0db1754c4ef45c8aabbbfa0721d62bd9061a04805b42840c8aea4202b619fd",
+  "parent_focused_tests": "8 passed in 2.42s after stdout sink correction",
+  "fixture_manifest_sha256": "8496619179e5fedc6f77def972cf6aa4b749ce96dedc9af4a3dd29896823e11a",
+  "fixture_index_sha256": "60335f348b88d6ccaba1bad02bd10975685a259df38939d8068243875cad1961",
+  "prepared_run_records_sha256": {
+    "dependent-native-upstream-attempt01": "884d2fc08f11ce7e32d2e4fb39d7a27dbaab365c66e68e482921a5e52be0185b",
+    "dependent-native-instrumented-attempt01": "1f0986b284670e0dbf21986910dc625d80889c808c759350a378c9839c9216ab"
+  },
+  "verified_binary_sha256": {
+    "unmodified-upstream": "cfa7fd110a41c209746137da8b5af0a1c06dee47d58682e797d31b8952b72e4b",
+    "instrumented": "d4977dc31b3b8fa00c0162c9990c3abcd167b023d8089be92834fb02659683b6"
+  },
+  "prior_halfdt_terminal_execution_sha256": "09acbd228cb5715e0ba6a385fe5b54f3c4c5ac8e8d9b619dce0ed86ae4c138e9",
+  "active_non_solver_container_names": [
+    "gwen-app-1",
+    "gwen-web-1",
+    "gwen-remote-1",
+    "gwen-powersync-compact-scheduler-1",
+    "gwen-powersync-service-1",
+    "gwen-reverse-proxy-1",
+    "gwen-postgres-1"
+  ],
+  "independent_launcher_review": "In progress in parallel; no comparison or mechanics acceptance before review and output validation. Parent inspected corrected frozen launcher and exercised actual preparation plus focused tests.",
+  "limits": {
+    "one_arm_only": "unmodified-upstream",
+    "threads": 4,
+    "memory_gib": 10,
+    "timeout_seconds": 1800,
+    "target_time_seconds": 0.0005
+  },
+  "mechanical_acceptance": false
+}

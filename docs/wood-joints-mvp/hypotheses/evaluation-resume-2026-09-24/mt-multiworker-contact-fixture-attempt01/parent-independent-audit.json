@@ -1,0 +1,153 @@
+{
+  "scope": "parent independent all-pair force/moment/normal/area and nodal constraints/reactions, completion, matrix histories, exact DAT parity and actual MT workers; synthetic static solver fixture only",
+  "parser_sha256": "2034ab0e368c1f4661c306f86c4540821571519e14459f134b1a0ac1fcb9e8f7",
+  "contract_sha256": "7dcc042bff025c67db6b69d4bcb395a7e7c5ae50a54fd44200e35dc6ec8d90e0",
+  "results": [
+    {
+      "arm": "serial_reference",
+      "status": "bounded numerical fixture checks pass",
+      "completion": {
+        "exit_code": 0,
+        "job_finished_marker_count": 1,
+        "accepted_increment_count": 1,
+        "final_step_time": 1.0,
+        "final_iterations": 2,
+        "unconverged_attempts": 0
+      },
+      "equations": [
+        320,
+        320
+      ],
+      "nonzeros": [
+        1504,
+        2272
+      ],
+      "contact_springs": [
+        448,
+        448
+      ],
+      "actual_spooles_workers": [],
+      "per_pair_report_count": 48,
+      "nodal_table_rows": {
+        "TOP displacements": 64,
+        "TOP forces": 64,
+        "BOTTOM displacements": 64,
+        "BOTTOM forces": 64
+      },
+      "DAT_sha256": "88897e1c1fd2851c580333ed9e426ffebfe38371515c9971646c80cc5d4ff908",
+      "execution_sha256": "4859556c77fdd38a8576420433ee207eba8b26f00746b095a4109c01e7b607ea"
+    },
+    {
+      "arm": "mt_threads1",
+      "status": "bounded numerical fixture checks pass",
+      "completion": {
+        "exit_code": 0,
+        "job_finished_marker_count": 1,
+        "accepted_increment_count": 1,
+        "final_step_time": 1.0,
+        "final_iterations": 2,
+        "unconverged_attempts": 0
+      },
+      "equations": [
+        320,
+        320
+      ],
+      "nonzeros": [
+        1504,
+        2272
+      ],
+      "contact_springs": [
+        448,
+        448
+      ],
+      "actual_spooles_workers": [],
+      "per_pair_report_count": 48,
+      "nodal_table_rows": {
+        "TOP displacements": 64,
+        "TOP forces": 64,
+        "BOTTOM displacements": 64,
+        "BOTTOM forces": 64
+      },
+      "DAT_sha256": "88897e1c1fd2851c580333ed9e426ffebfe38371515c9971646c80cc5d4ff908",
+      "execution_sha256": "1fda3a9c1a97c1f1a0ce18a110d03c8e0a068bfb2b1114ce403c5747fc6e9ccc"
+    },
+    {
+      "arm": "mt_threads4",
+      "status": "bounded numerical fixture checks pass",
+      "completion": {
+        "exit_code": 0,
+        "job_finished_marker_count": 1,
+        "accepted_increment_count": 1,
+        "final_step_time": 1.0,
+        "final_iterations": 2,
+        "unconverged_attempts": 0
+      },
+      "equations": [
+        320,
+        320
+      ],
+      "nonzeros": [
+        1504,
+        2272
+      ],
+      "contact_springs": [
+        448,
+        448
+      ],
+      "actual_spooles_workers": [
+        4,
+        4
+      ],
+      "per_pair_report_count": 48,
+      "nodal_table_rows": {
+        "TOP displacements": 64,
+        "TOP forces": 64,
+        "BOTTOM displacements": 64,
+        "BOTTOM forces": 64
+      },
+      "DAT_sha256": "88897e1c1fd2851c580333ed9e426ffebfe38371515c9971646c80cc5d4ff908",
+      "execution_sha256": "758aa44558f178150e49cead955f72c28fecd18d56d666c27924a7e473c7369b"
+    },
+    {
+      "arm": "mt_acc_threads4",
+      "status": "bounded numerical fixture checks pass",
+      "completion": {
+        "exit_code": 0,
+        "job_finished_marker_count": 1,
+        "accepted_increment_count": 1,
+        "final_step_time": 1.0,
+        "final_iterations": 2,
+        "unconverged_attempts": 0
+      },
+      "equations": [
+        320,
+        320
+      ],
+      "nonzeros": [
+        1504,
+        2272
+      ],
+      "contact_springs": [
+        448,
+        448
+      ],
+      "actual_spooles_workers": [
+        4,
+        4
+      ],
+      "per_pair_report_count": 48,
+      "nodal_table_rows": {
+        "TOP displacements": 64,
+        "TOP forces": 64,
+        "BOTTOM displacements": 64,
+        "BOTTOM forces": 64
+      },
+      "DAT_sha256": "88897e1c1fd2851c580333ed9e426ffebfe38371515c9971646c80cc5d4ff908",
+      "execution_sha256": "420ef46abf3ed73dc8e3374b32e1f36c6e805ce4199470d015b50e3b70ed6341"
+    }
+  ],
+  "all_checks_pass": true,
+  "dynamic_reader_trajectory_verified": false,
+  "joint_acceptance": false,
+  "producer_snapshot_sha256": "9b75250bdd49bda783f22c04a096dba34769c41733baa6c7abfedcc4cb9b08b5"
+}

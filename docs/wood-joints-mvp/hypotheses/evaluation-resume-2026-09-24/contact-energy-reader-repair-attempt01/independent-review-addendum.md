@@ -1,0 +1,13 @@
+# Independent review addendum: printout integration and FRD scope
+
+This addendum supplements [the source review](independent-review.md), whose frozen source-manifest and review hashes remain unchanged. The source proposal manifest is still `source-pins.json` SHA-256 `817907d382af23167e5fa46a4bf882667dd822a57f31f8454e90bd46b4d39635`.
+
+## Whole-`printout` request order
+
+The parent-run integration fixture closes the prior review's sequencing caveat. Its frozen input pins are SHA-256 `ac5c7c65145fb5bdb4ca51cf91d66ed79b7e0b7eae3df2e5a3b4ceec1a3c768b`; the driver is `db169379e53b091c6919f40b9eed8b63d2e55e99d111725627a8dbe86d39e45f`. It calls the proposed production `printout` with `ELSE` first and `CELS` second on the same generated CE, where compact slot 11 is deliberately `700` and point slot `10 + igauss(3)` is `7`. The pinned production sources are `printout.f` SHA-256 `432214a33e8a283d4bac438317a8c1a568f722ec01f4a65acdce99ee795fcd28` and `printoutelem.f` SHA-256 `49f7f529a3d4b74e4af726084b4b273e4004313475ccb8d217c7e80c86e18f22`. The run compiled and executed these sources with `-fcheck=all`; both return codes are zero. The captured rows are exactly one `ELSE` row for element 11 with energy 7 and one `CELS` row for master 42 / face 3 with energy 7, in the requested order. The parent execution asserts the helper archive SHA-256 `500d3d546e88c25d70703c84486e2b2828793683c8072cb9b81b5e79b498db5a` inside image `sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0`; its `execution.json` is SHA-256 `ab69e24f053d8e22eb12ecc7cdce122dfcf593020f38d7d219edf26dd5846918`, and the captured `.dat` is SHA-256 `bcd8302d482e3a1adae463967d61fd3d6e6b0758ba4ea71f511faae36a1b9b69`.
+
+This validates the requested first-output-before-CELS path at source-fixture scale. It remains distinct from a full CalculiX build and native joint diagnostic; it provides no contact-mechanics or response acceptance.
+
+## FRD CELS is excluded
+
+The proposal does not change `frd.c`. In official CalculiX 2.21 `frd.c` (source archive SHA-256 `52a20ef7216c6e2de75eae460539915640e3140ec4a2f631a9301e01eda605ad`; file SHA-256 `9c8214f65fad852496438df1818b31adad6a3339da7ad36ca3c444e4e91c2158`), the FRD CELS block at lines 1697–1729 iterates generated CE element index `i` and outputs an energy slot indexed from `i`; it does not decode the CE's trailing `igauss` or use `ne0+igauss`. That path remains outside this reader repair. Until separately fixed and validated, FRD CELS values are excluded from corrected-energy authority. The scope supported here is the point map, the corrected DAT `CELS`/`ELSE` reader, and the LOG aggregate through `calcenergy`; this statement does not imply every CalculiX energy output has been corrected.

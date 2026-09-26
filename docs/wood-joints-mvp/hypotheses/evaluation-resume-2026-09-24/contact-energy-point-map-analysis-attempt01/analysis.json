@@ -1,0 +1,636 @@
+{
+  "binary": {
+    "diagnostic_outputs": [
+      "wj-dependent-residual-audit.csv",
+      "pilot.wj-contact-energy-map.csv",
+      "pilot.dat"
+    ],
+    "instrumented_executable_sha256": "af0da93038dda93e7d9807f392a5fe6c4fd5f2b9d0b47d0de5d107936795d174",
+    "mechanical_acceptance": false,
+    "solver_image_sha256": "sha256:5adec98a0bb4f4cffbcc3fa15f5014db08621f1204b65cf1f130ff46d9cd32b0"
+  },
+  "csv": {
+    "WJ_E_IF_minus_compact_reader_energy_Nmm": -1.056743578576244e-09,
+    "WJ_E_IF_minus_writer_energy_Nmm": -2.548568064683e-26,
+    "accepted_STA_row": {
+      "accepted": true,
+      "attempt": "1",
+      "increment": 1,
+      "increment_time_token": "0.500000E-03",
+      "iterations_token": "23",
+      "step": 1,
+      "step_time_token": "0.500000E-03",
+      "total_time_token": "0.500000E-03"
+    },
+    "compact_minus_writer_energy_Nmm": 1.056743578576244e-09,
+    "compact_reader_energy_sum_Nmm": 1.091529615022061e-09,
+    "compact_reader_viscous_energy_sum_Nmm": 0.0,
+    "complete_blocks": 1,
+    "declared_end_count": 104244,
+    "declared_state_count": 104244,
+    "expected_count_marker_note": "END repeats the producer's expected point count; parser independently counts POINT rows. A complete block requires STATE == END == actual POINT count.",
+    "incomplete_blocks": [],
+    "independently_counted_point_rows": 104244,
+    "max_abs_point_writer_minus_exact_decimal_token_formula_Nmm": 1.787215922961066e-29,
+    "max_abs_point_writer_minus_native_clear_formula_Nmm": 6.310887241768095e-30,
+    "max_abs_point_writer_minus_printer_energy_Nmm": 6.310887241768095e-30,
+    "native_clear_exact_decimal_token_formula_sum_Nmm": 3.478603644581715e-11,
+    "native_clear_linear_formula_sum_Nmm": 3.478603644581715e-11,
+    "nener_values": [
+      1
+    ],
+    "point_count": 104244,
+    "selected_dtime_s": 0.0005,
+    "selected_increment": 1,
+    "selected_step": 1,
+    "selected_time_s": 0.0005,
+    "writer_energy_sum_Nmm": 3.478603644581715e-11,
+    "writer_minus_native_clear_formula_Nmm": -1.02616036e-30,
+    "writer_minus_printer_point_energy_sum_Nmm": 1.8760912624382743e-29,
+    "writer_viscous_energy_sum_Nmm": 0.0,
+    "writer_vs_compact_address_mismatch_count": 104244,
+    "writer_vs_compact_energy_value_mismatch_count": 104244
+  },
+  "dat": {
+    "CELS_minus_C_compact_sum_Nmm": -3.2674520200885175e-18,
+    "CELS_minus_LOG_displayed_energy_Nmm": -3.882453910098135e-16,
+    "CELS_row_count_equals_C_point_count": true,
+    "CELS_section": {
+      "displayed_energy_sum_Nmm": 1.091529611754609e-09,
+      "row_count": 104244,
+      "time_s": 0.0005
+    },
+    "LOG_elastic_contact_energy_records": [
+      "1.091530e-09"
+    ],
+    "WJ_CEP_clearproj_exact_decimal_token_formula_sum_Nmm": 3.478603644581715e-11,
+    "WJ_CEP_clearproj_formula_sum_Nmm": 3.478603644581715e-11,
+    "WJ_CEP_printer_energy_sum_Nmm": 3.478603644581715e-11,
+    "WJ_E_IF_pair_records_at_selected_time": 35,
+    "WJ_E_IF_pair_sum_Nmm": 3.4786036445817124e-11,
+    "complete_WJ_CEP_point_value_records_at_selected_time": 104244,
+    "duplicate_point_keys": [],
+    "incomplete_WJ_CEP_records_total": 0,
+    "joined_pair_summaries": [
+      {
+        "compact_energy_sum_Nmm": 5.038470193320027e-13,
+        "compact_minus_writer_Nmm": 4.849547964015177e-13,
+        "matched_point_count": 3612,
+        "native_formula_sum_Nmm": 1.8892222930484983e-14,
+        "pair": "1:WJCP_001_S:WJCP_001_M",
+        "writer_compact_address_mismatch_count": 3612,
+        "writer_energy_sum_Nmm": 1.8892222930484983e-14
+      },
+      {
+        "compact_energy_sum_Nmm": 8.230533899149377e-14,
+        "compact_minus_writer_Nmm": -2.478460351701937e-12,
+        "matched_point_count": 758,
+        "native_formula_sum_Nmm": 2.560765690693431e-12,
+        "pair": "2:WJCP_002_S:WJCP_002_M",
+        "writer_compact_address_mismatch_count": 758,
+        "writer_energy_sum_Nmm": 2.560765690693431e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 1.576850577918474e-14,
+        "compact_minus_writer_Nmm": -1.9751195477329357e-12,
+        "matched_point_count": 249,
+        "native_formula_sum_Nmm": 1.9908880535121207e-12,
+        "pair": "3:WJCP_003_S:WJCP_003_M",
+        "writer_compact_address_mismatch_count": 249,
+        "writer_energy_sum_Nmm": 1.9908880535121207e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 3.113350851779055e-13,
+        "compact_minus_writer_Nmm": 2.981156101916369e-13,
+        "matched_point_count": 8553,
+        "native_formula_sum_Nmm": 1.3219474986268626e-14,
+        "pair": "4:WJCP_004_S:WJCP_004_M",
+        "writer_compact_address_mismatch_count": 8553,
+        "writer_energy_sum_Nmm": 1.3219474986268626e-14
+      },
+      {
+        "compact_energy_sum_Nmm": 3.7154937282514e-10,
+        "compact_minus_writer_Nmm": 3.715426845007124e-10,
+        "matched_point_count": 7271,
+        "native_formula_sum_Nmm": 6.688324427619468e-15,
+        "pair": "5:WJCP_005_S:WJCP_005_M",
+        "writer_compact_address_mismatch_count": 7271,
+        "writer_energy_sum_Nmm": 6.688324427619468e-15
+      },
+      {
+        "compact_energy_sum_Nmm": 5.665168468098169e-10,
+        "compact_minus_writer_Nmm": 5.665037746419527e-10,
+        "matched_point_count": 8253,
+        "native_formula_sum_Nmm": 1.3072167864202072e-14,
+        "pair": "6:WJCP_006_S:WJCP_006_M",
+        "writer_compact_address_mismatch_count": 8253,
+        "writer_energy_sum_Nmm": 1.3072167864202072e-14
+      },
+      {
+        "compact_energy_sum_Nmm": 1.5249146433467717e-10,
+        "compact_minus_writer_Nmm": 1.5248532089701132e-10,
+        "matched_point_count": 5601,
+        "native_formula_sum_Nmm": 6.143437665872644e-15,
+        "pair": "7:WJCP_007_S:WJCP_007_M",
+        "writer_compact_address_mismatch_count": 5601,
+        "writer_energy_sum_Nmm": 6.143437665872644e-15
+      },
+      {
+        "compact_energy_sum_Nmm": 6.979975273628117e-15,
+        "compact_minus_writer_Nmm": -5.870030840626749e-15,
+        "matched_point_count": 8614,
+        "native_formula_sum_Nmm": 1.2850006114254865e-14,
+        "pair": "8:WJCP_008_S:WJCP_008_M",
+        "writer_compact_address_mismatch_count": 8614,
+        "writer_energy_sum_Nmm": 1.2850006114254865e-14
+      },
+      {
+        "compact_energy_sum_Nmm": 2.5587217775744136e-15,
+        "compact_minus_writer_Nmm": -6.921999354620873e-15,
+        "matched_point_count": 4648,
+        "native_formula_sum_Nmm": 9.480721132195287e-15,
+        "pair": "9:WJCP_009_S:WJCP_009_M",
+        "writer_compact_address_mismatch_count": 4648,
+        "writer_energy_sum_Nmm": 9.480721132195287e-15
+      },
+      {
+        "compact_energy_sum_Nmm": 4.390058670957368e-15,
+        "compact_minus_writer_Nmm": -7.938138293745151e-15,
+        "matched_point_count": 7885,
+        "native_formula_sum_Nmm": 1.2328196964702519e-14,
+        "pair": "10:WJCP_010_S:WJCP_010_M",
+        "writer_compact_address_mismatch_count": 7885,
+        "writer_energy_sum_Nmm": 1.2328196964702519e-14
+      },
+      {
+        "compact_energy_sum_Nmm": 2.4502291636267976e-15,
+        "compact_minus_writer_Nmm": -5.298272501567408e-15,
+        "matched_point_count": 3236,
+        "native_formula_sum_Nmm": 7.748501665194206e-15,
+        "pair": "11:WJCP_011_S:WJCP_011_M",
+        "writer_compact_address_mismatch_count": 3236,
+        "writer_energy_sum_Nmm": 7.748501665194206e-15
+      },
+      {
+        "compact_energy_sum_Nmm": 8.220840945545126e-15,
+        "compact_minus_writer_Nmm": -5.403764123929316e-12,
+        "matched_point_count": 5583,
+        "native_formula_sum_Nmm": 5.411984964874861e-12,
+        "pair": "12:WJCP_012_S:WJCP_012_M",
+        "writer_compact_address_mismatch_count": 5583,
+        "writer_energy_sum_Nmm": 5.411984964874861e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 4.549133623069309e-15,
+        "compact_minus_writer_Nmm": -2.395743280469732e-12,
+        "matched_point_count": 5458,
+        "native_formula_sum_Nmm": 2.4002924140928015e-12,
+        "pair": "13:WJCP_013_S:WJCP_013_M",
+        "writer_compact_address_mismatch_count": 5458,
+        "writer_energy_sum_Nmm": 2.4002924140928015e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 5.659910271888736e-15,
+        "compact_minus_writer_Nmm": -4.2866918110505744e-12,
+        "matched_point_count": 7888,
+        "native_formula_sum_Nmm": 4.2923517213224634e-12,
+        "pair": "14:WJCP_014_S:WJCP_014_M",
+        "writer_compact_address_mismatch_count": 7888,
+        "writer_energy_sum_Nmm": 4.2923517213224634e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 7.475835760961677e-15,
+        "compact_minus_writer_Nmm": -2.6678959263292135e-12,
+        "matched_point_count": 5495,
+        "native_formula_sum_Nmm": 2.6753717620901748e-12,
+        "pair": "15:WJCP_015_S:WJCP_015_M",
+        "writer_compact_address_mismatch_count": 5495,
+        "writer_energy_sum_Nmm": 2.6753717620901748e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 5.5695761720642525e-15,
+        "compact_minus_writer_Nmm": -5.345831745824586e-12,
+        "matched_point_count": 5646,
+        "native_formula_sum_Nmm": 5.35140132199665e-12,
+        "pair": "16:WJCP_016_S:WJCP_016_M",
+        "writer_compact_address_mismatch_count": 5646,
+        "writer_energy_sum_Nmm": 5.35140132199665e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 4.3245553424899574e-16,
+        "compact_minus_writer_Nmm": -3.1781328283345936e-12,
+        "matched_point_count": 4057,
+        "native_formula_sum_Nmm": 3.1785652838688427e-12,
+        "pair": "17:WJCP_017_S:WJCP_017_M",
+        "writer_compact_address_mismatch_count": 4057,
+        "writer_energy_sum_Nmm": 3.1785652838688427e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 5.877653901805032e-15,
+        "compact_minus_writer_Nmm": -4.351241595311395e-12,
+        "matched_point_count": 7709,
+        "native_formula_sum_Nmm": 4.3571192492132e-12,
+        "pair": "18:WJCP_018_S:WJCP_018_M",
+        "writer_compact_address_mismatch_count": 7709,
+        "writer_energy_sum_Nmm": 4.3571192492132e-12
+      },
+      {
+        "compact_energy_sum_Nmm": 4.510712050865661e-15,
+        "compact_minus_writer_Nmm": -2.4623622183509418e-12,
+        "matched_point_count": 3728,
+        "native_formula_sum_Nmm": 2.4668729304018073e-12,
+        "pair": "19:WJCP_019_S:WJCP_019_M",
+        "writer_compact_address_mismatch_count": 3728,
+        "writer_energy_sum_Nmm": 2.4668729304018073e-12
+      }
+    ],
+    "max_abs_C_vs_DAT_area_difference_mm2": 0.0,
+    "max_abs_C_vs_DAT_native_clear_difference_mm": 0.0,
+    "max_abs_C_vs_DAT_pressure_difference_N_per_mm2": 0.0,
+    "max_abs_point_printer_minus_clearproj_formula_Nmm": 0.0,
+    "max_abs_point_printer_minus_exact_decimal_token_formula_Nmm": 1.787215922961066e-29,
+    "max_abs_printer_clearproj_minus_native_clear_mm": 0.0,
+    "pair_summaries": [
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 1.2328196964702476e-14,
+        "clearproj_formula_sum_Nmm": 1.2328196964702519e-14,
+        "pair": "10:WJCP_010_S:WJCP_010_M",
+        "point_count": 7885,
+        "printer_energy_sum_Nmm": 1.2328196964702519e-14,
+        "printer_minus_WJ_E_IF_Nmm": 4.286691569746e-29
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 7.748501665194228e-15,
+        "clearproj_formula_sum_Nmm": 7.748501665194206e-15,
+        "pair": "11:WJCP_011_S:WJCP_011_M",
+        "point_count": 3236,
+        "printer_energy_sum_Nmm": 7.748501665194206e-15,
+        "printer_minus_WJ_E_IF_Nmm": -2.260855608e-29
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 5.41198496487484e-12,
+        "clearproj_formula_sum_Nmm": 5.411984964874861e-12,
+        "pair": "12:WJCP_012_S:WJCP_012_M",
+        "point_count": 5583,
+        "printer_energy_sum_Nmm": 5.411984964874861e-12,
+        "printer_minus_WJ_E_IF_Nmm": 2.072473385639e-26
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 2.4002924140928044e-12,
+        "clearproj_formula_sum_Nmm": 2.4002924140928015e-12,
+        "pair": "13:WJCP_013_S:WJCP_013_M",
+        "point_count": 5458,
+        "printer_energy_sum_Nmm": 2.4002924140928015e-12,
+        "printer_minus_WJ_E_IF_Nmm": -2.868940463136e-27
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 4.292351721322459e-12,
+        "clearproj_formula_sum_Nmm": 4.2923517213224634e-12,
+        "pair": "14:WJCP_014_S:WJCP_014_M",
+        "point_count": 7888,
+        "printer_energy_sum_Nmm": 4.2923517213224634e-12,
+        "printer_minus_WJ_E_IF_Nmm": 4.012004681298e-27
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 2.675371762090168e-12,
+        "clearproj_formula_sum_Nmm": 2.6753717620901748e-12,
+        "pair": "15:WJCP_015_S:WJCP_015_M",
+        "point_count": 5495,
+        "printer_energy_sum_Nmm": 2.6753717620901748e-12,
+        "printer_minus_WJ_E_IF_Nmm": 7.053893512453e-27
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 5.351401321996636e-12,
+        "clearproj_formula_sum_Nmm": 5.35140132199665e-12,
+        "pair": "16:WJCP_016_S:WJCP_016_M",
+        "point_count": 5646,
+        "printer_energy_sum_Nmm": 5.35140132199665e-12,
+        "printer_minus_WJ_E_IF_Nmm": 1.387316204628e-26
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 3.1785652838688386e-12,
+        "clearproj_formula_sum_Nmm": 3.1785652838688427e-12,
+        "pair": "17:WJCP_017_S:WJCP_017_M",
+        "point_count": 4057,
+        "printer_energy_sum_Nmm": 3.1785652838688427e-12,
+        "printer_minus_WJ_E_IF_Nmm": 4.0797505791e-27
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 4.357119249213223e-12,
+        "clearproj_formula_sum_Nmm": 4.3571192492132e-12,
+        "pair": "18:WJCP_018_S:WJCP_018_M",
+        "point_count": 7709,
+        "printer_energy_sum_Nmm": 4.3571192492132e-12,
+        "printer_minus_WJ_E_IF_Nmm": -2.337322551923e-26
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 2.46687293040181e-12,
+        "clearproj_formula_sum_Nmm": 2.4668729304018073e-12,
+        "pair": "19:WJCP_019_S:WJCP_019_M",
+        "point_count": 3728,
+        "printer_energy_sum_Nmm": 2.4668729304018073e-12,
+        "printer_minus_WJ_E_IF_Nmm": -2.791161871689e-27
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 1.889222293048495e-14,
+        "clearproj_formula_sum_Nmm": 1.8892222930484983e-14,
+        "pair": "1:WJCP_001_S:WJCP_001_M",
+        "point_count": 3612,
+        "printer_energy_sum_Nmm": 1.8892222930484983e-14,
+        "printer_minus_WJ_E_IF_Nmm": 3.526216371041e-29
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "20:WJCP_020_S:WJCP_020_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "21:WJCP_021_S:WJCP_021_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "22:WJCP_022_S:WJCP_022_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "23:WJCP_023_S:WJCP_023_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "24:WJCP_024_S:WJCP_024_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "25:WJCP_025_S:WJCP_025_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "26:WJCP_026_S:WJCP_026_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "27:WJCP_027_S:WJCP_027_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "28:WJCP_028_S:WJCP_028_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "29:WJCP_029_S:WJCP_029_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 2.560765690693428e-12,
+        "clearproj_formula_sum_Nmm": 2.560765690693431e-12,
+        "pair": "2:WJCP_002_S:WJCP_002_M",
+        "point_count": 758,
+        "printer_energy_sum_Nmm": 2.560765690693431e-12,
+        "printer_minus_WJ_E_IF_Nmm": 3.29554416792e-27
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "30:WJCP_030_S:WJCP_030_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "31:WJCP_031_S:WJCP_031_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "32:WJCP_032_S:WJCP_032_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "33:WJCP_033_S:WJCP_033_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "34:WJCP_034_S:WJCP_034_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": false,
+        "WJ_E_IF_Nmm": 0.0,
+        "clearproj_formula_sum_Nmm": 0.0,
+        "pair": "35:WJCP_035_S:WJCP_035_M",
+        "point_count": 0,
+        "printer_energy_sum_Nmm": 0.0,
+        "printer_minus_WJ_E_IF_Nmm": 0.0
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 1.990888053512119e-12,
+        "clearproj_formula_sum_Nmm": 1.9908880535121207e-12,
+        "pair": "3:WJCP_003_S:WJCP_003_M",
+        "point_count": 249,
+        "printer_energy_sum_Nmm": 1.9908880535121207e-12,
+        "printer_minus_WJ_E_IF_Nmm": 1.45300131e-27
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 1.3219474986268664e-14,
+        "clearproj_formula_sum_Nmm": 1.3219474986268626e-14,
+        "pair": "4:WJCP_004_S:WJCP_004_M",
+        "point_count": 8553,
+        "printer_energy_sum_Nmm": 1.3219474986268626e-14,
+        "printer_minus_WJ_E_IF_Nmm": -3.801958604464e-29
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 6.688324427619468e-15,
+        "clearproj_formula_sum_Nmm": 6.688324427619468e-15,
+        "pair": "5:WJCP_005_S:WJCP_005_M",
+        "point_count": 7271,
+        "printer_energy_sum_Nmm": 6.688324427619468e-15,
+        "printer_minus_WJ_E_IF_Nmm": 8.4922308032e-32
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 1.3072167864202048e-14,
+        "clearproj_formula_sum_Nmm": 1.3072167864202072e-14,
+        "pair": "6:WJCP_006_S:WJCP_006_M",
+        "point_count": 8253,
+        "printer_energy_sum_Nmm": 1.3072167864202072e-14,
+        "printer_minus_WJ_E_IF_Nmm": 2.375375790279e-29
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 6.143437665872638e-15,
+        "clearproj_formula_sum_Nmm": 6.143437665872644e-15,
+        "pair": "7:WJCP_007_S:WJCP_007_M",
+        "point_count": 5601,
+        "printer_energy_sum_Nmm": 6.143437665872644e-15,
+        "printer_minus_WJ_E_IF_Nmm": 6.58837657458e-30
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 1.2850006114254892e-14,
+        "clearproj_formula_sum_Nmm": 1.2850006114254865e-14,
+        "pair": "8:WJCP_008_S:WJCP_008_M",
+        "point_count": 8614,
+        "printer_energy_sum_Nmm": 1.2850006114254865e-14,
+        "printer_minus_WJ_E_IF_Nmm": -2.58492691035e-29
+      },
+      {
+        "WJ_CEP_records_present": true,
+        "WJ_E_IF_Nmm": 9.480721132195303e-15,
+        "clearproj_formula_sum_Nmm": 9.480721132195287e-15,
+        "pair": "9:WJCP_009_S:WJCP_009_M",
+        "point_count": 4648,
+        "printer_energy_sum_Nmm": 9.480721132195287e-15,
+        "printer_minus_WJ_E_IF_Nmm": -1.634486860932e-29
+      }
+    ]
+  },
+  "execution": {
+    "accepted_horizon_endpoint_verified": false,
+    "binary_sha256": "af0da93038dda93e7d9807f392a5fe6c4fd5f2b9d0b47d0de5d107936795d174",
+    "binary_source_index_sha256": "1b7db302ac72d4511c1a0697763a48b936b72e5c494228c22a7a34bcf4e01745",
+    "returncode": 137,
+    "status": "parent_stopped"
+  },
+  "inputs": {
+    "binary_source_index": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01/binary-source-index.json",
+      "sha256": "1b7db302ac72d4511c1a0697763a48b936b72e5c494228c22a7a34bcf4e01745"
+    },
+    "csv": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01/pilot.wj-contact-energy-map.csv",
+      "sha256": "227a60baca84fa400cf408b02e27a6826895d63d49f9cdacc7d7c6c9b554dbd2"
+    },
+    "dat": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01/pilot.dat",
+      "sha256": "98582fc99ea1f4218275ab3d7ac4c60013446318fb5d94d094d4f9441b7e249c"
+    },
+    "execution": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01/execution.json",
+      "sha256": "aad5d6d3cf724525064b4bac20458165d6db83c31dc922d6a202113c3445dba8"
+    },
+    "log": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01/pilot.log",
+      "sha256": "e47ac7adb24905a87bbc650dd1c0c8b8c19bbf2e25f15800585cfb9815437eb0"
+    },
+    "sta": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/dependent-residual-contact-trajectory-run-attempt01/pilot.sta",
+      "sha256": "ccc90a7fc440241c1eb5c7096a001fe39557c7ba927b0471ecd73f14b54cbdfb"
+    }
+  },
+  "interpretation_limits": [
+    "The current frictionless linear spring source path supports per-point -0.5 * pressure * area * clearance; native clearance and printer clearproj are reported separately.",
+    "The binary64 reconstruction evaluates normalforce = pressure * area, then -0.5 * normalforce * clearance, matching the printer path. Native springforc_f2f computes senergy = -elas * clear / 2 and cstr(4) = elas / springarea; the reconstruction is mathematically equivalent for this linear branch, not a bitwise replay of native intermediate operations.",
+    "Writer energy uses ne0+igauss while compact CELS/LOG readers use nelem; compare the recorded slots, do not assume they coincide.",
+    "The `compact_*` values are the raw nelem-index values from this exact uncorrected instrumented executable (SHA-256 af0da93038dda93e7d9807f392a5fe6c4fd5f2b9d0b47d0de5d107936795d174). They are not a generic label for a future corrected reader.",
+    "CELS and the standard LOG elastic contact-energy total share the compact-reader lineage and are not independent pointwise checks.",
+    "The longer 0.025 s horizon can change clearini*reltime at increment 1 relative to a preserved shorter paired arm, even if dt and loads match. Interpret this run using its own native clear, pressure, energy, and matched point identifiers; do not import old per-point energies as expected values.",
+    "This audit reports output arithmetic and identity only. It does not infer force-path acceptance, seating, capacity, reaction, or mechanical convergence from a single state."
+  ],
+  "join": {
+    "C_point_rows_without_DAT_match": [],
+    "DAT_point_rows_without_C_match": [],
+    "join_key": [
+      "Fortran element number",
+      "igauss",
+      "jfaces",
+      "selected time"
+    ],
+    "matched_point_rows": 104244,
+    "matched_points_artifact": {
+      "path": "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-energy-point-map-analysis-attempt01/matched-points.csv",
+      "rows": 104244,
+      "sha256": "fcccc25f1e80b7361a3e4056e7423044f5e02d01363ededd7072fc62e6a2cc42"
+    }
+  },
+  "schema": "wj-contact-energy-point-map-analysis/v1",
+  "scope": "Output audit only; no mechanics acceptance or physical joint capacity inference.",
+  "sta": {
+    "accepted_step_increments": 1,
+    "rejected_attempt_rows": []
+  },
+  "status": "first-complete-accepted-block-parsed"
+}

@@ -1,0 +1,103 @@
+{
+  "schema": "parent_event_plus_following_state_framing/v1",
+  "producer_sha256": "6efe609a58aa3fa0c20411d6ea569fe9eb5769ee72c760852130450a76b2f513",
+  "capture_sha256": "e3e1d3c80f3e48e708d5bf7a09f7b6b2024f5f98056a7b4b4c08bce8a49dc015",
+  "angular_extension_sha256": "1b69d9078e2e64f2f044a0ddd6e27e66b4fb8174b02bba6d1358f820e7a2bfe8",
+  "parser_pins": {
+    "acc": "a5a2b99eb7f6c992efcaae04f41185857a77b0e41a78100dddcb728db0457ed1",
+    "angular": "9be21ca6856dd9892629c6e8dddec2120cf2e4ab5279dcb32f2c9372a00a22cb",
+    "points": "78887f638b7d3bf8b200e12e03b3ad179f1d53226e285ed2a808b3de0cc3eb0f",
+    "dependent": "626999de549f35a173ac1dcd478f0b4f02265f41d77e4d4d513a4e6c4965bf0f"
+  },
+  "states": [
+    {
+      "step": 1,
+      "increment": 39,
+      "native_time": "0.01950000000000001",
+      "dtime": "0.00050000000000000001",
+      "physical_ACC_nodes": 116162,
+      "map_POINT_count": 72045,
+      "map_STATE_POINT_END_count_matches": true,
+      "MPC_rows": 24,
+      "support_ACC_nodes": 337,
+      "support_ACC_matches_full_ACC": true,
+      "angular_coverage": {
+        "header_count": 315,
+        "expected_identity_count": 315
+      },
+      "vector_checks": {
+        "cf_equals_cfn_plus_cfs": {
+          "component_count": 525,
+          "failed_component_count": 0,
+          "max_abs_difference": "0E-20",
+          "worst_error_over_bound": "0E+21",
+          "max_bound": "5.859138004674166621043696068E-10",
+          "status": "PASS"
+        },
+        "slave_master_force_action_reaction": {
+          "component_count": 315,
+          "failed_component_count": 0,
+          "max_abs_difference": "0E-20",
+          "worst_error_over_bound": "0E+21",
+          "max_bound": "1.072201410519855528491461882E-12",
+          "status": "PASS"
+        },
+        "pair_offset_couple_equals_origin_moment_sum": {
+          "component_count": 315,
+          "failed_component_count": 0,
+          "max_abs_difference": "1.75199E-13",
+          "worst_error_over_bound": "0.001589727486750890490403848693",
+          "max_bound": "5.859137509674166571249145363E-10",
+          "status": "PASS"
+        },
+        "rounding_policy": "Each printed value contributes half its textual E-format quantum; arithmetic allowance is the printer-fixture 128*binary64-epsilon*max(1,sum(abs(operands))) bound. This is output-identity validation, not a mechanics tolerance."
+      }
+    },
+    {
+      "step": 1,
+      "increment": 40,
+      "native_time": "0.019750000000000011",
+      "dtime": "0.00025000000000000001",
+      "physical_ACC_nodes": 116162,
+      "map_POINT_count": 79174,
+      "map_STATE_POINT_END_count_matches": true,
+      "MPC_rows": 24,
+      "support_ACC_nodes": 337,
+      "support_ACC_matches_full_ACC": true,
+      "angular_coverage": {
+        "header_count": 315,
+        "expected_identity_count": 315
+      },
+      "vector_checks": {
+        "cf_equals_cfn_plus_cfs": {
+          "component_count": 525,
+          "failed_component_count": 0,
+          "max_abs_difference": "0E-20",
+          "worst_error_over_bound": "0E+21",
+          "max_bound": "8.360876197236314181282068602E-10",
+          "status": "PASS"
+        },
+        "slave_master_force_action_reaction": {
+          "component_count": 315,
+          "failed_component_count": 0,
+          "max_abs_difference": "0E-20",
+          "worst_error_over_bound": "0E+21",
+          "max_bound": "1.674069937626763817206665408E-12",
+          "status": "PASS"
+        },
+        "pair_offset_couple_equals_origin_moment_sum": {
+          "component_count": 315,
+          "failed_component_count": 0,
+          "max_abs_difference": "8.4596E-13",
+          "worst_error_over_bound": "0.001011807884215516460001065624",
+          "max_bound": "8.360875747236313940845775504E-10",
+          "status": "PASS"
+        },
+        "rounding_policy": "Each printed value contributes half its textual E-format quantum; arithmetic allowance is the printer-fixture 128*binary64-epsilon*max(1,sum(abs(operands))) bound. This is output-identity validation, not a mechanics tolerance."
+      }
+    }
+  ],
+  "status": "COMPLETE_EVENT_AND_FOLLOWING_ACCEPTED_OUTPUTS",
+  "mechanical_acceptance": false,
+  "scope": "Output framing and vector identities only; not full energy, equilibrium, sensitivity, or joint acceptance."
+}

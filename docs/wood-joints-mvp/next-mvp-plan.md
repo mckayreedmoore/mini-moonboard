@@ -29,8 +29,8 @@ candidate selection, and apartment-floor qualification are outside this goal.
 
 | Step | Remaining work | Required result and dependency |
 | --- | --- | --- |
-| 1. Freeze and reconcile | Keep the approved viewer/model stable. Bind current geometry, axes, grain scenarios, hardware roles, source files, and applied loads. Use the current geometry entry point and exact STEP exports; archive older adapters without migrating unused ones. | One consistent revision: 24 blocks, 92 candidate bolts, 12 retained frame bolts, and 66 Hillman axes (58 unchanged plus eight recorded moves). Geometry replay and current receiver/grip screens are available; full contact graph remains open. |
-| 2. Finish one joint end to end | Mesh the exported ordinary bottom-center right joint: three full timber members, four bolt stacks, and all three wood contacts. Verify ownership, volumes, element quality, contact coverage and normals. Freeze material, clearance, assembly/preload, bolt/nut engagement, boundary and load assumptions. Validate only the missing numerical methods, then run a bounded joint response. | Authenticated mesh and contact inputs, audited equilibrium and transferred wrenches, interpretable opening/slip/rotation and bolt/wood actions, with mesh and assumption sensitivity. Solver convergence alone is insufficient. The contact-output benchmark passed its limited checks; current-joint response has not run. |
+| 1. Freeze and reconcile | Keep the approved viewer/model stable. Bind current geometry, axes, grain scenarios, hardware roles, source files, and applied loads. Use the current geometry entry point and exact STEP exports; archive older adapters without migrating unused ones. | One consistent revision: 24 blocks, 92 candidate bolts, 12 retained frame bolts, and 66 Hillman axes (58 unchanged plus eight recorded moves). Geometry replay, current receiver/grip screens and the 50-member geometric contact graph are available; complete mechanical attachment and transfer models remain open. |
+| 2. Finish one joint end to end | Mesh the exported ordinary bottom-center right joint: three full timber members, four bolt stacks, and all three wood contacts. Verify ownership, volumes, element quality, contact coverage and normals. Freeze material, clearance, assembly/preload, bolt/nut engagement, boundary and load assumptions. Validate only the missing numerical methods, then run a bounded joint response. | Authenticated mesh and contact inputs, audited equilibrium and transferred wrenches, interpretable opening/slip/rotation and bolt/wood actions, with mesh and assumption sensitivity. Solver convergence alone is insufficient. The contact-output benchmark passed its limited checks. Current-joint transient diagnostics have run; physical engagement, numerical sensitivity, and an accepted joint response remain unresolved. |
 | 3. Cover all complete joints | Reuse the validated method where geometry, grain, hardware and loading justify it. Evaluate ordinary, tall-center and complete exterior sandwich joints; include both inner-header bolts per side, direct seats, retained host connections and all twelve frame bolts. Close the complete timber/panel contact and attachment graph and all 24 replaced angle duties. | A documented equivalence or separate evaluation for every station; complete center-kicker/header paths and kerf-right edge support. No acceptance by block shape alone, shared part name, or historical pass. |
 | 4. Establish full-frame response | Build the current complete-frame model with justified joint response or reduced stiffness and sensitivity. Include current panel/kicker load transfer, dead load, actual recess/sections and conditional no-slip supports. Freeze the model and six source-bound applied-load cases; run heavy/native cases serially. | Fresh six-case reactions, signed member/joint demands, displacements and stability evidence; force/moment closure and numerical/model sensitivity. No arbitrary force split or inherited old actions. Local unit responses are not these load cases. |
 | 5. Resolve structural criteria | Apply the [47-item register](current-criteria-coverage.md) to fresh demands. Check complete-joint wood/bolt resistance, axial and lateral interaction, signed grain/end/edge/group effects, washer support/bending, splitting, bearing, finished/net sections, taper/notch/shear/torsion and stability. Confirm method applicability and hardware basis. | Evidence-linked disposition for all 36 inherited criteria and 11 candidate obligations. Unsupported capacities remain unresolved. A failed adopted check or missing path stops the affected operation and produces a specific finding before any model change. |
@@ -76,13 +76,237 @@ The next concrete milestone is step 2's first current-joint response, not anothe
 viewer, planning report, or historical adapter migration. Steps 3–7 may overlap
 only where their inputs are ready; all remain necessary for the final package.
 
+Latest corrected-run checkpoint, September 25: the
+[parent pressure observation](hypotheses/evaluation-resume-2026-09-24/parent-bore-pressure-prefix-attempt01/README.md)
+and its independent review bind first reported positive local pressure and
+nonzero normal-force resultants on all four monitored cleat bores to accepted
+state 39, 0.0195 s. State 40 at 0.01975 s is also accepted. The initially
+buffered three angular records arrived after state 41 was accepted. The
+[parent framing audit](hypotheses/evaluation-resume-2026-09-24/parent-event-state-prefix-attempt01/framing-audit.json)
+then passed both target states, and the parent stopped the bounded diagnostic.
+The earlier state-1 global moment residual remains above its narrow
+conditional output-token estimate, and its interpretation remains open. The
+[independently result-reviewed event-state global wrench audit](hypotheses/evaluation-resume-2026-09-24/event-state-global-wrench-audit-attempt01/README.md)
+covers accepted states 39 and 40: each moment-residual component is within its
+conditional output-token bound, with a largest component-to-bound ratio of
+1.25%. Those bounds omit mass/operator and multiplier uncertainty; no force
+tolerance is established, and this does not close equilibrium. Physical
+thread engagement and numerical sensitivity also remain open. The completion
+ledger carries the latest current observation; the dated method records below
+remain historical evidence.
+
+At the September 25 twenty-state force-run checkpoint, four cleat bore
+contacts first report nonzero force at 0.020 s. Applied-work reconstruction
+and DAT/LOG internal and kinetic energy comparisons have passed their bounded
+accounting checks. The parent-executed global and cleat momentum calculation
+over 0.019–0.020 s also lies within propagated output bounds under both mass
+operators; its independent review confirms those bounded results. It uses the ten complete
+cleat-incident contact reports. A subsequent complete contact-output prefix
+supports a conservative storage upper bound: 0.287187282 N mm at 0.020 s,
+leaving at least 0.179242268 N mm outside that envelope after print margins.
+The parent reproduced the result and independent review confirmed it. Under the
+pinned source semantics, missing contact storage alone cannot explain the
+energy discrepancy. The parent stopped the diagnostic at 38 accepted
+increments through 0.02171185 s to prioritize timestep refinement. Time
+accuracy and constraint moments remain open. The separate five-case contact
+printer fixture passed its native run and independent review. The dependent
+MPC output patch passed source review and a C syntax check; the combined
+diagnostic executable has linked but has no native joint validation. The
+same-packaged-binary half-timestep comparison has run with independently
+reviewed inputs and is now terminal after the parent stop described below.
+Its immutable early prefix contains four accepted states
+through 0.002 s. The independently reviewed early comparison reproduces
+native work within print bounds while showing timestep-dependent early
+motions. Global and cleat momentum bookkeeping also passed its bounded
+independent review under both mass formulations. The expanded work comparison
+through 0.013 s also passed independent review; none of these early checks establishes
+contact-onset time accuracy.
+The later immutable half-step prefix reaches 0.0195 s in 39 accepted
+increments without rejected attempts. Parent-reproduced work accounting
+matches native prints; the independently reviewed contact-storage bound
+still leaves at least 0.142278623 N mm outside the represented envelope at
+0.0195 s. That state has no exact accepted coarse counterpart. The exact
+0.019 s comparison gives q and work differences of -0.1865% and +0.00696%.
+Neither result establishes time accuracy. The parent stopped the half-step
+run after 43 accepted increments through 0.0206025 s and one rejected attempt;
+all 34 inputs and 12 output hashes verify. No exact accepted half-step
+0.020 s state exists. The short paired source-build/output-instrumentation
+check's unmodified upstream arm terminated with native code 201 after one
+accepted increment: the remaining 5e-10 s increment was below the 1e-6 s
+minimum. It did not time out or exhaust memory. Parent verification matched
+all eight inputs and nine outputs and both terminal bind mounts. Parent source
+inspection identifies the native end-of-step negative-pressure cleanup as
+the source of that tiny increment. The unchanged instrumented arm also
+terminated with code 201 after the same accepted first state. Its LOG/STA/CVG/CEL
+files and all six accepted FRD field blocks exactly match the upstream arm.
+The full legacy DAT is byte-identical after removing only the source-defined
+added diagnostic records.
+The hook contains all 24 MPC rows and 337 exact acceleration-node identities;
+the first residual reconstruction completed with unchanged native mass rows.
+Independent arithmetic review reproduced all 24 residual components. The
+whole-run gate remains failed. The accepted-first-increment comparator and
+its independent review now pass their bounded identity, coverage and paired
+output checks; parent replay reproduces the report values and six focused
+tests pass. Full wrench accounting and the relationship between the added
+per-pair energy records and global contact energy remain open.
+The unchanged eight-file input arms are preserved; no complete output
+equivalence or joint acceptance is claimed.
+The point-map derivative has now passed source review, compiled C and Fortran
+fixtures and a complete binary build. Its longer, separately frozen diagnostic
+trajectory launched at 17:08 UTC on September 25 and was parent-stopped
+after one accepted state: all 104,244 point writer energies match the native
+law, while the compact reader selects different slots and a different total.
+The preserved output-only diagnostic supports a reader-addressing defect;
+a separately reviewed correction must account for energy-based timestep
+control before continuing response interpretation. The custom Makefile also
+omitted multithreaded SPOOLES compilation, which is a concrete next-build speed
+opportunity requiring a matched numerical check. That isolated MT build now
+passes its build and linkage checks. The original small fixture has matching
+outputs across serial and MT arms but only one actual worker; a later 16-copy
+fixture completed in all four arms and exercised four actual workers. Its
+parent and independent all-pair audits now agree, including all 48 contact
+reports and complete top/bottom displacement and reaction output. The
+combined reader/ACC/MT executable
+has built and passed both original static contact fixtures. The reader repair
+also passed the full production ELSE-then-CELS sequence under bounds checking.
+The corrected current-joint trajectory launched at 18:26 UTC on September 25
+with the same eight inputs and four actual solver workers. Its next gate is
+agreement of repaired energy outputs and authenticated full-mesh acceleration,
+then the first cleat-bore contact event plus a following complete accepted
+state. This attempt terminated at 18:33 UTC after one accepted increment:
+the full-acceleration writer rejected a runtime node-count assumption, before
+writing full ACC or point-map output. Preserve the failed run and repair the
+guard using native node semantics and an integration fixture before relaunch.
+That focused repair now accounts for the 4,524 rigid-constraint nodes added
+by the frozen input and preserves exact physical connectivity ownership. The
+parent's eleven-case compiled emitter fixture passes, including multiple
+runtime suffix sizes and rejection of physical-map contamination. The next
+action was the reviewed full build and fresh unchanged-input trajectory.
+That build completed, with only `results.o` differing from the previous
+combined binary, and passed independent review. The third trajectory attempt
+launched at 19:05 UTC on September 25 after parent verification of all eight
+unchanged inputs, source snapshots, binary/index and live container mounts.
+The repaired first-state output checks now pass in an authenticated immutable
+live prefix: complete physical-node acceleration and corrected DAT/LOG energy
+agreement with 104,245 joined point-writer records. Independent review
+reproduces those results. A separately authenticated 363-byte DAT extension
+completes all 315 first-state angular records without changing the original
+capture. Independent review and parent replay confirm coverage and all 1,155
+contact-vector identity components under the printer-bound policy. The
+trajectory subsequently reached the first reported bore-contact state and a
+following accepted state; the [state-39/40 global wrench reconstruction](hypotheses/evaluation-resume-2026-09-24/event-state-global-wrench-audit-attempt01/README.md)
+is only conditional output-token consistency. Whole-joint equilibrium, time
+accuracy, physical engagement, and an accepted joint response remain open.
+No joint response is accepted from these focused method checks.
+The first exact left-leg
+removal sweep is also complete and clear of
+modeled solid overlap under its documented prior-removal assumptions;
+its independent review is complete, while the remaining member/support
+operations are still open.
+
+The 96-ray finished-wood end/edge query and its conditional NDS interpretation
+have also passed independent review. The shortest square-cut end gives only
+a preliminary 0.9753 per-axis factor in the stated parallel-tension scenario;
+fresh signed actions and connection grouping still govern the final check.
+The current 491-site hypothetical midpoint CAD screen and its static map have
+also completed and passed their bounded independent reviews.
+These checks establish
+whether the diagnostic response can be interpreted, not joint resistance or
+six-case frame acceptance. The [completion ledger](completion-ledger.md)
+links the frozen outputs and reviews.
+
 The subsequent [execution checkpoint](completion-ledger.md#current-evaluation-checkpoint-september-24-evening)
 records completed current mesh, material and contact classification, the full
 timber/panel contact graph and all 92 candidate axial-motion screens. These
 advance the preparation described in the table. The current rigid-motion
-preflight identifies unresolved slip under open bolt-hole clearances; clearance
-seating and engagement are the immediate response-model task. No current-joint
-or six-case full-frame response has yet been accepted.
+preflight identifies unresolved slip under open bolt-hole clearances. The
+[native reference-tangent preflight](hypotheses/evaluation-resume-2026-09-24/ordinary-native-preflight-attempt04/README.md)
+now supports one specific cleat slip direction and passes six assembled mass
+checks. Its successful matrix export follows an equivalent MPC dependency
+change that avoided a memory failure without changing the joint equations.
+Clearance seating and engagement remain the immediate response-model task.
+The first gauge-free transient pilot reached its runtime bound while its first
+increment's active contact count continued changing. A separately frozen
+repeat uses a larger initial increment and four threads, retaining automatic
+cutbacks and the same physical/load inputs; the completion ledger links both
+execution records. No convergence tolerance or physical restraint was relaxed.
+That repeat converged one early increment and timed out during its second.
+An independent first-point work/energy audit passes its accounting checks.
+The separate short checkpoint produced 34 trial fields but no converged
+endpoint or restart file. The trial-motion and contact audits do not justify
+relaxing convergence. A longer uninterrupted diagnostic has since recovered
+at original contact stiffness and reached four accepted increments; its
+[immutable observation](hypotheses/evaluation-resume-2026-09-24/native-contact-recovery-observation-attempt02/README.md)
+records the recovery without claiming a complete response. That run then
+reached its runtime bound with eight accepted increments, ending at
+0.003129826 s; the terminal record is linked from the ledger. The initial
+increment still overestimates the prescribed ramp impulse by about 43.8%.
+The next forcing comparison therefore needs increment endpoints at the ramp
+knots, followed by time-refinement checks. A separately frozen 100-fold load
+scale is available for clearance-onset exploration; it changes the applied
+forces while preserving the unit-weight displacement observer. The parent
+has launched its independently reviewed ramp-knot-aligned derivative under
+a 7,200-second runtime bound with the original contact penalty. This is a
+sampled onset diagnostic; output at knots does not recover work across
+unreported adaptive substeps, and time accuracy remains to be established.
+Its first-knot cleat momentum matches the prescribed impulse closely, and
+independent discrete-work reconstruction agrees with the native external-work
+print. The native energy discrepancy remains 1.230541%. The captured contact
+reports end partway through pair 034 and omit pair 035, so they cannot establish
+all bore states. The ledger links these completed, bounded audits. An
+input-reviewed K=10000 N/mm³ companion was prepared as a numerical
+penalty sensitivity; it is not a physical engagement model or accepted law.
+The parent subsequently stopped the K=100000 baseline after 2333.59 seconds
+to prioritize that single-factor comparison: seven accepted increments had
+advanced only to 0.00103451 s, still before a second output knot. Its terminal
+record preserves the explicit-stop reason separately from the launcher's
+`process_failed`/137 status. This does not establish that the baseline cannot
+converge farther, and runtime improvement cannot replace response comparison.
+After the original process terminated and its outputs were verified, the
+parent launched the K=10000 child with a 2400-second bound, four threads and
+the same native image, binary and 10 GiB allowance. This is a matched-input
+numerical diagnostic; interpretation remains subject to response and accounting
+comparison, not solver speed alone.
+That child is now terminal at its runtime bound after 17 accepted increments
+through 0.017 s, with no rejected attempts. All accepted monitor and native
+work records are present; reconstructed discrete work agrees with the printed
+native work within output-rounding bounds throughout that recorded interval.
+The first-knot local displacement, rotation and contact-force sensitivity
+flags remain. Neither the requested 0.025 s endpoint nor an accepted joint
+response follows from this diagnostic.
+
+A small prescribed-q fixture now verifies imposed displacement and velocity
+mapping, and confirms that the dummy node's raw RF is zero. Its native
+SPRING2/MASS energy and work reporting does not recover the analytical
+inertial contribution. A subsequent two-mass finite-actuator fixture retains
+both physical coordinates, validates observable target force and independent
+momentum/work accounting, and checks time accuracy against an exact oscillator
+solution. Its 300-step refinement resolves that scalar method; native point-
+MASS kinetic-energy/work totals remain unsuitable. The separate
+[current-joint finite-actuator case](hypotheses/evaluation-resume-2026-09-24/ordinary-finite-actuator-input-audit-attempt02/README.md)
+passed its actual-input audit and reached nine accepted increments through
+0.003875 s before an explicit parent stop. Its current joint scale, actual q,
+target q, energy partition and output cadence remain frozen. The completed
+five-state work and contact audits use immutable snapshots. Native applied-load
+work omits the prescribed target's reaction work, while the contact timestep
+controls use that native energy term; the source review records the limit
+without claiming it caused every retry. The fresh force-driven derivative
+with every-accepted-state output has passed its input review and started;
+the ledger links its controlling execution record. It requests initial/maximum
+1 ms steps, preserving its physical inputs and force history. Native implicit
+dynamics may select the initial step automatically. Audit the actual impulse
+and time sampling after any adaptive cutbacks; guaranteed ramp-knot alignment
+will no longer follow from output controls. Do not transfer fixture stiffness,
+timestep accuracy or joint acceptance. The ledger links the terminal run and
+its evidence; the viewer remains unchanged.
+
+Reusing a saved state remains an investigation: the [source review](hypotheses/evaluation-resume-2026-09-24/native-restart-continuation-review.md) finds that
+velocity is serialized but acceleration is not, and a new dynamic step
+allocates a fresh acceleration array even without restart. Restart equivalence
+therefore needs a no-restart two-step control; substituting that split for a
+single uninterrupted step needs a separate time-history comparison. Matching
+the checkpoint's first point alone is insufficient.
+No current loaded-joint or six-case full-frame response has yet been accepted.
 
 ## Current priority: evaluate the owner-reviewed model
 
