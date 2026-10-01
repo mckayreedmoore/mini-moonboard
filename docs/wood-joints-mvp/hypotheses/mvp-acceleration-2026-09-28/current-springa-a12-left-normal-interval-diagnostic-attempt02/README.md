@@ -1,0 +1,11 @@
+# A12-left attempt03 support-mask diagnostic
+
+This read-only diagnostic reclassifies the 100 floor-normal SPRINGA carriers at all seven printed states in the frozen a12-left attempt03 response. It applies the pinned 711 zero-U-token interval method and retains nonzero-U rounding, RF rounding, and geometric subtraction guards. The run is terminal returncode 0 at full factor 1; its parent assessment rejects the 11-cell selected branch because SPR1302 is not strictly positive.
+
+The result shows an observed two-mask recurrence for this exact case and zero-gap input rule. In the earlier 10-cell attempt, all 11 positive normals were stable and SPR1302 was the only inactive positive. The frozen 11-cell attempt03 classifies exactly the earlier 10 cells as positive; SPR1302 is strictly separated at every state. Each of the seven state comparisons has exactly that one classification change; the other 99 normals retain their classifications. Thus another unchanged “next mask = strictly positive set” update would return to the 10-cell mask. This is an observed two-run cycle, not a general convergence claim.
+
+At load factor 1, SPR1302’s current attempt03 intervals are strictly negative for projected displacement and geometric elongation, its table force interval is `[0, 0] N`, and its endpoint internal-force interval is `[-5e-7, 5e-7] N`; endpoint RF intervals contain zero. The same classification holds at all seven increments. The prior 10-cell run has positive q, geometric elongation, table force, and internal-force intervals at all seven increments.
+
+`a12-left-normal-mask-cycle.json` contains all 700 current normal classifications, per-increment set differences against the prior run, and exact SPR1302 interval comparisons. `source-pins.json` binds the producer, response, parent terminal assessment, frozen input, original all-bearing control, and prior diagnostic. The report does not adopt response forces, produce corner demands, accept the branch, or propose another mask or native run. It does not establish a physical floor reaction, joint resistance, or structural qualification.
+
+Run from the repository root with `.venv/bin/python docs/wood-joints-mvp/hypotheses/mvp-acceleration-2026-09-28/current-springa-a12-left-normal-interval-diagnostic-attempt02/produce.py`. The producer refuses to overwrite its report and source pins.

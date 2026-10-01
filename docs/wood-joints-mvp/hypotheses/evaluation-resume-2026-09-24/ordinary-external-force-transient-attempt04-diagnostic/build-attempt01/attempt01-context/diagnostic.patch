@@ -1,0 +1,103 @@
+--- a/CalculiX/ccx_2.23/src/nonlingeo.c
++++ b/CalculiX/ccx_2.23/src/nonlingeo.c
+@@ -2355,8 +2355,17 @@
+ 	    if(((*ne-ne0)<(neold-ne0)*(1.-delcon))||
+ 	       ((*ne-ne0)>(neold-ne0)*(1.+delcon))){iflagact=1;}
+ 	  }
+ 
++	  /* attempt04: output-only contact-count trace. */
++	  printf("{\"event\":\"CCX223_ATTEMPT04_CONTACT\","
++		 "\"step\":%" ITGFORMAT ",\"increment\":%" ITGFORMAT
++		 ",\"attempt\":%" ITGFORMAT ",\"iteration\":%" ITGFORMAT
++		 ",\"contact_old\":%" ITGFORMAT
++		 ",\"contact_new\":%" ITGFORMAT
++		 ",\"delcon\":%.17e,\"contact_change_flag\":%" ITGFORMAT "}\n",
++		 *istep,iinc,icutb+1,iit,neold-ne0,*ne-ne0,delcon,iflagact);
++	  fflush(stdout);
+ 	  printf(" Number of contact spring elements=%" ITGFORMAT "\n\n",
+ 		 *ne-ne0);
+ 
+ 	}
+--- a/CalculiX/ccx_2.23/src/checkconvergence.c
++++ b/CalculiX/ccx_2.23/src/checkconvergence.c
+@@ -76,8 +76,14 @@
+   ITG i0,ir,ip,ic,il,ig,ia,iest,iest1=0,iest2=0,iconvergence,idivergence,
+     ngraph=1,k,*ipneigh=NULL,*neigh=NULL,*inum=NULL,id,istart,iend,inew,
+     i,j,mt=mi[1]+1,iexceed,iforceincsize=0,kscalemax,itf2f;
+ 
++  int diag_mechanical_applicable,diag_iteration_ok,diag_residual_ok,
++    diag_displacement_ok,diag_visco_ok,diag_contact_clear,
++    diag_no_contact_now,diag_no_contact_start,diag_contact_present,
++    diag_mechanical_gate,diag_no_contact_energy_eligible,
++    diag_contact_energy_eligible,diag_final_convergence;
++
+   double df,dc,db,dd,ran,can,rap,ea,cae,ral,da,*vr=NULL,*vi=NULL,*stnr=NULL,
+     *stni=NULL,*vmax=NULL,*stnmax=NULL,*cs=NULL,c1[2],c2[2],reftime,
+     *fn=NULL,*eenmax=NULL,*fnr=NULL,*fni=NULL,*qfx=NULL,*cdn=NULL,
+     *cdnr=NULL,*cdni=NULL,tmp,maxdecay=0.0,r_rel,cetol,*damn=NULL,*errn=NULL;
+@@ -143,8 +149,30 @@
+   }
+ 
+   iconvergence=0; 
+  
++  /* attempt04: log the existing predicates without changing them. */
++  diag_mechanical_applicable=(*ithermal<2);
++  diag_iteration_ok=(*iit>1);
++  diag_residual_ok=0;
++  diag_displacement_ok=0;
++  diag_visco_ok=0;
++  diag_contact_clear=(*iflagact==0);
++  diag_no_contact_now=(*ne==*ne0);
++  diag_no_contact_start=(*neini==*ne0);
++  diag_contact_present=(!diag_no_contact_now)||(!diag_no_contact_start);
++  if(diag_mechanical_applicable){
++    diag_residual_ok=(ram[0]<=c1[0]*qam[0]);
++    diag_displacement_ok=((cam[0]<=c2[0]*uam[0])||
++      (((ram[0]*cam[0]<c2[0]*uam[0]*ram2[0])||
++        (ram[0]<=ral*qam[0])||(qa[0]<=ea*qam[0]))&&(*ntg==0))||
++      (cam[0]<1.e-8));
++    diag_visco_ok=((*nmethod!=-1)||(qa[3]<=cetol));
++  }
++  diag_mechanical_gate=(diag_mechanical_applicable&&diag_iteration_ok&&
++    diag_residual_ok&&diag_contact_clear&&diag_visco_ok&&
++    diag_displacement_ok);
++
+   /* mechanical */
+ 
+   if(*ithermal<2){
+     //         number of iterations exceeding 1
+@@ -322,8 +350,34 @@
+   }
+   //    MPADD end
+   // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+     
++  diag_no_contact_energy_eligible=((*nmethod==4)&&(*ithermal<2)&&
++    (*uncoupled==0)&&(iconvergence==1)&&(*ne==*ne0)&&
++    (*neini==*ne0)&&(*idrct==0));
++  diag_contact_energy_eligible=((*nmethod==4)&&(*ithermal<2)&&
++    (*uncoupled==0)&&(iconvergence==1)&&
++    ((*ne!=*ne0)||(*neini!=*ne0)));
++  diag_final_convergence=((iconvergence==1)&&(idivergence==0));
++  printf("{\"event\":\"CCX223_ATTEMPT04_CONVERGENCE\","
++    "\"step\":%" ITGFORMAT ",\"increment\":%" ITGFORMAT
++    ",\"attempt\":%" ITGFORMAT ",\"iteration\":%" ITGFORMAT
++    ",\"mechanical_applicable\":%d,\"iteration_ok\":%d"
++    ",\"mechanical_residual_ok\":%d,\"displacement_ok\":%d"
++    ",\"visco_ok\":%d,\"contact_change_gate_clear\":%d"
++    ",\"no_contact_now\":%d,\"no_contact_at_start\":%d"
++    ",\"contact_present\":%d,\"mechanical_gate_ok\":%d"
++    ",\"no_contact_energy_eligible\":%d"
++    ",\"contact_energy_eligible\":%d,\"iconvergence\":%" ITGFORMAT
++    ",\"idivergence\":%" ITGFORMAT ",\"final_convergence_ok\":%d}\n",
++    *istep,*iinc,*icutb+1,*iit,diag_mechanical_applicable,
++    diag_iteration_ok,diag_residual_ok,diag_displacement_ok,diag_visco_ok,
++    diag_contact_clear,diag_no_contact_now,diag_no_contact_start,
++    diag_contact_present,diag_mechanical_gate,
++    diag_no_contact_energy_eligible,diag_contact_energy_eligible,
++    iconvergence,idivergence,diag_final_convergence);
++  fflush(stdout);
++
+   /* increment convergence reached */
+ 	
+   if((iconvergence==1)&&(idivergence==0)){
+ 

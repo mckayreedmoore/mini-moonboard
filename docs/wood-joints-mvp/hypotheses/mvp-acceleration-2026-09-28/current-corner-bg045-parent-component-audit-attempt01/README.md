@@ -1,0 +1,1 @@
+Parent rehashed the BG045 project sources and independently recomputed Mode IV with the recorded Fe, Fyb and Ceg hypotheses for all four case/axis rows. Arithmetic passes. The conditional loaded-face detailing exception remains explicit; this audit does not prove an oblique NDS edge-selection rule, splitting resistance or complete joint acceptance.

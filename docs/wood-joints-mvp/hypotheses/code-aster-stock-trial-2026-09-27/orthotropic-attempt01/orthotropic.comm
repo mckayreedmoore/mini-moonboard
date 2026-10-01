@@ -1,0 +1,110 @@
+# coding=utf-8
+# Bounded elastic known-answer fixture for stock Code_Aster 17.4.
+
+DEBUT(CODE="OUI", ERREUR=_F(ALARME="EXCEPTION"), DEBUG=_F(SDVERI="OUI"))
+
+MAIL = LIRE_MAILLAGE(UNITE=20, FORMAT="ASTER")
+MODE = AFFE_MODELE(
+    MAILLAGE=MAIL,
+    AFFE=_F(TOUT="OUI", PHENOMENE="MECANIQUE", MODELISATION="3D"),
+)
+
+MAT = DEFI_MATERIAU(
+    ELAS_ORTH=_F(
+        E_L=1000.0,
+        E_T=500.0,
+        E_N=250.0,
+        G_LT=120.0,
+        G_TN=80.0,
+        G_LN=60.0,
+        NU_LT=0.0,
+        NU_TN=0.0,
+        NU_LN=0.0,
+    )
+)
+MATE = AFFE_MATERIAU(MAILLAGE=MAIL, AFFE=_F(TOUT="OUI", MATER=MAT))
+CARA = AFFE_CARA_ELEM(
+    MODELE=MODE,
+    MASSIF=_F(GROUP_MA="CUBE", ANGL_REP=(90.0, 0.0, 0.0)),
+)
+BC = AFFE_CHAR_MECA(
+    MODELE=MODE,
+    DDL_IMPO=(
+        _F(GROUP_NO="Y0", DX=0.0, DY=0.0, DZ=0.0),
+        _F(GROUP_NO="Y1", DY=0.001),
+    ),
+)
+
+RESU = MECA_STATIQUE(
+    MODELE=MODE,
+    CHAM_MATER=MATE,
+    CARA_ELEM=CARA,
+    EXCIT=_F(CHARGE=BC),
+)
+RESU = CALC_CHAMP(
+    reuse=RESU,
+    RESULTAT=RESU,
+    CONTRAINTE="SIGM_NOEU",
+    FORCE="REAC_NODA",
+)
+
+# For zero Poisson ratios, the exact field is u_y = 0.001 y, all other
+# displacements are zero, and sigma_yy = E_L * 0.001 = 1.0.
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="NHI",
+        NOM_CHAM="DEPL",
+        NOM_CMP="DY",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=0.001,
+        VALE_REFE=0.001,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="NHI",
+        NOM_CHAM="SIGM_NOEU",
+        NOM_CMP="SIYY",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=1.0,
+        VALE_REFE=1.0,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="NHI",
+        NOM_CHAM="REAC_NODA",
+        NOM_CMP="DY",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=0.25,
+        VALE_REFE=0.25,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="NBAS",
+        NOM_CHAM="REAC_NODA",
+        NOM_CMP="DY",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=-0.25,
+        VALE_REFE=-0.25,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+
+FIN()

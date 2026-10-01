@@ -1,12 +1,327 @@
 # Wood-joint candidate: next plan to MVP-E
 
-Status: execution plan, updated 2026-09-24. This plan continues the
+Status: execution plan, updated 2026-09-27. This plan continues the
 [`compact-floor-flush-wood-joints-development`](../../wood-joints-candidate.json)
 lane from its recorded WJ-03 partial result. The endpoint is **MVP-E**, a
 conditional engineering-development and shop-document package under stated
 loads, materials, hardware, and floor assumptions. It is not an inspected
 build or an unconditional climbing rating. WJ-11 physical receiving and
 prototype observations belong to the later MVP-P record.
+
+For the owner's requested Luna/max execution handoff, use the
+[detailed completion plan](luna-max-completion-handoff.md) and
+[task queue](luna-max-task-queue.json). They assign the remaining work,
+dependencies, exact resume commands and completion gates across the full
+MVP-E endpoint; they do not change engineering dispositions.
+
+## Resumed method checkpoint, September 27
+
+The persistent goal remains the complete eight-step MVP-E endpoint below.
+The [completion ledger](completion-ledger.md#september-27-conversation-resumption)
+records the latest source-bound status. The corrected section-output fixture
+passes its endpoint mechanics, SOF and complete nodal-output checks. These
+are method results only.
+
+The [shared-edge attempt02](hypotheses/evaluation-resume-2026-09-24/contact-mortar-shared-edge-known-answer-attempt02/RESULTS.md)
+failed its first shared-slave MORTAR case with no accepted state. Native output
+and the pinned source identify removal of multipliers at the shared slave
+nodes. The remaining cases were not executed under the frozen stop policy.
+The separately frozen
+[penalty controls](hypotheses/evaluation-resume-2026-09-24/contact-penalty-shared-edge-known-answer-attempt01/RESULTS.md)
+now pass both sharing-pattern cases under unchanged gates. This supports the
+small penalty fixtures and leaves MORTAR unqualified. It does not accept a
+current joint or close any structural criterion.
+
+A full-joint penalty retry has not been selected. Reconcile any proposed
+fixed-step path with the earlier failed static branch and its prohibition on
+arbitrary increment or endpoint retries: name the evidence-backed decision,
+settling observation and bounded next action before launch. Any derived motion
+input must use attempt09's frozen `port_motion_n_plus.inp` and its full-cap
+maps. The same directory's `response_n_plus.inp` is an older force/gauge deck
+and is not the reviewed motion input.
+
+Before a current-joint static path can use a work/energy gate, freeze an
+explicit absolute work floor and verify each formulation's contact-energy
+output. The [output-only energy fixture](hypotheses/evaluation-resume-2026-09-24/contact-energy-known-answer-attempt01/RESULTS.md)
+now validates body ELSE and penalty CELS at its three endpoints. MORTAR prints
+zero CELS at compression and remains unvalidated. The earlier contract gives
+no unique numerical floor. Endpoint-only
+trapezoidal work across a closing open gap remains unqualified. The separately
+frozen [exact-touch work fixture](hypotheses/evaluation-resume-2026-09-24/contact-penalty-touch-work-known-answer-attempt01/RESULTS.md)
+now passes loading/unloading work and all 15 pair-output records with explicit
+touch breakpoints. Its work is ±0.99879975 N·mm versus observed stored-energy
+changes ±0.9991998 N·mm. Independent raw-output review confirms the result.
+This qualifies that fixture path and output method,
+not an unresolved joint gap transition or a current-joint absolute work floor.
+Keep these questions separate from joint resistance and six current-frame cases.
+
+The first [shared-edge motion fixture](hypotheses/evaluation-resume-2026-09-24/contact-penalty-shared-edge-motion-known-answer-attempt01/RESULTS.md)
+failed during native input reading, before any accepted increment. Its first
+node row uses a floating-point field longer than the pinned parser reads.
+The original frozen packet and failed output remain intact; the second case
+was not run. The separate [numeric-format correction](hypotheses/evaluation-resume-2026-09-24/contact-penalty-shared-edge-motion-known-answer-attempt02/RESULTS.md)
+now passes both native cases with exactly equal numerical inputs and unchanged
+gates. Each accepts one full step in two iterations, with complete 375-node
+output, physical/controller motion agreement, 4 N pair-force checks, section
+wrenches and endpoint ELSE/CELS. All 15 frozen artifacts and 18 output hashes
+match. This qualifies the small combined penalty-contact/MPC fixture; it does
+not select a current-joint path or establish current-joint bearing.
+
+The [idealized admissibility decision](hypotheses/evaluation-resume-2026-09-24/ordinary-port-translation-witness-audit-attempt01/admissibility-decision.md)
+now resolves the narrower free-motion question: a zero-strain, no-bearing
+assignment is feasible for idealized planar contact with the reviewed curved
+clearance bounds. Positive trimmed overlap is unnecessary for zero-traction
+feasibility; it matters for force transfer. This is neither exact native
+contact evaluation nor a complete unpaired-body collision check. It supports
+leaving the unchanged 1 mm joint retry unselected: that endpoint is not shown
+to develop the needed bore-bearing response. No cleat restraint is added.
+The [next characterization decision](hypotheses/evaluation-resume-2026-09-24/ordinary-external-characterization-decision-attempt01/README.md)
+keeps the physical force-history hold specific to service-demand simulation.
+A separate numerical component characterization is possible in scope, but has
+no validated dynamic route yet. The source assessment identifies transformed
+mass terms that the ordinary explicit acceleration update may omit. The
+bounded [C3D10 coordinate-invariance check](hypotheses/evaluation-resume-2026-09-24/explicit-c3d10-mpc-known-answer-attempt01/RESULTS.md)
+now passes in direct coordinates and fails with a physical dependent DOF.
+Both runs complete 100 increments; the mapped response matches the predicted
+incorrect initial acceleration pattern. Do not launch the current shaft-pivot
+nut fits under explicit dynamics. The [actual constraint-chain source review](hypotheses/evaluation-resume-2026-09-24/explicit-current-coupling-feasibility-attempt01/README.md)
+rules out controller-first ordering because the mixed linear/rigid-body MPC
+chain is prohibited in explicit mode. Active zero-density nut solids also
+pose a source-inferred stable-increment problem, without a runtime result.
+The [contact-switch observation design](hypotheses/evaluation-resume-2026-09-24/implicit-contact-switch-observability-review-attempt01/README.md)
+now defines separate generation and corrected-trial records. A first
+[coupon-only diagnostic build](hypotheses/evaluation-resume-2026-09-24/implicit-contact-point-trace-attempt01/README.md)
+now passes the [matched-thread static regression](hypotheses/evaluation-resume-2026-09-24/implicit-contact-point-trace-attempt01/static-regression-attempt02/RESULTS.md)
+without changing the exact output gates. The subsequent
+[dynamic contact coupon](hypotheses/evaluation-resume-2026-09-24/implicit-contact-point-trace-attempt01/dynamic-known-answer-attempt01/RESULTS.md)
+failed at re-contact under fixed `DIRECT` stepping. The completed
+[impact review](hypotheses/evaluation-resume-2026-09-24/implicit-contact-point-trace-attempt01/dynamic-known-answer-attempt01/postrun-impact-review.md)
+distinguishes the cleared contact-count gate from the separate impact-energy
+stop; the exact energy ratio was not captured. Accepted states record zero
+external work and alternating kinetic energy under prescribed motion, so
+automatic stepping is not assumed to fix the fixture. The separately frozen
+[free-impact correction](hypotheses/evaluation-resume-2026-09-24/free-impact-known-answer-attempt02/RESULTS.md)
+now passes all 70 states in both original and trace executables: motion,
+energy, forces, separation and point coverage agree with the discrete oracle.
+The trace captures 7,896 MAP and 5,544 TRIAL rows, including the old-set
+positive-gap trial before accepted separation. All 12 local files, 27 external
+dependencies and 16 captured file hashes remain bound. Its
+[first attempt](hypotheses/evaluation-resume-2026-09-24/free-impact-known-answer-attempt01/RESULTS.md)
+retains a verifier classification failure; the corrected attempt changes only
+the linear-law ID and its synthetic control, with unchanged numerical gates.
+The completed
+[independent post-run audit](hypotheses/evaluation-resume-2026-09-24/free-impact-known-answer-attempt02/independent-postrun.md)
+confirms the raw trace identities and exact verifier reproduction. This
+qualifies the small free-impact method; the failed prescribed-motion fixture
+remains preserved.
+Before any current-joint use, complete
+state/mapping join checks, bounded capture and the needed inactive-force/work
+reconstruction. The [point-census source clarification](hypotheses/evaluation-resume-2026-09-24/contact-point-census-source-review-attempt01/README.md)
+corrects two assumptions in the earlier capture proposal: the frozen face
+roster is a static target, but integration-point spans depend on current
+geometry and master-face clipping; a point's array index is local to its
+generation sweep. A bounded capture must check full-face coverage and runtime
+offset/range conservation, and establish geometric correspondence before any
+cross-sweep point join. Runtime point counts are not independent geometric
+predictions. This does not select convergence relaxation, a model change,
+mass/stiffness scaling or a new joint run. First contact on one bore side is not a complete transfer
+path; subsequent response must establish signed transfer through the joint.
+Before a joint retry, require source-mapped bearing onset from the eight
+bolt-to-wood bore pairs, a verified sign and near-zero threshold, complete
+accepted-state outputs, and two accepted states after first bearing. Global
+contact counts and FRD contact fields cannot substitute for pair-local onset.
+No current-joint native run is selected by this preparation decision.
+
+The [implicit free-coordinate applicability review](hypotheses/evaluation-resume-2026-09-24/implicit-c3d10-free-mpc-applicability-review-attempt01/README.md)
+identified a C3D10 mapping gap beyond the earlier C3D8 test. The separately
+frozen [implicit C3D10 translation fixture](hypotheses/evaluation-resume-2026-09-24/implicit-c3d10-mpc-known-answer-attempt01/RESULTS.md)
+now passes both direct and free-coordinate cases through all 100 increments.
+Physical DAT displacement and velocity histories match exactly, and the
+controller, energy, mass, volume and accepted-state checks pass. All eleven
+frozen local files and four external dependencies remain unchanged. This
+qualifies the tested uniform-translation row sums and load mapping under the
+pinned four-point mass rule and checked startup method. Arbitrary mass modes,
+current offset/rotational mappings, zero-density carriers and contact remain
+separate obligations before a current-joint dynamic retry. The
+[current-map applicability review](hypotheses/evaluation-resume-2026-09-24/implicit-current-map-applicability-attempt01/README.md)
+and [rotational-reference review](hypotheses/evaluation-resume-2026-09-24/implicit-current-map-applicability-attempt01/rotational-reference-review.md)
+now bound the next method fixture: use actual shaft-fit equations, check all
+REF/ROT outputs and the carrier, and distinguish the linearized Newmark
+reference from finite axis-angle rotation. Physical direct/mapped parity
+alone cannot validate the intended control mapping when all controls are
+free. Offline preparation does not select a current-joint native run.
+
+The [current bolt-map fixture](hypotheses/evaluation-resume-2026-09-24/implicit-current-map-known-answer-attempt01/RESULTS.md)
+now passes its three frozen native cases, each with ten accepted states and
+complete required output. Physical fields, all mapped controls, original
+equations, carrier kinematics, energies and cross-case parity satisfy the
+predeclared gates. Independent postrun review confirms the result. The 24
+frozen local files and 14 external dependencies remain unchanged. This result
+covers one A00 map and small Y forcing, not all maps, current-joint transfer or
+capacity. The finite rigid reference informs comparison limits but does not
+bound general elastic finite-element error.
+
+The parent-reviewed [A00–A03 inventory](hypotheses/evaluation-resume-2026-09-24/current-map-remaining-scope-attempt01/decision.md)
+finds four actual maps with rank-six rigid-field checks but different support
+populations and equation rows (251/754, 258/775, 254/763, 259/778); no exact
+transformed coefficient equivalence is established. Only A00 has native
+dynamic comparison. The A09 1 mm relative-N path is an input-only static
+contract without accepted response, while the next transient history remains
+unselected. Bind the intended ordinary-joint case/history to its actual map
+IDs before selecting any additional native cases; qualify only active distinct
+maps rather than imposing all four as a blanket gate.
+
+The parent-reviewed [bounded-contact capture proposal](hypotheses/evaluation-resume-2026-09-24/implicit-bounded-contact-capture-attempt01/README.md)
+passes 20 synthetic controls and rehashes 11 pinned source members plus 14
+artifacts. Its computed 94,959,616-byte ceiling fits under the declared
+134,217,728-byte cap. It remains offline proposal work: no solver patch/build,
+frozen current input, native behavior, or numerical joint threshold is
+qualified. Unmapped/excluded-point force bounds and nodal correction work
+remain unavailable. A separate patch/build and analytic regression must
+precede coordinator selection of any current-joint diagnostic.
+
+The [current plywood source attempt](hypotheses/evaluation-resume-2026-09-24/current-plywood-material-scenarios-attempt01/README.md)
+binds six exact panel solids but cannot crosswalk the owner-designated
+Roseburg/Lowe’s model 119055 to a product-specific layup or property set. Each
+panel's sheet identity, layup, principal axis, elastic constants and solver
+assignment remain unset; full-frame readiness remains false.
+
+The [exact47 aggregator attempt02](hypotheses/evaluation-resume-2026-09-24/current-criteria-aggregator-attempt02/README.md)
+passes 17 focused tests and is parent-reviewed as a fail-closed evidence
+boundary only. It keeps all 47 rows pending and does not implement resistance
+methods. Producer methods/limits and demands must match independent acceptance
+and demand manifests. The [method-map provenance reconciliation](hypotheses/evaluation-resume-2026-09-24/current-criteria-method-map-reconciliation-attempt01/README.md)
+shows the frozen coverage digest matches the prior tracked blob and the current
+map differs in one `steel_direct` row; both authority files remain untouched.
+A versioned overlay with explicit review provenance now passes 22 focused
+tests and parent review. It removes only the stale-pin error; all 47 criteria
+remain pending because scope, accepted method, demand and result evidence are
+still absent.
+
+The [T07 attempt01 parent review](hypotheses/evaluation-resume-2026-09-24/current-fit-transport-closeout-attempt01/parent-review.json)
+found its claimed exact IDs were absent. The [attempt02 register](hypotheses/evaluation-resume-2026-09-24/current-fit-transport-closeout-attempt02/README.md)
+now hashes all 92 candidate axes, 12 retained axes and 66 screw axes to exact
+manifest and operation-coverage records, with 170 per-axis rows. Parent review
+passes the identity gate only. Tool/product fit, reversible operation,
+support/capture and integrated transport remain unresolved for every row.
+
+The [T08 hardware/material/cost register](hypotheses/evaluation-resume-2026-09-24/current-hardware-material-cost-closeout-attempt01/README.md)
+reconciles 35 pinned sources and passes 24 internal checks. It preserves 92
+candidate bolt axes, 12 retained reference stacks, all 66 Hillman screws and
+144 removed SDS axes. It supports no product selection, delivered engagement,
+current lumber quote/yield, candidate cost range or product-specific weight.
+The later [attempt02 source/cost closeout](hypotheses/evaluation-resume-2026-09-24/current-hardware-material-cost-closeout-attempt02/README.md)
+reconciles the same axes, 30 source pins and eight candidate bolt-lead pages
+with numeric displayed prices. The [independent review](hypotheses/evaluation-resume-2026-09-24/current-hardware-material-cost-closeout-attempt02-independent-review-2026-09-28/README.md)
+supports the bounded reconciliation; its [queue-tolerant follow-up verifier](hypotheses/evaluation-resume-2026-09-24/current-hardware-material-cost-closeout-attempt02-independent-review-followup-2026-09-28/README.md)
+preserves the freeze-time pin check across later coordinator edits. The
+page-display envelope mixes lengths and tiers and is not a candidate price
+bound. Matched candidate hardware, compatible lumber and plywood unit prices,
+cut/yield purchase quantities, and a total cost or range remain unsupported.
+Continue only with exact, compatible source inputs; do not multiply catalog
+comparators into a candidate total.
+The [T07/T08 option crosswalk](hypotheses/evaluation-resume-2026-09-24/current-fit-transport-option-crosswalk-attempt01/README.md),
+with its [parent review](hypotheses/evaluation-resume-2026-09-24/current-fit-transport-option-crosswalk-attempt01/parent-review.json),
+joins all 92 candidate axes, 12 retained references and 66 Hillman axes to
+conditional source records. Its 74 source hashes and 340 per-axis record
+pointers are parent-reviewed; it selects no product and clears no physical
+operation. The [critical-envelope attempt01](hypotheses/evaluation-resume-2026-09-24/current-fit-transport-critical-envelopes-attempt01/README.md)
+and [parent review](hypotheses/evaluation-resume-2026-09-24/current-fit-transport-critical-envelopes-attempt01/parent-review.json)
+reproduce six candidate nut/washer CAD hits across four axes and twelve
+retained head/washer/shaft sweeps across four leg-bolt stacks, rehashing 72
+unique source paths. The findings are nominal CAD/proxy comparisons only;
+all 170 physical fit, service, capture/support and transport statuses remain
+unresolved. Do not repeat these source-CAD sweeps without changed inputs.
+Continue only on newly available authoritative stack/tool/cable records or a
+separately bounded conditional screen with source geometry.
+
+T06's [individual-bolt lateral-yield method attempt01](hypotheses/evaluation-resume-2026-09-24/current-lateral-bolt-method-attempt01/README.md)
+is parent-reviewed for implementation and published-example agreement only.
+It applies NDS-2024 §12.3.1A and §12.3.8 with the January 2025 corrected
+`KD=10D−0.5` term and passes 26 focused / 74 combined tests. It produces no
+current candidate capacity: all 92 axes still lack actual product, stack,
+wood/grain, detail and fresh-action inputs, and all 47 criteria remain
+pending. Continue T06 with distinct group, splitting/tear-out, adjustment,
+washer/connector and other applicable methods; preserve the method's pending
+boundary and do not transfer synthetic examples to candidate acceptance.
+
+A narrow follow-up audit found an unhashable adjacent-pair role ID could raise
+`TypeError` where the API promises `ValueError`. The source-bound
+[attempt02 input-validation repair](hypotheses/evaluation-resume-2026-09-24/current-lateral-bolt-method-attempt02/README.md)
+adds two regressions; 28 focused and 76 combined tests pass, with independent
+code review passing for that validation patch only. It changes no equations or
+candidate status. Continue the
+separate NDS group-action method work only under its own source, applicability,
+and known-answer review.
+
+Parallel input work produced the reviewed
+[retained steel option map](hypotheses/evaluation-resume-2026-09-24/current-retained-steel-role-map-attempt02/README.md):
+twelve axes, 60 component roles and nine conditional E/nu cases. The material
+option remains unselected while all twelve physical connections remain required.
+Use this corrected attempt rather than attempt01's default-inclusion wording.
+It supplies source identities and elastic options, not solver assignments,
+engagement, hardware grade, fit or full-frame readiness.
+
+The [preserved-input field-width audit](hypotheses/evaluation-resume-2026-09-24/native-input-field-width-review-attempt01/README.md)
+checks the earlier external-force transient attempts 01–04 and current
+port-motion attempt09. All CLOAD and prescribed BOUNDARY scalars in 78 saved
+input/working-copy files fit the pinned 20-character reader without numeric
+change. The new fixture's corrected CLOAD formatting defect therefore does
+not explain those preserved convergence failures. The separately recorded
+coordinate-prefix differences are at most 6.94e-18 mm.
+
+The [pair-output source review](hypotheses/evaluation-resume-2026-09-24/current-pair-output-contract-review-2026-09-27/README.md)
+binds the eight wood-bore pairs to `WJCP_020`–`WJCP_027`. CFN is a summed force
+vector; zero can conceal cancellation on a curved bore. A resolved nonzero
+pair resultant under the unilateral law can witness bearing, with two later
+accepted states, without claiming the exact first local contact. Its numerical
+threshold and native output checks remain to be frozen. Open-pair centroid and
+mean-normal statistics may be undefined at zero area; required force and moment
+outputs must still be present and finite. Do not substitute zero for missing
+or invalid force evidence.
+
+The [radial-envelope calculation](hypotheses/evaluation-resume-2026-09-24/ordinary-n-motion-radial-envelope-attempt01/README.md)
+now bounds the frozen quadratic shaft/bore surfaces under the candidate
+midpoint-stack translation witness. For the assumed 0.25 mm shaft/wood relative
+motion, all eight wood-bore pairs retain positive computed separation; the
+smallest bound after a 1e-6 mm numerical reserve is 0.0931487 mm. All eight
+co-moving washer-bore pairs also remain separated. Independent review reproduces
+the source-bound result and confirms its mathematical scope. The original
+unsubdivided inconclusive bounds are retained; parameter subdivision changes
+no mesh geometry. This does not prove the complete 35-pair contact state,
+exact native zero force or bearing onset. It reinforces that the retained
+1 mm path has no established resolved-bore response and is not selected for
+a heavy retry merely because the small method fixtures pass.
+
+The [current taper rebind](hypotheses/evaluation-resume-2026-09-24/current-taper-geometry-rebind-attempt01/README.md)
+measures both exact current leg STEP solids. Both static geometry predicates
+pass: 88.9 × 139.7 mm sections, 457.2 mm taper run, 38.1 mm recess and 12:1
+slope. Independent parent face-edge measurements agree. Full criterion rows
+remain pending their fresh-case basis; no prior candidate acceptance transfers.
+
+Step 7 now has a [material-map status addendum](current-material-map-status-2026-09-27.md)
+and [current quantity/cost bridge](current-cost-coverage-2026-09-27.md). These
+reconcile current source coverage without modifying frozen material inputs
+or carrying a predecessor subtotal into the current layout.
+
+The [frame-timber transverse scenario map](hypotheses/evaluation-resume-2026-09-24/current-frame-timber-transverse-scenarios-attempt01/README.md)
+adds two explicit right-handed R/T alternatives to each of the 20 existing
+longitudinal vectors. Source/STEP and algebra checks pass, with independent
+review confirming scope and calculations. It does not select growth-ring directions, assign solver materials
+or modify the frozen frame manifest.
+The [steel role map](hypotheses/evaluation-resume-2026-09-24/current-steel-elastic-role-map-attempt01/README.md)
+likewise binds 460 candidate roles to conditional elastic cases while retaining
+60 frame-hardware roles as an unassigned inventory. It supplies no solver-body
+mapping, hardware qualification or full-frame response.
+
+The [attempt04 frame-input manifest](hypotheses/evaluation-resume-2026-09-24/current-full-frame-input-manifest-attempt04/README.md)
+now binds those reviewed maps while preserving attempt03's geometry, hardware,
+50 STEP files, 778 mass rows and six applied-case inputs exactly. Independent
+parent review and read-only producer verification pass. Its canonical content
+digest is `8db026d0764ee3f4f9f83656133e18ea11ebe250acd0c431567e85fa4d4d23bc`;
+the file-byte digest is `9e682e28c3d4c3c0594863f82c6b74d19dee2700f3856d34e1a26f69082e4f11`.
+The six plywood layups and 60 retained steel roles remain unassigned, and
+full-frame material/input readiness remains false.
 
 ## Refined execution plan, September 24 evening
 
@@ -26,6 +341,166 @@ does not make MVP-E complete. Fabrication, physical receiving, climbing release,
 candidate selection, and apartment-floor qualification are outside this goal.
 
 ## MVP finishing amendment, September 26
+
+### Owner mechanics-architecture guidance, September 27
+
+The bounded external-member force experiment ended inconclusively. Attempt02
+accepted only the `0.001 s` startup increment, far below its diagnostic energy
+floor, then failed to converge on the next increment; Docker recorded exit 255
+without OOM. Its launch record was left stale, and parent reconciliation has
+recorded the terminal state and verified the frozen inputs. This does not
+demonstrate an external response or engagement. A pinned 2.23 coupon then
+verified that `CONTACT ELEMENTS` and `LAST ITERATIONS` preserve the accepted
+solution and align all 16 coupon CEL groups with `.cvg`.
+
+The output-only repeat is now complete in
+[attempt03](hypotheses/evaluation-resume-2026-09-24/ordinary-external-force-transient-attempt03/RESULTS.md).
+It changed only the contact-output header and preserved all 44 frozen input
+hashes. It accepted one underloaded state at `0.001 s`, then stopped after 600
+seconds without an accepted increment or monitor block; `.cvg` iteration rows
+continued through increment 2, iteration 22. The runner stopped the container
+with code 137; Docker records `OOMKilled=false`. The captured FRD has 22
+displacement-only trial frames, while the CEL audit has one additional
+unaligned, completeness-unverified iteration-23 group. This yields no accepted
+response, equilibrium, force/contact-energy balance or mechanical result.
+Keep geometry and contact assumptions fixed. Do not start rate/timestep
+comparisons or change solver methods until the nonconvergence decision, settling
+observation and next executable step are specified.
+
+Use the attempt03 observation to consolidate the active runner and model
+contract before another native launch. Preserve prior actuators, observer
+experiments and instrumented builds as history; new solver-internals work
+requires a concrete result-blocking defect. Keep geometry/mesh identity,
+known-answer verification, equilibrium/work checks and reproducibility in the
+active path. Continue source-bound current-frame input preparation and
+hardware/material work where ready, but do not launch full-frame cases before
+connection behavior is defensible.
+
+The read-only [attempt01 force-history review](hypotheses/evaluation-resume-2026-09-24/ordinary-external-force-history-review-attempt01/README.md)
+places another transient on hold: source-bound simultaneous six-component
+rail and principal port histories, action datums, and time basis are absent.
+Attempts 02/03 share the same analyst-selected 1 N pulse; do not reuse, rescale,
+or retime it as a physical history. Attempt03's only accepted state prints a
+native energy balance far below the frozen floors, not an independent event or
+post-bearing audit. Any future input must provide independent sampled curves
+for each wrench component at each port, freeze signs, axes, frames and time
+units, and define a valid gauge-force channel plus dimensionally consistent
+force/moment impulse tolerances before execution. The linked review records
+the pinned 2.23 output qualifications. This hold does not change geometry or
+transfer historical results.
+
+The intended hierarchy is an economical whole-frame demand model, justified
+joint-family component models, and detailed solids for unresolved mechanisms.
+A reduced bolt must represent distributed bore bearing, clearance, seat
+contact and axial compliance. No present reduced law qualifies this patch,
+so the direct model remains the current method until supported reduction
+demonstrates applicability. Develop resistance and detailing methods alongside
+response; elastic stress or convergence alone does not establish capacity.
+
+For the current transient, attempt03's infinitesimal nut-adapter rotation stays
+well below its sampled stop, but the applied field is far below the diagnostic
+floor. The last-iteration trace does not establish sliding or contact-force
+tracking. A frictionless elastic assembly may oscillate; evaluate rate,
+timestep, energy and documented HHT dissipation only after an auditable
+response exists and the next comparison has a defined decision and settling
+observation. Alpha=0 is a baseline, not a preferred result by definition. Do
+not introduce support or tune damping to conceal a mechanism.
+The 2.23 C3D8 checks do not validate C3D10/contact/nut behavior, and mass
+recovery tied to 2.21 needs version-specific support and native comparison.
+Numerical face IDs remain valid only within their authenticated mesh.
+
+### Attempt03 contact-count convergence gate, September 27
+
+The [attempt04 output-only diagnostic patch][ccxdiag04] resolves the next
+convergence decision without changing the mechanical model. The frozen deck
+uses `TYPE=SURFACE TO SURFACE`, which the pinned CalculiX 2.23 source maps to
+`mortar=1`; its default relative contact-element-count limit is `delcon=0.001`.
+The 21 aligned count changes from increment-2 iteration 1→2 through 21→22
+exceed that limit; the minimum relative change is 0.122619% at iteration
+20→21. Those later iterations execute the count comparison and set `iflagact`.
+Iteration one uses a separate initial contact-generation path and fails the
+mechanical `iit>1` prerequisite. Its count difference across the increment
+boundary does not establish its flag. This corrects the earlier inference
+that all 22 rows executed the count branch. The extra, incomplete CEL
+iteration-23 group is unaligned with `.cvg` and excluded. The accepted
+increment-1 final change is below the limit. These are sufficient blockers,
+not evidence that other predicates pass or a physical contact diagnosis.
+
+The patch logs each convergence check and the later-iteration contact-count
+branch; it does not log an initial contact-count event. Its static verifier
+confirms the official source-archive pin, all 44
+attempt03 frozen inputs, all nine recorded native outputs, the base image and
+binary path in the execution command, and zero-fuzz insertion-only application.
+It logs the overall `iflagact`; it does not identify whether an earlier path
+set that flag. `mechanical_gate_ok` is logged before the `kscale>1` reset, with
+post-reset `iconvergence` reported separately. Synchronous stdout writes can
+affect runtime and output volume.
+
+Build attempt02 and its independent provenance review passed. Coupon
+attempt01 preserved numerical parity but failed an incorrect verifier
+expectation of first-iteration contact events; its failure is preserved.
+Corrected coupon attempt02 passed on the same binary: exact 16
+convergence/CVG/CEL and eight contact keys, numerical parity, exit zero and
+no OOM. Contact-key equality is exact for later iterations of the checked
+mechanical face-to-face penalty decks; an arbitrary subset is insufficient.
+
+The [attempt04 terminal replay][ccxdiag04result] now settles the logged
+convergence-predicate question. It stopped at 1,021.04 seconds on the
+600-second accepted-state/monitor-progress watchdog, with requested-stop exit
+137 and `OOMKilled=false`. All 44 frozen inputs match. The single accepted
+`0.001 s` startup state and its `.dat`/`.sta` files are unchanged from
+attempt03. All 40 common CVG rows match; the replay adds four completed rows.
+
+All 44 completed CVG/convergence rows pass the residual, displacement and
+viscoelastic checks. Increment-1 iterations 2–17 and increment-2 iterations
+2–26 fail only the contact-count gate. Each first iteration fails the `iit>1`
+prerequisite; increment 1 iteration 18 passes final convergence. One additional
+CONTACT/CEL-only iteration-27 tail remains unresolved. The audit reports no
+completed-row errors, but does not call the interrupted capture complete.
+These sub-floor diagnostics establish neither equilibrium nor joint acceptance.
+
+### Post-diagnostic method decision
+
+Keep `delcon=0.001`. The count is generated face-to-face penalty springs;
+per-iteration signed-clearance classification can change it. Existing outputs
+do not establish whether the changes are negligible classification effects
+or meaningful contact changes. Passing the other logged predicates does not
+justify weakening the count gate. The pinned archive includes
+`gencontelem_f2f.f`; the new [source interpretation][contactinterpret04]
+supersedes the earlier source-unavailable statement.
+
+**Next executable work:** compare documented standard contact formulations
+against the frozen unilateral, frictionless contact requirements. Identify
+solver/version, element/procedure eligibility, coefficients and convergence
+checks, then specify a small known-answer demonstration before selecting any
+candidate method change. No alternative is yet selected. Do not repeat the
+same pulse, blindly rerun the failed static attempt09, add internal support,
+tune damping to hide a mechanism, or automatically start another instrumentation
+branch. New solver-internals work still requires a concrete result-blocking
+defect and the decision/observable/next-step record defined below.
+A named method gap remains unresolved; full-frame native cases stay behind
+defensible connection behavior.
+
+Local mathematical unit-response characterization is allowed before full-frame
+demands by the existing criteria. A static unit load factor or external-port
+displacement is an analytical basis, not a physical force-time history or one
+of the six frame cases. Preserve the free cleat and exact external-port map;
+require accepted equilibrium, contact/action/work audits and numerical and
+assumption sensitivity. Physical transients still require source-bound port
+histories. CalculiX implicit dynamics is not a documented native dynamic
+relaxation procedure. Any numerical dynamic continuation would need a separate
+method decision and low-kinetic-energy, energy, rate, timestep and branch
+checks before it could be interpreted as quasi-static.
+
+[ccxdiag04result]: hypotheses/evaluation-resume-2026-09-24/ordinary-external-force-transient-attempt04-diagnostic/replay-attempt01/RESULTS.md
+[contactinterpret04]: hypotheses/evaluation-resume-2026-09-24/ordinary-external-force-transient-attempt04-diagnostic/contact-count-interpretation.md
+
+[ccxdiag04]: hypotheses/evaluation-resume-2026-09-24/ordinary-external-force-transient-attempt04-diagnostic/README.md
+[topology01]:
+  hypotheses/evaluation-resume-2026-09-24/current-attachment-topology-attempt01/README.md
+
+This guidance changes method priorities without changing the reviewed
+geometry, authorizing physical work, transferring passes, or weakening gates.
 
 The second-pass review found both a mechanics-method bottleneck and unfinished
 resistance contracts. Keep the reviewed candidate and geometry stable while
@@ -68,6 +543,12 @@ revision and revalidate its dependencies.
 | 6. Finish fit and use checks in parallel | Extend beyond the 16 priority bolt access screens to all candidate and retained stacks. Check real installation/counterhold/removal envelopes and sequence, tolerances, individual-member transport, panel screw operations, current holds/T-nuts, LEDs and wiring service. Reconcile G6/G12 and any other historical findings against the current model. Restate the hypothetical denser-grid midpoint review separately from actual product compatibility. | Current complete layout/access disposition, explicit unresolved real-tool or physical-observation limits, and dimensioned ordinary-N exceptions where applicable. Feed findings back to mechanics only when analyzed geometry, receivers or paths change. |
 | 7. Finish materials, hardware and cost in parallel | Reconcile lumber blanks, grain, finished patterns and drilling variants. Source suitable bolt grades, lengths, shank/thread transitions, nuts and washers for all 92 candidate and 12 retained stacks. Preserve the 66 purchased Hillman policy and do not infer screw properties from another product. Refresh whole-board quantities, costs and weight as selections resolve. | Source-backed hardware/stock schedule and cost range with missing specifications clearly identified. Nominal CAD length is not delivered shank; physical receiving cells remain blank. Sourcing supports final criteria but need not delay explicitly provisional method diagnostics. |
 | 8. Integrate and review | Update this plan, the completion ledger, criterion evidence and candidate development instructions from validated outputs. Independently review critical calculations and source bindings. Reconcile drawings, dimensions, hardware, cost, access and result summaries. Commit and push completed chunks outside quiet hours. | One coherent reviewable package and clear pass/revise/unresolved conclusion. Selected authority and historical evidence remain intact; apartment notes remain local. No declaration of MVP-E while required evidence is missing. |
+
+The geometry-only [current attachment-topology index][topology01] crosswalks
+the 24 former duties to the current member STEP set, candidate/retained bolt
+axes, panel screws, and pair-level contact records. It supplies no face IDs,
+solver surface map, active attachment law, transfer result, or duty acceptance;
+Step 3 remains open.
 
 Step 2 includes a zero-load, zero-preload free-mode preflight before signed
 force-controlled response cases. Check internal mechanisms for the declared

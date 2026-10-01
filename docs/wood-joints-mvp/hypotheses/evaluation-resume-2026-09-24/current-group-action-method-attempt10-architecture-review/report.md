@@ -1,0 +1,29 @@
+Independent architecture and integration review of immutable attempt10: **pass, with no confirmed findings in the requested scope**. The reconstructed module and test file match the maintained bytes, the isolated focused suite passes, and the path contract is deterministic and documented for this pinned method version.
+
+This review read only the attempt10 package and the exact maintained module, test, and criteria-map paths. It did not read prior reports or historical attempt directories. It wrote only this review directory and a separate temporary replay tree. Package and maintained input hashes are unchanged after review. No solver, Docker, native model, geometry edit, capacity calculation, or criterion disposition was performed.
+
+The review is bound to these original inputs:
+
+| Input | SHA-256 |
+| --- | --- |
+| Attempt10 `terminal-hashes.json` | `b7cf94c61d5b4393f5544c5b59ba7650e231ce4afb3b25743c8bc9f5ec10c7fd` |
+| Attempt10 `source-pins.json` | `d66ae5481bdcdd2accd54d72f0ffdb7b80c66ef6d21223d573fc235f95e52a8c` |
+| Attempt10 `attempt10.patch` | `bf8cffa8a4954a0bf96a3c73aec0c5ea6212c518efb8eae56925a1260c469e8a` |
+| Attempt10 `README.md` | `248e8a305cf334ff67cd0d4162f92c0ec1e82101f3378faae2789e47fe0ee545` |
+| Maintained `mini_moonboard/nds_2024_group_action.py` | `121ec9d5399aa3e856b4038232e6d61c628aac42ce2addf8d1ff7e3a0e4c3df9` |
+| Maintained `tests/test_nds_2024_group_action.py` | `741ef514d6a7ea6a88c24f95a53241d126b61e4cd8af6c13d7288268b18adef9` |
+| Maintained `docs/wood-joints-mvp/criteria-method-map.md` | `2d9083d4286e328553183e0bb993cfb913985fbe4960717bfe0bb4ef416d32e7` |
+
+All 26 local pin, manifest-consistency, replay, and base-preservation checks passed. The packaged base files were copied into `/tmp/attempt10-architecture-replay-n6f9lmkq`; `patch --batch --fuzz=0 -p1 --input <attempt10.patch>` applied there with no fuzz, offsets, rejects, or failures. Both reconstructed SHA-256 values equal the maintained attempt10 pins. The original base files were not patched. The isolated import resolves to the temporary module, and the test command recorded in [review-evidence.json](review-evidence.json) returned **51 passed in 0.08s**.
+
+The package is self-contained for reconstructing this two-file method delta: both base files, the complete patch, expected hashes, test source, and validation instructions are present. The evaluator imports only Python standard-library modules, and the focused suite needs pytest. The external attempt07 and attempt09 hashes record provenance; their historical artifacts were not needed for reconstruction and were not independently authenticated because they are outside the requested read scope. This source package does not purport to bundle a Python/pytest installation or the complete engineering source library.
+
+The path grammar is unambiguous in its intended context of two complete, independently hash-bound payloads. Object-key delimiters are escaped before joining segments; empty and all-whitespace keys receive distinct encodings. Literal backslash sequences remain distinct from those encodings. README line 5 and the helper docstring at module lines 534–540 agree: whitespace keys use one literal backslash followed by `u` and the four hexadecimal digits. Byte-level confirmation of that README token is included in the evidence. The public sensitivity evaluator normalizes both path collections with the same sorted-set operation at module lines 730–740, so multi-digit array indices compare consistently using string order.
+
+List comparison is positional. Shared indices are compared recursively; indices outside the shared length are represented once as whole items, together with the list's `.length` path. Added or removed nested items do not require a list of descendant leaves. Insertions or removals within a list can therefore also change overlapping indices. Replacing a node's type is represented by its parent path. These rules are stable under the frozen module hash. The `.length` suffix is a list pseudo-property when its parent is an array and an ordinary key when its parent is an object; the bound payload types supply that context. The helper is not a context-free typed path parser, and no such consumer is introduced by this patch.
+
+Independent [semantic probes](path-semantics-probes.json) checked 16 positive cases through the public sensitivity API, including literal versus nested punctuation, literal escape text versus special-key encodings, nested empty keys, whole nested-item growth and shrinkage, positional middle removal, and type replacement. All 18 selected difficult keys produced distinct paths when changed together. Incorrect double-backslash whitespace paths and descendant-leaf expansion in place of a whole added item both returned pending with a path-contract mismatch. These synthetic probes exercise contract semantics, not candidate behavior; their source is [path-semantics-probe.py](path-semantics-probe.py).
+
+Method-only boundaries remain explicit. Pending and calculated outputs retain `capacity: null` and `criterion_disposition: pending`; successful sensitivity output says it is a composite dimensionless change in Cg, not a demand/capacity ratio. Independent manifest authority is expressly outside the helper's verification role. The unchanged criteria map leaves all 36 migrated criteria and 11 candidate obligations pending, and its group-action row describes the same restricted factor-only scope. The source delta touches path encoding, changed-path reconciliation, and focused tests; it does not extend mechanical applicability or authorize candidate acceptance.
+
+The review artifacts and their SHA-256 values are listed in [terminal-hashes.json](terminal-hashes.json). This disposition covers the pinned method package and its integration contract only.

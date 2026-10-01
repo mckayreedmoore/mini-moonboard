@@ -1,0 +1,9 @@
+# Luna maximum-reasoning live status — 2026-09-29 update 02 UTC
+
+Docker access is restored under the current full-access profile. `docker info` succeeds, the exact pinned upstream CalculiX image is present, and the attempt09 compile-only build completed offline. An independent 35-check build-provenance audit passed. The binary is `2d80b317a5ee4377e160d212fbfdb403d4b10a92cbc94605f7cd75c0f324f417` in image `sha256:9040d55065a2dd78790b4c2af1564915d29b968d1fc236fa490ada03e0491e1e`.
+
+A fresh exact-touch contact-capture coupon packet is prepared at `hypotheses/evaluation-resume-2026-09-24/implicit-contact-capture-attempt09-exact-touch-coupon-attempt02/`. Its frozen input binds the new patch, image, binary, rosters, capture-reader contract, known-answer baseline, and the prior independently reviewed exact-touch work fixture. It is undergoing an independent pre-run audit. No fresh readiness, run-specific authorization, parent-ledger reservation, or coupon run has occurred. The historical r5 attempt01 remains a consumed failure and is not reused. A coupon pass would qualify capture instrumentation and output invariance only.
+
+The full joint remains far from accepted. The aggregate remains 47/47 criteria pending; there is no response-validated ordinary joint and no six-case full-frame result. The ordinary history/threshold evidence remains unsupported. The available mesh covers only 3 of 50 current members; exact Gmsh 4.12.1 is not yet available in an authenticated usable environment. Exact plywood identity and properties, complete material/load/contact/support maps, connection load paths, resistance methods, fit/transport and costs remain open. Full-frame readiness and engineering completion remain false.
+
+See the [task queue](luna-max-task-queue.json), [parent run ledger](luna-max-native-run-ledger.json), and [completion handoff](luna-max-completion-handoff.md) for the detailed gates.

@@ -1,0 +1,54 @@
+DEBUT();
+
+MAIL = LIRE_MAILLAGE(UNITE=20, FORMAT='ASTER');
+MODEL = AFFE_MODELE(
+    MAILLAGE=MAIL,
+    AFFE=_F(TOUT='OUI', PHENOMENE='MECANIQUE', MODELISATION='3D'),
+);
+STEEL = DEFI_MATERIAU(ELAS=_F(E=210000.0, NU=0.3, RHO=7.85e-9));
+CHMAT = AFFE_MATERIAU(MAILLAGE=MAIL, AFFE=_F(TOUT='OUI', MATER=STEEL));
+
+# Use the ordinary 3D TETRA10 mass option, retaining the complete 30x30
+# consistent translational block. No solver is invoked by this deck.
+ME_MASS = CALC_MATR_ELEM(
+    OPTION='MASS_MECA', MODELE=MODEL, CHAM_MATER=CHMAT,
+);
+ME_STIFF = CALC_MATR_ELEM(
+    OPTION='RIGI_MECA', MODELE=MODEL, CHAM_MATER=CHMAT,
+);
+NUM = NUME_DDL(MATR_RIGI=ME_STIFF);
+MASS = ASSE_MATRICE(MATR_ELEM=ME_MASS, NUME_DDL=NUM);
+
+# Serialize the complete assembled matrix and the DOF map explicitly. This
+# avoids relying on a matrix-printing command; matrix entries are in the
+# one-based-independent array order returned by NUME_DDL's DOF lookup.
+import json
+
+NODE_NAMES = ['N1', 'N2', 'N3', 'N4', 'N5', 'N6', 'N7', 'N8', 'N9', 'N10']
+NODE_COORDS_MM = [
+    [0.0, 0.0, 0.0], [100.0, 0.0, 0.0], [0.0, 100.0, 0.0], [0.0, 0.0, 100.0],
+    [50.0, 0.0, 3.5], [50.0, 50.0, -2.0], [0.0, 50.0, 1.5],
+    [0.0, 0.0, 50.0], [50.0, 0.0, 50.0], [0.0, 50.0, 50.0],
+]
+DOF_MAP = []
+for index in range(30):
+    node_index, component = NUM.getNodeAndComponentFromDOF(index)
+    DOF_MAP.append({
+        'index': index,
+        'node_index': int(node_index),
+        'node_name': NODE_NAMES[int(node_index)],
+        'component': str(component),
+    })
+MASS_ARRAY = MASS.toNumpy()
+with open('fort.80', 'w') as matrix_file:
+    json.dump({
+        'matrix': MASS_ARRAY.tolist(),
+        'dof_map': DOF_MAP,
+        'node_names': NODE_NAMES,
+        'node_coords_mm': NODE_COORDS_MM,
+        'units': {'length': 'mm', 'density': 'tonne/mm^3', 'mass': 'tonne'},
+        'mass_option': 'CALC_MATR_ELEM(OPTION=MASS_MECA)',
+        'element': 'one curved isoparametric TETRA10',
+    }, matrix_file, sort_keys=True, separators=(',', ':'))
+
+FIN();

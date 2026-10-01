@@ -6,6 +6,17 @@ endorsed by Moon Climbing.
 
 This is a DIY build. It has not been signed off by an engineer.
 
+## Find your working area
+
+The selected baseline is `compact-floor-flush-development`. The wood-joint
+model is a separate development candidate; its evaluation is ongoing.
+
+| Purpose | Start here |
+| --- | --- |
+| Selected screw-and-bracket baseline | [Builder documents](docs/README.md) and [selected working set](docs/selected-working-set.md) |
+| Current wood-joint development | [Development entry point](docs/wood-joints-mvp/README.md) and [reviewed WJ24 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-wj24-viewer.html) |
+| Explore previous options | [Design history, results and lessons](docs/history/design-history.md); all earlier choices remain in the [interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/) |
+
 ## Start here
 
 **How you get the plywood decides which sheets to use.**
@@ -60,7 +71,8 @@ in the 3D view are a size check only. Older designs are in the archive menus.
 | [Completion ledger](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-runner-mvp-completion-ledger.md) | What passed and what is still open |
 | [History](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/history/README.md) | Older ideas; not current |
 
-What is left is buying lumber, cutting, and filling in the checklist as you go.
+The baseline's remaining conditions are recorded in its completion ledger and
+shop checklist. Its recorded passes do not qualify the wood-joint candidate.
 
 ## For people editing the code
 

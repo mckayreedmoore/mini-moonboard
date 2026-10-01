@@ -1,0 +1,165 @@
+DEBUT();
+
+MAIL = LIRE_MAILLAGE(UNITE=20, FORMAT='ASTER');
+
+MODEL = AFFE_MODELE(
+    MAILLAGE=MAIL,
+    AFFE=(
+        _F(GROUP_MA='PHYS', PHENOMENE='MECANIQUE', MODELISATION='3D'),
+        _F(GROUP_MA='CARR', PHENOMENE='MECANIQUE', MODELISATION='3D'),
+        _F(GROUP_MA='CTRL', PHENOMENE='MECANIQUE', MODELISATION='DIS_TR'),
+    ),
+);
+
+MAT_PHYS = DEFI_MATERIAU(ELAS=_F(E=1000.0, NU=0.3, RHO=1.0));
+MAT_CARR = DEFI_MATERIAU(ELAS=_F(E=1000.0, NU=0.3, RHO=0.0));
+CHMAT = AFFE_MATERIAU(
+    MAILLAGE=MAIL,
+    AFFE=(
+        _F(GROUP_MA='PHYS', MATER=MAT_PHYS),
+        _F(GROUP_MA='CARR', MATER=MAT_CARR),
+    ),
+);
+
+# A zero-stiffness DIS_TR point supplies the reference translation and DRY
+# control DOF. It has no assigned discrete mass. DRX and DRZ are unused.
+CARA = AFFE_CARA_ELEM(
+    MODELE=MODEL,
+    DISCRET=_F(
+        GROUP_MA='CTRL',
+        CARA='K_TR_D_N',
+        VALE=(0.0, 0.0, 0.0, 0.0, 0.0, 0.0),
+    ),
+);
+
+# Exact infinitesimal rigid motion about the origin, rotation about global Y:
+#   ux = Ux + z*DRY, uy = Uy, uz = Uz - x*DRY.
+# First term in each equation is the mapped solid DOF; the other terms are
+# independent reference controls. Aster's LIAISON_DDL sums coef*DOF = 0.
+point_sets = (
+    ('GP1', 0.0, 0.0, 0.0),
+    ('GP2', 1.0, 0.0, 0.0),
+    ('GP3', 0.0, 2.0, 0.0),
+    ('GP4', 0.0, 0.0, 3.0),
+    ('GC1', 4.0, 0.0, 0.0),
+    ('GC2', 5.0, 0.0, 0.0),
+    ('GC3', 4.0, 1.0, 0.0),
+    ('GC4', 4.0, 0.0, 2.0),
+)
+equations = []
+for group_name, x, y, z in point_sets:
+    equations.append(_F(
+        GROUP_NO=(group_name, 'NCTRL', 'NCTRL'),
+        DDL=('DX', 'DX', 'DRY'),
+        COEF_MULT=(1.0, -1.0, -z),
+        COEF_IMPO=0.0,
+    ))
+    equations.append(_F(
+        GROUP_NO=(group_name, 'NCTRL'),
+        DDL=('DY', 'DY'),
+        COEF_MULT=(1.0, -1.0),
+        COEF_IMPO=0.0,
+    ))
+    equations.append(_F(
+        GROUP_NO=(group_name, 'NCTRL', 'NCTRL'),
+        DDL=('DZ', 'DZ', 'DRY'),
+        COEF_MULT=(1.0, -1.0, x),
+        COEF_IMPO=0.0,
+    ))
+
+KIN = AFFE_CHAR_MECA(
+    MODELE=MODEL,
+    LIAISON_DDL=tuple(equations),
+    DDL_IMPO=_F(GROUP_NO='NCTRL', DRX=0.0, DRZ=0.0),
+);
+
+# Main tetra coordinates in m. V=1 m^3, rho=1 kg/m^3, total mass=1 kg.
+# For a linear TETRA4 the consistent scalar nodal mass block is
+# m_node=(rho*V/20)*[[2,1,1,1],...], separately for X, Y and Z.
+# Uniform a_x therefore has f_x=(1/4)*a_x at each physical node.
+C_ACCEL = 6.0e-6  # acceleration ramp slope; f(t)=M*a(t), a(t)=C_ACCEL*t
+TIME = DEFI_FONCTION(
+    NOM_PARA='INST',
+    VALE=(0.0, 0.0, 1.0, 1.0),
+    PROL_GAUCHE='CONSTANT',
+    PROL_DROITE='CONSTANT',
+);
+LOAD_TX = AFFE_CHAR_MECA(
+    MODELE=MODEL,
+    FORCE_NODALE=(
+        _F(GROUP_NO='GP1', FX=0.25 * C_ACCEL),
+        _F(GROUP_NO='GP2', FX=0.25 * C_ACCEL),
+        _F(GROUP_NO='GP3', FX=0.25 * C_ACCEL),
+        _F(GROUP_NO='GP4', FX=0.25 * C_ACCEL),
+    ),
+);
+
+# For alpha_y(t)=C_ACCEL*t, node acceleration per unit alpha is
+# e_y x r = (z, 0, -x). The entries below are the exact consistent-mass
+# product M*(e_y x r), scaled by C_ACCEL. No force is applied to the carrier.
+LOAD_RY = AFFE_CHAR_MECA(
+    MODELE=MODEL,
+    FORCE_NODALE=(
+        _F(GROUP_NO='GP1', FX=0.15 * C_ACCEL, FZ=-0.05 * C_ACCEL),
+        _F(GROUP_NO='GP2', FX=0.15 * C_ACCEL, FZ=-0.10 * C_ACCEL),
+        _F(GROUP_NO='GP3', FX=0.15 * C_ACCEL, FZ=-0.05 * C_ACCEL),
+        _F(GROUP_NO='GP4', FX=0.30 * C_ACCEL, FZ=-0.05 * C_ACCEL),
+    ),
+);
+
+TSTEPS = DEFI_LIST_REEL(VALE=tuple(i / 100.0 for i in range(101)));
+
+RESULT_TX = DYNA_NON_LINE(
+    MODELE=MODEL,
+    CHAM_MATER=CHMAT,
+    CARA_ELEM=CARA,
+    EXCIT=(
+        _F(CHARGE=KIN),
+        _F(CHARGE=LOAD_TX, FONC_MULT=TIME),
+    ),
+    COMPORTEMENT=_F(
+        GROUP_MA=('PHYS', 'CARR'),
+        RELATION='ELAS',
+        DEFORMATION='PETIT',
+    ),
+    INCREMENT=_F(LIST_INST=TSTEPS),
+    SCHEMA_TEMPS=_F(SCHEMA='NEWMARK', FORMULATION='DEPLACEMENT', BETA=0.25, GAMMA=0.5),
+    MASS_DIAG='NON',
+    NEWTON=_F(MATRICE='TANGENTE', REAC_ITER=1),
+    CONVERGENCE=_F(RESI_GLOB_RELA=1.0e-9, ITER_GLOB_MAXI=20),
+    ARCHIVAGE=_F(PAS_ARCH=1),
+    TITRE='Weighted constraint known answer: free translation',
+);
+
+RESULT_RY = DYNA_NON_LINE(
+    MODELE=MODEL,
+    CHAM_MATER=CHMAT,
+    CARA_ELEM=CARA,
+    EXCIT=(
+        _F(CHARGE=KIN),
+        _F(CHARGE=LOAD_RY, FONC_MULT=TIME),
+    ),
+    COMPORTEMENT=_F(
+        GROUP_MA=('PHYS', 'CARR'),
+        RELATION='ELAS',
+        DEFORMATION='PETIT',
+    ),
+    INCREMENT=_F(LIST_INST=TSTEPS),
+    SCHEMA_TEMPS=_F(SCHEMA='NEWMARK', FORMULATION='DEPLACEMENT', BETA=0.25, GAMMA=0.5),
+    MASS_DIAG='NON',
+    NEWTON=_F(MATRICE='TANGENTE', REAC_ITER=1),
+    CONVERGENCE=_F(RESI_GLOB_RELA=1.0e-9, ITER_GLOB_MAXI=20),
+    ARCHIVAGE=_F(PAS_ARCH=1),
+    TITRE='Weighted constraint known answer: small free rotation about Y',
+);
+
+IMPR_RESU(
+    FORMAT='MED',
+    UNITE=80,
+    RESU=(
+        _F(RESULTAT=RESULT_TX, NOM_CHAM=('DEPL', 'VITE', 'ACCE')),
+        _F(RESULTAT=RESULT_RY, NOM_CHAM=('DEPL', 'VITE', 'ACCE')),
+    ),
+);
+
+FIN();

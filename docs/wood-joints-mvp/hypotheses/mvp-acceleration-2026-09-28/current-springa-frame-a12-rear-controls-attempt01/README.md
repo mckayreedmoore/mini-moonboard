@@ -1,0 +1,9 @@
+# Current-frame controlled-iteration diagnostic
+
+This fresh one-launch packet keeps the preceding frozen physical input byte-identical apart from a documented time-incrementation control card. The model record changes only its diagnostic scope. Parent independently checked the actual serialized model and deck; all 50 bodies, source loads, material directions, 92 new block axes, twelve original leg/runner arrangements, 66 Hillman axes and floor reaction maps are preserved.
+
+I0/IR are 40, IC is 40 and IA is zero. IP and every FIELD threshold remain unchanged. The old first-increment divergence cutoff occurred after five iterations; this diagnostic allows the solver to expose whether further iterations settle. It preserves the complete static step rather than imposing a partial-response stopping point. At most one launch, 240 seconds and 4 GiB are authorized by the parent readiness review. Any cutback terminates.
+
+No method success is presumed. A terminal successful full step and passing physical-law, all-positive normal, MPC, global and all-body balance gates are required for usable corner demands. No force from a rejected increment establishes physical failure or joint acceptance.
+
+The native run returned zero in 45.06 seconds and accepted seven increments to full time 1.0. The first required 13 iterations, the later six required two each. The documented control changes therefore resolved the premature iteration cutoff for this case. The strict response audit rejects the all-bearing floor branch: exactly 17 of 100 normal cells bear while 83 separate, with the same set at every printed time. Tangent restraints at separating cells invalidate usable joint demands. Convergence has not been promoted to corner acceptance. A separate input-only selected-bearing branch is being prepared; this record supplies no further run authority.

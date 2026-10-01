@@ -1,0 +1,16 @@
+P time_limit 180
+P memory_limit 256
+P ncpus 1
+P mpi_nbcpu 1
+P mpi_nbnoeud 1
+
+F comm contact_3d.comm D 1
+F mail contact_coupon.mail D 20
+F resu contact_3d.resu R 8
+F cont contact.csv R 81
+F lagrange lagrange.csv R 82
+F stress stress.csv R 83
+F slave_force slave_cut_force.csv R 84
+F master_force master_cut_force.csv R 85
+F slave_reaction slave_cut_reaction.csv R 86
+F master_reaction master_cut_reaction.csv R 87

@@ -1,0 +1,200 @@
+--- a/CalculiX/ccx_2.23/src/nonlingeo.c
++++ b/CalculiX/ccx_2.23/src/nonlingeo.c
+@@ -2356,6 +2356,15 @@
+ 	       ((*ne-ne0)>(neold-ne0)*(1.+delcon))){iflagact=1;}
+ 	  }
+ 
++	  /* attempt04: output-only contact-count trace. */
++	  printf("{\"event\":\"CCX223_ATTEMPT04_CONTACT\","
++		 "\"step\":%" ITGFORMAT ",\"increment\":%" ITGFORMAT
++		 ",\"attempt\":%" ITGFORMAT ",\"iteration\":%" ITGFORMAT
++		 ",\"contact_old\":%" ITGFORMAT
++		 ",\"contact_new\":%" ITGFORMAT
++		 ",\"delcon\":%.17e,\"contact_change_flag\":%" ITGFORMAT "}\n",
++		 *istep,iinc,icutb+1,iit,neold-ne0,*ne-ne0,delcon,iflagact);
++	  fflush(stdout);
+ 	  printf(" Number of contact spring elements=%" ITGFORMAT "\n\n",
+ 		 *ne-ne0);
+ 
+@@ -3314,6 +3323,46 @@
+ 	}else{pressureratio=0.;}
+       }
+ 
++
++      /* Coupon-only output trace. Read the final corrected state after any
++         line search, before stx is freed. No call to a mechanics routine. */
++      if((*mortar==1)&&(*ithermal<2)){
++        ITG wje,wjbase,wjnp,wjg,wjface,wjt,wjpair;
++        double wja,wjp,wjenergy;
++        for(wje=ne0;wje<*ne;wje++){
++          if(ipkon[wje]<0) continue;
++          if(strncmp(&lakon[8*wje],"ESPRNGC",7)!=0) continue;
++          wjbase=ipkon[wje];
++          wjnp=kon[wjbase-1];
++          wjg=kon[wjbase+wjnp];
++          wjface=kon[wjbase+wjnp+1];
++          wjpair=0;
++          for(wjt=0;wjt<*ntie;wjt++){
++            if((wjface>=itiefac[2*wjt])&&
++               (wjface<=itiefac[2*wjt+1])){wjpair=wjt+1;break;}
++          }
++          wja=springarea[2*(wjg-1)];
++          wjp=stx[6*mi[0]*wje+3];
++          wjenergy=0.;
++          if(*nener==1) wjenergy=ener[2*mi[0]*(ne0+wjg-1)];
++          printf("CCXPT_TRIAL %" ITGFORMAT " %" ITGFORMAT
++                 " %" ITGFORMAT " %" ITGFORMAT " %" ITGFORMAT
++                 " %" ITGFORMAT " %" ITGFORMAT " %" ITGFORMAT
++                 " %" ITGFORMAT " %" ITGFORMAT " %" ITGFORMAT
++                 " %.17e %.17e %.17e %.17e %.17e %.17e"
++                 " %.17e %.17e %.17e %.17e %.17e %.17e %.17e\n",
++                 *istep,iinc,icutb+1,iit,wje+1,wjg,wjface,
++                 islavsurf[2*(wjface-1)],
++                 (ITG)pmastsurf[6*(wjg-1)+2],wjpair,*nener,
++                 stx[6*mi[0]*wje],stx[6*mi[0]*wje+1],
++                 stx[6*mi[0]*wje+2],wjp,
++                 stx[6*mi[0]*wje+4],stx[6*mi[0]*wje+5],
++                 wja,wjenergy,pmastsurf[6*(wjg-1)+3],
++                 pmastsurf[6*(wjg-1)+4],pmastsurf[6*(wjg-1)+5],
++                 kscale,reltime);
++        }
++        fflush(stdout);
++      }
+       SFREE(v);SFREE(stx);SFREE(fn);
+       
+       if((idamping==1)&&(*iexpl<=1)){SFREE(adc);SFREE(auc);}
+--- a/CalculiX/ccx_2.23/src/checkconvergence.c
++++ b/CalculiX/ccx_2.23/src/checkconvergence.c
+@@ -77,6 +77,12 @@
+     ngraph=1,k,*ipneigh=NULL,*neigh=NULL,*inum=NULL,id,istart,iend,inew,
+     i,j,mt=mi[1]+1,iexceed,iforceincsize=0,kscalemax,itf2f;
+ 
++  int diag_mechanical_applicable,diag_iteration_ok,diag_residual_ok,
++    diag_displacement_ok,diag_visco_ok,diag_contact_clear,
++    diag_no_contact_now,diag_no_contact_start,diag_contact_present,
++    diag_mechanical_gate,diag_no_contact_energy_eligible,
++    diag_contact_energy_eligible,diag_final_convergence;
++
+   double df,dc,db,dd,ran,can,rap,ea,cae,ral,da,*vr=NULL,*vi=NULL,*stnr=NULL,
+     *stni=NULL,*vmax=NULL,*stnmax=NULL,*cs=NULL,c1[2],c2[2],reftime,
+     *fn=NULL,*eenmax=NULL,*fnr=NULL,*fni=NULL,*qfx=NULL,*cdn=NULL,
+@@ -144,6 +150,28 @@
+ 
+   iconvergence=0; 
+  
++  /* attempt04: log the existing predicates without changing them. */
++  diag_mechanical_applicable=(*ithermal<2);
++  diag_iteration_ok=(*iit>1);
++  diag_residual_ok=0;
++  diag_displacement_ok=0;
++  diag_visco_ok=0;
++  diag_contact_clear=(*iflagact==0);
++  diag_no_contact_now=(*ne==*ne0);
++  diag_no_contact_start=(*neini==*ne0);
++  diag_contact_present=(!diag_no_contact_now)||(!diag_no_contact_start);
++  if(diag_mechanical_applicable){
++    diag_residual_ok=(ram[0]<=c1[0]*qam[0]);
++    diag_displacement_ok=((cam[0]<=c2[0]*uam[0])||
++      (((ram[0]*cam[0]<c2[0]*uam[0]*ram2[0])||
++        (ram[0]<=ral*qam[0])||(qa[0]<=ea*qam[0]))&&(*ntg==0))||
++      (cam[0]<1.e-8));
++    diag_visco_ok=((*nmethod!=-1)||(qa[3]<=cetol));
++  }
++  diag_mechanical_gate=(diag_mechanical_applicable&&diag_iteration_ok&&
++    diag_residual_ok&&diag_contact_clear&&diag_visco_ok&&
++    diag_displacement_ok);
++
+   /* mechanical */
+ 
+   if(*ithermal<2){
+@@ -323,6 +351,32 @@
+   //    MPADD end
+   // # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+     
++  diag_no_contact_energy_eligible=((*nmethod==4)&&(*ithermal<2)&&
++    (*uncoupled==0)&&(iconvergence==1)&&(*ne==*ne0)&&
++    (*neini==*ne0)&&(*idrct==0));
++  diag_contact_energy_eligible=((*nmethod==4)&&(*ithermal<2)&&
++    (*uncoupled==0)&&(iconvergence==1)&&
++    ((*ne!=*ne0)||(*neini!=*ne0)));
++  diag_final_convergence=((iconvergence==1)&&(idivergence==0));
++  printf("{\"event\":\"CCX223_ATTEMPT04_CONVERGENCE\","
++    "\"step\":%" ITGFORMAT ",\"increment\":%" ITGFORMAT
++    ",\"attempt\":%" ITGFORMAT ",\"iteration\":%" ITGFORMAT
++    ",\"mechanical_applicable\":%d,\"iteration_ok\":%d"
++    ",\"mechanical_residual_ok\":%d,\"displacement_ok\":%d"
++    ",\"visco_ok\":%d,\"contact_change_gate_clear\":%d"
++    ",\"no_contact_now\":%d,\"no_contact_at_start\":%d"
++    ",\"contact_present\":%d,\"mechanical_gate_ok\":%d"
++    ",\"no_contact_energy_eligible\":%d"
++    ",\"contact_energy_eligible\":%d,\"iconvergence\":%" ITGFORMAT
++    ",\"idivergence\":%" ITGFORMAT ",\"final_convergence_ok\":%d}\n",
++    *istep,*iinc,*icutb+1,*iit,diag_mechanical_applicable,
++    diag_iteration_ok,diag_residual_ok,diag_displacement_ok,diag_visco_ok,
++    diag_contact_clear,diag_no_contact_now,diag_no_contact_start,
++    diag_contact_present,diag_mechanical_gate,
++    diag_no_contact_energy_eligible,diag_contact_energy_eligible,
++    iconvergence,idivergence,diag_final_convergence);
++  fflush(stdout);
++
+   /* increment convergence reached */
+ 	
+   if((iconvergence==1)&&(idivergence==0)){
+--- a/CalculiX/ccx_2.23/src/gencontelem_f2f.f
++++ b/CalculiX/ccx_2.23/src/gencontelem_f2f.f
+@@ -26,6 +26,9 @@
+ !     generate contact elements for the slave contact nodes
+ !     
+       implicit none
++!     Coupon-only output trace; these locals never enter solver equations.
++      integer wjdiag_valid
++      real*8 wjdiag_rawclear
+ !     
+       character*8 lakon(*)
+       character*33 cfile
+@@ -299,6 +302,8 @@
+ !     
+             do m=1,mint2d
+               igauss=indexf+m
++              wjdiag_valid=0
++              wjdiag_rawclear=0.d0
+               xi=pslavsurf(1,indexf+m)
+               et=pslavsurf(2,indexf+m)
+               weight=pslavsurf(3,indexf+m)
+@@ -550,6 +555,8 @@
+ !     distance from surface along normal (= clearance)
+ !     
+                 clear=al(1)*xn(1)+al(2)*xn(2)+al(3)*xn(3)
++                wjdiag_valid=1
++                wjdiag_rawclear=clear
+ !     
+                 if((nmethod.eq.4).or.(nmethod.eq.2)) then
+ !     
+@@ -669,6 +676,20 @@
+ !     
+               endif
+ !     
++!     Log the final generation decision, including mapped open points.
++!     Raw gap and classifier gap differ in the static initialization path.
++              if(wjdiag_valid.eq.1) then
++                write(*,901) 'CCXPT_MAP',istep,iinc,icutb+1,iit,
++     &            iloop,i,jj,igauss,ifaces,ifacem,isol,nmethod,
++     &            int(elcon(3,1,imat)),wjdiag_rawclear,clear,
++     &            springarea(1,igauss),elcon(2,1,imat),
++     &            springarea(2,igauss),(xn(k),k=1,3),
++     &            pslavsurf(1,igauss),pslavsurf(2,igauss),
++     &            pmastsurf(1,igauss),pmastsurf(2,igauss)
++              else
++                write(*,902) 'CCXPT_UNMAPPED',istep,iinc,
++     &            icutb+1,iit,iloop,i,jj,igauss,ifaces,isol
++              endif
+               if(isol.ne.0) then
+ !     
+ !     generation of a contact spring element
+@@ -802,4 +823,6 @@
+       endif
+ !     
+       return
++  901 format(A,13(1X,I0),12(1X,ES25.17E3))
++  902 format(A,10(1X,I0))
+       end
