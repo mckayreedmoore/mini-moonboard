@@ -53,6 +53,27 @@ jobs:
         id: wood_joint_candidate
         continue-on-error: true
         run: uv run python -m scripts.wood_joint_development_candidate_check
+      - name: Lint maintained wood-joint packet helpers
+        id: wood_joint_packet_lint
+        continue-on-error: true
+        run: >-
+          uv run ruff check --no-cache
+          docs/wood-joints-mvp/hypotheses/upper-outer-load-path-2026-10-01
+          docs/wood-joints-mvp/hypotheses/current-stock-envelope-reconciliation-2026-10-01
+          docs/wood-joints-mvp/hypotheses/current-finished-feature-register-2026-10-01
+          docs/wood-joints-mvp/hypotheses/current-stock-package-cost-2026-10-01
+      # The full-source replay requires ignored frozen inputs and remains a separate local replay gate.
+      - name: Test synthetic maintained wood-joint packet helpers
+        id: wood_joint_packet_tests
+        continue-on-error: true
+        run: >-
+          uv run pytest
+          --deselect
+          docs/wood-joints-mvp/hypotheses/upper-outer-load-path-2026-10-01/test_actions.py::test_full_source_replay_retains_all_same_state_rows_without_acceptance_claims
+          docs/wood-joints-mvp/hypotheses/upper-outer-load-path-2026-10-01
+          docs/wood-joints-mvp/hypotheses/current-stock-envelope-reconciliation-2026-10-01
+          docs/wood-joints-mvp/hypotheses/current-finished-feature-register-2026-10-01
+          docs/wood-joints-mvp/hypotheses/current-stock-package-cost-2026-10-01
       - name: Verify historical reference/V1 exports
         if: ${{ inputs.include_historical }}
         run: |
@@ -80,6 +101,14 @@ jobs:
           fi
           if [[ "${{ steps.wood_joint_candidate.outcome }}" != "success" ]]; then
             echo "Wood-joint-candidate gate: ${{ steps.wood_joint_candidate.outcome }}"
+            failed=1
+          fi
+          if [[ "${{ steps.wood_joint_packet_lint.outcome }}" != "success" ]]; then
+            echo "Wood-joint packet lint gate: ${{ steps.wood_joint_packet_lint.outcome }}"
+            failed=1
+          fi
+          if [[ "${{ steps.wood_joint_packet_tests.outcome }}" != "success" ]]; then
+            echo "Wood-joint packet tests gate: ${{ steps.wood_joint_packet_tests.outcome }}"
             failed=1
           fi
           exit "$failed"
