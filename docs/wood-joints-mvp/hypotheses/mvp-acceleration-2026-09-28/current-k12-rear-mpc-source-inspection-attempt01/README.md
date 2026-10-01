@@ -1,0 +1,1 @@
+Pinned CalculiX 2.23 cascade source contains coefficient simplification rules. The K12-rear output has no dependent-zero warning. This inspection records a candidate numerical mechanism, not a diagnosis or permission to relax the strict response audit. Exact coefficients and a discriminating equivalent-projection fixture are still required.

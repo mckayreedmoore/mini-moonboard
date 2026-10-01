@@ -1,0 +1,9 @@
+# Parent A12-forward M4 bounded test
+
+The prepared source-bound fourth floor support mask retains 37 selected and 63 open cells. Parent reused the pinned input/response and known-answer methods, froze the exact prepared deck and allowed standard metadata changes, and revalidated the frozen input with the unchanged strict checker. Geometry, physical laws, stiffness, case controls and loads were preserved. This was one bounded hypothesis test, with no automatic mask iteration.
+
+The serialized run is in [attempt04](../current-springa-selected-floor-a12-forward-attempt04/parent-terminal-assessment.json). It finished with return code zero and confirmed terminal cleanup in 40.6922 seconds. The strict response gate rejected selected floor normal SPR1068 as not strictly positive after rounding. No forces from this branch are usable for joint checks; independent all-body response acceptance was therefore not attempted. The diagnostic must identify the exact cell and compare the observed masks against earlier runs before any further support work is considered. Convergence does not establish branch compatibility or frame failure.
+
+The source proposal and its input gate are in [the M4 proposal](../current-springa-a12-forward-mask-update-proposal-attempt01/README.md). The native directory preserves freeze, case context, authorization, execution, untouched outputs, strict rejection and parent assessment. The producer was snapshotted before launch and is not to be altered after that freeze. Its NumPy scalar conversion is only a JSON rendering step.
+
+The latest [six-case register](../current-six-case-corner-response-register-attempt03/register.json) preserves the three usable rear-load cases, the rejected forward run and earlier evidence. No complete corner capacity, physical stiffness bound, six-case acceptance or candidate selection follows from these records.

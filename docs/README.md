@@ -3,6 +3,11 @@
 If you are building the wall, stay on this page and the links below.
 Older studies live in [history/](history/).
 
+This packet belongs to the selected screw-and-bracket baseline. For ongoing
+analysis, use the separate [wood-joint development entry](wood-joints-mvp/README.md).
+To explore earlier models and the reasons they changed, open the
+[design-history catalog](history/design-history.md).
+
 ## 1. Choose plywood
 
 | You have | Open |

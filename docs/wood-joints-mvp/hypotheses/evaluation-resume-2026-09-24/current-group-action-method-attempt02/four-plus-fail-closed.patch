@@ -1,0 +1,54 @@
+--- a/mini_moonboard/nds_2024_group_action.py
++++ b/mini_moonboard/nds_2024_group_action.py
+@@ -407,6 +407,10 @@
+         or shear_planes != len(sides)
+     ):
+         return _pending("shear_plane_count_does_not_match_side_member_inventory")
++    if len(sides) + 1 >= 4:
++        return _pending(
++            "four_or_more_member_plane_method_not_source_bound"
++        )
+ 
+     main_area = _factor_area(main, lateral_axis, pitch)
+     if isinstance(main_area, dict):
+--- a/tests/test_nds_2024_group_action.py
++++ b/tests/test_nds_2024_group_action.py
+@@ -201,6 +201,38 @@
+     assert result["side_ea_lbf"] == pytest.approx(1_400_000.0 * 10.0)
+ 
+ 
++@pytest.mark.parametrize("side_count", [3, 4])
++def test_four_or_more_total_member_group_action_fails_closed(side_count):
++    record = payload(count=3)
++    record["members"]["shear_planes"] = side_count
++    record["members"]["side_members"] = [
++        {
++            "member_id": f"side-{index + 1:02d}",
++            "material": "wood",
++            "elastic_modulus_psi": 1_400_000.0,
++            "gross_section_area_in2": 5.0,
++            "grain_axis_xyz": [1.0, 0.0, 0.0],
++        }
++        for index in range(side_count)
++    ]
++    member_ids = tuple(
++        side["member_id"] for side in record["members"]["side_members"]
++    )
++    expected = bindings(side_member_ids=member_ids)
++    record["source_bindings"] = expected
++
++    result = evaluate_group_action_factor(record, expected_bindings=expected)
++
++    assert result["status"] == "pending"
++    assert (
++        "four_or_more_member_plane_method_not_source_bound"
++        in result["reason_codes"]
++    )
++    assert result["cg"] is None
++    assert result["capacity"] is None
++    assert result["criterion_disposition"] == "pending"
++
++
+ @pytest.mark.parametrize(
+     "row_centres",
+     [

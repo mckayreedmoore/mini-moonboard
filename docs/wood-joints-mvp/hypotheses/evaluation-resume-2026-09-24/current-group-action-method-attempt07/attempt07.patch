@@ -1,0 +1,111 @@
+--- a/mini_moonboard/nds_2024_group_action.py
++++ b/mini_moonboard/nds_2024_group_action.py
+@@ -97,11 +97,9 @@
+     return _canonical_json_sha256(payload)
+ 
+ 
+-def _canonical_json_sha256(value: Any) -> str | None:
++def _canonical_json_bytes(value: Any) -> bytes | None:
+     try:
+-        if not _is_strict_json_value(value):
+-            return None
+-        canonical = json.dumps(
++        return json.dumps(
+             value,
+             sort_keys=True,
+             separators=(",", ":"),
+@@ -109,6 +107,17 @@
+             allow_nan=False,
+         ).encode("utf-8")
+     except (TypeError, ValueError, OverflowError, UnicodeError, RecursionError):
++        return None
++
++
++def _canonical_json_sha256(value: Any) -> str | None:
++    try:
++        if not _is_strict_json_value(value):
++            return None
++    except RecursionError:
++        return None
++    canonical = _canonical_json_bytes(value)
++    if canonical is None:
+         return None
+     return hashlib.sha256(canonical).hexdigest()
+ 
+@@ -547,7 +556,13 @@
+         if len(left) != len(right):
+             changed.append(f"{path}.length")
+         return changed
+-    return [] if type(left) is type(right) and left == right else [path]
++    left_canonical = _canonical_json_bytes(left)
++    right_canonical = _canonical_json_bytes(right)
++    return (
++        []
++        if left_canonical is not None and left_canonical == right_canonical
++        else [path]
++    )
+ 
+ 
+ def evaluate_group_factor_sensitivity(
+--- a/tests/test_nds_2024_group_action.py
++++ b/tests/test_nds_2024_group_action.py
+@@ -590,6 +590,59 @@
+     )
+ 
+ 
++def test_sensitivity_paths_distinguish_signed_zero_and_reject_omission():
++    baseline = payload(count=3, pitch=4.0)
++    variant = payload(count=3, pitch=2.0)
++    variant["scenario_id"] = "sensitivity"
++    variant["source_bindings"] = bindings("sensitivity")
++    baseline["producer_extension"] = -0.0
++    variant["producer_extension"] = 0.0
++    changed_paths = [
++        "group_geometry.fasteners[1].center_in[0]",
++        "group_geometry.fasteners[2].center_in[0]",
++        "producer_extension",
++    ]
++
++    def evaluate_with_paths(paths):
++        contract = {
++            "contract_id": "synthetic-signed-zero-change",
++            "source_id": "synthetic-fixture/signed-zero-change",
++            "sha256": "pending-digest",
++            "review_status": "coordinator_reviewed",
++            "classification": "composite_scenario",
++            "candidate_id": "synthetic-only",
++            "revision_id": "fixture-v1",
++            "group_id": "group-01",
++            "baseline_scenario_id": "baseline",
++            "sensitivity_scenario_id": "sensitivity",
++            "changed_input_paths": paths,
++        }
++        binding = bind_sensitivity_contract(contract)
++        return evaluate_group_factor_sensitivity(
++            baseline,
++            variant,
++            baseline_expected_bindings=bindings(),
++            baseline_expected_payload_sha256=canonical_group_record_sha256(baseline),
++            sensitivity_expected_bindings=bindings("sensitivity"),
++            sensitivity_expected_payload_sha256=canonical_group_record_sha256(variant),
++            expected_sensitivity_contract=contract,
++            expected_sensitivity_binding=binding,
++        )
++
++    result = evaluate_with_paths(changed_paths)
++    assert result["status"] == "calculated_method_sensitivity_only"
++    assert result["changed_input_paths"] == changed_paths
++    assert result["capacity"] is None
++    assert result["criterion_disposition"] == "pending"
++
++    omitted_signed_zero = evaluate_with_paths(changed_paths[:-1])
++    assert omitted_signed_zero["status"] == "pending"
++    assert (
++        "sensitivity_changed_input_paths_do_not_match_contract"
++        in omitted_signed_zero["reason_codes"]
++    )
++
++
+ def test_extreme_but_finite_ea_inputs_fail_pending_without_arithmetic_exception():
+     record = payload(count=4)
+     record["members"]["main"]["elastic_modulus_psi"] = 1.0e300

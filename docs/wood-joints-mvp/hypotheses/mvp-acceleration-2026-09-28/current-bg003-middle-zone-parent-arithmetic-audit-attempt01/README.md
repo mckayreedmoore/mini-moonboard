@@ -1,0 +1,1 @@
+Parent independently rehashed both geometry/demand sources and recomputed the two BG003 resultant pairs and angles. The arithmetic passes. The proposed half-zone split still supplies no proven static zero-moment cut or simultaneous lower-bound resistance. No native run or force adoption follows.

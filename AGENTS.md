@@ -145,3 +145,8 @@ fabrication or transfer any historical candidate pass. Preserve the current
 66 Hillman axes (58 unchanged and eight previously owner-directed moves),
 92 candidate bolt axes and twelve starting frame-bolt arrangements as the
 reviewed geometry; report required changes before altering that model.
+
+For native mechanics work, keep method choices tied to the documentation for
+the pinned solver version. Verify unfamiliar loading, coupling and output
+behavior on a small model with a known answer before expensive joint runs.
+Record the supporting documentation, observed result and applicability limits.

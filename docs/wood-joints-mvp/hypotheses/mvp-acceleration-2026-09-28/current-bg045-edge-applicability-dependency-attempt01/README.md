@@ -1,0 +1,7 @@
+BG045 loaded-edge applicability dependency
+
+Primary NDS Chapter 12 clauses 12.5.1.3 and Table 12.5.1C require edge detailing for bolts at least a quarter inch. The perpendicular-to-grain loaded-edge reference is 4D, or 25.4 mm in the current conditional quarter-inch scenario. Some signed source-envelope distances are 20 mm. Clause 12.5.2.2 supplies the end-grain lateral factor but does not itself establish the edge-distance interpretation.
+
+The corner screen must resolve the applicable measure and load-direction rule, particularly block bolts parallel to grain and mixed-direction header actions. The numerical comparator alone does not establish an adopted criterion failure or justify moving an axis. Missing inspections do not prevent labeled conditional geometry calculations. Reviewed geometry is preserved.
+
+The primary-source follow-up confirms that the end-grain factor supplies no edge-distance exemption. A bounded rectangular-face interpretation identifies A1 block axis 2 acting toward the −Y face at a modeled 20 mm distance. Under the 4D branch that leaves a 5.4 mm deficit. Oblique-vector face selection still needs its explicit applicability boundary; this is a conditional detailing exception, not a complete joint failure or authority to alter the reviewed model. The header’s full action is oblique to grain, so a comparison of its isolated transverse component does not settle the whole mixed-direction detailing check.

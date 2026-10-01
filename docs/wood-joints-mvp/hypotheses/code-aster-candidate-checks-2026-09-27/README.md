@@ -1,0 +1,9 @@
+# Candidate-specific stock Code_Aster checks
+
+This packet continues the [primitive stock-solver trial](../code-aster-stock-trial-2026-09-27/RESULTS.md) with the actual first A09 nut-map equations, representative quadratic curved contact and pressure-extraction known-answers. The [results](RESULTS.md) record a passing actual-map inertia/carrier audit, a source-ordered curved-gap/penetration audit, a flat 3-D contact-output known-answer, and order-sensitive shared-node output in mixed and curved cell-order controls. A flat-calibrated, body-restricted `FORC_NODA` route now gives cut-balanced global resultants on the curved TETRA10 crop and remains invariant under cell-order reversal. Its `RN` field remains order-sensitive and inconsistent with those resultants; local curved pressure and residual recovery remain open. A close full-face `LAGS_C` integral is empirical closure only, not solver-residual recovery. Three `CALC_PRESSION` attempts fail in the pinned image. Full-joint translation is deferred; no candidate acceptance is established here.
+
+The parent owns readiness, freezes and serialized native execution. Separate Luna agents at maximum reasoning effort prepare the actual-map fixture, curved-contact fixture, and independent Code_Aster mass reference. All native attempts use the same pinned 17.4.0 community image as the primitive trial. Solver process success is not mechanical acceptance.
+
+[source-freeze.json](source-freeze.json) pins the source geometry and inputs before this work. [source-map-affine-audit.json](source-map-affine-audit.json) checks the first six literal source equations against six infinitesimal rigid motions. That algebraic result is not an inertia or joint-capacity result.
+
+The checks preserve the selected baseline and reviewed development geometry. They do not authorize physical work or transfer any historical candidate pass.

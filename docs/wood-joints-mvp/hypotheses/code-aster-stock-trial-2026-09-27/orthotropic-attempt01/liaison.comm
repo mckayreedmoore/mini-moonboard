@@ -1,0 +1,133 @@
+# coding=utf-8
+# Bounded work-conjugate LIAISON_DDL known-answer fixture for stock 17.4.
+
+DEBUT(CODE="OUI", ERREUR=_F(ALARME="EXCEPTION"), DEBUG=_F(SDVERI="OUI"))
+
+MAIL = LIRE_MAILLAGE(UNITE=20, FORMAT="ASTER")
+MODE = AFFE_MODELE(
+    MAILLAGE=MAIL,
+    AFFE=_F(TOUT="OUI", PHENOMENE="MECANIQUE", MODELISATION="BARRE"),
+)
+MAT = DEFI_MATERIAU(ELAS=_F(E=1.0, NU=0.0))
+MATE = AFFE_MATERIAU(MAILLAGE=MAIL, AFFE=_F(TOUT="OUI", MATER=MAT))
+CARA = AFFE_CARA_ELEM(
+    MODELE=MODE,
+    BARRE=(
+        _F(GROUP_MA="BA", SECTION="GENERALE", AIRE=1.0),
+        _F(GROUP_MA="BB", SECTION="GENERALE", AIRE=1.0),
+    ),
+)
+CHAR = AFFE_CHAR_MECA(
+    MODELE=MODE,
+    DDL_IMPO=(
+        _F(GROUP_NO="A0", DX=0.0, DY=0.0, DZ=0.0),
+        _F(GROUP_NO="B0", DX=0.0, DY=0.0, DZ=0.0),
+        _F(GROUP_NO="S", DY=0.0, DZ=0.0),
+        _F(GROUP_NO="R", DY=0.0, DZ=0.0),
+    ),
+    LIAISON_DDL=_F(
+        GROUP_NO=("S", "R"),
+        DDL=("DX", "DX"),
+        COEF_MULT=(1.0, -2.0),
+        COEF_IMPO=0.0,
+    ),
+    FORCE_NODALE=_F(GROUP_NO="S", FX=1.0),
+)
+
+RESU = MECA_STATIQUE(
+    MODELE=MODE,
+    CHAM_MATER=MATE,
+    CARA_ELEM=CARA,
+    EXCIT=_F(CHARGE=CHAR),
+)
+RESU = CALC_CHAMP(reuse=RESU, RESULTAT=RESU, FORCE="REAC_NODA")
+
+# Each unit bar has k=EA/L=1. Under u_S - 2 u_R = 0, equilibrium gives
+# u_S=0.8, u_R=0.4; bar forces are 0.8 and 0.4. The constraint's
+# work-conjugate nodal actions are -0.2 at S and +0.4 at R.
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="S",
+        NOM_CHAM="DEPL",
+        NOM_CMP="DX",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=0.8,
+        VALE_REFE=0.8,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="R",
+        NOM_CHAM="DEPL",
+        NOM_CMP="DX",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=0.4,
+        VALE_REFE=0.4,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="S",
+        NOM_CHAM="REAC_NODA",
+        NOM_CMP="DX",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=-0.2,
+        VALE_REFE=-0.2,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="R",
+        NOM_CHAM="REAC_NODA",
+        NOM_CMP="DX",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=0.4,
+        VALE_REFE=0.4,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="A0",
+        NOM_CHAM="REAC_NODA",
+        NOM_CMP="DX",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=-0.8,
+        VALE_REFE=-0.8,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+TEST_RESU(
+    RESU=_F(
+        RESULTAT=RESU,
+        NUME_ORDRE=1,
+        GROUP_NO="B0",
+        NOM_CHAM="REAC_NODA",
+        NOM_CMP="DX",
+        REFERENCE="ANALYTIQUE",
+        VALE_CALC=-0.4,
+        VALE_REFE=-0.4,
+        CRITERE="ABSOLU",
+        PRECISION=1.0e-9,
+    )
+)
+
+FIN()

@@ -1,0 +1,133 @@
+--- a/mini_moonboard/nds_2024_group_action.py
++++ b/mini_moonboard/nds_2024_group_action.py
+@@ -98,9 +98,9 @@
+ 
+ 
+ def _canonical_json_sha256(value: Any) -> str | None:
+-    if not _is_strict_json_value(value):
+-        return None
+     try:
++        if not _is_strict_json_value(value):
++            return None
+         canonical = json.dumps(
+             value,
+             sort_keys=True,
+@@ -108,7 +108,7 @@
+             ensure_ascii=False,
+             allow_nan=False,
+         ).encode("utf-8")
+-    except (TypeError, ValueError, OverflowError, UnicodeError):
++    except (TypeError, ValueError, OverflowError, UnicodeError, RecursionError):
+         return None
+     return hashlib.sha256(canonical).hexdigest()
+ 
+@@ -547,7 +547,7 @@
+         if len(left) != len(right):
+             changed.append(f"{path}.length")
+         return changed
+-    return [] if left == right else [path]
++    return [] if type(left) is type(right) and left == right else [path]
+ 
+ 
+ def evaluate_group_factor_sensitivity(
+--- a/tests/test_nds_2024_group_action.py
++++ b/tests/test_nds_2024_group_action.py
+@@ -498,6 +498,98 @@
+     assert result["cg"] is None
+ 
+ 
++def test_finite_row_axis_with_overflowing_norm_preserves_valid_row_direction():
++    record = payload()
++    record["group_geometry"]["row_axis_xyz"] = [1.7e308, 1.7e308, 0.0]
++    record["group_geometry"]["fasteners"][1]["center_in"] = [4.0, 4.0, 0.0]
++    record["load_case"]["lateral_resultant_xyz_lbf"] = [1000.0, 1000.0, 0.0]
++    record["members"]["main"]["grain_axis_xyz"] = [1.7e308, 1.7e308, 0.0]
++    record["members"]["side_members"][0]["grain_axis_xyz"] = [
++        1.7e308,
++        1.7e308,
++        0.0,
++    ]
++
++    result = evaluate_group_action_factor(record, expected_bindings=bindings())
++
++    assert result["status"] == "calculated_method_only"
++    assert result["uniform_pitch_in"] == pytest.approx(4.0 * 2**0.5)
++    assert result["capacity"] is None
++    assert result["criterion_disposition"] == "pending"
++
++
++def test_deep_json_payload_returns_none_and_pending_instead_of_recursion_error():
++    record = payload()
++    nested = None
++    for _ in range(600):
++        nested = {"items": [nested]}
++    record["producer_extension"] = nested
++
++    assert canonical_group_record_sha256(record) is None
++    result = _evaluate_group_action_factor(
++        record,
++        expected_bindings=bindings(),
++        expected_payload_sha256="0" * 64,
++    )
++    assert result["status"] == "pending"
++    assert result["cg"] is None
++    assert result["capacity"] is None
++    assert result["criterion_disposition"] == "pending"
++
++
++def test_sensitivity_paths_distinguish_json_scalar_types_and_reject_omission():
++    baseline = payload(count=3, pitch=4.0)
++    variant = payload(count=3, pitch=2.0)
++    variant["scenario_id"] = "sensitivity"
++    variant["source_bindings"] = bindings("sensitivity")
++    baseline["producer_extension"] = 1
++    variant["producer_extension"] = True
++    changed_paths = [
++        "group_geometry.fasteners[1].center_in[0]",
++        "group_geometry.fasteners[2].center_in[0]",
++        "producer_extension",
++    ]
++
++    def evaluate_with_paths(paths):
++        contract = {
++            "contract_id": "synthetic-scalar-type-change",
++            "source_id": "synthetic-fixture/scalar-type-change",
++            "sha256": "pending-digest",
++            "review_status": "coordinator_reviewed",
++            "classification": "composite_scenario",
++            "candidate_id": "synthetic-only",
++            "revision_id": "fixture-v1",
++            "group_id": "group-01",
++            "baseline_scenario_id": "baseline",
++            "sensitivity_scenario_id": "sensitivity",
++            "changed_input_paths": paths,
++        }
++        binding = bind_sensitivity_contract(contract)
++        return evaluate_group_factor_sensitivity(
++            baseline,
++            variant,
++            baseline_expected_bindings=bindings(),
++            baseline_expected_payload_sha256=canonical_group_record_sha256(baseline),
++            sensitivity_expected_bindings=bindings("sensitivity"),
++            sensitivity_expected_payload_sha256=canonical_group_record_sha256(variant),
++            expected_sensitivity_contract=contract,
++            expected_sensitivity_binding=binding,
++        )
++
++    result = evaluate_with_paths(changed_paths)
++    assert result["status"] == "calculated_method_sensitivity_only"
++    assert result["changed_input_paths"] == changed_paths
++    assert result["capacity"] is None
++    assert result["criterion_disposition"] == "pending"
++
++    omitted_type_change = evaluate_with_paths(changed_paths[:-1])
++    assert omitted_type_change["status"] == "pending"
++    assert (
++        "sensitivity_changed_input_paths_do_not_match_contract"
++        in omitted_type_change["reason_codes"]
++    )
++
++
+ def test_extreme_but_finite_ea_inputs_fail_pending_without_arithmetic_exception():
+     record = payload(count=4)
+     record["members"]["main"]["elastic_modulus_psi"] = 1.0e300
