@@ -165,14 +165,74 @@ integrated support report, and the mechanics coordinator owns all native,
 elastic reduction, gravity and response validation. Neither owner's files
 should be edited or staged by this lane.
 
-The upper owner has now asked whether the primary owns the current
-20-frame-member/24-block stock cut/yield/BOM reconciliation. It does not.
-That lane is available to the upper owner after its load-path packet; record
-its exact output-path claim before implementation. Preserve existing source
-geometry and distinguish conditional grade assignments for ripped stock.
+The upper owner has now published its load-path/host packet in commits
+`d63bd7c9` and `1aaac459`, covering 42 block states, 672 native transfers and
+84 host-interface states. Point and selected-node cuts remain conditional
+inputs, not finished bored-ligament tractions. Its continuing goal has now
+claimed `hypotheses/current-stock-envelope-reconciliation-2026-10-01/` for
+the current 20-frame-member/24-block stock envelopes, finished-solid
+containment and cut/yield reconciliation. It has now published that packet
+in `e853af55` and `5b10b4e0`: all 44 starting envelopes and four prepared
+sections fit, and 15 length/trim scenarios retain their declared limits.
+The 8 ft-only scenarios leave five blanks unplaced; the longer options place
+all 44. Its 68 tests, two exact replays and three independent reviews pass.
+The primary does not own or
+duplicate that lane. Preserve source geometry and distinguish conditional
+grade assignments for ripped stock; dimensional containment does not prove
+post-rip grade, purchase quantities or strength.
 BG001/spine finished-section work is less isolated: the
 existing disconnected-ligament/common-affine-strain proxy boundary needs
 explicit handling, and the mechanics corner table already owns its integration.
+
+The primary now owns the implemented additive
+`hypotheses/remaining-single-shear-reference-2026-10-01/` census. It partitions
+the same 54 remaining axes into 52 two-receiver bolts and the two continuous
+right-side exclusions. All 1,092 three-case states retain their signed
+lateral-plane forces and separate ties. Forty-two transverse bolts have 882
+conditional six-mode rows; ten end-grain-axis bolts keep 210 null-reference
+and null-ratio states. Both receiver-role assignments agree under mode
+permutation, and parent's independent NDS closed forms agree across 10,584
+comparisons. The 45,000-psi Fyb/smooth quarter-inch scenario yields one raw
+ratio above one: bottom outer left `side_1`, A1 full load, 1.094508867.
+This requires a supported disposition and is not an adopted failure/pass.
+Source trace, code, tests and independent review are isolated in that folder;
+no source response, geometry, native run or formal criterion is changed.
+This lane does not own the upper 32-axis packet or the mechanics corner
+BG001/BG003/BG045 integration. A qualifying end-grain method and complete
+joint/group/combined/section behavior remain separate work.
+
+For the upper owner's next task after stock publication, a disjoint useful
+lane is the missing **source-priced lumber/plywood package**, using only the
+stock scenarios that actually place the current 44 blanks. Suggested claim:
+`hypotheses/current-stock-package-cost-2026-10-01/`. Bind each purchase-line
+quantity and length to the reviewed nesting scenario, distinguish conditional
+DF-L grade and the four post-rip section hypotheses, and source compatible
+current seller grades, sizes, package quantities and displayed prices.
+Record missing availability, delivery/tax and grade limitations rather than
+inventing a complete total or borrowing unlike-length prices. Keep the
+selected candidate's separate 4×4/kerf-right plywood packet identities clear.
+This is a source-bound scenario cost, not purchase selection or receiving.
+Existing board-weight inventory needs no repeat. Do not re-own the primary's
+bolt/nut profile, washer resistance or retained-tool source work, and do not
+broaden this lane into native mechanics or revised geometry. The upper owner
+should record the exact claim before implementation; this proposal does not
+claim that folder for the primary.
+
+The upper owner's later finished-feature register is also disjoint
+from the primary's work and directly supports T12 drawing preparation.
+After publishing the stock packet, it has now claimed
+`hypotheses/current-finished-feature-register-2026-10-01/` to express the
+44 pieces' current bores, seats, tapers and recesses in the source-bound
+stock g/q/r frames. Reuse the actual cut/axis records and finished solids,
+check transform round trips and feature identity/count coverage, and retain
+the 92 candidate/12 retained/66 screw distinctions. Keep occupied diameters,
+modeled lengths and feature coordinates explicitly separate from shop bit,
+pilot and purchased-length instructions. A planar or bore feature register
+does not approve a housed seat, cut, drawing release or fabrication. It must
+report nonstandard/ambiguous features instead of assigning shop instructions.
+This is a useful next implementation task; the price-package lane above can
+remain separately allocated. No primary-owned extractor already covers this
+44-piece stock-frame feature register.
 
 This handoff supplies no criterion pass, completed joint, physical inspection,
 fabrication permission or climbing release. The full conditional MVP-E goal
