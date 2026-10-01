@@ -1,6 +1,32 @@
 # Staged floor reference mapping preflight — attempt01
 
-## Finding
+## First native target: two-step release coupon
+
+The first proposed pinned 2.23 run is the isolated two-step probe in
+[coupon-nonzero-release-probe.inp](coupon-nonzero-release-probe.inp). The
+structured builder returns the model, input record, metadata, and deck from
+`build_nonzero_release_fixture()`; its freeze scope is recorded in
+[release-probe-model.json](release-probe-model.json) and the exact increment
+oracle is in [release-probe-known-answer.json](release-probe-known-answer.json).
+It records the `compact-floor-flush-wood-joints-development` scope and
+`led-clearance-2x6-runner-seated-blocks-v1` geometry revision for traceability.
+
+During the held step, the captured reference is `t=-2 mm` while default-ramped
+loads follow `Ft=-3f N` and `Fq=-2f N`. Every accepted printed increment should
+match `q=(1-f)/2 mm`, `N=1-f N`, and generalized `T=7/2-(5/2)f N`. The next
+step repeats every permanent SPC with `*BOUNDARY,OP=NEW`, omits the scalar
+reference SPC, and leaves the external loads unchanged. Every printed
+increment must immediately satisfy `(t,q,N,T)=(-4/3,-1/3,0,0)` in the same
+units. The parent all-increment checker also checks the constant-capture
+displacement, ground and normal reactions, body balance, and the proposed
+`T=Ft-RF(T_REFERENCE,1)` mapping. Any continued nonzero tangent force in the
+released step rejects the coupon.
+
+The prior exact-floor MPC fixture supports the `RF(reference)-CLOAD(dependent)`
+sign for its held-reference cases. It does not establish free-reference RF
+behavior or `OP=NEW` release for this graph; those remain explicit native gates.
+
+## Mapping basis
 
 The pinned CalculiX 2.23 input rules support the proposed *kinematic mapping*
 for episode references without deleting or changing the source equations:
@@ -139,3 +165,23 @@ The repeated fixture replays validate only their recorded analytical/native
 method cases. This packet is not frozen or native-ready, does not transfer any
 rejected frame force/mask, does not authorize a frame run, and establishes no
 floor, friction, anchorage, capacity, or joint acceptance.
+
+## Subsequent bounded native result
+
+The parent subsequently froze and independently reviewed the separate
+[two-step nonzero-reaction release coupon](../current-floor-nonzero-reference-release-native-attempt01/README.md).
+Its single native launch passed the parent oracle at all 12 printed
+increments, including zero tangent/normal reaction throughout the released
+step at unchanged loads. This validates capture amplitude, permanent-SPC
+reissue, load persistence and the recorded RF interpretation on that small
+equation graph. At that point the staged ten-step deck and restart continuation
+were unrun; full-frame events, coupled states and rank/gauge were not validated
+by that result. Historical input-only statements above describe this
+proposal's pre-run disposition rather than the later separate coupon.
+
+The parent subsequently ran the separate
+[ten-step staged coupon](../current-floor-staged-reference-native-attempt01/README.md).
+All 60 accepted increments match the oracle, with both captures, release,
+two-component load interpolation, constitutive forces and STA/DAT coverage
+checked. The oracle supplies the events and states; event search, restart
+continuation and full-frame coupled selection/rank remain unvalidated.

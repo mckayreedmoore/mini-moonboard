@@ -173,6 +173,9 @@ def build_fixture():
     ]
     metadata = {
         "schema":"staged_floor_native_mapping_coupon/v1",
+        "candidate":"compact-floor-flush-wood-joints-development",
+        "geometry_revision_id":"led-clearance-2x6-runner-seated-blocks-v1",
+        "scope":"Synthetic two-coordinate staged reference mapping proposal; not a frame, joint, or accepted candidate model.",
         "status":"INPUT_ONLY_UNFROZEN_NOT_RUN",
         "synthetic_only":True,
         "native_solve_executed":False,
@@ -260,17 +263,106 @@ def build_fixture():
 
 
 def build_nonzero_release_probe():
-    """Return a separate short deck testing release at identical load and T=1 N."""
+    """Return only the deck from the structured nonzero-release fixture."""
+    return build_nonzero_release_fixture()[3]
+
+
+def build_nonzero_release_fixture():
+    """Return (Structure, record, metadata, deck) for the 2-step release coupon."""
     model, tags, permanent, normal_eid = _make_model()
+    t_node, q_node, ref_node = tags["T_BODY"], tags["Q_BODY"], tags["T_REFERENCE"]
+    model.loads = {t_node: [-3., 0., 0.], q_node: [0., 2., 0.]}
     lines=_prefix(model,tags,permanent,normal_eid)
-    tn, qn, ref = tags["T_BODY"], tags["Q_BODY"], tags["T_REFERENCE"]
-    _step(lines, title="active state with nonzero tangent reaction",
-          boundary=[{"node":ref,"first_dof":1,"last_dof":1,"value":-2.}],
-          capture=True, restart=True, cload_op="NEW",
-          change_loads=[(tn,1,-3.),(qn,2,2.)])
+    _step(lines, title="held reference; ramp actual loads to Ft=-3 N and Fq=-2 N",
+          boundary=[{"node":ref_node,"first_dof":1,"last_dof":1,"value":-2.}],
+          capture=True, cload_op="NEW",
+          change_loads=[(t_node,1,-3.),(q_node,2,2.)])
     _step(lines, title="release at unchanged external load; no scalar SPC",
           boundary=permanent, op="NEW")
-    return "\n".join(lines)+"\n"
+    deck="\n".join(lines)+"\n"
+    metadata = {
+        "schema":"nonzero_tangent_reaction_release_coupon/v1",
+        "candidate":"compact-floor-flush-wood-joints-development",
+        "geometry_revision_id":"led-clearance-2x6-runner-seated-blocks-v1",
+        "scope":"Synthetic 2DOF generalized body with three unit SPRING2 elements, one compression-only SPRINGA, a scalar MPC reference capture, and an OP=NEW release; two static steps, no frame or joint.",
+        "status":"INPUT_ONLY_UNFROZEN_NOT_RUN",
+        "synthetic_only":True,
+        "native_solve_executed":False,
+        "parent_native_readiness":False,
+        "solver_version":"CalculiX 2.23",
+        "step_method":{
+            "card":"*STEP,NLGEOM,NLGEOM=NO,INC=40",
+            "static_amplitude":"RAMP (pinned *STATIC default)",
+            "native_stdout_gates":[
+                "Newton-Raphson iterative procedure is active",
+                "effects are turned off",
+                "Nonlinear geometric effects are taken into account must be absent",
+            ],
+            "evidence":"The same ordered card passed the pinned 2.23 current-exact-floor-mpc-fixture-attempt02 mode check. This release coupon still needs its own native run.",
+        },
+        "generalized_coordinates":"t=U(T_BODY,1); q=-U(Q_BODY,2) (positive q is normal compression)",
+        "structural_matrix_N_per_mm":[[2,1],[1,2]],
+        "loads":{
+            "CLOAD_T_BODY_1_N":-3.0,
+            "CLOAD_Q_BODY_2_N":2.0,
+            "generalized_loads":"Ft=-3 f N; Fq=-2 f N during step 1, then Ft=-3 N and Fq=-2 N unchanged during step 2",
+            "step_1_amplitude":"default RAMP over local step time f in [0,1]",
+            "step_2":"No CLOAD card: step-1 concentrated loads remain active unchanged",
+        },
+        "node_roles":tags,
+        "persistent_equations_no_remove":True,
+        "equations":"U(T_BODY,1)-U(T_REFERENCE,1)=0 and U(NORMAL_PROJECTION,2)-U(Q_BODY,2)=0 remain model-level; only T_REFERENCE,1 SPC changes.",
+        "capture":"Step 1 prescribes T_REFERENCE,1=-2 with CAPTURE=(0,1),(1,1); amplitude is constant 1 so t=-2 for the entire held step.",
+        "release":"Step 2 uses *BOUNDARY,OP=NEW, repeats every permanent SPC, and omits T_REFERENCE,1.",
+        "permanent_boundary_conditions":permanent,
+        "reaction_mapping_candidate":{
+            "generalized_T_N":"Ft-RF(T_REFERENCE,1)",
+            "physical_support_reaction_on_body_N":"RF(T_REFERENCE,1)-Ft=-T while reference is held",
+            "normal_spring_force_N":"RF(NORMAL_GROUND,2)=2*max(q,0)",
+            "gate":"The prior exact-floor fixture supports RF(reference)-CLOAD(dependent) for its held MPC. This coupon must confirm the sign and the released-state zero-force mapping at every printed increment.",
+        },
+        "expected_increment_solution":{
+            "held_step_1":{
+                "fraction":"f=local step time, 0<=f<=1",
+                "external_Ft_N":"-3 f",
+                "external_Fq_N":"-2 f",
+                "t_mm":"-2",
+                "q_mm":"(1-f)/2",
+                "N_N":"1-f",
+                "T_generalized_N":"7/2-(5/2)f",
+                "physical_support_reaction_on_body_N":"-7/2+(5/2)f",
+                "candidate_RF_reference_N":"-7/2-(1/2)f",
+            },
+            "released_step_2":{
+                "external_Ft_N":"-3",
+                "external_Fq_N":"-2",
+                "t_mm":"-4/3",
+                "q_mm":"-1/3",
+                "N_N":"0",
+                "T_generalized_N":"0",
+                "physical_support_reaction_on_body_N":"0",
+                "required":"These values must hold at every printed increment; any retained tangent force or interpolation after OP=NEW rejects this coupon.",
+            },
+        },
+        "tolerances":{"displacement_abs_mm":2e-5,"force_abs_N":2e-4},
+        "limitations":[
+            "A synthetic method coupon only; no frame, joint, floor, friction, capacity, or construction acceptance.",
+            "It tests persistent equations, constant capture, permanent SPC reissue, load persistence, and release behavior on this pinned executable only.",
+            "The physical support reaction mapping is a candidate until this coupon passes its native all-increment check.",
+        ],
+    }
+    record=record_structure(model, metadata)
+    record["boundary_conditions"]=permanent
+    record["node_roles"]=tags
+    record["normal_law"]={
+        "element":normal_eid,"endpoints":[tags["NORMAL_GROUND"],tags["NORMAL_PROJECTION"]],
+        "initial_span_mm":100.,"coordinate":"q=-u_Q_BODY,2; extension of SPRINGA equals q",
+        "force_N_then_elongation_mm_table":[[0.,-10.],[0.,0.],[20.,10.]],
+        "law":"N=2*max(q,0)",
+    }
+    record["source_equations"]=metadata["equations"]
+    record["release_coupon"]=metadata["expected_increment_solution"]
+    return model, record, metadata, deck
 
 
 def build_restart_continuation():
@@ -297,8 +389,9 @@ def build_restart_continuation():
 
 def main():
     _, record, metadata, deck = build_fixture()
+    _, release_record, release_metadata, release_deck = build_nonzero_release_fixture()
     (HERE / "coupon-staged.inp").write_text(deck)
-    (HERE / "coupon-nonzero-release-probe.inp").write_text(build_nonzero_release_probe())
+    (HERE / "coupon-nonzero-release-probe.inp").write_text(release_deck)
     (HERE / "coupon-restart-continuation.inp").write_text(build_restart_continuation())
     (HERE / "model.json").write_text(json.dumps(record, indent=2, allow_nan=False) + "\n")
     (HERE / "known-answer.json").write_text(json.dumps({
@@ -313,7 +406,20 @@ def main():
         "nonzero_reaction_release":metadata["release_probe_target"],
         "native_solve_executed":False,
     }, indent=2, allow_nan=False)+"\n")
-    print("Wrote input-only staged and nonzero-release coupon proposals; no native solve or freeze was performed.")
+    (HERE / "release-probe-model.json").write_text(
+        json.dumps(release_record, indent=2, allow_nan=False) + "\n")
+    (HERE / "release-probe-known-answer.json").write_text(json.dumps({
+        "schema":"nonzero_tangent_reaction_release_coupon_known_answer/v1",
+        "candidate":release_metadata["candidate"],
+        "geometry_revision_id":release_metadata["geometry_revision_id"],
+        "scope":release_metadata["scope"],
+        "synthetic_only":True,
+        "loads":release_metadata["loads"],
+        "expected_increment_solution":release_metadata["expected_increment_solution"],
+        "reaction_mapping_candidate":release_metadata["reaction_mapping_candidate"],
+        "native_solve_executed":False,
+    }, indent=2, allow_nan=False)+"\n")
+    print("Wrote input-only staged and two-step release coupon proposals; no native solve or freeze was performed.")
 
 
 if __name__ == "__main__":

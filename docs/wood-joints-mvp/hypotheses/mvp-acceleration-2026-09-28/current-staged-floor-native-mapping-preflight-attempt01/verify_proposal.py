@@ -9,7 +9,11 @@ ROOT=HERE.parents[4]
 if str(ROOT) not in sys.path:
     sys.path.insert(0,str(ROOT))
 
-from prepare import build_fixture, build_nonzero_release_probe, build_restart_continuation
+from prepare import (
+    build_fixture,
+    build_nonzero_release_fixture,
+    build_restart_continuation,
+)
 
 
 def _open(Ft,Fq):
@@ -26,7 +30,7 @@ def _held(Ft,Fq,tref):
 
 def verify():
     _,record,metadata,deck=build_fixture()
-    release=build_nonzero_release_probe()
+    _,release_record,release_metadata,release=build_nonzero_release_fixture()
 
     # The two independent unit supports and one unit relative spring have
     # energy .5*t^2 + .5*q^2 + .5*(t+q)^2.
@@ -76,16 +80,41 @@ def verify():
     assert build_restart_continuation().splitlines()[0]=="*RESTART,READ,STEP=2"
     assert "*AMPLITUDE,NAME=CAPTURE" in build_restart_continuation().splitlines()[1]
     assert release.count("*BOUNDARY,OP=NEW")==1
-    release_reset=release.split("*BOUNDARY,OP=NEW\n",1)[1].split("*CLOAD",1)[0]
-    assert ",7,1,1," not in release_reset
-    for line in ("7,2,3,0.0",):
-        assert line in release_reset
-    assert release.count("*RESTART,WRITE,FREQUENCY=1")==1
+    release_reset=release.split("*BOUNDARY,OP=NEW\n",1)[1].split("*NODE PRINT",1)[0]
+    release_reset_rows=release_reset.splitlines()
+    assert "7,1,1,0.0" not in release_reset_rows
+    assert "7,2,3,0.0" in release_reset_rows
+    for boundary in release_metadata["permanent_boundary_conditions"]:
+        expected=(f"{boundary['node']},{boundary['first_dof']},"
+                  f"{boundary['last_dof']},0.0")
+        assert expected in release_reset_rows,expected
+    assert release.count("*STEP,NLGEOM,NLGEOM=NO,INC=40")==2
+    assert release.count("*BOUNDARY,OP=MOD,AMPLITUDE=CAPTURE")==1
+    assert release.count("*CLOAD,OP=NEW")==1
+    release_step2=release.split("** release at unchanged external load; no scalar SPC",1)[1]
+    assert "*CLOAD" not in release_step2
+    assert release.count("*RESTART,WRITE,FREQUENCY=1")==0
+    assert release_metadata["candidate"]=="compact-floor-flush-wood-joints-development"
+    assert release_metadata["geometry_revision_id"]=="led-clearance-2x6-runner-seated-blocks-v1"
+    assert release_metadata["loads"]["CLOAD_T_BODY_1_N"]==-3.
+    assert release_metadata["loads"]["CLOAD_Q_BODY_2_N"]==2.
+    assert release_metadata["reaction_mapping_candidate"]["generalized_T_N"]=="Ft-RF(T_REFERENCE,1)"
+    held=release_metadata["expected_increment_solution"]["held_step_1"]
+    assert held["t_mm"]=="-2" and held["q_mm"]=="(1-f)/2"
+    assert held["N_N"]=="1-f" and held["T_generalized_N"]=="7/2-(5/2)f"
+    opened=release_metadata["expected_increment_solution"]["released_step_2"]
+    assert (opened["t_mm"],opened["q_mm"],opened["N_N"],opened["T_generalized_N"])==(
+        "-4/3","-1/3","0","0")
+    assert release_record["release_coupon"]==release_metadata["expected_increment_solution"]
     assert not metadata["native_solve_executed"]
     assert not metadata["parent_native_readiness"]
 
     on_disk=json.loads((HERE/"known-answer.json").read_text())
     assert on_disk["states"]==metadata["expected_states"]
+    release_on_disk=json.loads((HERE/"release-probe-known-answer.json").read_text())
+    assert release_on_disk["expected_increment_solution"]==release_metadata["expected_increment_solution"]
+    assert release_on_disk["candidate"]==release_metadata["candidate"]
+    assert release_on_disk["geometry_revision_id"]==release_metadata["geometry_revision_id"]
     normalized_equations=[[list(term) for term in equation] for equation in record["equations"]]
     assert normalized_equations==[
         [[metadata["node_roles"]["T_BODY"],1,1.],[metadata["node_roles"]["T_REFERENCE"],1,-1.]],
