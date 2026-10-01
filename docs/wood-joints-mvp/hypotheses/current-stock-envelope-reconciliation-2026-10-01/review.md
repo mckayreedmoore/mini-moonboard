@@ -1,0 +1,9 @@
+# Review of current proposed stock reconciliation
+
+Parent validation passed 68 focused tests, scoped Ruff and format checks, and both exact canonical replays. The geometry replay contains 44 original envelopes and four reduced-section envelopes with no incompatible or ambiguous records. The consumer emits 15 scenarios with full placement in the twelve cases that permit stock longer than 8 ft.
+
+The initial integration checks exposed a float-serialization validator defect. Packing comparisons remain exact Decimal arithmetic; the helper now checks emitted float values against the original Decimal quantities within an absolute 1e-9 output-unit serialization tolerance. Regression tests retain an infeasible blank one float step beyond the 8 ft boundary. Nominal foot-to-millimetre options are explicit decimal constants.
+
+Three independent Luna agents at maximum reasoning effort reviewed the completed packet with disjoint scopes. The correctness reviewer found no substantive geometry, transform, prepared-section, Decimal packing or length-accounting defect. The testing reviewer ran all 68 tests and found no substantial coverage issue. The evidence/architecture reviewer checked the 44-piece schedule, source and result hashes, section totals, scenario summaries and scope boundaries against the local canonical outputs and found no substantial issue. Its request to replace the pending-review placeholder is incorporated here.
+
+Both parent exact replays pass. Public relative links and artifact digest rows match their files. The three raw JSON outputs are ignored, and the current geometry and native inputs were not regenerated. Replays consume the deliberately local frozen JSON/STEP evidence; focused synthetic tests can run without those raw inputs once the pinned Python/CAD runtime is installed. No native analysis or current geometry change occurred.
