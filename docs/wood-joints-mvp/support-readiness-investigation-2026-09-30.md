@@ -4,9 +4,10 @@ Updated October 1, 2026 UTC (September 30 in Denver). The native export
 assessment below was independently replayed; newer coordinator entries may
 supersede this snapshot. Work remains exclusively on `master`.
 
-Docker access is available. The present support blocker is compatible initial
-gravity equilibrium and a state-dependent gauge. The reviewed native mapping
-coupons are complete. They prescribe contact events; the full-frame driver
+Docker access is available. The actual frame's unloaded solid stiffness has
+now been exported and authenticated. The present support blocker is compatible
+initial gravity equilibrium and a state-dependent gauge. The reviewed native
+mapping coupons are complete. They prescribe contact events; the full-frame driver
 still needs to discover the coupled states and events. This investigation
 reads the existing model and rank audit without altering either or launching
 a native solve. The FEA coordinator retains implementation adoption, frozen
@@ -130,12 +131,55 @@ capture evidence. The constrained mass matrix was not evaluated.
 The [physical connector projection contract](hypotheses/mvp-acceleration-2026-09-28/current-frame-physical-connector-projection-contract-attempt01/README.md)
 now supplies 348 bilateral, 1,292 unilateral and 200 separate floor-tangent
 rows over 37,647 physical translations, preserving the source ground
-projections and gravity nodal map. It is an input-only rejoin interface for
-the future frame operator, not a gravity solution. Actual distorted-element
-stiffness/rank, body equilibrium, state selection and continuation still need
-validation. Do not infer a unilateral tangent at zero extension from a
+projections. It is an input-only rejoin interface for
+the exported frame operator, not a gravity solution. Full elastic rank, body
+equilibrium, state selection and continuation still need validation. Do not
+infer a unilateral tangent at zero extension from a
 frequency export of nonlinear springs, or substitute an auxiliary export
 mass matrix for the authenticated gravity loads.
+
+The coordinator's [actual pure-solid frame export](hypotheses/mvp-acceleration-2026-09-28/current-frame-pure-solid-matrix-export-native-attempt01/README.md)
+has subsequently completed in 2.342314 seconds with native exit zero. Its
+assessment authenticates 37,647 physical translations, 2,320,506 unique
+upper-triangle entries, finite positive diagonals, exact reconstructed
+symmetry, no nonzero cross-body stiffness, and all 300 physical rigid fields.
+Maximum normalized rigid residual is `2.6186013240290654e-13`; assessment
+SHA-256 is `ba41b9c75815f7daf27b3517ac01afff109d5f3e3611aa985811e92c269e69ec`.
+Primary replay returned `PASS_REPLAY_AUTHENTICATED_PURE_SOLID_EXPORT`. This
+settles obtaining the source solid operator, not its complete elastic rank or
+a frame response. A checked reaction-free per-body reduction must preserve
+the six physical force/moment balances of every body before gravity/state
+selection can use that operator.
+
+Primary also replayed the [six-case source identity contract](hypotheses/mvp-acceleration-2026-09-28/current-six-case-operator-reuse-contract-attempt01/README.md)
+and [free-body condensation fixture](hypotheses/mvp-acceleration-2026-09-28/current-free-body-elastic-condensation-fixture-attempt01/README.md).
+The former verifies twelve source equality groups and six distinct load maps;
+it avoids five redundant elastic exports without transferring any state,
+force or pass. The latter checks independent constant-stress surface traction
+loads on the authenticated free cube and rejects an unbalanced point load
+before using the elastic inverse. It is a small method check, not the actual
+50-body reduction. Both results advance named dependencies in the gravity
+implementation; neither adds a fourth usable case.
+
+The coordinator subsequently found a load-map labeling error. The projection
+packet's preserved `source-gravity-nodal-map.json` contains combined A12
+gravity and climber loads, not gravity alone. The [separated-load audit](hypotheses/mvp-acceleration-2026-09-28/current-physical-load-map-audit-attempt01/README.md)
+verifies every source node in all six cases. A12 combined force is approximately
+`(0,+300,-4424.926817) N`; its gravity is `(0,0,-2200.816010) N` and climber
+force `(0,+300,-2224.110808) N`. Primary replay returned
+`PASS_SIX_CASE_SEPARATED_LOAD_RECOMPOSITION_WITH_EXPLICIT_LABEL_ERRATUM`.
+Gravity settling must use the pure-solid preflight packet's separated
+`gravity_nodal_map`, then add its case-specific `climber_nodal_map` during
+the ramp. No response was calculated from the mislabeled map; the unloaded
+stiffness and connector rows are unaffected. Earlier gravity-only wording
+for that preserved projection file is superseded.
+
+The pinned parser also explains the native warning on explicit `GLOBAL=YES`:
+it defaults to global output and recognizes only `GLOBAL=NO` as an override.
+The ignored redundant YES leaves the observed global node/DOF map unchanged;
+the numerical export oracles still pass. Future new decks should omit that
+token. This specific source/log reconciliation does not waive other warnings
+or require a rerun merely to remove the redundant token.
 
 ## Concrete implementation consequence
 
@@ -189,6 +233,15 @@ calculation. The existing clamped thin-annulus benchmark cannot be treated as
 the current washer model. Direct Grade 5 tensile yield also remains distinct
 from the NDS dowel-bending input.
 
+The [direct retained-wrench CAD investigation](hypotheses/retained-wrench-cad-lead-investigation-2026-10-01/source-note.md)
+also resolves one stale source lead: the Olander page is reachable, but its
+live anonymous CAD availability response rejects Wera `05073287001` as an
+invalid product key and leaves its model button disabled. A visible CAD label
+does not supply tool geometry. The four 3/4-inch retained leg-bolt tool checks
+remain a specific source gap; repeating that public lead will not establish
+access. Conditional source-supported tool models can be evaluated before
+physical receiving.
+
 Disposition: the investigation identifies a startup and rank-interpretation
 issue. It authorizes no extra floor restraint, revised geometry or native
 launch, and adds no blanket external sign-off or physical floor test. Usable
@@ -210,7 +263,7 @@ applicable evidence, not a reinterpretation of pending entries as passes.
 
 | Workstream | Evidence available now | Remaining engineering result |
 | --- | --- | --- |
-| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. Free and constrained matrix-export coupons and tiny indicator fixtures pass; a source-bound physical connector projection interface exists. | Assemble and validate the source-bound frame operator and body/load/connector rejoin; establish compatible gravity, actual branch nullspace and reaction-free gauge; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures and convergence alone cannot supply these results. |
+| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported and source/map/rigid-field checks pass. Free/constrained export coupons, a free-cube condensation fixture, tiny indicator fixtures, physical connector projections and a six-case operator-reuse contract are available. | Validate actual-body elastic rank and reaction-free reduction, then rejoin body/load/connector maps; establish compatible gravity, actual branch nullspace and reaction-free gauge; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures and convergence alone cannot supply these results. |
 | Complete joint resistance | Audited corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected boundary coverage. Individual-bolt component helpers exist. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Extend supported methods to the other affected joint families and all 24 duties; no historical corner or selected-baseline pass transfers. |
 | Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 126 corner tie states and 252 seat states are available. The twelve primary-corner annuli now have geometry-only support evidence on the exact saved wood faces. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, quarter-inch dowel-bending basis, head/nut load footprints, remaining washer-seat coverage and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
 | Members, contact and panels | Complete five-body corner boundary and BG045 header section inventories have been reconstructed. Conditional DF-L No. 2 inputs and per-member grain proposals are published. The reviewed 66 Hillman axes and eight recorded moves are preserved. | Apply applicable strengths and adjustments to simultaneous member/section/contact demands, include cut/boring and stability effects, and prove the changed panel/screw receiver and kerf-right kicker-edge transfers. Reuse unchanged LEG/runner resistance; reopen only changed demands, geometry, receivers or hardware. Do not start a blanket panel or retained-member qualification campaign. |
@@ -218,7 +271,7 @@ applicable evidence, not a reinterpretation of pending entries as passes.
 | Build documents, stock, counts and cost | Source geometry, stock proposals, hardware counts and builder-document organization exist. Conditional material cases include separate treatment of the four ripped blocks. | Reconcile the supported joint/fit decisions into one revision-bound BOM, stock cut/yield basis, sourced package quantities and cost, drawings, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Do not present a hypothetical ripped-block grade as inherited from the original board. |
 | Final acceptance and independent review | The exact 47-question scope and fail-closed coverage/criteria producers exist, with source-bound method and demand packets. | Bind every applicable criterion to current method, input, case/identity coverage, numerical result and supported disposition. Independently review the complete package and resolve material findings. All applicable requirements must pass before the conditional engineering endpoint can be called complete. |
 
-The immediate order is actual frame operator/body-equilibrium rejoin →
+The immediate order is actual-body elastic reduction/body-equilibrium rejoin →
 compatible gravity → one missing usable frame case, in parallel with the connected corner resistance
 rows. Washer support/footprint and hardware/material input work can proceed
 without native runs or received-piece inspection. A new native method study
