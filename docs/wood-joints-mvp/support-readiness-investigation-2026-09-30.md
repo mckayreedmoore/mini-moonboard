@@ -1,13 +1,13 @@
 # Joint completion and gravity-start report — September 30, 2026
 
-Updated October 1, 2026 at 05:10 UTC (September 30 in Denver). The native export
+Updated October 1, 2026 at 05:54 UTC (September 30 in Denver). The native export
 assessment below was independently replayed; newer coordinator entries may
 supersede this snapshot. Work remains exclusively on `master`.
 
 Docker access is available. The actual frame's unloaded solid stiffness has
 been exported and authenticated, and all fifty body numerical elastic gates
-pass. Refinement cleared the first connector-reduction residual, but attempt
-02 stopped on rigid-mode leakage in the kicker operator. Compatible
+pass. The complete 50-body connector reduction now passes its numerical
+gates; provenance replay confirms the source-bound attempt 04. Compatible
 initial gravity equilibrium and a state-dependent gauge remain the next
 support requirements. The reviewed native
 mapping coupons are complete. They prescribe contact events; the full-frame driver
@@ -200,12 +200,31 @@ original-operator error disposition before another full reduction. Repeating
 the same refinement or relaxing the old limit does not resolve this stop.
 
 The coordinator's subsequent read-only screen found all fifty original body
-operators within its proposed rigid-leakage limit; that is method readiness,
-not an accepted reduction. Attempt 03 remains a draft. Parent review requires
-bounded refinement with extended-precision audits, physical gauge-wrench
-reporting as `(R^T R) lambda`, and a check of actual rigid-equation closure.
-The method fixture must settle those points before the coordinator freezes
-or runs a full reduction. There is still no accepted complete `H` or new case.
+operators within its proposed rigid-leakage limit. The new quotient-method
+review required bounded refinement with extended-precision audits, physical
+gauge-wrench reporting as `(R^T R) lambda`, and actual rigid-equation closure.
+Those method concerns precede the later reduction and do not erase either
+preserved stopped attempt.
+
+The coordinator's attempt 04 (local packet
+`hypotheses/mvp-acceleration-2026-09-28/current-frame-connector-compliance-attempt04/`,
+pending that owner's publication)
+subsequently cleared all fifty bodies in 34.382 seconds. Its aggregate gate
+propagates the unchanged nodal residual budget through the rigid-mode map
+and separately gates measured arithmetic-order error. The original exported
+stiffness and the recorded nonzero multipliers remain preserved. Maximum
+chunk nodal relative residual is `9.2617201e-11`; full `H` reciprocity error is
+`9.3832183e-11` against the `1e-8` gate, with symmetric-part minimum eigenvalue
+`+2.3942328e-10 mm/N`. Primary independently replayed provenance, returning
+`PASS_COMPLIANCE_RECORD_PROVENANCE PASS_SOURCE_BOUND_FRAME_CONNECTOR_COMPLIANCE`.
+
+This clears the elastic reduction gate: `H` is 1840×1840, `D` is 1840×300,
+`e` is 1840×12 and `W` is 300×12. The twelve load columns preserve separate
+gravity/climber pairs for the six cases. Physical solutions still require
+`D^T f = W` and `q = D a + e − H f`, compatible source laws and captured floor
+history. The retained original force/moment residuals in intermediate basis
+columns are not accepted physical-response residuals. No gravity-settled
+state, fourth usable case or joint strength follows from this numerical gate.
 
 Primary also replayed the [six-case source identity contract](hypotheses/mvp-acceleration-2026-09-28/current-six-case-operator-reuse-contract-attempt01/README.md)
 and [free-body condensation fixture](hypotheses/mvp-acceleration-2026-09-28/current-free-body-elastic-condensation-fixture-attempt01/README.md).
@@ -302,7 +321,21 @@ it can report required minimum yield after the footprint, coupled actions
 and contact model are bound. Missing catalog yield need not stop that demand
 calculation. The existing clamped thin-annulus benchmark cannot be treated as
 the current washer model. Direct Grade 5 tensile yield also remains distinct
-from the NDS dowel-bending input.
+from the NDS dowel-bending input. The subsequent
+[specification-source disposition](hypotheses/fyb-specification-basis-2026-10-01/README.md)
+confirms the NDS tensile-yield route and corrects the Appendix attribution.
+A delivered-bolt test need not block conditional sensitivity arithmetic;
+106 ksi remains an empirical estimate, with no demonstrated guaranteed
+minimum or adopted product-specific F606-derived basis.
+
+The new [bearing-footprint input review](hypotheses/washer-bearing-footprint-inputs-2026-10-01/parent-review.md)
+also separates the head's offset-plane gauge circle from its unknown actual
+bearing-plane profile. Nut chamfer/countersink limits support a declared
+concentric flat-face scenario, with source alignment/runout bounds retained;
+they do not supply a guaranteed contact area or uniform pressure. Parent
+took over the full-clause inspection after the worker's delayed source trace.
+This supplies a concrete contact-model input handoff, with no native launch
+or resistance adoption.
 
 Direct parent inspection of the pinned standard and an independent review
 also corrected the [thread-gage source interpretation](hypotheses/thread-gage-functional-fit-2026-10-01/source-note.md).
@@ -377,7 +410,14 @@ is now published. Parent replay confirmed its 64 nominal seats and 1,344
 seat states. Combining its seats with the twelve primary-corner seats and
 the 108-seat extension covers **all 184 candidate outer seats nominally**:
 183 satisfy their declared nominal support screens and one is partial.
-The upper packet does not supply an eccentric or real-tolerance bound.
+The primary's subsequent [upper eccentric extension](hypotheses/upper-washer-eccentric-support-2026-10-01/README.md)
+covers those 64 seats under the same declared nominal-body and catalog
+clearance method. All 64 meet the swept support and near-face clearance
+gates; 768 direct area comparisons agree within `3.2869e-6 mm²`.
+Across the three cohorts, all 184 seats now have conditional eccentric
+screens, with 183 meeting their declared geometry gates and the same one
+partial-support exception. Real shank/bore/seat tolerances, tilt and contact
+pressure remain outside that geometry result.
 It also records top-outer lateral demand/reference ratios 1.1631 left and
 1.3667 right under an unadopted 106 ksi bending-yield estimate. Those are
 conditional component comparisons requiring an applicability/material/
@@ -400,15 +440,15 @@ applicable evidence, not a reinterpretation of pending entries as passes.
 
 | Workstream | Evidence available now | Remaining engineering result |
 | --- | --- | --- |
-| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported; source/map/rigid-field checks and all fifty body numerical elastic gates pass. Free/constrained export coupons, a free-cube condensation fixture, tiny indicator fixtures, physical connector projections and a six-case operator-reuse contract are available. | Validate reaction-free reduction and rejoin body/load/connector maps with all 300 body balances; establish compatible gravity, actual branch nullspace and reaction-free gauge; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures and convergence alone cannot supply these results. |
+| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported; source/map/rigid-field checks, all fifty body numerical elastic gates and complete connector reduction now pass. Free/constrained export coupons, a free-cube condensation fixture, tiny indicator fixtures, physical connector projections and a six-case operator-reuse contract are available. | Rejoin the accepted elastic operator with body/load/connector maps and all 300 body balances; establish compatible gravity, actual branch nullspace and reaction-free gauge; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures and convergence alone cannot supply these results. |
 | Complete joint resistance | Audited corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected boundary coverage. Individual-bolt component helpers exist. The published upper packet adds eight blocks/32 bolts with sampled sections and signed three-case comparisons. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Resolve the two upper outer ratios above one under their unadopted method; extend supported methods to the other affected joint families and all 24 duties. No historical corner or selected-baseline pass transfers. |
-| Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 184 candidate outer seats now have nominal geometry coverage, with one partial-support seat. The primary's 120 seats have conditional eccentric screens; the 54-axis demand join adds 1,134 ties and 2,268 seat actions. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, quarter-inch dowel-bending basis, head/nut load footprints, upper eccentric/tolerance coverage, the partial-support seat and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
+| Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 184 candidate outer seats now have nominal and conditional eccentric geometry coverage, with one partial-support seat. The 54-axis demand join adds 1,134 ties and 2,268 seat actions. The reviewed Fyb source disposition permits conditional empirical sensitivity work without a blanket delivered-test prerequisite. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, adopted quarter-inch dowel-bending basis, head/nut load footprints, shank/bore/seat tolerances and tilt, the partial-support seat and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
 | Members, contact and panels | Complete five-body corner boundary and BG045 header section inventories have been reconstructed. Conditional DF-L No. 2 inputs and per-member grain proposals are published. The reviewed 66 Hillman axes and eight recorded moves are preserved. | Apply applicable strengths and adjustments to simultaneous member/section/contact demands, include cut/boring and stability effects, and prove the changed panel/screw receiver and kerf-right kicker-edge transfers. Reuse unchanged LEG/runner resistance; reopen only changed demands, geometry, receivers or hardware. Do not start a blanket panel or retained-member qualification campaign. |
 | Installed fit, assembly and transport | Candidate and retained access producers, critical envelopes and a forward/reverse sequence hypothesis exist. Counts reconcile to 24 blocks, 92 new axes, twelve retained frame stacks and 66 separate panel/kicker screws. | Resolve named nut/washer slide and wire dependencies with compatible thread geometry, tools, counterhold and capture. Verify tolerances, hold/LED/wire access, reversible supported operations and individual-member removal paths. Screen permanent ordinary-N envelopes from named datums; document any exception before implementing a change. Proxy overlap is not proof that a real tool is blocked. |
 | Build documents, stock, counts and cost | Source geometry, stock proposals, hardware counts and builder-document organization exist. Conditional material cases include separate treatment of the four ripped blocks. | Reconcile the supported joint/fit decisions into one revision-bound BOM, stock cut/yield basis, sourced package quantities and cost, drawings, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Do not present a hypothetical ripped-block grade as inherited from the original board. |
 | Final acceptance and independent review | The exact 47-question scope and fail-closed coverage/criteria producers exist, with source-bound method and demand packets. | Bind every applicable criterion to current method, input, case/identity coverage, numerical result and supported disposition. Independently review the complete package and resolve material findings. All applicable requirements must pass before the conditional engineering endpoint can be called complete. |
 
-The immediate order is actual-body elastic reduction/body-equilibrium rejoin →
+The immediate order is accepted elastic operator/body-equilibrium rejoin →
 compatible gravity → one missing usable frame case, in parallel with the connected corner resistance
 rows. Washer support/footprint and hardware/material input work can proceed
 without native runs or received-piece inspection. A new native method study
@@ -425,7 +465,9 @@ its published packet and its 64 nominal washer seats. Its bounded packet goal
 is complete; the complete-joint and full MVP-E goals are not. The primary's reviewed
 54-bolt/108-seat geometry extension is complete as a screen, with the explicit
 partial-support exception; its three-case demand join now passes its source
-checks. This allocation avoids
+checks. The primary also owns the isolated 64-seat upper eccentric extension;
+it reuses the upper source cohort without editing the upper owner's packet.
+This allocation avoids
 duplicating the mechanics
 coordinator's elastic/gravity, BG003 and BG045 work or the primary's six-corner
 washer and source investigations.

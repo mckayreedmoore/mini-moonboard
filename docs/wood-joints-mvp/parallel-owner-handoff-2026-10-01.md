@@ -64,7 +64,11 @@ The upper owner has published commits `33db8c1d` and `de9ed34f`, including
 all 64 nominal seats and eight-block/32-bolt three-case comparisons. Parent
 replayed its seat packet. Together the three geometry cohorts cover all 184
 candidate outer seats nominally, with one explicit partial-support exception.
-Upper eccentricity/tolerances remain open. The top-outer nominal-D lateral
+The primary's separate `upper-washer-eccentric-support-2026-10-01/` extension
+now passes the declared eccentric geometry screens for all 64 upper seats,
+completing that screen's 184-seat coverage with the same partial-seat exception.
+It reuses the upper cohort and does not modify the upper owner's packet.
+Real shank/bore/seat tolerances and tilt remain open. The top-outer nominal-D lateral
 ratios 1.1631 and 1.3667 use an unadopted 106 ksi bending-yield estimate;
 they require a supported disposition, not transfer of a component pass.
 The upper owner's bounded packet goal is complete, but no upper joint or
