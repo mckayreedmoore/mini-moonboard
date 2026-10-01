@@ -1,6 +1,6 @@
 # Joint completion and gravity-start report — October 1, 2026
 
-Updated October 1, 2026 at 08:08 UTC (October 1 in Denver). The native export
+Updated October 1, 2026 at 08:15 UTC (October 1 in Denver). The native export
 assessment below was independently replayed; newer coordinator entries may
 supersede this snapshot. Work remains exclusively on `master`.
 
@@ -429,12 +429,28 @@ its seven known-answer gates, including a mixed-direction force oracle,
 isotropic and zero-clearance limits, rotation and independent energy/tangent
 differences. Its point law minimizes an anisotropic quadratic over a circular
 free-clearance disk and keeps the coupled Y/Z response. Parent replay passed.
-This is a constitutive hypothesis, not calibrated timber bearing, a finite
-bolt result or joint resistance. The proposed finite adapter retains the
-existing A12 source receiver wrenches and gauges, with eight declared
-density/mesh/clearance sensitivities. Readiness and serialized execution stay
-with the mechanics owner. Axial/washer interaction, splitting and shared
-two-bolt timber behavior remain separate requirements.
+This is a constitutive hypothesis, not calibrated timber bearing or joint
+resistance. The mechanics owner has subsequently completed the declared
+eight A12 bolt-1 density/mesh/clearance proxies in 23.58 seconds, under one
+parent-held lock and the frozen 180-second/6-GiB caps. No native solve was
+launched. Its local `current-bg003-anisotropic-clearance-finite-adapter-attempt01/parent-results.md`
+records `PASS_BOUNDED_PROXY_ONLY`, with no joint acceptance. Primary
+authenticated all 22 frozen source pins, the input/assessment join and result
+SHA-256 `ad3f95de06884b2a1f63d982fa67dfee8128a2fed0c77a20cedc0624fc1de3c5`
+without rerunning the owned finite suite.
+
+All eight proxy states pass the declared free-degree equilibrium, receiver
+force/first-moment closure, gauge and free-end gates. Signed middle actions
+and sampled peak couple change by less than 0.276% between 16 and 32
+divisions. Sampled pressures instead change by up to 4.27% in the reported
+clearance comparisons; no 1% pressure-refinement pass is claimed. The
+pressure proxy is not a washer pressure or an applicable Fc-perpendicular
+check. Clearance lowers sampled peak bending but raises sampled bearing
+pressure, so neither scenario establishes a general upper bound. The result
+covers only A12 bolt 1 and its hypothetical law/densities. Applicable bearing
+and combined-joint methods, shared two-bolt receiver behavior, splitting and
+axial/thread/washer/steel interaction remain unresolved. The owner has stopped
+this bounded suite rather than enlarging its parameter/mesh campaign.
 
 ## Remaining two-receiver bolt references
 
@@ -689,7 +705,7 @@ end-grain factor, preserving nulls wherever that scope is not proved. The
 bottom outer left `side_1` comparison needs its same-state joint/group,
 conditional material and applicable-adjustment disposition; this is a
 named issue, not permission to change bolt size or choose a favorable factor.
-The mechanics owner continues the continuous BG003 adapter and BG045
+The mechanics owner continues BG003 bearing/combined-joint applicability and BG045
 edge/finished-section applicability. The upper owner's stock packet is now
 published; its claimed stock-frame finished-feature register is a disjoint
 next build-document task. Each author freezes its inputs and code;
