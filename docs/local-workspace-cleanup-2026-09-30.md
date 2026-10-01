@@ -46,8 +46,6 @@ and Python syntax checks cover the published result chunks. Remaining
 engineering and historical lint/replay limitations retain their original
 status; cleanup establishes no strength acceptance.
 
-The [quiet-hours audit](quiet-hours-audit-2026-09-30.md) found no violation in
-the preceding week. The local guard's boundary/DST self-test passed. Cleanup
-commits use the actual current time outside the Monday–Thursday 07:30–18:00
-Denver window and run the normal hooks. No timestamps or published history
-are rewritten.
+Cleanup commits use the actual current time outside the Monday–Thursday
+07:30–18:00 Denver window and run the normal hooks. No timestamps or
+published history are rewritten.
