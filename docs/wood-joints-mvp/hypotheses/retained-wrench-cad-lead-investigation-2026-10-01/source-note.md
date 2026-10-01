@@ -2,8 +2,9 @@
 
 Checked October 1, 2026 UTC. This supersedes the retrieval uncertainty in the
 [preserved Olander attempt04](../evaluation-resume-2026-09-24/retained-3-4-tool-geometry-source-gap-attempt04/README.md)
-for this one public lead. It supplies no wrench geometry, fit result, tool
-selection, joint resistance or release.
+for this one public lead. A subsequent manufacturer lookup supplies named
+dimensions below, but no complete tool model, fit result, tool selection,
+joint resistance or release.
 
 ## Observed outcome
 
@@ -33,6 +34,26 @@ the wrench. A browser retrieval cache miss was not a sufficient diagnosis of
 the underlying route. The new result does not show that Wera has no model
 elsewhere, that the retailer can never add one, or that access is gated by an
 account. No authentication, order or vendor-contact action was taken.
+
+## Manufacturer dimensions recovered
+
+The [current Wera family page](https://www.wera.de/en/tools/6000-joker-ratcheting-combination-wrenches-imperial)
+identifies `05073287001` as the 3/4-inch member. Its advertised
+[manufacturer datasheet](https://hybris-media.wera.de/download/pdfgenerator-datasheets/en/05073280001.pdf)
+is headed by the 5/16-inch item, but page 3 has a dimensioned family table
+with an explicit `05073287001` row. Parent inspected the rendered table and
+its dimension icons. That row gives total length 246 mm, mouth external width
+42 mm, mouth head thickness 9.5 mm, ratchet external width 34.8 mm and maximum
+ratchet head height 11 mm. Use the named family row, not the first page's
+other-item size or packaging dimensions.
+
+The direct manufacturer PDF retrieval returned 455,834 bytes; SHA-256 is
+`e8ab51d6cf3d3a94dbe6d2a8c390a47cdf811f636e44397e4efa5f47d7bf424e`.
+The local copy is `/tmp/mini-moonboard-wera-family-datasheet-2026-10-01.pdf`;
+no source PDF or screenshot is committed. These dimensions narrow a future
+size-matched envelope. They do not supply the entire three-dimensional
+contour, handle transition, working opening profile, engagement datum or a
+verified enclosing solid. No fit sweep has been run from them.
 
 ## Source provenance
 

@@ -5,8 +5,10 @@ assessment below was independently replayed; newer coordinator entries may
 supersede this snapshot. Work remains exclusively on `master`.
 
 Docker access is available. The actual frame's unloaded solid stiffness has
-now been exported and authenticated. The present support blocker is compatible
-initial gravity equilibrium and a state-dependent gauge. The reviewed native
+been exported and authenticated, and all fifty body numerical elastic gates
+pass. The first connector reduction stopped at a solve-residual gate; compatible
+initial gravity equilibrium and a state-dependent gauge remain the next
+support requirements. The reviewed native
 mapping coupons are complete. They prescribe contact events; the full-frame driver
 still needs to discover the coupled states and events. This investigation
 reads the existing model and rank audit without altering either or launching
@@ -164,6 +166,18 @@ must keep every raw body wrench in the explicit 300 force/moment equations;
 projecting an intermediate elastic right-hand side cannot silently remove
 an unbalanced physical load.
 
+The first [actual connector-compliance reduction](hypotheses/mvp-acceleration-2026-09-28/current-frame-connector-compliance-attempt01/README.md)
+has since stopped on one numerical gate: the largest panel's projected basis
+columns 16–32 had relative residual `7.23261944e-10`, exceeding the fixed
+`1e-10` threshold. Gauge and multiplier checks passed separately. Extended-
+precision evaluation of the same solution still gives `3.00920477e-10`, so
+changing evaluation precision alone does not resolve it. No compliance
+operator, force or contact state was accepted. Primary authenticated the
+recorded stop without rerunning the reduction. This is a numerical stop,
+not a demonstrated panel or joint failure. The coordinator owns a bounded
+iterative-refinement check on the exact rejected chunk, with unchanged source
+stiffness and gates, at most five corrections, and explicit stagnation stops.
+
 Primary also replayed the [six-case source identity contract](hypotheses/mvp-acceleration-2026-09-28/current-six-case-operator-reuse-contract-attempt01/README.md)
 and [free-body condensation fixture](hypotheses/mvp-acceleration-2026-09-28/current-free-body-elastic-condensation-fixture-attempt01/README.md).
 The former verifies twelve source equality groups and six distinct load maps;
@@ -261,11 +275,28 @@ calculation. The existing clamped thin-annulus benchmark cannot be treated as
 the current washer model. Direct Grade 5 tensile yield also remains distinct
 from the NDS dowel-bending input.
 
+Direct parent inspection of the pinned standard and an independent review
+also corrected the [thread-gage source interpretation](hypotheses/thread-gage-functional-fit-2026-10-01/source-note.md).
+`LG` is the stopped special-ring face coordinate, `LB` ends at the last thread
+scratch, and nominal `LT` is a calculation reference. A nut envelope lying
+between `LG,max` and the minimum tip does not establish full-form thread
+coverage or matched nut travel. BG001's current four-inch scenario is not
+shown unfit. A 3.75-inch standards scenario clears the recorded dimensional
+comparators, but is not a selected product or approved model change. The
+remaining conditional inputs are explicit male first/last complete-thread
+coordinates and matched nut active-thread/chamfer bounds. No received-piece
+inspection is required to calculate a declared profile; these standard
+coordinates alone do not supply that profile or engagement resistance.
+
 The [direct retained-wrench CAD investigation](hypotheses/retained-wrench-cad-lead-investigation-2026-10-01/source-note.md)
 also resolves one stale source lead: the Olander page is reachable, but its
 live anonymous CAD availability response rejects Wera `05073287001` as an
 invalid product key and leaves its model button disabled. A visible CAD label
-does not supply tool geometry. The four 3/4-inch retained leg-bolt tool checks
+does not supply tool geometry. A separate manufacturer lookup recovered the
+exact Wera 3/4-inch family's length, mouth width/thickness and ratchet
+width/maximum height; parent checked its rendered table. Those dimensions
+narrow an envelope proposal but do not supply a complete contour or engagement
+datum. The four 3/4-inch retained leg-bolt tool checks
 remain a specific source gap; repeating that public lead will not establish
 access. Conditional source-supported tool models can be evaluated before
 physical receiving.
