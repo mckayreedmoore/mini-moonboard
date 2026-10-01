@@ -112,6 +112,28 @@ The primary has not changed the solver, run a fixture, or queued a retry.
 The mechanics owner retains formulation adoption, frozen readiness, execution
 budgets, branch/history checks and final response acceptance.
 
+The primary's `hypotheses/right-corner-signed-load-path-2026-10-01/` is now
+implemented and independently reviewed for the six `knee_outer_right`
+post/side/header bolt axes. The complete-corner register covers the left
+five-body assembly; this additive lane joins the right assembly's actual
+existing three-case forces and same-state receiver force/couple inputs.
+Its 126 bolt states, 168 lateral planes and 294 receiver wrenches pass source
+checks and independent reconstruction. The K12 `side_1` middle receiver has
+force magnitude 525.919473 N and transported couple 24,873.090030 Nmm about
+the modeled head-seat datum; that is not internal bolt bending. Full right
+body boundary, sections and resistance remain open. No left demand or
+resistance pass transfers. This lane remains separate from the eight upper
+blocks/32 axes and the mechanics owner's BG001/BG003/BG045 producers. No
+response, geometry, native solve or resistance adoption is owned by this lane.
+
+The mechanics owner now has a checked energy-hinge route to remove 1,192
+ordinary unilateral binaries while retaining 100 floor episodes. Its
+known-answer fixture and one symmetric-compliance factor preflight pass;
+the original operator and source-law/body checks remain controlling. The
+tiny floor-only adapter draft adds fixed-mask OSQP recovery after its first
+optimizer candidate missed force precision. Coordinator validation and any
+actual-frame use remain with that owner, with no duplicate run by the primary.
+
 For the 54-axis lane, bind every outer seat to its actual current finished
 solid, receiver, datum and bore. Identify unsupported/ambiguous seats rather
 than extrapolating the twelve-corner result. Preserve multi-receiver bolts
@@ -129,8 +151,12 @@ integrated support report, and the mechanics coordinator owns all native,
 elastic reduction, gravity and response validation. Neither owner's files
 should be edited or staged by this lane.
 
-Revision-bound stock cut/yield/BOM is a useful alternative if the hardware
-owner prefers it. BG001/spine finished-section work is less isolated: the
+The upper owner has now asked whether the primary owns the current
+20-frame-member/24-block stock cut/yield/BOM reconciliation. It does not.
+That lane is available to the upper owner after its load-path packet; record
+its exact output-path claim before implementation. Preserve existing source
+geometry and distinguish conditional grade assignments for ripped stock.
+BG001/spine finished-section work is less isolated: the
 existing disconnected-ligament/common-affine-strain proxy boundary needs
 explicit handling, and the mechanics corner table already owns its integration.
 
