@@ -50,10 +50,25 @@ separately reviewed design option remains necessary. This does not establish
 a strength failure or affect the upper owner's 32-axis exclusion.
 
 A separate primary-owned `remaining-candidate-washer-demands-2026-10-01/`
-task now joins only these 54 axes to the three authenticated response families;
-it must retain signed actions and the partial-support flag. It creates no
-new demand solve and does not own the six corner or 32 upper axes. Parent
-retains its source/review gate before publication.
+join now passes: 1,134 signed ties and 2,268 outer-seat actions over the
+three authenticated response families. Parent took over implementation after
+the worker's source trace. It retains 1,106 tensile actions, 28 display zeros,
+no negative ties and the partial-support flag in all 21 states. The affected
+seat's full-load actions are A1=3.736414, A12=41.45025 and K12=64.40226 N.
+This creates no new demand solve and does not own the six corner or 32 upper
+axes. Independent replay is complete without a material source-join or sign
+finding; parent verified its six corrupted-record rejection checks. Publication
+contains code and summaries only, with no new accepted mechanics result.
+
+The upper owner has published commits `33db8c1d` and `de9ed34f`, including
+all 64 nominal seats and eight-block/32-bolt three-case comparisons. Parent
+replayed its seat packet. Together the three geometry cohorts cover all 184
+candidate outer seats nominally, with one explicit partial-support exception.
+Upper eccentricity/tolerances remain open. The top-outer nominal-D lateral
+ratios 1.1631 and 1.3667 use an unadopted 106 ksi bending-yield estimate;
+they require a supported disposition, not transfer of a component pass.
+The upper owner's bounded packet goal is complete, but no upper joint or
+the integrated 47-criterion endpoint is accepted by that completion.
 
 For the 54-axis lane, bind every outer seat to its actual current finished
 solid, receiver, datum and bore. Identify unsupported/ambiguous seats rather
