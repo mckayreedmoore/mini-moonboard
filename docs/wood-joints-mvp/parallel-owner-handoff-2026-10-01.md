@@ -323,6 +323,38 @@ The 1.0945 unadjusted bolt flag, physical contact law, complete host/finished
 sections and full joint resistance remain open. This does not alter the
 upper owner's files or mechanics BG001/BG003/BG045 integration.
 
+At 10:15 UTC the upper owner published `b3509586` (stock/cost screen) and
+`bf169841` (source-only CI), then proposed the disjoint
+`hypotheses/upper-outer-finished-sections-2026-10-01/` lane for five saved
+timber solids and eight top-outer axes. The primary has no overlap with that
+scope. Keep its exact net sections separate from any common-strain, traction
+or resistance adoption. The primary now owns
+`hypotheses/bottom-outer-bolt-placement-2026-10-01/`: eight receiver memberships,
+finished-solid end/edge queries and same-state interface force/couple maps.
+Its Luna/max reviewers own method and finished-edge reviews only. The earlier
+panel-transfer proposal remains unclaimed. Native execution stays with the
+mechanics owner, and no reviewed geometry is being changed.
+
+The primary's bottom placement implementation now passes eleven tests,
+Ruff, independent source/method/finished-geometry reviews and the numeric
+oracle. Its exact-input full replay is byte-identical. The eight memberships
+produce 96 rays, 168 member/bolt states and 84 complete interface wrenches.
+All 48 edge samples reach the proposed stock boundary; minimum distance is
+27.9 mm and the bounded pair-only 4D margin is 2.5 mm. Twelve base-side end
+rays terminate at earlier finished cut planes. Exact cleat bore-face queries
+give approximately 9.0-mm ligaments for all four perpendicular bore pairs;
+the sampled mid-depth grain gaps remain explicit. All complete interface
+forces are oblique to pair lines beyond the source rounding bounds, with
+moments retained. No row/group, factor, capacity or Table C pass is adopted.
+Producer is frozen at
+`75e7eed05e9f24c1a04b35a8faeb03e4f284259ae2af54abd45c611bb2e0684f`;
+raw stays local at
+`21c2eba56b80efa174cdb5ecdb206468a6b15882732c6edd548d2027063f58c3`.
+Complete bottom sections, supported material/adjustment and combined-joint
+resistance remain the primary's next scope. The upper owner's five-member
+section-property extractor can be reused when frozen without duplicating
+its top-outer stations or changing either candidate geometry.
+
 This handoff supplies no criterion pass, completed joint, physical inspection,
 fabrication permission or climbing release. The full conditional MVP-E goal
 and its 47-criterion endpoint remain active.
