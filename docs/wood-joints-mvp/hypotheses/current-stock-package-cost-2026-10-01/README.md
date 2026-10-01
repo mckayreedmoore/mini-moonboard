@@ -1,0 +1,7 @@
+# Current stock-package public price screen
+
+The [source screen](source-screen.md) retains dated public lumber and plywood offer observations for the current wood-joint development lane. It distinguishes numeric price/unit evidence from compatibility with the proposed material and cut scenarios. Eleven lumber lines have numeric rates per thousand board feet; none establishes every required material field. The public plywood observations likewise lack an adopted current item/layout/quantity crosswalk. A complete package cost remains unresolved.
+
+The [reviewed stock packet](../current-stock-envelope-reconciliation-2026-10-01/README.md) supplies conditional 44-blank scenarios. Only scenarios that place all 44 blanks can support a complete cost reconciliation. The 8-ft-only cases do not; the 16-ft line set also lacks a verified 2×6×16 price. The older indexed lumber rate is retained separately from the current direct detail-page observation. Per-MBF rates are not per-stick prices, and the sheet bulk tier is not assumed applicable.
+
+`source_screen.py` provides small pure helpers for price amounts/units, explicit specification gaps and quantity-minimum satisfaction. Its stored observations do not supply supplier availability, a quotation, a price selection, a purchase instruction, received-material qualification or post-rip grade. The local excerpt record preserves provenance and is ignored; exact page-open clock time was not captured. [Review and validation](review.md) record the publication gate.
