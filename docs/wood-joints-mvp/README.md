@@ -15,6 +15,7 @@ screw-and-bracket baseline remains governed by
 | Specific missing inputs | [Four-gate matrix](hypotheses/mvp-acceleration-2026-09-28/four-gate-closure-matrix-2026-09-29.md) |
 | Analysis approach and existing results | [Acceleration reassessment](hypotheses/mvp-acceleration-2026-09-28/README.md) and [demand coverage](hypotheses/mvp-acceleration-2026-09-28/demand-coverage-register-2026-09-29.md) |
 | Uppermost block actions and conditional component comparisons | [September 30 upper-frame review](hypotheses/upper-frame-joint-review-2026-09-30/README.md), four blocks and sixteen bolts; no complete-joint acceptance |
+| Service upper blocks, shortened G7 and partial-thread/end-method follow-up | [September 30 service-upper review](hypotheses/service-upper-frame-joint-review-2026-09-30/README.md) and [method correction](hypotheses/service-upper-frame-joint-review-2026-09-30/method-correction.md); the two upper packets cover eight cleats and 32 bolts in three cases |
 | Complete engineering endpoint | [Completion handoff](luna-max-completion-handoff.md), [task queue](luna-max-task-queue.json), [criterion coverage](current-criteria-coverage.md) |
 | Earlier experiments and decisions | [Completion ledger](completion-ledger.md), [decision log](decision-log.md), [project design history](../history/design-history.md) |
 

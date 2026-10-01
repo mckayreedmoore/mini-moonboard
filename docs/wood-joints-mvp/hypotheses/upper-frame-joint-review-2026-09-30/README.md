@@ -1,5 +1,13 @@
 # Uppermost frame-block review, September 30, 2026
 
+September 30 follow-up: the [service-upper review](../service-upper-frame-joint-review-2026-09-30/README.md)
+adds the other four service cleats and an explicit partial-thread comparison.
+Its [method correction](../service-upper-frame-joint-review-2026-09-30/method-correction.md)
+supersedes the generic oblique-loading/shear-area wording below. Grain-angle
+interpolation remains a declared historical-method sensitivity, with exact
+2024 Commentary verification open. This packet's frozen numerical records
+remain unchanged.
+
 The upper blocks are useful parallel MVP work while the main worker resolves
 the lower corner assembly and remaining floor-support cases. Earlier
 [top outer](../top-outer-integration/README.md) and
