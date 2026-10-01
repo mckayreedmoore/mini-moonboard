@@ -1,5 +1,9 @@
 # Gravity-start readiness investigation — September 30, 2026
 
+Updated October 1, 2026 UTC (September 30 in Denver). The native export
+assessment below was independently replayed; newer coordinator entries may
+supersede this snapshot. Work remains exclusively on `master`.
+
 Docker access is available. The present support blocker is compatible initial
 gravity equilibrium and a state-dependent gauge. The reviewed native mapping
 coupons are complete. They prescribe contact events; the full-frame driver
@@ -80,13 +84,13 @@ global output branch, diagonals are written once and only one symmetric
 off-diagonal triangle is emitted. A reader must reconstruct symmetry without
 doubling diagonals and must use the emitted DOF map.
 
-The bounded implementation task is an input-only method packet with one free,
-rotated orthotropic C3D20 unit cube and an independent affine-energy oracle.
-The native exit gate is six rigid modes, positive non-rigid stiffness,
-correct DOF mapping and agreement with the known affine strain energies and
-cross energies. Preparing or passing synthetic reader tests is not that
-native gate. The existing FEA coordinator owns adoption, exact freeze,
-serialized native execution and final validation of this proposal.
+The independently prepared method packet contains one free, rotated
+orthotropic C3D20 unit cube and an affine-energy oracle. Its proposed exit
+gate is six rigid modes, positive non-rigid stiffness, correct DOF mapping
+and agreement with the known affine strain energies and cross energies.
+Preparing or passing synthetic reader tests is separate from observing native
+behavior. The FEA coordinator owns adoption, exact freeze, serialized native
+execution and final validation.
 
 The [method packet](hypotheses/elastic-matrix-export-method-2026-09-30/README.md)
 is now implemented and independently reviewed. Parent reproduced its tests:
@@ -94,16 +98,44 @@ is now implemented and independently reviewed. Parent reproduced its tests:
 the algebraic 60-DOF oracle passes all six affine modes. Independent tensor
 rotation agrees within `2.3e-13`. Review corrected a native connectivity-line
 error and documentation provenance; the generator now preserves the required
-16-plus-5 entry split. These are code and proposal checks. The native cube
-gate remains pending, with no full-frame case or strength acceptance gained.
+16-plus-5 entry split. These are code and proposal checks; this particular
+free orthotropic deck has not been run.
 
-If that gate passes, a separately frozen pure-solid export could preserve
-the current frame's exact physical geometry, orientations and material
-definitions, supplying its elastic matrix while keeping source carrier-law
-and floor-state assembly explicit. This is a proposed implementation route,
-not proof of native export behavior, source-equation reduction, a compatible
-gravity state or accepted frame response. Do not infer a unilateral tangent
-at zero extension from a frequency export of nonlinear springs.
+The coordinator subsequently ran a separately frozen **free isotropic cube**.
+Its [native assessment](hypotheses/mvp-acceleration-2026-09-28/current-free-c3d20-matrix-export-native-attempt01/README.md)
+passes: 60 equations, six rigid modes, no significant negative stiffness
+eigenvalues, normalized rigid residual `3.45e-15`, analytical shear energy and
+translation mass. Assessment SHA-256 is
+`fea5d33bb8874b3abfa34acfbd15ceca3d8f6dd45d346ecf638cf45ffc0b85f4`.
+I independently replayed its source/output authentication on October 1 UTC;
+the replay returned `PASS_REPLAY_NATIVE_FREE_C3D20_EXPORT_ASSESSMENT`.
+This establishes the built-in export route on that coupon. It does not
+establish rotated wood, constrained equation mapping or current-frame rank.
+There is no reason to repeat the free isotropic export merely to confirm it.
+
+The coordinator then ran the [constrained export](hypotheses/mvp-acceleration-2026-09-28/current-constrained-matrix-export-native-attempt01/README.md),
+reusing the orthotropic packet with an SPC, interpolation MPC and SPRING2.
+The native operator has the expected 58 active translations and five allowed
+rigid modes. All 36 rotated-material/projected-spring affine cross energies
+agree with the independent oracle; maximum discrepancy is
+`1.21645e-11 N/mm`. Assessment SHA-256 is
+`49805f1f32857ef85ac9650e26e3ed3c1dfcadf0607fe322a3bf833932ff03b7`.
+I independently replayed source/output authentication, returning
+`PASS_REPLAY_NATIVE_CONSTRAINED_EXPORT_ASSESSMENT`. This verifies the tiny
+`K_export = B^T K_physical B` mapping, rather than deletion of dependent rows.
+Nonzero reference offsets and applied loads remain separate from the
+frequency export; their work identity is an analytical check, not native
+capture evidence. The constrained mass matrix was not evaluated.
+
+The [physical connector projection contract](hypotheses/mvp-acceleration-2026-09-28/current-frame-physical-connector-projection-contract-attempt01/README.md)
+now supplies 348 bilateral, 1,292 unilateral and 200 separate floor-tangent
+rows over 37,647 physical translations, preserving the source ground
+projections and gravity nodal map. It is an input-only rejoin interface for
+the future frame operator, not a gravity solution. Actual distorted-element
+stiffness/rank, body equilibrium, state selection and continuation still need
+validation. Do not infer a unilateral tangent at zero extension from a
+frequency export of nonlinear springs, or substitute an auxiliary export
+mass matrix for the authenticated gravity loads.
 
 ## Concrete implementation consequence
 
@@ -122,8 +154,82 @@ The [mapping preflight](hypotheses/mvp-acceleration-2026-09-28/current-staged-fl
 already records these requirements; another prescribed-event coupon would
 not by itself implement them.
 
+The coordinator has also verified a borrowed SCIP/PySCIPOpt
+[indicator selector](hypotheses/mvp-acceleration-2026-09-28/current-coupled-indicator-selector-fixture-attempt01/README.md)
+on eight tiny, source-pinned fixtures, including ambiguous, infeasible and
+multiple-state cases. It uses signed unbounded unknowns without a supplied
+finite big-M, and exhaustion of its budget stops without a completeness claim.
+This supplies a tested small-state selection method. It does not establish
+100-floor-cell scalability, discover events or provide the frame's gravity
+state. Neither this fixture nor the matrix coupon adds a usable frame case.
+
+## Parallel washer input result
+
+The new [primary-corner support checker](hypotheses/corner-washer-support-2026-10-01/README.md)
+uses the four authenticated current-finished STEP members and the saved seat
+map. All twelve outer seats on six BG001/BG003/BG045 bolts support the full
+modeled CAD annulus and both catalog dimensional extremes. Inward support
+fractions are 1.0 and outward overlap is 0.0 at 0.01, 0.05 and 0.1 mm probe
+depths; the maximum matching face-plane offset is `2.274e-13 mm`. BG003 keeps
+its middle receiver without adding a middle washer. This settles the
+geometry-only annulus support input for these saved solids. It does not prove
+physical flatness, pressure distribution or washer resistance, and it does
+not cover the other 86 candidate bolts. The check is coaxial at the nominal
+saved seat poses; washer eccentricity and seat-location tolerances remain
+separate fit/contact inputs.
+
+Primary review corrected the checker repository path, required actual
+rejection tests for clipping and embedded/reversed seats, and added an
+outward protrusion fixture so full support cannot hide an obstructed washer
+face. The [method note](hypotheses/corner-washer-method-investigation-2026-10-01/source-note.md)
+identifies a conditional contact-resolved elastic metal-demand calculation:
+it can report required minimum yield after the footprint, coupled actions
+and contact model are bound. Missing catalog yield need not stop that demand
+calculation. The existing clamped thin-annulus benchmark cannot be treated as
+the current washer model. Direct Grade 5 tensile yield also remains distinct
+from the NDS dowel-bending input.
+
 Disposition: the investigation identifies a startup and rank-interpretation
 issue. It authorizes no extra floor restraint, revised geometry or native
 launch, and adds no blanket external sign-off or physical floor test. Usable
 conditional responses remain the three rear cases; complete joint acceptance
 and the full six-case requirement remain open.
+
+## Work remaining for the complete conditional package
+
+The persistent goal is the complete conditional MVP-E package for
+`compact-floor-flush-wood-joints-development`, revision
+`led-clearance-2x6-runner-seated-blocks-v1`. Completing a method coupon or the
+left corner alone does not complete that goal. The
+[completion handoff](luna-max-completion-handoff.md) defines the endpoint;
+[criteria.json](criteria.json) retains 36 migrated safety questions and eleven candidate
+obligations, with no formal passing dispositions yet. That register is not a
+measure of zero engineering progress: several source, demand and method
+dependencies now have useful evidence. Final closure requires integration of
+applicable evidence, not a reinterpretation of pending entries as passes.
+
+| Workstream | Evidence available now | Remaining engineering result |
+| --- | --- | --- |
+| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. Free and constrained matrix-export coupons and tiny indicator fixtures pass; a source-bound physical connector projection interface exists. | Assemble and validate the source-bound frame operator and body/load/connector rejoin; establish compatible gravity, actual branch nullspace and reaction-free gauge; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures and convergence alone cannot supply these results. |
+| Complete joint resistance | The [corner register](hypotheses/mvp-acceleration-2026-09-28/current-corner-complete-resistance-register-attempt01/README.md) retains 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. Individual-bolt component helpers exist. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Extend supported methods to the other affected joint families and all 24 duties; no historical corner or selected-baseline pass transfers. |
+| Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 126 corner tie states and 252 seat states are available. The twelve primary-corner annuli now have geometry-only support evidence on the exact saved wood faces. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, quarter-inch dowel-bending basis, head/nut load footprints, remaining washer-seat coverage and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
+| Members, contact and panels | Complete five-body corner boundary and BG045 header section inventories have been reconstructed. Conditional DF-L No. 2 inputs and per-member grain proposals are published. The reviewed 66 Hillman axes and eight recorded moves are preserved. | Apply applicable strengths and adjustments to simultaneous member/section/contact demands, include cut/boring and stability effects, and prove the changed panel/screw receiver and kerf-right kicker-edge transfers. Reuse unchanged LEG/runner resistance; reopen only changed demands, geometry, receivers or hardware. Do not start a blanket panel or retained-member qualification campaign. |
+| Installed fit, assembly and transport | Candidate and retained access producers, critical envelopes and a forward/reverse sequence hypothesis exist. Counts reconcile to 24 blocks, 92 new axes, twelve retained frame stacks and 66 separate panel/kicker screws. | Resolve named nut/washer slide and wire dependencies with compatible thread geometry, tools, counterhold and capture. Verify tolerances, hold/LED/wire access, reversible supported operations and individual-member removal paths. Screen permanent ordinary-N envelopes from named datums; document any exception before implementing a change. Proxy overlap is not proof that a real tool is blocked. |
+| Build documents, stock, counts and cost | Source geometry, stock proposals, hardware counts and builder-document organization exist. Conditional material cases include separate treatment of the four ripped blocks. | Reconcile the supported joint/fit decisions into one revision-bound BOM, stock cut/yield basis, sourced package quantities and cost, drawings, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Do not present a hypothetical ripped-block grade as inherited from the original board. |
+| Final acceptance and independent review | The exact 47-question scope and fail-closed coverage/criteria producers exist, with source-bound method and demand packets. | Bind every applicable criterion to current method, input, case/identity coverage, numerical result and supported disposition. Independently review the complete package and resolve material findings. All applicable requirements must pass before the conditional engineering endpoint can be called complete. |
+
+The immediate order is actual frame operator/body-equilibrium rejoin →
+compatible gravity → one missing usable frame case, in parallel with the connected corner resistance
+rows. Washer support/footprint and hardware/material input work can proceed
+without native runs or received-piece inspection. A new native method study
+must settle a named dependency in that sequence. The mechanics coordinator
+retains readiness, freezes, serialized native execution and final validation;
+Luna/max workers receive bounded author/reviewer tasks with separate paths,
+and the primary investigates stalled work directly.
+
+No defensible completion percentage follows from the case count. Three of six
+usable conditional cases is the response milestone; complete joint resistance
+and the integrated 47-criterion endpoint remain open. Finishing this goal
+would produce conditional engineering documentation under the recorded
+no-slip assumption, not inspected hardware, fabrication authority or a
+climbing release.
