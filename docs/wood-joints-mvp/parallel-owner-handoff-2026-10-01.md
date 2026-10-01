@@ -120,19 +120,33 @@ existing three-case forces and same-state receiver force/couple inputs.
 Its 126 bolt states, 168 lateral planes and 294 receiver wrenches pass source
 checks and independent reconstruction. The K12 `side_1` middle receiver has
 force magnitude 525.919473 N and transported couple 24,873.090030 Nmm about
-the modeled head-seat datum; that is not internal bolt bending. Full right
-body boundary, sections and resistance remain open. No left demand or
+the modeled head-seat datum; that is not internal bolt bending. Right
+sections and resistance remain open. No left demand or
 resistance pass transfers. This lane remains separate from the eight upper
 blocks/32 axes and the mechanics owner's BG001/BG003/BG045 producers. No
 response, geometry, native solve or resistance adoption is owned by this lane.
+
+The primary's additive `hypotheses/right-corner-whole-boundary-2026-10-01/`
+now reconstructs the whole five-body source boundary, including the entire
+shared header's connections. Its 392 original scalar carriers group into
+338 physical interfaces (42 internal, 296 boundary), with 62 boundary port
+groups. All 105 body states reproduce the frozen residuals and RF-rounding
+bounds with the original 0.1 N/2 Nmm gates. Selected/released floor channels,
+panel/screw and retained-frame actions stay explicit. This joins existing
+modeled forces without new response, strength or physical-contact acceptance.
+The source trace and independent replay are isolated in that folder.
 
 The mechanics owner now has a checked energy-hinge route to remove 1,192
 ordinary unilateral binaries while retaining 100 floor episodes. Its
 known-answer fixture and one symmetric-compliance factor preflight pass;
 the original operator and source-law/body checks remain controlling. The
-tiny floor-only adapter draft adds fixed-mask OSQP recovery after its first
-optimizer candidate missed force precision. Coordinator validation and any
-actual-frame use remain with that owner, with no duplicate run by the primary.
+final tiny floor-only adapter replay passes all 24 analytical masks after
+adding fixed-mask OSQP recovery. Its one actual A12 application then stopped
+at the 45-second solver budget, one processed root node, zero feasible
+solutions and no force candidate. The owner is diagnosing the specific
+root-relaxation limitation from frozen sources/logs; no larger-budget or
+guessed-mask retry is queued. Readiness, execution and final acceptance remain
+with that owner, with no duplicate run by the primary.
 
 For the 54-axis lane, bind every outer seat to its actual current finished
 solid, receiver, datum and bore. Identify unsupported/ambiguous seats rather

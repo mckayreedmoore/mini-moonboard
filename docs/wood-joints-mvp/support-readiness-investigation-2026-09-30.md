@@ -1,6 +1,6 @@
-# Joint completion and gravity-start report — September 30, 2026
+# Joint completion and gravity-start report — October 1, 2026
 
-Updated October 1, 2026 at 06:54 UTC (October 1 in Denver). The native export
+Updated October 1, 2026 at 07:18 UTC (October 1 in Denver). The native export
 assessment below was independently replayed; newer coordinator entries may
 supersede this snapshot. Work remains exclusively on `master`.
 
@@ -21,12 +21,16 @@ inputs, serialized execution and final mechanics validation.
 The primary has now implemented and independently reviewed the right outer
 knee's actual three-case bolt/receiver action join: 126 bolt states, 168
 lateral planes and 294 receiver wrenches. This fills a missing right-side
-input without reflecting left demands. The mechanics owner has also checked
-an energy formulation that removes 1,192 ordinary-contact binaries while
-retaining the 100 discrete floor episodes. Its algebraic fixture and numerical
-factor preflight pass; the tiny selector adapter's final validation and an
-actual-frame state remain separate work. **Three of six conditional frame
-cases remain usable; no complete joint or formal criterion is accepted.**
+input without reflecting left demands. The primary's subsequent full
+right five-body boundary reconstruction covers all 338 modeled interfaces
+and reproduces the 105 frozen body residual/radius records. The mechanics
+owner has also checked an energy formulation that removes 1,192
+ordinary-contact binaries while
+retaining the 100 discrete floor episodes. Its algebraic fixture, numerical
+factor preflight and final tiny selector replay pass. The actual reduced
+selector also reached its search limit without a feasible state.
+**Three of six conditional frame cases remain usable; no complete joint or
+formal criterion is accepted.**
 
 ## What prevents a simple startup
 
@@ -335,14 +339,31 @@ the symmetrization at `7.174e-10 mm` across seven increments and keeps the
 original response checks unchanged. These are numerical method results,
 not an accepted gravity solution or a new frame case.
 
-The latest tiny `current-floor-binary-convex-energy-adapter-attempt01/`
-draft adds prescribed-mask OSQP recovery and original-law audits after its
-first SCIP optimizer candidate failed force-recovery precision. Final
-coordinator validation was not recorded in the checked checkpoint at this
-snapshot. A successful tiny adapter must precede a bounded actual-frame
-application; rejecting one energy minimizer cannot prove that other floor
-branches have no admissible state. The primary has not rerun these owned
-solves, adopted the approximation, or widened any physical response gate.
+The final tiny `current-floor-binary-convex-energy-adapter-attempt01/`
+adds prescribed-mask OSQP recovery and original-law audits after its first
+SCIP optimizer candidate failed force-recovery precision. The mechanics
+owner's final stable replay passes all 24 masks in eight analytical cases,
+the raw-wrench oracle and a nonzero raw-operator skew audit, without widening
+any tolerance.
+
+The owner then froze and ran one actual reduced
+`current-a12-gravity-direction-convex-selector-attempt01/` application.
+Construction took 1.102 seconds and presolve 1.15 seconds. The 45-second
+search limit expired at one processed root node with zero feasible solutions
+and no candidate force vector; total elapsed time was 47.092 seconds. The
+presolved problem still has 100 binaries, 5,873 continuous variables, 3,732
+linear constraints, one nonlinear energy constraint and 600 indicators.
+Recorded provenance passes. The solver log does not identify which root-node
+subroutine consumed the remaining time. The floor worker is investigating
+that specific limitation from frozen code/logs and pinned documentation;
+no larger-budget or guessed-mask retry is queued.
+
+This second stop proves neither physical infeasibility nor failure of a
+joint. A new bounded search method must settle the identified frame-scale
+limitation while retaining original-operator, body, law, sign and history
+checks. Rejecting one energy minimizer cannot exclude other floor branches.
+The primary has not rerun these owned solves, adopted the approximation, or
+widened any physical response gate.
 
 ## Right-corner load-path input
 
@@ -361,10 +382,25 @@ All eight lateral-plane peaks occur at K12 full load. The largest selected
 per-bolt receiver force is 525.919473 N on `base_side_right`, `side_1`,
 with simultaneous transported-couple magnitude 24,873.090030 Nmm about that
 bolt's modeled head-seat point. This couple is force transport to a common
-datum, not internal bolt bending. Full-body boundary transfer, finished
-sections, resistance and combined behavior remain open. No left-corner
+datum, not internal bolt bending. Finished sections, resistance and
+combined behavior remain open. No left-corner
 force, capacity or pass was transferred, no native response was produced,
 and the reviewed geometry was preserved.
+
+The subsequent
+[full right five-body boundary](hypotheses/right-corner-whole-boundary-2026-10-01/README.md)
+includes the entire shared header and every source connection touching those
+five bodies. Each case contains 392 scalar carriers grouped into 338 physical
+interfaces, with 42 internal and 296 boundary interfaces forming 62 boundary
+port groups. The adapter retains all selected/released floor tangents rather
+than guessing zero actions, along with panel/screw, retained-frame and
+neighboring-member transfers. Source nodal loads, descriptor reporting datums,
+all five body residuals and their force/moment rounding bounds reproduce the
+existing all-body audits at every one of the 21 states. Independent Luna/max
+source-endpoint replay also reproduces all 105 body checks and 21 assembly
+sums. The body limits stay 0.1 N and 2 Nmm. Assembly cancellation is a bookkeeping check; the net
+boundary resultant cannot stand in for the individual joint/section actions
+that cancel within it. This adds no strength result or new frame case.
 
 ## Parallel washer input result
 
@@ -545,16 +581,17 @@ applicable evidence, not a reinterpretation of pending entries as passes.
 
 | Workstream | Evidence available now | Remaining engineering result |
 | --- | --- | --- |
-| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported; source/map/rigid-field checks, all fifty body numerical elastic gates and complete connector reduction now pass. The first actual gravity-direction selection exhausted its solver budget with no feasible solution or infeasibility proof. The mechanics owner's checked energy fixture can remove 1,192 ordinary-contact binaries; its actual symmetric-compliance factor preflight passes. Final tiny floor-only selector validation and actual-frame use remain pending at this snapshot. | Establish compatible gravity, actual branch nullspace and reaction-free gauge from the source-bound reduction and all 300 body balances; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures, solver time limits and convergence alone cannot supply these results. |
-| Complete joint resistance | Audited left-corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected left boundary coverage. The new right-corner join independently adds 168 modeled right-plane states and 294 same-state receiver wrenches, without claiming full right-body boundary coverage. Individual-bolt component helpers exist. The published upper packet adds eight blocks/32 bolts with sampled sections and signed three-case comparisons. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Resolve the two upper outer ratios above one under their unadopted method; extend supported methods to the other affected joint families and all 24 duties. No historical corner or selected-baseline pass transfers. |
+| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported; source/map/rigid-field checks, all fifty body numerical elastic gates and complete connector reduction now pass. Both the first actual selector and the subsequent reduced energy selector exhausted their 45-second search limits with zero feasible solutions, no candidate and no infeasibility proof. The mechanics owner's energy fixture, symmetric-compliance factor and final 24-mask tiny adapter replay pass; actual-frame root-node runtime diagnosis is ongoing. | Establish compatible gravity, actual branch nullspace and reaction-free gauge from the source-bound reduction and all 300 body balances; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures, solver time limits and convergence alone cannot supply these results. |
+| Complete joint resistance | Audited left-corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected left boundary coverage. The new right-corner join adds 168 modeled right-plane states and 294 same-state receiver wrenches; its full five-body extension also reconstructs all 338 touching interfaces and 105 body states. Individual-bolt component helpers exist. The published upper packet adds eight blocks/32 bolts with sampled sections and signed three-case comparisons. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Resolve the two upper outer ratios above one under their unadopted method; extend supported methods to the other affected joint families and all 24 duties. No historical corner or selected-baseline pass transfers. |
 | Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 184 candidate outer seats now have nominal and conditional eccentric geometry coverage, with one partial-support seat. The 54-axis demand join adds 1,134 ties and 2,268 seat actions. The reviewed Fyb source disposition permits conditional empirical sensitivity work without a blanket delivered-test prerequisite. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, adopted quarter-inch dowel-bending basis, head/nut load footprints, shank/bore/seat tolerances and tilt, the partial-support seat and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
-| Members, contact and panels | Complete five-body corner boundary and BG045 header section inventories have been reconstructed. Conditional DF-L No. 2 inputs and per-member grain proposals are published. The reviewed 66 Hillman axes and eight recorded moves are preserved. | Apply applicable strengths and adjustments to simultaneous member/section/contact demands, include cut/boring and stability effects, and prove the changed panel/screw receiver and kerf-right kicker-edge transfers. Reuse unchanged LEG/runner resistance; reopen only changed demands, geometry, receivers or hardware. Do not start a blanket panel or retained-member qualification campaign. |
+| Members, contact and panels | Both complete five-body corner source boundaries and the left BG045 header section inventories have been reconstructed. Conditional DF-L No. 2 inputs and per-member grain proposals are published. The reviewed 66 Hillman axes and eight recorded moves are preserved. | Apply applicable strengths and adjustments to simultaneous member/section/contact demands, include cut/boring and stability effects, and prove the changed panel/screw receiver and kerf-right kicker-edge transfers. Reuse unchanged LEG/runner resistance; reopen only changed demands, geometry, receivers or hardware. Do not start a blanket panel or retained-member qualification campaign. |
 | Installed fit, assembly and transport | Candidate and retained access producers, critical envelopes and a forward/reverse sequence hypothesis exist. Counts reconcile to 24 blocks, 92 new axes, twelve retained frame stacks and 66 separate panel/kicker screws. | Resolve named nut/washer slide and wire dependencies with compatible thread geometry, tools, counterhold and capture. Verify tolerances, hold/LED/wire access, reversible supported operations and individual-member removal paths. Screen permanent ordinary-N envelopes from named datums; document any exception before implementing a change. Proxy overlap is not proof that a real tool is blocked. |
 | Build documents, stock, counts and cost | Source geometry, stock proposals, hardware counts and builder-document organization exist. Conditional material cases include separate treatment of the four ripped blocks. | Reconcile the supported joint/fit decisions into one revision-bound BOM, stock cut/yield basis, sourced package quantities and cost, drawings, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Do not present a hypothetical ripped-block grade as inherited from the original board. |
 | Final acceptance and independent review | The exact 47-question scope and fail-closed coverage/criteria producers exist, with source-bound method and demand packets. | Bind every applicable criterion to current method, input, case/identity coverage, numerical result and supported disposition. Independently review the complete package and resolve material findings. All applicable requirements must pass before the conditional engineering endpoint can be called complete. |
 
-The immediate order is validation of the floor-only energy adapter → compatible
-gravity with original-operator/body-equilibrium checks → one missing usable
+The immediate order is diagnosis of the reduced selector's root-node stop →
+a checked bounded remedy → compatible gravity with checks against the
+original operator and body equilibrium → one missing usable
 frame case, in parallel with the connected corner resistance
 rows. Washer support/footprint and hardware/material input work can proceed
 without native runs or received-piece inspection. A new native method study
@@ -584,8 +621,9 @@ coordinator's elastic/gravity, BG003 and BG045 work or the primary's six-corner
 washer and source investigations.
 
 The primary's right-corner action packet is complete as an independently
-reviewed input join. Right whole-body boundary/section and resistance closure
-remain separate work. Revision-bound stock cut/yield/BOM reconciliation is
+reviewed input join. Its subsequent right whole-body source boundary is
+reconstructed; finished-section and resistance closure remain separate work.
+Revision-bound stock cut/yield/BOM reconciliation is
 available to the parallel upper owner as its next isolated task; the primary
 has not claimed that lane. Pending publication of the upper owner's newest
 load-path packet, its source/section work is still development evidence.
