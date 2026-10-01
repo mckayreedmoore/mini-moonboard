@@ -74,6 +74,44 @@ they require a supported disposition, not transfer of a component pass.
 The upper owner's bounded packet goal is complete, but no upper joint or
 the integrated 47-criterion endpoint is accepted by that completion.
 
+The upper owner subsequently reported the owner's approval of an ongoing
+implementation goal and claimed `hypotheses/upper-outer-load-path-2026-10-01/`.
+It now owns the two top outer joints' same-state force/couple and
+finished-section actions, applicable splitting/tear-out and combined checks,
+using the existing three-case sources with Luna/max authors and reviewers.
+This supersedes treating its first bounded packet completion as the end of
+its implementation lane. Preserve that folder and do not duplicate its
+producers. It authorizes no native solve or reviewed-model alteration.
+
+The primary's `hypotheses/partial-seat-nut-footprint-2026-10-01/` now has
+implemented code, a parent run and an independent replay/review. The retained
+passage record is bound to its STEP cylinder radius, axis and X=50.95..89.05
+mm extent. A declared circular end-face enclosing radius of 6.260104 mm
+clears the nearest passage edge by 0.299772 mm. The full-hex silhouette
+enclosing disk has radius 7.111004 mm and reaches that edge by 0.551128 mm.
+Neither is an actual pressure patch. The smaller scenario cannot stand in
+for the whole hex; the larger disk's exception is not a physical nut failure.
+The washer annulus remains partial and metal/contact resistance remains open.
+
+The primary's `hypotheses/catalog-washer-yield-basis-2026-10-01/` source,
+parent and independent reviews also distinguish conditional material inputs
+from replacement qualification. Source-covered P1062 and Eaton B200 steel
+fitting defaults permit a 33,000-psi option-level floor without an invented
+new delivered-lot test/certificate prerequisite. These larger square plates
+are not selected or shown compatible, and no value transfers to `25NWUS`.
+
+For the mechanics owner only, the primary's independent read-only
+`hypotheses/gravity-selector-relaxation-review-2026-10-01/` recommends
+considering unconditional `f >= 0` and `f >= k*q` on the 1,292 positive-k
+unilateral rows. Both are proved consequences of the exact source branches;
+bilateral and floor-tangent rows must retain signed forces. The actual
+gravity-direction stop was a 45-second solver limit with no feasible solution
+found, not an infeasibility proof. Existing records do not show whether
+SCIP already derives those bounds or whether explicit rows improve runtime.
+The primary has not changed the solver, run a fixture, or queued a retry.
+The mechanics owner retains formulation adoption, frozen readiness, execution
+budgets, branch/history checks and final response acceptance.
+
 For the 54-axis lane, bind every outer seat to its actual current finished
 solid, receiver, datum and bore. Identify unsupported/ambiguous seats rather
 than extrapolating the twelve-corner result. Preserve multi-receiver bolts
