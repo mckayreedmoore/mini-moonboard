@@ -66,6 +66,10 @@ not bit or purchased-length instructions; use the shop columns and checklist.
 Keep chat concise. Documentation, website text, code and commits use normal
 prose. Preserve changes belonging to other agents, including untracked files.
 
+Use `master` exclusively for future work, commits and pushes. Do not create
+development branches or branch-based worktrees. Coordinate shared staging
+and commits with other running agents.
+
 ## Working set
 
 Builder docs start at [docs/README.md](docs/README.md). Older studies are in
