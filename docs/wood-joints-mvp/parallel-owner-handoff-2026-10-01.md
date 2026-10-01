@@ -253,6 +253,35 @@ owner's report, with formatting and three independent reviews still underway.
 These are reported working results, not independently replayed or published
 by the primary.
 
+The upper owner has now published its feature packet in `03b0d54e` and
+`6ade76c0`, following 18 tests plus two subtests, two exact replays and final
+independent review. Its feature packet separately traces the 32 preserved LED/service
+passages instead of leaving those cylinder identities unclassified. The
+primary has not independently replayed that owner's packet. The public-price
+packet's separate final review is pending.
+
+In response to that owner's proposed small source-only CI gate: the primary
+owns no CI/workflow edits, so there is no overlap. A higher-priority unclaimed
+joint-completion input after feature/cost publication is the **current 66
+Hillman panel/kicker screw demand and receiver-transfer join**. The exact
+geometry graph already has the 66-axis receiver screen; reuse it rather than
+recreating nominal backing. A bounded proposed lane is
+`hypotheses/current-panel-receiver-transfer-2026-10-01/`: join every existing
+three-case screw action and native component to the reviewed 58 unchanged/eight
+moved axes, actual receivers, source embedment and supported panel/kicker edge
+paths; keep the original screw/contact laws, separate tensile/lateral vectors
+and same-state moments, and use the original all-body audits. Record Hillman
+42605 source applicability and the remaining resistance dependencies without
+borrowing SPAX or SDS properties. Parent currently owns bottom-outer joint
+disposition, not this proposed panel lane. The mechanics owner retains native
+readiness/execution and final response acceptance. The receiving owner should
+claim a disjoint path before implementation; this proposal is not a duplicate
+native study, geometry change, inspection prerequisite or criterion pass.
+The upper owner subsequently claimed the small source-only CI lane for four
+reviewed helper packets, limited to `.github/workflows/ci.yml` and a clean-source
+preflight. Preserve those edits. The panel-transfer proposal remains unclaimed
+at this update.
+
 The primary's separate additive
 `hypotheses/end-grain-single-shear-method-2026-10-01/` now extends the ten
 old method exclusions to 210 conditional reference rows. The independent
@@ -268,6 +297,31 @@ table/example and unadopted. Complete-joint/material/adjustment dispositions
 remain open; this additive code introduces no model change, response solve
 or accepted criterion. Source, census and calculation reviewers have separate
 paths from the upper owner's cost/features and mechanics corner lanes.
+
+The primary has now implemented
+`hypotheses/bottom-outer-joint-disposition-2026-10-01/` for the four bottom-left
+bolts, three contact pairs and full cleat source free body. The current graph
+and face atlas already resolve both 10,552.972706618 mm² cleat interfaces and
+the 5,322.57 mm² direct host contact; the old WJ24 null-area dependency is
+superseded for nominal geometry. All 21 source joins/balances and 15 corrupted
+record/applicability tests pass. The local result has 84 unchanged bolt rows,
+252 contact-cell states (112 compressive/140 open) and 63 pair states. The
+parallel-to-grain rail at the direct host contact explicitly excludes the
+625-psi perpendicular-grain comparison, and open/ambiguous comparisons are
+null. Source/code review and independent numeric reconstruction pass, as does
+a byte-identical full producer replay. Parent ran the independent verifier
+successfully with zero force/moment interval excess. The NDS adjustment/group
+applicability note now records the quarter-inch boundary, 33 mm station
+projections, row/load definition and conditional rail-cleat end-distance
+sensitivity without transferring a factor to the flagged side bolt. Parent
+independently inspected the pinned Chapter 11/12 clauses and all six
+full-load bolt-pair plane sums. The
+producer is frozen at `a941dceee5c002068e9920cfe41f62270e11ff399367fdf9494c445a06d8a86d`;
+raw output remains local at
+`fcf393be26c433daf760a6afcf9fd6260d88f04f43a6234def960bbba4789029`.
+The 1.0945 unadjusted bolt flag, physical contact law, complete host/finished
+sections and full joint resistance remain open. This does not alter the
+upper owner's files or mechanics BG001/BG003/BG045 integration.
 
 This handoff supplies no criterion pass, completed joint, physical inspection,
 fabrication permission or climbing release. The full conditional MVP-E goal

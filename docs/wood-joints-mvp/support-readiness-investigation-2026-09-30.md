@@ -1,6 +1,6 @@
 # Joint completion and gravity-start report — October 1, 2026
 
-Updated October 1, 2026 at 08:45 UTC (October 1 in Denver). The native export
+Updated October 1, 2026 at 09:50 UTC (October 1 in Denver). The native export
 assessment below was independently replayed; newer coordinator entries may
 supersede this snapshot. Work remains exclusively on `master`.
 
@@ -34,6 +34,12 @@ receive independently checked conditional lateral references. The new additive
 end-grain method now computes the other ten bolts' 210 conditional references
 while preserving the original scope exclusions. One bottom outer
 bolt has a raw scenario ratio of 1.09451 and needs a supported disposition.
+The primary's new bottom-joint join now reconstructs all four bolts, three
+contact paths and the complete cleat balance in 21 states. Current geometry
+already resolves the nominal contact areas an older diagnostic left null;
+that stale dependency is removed. Fifteen corruption/applicability tests
+pass; independent source review, numerical reconstruction and a full
+byte-identical producer replay also pass.
 **Three of six conditional frame cases remain usable; no complete joint or
 formal criterion is accepted.**
 
@@ -385,6 +391,27 @@ checks. Rejecting one energy minimizer cannot exclude other floor branches.
 The primary has not rerun these owned solves, adopted the approximation, or
 widened any physical response gate.
 
+The mechanics owner's newer fixed-episode reproduction work is separate from
+discovering gravity. Its adaptive-rho QP returned `solved` in 0.652 seconds
+and 1,250 iterations, but failed 69 original force-token and 30 projected-q
+interval comparisons, plus one small negative unilateral-force gate. All
+300 rigid-coordinate interval comparisons pass. The candidate remains
+rejected, rather than gaining acceptance from the optimizer status.
+Primary authenticated this local attempt-02 record's 39 source pins,
+assessment/output join, freeze and diagnostic-candidate hashes without
+rerunning it. The assessment SHA-256 is
+`ca52e94df2937fee7a2cf7a310c77f5251a3a6087a2ea930e855aee5c01205a0`.
+
+The next bounded precision method and direct fixed-active-set KKT preflight
+are still owner-held local preparations at this snapshot. The latter
+estimates 734 nonfloor zero-force rows from the existing candidate, retaining
+all floor normals separately, and requires strict source/sign checks after
+an unregularized solve. Neither preparation is an executed result, a new
+selected floor state, a gravity settlement or a fourth usable frame case.
+This identifies the current numerical issue more precisely than saying that
+Docker or stiffness export is blocked: reproduction accuracy and gravity-state
+discovery remain distinct unresolved steps.
+
 ## Right-corner load-path input
 
 The primary personally implemented the
@@ -695,6 +722,61 @@ by 0.025 mm even with zero trim. The longer-option scenarios place all 44.
 These are bounded heuristic geometry/length results, not optimized purchase
 quantities, delivered-board findings, post-rip grade or a cost/yield guarantee.
 
+## Bottom outer left joint disposition
+
+The primary personally implemented the
+[bottom joint source join](hypotheses/bottom-outer-joint-disposition-2026-10-01/README.md)
+after tracing the 1.0945 flag to the simultaneous source actions. The exact
+current graph and face atlas already establish two 10,552.972706618 mm²
+cleat mating regions and a separate 5,322.57 mm² direct rail/side region.
+The older WJ24 gross/null-area field is superseded for nominal geometry;
+another geometry study is unnecessary for that dependency.
+
+The additive producer covers four bolts' 84 unchanged reference rows, 252
+contact-cell states, 63 pair states and 21 complete cleat free bodies. The
+cleat boundary has exactly four lateral planes, four separate outer-seat
+ties and eight cleat contact cells, plus its original source nodal body loads.
+All balances reproduce the original audits under `0.1 N / 2 Nmm` gates.
+The largest component residuals are `8.5072e-5 N` and `0.00354334 Nmm`.
+The host-to-host contact is recorded separately because it does not touch
+the cleat. Full host boundaries and finished-section strength remain open.
+
+There are 112 resolved compressive and 140 resolved open cell states. Peak
+modeled cell averages are 0.0469223 MPa on rail/cleat, 0.2345213 MPa on
+side/cleat and 0.3118800 MPa on direct rail/side, all at A1 full load.
+The conditional 625-psi perpendicular-grain context applies only to resolved
+compression on appropriately oriented receivers. Open/ambiguous ratios are
+null; the direct rail receiver is parallel to proposed grain and explicitly
+excluded. These averages are not physical pressure peaks or accepted bearing
+utilizations.
+
+Source/code review found and resolved the open-cell comparison and force-radius
+attribution gaps. Fifteen meaningful source-guard tests and Ruff pass.
+Independent numerical reconstruction checks all 504 native scalar force
+components and all 21 balances; a full producer replay is byte-identical.
+Parent also ran that verifier successfully, with zero force/moment interval
+excess. The
+NDS method review also confirms that exactly quarter-inch bolts do not receive
+the smaller-diameter exemptions for group and geometry adjustments. Group
+row/load applicability must still be established. The actual paired stations
+are 33 mm apart, along different
+receiver grain directions; applicable group/local-stress and adjustment
+inputs are recorded in the
+[adjustment note](hypotheses/bottom-outer-joint-disposition-2026-10-01/adjustment-applicability.md).
+A rail-cleat parallel-tension end-distance sensitivity is 0.975253; its
+classification is conditional and it does not transfer automatically to the
+flagged side bolt. Nonzero axial ties also require applicable angled-to-fastener
+and axial bearing checks under NDS §12.3.9 and any applicable equivalent
+shear-area check under §12.5.1.2(b). The source-plane reference does not
+complete those checks.
+
+The `side_1` bolt's 661.9487434 N lateral action and separate 197.1248 N tie
+remain unchanged. Its 604.7906633 N Mode IV reference uses an unadopted
+45-ksi quarter-inch scenario. Contact compression does not reduce that
+actual bolt action or resolve the raw ratio. A supported hardware/material,
+adjusted group, local finished-section and combined-joint disposition is
+still required. No reviewed geometry or native response was changed.
+
 ## Work remaining for the complete conditional package
 
 The persistent goal is the complete conditional MVP-E package for
@@ -711,11 +793,11 @@ applicable evidence, not a reinterpretation of pending entries as passes.
 | Workstream | Evidence available now | Remaining engineering result |
 | --- | --- | --- |
 | Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported; source/map/rigid-field checks, all fifty body numerical elastic gates and complete connector reduction now pass. Both the first actual selector and the subsequent reduced energy selector exhausted their 45-second search limits with zero feasible solutions, no candidate and no infeasibility proof. The mechanics owner's energy fixture, symmetric-compliance factor and final 24-mask tiny adapter replay pass; actual-frame root-node runtime diagnosis is ongoing. | Establish compatible gravity, actual branch nullspace and reaction-free gauge from the source-bound reduction and all 300 body balances; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures, solver time limits and convergence alone cannot supply these results. |
-| Complete joint resistance | Audited left-corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected left boundary coverage. The right-corner join adds 168 right-plane states and 294 same-state receiver wrenches; its full five-body extension reconstructs 338 interfaces and 105 body states. The published upper packets supply eight blocks/32 bolts and the top-outer load-transfer/host inputs. The remaining 52-bolt census joins 1,092 states: 882 transverse conditional reference rows, plus the separate end-grain packet's 210 conditional Ceg-only rows with unchanged original exclusions. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Dispose the two upper outer and one bottom outer raw ratios above one under their distinct unadopted bases. The ten simple end-grain bolts now have a reviewed conditional route; resolve their source-supported material, geometry/adjustment and complete-joint inputs, then extend supported methods to all 24 duties and missing cases. No historical corner or selected-baseline pass transfers. |
+| Complete joint resistance | Audited left-corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected left boundary coverage. The right-corner join adds 168 right-plane states and 294 same-state receiver wrenches; its full five-body extension reconstructs 338 interfaces and 105 body states. The published upper packets supply eight blocks/32 bolts and the top-outer load-transfer/host inputs. The remaining 52-bolt census joins 1,092 states: 882 transverse conditional reference rows, plus the separate end-grain packet's 210 conditional Ceg-only rows with unchanged original exclusions. The bottom-left joint now joins its four bolts, three contact paths and complete cleat balance in all 21 states. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Dispose the two upper outer and one bottom outer raw ratios above one under their distinct unadopted bases. The ten simple end-grain bolts now have a reviewed conditional route; resolve their source-supported material, geometry/adjustment and complete-joint inputs, then extend supported methods to all 24 duties and missing cases. No historical corner or selected-baseline pass transfers. |
 | Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 184 candidate outer seats now have nominal and conditional eccentric geometry coverage, with one partial-support seat. The 54-axis demand join adds 1,134 ties and 2,268 seat actions. The reviewed Fyb source disposition permits conditional empirical sensitivity work without a blanket delivered-test prerequisite. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, adopted quarter-inch dowel-bending basis, head/nut load footprints, shank/bore/seat tolerances and tilt, the partial-support seat and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
 | Members, contact and panels | Both complete five-body corner source boundaries and the left BG045 header section inventories have been reconstructed. Conditional DF-L No. 2 inputs and per-member grain proposals are published. The reviewed 66 Hillman axes and eight recorded moves are preserved. | Apply applicable strengths and adjustments to simultaneous member/section/contact demands, include cut/boring and stability effects, and prove the changed panel/screw receiver and kerf-right kicker-edge transfers. Reuse unchanged LEG/runner resistance; reopen only changed demands, geometry, receivers or hardware. Do not start a blanket panel or retained-member qualification campaign. |
 | Installed fit, assembly and transport | Candidate and retained access producers, critical envelopes and a forward/reverse sequence hypothesis exist. Counts reconcile to 24 blocks, 92 new axes, twelve retained frame stacks and 66 separate panel/kicker screws. | Resolve named nut/washer slide and wire dependencies with compatible thread geometry, tools, counterhold and capture. Verify tolerances, hold/LED/wire access, reversible supported operations and individual-member removal paths. Screen permanent ordinary-N envelopes from named datums; document any exception before implementing a change. Proxy overlap is not proof that a real tool is blocked. |
-| Build documents, stock, counts and cost | Published stock reconciliation covers all 20 frame timbers/24 blocks, exact containment, four prepared sections and 15 length/trim scenarios. Longer options place all 44 blanks; all eight-foot-only scenarios retain five unplaced blanks under their stated kerf convention. Source hardware counts and builder-document organization exist. The upper owner is implementing a 44-piece stock-frame finished-feature register and the source-priced package for the twelve scenarios that place all blanks. | Integrate supported joint/fit decisions and the reviewed dimensional scenarios into one revision-bound BOM, sourced package quantities and cost, finished-feature/drawing register, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Stock placement is not an optimized order or grade qualification; do not inherit original-board grade for a hypothetical ripped section. |
+| Build documents, stock, counts and cost | Published stock reconciliation covers all 20 frame timbers/24 blocks, exact containment, four prepared sections and 15 length/trim scenarios. Longer options place all 44 blanks; all eight-foot-only scenarios retain five unplaced blanks under their stated kerf convention. The published 44-piece stock-frame feature register binds 648 faces, all 170 axes/278 receiver matches and 32 preserved LED/service passage correspondences. The source-price package for the twelve scenarios that place all blanks is in final review. | Integrate supported joint/fit decisions and the reviewed dimensional scenarios into one revision-bound BOM, sourced package quantities and cost, finished-feature/drawing register, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Stock placement is not an optimized order or grade qualification; do not inherit original-board grade for a hypothetical ripped section. |
 | Final acceptance and independent review | The exact 47-question scope and fail-closed coverage/criteria producers exist, with source-bound method and demand packets. | Bind every applicable criterion to current method, input, case/identity coverage, numerical result and supported disposition. Independently review the complete package and resolve material findings. All applicable requirements must pass before the conditional engineering endpoint can be called complete. |
 
 The immediate order is diagnosis of the reduced selector's root-node stop →
@@ -733,13 +815,13 @@ The next bounded joint tasks are now explicit. The primary has implemented
 the ten-axis conditional end-grain route, with separate source-role and
 calculation review; the remaining dependency is supported material,
 geometry/adjustment and complete-joint disposition. The bottom outer left
-`side_1` comparison needs its same-state joint/group,
-conditional material and applicable-adjustment disposition; this is a
+`side_1` comparison now has the simultaneous four-bolt/contact and complete
+cleat inputs; it needs its conditional material, applicable-adjustment/group,
+finished-section and combined-joint disposition. This is a
 named issue, not permission to change bolt size or choose a favorable factor.
 The mechanics owner continues BG003 bearing/combined-joint applicability and BG045
-edge/finished-section applicability. The upper owner's stock packet is now
-published; its claimed stock-frame finished-feature register is a disjoint
-build-document task, and it now also owns the source-priced compatible
+edge/finished-section applicability. The upper owner's stock and finished-feature
+packets are now published; it also owns the source-priced compatible
 lumber/plywood package. Each author freezes its inputs and code;
 a separate Luna/max reviewer checks source applicability, reconstructs the
 calculation and reviews claims. Parent resolves findings and integrates
@@ -772,9 +854,17 @@ reconstructed; finished-section and resistance closure remain separate work.
 The upper owner's newest load-path and stock packets are published as
 conditional input evidence. The primary did not duplicate their producers.
 The 44-piece dimensional reconciliation does not by itself establish
-post-rip grade, purchased quantities, cost or joint acceptance. The claimed
-finished-feature register and separate source-priced lumber/plywood package
-are recorded as disjoint next lanes in the shared handoff.
+post-rip grade, purchased quantities, cost or joint acceptance. The separate
+feature and source-price lanes remain recorded in the shared handoff.
+The feature owner has published `03b0d54e` and `6ade76c0`, with 18 tests
+plus two subtests, two exact replays, all 278 receiver matches and 32 traced
+LED/service passages, followed by final independent review.
+Its [feature packet](hypotheses/current-finished-feature-register-2026-10-01/README.md)
+contains code and summaries on master. The source-price packet's separate
+final review is pending. The primary has
+proposed the current 66-screw demand/receiver-transfer join as that owner's
+next disjoint joint-completion lane, reusing the already complete geometry
+receiver screen and preserving the Hillman policy.
 
 No defensible completion percentage follows from the case count. Three of six
 usable conditional cases is the response milestone; complete joint resistance
