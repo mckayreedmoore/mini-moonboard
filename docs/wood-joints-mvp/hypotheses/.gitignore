@@ -1,0 +1,56 @@
+# Development publication includes maintained source and Markdown summaries.
+# Keep generated evidence at its original local paths for frozen replays.
+# These rules do not remove previously tracked evidence or viewer assets.
+*.json
+*.csv
+*.tsv
+*.txt
+*.sha256
+*SHA256SUMS
+*.inp
+*.inc
+*.dat
+*.datg
+*.frd
+*.cvg
+*.sta
+*.12d
+*.dof
+*.mas
+*.sti
+*.cel
+*.fbd
+*.med
+*.mmed
+*.rmed
+*.mess
+*.resu
+*.mail
+*.pkl
+*.npz
+*.npy
+*.step
+*.stl
+*.stdout
+*.stderr
+*.out
+*.log
+*.pdf
+*.bz2
+*.snapshot
+*.upstream
+*.html
+*.lock
+ccx-*2.23*
+
+# Copied source/CAD bundles are immutable local evidence, not maintained code.
+sources/
+source-snapshots/
+analysis-snapshots/
+bundle/
+evaluation-resume-2026-09-24/current-group-action-method-attempt*/base/
+
+# Generated node-by-node mapping commands; their generators remain tracked.
+code-aster-candidate-checks-2026-09-27/map-*/direct.comm
+code-aster-candidate-checks-2026-09-27/map-*/mapped_carrier.comm
+code-aster-candidate-checks-2026-09-27/map-*/mapped_no_carrier.comm
