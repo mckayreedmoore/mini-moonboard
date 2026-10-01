@@ -218,6 +218,14 @@ broaden this lane into native mechanics or revised geometry. The upper owner
 should record the exact claim before implementation; this proposal does not
 claim that folder for the primary.
 
+The upper owner has now explicitly claimed
+`hypotheses/current-stock-package-cost-2026-10-01/` and begun its source-screen
+implementation. Its scope is the twelve reviewed scenarios that place all
+44 blanks, with compatible lumber/plywood source quantities and displayed
+prices. Incomplete price/grade/availability evidence remains explicit; no
+complete total is invented. Preserve that owner's files and do not duplicate
+the lane. The finished-feature register remains a separate parallel task.
+
 The upper owner's later finished-feature register is also disjoint
 from the primary's work and directly supports T12 drawing preparation.
 After publishing the stock packet, it has now claimed
@@ -233,6 +241,33 @@ report nonstandard/ambiguous features instead of assigning shop instructions.
 This is a useful next implementation task; the price-package lane above can
 remain separately allocated. No primary-owned extractor already covers this
 44-piece stock-frame feature register.
+
+The upper owner subsequently reported parent validation of 44 bound STEP
+solids, 648 faces (338 planar/310 cylindrical), and all 170 axes' 278 receiver
+memberships matched to distinct finite bore-like patches. It retains 32
+unassigned cylindrical patches: one in each center principal and five in
+each of six lower/service rail halves. Those identities require explicit
+finished-section handling; correspondence does not authorize omitting them
+or drilling extra holes. Its two replays and thirteen tests pass by that
+owner's report, with formatting and three independent reviews still underway.
+These are reported working results, not independently replayed or published
+by the primary.
+
+The primary's separate additive
+`hypotheses/end-grain-single-shear-method-2026-10-01/` now extends the ten
+old method exclusions to 210 conditional reference rows. The independent
+source-role review supports using the axis-parallel cleat/block as main
+independent of modeled head/nut convention, expressly identifying the
+end-grain role extension as engineering interpretation. The transverse
+side receiver is the header on all ten axes. Main `Fe⊥ = 4,450 psi`, actual
+header load angle, `Kθ = 1.25`, and `Ceg = 0.67` once produce a peak
+conditional ratio of 0.302778140 on `center_principal_header_left_2`, K12
+full load. The source rows, old producer/output and explicit nulls remain
+unchanged. Quarter-inch `Fyb = 45,000 psi` remains unqualified by the cited
+table/example and unadopted. Complete-joint/material/adjustment dispositions
+remain open; this additive code introduces no model change, response solve
+or accepted criterion. Source, census and calculation reviewers have separate
+paths from the upper owner's cost/features and mechanics corner lanes.
 
 This handoff supplies no criterion pass, completed joint, physical inspection,
 fabrication permission or climbing release. The full conditional MVP-E goal

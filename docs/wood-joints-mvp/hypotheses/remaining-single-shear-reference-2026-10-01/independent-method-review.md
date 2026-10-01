@@ -102,3 +102,44 @@ only. This review does not claim a new-edition TR-12 method review.
 The existing three-case producer replay was performed by the parent; I
 independently reran its equation/source cross-check and focused tests. No native
 solve or candidate acceptance review was performed.
+
+## Documentation follow-up
+
+I reviewed the README-only precision update at SHA-256
+`e39158ac7057fe0c9609ce592faca537b2b9165530d1e8c8c1c6f7f013fb56e1` against
+the rendered NDS Table 12A, printed page 101. The table's first displayed
+diameter is 1/2 inch; its 45,000-psi full-body-bolt footnote therefore does
+not qualify this packet's 1/4-inch scenario. The update also leaves 45,000 psi
+as an unadopted arithmetic hypothesis, correctly narrowing the earlier
+general Table 12A wording above. The old producer remains
+`5f2a7fdca2ef0c56c661fa10e4122189f8a7a1ae0725062cb8c56d95dd911edf`, and its
+reviewed source register remains
+`6551861db1112c91b87c5705bbceb3bb26f55f0d7e70029a74d828519425145e`; this
+documentation correction required no producer replay.
+
+The separate [end-grain packet](../end-grain-single-shear-method-2026-10-01/README.md)
+adds conditional end-grain references in a nested field while preserving its
+210 original source rows and their null-reference fields. Its method review is
+separate; this follow-up does not re-review that calculation or change the
+original review's README, producer, or register pins.
+
+## Documentation follow-up
+
+I reviewed the README-only precision update at SHA-256
+`e39158ac7057fe0c9609ce592faca537b2b9165530d1e8c8c1c6f7f013fb56e1` against
+the rendered NDS Table 12A, printed page 101. The table's first displayed
+diameter is 1/2 inch; its 45,000-psi full-body-bolt footnote therefore does
+not qualify this packet's 1/4-inch scenario. The update also states that the
+Table I1/TR-12 example's 3/8-inch basis does not qualify 1/4 inch and leaves
+45,000 psi as an unadopted arithmetic hypothesis. This correctly narrows the
+earlier general Table 12A wording above. The old producer remains
+`5f2a7fdca2ef0c56c661fa10e4122189f8a7a1ae0725062cb8c56d95dd911edf`, and its
+reviewed source register remains
+`6551861db1112c91b87c5705bbceb3bb26f55f0d7e70029a74d828519425145e`; this
+documentation correction required no producer replay.
+
+The separate [end-grain packet](../end-grain-single-shear-method-2026-10-01/README.md)
+adds conditional end-grain references in a nested field while preserving its
+210 original source rows and their null-reference fields. Its method review is
+separate; this follow-up does not re-review that calculation or change the
+original review's README, producer, or register pins.

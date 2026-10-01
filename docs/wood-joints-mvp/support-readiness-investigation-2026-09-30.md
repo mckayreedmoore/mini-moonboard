@@ -1,6 +1,6 @@
 # Joint completion and gravity-start report — October 1, 2026
 
-Updated October 1, 2026 at 08:15 UTC (October 1 in Denver). The native export
+Updated October 1, 2026 at 08:45 UTC (October 1 in Denver). The native export
 assessment below was independently replayed; newer coordinator entries may
 supersede this snapshot. Work remains exclusively on `master`.
 
@@ -29,9 +29,10 @@ ordinary-contact binaries while
 retaining the 100 discrete floor episodes. Its algebraic fixture, numerical
 factor preflight and final tiny selector replay pass. The actual reduced
 selector also reached its search limit without a feasible state.
-The new 52-bolt source census now covers 1,092 existing states: 42
-transverse bolts receive independently checked conditional lateral references;
-ten end-grain-axis bolts remain explicit method exclusions. One bottom outer
+The 52-bolt source census covers 1,092 existing states: 42 transverse bolts
+receive independently checked conditional lateral references. The new additive
+end-grain method now computes the other ten bolts' 210 conditional references
+while preserving the original scope exclusions. One bottom outer
 bolt has a raw scenario ratio of 1.09451 and needs a supported disposition.
 **Three of six conditional frame cases remain usable; no complete joint or
 formal criterion is accepted.**
@@ -462,7 +463,8 @@ their actual lateral-plane forces, separate outer ties, receiver intervals
 and conditional grain maps. Forty-two transverse-to-grain bolts supply 882
 reference rows; ten end-grain-axis bolts retain 210 explicit null-reference
 and null-ratio rows under the reused method's scope boundary. The existence
-of NDS end-grain provisions is acknowledged; this packet does not apply them.
+of NDS end-grain provisions is acknowledged; this original packet does not
+apply them. The later additive packet below does, with its own method boundary.
 
 Parent's complete replay and independent six-mode NDS closed-form calculation
 agree on 10,584 eligible comparisons within `9.70e-16` relative difference.
@@ -476,6 +478,35 @@ one are likewise not passes. Applicable properties, adjustments, group,
 geometry, splitting and combined behavior remain open. The reviewed model
 was not changed. Published code, summaries and independent review leave the
 raw record local.
+
+The primary has now implemented the separate
+[ten-bolt end-grain packet](hypotheses/end-grain-single-shear-method-2026-10-01/README.md).
+An independent source review supports a conditional main-member assignment
+to each axis-parallel cleat/block, independent of modeled head/nut convention;
+the transverse side member is `base_header` on all ten axes. Extending AWC's
+explanatory bolted-role guidance to the NDS main-member end-grain clauses is
+recorded as engineering interpretation, not explicit normative wording.
+The source-authenticated census preserves all 210 original state rows. The
+new calculation uses main `Fe⊥ = 4,450 psi`, the header's actual load/grain
+angle, `Kθ = 1.25`, and `Ceg = 0.67` once on the six-mode reference `Z`.
+Simultaneous axial ties stay separate.
+
+Independent closed-form verification and parent replay pass all 1,260
+unadjusted and 1,260 once-adjusted mode comparisons; maximum relative mode
+differences remain below `8.1e-16`. Ten focused tests and Ruff pass. The
+separate calculation review retains source rows, geometry/grain identities,
+the five/five modeled seat split and the explicit claim limits.
+
+The largest new `Ceg`-only scenario ratio is **0.302778140**, on
+`center_principal_header_left_2` at K12 rear full load:
+120.091599 N / 396.632330 N, Mode IV. All ten axes have 21 rows. These
+are conditional lateral references, not complete-joint acceptance or fully
+adjusted design ratios. The earlier producer/output and its null fields are
+unchanged. Both packets explicitly distinguish the unadopted quarter-inch
+45,000-psi bending-yield hypothesis from material qualification: Table 12A's
+displayed diameters begin at 1/2 inch, and Table I1 / the TR-12 example's
+`D ≥ 3/8 in` basis also does not qualify a quarter-inch bolt. No favorable
+material or adjustment has been adopted to turn an exception into a pass.
 
 ## Parallel washer input result
 
@@ -680,11 +711,11 @@ applicable evidence, not a reinterpretation of pending entries as passes.
 | Workstream | Evidence available now | Remaining engineering result |
 | --- | --- | --- |
 | Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported; source/map/rigid-field checks, all fifty body numerical elastic gates and complete connector reduction now pass. Both the first actual selector and the subsequent reduced energy selector exhausted their 45-second search limits with zero feasible solutions, no candidate and no infeasibility proof. The mechanics owner's energy fixture, symmetric-compliance factor and final 24-mask tiny adapter replay pass; actual-frame root-node runtime diagnosis is ongoing. | Establish compatible gravity, actual branch nullspace and reaction-free gauge from the source-bound reduction and all 300 body balances; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures, solver time limits and convergence alone cannot supply these results. |
-| Complete joint resistance | Audited left-corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected left boundary coverage. The right-corner join adds 168 right-plane states and 294 same-state receiver wrenches; its full five-body extension reconstructs 338 interfaces and 105 body states. The published upper packets supply eight blocks/32 bolts and the top-outer load-transfer/host inputs. The new remaining 52-bolt census joins 1,092 states, with 882 conditional reference rows and 210 end-grain scope exclusions. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Dispose the two upper outer and one bottom outer raw ratios above one under their distinct unadopted bases. Establish an applicable end-grain route for the ten excluded simple bolts; extend supported complete-joint methods to all 24 duties and missing cases. No historical corner or selected-baseline pass transfers. |
+| Complete joint resistance | Audited left-corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected left boundary coverage. The right-corner join adds 168 right-plane states and 294 same-state receiver wrenches; its full five-body extension reconstructs 338 interfaces and 105 body states. The published upper packets supply eight blocks/32 bolts and the top-outer load-transfer/host inputs. The remaining 52-bolt census joins 1,092 states: 882 transverse conditional reference rows, plus the separate end-grain packet's 210 conditional Ceg-only rows with unchanged original exclusions. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Dispose the two upper outer and one bottom outer raw ratios above one under their distinct unadopted bases. The ten simple end-grain bolts now have a reviewed conditional route; resolve their source-supported material, geometry/adjustment and complete-joint inputs, then extend supported methods to all 24 duties and missing cases. No historical corner or selected-baseline pass transfers. |
 | Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 184 candidate outer seats now have nominal and conditional eccentric geometry coverage, with one partial-support seat. The 54-axis demand join adds 1,134 ties and 2,268 seat actions. The reviewed Fyb source disposition permits conditional empirical sensitivity work without a blanket delivered-test prerequisite. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, adopted quarter-inch dowel-bending basis, head/nut load footprints, shank/bore/seat tolerances and tilt, the partial-support seat and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
 | Members, contact and panels | Both complete five-body corner source boundaries and the left BG045 header section inventories have been reconstructed. Conditional DF-L No. 2 inputs and per-member grain proposals are published. The reviewed 66 Hillman axes and eight recorded moves are preserved. | Apply applicable strengths and adjustments to simultaneous member/section/contact demands, include cut/boring and stability effects, and prove the changed panel/screw receiver and kerf-right kicker-edge transfers. Reuse unchanged LEG/runner resistance; reopen only changed demands, geometry, receivers or hardware. Do not start a blanket panel or retained-member qualification campaign. |
 | Installed fit, assembly and transport | Candidate and retained access producers, critical envelopes and a forward/reverse sequence hypothesis exist. Counts reconcile to 24 blocks, 92 new axes, twelve retained frame stacks and 66 separate panel/kicker screws. | Resolve named nut/washer slide and wire dependencies with compatible thread geometry, tools, counterhold and capture. Verify tolerances, hold/LED/wire access, reversible supported operations and individual-member removal paths. Screen permanent ordinary-N envelopes from named datums; document any exception before implementing a change. Proxy overlap is not proof that a real tool is blocked. |
-| Build documents, stock, counts and cost | Published stock reconciliation covers all 20 frame timbers/24 blocks, exact containment, four prepared sections and 15 length/trim scenarios. Longer options place all 44 blanks; all eight-foot-only scenarios retain five unplaced blanks under their stated kerf convention. Source hardware counts and builder-document organization exist. | Integrate supported joint/fit decisions and the reviewed dimensional scenarios into one revision-bound BOM, sourced package quantities and cost, finished-feature/drawing register, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Stock placement is not an optimized order or grade qualification; do not inherit original-board grade for a hypothetical ripped section. |
+| Build documents, stock, counts and cost | Published stock reconciliation covers all 20 frame timbers/24 blocks, exact containment, four prepared sections and 15 length/trim scenarios. Longer options place all 44 blanks; all eight-foot-only scenarios retain five unplaced blanks under their stated kerf convention. Source hardware counts and builder-document organization exist. The upper owner is implementing a 44-piece stock-frame finished-feature register and the source-priced package for the twelve scenarios that place all blanks. | Integrate supported joint/fit decisions and the reviewed dimensional scenarios into one revision-bound BOM, sourced package quantities and cost, finished-feature/drawing register, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Stock placement is not an optimized order or grade qualification; do not inherit original-board grade for a hypothetical ripped section. |
 | Final acceptance and independent review | The exact 47-question scope and fail-closed coverage/criteria producers exist, with source-bound method and demand packets. | Bind every applicable criterion to current method, input, case/identity coverage, numerical result and supported disposition. Independently review the complete package and resolve material findings. All applicable requirements must pass before the conditional engineering endpoint can be called complete. |
 
 The immediate order is diagnosis of the reduced selector's root-node stop →
@@ -698,17 +729,18 @@ retains readiness, freezes, serialized native execution and final validation;
 Luna/max workers receive bounded author/reviewer tasks with separate paths,
 and the primary investigates stalled work directly.
 
-The next bounded joint tasks are now explicit. The primary can extend the
-authenticated 52-bolt record to the ten excluded end-grain connections using
-a separately reviewed NDS main-member role, perpendicular-bearing input and
-end-grain factor, preserving nulls wherever that scope is not proved. The
-bottom outer left `side_1` comparison needs its same-state joint/group,
+The next bounded joint tasks are now explicit. The primary has implemented
+the ten-axis conditional end-grain route, with separate source-role and
+calculation review; the remaining dependency is supported material,
+geometry/adjustment and complete-joint disposition. The bottom outer left
+`side_1` comparison needs its same-state joint/group,
 conditional material and applicable-adjustment disposition; this is a
 named issue, not permission to change bolt size or choose a favorable factor.
 The mechanics owner continues BG003 bearing/combined-joint applicability and BG045
 edge/finished-section applicability. The upper owner's stock packet is now
 published; its claimed stock-frame finished-feature register is a disjoint
-next build-document task. Each author freezes its inputs and code;
+build-document task, and it now also owns the source-priced compatible
+lumber/plywood package. Each author freezes its inputs and code;
 a separate Luna/max reviewer checks source applicability, reconstructs the
 calculation and reviews claims. Parent resolves findings and integrates
 current evidence without transferring a three-case component result into

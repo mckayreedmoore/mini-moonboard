@@ -54,9 +54,14 @@ The exact pinned NDS-2024 Chapter 12 PDF is
 SHA-256 `5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a`.
 Printed pages 91–95 supply the six lateral equations, diameter-range
 reduction terms, SG/bearing inputs, angle interpolation, bearing lengths and
-diameter/Fyb provisions. Table 12A, printed page 101, supplies the full-body
-45,000-psi table assumption used as this scenario. Complete applicability is not
-established by this arithmetic packet. The full 2026 TR-12 PDF remains
+diameter/Fyb provisions. Table 12A, printed page 101, states a full-body
+45,000-psi assumption for its tabulated bolts; its displayed diameters start
+at 1/2 inch. That table does **not** qualify the quarter-inch scenario here.
+The Table I1 / TR-12 example's `D ≥ 3/8 in` basis also does not qualify
+quarter-inch bending yield. The 45,000-psi input remains an explicit,
+unadopted arithmetic hypothesis, separate from Grade 5 proof, axial yield
+and tensile properties. Complete applicability is not established by this
+packet. The full 2026 TR-12 PDF remains
 uninspected; no newer-edition qualification is asserted.
 
 The producer reuses the pinned `fea/dowel_yield.py` quadratic single-shear
@@ -86,6 +91,11 @@ helper's scope boundary, not absence of an NDS end-grain method. Sections
 perpendicular bearing and its end-grain factor; that route is not applied
 here. The end-grain references and ratios stay null, never zero. Zero lateral
 direction is also handled explicitly rather than assigned an angle.
+
+The later [end-grain packet](../end-grain-single-shear-method-2026-10-01/README.md)
+adds a separately reviewed conditional route for those ten axes. It preserves
+this producer and all 210 original null-reference rows; its `Ceg`-only
+references are additional fields, with their own source and method boundaries.
 
 ## Reproduction and review
 
