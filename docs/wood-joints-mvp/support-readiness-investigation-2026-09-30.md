@@ -132,7 +132,7 @@ The [physical connector projection contract](hypotheses/mvp-acceleration-2026-09
 now supplies 348 bilateral, 1,292 unilateral and 200 separate floor-tangent
 rows over 37,647 physical translations, preserving the source ground
 projections. It is an input-only rejoin interface for
-the exported frame operator, not a gravity solution. Full elastic rank, body
+the exported frame operator, not a gravity solution. Actual operator reduction, body
 equilibrium, state selection and continuation still need validation. Do not
 infer a unilateral tangent at zero extension from a
 frequency export of nonlinear springs, or substitute an auxiliary export
@@ -150,6 +150,19 @@ settles obtaining the source solid operator, not its complete elastic rank or
 a frame response. A checked reaction-free per-body reduction must preserve
 the six physical force/moment balances of every body before gravity/state
 selection can use that operator.
+
+The coordinator has now completed the [actual 50-body numerical elastic audit](hypotheses/mvp-acceleration-2026-09-28/current-frame-body-elastic-positivity-audit-attempt01/README.md).
+Every isolated body passed rigid-lift Cholesky and reciprocal-condition checks;
+the minimum estimated reciprocal condition was `9.93942622e-11`, above the
+declared `1e-12` floor. The source stiffness was unchanged. Primary authenticated
+the recorded audit against its source pins without repeating its heavy run;
+assessment SHA-256 is
+`2ad8c74b4a061ee9335c3b9f3549f325929be9148d1753f370998ec5e681c563`.
+This clears the recorded numerical elastic gate for reduction. It supplies
+no physical restraint, gravity state or new response. Compliance construction
+must keep every raw body wrench in the explicit 300 force/moment equations;
+projecting an intermediate elastic right-hand side cannot silently remove
+an unbalanced physical load.
 
 Primary also replayed the [six-case source identity contract](hypotheses/mvp-acceleration-2026-09-28/current-six-case-operator-reuse-contract-attempt01/README.md)
 and [free-body condensation fixture](hypotheses/mvp-acceleration-2026-09-28/current-free-body-elastic-condensation-fixture-attempt01/README.md).
@@ -219,13 +232,28 @@ its middle receiver without adding a middle washer. This settles the
 geometry-only annulus support input for these saved solids. It does not prove
 physical flatness, pressure distribution or washer resistance, and it does
 not cover the other 86 candidate bolts. The check is coaxial at the nominal
-saved seat poses; washer eccentricity and seat-location tolerances remain
-separate fit/contact inputs.
+saved seat poses. A subsequent [eccentric washer screen](hypotheses/corner-washer-eccentric-support-2026-10-01/README.md)
+now covers washer play and separately combined bolt/bore clearance for the
+declared 6.35-mm nominal smooth-body scenario and 7.5-mm wood bore. All twelve
+finished seats contain the full swept radial region from 3.75 to 11.0652 mm,
+with outward overlap zero at the three probe depths. This checks every
+in-plane direction within the frozen solids and kernel tolerance; discrete
+direction samples also agree with the circle-overlap formula within
+`9.7e-10 mm²`. For the plain catalog washer's minimum OD and maximum ID,
+the combined scenario leaves `206.013152 mm²` supported area. The bore causes
+a small unsupported crescent that the earlier coaxial result did not describe.
+These are conditional geometry inputs, not wood pressure or washer strength.
+The nominal body is not a delivered-shank lower bound; bolt tilt, seat drift
+and fabrication tolerance remain outside this check.
 
 Primary review corrected the checker repository path, required actual
 rejection tests for clipping and embedded/reversed seats, and added an
 outward protrusion fixture so full support cannot hide an obstructed washer
-face. The [method note](hypotheses/corner-washer-method-investigation-2026-10-01/source-note.md)
+face. Review of the eccentric extension also found and corrected a success-exit
+path that could report failed envelopes: its check now rejects failed support,
+outward obstruction and failed/nonfinite direct area comparisons. Parent
+replayed the geometry and rejection fixtures; an independent reviewer replayed
+the same frozen bytes. The [method note](hypotheses/corner-washer-method-investigation-2026-10-01/source-note.md)
 identifies a conditional contact-resolved elastic metal-demand calculation:
 it can report required minimum yield after the footprint, coupled actions
 and contact model are bound. Missing catalog yield need not stop that demand
@@ -263,9 +291,9 @@ applicable evidence, not a reinterpretation of pending entries as passes.
 
 | Workstream | Evidence available now | Remaining engineering result |
 | --- | --- | --- |
-| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported and source/map/rigid-field checks pass. Free/constrained export coupons, a free-cube condensation fixture, tiny indicator fixtures, physical connector projections and a six-case operator-reuse contract are available. | Validate actual-body elastic rank and reaction-free reduction, then rejoin body/load/connector maps; establish compatible gravity, actual branch nullspace and reaction-free gauge; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures and convergence alone cannot supply these results. |
+| Current-frame gravity and six cases | Three authenticated conditional rear cases, A12/A1/K12, each with seven accepted states. All six source loads pass the necessary normal-resultant footprint screen. The actual pure-solid operator is exported; source/map/rigid-field checks and all fifty body numerical elastic gates pass. Free/constrained export coupons, a free-cube condensation fixture, tiny indicator fixtures, physical connector projections and a six-case operator-reuse contract are available. | Validate reaction-free reduction and rejoin body/load/connector maps with all 300 body balances; establish compatible gravity, actual branch nullspace and reaction-free gauge; discover capture/release events; validate one currently unusable forward/left/right case, then finish all six cases and applicable sensitivities under unchanged response gates. Necessary statics, tiny fixtures and convergence alone cannot supply these results. |
 | Complete joint resistance | Audited corner exports retain 168 signed lateral-plane states, simultaneous physical ties, section actions and onward transfers. The [whole-assembly transfer summary](hypotheses/mvp-acceleration-2026-09-28/current-corner-whole-assembly-transfer-attempt01/README.md) records the connected boundary coverage. Individual-bolt component helpers exist. | Resolve actual continuous three-receiver BG003 bearing/steel behavior, mixed grain and actions, adjustment/group effects, axial/lateral/bending interaction, splitting, tear-out and local finished-section resistance. Resolve BG045 loaded-edge applicability, including the conditional 20-versus-25.4 mm exception. Extend supported methods to the other affected joint families and all 24 duties; no historical corner or selected-baseline pass transfers. |
-| Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 126 corner tie states and 252 seat states are available. The twelve primary-corner annuli now have geometry-only support evidence on the exact saved wood faces. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, quarter-inch dowel-bending basis, head/nut load footprints, remaining washer-seat coverage and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
+| Hardware and washer seats | The [hardware/material packet](hypotheses/hardware-material-specification-2026-09-30/README.md) supplies per-receiver smooth-body and nut-thread profile requirements for all 92 new axes, conditional Grade 5 properties, declared timber cases and catalog leads. All 126 corner tie states and 252 seat states are available. The twelve primary-corner annuli have coaxial and conditional eccentric geometry evidence on the exact saved wood faces. | Bind a compatible conditional stack/profile and its functional engagement; resolve the long BG003 product specification, quarter-inch dowel-bending basis, head/nut load footprints, the remaining 86 candidate bolts' washer-seat coverage and a supported washer metal/contact method. Keep conditional arithmetic separate from received-piece observations. Uniform annulus pressure and hardness are not metal resistance. |
 | Members, contact and panels | Complete five-body corner boundary and BG045 header section inventories have been reconstructed. Conditional DF-L No. 2 inputs and per-member grain proposals are published. The reviewed 66 Hillman axes and eight recorded moves are preserved. | Apply applicable strengths and adjustments to simultaneous member/section/contact demands, include cut/boring and stability effects, and prove the changed panel/screw receiver and kerf-right kicker-edge transfers. Reuse unchanged LEG/runner resistance; reopen only changed demands, geometry, receivers or hardware. Do not start a blanket panel or retained-member qualification campaign. |
 | Installed fit, assembly and transport | Candidate and retained access producers, critical envelopes and a forward/reverse sequence hypothesis exist. Counts reconcile to 24 blocks, 92 new axes, twelve retained frame stacks and 66 separate panel/kicker screws. | Resolve named nut/washer slide and wire dependencies with compatible thread geometry, tools, counterhold and capture. Verify tolerances, hold/LED/wire access, reversible supported operations and individual-member removal paths. Screen permanent ordinary-N envelopes from named datums; document any exception before implementing a change. Proxy overlap is not proof that a real tool is blocked. |
 | Build documents, stock, counts and cost | Source geometry, stock proposals, hardware counts and builder-document organization exist. Conditional material cases include separate treatment of the four ripped blocks. | Reconcile the supported joint/fit decisions into one revision-bound BOM, stock cut/yield basis, sourced package quantities and cost, drawings, assembly/removal instructions and receiving checklist. Keep Actual/Disposition blank. Do not present a hypothetical ripped-block grade as inherited from the original board. |
@@ -279,6 +307,15 @@ must settle a named dependency in that sequence. The mechanics coordinator
 retains readiness, freezes, serialized native execution and final validation;
 Luna/max workers receive bounded author/reviewer tasks with separate paths,
 and the primary investigates stalled work directly.
+
+The [parallel-owner handoff](parallel-owner-handoff-2026-10-01.md) now records
+the owner's selection of upper-block strength for the separate hardware/material
+thread: eight upper blocks and 32 axes, beginning with the top outer pair and
+reusing existing source demands. That owner reports an active goal and owns
+its isolated packet. The remaining 86 candidate bolts' washer-seat extension
+is deferred and unassigned. This allocation avoids duplicating the mechanics
+coordinator's elastic/gravity, BG003 and BG045 work or the primary's six-corner
+washer and source investigations.
 
 No defensible completion percentage follows from the case count. Three of six
 usable conditional cases is the response milestone; complete joint resistance
