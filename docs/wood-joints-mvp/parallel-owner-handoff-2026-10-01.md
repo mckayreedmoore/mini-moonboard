@@ -11,13 +11,18 @@ The parallel owner now owns
 starting with the top outer pair, reusing existing source demands. Its Luna/max
 authors and reviewers keep those outputs separate from the primary's corner
 packets and the mechanics coordinator's elastic/gravity work. The remaining
-86 washer-seat extension is deferred and **unassigned**, except a necessary
-upper-seat input whose scope is separately agreed before starting it.
+86-axis washer-seat extension is now split without overlap. The upper owner
+has claimed its 32 bolts' 64 nominal seats. The primary owns the remaining
+54 candidate bolts' 108 outer seats in
+`hypotheses/remaining-candidate-washer-seats-2026-10-01/`, excluding the six
+already reviewed primary-corner bolts and the two source-pinned sixteen-axis
+upper cohorts. The exclusion sets are checked against the 92-axis model.
 
 The original proposed open lane was **the remaining 86 new candidate bolts'
 outer washer seats**, extending the reviewed primary-corner geometry method.
 The mechanics coordinator's current checkpoint identifies this coverage as
-unassigned. The bounded scope below remains available for a later assignment.
+unassigned at that earlier checkpoint. The split above now governs; the
+bounded scope below describes the primary's 54-axis portion.
 Keep the twelve retained LEG/FLOOR-RUNNER arrangements separate.
 Reuse the current model/STEP bindings and existing three accepted all-body
 responses; do not create another demand solve or inherit old case acceptance.
@@ -28,9 +33,29 @@ interpretation, and the retained-wrench source investigation. The eccentric
 author and independent reviewer have completed their packet; parent replay
 passed after fixing the review finding. `thread_gage_functional_fit` is
 finished with its corrected source note; its separate independent review is
-complete after direct parent inspection of the pinned standard.
+complete after direct parent inspection of the pinned standard. The primary
+took over the remaining 54-axis checker when the author did not produce a
+reviewable draft. Its full run now covers 108 seats on 26 source-bound STEP
+solids: 107 meet the declared geometry gates and one does not. Separate
+Luna/max reviewers completed the full-code replay and the cut-identity/area
+oracle without a material discrepancy. The expected exception remains open.
 
-For the 86-axis lane, bind every outer seat to its actual current finished
+The geometry exception is `center_principal_right_2`'s nut washer on
+`base_principal_center_right`. The retained F1–G1 service passage,
+`bore_base_principal_center_right_072`, removes 21.1486664 mm² from the centered
+CAD annulus (90.5046352% supported). The eccentric swept enclosure also fails
+there; the hole-only-area assumption is explicitly inapplicable. No reviewed
+geometry was altered. A partial-support resistance method or a reported,
+separately reviewed design option remains necessary. This does not establish
+a strength failure or affect the upper owner's 32-axis exclusion.
+
+A separate primary-owned `remaining-candidate-washer-demands-2026-10-01/`
+task now joins only these 54 axes to the three authenticated response families;
+it must retain signed actions and the partial-support flag. It creates no
+new demand solve and does not own the six corner or 32 upper axes. Parent
+retains its source/review gate before publication.
+
+For the 54-axis lane, bind every outer seat to its actual current finished
 solid, receiver, datum and bore. Identify unsupported/ambiguous seats rather
 than extrapolating the twelve-corner result. Preserve multi-receiver bolts
 without inventing middle washers. Distinguish catalog envelopes, nominal CAD,
