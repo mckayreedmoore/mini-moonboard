@@ -77,6 +77,12 @@ receiver wrenches. Its 96 normalized endpoint fields fit the declared nominal
 bearing/bending bounds; actual bore-wall contact compatibility and common-bolt
 clearance remain open. This does not supply an adjusted asymmetric joint capacity.
 
+The [shared-shaft placement check](hypotheses/mvp-resume-2026-10-01/knee-bore-fit.md)
+finds 96 straight-shaft witnesses through the three saved bores. Total-motion
+fits retain at least 0.435309 mm conservative radial margin; complete bore
+deformation and loaded contact are not reconstructed. This geometry result
+does not require bore enlargement or change the frame's zero-clearance laws.
+
 The original [zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
 stops in all six cases: upper panels need outward restraint. The
 [panel attachment worksheet](hypotheses/mvp-resume-2026-10-01/panel-attachment/README.md)

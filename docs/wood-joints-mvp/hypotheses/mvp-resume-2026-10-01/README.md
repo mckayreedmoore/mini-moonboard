@@ -43,6 +43,13 @@ are 0.359589/0.592568. Static endpoint fields fit the declared nominal
 bounds. Actual bore-wall compatibility, common-bolt clearance, thread
 sections and adjusted complete-joint resistance remain open.
 
+The [common-shaft placement calculation](knee-bore-fit.md) finds 96 explicit
+straight-shaft witnesses across the four continuous bolts and both saved
+gap states. Total-motion fits retain at least 0.435309 mm radial margin;
+their largest scalar projection error is 0.006500 mm. This indicates no bore
+enlargement from the stated geometry model. It does not supply loaded bore
+reactions or change the four source zero-clearance laws.
+
 The [central-seat comparison](partial-seat-bearing.md#current-catalog-washer-opening-comparison)
 now uses the catalog quarter-inch washer opening with current forces.
 At maximum ID 8.3058 mm, the supported 10 mm outer circle gives a

@@ -33,6 +33,14 @@ embedding, common-bolt clearance, actual thread sections and the complete
 physical convex admissible set remain unvalidated. No normative asymmetric
 capacity or complete-joint acceptance follows.
 
+The subsequent [common-shaft placement check](knee-bore-fit.md) finds one
+straight 6.35 mm shaft placement through all three saved 7.50 mm bores in
+each of 96 pose scenarios. Total-motion fits retain at least 0.435309 mm
+conservative radial margin, with scalar fit error up to 0.006500 mm.
+These are free placements, not force-bearing contact solutions. No bore
+enlargement is indicated by this geometry calculation; shared loaded contact
+and frame clearance integration remain unresolved.
+
 ## Preserved six-joint comparison
 
 The following calculation uses the six nominal-gap states from
