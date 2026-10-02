@@ -47,8 +47,12 @@ Pane %25 completed its original panel packets. At model capacity, a bounded
 helper completed the generic lateral screen; no panel implementation is active.
 Pane %22 owns `assembly-package/hardware_length_fit.py` and
 [hardware-length-fit.md](assembly-package/hardware-length-fit.md). The parent
-owns execution of the saved-geometry screen for twelve proposed longer bolts. All
-other bounded/native helper tasks are complete or closed.
+completed its saved-source screen for twelve proposed longer bolts: 48,190
+pairs separate by conservative bounds, and two exact STEP pairs have zero
+intersection and 18.158 mm minimum distance. No added tip or headward-increment
+pair remains undecided. Full nut/thread/tool operations are outside that screen;
+no length or hardware is selected. Other bounded/native helper tasks are
+complete or closed.
 
 The published [conditional hardware and shop package](assembly-package/README.md)
 reconciles 50 bodies, 104 bolts, 104 nuts, 208 washers and 66 separate Hillman

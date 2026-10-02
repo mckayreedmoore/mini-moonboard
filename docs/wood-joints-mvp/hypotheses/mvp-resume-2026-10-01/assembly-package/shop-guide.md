@@ -3,7 +3,8 @@
 This guide describes handling and assembly for the current bolted wood-block lane. It is an
 operations aid for recorded geometry, not a fabrication release, product selection, inspected build,
 or climbing release. Use it with the [assembly and procurement reconciliation](README.md), the
-[hardware engagement worksheet](hardware-engagement.md), and the current [top-corner fit
+[hardware engagement worksheet](hardware-engagement.md), the [longer-bolt added-occupancy
+screen](hardware-length-fit.md), and the current [top-corner fit
 worksheet](../top-corner-hardware/assembly-fit.md).
 
 ## Parts and current layout
@@ -107,6 +108,13 @@ Nominal 8 in length is 203.2 mm, distinct from 177.8 mm wood grip. Use the top-c
 for under-head length, `LB`, and full-form thread requirements; the named catalog lengths alone do
 not guarantee delivered body or thread profile. Its three-pitch endpoint is a declared fit scenario,
 not a universal shop rule.
+
+The separate longer-bolt screen found no added-occupancy clash for four proposed 6 in center-post
+shafts, four proposed 8 in center principal/header shafts, and four proposed 8 in inner knee/header
+shafts. Their headward travel references become 150.749 mm, 201.549 mm, and 201.549 mm respectively.
+That finite result checks only added tips and the additional headward shaft/head/washer sweep.
+It does not select those lengths, verify delivered profiles, or establish full nut, thread,
+tool or harness operations. Use its named source-pair results with the existing operation sequence.
 
 Use one compatible washer below each head and nut. Conditional matched nut/washer routes are in the
 hardware worksheet. The partial seat at `center_principal_right_2` has idealized bearing arithmetic

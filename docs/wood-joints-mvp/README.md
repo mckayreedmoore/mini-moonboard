@@ -86,10 +86,13 @@ The [hardware engagement worksheet](hypotheses/mvp-resume-2026-10-01/assembly-pa
 now supplies fourteen family specifications for all 104 stacks, including
 body/thread and nut coverage. The [conditional shop guide](hypotheses/mvp-resume-2026-10-01/assembly-package/shop-guide.md)
 joins those parts, stock, assembly/removal and transport instructions; Actual/Disposition
-cells remain blank. Supplier profile guarantees, complete order cost, actual tools
-and harness staging remain open. Proposed longer shaft occupancy is the next finite fit check.
-The parent retains integrated mechanics, shared staging and commits; pane workers own panel
-references and hardware fit, and bounded helpers handle member restraint and finite free play.
+cells remain blank. The [longer-bolt occupancy screen](hypotheses/mvp-resume-2026-10-01/assembly-package/hardware-length-fit.md)
+finds no clash in twelve proposed added tips and headward-travel increments: 48,190 source pairs
+separate by conservative bounds, and two saved STEP pairs have zero intersection and
+18.158 mm minimum distance. Full nut/thread/tool operations are outside that finite screen.
+Supplier profile guarantees, complete order cost, actual tools and harness staging remain open.
+The parent retains integrated mechanics, shared staging and commits; the panel, member and
+clearance helpers have delivered their finite results, and the fit worker owns its leaf packet.
 No recurring review loop is used.
 
 The [central bearing scenario](hypotheses/mvp-resume-2026-10-01/partial-seat-bearing.md)
@@ -134,8 +137,9 @@ still lack a complete compatible material/quantity/cost reconciliation.
 2. Recalculate the top rail with the corrected panel load path. Retain the current 1.0392
    face shear/torsion exception and its short-transfer applicability limit until that result
    is resolved. Do not increase a material factor or infer a physical failure from the proxy.
-3. Complete the twelve proposed longer-bolt occupancy checks and reconcile their specific
-   installation/removal findings to the conditional shop package. Preserve the four captured-nut
+3. Use the completed twelve-bolt added-occupancy screen when reconciling the conditional shop
+   package; its clear additions do not select the proposed lengths or prove full operations.
+   Preserve the four captured-nut
    paths and retained leg-bolt harness dependency. Hardware profiles, actual operation fit and
    the complete compatible purchase total remain explicit conditions.
 
