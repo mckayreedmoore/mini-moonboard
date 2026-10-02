@@ -370,6 +370,35 @@ emits the ignored local outputs from the same inputs. If a required local
 source is unavailable or a pin differs, the producer reports the exact
 missing/mismatched source instead of inventing a quantity or mass.
 
+### Corrected retained catalog labels
+
+The frozen original producer joins retained `catalog_references` strings as
+individual characters. Its quantities and published labels remain valid.
+[reconcile_catalog_labels.py](reconcile_catalog_labels.py) normalizes that
+field to a one-element list before both joins in the unchanged, hash-bound
+legacy builder. Corrected exports are separate in
+`rawlocal/catalog-labels-attempt01/`; all seven original files remain preserved.
+
+Only three retained family labels in JSON/CSV and twelve retained axis labels
+in CSV change. All other fields match, including counts, axes, dimensions,
+masses and the 164 source bindings. The four body/stock outputs remain
+byte-identical. The CSV retains 15 rows including the separate Hillman family,
+and 170 axis rows including the 66 separate Hillman screws. This corrects
+formatting; it does not select hardware or change mechanics or prices.
+
+```sh
+python3 -B docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/assembly-package/reconcile_catalog_labels.py --write
+```
+
+| Corrected artifact | SHA-256 |
+| --- | --- |
+| `reconcile_catalog_labels.py` | `cce89de7c9b28f16266c194b459c6ac8d790053329d7952c8510743c5c3db2a2` |
+| `rawlocal/catalog-labels-attempt01/reconciled-assembly.json` | `d79bedb1edbc0d4cbde095e77fdebc99bbcb3348ee5cca1866eb80737a732590` |
+| `rawlocal/catalog-labels-attempt01/hardware-families.csv` | `4b37302b9fb8ff711270da50a361b25a26e0fa1e670e2e788684ca4a72d5bed9` |
+| `rawlocal/catalog-labels-attempt01/hardware-axes.csv` | `d6415c095f75c31a210c40e7dd8d8d4a1d0942ffe2095fa19a25c1391eb3d924` |
+
+The existing producer and original export hashes below remain unchanged.
+
 | Artifact | SHA-256 |
 | --- | --- |
 | Frozen `corner-frame-attempt01/model.json` | `d17dadd7c999e4a1634f53226cf63e131f547cd9cf5d46d87d75c935f2dc807e` |
