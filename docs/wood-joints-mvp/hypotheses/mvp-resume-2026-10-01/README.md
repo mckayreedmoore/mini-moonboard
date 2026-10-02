@@ -30,8 +30,11 @@ oblique-group factor is not adopted.
 The [retained-washer calculation](retained-washer-checks.md) binds all 24
 exterior roles and 144 current seat states to their separate catalog
 diameters and saved bores. Ideal full-support wood-pressure ratios peak
-at 0.208291 for 3/8-inch and 0.287806 for 1/2-inch stacks. Actual support
-and washer metal acceptance remain null.
+at 0.208291 for 3/8-inch and 0.287806 for 1/2-inch stacks. The subsequent
+[current saved-STEP support check](retained-washer-support.md) confirms all
+24 nominal concentric annuli at three shallow probe depths, including four
+head seats on the corrected side-member copies. Loaded shift/tilt and washer
+metal acceptance remain open; actual-inspection fields are unchanged.
 
 The [continuous knee-bolt construction](knee-bearing-checks.md) now recovers
 24 static bearing/shear/bending states and 96 normalized endpoint fields.

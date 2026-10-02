@@ -256,8 +256,10 @@ K12-right, maximum-ID uniform pressure 0.924767 MPa and conditional wood
 index 0.214602. The earlier numeric table and machine output remain frozen.
 Actual nut/washer transfer is still open. The separate
 [retained-washer worksheet](../retained-washer-checks.md) now binds all 24
-3/8-inch and 1/2-inch exterior roles; their actual full-seat support and
-washer metal acceptance remain null.
+3/8-inch and 1/2-inch exterior roles. The subsequent
+[current saved-STEP support check](../retained-washer-support.md) confirms
+all 24 nominal concentric annuli. Loaded shift/tilt and washer metal
+acceptance remain open; frozen actual-support fields are not overwritten.
 
 ## Reproduction and record
 

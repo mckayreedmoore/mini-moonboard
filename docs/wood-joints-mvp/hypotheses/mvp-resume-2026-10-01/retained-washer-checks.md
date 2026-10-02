@@ -21,10 +21,13 @@ its own receiver identity and saved bore. The wood reference is the existing
 conditional DF-L No.2 base perpendicular bearing, **4.309223 MPa**.
 
 The dimensional part of the previous `RETAINED_WASHER` gap is addressed.
-**Full-seat support is unknown for all 24 roles. Actual pressure, wood
-bearing acceptance and washer metal acceptance remain null in every state.**
-The ideal comparisons do not select hardware, establish the full annulus
-on sound wood, or accept the joints. Numeric washer yield, head/nut bearing
+The dimensional result retains null full-seat support, actual pressure,
+wood-bearing acceptance and washer metal acceptance. The subsequent
+[current saved-STEP calculation](retained-washer-support.md) now establishes
+full **nominal concentric CAD support** for all 24 roles and 72 shallow probes,
+including the two corrected side-member copies. Loaded shift/tilt and actual
+delivered support remain unestablished. The ideal comparisons do not select
+hardware, establish sound delivered wood, or accept the joints. Numeric washer yield, head/nut bearing
 faces, eccentricity, tilt, bridging and preload remain separate conditions.
 There is no new larger-washer decision from this ideal comparison.
 

@@ -42,8 +42,11 @@ a couple, so this is a sensitivity rather than an adopted complete-group factor.
 
 The [retained-washer comparison](hypotheses/mvp-resume-2026-10-01/retained-washer-checks.md)
 binds the separate 3/8-inch and 1/2-inch catalog envelopes and saved bores
-across 144 seat states. Ideal full-support wood-pressure indices are
-0.2083/0.2878; actual seat support and washer metal acceptance remain null.
+across 144 seat states. The subsequent
+[current saved-STEP support check](hypotheses/mvp-resume-2026-10-01/retained-washer-support.md)
+confirms all 24 nominal concentric annuli across 72 shallow probes, using the
+corrected side-member copies. Uniform-pressure wood indices remain
+0.2083/0.2878; loaded shift/tilt and washer metal acceptance remain open.
 
 | Current six-case result | Conditional working result |
 | --- | --- |
