@@ -22,6 +22,10 @@ state has finite fixed-force seating bounds, rank 296/297: seating is bounded
 but nonunique, with neither strict tangent stability nor a motion envelope
 established. See [bounded clearance](bounded-clearance.md) and the
 [main summary's current component table](../../README.md#current-working-model).
+The [retained-pair sensitivity](retained-group-checks.md) now preserves all
+36 pair/72 bolt states and gives 0.9613 for the governing front-left reference
+after division by the smallest of four declared row factors. The actual
+oblique-group factor is not adopted.
 
 Current panel references retain an unresolved strength exception. At A12-rear,
 `round_panel_upper_left_edge_2` carries T=1836.884 N and V=807.662 N. Generic
@@ -57,6 +61,10 @@ complete or closed.
 The published [conditional hardware and shop package](assembly-package/README.md)
 reconciles 50 bodies, 104 bolts, 104 nuts, 208 washers and 66 separate Hillman
 screws. Its priced subtotal is $158.46 plus missing terms, not a complete cost.
+The [dated catalog update](assembly-package/catalog-costs.md) supplies a
+separate $31.12 retained-hardware increment, giving $189.58 of combined
+priced terms if counted once. Missing terms and supplier profile conditions
+remain explicit.
 All 47 criteria remain pending, all eight physical-release flags remain false,
 and all Actual/Disposition cells remain blank. Formal qualification remains
 HOLD. No review loop, new native solve or software tests were run for this

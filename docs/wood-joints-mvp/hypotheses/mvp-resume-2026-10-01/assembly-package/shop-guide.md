@@ -79,7 +79,7 @@ engagement](hardware-engagement.md).
 | Outer posts | Four K.L. Jack `25C400HCS5Z`; listed pack of 100 | Reliable price absent; 96 surplus. |
 | Center posts | Four 6 in options, including HiStrength `104-044` / `25C600HCS5P` | $1.23 displayed per item; payable pack basis unresolved. |
 | Continuous knee side | Four Ro-Brand HC5127, 1/4-20 × 9.5 in lead | Profile, package quantity, and price unresolved. |
-| Retained stacks | Eight 3/8 in and four 1/2 in bolts, 12 nuts, 24 washers | Current package cost not established. |
+| Retained stacks | Eight 3/8 in and four 1/2 in bolts, 12 nuts, 24 washers | Dated [catalog increment](catalog-costs.md): $31.12 at displayed piece prices; profiles remain conditional. |
 | Panel/kicker screws | 66 purchased Hillman 42605 | Purchase retained; current cost not assigned. |
 
 The recorded earlier hypothetical recipe has a **$158.46 partial priced subtotal**, including eight
@@ -89,6 +89,13 @@ shared pack grows from 20 to 24 of the same 25-pack, leaving one spare. That alt
 the subtotal, and its complete-order price is not established. Lawson, outer-post, center-post,
 knee-side, and retained hardware, lumber, eligible plywood, pads, holds, lighting/service parts,
 freight, and tax remain unpriced or unresolved. No missing price is zero.
+
+The October 2 [catalog update](catalog-costs.md) records the separate $31.12 retained-hardware
+increment; the $158.46 historical subtotal above is preserved. Combining that increment once
+gives $189.58 of priced terms before freight/tax, still an incomplete order. The same update
+records a conditional quantity pool: if four center-post 6 in bolts use the exact ordinary
+`25C600HCS5Z` SKU and meet the worksheet profile, the existing 100-piece box supplies 48 total
+and leaves 52 spare. This quantity scenario selects no product and adds no second bolt box.
 
 ## Fastener counts and top corners
 

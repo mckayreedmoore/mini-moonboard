@@ -34,6 +34,12 @@ candidate bolts and twelve retained bolts remain at zero modeled clearance.
 These working calculations retain conditional Hillman stiffness and no-slip support; they do
 not replace the native authentication statuses above or alter reviewed geometry.
 
+The [retained bolt-pair calculation](hypotheses/mvp-resume-2026-10-01/retained-group-checks.md)
+adds 36 signed pair records and four declared row-factor area scenarios. Its governing
+front-left individual ratio becomes 0.9613 under the smallest of those scenarios, compared
+with the 0.9521 unadjusted reference below. The actual group carries oblique forces and
+a couple, so this is a sensitivity rather than an adopted complete-group factor.
+
 | Current six-case result | Conditional working result |
 | --- | --- |
 | Top outer corners | Conditional 92 ksi component ratios 0.7268 left / 0.8138 right; concurrent steel scenarios 0.7356 / 0.8253 |
@@ -82,6 +88,9 @@ The [assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.
 50 transport bodies, 104 bolts/nuts, 208 washers and 66 separate Hillman screws. Larger stock
 scenarios place all 44 timber blanks; the 8-foot-only scenario misses five. The recorded priced
 hardware terms total $158.46 plus explicit missing terms, rather than a complete purchase total.
+The [dated catalog update](hypotheses/mvp-resume-2026-10-01/assembly-package/catalog-costs.md)
+adds $31.12 of retained hardware at displayed piece prices. Combining that increment once
+with the historical partial sum gives $189.58 before freight/tax, still incomplete.
 The [hardware engagement worksheet](hypotheses/mvp-resume-2026-10-01/assembly-package/hardware-engagement.md)
 now supplies fourteen family specifications for all 104 stacks, including
 body/thread and nut coverage. The [conditional shop guide](hypotheses/mvp-resume-2026-10-01/assembly-package/shop-guide.md)

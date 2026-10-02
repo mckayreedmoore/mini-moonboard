@@ -337,6 +337,15 @@ cash total. Keep owned/purchased items distinct from new acquisition cost.
 No absent price is zero, and historical 28-block/104-candidate cost totals
 do not enter this package.
 
+The later [October 2 catalog update](catalog-costs.md) supplies $31.12 of
+retained bolts/nuts/washers at displayed piece prices. It is a separate
+increment to the historical $158.46 partial sum, giving $189.58 of priced
+terms if added once, before freight/tax. Lawson still requires login for
+price; the outer-post merchant displays remain conflicting. The conditional
+ordinary/center-post 6-inch pooling scenario uses 48 of the same 100-pack,
+leaving 52 spare if the exact SKU/profile meets the hardware worksheet.
+No fit or product selection follows from those prices or quantities.
+
 ## Validation and limits
 
 The implementation worker and parent independently ran the bounded
