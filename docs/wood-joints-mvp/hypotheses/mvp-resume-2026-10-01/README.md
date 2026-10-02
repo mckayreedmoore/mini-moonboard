@@ -60,6 +60,15 @@ assumptions and source detail. Earlier six-joint and softer-law values remain
 historical; see the [preserved comparison](panel-attachment/README.md#earlier-all-outer-source-returned-compatible-stiffness-sensitivity)
 and [component record](top-corner-component-checks.md).
 
+A separate [current-frame 100 N/mm sensitivity](panel-attachment/README.md#all-two-receiver-100-nmm-sensitivity-attempt09)
+now completes all twelve states with the same 88 bolt clearances, unchanged
+lateral stiffness and original model-domain gates. Its modeled-gap peak
+withdrawal is 906.577 N at upper-right `edge_2`, with 1022.807 N simultaneous
+lateral force and 9.065770 mm representative opening. The largest declared
+head reference is 628.941 N; favorable same-state combined loading peaks at
+3.006796 elsewhere. This unmeasured law is not selected, supplies no motion
+envelope and transfers no component acceptance from the baseline.
+
 The other current strength exception is the top-rail face-shear/torsion proxy:
 1.039209 against the declared 180 psi allowance. Its governing cut is
 52.189 mm beyond the cleat contact footprint; the pointwise stress field in

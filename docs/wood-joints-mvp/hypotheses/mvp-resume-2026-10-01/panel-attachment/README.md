@@ -7,7 +7,10 @@ modeled-gap withdrawal peak from 1812 to 916 N while increasing opening from
 0.67 to 9.16 mm. Their stiffness sensitivity does not close panel attachment.
 Panel-only statics permits about 294 N when face compression can redistribute,
 but neither those compatible runs nor a Hillman rating establishes that
-allocation. Current bounded all-two-receiver result is documented at end.
+allocation. The current bounded all-two-receiver baseline and a separate
+100 N/mm sensitivity are documented at the end. The latter lowers the
+modeled-gap withdrawal peak to 907 N but still exceeds every declared head
+reference; its favorable generic combined index reaches 3.0068.
 
 ## Preserved attempt05 all-outer baseline: inputs and demands
 
@@ -366,5 +369,92 @@ uv run python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attach
   --output /tmp/FRESH-PANEL-ATTACHMENT-ATTEMPT08
 ```
 
-No test suite, native/frame/CAD solve, product, geometry, stiffness or authority
-change was made. No staging or commit was performed.
+Attempt08 postprocessing performed no test suite, native/frame/CAD solve,
+product, geometry, stiffness or authority change.
+
+## All-two-receiver 100 N/mm sensitivity: attempt09
+
+The parent replayed the already-declared **100 N/mm withdrawal hypothesis**
+on the current all-88-two-receiver-clearance frame. All 132 screw lateral
+components retain 2689.678816784642 N/mm. The 66 axes, geometry, frame
+operators, mass, proportional equipment load, four zero-gap continuous bolts
+and twelve zero-gap retained bolts remain unchanged. The baseline force source
+and component table remain `two-receiver-frame-attempt03/`; this separate
+unmeasured screw law is not selected.
+
+All six zero-gap states pass the original conditional balance, connector,
+floor and model-domain gates at rank 300. All six modeled-gap states pass
+those gates with bounded fixed-force seating at rank 296/297. Floor/contact
+branches are evaluated for each state rather than inherited from an earlier
+response. The original 10 mm normal-motion domain is retained. The saved
+positions below remain representative positions, not a unique pose or a
+motion envelope. No complete joint acceptance follows from these statuses.
+
+The governing withdrawal screw is K12-rear,
+`round_panel_upper_right_edge_2`, into `base_rail_top`:
+
+| Frame gaps | Withdrawal T | Simultaneous lateral V | Representative opening | T / 594.490 N head reference | T / 628.941 N largest head reference |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Zero | 951.104 N | 935.548 N | 9.511044 mm | 1.599865 | 1.512232 |
+| Modeled | 906.577 N | 1022.807 N | 9.065770 mm | 1.524965 | 1.441434 |
+
+The 594.490 N comparison uses the standard 9.2202 mm circular head,
+17.25625 mm net-plywood and `G=.50` hypothesis. The largest head reference
+remains 628.941 N. Neither is a measured Hillman capacity. The modeled-gap
+peak is 0.845191 of the optimistic 1072.630 N timber-withdrawal reference;
+this separate comparison does not satisfy head transfer or simultaneous
+loading. At that same screw, the favorable generic combined index is
+**2.212313**, requiring 1742.039 N lateral reference instead of the declared
+463.413 N. The combined envelope is **3.006796** at a different screw,
+K12-rear upper-right `rim_4`, with simultaneous **V=1405.398 N,
+T=654.820 N**. See the [same-state comparison](lateral-reference.md#all-two-receiver-100-nmm-sensitivity).
+
+The same 48 panel-only LPs give the following modeled-gap envelopes:
+
+| Upper panel | Best statics with contacts fixed | Best statics with face compression free |
+| --- | ---: | ---: |
+| Left | 637.392 N | 293.353 N |
+| Right | 586.033 N | 293.261 N |
+
+These allocations omit receiver equilibrium, elastic compatibility and the
+contact laws. They cannot replace the compatible frame response. Relative
+to the older six-joint 100 N/mm hypothesis, adding all 88 two-receiver
+clearances lowers the withdrawal peak from 916.049 to 906.577 N while raising
+the favorable combined envelope from 2.9446 to 3.0068. It does not close
+panel attachment. Further law values require a physical basis or a declared
+bounded scenario; no value or favorable adjustment is selected to obtain a
+pass. Any proposal changing the panel-edge or fastener constraints remains
+subject to the pending owner choice.
+
+The attachment screen checks **792 simultaneous screw states**, **48
+panel-only allocations** and **264 common-port motion groups**. All 123 frame,
+20 attachment and 12 lateral report source bindings match. Exact producer
+snapshots are retained; outputs are local ignored evidence.
+
+| Artifact | SHA-256 |
+| --- | --- |
+| `../two-receiver-panel-k100-attempt01/comparison.json` | `94a2c822c092bfb69ec3c8364740bbb776c7687c081908f20427540e076378e6` |
+| `../two-receiver-panel-k100-attempt01/response.npz` | `078bd082f1b74a50105ae25d9a2b289b7a02520e224a85487c052d5abf1b957b` |
+| `results/attempt09-all-two-k100/comparison.json` | `baf90788bb1e0c42c6115bdee04109ad8361f6c5a96635d120c41c935d01d301` |
+| `results/attempt09-all-two-k100/receipt.json` | `7937655e7f9ef9110bd81117fe03962580f2a0d4a4d19c4b24b7fef458c3ab8f` |
+| `results/attempt09-all-two-k100/screw-states.csv` | `22577859e4793dfefff4bda5aef918265af0e33d6d33167e424f3bfe56780277` |
+
+The executed frame producer SHA-256 is
+`85fcbeb6f0c8083fceff48bd6b581402329e2cf1c3422753b0088e1a7fee3372`;
+the attachment producer remains
+`c2acb48370cecb3964172e8ab82d3c8999e2836e97025e1bde778bc03cf6b9dc`.
+Reproduce from the repository root with fresh output directories:
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run --offline --no-project --python 3.12 --with numpy==2.2.6 --with scipy==1.15.3 --with osqp==1.0.4 python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/both_corner_frame.py \
+  --output docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/FRESH-FRAME-K100 \
+  --service-joints --bottom-corners --all-two-receiver-clearances --bounded-freeplay \
+  --panel-withdrawal-stiffness 100
+
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run --offline --no-project --python 3.12 --with numpy==2.2.6 --with scipy==1.15.3 --with osqp==1.0.4 python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/attachment_screen.py \
+  --source docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/FRESH-FRAME-K100 \
+  --output docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/FRESH-ATTACHMENT-K100
+```
+
+No native/CAD solve, software tests or review loop was run. Reviewed geometry,
+hardware policy, formal authority and physical-release flags are unchanged.

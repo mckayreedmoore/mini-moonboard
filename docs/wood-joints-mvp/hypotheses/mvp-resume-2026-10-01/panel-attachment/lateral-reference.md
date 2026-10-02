@@ -28,6 +28,46 @@ Use `--source results/attempt08-all-two-receiver --output results/lateral-attemp
 with full repository paths and a fresh numbered directory. Prior output01 and
 its executed snapshot remain preserved.
 
+## All-two-receiver 100 N/mm sensitivity
+
+`results/lateral-attempt03/` consumes only the 792 saved simultaneous records
+from `results/attempt09-all-two-k100/`. That separate current-frame sensitivity
+retains all 88 two-receiver bolt clearances and the original screw lateral
+stiffness, with the previously declared 100 N/mm withdrawal hypothesis. It
+does not replace the baseline above or regenerate any forces.
+
+Under the favorable declared Structural I/Marine plywood and full nominal
+thread-projection references:
+
+| Frame gaps | Maximum combined index | Same-state governing screw | Simultaneous V / T | Records above 1 |
+| --- | ---: | --- | ---: | ---: |
+| Zero | 2.792187 | A12-rear, upper-left `rim_4` | 1305.916 / 776.980 N | 10 |
+| Modeled | 3.006796 | K12-rear, upper-right `rim_4` | 1405.398 / 654.820 N | 10 |
+
+The modeled-gap envelope's lateral and withdrawal terms are 2.748966 and
+0.257830. The largest required lateral reference occurs at a different
+same-state tuple: **1918.146 N**, A12-rear upper-left `rim_4`, with
+**V=1396.042 N, T=796.271 N**. Its index is 2.984586 against the declared
+463.413 N lateral reference. There are no states with an infinite required
+lateral reference under this optimistic withdrawal hypothesis; all eight
+reference scenarios are retained, totaling 6336 comparisons.
+
+The independent head deficit also persists: the 906.577 N modeled-gap peak
+is **1.441434** of the largest declared 628.941 N head reference. Positive
+opening reaches 9.065770 mm at that saved representative screw position.
+The zero-separation assumption of these generic lateral references remains
+unestablished for such loaded openings. No product law, Hillman resistance,
+adjusted capacity, complete joint or physical release is adopted.
+
+Comparison SHA-256:
+`0894a8654b9164c7232db7dc37e60f026e80f0c209155bd672c5b081da057242`;
+receipt `855ded4f09cb382aaeac165d9ac98e2fb44539c511c682de3968da0c4d585045`;
+same-state CSV `3160858519610eecb0a2118e88f83b8631c9cccb988b7c01a272137021c8b17d`.
+All 12 source bindings match. The executed producer and saved snapshot remain
+`8bcf31f3e69338de5f16824411ae14567187ce6b92cd05a61f7de3be0de7fbb2`.
+Reproduce with the maintained producer, `--source` pointing to the completed
+attempt09 packet and `--output` to a fresh `results/lateral-attemptNN` directory.
+
 ## Preserved six-joint and softer-law comparisons
 
 The declared generic NDS lateral references are **386.75 N** for other/unknown

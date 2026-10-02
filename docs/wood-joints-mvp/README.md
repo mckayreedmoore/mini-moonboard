@@ -80,7 +80,11 @@ stops in all six cases: upper panels need outward restraint. The
 now finds a concrete reference deficit: 1837 N current modeled-gap withdrawal exceeds the declared
 277–629 N unadjusted head references and 711–1073 N generic timber withdrawal references.
 Preserved six-joint softer withdrawal-law scenarios reduce the peak to 1240 or 916 N; both still exceed
-those head references and increase opening. These are conditional reference comparisons,
+those head references and increase opening. A separate
+[100 N/mm replay on the current all-88-clearance frame](hypotheses/mvp-resume-2026-10-01/panel-attachment/README.md#all-two-receiver-100-nmm-sensitivity-attempt09)
+gives 907 N modeled-gap withdrawal and 9.066 mm representative opening;
+its favorable generic combined index reaches 3.0068. That hypothesis still
+exceeds every declared head reference. These are conditional reference comparisons,
 not measured Hillman resistance or a physical failure claim. No changed screw law is selected.
 
 The parent has completed same-state component replays at all 88 two-receiver candidate bolts.
