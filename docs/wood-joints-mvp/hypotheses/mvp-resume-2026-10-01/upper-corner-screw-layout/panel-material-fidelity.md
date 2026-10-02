@@ -31,6 +31,24 @@ identifies D510F (2020); the frozen helpers use the stated 2012 references.
 
 ## What the saved operator actually uses
 
+### Owner-reported cuts and directional behavior
+
+On October 2, the owner reported cutting a sheet down the middle into two
+roughly 4×4 pieces. This establishes the reported cut, not the measured
+dimensions, kerf or installed strength-axis direction of each piece.
+Cutting does not change the veneers' directions; either square half can
+subsequently be rotated in its plane.
+
+Cross-lamination gives plywood strength and stiffness in both directions,
+but does not make those properties equal. APA explicitly distinguishes
+properties by stress direction relative to the strength axis.
+[APA plywood properties and selection guidance](https://www.apawood.org/engineered-wood-products/plywood-osb/plywood/).
+The table below has an along/across bending-stiffness ratio of about 3.54;
+that is the declared family-reference scenario, not a measurement of the
+owner's purchased panels. Both main-panel orientations now have complete
+twelve-state analytical comparisons. The reported cut alone does not
+establish a deficient blank or require re-cutting.
+
 The current `operators-attempt02/model.json` retains Group 1 and thickness
 18.25625 mm. Its targets are:
 

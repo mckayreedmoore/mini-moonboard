@@ -20,12 +20,13 @@ sampled cells. The maximum tilted washer wood-seat pressure is
 **7.146 MPa**; washer metal stress and actual capacity remain unassigned.
 This supports a working rail-pair transfer scenario with the stated limits.
 
-The next useful local check is the **upper-right side pair under one common
-side-member pose**, using its unchanged same-state interface wrenches and
-contact geometry. Its source side_1 has essentially zero V in all six
-cases; a shared-host model should establish which lateral components and
-tensions redistribute. The current rail result alone supplies no revised
-side-pair force split.
+The subsequent [shared-side calculation](upper-right-side-pair.md) now
+completes all six cases under one side-member pose. It changes axial shares
+but leaves side_2 carrying approximately 1,098.757 N peak lateral load;
+side_1 remains effectively unloaded laterally. Both packets preserve their
+own source wrenches and independent host poses under a fixed cleat. The
+next finite check is washer flexure under their derived end forces and
+moments, without rebinding the frame response.
 
 ## Finite scope
 

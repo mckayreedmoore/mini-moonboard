@@ -35,6 +35,24 @@ increase both local tension and compression while preserving net balance:
 `4036.845 - 2261.358 = 5112.820 - 3337.334 = 1775.487 N`.
 This is not a force-per-screw equal-sharing calculation.
 
+### Hold location relative to the bottom rail
+
+The saved A1 patch center is **T=299.824134 mm** along the board slope. The
+bottom-rail screw line is **T=336.574134 mm**, 36.75 mm above the hold.
+The rail's front support band is **T=317.524134–355.624134 mm**. Thus the hold
+center is 17.7 mm below that band; the entire modeled 20 mm patch is below it,
+with its upper edge 7.7 mm short of the rail. The panel outline begins at
+T=200.624134 mm. This is a local overhang below the bottom rail, not an applied
+load centered over that horizontal backing.
+
+The 100 mm front-face lever and dynamic single-hold force therefore act near
+a short support offset as well as near the new screw's X station. The side
+members, kicker contacts and other screws still participate; these distances
+do not assign the whole hold force or moment to one bolt/contact couple.
+They are specific saved load/backing features to compare with an intended
+installation. No hidden framing location is inferred from the owner's video
+or front screenshot, and no physical frame alteration is made here.
+
 Contact sums must retain signs and directions. Summing only outward normal
 contacts gives 2532.131/3549.907 N; those are not the signed totals above.
 Kicker-edge contacts include other directions. Their complete contributions

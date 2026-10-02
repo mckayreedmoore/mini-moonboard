@@ -192,8 +192,13 @@ now supplies a [shared-rail response](upper-right-rail-pair.md): all six cases
 balance, with compatible heavy-case rail_2 tension rising to about 406 N and
 peak nominal steel proxy 188.629 MPa. It retains the frozen interface wrench,
 one K20 branch and sixteen original face cells. The cleat is fixed and washers
-are rigid, so complete joint/washer resistance remains unassigned. The side
-pair is the next bounded local transfer check.
+are rigid, so complete joint/washer resistance remains unassigned. The
+[shared-side response](upper-right-side-pair.md) now completes all six cases:
+axial shares change, while side_2 retains the 1,098.757 N peak lateral
+demand. Its nominal smooth-bolt stress proxy is 0.31374 of the declared
+92 ksi hypothesis. Independent rail/side poses under a fixed cleat do not
+establish complete timber-block interaction. Washer flexure under their
+same-state end forces and moments is the next finite local check.
 
 The [finite footprint/reaction bounds](upper-right-washer-contact-bounds.md)
 extend that screen without another solve. A deliberately selected wood
