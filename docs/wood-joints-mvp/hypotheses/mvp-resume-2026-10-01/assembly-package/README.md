@@ -10,15 +10,18 @@ selected angle-frame candidate or authorize physical work. Main owns the
 integrated mechanics and final MVP result; this packet supplies conditional
 operations and reconciled quantities, not additional release requirements.
 
-The parent’s final frozen response is `all-outer-corner-frame-attempt01/`:
-both top/bottom outer corners and both left outer service cleats are included
-in its twelve zero/gap states. Its source map pins the same
-`corner-frame-attempt01/model.json` used here, and its modeled mass remains
-224.9499553141194 kg. Both bottom joints retain their quarter-inch hardware;
-no additional member, stock or axis change is inferred. The [parent working
-model summary](../README.md) owns current mechanics, assumptions and remaining
-joint/member checks. This bridge updates the integration identity without
-replacing the frozen assembly reconciliation or transferring an access pass.
+The current mechanics bridge is `two-receiver-frame-attempt03/`, with all
+88 independent candidate bolt clearances included in its twelve zero/gap
+states. Nominal seating is bounded and nonunique; the four continuous knee
+bolts and twelve retained bolts still have zero modeled clearance. Its source
+map pins the same `corner-frame-attempt01/model.json` used here, and its
+modeled mass remains 224.9499553141194 kg. Both bottom joints retain their
+quarter-inch hardware; no additional member, stock or axis change is inferred.
+The earlier six-joint `all-outer-corner-frame-attempt01/` bridge remains
+preserved. The [parent working model summary](../README.md) owns current
+mechanics, assumptions and remaining joint/member checks. This bridge binds
+the current force source without replacing the frozen assembly reconciliation
+or transferring an access or complete-joint pass.
 
 The bounded [reconciliation producer](reconcile.py) consumes saved geometry
 and inventory records without a CAD rebuild or frame solve. Local raw results
@@ -370,8 +373,10 @@ missing/mismatched source instead of inventing a quantity or mass.
 | Artifact | SHA-256 |
 | --- | --- |
 | Frozen `corner-frame-attempt01/model.json` | `d17dadd7c999e4a1634f53226cf63e131f547cd9cf5d46d87d75c935f2dc807e` |
-| Parent `all-outer-corner-frame-attempt01/comparison.json` | `ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3` |
-| Parent `all-outer-corner-frame-attempt01/response.npz` | `aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901` |
+| Current `two-receiver-frame-attempt03/comparison.json` | `0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5` |
+| Current `two-receiver-frame-attempt03/response.npz` | `774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52` |
+| Preserved `all-outer-corner-frame-attempt01/comparison.json` | `ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3` |
+| Preserved `all-outer-corner-frame-attempt01/response.npz` | `aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901` |
 | `top-corner-correction/proposal.json` | `5932768c7a7d91535f69a90787b32222eb4d165ac6353d3e2ed4daf9e248e2b2` |
 | Top catalog `hardware-inputs.json` | `a2110d7580621dee92017403345f21c458729612547ac1f7b2eb8068d0c723c7` |
 | `reconcile.py` | `6b698475a02b172857f7891efd2347e8f7c88415315303a9a30b51c84ba5fd74` |
