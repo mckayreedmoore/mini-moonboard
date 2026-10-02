@@ -80,31 +80,50 @@ def run(
     panel_lateral_stiffness=None,
     all_two_receiver_clearances=False,
     bounded_freeplay=False,
+    frame_directory=None,
+    seed_directory=None,
+    connection_inputs=None,
+    climber_load_scale=1.0,
+    live_components=None,
+    horizontal_load_scale=None,
+    qp_seed=False,
+    seed_comparison=None,
 ):
     import simple_frame as frame
 
     require(not output.exists(), "preserve the existing calculation")
-    assessment = read(FRAME / "operator-assessment.json")
-    baseline = read(FRAME / "frame-results.json")
+    require(np.isfinite(climber_load_scale) and climber_load_scale > 0,
+            "climber load scale must be finite and positive")
+    horizontal_load_scale = climber_load_scale if horizontal_load_scale is None else horizontal_load_scale
+    require(np.isfinite(horizontal_load_scale) and horizontal_load_scale >= 0,
+            "horizontal load scale must be finite and nonnegative")
+    require(live_components is not None or horizontal_load_scale == climber_load_scale,
+            "independent horizontal scaling requires explicit live components")
+    frame_directory = FRAME if frame_directory is None else Path(frame_directory).resolve()
+    seed_directory = FRAME if seed_directory is None else Path(seed_directory).resolve()
+    assessment = read(frame_directory / "operator-assessment.json")
+    baseline = read(seed_directory / "frame-results.json")
+    require(abs(assessment["modeled_mass_kg"] - baseline["modeled_mass_kg"]) < 1e-9,
+            "seed metadata cannot supply a changed modeled mass")
     pins = {ROOT / name: digest for name, digest in assessment["source_sha256"].items()}
     if bounded_freeplay:
         import bounded_clearance
 
         pins[Path(bounded_clearance.__file__)] = sha(Path(bounded_clearance.__file__))
     pins.update(
-        {FRAME / name: digest for name, digest in assessment["output_sha256"].items()}
+        {frame_directory / name: digest for name, digest in assessment["output_sha256"].items()}
     )
-    pins[FRAME / "frame-response.npz"] = baseline["response_sha256"]
+    pins[seed_directory / "frame-response.npz"] = baseline["response_sha256"]
     for path in (
-        FRAME / "frame-results.json",
-        FRAME / "operator-assessment.json",
+        seed_directory / "frame-results.json",
+        frame_directory / "operator-assessment.json",
         HERE / "service-and-hillman-ingestion.json",
         Path(frame.__file__),
         Path(method.__file__),
         Path(circular_clearance.__file__),
     ):
         pins[path] = sha(path)
-    connections_path = (
+    connections_path = Path(connection_inputs).resolve() if connection_inputs is not None else (
         HERE.parent
         / "mvp-acceleration-2026-09-28/reduced-static-attempt01/model-inputs.json"
     )
@@ -162,12 +181,28 @@ def run(
         )
     for path, digest in pins.items():
         require(sha(path) == digest, "changed source: " + str(path))
-    rows = read(FRAME / "row-identities.json")
-    with np.load(FRAME / "operators.npz", allow_pickle=False) as operators:
+    rows = read(frame_directory / "row-identities.json")
+    with np.load(frame_directory / "operators.npz", allow_pickle=False) as operators:
         H, D, e, W, k, uni, normals, tangents, transform, floors = frame.lump_floor(
             *[operators[n] for n in ("H", "D", "e", "W")], rows
         )
     H = (H + H.T) / 2
+    if live_components is not None:
+        live_components = Path(live_components).resolve()
+        component_receipt = read(live_components / "receipt.json")
+        require(component_receipt["frame_operator_sha256"] == sha(frame_directory / "operators.npz"),
+                "live components belong to different frame operators")
+        pins[live_components / "receipt.json"] = sha(live_components / "receipt.json")
+        pins[live_components / "components.npz"] = component_receipt["components_sha256"]
+        for path, digest in pins.items():
+            require(sha(path) == digest, "changed source: " + str(path))
+        with np.load(live_components / "components.npz", allow_pickle=False) as components:
+            vertical_e = transform @ components["e_vertical"]
+            vertical_W = components["W_vertical"].copy()
+        require(vertical_e.shape == (len(H), 6) and vertical_W.shape == (300, 6),
+                "invalid live-component dimensions")
+    else:
+        vertical_e, vertical_W = e[:, 1::2], W[:, 1::2]
     retained = [r for r in rows if r["ownership"]["second_body"] != "floor"]
     corners = set(block_hosts)
     targets = np.array(
@@ -246,7 +281,7 @@ def run(
             "lateral stiffness must be finite and positive",
         )
         k[screw_lateral] = panel_lateral_stiffness
-    model = read(FRAME / "model.json")
+    model = read(frame_directory / "model.json")
     names = model["body_names"]
     centers = {
         b: np.mean(
@@ -259,22 +294,69 @@ def run(
         for b in corners
     }
     states, vectors = [], {}
-    with np.load(FRAME / "frame-response.npz", allow_pickle=False) as saved:
+    qp_seeds, qp_seed_reports = {}, {}
+    comparison_seeds = {}
+    if seed_comparison is not None:
+        seed_comparison = Path(seed_comparison).resolve()
+        seed_record = read(seed_comparison / "comparison.json")
+        require(seed_record["frame_operator_directory"] == str(frame_directory.relative_to(ROOT)),
+                "comparison seed belongs to a different operator packet")
+        pins[seed_comparison / "comparison.json"] = sha(seed_comparison / "comparison.json")
+        pins[seed_comparison / "response.npz"] = seed_record["response_sha256"]
+        require(sha(seed_comparison / "response.npz") == seed_record["response_sha256"],
+                "changed comparison seed vectors")
+        with np.load(seed_comparison / "response.npz", allow_pickle=False) as data:
+            comparison_seeds = {key: data[key].copy() for key in data.files
+                                if key.endswith("_raw_force_n")}
+    with np.load(seed_directory / "frame-response.npz", allow_pickle=False) as saved:
         for gap_scale in (0.0, 1.0):
             for index, source in enumerate(baseline["cases"]):
                 case_id = source["case_id"]
                 seed = transform @ saved[case_id + "_force_n"]
                 seed[normals] = saved[case_id + "_bearing_mask"]
+                if comparison_seeds:
+                    tag = "_gap" if gap_scale else "_zero"
+                    seed = transform @ comparison_seeds[case_id + tag + "_raw_force_n"]
                 work = (
-                    baseline["dead_load_factor"] * W[:, 2 * index] + W[:, 2 * index + 1]
+                    baseline["dead_load_factor"] * W[:, 2 * index]
+                    + climber_load_scale * vertical_W[:, index]
+                    + horizontal_load_scale * (W[:, 2 * index + 1] - vertical_W[:, index])
                 )
                 certificate = None
                 try:
+                    live_e = (climber_load_scale * vertical_e[:, index]
+                              + horizontal_load_scale * (e[:, 2 * index + 1] - vertical_e[:, index]))
+                    load_e = baseline["dead_load_factor"] * e[:, 2 * index] + live_e
+                    if qp_seed:
+                        if case_id not in qp_seeds:
+                            try:
+                                seed_force, _, _, _, seed_report = frame.solve_case(
+                                    H, D, load_e, work, k, uni, normals, tangents,
+                                )
+                            except RuntimeError as seed_error:
+                                trace = seed_error.__traceback__
+                                seed_local = {}
+                                while trace is not None:
+                                    if trace.tb_frame.f_code is frame.solve_case.__code__:
+                                        seed_local = trace.tb_frame.f_locals
+                                    trace = trace.tb_next
+                                require("f" in seed_local,
+                                        "QP seeding stopped without a finite force guess")
+                                seed_force = seed_local["f"]
+                                seed_report = {
+                                    "status": "UNACCEPTED_NUMERICAL_SEED_ONLY",
+                                    "terminal_exception": str(seed_error),
+                                    "physical_acceptance_transferred": False,
+                                }
+                            require(seed_force.shape == k.shape and np.isfinite(seed_force).all(),
+                                    "invalid QP force guess")
+                            qp_seeds[case_id] = seed_force
+                            qp_seed_reports[case_id] = seed_report
+                        seed = qp_seeds[case_id]
                     f, q, a, audit = method.solve(
                         H,
                         D,
-                        baseline["dead_load_factor"] * e[:, 2 * index]
-                        + e[:, 2 * index + 1],
+                        load_e,
                         work,
                         k,
                         uni,
@@ -285,7 +367,7 @@ def run(
                         seed,
                         circular_clearance,
                     )
-                except ValueError as error:
+                except (ValueError, RuntimeError) as error:
                     # Retain a failed calculation without treating its last iterate
                     # as an accepted state or discarding completed earlier states.
                     trace = error.__traceback__
@@ -506,6 +588,18 @@ def run(
         "states": states,
         "modeled_mass_kg": baseline["modeled_mass_kg"],
         "dead_load_factor": baseline["dead_load_factor"],
+        "climber_load_scale": float(climber_load_scale),
+        "source_climber_weight_lb": 250.0,
+        "comparison_climber_weight_lb": 250.0 * float(climber_load_scale),
+        "horizontal_force_scaled_with_climber": horizontal_load_scale == climber_load_scale,
+        "horizontal_load_scale": float(horizontal_load_scale),
+        "comparison_horizontal_force_n": 300.0 * float(horizontal_load_scale),
+        "live_component_directory": str(live_components.relative_to(ROOT)) if live_components is not None else None,
+        "qp_zero_gap_seed_requested": qp_seed,
+        "qp_zero_gap_seed_reports": qp_seed_reports,
+        "seed_comparison_directory": str(seed_comparison.relative_to(ROOT)) if seed_comparison is not None else None,
+        "force_seed_directory": str(seed_directory.relative_to(ROOT)),
+        "frame_operator_directory": str(frame_directory.relative_to(ROOT)),
         "panel_screw_stiffness_n_per_mm": {
             "lateral_components": k[screw_lateral].tolist(),
             "withdrawal": k[screw_axial].tolist(),
@@ -534,7 +628,7 @@ def run(
             "Local interface fits report approximation residuals and are not total member/panel deflections.",
             "Bounded-seating states satisfy the original equilibrium and finite laws while retaining failed rank300/strict tangent stability flags; finite fixed-force seating bounds do not establish dynamic or complete-joint acceptance.",
         ],
-        "reviewed_geometry_changed": False,
+        "reviewed_geometry_changed": assessment.get("reviewed_geometry_changed", False),
         "hardware_selected": False,
         "complete_joint_acceptance": False,
         "physical_release": False,
@@ -548,6 +642,22 @@ def run(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--frame-directory", type=Path,
+                        help="explicit frozen operator packet; defaults to the preserved corner frame")
+    parser.add_argument("--seed-directory", type=Path,
+                        help="saved initial force guesses; defaults to the preserved corner frame")
+    parser.add_argument("--connection-inputs", type=Path,
+                        help="explicit receiver inventory for the frozen operator packet")
+    parser.add_argument("--climber-load-scale", type=float, default=1.0,
+                        help="scale the live-load column only, including its horizontal force")
+    parser.add_argument("--live-components", type=Path,
+                        help="authenticated vertical/live component packet for independent horizontal scaling")
+    parser.add_argument("--horizontal-load-scale", type=float,
+                        help="separate horizontal factor; defaults to the climber load scale")
+    parser.add_argument("--qp-seed", action="store_true",
+                        help="use the existing zero-gap QP for initial active forces; retain final circular-gap laws")
+    parser.add_argument("--seed-comparison", type=Path,
+                        help="saved same-operator force guesses for each zero/nominal state")
     parser.add_argument(
         "--service-joints",
         action="store_true",
@@ -594,4 +704,12 @@ if __name__ == "__main__":
             args.panel_lateral_stiffness,
             args.all_two_receiver_clearances,
             args.bounded_freeplay,
+            args.frame_directory,
+            args.seed_directory,
+            args.connection_inputs,
+            args.climber_load_scale,
+            args.live_components,
+            args.horizontal_load_scale,
+            args.qp_seed,
+            args.seed_comparison,
         )

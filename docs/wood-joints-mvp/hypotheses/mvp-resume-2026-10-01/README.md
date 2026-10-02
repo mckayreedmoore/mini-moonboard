@@ -67,8 +67,13 @@ representation using the official assembly's described four-per-edge,
 shared-corner pattern. The [mounting comparison](panel-attachment/official-pattern-comparison.md)
 and [force direction/load basis](panel-attachment/force-direction-and-load-basis.md)
 are now the first step: establish layout/backing and sharing fidelity before
-treating an edge keeper or revised panel fastener as necessary. No change is
-selected. [Panel records](panel-attachment/README.md)
+treating an edge keeper or revised panel fastener as necessary. The owner
+then authorized a [four-upper-screw relocation comparison](upper-corner-screw-layout/README.md).
+Its complete 250 lb dynamic calculation retains a 1871.251 N nominal axial
+peak, above the declared generic head references. Both 140 lb comparisons
+currently stop on contact branch cycling; partial states establish no full
+envelope. This child revision does not replace the current force source or
+transfer component acceptance. [Panel records](panel-attachment/README.md)
 and the [lateral comparison](panel-attachment/lateral-reference.md) retain
 assumptions and source detail. The [edge-restraint proposal](panel-attachment/edge-restraint-proposal.md)
 now specifies 20 mm corner margins on all four main panels. Its 48 static

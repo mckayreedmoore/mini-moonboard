@@ -21,7 +21,13 @@ before selection of a hardware correction. The source count is twelve screws
 per main panel, but the upper vertical-row endpoints sit 65.95 mm below the
 top-rail screw row, and the lower endpoints differ from the bottom-rail row
 by 76.9 mm. This is not the same rectangular shared-corner layout described
-by the owner. Its effect on compatible force sharing is not yet calculated.
+by the owner. The owner then authorized an upward screw move. The
+[four-upper-station comparison](upper-corner-screw-layout/README.md) completes
+all twelve 250 lb dynamic states and a saved-geometry backing check. Its
+nominal axial peak is 1871.251 N; the generic head comparison still exceeds
+unity. Both 140 lb scenarios stop on contact branch cycling after two
+zero-gap states. No new complete-joint acceptance or force-source adoption
+follows from this child calculation.
 The following six-joint sensitivity records remain preserved, with their own
 force scopes.
 

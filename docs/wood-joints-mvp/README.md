@@ -192,6 +192,14 @@ shared-corner arrangement before treating a hardware correction as necessary.
 See the [mounting comparison](hypotheses/mvp-resume-2026-10-01/panel-attachment/official-pattern-comparison.md)
 and [force direction/load basis](hypotheses/mvp-resume-2026-10-01/panel-attachment/force-direction-and-load-basis.md).
 
+The owner then authorized moving the upper screws upward. The
+[four-station relocation calculation](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/README.md)
+checks new backing and completes all twelve 250 lb dynamic states. Nominal
+axial peak is 1871.251 N, still above retained generic head references.
+Both 140 lb comparisons stop on contact branch cycling after two zero-gap
+states; no full lighter-climber envelope is established. This child revision
+does not replace the force source above or inherit its component checks.
+
 The [conditional assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
 already reconciles 50 transport bodies, 44 timber blanks, 104 bolt/nut stacks, 208 washers
 and 66 separate Hillman screws, with stock and assembly/removal scenarios. Full tool/harness
@@ -206,9 +214,10 @@ their source scope and do not replace this current reconciliation.
    its upper vertical-row endpoints are 65.95 mm below its two top-rail screws; the lower
    bottom-row endpoints likewise differ by 76.9 mm. Count alone does not establish the
    same mounting pattern. Retain the current conditional reference exceedances, purchased
-   Hillman policy and reviewed axes. Report any required axis/backing changes before
-   altering geometry, then calculate their compatible frame response. Keeper or replacement
-   fastener selection follows that comparison if a deficit remains.
+   Hillman policy and preserved reviewed axes. Four upper axes now have an
+   owner-authorized child calculation; finish the 140 lb contact-branch comparison
+   and applicable receiver/member recalculations before adopting that revision.
+   Keeper or replacement fastener selection follows the comparison if a deficit remains.
 2. Recalculate the top rail with the corrected panel load path. Retain the current 1.0392
    face shear/torsion exception and its short-transfer applicability limit until that result
    is resolved. Do not increase a material factor or infer a physical failure from the proxy.

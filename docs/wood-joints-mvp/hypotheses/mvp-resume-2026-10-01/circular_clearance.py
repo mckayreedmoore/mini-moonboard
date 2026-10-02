@@ -77,10 +77,24 @@ def clearance_offsets(f0, response, clearance):
         max_nfev=200,
     )
     error = float(np.max(abs(residual(answer.x))))
+    polish_evaluations = 0
+    if error > 1e-8:
+        # A small gradient in an ill-conditioned projection can stop before
+        # its declared residual is reached. Continue the same equations and
+        # keep the original acceptance tolerance.
+        polished = optimize.least_squares(
+            residual, answer.x, jac=jacobian, ftol=None, gtol=None,
+            xtol=1e-14, max_nfev=400,
+        )
+        polished_error = float(np.max(abs(residual(polished.x))))
+        polish_evaluations = int(polished.nfev)
+        if polished_error < error:
+            answer, error = polished, polished_error
     if error > 1e-8:
         raise ValueError(f"clearance projection did not converge: {error}")
     return answer.x, {
         "evaluations": int(answer.nfev),
+        "polish_evaluations": polish_evaluations,
         "seed_iterations": int(seed.nit),
         "seed_success": bool(seed.success),
         "seed_message": str(seed.message),
