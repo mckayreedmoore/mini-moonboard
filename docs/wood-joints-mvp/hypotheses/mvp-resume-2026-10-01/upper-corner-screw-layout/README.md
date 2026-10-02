@@ -188,7 +188,12 @@ Its largest smooth-shank steel proxy is 267.858 MPa, below the hypothetical
 92 ksi reference. Bore and tilted seat reactions are resolved under declared
 local laws; rigid washers supply no bending resistance and independent bolt
 poses do not establish common-host compatibility. The rail-pair calculation
-is the next bounded joint task.
+now supplies a [shared-rail response](upper-right-rail-pair.md): all six cases
+balance, with compatible heavy-case rail_2 tension rising to about 406 N and
+peak nominal steel proxy 188.629 MPa. It retains the frozen interface wrench,
+one K20 branch and sixteen original face cells. The cleat is fixed and washers
+are rigid, so complete joint/washer resistance remains unassigned. The side
+pair is the next bounded local transfer check.
 
 The [finite footprint/reaction bounds](upper-right-washer-contact-bounds.md)
 extend that screen without another solve. A deliberately selected wood

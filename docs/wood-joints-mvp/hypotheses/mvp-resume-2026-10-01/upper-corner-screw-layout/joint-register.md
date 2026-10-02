@@ -17,6 +17,9 @@ uses this exact force source for 72 local bolt/contact states. Its smooth-shank
 steel proxies remain below the declared 92 ksi hypothesis; seat concentration,
 rigid-washer transfer and independent host poses retain their explicit limits.
 It supplies no complete-joint acceptance or new register force allocation.
+Its [shared-rail extension](upper-right-rail-pair.md) balances all six interface
+wrenches with one rail pose and derives a different compatible bolt split.
+Those local reactions do not replace the register's saved frame forces.
 
 ## Census and force convention
 
@@ -55,6 +58,7 @@ transfers an earlier frame pass.
 | --- | --- | --- |
 | Remaining-bolt screen | 92 physical axes: 80 candidate and twelve retained; 576 plane states | 384 candidate and 72 retained single-shear references; 72 end-grain and 48 continuous-knee plane states have null single-shear resistances. |
 | Top-corner components | Eight axes; 48 simultaneous states; sixteen finished paths and sixteen washer seats | Declared lateral/group sensitivities and pressure/stress demands; no complete axial/lateral/contact solution or washer metal resistance. |
+| Upper-right shared rail | Two axes, sixteen face cells and six local interface-wrench states | One declared K20 branch with fixed cleat and rigid washers; no coupled side group, frame redistribution, washer metal resistance or complete joint acceptance. |
 | Bottom-corner components | Eight axes; 48 simultaneous states; sixteen paths and sixteen washer seats | Overlaps the remaining-bolt census; it is additional method coverage, not extra hardware or an independent joint acceptance. |
 | End-grain route | Twelve axes; 72 signed states | Conditional Fe-perpendicular and one Ceg application; adjusted detailing/group and complete transfer remain separate. |
 | Lower-left outer service | Four axes; 24 signed states | Fresh individual lateral references fill the remaining screen's exclusion; zero-force direction/reference fields remain null. |
