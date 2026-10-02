@@ -73,7 +73,19 @@ Its complete 250 lb dynamic calculation retains a 1871.251 N nominal axial
 peak, above the declared generic head references. Both 140 lb comparisons
 currently stop on contact branch cycling; partial states establish no full
 envelope. This child revision does not replace the current force source or
-transfer component acceptance. [Panel records](panel-attachment/README.md)
+transfer component acceptance. Its [fresh member replay](upper-corner-screw-layout/member-replay.md)
+now checks 264 balances and 55,176 cut traces: the normal/stability references
+remain below one, while top-rail face shear/torsion is 1.021524.
+The [fresh bolt replays](upper-corner-screw-layout/bolted-replay.md) cover
+top corners, the remaining-bolt methods, end-grain and lower service with
+that same source. The [head-reference correction](upper-corner-screw-layout/head-reference-basis.md)
+confirms that the quoted values are design allowances and explicitly include
+plywood grade/net thickness; even the favorable declared 1.6-duration
+scenario remains below the saved 1871.251 N demand. The
+[66-axis shop overlay](upper-corner-screw-layout/shop-addendum.md) records
+the four authorized moves without changing guide authority or drilling
+instructions. These child records preserve the current source above.
+[Panel records](panel-attachment/README.md)
 and the [lateral comparison](panel-attachment/lateral-reference.md) retain
 assumptions and source detail. The [edge-restraint proposal](panel-attachment/edge-restraint-proposal.md)
 now specifies 20 mm corner margins on all four main panels. Its 48 static

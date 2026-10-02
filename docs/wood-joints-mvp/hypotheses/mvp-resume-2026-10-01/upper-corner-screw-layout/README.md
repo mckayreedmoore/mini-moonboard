@@ -71,6 +71,28 @@ Relocated 250 lb nominal demand governs at the **unmoved** upper-left
 demand/reference is 2.97524. Relocation does not close this comparison.
 No physical failure is inferred and no 140 lb or 250 lb rating is established.
 
+The [head-reference basis](head-reference-basis.md) verifies the equations
+and corrects their plywood grade/species applicability. Quoted head values
+are ASD design allowances, not breaking loads. An explicit favorable
+connection-duration factor of 1.6 raises the largest reference to 1006.306 N;
+the saved 1871.251 N nominal demand still exceeds that comparison.
+
+The [fresh member replay](member-replay.md) restores all 264 balances and
+55,176 cut traces. Normal/stability references remain below one under the
+declared timber restraints; top-rail face shear/torsion improves to 1.021524,
+still above the unchanged reference. The [bolted component replay](bolted-replay.md)
+checks both top corners and the 92 axes included by the remaining-bolt method.
+These are fresh results for this force source, with their applicability
+limits retained. The separate end-grain and lower-service methods now also
+use these vectors: their 92 ksi individual lateral ratios peak at 0.052042
+and 0.007468. They do not close whole-joint qualification.
+
+The [shop overlay](shop-addendum.md) publishes all 66 axis coordinates with
+62 unchanged and four moved records, binding 172 saved geometry source
+pins. Body and hardware counts, purchased screw policy and the owner-selected
+pilot/countersink sizes remain unchanged. This child schedule is not adopted
+by the existing shop guide and does not direct physical drilling.
+
 The [load-origin worksheet](../panel-attachment/load-realism.md) traces
 250 lb × 2, 300 N and the 100 mm front-face lever. Dynamic and horizontal/lever
 choices remain illustrative sensitivities, not measured bounds on the

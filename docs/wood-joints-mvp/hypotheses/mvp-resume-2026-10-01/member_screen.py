@@ -561,7 +561,47 @@ def peak_trace(
     }
 
 
-def run(output, clearance):
+def apply_screw_station_exclusions(records, model):
+    """Exclude added screw station slices; preserve existing finished-solid holes.
+
+    These nominal shaft envelopes are analysis exclusions, never drilling
+    dimensions or a claim that the saved STEP contains the moved hole.
+    """
+    movements = model.get("owner_authorized_screw_movements", [])
+    if not movements:
+        return {}
+    setup_path = HERE / "upper-corner-screw-layout/rawlocal/attempt01/setup.json"
+    setup = read(setup_path)
+    stations = {row["axis_id"]: row["after"] for row in setup["before_after"]}
+    require(set(stations) == {row["axis_id"] for row in movements},
+            "geometry setup and revised screw stations differ")
+    for movement in movements:
+        axis = movement["axis_id"]
+        after, setup_axis = movement["after"], stations[axis]
+        point = np.array(after["origin_global_xyz_mm"])
+        direction = np.array(after["axis_global_xyz"])
+        require(np.max(abs(point - setup_axis["axis_origin_xyz_mm"])) < 1e-7
+                and np.max(abs(direction - setup_axis["axis_direction_xyz"])) < 1e-7
+                and after["receiver_member"] == setup_axis["receiver_member"],
+                "changed screw setup: " + axis)
+        record = records[after["receiver_member"]]
+        geometry = record["geometry"]
+        grain = np.array(geometry["axis"])
+        require(abs(grain @ direction) < 1e-7,
+                "new screw exclusion requires a transverse shaft")
+        station = float(grain @ (point - geometry["start"]))
+        radius = float(setup_axis["nominal_diameter_mm"]) / 2
+        record["bore_or_passage_intervals"].append({
+            "id": axis + "/owner_authorized_station_exclusion",
+            "lo": station - radius,
+            "hi": station + radius,
+            "radius_mm": radius,
+            "source": "nominal_screw_shaft_envelope_new_station_not_a_cut_or_bit_size",
+        })
+    return {setup_path: sha(setup_path)}
+
+
+def run(output, clearance, frame_directory=FRAME, summary_path=None):
     owned = [
         HERE / name for name in ("member-screen-attempt01", "member-screen-attempt02")
     ]
@@ -576,8 +616,14 @@ def run(output, clearance):
     output.mkdir(parents=True)
     (output / "producer.py.snapshot").write_bytes(Path(__file__).read_bytes())
     comparison = read(clearance / "comparison.json")
-    operator = read(FRAME / "operator-assessment.json")
-    baseline = read(FRAME / "frame-results.json")
+    operator = read(frame_directory / "operator-assessment.json")
+    seed_directory = ROOT / comparison.get("force_seed_directory", str(FRAME.relative_to(ROOT)))
+    baseline = read(seed_directory / "frame-results.json")
+    require(comparison.get("frame_operator_directory", str(FRAME.relative_to(ROOT)))
+            == str(frame_directory.relative_to(ROOT)), "response has another operator directory")
+    require(comparison.get("climber_load_scale", 1.0) == 1.0
+            and comparison.get("horizontal_load_scale", 1.0) == 1.0,
+            "member action replay requires the source full live load")
     selected = [s for s in comparison["states"] if s["gap_scale"] == 1.0]
     case_ids = [c["case_id"] for c in baseline["cases"]]
     require(
@@ -593,12 +639,12 @@ def run(output, clearance):
         ROOT / p: h
         for p, h in {**operator["source_sha256"], **comparison["source_sha256"]}.items()
     }
-    pins.update({FRAME / p: h for p, h in operator["output_sha256"].items()})
+    pins.update({frame_directory / p: h for p, h in operator["output_sha256"].items()})
     pins[clearance / "response.npz"] = comparison["response_sha256"]
     for path in (
         clearance / "comparison.json",
-        FRAME / "operator-assessment.json",
-        FRAME / "frame-results.json",
+        frame_directory / "operator-assessment.json",
+        seed_directory / "frame-results.json",
         accounting.MODEL,
         accounting.CONTACTS,
         accounting.MATERIALS,
@@ -623,7 +669,7 @@ def run(output, clearance):
         )
         pins[path] = digest
     model = copy.deepcopy(read(accounting.MODEL))
-    revised = read(FRAME / "model.json")
+    revised = read(frame_directory / "model.json")
     inputs = read(accounting.BASE / "reduced-static-attempt01/model-inputs.json")
     materials = read(accounting.MATERIALS)
     records, step_pins = geometry_sources(
@@ -635,6 +681,7 @@ def run(output, clearance):
         read(HERE / "top-corner-correction/proposal.json"),
     )
     pins.update(step_pins)
+    pins.update(apply_screw_station_exclusions(records, revised))
     accepted, refused, section_pins = saved_sections(records)
     pins.update(section_pins)
     for path, digest in pins.items():
@@ -654,7 +701,7 @@ def run(output, clearance):
             else [],
         },
     )
-    rows = read(FRAME / "row-identities.json")
+    rows = read(frame_directory / "row-identities.json")
     labels = [
         tuple(map(int, line.split(".")))
         for line in DOFS.read_text().splitlines()
@@ -685,7 +732,7 @@ def run(output, clearance):
             }
     arrays, cases, csv_rows = {}, [], []
     with (
-        np.load(FRAME / "operators.npz", allow_pickle=False) as operators,
+        np.load(frame_directory / "operators.npz", allow_pickle=False) as operators,
         np.load(clearance / "response.npz", allow_pickle=False) as response,
     ):
         D, F, W = [operators[k] for k in ("D", "F", "W")]
@@ -957,6 +1004,8 @@ def run(output, clearance):
         "status": "COMPLETE_CONDITIONAL_ELEMENTARY_MEMBER_SCREENS_NOT_QUALIFICATION",
         "producer_sha256": sha(Path(__file__)),
         "clearance_input_directory": str(clearance.relative_to(ROOT)),
+        "frame_operator_directory": str(frame_directory.relative_to(ROOT)),
+        "metadata_seed_directory": str(seed_directory.relative_to(ROOT)),
         "clearance_joint_hosts": comparison.get(
             "clearance_joint_hosts", accounting.BLOCK_HOSTS
         ),
@@ -1017,7 +1066,7 @@ def run(output, clearance):
         "review_run": False,
         "complete_member_acceptance": False,
         "complete_joint_acceptance": False,
-        "reviewed_geometry_changed": False,
+        "reviewed_geometry_changed": bool(revised.get("owner_authorized_screw_movements")),
         "physical_release": False,
         "output_sha256": {
             name: sha(output / name)
@@ -1031,11 +1080,11 @@ def run(output, clearance):
         },
     }
     write(output / "member-results.json", report)
-    document(output, report, records, csv_rows)
+    document(output, report, records, csv_rows, summary_path)
     print(report["status"], report["counts"], flush=True)
 
 
-def document(output, report, records, rows):
+def document(output, report, records, rows, summary_path=None):
     def governing(subset, scope, kind):
         key = scope + "_" + kind + "_governing_ratio"
         valid = [r for r in subset if r[key] is not None]
@@ -1173,12 +1222,16 @@ def document(output, report, records, rows):
             "The producer accepts `--clearance` (alias `--input-dir`) for a saved response directory and preserves an existing attempt. A changed calculation may use a new child under `member-screen-attempt01/` or `member-screen-attempt02/`. These small outputs remain active for parent integration. Earlier failed/frozen inputs and `/tmp` are preserved; no archive or prune operation is performed. Authority, other owners' files, staging and commits are outside this packet.",
         ]
     )
-    (HERE / "member-checks.md").write_text("\n".join(lines) + "\n")
+    (summary_path or HERE / "member-checks.md").write_text("\n".join(lines) + "\n")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=HERE / "member-screen-attempt01")
+    parser.add_argument("--frame", type=Path, default=FRAME,
+                        help="explicit physical operator directory for the selected response")
+    parser.add_argument("--summary", type=Path,
+                        help="optional maintained summary destination; default member-checks.md")
     parser.add_argument(
         "--clearance",
         "--input-dir",
@@ -1189,7 +1242,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
     output = args.output.resolve()
     try:
-        run(output, args.clearance.resolve())
+        run(output, args.clearance.resolve(), args.frame.resolve(),
+            args.summary.resolve() if args.summary else None)
     except Exception as error:
         if (
             output.is_dir()

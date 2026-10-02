@@ -9,6 +9,7 @@ allowance; the NDS does not supply a separate torsional allowable here.
 from __future__ import annotations
 
 import argparse
+import copy
 import csv
 import json
 import math
@@ -258,11 +259,24 @@ def peak(records, metric):
     return max(values, key=lambda r: r[metric]) if values else None
 
 
-def run(output, clearance=RESPONSE, members=MEMBER):
+def run(output, clearance=RESPONSE, members=MEMBER, frame_directory=FRAME):
     require(output == OUTPUT or OUTPUT in output.parents, "output outside owned packet")
     require(not output.exists() or set(output.iterdir()) == {output/"preliminary-bilateral-only"},
             "preserve saved attempt; choose an owned child for new inputs")
     pins = dict(PINS)
+    if frame_directory != FRAME:
+        comparison = read(clearance / "comparison.json")
+        require(comparison["frame_operator_directory"] == str(frame_directory.relative_to(ROOT)),
+                "response has another operator directory")
+        assessment = read(frame_directory / "operator-assessment.json")
+        for name in ("model.json", "row-identities.json", "operators.npz"):
+            pins.pop(FRAME / name)
+            path = frame_directory / name
+            expected = assessment["output_sha256"][name]
+            require(comparison["source_sha256"][str(path.relative_to(ROOT))] == expected,
+                    "response and physical operator assessment disagree")
+            pins[path] = expected
+        pins[frame_directory / "operator-assessment.json"] = sha(frame_directory / "operator-assessment.json")
     for path, digest in pins.items():
         require(sha(path) == digest, "changed consumed source: "+str(path))
     comparison_path, report_path = clearance/"comparison.json", members/"member-results.json"
@@ -284,7 +298,9 @@ def run(output, clearance=RESPONSE, members=MEMBER):
     require(report["producer_sha256"] == pins[members/"producer.py.snapshot"],
             "saved member producer snapshot does not match report")
     packet, reference_geometry = read(members/"geometry.json"), read(GEOMETRY_REFERENCE)
-    records, model, rows = packet["members"], read(FRAME/"model.json"), read(FRAME/"row-identities.json")
+    records, model, rows = packet["members"], read(frame_directory/"model.json"), read(frame_directory/"row-identities.json")
+    expected_records = copy.deepcopy(reference_geometry["members"])
+    pins.update(member.apply_screw_station_exclusions(expected_records, model))
     materials, frame_map = read(accounting.MATERIALS), read(FRAME_MAP)
     frame_bodies = {r["member_id"] for r in frame_map["members"]}
     require(len(frame_bodies) == 20 and len(records) == 44, "timber census changed")
@@ -294,12 +310,12 @@ def run(output, clearance=RESPONSE, members=MEMBER):
             "member packet has another force-state convention")
     require(report["clearance_input_directory"] == str(clearance.relative_to(ROOT)), "mixed responses")
     require(report["same_state_dead_load_factor"] == comparison["dead_load_factor"], "mixed dead loads")
-    for path in (comparison_path, clearance/"response.npz", FRAME/"model.json",
-                 FRAME/"row-identities.json", FRAME/"operators.npz", accounting.MATERIALS, FRAME_MAP):
+    for path in (comparison_path, clearance/"response.npz", frame_directory/"model.json",
+                 frame_directory/"row-identities.json", frame_directory/"operators.npz", accounting.MATERIALS, FRAME_MAP):
         digest = pins[path]
         key = str(path.relative_to(ROOT))
         require(report["source_sha256"].get(key) == digest, "saved actions have another source: "+key)
-        if path.parent == FRAME:
+        if path.parent == frame_directory:
             require(comparison["source_sha256"].get(key) == digest, "response has another frame: "+key)
     for path in (Path(__file__), Path(bottom.__file__), Path(member.__file__),
         Path(accounting.__file__), Path(frame_contract.__file__), ROOT/"fea/reinforced_timber_resistance.py",
@@ -309,7 +325,7 @@ def run(output, clearance=RESPONSE, members=MEMBER):
         require(path not in pins or pins[path] == digest, "fixed helper hash changed: "+str(path))
         pins[path] = digest
     for body, record in records.items():
-        frozen = reference_geometry["members"][body]
+        frozen = expected_records[body]
         for key in ("member_kind", "geometry", "current_finished_step", "current_finished_step_sha256",
                     "original_finished_step_sha256", "profile_planes", "bore_or_passage_intervals",
                     "recess_source", "replaced_original_bore_features"):
@@ -324,7 +340,7 @@ def run(output, clearance=RESPONSE, members=MEMBER):
     states, balances, summaries = [], [], []
     with (np.load(members/"action-section-arrays.npz", allow_pickle=False) as arrays,
           np.load(clearance/"response.npz", allow_pickle=False) as responses,
-          np.load(FRAME/"operators.npz", allow_pickle=False) as operators):
+          np.load(frame_directory/"operators.npz", allow_pickle=False) as operators):
         require(operators["D"].shape == (1888,300), "physical operator changed")
         for body in sorted(records, key=lambda b: (b not in frame_bodies,b)):
             record, g = records[body], records[body]["geometry"]
@@ -480,6 +496,7 @@ def run(output, clearance=RESPONSE, members=MEMBER):
         "status":status,"producer_sha256":pins[Path(__file__)],
         "clearance_input_directory":str(clearance.relative_to(ROOT)),
         "member_input_directory":str(members.relative_to(ROOT)),
+        "frame_operator_directory":str(frame_directory.relative_to(ROOT)),
         "source_comparison_sha256":pins[comparison_path],
         "source_response_sha256":pins[clearance/"response.npz"],
         "source_member_results_sha256":pins[report_path],
@@ -516,5 +533,7 @@ if __name__ == "__main__":
                         help="Saved frame comparison/response directory; defaults to the original all-outer packet")
     parser.add_argument("--members",type=Path,default=MEMBER,
                         help="Saved member actions/sections directory matching --clearance; defaults to all-outer")
+    parser.add_argument("--frame",type=Path,default=FRAME,
+                        help="physical operator directory matching the selected force and member packets")
     args=parser.parse_args()
-    run(args.output.resolve(), args.clearance.resolve(), args.members.resolve())
+    run(args.output.resolve(), args.clearance.resolve(), args.members.resolve(), args.frame.resolve())

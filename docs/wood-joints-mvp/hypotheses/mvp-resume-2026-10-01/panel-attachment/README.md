@@ -92,11 +92,13 @@ The declared sensitivities use plywood `G=.42/.50`, circular head diameter
 is the standard No. 10 Table L3 hypothesis; 17.25625 mm illustrates a 3 mm
 head-depth subtraction by the study's rule. The 14 mm value is a separate
 reduced-net-thickness sensitivity. These are not measured product ranges.
-Table 12.3.3B gives `.50` for Structural I/Marine and `.42` for other plywood
-or unknown species **in its dowel-bearing context**. The supporting head
-study instead models wood structural panels with effective `G=.50`. The
-head sweep treats both as explicit hypotheses; it does not establish actual
-panel density or transfer a bearing value into qualified head resistance.
+Table 12.2F footnote 2 explicitly directs the head calculation to Table
+12.3.3B: `.50` for Structural I/Marine and `.42` for other plywood or
+unknown species. These values have a normative path for the head reference;
+the actual grade/species assignment remains conditional. The research
+study's effective `G=.50` does not override that assignment. See the
+[corrected reference basis](../upper-corner-screw-layout/head-reference-basis.md)
+for the equation, geometry bounds, duration adjustment and design reduction.
 Actual panel grade is not claimed inspected. The selected countersink tool
 does not supply head diameter, head depth or remaining panel thickness.
 
@@ -105,6 +107,13 @@ The resulting unadjusted head references are **277–629 N**; the saved
 and 3 mm depth hypothesis, the references are 419 N at plywood `G=.42` and
 594 N at `.50`. Product applicability, net geometry, end-use adjustments,
 installation and simultaneous screw action remain conditional.
+
+These are unadjusted ASD design allowances, not observed breaking loads.
+The explicit favorable connection-duration scenario `CD=1.6` raises the
+largest retained 628.941 N reference to 1006.306 N. Duration is not selected
+by the word dynamic and does not remove the frame's separate 2× force
+assumption. The relocated 250 lb nominal demand of 1871.251 N still exceeds
+that favorable comparison. No physical test has failed.
 
 ## Does the existing geometry allow useful redistribution?
 

@@ -32,7 +32,6 @@ CLEARANCE_PINS = {
     },
 }
 PINS = {
-    HERE / "remaining_joint_screen.py": "4e24e439a258bcacc9e1701fb17c4c86ef7b4563734ea93bdfa69ca99d96b1d2",
     FEATURES: "33fff67eee4bc4e96ccef5703f6eebd0d4e004541c6114a4b1da4a5332b2f6eb",
     screen.local.actions_method.MATERIALS: "0f33ad8fd517673a4ebbed36c4a30c1cfe07e0d8163165bdc804af91d958fc5a",
     **screen.lateral.PINS,
@@ -45,8 +44,10 @@ CEG, D = 0.67, 6.35
 PROPOSED_GRAIN = np.array([0.0, 1.0, 0.0])
 
 
-def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
-    RESPONSE, OUTPUT = clearance.resolve(), output.resolve()
+def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT, *, frame_dir=FRAME,
+         metadata_seed_dir=None):
+    source = screen.bind_frame_sources(frame_dir, clearance, metadata_seed_dir)
+    FRAME, RESPONSE, OUTPUT = source["frame_dir"], source["clearance_dir"], output.resolve()
     require(
         OUTPUT.is_relative_to(HERE)
         and OUTPUT.relative_to(HERE).parts
@@ -54,17 +55,15 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
         "output must be inside an end-grain-route-attempt directory",
     )
     require(not OUTPUT.exists(), "preserve the recorded output; attempt already exists")
-    comparison = read(RESPONSE / "comparison.json")
-    force_scope = frame_contract.force_state_scope(comparison)
+    comparison, force_scope = source["comparison"], source["force_scope"]
     expected = CLEARANCE_PINS.get(RESPONSE.name, {})
     pins = {
         **PINS,
-        Path(frame_contract.__file__): sha(Path(frame_contract.__file__)),
+        **source["pins"],
+        Path(__file__): sha(Path(__file__)),
         RESPONSE / "comparison.json": expected.get("comparison.json", sha(RESPONSE / "comparison.json")),
         RESPONSE / "response.npz": expected.get("response.npz", comparison["response_sha256"]),
     }
-    for path in (FRAME / "model.json", FRAME / "row-identities.json"):
-        pins[path] = comparison["source_sha256"][str(path.relative_to(ROOT))]
     for path in (HERE / "lateral_reference.py", HERE / "top_corner_local.py"):
         pins[path] = comparison["source_sha256"][str(path.relative_to(ROOT))]
     require(comparison["response_sha256"] == pins[RESPONSE / "response.npz"], "mixed response")
@@ -76,7 +75,7 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
         ,
         "missing or failed saved frame states",
     )
-    inputs, model = read(screen.lateral.INPUTS), read(FRAME / "model.json")
+    inputs, model = read(screen.lateral.INPUTS), source["model"]
     require(inputs["revision_id"] == model["source_revision"], "mixed geometry revision")
     require(inputs["candidate"] == model["candidate"], "mixed candidate")
     members = {m["member_id"]: m["reduced_geometry_descriptor"] for m in inputs["members"] if m["member_kind"] != "panel"}
@@ -102,7 +101,7 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
     for path, digest in pins.items():
         require(sha(path) == digest, "changed consumed source: " + str(path))
 
-    rows = read(FRAME / "row-identities.json")
+    rows = source["rows"]
     require(len(rows) == 1888 and [r["row"] for r in rows] == list(range(1888)), "row order changed")
     planes, ties = defaultdict(list), {}
     for row in rows:
@@ -223,6 +222,9 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
                     knee_comparators.append({"case_id": case, "axis_id": axis, "block_force_y_n": float(block_shear[1]), "toward_end_distance_mm": float(ends[0] if block_shear[1] < 0 else ends[1])})
                 records.append(record)
 
+    require(len(records) == 72, "end-grain saved-state census changed")
+    for path, digest in pins.items():
+        require(sha(path) == digest, "source changed during calculation: " + str(path))
     peaks = [max((r for r in records if r["axis_id"] == axis), key=lambda r: r["V_over_Ceg_Z_92ksi"]) for axis in sorted(end_grain)]
     result = {
         "schema": "current_end_grain_method_and_stock_proposal/v1",
@@ -231,6 +233,9 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
         "status": "SUPPORTED_NDS_END_GRAIN_INDIVIDUAL_REFERENCE_WITH_UNRESOLVED_JOINT_DETAILING",
         "clearance_schema": comparison["schema"],
         "source_force_state_scope": force_scope,
+        "frame_directory": str(FRAME.relative_to(ROOT)),
+        "metadata_seed_directory": str(source["metadata_seed_dir"].relative_to(ROOT)),
+        "metadata_seed_scope": "Case order and inherited seed provenance only; no old force vectors or acceptance transferred.",
         "clearance_joint_hosts": comparison["clearance_joint_hosts"],
         "force_source": str((RESPONSE / "response.npz").relative_to(ROOT)),
         "force_key": "case_id + '_gap_raw_force_n'", "gap_scale": 1.0,
@@ -251,16 +256,20 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
             "Y-grain stock proposal changes six material orientations; saved forces are not forces for that changed stiffness model.",
             "3.5D/7D fallback comparisons are explicit parallel-component/conservative comparators, not an invented intermediate-angle NDS interpolation.",
             "Four continuous three-receiver companion bolts remain outside the two-member route.",
+            force_scope["force_scope"],
+            force_scope["motion_scope"],
         ],
         "native_solve_run": False, "frame_solve_run": False, "CAD_rebuilt": False,
-        "tests_run": False, "review_run": False, "reviewed_geometry_changed": False,
+        "tests_run": False, "review_run": False,
+        "reviewed_geometry_changed": bool(model.get("owner_authorized_screw_movements")),
         "material_or_stiffness_changed": False, "complete_joint_acceptance": False, "physical_release": False,
     }
     OUTPUT.mkdir()
     (OUTPUT / ".gitignore").write_text("*\n")
     screen.write_csv(OUTPUT / "six-case-signed-states.csv", records)
     screen.write_json(OUTPUT / "stock-grain-proposal.json", {"members": stock, "affected_axes": affected, "signed_parallel_component_comparators": knee_comparators})
-    result["output_sha256"] = {name: sha(OUTPUT / name) for name in ("six-case-signed-states.csv", "stock-grain-proposal.json")}
+    (OUTPUT / "producer.py.snapshot").write_bytes(Path(__file__).read_bytes())
+    result["output_sha256"] = {name: sha(OUTPUT / name) for name in ("six-case-signed-states.csv", "stock-grain-proposal.json", "producer.py.snapshot")}
     screen.write_json(OUTPUT / "route.json", result)
     print(f"{len(end_grain)} axes / {len(records)} states; supported end-grain component route, no complete joint acceptance.")
     print("Maximum V/(Ceg Z):", {k: round(v, 6) for k, v in result["maximum_ratios"].items()})
@@ -269,7 +278,12 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--frame", type=Path, default=FRAME,
+                        help="Physical operator directory; defaults to the historical corrected frame.")
+    parser.add_argument("--metadata-seed", type=Path,
+                        help="Case metadata directory; defaults to --frame. No seed force arrays are consumed.")
     parser.add_argument("--clearance", type=Path, default=DEFAULT_CLEARANCE)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     args = parser.parse_args()
-    main(args.clearance, args.output)
+    main(args.clearance, args.output, frame_dir=args.frame,
+         metadata_seed_dir=args.metadata_seed)

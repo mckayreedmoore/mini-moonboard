@@ -44,6 +44,15 @@ DEFAULT_CLEARANCE_PINS = {
     "comparison.json": "044d914af001b9d0e9f2895b4ddc95498b8f3cdf70d96a035bb7d274467a256d",
     "response.npz": "af5567aeef00df674bd8cfa1400e093174c0427bd9629f8afd9b15657df8451e",
 }
+SCREW_LAYOUT = HERE / "upper-corner-screw-layout"
+SCREW_REPLAY_PINS = {
+    SCREW_LAYOUT / "frame-250-attempt02/comparison.json": "bea6cbc330af3cdb20499d774a8f6bb24481d687c3150adb01ede18e4c1d50ca",
+    SCREW_LAYOUT / "frame-250-attempt02/response.npz": "0625196497b0dbc7b297724d7b9947f7c7c61bb282cd4d9681705629302c76c7",
+    SCREW_LAYOUT / "operators-attempt02/operator-assessment.json": "1a82cd2adbfece3942bf8c90f593f1e21a150adb65db625135aadd258fd5024a",
+    SCREW_LAYOUT / "operators-attempt02/model.json": "b5f9b87b70c4a9920372a3443a55e37dfe34351fb9ac8210b299c1360fb93626",
+    SCREW_LAYOUT / "operators-attempt02/row-identities.json": "cdf218780bdabdb8774174c79b37d7c9f554abc6be2e1f817999635e56868b27",
+    SCREW_LAYOUT / "operators-attempt02/operators.npz": "c9483639c69c0696b29f3fd69522e6c9a8e673aa7ce82277788103b14c955ba3",
+}
 PINS = {
     HERE
     / "bolt_demands.py": "b3b5d2676bfd7efc908e9411c1aeddd58b5483fc33dd206d263d99d8fb6ca479",
@@ -63,6 +72,98 @@ GAPS = {
     "RETAINED_WASHER": "The consumed retained register has no bound OD/ID/support treatment for its 1/2- and 3/8-inch washer families. The quarter-inch annulus is inapplicable; pressures and ratios stay null.",
 }
 sha, read, require = demands.sha, local.read, local.require
+
+
+def bind_frame_sources(frame_dir, clearance_dir, metadata_seed_dir=None):
+    """Authenticate physical operators and saved forces separately from case metadata.
+
+    The metadata seed response is hashed only as inherited provenance. No seed
+    force array is opened, and no seed case pass qualifies the replay forces.
+    """
+    frame_dir, clearance_dir = Path(frame_dir).resolve(), Path(clearance_dir).resolve()
+    if clearance_dir.name == "comparison.json":
+        clearance_dir = clearance_dir.parent
+    seed_dir = frame_dir if metadata_seed_dir is None else Path(metadata_seed_dir).resolve()
+    comparison = read(clearance_dir / "comparison.json")
+    assessment = read(frame_dir / "operator-assessment.json")
+    inputs = read(frame_dir / "inputs.json")
+    pins = {}
+
+    def pin(path, digest):
+        path = path.resolve()
+        require(path not in pins or pins[path] == digest, "conflicting source pin: " + str(path))
+        pins[path] = digest
+
+    pin(clearance_dir / "comparison.json", sha(clearance_dir / "comparison.json"))
+    pin(clearance_dir / "response.npz", comparison["response_sha256"])
+    if clearance_dir == GAP.resolve():
+        for name, digest in DEFAULT_CLEARANCE_PINS.items():
+            pin(clearance_dir / name, digest)
+    force_scope = frame_contract.force_state_scope(comparison)
+    require(assessment["status"] == "PASS_UPDATED_ELASTIC_FRAME_OPERATORS", "frame operator status changed")
+    require(inputs["source_sha256"] == assessment["source_sha256"], "frame input pins differ")
+    require(inputs["producer_sha256"] == assessment["producer_sha256"], "frame producer differs")
+    relocated = assessment["schema"] == "owner_authorized_screw_projection/v1"
+    if relocated:
+        require(frame_dir == (SCREW_LAYOUT / "operators-attempt02").resolve()
+                and clearance_dir == (SCREW_LAYOUT / "frame-250-attempt02").resolve()
+                and seed_dir == FRAME.resolve(), "four-screw replay requires the frozen operator, response and metadata seed directories")
+        for path, digest in SCREW_REPLAY_PINS.items():
+            pin(path, digest)
+        require(Path(comparison["frame_operator_directory"]).resolve() == frame_dir
+                and Path(comparison["force_seed_directory"]).resolve() == seed_dir,
+                "comparison operator/seed directory differs")
+    for receipt in (assessment, comparison):
+        for relative, digest in receipt["source_sha256"].items():
+            pin(ROOT / relative, digest)
+    for name, digest in assessment["output_sha256"].items():
+        path = frame_dir / name
+        require(comparison["source_sha256"].get(str(path.relative_to(ROOT))) == digest,
+                "response does not bind the physical operator output: " + name)
+        pin(path, digest)
+    pin(frame_dir / "operator-assessment.json", sha(frame_dir / "operator-assessment.json"))
+    pin(frame_dir / "inputs.json", sha(frame_dir / "inputs.json"))
+    snapshot = frame_dir / ("producer.py.snapshot" if relocated else "corner_frame.py.snapshot")
+    pin(snapshot, assessment["producer_sha256"])
+    pin(clearance_dir / "producer.py.snapshot", comparison["producer_sha256"])
+    seed = read(seed_dir / "frame-results.json")
+    require([c["case_id"] for c in seed["cases"]] == list(CASES), "metadata seed case order differs")
+    pin(seed_dir / "frame-results.json", sha(seed_dir / "frame-results.json"))
+    pin(seed_dir / "operator-assessment.json", seed["operator_assessment_sha256"])
+    pin(seed_dir / "frame-response.npz", seed["response_sha256"])
+    if seed_dir != frame_dir:
+        require(comparison["source_sha256"].get(str((seed_dir / "frame-results.json").relative_to(ROOT)))
+                == pins[seed_dir / "frame-results.json"], "unbound metadata seed")
+    else:
+        require(seed["operator_assessment_sha256"] == pins[frame_dir / "operator-assessment.json"],
+                "wrong baseline assessment")
+    pin(Path(frame_contract.__file__), sha(Path(frame_contract.__file__)))
+    pin(Path(__file__), sha(Path(__file__)))
+    for path, digest in pins.items():
+        require(sha(path) == digest, "changed frame source: " + str(path))
+    model, rows = read(frame_dir / "model.json"), read(frame_dir / "row-identities.json")
+    require(len(rows) == 1888 and [r["row"] for r in rows] == list(range(1888)), "raw row order changed")
+    if relocated:
+        old_rows = read(seed_dir / "row-identities.json")
+        axes = {f"round_panel_upper_{side}_{part}_4" for side in ("left", "right") for part in ("rim", "center")}
+        changed = [i for i, (old, new) in enumerate(zip(old_rows, rows, strict=True)) if old != new]
+        require(changed == assessment["changed_rows"] and len(changed) == 12,
+                "four-screw changed-row census differs")
+        require({rows[i]["row_id"].split("/")[0] for i in changed} == axes,
+                "a bolt/contact or other screw station changed")
+        for i in changed:
+            old, new = old_rows[i], rows[i]
+            require(new["previous_ownership"] == old["ownership"]
+                    and new["row_id"] == old["row_id"] and new["law"] == old["law"],
+                    "changed station identity/law differs")
+        old_model = read(seed_dir / "model.json")
+        require(all(model[k] == old_model[k] for k in ("body_names", "body_nodes", "physical_node_coordinates_mm", "proposed_corner_axes")),
+                "frame geometry changed beyond screw stations")
+    return {
+        "frame_dir": frame_dir, "clearance_dir": clearance_dir, "metadata_seed_dir": seed_dir,
+        "comparison": comparison, "assessment": assessment, "metadata": seed,
+        "model": model, "rows": rows, "pins": pins, "force_scope": force_scope,
+    }
 
 
 def load_module(path, name):
@@ -116,91 +217,37 @@ def state_ref(record):
     return {key: record[key] for key in keys}
 
 
-def main(clearance, output):
-    global GAP, OUTPUT
-    GAP = clearance.resolve()
-    if GAP.name == "comparison.json":
-        GAP = GAP.parent
-    OUTPUT = output.resolve()
+def main(clearance, output, *, frame_dir=FRAME, metadata_seed_dir=None):
+    source = bind_frame_sources(frame_dir, clearance, metadata_seed_dir)
+    FRAME, GAP, OUTPUT = source["frame_dir"], source["clearance_dir"], output.resolve()
     require(
         OUTPUT.is_relative_to(HERE)
-        and OUTPUT.relative_to(HERE)
-        .parts[0]
-        .startswith("remaining-joint-screen-attempt"),
-        "output must be inside an owned remaining-joint-screen-attempt directory",
+        and (OUTPUT.relative_to(HERE).parts[0].startswith("remaining-joint-screen-attempt")
+             or OUTPUT.is_relative_to(SCREW_LAYOUT / "bolted-replay-results")),
+        "output must be inside an owned remaining-joint-screen-attempt or bolted-replay-results directory",
     )
     require(not OUTPUT.exists(), "preserve the recorded attempt; output already exists")
-    PINS[GAP / "comparison.json"] = sha(GAP / "comparison.json")
-    comparison = read(GAP / "comparison.json")
-    PINS[GAP / "response.npz"] = comparison["response_sha256"]
-    if GAP == (HERE / "both-corner-frame-attempt01").resolve():
-        require(
-            all(
-                PINS[GAP / name] == digest
-                for name, digest in DEFAULT_CLEARANCE_PINS.items()
-            ),
-            "default clearance source changed",
-        )
+    pins = dict(PINS)
+    for path, digest in source["pins"].items():
+        require(path not in pins or pins[path] == digest, "conflicting source pin")
+        pins[path] = digest
+    comparison = source["comparison"]
     clearance_scopes = {
         "both_top_corner_corrected_frame_clearance/v1": "both top outer corners",
         "coupled_top_and_service_frame_clearance/v1": "both top outer corners and both upper/lower left outer service cleats",
         "coupled_outer_corner_frame_clearance/v1": "both top and bottom outer corners and both upper/lower left outer service cleats",
         "coupled_two_receiver_frame_clearance/v1": "all 88 independent two-receiver candidate bolts; four continuous candidate bolts and twelve retained bolts remain at zero clearance",
     }
-    require(
-        comparison["schema"] in clearance_scopes, "unknown clearance source contract"
-    )
+    require(comparison["schema"] in clearance_scopes, "unknown clearance source contract")
     clearance_scope = clearance_scopes[comparison["schema"]]
-    force_scope = frame_contract.force_state_scope(comparison)
-    PINS[Path(frame_contract.__file__)] = sha(Path(frame_contract.__file__))
-    assessment, baseline = (
-        read(FRAME / "operator-assessment.json"),
-        read(FRAME / "frame-results.json"),
-    )
-    frame_inputs = read(FRAME / "inputs.json")
-    require(
-        frame_inputs["source_sha256"] == assessment["source_sha256"],
-        "frame input pins differ",
-    )
-    require(
-        baseline["operator_assessment_sha256"]
-        == sha(FRAME / "operator-assessment.json"),
-        "wrong baseline assessment",
-    )
-    require(
-        assessment["status"] == "PASS_UPDATED_ELASTIC_FRAME_OPERATORS",
-        "frame operator status changed",
-    )
-    for relative, digest in comparison["source_sha256"].items():
-        path = ROOT / relative
-        require(path not in PINS or PINS[path] == digest, "conflicting source pin")
-        PINS[path] = digest
-    for name, digest in assessment["output_sha256"].items():
-        require(PINS[FRAME / name] == digest, "gap/baseline frame binding differs")
-    require(
-        PINS[FRAME / "frame-response.npz"] == baseline["response_sha256"],
-        "baseline response differs",
-    )
-    require(
-        sha(FRAME / "corner_frame.py.snapshot")
-        == assessment["producer_sha256"]
-        == frame_inputs["producer_sha256"],
-        "frame producer snapshot differs",
-    )
-    require(
-        sha(GAP / "producer.py.snapshot") == comparison["producer_sha256"],
-        "gap producer snapshot differs",
-    )
-    PINS[FRAME / "inputs.json"] = sha(FRAME / "inputs.json")
-    PINS[FRAME / "corner_frame.py.snapshot"] = assessment["producer_sha256"]
-    PINS[GAP / "producer.py.snapshot"] = comparison["producer_sha256"]
+    force_scope = source["force_scope"]
     retained = read(RETAINED)
     retained_method = RETAINED_PACKET / "produce.py"
-    PINS[retained_method] = retained["producer_sha256"]
+    pins[retained_method] = retained["producer_sha256"]
     nds_path = ROOT / "mini_moonboard/nds_2024_multi_member_bolt_yield.py"
-    PINS[nds_path] = retained["source_pins"][str(nds_path.relative_to(ROOT))]["sha256"]
-    PINS[Path(__file__)] = sha(Path(__file__))
-    for path, digest in PINS.items():
+    pins[nds_path] = retained["source_pins"][str(nds_path.relative_to(ROOT))]["sha256"]
+    pins[Path(__file__)] = sha(Path(__file__))
+    for path, digest in pins.items():
         require(sha(path) == digest, "changed source: " + str(path))
     require(len(comparison["states"]) == 12, "incomplete zero/gap source census")
     require(
@@ -208,7 +255,7 @@ def main(clearance, output):
         == {(c, g) for c in CASES for g in (0.0, 1.0)},
         "missing/duplicate/failed source frame state",
     )
-    model, inputs = read(FRAME / "model.json"), read(lateral.INPUTS)
+    model, inputs = source["model"], read(lateral.INPUTS)
     require(
         model["source_revision"]
         == inputs["revision_id"]
@@ -242,7 +289,7 @@ def main(clearance, output):
         "ownership partition changed",
     )
     included = set(bolts) - excluded_top - excluded_worker
-    rows = read(FRAME / "row-identities.json")
+    rows = source["rows"]
     require(
         len(rows) == 1888 and [r["row"] for r in rows] == list(range(1888)),
         "raw row order changed",
@@ -293,7 +340,7 @@ def main(clearance, output):
     )
     support = read(SUPPORT)
     require(
-        support["input_pins"]["reduced model inputs"]["sha256"] == PINS[lateral.INPUTS],
+        support["input_pins"]["reduced model inputs"]["sha256"] == pins[lateral.INPUTS],
         "seat/model source differs",
     )
     partial = next(
@@ -707,7 +754,7 @@ def main(clearance, output):
         and counts["duties"] == 46,
         "incomplete screen census",
     )
-    for path, digest in PINS.items():
+    for path, digest in pins.items():
         require(sha(path) == digest, "source changed during arithmetic: " + str(path))
     OUTPUT.mkdir(parents=True)
     (OUTPUT / ".gitignore").write_text("*\n")
@@ -717,7 +764,7 @@ def main(clearance, output):
     write_json(
         OUTPUT / "source-pins.json",
         {
-            "rechecked_sha256": {str(p): d for p, d in sorted(PINS.items())},
+            "rechecked_sha256": {str(p): d for p, d in sorted(pins.items())},
             "frame_source_pins": comparison["source_sha256"],
             "retained_geometry_inherited_pins": retained["rechecked_load_input_pins"],
             "retained_geometry_pin_recheck": "Frozen geometry register reused; only consumed same-state helpers and frame source bindings are rechecked here, not its earlier native-response/acceptance pipeline.",
@@ -729,16 +776,19 @@ def main(clearance, output):
         "candidate": model["candidate"],
         "source_revision": model["source_revision"],
         "development_revision": model["development_revision"],
-        "source_comparison_sha256": PINS[GAP / "comparison.json"],
-        "source_response_sha256": PINS[GAP / "response.npz"],
+        "source_comparison_sha256": pins[GAP / "comparison.json"],
+        "source_response_sha256": pins[GAP / "response.npz"],
         "source_comparison_path": str((GAP / "comparison.json").relative_to(ROOT)),
         "source_response_path": str((GAP / "response.npz").relative_to(ROOT)),
         "source_clearance_schema": comparison["schema"],
+        "frame_operator_directory": str(FRAME.relative_to(ROOT)),
+        "metadata_seed_directory": str(source["metadata_seed_dir"].relative_to(ROOT)),
+        "metadata_seed_scope": "Case order and inherited seed provenance only; no old force vectors or acceptance transferred.",
         "source_force_state_scope": force_scope,
         "source_clearance_scope": clearance_scope,
         "source_force_key": "case_id + '_gap_raw_force_n'",
         "gap_scale": 1.0,
-        "producer_sha256": PINS[Path(__file__)],
+        "producer_sha256": pins[Path(__file__)],
         "python_version": sys.version.split()[0],
         "numpy_version": np.__version__,
         "counts": counts,
@@ -800,7 +850,7 @@ def main(clearance, output):
         "native_solve_run": False,
         "frame_solve_run": False,
         "hardware_selected": False,
-        "reviewed_geometry_changed": False,
+        "reviewed_geometry_changed": bool(model.get("owner_authorized_screw_movements")),
         "complete_joint_acceptance": False,
         "physical_release": False,
     }
@@ -826,11 +876,15 @@ if __name__ == "__main__":
         default=GAP,
         help="Saved clearance directory or its comparison.json; no solve is run.",
     )
+    parser.add_argument("--frame", type=Path, default=FRAME,
+                        help="Physical operator directory; defaults to the historical corrected frame.")
+    parser.add_argument("--metadata-seed", type=Path,
+                        help="Case metadata directory; defaults to --frame. No seed force arrays are consumed.")
     parser.add_argument(
         "--output",
         type=Path,
         default=OUTPUT,
-        help="Fresh directory under an owned remaining-joint-screen-attempt path.",
+        help="Fresh owned remaining-joint-screen-attempt or upper-corner-screw-layout/bolted-replay-results child.",
     )
     args = parser.parse_args()
-    main(args.clearance, args.output)
+    main(args.clearance, args.output, frame_dir=args.frame, metadata_seed_dir=args.metadata_seed)

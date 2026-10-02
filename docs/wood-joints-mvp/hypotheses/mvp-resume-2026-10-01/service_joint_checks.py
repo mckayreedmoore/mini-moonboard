@@ -7,6 +7,7 @@ from pathlib import Path
 
 import frame_state_contract as frame_contract
 import numpy as np
+import remaining_joint_screen as screen
 import right_corner_clearance as method
 import top_corner_actions as accounting
 
@@ -22,24 +23,24 @@ BLOCK = "left_service_outer_lower_cleat"
 sha, read, require = accounting.sha, accounting.read, accounting.require
 
 
-def run(output, clearance=DEFAULT_CLEARANCE):
+def run(output, clearance=DEFAULT_CLEARANCE, *, frame_dir=FRAME,
+        metadata_seed_dir=None):
+    output = output.resolve()
+    require(output.is_relative_to(HERE)
+            and output.relative_to(HERE).parts
+            and output.relative_to(HERE).parts[0].startswith("service-joint-current-attempt"),
+            "output must be inside an owned service-joint-current-attempt directory")
     require(not output.exists(), "preserve existing service calculation")
-    clearance = clearance.resolve()
-    if clearance.name == "comparison.json":
-        clearance = clearance.parent
-    comparison_path = clearance / "comparison.json"
-    comparison = read(comparison_path)
-    force_scope = frame_contract.force_state_scope(comparison)
+    binding = screen.bind_frame_sources(frame_dir, clearance, metadata_seed_dir)
+    FRAME, clearance = binding["frame_dir"], binding["clearance_dir"]
+    comparison, force_scope = binding["comparison"], binding["force_scope"]
     inputs = read(INPUTS)
-    rows, model = read(FRAME / "row-identities.json"), read(FRAME / "model.json")
-    pins = {ROOT / p: h for p, h in comparison["source_sha256"].items()}
+    rows, model = binding["rows"], binding["model"]
+    require(inputs["revision_id"] == model["source_revision"], "mixed geometry revision")
+    require(inputs["candidate"] == model["candidate"], "mixed candidate")
+    pins = dict(binding["pins"])
     pins.update(
         {
-            comparison_path: sha(comparison_path),
-            clearance / "response.npz": comparison["response_sha256"],
-            FRAME / "row-identities.json": sha(FRAME / "row-identities.json"),
-            FRAME / "model.json": sha(FRAME / "model.json"),
-            FRAME / "operators.npz": sha(FRAME / "operators.npz"),
             INPUTS: sha(INPUTS),
             Path(method.__file__): sha(Path(method.__file__)),
             Path(method.lateral.__file__): sha(Path(method.lateral.__file__)),
@@ -80,6 +81,7 @@ def run(output, clearance=DEFAULT_CLEARANCE):
                 "failed frame state",
             )
             raw = response[source["case_id"] + "_gap_raw_force_n"]
+            require(raw.shape == (1888,) and np.isfinite(raw).all(), "invalid saved force")
             for plane_id, components in sorted(planes.items()):
                 axis = plane_id.rsplit("/", 1)[0]
                 connection = connections[axis]
@@ -153,6 +155,15 @@ def run(output, clearance=DEFAULT_CLEARANCE):
         require(sha(path) == digest, "source changed during calculation")
     report = {
         "schema": "current_lower_service_individual_reference/v1",
+        "frame_directory": str(FRAME.relative_to(ROOT)),
+        "metadata_seed_directory": str(binding["metadata_seed_dir"].relative_to(ROOT)),
+        "metadata_seed_scope": "Case order and inherited seed provenance only; no old force vectors or acceptance transferred.",
+        "force_source": str((clearance / "response.npz").relative_to(ROOT)),
+        "force_key": "case_id + '_gap_raw_force_n'",
+        "gap_scale": 1.0,
+        "case_ids": [s["case_id"] for s in nominal_sources],
+        "axis_count": len(planes),
+        "state_count": len(states),
         "states": states,
         "force_state_scope": force_scope,
         "source_sha256": {str(p.relative_to(ROOT)): h for p, h in pins.items()},
@@ -166,11 +177,17 @@ def run(output, clearance=DEFAULT_CLEARANCE):
             "References reuse the existing six-mode smooth-quarter-inch DF-L SG0.50 single-shear arithmetic; Fyb45/92/106ksi are explicit conditional scenarios.",
             "These unadjusted individual lateral references do not establish group/splitting, simultaneous steel interaction, washer transfer, actual hardware or complete joint acceptance.",
         ],
-        "reviewed_geometry_changed": False,
+        "reviewed_geometry_changed": bool(model.get("owner_authorized_screw_movements")),
+        "native_solve_run": False,
+        "frame_solve_run": False,
+        "CAD_rebuilt": False,
+        "tests_run": False,
+        "review_run": False,
         "complete_joint_acceptance": False,
         "physical_release": False,
     }
     output.mkdir()
+    (output / ".gitignore").write_text("*\n")
     (output / "result.json").write_text(
         json.dumps(report, indent=2, allow_nan=False) + "\n"
     )
@@ -188,7 +205,12 @@ def run(output, clearance=DEFAULT_CLEARANCE):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--frame", type=Path, default=FRAME,
+                        help="Physical operator directory; defaults to the historical corrected frame.")
+    parser.add_argument("--metadata-seed", type=Path,
+                        help="Case metadata directory; defaults to --frame. No seed force arrays are consumed.")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--clearance", type=Path, default=DEFAULT_CLEARANCE)
     args = parser.parse_args()
-    run(args.output, args.clearance)
+    run(args.output, args.clearance, frame_dir=args.frame,
+        metadata_seed_dir=args.metadata_seed)

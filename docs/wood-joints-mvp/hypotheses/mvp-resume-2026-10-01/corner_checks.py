@@ -15,6 +15,7 @@ from pathlib import Path
 import cadquery as cq
 import frame_state_contract as frame_contract
 import numpy as np
+import remaining_joint_screen as replay
 import top_corner_actions as accounting
 import top_corner_correction as correction
 import top_corner_local as local
@@ -66,52 +67,24 @@ def lateral_reference(force, diameter, lengths, grains, fyb):
     }
 
 
-def run(frame_dir, clearance_dir, output):
+def run(frame_dir, clearance_dir, output, *, metadata_seed_dir=None):
     frame_dir, clearance_dir, output = (
         path.resolve() for path in (frame_dir, clearance_dir, output)
     )
-    operator = read(frame_dir / "operator-assessment.json")
-    results = read(frame_dir / "frame-results.json")
-    require(
-        all(
-            c["status"] == "PASS_STATIC_SCENARIO_BALANCE_AND_LAWS"
-            for c in results["cases"]
-        ),
-        "incomplete revised frame",
-    )
-    require(
-        sha(frame_dir / "frame-response.npz") == results["response_sha256"],
-        "changed revised response",
-    )
-    clearance = read(clearance_dir / "comparison.json")
-    require(
-        sha(clearance_dir / "response.npz") == clearance["response_sha256"],
-        "changed clearance response",
-    )
+    source = replay.bind_frame_sources(frame_dir, clearance_dir, metadata_seed_dir)
+    clearance_dir = source["clearance_dir"]
+    results, clearance = source["metadata"], source["comparison"]
     selected = [s for s in clearance["states"] if s["gap_scale"] == 1.0]
     require(
         [s["case_id"] for s in selected] == [s["case_id"] for s in results["cases"]],
         "clearance case identity mismatch",
     )
-    force_scope = frame_contract.force_state_scope(clearance)
-    for name, digest in clearance["source_sha256"].items():
-        require(sha(ROOT / name) == digest, "changed clearance source: " + name)
-    for name, digest in operator["output_sha256"].items():
-        require(sha(frame_dir / name) == digest, "changed revised model artifact")
-    output.mkdir(exist_ok=False)
-    pins = {
-        frame_dir / name: sha(frame_dir / name)
-        for name in [
-            "operator-assessment.json",
-            "frame-results.json",
-            "frame-response.npz",
-            "operators.npz",
-            "model.json",
-            "row-identities.json",
-        ]
-    }
-    pins.update({ROOT / p: h for p, h in operator["source_sha256"].items()})
-    pins.update({ROOT / p: h for p, h in clearance["source_sha256"].items()})
+    force_scope = source["force_scope"]
+    require(not output.exists(), "preserve the recorded attempt; output already exists")
+    if source["assessment"]["schema"] == "owner_authorized_screw_projection/v1":
+        require(output.is_relative_to(replay.SCREW_LAYOUT / "bolted-replay-results"),
+                "four-screw output must be inside owned bolted-replay-results")
+    pins = dict(source["pins"])
     pins.update(local.PINS)
     pins[Path(frame_contract.__file__)] = sha(Path(frame_contract.__file__))
     for path in [
@@ -193,12 +166,12 @@ def run(frame_dir, clearance_dir, output):
         material["E"] * 38.1 * (3 * 6.35) / 25.4**2,
     )
     cdelta_rail = 43.35 / (7 * 6.35)
-    model_doc = read(frame_dir / "model.json")
+    model_doc = source["model"]
     model = read(accounting.MODEL)
     model["nodes"] = model_doc["physical_node_coordinates_mm"]
     for block in accounting.BLOCK_HOSTS:
         model["body_geometry"][block]["geometry_record"].update(members[block])
-    rows = read(frame_dir / "row-identities.json")
+    rows = source["rows"]
     names = model_doc["body_names"]
     # Native DOF order is retained by the corrected model's physical operators.
     from corner_frame import module
@@ -211,6 +184,10 @@ def run(frame_dir, clearance_dir, output):
     labels = sparse_parser.parse_dof_file(
         accounting.BASE
         / "current-frame-pure-solid-matrix-export-native-attempt01/model.dof"
+    )
+    pins[Path(sparse_parser.__file__)] = sha(Path(sparse_parser.__file__))
+    pins[accounting.BASE / "current-frame-pure-solid-matrix-export-native-attempt01/model.dof"] = sha(
+        accounting.BASE / "current-frame-pure-solid-matrix-export-native-attempt01/model.dof"
     )
     old_contact = read(accounting.CONTACTS)
     patches = {
@@ -300,9 +277,15 @@ def run(frame_dir, clearance_dir, output):
         np.load(clearance_dir / "response.npz", allow_pickle=False) as response,
     ):
         D, F = operators["D"], operators["F"]
+        require(D.shape == (len(rows), 6 * len(names))
+                and F.shape == (len(labels), 2 * len(results["cases"]))
+                and np.isfinite(D).all() and np.isfinite(F).all(),
+                "invalid physical action/load operators")
         for i, result in enumerate(results["cases"]):
             case_id = result["case_id"]
             force = response[case_id + "_gap_raw_force_n"]
+            require(force.shape == (len(rows),) and np.isfinite(force).all(),
+                    "invalid nominal saved force vector")
             maps = []
             for column in (2 * i, 2 * i + 1):
                 mapping = {}
@@ -315,7 +298,7 @@ def run(frame_dir, clearance_dir, output):
             case = {
                 "gravity_nodal_map": maps[0],
                 "climber_nodal_map": maps[1],
-                "dead_load_factor": results["dead_load_factor"],
+                "dead_load_factor": clearance.get("dead_load_factor", results["dead_load_factor"]),
             }
             actions_by_body = {}
             for body in shapes:
@@ -485,6 +468,19 @@ def run(frame_dir, clearance_dir, output):
         require(sha(path) == digest, "input changed during corner checks")
     report = {
         "schema": "corrected_frame_corner_component_references/v1",
+        "candidate": model_doc["candidate"],
+        "source_revision": model_doc["source_revision"],
+        "development_revision": model_doc["development_revision"],
+        "frame_operator_directory": str(frame_dir.relative_to(ROOT)),
+        "metadata_seed_directory": str(source["metadata_seed_dir"].relative_to(ROOT)),
+        "metadata_seed_scope": "Case order and inherited seed provenance only; no old force vectors or acceptance transferred.",
+        "source_comparison_path": str((clearance_dir / "comparison.json").relative_to(ROOT)),
+        "source_comparison_sha256": pins[clearance_dir / "comparison.json"],
+        "source_response_path": str((clearance_dir / "response.npz").relative_to(ROOT)),
+        "source_response_sha256": pins[clearance_dir / "response.npz"],
+        "source_force_key": "case_id + '_gap_raw_force_n'",
+        "gap_scale": 1.0,
+        "source_frame_limits": clearance["limits"],
         "source_force_state_scope": force_scope,
         "producer_sha256": sha(Path(__file__)),
         "source_sha256": {str(p.relative_to(ROOT)): h for p, h in pins.items()},
@@ -516,11 +512,13 @@ def run(frame_dir, clearance_dir, output):
             "Host splitting references are EN1995-1-1 Eq8.4 characteristic values, both edges; they are not adopted design resistances.",
             "Washer metal screen assumes uniform annulus pressure, minimum catalog thickness, and 10mm rail/12mm side flat bearing circles. It reports required bending stress, not a material capacity or verified head footprint.",
             "Direct steel stress proxies exclude bolt bending; the lateral yield references include dowel bending separately. A coupled axial/lateral steel interaction is not qualified.",
-            "Source frame retains parametric panel screws, modeled gaps at both top corners, no preload/friction and conditional gross member stiffness. Other bolted joints have zero lateral gap.",
+            "Source frame retains parametric panel screws, no preload/friction and conditional gross member stiffness. Clearance planes and bounded seating follow the bound comparison receipt; no earlier frame state or stability pass is transferred.",
         ],
         "complete_joint_acceptance": False,
         "physical_release": False,
-        "reviewed_geometry_changed": False,
+        "reviewed_geometry_changed": bool(model_doc.get("owner_authorized_screw_movements")),
+        "native_solve_run": False,
+        "frame_solve_run": False,
     }
     require(
         report["counts"]
@@ -534,6 +532,8 @@ def run(frame_dir, clearance_dir, output):
         },
         "incomplete corner checks",
     )
+    output.mkdir(parents=True, exist_ok=False)
+    (output / ".gitignore").write_text("*\n")
     (output / "component-results.json").write_text(
         json.dumps(report, indent=2, allow_nan=False) + "\n"
     )
@@ -556,6 +556,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--frame", type=Path, required=True)
     parser.add_argument("--clearance", type=Path, required=True)
+    parser.add_argument("--metadata-seed", type=Path,
+                        help="Case metadata directory; defaults to --frame. No seed force arrays are consumed.")
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     lock = ROOT / "docs/wood-joints-mvp/luna-max-native-run-ledger.lock"
@@ -565,4 +567,4 @@ if __name__ == "__main__":
             read(lock.with_suffix(".json"))["slot"]["state"] == "idle",
             "shared analysis slot occupied",
         )
-        run(args.frame, args.clearance, args.output)
+        run(args.frame, args.clearance, args.output, metadata_seed_dir=args.metadata_seed)
