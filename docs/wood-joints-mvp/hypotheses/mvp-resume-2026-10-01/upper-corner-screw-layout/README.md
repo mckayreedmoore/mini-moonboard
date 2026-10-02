@@ -25,6 +25,28 @@ Lower-panel stations are unchanged. This addresses one recorded layout
 difference; it does not establish equivalence to the manufacturer's backing,
 hardware or loads. See the [mounting comparison](../panel-attachment/official-pattern-comparison.md).
 
+### Successful network retry
+
+On October 2, a direct HTTP retry reached the owner's
+[YouTube reference](https://www.youtube.com/watch?v=wDB6Lg4x_lM&t=99s)
+and its official oEmbed metadata. The video is MoonClimbing's *The Best
+Boulders on the Mini MoonBoard (Highly Requested!)*. The parent inspected
+the supplied storyboard sheet covering 90–170 seconds, including the frames
+at 90 and 100 seconds around the requested time. This is a climbing
+demonstration. The 320×180 frames show the panel front and timber frame,
+but do not establish a complete screw census, exact head dimensions or
+rear backing. No video load measurement or hardware capacity is inferred.
+The earlier fetch failure in the mounting worksheet is a retained attempt,
+superseded by this successful limited inspection.
+
+The downloaded sheet is preserved at
+`/tmp/mini-moonboard-official-video-90-170s-storyboard.jpg`, SHA-256
+`cd5773c1340937bee5f3cce75e10d3285c1531b9b8f70e34fbd57786f0313e52`.
+The official [Mini DIY build guide](https://moonclimbing.com/media/moonboard-pdf/How-to-build-a-MoonBoard_v2.3.pdf)
+specifies four upright supports at 813 mm spacing and horizontal 18 mm
+plywood braces at the indicated panel joints. Those instructions do not
+supply Hillman 42605 design values or a rating for this separate frame.
+
 ## Geometry and frame scope
 
 `geometry.py` imports seven saved STEP solids without rebuilding the scene.
@@ -116,6 +138,32 @@ vertical/horizontal nodal loads for correct fixed-300 N wrenches. Original
 reconstruction errors are 2.403e−9 mm elastic response and zero rigid wrench.
 
 ## Incomplete calculations and numerical limits
+
+The [one hand/foot comparison](paired-load-comparison.md) moves half the
+upper-hold vertical force to the saved lower-left A1 hold while preserving
+250 lb × 2 and the original resultant forces. Five moments change. A12-rear
+nominal demand falls from 1871 to 980 N, demonstrating sensitivity to load
+placement. Six zero-gap and two nominal states return, then A12-left nominal
+stops on `normal active-set cycle`. This supplies no full nominal envelope
+or adopted stance. Even returned demands retain head-reference exceptions.
+
+The [upper-right washer transfer note](upper-right-washer-transfer.md)
+reproduces all 24 saved strip demands. Governing rail demand is 206.683 MPa
+at a hypothetical 10 mm bearing circle and minimum washer thickness.
+Changing that circle to 9 mm raises it to 277.464 MPa. Current catalog
+washers supply no numeric yield; neither the circle nor uniform loaded wood
+pressure is established by the nominal geometric support check. The next
+corner-specific transfer check is the bearing footprint and loaded reaction
+together, rather than assigning a material strength alone.
+
+The [finite footprint/reaction bounds](upper-right-washer-contact-bounds.md)
+extend that screen without another solve. A deliberately selected wood
+pressure cap gives a 251.231 MPa local strip bound when angular reaction
+redistribution is allowed; this is not a predicted physical stress. The note
+also verifies the NDS standard-cut-washer detailing route and the official
+ASME incorporation of B18.22.1 into B18.21.1. The different standard labels
+are therefore not a blocker. Catalog dimensional conformance and complete
+axial transfer retain their distinct scopes.
 
 Both 140 lb scenarios return A12-rear and A12-forward zero-gap states, then
 stop on `normal active-set cycle` at A12-left zero gap. Neither has a complete
