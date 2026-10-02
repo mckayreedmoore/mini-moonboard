@@ -24,10 +24,23 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
       - run: uv sync --frozen
-      - run: uv run python -c "from pathlib import Path; from mini_moonboard.export import export_v1_viewer_mesh; export_v1_viewer_mesh(Path('site'))"
-      - run: uv run python -c "from pathlib import Path; from mini_moonboard.hybrid_exports import viewer_mesh; [viewer_mesh(size, Path('site')) for size in ('2x10', '2x12', '2x8-shallow', '2x8-foot100')]"
-      - name: Calculate prototype weights from deployed geometry
-        run: uv run python scripts/build_prototype_weights.py
+      - name: Rebuild viewer assets and weights with preserved mesh paths
+        run: |
+          uv run python -m scripts.compact_viewer_meshes --run -- uv run python - <<'PY'
+          import runpy
+          from pathlib import Path
+          from mini_moonboard.export import export_v1_viewer_mesh
+          from mini_moonboard.hybrid_exports import viewer_mesh
+
+          export_v1_viewer_mesh(Path('site'))
+          for size in ('2x10', '2x12', '2x8-shallow', '2x8-foot100'):
+              viewer_mesh(size, Path('site'))
+          runpy.run_path('scripts/build_prototype_weights.py', run_name='__main__')
+          PY
+      - name: Verify shared viewer meshes
+        run: |
+          uv run python -m scripts.compact_viewer_meshes --check
+          node scripts/check_viewer_mesh_aliases.mjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

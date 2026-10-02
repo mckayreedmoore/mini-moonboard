@@ -85,6 +85,7 @@
     import * as THREE from 'three';
     import {OrbitControls} from 'https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js';
     import {STLLoader} from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
+    import {loadMeshAliases, resolveMeshPath} from './mesh-assets.mjs';
 
     const renderer = new THREE.WebGLRenderer({antialias: true});
     renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -101,6 +102,7 @@
     const camera = new THREE.PerspectiveCamera(40, 1, 1, 10000); camera.up.set(0, 0, 1);
     const controls = new OrbitControls(camera, renderer.domElement); controls.enableDamping = true;
     const loader = new STLLoader();
+    let sharedMeshes;
     const status = document.querySelector('#baseline-status');
     const inspectionPanel = document.querySelector('#inspection-panel');
     const panelToggle = document.querySelector('#panel-toggle');
@@ -318,7 +320,7 @@
     async function renderSceneGeometry(data, parts, hidden) {
       const baseline = groups.get('baseline');
       await Promise.all(parts.filter(part => !hidden.has(part.name)).map(async part => {
-        const response = await fetch(part.path);
+        const response = await fetch(resolveMeshPath(part.path, sharedMeshes));
         if (!response.ok) throw new Error(`baseline asset unavailable: ${part.path}`);
         const bytes = await response.arrayBuffer();
         if (await sha256Bytes(bytes) !== data.baseline_asset_sha256[part.path]) throw new Error(`baseline asset hash changed: ${part.path}`);
@@ -546,6 +548,7 @@
     }
 
     try {
+      sharedMeshes = await loadMeshAliases();
       const [manifestResponse, sceneResponse] = await Promise.all([
         fetch('hybrid/compact-floor-flush-kerf-right/parts.json'),
         fetch('owner-wood-joints-wj24-scene.json'),
@@ -662,7 +665,7 @@
 
       const baseline = groups.get('baseline');
       await Promise.all(parts.filter(part => !hidden.has(part.name)).map(async part => {
-        const response = await fetch(part.path);
+        const response = await fetch(resolveMeshPath(part.path, sharedMeshes));
         if (!response.ok) throw new Error(`baseline asset unavailable: ${part.path}`);
         const bytes = await response.arrayBuffer();
         if (await sha256Bytes(bytes) !== data.baseline_asset_sha256[part.path]) throw new Error(`baseline asset hash changed: ${part.path}`);

@@ -49,6 +49,7 @@
       import { OrbitControls } from 'https://unpkg.com/three@0.161.0/examples/jsm/controls/OrbitControls.js';
       import { STLLoader } from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
       import { createHoldMesh } from './hold-geometry.js';
+      import {loadMeshAliases, resolveMeshPath} from './mesh-assets.mjs';
       import {validateOwnerCornerScene, renderOwnerCornerScene} from './owner-corner-overlay.mjs';
       import {validateOwnerBarrelScene, renderOwnerBarrelScene} from './owner-barrel-overlay.mjs?v=approved-bore-pose';
 
@@ -537,7 +538,11 @@
       let resolveOwnerConceptBaseline, rejectOwnerConceptBaseline, ownerConceptHiddenNames = [];
       const ownerConceptBaselineLoaded = ['owner-corner-layout', 'owner-barrel-layout'].includes(model) ?
         new Promise((resolve, reject) => { resolveOwnerConceptBaseline = resolve; rejectOwnerConceptBaseline = reject; }) : null;
-      const manifest = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${manifestKey}/parts.json`);
+      const manifestResponse = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${manifestKey}/parts.json`);
+      const manifest = Promise.all([manifestResponse, loadMeshAliases()]).then(([response, sharedMeshes]) => {
+        loader.manager.setURLModifier(path => resolveMeshPath(path, sharedMeshes));
+        return response;
+      });
       manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm, design }) => {
         if (design) {
           mainFaceHeight = design.main_face_height_mm ?? 225;

@@ -82,7 +82,7 @@ uv run python -m http.server 8767 --directory site
 uv run python -m scripts.floor_flush_exports
 uv run python -m scripts.floor_flush_construction
 uv run python -m scripts.current_candidate --check-exports
-uv run pytest -q
+uv run python -m scripts.compact_viewer_meshes --run -- uv run pytest -q
 ```
 
 [`current-candidate.json`](https://github.com/mckayreedmoore/mini-moonboard/blob/master/current-candidate.json)

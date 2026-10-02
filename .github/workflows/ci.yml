@@ -40,7 +40,13 @@ jobs:
       - name: Test
         id: tests
         continue-on-error: true
-        run: uv run pytest ${{ inputs.include_historical && '--include-historical' || '' }}
+        run: uv run python -m scripts.compact_viewer_meshes --run -- uv run pytest ${{ inputs.include_historical && '--include-historical' || '' }}
+      - name: Verify shared viewer meshes and browser URLs
+        id: mesh_urls
+        continue-on-error: true
+        run: |
+          uv run python -m scripts.compact_viewer_meshes --check
+          node scripts/check_viewer_mesh_aliases.mjs
       - name: Smoke-test CadQuery
         id: cad_smoke
         continue-on-error: true
@@ -89,6 +95,10 @@ jobs:
           fi
           if [[ "${{ steps.tests.outcome }}" != "success" ]]; then
             echo "Test gate: ${{ steps.tests.outcome }}"
+            failed=1
+          fi
+          if [[ "${{ steps.mesh_urls.outcome }}" != "success" ]]; then
+            echo "Shared viewer mesh gate: ${{ steps.mesh_urls.outcome }}"
             failed=1
           fi
           if [[ "${{ steps.cad_smoke.outcome }}" != "success" ]]; then

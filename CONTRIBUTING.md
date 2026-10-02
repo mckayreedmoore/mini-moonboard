@@ -128,6 +128,36 @@ testing is requested through the manual workflow.
 The panel-datum CSV and SVG are also deterministic; the SVG is a visual
 verification drawing only and must never be treated as a drilling template.
 
+Viewer meshes share byte-identical assets through `site/mesh-aliases.json`.
+Frozen `parts.json` and evidence manifests retain their original paths and
+hashes; both selected plywood-width packets keep their meshes locally. For
+tools that read legacy paths, temporarily restore independent mesh copies:
+
+```bash
+uv run python -m scripts.compact_viewer_meshes --run -- uv run pytest -q
+uv run python -m scripts.compact_viewer_meshes --run -- uv run python scripts/build_prototype_weights.py
+uv run python -m scripts.compact_viewer_meshes --check
+```
+
+The wrapper shares meshes again after a successful command. After a failed
+command it removes unchanged temporary copies and preserves changed outputs
+for inspection. Use it for historical exports and replays as well as tests.
+
+Closed ignored experiment trees can be stored outside the checkout with
+`scripts/evidence_archive.py`. Its `create` command writes a file-level hash
+manifest, verifies the archive, restores a fresh external tree and checks every
+restored file before permitting a separate `prune` operation. `restore` refuses
+an existing destination. Retrieve historical raw paths from the verified tree
+before running a replay that needs them; retained result packets and manuals
+remain at their existing repository paths. See the
+[cleanup record](docs/repository-cleanup-evaluation-2026-09-28.md) for archive
+locations and the current keep/archive/delete dispositions.
+
+Keep the current development summary in `docs/wood-joints-mvp/README.md`.
+Update that page for routine continuation; link immutable experiments instead
+of adding another dated status document. Preserve distinct frozen input states
+and failed results when bundling completed experiments.
+
 CadQuery dimensions are always millimetres. Documentation should show both
 metric and imperial values and identify whether a value is source-stated,
 converted, derived, or still unresolved.

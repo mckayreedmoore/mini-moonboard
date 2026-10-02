@@ -1,5 +1,80 @@
 # Repository cleanup evaluation
 
+## October 1 implementation
+
+The owner authorized mesh sharing, a short current development summary,
+restorable closed-run archives and verified scratch removal. The cleanup does
+not change candidate geometry, loads, engineering criteria or acceptance.
+
+- **Viewer:** 13,618 duplicate STL files (2,172,457,012 bytes) were removed.
+  `site/mesh-aliases.json` maps original paths to byte-identical retained assets.
+  All 20,441 original mesh paths were checked against their original Git blob
+  hashes. Both selected plywood-width packets stay intact; all 70 design menu
+  choices and all three viewers remain available. Frozen part manifests, scenes,
+  reports and pinned exporter sources were not rewritten.
+- **Current summary:** [wood-joint development](wood-joints-mvp/README.md) now
+  states usable results, genuine remaining work and next actions. Detailed
+  chronologies remain linked. Unpublished evidence is explicitly local-only.
+- **Existing archived scratch:** both expanded panel-screw trees were restored
+  and checked against `fea/results/panel-screw-sensitivity-v1.tar.xz` before
+  removal: 552 files, 865,019,186 bytes. The canonical archive remains tracked.
+- **Closed raw runs:** 249 inactive ignored trees contain 71,001 files and
+  69,123,446,520 bytes. The 15,170,925,806-byte external archive passed complete
+  member and fresh-restored-tree verification. The originals were removed after
+  repeating archive and complete unchanged-source checks.
+- **Reconstructible caches:** 1,297 ignored interpreter, test and linter cache
+  files (27,871,516 bytes) were removed after checking that none were tracked,
+  nonignored or symlinks. The Python environment remains available.
+
+These operations removed about 72.2 GB of logical file data from the checkout.
+The five recovery files total about 15.4 GB, so the net saving after backups and
+seven small new maintained files is about 56.8 GB. The 13,618 removed meshes are
+42.9% of the original 31,717 tracked paths. These are working-tree savings;
+existing Git history was preserved.
+
+Recovery files live outside this checkout in the local sibling directory
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-01/`:
+
+| File | Purpose |
+| --- | --- |
+| `viewer-duplicate-meshes.zip` | Verified original mesh bytes, removed paths and alias map |
+| `closed-generated-runs.tar.gz` and `.manifest.json` | Verified closed raw-run archive and original path/size/mode/SHA-256 manifest |
+| `cleanup-dispositions.json` | File-count, size, age, reference and keep/archive/delete classification |
+| `panel-screw-existing-archive-coverage.json` | All 276 canonical members and both original prefixes, restoration and removal receipt |
+
+The closed-run archive SHA-256 is
+`8f9a9039f0871711866a45f9ab938ff4868df8bc26aca91f57fda625b147b258`.
+
+The classification retains all fifteen current tool/manual/wood-joint and
+selected floor-runner case directories plus every immediate file in
+`fea/generated/`. Current wood-joint experiment trees, Git history, historical
+CAD/viewers and other owners' tracked/untracked work remain in place. Ignored
+does not mean disposable; this archive set was checked for current consumers,
+links, write dates and running-process use.
+
+`python3 scripts/evidence_archive.py restore --manifest PATH --destination NEW_DIRECTORY`
+restores and verifies the complete original relative tree into a fresh external
+directory. Copy a required historical tree back only when its repository path is
+absent. For the panel-screw trees, the retained canonical archive has relative
+members for either original prefix; the coverage receipt records both mappings.
+Use the [contributor commands](../CONTRIBUTING.md) to materialize legacy mesh
+paths temporarily for unchanged tests, generators and replays.
+
+Independent review corrected unpublished evidence links, backup-corruption and
+newly-staged-evidence refusal coverage, and durable JavaScript URL gates in CI
+and deployment. The final three-agent pass found no substantial findings.
+Nine focused Python tests, Ruff,
+URL resolution, original mesh byte checks and five real browser scenes pass.
+The affected integration run passed 49 tests and failed one unchanged
+weight-catalog test: the original published catalog omits
+`compact-floor-flush-kerf-right` and `compact-spliced-flush-top-development`.
+Its catalog and part-manifest inputs match pre-cleanup Git bytes exactly.
+The selected-candidate identity check has the same pre-existing stale
+`compact_floor_flush_frame.py` geometry snapshot error recorded before cleanup;
+the wood-joint identity/release-boundary check passes. No native solve ran.
+
+## Earlier cleanup record
+
 **September 29 follow-up:** the navigation pass is implemented locally. The
 root and builder entries distinguish baseline/development/history; the new
 [development entry](wood-joints-mvp/README.md) points to the existing coordinator
