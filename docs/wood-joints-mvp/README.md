@@ -163,8 +163,12 @@ at `center_principal_right_2` has a supported central-ring pressure comparison; 
 nut/washer transfer remains open. The
 [current header-action replay](hypotheses/mvp-resume-2026-10-01/header-joint-checks.md#current-bounded-replay--attempt02final)
 has no first-ray normal distance below 4D and no adopted actual detailing failure. The old
-BG045 edge exception remains historical evidence; current complete placement and local
-splitting are still unproved. It does not presently justify moving those axes.
+BG045 edge exception remains historical evidence. The
+[current placement worksheet](hypotheses/mvp-resume-2026-10-01/header-endgrain-placement/README.md)
+covers all twelve axes and 72 signed states; applicable translational placement
+checks clear, with 1.55 mm margin at the two active loaded edges. Local splitting,
+eccentric load transfer and torque resistance remain open. No axis move follows
+from these states.
 
 The [conditional assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
 already reconciles 50 transport bodies, 44 timber blanks, 104 bolt/nut stacks, 208 washers
