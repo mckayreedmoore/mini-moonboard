@@ -12,6 +12,12 @@ method selection follows [bolted replay](bolted-replay.md),
 [header replay](header-replay.md), [knee replay](knee-replay.md) and
 [member replay](member-replay.md).
 
+The [upper-right combined-transfer extension](upper-right-combined-transfer.md)
+uses this exact force source for 72 local bolt/contact states. Its smooth-shank
+steel proxies remain below the declared 92 ksi hypothesis; seat concentration,
+rigid-washer transfer and independent host poses retain their explicit limits.
+It supplies no complete-joint acceptance or new register force allocation.
+
 ## Census and force convention
 
 The current index contains **24 blocks, 104 physical bolt axes, 96 block-axis

@@ -142,6 +142,13 @@ owner's moves. Weight comparison scales live loads only; gravity and the
 vertical/horizontal nodal loads for correct fixed-300 N wrenches. Original
 reconstruction errors are 2.403e−9 mm elastic response and zero rigid wrench.
 
+The completed [main-panel grain comparison](panel-orientation-comparison.md)
+matches the conditional three-sheet option's strong-X orientation. All twelve
+states return; nominal peak head force falls to 1280.799 N while lower-left
+panel demand rises. The favorable declared head references remain below that
+peak. This comparison preserves the current strong-T source and its component
+replays; actual grain placement and any replacement force source are unselected.
+
 ## Incomplete calculations and numerical limits
 
 The [one hand/foot comparison](paired-load-comparison.md) moves half the
@@ -160,6 +167,14 @@ washers supply no numeric yield; neither the circle nor uniform loaded wood
 pressure is established by the nominal geometric support check. The next
 corner-specific transfer check is the bearing footprint and loaded reaction
 together, rather than assigning a material strength alone.
+
+The [local combined bolt/contact response](upper-right-combined-transfer.md)
+now returns 72 upper-right states using this README's frozen strong-T forces.
+Its largest smooth-shank steel proxy is 267.858 MPa, below the hypothetical
+92 ksi reference. Bore and tilted seat reactions are resolved under declared
+local laws; rigid washers supply no bending resistance and independent bolt
+poses do not establish common-host compatibility. The rail-pair calculation
+is the next bounded joint task.
 
 The [finite footprint/reaction bounds](upper-right-washer-contact-bounds.md)
 extend that screen without another solve. A deliberately selected wood

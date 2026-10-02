@@ -84,6 +84,14 @@ separate. A lower reference stiffness is not automatically conservative for
 each screw's force, and equal screw count does not establish equal sharing.
 This check changes no hardware, geometry, load, operator or release flag.
 
+The subsequent [orientation response](panel-orientation-comparison.md) completes
+all twelve states after replacing only the four main panels' directional
+elastic contributions. The upper-left nominal head demand falls from 1871.251
+to 1280.799 N; lower-left demand increases. Thus orientation matters, but this
+comparison does not close the declared head references or adopt sheet placement.
+The [grain-aware rectangular options](../assembly-package/panel-placement.md)
+bind the three-/four-/five-sheet arithmetic to explicit material axes.
+
 ## Frozen source identities
 
 | Source | SHA-256 |
