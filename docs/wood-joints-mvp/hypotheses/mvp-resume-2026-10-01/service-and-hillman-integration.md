@@ -132,6 +132,45 @@ Maximum local projection-fit residual is 0.02154 mm for reviewed geometry and
 0.05167 mm for the isolated proposal. Those residuals limit the local rigid
 interface estimates; neither is total panel deflection.
 
+## Final service-worker panel-sharing packet and parent continuation
+
+The owner's final transferred
+[panel-sharing packet](../upper-left-service-panel-sharing-2026-10-01/README.md)
+has been read and bound into the subsequent parent frame calculation. Its
+receipt SHA-256 is
+`9b543630412ea9d2be8e832c49547b0ced910f1bd11641475d10b470be53eb5b`;
+its comparison SHA-256 is
+`73c8c34a867a937fe130b09e7e3276a193c4fa33129cd0d07de966fb09d897e1`.
+The worker reused the 21 baseline states and existing 1,386 screw records;
+those historical force records were not regenerated.
+
+All 42 softer-law trials stopped because their source floor bearing/open
+pattern changed. They supply no accepted motion or stiffness bound and make
+no physical frame-failure claim. The independent outward-equilibrium
+certificates require at least 3,528 N total upper-left withdrawal at full 2×
+A12-rear and 3,527 N upper-right at 2× K12-rear in the declared geometry.
+The saved 2× upper-left edge_2 withdrawal is approximately 3,845 N, with a
+5,939 N upper-left group total. These twice-recorded proportional loads are
+different from the parent's full-case accessory-load scenario; do not mix
+their individual screw peaks or allocations. Hillman resistance, measured
+stiffness and head pull-through remain unqualified. Low service-cleat bolt
+forces do not close that panel path or complete joint acceptance.
+
+The parent now includes modeled clearance at both proposed top corners in
+one frame and allows floor contact branches to change. Its
+[same-state component worksheet](top-corner-component-checks.md) contains
+all twelve frame states and six-case timber/washer/bolt references. The
+largest conditional Grade 5 individual lateral ratios are 0.7012 left and
+0.7992 right. All sixteen maximum washer envelopes have modeled wood support;
+the largest washer wood-pressure ratio is 0.7101. Returned local movement
+reaches 2.3447 mm and rotation 0.9852°. Complete resistance and functional
+motion acceptance remain separate. The earlier right-only result is retained
+above as its distinct scenario, not silently replaced.
+
+The service worker's new assignment is the lower-left outer service cleat,
+`left_service_outer_lower_cleat` / `clip_horizontal_lower_left_1`.
+The parent and bounded helpers leave that active packet unchanged.
+
 ## Reproduction and continuation
 
 Frozen reports and response vectors:
@@ -153,4 +192,6 @@ of its returned movement, while retaining the left service layout. Grade 8
 is a documented hardware option, not a selection. The native A12 raw-H STOP
 and missing authenticated cases remain unchanged. All 47 formal criteria
 remain pending; every physical release flag stays false. No native solve,
-new agent review, software test, staging, commit or push was performed here.
+new agent review or software test was performed here. The owner subsequently
+authorized incremental commits and pushes; maintained parent sources and
+summaries are published while frozen generated evidence remains local.

@@ -27,6 +27,7 @@ review loop. The parent has completed six approximate static scenarios and prepa
 These calculations do not replace the native-export authentication statuses above. The
 existing agent's separate upper-left service-joint results are now
 [ingested with the previous Hillman evidence](hypotheses/mvp-resume-2026-10-01/service-and-hillman-integration.md).
+That worker now owns the lower-left outer service cleat.
 Detailed washer meshes,
 the stiffness-output build and stress-provenance tooling are parked method work.
 
@@ -36,7 +37,13 @@ panel assumptions. The latest right-corner comparison reuses the service worker'
 coupled clearance method and retains all 66 Hillman axes. With modeled clearance,
 the proposed right corner's conditional Grade 5 individual lateral-reference ratio
 is 0.7904; the zero-gap sensitivity is 1.1593. Hardware selection, complete resistance
-and compatibility of the returned movement remain open. The helper's
+and compatibility of the returned movement remain open. The subsequent
+[both-corner worksheet](hypotheses/mvp-resume-2026-10-01/top-corner-component-checks.md)
+includes both corners' clearance in one frame. All twelve states meet balance/law
+gates; six-case conditional Grade 5 lateral-reference ratios peak at 0.7012 left
+and 0.7992 right, and washer wood-pressure ratios remain below 0.711.
+Complete steel/washer/splitting resistance and functional motion acceptance
+remain open. The helper's
 [zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
 stops in all six cases: the upper panels need normal restraint supplied by
 the original unsupported screw springs. The peak original individual screw

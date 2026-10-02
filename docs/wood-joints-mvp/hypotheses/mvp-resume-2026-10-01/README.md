@@ -138,6 +138,19 @@ failure or authenticate the three missing native cases. The parent changed
 no worker packet, reviewed scene, authority file or native ledger and invoked
 no new agent review or software tests during this integration.
 
+The subsequent [both-corner frame and component worksheet](top-corner-component-checks.md)
+includes both proposed corners' clearance in one model, with changing floor
+branches and all 66 conditional Hillman paths. All twelve frame states meet
+their balance/law gates. Six-case component references peak at 0.7012 left
+and 0.7992 right for the conditional Grade 5 scenario. Finished tangent-path
+and washer wood-pressure comparisons are below one; combined steel, washer
+metal, complete splitting/group behavior and functional motion remain open.
+The worksheet binds the worker's final panel-sharing packet without rerunning
+its historical screw force records. The external worker now owns the lower-left
+outer service cleat; two bounded parent helpers handle remaining-joint screens
+and hardware fit, and a third computes same-state member screens. No recurring
+review loop is used.
+
 ## Work completed during this restart
 
 The first two STI17 source-review passes found and the parent fixed the
