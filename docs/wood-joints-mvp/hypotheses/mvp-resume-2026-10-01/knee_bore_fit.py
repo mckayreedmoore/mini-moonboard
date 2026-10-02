@@ -12,6 +12,7 @@ from pathlib import Path
 import frame_state_contract
 import knee_bore_source
 import numpy as np
+import remaining_joint_screen as screen
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
@@ -124,7 +125,7 @@ def witness(bore, poses, datum):
     }
 
 
-def run(output):
+def run(output, *, frame_dir=FRAME, clearance=SOURCE, metadata_seed_dir=None):
     output = output.resolve()
     require(
         output.parent == HERE
@@ -132,28 +133,30 @@ def run(output):
         and not output.exists(),
         "use a fresh owned knee-bore-fit-attempt directory",
     )
-    comparison_path = SOURCE / "comparison.json"
-    require(sha(comparison_path) == COMPARISON_SHA, "current frame comparison changed")
-    comparison = json.loads(comparison_path.read_text())
-    scope = frame_state_contract.force_state_scope(comparison)
+    binding = screen.bind_frame_sources(frame_dir, clearance, metadata_seed_dir)
+    frame, source = binding["frame_dir"], binding["clearance_dir"]
+    comparison_path = source / "comparison.json"
+    if source == SOURCE.resolve():
+        require(sha(comparison_path) == COMPARISON_SHA, "current frame comparison changed")
+    comparison, scope = binding["comparison"], binding["force_scope"]
     bores, pins = knee_bore_source.load_bores()
+    pins.update(binding["pins"])
     pins.update(
         {
-            comparison_path: COMPARISON_SHA,
-            SOURCE / "response.npz": comparison["response_sha256"],
-            SOURCE / "producer.py.snapshot": comparison["producer_sha256"],
+            comparison_path: sha(comparison_path),
+            source / "response.npz": comparison["response_sha256"],
+            source / "producer.py.snapshot": comparison["producer_sha256"],
             Path(frame_state_contract.__file__): CONTRACT_SHA,
             Path(knee_bore_source.__file__): sha(Path(knee_bore_source.__file__)),
             Path(__file__): sha(Path(__file__)),
         }
     )
     for name in ("model.json", "row-identities.json"):
-        path = FRAME / name
+        path = frame / name
         pins[path] = comparison["source_sha256"][str(path.relative_to(ROOT))]
     for path, digest in pins.items():
         require(sha(path) == digest, "changed source: " + str(path))
-    model = json.loads((FRAME / "model.json").read_text())
-    rows = json.loads((FRAME / "row-identities.json").read_text())
+    model, rows = binding["model"], binding["rows"]
     retained = [row for row in rows if row["ownership"]["second_body"] != "floor"]
     centers = {
         body: np.mean(
@@ -162,7 +165,7 @@ def run(output):
         for body, nodes in model["body_nodes"].items()
     }
     records, fits = [], []
-    with np.load(SOURCE / "response.npz", allow_pickle=False) as saved:
+    with np.load(source / "response.npz", allow_pickle=False) as saved:
         for state in comparison["states"]:
             case, gap = state["case_id"], state["gap_scale"]
             tag = case + ("_gap" if gap else "_zero")
@@ -254,6 +257,9 @@ def run(output):
     report = {
         "schema": "knee_straight_shaft_placement/v1",
         "source_scope": scope,
+        "frame_operator_directory": str(frame.relative_to(ROOT)),
+        "clearance_source_directory": str(source.relative_to(ROOT)),
+        "metadata_seed_directory": str(binding["metadata_seed_dir"].relative_to(ROOT)),
         "bore_geometry": bores,
         "records": records,
         "interface_fits": fits,
@@ -269,7 +275,7 @@ def run(output):
         "loaded_contact_compatibility_established": False,
         "frame_clearance_law_changed": False,
         "complete_joint_acceptance": False,
-        "reviewed_geometry_changed": False,
+        "reviewed_geometry_changed": bool(model.get("owner_authorized_screw_movements")),
         "physical_release": False,
     }
     output.mkdir()
@@ -294,4 +300,9 @@ def run(output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path)
-    run(parser.parse_args().output)
+    parser.add_argument("--frame", type=Path, default=FRAME)
+    parser.add_argument("--clearance", type=Path, default=SOURCE)
+    parser.add_argument("--metadata-seed", type=Path)
+    args = parser.parse_args()
+    run(args.output, frame_dir=args.frame, clearance=args.clearance,
+        metadata_seed_dir=args.metadata_seed)

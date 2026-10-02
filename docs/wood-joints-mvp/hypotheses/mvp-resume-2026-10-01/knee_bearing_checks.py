@@ -98,25 +98,48 @@ def field(geometry, plane_forces, endpoint_fe=None):
     return records
 
 
-def main(output):
+def main(output, *, source_dir=SOURCE):
     output = output.resolve()
     require(output.parent == HERE and output.name.startswith("knee-bearing-attempt")
             and not output.exists(), "use a fresh knee-bearing-attempt directory")
-    source_path = SOURCE / "screen.json"
-    require(sha(source_path) == SOURCE_SHA, "saved three-member force source changed")
+    source_dir = Path(source_dir).resolve()
+    if source_dir.name == "screen.json":
+        source_dir = source_dir.parent
+    require(source_dir.is_relative_to(HERE) and source_dir.relative_to(HERE).parts
+            and source_dir.relative_to(HERE).parts[0].startswith("three-member-screen-attempt"),
+            "source must be inside a three-member-screen-attempt directory")
+    source_path = source_dir / "screen.json"
+    source_sha = sha(source_path)
+    if source_dir == SOURCE.resolve():
+        require(source_sha == SOURCE_SHA, "saved three-member force source changed")
     source = json.loads(source_path.read_text())
-    require(source["bolt_case_count"] == 24 and source["symmetric_action_case_count"] == 0,
+    require(source["schema"] == "saved_knee_three_member_conditional_screen/v1"
+            and source["bolt_case_count"] == 24 and source["symmetric_action_case_count"] == 0
+            and source["complete_joint_acceptance"] is False and source["physical_release"] is False,
             "unexpected knee-bolt source")
-    pins_path = SOURCE / "source-pins.json"
+    axes = {f"knee_outer_{side}_side_{i}" for side in ("left", "right") for i in (1, 2)}
+    cases = ("a12-rear", "a12-forward", "a12-left", "k12-right", "k12-rear", "a1-rear")
+    require(source["case_ids"] == list(cases) and set(source["geometry"]) == axes
+            and len(source["bolt_cases"]) == 24
+            and {(s["case_id"], s["axis_id"]) for s in source["bolt_cases"]}
+            == {(case, axis) for case in cases for axis in axes}
+            and source["gap_scale"] == 1.0
+            and source["scenario_fyb_psi"] == {"45ksi": 45000.0, "92ksi": 92000.0},
+            "incomplete or changed knee force-state/scenario census")
+    pins_path = source_dir / "source-pins.json"
     pins = json.loads(pins_path.read_text())
     for path, digest in pins.items():
         require(sha(ROOT / path) == digest, "changed upstream source: " + path)
-    for path in (source_path, pins_path, Path(__file__)):
+    pins[str(source_path.relative_to(ROOT))] = source_sha
+    for path in (pins_path, Path(__file__)):
         pins[str(path.relative_to(ROOT))] = sha(path)
     for name, digest in source["output_sha256"].items():
-        path = SOURCE / name
+        path = source_dir / name
         require(sha(path) == digest, "saved knee output changed: " + name)
         pins[str(path.relative_to(ROOT))] = digest
+    snapshot = "three_member_screen.py.snapshot"
+    require(source["output_sha256"].get(snapshot) == source["producer_sha256"],
+            "three-member producer snapshot differs")
     states, endpoints = [], []
     for state in source["bolt_cases"]:
         g = source["geometry"][state["axis_id"]]
@@ -171,6 +194,16 @@ def main(output):
     result = {
         "schema": "continuous_knee_affine_static_bearing_field/v1",
         "status": "STATIC_FIELD_CONSTRUCTED_CONTACT_AND_DESIGN_GAPS_OPEN",
+        "source_directory": str(source_dir.relative_to(ROOT)), "source_screen_sha256": source_sha,
+        "candidate": source["candidate"], "geometry_revision_id": source["geometry_revision_id"],
+        "case_ids": source["case_ids"], "gap_scale": source["gap_scale"],
+        "frame_operator_directory": source.get("frame_operator_directory", str((HERE / "corner-frame-attempt01").relative_to(ROOT))),
+        "metadata_seed_directory": source.get("metadata_seed_directory", str((HERE / "corner-frame-attempt01").relative_to(ROOT))),
+        "metadata_seed_scope": "Case order and inherited seed provenance only; no old force vectors or acceptance transferred.",
+        "clearance_source": source["clearance_source"],
+        "source_comparison_sha256": pins[source["clearance_source"] + "/comparison.json"],
+        "source_response_sha256": pins[source["clearance_source"] + "/response.npz"],
+        "source_force_key": "case_id + '_gap_raw_force_n'",
         "source_sha256": pins, "source_force_state_scope": source["source_force_state_scope"],
         "diameter_mm": D_MM, "nominal_minimum_fe_mpa": MIN_FE_MPA,
         "declared_smooth_shank_yield_mpa": FY_MPA, "states": states, "endpoint_fields": endpoints,
@@ -185,7 +218,14 @@ def main(output):
             "Brittle wood splitting, group action, local finished cuts, functional motion, floor verification and Hillman qualification are outside this calculation.",
         ],
         "normative_asymmetric_capacity_n": None, "contact_displacement_compatibility_established": False,
-        "complete_joint_acceptance": False, "reviewed_geometry_changed": False, "physical_release": False,
+        "complete_joint_acceptance": False,
+        "reviewed_geometry_changed": source["reviewed_geometry_changed"],
+        "owner_authorized_screw_movements": source.get("owner_authorized_screw_movements", []),
+        "bolt_geometry_changed": False, "physical_release": False,
+        "native_solve_run": False, "frame_solve_run": False, "CAD_rebuilt": False,
+        "tests_run": False, "review_run": False,
+        "producer_sha256": sha(Path(__file__)),
+        "output_sha256": {"knee_bearing_checks.py.snapshot": sha(output / "knee_bearing_checks.py.snapshot")},
     }
     path = output / "checks.json"
     path.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
@@ -198,5 +238,8 @@ def main(output):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=SOURCE,
+                        help="Saved three-member directory or its screen.json; defaults to the pinned historical source.")
     parser.add_argument("--output", type=Path, required=True)
-    main(parser.parse_args().output)
+    arguments = parser.parse_args()
+    main(arguments.output, source_dir=arguments.source)

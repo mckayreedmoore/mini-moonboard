@@ -112,6 +112,32 @@ response for those stations; it does not correct any load number by itself.
 
 ## Smallest useful weight comparison
 
+### What paired hand/foot loading would change
+
+For the existing rear-direction resultant, total live outward projection is
+`sin(50°) × 300 + cos(50°) × 2224.111 = 1659.444 N`.
+Moving the same resultant among contacts cannot change that total projection;
+it changes moments and which panel/receiver carries it. Foot forces opposed
+by hand forces can additionally create a couple even when their net force
+is zero. Actual signed force directions remain necessary.
+
+For example, an explicitly hypothetical 50:50 parallel-force split between
+the saved upper-left A12 and lower-left A1 points places 829.722 N of live
+outward projection on each panel. The points are 2220 mm apart along the
+climbing face. This split changes the global X moment by about +1842 N·m
+relative to concentrating the whole load at A12; it is a different body
+wrench, not merely an alternative screw allocation for the original case.
+Opposing +300 N Y at A12 with −300 N Y at A1 gives zero net horizontal
+force but an approximately −510 N·m X couple. Neither example is an
+adopted stance, an upper bound, or a new frame result.
+
+The linear applied-load columns can represent such a specified split with
+gravity added once. The returned screw/bolt forces cannot be averaged:
+floor, compression contact and clearance laws require a fresh compatible
+response for the changed load. This distinction keeps a realistic stance
+comparison finite without claiming equal sharing or discarding the
+owner's 250 lb dynamic requirement.
+
 Keep the same mounting, backing, properties, screw laws, load patch, gap
 conditions, dead load and accessory allowance across the comparison.
 Retain all six original directions/locations; use distinct scenario labels.
@@ -128,6 +154,16 @@ isolates the changed horizontal policy. Historical 300 N was independent
 of weight; available sources do not choose either horizontal hypothesis as
 the actual force during this owner's dynamic moves. At 140 lb, fixed 300 N
 corresponds to 4.724 m/s² horizontal acceleration if treated as a net resultant.
+
+The thin [weight entry point](../climber_frame.py) accepts
+`--climber-weight-lb 140` and forwards the other existing frame arguments.
+It converts weight to the already-supported live-load scale `140/250`;
+dead load and the 2× dynamic force assumption remain unchanged. By default
+the horizontal force scales proportionally to 168 N. For the explicit
+fixed-300-N sensitivity, also provide the authenticated `--live-components`
+packet and `--horizontal-load-scale 1`. A new compatible response is required
+when changing weight; this entry point does not scale solved joint demands.
+The frozen numerical producer and its existing source pins are unchanged.
 
 For the rear-direction cases, force projections and the local midplane
 moment illustrate why a lighter or less horizontal force does not uniformly

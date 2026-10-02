@@ -12,6 +12,8 @@ import json
 import math
 from pathlib import Path
 
+import retained_group_checks as source_binding
+
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 SOURCE = HERE / "remaining-joint-screen-attempt04/all-two-receiver-92ksi"
@@ -35,15 +37,14 @@ def require(condition, message):
         raise ValueError(message)
 
 
-def main(output):
+def main(output, source_dir=SOURCE):
     output = output.resolve()
     require(output.parent == HERE and output.name.startswith("retained-washer-attempt")
             and not output.exists(), "use a fresh retained-washer-attempt directory")
-    for path, digest in FIXED.items():
+    source_dir, report, csv_path, pins, pin_scope = source_binding.bind_source(source_dir)
+    fixed = {p: h for p, h in FIXED.items() if p != SOURCE / "screen.json"}
+    for path, digest in fixed.items():
         require(sha(path) == digest, "changed input: " + str(path))
-    report = json.loads((SOURCE / "screen.json").read_text())
-    csv_path = SOURCE / "bolt-states.csv"
-    require(sha(csv_path) == report["output_sha256"][csv_path.name], "force CSV changed")
     register = json.loads(REGISTER.read_text())["axis_register"]
     features = {r["axis_id"]: r for r in json.loads(FEATURES.read_text())
                 ["source_axis_groups"]["retained_frame_bolt_axes"]["axes"]}
@@ -52,7 +53,7 @@ def main(output):
     with csv_path.open(newline="") as stream:
         forces = [r for r in csv.DictReader(stream) if r["kind"] == "retained_bolt"]
     require(len(forces) == 72 and len({r["axis_id"] for r in forces}) == 12, "incomplete retained force coverage")
-    pins = {str(p): h for p, h in FIXED.items()}
+    pins.update({str(p): h for p, h in fixed.items()})
     for path in (csv_path, Path(__file__)):
         pins[str(path)] = sha(path)
     seats, states = {}, []
@@ -104,6 +105,12 @@ def main(output):
     for path, digest in pins.items():
         require(sha(Path(path)) == digest, "input changed during calculation: " + path)
     result = {"schema": "retained_washer_current_dimensional_reference/v1",
+              "source_directory": str(source_dir.relative_to(ROOT)),
+              "source_screen_sha256": pins[str(source_dir / "screen.json")],
+              "source_response_path": report["source_response_path"],
+              "source_response_sha256": report["source_response_sha256"],
+              "source_pin_scope": pin_scope,
+              "producer_sha256": sha(Path(__file__)),
               "source_sha256": pins, "source_force_state_scope": report["source_force_state_scope"],
               "conditional_fc_perp_mpa": report["wood_reference_mpa"]["Fc_perpendicular"],
               "unique_seats": list(seats.values()), "states": states,
@@ -114,7 +121,7 @@ def main(output):
                          "Washer numeric yield and head/nut bearing-face transfer remain unqualified; no metal resistance is assigned.",
                          "Catalog dimensions are conditional inputs, not delivered measurements or hardware selection."],
               "complete_joint_acceptance": False, "hardware_selected": False,
-              "reviewed_geometry_changed": False, "physical_release": False}
+              "reviewed_geometry_changed": report["reviewed_geometry_changed"], "physical_release": False}
     output.mkdir()
     (output / ".gitignore").write_text("*\n")
     (output / "retained_washer_checks.py.snapshot").write_bytes(Path(__file__).read_bytes())
@@ -127,5 +134,8 @@ def main(output):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=SOURCE,
+                        help="Frozen remaining-joint screen directory or screen.json; no solve is run.")
     parser.add_argument("--output", type=Path, required=True)
-    main(parser.parse_args().output)
+    args = parser.parse_args()
+    main(args.output, args.source)

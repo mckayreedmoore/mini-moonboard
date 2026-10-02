@@ -46,8 +46,6 @@ PINS = {
     PROFILE: "5c820231ac4434e896ee708c72128672424ff158b3ee4458197cdadc1a4b0854",
     PROFILE_PINS: "629552eba2b3dd2639df245dde56afb46dae7c01d2b2b9b1d774f98ca4a846c7",
     OLD_NOTE: "97d671c5bec0832ddae71f496249d0b1cfc4aef0e63b9b75d3b9912f133e3e03",
-    HERE
-    / "remaining_joint_screen.py": "4e24e439a258bcacc9e1701fb17c4c86ef7b4563734ea93bdfa69ca99d96b1d2",
     ROOT
     / "mini_moonboard/nds_2024_multi_member_bolt_yield.py": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89",
     ROOT
@@ -593,23 +591,23 @@ def profile_states(records, geometry_by_axis, query):
     return result
 
 
-def main(clearance, output):
-    global GAP
-    GAP = clearance.resolve()
-    if GAP.name == "comparison.json":
-        GAP = GAP.parent
+def main(clearance, output, *, frame_dir=FRAME, metadata_seed_dir=None):
     output = output.resolve()
     require(
-        output == OUTPUT or output.is_relative_to(OUTPUT),
-        "output must be inside three-member-screen-attempt01",
+        output.is_relative_to(HERE)
+        and output.relative_to(HERE).parts
+        and output.relative_to(HERE).parts[0].startswith("three-member-screen-attempt"),
+        "output must be inside a three-member-screen-attempt directory",
     )
     require(
         not output.exists(), "preserve existing output; choose a fresh child directory"
     )
     unchanged()
-    comparison = read(GAP / "comparison.json")
-    force_scope = frame_contract.force_state_scope(comparison)
-    bind(Path(frame_contract.__file__), sha(Path(frame_contract.__file__)))
+    frame_source = remaining.bind_frame_sources(frame_dir, clearance, metadata_seed_dir)
+    frame, GAP = frame_source["frame_dir"], frame_source["clearance_dir"]
+    comparison, force_scope = frame_source["comparison"], frame_source["force_scope"]
+    for path, digest in frame_source["pins"].items():
+        bind(path, digest)
     require(
         comparison["schema"]
         in (
@@ -643,25 +641,11 @@ def main(clearance, output):
         ,
         "incomplete source census",
     )
-    for relative, digest in comparison["source_sha256"].items():
-        bind(ROOT / relative, digest)
-    bind(GAP / "producer.py.snapshot", comparison["producer_sha256"])
-    assessment, frame_inputs = (
-        read(FRAME / "operator-assessment.json"),
-        read(FRAME / "inputs.json"),
-    )
-    require(
-        assessment["status"] == "PASS_UPDATED_ELASTIC_FRAME_OPERATORS"
-        and assessment["source_sha256"] == frame_inputs["source_sha256"],
-        "frame assessment differs",
-    )
-    for name, digest in assessment["output_sha256"].items():
-        require(PINS[FRAME / name] == digest, "frame/gap binding differs")
-    bind(
-        FRAME / "inputs.json",
-        "27b6431f88d86bb1f6b877e19177ae01c785b851a7edf80c6176674338b68510",
-    )
-    bind(FRAME / "corner_frame.py.snapshot", assessment["producer_sha256"])
+    if frame == FRAME.resolve():
+        bind(
+            frame / "inputs.json",
+            "27b6431f88d86bb1f6b877e19177ae01c785b851a7edf80c6176674338b68510",
+        )
     material = read(remaining.local.actions_method.MATERIALS)
     for source in material["source_pins"]:
         if (
@@ -689,7 +673,7 @@ def main(clearance, output):
         bind(path, PINS.get(path, sha(path)))
     bind(Path(__file__).resolve(), sha(Path(__file__)))
     unchanged()
-    model, inputs = read(FRAME / "model.json"), read(lateral.INPUTS)
+    model, inputs = frame_source["model"], read(lateral.INPUTS)
     require(
         model["candidate"]
         == inputs["candidate"]
@@ -752,7 +736,7 @@ def main(clearance, output):
                 < 1e-8,
                 "profile grain differs",
             )
-    rows = read(FRAME / "row-identities.json")
+    rows = frame_source["rows"]
     require(
         len(rows) == 1888 and [r["row"] for r in rows] == list(range(1888)),
         "raw row order differs",
@@ -954,6 +938,12 @@ def main(clearance, output):
             "candidate": model["candidate"],
             "geometry_revision_id": model["source_revision"],
             "clearance_source": str(GAP.relative_to(ROOT)),
+            "frame_operator_directory": str(frame.relative_to(ROOT)),
+            "metadata_seed_directory": str(frame_source["metadata_seed_dir"].relative_to(ROOT)),
+            "metadata_seed_scope": "Case order and inherited seed provenance only; no old force vectors or acceptance transferred.",
+            "source_comparison_sha256": PINS[GAP / "comparison.json"],
+            "source_response_sha256": PINS[GAP / "response.npz"],
+            "source_force_key": "case_id + '_gap_raw_force_n'",
             "source_force_state_scope": force_scope,
             "clearance_joint_hosts": comparison["clearance_joint_hosts"],
             "gap_scale": 1.0,
@@ -998,8 +988,15 @@ def main(clearance, output):
             "producer_sha256": sha(Path(__file__)),
             "output_sha256": {p.name: sha(p) for p in sorted(output.iterdir())},
             "versions": {"python": platform.python_version(), "numpy": np.__version__},
+            "native_solve_run": False,
+            "frame_solve_run": False,
+            "CAD_rebuilt": False,
+            "tests_run": False,
+            "review_run": False,
             "complete_joint_acceptance": False,
-            "reviewed_geometry_changed": False,
+            "reviewed_geometry_changed": bool(model.get("owner_authorized_screw_movements")),
+            "owner_authorized_screw_movements": model.get("owner_authorized_screw_movements", []),
+            "bolt_geometry_changed": False,
             "physical_release": False,
         },
     )
@@ -1017,7 +1014,12 @@ def main(clearance, output):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--frame", type=Path, default=FRAME,
+                        help="Physical operator directory; defaults to the historical corrected frame.")
+    parser.add_argument("--metadata-seed", type=Path,
+                        help="Case metadata directory; defaults to --frame. No seed force arrays are consumed.")
     parser.add_argument("--clearance", type=Path, default=GAP)
     parser.add_argument("--output", type=Path, default=OUTPUT)
     arguments = parser.parse_args()
-    main(arguments.clearance, arguments.output)
+    main(arguments.clearance, arguments.output, frame_dir=arguments.frame,
+         metadata_seed_dir=arguments.metadata_seed)

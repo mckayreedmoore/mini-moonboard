@@ -85,7 +85,21 @@ checks both top corners and the 92 axes included by the remaining-bolt method.
 These are fresh results for this force source, with their applicability
 limits retained. The separate end-grain and lower-service methods now also
 use these vectors: their 92 ksi individual lateral ratios peak at 0.052042
-and 0.007468. They do not close whole-joint qualification.
+and 0.007468. The [fresh header replay](header-replay.md) also checks twelve
+axes, 36 interfaces, 42 balances and 1,260 section states, with no first-face
+short comparison in its bounded placement method. They do not close
+whole-joint qualification.
+
+The remaining fresh replay covers bottom corners, the partial central-seat
+scenario and retained pair/washer references in the same
+[bolted record](bolted-replay.md). Retained row sensitivity peaks at
+0.962538; ideal washer references peak at 0.208053/0.264300 for the
+3/8-/1/2-inch families. The [continuous-knee replay](knee-replay.md)
+recovers all 24 bearing fields and 96 endpoint constructions, plus 96
+straight-shaft placement witnesses. Its conditional 92 ksi endpoint
+scenario is below one; the alternative 45 ksi scenario exceeds one in
+seven states. These methods preserve their existing limitations rather
+than establish new acceptance rules.
 
 The [shop overlay](shop-addendum.md) publishes all 66 axis coordinates with
 62 unchanged and four moved records, binding 172 saved geometry source

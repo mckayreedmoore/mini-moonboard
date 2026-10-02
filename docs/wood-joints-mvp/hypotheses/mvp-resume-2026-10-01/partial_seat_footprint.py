@@ -13,6 +13,7 @@ from pathlib import Path
 
 import cadquery as cq
 import numpy as np
+import remaining_joint_screen as screen
 import top_corner_local as local
 
 HERE = Path(__file__).resolve().parent
@@ -23,13 +24,14 @@ BODY, AXIS = "base_principal_center_right", "center_principal_right_2"
 SEAT = np.array([50.95, -90.30983137880766, 367.0102220661388])
 
 
-def run(output):
+def run(output, *, frame_dir=FRAME, clearance=RESPONSE, metadata_seed_dir=None,
+        inner_diameter_mm=7.3):
     local.require(not output.exists(), "preserve existing footprint output")
-    case_report = local.read(RESPONSE / "comparison.json")
-    local.require(
-        local.sha(RESPONSE / "response.npz") == case_report["response_sha256"],
-        "changed simultaneous frame response",
-    )
+    binding = screen.bind_frame_sources(frame_dir, clearance, metadata_seed_dir)
+    frame, response_dir = binding["frame_dir"], binding["clearance_dir"]
+    case_report = binding["comparison"]
+    local.require(math.isfinite(inner_diameter_mm) and 7.3 <= inner_diameter_mm < 10,
+                  "central opening must cover the saved 7.3 mm bore and stay below 10 mm")
     inputs = local.read(local.INPUTS)
     geometry = next(
         m["reduced_geometry_descriptor"]
@@ -44,7 +46,7 @@ def run(output):
     center = (np.array(geometry["start"]) + geometry["end"]) / 2
     inward = np.array([float(np.sign(center[0] - SEAT[0])), 0.0, 0.0])
     local.require(float((center - SEAT) @ inward) > 0, "wrong inward footprint")
-    inner, outer = 7.3 / 2, 10.0 / 2
+    inner, outer = inner_diameter_mm / 2, 10.0 / 2
     probes = []
     for depth in (0.01, 0.05, 0.1):
         ring = (
@@ -57,7 +59,7 @@ def run(output):
         fraction = ring.intersect(shape).Volume() / ring.Volume()
         local.require(abs(fraction - 1) < 1e-6, "central footprint not supported")
         probes.append({"depth_mm": depth, "supported_fraction": fraction})
-    rows = local.read(FRAME / "row-identities.json")
+    rows = binding["rows"]
     row = rows[1535]
     local.require(
         row["row"] == 1535 and row["row_id"] == AXIS + "/outer-seat-axial-tie",
@@ -72,7 +74,7 @@ def run(output):
     )
     area = math.pi * (outer**2 - inner**2)
     states = []
-    with np.load(RESPONSE / "response.npz", allow_pickle=False) as data:
+    with np.load(response_dir / "response.npz", allow_pickle=False) as data:
         for case in [s for s in case_report["states"] if s["gap_scale"] == 1]:
             tension = float(data[case["case_id"] + "_gap_raw_force_n"][1535])
             pressure = max(tension, 0) / area
@@ -86,15 +88,15 @@ def run(output):
                     * math.sqrt(inner**2 + max(tension, 0) / (math.pi * fc)),
                 }
             )
-    pins = {ROOT / p: h for p, h in case_report["source_sha256"].items()}
+    pins = dict(binding["pins"])
     for p in [
         Path(__file__),
         local.INPUTS,
         material_path,
         step,
-        FRAME / "row-identities.json",
-        RESPONSE / "comparison.json",
-        RESPONSE / "response.npz",
+        frame / "row-identities.json",
+        response_dir / "comparison.json",
+        response_dir / "response.npz",
     ]:
         pins[p] = local.sha(p)
     for p, h in pins.items():
@@ -102,6 +104,10 @@ def run(output):
     report = {
         "schema": "partial_seat_supported_central_footprint/v1",
         "source_sha256": {str(p.relative_to(ROOT)): h for p, h in pins.items()},
+        "source_force_state_scope": binding["force_scope"],
+        "frame_operator_directory": str(frame.relative_to(ROOT)),
+        "clearance_source_directory": str(response_dir.relative_to(ROOT)),
+        "metadata_seed_directory": str(binding["metadata_seed_dir"].relative_to(ROOT)),
         "axis_id": AXIS,
         "body": BODY,
         "seat_point_mm": SEAT.tolist(),
@@ -117,6 +123,7 @@ def run(output):
             "The minimum equivalent circle is an area requirement, not an inspected bearing face or a washer product specification.",
         ],
         "geometry_changed": False,
+        "reviewed_geometry_changed": bool(binding["model"].get("owner_authorized_screw_movements")),
         "complete_joint_acceptance": False,
         "physical_release": False,
     }
@@ -134,4 +141,10 @@ def run(output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
-    run(parser.parse_args().output.resolve())
+    parser.add_argument("--frame", type=Path, default=FRAME)
+    parser.add_argument("--clearance", type=Path, default=RESPONSE)
+    parser.add_argument("--metadata-seed", type=Path)
+    parser.add_argument("--inner-diameter-mm", type=float, default=7.3)
+    args = parser.parse_args()
+    run(args.output.resolve(), frame_dir=args.frame, clearance=args.clearance,
+        metadata_seed_dir=args.metadata_seed, inner_diameter_mm=args.inner_diameter_mm)

@@ -1,6 +1,8 @@
 # Same-state six-case timber member screens
 
-The six NOMINAL-GAP cases in `frame-250-attempt02/response.npz` have been screened using the corrected physical operators and loads in `corner-frame-attempt01/`. This packet supplies complete signed member actions and elementary stress references for the conditional shop model. It does not establish finished-member, local wood, stability, or complete-joint acceptance.
+The six NOMINAL-GAP cases in `frame-250-attempt02/response.npz` have been screened using the relocated physical operators and unchanged 250 lb load vectors in `operators-attempt02/`. `../corner-frame-attempt01/` supplies only inherited case metadata and source history. This packet supplies complete signed member actions and elementary stress references for the conditional shop model. It does not establish finished-member, local wood, stability, or complete-joint acceptance.
+
+This child-specific paragraph corrects the producer's inherited summary template; the frozen numerical report, arrays and producer snapshot are unchanged. See [member replay](member-replay.md) for the four new screw-station exclusions and fresh stability/torsion results. Later historical links in the generated summary retain their original force scope.
 
 **Result:** 264 whole-member balances across 20 frame timbers and 24 connector blocks; 55,176 two-sided section traces. All source SHA-256 bindings and whole-member action closures meet the recorded arithmetic limits.
 
@@ -99,11 +101,11 @@ All actions remain the source point actions, including the corrected F load oper
 
 ## Files and reproduction
 
-- [member-results.json](member-screen-attempt02/four-screw-layout01/member-results.json): 264 member results, complete transfer wrenches and governing stress cuts, source/output hashes and claim limits.
-- [member-results.csv](member-screen-attempt02/four-screw-layout01/member-results.csv): all six cases and 44 members in a compact integration table.
-- [geometry.json](member-screen-attempt02/four-screw-layout01/geometry.json): actual bore/profile applicability, matching and refused saved section planes, source member/STEP bindings and point-action identities.
-- [action-section-arrays.npz](member-screen-attempt02/four-screw-layout01/action-section-arrays.npz): signed point forces/free couples and both cut-half wrenches; units and indexing are in the result JSON.
-- [inputs.json](member-screen-attempt02/four-screw-layout01/inputs.json) and [producer.py.snapshot](member-screen-attempt02/four-screw-layout01/producer.py.snapshot): frozen source bindings, force keys and executed producer.
+- [member-results.json](../member-screen-attempt02/four-screw-layout01/member-results.json): 264 member results, complete transfer wrenches and governing stress cuts, source/output hashes and claim limits.
+- [member-results.csv](../member-screen-attempt02/four-screw-layout01/member-results.csv): all six cases and 44 members in a compact integration table.
+- [geometry.json](../member-screen-attempt02/four-screw-layout01/geometry.json): actual bore/profile applicability, matching and refused saved section planes, source member/STEP bindings and point-action identities.
+- [action-section-arrays.npz](../member-screen-attempt02/four-screw-layout01/action-section-arrays.npz): signed point forces/free couples and both cut-half wrenches; units and indexing are in the result JSON.
+- [inputs.json](../member-screen-attempt02/four-screw-layout01/inputs.json) and [producer.py.snapshot](../member-screen-attempt02/four-screw-layout01/producer.py.snapshot): frozen source bindings, force keys and executed producer.
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \

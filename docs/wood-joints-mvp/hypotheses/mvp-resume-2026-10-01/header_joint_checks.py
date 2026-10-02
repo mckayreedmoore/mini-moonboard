@@ -103,7 +103,7 @@ def net_screen(section, geometry, old_frame, vector, references):
     }
 
 
-def run():
+def run(*, frame_dir=FRAME, metadata_seed_dir=None):
     require(
         OUTPUT.is_relative_to(HERE)
         and OUTPUT.relative_to(HERE).parts
@@ -112,16 +112,18 @@ def run():
     )
     require(not any((OUTPUT / name).exists() for name in
                     ("checks.json", "joint-actions.json", "joint-states.json", "placement.json",
-                     "header-sections.csv", "source-pins.json")), "preserve existing header-joint evidence")
-    comparison, route = read(RESPONSE / "comparison.json"), read(ROUTE / "route.json")
+                     "header-sections.csv", "source-pins.json", "producer.py.snapshot")), "preserve existing header-joint evidence")
+    source = screen.bind_frame_sources(frame_dir, RESPONSE, metadata_seed_dir)
+    frame, response_dir = source["frame_dir"], source["clearance_dir"]
+    comparison, route = source["comparison"], read(ROUTE / "route.json")
     report, geometry = read(MEMBER / "member-results.json"), read(MEMBER / "geometry.json")
     lateral = read(LATERAL / "screen.json")
-    comparison_path = RESPONSE / "comparison.json"
-    response_path = RESPONSE / "response.npz"
+    comparison_path = response_dir / "comparison.json"
+    response_path = response_dir / "response.npz"
     comparison_sha = sha(comparison_path)
     response_sha = sha(response_path)
-    expected_clearance = CLEARANCE_PINS.get(RESPONSE.name, {})
-    force_scope = frame_contract.force_state_scope(comparison)
+    expected_clearance = CLEARANCE_PINS.get(response_dir.name, {})
+    force_scope = source["force_scope"]
     for name, expected in expected_clearance.items():
         actual = comparison_sha if name == "comparison.json" else response_sha
         require(actual == expected, "selected clearance source differs from its frozen pin: " + name)
@@ -136,14 +138,17 @@ def run():
         screen.SUPPORT: screen.PINS[screen.SUPPORT],
         PRIMARY_SEATS: "0ae0af403cd99b323f0deb489e64bdf7cf94e0d32f0b84f0a9344efda2369354",
     }
+    for path, digest in source["pins"].items():
+        require(path not in pins or pins[path] == digest, "conflicting source pin: " + str(path))
+        pins[path] = digest
     for directory, packet in ((ROUTE, route), (MEMBER, report), (LATERAL, lateral)):
         pins.update({directory / name: digest for name, digest in packet["output_sha256"].items()})
-    for path in (FRAME / "model.json", FRAME / "row-identities.json", FRAME / "operators.npz"):
+    for path in (frame / "model.json", frame / "row-identities.json", frame / "operators.npz"):
         pins[path] = comparison["source_sha256"][str(path.relative_to(ROOT))]
     comparison_key = str(comparison_path.relative_to(ROOT))
     response_key = str(response_path.relative_to(ROOT))
     require(
-        report["clearance_input_directory"] == str(RESPONSE.relative_to(ROOT))
+        report["clearance_input_directory"] == str(response_dir.relative_to(ROOT))
         and report["source_sha256"].get(comparison_key) == comparison_sha
         and report["source_sha256"].get(response_key) == response_sha
         and lateral["source_response_sha256"] == response_sha
@@ -158,6 +163,13 @@ def run():
         and route["clearance_joint_hosts"] == comparison["clearance_joint_hosts"],
         "mixed force, seating-scope or clearance inputs",
     )
+    for packet, frame_key in ((report, "frame_operator_directory"),
+                              (lateral, "frame_operator_directory"),
+                              (route, "frame_directory")):
+        require(packet.get(frame_key, str(FRAME.relative_to(ROOT))) == str(frame.relative_to(ROOT))
+                and packet.get("metadata_seed_directory", str(FRAME.relative_to(ROOT)))
+                == str(source["metadata_seed_dir"].relative_to(ROOT)),
+                "mixed physical operator or metadata seed inputs")
     require(tuple(route["case_ids"]) == frame_contract.CASES, "six-case census changed")
     require(route["force_source"] == str(response_path.relative_to(ROOT)), "route names another force source")
     require(route["axis_count"] == 12 and route["state_count"] == 72,
@@ -176,7 +188,7 @@ def run():
     require(sha(Path(route_method.__file__)) == route["producer_sha256"],
             "end-grain producer changed")
     edge = screen.load_module(EDGE_HELPER, "header_directed_edge_helper")
-    model, rows = read(FRAME / "model.json"), read(FRAME / "row-identities.json")
+    model, rows = source["model"], source["rows"]
     inputs, materials = read(local.INPUTS), read(accounting.MATERIALS)
     require(inputs["revision_id"] == model["source_revision"] == route["source_revision"],
             "mixed geometry revision")
@@ -264,8 +276,8 @@ def run():
     e_psi = materials["conditional_DF_L_No2_base_row"]["base_properties"]["E"]
     states, placements, joints, cuts, balances = [], [], [], [], []
     with (np.load(MEMBER / "action-section-arrays.npz", allow_pickle=False) as arrays,
-          np.load(RESPONSE / "response.npz", allow_pickle=False) as response,
-          np.load(FRAME / "operators.npz", allow_pickle=False) as operators):
+          np.load(response_path, allow_pickle=False) as response,
+          np.load(frame / "operators.npz", allow_pickle=False) as operators):
         require(operators["D"].shape == (1888, 300), "physical operator changed")
         for case in frame_contract.CASES:
             raw = response[case + "_gap_raw_force_n"]
@@ -425,13 +437,14 @@ def run():
     for path, digest in pins.items():
         require(sha(path) == digest, "input changed during calculation: " + str(path))
     require(len(states) == 72 and len(joints) == 36 and len(balances) == 42, "incomplete six-case coverage")
-    OUTPUT.mkdir(exist_ok=True)
+    OUTPUT.mkdir(parents=True, exist_ok=True)
     (OUTPUT / ".gitignore").write_text("*\n")
     write(OUTPUT / "joint-actions.json", {"interfaces": joints, "whole_body_balances": balances})
     write(OUTPUT / "joint-states.json", states)
     write(OUTPUT / "placement.json", placements)
     screen.write_csv(OUTPUT / "header-sections.csv", cuts)
     write(OUTPUT / "source-pins.json", {str(p): h for p, h in sorted(pins.items())})
+    (OUTPUT / "producer.py.snapshot").write_bytes(Path(__file__).read_bytes())
     first_face_diagnostics = [
         p for p in placements if p["first_face_normal_distance_below_4D_diagnostic"]
     ]
@@ -460,9 +473,12 @@ def run():
         "status": status,
         "candidate": model["candidate"], "source_revision": model["source_revision"],
         "development_revision": model["development_revision"], "case_ids": list(frame_contract.CASES),
-        "force_source": str((RESPONSE / "response.npz").relative_to(ROOT)),
+        "force_source": str(response_path.relative_to(ROOT)),
         "force_key": "case_id + '_gap_raw_force_n'", "gap_scale": 1.0,
-        "clearance_source_directory": str(RESPONSE.relative_to(ROOT)),
+        "clearance_source_directory": str(response_dir.relative_to(ROOT)),
+        "frame_operator_directory": str(frame.relative_to(ROOT)),
+        "metadata_seed_directory": str(source["metadata_seed_dir"].relative_to(ROOT)),
+        "metadata_seed_scope": "Case order and inherited seed provenance only; no old force vectors or acceptance transferred.",
         "clearance_comparison_sha256": comparison_sha,
         "response_sha256": response_sha,
         "source_force_state_scope": force_scope,
@@ -499,11 +515,14 @@ def run():
             "Parent owns integrated panel stiffness/contact sensitivity. No historical native force or acceptance is transferred.",
         ],
         "native_solve_run": False, "frame_solve_run": False, "CAD_rebuilt": False,
-        "tests_run": False, "review_run": False, "reviewed_geometry_changed": False,
+        "tests_run": False, "review_run": False,
+        "reviewed_geometry_changed": bool(model.get("owner_authorized_screw_movements")),
+        "owner_authorized_screw_movements": model.get("owner_authorized_screw_movements", []),
+        "bolt_geometry_changed": False,
         "formal_qualification": False, "complete_joint_acceptance": False, "physical_release": False,
         "producer_sha256": sha(Path(__file__)),
         "output_sha256": {n: sha(OUTPUT / n) for n in
-                          ("joint-actions.json", "joint-states.json", "placement.json", "header-sections.csv", "source-pins.json")},
+                          ("joint-actions.json", "joint-states.json", "placement.json", "header-sections.csv", "source-pins.json", "producer.py.snapshot")},
     }
     write(OUTPUT / "checks.json", summary)
     print(summary["status"])
@@ -523,6 +542,10 @@ def packet_path(value):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--frame", default=str(FRAME.relative_to(HERE)),
+                        help="Physical operator directory; defaults to the historical corrected frame.")
+    parser.add_argument("--metadata-seed",
+                        help="Case metadata directory; defaults to --frame. No seed force arrays are consumed.")
     parser.add_argument("--clearance", default=str(DEFAULT_RESPONSE.relative_to(HERE)))
     parser.add_argument("--members", default=str(DEFAULT_MEMBER.relative_to(HERE)))
     parser.add_argument("--lateral", default=str(DEFAULT_LATERAL.relative_to(HERE)))
@@ -536,7 +559,8 @@ def main(argv=None):
     LATERAL = packet_path(args.lateral)
     ROUTE = packet_path(args.route)
     OUTPUT = packet_path(args.output)
-    run()
+    run(frame_dir=packet_path(args.frame),
+        metadata_seed_dir=packet_path(args.metadata_seed) if args.metadata_seed else None)
 
 
 if __name__ == "__main__":

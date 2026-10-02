@@ -191,6 +191,72 @@ the frame.
 The parent checked all 143 end-grain and 139 service source pins after the
 runs, plus the three end-grain artifact pins. All matched.
 
+## Bottom corners and central partial seat
+
+The parent completed the bottom-corner saved-STEP checks in the shared
+geometry slot. They reuse the new member and remaining-bolt packets for
+the same six nominal states: 48 bolt states, sixteen finished grain paths
+with 32 exact planes, sixteen washer seats, 24 interfaces and 36 body balances.
+
+| Bottom outer cleat | Conditional adjusted lateral ratio, 92 ksi | Same-state steel-reserve scenario | Finished grain-path ratio | Ideal washer wood-pressure ratio |
+| --- | ---: | ---: | ---: | ---: |
+| Left | 0.278217 | 0.280156 | 0.036552 | 0.198876 |
+| Right | 0.005421 | 0.005422 | 0.000697 | 0.016711 |
+
+Washer radial-strip bending demands are 49.964/4.198 MPa for left/right;
+no washer yield resistance is assigned. The existing oblique group,
+characteristic splitting, hardware and complete-transfer limits are retained.
+`bolted-replay-results/bottom-attempt01/component-results.json` SHA-256 is
+`ec421ee35b9477842660faa6d2528bd957f8a06620f7d84c46d9654e40ce146a`;
+producer/snapshot is
+`5df7a264354e1488c2a68332820fe927e8dcb1fa9721111ec8fac5c00ad19e26`.
+
+The partial central seat remains excluded from full-annulus references.
+A separate saved-STEP replay uses the existing 10 mm supported outer circle
+and catalog-maximum washer opening 8.3058 mm. All three shallow probes
+give full support for this smaller central ring, area 24.358092 mm².
+The current peak signed tie is 22.952333 N at K12-right, giving conditional
+uniform pressure 0.942288 MPa and ratio 0.218668 to the unchanged wood
+reference. Required equal-area outer diameter is 8.704482 mm. This is a
+central load-footprint hypothesis; actual nut contact and washer spreading
+over the unsupported outer crescent remain unproved.
+`bolted-replay-results/central-seat-attempt01/result.json` SHA-256 is
+`a058f494bc4a733e90c0ee954f38634abadceac4c24273b92dab4434cac42b33`;
+producer/snapshot is
+`87a92119a17c7f7c2217e28088ca011c5ae70527c9c18b70fafcb9ce1d9acd7b`.
+All 139 central-seat source pins match after the run.
+
+## Retained pairs and washer families
+
+All twelve retained bolts now have fresh pair and washer comparisons from
+`remaining-attempt02`. The pair screen retains six pairs, 36 pair states and
+72 bolt states. Its largest individual ratio divided by the smallest of
+four declared row-factor scenarios is 0.962538 at
+`rail_front_bolt_left_2`, A12-forward: V=1043.406307 N,
+T=194.713830 N, individual ratio 0.953383 and scenario factor 0.990488.
+The actual oblique group factor remains null; this is the same bounded
+sensitivity previously used, not a new group acceptance rule.
+
+The washer screen binds 24 seats and 144 simultaneous states to the retained
+3/8- and 1/2-inch catalog dimensions. Ideal full-annulus wood-pressure ratios
+peak at 0.208053 and 0.264300 respectively. The 3/8-inch peak is the right
+front bolt 2 head, K12-right, T=354.725851 N; the 1/2-inch peak is right leg
+bolt 2 head in the same case, T=887.869064 N. Actual supported pressure,
+loaded shift/tilt, nut/head transfer and washer metal acceptance remain null.
+The unchanged nominal annulus geometry check retains its original scope.
+
+| Fresh artifact relative to the resume packet | SHA-256 |
+| --- | --- |
+| `retained-group-attempt02/checks.json` | `c64a84c44855b3fecc53259cecd693105dec8d10b2a9dbef94aa1118fca09ef8` |
+| `retained_group_checks.py` | `391b459d20a7cc6bb2f53ec4622259948b74f228a6553f4dee749a2011ff559f` |
+| `retained-washer-attempt02/checks.json` | `f23e2f0c9c1b32aa37f53416de95f7ed97257e704b638a6f94b1d043aec1420b` |
+| `retained_washer_checks.py` | `daf951aaac578b2494382af1cd97f4530a49091aa1476cb9da32094ac29927e8` |
+
+The receipts bind 152 pair and 154 washer source pins, including the new
+remaining-bolt manifest and its current frame-source pins. Superseded
+geometry-pipeline producer filenames are retained as history only. No old
+force vector or acceptance is transferred.
+
 ## Reproduction
 
 Run from the repository root. For a fresh saved-array replay, substitute a

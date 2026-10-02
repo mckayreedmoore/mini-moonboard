@@ -541,7 +541,7 @@ def run(clearance, member_dir, lateral_dir, output):
             "Finished disconnected section areas are geometry evidence; no common strain field or force share is assigned.",
         ],
         "complete_joint_acceptance": False,
-        "reviewed_geometry_changed": False,
+        "reviewed_geometry_changed": member_report.get("reviewed_geometry_changed", False),
         "physical_release": False,
     }
     output.mkdir()

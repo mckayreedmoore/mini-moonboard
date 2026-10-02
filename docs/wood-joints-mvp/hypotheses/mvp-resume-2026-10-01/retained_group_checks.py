@@ -19,12 +19,67 @@ SOURCE = HERE / "remaining-joint-screen-attempt04/all-two-receiver-92ksi"
 REGISTER = Path("/tmp/mini-moonboard-retained-frame-bolt-current-resistance-basis-2026-10-01.json")
 CHAPTER = ROOT / "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter11-2024-awc-20260911.pdf"
 REFERENCE_SHA = "5b85139b2acaefd8ff74df916229766438c0caf3bc9c3a1a7b5080f8f393033a"
+REPLAY_SOURCE = HERE / "upper-corner-screw-layout/bolted-replay-results/remaining-attempt02"
+REPLAY_SHA = "abe988897087ad9d07f94c5def6a7427cfeb9c493a26ef50d3d13b8baac94d45"
+REPLAY_RESPONSE_SHA = "0625196497b0dbc7b297724d7b9947f7c7c61bb282cd4d9681705629302c76c7"
 REGISTER_SHA = "c3250f067c4590ee43f7ec7a5765d056d87e6ff5adb42837ed27710d9b4d4eb1"
 E_PSI = 1_600_000.0
 
 
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def bind_source(source_dir):
+    """Authenticate either frozen force screen and preserve historical provenance.
+
+    The new replay rechecks its upstream sources. The historical default keeps
+    its frozen receipts without re-running its superseded producer pipeline.
+    """
+    source_dir = source_dir.resolve()
+    if source_dir.name == "screen.json":
+        source_dir = source_dir.parent
+    expected = {SOURCE.resolve(): REFERENCE_SHA, REPLAY_SOURCE.resolve(): REPLAY_SHA}
+    if source_dir not in expected:
+        raise ValueError("source must be the frozen historical screen or four-screw replay")
+    report_path = source_dir / "screen.json"
+    if sha(report_path) != expected[source_dir]:
+        raise ValueError("saved force screen changed")
+    report = json.loads(report_path.read_text())
+    if (report["schema"] != "remaining_nominal_gap_joint_screen/v1"
+            or report["gap_scale"] != 1.0 or report["counts"]["retained_axes"] != 12
+            or report["complete_joint_acceptance"] or report["physical_release"]):
+        raise ValueError("wrong retained force scope")
+    pins = {str(report_path): expected[source_dir], str(Path(__file__)): sha(Path(__file__))}
+
+    def pin(path, digest):
+        key = str(path.resolve())
+        if key in pins and pins[key] != digest:
+            raise ValueError("conflicting source pin: " + key)
+        pins[key] = digest
+
+    for name, digest in report["output_sha256"].items():
+        pin(source_dir / name, digest)
+    if report["output_sha256"]["producer.py.snapshot"] != report["producer_sha256"]:
+        raise ValueError("source producer snapshot differs")
+    # Check the manifest receipt before reading any pins from it.
+    for path, digest in pins.items():
+        if sha(Path(path)) != digest:
+            raise ValueError("changed source receipt: " + path)
+    scope = "Frozen historical report, outputs and source-pin receipt; superseded upstream producer files are not replayed."
+    if source_dir == REPLAY_SOURCE.resolve():
+        if report["source_response_sha256"] != REPLAY_RESPONSE_SHA or report["reviewed_geometry_changed"] is not True:
+            raise ValueError("wrong four-screw replay response or geometry metadata")
+        manifest = json.loads((source_dir / "source-pins.json").read_text())
+        for path, digest in manifest["rechecked_sha256"].items():
+            pin(Path(path), digest)
+        for relative, digest in manifest["frame_source_pins"].items():
+            pin(ROOT / relative, digest)
+        scope = "Frozen report/output receipts and current rechecked/frame-source pins authenticated before and after arithmetic; inherited geometry-pipeline pins remain provenance only."
+    for path, digest in pins.items():
+        if sha(Path(path)) != digest:
+            raise ValueError("changed source pin: " + path)
+    return source_dir, report, source_dir / "bolt-states.csv", pins, scope
 
 
 def dot(a, b):
@@ -61,22 +116,19 @@ def group_factor(pitch_mm, diameter_in, main_area_in2, side_area_in2):
     return min(1.0, value)
 
 
-def main(output):
+def main(output, source_dir=SOURCE):
     output = output.resolve()
     if output.parent != HERE or not output.name.startswith("retained-group-attempt") or output.exists():
         raise ValueError("use a fresh retained-group-attempt directory in this packet")
-    report_path, csv_path = SOURCE / "screen.json", SOURCE / "bolt-states.csv"
-    if sha(report_path) != REFERENCE_SHA or sha(REGISTER) != REGISTER_SHA:
-        raise ValueError("saved force or receiver register changed")
-    source = json.loads(report_path.read_text())
-    if sha(csv_path) != source["output_sha256"]["bolt-states.csv"]:
-        raise ValueError("saved force CSV differs from its report")
+    source_dir, source, csv_path, pins, pin_scope = bind_source(source_dir)
+    if sha(REGISTER) != REGISTER_SHA:
+        raise ValueError("receiver register changed")
     register = json.loads(REGISTER.read_text())["axis_register"]
     with csv_path.open(newline="") as stream:
         records = [r for r in csv.DictReader(stream) if r["kind"] == "retained_bolt"]
     if len(records) != 72 or len({r["axis_id"] for r in records}) != 12:
         raise ValueError("expected twelve retained bolts across six nominal states")
-    pins = {str(p): sha(p) for p in (report_path, csv_path, REGISTER, CHAPTER, Path(__file__))}
+    pins.update({str(p): sha(p) for p in (REGISTER, CHAPTER, Path(__file__))})
     grouped = defaultdict(list)
     for record in records:
         grouped[(record["duty_id"], record["case_id"])].append(record)
@@ -158,6 +210,12 @@ def main(output):
     (output / ".gitignore").write_text("*\n")
     (output / "producer.py.snapshot").write_bytes(Path(__file__).read_bytes())
     result = {"schema": "retained_bolt_group_sensitivity/v1", "source_sha256": pins,
+              "source_directory": str(source_dir.relative_to(ROOT)),
+              "source_screen_sha256": pins[str(source_dir / "screen.json")],
+              "source_response_path": source["source_response_path"],
+              "source_response_sha256": source["source_response_sha256"],
+              "source_pin_scope": pin_scope,
+              "producer_sha256": sha(Path(__file__)),
               "source_force_state_scope": source["source_force_state_scope"],
               "counts": {"pairs": 6, "pair_states": 36, "axis_states": 72}, "E_psi": E_PSI,
               "groups": groups, "axis_states": axis_states,
@@ -168,12 +226,15 @@ def main(output):
                          "The NDS row load/slip modulus is used only in Eq.11.3-1, not as a replacement frame spring stiffness.",
                          "Only six saved nominal-gap states are consumed; other sources and physical fit are not included."],
               "frame_solve_run": False, "native_solve_run": False, "hardware_selected": False,
-              "reviewed_geometry_changed": False, "complete_joint_acceptance": False, "physical_release": False}
+              "reviewed_geometry_changed": source["reviewed_geometry_changed"], "complete_joint_acceptance": False, "physical_release": False}
     (output / "checks.json").write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     print(json.dumps({"output": str(output), "sha256": sha(output / "checks.json"), "counts": result["counts"], "peak": result["peak"]}))
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--source", type=Path, default=SOURCE,
+                        help="Frozen remaining-joint screen directory or screen.json; no solve is run.")
     parser.add_argument("--output", type=Path, required=True)
-    main(parser.parse_args().output)
+    args = parser.parse_args()
+    main(args.output, args.source)
