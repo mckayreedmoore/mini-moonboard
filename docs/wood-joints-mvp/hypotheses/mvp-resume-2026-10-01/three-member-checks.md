@@ -23,6 +23,16 @@ Its signed plane, receiver, group and contact records remain separate and
 source-bound. Use this fresh child and frame path with the replay command
 below. The earlier result and producer snapshots remain preserved.
 
+The subsequent [static bearing and bending construction](knee-bearing-checks.md)
+now preserves every receiver wrench through an explicit affine bearing field:
+24 bolt states, 72 receiver fields and 96 normalized endpoint fields. Peak
+nominal bearing and smooth-shank steel indices are 0.359589 and 0.592568.
+All endpoint fields fit the declared nominal bearing/plastic-bending bounds;
+static embedding is constructed within that model. Displacement/contact
+embedding, common-bolt clearance, actual thread sections and the complete
+physical convex admissible set remain unvalidated. No normative asymmetric
+capacity or complete-joint acceptance follows.
+
 ## Preserved six-joint comparison
 
 The following calculation uses the six nominal-gap states from

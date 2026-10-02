@@ -49,7 +49,7 @@ a couple, so this is a sensitivity rather than an adopted complete-group factor.
 | Member torsion/stability | Braced normal interaction 0.6144; top-rail face shear/torsion proxy 1.0392 exceeds declared 180 psi reference |
 | End-grain lateral route | 12 axes / 72 states; NDS perpendicular bearing and Ceg=0.67, individual 92 ksi ratio 0.04648 before group/detailing adjustments |
 | Six block/header joints | Adjusted component sensitivity 0.04692, washer wood bearing 0.2627; 36 interfaces and 42 body balances close |
-| Continuous knee bolts | 24 asymmetric bolt cases; declared conservative sum 0.9192 at 92 ksi / 1.3125 at 45 ksi, with endpoint embedding and full joint transfer unvalidated |
+| Continuous knee bolts | 24 asymmetric cases; endpoint sum 0.9192 at 92 ksi / 1.3125 at 45 ksi; recovered nominal bearing/steel indices 0.3596 / 0.5926, with contact/clearance and full joint transfer open |
 | Remaining eligible individual bolts | No eligible ratio above one at 45/92/106 ksi; retained front-left second bolt governs at 0.9521 |
 
 Different peaks are not simultaneous. The [bottom-corner calculation](hypotheses/mvp-resume-2026-10-01/bottom-corner-checks.md),
@@ -62,6 +62,12 @@ Different peaks are not simultaneous. The [bottom-corner calculation](hypotheses
 same-state inputs. The existing service worker's
 [upper/lower assessments and earlier Hillman evidence](hypotheses/mvp-resume-2026-10-01/service-and-hillman-integration.md)
 remain preserved and ingested without regenerating their historical force records.
+
+The [continuous-bolt bearing construction](hypotheses/mvp-resume-2026-10-01/knee-bearing-checks.md)
+recovers shear and bending through all three receivers while preserving 72 saved
+receiver wrenches. Its 96 normalized endpoint fields fit the declared nominal
+bearing/bending bounds; actual bore-wall contact compatibility and common-bolt
+clearance remain open. This does not supply an adjusted asymmetric joint capacity.
 
 The original [zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
 stops in all six cases: upper panels need outward restraint. The

@@ -27,6 +27,13 @@ The [retained-pair sensitivity](retained-group-checks.md) now preserves all
 after division by the smallest of four declared row factors. The actual
 oblique-group factor is not adopted.
 
+The [continuous knee-bolt construction](knee-bearing-checks.md) now recovers
+24 static bearing/shear/bending states and 96 normalized endpoint fields.
+All 72 actual receiver wrenches match; peak nominal bearing/steel indices
+are 0.359589/0.592568. Static endpoint fields fit the declared nominal
+bounds. Actual bore-wall compatibility, common-bolt clearance, thread
+sections and adjusted complete-joint resistance remain open.
+
 Current panel references retain an unresolved strength exception. At A12-rear,
 `round_panel_upper_left_edge_2` carries T=1836.884 N and V=807.662 N. Generic
 lateral references are 386.752/463.413 N; the favorable combined index is
