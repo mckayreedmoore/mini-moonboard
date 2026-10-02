@@ -112,7 +112,9 @@ No recurring review loop is used.
 
 The [central bearing scenario](hypotheses/mvp-resume-2026-10-01/partial-seat-bearing.md)
 provides supported geometry at the center-principal partial washer seat. Its current all-two-receiver
-wood-pressure ratio is 0.1425; the preserved six-joint value is 0.5147.
+wood-bore-only pressure ratio is 0.1425. Including the catalog washer's maximum
+8.3058 mm opening raises the conditional uniform-pressure ratio to 0.2146;
+the preserved six-joint wood-bore-only value is 0.5147.
 Actual washer/nut transfer remains unqualified. The
 [lower-left service comparison](hypotheses/mvp-resume-2026-10-01/service-joint-current-checks.md)
 now supplies all 24 current signed bolt states and a peak conditional Grade 5 lateral ratio

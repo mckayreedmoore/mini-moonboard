@@ -45,11 +45,52 @@ The ties below come from each same state's checked raw row 1535:
 | K12-rear | 10.623934 | 0.289591 | 0.0672027 | 7.511926 | 296 |
 | A1-rear | 6.438536 | 0.175504 | 0.0407276 | 7.429158 | 296 |
 
-Peak current mean pressure is **0.614010 MPa**, or **0.1424875** of
+Peak current wood-bore-only footprint mean pressure is **0.614010 MPa**, or **0.1424875** of
 conditional DF-L No. 2 base perpendicular bearing, 4.30922 MPa. It occurs at
 K12-right with same-state signed tie **22.525552 N**. The minimum equal-area
 outer circle is **7.742454 mm diameter** around the 7.3 mm bore. That is an
 area requirement, not a measured nut face or hardware specification.
+
+## Current catalog washer-opening comparison
+
+The conditional quarter-inch USS washer has a **7.7978–8.3058 mm ID**,
+wider than the 7.3 mm wood bore in the geometric probe. Use that actual
+washer-opening range when declaring a nut-to-washer-to-wood pressure route.
+The larger openings leave concentric subsets of the already-supported
+10/7.3 mm ring, so its saved support at the three sampled inward depths
+also supports these smaller annuli. This set-inclusion argument needs no
+new CAD query; it establishes sampled wood geometry, not actual contact.
+
+For the current six nominal force states, the uniform-pressure comparisons
+are:
+
+| Case | Tie, N | Pressure at ID 7.7978 mm, MPa | Pressure at ID 8.3058 mm, MPa | Maximum-ID pressure / Fc-perp |
+| --- | ---: | ---: | ---: | ---: |
+| A12-rear | 10.760567 | 0.349560 | 0.441766 | 0.102516 |
+| A12-forward | 8.935597 | 0.290276 | 0.366843 | 0.085130 |
+| A12-left | 11.446499 | 0.371843 | 0.469926 | 0.109051 |
+| K12-right | 22.525552 | 0.731750 | **0.924767** | **0.214602** |
+| K12-rear | 10.623934 | 0.345122 | 0.436156 | 0.101215 |
+| A1-rear | 6.438536 | 0.209158 | 0.264328 | 0.061340 |
+
+Areas are 30.783143 and 24.358092 mm² respectively. At the governing
+22.525552 N, the minimum equal-area outer diameter around the maximum
+washer opening is **8.697235 mm**, within the supported 10 mm circle.
+These numbers retain the uniform-pressure and conditional 4.309223 MPa
+wood-bearing hypotheses. The corrected washer-opening comparison remains
+below one; it supplies no washer metal, actual nut bearing-face, bridging,
+tilt or pressure-distribution acceptance.
+
+The numeric washer envelopes reuse the unchanged
+[hardware engagement specification](assembly-package/hardware-engagement.md)
+and its local `assembly-package/rawlocal/hardware-engagement/hardware-engagement.json`,
+SHA-256 `93c24fe5fb421152b0294cc35106bfb6d595b558f45e0be826406405084c111a`.
+Its 81.364757 N force comparison belongs to the preserved six-joint source;
+this subsection uses the current force result below, not that older force.
+The calculation is simply `A=π(10²−ID²)/4`, `p=T/A`, and
+`Drequired=sqrt(ID²+4T/(π Fc-perp))`, repeated for six saved ties and both
+ID endpoints. Frozen machine results and earlier geometry/force comparisons
+remain unchanged.
 
 ## Preserved historical six-joint values
 

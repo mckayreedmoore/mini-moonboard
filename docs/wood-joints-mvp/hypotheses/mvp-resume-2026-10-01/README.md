@@ -34,6 +34,12 @@ are 0.359589/0.592568. Static endpoint fields fit the declared nominal
 bounds. Actual bore-wall compatibility, common-bolt clearance, thread
 sections and adjusted complete-joint resistance remain open.
 
+The [central-seat comparison](partial-seat-bearing.md#current-catalog-washer-opening-comparison)
+now uses the catalog quarter-inch washer opening with current forces.
+At maximum ID 8.3058 mm, the supported 10 mm outer circle gives a
+conditional uniform-pressure ratio of 0.214602, replacing 0.1424875 for
+that washer-opening hypothesis. Actual nut/washer transfer remains open.
+
 Current panel references retain an unresolved strength exception. At A12-rear,
 `round_panel_upper_left_edge_2` carries T=1836.884 N and V=807.662 N. Generic
 lateral references are 386.752/463.413 N; the favorable combined index is
