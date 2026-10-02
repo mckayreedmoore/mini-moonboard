@@ -9,7 +9,109 @@ and cost/assembly documentation with panel assumptions explicit. Retain
 unresolved formal qualification and physical-release flags false. No formal
 criterion is closed by this restart record.
 
-## Current working model and ownership
+## Current analytical working model for the MVP goal
+
+Use the [four-upper-screw packet](upper-corner-screw-layout/README.md) for
+the continuation's joint, member and panel calculations. It combines the
+existing two-corner correction and all 88 independent bolt clearances with
+the owner's October 2 authorization to move the upper screws upward. Four
+axes move; two center receivers change to `base_rail_top`. The 66-screw count,
+104 structural bolts and 50 bodies remain unchanged. This selects an
+analytical packet for the goal, not a physical candidate or fabrication
+release. Reviewed source solids retain their old holes; new stations are a
+coordinate overlay with filled-bore elastic stiffness and explicit local
+section exclusions.
+
+| Required input | Current analytical source / SHA-256 |
+| --- | --- |
+| Physical rows and elastic projections | `upper-corner-screw-layout/operators-attempt02/`; operator assessment `1a82cd2adbfece3942bf8c90f593f1e21a150adb65db625135aadd258fd5024a` |
+| Complete six-case zero/nominal calculation | `upper-corner-screw-layout/frame-250-attempt02/comparison.json`; `bea6cbc330af3cdb20499d774a8f6bb24481d687c3150adb01ede18e4c1d50ca` |
+| Saved simultaneous responses | Same packet `response.npz`; `0625196497b0dbc7b297724d7b9947f7c7c61bb282cd4d9681705629302c76c7` |
+| Conditional shop coordinates | [66-axis overlay](upper-corner-screw-layout/shop-addendum.md); 62 unchanged and four moved axes |
+
+The load remains 250 lb × 2 downward, signed 300 N horizontal at one hold,
+the inherited 100 mm face lever, recorded gravity and separate 25 kg
+accessory allowance. All six zero-gap and six nominal-gap states meet their
+declared equilibrium, finite connector, no-slip floor and method-domain
+checks. Nominal rank remains 296/297 with bounded, nonunique fixed-force
+seating. This establishes usable simultaneous forces within the model;
+strict stability, a motion envelope and dynamic qualification remain open.
+
+### Replays using this one force source
+
+| Scope | Fresh result under its recorded assumptions | Evidence |
+| --- | --- | --- |
+| Both top outer corners | Conditional lateral ratios 0.722296 / 0.813949; ideal washer wood indices 0.717681 / 0.822681 | [Bolted replay](upper-corner-screw-layout/bolted-replay.md#completed-top-corner-replay) |
+| Bottom corners | Conditional lateral ratios 0.278217 / 0.005421; finished paths and seats replayed | [Bottom replay](upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat) |
+| Remaining eligible bolts and lower service | 92 included axes in the remaining method; separate four-axis service result 0.007468 | [Methods and exact exclusions](upper-corner-screw-layout/bolted-replay.md) |
+| Header joints and end-grain routes | 72 header bolt states, 36 interfaces and 42 balances; individual end-grain reference 0.052042 | [Header replay](upper-corner-screw-layout/header-replay.md) |
+| Retained pairs and washers | Row-factor sensitivity 0.962538; ideal washer wood indices 0.208053 / 0.264300 | [Retained replay](upper-corner-screw-layout/bolted-replay.md#retained-pairs-and-washer-families) |
+| Four continuous knee bolts | Static bearing/steel indices 0.357992 / 0.592947; 96 shaft-placement witnesses, minimum nominal radial margin 0.435895 mm | [Knee replay](upper-corner-screw-layout/knee-replay.md) |
+| Members | 264 balances and 55,176 cuts; declared normal/stability index 0.628421; top-rail shear/torsion exception **1.021524** | [Member replay](upper-corner-screw-layout/member-replay.md) |
+| Central partial nut seat | Maximum signed tie 22.952333 N; supported-ring mean-pressure index 0.218668, with actual nut/washer transfer open | [Central replay](upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat) |
+
+Peaks belong to separate states and are not added. These replays preserve
+each method's applicability limits and false complete-joint flags. The
+[earlier joint register](joint-register.md) is a historical force index.
+The completed [current register](upper-corner-screw-layout/joint-register.md)
+maps 24 blocks, 104 bolts and 66 screws to these new vectors: 624 bolt-axis
+states, 648 bolt-interface states and 396 screw states. It authenticates
+246 consumed bindings, with one inherited helper receipt explicitly
+attested through its preserved snapshot and a metadata-only source change.
+No additional mechanics solve was needed.
+
+### Remaining decisions
+
+The original single-hold packet retains 1871.251 N nominal panel-head demand
+with 726.611 N simultaneous shear. The [head worksheet](upper-corner-screw-layout/head-reference-basis.md)
+now reuses the prior Hillman 42605 retailer-nominal 9.017 mm head; favorable
+duration-adjusted references are 930.222 N with the declared countersink
+reduction and 984.128 N without it. Those are conditional design references,
+not measured product breaking loads. Hillman stiffness, plywood properties,
+backing/contact fidelity and combined resistance remain explicit panel
+assumptions. The [finite hand/foot comparison](upper-corner-screw-layout/paired-load-comparison.md)
+returns eight states before contact cycling; it does not replace this
+complete source or the 250 lb requirement. Both 140 lb comparisons also
+remain incomplete.
+
+The [purchased-panel material check](upper-corner-screw-layout/panel-material-fidelity.md)
+confirms a flexible layered operator matching conditional APA AC-plywood
+targets. Roseburg product identity is known; Group 1, face-grain placement
+and transverse elastic proxies remain hypotheses. No demonstrated product
+contradiction was found. The separate rigid/elastic diagnostic identifies
+local bending and compliance as sharing questions, not a lower accepted load.
+The three-sheet width nesting would put a typical factory long-axis face
+grain across the board, whereas this operator assumes grain along the slope.
+That conditional placement mismatch needs reconciliation; no actual sheet
+orientation or revised material response is adopted by this summary.
+
+The top-rail 1.021524 shear/torsion reference exceedance remains unresolved.
+Local disturbed stresses, two-group joint interaction, washer/head/nut
+transfer, continuous-knee contact and actual shank/thread profiles retain
+their stated limits. The [upper-right washer worksheet](upper-corner-screw-layout/upper-right-washer-contact-bounds.md)
+resolves the washer-standard label crosswalk and bounds its existing strip
+model; it supplies no physical contact solution or assigned product yield.
+
+The [assembly package](assembly-package/README.md) remains the dimensional,
+transport, stock, purchasing and operation basis, read with the four-axis
+overlay above. Its 104-stack dimensional specifications and nominal longer-
+bolt fit do not depend on the changed panel forces. Loaded operations and
+the central-seat demand use their explicit force-source scopes. Priced
+hardware terms total $189.58 when the retained increment is counted once;
+missing order terms remain listed. Actual/Disposition cells stay blank.
+
+All 47 formal criteria remain pending and all eight release flags false.
+Selected-baseline authority and historical packets are preserved. This
+integration adds no native run, hardware substitution, software tests or
+agent review loop. Parent owns shared staging, execution and the returned
+register leaves. The joint worker continues in its separate upper-right
+combined-transfer leaves.
+
+## Preserved previous working model and ownership
+
+The following section retains the former `two-receiver-frame-attempt03`
+selection and its then-current summaries. Its numerical claims are history
+for this goal; use the explicit analytical source and fresh replays above.
 
 The current force source is `two-receiver-frame-attempt03/`: comparison SHA-256
 `0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5`, response

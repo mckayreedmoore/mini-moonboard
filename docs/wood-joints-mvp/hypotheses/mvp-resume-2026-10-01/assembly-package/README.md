@@ -10,18 +10,32 @@ selected angle-frame candidate or authorize physical work. Main owns the
 integrated mechanics and final MVP result; this packet supplies conditional
 operations and reconciled quantities, not additional release requirements.
 
-The current mechanics bridge is `two-receiver-frame-attempt03/`, with all
-88 independent candidate bolt clearances included in its twelve zero/gap
-states. Nominal seating is bounded and nonunique; the four continuous knee
-bolts and twelve retained bolts still have zero modeled clearance. Its source
-map pins the same `corner-frame-attempt01/model.json` used here, and its
-modeled mass remains 224.9499553141194 kg. Both bottom joints retain their
-quarter-inch hardware; no additional member, stock or axis change is inferred.
-The earlier six-joint `all-outer-corner-frame-attempt01/` bridge remains
-preserved. The [parent working model summary](../README.md) owns current
-mechanics, assumptions and remaining joint/member checks. This bridge binds
-the current force source without replacing the frozen assembly reconciliation
-or transferring an access or complete-joint pass.
+The current analytical mechanics bridge is
+`../upper-corner-screw-layout/frame-250-attempt02/`, with all 88 independent
+candidate bolt clearances included in its twelve zero/nominal states.
+Comparison SHA-256 is
+`bea6cbc330af3cdb20499d774a8f6bb24481d687c3150adb01ede18e4c1d50ca`;
+response SHA-256 is
+`0625196497b0dbc7b297724d7b9947f7c7c61bb282cd4d9681705629302c76c7`.
+Nominal seating is bounded and nonunique; the four continuous knee bolts
+and twelve retained bolts retain zero modeled clearance. The owner-authorized
+[four-upper-screw overlay](../upper-corner-screw-layout/shop-addendum.md)
+changes panel stations and two receiver identities, with the 66-screw count
+preserved. Member and structural-bolt geometry, all family dimensions and
+modeled mass 224.9499553141194 kg are unchanged. Saved old holes remain;
+the overlay is not physical drilling authority.
+
+Read this dimensional/operation package with that overlay and the
+[parent working model summary](../README.md#current-analytical-working-model-for-the-mvp-goal).
+The [panel material/placement check](../upper-corner-screw-layout/panel-material-fidelity.md)
+also distinguishes the three-sheet width nesting from the model's assumed
+grain direction. The sheet counts do not establish matching response axes.
+The previous `two-receiver-frame-attempt03/` and six-joint
+`all-outer-corner-frame-attempt01/` bridges remain history. Frozen assembly
+reconciliation and nominal length-fit outputs are preserved; their geometry
+scopes do not establish loaded fit or transfer an access or whole-joint pass.
+Current central-seat forces come from the linked fresh component replay;
+historical force-dependent purchasing calculations retain their own labels.
 
 The bounded [reconciliation producer](reconcile.py) consumes saved geometry
 and inventory records without a CAD rebuild or frame solve. Local raw results
@@ -276,8 +290,9 @@ yield. Plywood is separate.
 
 Four main plywood bodies have 1217.6125 × 1219.2 × 18.25625 mm source
 envelopes; two kicker bodies have 1217.6125 × 277 × 18.25625 mm envelopes.
-Six bodies are not six purchased sheets. The current panel-source identity
-and layup remain unverified, independently of geometric sheet quantities.
+Six bodies are not six purchased sheets. The owner identified the purchased
+Roseburg AC fir product; binding its actual sheet group and strength-axis
+placement to these body envelopes remains open, independently of sheet counts.
 
 For rectangular sheet envelopes, a bounded zero-end-trim layout is possible
 without importing the selected candidate's plywood packet:

@@ -1,9 +1,10 @@
 # Current wood-joint engineering register
 
 This is the preserved **six-joint force index**, with unchanged physical
-block/axis identities. The [current working summary](../../README.md#current-working-model)
-uses `two-receiver-frame-attempt03/` and its fresh component replays. Do not
-transfer this index's old numerical envelopes into that force source.
+block/axis identities. The [current working summary](README.md#current-analytical-working-model-for-the-mvp-goal)
+uses `upper-corner-screw-layout/frame-250-attempt02/` and its fresh component replays.
+The [current register](upper-corner-screw-layout/joint-register.md) indexes that source.
+Do not transfer this index's old numerical envelopes into the current force source.
 
 Compact index of saved evidence for reviewed model. No complete-joint acceptance or physical release. Full axes, states, report fields and hashes: ignored machine register.
 

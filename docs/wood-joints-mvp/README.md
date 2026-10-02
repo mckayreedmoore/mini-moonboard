@@ -23,10 +23,31 @@ release is established.
 
 ## Current working model
 
+The continuation now uses the owner-authorized four-upper-screw layout,
+`upper-corner-screw-layout/frame-250-attempt02/`. All six zero-gap and six
+nominal-gap states meet the recorded equilibrium, connector and no-slip
+floor checks. Nominal seating remains bounded and nonunique at rank 296/297.
+The [current analytical summary and component table](hypotheses/mvp-resume-2026-10-01/README.md#current-analytical-working-model-for-the-mvp-goal)
+and [current joint register](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-register.md)
+bind one force source across 24 blocks, 104 bolts and 66 screws. Fresh replays
+retain the top-rail shear/torsion comparison of 1.021524 and panel axial peak
+1871.251 N; both remain unresolved conditional reference comparisons.
+The [material-fidelity note](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-material-fidelity.md)
+distinguishes the known Roseburg purchase from assumed group, grain placement
+and transverse response properties. The [shop overlay](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/shop-addendum.md)
+records the four moves without changing fabrication or release authority.
+
+### Preserved previous working-model summary
+
+The following source, table and numerical paragraphs preserve the earlier
+`two-receiver-frame-attempt03/` summary. Use the current analytical summary
+and register above for ongoing calculations; earlier evidence retains its
+own scope. Native authentication status and all release flags are unchanged.
+
 The owner selected a simple MVP model and stopped recurring agent reviews. The parent has
 integrated an [isolated top-corner correction](hypotheses/mvp-resume-2026-10-01/top-corner-correction.md)
 with modeled radial clearance on all 88 independent two-receiver candidate bolts.
-The current force reference is `two-receiver-frame-attempt03/`: all twelve
+The previous force reference is `two-receiver-frame-attempt03/`: all twelve
 zero/nominal states meet equilibrium, connector and floor laws across six cases.
 Each nominal state has finite fixed-force seating bounds, with rank296/297;
 unique pose and strict tangent stability are not established. Four continuous
@@ -197,8 +218,8 @@ The owner then authorized moving the upper screws upward. The
 checks new backing and completes all twelve 250 lb dynamic states. Nominal
 axial peak is 1871.251 N, still above retained generic head references.
 Both 140 lb comparisons stop on contact branch cycling after two zero-gap
-states; no full lighter-climber envelope is established. This child revision
-does not replace the force source above or inherit its component checks.
+states; no full lighter-climber envelope is established. This revision is now the analytical source linked above. Its fresh
+component replays remain separate from the preserved previous-source checks.
 
 The [conditional assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
 already reconciles 50 transport bodies, 44 timber blanks, 104 bolt/nut stacks, 208 washers

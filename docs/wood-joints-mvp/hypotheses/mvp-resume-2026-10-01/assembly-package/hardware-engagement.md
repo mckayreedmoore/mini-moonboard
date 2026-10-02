@@ -22,10 +22,12 @@ and `response.npz` SHA-256
 The [producer](hardware_engagement.py) reads saved geometry and source records;
 it does not rebuild CAD or solve the frame. Its local output directory is
 `rawlocal/hardware-engagement/`.
-Current force comparisons use `two-receiver-frame-attempt03/`; the dimensional
-family tables below do not depend on the old force values. The central-seat
-section preserves its six-joint force arithmetic and links the current
-catalog-opening comparison separately.
+Current analytical force comparisons use
+`../upper-corner-screw-layout/frame-250-attempt02/`, with the owner's four
+upper-panel screw moves. Structural bolt axes, member geometry and family
+dimensions are unchanged; the dimensional tables below do not depend on
+the old force values. The central-seat section preserves its six-joint
+arithmetic and links the current catalog-opening comparison separately.
 
 ## Order description and dimensional rules
 
@@ -259,10 +261,14 @@ bridging, tilt or pressure distribution. Those specific transfer facts
 remain unproved and are parent mechanics work. No full-annulus bearing
 pass or capacity reduced in proportion to the missing crescent is claimed.
 
-The [current six-case catalog-opening comparison](../partial-seat-bearing.md#current-catalog-washer-opening-comparison)
-uses the all-two-receiver force source instead: peak tie 22.525552 N at
-K12-right, maximum-ID uniform pressure 0.924767 MPa and conditional wood
-index 0.214602. The earlier numeric table and machine output remain frozen.
+The [current six-case central-seat replay](../upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat)
+uses the four-moved-screw source: peak tie 22.952333 N at K12-right,
+maximum-ID uniform pressure 0.942288 MPa and conditional wood index 0.218668.
+Its result SHA-256 is
+`a058f494bc4a733e90c0ee954f38634abadceac4c24273b92dab4434cac42b33`.
+The previous [all-two-receiver comparison](../partial-seat-bearing.md#current-catalog-washer-opening-comparison)
+retains 22.525552 N / 0.214602 as history. Earlier numeric tables and the
+hardware engagement producer's original output remain frozen.
 Actual nut/washer transfer is still open. The separate
 [retained-washer worksheet](../retained-washer-checks.md) now binds all 24
 3/8-inch and 1/2-inch exterior roles. The subsequent

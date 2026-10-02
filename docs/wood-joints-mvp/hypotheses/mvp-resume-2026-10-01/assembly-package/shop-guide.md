@@ -7,6 +7,10 @@ or climbing release. Use it with the [assembly and procurement reconciliation](R
 screen](hardware-length-fit.md), and the current [top-corner fit
 worksheet](../top-corner-hardware/assembly-fit.md).
 
+Read panel stations with the [four-upper-screw coordinate
+overlay](../upper-corner-screw-layout/shop-addendum.md). It records the current analytical
+layout; its stations are conditional and are not instructions to drill the preserved source solids.
+
 ## Parts and current layout
 
 | Item | Quantity | Identity |
@@ -30,11 +34,14 @@ The former 144 Simpson SDS25112 screws and 24 ML24Z angles are absent from this 
 them to this bill of materials or substitute them for the 66 Hillman screws. Hold T-nuts, mounted
 holds, lights, and wires are separate from structural fastener counts.
 
-Use the [current 66-axis receiver
+Use the [preserved 66-axis receiver
 inventory](../../current-panel-receiver-transfer-2026-10-01/inventory.md) for panel screw IDs and
-receiver assignments. It records 58 retained and eight moved stations in this candidate; those
-counts do not import selected-baseline positions. Four moved center-kicker axes now enter the center
-posts. Do not use historical `inner_kicker_backer` names as current receivers. Use the [current
+its previous receiver assignments. That inventory records 58 retained and eight moved stations
+relative to its source. The current [four-upper-screw overlay](../upper-corner-screw-layout/shop-addendum.md)
+then retains 62 of those 66 stations and moves four upper screws upward; the two moved center
+stations enter `base_rail_top`. These are successive comparisons with different reference layouts,
+not competing totals. Four previously moved center-kicker axes still enter the center posts.
+Do not use historical `inner_kicker_backer` names as current receivers. Use the [current
 hardware coverage](../../../current-hardware-coverage.md) for frame axis IDs, and the [top-corner
 correction summary](../top-corner-correction.md) for the eight proposed top axes. Modeled dimensions
 are not bit instructions.
@@ -61,6 +68,12 @@ For the six panel envelopes, geometry-only layouts require three 1219.2 × 2438.
 1219.2 × 1219.2 mm sheets. These counts identify no compatible purchased panel product, layup, or
 released cutting plan. Two main-panel widths plus 3.175 mm kerf exactly use the 4×8 sheet length,
 leaving no margin; 3.2 mm kerf does not fit that envelope.
+
+That three-sheet scenario places main-panel X along the factory long direction.
+If face grain follows that direction, its orientation differs from the analytical model's
+assumed strong slope direction. Keep the count conditional; reconcile sheet placement
+with the [material/axis note](../upper-corner-screw-layout/panel-material-fidelity.md)
+before treating this as a compatible cutting plan.
 
 The routes and dated listing amounts below are conditional, not selected or received products.
 Quantities remain subject to each family’s fit requirements in [hardware
@@ -232,26 +245,27 @@ counterhold, shaft extraction, and harness staging remain unobserved.
 
 ### Engineering source pins
 
-The current frame comparison retains bounded seating nonuniqueness and `frame_state_accepted =
-false`; component updates remain pending. All six zero-gap states have rank 300; the six gap states
-have bounded certificates with rank 296 or 297. Do not transfer older component values as
-current-frame results. Hashes below identify saved evidence; none is a physical observation.
+The [current analytical frame and fresh component replays](../README.md#current-analytical-working-model-for-the-mvp-goal)
+use the four-upper-screw layout. The comparison retains bounded seating nonuniqueness and
+`frame_state_accepted = false`. All six zero-gap states have rank 300; the six gap states have
+bounded certificates with rank 296 or 297. The [current joint register](../upper-corner-screw-layout/joint-register.md)
+maps all 104 bolts to this force source. Hashes below identify saved evidence; none is a physical observation.
 Wood resistance references use conditional DF-L No. 2; stock sizing and nesting do not establish
 delivered grade or the grade of prepared section rips. No-slip floor support remains an unverified
 analytical assumption.
 
-- `two-receiver-frame-attempt03/comparison.json` SHA-256:
-  `0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5`
-- `two-receiver-frame-attempt03/response.npz` SHA-256:
-  `774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52`
-- All-outer hardware comparison SHA-256
+- `upper-corner-screw-layout/frame-250-attempt02/comparison.json` SHA-256:
+  `bea6cbc330af3cdb20499d774a8f6bb24481d687c3150adb01ede18e4c1d50ca`
+- `upper-corner-screw-layout/frame-250-attempt02/response.npz` SHA-256:
+  `0625196497b0dbc7b297724d7b9947f7c7c61bb282cd4d9681705629302c76c7`
+- Preserved all-outer hardware comparison SHA-256
   `ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3`; response SHA-256
   `aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901`.
 - Top-corner proposal SHA-256 `5932768c7a7d91535f69a90787b32222eb4d165ac6353d3e2ed4daf9e248e2b2`;
   catalog inputs SHA-256 `a2110d7580621dee92017403345f21c458729612547ac1f7b2eb8068d0c723c7`.
 
 The [assembly reconciliation](README.md) records transport masses, stock scenarios, quantities, and
-price scope. The [top-corner correction summary](../top-corner-correction.md) and [current receiver
-inventory](../../current-panel-receiver-transfer-2026-10-01/inventory.md) are the layout references
-linked above. All dimensions here describe saved records; no new CAD, native solve, or physical
-inspection was performed.
+price scope. Read the [top-corner correction summary](../top-corner-correction.md) and preserved
+[receiver inventory](../../current-panel-receiver-transfer-2026-10-01/inventory.md) with the
+[four-axis overlay](../upper-corner-screw-layout/shop-addendum.md). All dimensions here describe saved
+records; this guide update performs no new CAD, native solve or physical inspection.
