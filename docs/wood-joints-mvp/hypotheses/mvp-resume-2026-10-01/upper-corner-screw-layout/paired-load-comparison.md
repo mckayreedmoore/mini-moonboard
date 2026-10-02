@@ -72,6 +72,13 @@ See [head-reference basis](head-reference-basis.md) for material/geometry
 and duration limits. These partial results do not close head, withdrawal,
 lateral or combined attachment acceptance.
 
+The later ingestion of the prior retailer-nominal 9.017 mm Hillman head
+gives corresponding favorable adjusted references of 930.222 N with the
+stated countersink reduction and 984.128 N without it. The returned rear
+980.172 N therefore remains above the net-thickness branch and only narrowly
+below the unreduced branch. This additional product-input arithmetic does
+not change any saved force or establish a complete six-case comparison.
+
 A useful next change needs a stated physical load/stance basis or a
 defensible resistance/load-sharing detail. Additional arbitrary stiffness
 or stance sweeps do not establish either. The original complete 250 lb

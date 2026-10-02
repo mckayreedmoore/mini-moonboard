@@ -98,6 +98,11 @@ and corrects their plywood grade/species applicability. Quoted head values
 are ASD design allowances, not breaking loads. An explicit favorable
 connection-duration factor of 1.6 raises the largest reference to 1006.306 N;
 the saved 1871.251 N nominal demand still exceeds that comparison.
+The same worksheet now ingests the prior exact-part retailer head input,
+0.355 in = 9.017 mm. Its favorable adjusted references are 930.222 N with
+the stated countersink reduction and 984.128 N without it. These are
+retailer-nominal geometry branches, not measured Hillman capacities; the
+generic 9.2202 mm rows and original force outputs remain preserved.
 
 The [fresh member replay](member-replay.md) restores all 264 balances and
 55,176 cut traces. Normal/stability references remain below one under the
