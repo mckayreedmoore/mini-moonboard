@@ -155,6 +155,14 @@ added lower-left screw reaches 2181 N at A1-rear. Same applied load and source
 laws; count alone does not close the attachment comparison. The proposed
 98-total layout remains separate from the current physical 66-axis policy.
 
+The [signed lower-panel contact account](panel-contact-sharing.md) traces that
+peak to changed local tension/compression sharing with the same external
+wrench. Approximately 95 mm pressure sampling, a numerical contact penalty
+and unmeasured screw laws are explicit assumptions to check before a hardware
+conclusion. The [140 lb strong-X comparison](weight-comparison.md) returns two
+zero-clearance states with 777.501/656.745 N head peaks, then stops on contact
+cycling. It supplies no full lighter-user envelope or replacement 250 lb limit.
+
 ## Incomplete calculations and numerical limits
 
 The [one hand/foot comparison](paired-load-comparison.md) moves half the

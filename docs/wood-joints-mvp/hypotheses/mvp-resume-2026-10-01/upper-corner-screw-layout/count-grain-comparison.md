@@ -49,7 +49,12 @@ retains its own force packet. Its 2171 N lower-panel result is not caused by
 doubling the applied load. The new strong-X comparison preserves that same
 phenomenon. A saved-force contact/wrench extraction is the next bounded check:
 identify the opposing compression reactions and local lever arms before
-interpreting the concentrated screw demand as a hardware deficiency.
+interpreting the concentrated screw demand as a hardware deficiency. The
+completed [signed contact account](panel-contact-sharing.md) now shows an
+identical external wrench, a larger self-equilibrating reaction couple and
+approximately 95 mm contact sampling at the bottom rail. Nearby cells are
+open while a farther cell bears. It supplies no alternate force allocation
+or conclusion that the actual hardware fails.
 
 ## One coherent operator per comparison
 
