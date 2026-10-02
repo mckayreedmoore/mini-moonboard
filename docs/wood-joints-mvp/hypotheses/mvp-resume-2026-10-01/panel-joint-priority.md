@@ -14,9 +14,16 @@ Independent head and withdrawal deficits remain; no Hillman rating is assigned.
 The separate [member replay](member-stability.md) finds top-rail face
 shear/torsion 1.039209 against the declared 180 psi allowance. These specific
 reference exceptions govern the next corrections; no geometry, material
-factor or panel-hardware change is adopted. The owner decision on which panel
-constraint may change remains pending. The following six-joint sensitivity
-records remain preserved, with their own force scopes.
+factor or panel-hardware change is adopted. The owner's October 2 challenge
+now puts [mounting-pattern fidelity](panel-attachment/official-pattern-comparison.md)
+and the [force direction/load basis](panel-attachment/force-direction-and-load-basis.md)
+before selection of a hardware correction. The source count is twelve screws
+per main panel, but the upper vertical-row endpoints sit 65.95 mm below the
+top-rail screw row, and the lower endpoints differ from the bottom-rail row
+by 76.9 mm. This is not the same rectangular shared-corner layout described
+by the owner. Its effect on compatible force sharing is not yet calculated.
+The following six-joint sensitivity records remain preserved, with their own
+force scopes.
 
 The [panel-attachment worksheet](panel-attachment/README.md) now joins all
 66 Hillman stations to the frozen six-joint frame: 792 screw states, signed

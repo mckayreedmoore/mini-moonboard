@@ -185,8 +185,12 @@ edge bearing. All 48 panel states have static allocations with zero
 main-panel screw credit; the largest minimum corner L1 load is 1083.408 N.
 Keeper geometry, frame attachments, resistance and compatible frame response
 remain unestablished. The [one-stock fastener alternative](hypotheses/mvp-resume-2026-10-01/panel-attachment/fastener-alternative.md)
-does not close current demands. The required front-margin/fastener-policy
-decision remains with the owner; no correction is selected.
+does not close current demands. Neither correction is selected. The owner's
+October 2 mounting-pattern challenge changes the next priority: compare the
+reviewed screw layout and load sharing against the described four-per-edge,
+shared-corner arrangement before treating a hardware correction as necessary.
+See the [mounting comparison](hypotheses/mvp-resume-2026-10-01/panel-attachment/official-pattern-comparison.md)
+and [force direction/load basis](hypotheses/mvp-resume-2026-10-01/panel-attachment/force-direction-and-load-basis.md).
 
 The [conditional assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
 already reconciles 50 transport bodies, 44 timber blanks, 104 bolt/nut stacks, 208 washers
@@ -197,11 +201,14 @@ counted once; wood and other explicitly missing terms remain separate. The earli
 [stock-price observations](hypotheses/current-stock-package-cost-2026-10-01/README.md) retain
 their source scope and do not replace this current reconciliation.
 
-1. Resolve the upper-panel attachment reference deficits. The owner constraint decision for
-   the next proposal remains pending: an edge restraint occupying a narrow panel margin, or
-   permission to revise the panel-fastener specification. Neither change is selected. Retain
-   the purchased Hillman policy and reviewed climbing face in the current model. Evaluate a
-   proposed correction in the integrated frame, including changed floor-contact branches.
+1. Check the panel mounting and load-sharing representation against the owner's described
+   official shared-corner arrangement. The source has twelve screws per main panel, but
+   its upper vertical-row endpoints are 65.95 mm below its two top-rail screws; the lower
+   bottom-row endpoints likewise differ by 76.9 mm. Count alone does not establish the
+   same mounting pattern. Retain the current conditional reference exceedances, purchased
+   Hillman policy and reviewed axes. Report any required axis/backing changes before
+   altering geometry, then calculate their compatible frame response. Keeper or replacement
+   fastener selection follows that comparison if a deficit remains.
 2. Recalculate the top rail with the corrected panel load path. Retain the current 1.0392
    face shear/torsion exception and its short-transfer applicability limit until that result
    is resolved. Do not increase a material factor or infer a physical failure from the proxy.

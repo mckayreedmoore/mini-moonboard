@@ -62,9 +62,13 @@ lateral references are 386.752/463.413 N; the favorable combined index is
 2.724895 at K12-rear, `round_panel_upper_right_rim_4` (V=1274.054 N,
 T=625.635 N). Conditional head references are 277–629 N and generic withdrawal
 references 711–1073 N. These comparisons establish no measured Hillman rating
-or physical failure. The required owner constraint choice remains unanswered:
-allow an edge keeper to cover the narrow panel margin, or permit revised panel
-fasteners. No change is selected. [Panel records](panel-attachment/README.md)
+or physical failure. On October 2 the owner challenged the mounting
+representation using the official assembly's described four-per-edge,
+shared-corner pattern. The [mounting comparison](panel-attachment/official-pattern-comparison.md)
+and [force direction/load basis](panel-attachment/force-direction-and-load-basis.md)
+are now the first step: establish layout/backing and sharing fidelity before
+treating an edge keeper or revised panel fastener as necessary. No change is
+selected. [Panel records](panel-attachment/README.md)
 and the [lateral comparison](panel-attachment/lateral-reference.md) retain
 assumptions and source detail. The [edge-restraint proposal](panel-attachment/edge-restraint-proposal.md)
 now specifies 20 mm corner margins on all four main panels. Its 48 static
