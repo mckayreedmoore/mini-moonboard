@@ -69,6 +69,13 @@ offers supported geometry at the center-principal partial washer seat with
 0.5227 conditional wood-pressure ratio. Actual washer/nut transfer remains
 unqualified and no geometry change is proposed.
 
+The [remaining-joint screen](hypotheses/mvp-resume-2026-10-01/remaining-joint-checks.md)
+now covers 80 candidate and 12 retained axes across all six cases. Bottom-left
+outer `side_1` governs the eligible individual references at 0.7890 under the
+conditional 92 ksi scenario. Its complete joint is the next local priority;
+12 end-grain axes and four continuous three-receiver bolts retain separate
+method gaps. No stronger hardware or stock change is selected from this screen.
+
 ## Useful results
 
 - The [October 1 evidence summary](parallel-owner-handoff-2026-10-01.md) records source-action work;

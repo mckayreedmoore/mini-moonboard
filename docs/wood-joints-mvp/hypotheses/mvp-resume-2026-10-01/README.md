@@ -180,6 +180,17 @@ At 82.628 N peak tension its conditional mean wood-pressure ratio is 0.5227.
 Actual nut/washer transfer remains missing; the original partial-seat
 exception is not closed. No axis, passage or hardware changed.
 
+The [remaining-joint worksheet](remaining-joint-checks.md) covers 80 other
+candidate axes and 12 retained axes, with 576 simultaneous signed plane
+states. Its governing eligible axis is the bottom-left outer `side_1` in
+A1-rear: 682.380 N shear and 207.852 N tension together. The conditional
+92 ksi individual lateral-reference ratio is 0.7890; the 45 ksi sensitivity
+is 1.1282. No bolt or member enlargement is selected. Complete bottom-left
+joint transfer is the next local priority, followed by the 12 end-grain axes
+and four continuous three-receiver bolts with explicit separate-method gaps.
+The partial nut-seat pressure stays null in the general table; the parent's
+central-footprint scenario remains separate.
+
 ## Work completed during this restart
 
 The first two STI17 source-review passes found and the parent fixed the
