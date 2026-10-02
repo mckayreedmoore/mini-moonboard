@@ -171,6 +171,23 @@ The service worker's new assignment is the lower-left outer service cleat,
 `left_service_outer_lower_cleat` / `clip_horizontal_lower_left_1`.
 The parent and bounded helpers leave that active packet unchanged.
 
+The worker has now completed and transferred the
+[lower-left outer service assessment](../lower-left-service-joint/README.md).
+The parent matched its receipt SHA-256
+`dbf9cd4b761af02671a0f91d0539ce755607561cdc84d70a32297f1847918991`,
+all eight bound artifacts and all four unchanged authority records. Its 84
+twice-recorded three-rear-case states meet the recorded laws, floor signs and
+rigid rank 300. Peak local movement is 0.78235 mm and rotation 0.1784°;
+at 1.15 mm clearance the shear/tension envelopes are about 9.35/16.09 N.
+The zero-gap envelopes are 203/142 N. Eight nominal washer seats and 24
+modeled component routes are supported/clear within their saved scope.
+Its unadjusted lateral-reference ratio is at most 0.3323 under its distinct
+45 ksi hypothesis. Turning, counterhold and complete joint remain HOLD.
+These completed producer/summary files are transferred unchanged for parent
+publication; raw results and the worker's replay under `/tmp` are preserved.
+The parent is incorporating both outer service-cleat clearances with the top
+corners into the six-case model rather than repeating the worker's 84 states.
+
 ## Reproduction and continuation
 
 Frozen reports and response vectors:

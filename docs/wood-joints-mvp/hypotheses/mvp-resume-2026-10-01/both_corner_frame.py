@@ -21,7 +21,7 @@ FRAME = HERE / "corner-frame-attempt01"
 sha, read, require = accounting.sha, accounting.read, accounting.require
 
 
-def run(output):
+def run(output, service_joints=False):
     import simple_frame as frame
 
     require(not output.exists(), "preserve the existing calculation")
@@ -48,6 +48,30 @@ def run(output):
     pins[sharing / "receipt.json"] = (
         "9b543630412ea9d2be8e832c49547b0ced910f1bd11641475d10b470be53eb5b"
     )
+    block_hosts = dict(accounting.BLOCK_HOSTS)
+    if service_joints:
+        lower = HERE.parent / "lower-left-service-joint"
+        completion = lower / "results/attempt01/receipt.json"
+        pins[completion] = (
+            "dbf9cd4b761af02671a0f91d0539ce755607561cdc84d70a32297f1847918991"
+        )
+        transferred = read(completion)
+        pins.update({lower / p: h for p, h in transferred["artifacts_sha256"].items()})
+        pins.update(
+            {ROOT / p: h for p, h in transferred["authority_sha256_unchanged"].items()}
+        )
+        block_hosts.update(
+            {
+                "left_service_outer_upper_cleat": (
+                    "base_rail_service_upper_left",
+                    "base_side_left",
+                ),
+                "left_service_outer_lower_cleat": (
+                    "base_rail_service_lower_left",
+                    "base_side_left",
+                ),
+            }
+        )
     for path, digest in pins.items():
         require(sha(path) == digest, "changed source: " + str(path))
     rows = read(FRAME / "row-identities.json")
@@ -57,7 +81,7 @@ def run(output):
         )
     H = (H + H.T) / 2
     retained = [r for r in rows if r["ownership"]["second_body"] != "floor"]
-    corners = set(accounting.BLOCK_HOSTS)
+    corners = set(block_hosts)
     targets = np.array(
         [
             i
@@ -68,10 +92,18 @@ def run(output):
             )
         ]
     )
-    require(len(targets) == 16, "expected eight top-corner lateral pairs")
+    require(len(targets) == 8 * len(corners), "joint lateral inventory mismatch")
     gaps = np.array(
         [
-            1.0625 if "/side_" in retained[int(pair[0])]["row_id"] else 1.15
+            1.0625
+            if "/side_" in retained[int(pair[0])]["row_id"]
+            and set(accounting.BLOCK_HOSTS).intersection(
+                (
+                    retained[int(pair[0])]["ownership"]["first_body"],
+                    retained[int(pair[0])]["ownership"]["second_body"],
+                )
+            )
+            else 1.15
             for pair in targets.reshape(-1, 2)
         ]
     )
@@ -126,7 +158,7 @@ def run(output):
                 )
                 raw = transform.T @ f
                 corner_results = []
-                for block, hosts in accounting.BLOCK_HOSTS.items():
+                for block, hosts in block_hosts.items():
                     block_index = names.index(block)
                     fits, wrenches, bolts = {}, {}, []
                     for host in hosts:
@@ -260,16 +292,19 @@ def run(output):
     output.mkdir()
     np.savez_compressed(output / "response.npz", **vectors)
     report = {
-        "schema": "both_top_corner_corrected_frame_clearance/v1",
+        "schema": "coupled_top_and_service_frame_clearance/v1"
+        if service_joints
+        else "both_top_corner_corrected_frame_clearance/v1",
         "producer_sha256": sha(Path(__file__)),
         "source_sha256": {str(p.relative_to(ROOT)): h for p, h in pins.items()},
         "response_sha256": sha(output / "response.npz"),
         "states": states,
         "modeled_mass_kg": baseline["modeled_mass_kg"],
         "dead_load_factor": baseline["dead_load_factor"],
+        "clearance_joint_hosts": block_hosts,
         "floor_footprints": floors,
         "limits": [
-            "Both top outer corners receive modeled relative clearance; all other bolted joints remain at zero clearance.",
+            "Listed joints receive modeled relative clearance; all other bolted joints remain at zero clearance.",
             "Hillman lateral and withdrawal stiffness remain conditional 2689.679 N/mm per scalar, not measured product laws or resistance.",
             "Other original stiffness/material/contact hypotheses and 25kg proportional accessory allowance are retained.",
             "Floor bearing and no-slip tangent masks may change during each independent static case; no physical floor acceptance is implied.",
@@ -289,6 +324,11 @@ def run(output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--service-joints",
+        action="store_true",
+        help="include both left outer service-cleat clearances",
+    )
     args = parser.parse_args()
     lock = ROOT / "docs/wood-joints-mvp/luna-max-native-run-ledger.lock"
     with lock.open("a") as stream:
@@ -297,4 +337,4 @@ if __name__ == "__main__":
             read(lock.with_suffix(".json"))["slot"]["state"] == "idle",
             "shared analysis slot occupied",
         )
-        run(args.output)
+        run(args.output, args.service_joints)

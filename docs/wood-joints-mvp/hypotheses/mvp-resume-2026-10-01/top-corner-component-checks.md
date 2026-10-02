@@ -7,6 +7,58 @@ This calculation reuses the corrected physical operators, recorded six static
 loads and all 66 conditional Hillman paths. It changes no reviewed CAD or
 authority file and makes no hardware selection.
 
+## Latest integration: top corners and both left outer service cleats
+
+After ingesting the worker's lower-left receipt, the parent reused this same
+producer with `--service-joints`. The new engineering question was simultaneous
+clearance at the two top outer corners and the upper/lower left outer service
+cleats. All sixteen bolts are now included together; the service bolts each
+use 1.15 mm relative clearance. The physical member operators, loads, 66 Hillman
+paths and remaining zero-gap assumptions are unchanged.
+
+All twelve zero-gap/modeled-gap states meet the frame-law and rank gates.
+The six-case modeled-gap joint estimates are:
+
+| Joint | Maximum bolt shear / tension | Maximum local movement | Maximum local rotation |
+| --- | ---: | ---: | ---: |
+| Top outer left | 936.222 / 573.076 N | 2.3476 mm | 0.8117° |
+| Top outer right | 1,066.992 / 656.490 N | 2.3253 mm | 0.9885° |
+| Left outer upper service | 4.922 / 15.764 N | 0.5827 mm | 0.1518° |
+| Left outer lower service | 4.952 / 13.791 N | 0.5291 mm | 0.1523° |
+
+These peaks are not simultaneous. The service local-fit residuals remain
+below 0.00091 mm; the largest top-corner residual is 0.05367 mm. Maximum
+fitted body translation is 6.5367 mm. This six-case result supports retaining
+the service cleats in the conditional working model, without transferring
+the worker's doubled-load result or treating low bolt forces as panel/joint
+qualification.
+
+The updated 48 same-state top-corner references peak at 0.7071 left and
+0.8035 right. The concurrent steel-allowance scenario described below peaks
+at 0.7158 and 0.8148. Maximum finished-path ratio is 0.1605, washer wood-pressure
+ratio 0.7132, contact-cell mean ratio 0.0898 and host characteristic splitting
+comparison 0.1505. The declared washer strip stress is now 179.161 MPa.
+The same resistance, fit and motion limitations remain; no stronger bolt
+is selected by this calculation.
+
+New local evidence bindings:
+
+- `top-and-service-frame-attempt02/comparison.json`: SHA-256
+  `4aa32390c80f803faee4fceeb6460c05b665dd8e970beaef89b40985b0b9555b`.
+- `top-and-service-frame-attempt02/response.npz`: SHA-256
+  `227b9381a6ff19286ba4b46c81bc5852bb3b536735ac5c74f727f6869a5f40d6`.
+- `corner-component-attempt03/component-results.json`: SHA-256
+  `4eddba302f0b2638d594dec50f1ba366b78aa480ee89171d88f1b82ab1c5b8cd`.
+- `corner-component-attempt03/steel-interaction.json`: all 48 updated
+  concurrent steel-allowance states with source bindings.
+
+The first service-integration attempt stopped during target selection on a
+dictionary-keys API typo before solving; its failure and producer remain in
+`top-and-service-frame-attempt01/`. The correction used a fresh attempt.
+The historical two-corner-only results below are preserved as their original
+scenario. Add `--service-joints` to the frame command below and use the new
+frame directory for component checks to reproduce this latest integration.
+
 ## Coupled frame result
 
 [both_corner_frame.py](both_corner_frame.py) extends the existing pairwise
@@ -75,6 +127,19 @@ Maximum axial stress / conditional bolt proof stress is 0.05437. The largest
 direct axial-plus-shank-shear von Mises proxy is 43.101 MPa. These proxies omit
 bolt bending; the separate lateral yield calculation includes dowel bending.
 They do not establish combined steel resistance by themselves.
+
+The subsequent [same-state steel allowance calculation](steel_interaction.py)
+reserves uniform axial stress and an assumed parabolic circular-shank shear
+maximum before recomputing the existing lateral bending reference. Its
+remaining nominal yield allowance is
+`sqrt(Fy² - 3*(4V/(3A_shank))²) - T/A_thread`.
+Across all 48 simultaneous states, resulting adjusted lateral-reference
+ratios peak at **0.7098 left and 0.8104 right**. This provides a concurrent-load
+mechanics scenario instead of comparing unrelated envelope peaks. It remains
+an assumed steel stress field, not a prescribed NDS interaction equation or
+qualification of actual thread transitions, bearing zones or head/nut behavior.
+The source-bound result is retained as
+`corner-component-attempt02/steel-interaction.json`.
 
 The declared uniform-annulus/radial-strip washer model requires up to
 178.403 MPa bending stress at the catalog minimum thickness, using declared

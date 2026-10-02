@@ -27,7 +27,7 @@ review loop. The parent has completed six approximate static scenarios and prepa
 These calculations do not replace the native-export authentication statuses above. The
 existing agent's separate upper-left service-joint results are now
 [ingested with the previous Hillman evidence](hypotheses/mvp-resume-2026-10-01/service-and-hillman-integration.md).
-That worker now owns the lower-left outer service cleat.
+The worker's lower-left outer service assessment is also complete and ingested.
 Detailed washer meshes,
 the stiffness-output build and stress-provenance tooling are parked method work.
 
@@ -49,6 +49,16 @@ stops in all six cases: the upper panels need normal restraint supplied by
 the original unsupported screw springs. The peak original individual screw
 demand is 1922.134 N. Resolve that panel-joint load path alongside the remaining
 corner resistance before treating the original frame demands as accepted.
+
+The latest integrated frame includes modeled clearance at both top corners
+and both left outer service cleats across all six cases; all twelve zero/gap
+states meet balance/law gates. Its top-corner Grade 5 individual references
+peak at 0.7071/0.8035; a concurrent steel-allowance scenario gives 0.7158/0.8148.
+The lower-left service peak local movement is 0.5291 mm, with bolt shear/tension
+4.952/13.791 N. These are conditional working results, not joint qualification.
+The [top-corner fit and assembly note](hypotheses/mvp-resume-2026-10-01/top-corner-hardware/assembly-fit.md)
+reconciles stack requirements, quantities and observed listing costs; real
+turning/counterhold and complete shaft withdrawal remain open.
 
 ## Useful results
 

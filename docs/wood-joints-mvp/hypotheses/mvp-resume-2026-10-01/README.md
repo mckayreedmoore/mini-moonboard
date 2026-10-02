@@ -151,6 +151,22 @@ outer service cleat; two bounded parent helpers handle remaining-joint screens
 and hardware fit, and a third computes same-state member screens. No recurring
 review loop is used.
 
+The worker's lower-left outer assessment is now complete and ingested without
+rerunning its 84 states. The parent has then included both left outer service
+clearances with the two top corners in all six working cases. All twelve
+zero/gap states pass frame-law gates; updated top-corner conditional Grade 5
+individual ratios are 0.7071/0.8035, and concurrent steel-allowance scenarios
+give 0.7158/0.8148. Lower-left local movement is 0.5291 mm with 4.952 N shear
+and 13.791 N tension peaks. Complete qualification remains HOLD.
+
+The [hardware fit and assembly worksheet](top-corner-hardware/assembly-fit.md)
+now reconciles both corner stacks, removable through-bolt operation, quantities
+and observed listing costs. Turning/counterhold, full shaft extraction and
+actual delivered profiles remain explicit missing inputs. The Grade 5 side
+package includes a 50-bolt purchase with 46 surplus; its $127.12 observed
+subtotal cannot be compared as an eight-bolt unit price with the $27.68
+Grade 8-side/Grade 5-rail listing scenario. Neither option is selected.
+
 ## Work completed during this restart
 
 The first two STI17 source-review passes found and the parent fixed the
@@ -189,3 +205,9 @@ commit is a source-and-summary publication, not a complete remote backup of
 those local evidence files. Reproduction still requires the referenced frozen
 inputs and pinned dependencies. No source witness, temporary file or other
 owner's work is deleted, reformatted or substituted by publication.
+
+Subsequent incremental publication includes the completed four-joint integration,
+same-state steel allowance, conditional hardware fit and the three unchanged
+source/summary files transferred by the lower-left worker. Bulky generated
+outputs remain ignored and preserved. Shared staging and commit hooks stay
+with the parent while bounded calculation helpers work in separate files.
