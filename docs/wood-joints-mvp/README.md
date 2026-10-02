@@ -38,6 +38,7 @@ not replace the native authentication statuses above or alter reviewed geometry.
 | Left lower outer service | 0.7561 mm / 0.1564°, 4.968 N bolt shear / 13.942 N separate tie |
 | Member arithmetic | 264 balances, 54,888 signed cut traces; applicable normal/shear references 0.5415 / 0.3736 |
 | End-grain lateral route | 12 axes / 72 states; NDS perpendicular bearing and Ceg=0.67, peak conditional 92 ksi ratio 0.2577 before remaining adjustments |
+| Six block/header joints | Adjusted component sensitivity 0.2599, washer wood bearing 0.3984; 36 interfaces and 42 body balances close |
 | Continuous knee bolts | 24 asymmetric bolt cases; declared conservative sum 0.9040 at 92 ksi / 1.2898 at 45 ksi, with endpoint embedding and full joint transfer unvalidated |
 | Remaining eligible individual bolts | No ratio above one even at 45 ksi; retained upper leg bolt governs at 0.7555 |
 
@@ -45,21 +46,45 @@ Different peaks are not simultaneous. The [bottom-corner calculation](hypotheses
 [top-corner worksheet](hypotheses/mvp-resume-2026-10-01/top-corner-component-checks.md),
 [member screen](hypotheses/mvp-resume-2026-10-01/member-checks.md) and
 [end-grain applicability](hypotheses/mvp-resume-2026-10-01/end-grain-route.md) and
-[three-member screen](hypotheses/mvp-resume-2026-10-01/three-member-checks.md) bind current
+[three-member screen](hypotheses/mvp-resume-2026-10-01/three-member-checks.md) and
+[header worksheet](hypotheses/mvp-resume-2026-10-01/header-joint-checks.md) bind current
 same-state inputs. The existing service worker's
 [upper/lower assessments and earlier Hillman evidence](hypotheses/mvp-resume-2026-10-01/service-and-hillman-integration.md)
 remain preserved and ingested without regenerating their historical force records.
 
 The original [zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
-stops in all six cases: upper panels need outward restraint. Hillman resistance, head pull-through
-and compatible load sharing remain a specific panel-joint task. A pane worker owns that task;
-a second owns the conditional assembly/removal, individual-member transport, BOM and cost package.
-The parent retains integrated mechanics, shared staging and commits. Bounded helpers address
-end-grain and continuous three-receiver bolt methods. No recurring review loop is used.
+stops in all six cases: upper panels need outward restraint. The
+[panel attachment worksheet](hypotheses/mvp-resume-2026-10-01/panel-attachment/README.md)
+now finds a concrete reference deficit: 1812 N modeled-gap withdrawal exceeds the declared
+277–629 N unadjusted head references and 711–1073 N generic timber withdrawal references.
+Completed softer withdrawal-law scenarios reduce the peak to 1240 or 916 N; both still exceed
+those head references and increase opening. These are conditional reference comparisons,
+not measured Hillman resistance or a physical failure claim. No changed screw law is selected.
+
+The parent has also completed saved bore clearance at all 88 two-receiver candidate bolts.
+All twelve zero/nominal states satisfy equilibrium, spring and floor laws; the six nominal
+states have finite fixed-force seating bounds. Their rank296/297 modes are reported as
+[bounded nonunique seating](hypotheses/mvp-resume-2026-10-01/bounded-clearance.md), with strict
+rank300/stability flags retained false. Four continuous bolts still need common-bolt clearance
+treatment. This variant's peak panel withdrawal is 1837 N, so the head-reference deficit
+persists. Existing component tables remain bound to the completed six-joint frame;
+same-state component updates precede variant adoption. Earlier terminal packets are preserved.
+
+The [assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md) reconciles
+50 transport bodies, 104 bolts/nuts, 208 washers and 66 separate Hillman screws. Larger stock
+scenarios place all 44 timber blanks; the 8-foot-only scenario misses five. The recorded priced
+hardware terms total $158.46 plus explicit missing terms, rather than a complete purchase total.
+Hardware engagement and procurement facts, actual tools and harness staging remain open.
+The parent retains integrated mechanics, shared staging and commits; pane workers own panel
+references and hardware fit, and bounded helpers handle member restraint and finite free play.
+No recurring review loop is used.
 
 The [central bearing scenario](hypotheses/mvp-resume-2026-10-01/partial-seat-bearing.md)
-provides supported geometry at the center-principal partial washer seat. Its 0.5227 wood-pressure
-ratio belongs to the preserved four-joint state; actual washer/nut transfer remains unqualified.
+provides supported geometry at the center-principal partial washer seat. Its current six-joint
+wood-pressure ratio is 0.5147; actual washer/nut transfer remains unqualified. The
+[lower-left service comparison](hypotheses/mvp-resume-2026-10-01/service-joint-current-checks.md)
+now supplies all 24 current signed bolt states and a peak conditional Grade 5 lateral ratio
+0.00568; zero-lateral directions remain null and complete-joint acceptance stays false.
 Complete wood/group/washer resistance, finished member sections, restraint and operation checks
 remain unfinished. Detailed washer meshes, stiffness-output builds and provenance tooling remain
 parked method work. No stronger bottom hardware or stock change is selected by the current screen.

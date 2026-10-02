@@ -21,13 +21,76 @@ FRAME = HERE / "corner-frame-attempt01"
 sha, read, require = accounting.sha, accounting.read, accounting.require
 
 
-def run(output, service_joints=False, bottom_corners=False):
+def retain_stop(
+    output,
+    vectors,
+    local,
+    pins,
+    k,
+    uni,
+    normals,
+    tangents,
+    targets,
+    gaps,
+    states,
+    case_id,
+    gap_scale,
+    error,
+):
+    """Preserve a terminal iterate without admitting it as a completed state."""
+    for path, digest in pins.items():
+        require(sha(path) == digest, "source changed during calculation")
+    output.mkdir()
+    np.savez_compressed(output / "partial-response.npz", **vectors)
+    iterate = {name: local[name] for name in ("f", "q", "a") if name in local}
+    np.savez_compressed(
+        output / "unaccepted-iterate.npz",
+        **iterate,
+        k=k,
+        unilateral=uni,
+        floor_normals=normals,
+        floor_tangents=tangents,
+        clearance_targets=targets,
+        clearance_gaps=gaps,
+    )
+    stop = {
+        "schema": "conditional_frame_calculation_stop/v1",
+        "case_id": case_id,
+        "gap_scale": gap_scale,
+        "terminal_exception": str(error),
+        "completed_states": states,
+        "last_iterate_is_accepted": False,
+        "audit_if_available": local.get("audit"),
+        "source_sha256": {str(p.relative_to(ROOT)): h for p, h in pins.items()},
+        "producer_sha256": sha(Path(__file__)),
+        "physical_frame_failure_claim": False,
+        "baseline_replaced": False,
+    }
+    (output / "stop.json").write_text(
+        json.dumps(stop, indent=2, allow_nan=False) + "\n"
+    )
+    (output / "producer.py.snapshot").write_bytes(Path(__file__).read_bytes())
+
+
+def run(
+    output,
+    service_joints=False,
+    bottom_corners=False,
+    panel_withdrawal_stiffness=None,
+    panel_lateral_stiffness=None,
+    all_two_receiver_clearances=False,
+    bounded_freeplay=False,
+):
     import simple_frame as frame
 
     require(not output.exists(), "preserve the existing calculation")
     assessment = read(FRAME / "operator-assessment.json")
     baseline = read(FRAME / "frame-results.json")
     pins = {ROOT / name: digest for name, digest in assessment["source_sha256"].items()}
+    if bounded_freeplay:
+        import bounded_clearance
+
+        pins[Path(bounded_clearance.__file__)] = sha(Path(bounded_clearance.__file__))
     pins.update(
         {FRAME / name: digest for name, digest in assessment["output_sha256"].items()}
     )
@@ -41,6 +104,18 @@ def run(output, service_joints=False, bottom_corners=False):
         Path(circular_clearance.__file__),
     ):
         pins[path] = sha(path)
+    connections_path = (
+        HERE.parent
+        / "mvp-acceleration-2026-09-28/reduced-static-attempt01/model-inputs.json"
+    )
+    connections = {
+        c["axis_id"]: c
+        for c in read(connections_path)["connections"]
+        if c["kind"] == "candidate_bolt"
+    }
+    if all_two_receiver_clearances:
+        require(len(connections) == 92, "candidate bolt census changed")
+        pins[connections_path] = sha(connections_path)
     sharing = HERE.parent / "upper-left-service-panel-sharing-2026-10-01"
     receipt = read(sharing / "receipt.json")
     for name, digest in receipt["artifacts_sha256"].items():
@@ -100,12 +175,20 @@ def run(output, service_joints=False, bottom_corners=False):
             i
             for i, r in enumerate(retained)
             if r["ownership"]["role"] == accounting.LATERAL
-            and corners.intersection(
-                (r["ownership"]["first_body"], r["ownership"]["second_body"])
+            and (
+                len(connections[r["row_id"].rsplit("/", 1)[0]]["receiver_member_ids"])
+                == 2
+                if all_two_receiver_clearances
+                else corners.intersection(
+                    (r["ownership"]["first_body"], r["ownership"]["second_body"])
+                )
             )
         ]
     )
-    require(len(targets) == 8 * len(corners), "joint lateral inventory mismatch")
+    require(
+        len(targets) == (176 if all_two_receiver_clearances else 8 * len(corners)),
+        "joint lateral inventory mismatch",
+    )
     gaps = np.array(
         [
             1.0625
@@ -120,6 +203,21 @@ def run(output, service_joints=False, bottom_corners=False):
             for pair in targets.reshape(-1, 2)
         ]
     )
+    if all_two_receiver_clearances:
+        for i, pair in enumerate(targets.reshape(-1, 2)):
+            row = retained[int(pair[0])]
+            axis = row["row_id"].rsplit("/", 1)[0]
+            if set(accounting.BLOCK_HOSTS).intersection(
+                (row["ownership"]["first_body"], row["ownership"]["second_body"])
+            ):
+                continue  # The isolated top proposal has its own changed bore geometry.
+            records = connections[axis]["receiver_clearance_geometry"]
+            require(len(records) == 2, "two-receiver clearance geometry missing")
+            values = [r["geometry_only_centered_radial_gap_mm"] for r in records]
+            require(
+                all(v is not None and v >= 0 for v in values), "unresolved bore gap"
+            )
+            gaps[i] = sum(values)
     screw_lateral = [
         i
         for i, r in enumerate(retained)
@@ -134,6 +232,20 @@ def run(output, service_joints=False, bottom_corners=False):
         len(screw_lateral) == 132 and len(screw_axial) == 66,
         "Hillman inventory changed",
     )
+    original_withdrawal = k[screw_axial].copy()
+    original_lateral = k[screw_lateral].copy()
+    if panel_withdrawal_stiffness is not None:
+        require(
+            np.isfinite(panel_withdrawal_stiffness) and panel_withdrawal_stiffness > 0,
+            "withdrawal stiffness must be finite and positive",
+        )
+        k[screw_axial] = panel_withdrawal_stiffness
+    if panel_lateral_stiffness is not None:
+        require(
+            np.isfinite(panel_lateral_stiffness) and panel_lateral_stiffness > 0,
+            "lateral stiffness must be finite and positive",
+        )
+        k[screw_lateral] = panel_lateral_stiffness
     model = read(FRAME / "model.json")
     names = model["body_names"]
     centers = {
@@ -153,22 +265,95 @@ def run(output, service_joints=False, bottom_corners=False):
                 case_id = source["case_id"]
                 seed = transform @ saved[case_id + "_force_n"]
                 seed[normals] = saved[case_id + "_bearing_mask"]
-                f, q, a, audit = method.solve(
-                    H,
-                    D,
-                    baseline["dead_load_factor"] * e[:, 2 * index]
-                    + e[:, 2 * index + 1],
-                    baseline["dead_load_factor"] * W[:, 2 * index]
-                    + W[:, 2 * index + 1],
-                    k,
-                    uni,
-                    normals,
-                    tangents,
-                    targets,
-                    gap_scale * gaps,
-                    seed,
-                    circular_clearance,
+                work = (
+                    baseline["dead_load_factor"] * W[:, 2 * index] + W[:, 2 * index + 1]
                 )
+                certificate = None
+                try:
+                    f, q, a, audit = method.solve(
+                        H,
+                        D,
+                        baseline["dead_load_factor"] * e[:, 2 * index]
+                        + e[:, 2 * index + 1],
+                        work,
+                        k,
+                        uni,
+                        normals,
+                        tangents,
+                        targets,
+                        gap_scale * gaps,
+                        seed,
+                        circular_clearance,
+                    )
+                except ValueError as error:
+                    # Retain a failed calculation without treating its last iterate
+                    # as an accepted state or discarding completed earlier states.
+                    trace = error.__traceback__
+                    local = {}
+                    while trace is not None:
+                        if trace.tb_frame.f_code is method.solve.__code__:
+                            local = trace.tb_frame.f_locals
+                        trace = trace.tb_next
+                    if (
+                        bounded_freeplay
+                        and str(error) == "unrestrained rigid coordinate"
+                    ):
+                        try:
+                            certificate, _ = (
+                                bounded_clearance.finite_clearance_certificate(
+                                    D,
+                                    local["q"],
+                                    local["f"],
+                                    k,
+                                    uni,
+                                    normals,
+                                    tangents,
+                                    targets,
+                                    gap_scale * gaps,
+                                    work,
+                                )
+                            )
+                            require(
+                                certificate["bounded"],
+                                "unbounded fixed-force clearance motion",
+                            )
+                        except ValueError as certificate_error:
+                            retain_stop(
+                                output,
+                                vectors,
+                                local,
+                                pins,
+                                k,
+                                uni,
+                                normals,
+                                tangents,
+                                targets,
+                                gap_scale * gaps,
+                                states,
+                                case_id,
+                                gap_scale,
+                                certificate_error,
+                            )
+                            raise
+                        f, q, a, audit = (local[n] for n in ("f", "q", "a", "audit"))
+                    else:
+                        retain_stop(
+                            output,
+                            vectors,
+                            local,
+                            pins,
+                            k,
+                            uni,
+                            normals,
+                            tangents,
+                            targets,
+                            gap_scale * gaps,
+                            states,
+                            case_id,
+                            gap_scale,
+                            error,
+                        )
+                        raise
                 raw = transform.T @ f
                 corner_results = []
                 for block, hosts in block_hosts.items():
@@ -260,8 +445,11 @@ def run(output, service_joints=False, bottom_corners=False):
                 result = {
                     "case_id": case_id,
                     "gap_scale": gap_scale,
-                    "status": "PASS_CONDITIONAL_COUPLED_FRAME_LAWS",
+                    "status": "PASS_CONDITIONAL_LAWS_WITH_BOUNDED_SEATING"
+                    if certificate is not None
+                    else "PASS_CONDITIONAL_COUPLED_FRAME_LAWS",
                     "audit": audit,
+                    "fixed_force_clearance_certificate": certificate,
                     "corners": corner_results,
                     "peak_body_translation_mm": float(
                         np.linalg.norm(a.reshape(-1, 6)[:, :3], axis=1).max()
@@ -305,7 +493,9 @@ def run(output, service_joints=False, bottom_corners=False):
     output.mkdir()
     np.savez_compressed(output / "response.npz", **vectors)
     report = {
-        "schema": "coupled_outer_corner_frame_clearance/v1"
+        "schema": "coupled_two_receiver_frame_clearance/v1"
+        if all_two_receiver_clearances
+        else "coupled_outer_corner_frame_clearance/v1"
         if bottom_corners
         else "coupled_top_and_service_frame_clearance/v1"
         if service_joints
@@ -316,14 +506,33 @@ def run(output, service_joints=False, bottom_corners=False):
         "states": states,
         "modeled_mass_kg": baseline["modeled_mass_kg"],
         "dead_load_factor": baseline["dead_load_factor"],
+        "panel_screw_stiffness_n_per_mm": {
+            "lateral_components": k[screw_lateral].tolist(),
+            "withdrawal": k[screw_axial].tolist(),
+            "source_withdrawal": original_withdrawal.tolist(),
+            "source_lateral_components": original_lateral.tolist(),
+            "withdrawal_override_n_per_mm": panel_withdrawal_stiffness,
+            "lateral_override_n_per_mm": panel_lateral_stiffness,
+            "product_laws_measured": False,
+        },
         "clearance_joint_hosts": block_hosts,
+        "clearance_planes": [
+            {
+                "plane_id": retained[int(pair[0])]["row_id"],
+                "relative_radial_gap_mm": float(gap),
+            }
+            for pair, gap in zip(targets.reshape(-1, 2), gaps, strict=True)
+        ],
+        "all_two_receiver_candidate_clearances": all_two_receiver_clearances,
+        "bounded_nonunique_seating_reported": bounded_freeplay,
         "floor_footprints": floors,
         "limits": [
-            "Listed joints receive modeled relative clearance; all other bolted joints remain at zero clearance.",
-            "Hillman lateral and withdrawal stiffness remain conditional 2689.679 N/mm per scalar, not measured product laws or resistance.",
+            "The listed clearance planes receive their declared relative radial gap; all other bolt planes remain at zero clearance. The four continuous knee bolts require a separate common-bolt clearance model.",
+            "Hillman lateral and withdrawal stiffness use their listed conditional source values or explicit overrides. Neither is a measured product law or resistance.",
             "Other original stiffness/material/contact hypotheses and 25kg proportional accessory allowance are retained.",
             "Floor bearing and no-slip tangent masks may change during each independent static case; no physical floor acceptance is implied.",
             "Local interface fits report approximation residuals and are not total member/panel deflections.",
+            "Bounded-seating states satisfy the original equilibrium and finite laws while retaining failed rank300/strict tangent stability flags; finite fixed-force seating bounds do not establish dynamic or complete-joint acceptance.",
         ],
         "reviewed_geometry_changed": False,
         "hardware_selected": False,
@@ -349,6 +558,26 @@ if __name__ == "__main__":
         action="store_true",
         help="include both bottom outer-cleat clearances",
     )
+    parser.add_argument(
+        "--bounded-freeplay",
+        action="store_true",
+        help="report fixed-force bounded seating explicitly when the rank300 gate fails",
+    )
+    parser.add_argument(
+        "--all-two-receiver-clearances",
+        action="store_true",
+        help="include saved bore gaps for all 88 candidate bolts having two receivers",
+    )
+    parser.add_argument(
+        "--panel-withdrawal-stiffness",
+        type=float,
+        help="explicit positive withdrawal stiffness in N/mm for all 66 screws",
+    )
+    parser.add_argument(
+        "--panel-lateral-stiffness",
+        type=float,
+        help="explicit positive lateral stiffness in N/mm for all 132 screw components",
+    )
     args = parser.parse_args()
     lock = ROOT / "docs/wood-joints-mvp/luna-max-native-run-ledger.lock"
     with lock.open("a") as stream:
@@ -357,4 +586,12 @@ if __name__ == "__main__":
             read(lock.with_suffix(".json"))["slot"]["state"] == "idle",
             "shared analysis slot occupied",
         )
-        run(args.output, args.service_joints, args.bottom_corners)
+        run(
+            args.output,
+            args.service_joints,
+            args.bottom_corners,
+            args.panel_withdrawal_stiffness,
+            args.panel_lateral_stiffness,
+            args.all_two_receiver_clearances,
+            args.bounded_freeplay,
+        )

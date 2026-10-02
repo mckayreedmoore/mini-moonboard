@@ -29,12 +29,44 @@ asymmetric signed states; the declared conservative sum peaks at 0.9040 under
 wood/washer transfer and group applicability remain open. These assumptions
 are explicit working comparisons, not formal qualification.
 
+The [six block/header worksheet](header-joint-checks.md) now supplies 72
+simultaneous bolt states, 36 interfaces and 42 complete body balances.
+Its adjusted lateral sensitivity peaks at 0.2599 and washer wood bearing
+at 0.3984. The knee 20 mm component comparison establishes no adopted
+detailing failure; its specific loaded-edge interpretation, local splitting,
+torque and three-strip transfer remain open. No axis is changed.
+
+The [panel worksheet](panel-attachment/README.md) identifies a current
+reference deficit: 1812 N modeled-gap withdrawal exceeds the declared
+277–629 N unadjusted head and 711–1073 N generic withdrawal references.
+Completed 1000/100 N/mm axial-only stiffness scenarios reduce the peak to
+1240/916 N, with 1.240/9.160 mm opening at the same screw. These laws are
+unmeasured; none is selected. The [panel priority note](panel-joint-priority.md)
+preserves two further numerical stops and the all-two-receiver clearance
+integration: 88 independent candidate bolts, all twelve zero/nominal states
+meet declared equilibrium/law/floor checks. Every nominal state has finite
+[fixed-force seating bounds](bounded-clearance.md) with rank296/297 and
+strict tangent stability flags retained false. Peak nominal panel withdrawal
+is 1837 N. The preserved six-joint component worksheets need same-state
+updates before this variant is adopted; all earlier STOP packets remain.
+
+The [lower-service comparison](service-joint-current-checks.md) fills the
+four-axis omission in the general screen: 24 current signed records,
+conditional 92 ksi peak0.00568, and null direction/reference fields for the
+eighteen zero-lateral records. The [central-seat update](partial-seat-bearing.md)
+reuses unchanged support geometry with six current ties, peak81.365 N and
+conditional wood-pressure ratio0.51468. Neither changes complete-joint flags.
+
 Pane %25 owns `panel-attachment/`, focusing on Hillman withdrawal/head transfer
-and compatible load sharing. Pane %22 owns `assembly-package/`, focusing on
-assembly/removal, individual-member transport, hardware/stock BOM and cost.
+and its packet is delivered. Its next generic lateral calculation moved to
+a bounded helper after the pane's selected model reached capacity.
+Pane %22 owns `assembly-package/`:
+its [operation/transport/BOM package](assembly-package/README.md) is delivered,
+and its next bounded task resolves hardware engagement/procurement facts.
 The parent owns frame integration, shared staging and commits. Both bounded
-native helpers have completed their end-grain/three-member assignments; their
-sources/results are ingested, and their runtime slots are released. No recurring
+helpers completed the end-grain/three-member assignments; their sources/results
+are ingested. Current helpers consolidate the 24-joint index, calculate member
+torsion/restraint and distinguish bounded gap motion from a mechanism. No recurring
 review loop, new native solve or software tests were used for this batch.
 Generated evidence remains ignored and local; maintained sources and summaries
 are committed and pushed in completed chunks. Formal 47 authority and physical

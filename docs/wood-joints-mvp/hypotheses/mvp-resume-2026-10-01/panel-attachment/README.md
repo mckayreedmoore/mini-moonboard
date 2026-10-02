@@ -1,0 +1,302 @@
+# Panel attachment: a practical decision worksheet
+
+**None of the three saved compatible frame allocations meets the declared
+unadjusted head references.** Reducing the assumed screw withdrawal stiffness
+from 2689.7 to 100 N/mm reduces the modeled-gap withdrawal peak from 1812 to
+916 N, while increasing its connection opening from 0.67 to 9.16 mm. Retain
+HOLD: the stiffness sensitivity does not close panel attachment. Panel-only
+statics permits about 294 N when face compression can redistribute, but
+neither the compatible runs nor a Hillman rating establish that allocation.
+
+## Inputs and simultaneous demands
+
+[attachment_screen.py](attachment_screen.py) reuses the parent's
+[six-joint frame packet](../all-outer-corner-frame-attempt01/comparison.json):
+both top and bottom outer corners and both left outer service cleats have
+modeled clearance. The saved packet contains six independent full static
+cases, each at zero and modeled gaps. It retains the 25 kg proportional
+accessory allowance and conditional 2689.679 N/mm screw scalar stiffness.
+These are different loads from the service worker's twice-recorded rear cases.
+
+The current receiver packet supplies all 66 axes, including the four moved
+center-kicker axes entering the center posts. Historical backer identities
+in `source-inventory.json` are not used as current receivers. The calculation
+joins **792 screw states**, three signed scalars per state, and 48 upper-panel
+static allocation problems. It checks the saved screw laws, body equilibrium,
+orthonormal force bases, receiver identities, and LP primal/dual residuals.
+No frame solve, CAD regeneration or native run was performed by this worker.
+The later sensitivity section reuses two additional parent frame responses.
+
+| Saved state | Screw and receiver | Withdrawal | Simultaneous lateral force |
+| --- | --- | ---: | ---: |
+| A12-rear, modeled gaps | upper-left `edge_2`, into `base_rail_top` | 1811.6 N | 743.7 N |
+| K12-rear, modeled gaps | upper-right `rim_4`, into `base_side_right` | 623.1 N | 1214.3 N |
+
+The first row is the largest withdrawal; the second is the largest lateral
+force. They are separate states and are not combined into one demand.
+The largest zero-gap withdrawal is 1911.8 N at upper-left `edge_2`.
+The complete signed records remain in
+[screw-states.csv](results/attempt05-baseline/screw-states.csv).
+
+## Withdrawal and combined loading
+
+For a qualifying cut or rolled wood screw entering timber side grain
+perpendicular to its fibers, NDS 2024 §12.2.2 gives
+`W = 2850 G² D` lbf/in of threaded penetration. With the standard No. 10
+diameter hypothesis `D = 0.190 in` and DF-L reference `G = 0.50`:
+
+| Effective timber thread penetration hypothesis | Unadjusted withdrawal reference | 1811.6 N / reference |
+| --- | ---: | ---: |
+| 30.0 mm | 711 N | 2.55 |
+| 38.1 mm | 903 N | 2.01 |
+| 42.33 mm, approximate standard cut-thread scenario | 1004 N | 1.81 |
+| 45.24 mm, full nominal timber projection | 1073 N | 1.69 |
+
+The purchased nominal 63.5 mm length minus assumed 18.25625 mm plywood gives
+45.24375 mm tip projection into timber. It does not establish effective
+thread penetration. Appendix Table L3's approximately `2L/3` cut-thread
+length gives the 42.33 mm illustrative scenario; actual unthreaded portions,
+tapered tip, installed head position and product conformity remain unverified.
+The reference also needs applicable adjustments and the §12.2.2.5 steel-root
+tension limit. Neither root geometry nor steel resistance is established.
+
+Across explicit `G = 0.45–0.55` and the four thread-length hypotheses, the
+modeled-gap peak/reference ratio is **1.40–3.14**, before end-use adjustments.
+The density sweep is hypothetical, not a replacement for the DF-L reference.
+
+For this same peak state, §12.4.1 gives the combined-demand index
+`V²/(R Z′) + T²/(R A′)`, where `R = sqrt(V²+T²)` and `A′ = W′p`.
+Even allowing `Z′` to tend to infinity, the withdrawal term is 1.56 with
+`G=.50` and full nominal projection, or 1.29 at the most favorable declared
+withdrawal reference. Thus no finite lateral reference makes this fixed state
+pass those unadjusted combined-reference scenarios. No Hillman lateral
+resistance or adjusted connection capacity has been assigned.
+
+## Head transfer: conditional equation path, not a product rating
+
+NDS §12.2.5 uses circular head perimeter and net side-member thickness.
+**Flat/countersunk profile alone does not exclude the equation.** The AWC
+[supporting pull-through study](https://awc.org/wp-content/uploads/2021/12/2018-nds-head-pull-through-paper.pdf)
+includes flush countersunk flat-head screws and models their net thickness
+by subtracting one-third of head depth. This supporting research establishes
+a conditional calculation path; it does not authenticate model 42605.
+
+The declared sensitivities use plywood `G=.42/.50`, circular head diameter
+7.5/9.2202 mm, and net thickness 14/17.25625/18.25625 mm. The 9.2202 mm value
+is the standard No. 10 Table L3 hypothesis; 17.25625 mm illustrates a 3 mm
+head-depth subtraction by the study's rule. The 14 mm value is a separate
+reduced-net-thickness sensitivity. These are not measured product ranges.
+Table 12.3.3B gives `.50` for Structural I/Marine and `.42` for other plywood
+or unknown species **in its dowel-bearing context**. The supporting head
+study instead models wood structural panels with effective `G=.50`. The
+head sweep treats both as explicit hypotheses; it does not establish actual
+panel density or transfer a bearing value into qualified head resistance.
+Actual panel grade is not claimed inspected. The selected countersink tool
+does not supply head diameter, head depth or remaining panel thickness.
+
+The resulting unadjusted head references are **277–629 N**; the saved
+1811.6 N peak is **2.88–6.54 times** those references. For the standard-head
+and 3 mm depth hypothesis, the references are 419 N at plywood `G=.42` and
+594 N at `.50`. Product applicability, net geometry, end-use adjustments,
+installation and simultaneous screw action remain conditional.
+
+## Does the existing geometry allow useful redistribution?
+
+Each LP minimizes the largest of twelve nonnegative screw forces. The first
+preserves the saved screw axial wrench and holds contact and lateral forces.
+The second preserves the net panel normal wrench while allowing existing
+normal face compression to redistribute; seam contacts and lateral forces
+stay fixed. All six force/moment components are retained, rather than equal
+dividing an aggregate force.
+
+| Upper panel, modeled gaps; envelope across six cases | Saved largest tie | Best statics with contacts fixed | Best statics with face compression free |
+| --- | ---: | ---: | ---: |
+| Left | 1811.6 N | 856.2 N | 293.7 N |
+| Right | 1542.4 N | 680.7 N | 293.4 N |
+
+The columns have different governing cases. The LPs omit elastic
+compatibility, normal opening/closure and individual receiver equilibrium.
+Their allocations cannot replace the frame forces. In particular, the
+294 N result exceeds the 277 N lower head sensitivity, while falling below
+the standard-head scenarios. Force sharing and head geometry both matter.
+
+## Returned compatible stiffness sensitivity
+
+The parent completed the proposed 2689.7, 1000 and 100 N/mm withdrawal sweep,
+retaining the original 2689.7 N/mm lateral components, unchanged 66 stations,
+six clearance joints and independent six-case floor/contact method. These
+are explicit study hypotheses, not measured Hillman stiffness bounds.
+The coordinator's frozen `all-outer-corner-frame-attempt01` response remains
+the final input for this batch. The two softer responses are sensitivities;
+they do not replace its force allocation or establish a selected screw law.
+
+| Withdrawal stiffness hypothesis | Largest modeled-gap withdrawal | Lateral force at that same screw/state | Opening at that screw | Largest lateral force across modeled-gap states |
+| --- | ---: | ---: | ---: | ---: |
+| 2689.7 N/mm | 1812 N | 744 N | 0.67 mm | 1214 N |
+| 1000 N/mm | 1240 N | 848 N | 1.24 mm | 1232 N |
+| 100 N/mm | 916 N | 969 N | 9.16 mm | 1377 N |
+
+The last column has separate governing screws/states. The two softer runs'
+withdrawal peak moves to upper-right `edge_2`, into `base_rail_top`, K12-rear.
+Their zero-gap peaks are 1314 and 951 N, respectively; ignoring zero-gap states
+would omit part of the declared sensitivity envelope. The 100 N/mm peak is
+1.54 times the standard-head/reduced-net reference of 594 N, and 1.46 times
+the most favorable declared 629 N head reference. Even the softer run supplies
+no normal-duration, unadjusted head-reference pass.
+
+The returned motions are checked against `q = D a + e - H f`, with both the
+signed spring laws and saved body equilibrium retained. At the governing
+screw's single common datum, returned rigid motion components are:
+
+| Withdrawal stiffness | Panel rigid motion `(x,y,z)`, mm | Receiver rigid motion `(x,y,z)`, mm | Rigid relative translation | Total connection relative translation |
+| --- | --- | --- | ---: | ---: |
+| 2689.7 | `(0.135, 5.229, -4.393)` | `(0.331, 5.440, -4.465)` | 0.297 mm | 0.728 mm |
+| 1000 | `(-0.217, 5.692, -4.729)` | `(-0.410, 5.794, -4.723)` | 0.219 mm | 1.279 mm |
+| 100 | `(-0.199, 8.769, -7.305)` | `(-0.351, 5.593, -4.556)` | 4.203 mm | 9.168 mm |
+
+The first row uses the upper-left datum; the other rows use its upper-right
+counterpart. Each row compares both bodies at the same point. Total relative
+motion includes the elastic contribution from both bodies; their individual
+absolute elastic motions are not reconstructed. No permissible opening or
+motion limit is adopted. These values do not establish installation fit or
+in-service behavior.
+
+The parent's [90 N/mm attempt](../panel-stiffness-attempt03-k90/stop.json)
+stopped at K12-rear, zero gaps, after four completed cases: its method rejected
+positive spring normal motion beyond the declared 10 mm domain. It has no
+complete twelve-state response and supplies no accepted replacement force
+allocation. This is a model-domain STOP, not a claimed physical failure or
+an adopted 10 mm installation tolerance. No domain limit is relaxed here.
+The stop record SHA-256 is `7ee95762e306faf51ae628a27130f640430b6624206a6d2829c3ba4742883247`; its preserved producer matches the
+1000/100 N/mm parent snapshots. Among the three completed compatible
+hypotheses, the smallest modeled-gap peak remains 916 N, exceeding every
+declared unadjusted head reference. The stopped attempt does not establish
+whether another physically supported law would give a valid lower peak.
+
+The later [quarter-stiffness trial for both axial and lateral components](../panel-stiffness-attempt04-kquarter-both/stop.json)
+uses 672.4 N/mm for both directions. It completed seven zero/gap cases before
+stopping at A12-forward, modeled gaps, on a normal active-set cycle. Its stop
+record SHA-256 is
+`3af6ba147ef9e16ee13c6dddc9a06448a662e3e89ea70453a508806b2ab3a7d8`.
+This trial also supplies no complete accepted force set and makes no physical
+failure claim. Both stopped trials remain preserved by the parent and do not
+replace the baseline or the three completed postprocessing packets.
+
+At the 100 N/mm peak, the unadjusted `G=.50`, full-nominal-penetration
+withdrawal reference is 1073 N. The same-state NDS §12.4.1 combined equation
+would additionally require at least **1704 N** lateral reference at that screw.
+The envelope across all modeled-gap screws requires at least **1876 N**,
+at upper-left `rim_4`, A12-rear. No Hillman lateral reference is assigned.
+The 1000 N/mm peak would require 10.43 kN lateral reference under the same
+withdrawal hypothesis. These are required-reference thresholds, not available
+capacities; head pull-through remains a separate unmet reference screen.
+
+### Finite decision and next useful check
+
+For the coordinator's frozen batch, **head pull-through and timber withdrawal
+both decide the current screen**. Its 1812 N modeled-gap demand exceeds the
+most favorable declared 629 N unadjusted head reference; its same-state
+withdrawal term already exceeds one before adding lateral demand. Verifying
+that the delivered screw matches standard No. 10 head/thread dimensions would
+resolve applicability facts, but would not close these numerical deficits.
+The favorable 294 N static allocation cannot be substituted into the batch.
+
+The deciding compatible-sharing question is whether a defensible normal
+head/withdrawal and contact response can produce forces below an applicable
+head reference while meeting same-state combined loading and acceptable
+motion. The completed axial-only stiffness sweep does not demonstrate that.
+Further stiffness values should follow an explicit physical law or declared
+bounded scenario; selecting a smaller number solely to obtain a pass is not
+a supported sharing result. The parent owns that model choice and its runs.
+
+**Robust within the calculated hypotheses:** the current high-stiffness
+allocation concentrates panel forces; reducing axial stiffness lowers peak
+withdrawal but does not approach the favorable 294 N static allocation and
+increases movement and lateral demand. None of the three saved responses
+passes the declared unadjusted head scenarios.
+
+**Assumption dependent:** actual load sharing, applicability and adjustments
+of the generic equations, effective timber thread length, head/net-plywood
+geometry and the steel root/bending resistance. No SPAX values or installation
+rules are transferred. Normal-duration references are retained; no favorable
+duration factor is selected to close the screen.
+
+**Next single check:** establish an applicable Hillman 42605 head transfer
+basis, including actual circular head diameter/profile, installed net plywood
+thickness and any defensible adjustments. The product record supplies no
+technical head dimensions or pull-through rating. Under the current normal-
+duration `G=.50` reference with full 18.256 mm net plywood, resisting the
+916 N softer-run peak would require a circular head diameter of approximately
+13.4 mm; the standard No. 10 hypothesis is 9.22 mm. This is a numerical
+requirement, not a proposed product substitution or permission to countersink
+deeper. Product thread/root conformity and lateral resistance also remain
+unresolved. The main agent owns any further frame run or design decision.
+
+An October 2 targeted product-source check found that the exact
+[Lowe's 42605 specification](https://www.lowes.com/pd/Hillman-10-x-2-1-2-in-Ceramic-Deck-Screws-50-Count/999995042)
+still supplies nominal size, flat head style, coarse thread and steel material,
+without the required head geometry or resistance values. Manufacturer-site
+searches did not locate an applicable 42605 technical drawing. The direct
+manufacturer Q&A answer could not be reopened; its prior record is preserved,
+not independently reauthenticated by this lookup. This observation concerns
+the retrieved sources, not all possible manufacturer information.
+
+The [bounded fact screen](results/product-fact-check01/observations.json), SHA
+`96c40656a1cd8a03080060800cb48e03c47d34a737fe06e14519be05e7fc141d`,
+binds the 100 N/mm demand report and missing facts. At the declared 9.22 mm
+head and `G=.50`, the generic equation reaches only 794 N as thickness grows
+beyond its saturation threshold. Thus increasing the assumed remaining
+plywood thickness alone cannot meet the 916 N peak under that head hypothesis.
+This is equation sensitivity, not a proposed thicker panel, actual density
+measurement or adopted head capacity.
+
+## Reproduce and preserve
+
+```bash
+uv run python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/attachment_screen.py \
+  --output /tmp/panel-attachment-reproduction
+```
+
+The default frozen source comparison SHA-256 is
+`ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3`;
+its response is
+`aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901`.
+Current default output is [attempt05-baseline](results/attempt05-baseline/comparison.json),
+report SHA `da36efb1d343f5462fdda87055c38b635767e517a3ead5ac8e69922dbe4cc112`;
+[receipt](results/attempt05-baseline/receipt.json) SHA
+`255711e7289373e85675bc895d68bb137e18c5e991edac2b29f23039d8abb04f`.
+It binds the unchanged original source and adds returned-motion and 264
+same-state panel/receiver screw-group wrench records. Group records contain
+screw actions only; contact and other joint actions are not inferred from them.
+
+| Reused parent response | Parent comparison SHA-256 | Screen report SHA-256 | Screen receipt SHA-256 |
+| --- | --- | --- | --- |
+| [1000 N/mm](../panel-stiffness-attempt01-k1000/comparison.json) | `0fdef54e1c4c917a9e36a82b6bf375699b3c8f957b1ac4cc4507c753fbcd130c` | `ac1a6f0788661c9404e838d268ecabd66b45b6a69f8e26ec10bd3ae2abd1f3c3` | `6dbd5a55e629906b79f59ef2f6a50883e7be9a2b268ba7c8b77005585e456ed0` |
+| [100 N/mm](../panel-stiffness-attempt02-k100/comparison.json) | `987bbd58316da45ac7e9bff2d6fc13109d86ac56f308a3545acd322e1bba50d6` | `45be72a715652f9770a0235c3468528cc8e15a85b35c49ed55d445c495c5ded8` | `68ec8f4eb3afcb05f61d2e27d0764e7ac271b47e0e2a01367c6e90c6315fa7ea` |
+
+The two screens are [attempt06-k1000](results/attempt06-k1000/comparison.json)
+and [attempt07-k100](results/attempt07-k100/comparison.json). Reproduce either
+with `--source` pointing to its parent directory and a new `--output` directory.
+All three share producer SHA
+`e791bb3e914fcbfa70e4e28deb827d0cfc68d93d8c1a11e50e9dc2e52ad11e61`.
+Each joins 792 screw states, checks saved motions and laws, and solves the same
+48 small panel-only LPs. No software tests or review loop were added or run.
+
+The pinned 2024 [Chapter 12](../../upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf)
+SHA is `53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f`:
+printed pp.83–84 for withdrawal/head equations, p.95 for plywood SG and
+p.97 for combined loading. Appendix Table L3 is printed p.193, SHA
+`1fa2bcf52803b1bbed8ea30cf13551dd5f76c90bf110ac475b401f81d116ec31`.
+The supporting paper is preserved once at
+`/tmp/upper-panel-awc-head-pull-through-paper.pdf`, SHA
+`b0f7b80cfa891b4babea733894ee856b3da944abb8ce9a982477cb90c4887e2f`.
+If absent, retrieve the same published PDF from its
+[AWC asset URL](https://web-media.awc.org/wp-content/uploads/2021/12/17210650/2018-nds-head-pull-through-paper.pdf)
+and verify that hash before running. It is a shared source, not copied into
+each calculation.
+
+Earlier attempts remain local development evidence. The maintained source,
+this worksheet and attempts05–07 are active; all raw outputs and referenced
+`/tmp` evidence are retained. No commit or staging was performed here. The
+47-criterion authority and all release flags are unchanged; complete joint
+acceptance and physical release remain false.

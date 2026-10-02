@@ -1,5 +1,71 @@
 # Upper-panel screw joint: next unresolved load path
 
+## Current finite result
+
+The [panel-attachment worksheet](panel-attachment/README.md) now joins all
+66 Hillman stations to the frozen six-joint frame: 792 screw states, signed
+same-state lateral/withdrawal demands, generic thread/head references and
+upper-panel statics. The current modeled-gap withdrawal peak is **1811.645 N**;
+its simultaneous lateral force is **743.7 N**. Declared unadjusted head
+references are **277–629 N**, and generic DF-L withdrawal references are
+**711–1073 N** for the listed thread-penetration hypotheses. Neither the
+generic equations nor the observed product listing supplies a Hillman rating.
+The current force allocation does not meet those reference scenarios.
+
+The parent retained all geometry, lateral screw laws and six selected
+clearance joints while changing only the assumed withdrawal stiffness:
+
+| Withdrawal stiffness, N/mm | Largest modeled-gap withdrawal | Same-screw opening | Complete twelve-state frame-law result |
+| --- | ---: | ---: | --- |
+| 2689.679, preserved baseline | 1812 N | 0.674 mm | Pass within declared laws |
+| 1000 | 1240 N | 1.240 mm | Pass within declared laws |
+| 100 | 916 N | 9.160 mm | Pass within declared laws |
+| 90 | No complete envelope | Not established | STOP at K12-rear zero gap: positive spring domain exceeds 10 mm |
+
+The two softer completed runs preserve their producer snapshots under
+`panel-stiffness-attempt01-k1000/` and `panel-stiffness-attempt02-k100/`.
+The zero-gap peaks are 1314 and 951 N; they are not omitted from the study.
+Both completed softer scenarios still exceed the declared head references.
+For the 100 N/mm scenario, the same-state combined wood-screw equation also
+requires an unprovided lateral reference of at least 1876 N somewhere in
+the modeled-gap envelope. No stiffness value or favorable duration factor
+is selected to produce a pass.
+
+A further finite trial used one-quarter of the source stiffness for both
+withdrawal and lateral components, **672.419704 N/mm**. It stops at A12-forward
+modeled gap on a normal active-set cycle. The seven earlier returned states
+do not establish a twelve-state bound. Its source snapshot and STOP are
+preserved in `panel-stiffness-attempt04-kquarter-both/`; this is a numerical
+method stop, not an observed frame or screw failure.
+
+Before selecting a correction, the parent is also including the saved bore
+gaps at all **88 two-receiver candidate bolts**, rather than only six joint
+groups. Their source relative gaps are 1.15 or 0.95 mm, with the corrected
+top-side gap 1.0625 mm. Four continuous bolts retain their separate common-
+bolt modeling requirement, and the twelve retained bolts retain zero-gap
+laws. The first nominal-gap case satisfies balance, spring, floor and domain
+gates but stops at force-bearing rigid rank **296/300**.
+[The finite certificate](bounded-clearance.md) identifies bounded, nonunique
+center-cleat translations in that case, with at most 1.134 mm conservative
+additional movement. The rank/stability flags remain false; this does not
+establish a unique pose or dynamic behavior.
+
+The parent then completed `two-receiver-frame-attempt03/`: all six zero-gap
+and all six nominal-gap states satisfy the declared force and finite laws.
+Every nominal-gap state has a finite fixed-force seating certificate;
+force-bearing rank is 296 or 297, explicitly reported separately from
+boundedness. Original strict rank300 acceptance is not transferred. The
+nominal withdrawal peak is **1836.884 N**, so including all these bolt gaps
+does not cure the current head-reference deficit. The comparison SHA-256 is
+`0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5`;
+the response SHA-256 is
+`774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52`.
+The completed six-joint component worksheets remain tied to their prior
+forces; updated component checks are required before adopting this variant.
+Both earlier full-clearance terminal packets remain preserved.
+
+## Preserved original necessity check
+
 The [zero-withdrawal calculation](no-withdrawal-frame-checks.md) establishes
 that face contact and in-plane screw action alone cannot balance either
 upper panel in any recorded case. The representative A12-rear necessary
@@ -54,11 +120,12 @@ calculation uses no product resistance or properties from SPAX or SDS.
 
 ## Next finite joint task
 
-Bind actual panel-to-receiver thread penetration and a supported withdrawal/
-head-transfer basis for the purchased Hillman policy. Then recompute the
-panel connection with that supported model and check simultaneous withdrawal
-and lateral demands. If the required load path or adopted resistance fails,
-report the specific correction before changing reviewed geometry or hardware.
+Update same-state component checks to the completed all-two-receiver variant
+and finish the generic screw lateral comparison. Bind panel-to-receiver thread penetration
+and a supported head/withdrawal basis for the purchased Hillman policy.
+Standard No. 10 dimensions alone would not close the current numerical head
+deficit. Any proposed correction must carry the same-state panel wrench and
+identify required geometry/hardware changes before altering the reviewed model.
 The 66-axis policy and all other owners' work remain preserved.
 
 The parent's corner work remains useful conditional evidence, but a corner
