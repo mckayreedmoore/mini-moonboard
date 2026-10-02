@@ -66,7 +66,13 @@ or physical failure. The required owner constraint choice remains unanswered:
 allow an edge keeper to cover the narrow panel margin, or permit revised panel
 fasteners. No change is selected. [Panel records](panel-attachment/README.md)
 and the [lateral comparison](panel-attachment/lateral-reference.md) retain
-assumptions and source detail. Earlier six-joint and softer-law values remain
+assumptions and source detail. The [edge-restraint proposal](panel-attachment/edge-restraint-proposal.md)
+now specifies 20 mm corner margins on all four main panels. Its 48 static
+allocations retain zero main-panel screw credit; the largest minimum corner
+L1 load is 1083.408 N. Keeper profiles, frame attachments, resistance and a
+compatible response are unestablished. The [one-stock RSS alternative](panel-attachment/fastener-alternative.md)
+also misses the existing strength/applicability screen. Neither proposal is
+selected. Earlier six-joint and softer-law values remain
 historical; see the [preserved comparison](panel-attachment/README.md#earlier-all-outer-source-returned-compatible-stiffness-sensitivity)
 and [component record](top-corner-component-checks.md).
 

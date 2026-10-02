@@ -170,6 +170,15 @@ checks clear, with 1.55 mm margin at the two active loaded edges. Local splittin
 eccentric load transfer and torque resistance remain open. No axis move follows
 from these states.
 
+The unadopted [panel corner-restraint proposal](hypotheses/mvp-resume-2026-10-01/panel-attachment/edge-restraint-proposal.md)
+reserves 20 mm front corner margins on four main panels and includes lateral
+edge bearing. All 48 panel states have static allocations with zero
+main-panel screw credit; the largest minimum corner L1 load is 1083.408 N.
+Keeper geometry, frame attachments, resistance and compatible frame response
+remain unestablished. The [one-stock fastener alternative](hypotheses/mvp-resume-2026-10-01/panel-attachment/fastener-alternative.md)
+does not close current demands. The required front-margin/fastener-policy
+decision remains with the owner; no correction is selected.
+
 The [conditional assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
 already reconciles 50 transport bodies, 44 timber blanks, 104 bolt/nut stacks, 208 washers
 and 66 separate Hillman screws, with stock and assembly/removal scenarios. Full tool/harness
