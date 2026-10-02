@@ -9,6 +9,13 @@ authority file and makes no hardware selection.
 
 ## Current all-two-receiver clearance replay
 
+The subsequent [head/nut bearing-face source check](assembly-package/bearing-face-basis.md)
+retains the actual contact-circle and washer-material gaps. Standard head
+gage dimensions do not prove the declared flat footprints. Illustratively
+reducing the side circle to 11.43 mm raises its saved required strip stress
+from 94.806 to 109.046 MPa; the 198.153 MPa rail requirement remains governing.
+No contact diameter or washer capacity is adopted from this sensitivity.
+
 `two-receiver-frame-attempt03/` includes the modeled radial clearance of all
 88 independent candidate bolts. The four continuous candidate bolts and
 twelve retained bolts remain at zero clearance. Geometry, physical operators,

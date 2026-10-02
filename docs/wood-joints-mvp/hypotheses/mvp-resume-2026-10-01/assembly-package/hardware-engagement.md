@@ -135,6 +135,15 @@ nominal-size catalog routes, not selected or received combinations.
 Thickness enters the axial table; ID/OD and head/nut bearing faces enter
 the separate support and washer-transfer work.
 
+The [bearing-face source check](bearing-face-basis.md) now distinguishes
+the standard's head gage-plane diameters from actual flat bearing circles.
+Conditional head gage minima are 10.01268 mm for rail and 11.43 mm for side
+bolts; neither proves the model's 10/12 mm flat circles at both head and nut.
+Nut-face minima and washer yield remain unresolved. An illustrative
+same-source side-circle reduction gives 109.046 MPa required strip stress;
+the original 198.153 MPa rail requirement remains governing. This supplies
+no hardware-failure or stronger-hardware conclusion.
+
 | Stack scope | Nut route; thickness / across flats | Washer route; ID / OD / thickness | Quantity |
 | --- | --- | --- | --- |
 | 84 quarter-inch candidate stacks excluding corrected top rails | K.L. Jack `25CNFH5Z`, Grade 5, 2B; 5.3848–5.7404 / 10.8712–11.1252 | K.L. Jack `25NWUS`, Type A Wide low-carbon steel; 7.7978–8.3058 / 18.4658–19.0246 / 1.2954–2.0320 | 84 nuts, 168 washers |
