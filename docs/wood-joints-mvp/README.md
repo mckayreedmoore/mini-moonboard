@@ -170,6 +170,15 @@ checks clear, with 1.55 mm margin at the two active loaded edges. Local splittin
 eccentric load transfer and torque resistance remain open. No axis move follows
 from these states.
 
+The [header load-path worksheet](hypotheses/mvp-resume-2026-10-01/header-local-transfer/README.md)
+attributes the section actions to their actual connections: target bolt
+interfaces contribute negligible Y force; the kicker withdrawal/contact path
+supplies the outward Y loads. Existing Z through-bolts act through inward
+seat bearing. A connected finished-section probe locates the declared nominal
+kicker receiving segment wholly on the bending tension side. This closes
+that location question while retaining the specific combined Y transfer
+requirement and actual metal/seat checks. No complete joint pass is claimed.
+
 The unadopted [panel corner-restraint proposal](hypotheses/mvp-resume-2026-10-01/panel-attachment/edge-restraint-proposal.md)
 reserves 20 mm front corner margins on four main panels and includes lateral
 edge bearing. All 48 panel states have static allocations with zero

@@ -102,6 +102,16 @@ end/edge/spacing checks clear; the two active loaded edges retain 1.55 mm
 above 4D. No axis move follows from these states. Local splitting,
 eccentric load transfer and torque resistance remain unresolved.
 
+The [header load-path calculation](header-local-transfer/README.md) now
+attributes 1,092 physical point wrenches exactly to the saved operator.
+The target interfaces contribute negligible Y action; existing Z through-bolts
+load their own header seats inward. The actual Y withdrawal path belongs to
+the kicker screws, with 290.233 N maximum nominal point force. One connected
+finished-section probe places the complete nominal receiving segment on the
+bending tension side, at least 26.712 mm from the zero-normal-stress plane.
+That location question is resolved. Local combined Y transfer/resistance and
+actual metal/seat behavior remain conditional; no complete joint pass follows.
+
 Pane %25 completed its original panel packets. At model capacity, a bounded
 helper completed the generic lateral screen; no panel implementation is active.
 Pane %22 owns `assembly-package/hardware_length_fit.py` and
