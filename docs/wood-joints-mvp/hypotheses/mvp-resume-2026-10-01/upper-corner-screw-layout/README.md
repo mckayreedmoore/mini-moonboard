@@ -93,8 +93,18 @@ before that retention path. Relocated 250 lb attempt 01 stopped at a
 1.708e−8 mm projection residual, then hit a relative-path receipt error;
 its partial files are preserved. Attempt 02 resolves paths and continues
 the same projection equations to the original 1e−8 mm tolerance. No force
-law or tolerance is relaxed. The next numerical task is a bounded search
-for a consistent existing floor/contact branch, followed by unchanged checks.
+law or tolerance is relaxed.
+
+`floor_seed.py` then checks 37 fixed floor masks within two changes of the
+suggested open rows 1588/1603, using the existing zero-clearance convex QP.
+No candidate meets all original spring/floor checks. The best finite guess
+has a 0.005174 N finite-law residual and holds one tangent pair whose normal
+force is effectively zero; it is explicitly unaccepted. Passing that guess
+through the unchanged final method again stops on `normal active-set cycle`.
+The search is bounded and not exhaustive, so it proves neither absence of
+every mathematical branch nor physical frame failure. It supplies no new
+floor law, anchor or resistance. A complete 140 lb result still requires a
+consistent contact branch in the declared model.
 
 ## Reproduction and local receipts
 
@@ -126,6 +136,8 @@ Raw artifacts remain local and ignored.
 | `rawlocal/head-check/attempt01/receipt.json` | `be53a3e7cfbb674b00a5571df228b318908ead3726dfbb2fa26e49689df659af` |
 | `frame-140-proportional-attempt04/stop.json` | `87507c034d5bd67784e1a1150583aa28ad98bb75c7d70bae356600b3bc5c363a` |
 | `frame-140-fixed300-attempt01/stop.json` | `95f4e076dfb7d58c923bbab69b4aaaea15b67c84f97198e81cbc45c0ee35c0e8` |
+| `rawlocal/floor-seed/attempt-2btt9hm9/report.json` | `e29b488633f3795816debf31bb3fcac049000fb137516f7cbb3fa760ba5f0861` |
+| `rawlocal/floor-seed/attempt-2btt9hm9/final-method-replay.json` | `e3bc397e83278107a7497461de6599a2189b8afde3b05280bd3db4e7bfe9410a` |
 
 Formal 47 criteria, release flags and earlier component checks retain their
 original authorities. Results do not transfer to the new force source
