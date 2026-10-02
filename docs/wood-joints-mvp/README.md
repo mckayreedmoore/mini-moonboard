@@ -25,26 +25,31 @@ release is established.
 
 The owner selected a simple MVP model and stopped recurring agent reviews. The parent has
 integrated an [isolated top-corner correction](hypotheses/mvp-resume-2026-10-01/top-corner-correction.md)
-with bolt clearance at both top/bottom outer corners and both left outer service cleats.
-All twelve zero-gap/modeled-gap states satisfy the declared mechanics laws across six cases.
+with modeled radial clearance on all 88 independent two-receiver candidate bolts.
+The current force reference is `two-receiver-frame-attempt03/`: all twelve
+zero/nominal states meet equilibrium, connector and floor laws across six cases.
+Each nominal state has finite fixed-force seating bounds, with rank296/297;
+unique pose and strict tangent stability are not established. Four continuous
+candidate bolts and twelve retained bolts remain at zero modeled clearance.
 These working calculations retain conditional Hillman stiffness and no-slip support; they do
 not replace the native authentication statuses above or alter reviewed geometry.
 
 | Current six-case result | Conditional working result |
 | --- | --- |
-| Top outer corners | Grade 5 component ratios 0.7077 left / 0.8037 right; concurrent steel scenarios 0.7164 / 0.8150 |
-| Bottom outer corners | Left component ratio 0.2920, concurrent steel scenario 0.2942; right below 0.00570 |
-| Bottom-left movement | 2.4501 mm / 0.2522°; motion compatibility remains open |
-| Left lower outer service | 0.7561 mm / 0.1564°, 4.968 N bolt shear / 13.942 N separate tie |
-| Member arithmetic | 264 balances, 54,888 signed cut traces; applicable normal/shear references 0.5415 / 0.3736 |
-| End-grain lateral route | 12 axes / 72 states; NDS perpendicular bearing and Ceg=0.67, peak conditional 92 ksi ratio 0.2577 before remaining adjustments |
-| Six block/header joints | Adjusted component sensitivity 0.2599, washer wood bearing 0.3984; 36 interfaces and 42 body balances close |
-| Continuous knee bolts | 24 asymmetric bolt cases; declared conservative sum 0.9040 at 92 ksi / 1.2898 at 45 ksi, with endpoint embedding and full joint transfer unvalidated |
-| Remaining eligible individual bolts | No ratio above one even at 45 ksi; retained upper leg bolt governs at 0.7555 |
+| Top outer corners | Conditional 92 ksi component ratios 0.7268 left / 0.8138 right; concurrent steel scenarios 0.7356 / 0.8253 |
+| Bottom outer corners | Left component ratio 0.2819, concurrent steel scenario 0.2839; right below 0.00569 |
+| Left lower outer service | Individual 92 ksi reference ratio 0.00704; governing same-state shear/tie 6.677 / 7.286 N |
+| Member arithmetic | 264 balances, 54,888 signed cut traces; elementary normal/shear references 0.5746 / 0.3700 |
+| Member torsion/stability | Braced normal interaction 0.6144; top-rail face shear/torsion proxy 1.0392 exceeds declared 180 psi reference |
+| End-grain lateral route | 12 axes / 72 states; NDS perpendicular bearing and Ceg=0.67, individual 92 ksi ratio 0.04648 before group/detailing adjustments |
+| Six block/header joints | Adjusted component sensitivity 0.04692, washer wood bearing 0.2627; 36 interfaces and 42 body balances close |
+| Continuous knee bolts | 24 asymmetric bolt cases; declared conservative sum 0.9192 at 92 ksi / 1.3125 at 45 ksi, with endpoint embedding and full joint transfer unvalidated |
+| Remaining eligible individual bolts | No eligible ratio above one at 45/92/106 ksi; retained front-left second bolt governs at 0.9521 |
 
 Different peaks are not simultaneous. The [bottom-corner calculation](hypotheses/mvp-resume-2026-10-01/bottom-corner-checks.md),
 [top-corner worksheet](hypotheses/mvp-resume-2026-10-01/top-corner-component-checks.md),
-[member screen](hypotheses/mvp-resume-2026-10-01/member-checks.md) and
+[member screen](hypotheses/mvp-resume-2026-10-01/member-checks.md),
+[torsion/stability calculation](hypotheses/mvp-resume-2026-10-01/member-stability.md) and
 [end-grain applicability](hypotheses/mvp-resume-2026-10-01/end-grain-route.md) and
 [three-member screen](hypotheses/mvp-resume-2026-10-01/three-member-checks.md) and
 [header worksheet](hypotheses/mvp-resume-2026-10-01/header-joint-checks.md) bind current
@@ -55,27 +60,23 @@ remain preserved and ingested without regenerating their historical force record
 The original [zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
 stops in all six cases: upper panels need outward restraint. The
 [panel attachment worksheet](hypotheses/mvp-resume-2026-10-01/panel-attachment/README.md)
-now finds a concrete reference deficit: 1812 N modeled-gap withdrawal exceeds the declared
+now finds a concrete reference deficit: 1837 N current modeled-gap withdrawal exceeds the declared
 277–629 N unadjusted head references and 711–1073 N generic timber withdrawal references.
-Completed softer withdrawal-law scenarios reduce the peak to 1240 or 916 N; both still exceed
+Preserved six-joint softer withdrawal-law scenarios reduce the peak to 1240 or 916 N; both still exceed
 those head references and increase opening. These are conditional reference comparisons,
 not measured Hillman resistance or a physical failure claim. No changed screw law is selected.
 
-The parent has also completed saved bore clearance at all 88 two-receiver candidate bolts.
-All twelve zero/nominal states satisfy equilibrium, spring and floor laws; the six nominal
-states have finite fixed-force seating bounds. Their rank296/297 modes are reported as
+The parent has completed same-state component replays at all 88 two-receiver candidate bolts.
+Their rank296/297 nominal modes are reported as
 [bounded nonunique seating](hypotheses/mvp-resume-2026-10-01/bounded-clearance.md), with strict
 rank300/stability flags retained false. Four continuous bolts still need common-bolt clearance
 treatment. This variant's peak panel withdrawal is 1837 N, so the head-reference deficit
-persists. Fresh same-state component replays now give top-corner ratios
-0.7268/0.8138 (concurrent steel 0.7356/0.8253), bottom-left 0.2819
-(concurrent steel 0.2839), lower-left service 0.00704, end-grain 0.04648,
-continuous-knee conditional sum 0.9192 and remaining eligible individual bolts
-0.9521. The 44-member elementary normal/shear references are 0.5746/0.3700;
-header and torsion/restraint updates remain in progress. These saved-force
-comparisons preserve nonunique seating and all complete-joint flags false.
-The preceding table remains the preserved six-joint reference; earlier terminal
-packets and exact producer snapshots are preserved.
+persists. The specific top-rail reference exceedance also remains unresolved;
+its governing cut lies 52.189 mm beyond a cleat contact footprint in a short
+transfer run, so the developed pointwise stress-field assumption is unproved.
+No physical wood failure, material factor or geometry change is adopted. The preceding table now uses
+one coherent current force source. Earlier six-joint results, terminal packets
+and exact producer snapshots remain preserved. All complete-joint flags stay false.
 
 The [assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md) reconciles
 50 transport bodies, 104 bolts/nuts, 208 washers and 66 separate Hillman screws. Larger stock
@@ -97,7 +98,7 @@ wood-pressure ratio is 0.1425; the preserved six-joint value is 0.5147.
 Actual washer/nut transfer remains unqualified. The
 [lower-left service comparison](hypotheses/mvp-resume-2026-10-01/service-joint-current-checks.md)
 now supplies all 24 current signed bolt states and a peak conditional Grade 5 lateral ratio
-0.00704 for the all-two-receiver replay (preserved six-joint value0.00568);
+0.00704 for the all-two-receiver replay (preserved six-joint value 0.00568);
 zero-lateral directions remain null and complete-joint acceptance stays false.
 Complete wood/group/washer resistance, finished member sections, restraint and operation checks
 remain unfinished. Detailed washer meshes, stiffness-output builds and provenance tooling remain

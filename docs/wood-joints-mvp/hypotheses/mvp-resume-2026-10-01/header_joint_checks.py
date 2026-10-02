@@ -5,6 +5,7 @@ sensitivities. Reuse saved physical actions, pair accounting and section tools.
 The output is conditional engineering evidence, not fabrication qualification.
 """
 
+import argparse
 import csv
 import json
 import math
@@ -16,6 +17,7 @@ sys.dont_write_bytecode = True
 
 import bottom_corner_checks as bottom
 import end_grain_route as route_method
+import frame_state_contract as frame_contract
 import member_screen as member
 import numpy as np
 
@@ -24,12 +26,27 @@ HERE, ROOT, FRAME = screen.HERE, screen.ROOT, screen.FRAME
 read, sha, require = screen.read, screen.sha, screen.require
 write = screen.write_json
 accounting, local = bottom.accounting, screen.local
-RESPONSE = HERE / "all-outer-corner-frame-attempt01"
-MEMBER = HERE / "member-screen-attempt02/all-outer-clearance01"
-LATERAL = HERE / "remaining-joint-screen-attempt03/grade5-92ksi"
-ROUTE = HERE / "end-grain-route-attempt02"
+DEFAULT_RESPONSE = HERE / "all-outer-corner-frame-attempt01"
+DEFAULT_MEMBER = HERE / "member-screen-attempt02/all-outer-clearance01"
+DEFAULT_LATERAL = HERE / "remaining-joint-screen-attempt03/grade5-92ksi"
+DEFAULT_ROUTE = HERE / "end-grain-route-attempt02"
+DEFAULT_OUTPUT = HERE / "header-joint-attempt01"
+RESPONSE = DEFAULT_RESPONSE
+MEMBER = DEFAULT_MEMBER
+LATERAL = DEFAULT_LATERAL
+ROUTE = DEFAULT_ROUTE
 PRIMARY_SEATS = Path("/tmp/mini-moonboard-eccentric-parent-check-2026-10-01.json")
-OUTPUT = HERE / "header-joint-attempt01"
+OUTPUT = DEFAULT_OUTPUT
+CLEARANCE_PINS = {
+    "all-outer-corner-frame-attempt01": {
+        "comparison.json": "ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3",
+        "response.npz": "aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901",
+    },
+    "two-receiver-frame-attempt03": {
+        "comparison.json": "0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5",
+        "response.npz": "774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52",
+    },
+}
 EDGE_HELPER = HERE.parent / "mvp-acceleration-2026-09-28/current-bg045-edge-splitting-applicability-attempt02/produce.py"
 SECTION_PLAN = HERE.parent / "right-corner-finished-sections-2026-10-01/source-plan.json"
 D, CEG = route_method.D, route_method.CEG
@@ -87,16 +104,32 @@ def net_screen(section, geometry, old_frame, vector, references):
 
 
 def run():
+    require(
+        OUTPUT.is_relative_to(HERE)
+        and OUTPUT.relative_to(HERE).parts
+        and OUTPUT.relative_to(HERE).parts[0].startswith("header-joint-attempt"),
+        "output must stay in a header-joint-attempt directory",
+    )
     require(not any((OUTPUT / name).exists() for name in
                     ("checks.json", "joint-actions.json", "joint-states.json", "placement.json",
                      "header-sections.csv", "source-pins.json")), "preserve existing header-joint evidence")
     comparison, route = read(RESPONSE / "comparison.json"), read(ROUTE / "route.json")
     report, geometry = read(MEMBER / "member-results.json"), read(MEMBER / "geometry.json")
     lateral = read(LATERAL / "screen.json")
+    comparison_path = RESPONSE / "comparison.json"
+    response_path = RESPONSE / "response.npz"
+    comparison_sha = sha(comparison_path)
+    response_sha = sha(response_path)
+    expected_clearance = CLEARANCE_PINS.get(RESPONSE.name, {})
+    force_scope = frame_contract.force_state_scope(comparison)
+    for name, expected in expected_clearance.items():
+        actual = comparison_sha if name == "comparison.json" else response_sha
+        require(actual == expected, "selected clearance source differs from its frozen pin: " + name)
+    require(comparison["response_sha256"] == response_sha, "clearance comparison names another response")
     pins = {
-        RESPONSE / "comparison.json": "ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3",
-        RESPONSE / "response.npz": "aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901",
-        ROUTE / "route.json": "f95fdb55eeee89d68be2e516e017d8d40d1ef4f7f9960c93e4895f53541c7f28",
+        comparison_path: comparison_sha,
+        response_path: response_sha,
+        ROUTE / "route.json": sha(ROUTE / "route.json"),
         **local.PINS, **screen.lateral.PINS,
         accounting.MATERIALS: route_method.PINS[accounting.MATERIALS],
         route_method.FEATURES: route_method.PINS[route_method.FEATURES],
@@ -107,16 +140,36 @@ def run():
         pins.update({directory / name: digest for name, digest in packet["output_sha256"].items()})
     for path in (FRAME / "model.json", FRAME / "row-identities.json", FRAME / "operators.npz"):
         pins[path] = comparison["source_sha256"][str(path.relative_to(ROOT))]
-    require(report["clearance_input_directory"] == str(RESPONSE.relative_to(ROOT))
-            and lateral["source_response_sha256"] == pins[RESPONSE / "response.npz"]
-            and lateral["source_comparison_sha256"] == pins[RESPONSE / "comparison.json"]
-            and route["source_sha256"][str((RESPONSE / "response.npz").relative_to(ROOT))]
-                == pins[RESPONSE / "response.npz"], "mixed force sources")
-    require(tuple(route["case_ids"]) == screen.CASES, "six-case census changed")
+    comparison_key = str(comparison_path.relative_to(ROOT))
+    response_key = str(response_path.relative_to(ROOT))
+    require(
+        report["clearance_input_directory"] == str(RESPONSE.relative_to(ROOT))
+        and report["source_sha256"].get(comparison_key) == comparison_sha
+        and report["source_sha256"].get(response_key) == response_sha
+        and lateral["source_response_sha256"] == response_sha
+        and lateral["source_comparison_sha256"] == comparison_sha
+        and lateral["case_ids"] == list(frame_contract.CASES)
+        and route["source_sha256"].get(comparison_key) == comparison_sha
+        and route["source_sha256"].get(response_key) == response_sha
+        and route["source_force_state_scope"] == force_scope
+        and report["source_force_state_scope"] == force_scope
+        and lateral["source_force_state_scope"] == force_scope
+        and route["clearance_schema"] == comparison["schema"]
+        and route["clearance_joint_hosts"] == comparison["clearance_joint_hosts"],
+        "mixed force, seating-scope or clearance inputs",
+    )
+    require(tuple(route["case_ids"]) == frame_contract.CASES, "six-case census changed")
+    require(route["force_source"] == str(response_path.relative_to(ROOT)), "route names another force source")
+    require(route["axis_count"] == 12 and route["state_count"] == 72,
+            "end-grain route census changed")
+    require(report["producer_sha256"] == sha(Path(member.__file__))
+            and lateral["producer_sha256"] == sha(HERE / "remaining_joint_screen.py"),
+            "member or lateral producer differs from its saved current report")
     for path in (Path(__file__), Path(bottom.__file__), Path(member.__file__),
                  Path(route_method.__file__), Path(screen.__file__),
                  Path(accounting.__file__), Path(local.__file__),
-                 Path(screen.lateral.__file__), MEMBER / "member-results.json",
+                 Path(screen.lateral.__file__), Path(frame_contract.__file__),
+                 MEMBER / "member-results.json",
                  LATERAL / "screen.json", SECTION_PLAN, EDGE_HELPER,
                  accounting.MODEL, accounting.CONTACTS):
         pins.setdefault(path, sha(path))
@@ -153,7 +206,17 @@ def run():
         require(sha(path) == digest, "changed consumed source: " + str(path))
 
     route_states = {(r["case_id"], r["axis_id"]): r for r in csv_records(ROUTE / "six-case-signed-states.csv")}
-    lateral_states = {(r["case_id"], r["axis_id"]): r for r in csv_records(LATERAL / "bolt-states.csv")}
+    lateral_records = csv_records(LATERAL / "bolt-states.csv")
+    lateral_states = {(r["case_id"], r["axis_id"]): r for r in lateral_records}
+    lateral_counts = defaultdict(int)
+    for record in lateral_records:
+        lateral_counts[(record["case_id"], record["axis_id"])] += 1
+    expected_states = {(case, axis) for case in frame_contract.CASES for axis in bolts
+                       if axis in {a for axes in groups.values() for a in axes}}
+    require(len(route_states) == 72 and set(route_states) == expected_states
+            and expected_states <= lateral_counts.keys()
+            and all(lateral_counts[state] == 1 for state in expected_states),
+            "route and lateral records do not cover each of the same 12 axes once per case")
     support = read(screen.SUPPORT)
     seats = defaultdict(list)
     for seat in support["seats"]:
@@ -204,7 +267,7 @@ def run():
           np.load(RESPONSE / "response.npz", allow_pickle=False) as response,
           np.load(FRAME / "operators.npz", allow_pickle=False) as operators):
         require(operators["D"].shape == (1888, 300), "physical operator changed")
-        for case in screen.CASES:
+        for case in frame_contract.CASES:
             raw = response[case + "_gap_raw_force_n"]
             require(raw.shape == (1888,) and np.isfinite(raw).all(), "invalid raw force")
             actions = {b: bottom.saved_actions(b, case, geometry["members"][b], arrays) for b in bodies}
@@ -324,7 +387,18 @@ def run():
                                    "adopted_actual_detailing_failure": False})
                     point = bolts[axis]["source_point_xyz_mm"]
                     box = bounds[block]
-                    hit = edge.directed_hit(point, force.tolist(), {"x": box[:, 0].tolist(), "y": box[:, 1].tolist()})
+                    hit = (
+                        edge.directed_hit(point, force.tolist(),
+                                          {"x": box[:, 0].tolist(), "y": box[:, 1].tolist()})
+                        if max(abs(force[0]), abs(force[1])) >= 1e-10
+                        else {
+                            "first_intersected_source_envelope_face": None,
+                            "first_intersection_travel_parameter_mm_per_n": None,
+                            "first_intersection_normal_distance_mm": None,
+                            "opposite_face": None,
+                            "opposite_face_distance_mm": None,
+                        }
+                    )
                     signed_face, distance_y = edge.edge_distance(point, float(force[1]), box[:, 1].tolist())
                     header_face, header_edge = edge.edge_distance(point, -float(force[1]), [-175.7, -36.0])
                     end_x = [point[0] - header["start"][0], header["end"][0] - point[0]]
@@ -333,7 +407,9 @@ def run():
                                        "block_finished_bounds_xyz_mm": box.tolist(), **hit,
                                        "block_Y_component_face": signed_face, "block_Y_component_edge_mm": distance_y,
                                        "block_Y_component_below_4D_sensitivity": bool(signed_face != "none" and distance_y < 4 * D - 1e-6),
-                                       "first_face_normal_distance_below_4D_diagnostic": bool(hit["first_intersection_normal_distance_mm"] < 4 * D - 1e-6),
+                                       "first_face_normal_distance_below_4D_diagnostic":
+                                           None if hit["first_intersection_normal_distance_mm"] is None
+                                           else bool(hit["first_intersection_normal_distance_mm"] < 4 * D - 1e-6),
                                        "header_force_grain_angle_deg": angles[1], "header_grain_end_distances_mm": end_x,
                                        "header_Y_component_face": header_face, "header_Y_component_edge_mm": header_edge,
                                        "header_Y_component_below_4D_sensitivity": bool(header_face != "none" and header_edge < 4 * D - 1e-6),
@@ -356,13 +432,43 @@ def run():
     write(OUTPUT / "placement.json", placements)
     screen.write_csv(OUTPUT / "header-sections.csv", cuts)
     write(OUTPUT / "source-pins.json", {str(p): h for p, h in sorted(pins.items())})
+    first_face_diagnostics = [
+        p for p in placements if p["first_face_normal_distance_below_4D_diagnostic"]
+    ]
+    short_axes = sorted({p["axis_id"] for p in first_face_diagnostics})
+    if first_face_diagnostics:
+        status = "FINITE_CONDITIONAL_STRENGTH_AND_TRANSFER_RESULT_WITH_FIRST_FACE_SHORT_DIAGNOSTICS"
+        remaining_detail = (
+            f"{len(first_face_diagnostics)} first-ray normal-distance comparisons are below 4D across "
+            f"{len(short_axes)} axes ({', '.join(short_axes)}). These are conditional placement diagnostics, "
+            "not adopted NDS failures; the applicability of the multi-face loaded-edge construction remains "
+            "unresolved. No Cdelta reduction is used to waive an edge minimum."
+        )
+    else:
+        status = "FINITE_CONDITIONAL_STRENGTH_AND_TRANSFER_RESULT_WITH_NO_FIRST_FACE_SHORT_COMPARISON"
+        null_ray_count = sum(p["first_intersected_source_envelope_face"] is None for p in placements)
+        directional_count = len(placements) - null_ray_count
+        remaining_detail = (
+            "No saved first-ray normal distance is below 4D. "
+            f"{null_ray_count} of {len(placements)} states have zero in-plane force and retain null first-ray "
+            f"direction, face and travel fields; {directional_count} directional states have no short comparison. "
+            "This does not establish local splitting/torque resistance, a universal loaded-edge rule or complete "
+            "joint acceptance. No Cdelta reduction is used to waive an edge minimum."
+        )
     summary = {
         "schema": "six_current_header_joint_conditional_checks/v1",
-        "status": "FINITE_CONDITIONAL_STRENGTH_AND_TRANSFER_RESULT_WITH_TWO_KNEE_DETAILING_EXCEPTIONS",
+        "status": status,
         "candidate": model["candidate"], "source_revision": model["source_revision"],
-        "development_revision": model["development_revision"], "case_ids": list(screen.CASES),
+        "development_revision": model["development_revision"], "case_ids": list(frame_contract.CASES),
         "force_source": str((RESPONSE / "response.npz").relative_to(ROOT)),
         "force_key": "case_id + '_gap_raw_force_n'", "gap_scale": 1.0,
+        "clearance_source_directory": str(RESPONSE.relative_to(ROOT)),
+        "clearance_comparison_sha256": comparison_sha,
+        "response_sha256": response_sha,
+        "source_force_state_scope": force_scope,
+        "member_report_source": str((MEMBER / "member-results.json").relative_to(ROOT)),
+        "lateral_report_source": str((LATERAL / "screen.json").relative_to(ROOT)),
+        "end_grain_route_source": str((ROUTE / "route.json").relative_to(ROOT)),
         "counts": {"joints": 6, "axes": 12, "bolt_states": 72, "interfaces": 36,
                    "whole_body_balances": 42, "header_sections": len(sections), "header_section_states": len(cuts)},
         "conditional_material": {b: references[b] for b in sorted(bodies)},
@@ -382,7 +488,7 @@ def run():
         },
         "first_face_below_4D_diagnostics": [p for p in placements if p["first_face_normal_distance_below_4D_diagnostic"]],
         "adopted_actual_detailing_failures": [],
-        "exact_remaining_detailing_fact": "The applicable loaded-edge selection for oblique XY force in an end-grain Z block. Current NDS defines loaded edge and 4D but does not specify the multi-face first-ray/component construction. Five first-face short comparisons on three knee axes prevent an unconditional placement pass; they are not adopted NDS failures. No Cdelta reduction is used to waive an edge minimum.",
+        "exact_remaining_detailing_fact": remaining_detail,
         "limits": [
             "Existing Fe_perp and Ceg=.67 route is reused once, without re-investigating applicability.",
             "Cg is a two-fastener transverse row sensitivity using 4D equivalent widths, not uniform sharing or complete oblique-group acceptance. Actual signed forces and couples remain unchanged.",
@@ -410,5 +516,28 @@ def run():
                                       for p in summary["first_face_below_4D_diagnostics"]])
 
 
-if __name__ == "__main__":
+def packet_path(value):
+    path = Path(value)
+    return (path if path.is_absolute() else HERE / path).resolve()
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--clearance", default=str(DEFAULT_RESPONSE.relative_to(HERE)))
+    parser.add_argument("--members", default=str(DEFAULT_MEMBER.relative_to(HERE)))
+    parser.add_argument("--lateral", default=str(DEFAULT_LATERAL.relative_to(HERE)))
+    parser.add_argument("--route", default=str(DEFAULT_ROUTE.relative_to(HERE)))
+    parser.add_argument("--output", default=str(DEFAULT_OUTPUT.relative_to(HERE)))
+    args = parser.parse_args(argv)
+
+    global RESPONSE, MEMBER, LATERAL, ROUTE, OUTPUT
+    RESPONSE = packet_path(args.clearance)
+    MEMBER = packet_path(args.members)
+    LATERAL = packet_path(args.lateral)
+    ROUTE = packet_path(args.route)
+    OUTPUT = packet_path(args.output)
     run()
+
+
+if __name__ == "__main__":
+    main()

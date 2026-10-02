@@ -11,7 +11,24 @@ criterion is closed by this restart record.
 
 ## Current working model and ownership
 
-The current frozen response is `all-outer-corner-frame-attempt01/`: all six
+The current force reference is `two-receiver-frame-attempt03/`: all 88
+independent two-receiver candidate bolts have modeled radial gaps. Four
+continuous candidate bolts and twelve retained bolts remain at zero gap.
+All twelve zero/nominal states meet equilibrium, connector and floor laws;
+the six nominal states have finite fixed-force seating bounds, not a unique
+pose or strict tangent stability. Fresh top/bottom/service/central/member/
+end-grain/header/continuous-bolt worksheets now use that one force source.
+The [main summary](../../README.md) lists current component results.
+
+Two declared strength exceptions remain: purchased panel-screw reference
+deficits (current combined index 2.7249 and independent head deficit) and
+top-rail face shear/torsion 1.0392 against the 180 psi assumption. No favorable
+material factor, new panel hardware or geometry change is selected to clear
+them. The owner constraint decision for the next panel proposal remains
+pending. The following detailed paragraphs preserve the earlier six-joint
+force reference and distinguish later replays explicitly.
+
+The preserved six-joint response is `all-outer-corner-frame-attempt01/`: all six
 cases include both top/bottom outer corners and both left outer service cleats.
 All twelve zero/gap states satisfy declared frame laws. The
 [bottom-corner calculation](bottom-corner-checks.md) supports retaining both
@@ -49,12 +66,17 @@ meet declared equilibrium/law/floor checks. Every nominal state has finite
 strict tangent stability flags retained false. Peak nominal panel withdrawal
 is 1837 N. The preserved six-joint component worksheets need same-state
 updates before this variant is adopted; all earlier STOP packets remain.
-Those fresh component replays now give top-corner ratios0.7268/0.8138,
-concurrent steel0.7356/0.8253, bottom-left0.2819/steel0.2839,
-lower-service0.00704, central wood pressure0.1425, end-grain0.04648,
-continuous-knee conditional sum0.9192 and remaining eligible individual0.9521.
-The new 44-member elementary normal/shear references are0.5746/0.3700;
-header and torsion/restraint updates are still being calculated. These are
+Those fresh component replays now give top-corner ratios 0.7268/0.8138,
+concurrent steel 0.7356/0.8253, bottom-left 0.2819/steel 0.2839,
+lower-service 0.00704, central wood pressure 0.1425, end-grain 0.04648,
+continuous-knee conditional sum 0.9192 and remaining eligible individual 0.9521.
+The new 44-member elementary normal/shear references are 0.5746/0.3700.
+The torsion/restraint replay finds top-rail combined face shear/torsion 1.0392
+against the declared 180 psi allowance, and braced normal interaction 0.6144.
+Its local applicability is being located before a correction is proposed;
+no strength factor or geometry change is adopted. The final header replay
+gives adjusted sensitivity 0.04692 and washer wood-pressure 0.2627, with no
+short first-face diagnostic in these 72 states. These are
 saved-force component results; bounded seating does not supply a unique pose
 or a motion envelope. The earlier paragraphs retain their six-joint scope.
 

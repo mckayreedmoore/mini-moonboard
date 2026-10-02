@@ -2,6 +2,22 @@
 
 ## Current finite result
 
+The current coherent force reference is `two-receiver-frame-attempt03/`.
+Its [792-record panel replay](panel-attachment/README.md) retains modeled-gap
+peak withdrawal 1836.884 N with simultaneous lateral 807.662 N. The
+[generic lateral/combined worksheet](panel-attachment/lateral-reference.md)
+gives lateral references 386.752/463.413 N under explicit standard-screw
+hypotheses. The most favorable modeled-gap combined index is2.724895,
+K12-rear upper-right rim4, using that screw's V/T 1274.054/625.635 N.
+Independent head and withdrawal deficits remain; no Hillman rating is assigned.
+
+The separate [member replay](member-stability.md) finds top-rail face
+shear/torsion 1.039209 against the declared 180 psi allowance. These specific
+reference exceptions govern the next corrections; no geometry, material
+factor or panel-hardware change is adopted. The owner decision on which panel
+constraint may change remains pending. The following six-joint sensitivity
+records remain preserved, with their own force scopes.
+
 The [panel-attachment worksheet](panel-attachment/README.md) now joins all
 66 Hillman stations to the frozen six-joint frame: 792 screw states, signed
 same-state lateral/withdrawal demands, generic thread/head references and
@@ -60,11 +76,15 @@ does not cure the current head-reference deficit. The comparison SHA-256 is
 `0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5`;
 the response SHA-256 is
 `774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52`.
-Fresh same-state component replays now give top-corner ratios0.7268/0.8138,
-bottom-left0.2819, lower-service0.00704, central wood-pressure0.1425,
-end-grain0.04648, continuous-knee conditional sum0.9192 and remaining eligible
-individual0.9521. The corresponding elementary member normal/shear references
-are0.5746/0.3700. Header and member torsion/restraint updates remain in progress;
+Fresh same-state component replays now give top-corner ratios 0.7268/0.8138,
+bottom-left 0.2819, lower-service 0.00704, central wood-pressure 0.1425,
+end-grain 0.04648, continuous-knee conditional sum 0.9192 and remaining eligible
+individual 0.9521. The corresponding elementary member normal/shear references
+are 0.5746/0.3700. The corresponding member torsion/restraint replay finds
+top-rail combined face shear/torsion 1.0392 against the declared 180 psi allowance,
+with braced normal interaction 0.6144. That separate member exception is being
+located; no strength factor or geometry change is adopted. The final header
+replay now gives adjusted sensitivity 0.04692 and washer wood-pressure 0.2627;
 the former six-joint worksheets and all complete-joint flags stay preserved.
 Both earlier full-clearance terminal packets remain preserved.
 
@@ -124,7 +144,8 @@ calculation uses no product resistance or properties from SPAX or SDS.
 
 ## Next finite joint task
 
-Finish header/torsion updates and the generic screw lateral comparison. Bind panel-to-receiver thread penetration
+Propose the simplest panel correction within the owner's constraint decision,
+then evaluate its six-case sharing and the top-rail demand together. Bind panel-to-receiver thread penetration
 and a supported head/withdrawal basis for the purchased Hillman policy.
 Standard No. 10 dimensions alone would not close the current numerical head
 deficit. Any proposed correction must carry the same-state panel wrench and

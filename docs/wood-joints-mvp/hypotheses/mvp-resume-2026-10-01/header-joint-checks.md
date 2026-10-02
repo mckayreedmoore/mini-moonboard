@@ -1,14 +1,90 @@
 # Six current block/header joints
 
-The current six-case nominal-gap response gives a finite conditional strength
-and transfer result for the six header interfaces and their twelve end-grain
-bolt axes. The largest same-state lateral reference, including the declared
-steel reserve and conservative two-fastener group sensitivity, is **0.259870**.
-The largest washer wood-bearing reference is **0.398422**. All 36 interfaces
-and 42 complete body balances close. The four center layouts clear the stated
-end/edge/spacing envelope. The two knee layouts retain a specific loaded-edge
-interpretation exception, described below; no adopted NDS detailing failure or
-required model change is established by a component-only 20 mm comparison.
+## Current bounded replay — attempt02/final
+
+[checks.json](header-joint-attempt02/final/checks.json) uses current saved
+two-receiver force states through
+[frame_state_contract.force_state_scope](frame_state_contract.py). It covers
+six bounded nominal cases, 12 header axes, 72 bolt states, 36 interfaces, 42
+whole-body balances and 1,260 saved header-section states. Bounded seating does
+not identify a unique pose; strict tangent stability, complete-joint
+acceptance and physical release remain false.
+
+The route report's separate maximum lateral references are **0.066460 at
+45 ksi**, **0.046480 at 92 ksi**, and **0.043302 at 106 ksi**. The 92 ksi peak
+is `k12-right / center_principal_header_right_2`, with saved simultaneous
+block force `[-26.692597, approximately 0, approximately 0] N` and outer tie
+26.737131 N. Applying the existing two-fastener `Cg = 0.991599` group
+sensitivity to that same state gives **0.046922580**. These are separate method
+outputs and load-case envelopes; no maxima from different states are combined.
+The current maximum washer wood-bearing reference is **0.262663** at
+`a12-rear / knee_outer_left_inner_header_1`. The connected-header section
+proxies peak separately at **0.166223** for linear normal reference
+(`k12-rear`, station 1419.2 mm) and **0.236103** for net-area shear
+(`a1-rear`, station 22.225 mm). They do not establish local splitting or torque
+resistance.
+
+No saved first-ray normal distance is below 4D. Seventy of 72 states have zero
+in-plane force; their first-ray direction, face and travel fields are null.
+The two directional states meet the ±X faces at 26.95 mm, above 4D = 25.4 mm.
+No adopted detailing failure is established by this diagnostic, and it does
+not prove complete placement or joint acceptance. The route's proposed +Y
+grain has no signed parallel-component comparator below 3.5D; it remains a
+proposal, with no grain or stiffness change applied. Separately, the
+[three-member screen](three-member-screen-attempt01/all-two-receiver/screen.json)
+records 0.919158 at 92 ksi and 1.312488 at 45 ksi, with seven cases above
+one; formal embedding remains false. Its SHA-256 is
+`306aa4a8e4c6113d4a0258d09564292d07095131ef2b4621370d7284e75e0377`. That
+screen is not consumed by this header replay.
+
+| Current source | SHA-256 |
+| --- | --- |
+| `two-receiver-frame-attempt03/comparison.json` | `0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5` |
+| `two-receiver-frame-attempt03/response.npz` | `774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52` |
+| `member-screen-attempt02/all-two-receiver-clearance01/member-results.json` | `8828f6d258a770136deb6af7dca1b443ebd0459faaa6e71d111f4f7b9e1b3507` |
+| `remaining-joint-screen-attempt04/all-two-receiver-92ksi/screen.json` | `5b85139b2acaefd8ff74df916229766438c0caf3bc9c3a1a7b5080f8f393033a` |
+| `end-grain-route-attempt03/route.json` | `25b64f1e0d3865bb6de377608ca5e0bf36d815b30f4097fc3116d421ba42bf34` |
+
+[source-pins.json](header-joint-attempt02/final/source-pins.json) binds all
+supporting model, row, geometry, material, method and report outputs. Run is
+saved-array arithmetic only:
+
+```sh
+uv run python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/header_joint_checks.py \
+  --clearance two-receiver-frame-attempt03 \
+  --members member-screen-attempt02/all-two-receiver-clearance01 \
+  --lateral remaining-joint-screen-attempt04/all-two-receiver-92ksi \
+  --route end-grain-route-attempt03 \
+  --output header-joint-attempt02/final
+```
+
+| Final attempt02 artifact | SHA-256 |
+| --- | --- |
+| `checks.json` | `8daded05317ef0babb3be8e60adccd5a688bb386be19e8ce2cea32718ab560f9` |
+| `joint-actions.json` | `fcdd3e85f7856220504de79f818724dbf271f029f1066143ec8335f59ed966a4` |
+| `joint-states.json` | `a09e64e57c4110932d9eab3dcaafb1872228dd1f69142f61bd9286357acec48c` |
+| `placement.json` | `27b108147a64834c566d64447a15270db0534984457ac1f139d938d1fba38b57` |
+| `header-sections.csv` | `05378f3310231b8798da94a316a12c15add2e925db7081efd2878c388aeec32f` |
+| `source-pins.json` | `72aa536e1e7a75944ff5339324c86c728c40d4e53ce521f58f50f5d04d7e8090` |
+
+The earlier [attempt02 receipt](header-joint-attempt02/checks.json), SHA-256
+`160272b0410e12d72fd4c7f4e0f52534ce80565fada1154dd963ed9a1dd82dc6`, stays
+preserved as preliminary. Its inherited five-short-comparison wording is
+inconsistent with its zero diagnostics; use `attempt02/final` above. This is a
+metadata mismatch, not a physical failure.
+
+## Preserved original six-joint baseline — attempt01
+
+The original all-outer six-case nominal-gap response gives a finite conditional
+strength and transfer result for the six header interfaces and their twelve
+end-grain bolt axes. The largest same-state lateral reference, including the
+declared steel reserve and conservative two-fastener group sensitivity, is
+**0.259870**. The largest washer wood-bearing reference is **0.398422**. All
+36 interfaces and 42 complete body balances close. The four center layouts
+clear the stated end/edge/spacing envelope. The two knee layouts retain a
+specific loaded-edge interpretation exception, described below; no adopted
+NDS detailing failure or required model change is established by a
+component-only 20 mm comparison.
 
 This result is usable for the parent's conditional engineering integration:
 the forces, wood-bearing demands, local header cuts and all face/bolt couples

@@ -1,22 +1,25 @@
 # Panel attachment: a practical decision worksheet
 
-**None of the three saved compatible frame allocations meets the declared
-unadjusted head references.** Reducing the assumed screw withdrawal stiffness
-from 2689.7 to 100 N/mm reduces the modeled-gap withdrawal peak from 1812 to
-916 N, while increasing its connection opening from 0.67 to 9.16 mm. Retain
-HOLD: the stiffness sensitivity does not close panel attachment. Panel-only
-statics permits about 294 N when face compression can redistribute, but
-neither the compatible runs nor a Hillman rating establish that allocation.
+**Preserved all-outer/soft-law results (attempt05–07):** none of those three
+saved compatible frame allocations meets declared unadjusted head references.
+Reducing assumed withdrawal stiffness from 2689.7 to 100 N/mm lowers their
+modeled-gap withdrawal peak from 1812 to 916 N while increasing opening from
+0.67 to 9.16 mm. Their stiffness sensitivity does not close panel attachment.
+Panel-only statics permits about 294 N when face compression can redistribute,
+but neither those compatible runs nor a Hillman rating establishes that
+allocation. Current bounded all-two-receiver result is documented at end.
 
-## Inputs and simultaneous demands
+## Preserved attempt05 all-outer baseline: inputs and demands
 
 [attachment_screen.py](attachment_screen.py) reuses the parent's
-[six-joint frame packet](../all-outer-corner-frame-attempt01/comparison.json):
+[all-outer six-case frame packet](../all-outer-corner-frame-attempt01/comparison.json):
 both top and bottom outer corners and both left outer service cleats have
 modeled clearance. The saved packet contains six independent full static
 cases, each at zero and modeled gaps. It retains the 25 kg proportional
 accessory allowance and conditional 2689.679 N/mm screw scalar stiffness.
 These are different loads from the service worker's twice-recorded rear cases.
+All values in this section through the reproduction record below describe
+attempt05 or its separately sourced 1000/100 N/mm sensitivities.
 
 The current receiver packet supplies all 66 axes, including the four moved
 center-kicker axes entering the center posts. Historical backer identities
@@ -120,15 +123,16 @@ Their allocations cannot replace the frame forces. In particular, the
 294 N result exceeds the 277 N lower head sensitivity, while falling below
 the standard-head scenarios. Force sharing and head geometry both matter.
 
-## Returned compatible stiffness sensitivity
+## Earlier all-outer source: returned compatible stiffness sensitivity
 
 The parent completed the proposed 2689.7, 1000 and 100 N/mm withdrawal sweep,
 retaining the original 2689.7 N/mm lateral components, unchanged 66 stations,
 six clearance joints and independent six-case floor/contact method. These
 are explicit study hypotheses, not measured Hillman stiffness bounds.
-The coordinator's frozen `all-outer-corner-frame-attempt01` response remains
-the final input for this batch. The two softer responses are sensitivities;
-they do not replace its force allocation or establish a selected screw law.
+The frozen `all-outer-corner-frame-attempt01` response is attempt05's input.
+Attempts06 and 07 use separate parent comparison packets for their 1000 and
+100 N/mm hypotheses. These are sensitivities; they do not establish a selected
+screw law or replace attempt05's force allocation.
 
 | Withdrawal stiffness hypothesis | Largest modeled-gap withdrawal | Lateral force at that same screw/state | Opening at that screw | Largest lateral force across modeled-gap states |
 | --- | ---: | ---: | ---: | ---: |
@@ -193,8 +197,8 @@ capacities; head pull-through remains a separate unmet reference screen.
 
 ### Finite decision and next useful check
 
-For the coordinator's frozen batch, **head pull-through and timber withdrawal
-both decide the current screen**. Its 1812 N modeled-gap demand exceeds the
+For the preserved attempt05 batch, **head pull-through and timber withdrawal
+both decide that screen**. Its 1812 N modeled-gap demand exceeds the
 most favorable declared 629 N unadjusted head reference; its same-state
 withdrawal term already exceeds one before adding lateral demand. Verifying
 that the delivered screw matches standard No. 10 head/thread dimensions would
@@ -209,7 +213,7 @@ Further stiffness values should follow an explicit physical law or declared
 bounded scenario; selecting a smaller number solely to obtain a pass is not
 a supported sharing result. The parent owns that model choice and its runs.
 
-**Robust within the calculated hypotheses:** the current high-stiffness
+**Robust within the calculated hypotheses:** the attempt05 high-stiffness
 allocation concentrates panel forces; reducing axial stiffness lowers peak
 withdrawal but does not approach the favorable 294 N static allocation and
 increases movement and lateral demand. None of the three saved responses
@@ -250,7 +254,7 @@ plywood thickness alone cannot meet the 916 N peak under that head hypothesis.
 This is equation sensitivity, not a proposed thicker panel, actual density
 measurement or adopted head capacity.
 
-## Reproduce and preserve
+## Reproduce and preserve earlier all-outer/soft-law screens
 
 ```bash
 uv run python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/attachment_screen.py \
@@ -261,7 +265,7 @@ The default frozen source comparison SHA-256 is
 `ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3`;
 its response is
 `aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901`.
-Current default output is [attempt05-baseline](results/attempt05-baseline/comparison.json),
+Preserved default output is [attempt05-baseline](results/attempt05-baseline/comparison.json),
 report SHA `da36efb1d343f5462fdda87055c38b635767e517a3ead5ac8e69922dbe4cc112`;
 [receipt](results/attempt05-baseline/receipt.json) SHA
 `255711e7289373e85675bc895d68bb137e18c5e991edac2b29f23039d8abb04f`.
@@ -295,8 +299,72 @@ If absent, retrieve the same published PDF from its
 and verify that hash before running. It is a shared source, not copied into
 each calculation.
 
-Earlier attempts remain local development evidence. The maintained source,
-this worksheet and attempts05–07 are active; all raw outputs and referenced
-`/tmp` evidence are retained. No commit or staging was performed here. The
-47-criterion authority and all release flags are unchanged; complete joint
-acceptance and physical release remain false.
+Attempts05–07 and adjacent stopped trials remain byte-preserved historical
+evidence under their original all-outer and soft-law sources. The current
+attempt08 all-two-receiver source is separate. All raw outputs and referenced
+`/tmp` evidence remain available. The 47-criterion authority and release flags
+are unchanged; complete joint acceptance and physical release remain false.
+
+## Current bounded all-two-receiver screen: attempt08
+
+The current source is
+[`two-receiver-frame-attempt03/comparison.json`](../two-receiver-frame-attempt03/comparison.json),
+SHA-256 `0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5`,
+with response SHA-256
+`774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52`. The
+producer calls the parent's `frame_state_contract.force_state_scope` before
+replaying arrays and records its returned scope in both the report and
+receipt. Helper SHA-256 is
+`22e1f8b864c03469701010fc856a815b3604a4efde2748531e36d284050266e5`.
+
+All six nominal states have finite bounded fixed-force seating certificates:
+A12-rear, A12-forward, K12-rear and A1-rear rank 296; A12-left and K12-right
+rank 297. These certificates permit saved-force component arithmetic. They do
+not establish a unique pose, strict tangent stability or complete joint
+acceptance. The saved positions are representative positions only for this
+bounded source; they provide no envelope over permitted seating and no motion
+acceptance limit is adopted.
+
+The screen joins **792 screw states**, runs **48 panel-only allocations** (24
+fixed-contact and 24 contact-relaxed), and completes **264 common-port motion
+group checks**. Each group check verifies finite common-datum motion values for
+its saved panel/receiver group and state. Values remain representative source
+positions; checks do not construct a seating-motion envelope.
+
+The current full-state and modeled-gap withdrawal peaks are both A12-rear,
+`round_panel_upper_left_edge_2`, into `base_rail_top`:
+
+| Source state | Withdrawal T | Lateral resultant V | Generic withdrawal reference | Demand excess / ratio | Generic head reference | Demand excess / ratio | NDS 12.4 withdrawal term |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Zero gap | 1911.837 N | 730.822 N | 1072.630 N | 839.208 N / 1.782384 | 594.490 N | 1317.347 N / 3.215927 | 1.664889 |
+| Modeled gap | 1836.884 N | 807.662 N | 1072.630 N | 764.255 N / 1.712506 | 594.490 N | 1242.394 N / 3.089848 | 1.567661 |
+
+Withdrawal reference uses generic DF-L `G=.50`, No. 10 `D=.190 in`, and
+45.24375 mm nominal timber projection; effective thread engagement remains
+unverified. Head reference uses the declared standard-head 9.2202 mm diameter
+and 17.25625 mm net-plywood scenario. Both are unadjusted conditional
+references, not Hillman capacities. The NDS 12.4 withdrawal term exceeds 1.0
+in both states, so required lateral reference is undefined for these
+combined-reference screens. No product resistance or selected screw law is
+inferred. Attempt08 uses saved 2689.6788 N/mm withdrawal and lateral
+stiffnesses; product laws remain unmeasured.
+
+Current artifacts:
+[comparison.json](results/attempt08-all-two-receiver/comparison.json), SHA-256
+`7146069ad3ecf913cbb354f3a37d1e6af6768fc3b577f574feb5a10bd483eb2f`;
+[receipt.json](results/attempt08-all-two-receiver/receipt.json), SHA-256
+`fd0ea72c61bd3ff8bc7295b68a639d5f9ef9174e119bb8f4cd03d2bf8ff34217`;
+[screw-states.csv](results/attempt08-all-two-receiver/screw-states.csv), SHA-256
+`a074b374f487ed05865a20c62f5395898338ceb9bce6f2e204406e84316d2e51`.
+All 20 report source bindings match; receipt binds comparison, CSV and exact
+producer snapshot hashes. The prior attempt05–07 reports, receipts, CSV files
+and producer snapshots remain byte-identical.
+
+```bash
+uv run python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/attachment_screen.py \
+  --source docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/two-receiver-frame-attempt03 \
+  --output /tmp/FRESH-PANEL-ATTACHMENT-ATTEMPT08
+```
+
+No test suite, native/frame/CAD solve, product, geometry, stiffness or authority
+change was made. No staging or commit was performed.

@@ -8,6 +8,7 @@ import argparse
 import csv
 import hashlib
 import json
+import sys
 from collections import defaultdict
 from pathlib import Path
 
@@ -16,9 +17,14 @@ from scipy.optimize import linprog
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[4]
+sys.path.insert(0, str(HERE.parent))
+
+import frame_state_contract as frame_contract
+
 FRAME = HERE.parent / "corner-frame-attempt01"
 DEFAULT = HERE.parent / "all-outer-corner-frame-attempt01"
 DEFAULT_SHA = "ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3"
+FRAME_CONTRACT_SHA = "22e1f8b864c03469701010fc856a815b3604a4efde2748531e36d284050266e5"
 N_PER_LBF = 4.4482216152605
 CASES = {"a12-rear", "a12-forward", "a12-left", "k12-right", "k12-rear", "a1-rear"}
 AXIAL = "non_qualifying_parametric_screw_withdrawal"
@@ -128,13 +134,15 @@ def redistribution(mapping, force, tie_indices=None):
 def run(source, output):
     require(not output.exists(), "preserve existing output")
     comparison = read(source / "comparison.json")
+    force_scope = frame_contract.force_state_scope(comparison)
     require(
         comparison["schema"]
         in {
             "coupled_top_and_service_frame_clearance/v1",
             "coupled_outer_corner_frame_clearance/v1",
+            frame_contract.BOUNDED_SCHEMA,
         },
-        "requires a coupled outer-corner/service frame packet",
+        "requires a supported coupled frame packet",
     )
     if source.resolve() == DEFAULT.resolve():
         require(
@@ -143,6 +151,12 @@ def run(source, output):
     pins = {source / "comparison.json": sha(source / "comparison.json")}
     pins[source / "response.npz"] = comparison["response_sha256"]
     pins[source / "producer.py.snapshot"] = comparison["producer_sha256"]
+    require(
+        Path(frame_contract.__file__).resolve()
+        == (HERE.parent / "frame_state_contract.py").resolve(),
+        "unexpected frame state contract module",
+    )
+    pins[Path(frame_contract.__file__)] = FRAME_CONTRACT_SHA
     assessment = read(FRAME / "operator-assessment.json")
     require(
         assessment["status"] == "PASS_UPDATED_ELASTIC_FRAME_OPERATORS", "operator STOP"
@@ -184,7 +198,11 @@ def run(source, output):
         len(states) == 12
         and {(s["case_id"], s["gap_scale"]) for s in states}
         == {(c, g) for c in CASES for g in (0.0, 1.0)}
-        and all(s["status"] == "PASS_CONDITIONAL_COUPLED_FRAME_LAWS" for s in states),
+        and all(
+            s["status"]
+            in (frame_contract.STRICT_STATUS, frame_contract.BOUNDED_STATUS)
+            for s in states
+        ),
         "incomplete source census",
     )
     model, rows = read(FRAME / "model.json"), read(FRAME / "row-identities.json")
@@ -503,6 +521,18 @@ def run(source, output):
     nominal_worst = max(
         (r for r in records if r["gap_scale"] == 1), key=lambda r: r["withdrawal_n"]
     )
+    bounded_nominal_response_rank = {
+        state["case_id"]: 300
+        - state["fixed_force_clearance_certificate"]["nullity"]
+        for state in states
+        if state["gap_scale"] == 1.0
+        and state["status"] == frame_contract.BOUNDED_STATUS
+    }
+    require(
+        set(bounded_nominal_response_rank)
+        == set(force_scope["bounded_nominal_cases"]),
+        "bounded nominal rank census differs from accepted force scope",
+    )
     sensitivity = [
         {
             "timber_G_hypothesis": g,
@@ -568,7 +598,28 @@ def run(source, output):
             record["receiver"],
         ].append(record)
     group_demands = []
+    common_port_motion_checks = 0
     for (case, gap, panel, receiver), members in groups.items():
+        motion_fields = (
+            "common_datum_x_mm",
+            "common_datum_y_mm",
+            "common_datum_z_mm",
+            "relative_rigid_translation_mm",
+            "relative_elastic_translation_mm",
+            "relative_rigid_rotation_degrees",
+            "screw_relative_translation_mm",
+        )
+        require(
+            members
+            and all(
+                r["panel"] == panel
+                and r["receiver"] == receiver
+                and np.isfinite([r[field] for field in motion_fields]).all()
+                for r in members
+            ),
+            "incomplete or nonfinite common-port motion group",
+        )
+        common_port_motion_checks += 1
         forces = np.array(
             [[r[f"force_on_panel_{c}_n"] for c in "xyz"] for r in members]
         )
@@ -602,6 +653,8 @@ def run(source, output):
             for p, h in pins.items()
         },
         "producer_sha256": sha(Path(__file__)),
+        "force_state_scope": force_scope,
+        "bounded_nominal_response_rank_by_case": bounded_nominal_response_rank,
         "frame_cases": len(CASES),
         "saved_frame_states": len(states),
         "withdrawal_stiffness_hypotheses_n_per_mm": sorted(
@@ -611,6 +664,8 @@ def run(source, output):
         "screw_states": len(records),
         "upper_panel_allocations": len(allocations),
         "upper_panel_contact_relaxed_allocations": len(relaxed_allocations),
+        "upper_panel_allocation_total": len(allocations) + len(relaxed_allocations),
+        "common_port_motion_checks": common_port_motion_checks,
         "same_state_peak_withdrawal": worst,
         "same_state_nominal_gap_peak_withdrawal": nominal_worst,
         "same_state_peak_lateral": max(records, key=lambda r: r["lateral_resultant_n"]),
@@ -627,7 +682,12 @@ def run(source, output):
         "limits": [
             "No new frame or native solve. All force records reuse the saved conditional frame.",
             "Stiffness overrides, when present, are read from the saved frame metadata and checked against all 66 axial laws. They are explicit unqualified hypotheses, not product measurements.",
-            "Common-datum panel/receiver motions contain the returned rigid components. Total connection relative motion additionally contains both bodies' elastic response. Individual absolute elastic body motions are not reconstructed; no movement acceptance limit is adopted.",
+            "Common-datum panel/receiver motions contain returned rigid components. Total connection relative motion additionally contains both bodies' elastic response. Individual absolute elastic body motions are not reconstructed.",
+            (
+                "For bounded source states, common-port motions describe saved representative positions only; they provide no envelope over permitted seating positions, and no motion acceptance limit is adopted."
+                if force_scope["bounded_nominal_cases"]
+                else "Common-port motions describe saved frame positions; no motion acceptance limit is adopted."
+            ),
             "Generic NDS cut/rolled side-grain reference is not a Hillman rating; applicability and all end-use adjustments are unresolved.",
             "G and effective thread lengths are declared hypotheses, not material or delivered screw measurements. 45.24375mm is nominal penetration, not measured effective thread. 42.3333mm is an approximate standard cut-thread scenario, not a delivered Hillman dimension.",
             "AWC supporting head pull-through research includes flush countersunk flathead screws. Circular plan shape, head dimensions, net plywood thickness and product applicability remain assumptions. The generic circular-head calculation is a conditional reference, not Hillman resistance. Cylindrical punch metrics are mean demands only, with an assumed failure surface and no resistance assigned.",
@@ -654,6 +714,8 @@ def run(source, output):
     receipt = {
         "schema": "conditional_panel_attachment_screen_receipt/v1",
         "source_frame_comparison_sha256": pins[source / "comparison.json"],
+        "force_state_scope": force_scope,
+        "bounded_nominal_response_rank_by_case": bounded_nominal_response_rank,
         "artifact_sha256": {
             name: sha(output / name)
             for name in ("comparison.json", "screw-states.csv", "producer.py.snapshot")
@@ -662,6 +724,9 @@ def run(source, output):
         "saved_screw_inventory_and_law_checks_passed": True,
         "saved_body_balance_checks_passed": True,
         "saved_returned_motion_compatibility_checks_passed": True,
+        "common_port_motion_checks": common_port_motion_checks,
+        "common_port_motion_checks_passed": True,
+        "upper_panel_allocation_total": len(allocations) + len(relaxed_allocations),
         "panel_only_allocation_primal_dual_checks_passed": True,
         "physical_release": False,
     }
