@@ -27,6 +27,12 @@ The [retained-pair sensitivity](retained-group-checks.md) now preserves all
 after division by the smallest of four declared row factors. The actual
 oblique-group factor is not adopted.
 
+The [retained-washer calculation](retained-washer-checks.md) binds all 24
+exterior roles and 144 current seat states to their separate catalog
+diameters and saved bores. Ideal full-support wood-pressure ratios peak
+at 0.208291 for 3/8-inch and 0.287806 for 1/2-inch stacks. Actual support
+and washer metal acceptance remain null.
+
 The [continuous knee-bolt construction](knee-bearing-checks.md) now recovers
 24 static bearing/shear/bending states and 96 normalized endpoint fields.
 All 72 actual receiver wrenches match; peak nominal bearing/steel indices

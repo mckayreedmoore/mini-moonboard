@@ -22,6 +22,14 @@ Current `screen.json` SHA-256:
 The complete source/response binding and bounded-seating distinction remain
 in its JSON. Existing source snapshots and older result packets are preserved.
 
+The subsequent [retained-washer calculation](retained-washer-checks.md)
+binds separate 3/8-inch and 1/2-inch catalog envelopes and saved bore
+diameters across 24 exterior roles and 144 current seat states. Ideal
+full-support pressure indices peak at 0.208291 and 0.287806. This addresses
+the dimensional binding in `RETAINED_WASHER`; actual full-seat support,
+pressure and washer metal acceptance remain null. The original machine
+screen and its null washer fields remain frozen.
+
 ## Preserved six-joint source
 
 The current [all-outer frame](bottom-corner-checks.md) includes both top/bottom

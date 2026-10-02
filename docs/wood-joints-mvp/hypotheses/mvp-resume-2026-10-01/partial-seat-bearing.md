@@ -60,6 +60,8 @@ The larger openings leave concentric subsets of the already-supported
 10/7.3 mm ring, so its saved support at the three sampled inward depths
 also supports these smaller annuli. This set-inclusion argument needs no
 new CAD query; it establishes sampled wood geometry, not actual contact.
+It does not bound a shifted or tilted washer footprint across the source
+frame's nonunique seating positions.
 
 For the current six nominal force states, the uniform-pressure comparisons
 are:

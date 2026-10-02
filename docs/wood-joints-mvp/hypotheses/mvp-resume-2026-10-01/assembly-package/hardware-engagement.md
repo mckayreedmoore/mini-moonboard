@@ -13,7 +13,8 @@ nominal length and a minimum thread-length field cannot establish it alone.
 This is a conditional purchasing specification, not a claim that any delivered
 parts have been inspected. Actual/Disposition cells remain blank.
 
-The final mechanical binding remains `all-outer-corner-frame-attempt01/`:
+The frozen stack/profile source uses the preserved six-joint
+`all-outer-corner-frame-attempt01/`:
 `comparison.json` SHA-256
 `ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3`,
 and `response.npz` SHA-256
@@ -21,6 +22,10 @@ and `response.npz` SHA-256
 The [producer](hardware_engagement.py) reads saved geometry and source records;
 it does not rebuild CAD or solve the frame. Its local output directory is
 `rawlocal/hardware-engagement/`.
+Current force comparisons use `two-receiver-frame-attempt03/`; the dimensional
+family tables below do not depend on the old force values. The central-seat
+section preserves its six-joint force arithmetic and links the current
+catalog-opening comparison separately.
 
 ## Order description and dimensional rules
 
@@ -205,7 +210,7 @@ wood support for a concentric 10-mm OD / 7.3-mm ID ring, area 36.68595 mm².
 Its six-case 82.6281-N peak and 0.52267 perpendicular-bearing quotient are
 from that earlier frozen response; they are not current all-outer results.
 
-The current saved response has twelve zero/gap states. Its peak tie is
+That preserved six-joint response has twelve zero/gap states. Its peak tie is
 **81.364757 N at `k12-rear_gap`**, response row 1535. That index is bound
 to `center_principal_right_2/outer-seat-axial-tie` by the current
 `corner-frame-attempt01/row-identities.json`, SHA-256
@@ -225,7 +230,7 @@ to move the passage or buy an unproved smaller washer.
 Use the real washer hole in that transfer model: the conditional quarter-inch
 USS ID spans 7.7978–8.3058 mm, wider than the 7.3-mm wood bore used by the
 saved ring scenario. Direct nut-to-washer pressure cannot be assigned over
-the washer's empty hole. At the current peak and conditional DF-L No. 2
+the washer's empty hole. At that preserved peak and conditional DF-L No. 2
 base perpendicular bearing of 4.309223 MPa, the concentric uniform-pressure
 comparators are:
 
@@ -244,6 +249,15 @@ wood geometry; it does not establish the actual compression path, washer
 bridging, tilt or pressure distribution. Those specific transfer facts
 remain unproved and are parent mechanics work. No full-annulus bearing
 pass or capacity reduced in proportion to the missing crescent is claimed.
+
+The [current six-case catalog-opening comparison](../partial-seat-bearing.md#current-catalog-washer-opening-comparison)
+uses the all-two-receiver force source instead: peak tie 22.525552 N at
+K12-right, maximum-ID uniform pressure 0.924767 MPa and conditional wood
+index 0.214602. The earlier numeric table and machine output remain frozen.
+Actual nut/washer transfer is still open. The separate
+[retained-washer worksheet](../retained-washer-checks.md) now binds all 24
+3/8-inch and 1/2-inch exterior roles; their actual full-seat support and
+washer metal acceptance remain null.
 
 ## Reproduction and record
 

@@ -40,6 +40,11 @@ front-left individual ratio becomes 0.9613 under the smallest of those scenarios
 with the 0.9521 unadjusted reference below. The actual group carries oblique forces and
 a couple, so this is a sensitivity rather than an adopted complete-group factor.
 
+The [retained-washer comparison](hypotheses/mvp-resume-2026-10-01/retained-washer-checks.md)
+binds the separate 3/8-inch and 1/2-inch catalog envelopes and saved bores
+across 144 seat states. Ideal full-support wood-pressure indices are
+0.2083/0.2878; actual seat support and washer metal acceptance remain null.
+
 | Current six-case result | Conditional working result |
 | --- | --- |
 | Top outer corners | Conditional 92 ksi component ratios 0.7268 left / 0.8138 right; concurrent steel scenarios 0.7356 / 0.8253 |
