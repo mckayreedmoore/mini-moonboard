@@ -1,6 +1,39 @@
 # Remaining bolted joints: six nominal-gap same-state screen
 
-This final screen uses the six saved nominal-gap states in
+## Latest six-joint source
+
+The current [all-outer frame](bottom-corner-checks.md) includes both top/bottom
+outer corners and both left outer service cleats. Fresh results are in
+`remaining-joint-screen-attempt03/grade5-92ksi/`, with the same 80 candidate /
+12 retained axes, 576 signed plane states and 1104 outer-seat states. All
+eligible individual references are below one at 45/92/106 ksi; these are
+component results, not complete joint acceptance.
+
+The 45 ksi peak is **0.755543**, retained `lumber_leg_bolt_left_2` in A12-rear:
+1745.986 N shear with simultaneous +461.476 N tie. The 92/106 ksi peak is
+**0.700353**, retained `rail_front_bolt_left_2` in A12-left: 784.874 N shear
+and simultaneous +78.389 N tie. These states and diameters are distinct.
+The bottom-left joint no longer governs after its clearance is included;
+its separate [finished component calculation](bottom-corner-checks.md) peaks
+at 0.2920 with declared group/end adjustments under 92 ksi.
+
+The original single-shear classifier still emits separate end-grain and
+three-receiver rows. Their completed bounded calculations are now in
+[end-grain-route.md](end-grain-route.md) and
+[three-member-checks.md](three-member-checks.md): the twelve end-grain axes
+have a supported NDS individual reference route, while the four continuous
+knee bolts use an explicitly conditional asymmetric utilization-sum screen.
+Remaining complete detailing, supported axial transfer and group checks are
+recorded there. The partial washer seat stays explicit, without full-annulus
+capacity transfer.
+
+Current comparison/response hashes are listed in the bottom-corner worksheet.
+`screen.json` SHA-256: c3615182a2e0fa8eb8d1da96648b01c27531ab9f710ab1498961ec1b46b10de8.
+Earlier outputs and their tables below retain their earlier four-joint scope.
+
+## Preserved four-joint detailed screen
+
+The following preserved screen uses the six saved nominal-gap states in
 [top-and-service-frame-attempt02](top-and-service-frame-attempt02/), together
 with the unchanged frozen corrected frame model, operators and row identities.
 The source now includes circular clearance at both top outer corners and
@@ -21,7 +54,7 @@ All numerical outputs stay ignored. Earlier two-corner results remain intact
 in [attempt01's corrected output](remaining-joint-screen-attempt01/partial-support-corrected/),
 with their original producer and document snapshots.
 
-## Useful results and next joint work
+### Useful results and next joint work
 
 The governing eligible individual-bolt lateral comparison is
 `bottom_outer/clip_horizontal_bottom_left_1/side_1` in **a1-rear**:
@@ -71,7 +104,7 @@ this packet develops no footprint option.
 | Two top corners, preserved attempt01 | 671.840143 | 1.110832 / 0.723772 |
 | Two top corners plus two left outer service cleats, current attempt02 | 682.379935 | 1.128170 / 0.735069 |
 
-## Coverage and exclusions
+### Coverage and exclusions
 
 | Item | Coverage |
 | --- | ---: |
@@ -105,7 +138,7 @@ excluded: the lower-left service worker owns that joint. The remaining
 lower-left inner service cleat is a distinct included duty. No excluded
 joint's calculations or acceptance claims are duplicated.
 
-## Signed actions, material and hardware assumptions
+### Signed actions, material and hardware assumptions
 
 The reused [bolt demand method](bolt_demands.py) identifies a lateral plane
 by two scalar rows and an outer tie by its own row. Here, the saved vectors
@@ -183,7 +216,7 @@ remain null. Retained washer OD/ID/support are unbound in the consumed
 register, so their pressure and ratio fields remain null; quarter-inch washer
 references are not transferred to them.
 
-## Partial nut-seat exception and parent force handoff
+### Partial nut-seat exception and parent force handoff
 
 The reused [remaining seat geometry evidence](../remaining-candidate-washer-seats-2026-10-01/README.md)
 records 107 of 108 remaining seats passing its declared geometry screen.
@@ -211,7 +244,7 @@ force vectors:
 | k12-rear | +82.628086746 |
 | a1-rear | +6.474296359 |
 
-## Six-case component table
+### Six-case component table
 
 The current [six-case CSV](remaining-joint-screen-attempt02/grade5-92ksi/six-case-component-summary.csv)
 and [binding receipt](remaining-joint-screen-attempt02/grade5-92ksi/six-case-component-summary.json)
@@ -230,7 +263,7 @@ Partial nut-seat pressure and ratio remain null; its signed tension is shown.
 | k12-rear | 0.744542 (`lumber_leg_bolt_right_2`) | 0.547860 (`lumber_leg_bolt_right_2`) | 0.531648 (`lumber_leg_bolt_right_2`) | 1723.055386 / +638.780076 | 0.311326 (`top_center/clip_split_top_center_right/rail_2`) | +82.628087 |
 | a1-rear | 1.128170 (`bottom_outer/clip_horizontal_bottom_left_1/side_1`) | 0.789018 (`bottom_outer/clip_horizontal_bottom_left_1/side_1`) | 0.735069 (`bottom_outer/clip_horizontal_bottom_left_1/side_1`) | 682.379935 / +207.851824 | 0.266183 (`bottom_outer/clip_horizontal_bottom_left_1/side_2`) | +6.474296 |
 
-## Per-duty governing cases
+### Per-duty governing cases
 
 Each prefix denotes the two axes obtained by appending `_1` and `_2`.
 `case:#n` identifies the physical axis within that prefix. Each column is its
@@ -288,7 +321,7 @@ reference or only the common gaps, as applicable.
 | `wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_rail` | 106.27 (a12-rear:#2) | 0.173 (a12-rear:#2) | 0.121 (a12-rear:#2) | 0.112 (a12-rear:#2) | +51.89 (k12-right:#1) | 0.056 (k12-right:#1) | — |
 | `wj06_outer_pair/right_outer_full_4x4_paired_rail_hypothesis/upper_side` | 42.94 (a1-rear:#1) | 0.069 (a1-rear:#1) | 0.048 (a1-rear:#1) | 0.045 (a1-rear:#1) | +153.34 (a12-rear:#1) | 0.167 (a12-rear:#1) | — |
 
-## Exact gaps and disposition
+### Exact gaps and disposition
 
 Every included duty retains `GROUP_GEOMETRY`, `HARDWARE_AXIAL` and
 `WASHER_TRANSFER`; no row is a complete accepted joint. Additional gaps
@@ -311,7 +344,7 @@ recorded accessory distribution. None becomes qualified through this screen.
 No screw resistance, stiffness or installation policy is transferred.
 Geometry remains preserved, and the parent retains frame and top-corner work.
 
-## Source bindings and execution
+### Source bindings and execution
 
 The producer rechecks 135 pinned files before and after saved-array arithmetic,
 including all 122 source pins from the current clearance comparison. It binds

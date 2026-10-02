@@ -143,6 +143,7 @@ def main(clearance, output):
     clearance_scopes = {
         "both_top_corner_corrected_frame_clearance/v1": "both top outer corners",
         "coupled_top_and_service_frame_clearance/v1": "both top outer corners and both upper/lower left outer service cleats",
+        "coupled_outer_corner_frame_clearance/v1": "both top and bottom outer corners and both upper/lower left outer service cleats",
     }
     require(
         comparison["schema"] in clearance_scopes, "unknown clearance source contract"

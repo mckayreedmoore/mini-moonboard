@@ -1,4 +1,4 @@
-"""One corrected six-case frame with both top-corner clearances included.
+"""One corrected six-case frame with selected outer-joint clearances included.
 
 Reuse the frozen corrected physical operators and the service worker's
 pairwise circular-gap equations. Keep all 66 Hillman axes and explicit
@@ -21,7 +21,7 @@ FRAME = HERE / "corner-frame-attempt01"
 sha, read, require = accounting.sha, accounting.read, accounting.require
 
 
-def run(output, service_joints=False):
+def run(output, service_joints=False, bottom_corners=False):
     import simple_frame as frame
 
     require(not output.exists(), "preserve the existing calculation")
@@ -69,6 +69,19 @@ def run(output, service_joints=False):
                 "left_service_outer_lower_cleat": (
                     "base_rail_service_lower_left",
                     "base_side_left",
+                ),
+            }
+        )
+    if bottom_corners:
+        block_hosts.update(
+            {
+                "bottom_outer_left_cleat": (
+                    "base_rail_bottom_left",
+                    "base_side_left",
+                ),
+                "bottom_outer_right_cleat": (
+                    "base_rail_bottom_right",
+                    "base_side_right",
                 ),
             }
         )
@@ -292,7 +305,9 @@ def run(output, service_joints=False):
     output.mkdir()
     np.savez_compressed(output / "response.npz", **vectors)
     report = {
-        "schema": "coupled_top_and_service_frame_clearance/v1"
+        "schema": "coupled_outer_corner_frame_clearance/v1"
+        if bottom_corners
+        else "coupled_top_and_service_frame_clearance/v1"
         if service_joints
         else "both_top_corner_corrected_frame_clearance/v1",
         "producer_sha256": sha(Path(__file__)),
@@ -329,6 +344,11 @@ if __name__ == "__main__":
         action="store_true",
         help="include both left outer service-cleat clearances",
     )
+    parser.add_argument(
+        "--bottom-corners",
+        action="store_true",
+        help="include both bottom outer-cleat clearances",
+    )
     args = parser.parse_args()
     lock = ROOT / "docs/wood-joints-mvp/luna-max-native-run-ledger.lock"
     with lock.open("a") as stream:
@@ -337,4 +357,4 @@ if __name__ == "__main__":
             read(lock.with_suffix(".json"))["slot"]["state"] == "idle",
             "shared analysis slot occupied",
         )
-        run(args.output, args.service_joints)
+        run(args.output, args.service_joints, args.bottom_corners)

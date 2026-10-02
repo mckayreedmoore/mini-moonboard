@@ -9,6 +9,40 @@ and cost/assembly documentation with panel assumptions explicit. Retain
 unresolved formal qualification and physical-release flags false. No formal
 criterion is closed by this restart record.
 
+## Current working model and ownership
+
+The current frozen response is `all-outer-corner-frame-attempt01/`: all six
+cases include both top/bottom outer corners and both left outer service cleats.
+All twelve zero/gap states satisfy declared frame laws. The
+[bottom-corner calculation](bottom-corner-checks.md) supports retaining both
+bottom cleats and quarter-inch bolts: left adjusted conditional 92 ksi ratio
+0.2920, concurrent steel scenario 0.2942, and local motion 2.4501 mm/0.2522°.
+[Top-corner references](top-corner-component-checks.md) remain favorable at
+0.7077/0.8037, with concurrent steel scenarios 0.7164/0.8150.
+
+The [end-grain route](end-grain-route.md) now supplies applicable NDS references
+for 12 axes/72 states using Fe perpendicular and Ceg=0.67; peak conditional
+92 ksi ratio is 0.2577 before remaining adjustments. No grain change is selected.
+The [continuous knee-bolt screen](three-member-checks.md) preserves 24
+asymmetric signed states; the declared conservative sum peaks at 0.9040 under
+92 ksi and 1.2898 under the 45 ksi sensitivity. Its endpoint embedding, complete
+wood/washer transfer and group applicability remain open. These assumptions
+are explicit working comparisons, not formal qualification.
+
+Pane %25 owns `panel-attachment/`, focusing on Hillman withdrawal/head transfer
+and compatible load sharing. Pane %22 owns `assembly-package/`, focusing on
+assembly/removal, individual-member transport, hardware/stock BOM and cost.
+The parent owns frame integration, shared staging and commits. Both bounded
+native helpers have completed their end-grain/three-member assignments; their
+sources/results are ingested, and their runtime slots are released. No recurring
+review loop, new native solve or software tests were used for this batch.
+Generated evidence remains ignored and local; maintained sources and summaries
+are committed and pushed in completed chunks. Formal 47 authority and physical
+flags remain unchanged. Complete resistance, motion/operation and panel paths
+still require the recorded work; the overall MVP goal remains active.
+
+## Preserved restart and earlier calculations
+
 At intake, the parent rechecked all 176 files in the preserved handoff snapshot:
 every size and SHA-256 matched. The workspace was dirty on `master` at
 `f05130c157982b9fc9d1a35690f5167d79ae63f8`. The native ledger has 60 registered

@@ -1,12 +1,12 @@
 # Wood-joint development
 
-**Current summary: October 1, 2026.** Candidate `compact-floor-flush-wood-joints-development`,
+**Current summary: October 2, 2026.** Candidate `compact-floor-flush-wood-joints-development`,
 reviewed revision `led-clearance-2x6-runner-seated-blocks-v1`, has its own
 [contract](../../wood-joints-candidate.json). The selected screw-and-bracket
 [baseline](../../current-candidate.json) and its passes remain separate.
 
-This summary includes locally validated, unpublished evidence. Code paths below are local-only,
-relative to this folder; a fresh clone needs the preserved workspace to read them.
+Maintained sources and readable summaries are published. Generated arrays, CAD copies and
+raw receipts remain local and ignored; complete replay needs the preserved workspace inputs.
 
 The [reviewed WJ24 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-wj24-viewer.html)
 and [scene](../../site/owner-wood-joints-wj24-scene.json) preserve 24 blocks, 92 candidate bolt axes,
@@ -21,60 +21,48 @@ and STOP**; later two-body recovery did not clear the discrepancy or supply acce
 No complete joint, physical inspection, floor qualification or fabrication, drilling or climbing
 release is established.
 
-Later on October 1, the owner directed a simple MVP model and stopped the recurring agent
-review loop. The parent has completed six approximate static scenarios and prepared an
-[isolated top-corner correction](hypotheses/mvp-resume-2026-10-01/top-corner-correction.md).
-These calculations do not replace the native-export authentication statuses above. The
-existing agent's separate upper-left service-joint results are now
-[ingested with the previous Hillman evidence](hypotheses/mvp-resume-2026-10-01/service-and-hillman-integration.md).
-The worker's lower-left outer service assessment is also complete and ingested.
-Detailed washer meshes,
-the stiffness-output build and stress-provenance tooling are parked method work.
+## Current working model
 
-The parent has integrated the isolated top-corner correction into a whole-frame
-calculation; all six static scenarios meet their balance/law gates under explicit
-panel assumptions. The latest right-corner comparison reuses the service worker's
-coupled clearance method and retains all 66 Hillman axes. With modeled clearance,
-the proposed right corner's conditional Grade 5 individual lateral-reference ratio
-is 0.7904; the zero-gap sensitivity is 1.1593. Hardware selection, complete resistance
-and compatibility of the returned movement remain open. The subsequent
-[both-corner worksheet](hypotheses/mvp-resume-2026-10-01/top-corner-component-checks.md)
-includes both corners' clearance in one frame. All twelve states meet balance/law
-gates; six-case conditional Grade 5 lateral-reference ratios peak at 0.7012 left
-and 0.7992 right, and washer wood-pressure ratios remain below 0.711.
-Complete steel/washer/splitting resistance and functional motion acceptance
-remain open. The helper's
-[zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
-stops in all six cases: the upper panels need normal restraint supplied by
-the original unsupported screw springs. The peak original individual screw
-demand is 1922.134 N. Resolve that panel-joint load path alongside the remaining
-corner resistance before treating the original frame demands as accepted.
+The owner selected a simple MVP model and stopped recurring agent reviews. The parent has
+integrated an [isolated top-corner correction](hypotheses/mvp-resume-2026-10-01/top-corner-correction.md)
+with bolt clearance at both top/bottom outer corners and both left outer service cleats.
+All twelve zero-gap/modeled-gap states satisfy the declared mechanics laws across six cases.
+These working calculations retain conditional Hillman stiffness and no-slip support; they do
+not replace the native authentication statuses above or alter reviewed geometry.
 
-The latest integrated frame includes modeled clearance at both top corners
-and both left outer service cleats across all six cases; all twelve zero/gap
-states meet balance/law gates. Its top-corner Grade 5 individual references
-peak at 0.7071/0.8035; a concurrent steel-allowance scenario gives 0.7158/0.8148.
-The lower-left service peak local movement is 0.5291 mm, with bolt shear/tension
-4.952/13.791 N. These are conditional working results, not joint qualification.
-The [top-corner fit and assembly note](hypotheses/mvp-resume-2026-10-01/top-corner-hardware/assembly-fit.md)
-reconciles stack requirements, quantities and observed listing costs; real
-turning/counterhold and complete shaft withdrawal remain open.
+| Current six-case result | Conditional working result |
+| --- | --- |
+| Top outer corners | Grade 5 component ratios 0.7077 left / 0.8037 right; concurrent steel scenarios 0.7164 / 0.8150 |
+| Bottom outer corners | Left component ratio 0.2920, concurrent steel scenario 0.2942; right below 0.00570 |
+| Bottom-left movement | 2.4501 mm / 0.2522°; motion compatibility remains open |
+| Left lower outer service | 0.7561 mm / 0.1564°, 4.968 N bolt shear / 13.942 N separate tie |
+| Member arithmetic | 264 balances, 54,888 signed cut traces; applicable normal/shear references 0.5415 / 0.3736 |
+| End-grain lateral route | 12 axes / 72 states; NDS perpendicular bearing and Ceg=0.67, peak conditional 92 ksi ratio 0.2577 before remaining adjustments |
+| Continuous knee bolts | 24 asymmetric bolt cases; declared conservative sum 0.9040 at 92 ksi / 1.2898 at 45 ksi, with endpoint embedding and full joint transfer unvalidated |
+| Remaining eligible individual bolts | No ratio above one even at 45 ksi; retained upper leg bolt governs at 0.7555 |
 
-The [same-state member screen](hypotheses/mvp-resume-2026-10-01/member-checks.md)
-closes 264 arithmetic body balances and retains all six-case cuts; applicable
-elementary normal/shear references peak at 0.5415/0.3735 in the top rail.
-Local finished sections, torsion and stability remain open. A
-[central bearing scenario](hypotheses/mvp-resume-2026-10-01/partial-seat-bearing.md)
-offers supported geometry at the center-principal partial washer seat with
-0.5227 conditional wood-pressure ratio. Actual washer/nut transfer remains
-unqualified and no geometry change is proposed.
+Different peaks are not simultaneous. The [bottom-corner calculation](hypotheses/mvp-resume-2026-10-01/bottom-corner-checks.md),
+[top-corner worksheet](hypotheses/mvp-resume-2026-10-01/top-corner-component-checks.md),
+[member screen](hypotheses/mvp-resume-2026-10-01/member-checks.md) and
+[end-grain applicability](hypotheses/mvp-resume-2026-10-01/end-grain-route.md) and
+[three-member screen](hypotheses/mvp-resume-2026-10-01/three-member-checks.md) bind current
+same-state inputs. The existing service worker's
+[upper/lower assessments and earlier Hillman evidence](hypotheses/mvp-resume-2026-10-01/service-and-hillman-integration.md)
+remain preserved and ingested without regenerating their historical force records.
 
-The [remaining-joint screen](hypotheses/mvp-resume-2026-10-01/remaining-joint-checks.md)
-now covers 80 candidate and 12 retained axes across all six cases. Bottom-left
-outer `side_1` governs the eligible individual references at 0.7890 under the
-conditional 92 ksi scenario. Its complete joint is the next local priority;
-12 end-grain axes and four continuous three-receiver bolts retain separate
-method gaps. No stronger hardware or stock change is selected from this screen.
+The original [zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
+stops in all six cases: upper panels need outward restraint. Hillman resistance, head pull-through
+and compatible load sharing remain a specific panel-joint task. A pane worker owns that task;
+a second owns the conditional assembly/removal, individual-member transport, BOM and cost package.
+The parent retains integrated mechanics, shared staging and commits. Bounded helpers address
+end-grain and continuous three-receiver bolt methods. No recurring review loop is used.
+
+The [central bearing scenario](hypotheses/mvp-resume-2026-10-01/partial-seat-bearing.md)
+provides supported geometry at the center-principal partial washer seat. Its 0.5227 wood-pressure
+ratio belongs to the preserved four-joint state; actual washer/nut transfer remains unqualified.
+Complete wood/group/washer resistance, finished member sections, restraint and operation checks
+remain unfinished. Detailed washer meshes, stiffness-output builds and provenance tooling remain
+parked method work. No stronger bottom hardware or stock change is selected by the current screen.
 
 ## Useful results
 
@@ -98,21 +86,15 @@ reversible removal, transport, a coherent conditional shop package and integrate
 remain open. [Stock-price observations](hypotheses/current-stock-package-cost-2026-10-01/README.md)
 still lack a complete compatible material/quantity/cost reconciliation.
 
-1. Retain the left service geometry using its latest
-   [coupled frame-clearance worksheet](hypotheses/upper-left-service-frame-clearance-2026-10-01/README.md).
-   Its conditional 252-state comparison is complete; complete resistance and physical
-   release remain HOLD. Reuse its signed wrenches, motion estimates and saved-vector
-   audit without repeating the earlier independent-interface investigations.
-2. Continue the parent's simple-model route: resolve the top outer corner bolt concern,
-   check same-state wood/group/washer resistance and returned clearance movement, then
-   check remaining joints, members and load paths. Include the previous Hillman receiver
-   and load-transfer work, retaining its conditional stiffness/strength assumptions
-   explicitly in the simpler MVP. The isolated proposal reports every required geometry
-   change before changing the reviewed scene; stronger hardware remains unselected.
-3. Complete hardware fit, assembly/removal, transport, stock/cost and the conditional shop
-   packet against that model. Preserve the unfinished washer mesh, isolated build/coupon and
-   provenance preparation as method history. No new native run or recurring review round is
-   selected by this priority update; the original frozen failures remain preserved.
+1. Complete the current joint calculations using the six-joint source. Retain both bottom
+   outer cleats from their favorable conditional references; finish their movement/operation
+   and complete wood/washer transfer checks. Use the supported NDS end-grain route before
+   considering its unapplied stock/grain alternative; finish continuous three-receiver bolts.
+2. Resolve the upper-panel Hillman resistance/load-sharing task with purchased screw policy
+   unchanged. Apply any changed laws in the integrated frame with floor branches free to change.
+3. Finish conditional assembly/removal, member transport, stock/hardware quantities and cost,
+   then reconcile the shop package to the working model. Preserve historical native failures,
+   parked method work and all physical-release flags; add no recurring review rounds.
 
 ## Detailed coordination and evidence
 

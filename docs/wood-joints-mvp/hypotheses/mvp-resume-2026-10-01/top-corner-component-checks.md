@@ -7,57 +7,53 @@ This calculation reuses the corrected physical operators, recorded six static
 loads and all 66 conditional Hillman paths. It changes no reviewed CAD or
 authority file and makes no hardware selection.
 
-## Latest integration: top corners and both left outer service cleats
+## Latest integration: all four outer corners and both left service cleats
 
-After ingesting the worker's lower-left receipt, the parent reused this same
-producer with `--service-joints`. The new engineering question was simultaneous
-clearance at the two top outer corners and the upper/lower left outer service
-cleats. All sixteen bolts are now included together; the service bolts each
-use 1.15 mm relative clearance. The physical member operators, loads, 66 Hillman
-paths and remaining zero-gap assumptions are unchanged.
-
-All twelve zero-gap/modeled-gap states meet the frame-law and rank gates.
-The six-case modeled-gap joint estimates are:
+The parent has included the two bottom outer corners in addition to both top
+corners and the upper/lower left outer service cleats. All 24 bolts receive
+modeled clearance together. The physical operators, loads and 66 conditional
+Hillman paths are unchanged. All twelve zero-gap/modeled-gap states satisfy
+the declared frame laws, floor branches and rank gates.
 
 | Joint | Maximum bolt shear / tension | Maximum local movement | Maximum local rotation |
 | --- | ---: | ---: | ---: |
-| Top outer left | 936.222 / 573.076 N | 2.3476 mm | 0.8117° |
-| Top outer right | 1,066.992 / 656.490 N | 2.3253 mm | 0.9885° |
-| Left outer upper service | 4.922 / 15.764 N | 0.5827 mm | 0.1518° |
-| Left outer lower service | 4.952 / 13.791 N | 0.5291 mm | 0.1523° |
+| Top outer left | 936.601 / 573.266 N | 2.3480 mm | 0.8120° |
+| Top outer right | 1,067.255 / 656.554 N | 2.3252 mm | 0.9890° |
+| Left outer upper service | 4.922 / 15.961 N | 0.5938 mm | 0.1558° |
+| Left outer lower service | 4.968 / 13.942 N | 0.7561 mm | 0.1564° |
+| Bottom outer left | 251.337 / 186.370 N | 2.4501 mm | 0.2522° |
+| Bottom outer right | 4.893 / 15.850 N | 0.1371 mm | 0.0940° |
 
-These peaks are not simultaneous. The service local-fit residuals remain
-below 0.00091 mm; the largest top-corner residual is 0.05367 mm. Maximum
-fitted body translation is 6.5367 mm. This six-case result supports retaining
-the service cleats in the conditional working model, without transferring
-the worker's doubled-load result or treating low bolt forces as panel/joint
-qualification.
+These maxima are not simultaneous. Maximum fitted body translation is
+6.5381 mm. Local interface fits are not complete member/panel deflections
+or adopted motion limits. The [bottom-corner calculation](bottom-corner-checks.md)
+uses the same source and retains both existing bottom cleats and bolt diameters
+within the conditional working model.
 
-The updated 48 same-state top-corner references peak at 0.7071 left and
-0.8035 right. The concurrent steel-allowance scenario described below peaks
-at 0.7158 and 0.8148. Maximum finished-path ratio is 0.1605, washer wood-pressure
-ratio 0.7132, contact-cell mean ratio 0.0898 and host characteristic splitting
-comparison 0.1505. The declared washer strip stress is now 179.161 MPa.
-The same resistance, fit and motion limitations remain; no stronger bolt
-is selected by this calculation.
+Updated 48 same-state top-corner component references peak at **0.7077 left /
+0.8037 right** under the conditional Grade 5 scenario. Concurrent steel-allowance
+scenarios peak at **0.7164 / 0.8150**. Finished tangent-path and washer wood-pressure
+ratios peak at 0.16055 and 0.71321; contact-cell mean and host characteristic
+splitting comparisons peak at 0.08987 and 0.15050. The declared washer strip
+stress peaks at 179.179 MPa. Complete resistance, actual washer transfer,
+operation and motion compatibility remain open; no stronger hardware is selected.
 
-New local evidence bindings:
+Current local evidence bindings:
 
-- `top-and-service-frame-attempt02/comparison.json`: SHA-256
-  `4aa32390c80f803faee4fceeb6460c05b665dd8e970beaef89b40985b0b9555b`.
-- `top-and-service-frame-attempt02/response.npz`: SHA-256
-  `227b9381a6ff19286ba4b46c81bc5852bb3b536735ac5c74f727f6869a5f40d6`.
-- `corner-component-attempt03/component-results.json`: SHA-256
-  `4eddba302f0b2638d594dec50f1ba366b78aa480ee89171d88f1b82ab1c5b8cd`.
-- `corner-component-attempt03/steel-interaction.json`: all 48 updated
-  concurrent steel-allowance states with source bindings.
+- `all-outer-corner-frame-attempt01/comparison.json`: SHA-256
+  `ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3`.
+- Its `response.npz`: SHA-256
+  `aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901`.
+- `corner-component-attempt04/component-results.json`: SHA-256
+  `19d17f5740cb4f039c3fd506f55525ab6a7002273a595f8b540c320a49672dce`.
+- Its `steel-interaction.json`: SHA-256
+  `d9340a10b98bc56f73de7c5143bf173163d70c575645b58768721039d3757a2c`.
 
-The first service-integration attempt stopped during target selection on a
-dictionary-keys API typo before solving; its failure and producer remain in
-`top-and-service-frame-attempt01/`. The correction used a fresh attempt.
-The historical two-corner-only results below are preserved as their original
-scenario. Add `--service-joints` to the frame command below and use the new
-frame directory for component checks to reproduce this latest integration.
+The earlier two- and four-joint calculations, receipts, failures and exact
+producer snapshots remain preserved. The six-joint frame is reproduced by
+adding `--service-joints --bottom-corners` to the frame command below, with a
+fresh output path. Use that frame path for component and steel calculations.
+The unchanged historical two-corner scenario below retains its original scope.
 
 ## Coupled frame result
 
