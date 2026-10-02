@@ -150,13 +150,24 @@ parked method work. No stronger bottom hardware or stock change is selected by t
 
 ## Remaining work and next actions
 
-Complete all 24 replacement duties and affected-member checks: coupled contact, clearance and
-slip/rotation; simultaneous bolt tension/shear/bending; head/nut/washer transfer; finished sections,
-bearing, splitting and group interaction. Resolve the partial washer seat at `center_principal_right_2`
-and the BG045 conditional edge exception. Hardware profile/functional fit, materials, installed tools,
-reversible removal, transport, a coherent conditional shop package and integrated validation
-remain open. [Stock-price observations](hypotheses/current-stock-package-cost-2026-10-01/README.md)
-still lack a complete compatible material/quantity/cost reconciliation.
+Complete the remaining requirements across all 24 replacement duties and affected members:
+common-bolt clearance at the four continuous knee bolts, compatible slip/rotation, full
+head/nut/washer transfer, local splitting and applicable group interaction. The partial seat
+at `center_principal_right_2` has a supported central-ring pressure comparison; actual
+nut/washer transfer remains open. The
+[current header-action replay](hypotheses/mvp-resume-2026-10-01/header-joint-checks.md#current-bounded-replay--attempt02final)
+has no first-ray normal distance below 4D and no adopted actual detailing failure. The old
+BG045 edge exception remains historical evidence; current complete placement and local
+splitting are still unproved. It does not presently justify moving those axes.
+
+The [conditional assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
+already reconciles 50 transport bodies, 44 timber blanks, 104 bolt/nut stacks, 208 washers
+and 66 separate Hillman screws, with stock and assembly/removal scenarios. Full tool/harness
+operations, compatible delivered axial profiles and the complete purchase cost remain
+unresolved. Priced hardware terms total $189.58 when the $31.12 retained increment is
+counted once; wood and other explicitly missing terms remain separate. The earlier
+[stock-price observations](hypotheses/current-stock-package-cost-2026-10-01/README.md) retain
+their source scope and do not replace this current reconciliation.
 
 1. Resolve the upper-panel attachment reference deficits. The owner constraint decision for
    the next proposal remains pending: an edge restraint occupying a narrow panel margin, or

@@ -78,6 +78,13 @@ The other current strength exception is the top-rail face-shear/torsion proxy:
 this local transfer run is not established. No fix is adopted. See the
 [member stability record](member-stability.md).
 
+The [current header-action replay](header-joint-checks.md#current-bounded-replay--attempt02final)
+has zero first-ray distances below 4D and no adopted actual detailing failure:
+70 states have zero in-plane action; the two directional states reach the
+±X faces at 26.95 mm, above 4D = 25.4 mm. The earlier BG045 Y-edge exception
+remains historical and does not require an axis move from this force set.
+Complete placement, splitting and torque resistance remain unresolved.
+
 Pane %25 completed its original panel packets. At model capacity, a bounded
 helper completed the generic lateral screen; no panel implementation is active.
 Pane %22 owns `assembly-package/hardware_length_fit.py` and
