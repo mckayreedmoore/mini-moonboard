@@ -126,15 +126,23 @@ reversible removal, transport, a coherent conditional shop package and integrate
 remain open. [Stock-price observations](hypotheses/current-stock-package-cost-2026-10-01/README.md)
 still lack a complete compatible material/quantity/cost reconciliation.
 
-1. Complete the current joint calculations using the six-joint source. Retain both bottom
-   outer cleats from their favorable conditional references; finish their movement/operation
-   and complete wood/washer transfer checks. Use the supported NDS end-grain route before
-   considering its unapplied stock/grain alternative; finish continuous three-receiver bolts.
-2. Resolve the upper-panel Hillman resistance/load-sharing task with purchased screw policy
-   unchanged. Apply any changed laws in the integrated frame with floor branches free to change.
-3. Finish conditional assembly/removal, member transport, stock/hardware quantities and cost,
-   then reconcile the shop package to the working model. Preserve historical native failures,
-   parked method work and all physical-release flags; add no recurring review rounds.
+1. Resolve the upper-panel attachment reference deficits. The owner constraint decision for
+   the next proposal remains pending: an edge restraint occupying a narrow panel margin, or
+   permission to revise the panel-fastener specification. Neither change is selected. Retain
+   the purchased Hillman policy and reviewed climbing face in the current model. Evaluate a
+   proposed correction in the integrated frame, including changed floor-contact branches.
+2. Recalculate the top rail with the corrected panel load path. Retain the current 1.0392
+   face shear/torsion exception and its short-transfer applicability limit until that result
+   is resolved. Do not increase a material factor or infer a physical failure from the proxy.
+3. Complete the twelve proposed longer-bolt occupancy checks and reconcile their specific
+   installation/removal findings to the conditional shop package. Preserve the four captured-nut
+   paths and retained leg-bolt harness dependency. Hardware profiles, actual operation fit and
+   the complete compatible purchase total remain explicit conditions.
+
+Use the current all-two-receiver force source for subsequent component calculations. Earlier
+six-joint sources, native failures and parked method work remain preserved evidence. Complete
+joint qualification and all physical-release flags stay unchanged; no recurring review round
+is scheduled.
 
 ## Detailed coordination and evidence
 

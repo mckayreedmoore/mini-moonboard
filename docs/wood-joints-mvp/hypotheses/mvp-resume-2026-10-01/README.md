@@ -11,100 +11,53 @@ criterion is closed by this restart record.
 
 ## Current working model and ownership
 
-The current force reference is `two-receiver-frame-attempt03/`: all 88
-independent two-receiver candidate bolts have modeled radial gaps. Four
-continuous candidate bolts and twelve retained bolts remain at zero gap.
-All twelve zero/nominal states meet equilibrium, connector and floor laws;
-the six nominal states have finite fixed-force seating bounds, not a unique
-pose or strict tangent stability. Fresh top/bottom/service/central/member/
-end-grain/header/continuous-bolt worksheets now use that one force source.
-The [main summary](../../README.md) lists current component results.
+The current force source is `two-receiver-frame-attempt03/`: comparison SHA-256
+`0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5`, response
+SHA-256 `774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52`.
+All six zero-gap and six nominal-gap states conditionally pass declared
+force-balance, connector-law and floor-law checks. The 88 independent
+two-receiver candidate bolts have modeled radial gaps; four continuous
+candidate bolts and twelve retained bolts remain at zero gap. Each nominal
+state has finite fixed-force seating bounds, rank 296/297: seating is bounded
+but nonunique, with neither strict tangent stability nor a motion envelope
+established. See [bounded clearance](bounded-clearance.md) and the
+[main summary's current component table](../../README.md#current-working-model).
 
-Two declared strength exceptions remain: purchased panel-screw reference
-deficits (current combined index 2.7249 and independent head deficit) and
-top-rail face shear/torsion 1.0392 against the 180 psi assumption. No favorable
-material factor, new panel hardware or geometry change is selected to clear
-them. The owner constraint decision for the next panel proposal remains
-pending. The following detailed paragraphs preserve the earlier six-joint
-force reference and distinguish later replays explicitly.
+Current panel references retain an unresolved strength exception. At A12-rear,
+`round_panel_upper_left_edge_2` carries T=1836.884 N and V=807.662 N. Generic
+lateral references are 386.752/463.413 N; the favorable combined index is
+2.724895 at K12-rear, `round_panel_upper_right_rim_4` (V=1274.054 N,
+T=625.635 N). Conditional head references are 277–629 N and generic withdrawal
+references 711–1073 N. These comparisons establish no measured Hillman rating
+or physical failure. The required owner constraint choice remains unanswered:
+allow an edge keeper to cover the narrow panel margin, or permit revised panel
+fasteners. No change is selected. [Panel records](panel-attachment/README.md)
+and the [lateral comparison](panel-attachment/lateral-reference.md) retain
+assumptions and source detail. Earlier six-joint and softer-law values remain
+historical; see the [preserved comparison](panel-attachment/README.md#earlier-all-outer-source-returned-compatible-stiffness-sensitivity)
+and [component record](top-corner-component-checks.md).
 
-The preserved six-joint response is `all-outer-corner-frame-attempt01/`: all six
-cases include both top/bottom outer corners and both left outer service cleats.
-All twelve zero/gap states satisfy declared frame laws. The
-[bottom-corner calculation](bottom-corner-checks.md) supports retaining both
-bottom cleats and quarter-inch bolts: left adjusted conditional 92 ksi ratio
-0.2920, concurrent steel scenario 0.2942, and local motion 2.4501 mm/0.2522°.
-[Top-corner references](top-corner-component-checks.md) remain favorable at
-0.7077/0.8037, with concurrent steel scenarios 0.7164/0.8150.
+The other current strength exception is the top-rail face-shear/torsion proxy:
+1.039209 against the declared 180 psi allowance. Its governing cut is
+52.189 mm beyond the cleat contact footprint; the pointwise stress field in
+this local transfer run is not established. No fix is adopted. See the
+[member stability record](member-stability.md).
 
-The [end-grain route](end-grain-route.md) now supplies applicable NDS references
-for 12 axes/72 states using Fe perpendicular and Ceg=0.67; peak conditional
-92 ksi ratio is 0.2577 before remaining adjustments. No grain change is selected.
-The [continuous knee-bolt screen](three-member-checks.md) preserves 24
-asymmetric signed states; the declared conservative sum peaks at 0.9040 under
-92 ksi and 1.2898 under the 45 ksi sensitivity. Its endpoint embedding, complete
-wood/washer transfer and group applicability remain open. These assumptions
-are explicit working comparisons, not formal qualification.
+Pane %25 completed its original panel packets. At model capacity, a bounded
+helper completed the generic lateral screen; no panel implementation is active.
+Pane %22 owns `assembly-package/hardware_length_fit.py` and
+[hardware-length-fit.md](assembly-package/hardware-length-fit.md). The parent
+owns execution of the saved-geometry screen for twelve proposed longer bolts. All
+other bounded/native helper tasks are complete or closed.
 
-The [six block/header worksheet](header-joint-checks.md) now supplies 72
-simultaneous bolt states, 36 interfaces and 42 complete body balances.
-Its adjusted lateral sensitivity peaks at 0.2599 and washer wood bearing
-at 0.3984. The knee 20 mm component comparison establishes no adopted
-detailing failure; its specific loaded-edge interpretation, local splitting,
-torque and three-strip transfer remain open. No axis is changed.
-
-The [panel worksheet](panel-attachment/README.md) identifies a current
-reference deficit: 1812 N modeled-gap withdrawal exceeds the declared
-277–629 N unadjusted head and 711–1073 N generic withdrawal references.
-Completed 1000/100 N/mm axial-only stiffness scenarios reduce the peak to
-1240/916 N, with 1.240/9.160 mm opening at the same screw. These laws are
-unmeasured; none is selected. The [panel priority note](panel-joint-priority.md)
-preserves two further numerical stops and the all-two-receiver clearance
-integration: 88 independent candidate bolts, all twelve zero/nominal states
-meet declared equilibrium/law/floor checks. Every nominal state has finite
-[fixed-force seating bounds](bounded-clearance.md) with rank296/297 and
-strict tangent stability flags retained false. Peak nominal panel withdrawal
-is 1837 N. The preserved six-joint component worksheets need same-state
-updates before this variant is adopted; all earlier STOP packets remain.
-Those fresh component replays now give top-corner ratios 0.7268/0.8138,
-concurrent steel 0.7356/0.8253, bottom-left 0.2819/steel 0.2839,
-lower-service 0.00704, central wood pressure 0.1425, end-grain 0.04648,
-continuous-knee conditional sum 0.9192 and remaining eligible individual 0.9521.
-The new 44-member elementary normal/shear references are 0.5746/0.3700.
-The torsion/restraint replay finds top-rail combined face shear/torsion 1.0392
-against the declared 180 psi allowance, and braced normal interaction 0.6144.
-Its local applicability is being located before a correction is proposed;
-no strength factor or geometry change is adopted. The final header replay
-gives adjusted sensitivity 0.04692 and washer wood-pressure 0.2627, with no
-short first-face diagnostic in these 72 states. These are
-saved-force component results; bounded seating does not supply a unique pose
-or a motion envelope. The earlier paragraphs retain their six-joint scope.
-
-The [lower-service comparison](service-joint-current-checks.md) fills the
-four-axis omission in the general screen: 24 current signed records,
-conditional 92 ksi peak0.00568, and null direction/reference fields for the
-eighteen zero-lateral records. The [central-seat update](partial-seat-bearing.md)
-reuses unchanged support geometry with six current ties, peak81.365 N and
-conditional wood-pressure ratio0.51468. Neither changes complete-joint flags.
-
-Pane %25 owns `panel-attachment/`, focusing on Hillman withdrawal/head transfer
-and its packet is delivered. Its next generic lateral calculation moved to
-a bounded helper after the pane's selected model reached capacity.
-Pane %22 owns `assembly-package/`:
-its [operation/transport/BOM package](assembly-package/README.md) is delivered,
-and its [hardware engagement](assembly-package/hardware-engagement.md) and
-[conditional shop guide](assembly-package/shop-guide.md) are delivered.
-Its next finite task checks proposed longer shaft occupancy against unchanged
-geometry. Supplier profile guarantees and complete prices remain conditions.
-The parent owns frame integration, shared staging and commits. Both bounded
-helpers completed the end-grain/three-member assignments; their sources/results
-are ingested. Current helpers consolidate the 24-joint index, calculate member
-torsion/restraint and distinguish bounded gap motion from a mechanism. No recurring
-review loop, new native solve or software tests were used for this batch.
-Generated evidence remains ignored and local; maintained sources and summaries
-are committed and pushed in completed chunks. Formal 47 authority and physical
-flags remain unchanged. Complete resistance, motion/operation and panel paths
-still require the recorded work; the overall MVP goal remains active.
+The published [conditional hardware and shop package](assembly-package/README.md)
+reconciles 50 bodies, 104 bolts, 104 nuts, 208 washers and 66 separate Hillman
+screws. Its priced subtotal is $158.46 plus missing terms, not a complete cost.
+All 47 criteria remain pending, all eight physical-release flags remain false,
+and all Actual/Disposition cells remain blank. Formal qualification remains
+HOLD. No review loop, new native solve or software tests were run for this
+update. The parent owns integration, longer-bolt execution, shared staging and
+commits.
 
 ## Preserved restart and earlier calculations
 
