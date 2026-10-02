@@ -15,6 +15,7 @@ from pathlib import Path
 
 sys.dont_write_bytecode = True
 
+import frame_state_contract as frame_contract
 import numpy as np
 import remaining_joint_screen as remaining
 
@@ -46,7 +47,7 @@ PINS = {
     PROFILE_PINS: "629552eba2b3dd2639df245dde56afb46dae7c01d2b2b9b1d774f98ca4a846c7",
     OLD_NOTE: "97d671c5bec0832ddae71f496249d0b1cfc4aef0e63b9b75d3b9912f133e3e03",
     HERE
-    / "remaining_joint_screen.py": "4e2704590dc009194953425c594a38f288c9b47de4385dd3542b18ad76b217c1",
+    / "remaining_joint_screen.py": "4e24e439a258bcacc9e1701fb17c4c86ef7b4563734ea93bdfa69ca99d96b1d2",
     ROOT
     / "mini_moonboard/nds_2024_multi_member_bolt_yield.py": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89",
     ROOT
@@ -607,11 +608,14 @@ def main(clearance, output):
     )
     unchanged()
     comparison = read(GAP / "comparison.json")
+    force_scope = frame_contract.force_state_scope(comparison)
+    bind(Path(frame_contract.__file__), sha(Path(frame_contract.__file__)))
     require(
         comparison["schema"]
         in (
             "coupled_top_and_service_frame_clearance/v1",
             "coupled_outer_corner_frame_clearance/v1",
+            frame_contract.BOUNDED_SCHEMA,
         ),
         "wrong clearance source",
     )
@@ -636,10 +640,7 @@ def main(clearance, output):
         len(comparison["states"]) == 12
         and {(s["case_id"], s["gap_scale"]) for s in comparison["states"]}
         == {(c, g) for c in remaining.CASES for g in (0.0, 1.0)}
-        and all(
-            s["status"] == "PASS_CONDITIONAL_COUPLED_FRAME_LAWS"
-            for s in comparison["states"]
-        ),
+        ,
         "incomplete source census",
     )
     for relative, digest in comparison["source_sha256"].items():
@@ -953,6 +954,7 @@ def main(clearance, output):
             "candidate": model["candidate"],
             "geometry_revision_id": model["source_revision"],
             "clearance_source": str(GAP.relative_to(ROOT)),
+            "source_force_state_scope": force_scope,
             "clearance_joint_hosts": comparison["clearance_joint_hosts"],
             "gap_scale": 1.0,
             "case_ids": list(remaining.CASES),

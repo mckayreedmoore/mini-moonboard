@@ -7,7 +7,33 @@ This calculation reuses the corrected physical operators, recorded six static
 loads and all 66 conditional Hillman paths. It changes no reviewed CAD or
 authority file and makes no hardware selection.
 
-## Latest integration: all four outer corners and both left service cleats
+## Current all-two-receiver clearance replay
+
+`two-receiver-frame-attempt03/` includes the modeled radial clearance of all
+88 independent candidate bolts. The four continuous candidate bolts and
+twelve retained bolts remain at zero clearance. Geometry, physical operators,
+loads and all 66 conditional Hillman paths are unchanged. Six nominal states
+meet equilibrium, connector and floor laws with finite fixed-force seating
+bounds. Their rank296/297 does not establish a unique pose or strict tangent
+stability; these component calculations use the saved simultaneous forces.
+
+The fresh 48-state component calculation peaks at **0.726770 left / 0.813787
+right** under the conditional 92 ksi scenario. Concurrent steel-allowance
+comparisons are **0.735599 / 0.825272**. Maximum finished tangent-path ratio is
+0.161656 and washer wood-pressure ratio is 0.788727. The declared washer strip
+stress reaches **198.153 MPa**; actual washer-metal resistance remains unknown.
+Neither corner requires larger bolts from these comparisons. The panel-screw
+reference deficit remains explicit in the [panel worksheet](panel-attachment/README.md).
+
+Current local outputs: `corner-component-attempt05/component-results.json`
+SHA-256 `1e163479d8ed80a353a133bd234fe5e4b069470756f42c922051aef512d73648`;
+`steel-interaction.json`
+`21c4ef9068f27542f23436d186ccc6ef1ae001e64e942192748919815763bd3b`.
+Use `two-receiver-frame-attempt03/` with the component/steel commands below.
+Earlier movement maxima are preserved representative results of their own
+source frames; they are not motion envelopes for this bounded variant.
+
+## Preserved six-joint integration: four outer corners and left service cleats
 
 The parent has included the two bottom outer corners in addition to both top
 corners and the upper/lower left outer service cleats. All 24 bolts receive

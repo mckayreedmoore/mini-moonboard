@@ -45,7 +45,25 @@ contact opening is already qualified. Fyb = 45/92/106 ksi retains the parent's
 existing hypotheses. The 92 ksi Grade 5 tensile-yield scenario is not a
 guaranteed, product-qualified bending capacity.
 
-## Latest six-joint parent integration
+## Current all-two-receiver clearance replay
+
+The new 72-state calculation consumes `two-receiver-frame-attempt03/`, with
+modeled clearances on all 88 independent candidate bolts and finite fixed-force
+seating bounds in every nominal state. It transfers no unique pose or strict
+tangent stability. Receiver geometry, grain and the NDS route remain unchanged.
+
+Peak individual ratios are **0.066460 / 0.046480 / 0.043302** for the declared
+45/92/106 ksi inputs. The governing state is `center_principal_header_right_2`
+in K12-right: **26.692597 N** lateral force with simultaneous **26.737131 N**
+outer tie, and **574.275802 N** conditional 92 ksi reference after Ceg.
+This remains an individual component reference before group/detailing and
+complete axial transfer; no grain change is selected.
+
+Current `end-grain-route-attempt03/route.json` SHA-256:
+`25b64f1e0d3865bb6de377608ca5e0bf36d815b30f4097fc3116d421ba42bf34`.
+Existing result packets and exact producer snapshots remain preserved.
+
+## Preserved six-joint parent integration
 
 The parent has calculated the 72 states from
 `all-outer-corner-frame-attempt01/` into a fresh `end-grain-route-attempt02/`.

@@ -67,24 +67,38 @@ states have finite fixed-force seating bounds. Their rank296/297 modes are repor
 [bounded nonunique seating](hypotheses/mvp-resume-2026-10-01/bounded-clearance.md), with strict
 rank300/stability flags retained false. Four continuous bolts still need common-bolt clearance
 treatment. This variant's peak panel withdrawal is 1837 N, so the head-reference deficit
-persists. Existing component tables remain bound to the completed six-joint frame;
-same-state component updates precede variant adoption. Earlier terminal packets are preserved.
+persists. Fresh same-state component replays now give top-corner ratios
+0.7268/0.8138 (concurrent steel 0.7356/0.8253), bottom-left 0.2819
+(concurrent steel 0.2839), lower-left service 0.00704, end-grain 0.04648,
+continuous-knee conditional sum 0.9192 and remaining eligible individual bolts
+0.9521. The 44-member elementary normal/shear references are 0.5746/0.3700;
+header and torsion/restraint updates remain in progress. These saved-force
+comparisons preserve nonunique seating and all complete-joint flags false.
+The preceding table remains the preserved six-joint reference; earlier terminal
+packets and exact producer snapshots are preserved.
 
 The [assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md) reconciles
 50 transport bodies, 104 bolts/nuts, 208 washers and 66 separate Hillman screws. Larger stock
 scenarios place all 44 timber blanks; the 8-foot-only scenario misses five. The recorded priced
 hardware terms total $158.46 plus explicit missing terms, rather than a complete purchase total.
-Hardware engagement and procurement facts, actual tools and harness staging remain open.
+The [hardware engagement worksheet](hypotheses/mvp-resume-2026-10-01/assembly-package/hardware-engagement.md)
+now supplies fourteen family specifications for all 104 stacks, including
+body/thread and nut coverage. The [conditional shop guide](hypotheses/mvp-resume-2026-10-01/assembly-package/shop-guide.md)
+joins those parts, stock, assembly/removal and transport instructions; Actual/Disposition
+cells remain blank. Supplier profile guarantees, complete order cost, actual tools
+and harness staging remain open. Proposed longer shaft occupancy is the next finite fit check.
 The parent retains integrated mechanics, shared staging and commits; pane workers own panel
 references and hardware fit, and bounded helpers handle member restraint and finite free play.
 No recurring review loop is used.
 
 The [central bearing scenario](hypotheses/mvp-resume-2026-10-01/partial-seat-bearing.md)
-provides supported geometry at the center-principal partial washer seat. Its current six-joint
-wood-pressure ratio is 0.5147; actual washer/nut transfer remains unqualified. The
+provides supported geometry at the center-principal partial washer seat. Its current all-two-receiver
+wood-pressure ratio is 0.1425; the preserved six-joint value is 0.5147.
+Actual washer/nut transfer remains unqualified. The
 [lower-left service comparison](hypotheses/mvp-resume-2026-10-01/service-joint-current-checks.md)
 now supplies all 24 current signed bolt states and a peak conditional Grade 5 lateral ratio
-0.00568; zero-lateral directions remain null and complete-joint acceptance stays false.
+0.00704 for the all-two-receiver replay (preserved six-joint value0.00568);
+zero-lateral directions remain null and complete-joint acceptance stays false.
 Complete wood/group/washer resistance, finished member sections, restraint and operation checks
 remain unfinished. Detailed washer meshes, stiffness-output builds and provenance tooling remain
 parked method work. No stronger bottom hardware or stock change is selected by the current screen.

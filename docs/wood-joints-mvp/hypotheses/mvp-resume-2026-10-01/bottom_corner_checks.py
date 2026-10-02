@@ -11,6 +11,7 @@ import math
 from pathlib import Path
 
 import corner_checks as checks
+import frame_state_contract as frame_contract
 import numpy as np
 import remaining_joint_screen as remaining
 
@@ -107,6 +108,7 @@ def saved_actions(body, case, record, arrays):
 def run(clearance, member_dir, lateral_dir, output):
     require(not output.exists(), "preserve existing component evidence")
     comparison = read(clearance / "comparison.json")
+    force_scope = frame_contract.force_state_scope(comparison)
     member_report = read(member_dir / "member-results.json")
     lateral_report = read(lateral_dir / "screen.json")
     require(
@@ -135,6 +137,7 @@ def run(clearance, member_dir, lateral_dir, output):
         lateral_dir / "bolt-states.csv",
         lateral_dir / "screen.json",
         Path(__file__),
+        Path(frame_contract.__file__),
         Path(checks.__file__),
         Path(remaining.lateral.__file__),
         remaining.lateral.HELPER,
@@ -510,6 +513,7 @@ def run(clearance, member_dir, lateral_dir, output):
         require(sha(path) == digest, "source changed during calculation")
     report = {
         "schema": "bottom_outer_same_state_component_references/v1",
+        "source_force_state_scope": force_scope,
         "source_sha256": {str(p): h for p, h in pins.items()},
         "counts": {
             "bolt_states": len(states),
@@ -528,7 +532,7 @@ def run(clearance, member_dir, lateral_dir, output):
         "host_splitting": splitting,
         "whole_body_balances": balances,
         "limits": [
-            "The six-joint saved frame retains conditional Hillman laws, dry DF-L No.2 and no-slip floor branches; all other bolts remain at zero clearance.",
+            "The selected saved frame retains conditional Hillman laws, dry DF-L No.2 and no-slip floor branches. Its bound source schema and force-state scope define which clearances and seating freedoms apply.",
             "Component Cg uses two-bolt 33mm pitch and a declared 3D single-row equivalent width at the receiver loaded across grain. Cdelta uses minimum finished rectangular grain-end distance. These are conservative component scenarios, not acceptance of the full oblique group.",
             "Exact finished bore-tangent paths carry signed grain-parallel forces only; no capacity for other cracks or combined 3D splitting is inferred.",
             "EN1995 Eq8.4 comparisons use characteristic values and complete same-state host-section N shear. Design conversion and combined local joint effects remain separate.",

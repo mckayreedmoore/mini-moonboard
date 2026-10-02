@@ -60,8 +60,12 @@ does not cure the current head-reference deficit. The comparison SHA-256 is
 `0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5`;
 the response SHA-256 is
 `774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52`.
-The completed six-joint component worksheets remain tied to their prior
-forces; updated component checks are required before adopting this variant.
+Fresh same-state component replays now give top-corner ratios0.7268/0.8138,
+bottom-left0.2819, lower-service0.00704, central wood-pressure0.1425,
+end-grain0.04648, continuous-knee conditional sum0.9192 and remaining eligible
+individual0.9521. The corresponding elementary member normal/shear references
+are0.5746/0.3700. Header and member torsion/restraint updates remain in progress;
+the former six-joint worksheets and all complete-joint flags stay preserved.
 Both earlier full-clearance terminal packets remain preserved.
 
 ## Preserved original necessity check
@@ -120,8 +124,7 @@ calculation uses no product resistance or properties from SPAX or SDS.
 
 ## Next finite joint task
 
-Update same-state component checks to the completed all-two-receiver variant
-and finish the generic screw lateral comparison. Bind panel-to-receiver thread penetration
+Finish header/torsion updates and the generic screw lateral comparison. Bind panel-to-receiver thread penetration
 and a supported head/withdrawal basis for the purchased Hillman policy.
 Standard No. 10 dimensions alone would not close the current numerical head
 deficit. Any proposed correction must carry the same-state panel wrench and

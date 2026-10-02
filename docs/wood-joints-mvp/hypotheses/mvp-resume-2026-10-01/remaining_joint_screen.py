@@ -16,6 +16,7 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 
 import bolt_demands as demands
+import frame_state_contract as frame_contract
 import lateral_reference as lateral
 import numpy as np
 import top_corner_local as local
@@ -144,11 +145,14 @@ def main(clearance, output):
         "both_top_corner_corrected_frame_clearance/v1": "both top outer corners",
         "coupled_top_and_service_frame_clearance/v1": "both top outer corners and both upper/lower left outer service cleats",
         "coupled_outer_corner_frame_clearance/v1": "both top and bottom outer corners and both upper/lower left outer service cleats",
+        "coupled_two_receiver_frame_clearance/v1": "all 88 independent two-receiver candidate bolts; four continuous candidate bolts and twelve retained bolts remain at zero clearance",
     }
     require(
         comparison["schema"] in clearance_scopes, "unknown clearance source contract"
     )
     clearance_scope = clearance_scopes[comparison["schema"]]
+    force_scope = frame_contract.force_state_scope(comparison)
+    PINS[Path(frame_contract.__file__)] = sha(Path(frame_contract.__file__))
     assessment, baseline = (
         read(FRAME / "operator-assessment.json"),
         read(FRAME / "frame-results.json"),
@@ -201,11 +205,7 @@ def main(clearance, output):
     require(len(comparison["states"]) == 12, "incomplete zero/gap source census")
     require(
         {(s["case_id"], s["gap_scale"]) for s in comparison["states"]}
-        == {(c, g) for c in CASES for g in (0.0, 1.0)}
-        and all(
-            s["status"] == "PASS_CONDITIONAL_COUPLED_FRAME_LAWS"
-            for s in comparison["states"]
-        ),
+        == {(c, g) for c in CASES for g in (0.0, 1.0)},
         "missing/duplicate/failed source frame state",
     )
     model, inputs = read(FRAME / "model.json"), read(lateral.INPUTS)
@@ -734,6 +734,7 @@ def main(clearance, output):
         "source_comparison_path": str((GAP / "comparison.json").relative_to(ROOT)),
         "source_response_path": str((GAP / "response.npz").relative_to(ROOT)),
         "source_clearance_schema": comparison["schema"],
+        "source_force_state_scope": force_scope,
         "source_clearance_scope": clearance_scope,
         "source_force_key": "case_id + '_gap_raw_force_n'",
         "gap_scale": 1.0,

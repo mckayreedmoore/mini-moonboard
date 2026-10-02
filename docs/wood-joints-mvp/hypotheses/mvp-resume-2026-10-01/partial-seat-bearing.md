@@ -6,66 +6,92 @@ asks whether a smaller central load footprint has support without moving the
 bolt, changing the passage or selecting new hardware. It is a conditional
 bearing scenario, not a complete washer/joint resistance result.
 
-## Exact geometry and simultaneous demand
+## Geometry and selected force source
 
 [partial_seat_footprint.py](partial_seat_footprint.py) imports the unchanged
 finished `base_principal_center_right` STEP, SHA-256
-`9053a7210a781e919038a4a823f867325dd5c78907bd028d8b9e76dc0b46df58`.
-The nut seat is `(50.95, -90.3098313788, 367.0102220661)` mm. Its inward
-direction comes from the source member center; grain is perpendicular to
-the X-directed bearing load.
+`9053a7210a781e919038a4a823f867325dd5c78907bd028d8b9e76dc0b46df58`. The nut
+seat is `(50.95, -90.3098313788, 367.0102220661)` mm. Its inward direction
+comes from the source member center; grain is perpendicular to the X-directed
+bearing load.
 
 A concentric **10 mm outer / 7.3 mm inner diameter** ring has 36.68595 mm²
 wood-bearing area. Exact STEP intersections find full support at inward
 depths 0.01, 0.05 and 0.1 mm. The missing outer washer crescent receives no
-area credit. [update_central_seat.py](update_central_seat.py) reuses those
-unchanged geometry probes with the current six-joint frame. The six
-simultaneous ties at checked raw row 1535 are:
+area credit. [update_central_seat.py](update_central_seat.py) reuses these
+geometry probes with the selected saved force comparison. Optional
+`--clearance` accepts a comparison directory or `comparison.json`; its
+default remains `all-outer-corner-frame-attempt01/`.
 
-| Case | Signed tension, N |
-| --- | ---: |
-| A12-rear | 58.9855 |
-| A12-forward | 74.8676 |
-| A12-left | 53.6042 |
-| K12-right | 77.6920 |
-| K12-rear | 81.3648 |
-| A1-rear | 16.7125 |
+The current calculation uses `two-receiver-frame-attempt03/comparison.json`,
+SHA-256
+`0ff0dfc00c112a906910641141fd242f4a58295aa3324ca569132a3fa2d388a5`, and
+`response.npz`, SHA-256
+`774c3bbddf8061f6b9d1cfdd5f22efbeb1025bd57431a249912ae8e60a731f52`. All six
+nominal states have bounded finite fixed-force seating. Response ranks are
+296 for A12-rear, A12-forward, K12-rear and A1-rear; 297 for A12-left and
+K12-right. Bounded seating permits replay of saved forces, while establishing
+neither a unique pose nor strict tangent stability or complete joint
+acceptance.
 
-Under declared uniform central pressure, the peak mean is **2.21787 MPa**,
-or **0.51468** of conditional DF-L No. 2 base perpendicular bearing,
-4.30922 MPa. The minimum equal-area outer circle is **8.79379 mm diameter**
-around the 7.3 mm bore. That is an area requirement, not a measured nut face
-or a hardware specification.
+The ties below come from each same state's checked raw row 1535:
+
+| Nominal case | Signed tie, N | Mean pressure, MPa | Pressure / conditional Fc-perp | Equal-area outer diameter, mm | Response rank |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| A12-rear | 10.760567 | 0.293316 | 0.0680670 | 7.514613 | 296 |
+| A12-forward | 8.935597 | 0.243570 | 0.0565230 | 7.478649 | 296 |
+| A12-left | 11.446499 | 0.312013 | 0.0724059 | 7.528086 | 297 |
+| K12-right | 22.525552 | 0.614010 | 0.1424875 | 7.742454 | 297 |
+| K12-rear | 10.623934 | 0.289591 | 0.0672027 | 7.511926 | 296 |
+| A1-rear | 6.438536 | 0.175504 | 0.0407276 | 7.429158 | 296 |
+
+Peak current mean pressure is **0.614010 MPa**, or **0.1424875** of
+conditional DF-L No. 2 base perpendicular bearing, 4.30922 MPa. It occurs at
+K12-right with same-state signed tie **22.525552 N**. The minimum equal-area
+outer circle is **7.742454 mm diameter** around the 7.3 mm bore. That is an
+area requirement, not a measured nut face or hardware specification.
+
+## Preserved historical six-joint values
+
+The previous `partial-seat-footprint-current-attempt02/result.json`, SHA-256
+`67fa4cb8f819ae5225f1c269291c1f57b6f51835b81efe7a6c1f9170a1981fe3`, used the
+older `all-outer-corner-frame-attempt01/` force source. Its historical ties
+were A12-rear 58.9855 N, A12-forward 74.8676 N, A12-left 53.6042 N,
+K12-right 77.6920 N, K12-rear 81.3648 N and A1-rear 16.7125 N. The associated
+historical peak pressure was 2.21787 MPa, ratio 0.51468, and equal-area outer
+diameter 8.79379 mm. These values remain tied to attempt02; current variation
+above uses attempt03's exact same-state forces and ties.
 
 ## Working decision and missing input
 
 Retain the current bolt and passage while resolving the actual nut/washer
 footprint and metal compression/bridging. A supported central route is
-geometrically available and its declared wood-pressure reference is favorable.
-No full-annulus pressure, proportionally reduced crescent capacity, actual
-pressure distribution or washer bending capacity is inferred. The original
-partial-seat exception and complete joint remain HOLD.
+geometrically available and its declared wood-pressure reference is
+conditional. No full-annulus pressure, proportionally reduced crescent
+capacity, actual pressure distribution or washer bending capacity is inferred.
+The original partial-seat exception and complete joint remain HOLD.
 
 The missing input is a defensible bearing footprint and compatible washer
 transfer that load the supported region. Catalog across-flats dimensions
 alone do not define the chamfered bearing face. Actual/Disposition cells
 remain blank and every physical-release flag is false.
 
-Current force update: `partial-seat-footprint-current-attempt02/result.json`,
-SHA-256 `67fa4cb8f819ae5225f1c269291c1f57b6f51835b81efe7a6c1f9170a1981fe3`.
-All 129 source bindings match; six current nominal-gap ties are used.
-Attempt01 retains the same six numerical states before source formatting;
-the current snapshot records the maintained producer exactly.
-The geometry probes and prior four-joint result are preserved unchanged:
+Current result:
+`partial-seat-footprint-current-attempt03/result.json`, SHA-256
+`f77afe52c27af7b81dc433af33d7afeb98cd4ff04c10bd7e63e999ef90318290`. It has
+six state records and 131 source bindings, including comparison, response,
+producer and `frame_state_contract.py`. Helper SHA-256 is
+`22e1f8b864c03469701010fc856a815b3604a4efde2748531e36d284050266e5`. The
+underlying geometry probes remain
 `partial-seat-footprint-attempt02/result.json`, SHA-256
-`ffba33b640e3ae00e61049664a603cdb6fe27cf7561f0068a735878ed8e3bf1b`.
-It binds the frame, material, STEP and producer. The first attempt stopped
-at the inward-orientation preflight; its failure and producer are preserved.
-No native solve, frame rerun, software test or model/hardware change was made.
-The update reuses geometry instead of repeating the CAD intersections.
+`ffba33b640e3ae00e61049664a603cdb6fe27cf7561f0068a735878ed8e3bf1b`; the
+update reuses them instead of repeating CAD intersections. No geometry,
+hardware or authority changed; no native solve, software test or frame solve
+was run.
 
 ```sh
-OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python \
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python \
   docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/update_central_seat.py \
-  --output /tmp/FRESH-PARTIAL-SEAT-FOOTPRINT
+  --output docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/partial-seat-footprint-current-attempt03 \
+  --clearance docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/two-receiver-frame-attempt03
 ```

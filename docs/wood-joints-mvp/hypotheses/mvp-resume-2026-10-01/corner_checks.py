@@ -13,6 +13,7 @@ import math
 from pathlib import Path
 
 import cadquery as cq
+import frame_state_contract as frame_contract
 import numpy as np
 import top_corner_actions as accounting
 import top_corner_correction as correction
@@ -92,10 +93,7 @@ def run(frame_dir, clearance_dir, output):
         [s["case_id"] for s in selected] == [s["case_id"] for s in results["cases"]],
         "clearance case identity mismatch",
     )
-    require(
-        all(s["status"] == "PASS_CONDITIONAL_COUPLED_FRAME_LAWS" for s in selected),
-        "incomplete coupled clearance frame",
-    )
+    force_scope = frame_contract.force_state_scope(clearance)
     for name, digest in clearance["source_sha256"].items():
         require(sha(ROOT / name) == digest, "changed clearance source: " + name)
     for name, digest in operator["output_sha256"].items():
@@ -115,6 +113,7 @@ def run(frame_dir, clearance_dir, output):
     pins.update({ROOT / p: h for p, h in operator["source_sha256"].items()})
     pins.update({ROOT / p: h for p, h in clearance["source_sha256"].items()})
     pins.update(local.PINS)
+    pins[Path(frame_contract.__file__)] = sha(Path(frame_contract.__file__))
     for path in [
         clearance_dir / "comparison.json",
         clearance_dir / "response.npz",
@@ -486,6 +485,7 @@ def run(frame_dir, clearance_dir, output):
         require(sha(path) == digest, "input changed during corner checks")
     report = {
         "schema": "corrected_frame_corner_component_references/v1",
+        "source_force_state_scope": force_scope,
         "producer_sha256": sha(Path(__file__)),
         "source_sha256": {str(p.relative_to(ROOT)): h for p, h in pins.items()},
         "counts": {

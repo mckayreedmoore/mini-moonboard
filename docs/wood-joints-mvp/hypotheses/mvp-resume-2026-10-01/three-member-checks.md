@@ -1,6 +1,31 @@
 # Continuous knee bolts: same-state three-member screen
 
-The current calculation uses the six nominal-gap states from
+## Current all-two-receiver clearance replay
+
+The new saved-state replay uses `two-receiver-frame-attempt03/`. The four
+continuous knee bolts retain zero modeled lateral clearance while the 88
+independent candidate bolts take up their modeled gaps. All six nominal states
+have finite fixed-force seating bounds; no unique pose or strict tangent
+stability is claimed. Geometry, grain, receiver order and resistance hypotheses
+are unchanged.
+
+All 24 bolt cases remain asymmetric. The declared convex-superposition
+comparison peaks at **0.919157951** under the conditional 92 ksi scenario,
+`knee_outer_left_side_1` in A12-left. The 45 ksi sensitivity is
+**1.312488270**, with seven cases above one. Endpoint embedding and convex
+complete-assembly admissibility remain unvalidated; this arithmetic supplies
+no normative three-member capacity or complete-joint acceptance.
+
+Current local result:
+`three-member-screen-attempt01/all-two-receiver/screen.json`, SHA-256
+`306aa4a8e4c6113d4a0258d09564292d07095131ef2b4621370d7284e75e0377`.
+Its signed plane, receiver, group and contact records remain separate and
+source-bound. Use this fresh child and frame path with the replay command
+below. The earlier result and producer snapshots remain preserved.
+
+## Preserved six-joint comparison
+
+The following calculation uses the six nominal-gap states from
 [all-outer-corner-frame-attempt01](all-outer-corner-frame-attempt01/), including
 both top corners, both bottom corners and both left outer service cleats. All
 **24 bolt cases are asymmetric**. The declared convex lateral interaction screen

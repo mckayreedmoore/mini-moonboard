@@ -1,10 +1,11 @@
-"""Current six-case individual references for the four lower-left service bolts."""
+"""Individual references for the lower-left service bolts from a saved source scope."""
 
 import argparse
 import json
 from collections import defaultdict
 from pathlib import Path
 
+import frame_state_contract as frame_contract
 import numpy as np
 import right_corner_clearance as method
 import top_corner_actions as accounting
@@ -12,7 +13,7 @@ import top_corner_actions as accounting
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 FRAME = HERE / "corner-frame-attempt01"
-RESPONSE = HERE / "all-outer-corner-frame-attempt01"
+DEFAULT_CLEARANCE = HERE / "all-outer-corner-frame-attempt01"
 INPUTS = (
     HERE.parent
     / "mvp-acceleration-2026-09-28/reduced-static-attempt01/model-inputs.json"
@@ -21,21 +22,28 @@ BLOCK = "left_service_outer_lower_cleat"
 sha, read, require = accounting.sha, accounting.read, accounting.require
 
 
-def run(output):
+def run(output, clearance=DEFAULT_CLEARANCE):
     require(not output.exists(), "preserve existing service calculation")
-    comparison, inputs = read(RESPONSE / "comparison.json"), read(INPUTS)
+    clearance = clearance.resolve()
+    if clearance.name == "comparison.json":
+        clearance = clearance.parent
+    comparison_path = clearance / "comparison.json"
+    comparison = read(comparison_path)
+    force_scope = frame_contract.force_state_scope(comparison)
+    inputs = read(INPUTS)
     rows, model = read(FRAME / "row-identities.json"), read(FRAME / "model.json")
     pins = {ROOT / p: h for p, h in comparison["source_sha256"].items()}
     pins.update(
         {
-            RESPONSE / "comparison.json": sha(RESPONSE / "comparison.json"),
-            RESPONSE / "response.npz": comparison["response_sha256"],
+            comparison_path: sha(comparison_path),
+            clearance / "response.npz": comparison["response_sha256"],
             FRAME / "row-identities.json": sha(FRAME / "row-identities.json"),
             FRAME / "model.json": sha(FRAME / "model.json"),
             FRAME / "operators.npz": sha(FRAME / "operators.npz"),
             INPUTS: sha(INPUTS),
             Path(method.__file__): sha(Path(method.__file__)),
             Path(method.lateral.__file__): sha(Path(method.lateral.__file__)),
+            Path(frame_contract.__file__): sha(Path(frame_contract.__file__)),
             Path(__file__): sha(Path(__file__)),
         }
     )
@@ -59,16 +67,16 @@ def run(output):
     }
     block_start = 6 * model["body_names"].index(BLOCK)
     states = []
+    nominal_sources = [s for s in comparison["states"] if s["gap_scale"] == 1.0]
     with (
         np.load(FRAME / "operators.npz", allow_pickle=False) as operators,
-        np.load(RESPONSE / "response.npz", allow_pickle=False) as response,
+        np.load(clearance / "response.npz", allow_pickle=False) as response,
     ):
         D = operators["D"]
-        for source in comparison["states"]:
-            if source["gap_scale"] != 1:
-                continue
+        for source in nominal_sources:
             require(
-                source["status"] == "PASS_CONDITIONAL_COUPLED_FRAME_LAWS",
+                source["status"]
+                in (frame_contract.STRICT_STATUS, frame_contract.BOUNDED_STATUS),
                 "failed frame state",
             )
             raw = response[source["case_id"] + "_gap_raw_force_n"]
@@ -137,16 +145,24 @@ def run(output):
                         None if zero_lateral else shear / reference
                     )
                 states.append(record)
-    require(len(states) == 24, "six-case service state count changed")
+    require(
+        len(states) == len(nominal_sources) * len(planes),
+        "selected-source service state count changed",
+    )
     for path, digest in pins.items():
         require(sha(path) == digest, "source changed during calculation")
     report = {
         "schema": "current_lower_service_individual_reference/v1",
         "states": states,
+        "force_state_scope": force_scope,
         "source_sha256": {str(p.relative_to(ROOT)): h for p, h in pins.items()},
         "producer_sha256": sha(Path(__file__)),
         "limits": [
-            "Same-state signed forces and ties belong to the current six-joint nominal-gap frame, not the historical 84 service states.",
+            "Same-state signed forces and ties use selected source schema "
+            + force_scope["source_schema"]
+            + ": "
+            + force_scope["force_scope"],
+            force_scope["motion_scope"],
             "References reuse the existing six-mode smooth-quarter-inch DF-L SG0.50 single-shear arithmetic; Fyb45/92/106ksi are explicit conditional scenarios.",
             "These unadjusted individual lateral references do not establish group/splitting, simultaneous steel interaction, washer transfer, actual hardware or complete joint acceptance.",
         ],
@@ -173,4 +189,6 @@ def run(output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
-    run(parser.parse_args().output)
+    parser.add_argument("--clearance", type=Path, default=DEFAULT_CLEARANCE)
+    args = parser.parse_args()
+    run(args.output, args.clearance)

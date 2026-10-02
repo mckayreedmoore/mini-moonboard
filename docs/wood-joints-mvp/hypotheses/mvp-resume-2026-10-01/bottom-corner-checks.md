@@ -1,4 +1,29 @@
-# Both bottom outer joints in the six-joint working frame
+# Both bottom outer joints in the working frame
+
+## Current all-two-receiver clearance replay
+
+The fresh same-state replay uses `two-receiver-frame-attempt03/` and its six
+nominal states with finite fixed-force seating bounds. All 88 independent
+candidate bolts include their modeled clearance; the four continuous bolts
+and twelve retained bolts remain at zero clearance. Geometry and all 66
+conditional Hillman laws are unchanged. A representative returned pose does
+not establish a unique position or a movement envelope.
+
+The left adjusted 92 ksi component comparison is **0.281891**, with concurrent
+steel allowance **0.283884**, tangent-path **0.037044**, washer wood-pressure
+**0.200974** and required washer strip stress **50.491 MPa**. The right lateral
+comparison is **0.005684**. Existing bottom cleats and quarter-inch diameters
+remain favorable under these explicit component scenarios; complete-joint and
+physical-release flags stay false.
+
+Current output: `bottom-corner-component-attempt06/component-results.json`
+SHA-256 `e2ea2ce06eb4042e7a64b57f0ddc3c0f0a88113d7d12f327ce01e1e2179c19e9`.
+It binds `member-screen-attempt02/all-two-receiver-clearance01/` and
+`remaining-joint-screen-attempt04/all-two-receiver-92ksi/` to the same response.
+Use these paths with the saved-array commands below. Earlier calculations,
+source snapshots and temporary inputs remain preserved.
+
+## Preserved six-joint comparison
 
 Both bottom outer cleats now take up their modeled 1.15 mm relative bolt
 clearance in the same frame as the two corrected top corners and the upper/lower

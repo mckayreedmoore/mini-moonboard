@@ -1,6 +1,28 @@
 # Remaining bolted joints: six nominal-gap same-state screen
 
-## Latest six-joint source
+## Current all-two-receiver clearance source
+
+The new screen consumes the six saved nominal states from
+`two-receiver-frame-attempt03/`, with modeled clearances on all 88 independent
+candidate bolts. Finite fixed-force seating is certified for each state;
+strict tangent stability and a unique pose are not transferred. The four
+continuous candidate bolts and twelve retained bolts remain at zero clearance.
+
+Current output: `remaining-joint-screen-attempt04/all-two-receiver-92ksi/`.
+It contains 80 candidate and 12 retained axes, 576 signed plane states and
+1104 outer-seat states. The eligible individual comparison peaks at
+**0.952117** for all three Fyb scenarios: `rail_front_bolt_left_2`, A12-forward,
+**1041.963 N** shear and simultaneous **190.904 N** tie, mode II. No eligible
+individual reference exceeds one. These are component comparisons; end-grain,
+continuous bolts, partial washer support and complete-joint duties retain
+their separate methods and limits.
+
+Current `screen.json` SHA-256:
+`5b85139b2acaefd8ff74df916229766438c0caf3bc9c3a1a7b5080f8f393033a`.
+The complete source/response binding and bounded-seating distinction remain
+in its JSON. Existing source snapshots and older result packets are preserved.
+
+## Preserved six-joint source
 
 The current [all-outer frame](bottom-corner-checks.md) includes both top/bottom
 outer corners and both left outer service cleats. Fresh results are in

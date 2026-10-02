@@ -49,6 +49,14 @@ meet declared equilibrium/law/floor checks. Every nominal state has finite
 strict tangent stability flags retained false. Peak nominal panel withdrawal
 is 1837 N. The preserved six-joint component worksheets need same-state
 updates before this variant is adopted; all earlier STOP packets remain.
+Those fresh component replays now give top-corner ratios0.7268/0.8138,
+concurrent steel0.7356/0.8253, bottom-left0.2819/steel0.2839,
+lower-service0.00704, central wood pressure0.1425, end-grain0.04648,
+continuous-knee conditional sum0.9192 and remaining eligible individual0.9521.
+The new 44-member elementary normal/shear references are0.5746/0.3700;
+header and torsion/restraint updates are still being calculated. These are
+saved-force component results; bounded seating does not supply a unique pose
+or a motion envelope. The earlier paragraphs retain their six-joint scope.
 
 The [lower-service comparison](service-joint-current-checks.md) fills the
 four-axis omission in the general screen: 24 current signed records,
@@ -62,7 +70,10 @@ and its packet is delivered. Its next generic lateral calculation moved to
 a bounded helper after the pane's selected model reached capacity.
 Pane %22 owns `assembly-package/`:
 its [operation/transport/BOM package](assembly-package/README.md) is delivered,
-and its next bounded task resolves hardware engagement/procurement facts.
+and its [hardware engagement](assembly-package/hardware-engagement.md) and
+[conditional shop guide](assembly-package/shop-guide.md) are delivered.
+Its next finite task checks proposed longer shaft occupancy against unchanged
+geometry. Supplier profile guarantees and complete prices remain conditions.
 The parent owns frame integration, shared staging and commits. Both bounded
 helpers completed the end-grain/three-member assignments; their sources/results
 are ingested. Current helpers consolidate the 24-joint index, calculate member

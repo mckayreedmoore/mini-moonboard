@@ -15,6 +15,8 @@ import json
 import sys
 from pathlib import Path
 
+import frame_state_contract as frame_contract
+
 sys.dont_write_bytecode = True
 
 import numpy as np
@@ -582,10 +584,7 @@ def run(output, clearance):
         len(set(case_ids)) == 6 and [s["case_id"] for s in selected] == case_ids,
         "six-case NOMINAL-GAP identity mismatch",
     )
-    require(
-        all(s["status"] == "PASS_CONDITIONAL_COUPLED_FRAME_LAWS" for s in selected),
-        "incomplete NOMINAL-GAP source",
-    )
+    force_scope = frame_contract.force_state_scope(comparison)
     require(
         comparison["dead_load_factor"] == baseline["dead_load_factor"],
         "dead-load factors disagree",
@@ -615,6 +614,7 @@ def run(output, clearance):
         HERE / "top-corner-contact-geometry.json",
         Path(accounting.__file__),
         Path(__file__),
+        Path(frame_contract.__file__),
     ):
         digest = sha(path)
         require(
@@ -961,6 +961,7 @@ def run(output, clearance):
             "clearance_joint_hosts", accounting.BLOCK_HOSTS
         ),
         "source_frame_assumptions": comparison["limits"],
+        "source_force_state_scope": force_scope,
         "same_state_dead_load_factor": baseline["dead_load_factor"],
         "source_sha256": {str(p.relative_to(ROOT)): h for p, h in pins.items()},
         "counts": {

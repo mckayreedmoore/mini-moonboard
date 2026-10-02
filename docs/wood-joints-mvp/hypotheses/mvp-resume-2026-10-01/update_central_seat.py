@@ -1,33 +1,39 @@
-"""Reuse the supported central ring with current six-joint simultaneous ties."""
+"""Reuse supported central ring with ties from a selected saved force scope."""
 
 import argparse
 import json
 import math
 from pathlib import Path
 
+import frame_state_contract as frame_contract
 import numpy as np
 import top_corner_actions as accounting
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[3]
 GEOMETRY = HERE / "partial-seat-footprint-attempt02/result.json"
-FRAME = HERE / "all-outer-corner-frame-attempt01"
+DEFAULT_CLEARANCE = HERE / "all-outer-corner-frame-attempt01"
 ROWS = HERE / "corner-frame-attempt01/row-identities.json"
 sha, read, require = accounting.sha, accounting.read, accounting.require
 
 
-def run(output):
+def run(output, clearance=DEFAULT_CLEARANCE):
     require(not output.exists(), "preserve existing central-seat evidence")
+    clearance = clearance.resolve()
+    if clearance.name == "comparison.json":
+        clearance = clearance.parent
+    comparison_path = clearance / "comparison.json"
     require(
         sha(GEOMETRY)
         == "ffba33b640e3ae00e61049664a603cdb6fe27cf7561f0068a735878ed8e3bf1b",
         "central geometry changed",
     )
-    geometry, frame, rows = read(GEOMETRY), read(FRAME / "comparison.json"), read(ROWS)
-    require(len(frame["states"]) == 12, "incomplete frame")
+    geometry, frame, rows = read(GEOMETRY), read(comparison_path), read(ROWS)
+    force_scope = frame_contract.force_state_scope(frame)
     require(
         all(
-            s["status"] == "PASS_CONDITIONAL_COUPLED_FRAME_LAWS"
+            s["status"]
+            in (frame_contract.STRICT_STATUS, frame_contract.BOUNDED_STATUS)
             for s in frame["states"]
         ),
         "failed source state",
@@ -48,8 +54,9 @@ def run(output):
         {
             GEOMETRY: sha(GEOMETRY),
             ROWS: sha(ROWS),
-            FRAME / "comparison.json": sha(FRAME / "comparison.json"),
-            FRAME / "response.npz": frame["response_sha256"],
+            comparison_path: sha(comparison_path),
+            clearance / "response.npz": frame["response_sha256"],
+            Path(frame_contract.__file__): sha(Path(frame_contract.__file__)),
             Path(__file__): sha(Path(__file__)),
         }
     )
@@ -61,10 +68,9 @@ def run(output):
     )
     inner = geometry["declared_outer_inner_diameters_mm"][1] / 2
     states = []
-    with np.load(FRAME / "response.npz", allow_pickle=False) as response:
-        for source in frame["states"]:
-            if source["gap_scale"] != 1:
-                continue
+    nominal_sources = [s for s in frame["states"] if s["gap_scale"] == 1.0]
+    with np.load(clearance / "response.npz", allow_pickle=False) as response:
+        for source in nominal_sources:
             tension = float(response[source["case_id"] + "_gap_raw_force_n"][1535])
             states.append(
                 {
@@ -76,7 +82,7 @@ def run(output):
                     * math.sqrt(inner**2 + max(tension, 0) / (math.pi * fc)),
                 }
             )
-    require(len(states) == 6, "six current nominal states required")
+    require(len(states) == len(nominal_sources), "selected nominal state count changed")
     for path, digest in pins.items():
         require(sha(path) == digest, "source changed during calculation")
     report = {
@@ -93,6 +99,7 @@ def run(output):
         "geometry_probes_reused": geometry["geometry_probes"],
         "conditional_base_Fc_perpendicular_mpa": fc,
         "states": states,
+        "force_state_scope": force_scope,
         "limits": geometry["limits"],
         "reviewed_geometry_changed": False,
         "hardware_selected": False,
@@ -111,4 +118,6 @@ def run(output):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
-    run(parser.parse_args().output)
+    parser.add_argument("--clearance", type=Path, default=DEFAULT_CLEARANCE)
+    args = parser.parse_args()
+    run(args.output, args.clearance)

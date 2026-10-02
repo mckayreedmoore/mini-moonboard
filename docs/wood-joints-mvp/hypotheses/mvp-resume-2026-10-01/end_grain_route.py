@@ -12,6 +12,7 @@ sys.dont_write_bytecode = True
 from collections import defaultdict
 from pathlib import Path
 
+import frame_state_contract as frame_contract
 import numpy as np
 import remaining_joint_screen as screen
 
@@ -31,7 +32,7 @@ CLEARANCE_PINS = {
     },
 }
 PINS = {
-    HERE / "remaining_joint_screen.py": "4e2704590dc009194953425c594a38f288c9b47de4385dd3542b18ad76b217c1",
+    HERE / "remaining_joint_screen.py": "4e24e439a258bcacc9e1701fb17c4c86ef7b4563734ea93bdfa69ca99d96b1d2",
     FEATURES: "33fff67eee4bc4e96ccef5703f6eebd0d4e004541c6114a4b1da4a5332b2f6eb",
     screen.local.actions_method.MATERIALS: "0f33ad8fd517673a4ebbed36c4a30c1cfe07e0d8163165bdc804af91d958fc5a",
     **screen.lateral.PINS,
@@ -54,9 +55,11 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
     )
     require(not OUTPUT.exists(), "preserve the recorded output; attempt already exists")
     comparison = read(RESPONSE / "comparison.json")
+    force_scope = frame_contract.force_state_scope(comparison)
     expected = CLEARANCE_PINS.get(RESPONSE.name, {})
     pins = {
         **PINS,
+        Path(frame_contract.__file__): sha(Path(frame_contract.__file__)),
         RESPONSE / "comparison.json": expected.get("comparison.json", sha(RESPONSE / "comparison.json")),
         RESPONSE / "response.npz": expected.get("response.npz", comparison["response_sha256"]),
     }
@@ -65,12 +68,12 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
     for path in (HERE / "lateral_reference.py", HERE / "top_corner_local.py"):
         pins[path] = comparison["source_sha256"][str(path.relative_to(ROOT))]
     require(comparison["response_sha256"] == pins[RESPONSE / "response.npz"], "mixed response")
-    require(comparison["schema"] in ("coupled_top_and_service_frame_clearance/v1", "coupled_outer_corner_frame_clearance/v1"), "wrong frame scope")
+    require(comparison["schema"] in ("coupled_top_and_service_frame_clearance/v1", "coupled_outer_corner_frame_clearance/v1", frame_contract.BOUNDED_SCHEMA), "wrong frame scope")
     require(
         len(comparison["states"]) == 12
         and {(s["case_id"], s["gap_scale"]) for s in comparison["states"]}
         == {(c, g) for c in CASES for g in (0.0, 1.0)}
-        and all(s["status"] == "PASS_CONDITIONAL_COUPLED_FRAME_LAWS" for s in comparison["states"]),
+        ,
         "missing or failed saved frame states",
     )
     inputs, model = read(screen.lateral.INPUTS), read(FRAME / "model.json")
@@ -227,6 +230,7 @@ def main(clearance=DEFAULT_CLEARANCE, output=DEFAULT_OUTPUT):
         "development_revision": model["development_revision"],
         "status": "SUPPORTED_NDS_END_GRAIN_INDIVIDUAL_REFERENCE_WITH_UNRESOLVED_JOINT_DETAILING",
         "clearance_schema": comparison["schema"],
+        "source_force_state_scope": force_scope,
         "clearance_joint_hosts": comparison["clearance_joint_hosts"],
         "force_source": str((RESPONSE / "response.npz").relative_to(ROOT)),
         "force_key": "case_id + '_gap_raw_force_n'", "gap_scale": 1.0,
