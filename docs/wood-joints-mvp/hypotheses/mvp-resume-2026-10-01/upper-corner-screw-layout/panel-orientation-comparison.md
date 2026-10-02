@@ -135,11 +135,12 @@ physical frame failures.
 
 ## Next decision and frozen artifacts
 
-Evaluate the owner's proposed 20 screws per main panel with this same
-strong-X material scenario. The previous 20-count calculation used strong T;
-its added-row projections cannot be attached to the width-grain H matrix
-without recomputing all affected panel contributions. The physical 66-screw
-policy remains current until a proposal is explicitly adopted.
+The owner's proposed 20 screws per main panel is now evaluated with this same
+strong-X material scenario in the [count/grain comparison](count-grain-comparison.md).
+All twelve states return, with lower upper-panel demands but a larger added
+lower-panel screw demand. All affected panel contributions were recomputed;
+old-grain added projections were not attached to the width-grain H matrix.
+The physical 66-screw policy remains current until a proposal is adopted.
 
 The [current joint register](joint-register.md) and component replays remain
 bound to the earlier strong-T force source. This orientation changes bolt

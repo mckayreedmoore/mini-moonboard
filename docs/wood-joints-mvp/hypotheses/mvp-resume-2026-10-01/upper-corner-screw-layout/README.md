@@ -149,6 +149,12 @@ panel demand rises. The favorable declared head references remain below that
 peak. This comparison preserves the current strong-T source and its component
 replays; actual grain placement and any replacement force source are unselected.
 
+The [matched 20-per-main comparison](count-grain-comparison.md) also completes
+all twelve states. Upper-panel axial demand falls to 1030/1122 N, while an
+added lower-left screw reaches 2181 N at A1-rear. Same applied load and source
+laws; count alone does not close the attachment comparison. The proposed
+98-total layout remains separate from the current physical 66-axis policy.
+
 ## Incomplete calculations and numerical limits
 
 The [one hand/foot comparison](paired-load-comparison.md) moves half the
