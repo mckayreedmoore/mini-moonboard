@@ -167,6 +167,19 @@ package includes a 50-bolt purchase with 46 surplus; its $127.12 observed
 subtotal cannot be compared as an eight-bolt unit price with the $27.68
 Grade 8-side/Grade 5-rail listing scenario. Neither option is selected.
 
+The [same-state member screen](member-checks.md) covers 264 whole-member
+balances and 54,888 two-sided cut traces across all six cases. Applicable
+elementary normal/shear references peak at 0.5415/0.3735 in the top rail;
+finished connection regions, torsion and stability remain separate checks.
+Clipped-tip beam singularities are non-applicable in a corrected child packet;
+their actions and prior results remain preserved.
+
+The [central-footprint worksheet](partial-seat-bearing.md) finds a fully
+supported declared 10/7.3 mm ring at the center-principal right nut seat.
+At 82.628 N peak tension its conditional mean wood-pressure ratio is 0.5227.
+Actual nut/washer transfer remains missing; the original partial-seat
+exception is not closed. No axis, passage or hardware changed.
+
 ## Work completed during this restart
 
 The first two STI17 source-review passes found and the parent fixed the

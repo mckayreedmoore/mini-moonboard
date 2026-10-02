@@ -60,6 +60,15 @@ The [top-corner fit and assembly note](hypotheses/mvp-resume-2026-10-01/top-corn
 reconciles stack requirements, quantities and observed listing costs; real
 turning/counterhold and complete shaft withdrawal remain open.
 
+The [same-state member screen](hypotheses/mvp-resume-2026-10-01/member-checks.md)
+closes 264 arithmetic body balances and retains all six-case cuts; applicable
+elementary normal/shear references peak at 0.5415/0.3735 in the top rail.
+Local finished sections, torsion and stability remain open. A
+[central bearing scenario](hypotheses/mvp-resume-2026-10-01/partial-seat-bearing.md)
+offers supported geometry at the center-principal partial washer seat with
+0.5227 conditional wood-pressure ratio. Actual washer/nut transfer remains
+unqualified and no geometry change is proposed.
+
 ## Useful results
 
 - The [October 1 evidence summary](parallel-owner-handoff-2026-10-01.md) records source-action work;
