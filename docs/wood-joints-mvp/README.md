@@ -21,6 +21,28 @@ and STOP**; later two-body recovery did not clear the discrepancy or supply acce
 No complete joint, physical inspection, floor qualification or fabrication, drilling or climbing
 release is established.
 
+Later on October 1, the owner directed a simple MVP model and stopped the recurring agent
+review loop. The parent has completed six approximate static scenarios and prepared an
+[isolated top-corner correction](hypotheses/mvp-resume-2026-10-01/top-corner-correction.md).
+These calculations do not replace the native-export authentication statuses above. The
+existing agent's separate upper-left service-joint results are now
+[ingested with the previous Hillman evidence](hypotheses/mvp-resume-2026-10-01/service-and-hillman-integration.md).
+Detailed washer meshes,
+the stiffness-output build and stress-provenance tooling are parked method work.
+
+The parent has integrated the isolated top-corner correction into a whole-frame
+calculation; all six static scenarios meet their balance/law gates under explicit
+panel assumptions. The latest right-corner comparison reuses the service worker's
+coupled clearance method and retains all 66 Hillman axes. With modeled clearance,
+the proposed right corner's conditional Grade 5 individual lateral-reference ratio
+is 0.7904; the zero-gap sensitivity is 1.1593. Hardware selection, complete resistance
+and compatibility of the returned movement remain open. The helper's
+[zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
+stops in all six cases: the upper panels need normal restraint supplied by
+the original unsupported screw springs. The peak original individual screw
+demand is 1922.134 N. Resolve that panel-joint load path alongside the remaining
+corner resistance before treating the original frame demands as accepted.
+
 ## Useful results
 
 - The [October 1 evidence summary](parallel-owner-handoff-2026-10-01.md) records source-action work;
@@ -39,19 +61,25 @@ Complete all 24 replacement duties and affected-member checks: coupled contact, 
 slip/rotation; simultaneous bolt tension/shear/bending; head/nut/washer transfer; finished sections,
 bearing, splitting and group interaction. Resolve the partial washer seat at `center_principal_right_2`
 and the BG045 conditional edge exception. Hardware profile/functional fit, materials, installed tools,
-reversible removal, transport, a coherent conditional shop package and integrated independent review
+reversible removal, transport, a coherent conditional shop package and integrated validation
 remain open. [Stock-price observations](hypotheses/current-stock-package-cost-2026-10-01/README.md)
 still lack a complete compatible material/quantity/cost reconciliation.
 
-1. Use local `hypotheses/upper-left-service-joint-mvp-2026-10-01/analytical-route-feasibility.md` for the joint,
-   which remains on HOLD, bind simultaneous interface wrenches and allowable slip/rotation, then
-   validate coupled transfer and shared-cleat/host splitting. Conditional material specifications
-   and a supported analytical method remain allowed.
-2. Review local `hypotheses/current-washer-crop-mesh-preparation-2026-10-01/CHECKPOINT.md` and qualify its geometry/mesh oracles.
-   The mesh producer is unexecuted and unqualified; source tests do not establish run readiness.
-3. Finish review and qualification of the isolated stiffness-output build/coupon path for the A12
-   discrepancy and the stress-frame fixture's provenance wrapper. Resolve support/contact history,
-   complete-frame compatibility/stability and missing cases without weakening gates or repeating consumed attempts.
+1. Retain the left service geometry using its latest
+   [coupled frame-clearance worksheet](hypotheses/upper-left-service-frame-clearance-2026-10-01/README.md).
+   Its conditional 252-state comparison is complete; complete resistance and physical
+   release remain HOLD. Reuse its signed wrenches, motion estimates and saved-vector
+   audit without repeating the earlier independent-interface investigations.
+2. Continue the parent's simple-model route: resolve the top outer corner bolt concern,
+   check same-state wood/group/washer resistance and returned clearance movement, then
+   check remaining joints, members and load paths. Include the previous Hillman receiver
+   and load-transfer work, retaining its conditional stiffness/strength assumptions
+   explicitly in the simpler MVP. The isolated proposal reports every required geometry
+   change before changing the reviewed scene; stronger hardware remains unselected.
+3. Complete hardware fit, assembly/removal, transport, stock/cost and the conditional shop
+   packet against that model. Preserve the unfinished washer mesh, isolated build/coupon and
+   provenance preparation as method history. No new native run or recurring review round is
+   selected by this priority update; the original frozen failures remain preserved.
 
 ## Detailed coordination and evidence
 
