@@ -121,6 +121,12 @@ checks each retain 18.157582 mm clearance to the same-side bottom rail.
 | Center principal/header | 4 | 8 in / 203.2 mm | 13.1826 | 201.549 |
 | Inner knee/header | 4 | 8 in / 203.2 mm | 0.7 | 201.549 |
 
+The parent now uses these three lengths as the [conditional MVP planning
+routes](hardware-engagement.md#current-conditional-planning-lengths), retaining
+the per-family body/thread specifications and actual-operation limits. This
+planning decision follows the saved occupancy results; it changes no frozen
+source shaft, frame response, candidate authority or physical-release flag.
+
 The screen includes the same fifty member STEPs and four corrected top
 replacement STEPs, plus the recorded installed hardware, wires and other
 enclosures. It tests the added tips and additional headward shaft/head/washer

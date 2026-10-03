@@ -70,6 +70,26 @@ It is physical tip projection, not three guaranteed full-form threads past
 the nut. Earlier 3.175-mm endpoint comparators remain historical. A part
 that misses this option is not thereby a failed joint.
 
+## Current conditional planning lengths
+
+The parent now uses the twelve completed [longer-bolt routes](hardware-length-fit.md)
+and their [relocated-screw clearance receipt](upper-screw-travel.md) as the MVP
+planning basis: four center-post bolts at **6 in**, four center-principal/header
+bolts at **8 in**, and four inner-knee/header bolts at **8 in**. The saved
+shorter shaft envelopes remain historical inputs, not purchase lengths.
+This decision selects nominal planning lengths and named catalog routes;
+delivered body/thread conformity, actual operation and physical selection
+retain their conditional status.
+
+Pool the four center-post bolts with the 44 ordinary K.L. Jack `25C600HCS5Z`
+bolts: **48 from one 100-piece box**, 52 spare. Pool the four
+center-principal/header bolts with the twelve side, four top-rail and four
+inner-knee/header Lawson `FA21103` bolts: **24 from one 25-piece pack**, one
+spare. The other named family leads and matched nut/washer requirements remain
+as specified below. The [working-order producer](working_order.py) records all
+104 axis identities and their individual profile requirements. Missing prices
+and delivery conformity remain unknown; no order or checkout is submitted.
+
 ## Family specification
 
 Dimensions are millimetres. The wood grips are frozen model dimensions;
@@ -83,11 +103,11 @@ shown to four decimals are calculations, not shop measurement precision.
 | Top rail, corrected | 4 | 1/4-20 | 177.8 | 8 in | 191.4144 | 144.9070 | 180.3908–187.6044 |
 | Top side, corrected | 4 | 5/16-18 | 177.8 | 8 in | 194.2507 | 158.2166 | 181.0512–190.0174 |
 | Outer post | 4 | 1/4-20 | 76.2 | 4 in | 89.8144 | 68.7070 | 78.7908–86.0044 |
-| Center post | 4 | 1/4-20 | 127.0 | Named 6-in alternative to unsourced 5.75-in class | 140.6144 | 119.5070 | 129.5908–136.8044 |
+| Center post | 4 | 1/4-20 | 127.0 | 6 in, current planning route | 140.6144 | 119.5070 | 129.5908–136.8044 |
 | Center principal | 4 | 1/4-20 | 122.0 | 5.5 in, profile-specific | 135.6144 | 114.5070 | 124.5908–131.8044 |
 | Center post/header | 4 | 1/4-20 | 167.0 | 7.5 in | 180.6144 | 136.8070 | 169.5908–176.8044 |
-| Center principal/header | 4 | 1/4-20 | 172.8 | 7.5-in lead unresolved for this body route; proposed 8-in alternative | 186.4144 | 165.3070 | 175.3908–182.6044 |
-| Inner knee/header, both directions | 4 | 1/4-20 | 177.1 | Named 8-in alternative to unsourced 7.75-in class | 190.7144 | 169.6070 | 179.6908–186.9044 |
+| Center principal/header | 4 | 1/4-20 | 172.8 | 8 in, current planning route | 186.4144 | 165.3070 | 175.3908–182.6044 |
+| Inner knee/header, both directions | 4 | 1/4-20 | 177.1 | 8 in, current planning route | 190.7144 | 169.6070 | 179.6908–186.9044 |
 | Continuous knee side, three members | 4 | 1/4-20 | 215.9 | 9.5 in, supplier specification needed | 229.5144 | 195.7070 | 218.4908–225.7044 |
 | Retained front rail/post | 4 | 3/8-16 | 76.2 | 4 in | 94.8055 | 69.3166 | 79.4512–90.0430 |
 | Retained rear rail/leg | 4 | 3/8-16 | 88.9 | 4.5 in | 107.5055 | 78.8416 | 92.1512–102.7430 |
@@ -275,6 +295,28 @@ Actual nut/washer transfer is still open. The separate
 [current saved-STEP support check](../retained-washer-support.md) confirms
 all 24 nominal concentric annuli. Loaded shift/tilt and washer metal
 acceptance remain open; frozen actual-support fields are not overwritten.
+
+## Working-order export
+
+The current planning export is `rawlocal/working-order/attempt02/`, produced
+by [working_order.py](working_order.py). It records all 104 axes, fourteen
+families, unchanged matched nut/washer routes, the 48/100 and 24/25 bolt pools,
+and each axis's minimum length, body end, shear planes and full-form window.
+All current prices and delivery-conformity fields are null. The earlier
+attempt01 remains byte-exact; the producer refuses differing saved outputs
+before writing any file. Parent authenticated all six inputs and output
+bindings and checked both attempts' retained bytes.
+
+```sh
+python3 -B docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/assembly-package/working_order.py --verify
+```
+
+| Current planning artifact | SHA-256 |
+| --- | --- |
+| Producer and attempt02 snapshot | `460bdd0487743c8d3a2f9b8ef27368238ce115daf624bb2dae17b3d2349686f9` |
+| `attempt02/working-order.json` | `3ba75dad67a22e621ce49572cf8fd5b7dfd393c41e13df2f135e3153ba770085` |
+| `attempt02/working-order-axes.csv` | `7fa7faf8131b015e723a013c5743b2853b9b4eab7e3d695d89f78f8bc627795c` |
+| `attempt02/receipt.json` | `8ea1cf732bac17a972f6f8044ff6e5ff2c0b254d278e6400ed2eab0e3ff40dc7` |
 
 ## Reproduction and record
 

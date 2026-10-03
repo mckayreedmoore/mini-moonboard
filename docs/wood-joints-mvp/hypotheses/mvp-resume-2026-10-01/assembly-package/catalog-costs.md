@@ -33,6 +33,24 @@ The shop guide’s **$158.46 historical partial priced subtotal remains unchange
 
 The shop guide records 44 ordinary K.L. Jack `25C600HCS5Z` bolts against one 100-piece box at its existing $82.14 listing amount. If the four conditional 6-inch center-post bolts use this exact SKU and satisfy the family/profile conditions in the [hardware engagement worksheet](hardware-engagement.md), proposed shared need is 48 from that same box, leaving **52 spare**. No extra bolt box is needed in that quantity scenario. This is count pooling only; it does not select the SKU or guarantee delivered body/thread geometry. Existing $82.14 entry is not repriced here.
 
+## Current planning quantity decision
+
+After the completed length and relocated-screw occupancy checks, the parent
+uses the [working planning lengths](hardware-engagement.md#current-conditional-planning-lengths).
+The Lawson need is now **24 from one 25-pack** and the K.L. Jack six-inch need
+is **48 from one 100-box**. Four center-principal/header bolts leave the
+earlier HiStrength seven-and-a-half-inch recipe; the center-post/header family
+still needs four of that length. Do not treat the earlier $158.46/$189.58
+comparison recipes as this revised order's total or add an extra Lawson or
+six-inch box. Current missing terms remain unknown.
+
+The [Lawson primary listing](https://www.lawsonproducts.com/products/hex-cap-screw-grade-5-1-4-20-x-8-fa21103)
+was rechecked on October 2: 1/4-20 × 8 in, Grade 5, partial thread, pack of
+25, with pricing behind login. It supplies no exact delivered body/full-form
+coordinates. The K.L. Jack route remains the saved dated lead; its exact page
+could not be fetched on this recheck. The working export carries no current
+price or delivered-conformity claim.
+
 ## Scope retained
 
 The purchased **66 Hillman 42605** panel/kicker screws remain separate under existing policy; this source update adds no Hillman cost or substitution. No geometry or hardware is adopted. The current record remains 47 criteria pending, eight physical-release flags false, and all Actual/Disposition cells blank. The published assembly guide and other owners’ files are unchanged.

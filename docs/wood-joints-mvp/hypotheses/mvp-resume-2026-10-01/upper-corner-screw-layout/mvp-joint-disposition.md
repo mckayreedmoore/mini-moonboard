@@ -35,7 +35,7 @@ The [six header cleat bodies](header-cleat-net-sections.md) complete another **1
 
 The [two knee spines](knee-spine-net-sections.md) complete **600 existing opening-section limits** across all six cases. Normal diagnostic/shear bound peaks are **0.09635 / 0.38258**. Their asymmetric net centroids, full signed torque and original global-force scope are retained; local shaft fields and splitting capacity are not transferred.
 
-The [retail thick-washer option](retail-washer.md) completes two resolutions at the current **707.884 N / 2.432 N·m** witness. Declared **25.4/8.3058/2.5 mm OD/ID/thickness** gives finer stress **207.205 MPa**, index **0.829** against assumed 250 MPa yield, with saved nominal timber support. This changes no inventory and qualifies no actual retail material.
+The [retail thick-washer option](retail-washer.md) and [complete 48-end suite](retail-washer-suite.md) use declared **25.4/8.3058/2.5 mm OD/ID/thickness**. All four top-rail bolts, both ends and six cases complete at the fixed fine resolution; peak stress remains **207.205 MPa**, index **0.829** against assumed 250 MPa yield. The original **707.884 N / 2.432 N·m** witness and fields reproduce exactly. Eight nominal lands support the annulus; installed replacement occupancy is being checked before a planning change. No actual retail material is qualified.
 
 ## Practical disposition
 
@@ -53,6 +53,23 @@ Use the [shop guide](../assembly-package/shop-guide.md), [joint addendum](../ass
 
 BOM: 20 frame timber bodies, 24 blocks, 44 timber blanks, six plywood bodies, 104 bolt stacks/nuts, 208 washers, 66 panel/kicker screws. Owner-reported assembly/movement acceptability remains a working assumption. No build or floor inspection is claimed; Actual/Disposition cells stay blank until observed. No physical work is authorized.
 
+## Goal coverage and remaining work
+
+The parent checked the objective against the current saved results and conditional shop records. Coverage is not complete structural acceptance.
+
+| Objective requirement | Current evidence and disposition |
+| --- | --- |
+| Resolve bolted timber joints | All 24 blocks/104 axes have current force records and applicable finite comparisons above. Full splitting/group and actual hardware resistance remain unqualified. |
+| One coherent working model / six cases | [Working force register](working-joint-register.md), all six zero/nominal source states and independent local interface balances; no displacement feedback or stability acceptance. |
+| Member checks | Completed rated-duration and permanent-gravity comparisons; local disturbed sections and formal torsion qualification retain their stated limits. |
+| Hardware fit | [Length receipt](../assembly-package/hardware-length-fit.md) plus 192 moved-screw pairs; twelve nominal lengths now used for conditional planning. Delivered profiles and full tool operation remain unobserved. |
+| Assembly / removal / transport | [Shop sequence](../assembly-package/shop-guide.md) preserves four captured-nut paths, two harness dependencies and all 50 individual bodies. Actual operation is conditional. |
+| BOM / cost | 104 nuts, 208 washers, 66 separate Hillman screws; current planning pools 48 six-inch and 24 eight-inch bolts. Dated price recipes and unknown terms remain explicit. |
+| Shop documentation / geometry changes | [Current joint addendum](../assembly-package/current-joint-addendum.md), corrected top bodies/bolts and four moved screw coordinates; source solids and overlays remain distinct. |
+| Panel assumptions / history / formal flags | Panel reference deficit, stiffness and material hypotheses are explicit; frozen history, 47 pending criteria and eight false flags preserved. |
+
+The fixed-dimension retail washer suite now covers all 48 current top-rail end states. Its installed replacement fit is the next finite check. The panel reference exception and missing complete-joint resistance still prevent a whole-goal acceptance claim.
+
 ## Frozen receipt index
 
 Paths below are relative to this folder; linked notes contain complete source/output receipts.
@@ -66,6 +83,7 @@ Paths below are relative to this folder; linked notes contain complete source/ou
 | `rawlocal/header-cleat-net-sections/attempt01/checks.json` | `b70fd818654a4d6509186a2718a81fa0b564cfc7ad808be52946f0eddfead1a2` |
 | `rawlocal/knee-spine-net-sections/attempt02/checks.json` | `6b6c8df94f1ccab859ee980dd1835ba19286718f44e8a36ce6b9d0014064fc85` |
 | `rawlocal/corner-group-finish/attempt03/checks.json` | `2ae3a84f273823dc6ca751e6fdddab8e0d70425ee7b34e1e38ebc79d5b672f23` |
+| `rawlocal/retail-washer-suite/attempt01-fine/checks.json` | `3e2dee327dbd81d8584955de3c4918c9acc695b0386fa46abd568ba767c64f74` |
 | `rawlocal/corner-first-order-components/attempt01/checks.json` | `f220673994b6a6c5b6bc0afd104becd61b5bb68f5e22bc700ed07b901b94525c` |
 | `rawlocal/bottom-corner-transfer/first-order-attempt01/checks.json` | `4d255ba5ebd8f1f93fb41ef90511eb3da49906f4729f33f5f63766e0a0bd78ed` |
 | `rawlocal/bottom-corner-components/attempt01/checks.json` | `39e698d7ffec6646e2295f5ce96be0764ea8fbe6654ed3b0e881040b410bcc95` |

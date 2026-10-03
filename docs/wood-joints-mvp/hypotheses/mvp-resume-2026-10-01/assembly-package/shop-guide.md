@@ -159,6 +159,17 @@ transfer assumptions. Actual washer/nut footprint contact and metal transfer rem
 this route selects no replacement washer and changes none of the 208 washer roles. Catalog washer
 labels do not supply numeric yield minima.
 
+## Current working order
+
+Use the [conditional planning routes](hardware-engagement.md#current-conditional-planning-lengths):
+four center-post bolts at six inches, four center-principal/header bolts at
+eight inches, and four inner-knee/header bolts at eight inches. The completed
+length and relocated-screw receipts cover their added occupancy. Ordinary and
+center-post six-inch bolts pool to **48/100**; Lawson eight-inch duties pool
+to **24/25**. The remaining families retain the named profile specifications.
+The preceding price table is an earlier comparison recipe, not the current
+order total. Actual body/thread fit and operation remain conditional.
+
 ## Forward assembly
 
 Support each member independently while its connections are open. The modeled no-slip floor

@@ -199,6 +199,14 @@ the finer result is 0.828821 of the assumed 250 MPa yield. The saved finished
 face supports the enlarged concentric annulus. This is one conditional
 hardware option; actual retail dimensions, yield and installed fit remain
 unmeasured, and the 208-washer census is unchanged.
+The completed [48-end washer suite](upper-corner-screw-layout/retail-washer-suite.md)
+now covers all four top-rail bolts, both exterior ends and all six cases at
+that same fixed fine resolution. Peak stress remains 207.205343 MPa against
+the assumed 250 MPa yield; the original source, state, coupon and full field
+CSV reproduce exactly. All eight nominal supported lands are checked.
+The parent is checking installed replacement occupancy before choosing this
+washer as a conditional planning route; actual material and profile remain
+unqualified, and no altered compliance is fed back into the frame.
 
 The [assembly package](assembly-package/README.md) remains the dimensional,
 transport, stock, purchasing and operation basis, read with the four-axis
@@ -206,8 +214,14 @@ overlay above and its [current-joint addendum](assembly-package/current-joint-ad
 Its 104-stack dimensional specifications and nominal longer-
 bolt fit do not depend on the changed panel forces. Loaded operations and
 the central-seat demand use their explicit force-source scopes. Priced
-hardware terms total $189.58 when the retained increment is counted once;
-missing order terms remain listed. Actual/Disposition cells stay blank.
+hardware terms in the earlier comparison recipe total $189.58 when the
+retained increment is counted once; that is not the revised order total.
+The parent now uses the [completed nominal-length planning routes](assembly-package/hardware-engagement.md#current-conditional-planning-lengths):
+four center-post bolts at six inches, four center-principal/header and four
+inner-knee/header bolts at eight inches. The ordinary/center-post need pools
+to 48 of one 100-box; Lawson eight-inch duties pool to 24 of one 25-pack.
+All 104 axis-specific profile requirements remain conditional. Missing order
+terms remain listed, and Actual/Disposition cells stay blank.
 
 All 47 formal criteria remain pending and all eight release flags false.
 Selected-baseline authority and historical packets are preserved. This

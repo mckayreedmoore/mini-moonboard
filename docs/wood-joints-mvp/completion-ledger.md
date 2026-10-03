@@ -45,6 +45,13 @@ C_D = 0.9, with normal, face and component-bound peaks 0.174220 / 0.132797 /
 conditional working assessment. Original normal-duration findings and all
 historical method stops remain preserved.
 
+The [fixed-dimension retail washer suite](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/retail-washer-suite.md)
+also completes all 48 current top-rail end states and eight nominal supported
+lands. Its maximum elastic stress proxy remains 207.205343 MPa against the
+declared 250 MPa yield hypothesis, with the earlier witness and fields
+byte-identical. Replacement occupancy is being checked before any planning
+change. Actual product capacity and changed-compliance feedback remain open.
+
 These working calculations do not close the formal coverage register.
 **All 47 entries remain pending and all eight physical-release flags remain
 false.** No physical build, floor, delivered hardware or fabrication release

@@ -79,18 +79,23 @@ bore diameter is a purchase length or drill instruction.
 | Proposed top rail 1/4-inch stacks | 4 | 177.8 / 203.2 proposal envelope | 8 inch |
 | Proposed top side 5/16-inch stacks | 4 | 177.8 / 203.2 proposal envelope | 8 inch |
 | Outer-post stacks | 4 | 76.2 / 101.6 | 4 inch |
-| Center-post stacks | 4 | 127 / 139.217 | 5.75-inch class; named 6-inch alternative |
+| Center-post stacks | 4 | 127 / 139.217 saved shaft | 6 inch, current conditional planning route |
 | Center-principal stacks | 4 | 122 / 139.217 | 5.5 inch |
 | Center-post/header stacks | 4 | 167 / 179.217 | 7.5 inch |
-| Center-principal/header stacks | 4 | 172.8 / 190.017 | 7.5 inch |
-| Knee inner-header stacks | 4 | 177.1 / 202.5 | 7.75-inch class; named 8-inch alternative |
+| Center-principal/header stacks | 4 | 172.8 / 190.017 saved shaft | 8 inch, current conditional planning route |
+| Knee inner-header stacks | 4 | 177.1 / 202.5 saved shaft | 8 inch, current conditional planning route |
 | Continuous knee-side stacks | 4 | 215.9 / 241.3 | 9.25-inch class; unresolved 9.5-inch lead |
 
 The 6-inch ordinary family loses four top-rail axes. The former 16-axis
-quarter-inch side family loses four top-side axes. For the Lawson 8-inch
-quarter-inch alternative, **12 side + four proposed top rail + four knee
-inner-header = 20 bolts**, fitting one 25-piece pack with five surplus. Do
-not add separate top-rail and knee packs to the same pooled scenario.
+quarter-inch side family loses four top-side axes. For the current conditional
+Lawson 8-inch quarter-inch route, **12 side + four top rail + four knee
+inner-header + four center principal/header = 24 bolts**, fitting one 25-piece
+pack with one spare. The 44 ordinary and four center-post six-inch bolts share
+one K.L. Jack 100-piece box, leaving 52 spare. These are the parent-selected
+planning lengths after the completed added-occupancy and upper-screw-delta
+checks; actual profiles still follow the [hardware worksheet](hardware-engagement.md#current-conditional-planning-lengths).
+Do not buy separate packs for these pooled duties. Earlier 20-bolt quantities
+and price recipes below remain dated comparison history.
 
 ## Individual-member transport sizes and masses
 
