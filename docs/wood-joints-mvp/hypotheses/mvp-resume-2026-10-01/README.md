@@ -340,10 +340,24 @@ has four same-axis shafts. Its
 is complete.
 Opposing side-bolt forces leave its single-loaded-edge reduction unsupported;
 a net exterior shear check would miss the internal couple. A direct stock
-through-bolt reinforcement proposal is being prepared against the same source.
+through-bolt reinforcement proposal and its fresh-gravity packet are complete
+under the conditional assumptions recorded below.
 The result is neither a physical failure nor complete splitting resistance;
 simultaneous shears and torque remain explicit, and the current geometry and
 104-axis authority remain adopted for this analytical packet.
+
+Separately, the [four-bolt knee proposal working-package note](upper-corner-screw-layout/knee-bridge-working-package.md)
+describes an unadopted conditional packet with 108 bolts/nuts, 216 washers,
+66 Hillman screws, 50 bodies and 44 blanks. Its fresh gravity/frame source
+comparison `c3a8ff024fb494032d947aedfd6f00cda8698587b8751b2cec66e4b3af243729`
+gives new mass 225.197914143181 kg under the fixed 250 lb × 2,
+signed 300 N and 100 mm load setup; fresh local, reference and member
+comparisons are published. Nominal panel-head demand of 1,871.246 N exceeds
+the favorable 930.222–984.128 N reference range. All 24 shaft states balance
+and all 96 placements are found; completed binding joins 648 bolt/case and
+396 screw/case records through 390 authenticated source pins. The current 104-axis
+authority and prior evidence/history remain as recorded; all 47 formal
+criteria remain pending and all eight release flags false.
 
 The concise [joint MVP disposition](upper-corner-screw-layout/mvp-joint-disposition.md)
 collects completed finite checks, conditional shop links, the panel-head
