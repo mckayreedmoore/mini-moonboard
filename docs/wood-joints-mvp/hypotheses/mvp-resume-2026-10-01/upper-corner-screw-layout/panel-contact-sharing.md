@@ -139,6 +139,23 @@ well to use its peak as a demand. Preserve these exact reactions while
 answering that question. This result supplies no alternate force allocation,
 rigid-panel substitution, required redesign or new release gate.
 
+The subsequent [saved-displacement recovery](contact-gap-recovery.md)
+reproduces all original patch59 closure coordinates within 1.42e-10 mm.
+Additional half-spacing samples find maximum closures of 0.044593 mm
+with twelve screws and 0.010851 mm with twenty. Their largest witnesses
+are 266–361 mm in X from the added peak screw; the nearest half-spacing
+samples remain open. This identifies contact-sampling sensitivity, but
+does not explain the concentrated screw force or supply a corrected
+allocation. Saved representative poses do not establish a gap envelope.
+
+The [subsequent area-preserving refinement](patch-contact-refinement.md)
+replaces patch59's 22 samples with 44 and resolves the same A1 nominal
+state under unchanged laws. Peak screw T changes by -0.271% for twelve
+screws and -1.245% for twenty; the governing axes stay the same. Additional
+positive closure remains in the refined recovered fields. Thus this one
+sampling change does not explain the full peak demand or establish a
+continuous-contact solution. The complete source responses remain frozen.
+
 ## Source pins and reproducibility
 
 | Saved packet | Comparison SHA-256 | Response SHA-256 |

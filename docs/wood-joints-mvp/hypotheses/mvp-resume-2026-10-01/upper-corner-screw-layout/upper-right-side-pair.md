@@ -22,12 +22,12 @@ smooth-bolt stress proxy is **199.011 MPa**, or **0.31374** of the declared
 This completes the finite common-host side-pair check. Together with the
 rail packet, it supplies same-state, locally compatible bolt/contact shares
 for each host under a rigid cleat assumption. It does not close the shared
-timber block or complete joint. The next useful load-transfer check is
-**rail washer flexure under the derived end forces and moments**: the rigid
-washer assumption still suppresses its deformation and metal stress, while
-the rail seat has the larger sampled pressure, 7.146 MPa. Reuse these loads
-in the existing washer work under parent ownership; no additional method
-or qualification gate is introduced here.
+timber block or complete joint. The subsequent
+[washer-flexure check](upper-right-washer-flexure.md) now reuses all 48 saved
+end loads and adds one finer governing rail witness. It supplies a small
+closure sensitivity, while the changing inner-edge stress and free-edge
+traction residual leave washer resistance unresolved. No frame or pair
+force allocation is replaced and no qualification gate is introduced.
 
 ## Finite scope
 

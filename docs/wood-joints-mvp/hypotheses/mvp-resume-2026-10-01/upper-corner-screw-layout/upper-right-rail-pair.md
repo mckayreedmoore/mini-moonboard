@@ -25,8 +25,11 @@ completes all six cases under one side-member pose. It changes axial shares
 but leaves side_2 carrying approximately 1,098.757 N peak lateral load;
 side_1 remains effectively unloaded laterally. Both packets preserve their
 own source wrenches and independent host poses under a fixed cleat. The
-next finite check is washer flexure under their derived end forces and
-moments, without rebinding the frame response.
+subsequent [washer-flexure check](upper-right-washer-flexure.md) now balances
+all 48 saved end states and one finer governing witness. It supplies a
+deformation sensitivity under the fixed loads; unresolved inner-edge
+stress and boundary residuals supply no washer resistance. Neither frame
+response nor pair force allocation is rebound.
 
 ## Finite scope
 

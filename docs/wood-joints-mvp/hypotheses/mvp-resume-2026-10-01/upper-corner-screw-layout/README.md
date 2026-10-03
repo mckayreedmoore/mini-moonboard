@@ -163,6 +163,21 @@ conclusion. The [140 lb strong-X comparison](weight-comparison.md) returns two
 zero-clearance states with 777.501/656.745 N head peaks, then stops on contact
 cycling. It supplies no full lighter-user envelope or replacement 250 lb limit.
 
+The [saved contact-gap recovery](contact-gap-recovery.md) reproduces all
+original bottom-rail contact coordinates within 1.42e-10 mm and finds
+0.044593/0.010851 mm maximum closure at additional half-spacing samples.
+Those largest witnesses lie away from the new peak screw; samples nearest
+it remain open. This identifies sampling sensitivity without establishing
+a corrected screw allocation or a physical failure.
+
+The [area-preserving patch59 refinement](patch-contact-refinement.md) then
+returns A1-rear at nominal clearances for both screw counts. Replacing
+22 contact cells with 44 changes peak T from 1213.615 to 1210.324 N and
+2180.721 to 2153.579 N, respectively. This one refinement gives modest
+force changes and leaves unsampled positive closure in the recovered
+surface fields. It neither resolves continuous contact nor replaces the
+complete twelve-state force sources.
+
 ## Incomplete calculations and numerical limits
 
 The [one hand/foot comparison](paired-load-comparison.md) moves half the
@@ -197,8 +212,13 @@ are rigid, so complete joint/washer resistance remains unassigned. The
 axial shares change, while side_2 retains the 1,098.757 N peak lateral
 demand. Its nominal smooth-bolt stress proxy is 0.31374 of the declared
 92 ksi hypothesis. Independent rail/side poses under a fixed cleat do not
-establish complete timber-block interaction. Washer flexure under their
-same-state end forces and moments is the next finite local check.
+establish complete timber-block interaction. The subsequent
+[washer-flexure calculation](upper-right-washer-flexure.md) balances all
+48 saved end states plus one finer approximation at the governing rail
+seat. The latter adds 0.016761 mm head-center closure relative to the
+rigid washer. Its edge stress changes substantially between approximations
+and leaves a nonzero free-edge traction residual; no washer resistance
+or hardware replacement is inferred from that unstable stress proxy.
 
 The [finite footprint/reaction bounds](upper-right-washer-contact-bounds.md)
 extend that screen without another solve. A deliberately selected wood
