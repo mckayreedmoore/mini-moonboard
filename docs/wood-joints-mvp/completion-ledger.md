@@ -96,16 +96,19 @@ The [208-endpoint washer census](hypotheses/mvp-resume-2026-10-01/assembly-packa
 now includes all 48 lower-service annular wood-bearing references, maximum
 0.012174, closing that exact bookkeeping gap without assigning metal capacity.
 
-These working calculations do not close the formal coverage register.
 The [remaining twenty-cleat assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/remaining-block-transverse.md)
 also completes 120 body/case states, 8,472 grain and 11,064 transverse cuts,
 with no affected-body stop. It retains archived mechanical point/couple
 placement and corrects gravity once. Fresh grain-reference peaks remain below
 one; all 5,450 compression constructions are below the existing reference.
 The 5,614 positive normal-transfer cuts retain their missing resistance;
-largest lower bound 430.148 N belongs to left knee spine/A12-left. The two
-spines' same-axis beam-splitting applicability is the next bounded check.
+largest lower bound 430.148 N belongs to left knee spine/A12-left. The
+[spine applicability disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-spine-splitting.md)
+is now complete: opposing side forces and the shared path lack a justified
+single-loaded-edge beam reduction. A direct stock through-bolt reinforcement
+proposal is being prepared; current geometry and all flags remain unchanged.
 
+These working calculations do not close the formal coverage register.
 **All 47 entries remain pending and all eight physical-release flags remain
 false.** No physical build, floor, delivered hardware or fabrication release
 is inferred.

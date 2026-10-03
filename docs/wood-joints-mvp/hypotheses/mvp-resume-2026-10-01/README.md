@@ -335,9 +335,15 @@ Fresh grain tension/shear-torsion reference peaks are 0.134565 / 0.382535.
 All 5,450 finite compression constructions are below the existing wood
 reference; 5,614 source-placement cuts require tensile normal transfer.
 The largest lower bound is 430.148 N at the left knee spine/A12-left, which
-has four same-axis shafts. Its beam-splitting applicability is the next finite
-connection check. The result is neither a physical failure nor complete
-splitting resistance; simultaneous shears and torque remain explicit.
+has four same-axis shafts. Its
+[beam-splitting applicability decision](upper-corner-screw-layout/knee-spine-splitting.md)
+is complete.
+Opposing side-bolt forces leave its single-loaded-edge reduction unsupported;
+a net exterior shear check would miss the internal couple. A direct stock
+through-bolt reinforcement proposal is being prepared against the same source.
+The result is neither a physical failure nor complete splitting resistance;
+simultaneous shears and torque remain explicit, and the current geometry and
+104-axis authority remain adopted for this analytical packet.
 
 The concise [joint MVP disposition](upper-corner-screw-layout/mvp-joint-disposition.md)
 collects completed finite checks, conditional shop links, the panel-head
