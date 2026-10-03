@@ -134,8 +134,13 @@ the paired-bore ligaments and their full bending and torque demands. The
 [finite bore-wall map](upper-corner-screw-layout/corner-bore-wall.md) preserves
 each transverse force and full moment on supported cylindrical walls and
 returns eight deciding cuts under an explicit cosine pressure hypothesis.
-Nominal regional section sharing is being evaluated under the recorded
-end-bridge assumption; intact sections do not qualify the openings.
+The [nominal net-section calculation](upper-corner-screw-layout/corner-net-section.md)
+now completes those eight cuts and 24 retained regions under the recorded
+end-bridge/common-strain and shear-sharing assumptions. Its largest tension,
+compression, bending and same-state shear/torsion indices are respectively
+0.078053, 0.028558, 0.043033 and 0.241977. Regional forces and moments recover
+the complete signed source wrench; these nominal comparisons do not assign
+notch, splitting or whole-group capacity.
 The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
 repairs the earlier approximation defect at one fixed 709.053 N / 2.292 Nm
 end witness. Its two prescribed resolutions give 510.595 / 512.232 MPa
@@ -185,6 +190,12 @@ The [central-seat transfer](upper-corner-screw-layout/central-seat-transfer.md)
 now demonstrates a conditional static compression route through the supported
 10 mm ring at 0.942288 MPa, with signed algebraic coupon checks. Nut/washer
 coverage, centering and material properties remain explicit hypotheses.
+The [remaining twelve-block section calculator](upper-corner-screw-layout/remaining-net-sections.md)
+now completes 2,304 recorded opening-section limits under the same nominal
+sharing assumptions. All evaluated comparisons are below their stated
+references, with peak normal diagnostic sum 0.001798 and regional
+shear/torsion bound 0.032202. Source forces, actual finished bores and
+member identities remain unchanged.
 The [header input contract](upper-corner-screw-layout/header-local-transfer.md)
 preserves all 394 simultaneous header actions per case and the six existing
 disconnected paired-bore sections for the remaining local transfer work.

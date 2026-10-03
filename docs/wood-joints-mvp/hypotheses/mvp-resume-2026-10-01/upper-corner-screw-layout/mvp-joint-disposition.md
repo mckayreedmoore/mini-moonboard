@@ -23,6 +23,12 @@ Indices compare demands with each method's own declared reference; different max
 | Members / top rail | Normal/stability reference peak **0.628**; compatible rail shear/torsion **1.021524** remains above its unchanged reference. | [Member replay](member-replay.md), [rail isolation](top-rail-limit.md). **Declared exception**, approximately 2.2%; no rounding to PASS. |
 | Other duties / retained pairs | Existing exclusions retained; row-factor sensitivity **0.963**, ideal washer wood indices **0.208 / 0.264**. | [Register](joint-register.md), [24-block duties](remaining-block-duties.md), [methods](bolted-replay.md). Applicable component evidence reused. |
 
+The [top-corner nominal net-section comparison](corner-net-section.md) covers eight deciding signed cuts and 24 actual ligaments. Tension/compression/bending indices are **0.0781 / 0.0286 / 0.0430**; the same-state regional shear/torsion bound is **0.2420**. Exact regional offsets recover all six wrench components. Common longitudinal strain, end-bridge continuity, area-shared transverse force and equal-modulus twist remain explicit MVP assumptions; no notch or splitting capacity is assigned.
+
+The [remaining twelve blocks](remaining-net-sections.md) complete **2,304 recorded opening-section limits** across all six cases under the same assumptions. The normal diagnostic sum and same-state shear/torsion bound peak at **0.00180 / 0.03221**. These are finite nominal section comparisons; continuous-station maxima and notch/splitting capacity are outside the method.
+
+The [retail thick-washer option](retail-washer.md) completes two resolutions at the current **707.884 N / 2.432 N·m** witness. Declared **25.4/8.3058/2.5 mm OD/ID/thickness** gives finer stress **207.205 MPa**, index **0.829** against assumed 250 MPa yield, with saved nominal timber support. This changes no inventory and qualifies no actual retail material.
+
 ## Practical disposition
 
 The finite checks provide a reproducible conditional working model. Complete joint qualification and the rail/panel reference exceptions remain open.

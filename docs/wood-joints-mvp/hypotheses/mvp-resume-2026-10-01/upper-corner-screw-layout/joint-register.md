@@ -212,9 +212,12 @@ assumptions; the original frame index is preserved.
    same cleat datum, independently recover physical forces and moments, and
    replay component references on the same states. The top
    [bore-wall map](corner-bore-wall.md) supplies a supported pressure route
-   into the deciding net sections. Nominal regional sharing, complete
-   splitting/group resistance and actual washer/head/nut material remain
-   separate recorded scope limits.
+   into the deciding net sections. Their [nominal regional comparison](corner-net-section.md)
+   completes eight cuts / 24 ligaments, with tension/compression/bending
+   indices 0.078053/0.028558/0.043033 and same-state shear/torsion bound
+   0.241977. End-bridge compatibility and sharing remain explicit hypotheses;
+   complete splitting/group resistance and actual washer/head/nut material
+   remain separate recorded scope limits.
    [Upper-right washer bounds](upper-right-washer-contact-bounds.md) retain
    their pressure-cap and strip assumptions; they are not predicted physical
    stresses or a product rating.

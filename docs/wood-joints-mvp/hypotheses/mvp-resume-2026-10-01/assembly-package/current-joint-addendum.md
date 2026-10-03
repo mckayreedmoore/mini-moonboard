@@ -5,18 +5,22 @@ Updated October 2, 2026. Read this addendum with the frozen
 [hardware engagement specification](hardware-engagement.md) and
 [nominal bolt-length screen](hardware-length-fit.md). It bridges their
 dimensional and operation records to the current four-upper-screw frame and
-completed left/right rigid-cleat calculations. It changes no source solids,
+completed first-order local joint calculations. It changes no source solids,
 hardware selection, authority or physical-release status.
 
 The current force source is
 `../upper-corner-screw-layout/operators-attempt02/` and
 `../upper-corner-screw-layout/frame-250-attempt02/`. The completed
-[upper-right block](../upper-corner-screw-layout/upper-right-block.md) and
-[upper-left block](../upper-corner-screw-layout/upper-left-block.md) each
-retain four bolts, thirty-two face cells, six nominal-clearance cases and
-one compatible pose per host against a common rigid cleat. Each includes
-its exact current mapped cleat weight once. Neither replaces the full-frame
-force source, establishes elastic cleat compatibility or releases a joint.
+[first-order top-corner transfer](../upper-corner-screw-layout/corner-first-order.md)
+and [bottom-corner transfer](../upper-corner-screw-layout/bottom-corner-transfer.md)
+each retain four bolts per cleat and six nominal-clearance cases, with
+independent physical force/moment recovery and each mapped cleat weight
+included once. These replace the old local geometric-tension branch for
+continued joint-force use. They preserve the full-frame source and provide
+no elastic cleat qualification or physical release. Use the
+[concise MVP disposition](../upper-corner-screw-layout/mvp-joint-disposition.md)
+for completed methods, assumptions and the panel-head/top-rail reference
+exceptions; the older assembly quantities and dimensional checks remain valid.
 
 ## Four changed screw stations
 

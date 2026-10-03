@@ -8,6 +8,14 @@ upper-panel corner axes to the upper horizontal row, retaining 66 Hillman
 not an installed change or a board rating. Reviewed source geometry,
 selected authority and previous force packets are preserved.
 
+For the current simpler MVP work, start with the
+[joint disposition](mvp-joint-disposition.md) and the
+[parent's selected analytical source](../README.md#current-analytical-working-model-for-the-mvp-goal).
+Keep the existing 250 lb dynamic / 300 N / 100 mm source. The owner closed
+further hold-dimension and load-lever comparisons; preserved sensitivities
+remain history. Later first-order local calculations and finite section
+checks use explicit working assumptions without replacing this frame source.
+
 ## Four changed stations
 
 Each axis moves 65.95 mm up the panel: global translation
