@@ -104,7 +104,14 @@ twelve states, with a 2180.721 N nominal lower-left peak; it does not select
 a new screw inventory or demonstrate that screw count alone improves sharing.
 
 The top-rail 1.021524 shear/torsion reference exceedance remains unresolved
-for the current 100 mm force lever. The completed
+against the original C_D = 1 reference for the current 100 mm force lever.
+The [timber duration comparison](upper-corner-screw-layout/member-duration.md)
+reproduces all 34,704 applicable original cut checks exactly. Under the
+declared seven-day cumulative full-peak hypothesis, C_D = 1.25 gives
+normal/stability, compatible rail-face and component-bound peaks of
+**0.518810 / 0.817219 / 0.951332**, with unchanged loads and elastic response.
+The separate permanent-load comparison at C_D = 0.9 is still pending;
+this does not yet complete or adopt the duration basis. The completed
 [50 mm lever sensitivity](upper-corner-screw-layout/load-lever.md)
 preserves the full forces and completes twelve frame states. Nominal peak
 screw tension falls to 1707.613 N and lateral force to 1126.477 N; the
