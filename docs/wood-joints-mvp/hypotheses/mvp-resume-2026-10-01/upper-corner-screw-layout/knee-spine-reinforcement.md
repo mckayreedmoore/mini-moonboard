@@ -80,8 +80,8 @@ axial-tie pairs give zero whole-body and grain-cut wrench under declared symmetr
 that identity supplies no regional sharing or compatibility solution.
 
 [Proposal geometry](knee-bridge-geometry.md) and [order/mass reconciliation](../assembly-package/knee-bridge-order.md) are complete: two valid solids, four added stacks, net planning mass +0.247959 kg.
-The combined gravity delta remains pending global adoption. Current loads are kept
-fixed for this proposal. Static witnesses, reference comparisons, delivered fit,
+The [gravity update](knee-bridge-gravity.md) and [six-case frame replay](knee-bridge-frame.md) are complete under the retained gross-compliance approximation; adoption remains pending. Live loads stay
+fixed. This original normal allocation retains its original force envelope. Static witnesses, reference comparisons, delivered fit,
 compatibility and qualification are distinct. Existing tangential/torque duties
 remain; no Ft-perpendicular, complete-joint or physical acceptance is claimed.
 
