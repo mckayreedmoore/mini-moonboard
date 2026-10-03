@@ -346,6 +346,20 @@ The result is neither a physical failure nor complete splitting resistance;
 simultaneous shears and torque remain explicit, and the current geometry and
 104-axis authority remain adopted for this analytical packet.
 
+The completed [all-joint splitting assessment](upper-corner-screw-layout/all-joint-splitting/README.md)
+extends the demand/path census to all 30 joint duties and both timber sides:
+44 bodies, 528 body/case/transverse-direction states, 62,376 reused cleat
+limits and 25,212 original-point receiver limits. All 498 source pins and
+four output artifacts authenticate. Twenty-seven cleat directions retain
+finite compression-only normal constructions; thirteen positive directions
+have an existing aligned bolt/host candidate and eight have no parallel
+bolt. All forty receiver directions retain placement-dependent opening
+diagnostics. These are not physical failures, spare bolt capacity or new-hole
+requirements. Complete splitting resistance remains unresolved; supported
+boundary placement, simultaneous host transfer and applicable anchorage are
+the finite missing bases. The assessment preserves the reviewed geometry,
+separate proposal and formal flags.
+
 Separately, the [four-bolt knee proposal working-package note](upper-corner-screw-layout/knee-bridge-working-package.md)
 describes an unadopted conditional packet with 108 bolts/nuts, 216 washers,
 66 Hillman screws, 50 bodies and 44 blanks. Its fresh gravity/frame source

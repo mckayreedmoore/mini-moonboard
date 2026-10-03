@@ -47,7 +47,7 @@ Bottom left's governing record is A1-rear `side_1`: simultaneous **T=203.598 N, 
 
 The coordinator sets MVP disposition with the panel deficit and original rail finding visible. Neither is an observed physical failure. This sheet commissions no further models, research, tests or external sign-off.
 
-The [corner splitting applicability decision](corner-splitting-disposition.md) identifies the actual bottom-right `u`-opening path and existing side-bolt/host route. NDS opening provisions apply, but the cited E.4/EC5 scalar rules supply no complete crossed-group capacity. Actual hardware/washer capacity, full splitting/group/torque resistance and delivered fit remain unqualified where stated. **47-criterion authority, complete-joint HOLD and fabrication/physical-release flags remain unchanged**.
+The completed [all-joint splitting assessment](all-joint-splitting/README.md) covers all **30 duties / 44 timber sides / 528 states**, with 498 source pins and four artifacts authenticated. Twenty-seven cleat directions retain finite compression-only normal constructions; thirteen positive directions have existing aligned bolt/host candidates and eight have no parallel bolt. All forty receiver directions retain original-point opening diagnostics. These are placement-dependent demands, not spare bolt capacity, physical failures or new-hole requirements. Supported boundary placement, simultaneous host transfer and applicable anchorage remain missing; complete splitting resistance is unresolved. The [corner applicability decision](corner-splitting-disposition.md) remains part of that evidence. **47-criterion authority, complete-joint HOLD and fabrication/physical-release flags remain unchanged**.
 
 ## Conditional shop references
 
