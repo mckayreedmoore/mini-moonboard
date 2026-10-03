@@ -107,10 +107,17 @@ elastic plate stress proxies with decreasing free-edge residuals. This
 conflicts with the expressly hypothetical 250 MPa yield input; actual
 washer yield and resistance remain unknown. No delivered hardware failure
 or stronger-hardware requirement is inferred from that hypothesis alone.
+The completed [exact-product source check](upper-corner-screw-layout/washer-product-basis.md)
+confirms that the existing washer listings provide dimensions and low-carbon
+steel wording, without a numerical minimum yield. The nearby standard head
+gage circle is not a guaranteed installed flat contact circle. Those facts
+preserve the analytical material/footprint assumptions rather than converting
+the stress proxy into a product capacity or a new procurement minimum.
 
 The [assembly package](assembly-package/README.md) remains the dimensional,
 transport, stock, purchasing and operation basis, read with the four-axis
-overlay above. Its 104-stack dimensional specifications and nominal longer-
+overlay above and its [current-joint addendum](assembly-package/current-joint-addendum.md).
+Its 104-stack dimensional specifications and nominal longer-
 bolt fit do not depend on the changed panel forces. Loaded operations and
 the central-seat demand use their explicit force-source scopes. Priced
 hardware terms total $189.58 when the retained increment is counted once;

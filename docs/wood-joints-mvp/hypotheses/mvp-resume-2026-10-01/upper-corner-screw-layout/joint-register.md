@@ -25,11 +25,26 @@ interface wrenches. Axial shares change; side_2 retains the 1,098.757 N peak
 lateral demand. Its maximum nominal smooth-bolt stress proxy is 0.31374 of
 the declared 92 ksi hypothesis. The two hosts still have independent poses
 under a fixed cleat, and both packets retain rigid washers.
-Their [local washer-flexure extension](upper-right-washer-flexure.md)
-balances all 48 saved end states and one finer governing witness. Fixed
-T/M loading supplies a deformation sensitivity, without feedback into the
-frame or pair forces. The governing finer approximation adds 0.016761 mm
-closure, while its inner-edge stress remains unresolved between bases.
+The completed [right whole-block integration](upper-right-block.md) combines
+both pairs at one common rigid-cleat datum with the current mapped weight
+included once. All six cases balance. The [actual left common-block
+calculation](upper-left-block.md) separately completes twelve host-pair
+solutions across its six cases; no mirrored force or acceptance is transferred.
+Its [component replay](upper-left-block-components.md) updates all 24 bolt
+states. Compatible mean-seat indices are 0.667024 left and 0.770232 right;
+conditional lateral indices remain 0.722296 and 0.813949. These local
+responses do not replace the register's saved frame force allocation or
+establish elastic timber/group resistance.
+
+The [local washer-flexure extension](upper-right-washer-flexure.md) balances
+all 48 saved end states and one finer governing witness. Its initial global
+polynomial stress defect is addressed by the [free-edge
+calculation](upper-right-washer-edge.md), which retains one fixed end T/M
+at exactly two resolutions. Stress proxies 510.595/512.232 MPa differ by
+0.321%, with decreasing free-edge traction residuals. The finer result
+exceeds the expressly hypothetical 250 MPa yield input; delivered washer
+yield and resistance remain unknown. No product failure or frame/pair force
+feedback is inferred.
 
 ## Census and force convention
 
@@ -70,7 +85,8 @@ transfers an earlier frame pass.
 | Top-corner components | Eight axes; 48 simultaneous states; sixteen finished paths and sixteen washer seats | Declared lateral/group sensitivities and pressure/stress demands; no complete axial/lateral/contact solution or washer metal resistance. |
 | Upper-right shared rail | Two axes, sixteen face cells and six local interface-wrench states | One declared K20 branch with fixed cleat and rigid washers; no coupled side group, frame redistribution, washer metal resistance or complete joint acceptance. |
 | Upper-right shared side | Two axes, sixteen face cells and six local interface-wrench states | Same declared K20 branch; axial redistribution but no useful lateral sharing. Fixed cleat, rigid washers and independent rail/side poses retain the complete-joint limit. |
-| Upper-right washer flexure | 48 saved simultaneous end T/M states and one finer governing witness | Local annular plate/contact hypothesis with useful deformation sensitivity; stress basis and free-edge traction are unresolved. No actual washer capacity or force feedback. |
+| Both common rigid top blocks | Six nominal cases per corner, four bolts and 32 face cells per case | Balanced same-state rail/side transfer and fresh component references; no elastic cleat deformation, oblique-group resistance or feedback into the full frame. |
+| Upper-right washer flexure / free edge | 48 saved end T/M states; one governing end at two prescribed local resolutions | Numerical free-edge repair greatly reduces stress sensitivity at the fixed witness. Its elastic steel hypothesis exceeds 250 MPa; actual material/capacity and force feedback remain unqualified. |
 | Bottom-corner components | Eight axes; 48 simultaneous states; sixteen paths and sixteen washer seats | Overlaps the remaining-bolt census; it is additional method coverage, not extra hardware or an independent joint acceptance. |
 | End-grain route | Twelve axes; 72 signed states | Conditional Fe-perpendicular and one Ceg application; adjusted detailing/group and complete transfer remain separate. |
 | Lower-left outer service | Four axes; 24 signed states | Fresh individual lateral references fill the remaining screen's exclusion; zero-force direction/reference fields remain null. |
