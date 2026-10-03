@@ -1,5 +1,14 @@
 # Current-frame physical connector projection contract, attempt 01
 
+September 30 load-label correction: the preserved
+`source-gravity-nodal-map.json` copies the adapter's `physical_body_loads`,
+which contains the combined A12 gravity and climber loads. Its filename and
+gravity-only descriptions below are incorrect; the projection rows are
+unaffected. Use the separated maps identified by the
+[six-case load audit](../current-physical-load-map-audit-attempt01/README.md)
+for gravity settling and climber ramps. The preserved payload and its hashes
+are unchanged.
+
 This packet expands the pinned `a12-rear` connector laws onto the 12,549
 physical solid nodes, so their sparse rows can be paired with a future physical
 stiffness operator without carrying interpolation ghosts or numerical spring

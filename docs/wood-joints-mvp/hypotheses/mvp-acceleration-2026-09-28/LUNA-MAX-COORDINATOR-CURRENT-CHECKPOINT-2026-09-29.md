@@ -2174,3 +2174,757 @@ Parent also reproduced the BG045 axis-2-only proposal byte-identically with writ
 The parallel [uppermost-block packet](../upper-frame-joint-review-2026-09-30/README.md) was read and its producer replay passed. It supplies 336 bolt actions, 672 signed member directions and 84 block balances for four upper blocks across the same three accepted rear responses. Its root-yield scouting assumptions, oblique terminal-end questions and G7 exclusion remain explicit; no scouting exceedance is promoted to an adopted failure or complete-joint acceptance. Its report SHA-256 is `0fc5f9ce9c92effcb01d3213c38b33282c281539dab9d48cb06f33e15c1994a6`. The parallel thread is separately addressing remaining service-upper duties; lower-corner work does not duplicate that study.
 
 The staged native mapping proposal had stale generated expected-state metadata, detected by parent replay before freeze. A bounded Luna task is correcting that consistency and preparing the nonzero-reaction boundary-release coupon first. A second task is recovering the seven actual corner timber-contact pair resultants and average cell pressures from accepted exports. Neither task authorizes a frame run or expands panel qualification. Three of six conditional frame responses remain usable; current geometry and original bolt resistance evidence are preserved.
+
+### September 30: native release gate passed; corner bearing demands recovered
+
+The [native nonzero-reference release coupon](current-floor-nonzero-reference-release-native-attempt01/README.md) passed all 12 printed increments. Parent froze the coherent two-step input, obtained its scoped independent review and consumed one serialized 120-second-bounded launch. Native return was zero in 0.43745 seconds with confirmed terminal cleanup. At unchanged external loads, releasing the scalar restraint produces t=-4/3 mm, q=-1/3 mm and N=T=0 throughout the released step. The held endpoint has T=+1 N, so this tests removal of a nonzero reaction rather than only a zero-force event. Constant capture, persistent equations, permanent-SPC reissue, load persistence and `T=Ft-RF(reference,1)` match this graph's oracle. Maximum force and displacement discrepancies are 3.34e-7 N and 3.34e-7 mm; maximum generalized balance residual is 7.00e-7 N. Native Newton-on/geometrically-linear mode passes. Assessment SHA-256 is `40132a2667702b86de2a97082e024362b5f91ca330085028f11476de24495862`; exact freeze is `632885e5e3ac8c47e286f48250d4ed04c087ed39dafe1348af4011515444b73b`.
+
+The method proposal now records corrected generated metadata and two stale historical checker hashes alongside current verified hashes; original checker/native files were preserved. This coupon closes a specific native release/RF interpretation dependency. It does not establish full-frame weighted mapping, event localization/re-engagement, restart persistence, a 100-cell coupled selector, initial gravity equilibrium or zero-reaction gauge/rank. No frame run or automatic retry was made. The native ledger is idle with 54 consumed terminal runs.
+
+The [corner timber-contact packet](current-corner-timber-contact-pressure-screen-attempt01/README.md) passed parent read-only replay and source checks. It covers seven timber pairs along and neighboring the BG001/BG003/BG045 path, with 588 cell states and 147 signed pair resultants across all 21 accepted case increments. There are 182 force-resolved active and 406 open cells, with no rounding-ambiguous state under the documented classification. Maximum modeled cell-average pressure is 0.513415586831 MPa at A1-rear full load, header-post `contact_10_0`/SPR41: 683.1726 N over 1330.6425 mm². The corresponding header/post pair force on the header is [0,0,1125.1053] N, with moment [-110667.09,1339578.50,0] Nmm about global [0,0,0]; the post wrench is opposite. Local datum transport is required before combining those moments with joint actions. Report SHA-256 is `78e532cff122607ab7f17cb7822c0536bcf601d871249fa9fa301dba04990d25`.
+
+These are source-bound demand conversions, not pressure peaks, calibrated wood contact, crushing resistance or joint acceptance. Member/block strength basis, applicable bearing/splitting/group methods, actual shank/thread/nut/washer engagement and physical stiffness/clearance bounds remain missing. BG045's stated 5.4 mm detailing exception and conditional axis-2 proposal remain unresolved, with no reviewed-axis change. The usable frame response count remains three of six. Unchanged original LEG/runner resistance and panel work stay bounded to specifically affected dependencies.
+
+### September 30: next bounded continuation and cleanup coordination
+
+The [BG003 necessary-bearing packet](current-bg003-bearing-necessary-bound-attempt01/README.md) supplies 126 receiver-state certificates from the authenticated midpoint wrenches. For every unit transverse projection, bounded signed line traction requires `P >= (2|J| + sqrt(4J² + L²F²))/L²`; finite direction checks give valid necessary lower bounds without a stiffness or gap assumption. Uniform and sign-reversing exact-integration oracles and source-bound replay pass. The largest projected pressure bounds are 4.8292 MPa for the spine, 1.9855 MPa for the side member and 0.4385 MPa for the inner block. These are minimum required peaks in the sole-bore/full-engagement proxy, not upper demand bounds or wood capacity comparisons. The corresponding force-only averages are 2.0003, 0.9520 and 0.1816 MPa. Source rounding centers and grain remain conditional. Report SHA-256: `890e25975f5aaf5eca9cf5e2028201550da3790f7b29b6d7baad69e7cab57012`.
+
+Parent has frozen the separate ten-step staged capture/open/re-engagement coupon in `current-floor-staged-reference-native-attempt01`, exact freeze SHA-256 `02c0ea77685cc8ae40483c931096d2518bf3635929556c8c318745f08bf16c44`. Its independent rational oracle passes, and its every-increment checker retains the simultaneous two-load interpolation in stage 7. The scoped exact-freeze review is active. This is a synthetic coupon, not a gravity-settle frame run or a restart test. `current-bg045-edge-applicability-attempt01` is also active; its source work must distinguish grain obliquity from bolt-axis obliquity and preserve the conditional 5.4 mm comparison without claiming an unsupported 2024 Commentary rule.
+
+The completed parallel [service-upper packet](../service-upper-frame-joint-review-2026-09-30/README.md) was read and its producer replay passes. Combined with the uppermost packet, it supplies actions for eight upper blocks and 32 bolts. The service maximum is 38.46 N lateral; its report SHA-256 is `f4c92d874dcb0f40e5e900971deaff9580e99063b453e1984e9b1ba660a2be9f`. Its end interpolation remains a declared historical-method sensitivity: the reviewed 2024 specification confirms the bolt-axis distinction, but exact 2024 Commentary interpolation is unverified. The source clarification is forwarded to the BG045 task; no upper capacity is adopted here.
+
+For owner-requested parallel cleanup, parent makes no staging/index/commit changes. Completed packets suitable for a separately verified commit include the release native result, corner contact screen, necessary-bearing packet and earlier replayed section/clearance/detailing packets. Preserve active `current-floor-staged-reference-native-attempt01`, the staged checker/freeze helpers in `current-staged-floor-native-mapping-preflight-attempt01`, and `current-bg045-edge-applicability-attempt01` until terminal verification. Preserve all exact native inputs, source snapshots, raw outputs, hashes, ledger records and other agents' files; do not classify them as disposable scratch. Coordinator/matrix files remain active append-only status documents.
+
+
+### September 30: staged native method and BG045 applicability terminal
+
+The [ten-stage native reference coupon](current-floor-staged-reference-native-attempt01/README.md) passed all 60 accepted increments, with independent STA/DAT coverage of six increments per stage. Both prescribed captures, opening/release, simultaneous load interpolation and open-stage zero tangent action pass. Maximum displacement discrepancy is 3.34e-7 mm and generalized balance residual is 7.00e-7 N. Parent used one exact-frozen, independently reviewed, serialized launch; return was zero with terminal cleanup. Assessment SHA-256 is `5d8aafe1097850057e0f18ede01fa8a61f2ace52dc73c3a9743c5a785ea6e783`. Both release and staged freezes still verify against live sources. The native slot is idle with 54 consumed launches.
+
+This closes prescribed small-model capture/release/re-engagement mapping, not discovery of contact events or frame states. Before an actual gravity-settle/climber-ramp frame run, the coupled 100-cell state/event selector, weighted full-frame mapping, initial gravity equilibrium and reaction-free rank/gauge remain specific readiness dependencies. No guessed-mask retry, fourth usable case or complete-joint acceptance is gained.
+
+The [BG045 applicability packet](current-bg045-edge-applicability-attempt01/README.md) passes parent replay. Official 2024 NDS text supports the conditional perpendicular-grain 4D loaded/1.5D unloaded categories but does not settle which rectangular face controls an oblique vector. A1 axis 2 retains its concrete 20-versus-25.4 mm comparison, 5.4 mm short under the stated minus-Y interpretation. A12/K12 axis-1 component and first-hit readings differ; mixed-grain header detailing and a mechanism-specific splitting check remain unresolved. The axis-2-only proposal reaches exactly 4D with no nominal tolerance margin. Classification SHA-256 is `3d0ef922dac57f94578ebcd6236de1089a81b5326c39fed800601e8b34fd7867`. No reviewed geometry was altered.
+
+The parallel owner-directed cleanup and master transition are complete. Shared checkout is master; future work follows AGENTS.md's master-only policy. Raw native inputs, outputs, snapshots and numerical reports remain intact locally. The coordinator, gate matrix and artifact manifest remain active status files. The complete corner deliverable still needs actual compatible bearing/bolt behavior, applicable timber splitting/group/section resistance, axial/thread/washer interaction and the missing frame cases; unchanged LEG/runner resistance is reused.
+
+
+### September 30: all six source loads pass the necessary floor-resultant screen
+
+Parent read and replayed the [global normal-reaction statics packet](current-six-case-floor-global-necessary-statics-attempt01/README.md). The producer authenticates the six load-only models and register/decomposition wrenches, exactly 100 distinct physical points at Z=0 with upward unit normals, matching unilateral carriers/support nodes, and identical floor geometry across all six models. Known rectangle inside/outside/boundary oracles pass. All six required centers of pressure lie inside the eight-vertex footprint hull; the minimum signed edge margin is 343.169223 mm in A12/K12 rear. The required total upward normal force is 4424.926817 N in each case. Report SHA-256: `f32d28f4aece1bc32b849a9f98ed33d47e2681f05802e395f1c60985cc6552ff`.
+
+This establishes only that global vertical force and X/Y overturning moments do not rule out nonnegative floor-normal reactions on the modeled footprint. Horizontal forces and yaw moment remain separate, and the result does not prove source contact-law/displacement compatibility, physical support, friction capacity or any new accepted frame case. No rejected response force, native run, guessed mask or geometry change was used. The usable response count remains three.
+
+
+### September 30: complete corner boundary reconstructed
+
+Parent produced and replayed [the five-body corner transfer packet](current-corner-whole-assembly-transfer-attempt01/README.md). It authenticates all three accepted exports and all 21 states. Each state has 42 internal and 296 boundary interfaces, retained as 62 signed member/receiver/role ports. Physical endpoint forces at the common origin cancel every internal interface in force and moment; maximum cancellation discrepancy is 1.46e-11. Reconstructed body interface wrenches and transported source residuals agree within 1.16e-12 N and 1.84e-9 Nmm. The source connection-owner datum is explicitly distinguished from body datums; no free endpoint couple or independent acceptance tolerance is invented. Output SHA-256 is `01f4128989a5674f040c5d3a8ce9af3ed4523ec0266518989960a1345ad27f55`.
+
+The complete corner has simultaneous floor, panel, adjacent-block and retained-frame transfers; it is not three isolated connections in one serial path. Its full-load net boundary vertical force of approximately +296.839 N balances its own mapped gravity, while significant incoming and outgoing port actions cancel. This net is not an individual group/bolt demand. Existing per-body raw/interval gates remain binding, and local bearing/splitting/bolt/washer resistance and three missing cases remain open.
+
+Next bounded tasks name their engineering results and stops. The axial/seat task fills K12 and all-increment coverage for six ties and twelve seats, reusing existing conditional references; it stops at source-authenticated coverage and precise missing interaction/resistance inputs. The BG045 header-transfer task first checks complete receiver action coverage, then recovers signed header cuts if complete; it stops at useful section actions or a named omitted source action, without identifying a resultant as a local splitting stress. The gravity-rank readiness task audits actual model/MPC/ground/branch classes; a bounded rigid-body mechanism screen may expose extra modes if source mapping is clear, but does not replace full elastic rank or select a unilateral q=0 branch. No native launch or geometry change is authorized by these input-only tasks.
+
+
+### September 30: complete corner resistance register and simultaneous signed actions
+
+The [complete resistance register](current-corner-complete-resistance-register-attempt01/README.md) consolidates BG001/BG003/BG045 lateral, continuous-bolt/bearing, detailing, section/splitting/group, axial/thread/nut/washer, member-contact and onward-transfer evidence. Each row names its method/input basis and exact open failure modes. Original LEG/runner resistance is reused, and panel work remains a named receiver/transfer dependency. No new capacity is assigned and no conditional component ratio is treated as a combined pass.
+
+Its reproducible demand producer authenticates the three accepted exports and all 21 states, retaining 168 signed lateral-plane rows and eight per-plane peak states. Same-state ties and both BG003 planes are preserved rather than combining independent maxima or summing capacities. The peak BG003 inner plane for bolt 1 is A1 rear (102.535 N), while its spine plane peaks in A12 rear (483.948 N); this specifically prevents treating those independent maxima as one simultaneous state. Demand output SHA-256: `557b994f7600ceb7c958d50dd01350724d7ea86c671a086677b6f3044ecc2f48`. Parent byte-identical replay and whitespace check pass.
+
+Parallel review guidance is acknowledged: retain the complete corner resistance table as the joint deliverable and pursue compatible gravity plus one previously unusable case through existing gates as the response deliverable. A new method coupon/contact study is justified only by a named dependency. The current input-only rank, axial-seat and header-section tasks are bounded to those deliverables. No native run, reviewed geometry change or fourth usable case was gained.
+
+
+### September 30: BG045 header section transfer recovered
+
+The [header-section packet](current-bg045-header-transfer-section-demands-attempt01/README.md) proves complete base_header source inventory for all 21 accepted states: 160 interface owner rows match the native-response points/forces, 212 physical header nodes have source load entries, and no omitted active/inactive floor tangent row owns the header. The BG045 station X=-1085.85 mm contains exactly its two lateral planes and two axial ties, with no on-plane source load node. Full-body closure, complementary cuts and plane-jump checks pass. Parent read the methods and reproduced both the producer and independent native-response verifier; the latter was run with writes intercepted and byte-compared. All 84 one-sided wrench comparisons have zero difference. Report SHA-256: `5a8f776d9b9c44550f6059089ba2768dc08c82f94aeefd06f867b469ce27155f`.
+
+At full A1 rear, the header BG045 station external force is [-32.6244,132.81466,107.967338] N and moment [-7023.139044,-621.494820,-3257.311402] Nmm about [-1085.85,-105.85,257.95] mm. These include both lateral and axial ties and simultaneous cut-side actions; they are not local cross-grain tensile stress or splitting resistance. The complete resistance table now links this evidence and retains the exact remaining local transfer/splitting mechanism dependency. No native run, reviewed geometry change or new accepted frame case occurred.
+
+
+### Parallel ownership and useful independent input work
+
+This mechanics thread owns the complete corner resistance table, whole-assembly boundary reconstruction, BG045 header section packet, three-case axial-seat consolidation and bounded initial-gravity rigid-body mechanism/rank-readiness audit. Parent remains sole native readiness/freeze/serialized-execution owner; no frame launch or support-controller implementation is queued. Existing raw evidence, active status/manifest files and these packets must be preserved. Work remains on master, with no Git mutation by this thread during the current engineering tasks.
+
+In response to the parallel repository thread's request, independent hardware/material specification coverage has higher immediate value than another code/CI review. Suggested bounded output: feasible catalog bolt/nut/washer design combinations with reviewed stack/shank/runout/engagement and seating dimensions, plus explicitly declared block strength/grade/grain scenarios. Reuse existing leads and original frame-bolt evidence; identify exact fit/specification gaps without selecting received hardware, claiming stock inspection, changing reviewed geometry/material binding, or introducing new resistance acceptance. This work is not assigned to the current Luna agents. Any separate MVP goal coordinator should consume these packets and agree ownership before assigning duplicate corner/controller/native tasks.
+
+
+### September 30: all three cases now have complete axial-seat demand coverage
+
+Parent read and replayed [the axial-seat register](current-corner-three-case-axial-seat-register-attempt01/README.md): 21 states, 126 signed physical tie-state records and 252 outer washer-seat records pass source authentication, paired force closure, exact seat/member identity and pressure arithmetic. All tie scalars are positive tension. The maximum is 119.343 N, BG045 header axis 1 in A12 rear, corresponding to 0.535828 MPa as an ideal full-CAD-annulus average. K12 uses the accepted direct-master attempt01 export, explicitly excluding its rejected attempt03. Register SHA-256: `7e1c393f0670b4f7428946a856dde757315307d0e92ecfa77e72d70f40bdde90`.
+
+Parent corrected a README wording ambiguity: each BG003 physical bolt has one axial tie and two outer seats, not two independent ties; its middle side receiver has no independent washer seat. Numerical evidence is unchanged. Existing A12/A1 conditional material/steel references are carried forward without generating new resistances or combined-action ratios. The complete resistance table now links all three cases' demand coverage. Washer steel/spreading, actual seat support, declared block strength/grain, hardware/engagement and axial/lateral/bending interaction remain open; actual delivered conformance is distinct from conditional design inputs. No native run or geometry alteration occurred.
+
+
+### September 30: actual source constraint inventory and rigid-branch screen verified
+
+Parent read and replayed the terminal [gravity rank-readiness audit](current-frame-gravity-rank-readiness-attempt01/README.md). Its 15 source pins and free-body/relative-spin oracles pass. All 348 bilateral and 1,292 unilateral projected rows expand through permanent MPCs into 50 physical bodies' 300 rigid coordinates; all 800 floor-matrix masters are unique physical-body DOFs. At relative SVD cutoff 1e-10, the all-open bilateral branch has rank 220/nullity 80, including six common modes and 74 additional screen mechanisms; adding only 200 conditional floor-stick rows gives rank 235/nullity 65. The optimistic all-unilateral-active envelope has rank 297/nullity 3 (verified Tx/Ty/Rz), and adding conditional captured floor-stick gives rank 300/nullity 0. Cutoff sensitivity is recorded; these are unweighted rigid-body kinematic screens, not full elastic tangent ranks or admissible-state evidence. Final audit SHA-256: `a8453f861777a307a386a6398c3dd976965b7c6c6872b149f1826cfec08a5718`.
+
+The audit corrects the grounding inventory: 100 fixed nonphysical floor endpoints occur as masters in 300 permanent projection equations and feed 100 floor-normal rows. They are not unused nodes. The 1292 spring grounds, 200 scalar episode references and 100 floor endpoints are numerical nodes; no physical-body node is SPC-fixed. Their actual projection effects are retained rather than treating them as physical anchors or erasing their ground path.
+
+The result rules out simply assuming that a six-mode gauge cures an all-open start. The actual directional gravity branch still needs its own operator/null modes and reaction-free treatment; common nullity can change once floor normals bear. No native frame run or guessed-mask retry is ready.
+
+Two bounded borrowed-tool dependencies now address the compatible-gravity/next-case deliverable. The matrix-export preflight checks the pinned 2.23 manual/source and prepares one small C3D20/constant-strain/MPC known answer for built-in FREQUENCY SOLVER=MATRIXSTORAGE; parent owns any later freeze/review/native launch. It does not assemble a custom solid-element kernel or select unilateral tangents. The coupled-indicator fixture checks official SCIP/PySCIPOpt conditional constraints on existing small no-state/multiple-state/nonzero-reference fixtures, with signed unbounded unknowns and explicit ambiguity/budget stops. It supplies selector evidence only, not 100-cell scalability or frame/history acceptance. Both stop at a documented tiny method or exact unsupported behavior.
+
+The parallel hardware/material thread owns `../hardware-material-specification-2026-09-30/`; this mechanics thread leaves it untouched. That thread corrected its initial adjacent-table-row reading: official DF-L No.2 is Fb900/Ft575/Fv180/Fc-perp625/Fc1350 psi, E1.6e6/Emin580k psi and G.50. The initially reported No.1 values must not be imported. Frozen No.2 inputs remain unchanged; new conditional material/hardware proposals require explicit basis before adoption. The independently produced corner register review is preserved without another cold-review cycle.
+
+
+### September 30: borrowed coupled-state selector verified; export coupon frozen
+
+Parent read the independent support/corner packet and replayed its diagnostics byte-identically. Its staged-reference scenario remains distinct from the rejected fixed-zero combined-load branch. No guessed-mask native retry or rejected force adoption occurred.
+
+The [SCIP indicator selector fixture](current-coupled-indicator-selector-fixture-attempt01/README.md) passes parent replay using ephemeral PySCIPOpt 6.2.0/SCIP 10.0.2. Eight tiny source-pinned cases exhaust their binary masks: zero-force event ambiguity, supplied nonzero-reference held state, fixed-reference no-state, mirrored multiple-state, and four simultaneous two-cell stages. Each returned state satisfies coupled equilibrium and branch laws. Signed continuous unknowns have no caller-supplied finite big-M/bounds. Parent identified and the producer corrected an incomplete-enumeration oracle assertion; the forced zero-budget path now explicitly stops without a completeness claim. Terminal known-answer SHA-256 is `8b42e4282952d8174f93b5f6138de14d0c88cbb1602d3968665aba5558045e88`. References are supplied inputs; event discovery/history, current-frame operator and 100-cell scalability remain unverified.
+
+Parent pinned-manual/archive/eight-member replay supports the built-in matrix export route. The [free C3D20 coupon](current-native-elastic-operator-export-preflight-attempt01/README.md) is frozen in `current-free-c3d20-matrix-export-native-attempt01`, SHA-256 `d463e554aaf14fbe5f1d506745a19e460987268cad1d900862e7e485caedf460`; live source verification passes. The one-run scope is 60 equations, six rigid modes, analytical shear energy and mass. Independent exact-freeze review precedes any serialized launch. No frame/gravity/contact result follows from this method coupon.
+
+The parallel hardware/material packet is now committed on master (`cf6ebe55`, `858688a9`), and its [requirements and conditional inputs](../hardware-material-specification-2026-09-30/README.md) are available for corner arithmetic. These are profiles/scenarios, not catalog-product fit or delivered inspection. The long BG003 product profile, washer metal method and dowel-bending strength basis remain explicit dependencies. Existing geometry and the three accepted rear cases are preserved.
+
+
+### September 30: built-in native matrix export observed and verified
+
+Parent read the exact-freeze independent review, verified live inputs and launched one serialized `free-c3d20-matrix-export-attempt01` run with a 120-second limit and 2 GB cap. Pinned 2.23 exited zero in 0.2875 seconds, wrote `.sti/.mas/.dof`, and the container was confirmed terminal. The [native coupon assessment](current-free-c3d20-matrix-export-native-attempt01/README.md) verifies 60 equations, six rigid modes, no significant negative stiffness eigenvalues, normalized rigid residual 3.45e-15, analytical shear energy and mass. Parent post-run replay authenticates exact sources, all recorded outputs and the assessment. Assessment SHA-256: `fea5d33bb8874b3abfa34acfbd15ceca3d8f6dd45d346ecf638cf45ffc0b85f4`. Native slot is idle with 55 consumed launches.
+
+This establishes a usable built-in elastic assembly/export method on the coupon, avoiding a custom C3D20 kernel. It supplies no current-frame or fourth-case acceptance. Next task unlocks constrained equation/connector/load-work mapping: one tiny GLOBAL=YES SPC/MPC/SPRING2 input proposal with analytical expanded-coordinate energy/work checks, stopping before any native/freeze/frame/controller work. Nonzero contact-event references remain separate offsets, not frequency SPC values. The borrowed selector remains the verified tiny-fixture route; actual operator, state-dependent gauge, event discovery and gravity continuation are still open.
+
+
+### September 30: constrained native mapping and current physical carrier interface verified
+
+Parent read the exact [constrained-coupon review](current-constrained-matrix-export-native-attempt01/independent-review.json), verified live freeze `221537619e0d8c3adf0ef68bd7a88231033f1df00733a81a2b2686a4d67a6c62`, and launched one serialized `constrained-matrix-export-attempt01` run. Pinned 2.23 exited zero in 0.3873 seconds and emitted all three matrix/map files. [The replayed assessment](current-constrained-matrix-export-native-attempt01/README.md) verifies exactly 58 active coordinates, all 36 rotated orthotropic plus projected-SPRING2 affine cross-energies (maximum error 1.21645e-11 N/mm), five allowed rigid modes and no significant negative stiffness mode. Assessment SHA-256 `49805f1f32857ef85ac9650e26e3ed3c1dfcadf0607fe322a3bf833932ff03b7`. The reference-offset/load-work identity remains an analytical probe, not native capture evidence. The native slot is idle with 56 consumed launches.
+
+Parent read and replayed [the physical connector projection contract](current-frame-physical-connector-projection-contract-attempt01/README.md). It binds the exact adapter and emits 348 bilateral, 1292 unilateral and 200 separate floor-tangent rows: 1840 rows / 62607 nonzeros over 37647 physical translations. All 3876 qghost equations match; source/native row discrepancy is 1.56e-13, independent owner-point rigid-row discrepancy 3.90e-13, and dual-work discrepancy 7.11e-15 Nmm. The 100 numerical floor endpoints are preserved one-to-one, with no added anchor. Gravity remains its own authenticated nodal map. Contract SHA-256 `4ceca771e26e1f1d0bf8efca8e3d77dc6d94194553d95e1fd75652ecf2f3f2d3`.
+
+Parent also read and replayed [all 252 conditional wood-seat comparisons](current-corner-catalog-washer-wood-compression-screen-attempt01/README.md) against the catalog minimum complete USS ring and frozen CAD annulus. Maximum transverse stress/reference ratio is 0.129640 / 0.124345; BG045 block parallel comparison is 0.060019 / 0.057567 with no adopted local parallel washer-bearing method. The current corner resistance table links these conditional results and the specified hardware profiles. This is no washer-metal, actual-support, splitting or complete-joint pass. Output SHA-256 `54b780a015fb01615361b41a4ade4cf1ced3d7f3842bc7f40963e3c1c2fca487`.
+
+The actual pure-solid export proposal identifies no density in the static source deck; gravity is supplied explicitly. Its source-verified derived export may use a named nonphysical auxiliary positive density for stiffness-only output, with no mass-matrix gravity substitution. The rank audit replays correctly in `OPENBLAS_NUM_THREADS=1 .venv/bin/python`; an initial uv/NumPy SVD rounding mismatch was an environment difference, not changed source inputs. A bounded engine-backed free-body condensation fixture uses the already exported free cube with independent surface-traction loads and keeps body rigid equilibrium explicit; it stops before actual-frame state selection. No currently missing case or contact/splitting gate is closed by these method results.
+
+
+### September 30: six-case source identity and pure-solid export readiness
+
+Parent replayed the [six-case operator-reuse contract](current-six-case-operator-reuse-contract-attempt01/README.md). Twelve exact source equality groups match across six actual decks: physical coordinates, 1903 C3D20 elements, 50 body ownership, 218 ordered property cards and 1640 permanent connector projection rows. Each of the six physical load maps remains distinct. Contract SHA-256 `a413f858d9384cb9bf31928304626ac8ed99b61811c6e982d15089e057119e9b`. This permits reuse of a successfully exported source elastic operator and linear projections, never a force, support/contact state or case pass.
+
+Parent also replayed the [pure-solid sparse assessment method](current-frame-pure-solid-export-assessment-method-attempt01/README.md): 13 rejection/structure fixtures and the authenticated free cube pass. The actual-frame method requires all 37647 physical labels, finite complete positive diagonals, unique triangular pairs, zero nonzero cross-body coefficients and all 300 body rigid fields. Six small rigid residuals alone do not prove full rank or positive elastic stiffness. The separate cube condensation fixture also replays with independent surface-traction oracles; all six rigid equilibrium equations per body remain explicit.
+
+Parent froze [one unloaded pure physical-solid export](current-frame-pure-solid-matrix-export-native-attempt01/freeze.json), SHA-256 `614c9b466fd05c0b5ee6917aa26e108fd8151b36459b8b84999cd474f13d9ed3`, for one bounded independent readiness review. It preserves exact physical geometry/material cards, omits springs, MPC/SPC constraints and loads, and adds named auxiliary density solely for the frequency export companion mass, which must be discarded. Actual source gravity stays separately mapped. This is an elastic operator export, not a response solve or a fourth usable case. No guessed floor-mask retries are authorized.
+
+
+### September 30: actual pure-solid frame operator exported and authenticated
+
+The exact-reviewed [pure physical-solid export](current-frame-pure-solid-matrix-export-native-attempt01/README.md) completed once with native exit zero in 2.342314 seconds, terminal container. Parent authentication/sparse assessment passes 37647 physical labels, 2320506 unique triangular pairs, finite complete positive diagonals, exact symmetry, zero nonzero cross-body coefficients and all 300 physical rigid fields; maximum normalized rigid residual 2.6186013240290654e-13. Assessment SHA-256 `ba41b9c75815f7daf27b3517ac01afff109d5f3e3611aa985811e92c269e69ec`. The native slot is idle with 57 consumed launches.
+
+This is actual CalculiX source stiffness, not a custom solid-element assembly, constrained tangent, gravity/support response or new corner demand. Auxiliary `.mas` remains excluded from gravity. Full elastic-subspace rank/definiteness and a reaction-free per-body inverse still need bounded checks before operator reduction; six rigid residuals alone are insufficient. The next isolated preflight uses the authenticated free-cube traction oracle and sparse borrowed linear algebra, retaining explicit body force/moment equations. The six-case identity contract can save five repeated source-operator exports; it grants no state/force/pass reuse. Exactly three rear cases remain usable. BG003 coupled clearance/material/shared receiver behavior, BG045 edge/splitting, washer steel/support and complete connection checks remain open. Reviewed 92 axes and twelve original leg/runner arrangements are unchanged.
+
+
+### September 30: actual export warning reconciled to pinned parser
+
+Parent inspected the native stdout rather than treating exit zero alone as sufficient. The constrained coupon and actual frame logs warn that explicit `GLOBAL=YES` is unrecognized. Exact pinned `frequencys.f` defaults to global true and recognizes only the `GLOBAL=NO` override; ignored explicit YES therefore leaves the global default unchanged. All three logs report global node-direction output, and the rotated and physical-map oracles remain passed. The separate [warning audit](current-frame-pure-solid-matrix-export-native-attempt01/warning-audit.json), SHA-256 `28f569bf3222ad2fe990a396c66c6990a516a0336c979f86de837063e8141b4c`, authenticates the raw logs/execution/source without editing frozen evidence. This corrects the explicit-keyword support description; future new decks should omit the redundant YES token. No rerun is required solely to remove it.
+
+
+### September 30: combined source loads distinguished from gravity-only maps
+
+Parent audited actual force sums before operator reduction and found that the physical-projection packet's `source-gravity-nodal-map.json` copies A12 `physical_body_loads`, a combined case map. Its gravity-only label/description is incorrect. The preserved file has resultant approximately (0,+300,-4424.926817) N; separated gravity is (0,0,-2200.816010) N and A12 climber is (0,+300,-2224.110808) N. This additive [six-case load audit](current-physical-load-map-audit-attempt01/README.md) authenticates actual source maps and every nodal recomposition/owner; SHA-256 `eb9d23d996f7d877edea9607e98501b080dc95e8bc888a55c0a43e01de861052`. No response/state has been calculated from the mislabeled file, and the unloaded native stiffness is unaffected.
+
+All next gravity-settle calculations must use `current-frame-pure-solid-matrix-export-preflight-attempt01/source-load-maps.json` gravity-only fields, then add each distinct climber field during its ramp. Earlier checkpoint language describing the preserved projection-map file as gravity-only is superseded. Projection rows, distinct combined six-case load-map hashes, raw exports and geometry are unchanged.
+
+
+### September 30: seven corner timber interfaces classified against proposed grain
+
+Parent read/source-inspected/replayed the [conditional contact-grain screen](current-corner-timber-contact-grain-applicability-attempt01/README.md): all 588 existing cell states and 147 signed pair wrenches remain unchanged. Fourteen receiver/interface combinations classify as ten transverse, three parallel and one oblique (side at header/side, 40 degrees). Matching transverse cell averages compare with conditional DF-L No.2 Fc-perp625psi, dry/normal-temperature/unincised and noCb credit; CD and CF do not apply to this reference. Maximum ratio is 0.1191434164 on the header at header/post in A1rear, pressure0.5134155868MPa. Output SHA-256 `c26f8d2aff8fd13e4a9bd4c594d2897f20fc0caac2cbf400d201112ee470c0d0`. The complete corner register now links this applicability result.
+
+This supplies conditional member-contact comparisons only; cell averages do not bound peaks, parallel/oblique local treatment remains unspecified, ripped-block material/grade is a study scenario, and actual support/fit and complete bearing remain open. No native solve, geometry change, new response or full joint acceptance occurred.
+
+
+### September 30: all actual body elastic operators pass the bounded numerical gate
+
+Parent source-inspected and replayed the sparse-border/rigid-lift known-answer fixture, including analytic traction/work, injected extra mechanism/negative direction, unbalanced point-load rejection and corrupt-factor residual rejection. Parent identified and the producer fixed the original unconditional solve PASS; KKT, gauge and multiplier gates are now explicit. These remain distinct from the unchanged final physical body/global limits.
+
+The parent then ran [one actual 50-body audit](current-frame-body-elastic-positivity-audit-attempt01/README.md) under the shared native run lock and a single-thread 180-second /6GiB cap. All 50 exported body blocks pass rigid-lift Cholesky and condition estimation, body-loop13.255sec; minimum rcond9.93942622e-11 on main_lower_left, above declared1e-12 floor. Maximum normalized rigid residual2.215e-14. Actual assessment SHA-256 `2ad8c74b4a061ee9335c3b9f3549f325929be9148d1753f370998ec5e681c563`. Provenance verification passes. No original K, load, support, geometry or accepted response was changed. No native response or fourth usable case follows.
+
+The immediate deliverable is engine-derived connector compliance H, rigid projection D=BR and distinct case gravity/climber load terms while retaining all300body force/moment equations. Before individually unbalanced basis columns are projected for compliance construction, a tiny independent known-answer comparison must show that their raw wrenches remain in D^T*f=W and are never silently discarded as physical loads. Current ownership: matrix_mapping_scoped_review prepares that isolated fixture; parent owns actual operator reduction/gravity/contact execution and validation; bg045_edge_applicability owns the bounded current BG045 edge/profile/splitting interpretation. corner_contact_pressures completed seven-interface grain applicability.
+
+Parallel-owner request: the remaining86newbolt washer-seat demand/geometry coverage is unassigned here and is useful parallel work, reusing the reviewed six-corner-seat method and the three accepted all-body responses; keep the12originalLEG/FLOOR-RUNNER arrangements separate. Revision-bound stockcut/yield/BOM is also unassigned here. BG001/spine finished-section work may proceed conditionally but must preserve the known disconnected-ligament/common-affine-strain proxy boundary. None of these should duplicate the owned elastic/gravity or BG003/BG045 mechanism work or add native authority.
+
+
+### September 30: actual connector reduction stopped at one numerical gate
+
+Parent replayed the extended projected-column cube fixture using the shared sparse bordered helper; sparse H/e agree with the independent dense elastic reference, raw D^T*f=W is retained and unbalanced physical combinations reject. One source-bound [actual connector reduction](current-frame-connector-compliance-attempt01/README.md) then stopped on main_lower_left columns16:32: KKT residual7.23261944e-10 exceeds fixed1e-10. Gauge displacement3.797e-11mm and multiplier1.084e-10N separately pass their2e-10 limits; projected raw wrenches are near1e-15N. No H, force, physical response or state is accepted; all50body positivity results stand. Source snapshots/provenance of this stop verify.
+
+Parent prepared the exact16column rejected chunk and independently compared float64/extended-precision arithmetic: same-solution residual3.00920477e-10 at extended precision, so evaluation alone still fails; difference in evaluation up to8.18436e-10. Borrowed-library standard refinement is now a bounded dependency: original K/physicalgates unchanged, fivecorrectioncap and explicitstagnation/budgetstop, tinyknownanswerfirst then this exactchunk. No fullbuild/native/contact retry is ready until that diagnostic passes. matrix_mapping_scoped_review owns the isolated refinement fixture; floor_coupon_readiness owns the100normal/200tangent sourcejoin contract for subsequent contact-state assembly, without fullstate/nativework.
+
+Parallel-owner update supersedes the earlier optional task queue: the separate repository-review root now owns `docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/` for eight upper blocks/32axes, starting outertop pair, under owner instruction. No worker in this thread owns upper resistance. Preserve its files; reuse its results later. This thread retains BG001/BG003/BG045 and elastic/gravity/contact work. No new geometry/native authority is transferred.
+
+
+## September 30: owner support/corner guidance and bounded numerical follow-through
+
+The owner-provided support/corner review README was read and its diagnostic
+replayed byte-identically. Its gravity-settle/contact-event scenario remains
+distinct from the rejected combined-load fixed-zero branch. No guessed masks,
+rejected forces, or geometry changes were adopted. The current primary joint
+is the left corner-block chain BG001 post/spine, BG003 spine/side/inner block,
+and BG045 inner block/header; original leg/runner resistance remains reused.
+
+The verified five-correction refinement wrapper cleared the exact rejected
+panel chunk in one correction under unchanged gates. A separate full
+connector-compliance attempt 02 completed all four panels but stopped at
+kicker_left interface columns 16–31: force residual passes, but a stable
+1.6435e-9 N gauge multiplier exceeds the 2e-10 N limit. No full H or physical
+response is accepted. The next task is the exact original-operator multiplier
+identity and rigid-mode leakage diagnostic; its stop condition is a causal
+numerical disposition, with no full-H retry or gate change in that task.
+See current-frame-connector-compliance-attempt02/README.md.
+
+BG045 signed edge/end/row/splitting applicability replay passes. The A1 axis-2
+20-versus-25.4 mm comparison remains a conditional 5.4 mm exception under its
+minus-Y face interpretation. Header loads are mixed to grain; pair pitch is
+not an NDS row check because the bolt line is not aligned with load. Three
+full-load header tie resultants are retained (107.967, 139.225, 38.097 N), but
+member closures are not local splitting stress or resistance. No axis move
+is made. See current-bg045-edge-splitting-applicability-attempt02/README.md.
+
+A bounded BG003 task now converts only the already computed compatible
+radial-clearance scenarios to smooth-shank normal-stress references using
+the simultaneous axial tie and specified Grade 5 yield. It runs no new
+bearing solve and will not establish a physical demand bound or joint pass.
+The parallel repository thread owns upper-block strength; this thread does
+not duplicate that lane. Current usable response coverage remains 3/6.
+
+
+## September 30: BG003 compatible steel screen replay and kicker causal check
+
+Parent read and replayed the bounded BG003 steel-normal-stress screen: PASS,
+output SHA 38546b1bfc72a344227285fea63ffacc8930866f4873efa7a0f31f2982d3f3eb.
+The four saved A12 bolt-1 proxies give 75.370–178.131 MPa normal stress from
+one simultaneous 95.96739 N tensile tie plus the paired sampled bending norm.
+The maximum ratio to conditional smooth-shank Grade 5 yield is 0.280822.
+Actual bearing/contact, a physical demand bound, shear/thread interaction,
+splitting and full joint resistance are not established. The complete-corner
+table now records this useful conditional result separately.
+
+The exact kicker stopped iterate was replayed once under the shared ledger
+lock; its history matched attempt02 exactly. The frozen operator's rigid-mode
+leakage predicts its multiplier: max predicted 1.6435145875e-9 N versus actual
+1.6435112275e-9 N, maximum component difference 7.7259e-15 N. This identifies
+why additional refinement cannot clear the original zero-multiplier gate.
+The pinned solver writer emits 14 significant digits (%20.13e), a potential
+roundoff source; serialization is not yet proved to be the sole cause. The
+old gate remains failed. A distinct elastic quotient/projection method needs
+its known-answer and original-operator error disposition before another full
+reduction. No native launch, new floor state, geometry change or accepted
+frame response followed. Coverage remains three authenticated rear cases.
+
+
+## September 30: source floor joins and method-oracle replay complete
+
+Parent read and replayed the floor normal/tangent join contract and separate
+current-controls two-cell reset mathematics. Both pass; all 100 normal cells
+join exactly to 200 signed tangent rows and unique reference coordinates,
+with zero coefficient discrepancy. Join output SHA
+607ec82a8f830101a5bed07a9d1214aa85ac09179a9091472f7c951671ed8c4e.
+The historical fixture's stale AGENTS pin remains explicitly failed; only
+master/shared-staging controls changed, and the new mathematical replay
+preserves the old result/files. Parent also replayed the pinned borrowed
+SCIP/PySCIPOpt selector: PASS for its tiny known answers, including no-state,
+multiple-state and zero-boundary ambiguity. No actual gravity/contact event
+or frame support state is accepted by these source/method results.
+
+Parent read and replayed the kicker equation diagnostic: PASS attribution;
+the original zero-multiplier gate still FAILS. The next bounded method task
+is a distinct elastic quotient known-answer preflight with explicit rigid
+leakage/error reporting, before choosing any new full reduction. The task
+unlocks an elastic connector operator only; it stops at method proof and
+cannot adopt a floor mask, discard raw 300-coordinate body balance, relax
+native physical checks, or run a native/full-frame response. The original
+operator, failed attempts, criteria and reviewed geometry are preserved.
+
+
+## Continuation: corner section references and quotient readiness
+
+The preceding goal turn made progress (completed/replayed corner screens,
+source floor joins and causal numerical evidence), not a blocked wait.
+Parent read and replayed the new grain-aligned corner section material screen:
+252 existing one-sided proxies, six case/member summaries, output SHA
+ a5a27450b72ee9f4fec1ad35191c0b4552e497e60a53f4e48b493e69050b6a2c.
+Spine peak raw Ft/Fc ratios are 0.107877/0.032470; inner-block peaks are
+0.010454/0.004424. These are common-affine nominal section comparisons to
+unadjusted conditional references, not local splitting or adjusted NDS checks.
+The complete-corner register incorporates the results.
+
+A parent read-only screen of all 50 original exported body operators found
+none outside the proposed induced-infinity rigid-leakage limit of 5e-14;
+maximum was 2.20820e-14 for top_outer_left_cleat. This is preliminary method
+readiness only. Attempt03 integration is a draft: no inputs frozen or run.
+Parent source review identified three concrete quotient-method corrections:
+retain the verified bounded refinement with extended-precision audits; report
+gauge-term wrench as (R.T R)lambda rather than lambda itself; and gate the
+actual rigid equation closure rather than only its algebraic identity. The
+Luna author is implementing these before cube/corruption fixture completion.
+This is a new method with specific concerns, not a repeated cold review.
+No native launch, accepted H, new case, axis change or strength pass follows.
+
+
+## Continuation: all-body elastic reduction cleared
+
+The parent-owned [attempt04](current-frame-connector-compliance-attempt04/README.md) passes all 50 bodies, separate gravity/climber columns, full-H reciprocity and positivity in 34.382 s. Provenance replay passes. The changed aggregate gate derives from the unchanged nodal residual budget through R.T, plus measured independently gated arithmetic-order error; no arbitrary absolute allowance is added. Earlier stopped records remain preserved.
+
+This unlocks the bounded gravity-settle/climber-ramp contact-history calculation. It does not select a contact state or increase the three authenticated rear cases. Raw D/W body wrenches and all gravity sources remain explicit; physical responses still require body/global equilibrium, source laws, admissible normal/tangent states and event-captured references. No reviewed geometry, original leg/runner resistance or native execution inputs changed.
+
+
+### Continuation: actual operator identities independently reproduced
+
+Parent read and replayed [attempt04 operator identity review](current-frame-connector-compliance-attempt04-operator-review-attempt01/README.md). It reconstructs B, raw D and W from frozen source identities and all six separate gravity/climber maps; all rows and body coordinate order match. It does not refactor H or claim a physical response. The signed 168-plane corner demand register also remains byte-identical after the documentation integration.
+
+Bounded next tasks now have explicit results and stops: (1) floor_coupon_readiness binds the gravity/event/gauge contract, stopping before frame execution; (2) corner_contact_pressures tests a borrowed fixed-episode convex formulation against exact no-state/multiple-state/reference fixtures, stopping before actual frame/mask selection; (3) release_freeze_review tests applicability against an already authenticated native A12 response, stopping at any missing force/printed-precision adapter rather than creating a general solver; (4) bg045_edge_applicability extends the existing BG001 paired-resultant reference across three accepted cases, stopping before adjusted/group/axial/splitting acceptance. No new native launch, geometry alteration or accepted case follows from these tasks.
+
+
+### Continuation: reduced coupled selection adapter checked
+
+Parent prepared [reduced coupled indicator method](current-reduced-coupled-indicator-method-attempt01/README.md), borrowing pinned PySCIPOpt 6.2.0 indicators. Producer and replay pass all eight existing coupled toy oracles in compliance coordinates, including no-state/multiple-state/event-boundary/nonzero-reference outcomes, plus two signed raw D/W bilateral equilibrium oracles. This specifically validates coupling source laws to q=D*a+e-H*f and D.T*f=W; it does not solve the frame or establish a branch gauge/history.
+
+The independent source initial-condition audit reports 100 floor normal initial spans with maximum residual 2.4158453e-13 mm. An initially bearing gravity-direction cell can capture only its zero-load tangent coordinate; no mask is chosen in advance. The frozen directional contract and existing-native response applicability replay remain pending before an actual state selection. The fixed-episode convex-QP shortcut remains separately bounded; a lowest-energy branch is not a uniqueness/history proof.
+
+
+### Continuation: BG001 paired-resultant arithmetic and QP replay
+
+Parent read/replayed [BG001 three-case paired-resultant screen](current-bg001-three-case-resultant-reference-attempt01/README.md): all 42 individual-bolt states reproduce paired source actions, proposed-grain angles, all six raw yield modes, same-state ties and signed profile rays. Largest raw demand/reference ratio is 0.490816, A12 bolt 2 (335.061/682.661 N), with separate 18.473 N tie. This replaces component-only status; it does not establish adjusted/group/axial/splitting resistance. No oblique end-distance CDelta is applied. A bounded primary-source lookup confirms AWC lists 2024 Commentary with the purchased package at https://awc.org/resources/2024-nds/; no unverified secondary transcription or historical rule was adopted.
+
+Parent also read and replayed [prescribed-mask dual QP fixture](current-floor-mask-dual-qp-fixture-attempt01/README.md) under pinned OSQP1.0.4/NumPy2.2.6/SciPy1.15.3. All 24 prescribed source masks return exact solver status solved; nine are admissible and fifteen fail independently checked branch laws. This verifies the fixed-episode convex formulation only, not current-frame conditioning or mask selection.
+
+
+## October 1: actual gravity-direction selector stopped at its solver budget
+
+The existing A12 native response applicability replay passes all seven increments against attempt04, with independently propagated DAT token intervals; no solver was launched by that replay. Parent read its source-bound sign mapping and reproduced the output. This clears a concrete reduction-applicability dependency without transferring physical case acceptance.
+
+Parent then froze and ran [one a12-rear gravity-direction selector](current-a12-gravity-direction-selector-attempt01/README.md) under the shared ledger lock, single thread,6GiB/180s process cap,45s first feasibility limit. SCIP stopped at timelimit, zero feasible solutions, total46.823s. Source/output provenance passes. There is no accepted or rejected candidate force vector, no actual-branch gauge result, no uniqueness or infeasibility proof, and no fourth usable case. No guessed-mask or larger-budget retry is queued.
+
+The exact next computational dependency is a bounded mathematical/known-answer check of the primal convex energy formulation: determine whether ordinary unilateral contact hinges can remove1192 nonfloor binary indicators while retaining100 coupled floor episodes. It must recover source equilibrium and reject extra normal-boundary reactions and ambiguous states; any future energy symmetrization must still pass original-H residuals. This is owned by corner_contact_pressures, with no actual H inversion/frame solve/native authority. The floor initial-condition contract is complete, so no missing initial-gap record is asserted.
+
+
+### October 1: explicit energy approximation bounded; ordinary-contact convex algebra replayed
+
+Parent read/replayed [primal energy condensation fixture](current-primal-energy-condensation-fixture-attempt01/README.md): three exact source classes/six prescribed branches plus the general KKT oracle pass. Crucially the no-state closed energy minimum has a0.5N extra normal-bound reaction and g_n=-0.5N at zero gap; it is rejected rather than called an admissible contact state. This supplies a checked route to remove ordinary unilateral binaries, with floor source-law/boundary checks retained.
+
+Parent performed one [symmetric-energy factor preflight](current-frame-convex-energy-factor-preflight-attempt01/README.md) under the shared lock:1840-row Cholesky factor available in2.149s, rcond2.4413e-11, reconstruction residual3.58e-16. Raw H is unchanged. The [A12 symmetry perturbation replay](current-frame-connector-compliance-attempt04-a12-symmetry-perturbation-attempt01/README.md) is byte-identical under parent replay: max|(Hsym-H)f|7.174e-10mm across seven increments, original DAT-only compatibility and D/W gates unchanged. These are numerical/method results, not a new state or acceptance.
+
+Parallel-owner guidance received: its next owned lane is upper-outer-load-path-2026-10-01 for the two top outer joints, frozen three-case sources, no geometry/native changes. This thread keeps primary corners, gravity and washer/fit paths. No duplicate upper study is queued. The public hardware footprint input packet is reused; washer-to-wood support remains separate from the smaller head/nut-to-washer metal footprint.
+
+Bounded next tasks: floor_coupon_readiness prepares a tiny borrowed convex-energy SCIP adapter with only floor binaries, including source-law rejection and nonunique/boundary stops; bg045_edge_applicability checks finished-CAD wood support under the12 primary-corner outer washer seats. Neither worker runs the frame/native solver or changes geometry. Parent retains actual execution/readiness and original-H/body/source audits.
+
+
+### October 1: twelve primary-corner washer support areas verified
+
+Parent read and reproduced [finished-CAD washer wood support](current-corner-washer-wood-support-attempt01/README.md). All twelve BG001/BG003/BG045 outer seats have one source-bound trimmed support face; both catalog annulus bounds intersect fully, with zero unsupported area and modeled plane gap at most 1e-12 mm. The same 126 signed ties give 252 conditional uniform seat averages, maximum 0.558649011 MPa. This closes modeled wood support-area uncertainty, not washer metal behavior, physical contact or joint resistance. The catalog geometry remains conditional, including BG003 where no matching washer lead is recorded. No reviewed geometry or native input changed.
+
+The owner-supplied September 30 support/corner diagnostic again reproduces byte-identically. The tiny floor-only convex SCIP adapter remains in preparation: its first known-answer solve was marked optimal but did not meet force-recovery precision. A separate prescribed-mask OSQP calculation and source-law audit are being added; no gate is widened and no frame state follows from the solver label. Rejecting one energy minimum cannot prove absence of physical states in other floor branches.
+
+
+### October 1: floor-only convex adapter replay and bounded frame application
+
+The final tiny [floor-only convex adapter](current-floor-binary-convex-energy-adapter-attempt01/README.md) passes parent replay across all 24 masks in eight source classes, plus the raw-wrench oracle and nonzero raw-H skew audit. Provisional SCIP forces are distinguished from independently polished source-valid states. The first parent replay was stale during the author's final strict-gate edit; the final stable replay passes without changing a tolerance.
+
+Parent froze and ran [one convex A12 gravity-direction application](current-a12-gravity-direction-convex-selector-attempt01/README.md) under the existing lock and 6 GiB / 180 s caps. It uses 100 floor binaries instead of 1,292 ordinary/floor binaries, with raw-H and source-law audits retained. Construction took 1.102 s and presolve 1.15 s; the 45 s solver budget expired at one processed root node with zero feasible solutions. No candidate force vector or second branch search exists. Frozen source/output/log provenance passes. The log does not identify the root-node subroutine responsible. No new usable case, native run, geometry change, physical failure or infeasibility proof follows. Do not retry guessed masks or simply enlarge this budget.
+
+Current corner support-area progress is usable; the floor state remains missing. A next numerical task must address a specifically identified root-relaxation or frame-scale force-refinement limitation, with known-answer checks and its own stop, rather than reopen a general solver project. BG003 physical coupled bearing and BG045 detailing/splitting remain separate primary-corner gates.
+
+
+### Next bounded work after the root-node budget stop
+
+The floor worker is diagnosing the recorded root-relaxation limitation from frozen code/logs and pinned solver documentation, with no new frame solve, factorization, altered D/W, anchors or larger budget. Its result must distinguish an identified formulation issue from a performance hypothesis; the current log alone cannot identify the expensive root subroutine.
+
+The corner worker is preparing a known-answer anisotropic circular-clearance point-law fixture for BG003. The proposed potential minimizes anisotropic elastic energy over a circular clearance set, retaining one coupled transverse resultant. Its force oracle, isotropic/zero-gap limits, derivative/tangent and rotation tests must pass before applying it to the existing finite beam proxy. Published density-based stiffness regressions remain hypothetical inputs, not calibrated bounds. The task stops before finite joint or native execution; root owns that readiness. This addresses the specific missing combination of grain and gap, not general solver development or joint strength acceptance.
+
+
+### October 1: BG003 combined grain/clearance point law replayed
+
+Parent read and reproduced [anisotropic circular-clearance fixture](current-bg003-anisotropic-clearance-point-law-fixture-attempt01/README.md). Seven known-answer gates pass. The potential minimizes anisotropic elastic energy over a circular free-clearance set; it supplies one coupled Y/Z force with a symmetric positive tangent. A visibly mixed-force oracle, isotropic radial equivalence, zero-gap rotated-linear response, interior zero force, rotation and derivative checks pass. The recipe's quadrature weight is applied once, and root bracketing is explicitly bounded. This validates the hypothesized point law only; it does not establish a physical bearing curve or strength.
+
+The next bounded task prepares an efficient batched finite adapter reusing the existing A12 bolt1 beam, receiver wrenches, gauges and continuation/refinement gates. Exactly eight density/mesh/gap combinations are proposed; no finite run is authorized to the worker. Root will own readiness, source freeze and serialized execution. The 350/550 kg/m³ regression inputs remain sensitivities, not calibrated bounds; axial tie, washers, splitting and the shared two-bolt timber group remain separate.
+
+
+Parallel handoff notice received: upper-outer-load-path-2026-10-01 reports 55 focused tests, three exact replays and Ruff passing, with final mechanics verdict still pending. Its producer plans to commit only its twelve public files and preserve this thread's tracked/untracked work. No final acceptance is transferred from that notice. The parallel producer then owns a separate current-frame stock-envelope reconciliation packet; this thread retains primary-corner mechanics, its washer/fit dependencies and floor analysis. No shared index or parallel packet was altered here.
+
+
+## October 1: combined BG003 grain/clearance finite proxy completed
+
+The parent executed exactly eight frozen A12-rear bolt-1 local scenarios under
+the shared lock and 180 s / 6 GiB caps; elapsed 23.58 s. No native launch,
+source change, geometry change or adopted joint pass occurred.
+[Parent result assessment](current-bg003-anisotropic-clearance-finite-adapter-attempt01/parent-results.md)
+records signed actions, closure, independent zero-gap oracles and all four
+16/32 action refinements below 0.276%. Pressure was not a declared refinement
+gate: inner-block clearance pressure samples change by 3.49–4.27%, and remain
+unqualified. Clearance raises sampled bearing while reducing peak bending;
+its effect on middle bending depends on density. These are constitutive
+hypotheses, not actual bounds. Stop the completed proxy campaign here.
+
+Complete-corner acceptance still needs applicable bearing/group/splitting and
+combined hardware checks; BG045 A1 axis 2 retains its 20 vs 25.4 mm conditional
+edge exception. All three authenticated rear exports remain usable; forward,
+left and right are unresolved. No original LEG/FLOOR-RUNNER resistance work
+was restarted. The floor formulation diagnosis is being corrected to
+distinguish energy-row null modes from full-D null modes before choosing
+a next support formulation; no guessed-mask retry is authorized.
+
+
+### Parent floor-diagnosis correction replay
+
+The corrected [root-relaxation diagnosis](current-a12-root-relaxation-diagnosis-attempt01/README.md)
+now passes parent read-only replay. An exact full-D null with nonzero load
+work makes added raw equilibrium infeasible; a null of energy/held rows may
+change released tangents and requires explicit zero released tangent forces.
+Neither numerical rank evidence nor the stopped selector proves an actual
+unbounded branch or identifies its solver bottleneck. An earlier parent
+replay during producer editing saw a stale output mismatch; final stable
+producer/output replay passes. No frame solve occurred.
+
+The next support deliverable is preparation of one fixed-episode dual-QP
+known-answer test against the full-load authenticated A12 response. Its
+combined native load schedule is lambda*(gravity+climber), not the proposed
+gravity-settle then climber-ramp schedule. Use exact recorded constraints,
+references, source signs and released laws; no guessed gravity-start mask.
+Parent owns readiness, freeze, serialized execution and final validation.
+Stop on source mismatch, inaccurate solve, numerical budget or any source
+compatibility/law/wrench failure. This can establish method applicability to
+one known episode only, not a fourth usable case or support-history acceptance.
+
+
+## October 1: fixed-episode inputs and BG045 modeled profiles
+
+The [A12 prescribed-episode preparation](current-a12-fixed-episode-dual-qp-preparation-attempt01/README.md)
+passes parent replay: 1,615 variables, 348 bilateral + 1,217 unilateral +
+50 held tangent rows; 75 open normal and 150 released tangent forces stay
+exactly zero. All seven native increments retain 25 strictly bearing /
+75 strictly open cells. Use authenticated native forces, not the rejected
+earlier screen output. The source is a conditional numerical response, not
+physical branch acceptance, uniqueness or a gravity-settle episode.
+
+The [first fixed-rho known-answer QP](current-a12-fixed-episode-dual-qp-known-answer-attempt01/assessment.json)
+reached its 45 s cap at 109,470 iterations with primal residual 1.1731e-8 and
+dual residual 0.0098318. It never reached solved, supplied no candidate force
+file and did not proceed to physical or source-DAT comparisons. Source freeze
+remained unchanged. This is a solver-budget stop, not structural infeasibility.
+A separate same-budget attempt uses documented adaptive residual balancing
+after all tiny source oracles pass with those exact settings; no equation,
+mask, reference, tolerance or capacity is altered. Parent owns execution.
+
+[BG045 finished-STEP station queries](current-bg045-finished-profile-edge-attempt01/README.md)
+pass parent replay. All 80 queried external faces match rectangular distances;
+block axis 2 minus-Y remains 20 mm at all 5 shaft-overlap stations. Conditional
+25.4 mm comparison remains 5.4 mm short if that edge/provision applies. The
+continuous minimum is not proved and code loaded-edge assignment/splitting
+remain open. No reviewed geometry moved.
+
+[The necessary-equilibrium augmentation fixture](current-floor-energy-equilibrium-strengthening-fixture-attempt01/README.md)
+passes parent replay: 24 prescribed masks retain classification; nonempty
+equilibrium oracle and zero/nonzero-work gauge toys behave as declared. Raw
+equilibrium alone can balance through a nonphysical released tangent force;
+the open-source law gT=0 must be imposed and independently checked. This
+fixture does not prove root-bound improvement on the frame.
+
+Parallel owner preserves published stock commits e853af55/5b10b4e0 and owns
+current-finished-feature-register-2026-10-01 and current-stock-package-cost-2026-10-01.
+Root has not staged, committed or edited those packets.
+
+
+### A12 prescribed-episode numerical outcomes
+
+[Adaptive residual balancing](current-a12-fixed-episode-dual-qp-known-answer-attempt02/assessment.json)
+reduced the same QP from a 45 s fixed-rho stop to OSQP solved in 0.652 s / 1,250
+iterations. Source freeze was unchanged. Body residuals were 5.36e-11 N and
+1.18e-7 N mm; source-law error 0.001499 N and H-skew displacement 7.174e-10 mm.
+Strict closed/open floor states, references and exact released forces passed.
+The candidate remains rejected: minimum unilateral force −1.04588e-8 N
+exceeds the declared −1e-8 N sign allowance; 69 force and 30 projected q point
+comparisons exceed original DAT intervals. Native rigid-coordinate intervals
+pass. No diagnostic candidate force is adopted as a joint or new frame demand.
+
+[The saved comparison diagnosis](current-a12-fixed-episode-dual-qp-known-answer-attempt02/source-comparison-diagnosis.json)
+records every failed row: 17 bilateral / 36 unilateral / 16 held-tangent force
+comparisons; 4 unilateral and 26 tangent q comparisons (25 released / 1 held).
+Maximum force difference 0.001081 N and q difference 1.073e-6 mm are source
+reproduction failures, not structural-strength failures. Raw-H and Hsym
+comparisons fail the same row counts; the cause is not established solely
+by symmetrization or solver-status labels. No original interval is widened.
+
+[A sharper absolute-only stopping criterion](current-a12-fixed-episode-dual-qp-known-answer-attempt03/preflight-stop.json)
+failed the unchanged tiny preflight with maximum iterations reached. Therefore
+no frame run was made in attempt03. Stop the OSQP settings campaign here.
+The Luna worker's next bounded deliverable is a tiny independently checked
+fixed-active-constraint linear KKT refinement, using borrowed SciPy routines
+and original source sign/law/interval checks. Floor mask and episode stay
+frozen; no clipped force, new support mask or unverified rank is acceptable.
+Parent retains later frame readiness, freeze and serialized execution.
+
+The active full milestone remains incomplete: only three authenticated rear
+conditional exports are usable, and forward/left/right plus named corner
+resistance dependencies remain open. This turn produced verified geometry,
+input extraction, scalar methods and a solved-but-rejected numerical candidate;
+it is progress, not a blocked-goal turn or a completion claim.
+
+## October 1: independent support/corner packet received and replayed
+
+Parent read `../support-corner-review-2026-09-30/README.md` and replayed its
+`diagnose.py --verify` in the repository environment. Result:
+`PASS_BYTE_IDENTICAL_SMALL_MODEL_DIAGNOSTICS`; no native run or source write.
+Receipt is incorporated in the complete corner register. Packet SHA256:
+README `b9cfe28dfed2205da3f2375f7563e2d8839bd0588dba85bdf7e3777ab01c9250`,
+producer `8ab5615b9e2bc80ac56f3d5002bc7053981a3ad4387a9a39e2088273f073be59`,
+result `174f8f945e41a273318a41fc401f1ef484160b500d624d80f57cd3480a343c98`.
+
+Retain the distinction between the old fixed-zero proportional episode and
+the proposed full-gravity settling/event-reference/climber-ramp history.
+No guessed-mask retries or rejected forces are adopted. The active tiny KKT
+task is limited to numerical reproduction of the old authenticated A12
+episode; it does not establish a reachable staged state or fourth case.
+Its stop condition is known-answer reproduction and invalid/rank-stop
+oracles before any separately frozen frame refinement decision.
+
+BG003's compatible continuous model confirms that zero middle-cut actions
+cannot be inferred from source equilibrium. The completed anisotropic/gap
+proxy adds conditional mechanisms but does not close physical bearing,
+group splitting or mixed-action resistance; no further parameter campaign
+is queued. BG045 retains its concrete conditional 5.4 mm detailing deficit,
+with finished-profile sampling already matching the modeled 20 mm edge.
+Applicable edge/splitting interpretation is still needed; no axis move is
+made. The primary result remains the complete BG001/BG003/BG045 corner path
+from three authenticated rear exports, separate from original leg/runner
+resistance and the 92 new block axes.
+
+Parent also read the tiny direct KKT core and README, then independently ran
+`current-fixed-active-kkt-refinement-fixture-attempt01/refine.py --verify`:
+`PASS_TINY_DIRECT_KKT_REFINEMENT_AND_STOP_ORACLES` (24 masks plus nonempty-D
+sign, rank and invalid-active-set oracles). No frame operator assembly or
+solve followed. The next worker task is a concrete one-shot A12 refinement
+readiness proposal, with the same floor episode, a predeclared provisional
+nonfloor active-bound estimate and uncertainty stop, rank/resource stops,
+and all original DAT/physical gates unchanged. Parent still owns execution.
+
+## October 1 continuation: compatible corner comparison and source boundary
+
+The prior goal turn was progress: independent packet and tiny KKT replays
+passed and their method boundaries were recorded. This continuation verified
+the existing BG001 signed-end screen, checked its primary source attribution,
+and commissioned a bounded three-case historical-method sensitivity rather
+than silently treating interpolation as adopted 2024 resistance.
+
+The BG003 worker's read-only comparison found the independent isotropic
+diagnostic and existing anisotropic/gap adapter apply the same receiver
+actions once. Mapping source point actions to adapter receiver force/first
+moment differs by at most 2.1e-11 in the reported units. Both retain the
+left-cut couple mapping `[armsZ,-armsY]`, reaction-free gauges and free
+physical ends. Their numerical demands differ because their conditional
+foundation laws differ; neither is a real-joint upper bound. The adapter
+producer still matches the parent frozen SHA256 `53ed0d531e0f0a540cb1710baab1e70f06b14bc2f5d4f866037faab6444262c0`.
+No additional BG003 parameter or mesh campaign is queued. Receiver-specific
+physical bearing/contact bounds, shared timber splitting, and axial/steel/
+washer interaction are the remaining mechanism/resistance dependencies.
+
+Parent's [BG001 source audit](current-bg001-end-distance-source-audit-2026-10-01.md)
+applies the existing parallel-thread September 30 method correction to the
+corner register. The matching pinned 2024 Chapter 12 extract contains the
+specification/tables, not the cited commentary interpolation. The exact
+passage is verified in official 2018 Commentary. Keep angle-interpolated
+results as historical-method sensitivities until current applicability is
+bound; source demands and geometry remain usable. No reviewed model edits,
+native launches, capacity adoption or joint acceptance followed.
+
+The requested old two-cell/reset CLI replay stops on AGENTS.md's policy
+hash: the September 30 exclusive-master workflow addition changed it.
+Parent authenticated its original policy hash from Git commit `33d0e129`,
+verified all other frozen source pins and reproduced the unchanged eight
+stage mathematical record byte-identically in the isolated
+[historical-source replay](current-two-cell-historical-source-replay-2026-10-01/README.md).
+The old verifier/pins/output remain unchanged and its original CLI stop is
+reported explicitly. This fixture uses separate normal/tangent coordinates
+and a preceding-open-stage reference; it does not establish continuous
+event localization or coupled full-frame history. That remaining event/
+history dependency is preserved in the staged-scenario readiness boundary.
+
+## October 1 continuation: actual parent direct A12 refinement
+
+Parent read the completed fixed-active-set preflight, passed its read-only
+input replay and executed one frozen serialized direct refinement in
+`current-a12-fixed-active-kkt-parent-attempt01`. No native launch occurred.
+Elapsed 4.192 s; KKT numerical rank 2649/2649 at the unchanged 1e-12 cutoff,
+singular ratio 1.08523e-7 and relative residual 1.71536e-17. All active-set
+boundary gates and all ten original physical gates pass. Maximum raw body
+force/moment residuals are 4.093e-12 N / 2.387e-9 N mm. All q intervals
+(maximum ratio 0.862139) and all 300 coordinate intervals (0.379230) pass.
+
+**STOP** persists on 25 original force intervals: max difference
+0.000484644 N; max ratio 128.607 at global row 1586, a nonzero service-clip
+outer-seat tie. No force interval is widened or force adopted. Compared with
+OSQP, the original sign and all 30 q misses are removed and force misses
+fall from 69 to 25. The next bounded worker diagnosis is source/interval
+provenance from saved artifacts only, with no repeated frame solve or
+settings campaign. Parent independently checked all source/output freezes
+after execution. [Results and limits](current-a12-fixed-active-kkt-parent-attempt01/results.md)
+record that no full refined vector was retained, so identities/categories
+of all 25 failures cannot be inferred from the old OSQP candidate.
+
+Parent also replayed the completed three-case BG001 historical sensitivity:
+21 states / 42 paired rows, all separate ties retained. Group-min factors
+are A1 0.725371, A12 0.703901, K12 0.963117, with post axis 2's 25.4 mm
+modeled end controlling each. Exact 2024 Commentary interpolation and
+oblique Cg remain unbound; no adjusted DCR or joint acceptance follows.
+The reviewed model and native-run controls remain unchanged. The prior
+turn and this turn are progress; the full milestone is still active.
+
+The subsequent saved-data diagnosis proves all 25 force misses involve
+nonzero native source rows: all 734 estimated zero bounds have native radii
+at least 5e-7 N, much larger than their maximum direct residual 3.126e-12 N;
+all 225 omitted rows are exactly zero. Parent independently checked the
+bound centers/radii and row 1586 stiffness 3975.8157915 N/mm.
+Its endpoint-RF interval is much narrower than its B-weighted printed-U q
+interval. Native geometric SPRINGA table force agrees with endpoint RF;
+this identifies the representation/precision dependency without proving a
+sole cause. Final native logs show residual printed 0.000000 N and correction
+7.541133e-13; no convergence-controls retry is justified by those logs.
+
+Parent inspected pinned 2.23 `springforc_n2f.f`: static actual positions are
+formed as `pl=xl+vl`, then `dd0=norm(xl2-xl1)`, `dd=norm(pl2-pl1)` and
+elongation `dd-dd0`. The next worker task is a bounded source-only check of
+the emitted auxiliary endpoint coordinates and coordinate-translation
+arithmetic, preserving their parsed relative span and displacement/MPC
+definitions. It proposes no reviewed geometry change or native launch and
+must not claim to solve all 25 force discrepancies. Full failure identities
+remain unsaved. The [parent results](current-a12-fixed-active-kkt-parent-attempt01/results.md)
+retain these limitations and the unchanged STOP.
+
+
+## October 1: bounded component results and operator diagnostic
+
+Parent replay of the independent support/corner packet again passes byte
+identity. No guessed floor mask or rejected response is adopted. The next
+floor history remains a separately named gravity-settle/climber-ramp scenario
+with captured contact-event references and explicit no-state, multiple-state,
+cycle and budget stops; existing episode/reset fixtures remain reusable.
+
+Parent stable replay of the [three-case BG001 Appendix E component screen](current-bg001-appendix-e-parallel-row-three-case-attempt01/README.md)
+passes all 21 states and 42 paired bolt actions. Maximum unadjusted
+parallel-component/reference ratios are 0.21626 for post row tear-out and
+0.02601 for the candidate spine net section, both A12 full load. Cross-grain
+forces and axial ties remain separate. These are directional comparisons,
+not adjusted resistance, mixed-action capacity or joint acceptance.
+
+The [ghost-coordinate arithmetic diagnostic](current-springa-ghost-coordinate-translation-diagnostic-attempt01/README.md)
+replays unchanged. Translation changes the examined source force by only
+3.39e-10 N, about 267 times smaller than that row's reduced force miss.
+It does not justify a translation-only native coupon or carrier change.
+
+Parent independently replayed the [raw-H tiny linear fixture](current-fixed-active-raw-H-linear-fixture-attempt01/README.md).
+All 24 declared branches and sign/rank/invalid-set oracles pass. Its constructed
+high-stiffness example distinguishes original-H compatibility from a
+symmetrized energy system; it does not diagnose the frame by itself. Luna
+is preparing one original-H A12 comparison under the unchanged fixed branch
+and original source/physical gates. Parent retains readiness, freeze and
+serialized execution. Full force/coordinate vectors and failed source rows
+must be retained in that new diagnostic. No actual frame or native run follows
+from the tiny fixture, and the previous 25-row force STOP remains in effect.
+
+BG001/BG003/BG045 remain the complete left outer corner path. The BG045
+conditional 5.4 mm edge deficit, physical BG003 bearing/group/splitting and
+mixed axial/washer compatibility remain open. Three authenticated rear exports
+remain usable; forward/left/right remain unresolved. Original leg/runner
+resistance is reused except for specifically changed demands or receivers.
+
+
+### October 1: event-location prerequisite replay
+
+Parent read the [exact contact-event fixture](current-coupled-contact-event-reference-fixture-attempt01/README.md)
+and its producer, then executed read-only `verify.py --verify`: PASS. Its
+synthetic SPD one-cell path settles at (-4,-3) N and adds (0,2 alpha) N.
+First contact occurs at alpha=1/2 with q=T=N=0 and captures t=-2 mm;
+opening releases tangent reaction and re-engagement captures -1 mm. Exact
+linear event interpolation reproduces both references at 3/7/15/31/63 steps;
+last-open references have nonzero step-dependent errors. This establishes
+only a reachable synthetic event oracle, not actual gravity decomposition,
+frame gauge, 100-cell history existence/uniqueness or floor acceptance.
+The worker is integrating existing no-state/multiple-state/budget and
+historical two-cell replay controls; no new selector is required.
+
+Parent repeated the A12 fixed-branch input guard and authenticated all 49
+prior parent frozen sources and the assessment pin: unchanged. Raw-H actual
+comparison preparation remains live, with no frame solve launched yet.
+Parallel source-only price/CI publication owns its artifacts; root preserved
+those files and did not stage or commit.
+
+
+### Bounded support prerequisite suite complete
+
+Luna replay reports all four PASS: exact contact-event capture/refinement;
+unchanged eight-stage two-cell historical mathematics; all eight coupled
+indicator-selector cases (including no-state, multiple-state and coincident
+zero-boundary masks); explicit zero-budget stop without completeness claim.
+Parent independently authenticated five producer/result hashes after those
+replays. No new integration wrapper or cycle sentinel was added. A sentinel
+alone would not validate a real episode cycle.
+
+These reusable prerequisites support preparing a staged scenario; they do
+not establish frame state selection, actual gravity history, zero-load gauge
+or a fourth usable case. Historical two-cell references remain preceding-open
+stage coordinates, while the separate event oracle locates exact continuous
+contact. The original-matrix actual A12 preparation is still running; no
+frame/native solve was executed during this bounded prerequisite replay.
+
+
+### October 1: actual raw-H comparison completed
+
+Parent executed the [raw-H one-shot comparison](current-a12-fixed-active-raw-H-comparison-attempt01/results.md)
+after correcting a draft G-transpose indexing error and passing its
+noncontiguous assembly oracle. The 2649-order full-rank comparison completed
+in 4.658s, with all original physical and fixed-branch checks passing.
+Spring-law residual fell from 1.08219e-4 to 1.13321e-7N, but 27 original force
+intervals fail (previously 25); q and all 300 coordinate intervals pass.
+The STOP remains. Full vectors and every failed row are now saved. All 62
+frozen source hashes, assessment and response pins pass parent authentication.
+No native launch, force adoption or additional usable case follows.
+A bounded saved-data diagnosis is running; do not rerun this frozen entry.
+
+
+### October 1: BG045 proposal parent replay
+
+The [symmetric inward proposal](current-bg045-symmetric-inward-detail-proposal-attempt01/README.md)
+replays byte-identically under direct/inherited feature and geometry pins.
+It translates the conditional edge deficit into concrete consequences:
+82.55 mm pitch and 2.053 mm orthogonal-bore web for two inward 5.4 mm shifts;
+axis 2 only keeps 7.453 mm web but does not clear the opposite conservative
+component sensitivity. A same-pitch dimension sensitivity requires 144.15 mm
+block width, with no changed centers. No option is accepted or implemented.
+Updated current washer evidence establishes four supported modeled annuli,
+while proposed-seat margins are limited to planar rectangle/circle arithmetic.
+Code loaded-edge/splitting applicability and regenerated geometry remain
+needed before any changed-model evaluation.
+
+A read-only BG003 task now extracts conditional sampled-pressure/dowel-bearing
+and signed bolt-stress reference comparisons from the already completed eight
+proxy scenarios. It will not create further beam runs or turn sampled pressure
+into a physical peak bound or complete-joint capacity. The raw-H failed-source
+diagnosis continues over saved vectors; no further actual solve is queued.
+
+
+### October 1: BG003 sampled directional comparisons verified
+
+Parent reviewed and replayed the [component-reference screen](current-bg003-anisotropic-clearance-component-reference-screen-attempt01/README.md):
+eight existing scenarios/24 signed receiver comparisons/eight signed steel
+records pass. Largest 32-division sampled pressure/Feθ reference is 0.52215;
+maximum sampled smooth-section normal stress is 180.698 MPa, or 0.28487 of
+the conditional Grade 5 reference. This is useful conditional component
+information, not a physical peak bound, NDS design DCR or complete corner
+acceptance. The simultaneous 95.96739 N tie is applied once, and signed Y/Z
+pressure and paired My/Mz moments remain coupled. No beam, native or frame
+solve was added.
+
+The raw-H saved-data diagnosis passes initial parent replay. It classifies
+all 27 force misses and verifies emitted k/MPC/axis agreement; candidate nodal
+endpoint displacements and a rowwise operator-error sensitivity bound remain
+missing. Parent requested a specific wording correction distinguishing native
+geometric-versus-projection discrepancy from an isolated finite-length
+effect, because native printed displacement precision can contribute.
+A bounded two-owner-body recovery readiness task is queued for row 1586; it
+must preserve the entire force STOP and will not rebuild the global operator.
+
+
+The final saved-force diagnosis now passes parent replay with corrected
+attribution: native geometric-versus-projection discrepancies do not isolate
+finite-length effects from printed-displacement precision and mapping.
+The source coefficient/MPC checks and owner-body residual joins remain useful,
+but no numerical correction or physical failure follows. Current four-gate
+synthesis now states these specific remaining inputs alongside the completed
+conditional corner references; it does not restart panel or retained-bolt
+qualification.
