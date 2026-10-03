@@ -68,6 +68,7 @@ jobs:
           docs/wood-joints-mvp/hypotheses/current-stock-envelope-reconciliation-2026-10-01
           docs/wood-joints-mvp/hypotheses/current-finished-feature-register-2026-10-01
           docs/wood-joints-mvp/hypotheses/current-stock-package-cost-2026-10-01
+          docs/wood-joints-mvp/hypotheses/upper-outer-finished-sections-2026-10-01
       # The full-source replay requires ignored frozen inputs and remains a separate local replay gate.
       - name: Test synthetic maintained wood-joint packet helpers
         id: wood_joint_packet_tests
@@ -80,6 +81,7 @@ jobs:
           docs/wood-joints-mvp/hypotheses/current-stock-envelope-reconciliation-2026-10-01
           docs/wood-joints-mvp/hypotheses/current-finished-feature-register-2026-10-01
           docs/wood-joints-mvp/hypotheses/current-stock-package-cost-2026-10-01
+          docs/wood-joints-mvp/hypotheses/upper-outer-finished-sections-2026-10-01
       - name: Verify historical reference/V1 exports
         if: ${{ inputs.include_historical }}
         run: |
