@@ -108,6 +108,22 @@ transfer, continuous-knee contact and actual shank/thread profiles retain
 their stated limits. The completed left and right rail/side pairs supply compatible
 local bolt responses at the unchanged source group wrenches. Their combined
 rigid-block accounting does not feed redistribution back into the frame.
+The later [independent cleat traction recovery](upper-corner-screw-layout/cleat-traction.md)
+identified a fixed-axis geometric-tension moment discrepancy in the old
+local branch. The simpler [first-order corner replay](upper-corner-screw-layout/corner-first-order.md)
+omits geometric shortening and preload stiffness consistently. Both actual
+corners now complete all six local cases with independently balanced bore,
+washer and face forces; maximum whole-cleat moment residual is 0.004500 N mm.
+These new actions are the continuation's local timber-force source. The
+integrated frame and old numerical packets remain preserved.
+The [fresh same-state component replay](upper-corner-screw-layout/corner-first-order-components.md)
+covers all 48 local bolt states. Its conditional maxima are 0.813949 lateral,
+0.160367 finished path, 0.768962 mean washer pressure and 0.318740 smooth
+steel / 92 ksi. The [actual cleat section inventory](upper-corner-screw-layout/corner-timber-sections.md)
+now uses those balanced physical actions: 25,224 signed cut limits retain
+the paired-bore ligaments and their full bending and torque demands. Regional
+transfer through those ligaments remains unfinished; intact sections do not
+qualify the openings.
 The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
 repairs the earlier approximation defect at one fixed 709.053 N / 2.292 Nm
 end witness. Its two prescribed resolutions give 510.595 / 512.232 MPa
@@ -144,6 +160,13 @@ their whole-host wrenches remain reusable after the bounded redistribution.
 Interior group tractions and local splitting resistance remain separate.
 Current bounded implementations address those cleat tractions, the four
 continuous knee bolts, one partial central seat and six header duties.
+The [central-seat transfer](upper-corner-screw-layout/central-seat-transfer.md)
+now demonstrates a conditional static compression route through the supported
+10 mm ring at 0.942288 MPa, with signed algebraic coupon checks. Nut/washer
+coverage, centering and material properties remain explicit hypotheses.
+The [header input contract](upper-corner-screw-layout/header-local-transfer.md)
+preserves all 394 simultaneous header actions per case and the six existing
+disconnected paired-bore sections for the remaining local transfer work.
 
 ## Preserved previous working model and ownership
 

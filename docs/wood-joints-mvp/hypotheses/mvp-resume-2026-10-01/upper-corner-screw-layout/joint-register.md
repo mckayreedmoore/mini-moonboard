@@ -153,6 +153,26 @@ the 96 candidate block-axis incidences.
 | `rail_rear_bolt_left_{1,2}` | `base_floor_left` ↔ `lumber_leg_left` | 656.4 / 78.3<br>a12-forward / `rail_rear_bolt_left_1` / wood-interface | 141.3<br>a12-left / `rail_rear_bolt_left_2` | R, WA, RG, RW |
 | `rail_rear_bolt_right_{1,2}` | `base_floor_right` ↔ `lumber_leg_right` | 630.3 / 84.8<br>k12-right / `rail_rear_bolt_right_1` / wood-interface | 139.4<br>k12-right / `rail_rear_bolt_right_2` | R, WA, RG, RW |
 
+## Later first-order local corner correction
+
+The machine register and tables above retain the original integrated frame
+force allocation. The later [cleat traction recovery](cleat-traction.md)
+identified a 2660.691 N mm geometric-tension discrepancy between the old
+local right-cleat point forces and its balanced dual reaction. Those point
+forces cannot supply equilibrated internal timber cuts.
+
+The [first-order replay](corner-first-order.md) removes geometric shortening
+and preload stiffness consistently while preserving frame wrenches, geometry
+and contact laws. Both actual corners complete six local cases; independently
+recovered whole-cleat moments now close within 0.004500 N mm. These actions
+are the continuation's local timber-force basis. Its fresh
+[same-state component replay](corner-first-order-components.md) covers all
+48 bolt states, with global indices 0.813949 lateral, 0.160367 finished path,
+0.768962 mean washer pressure and 0.318740 smooth steel / 92 ksi hypothesis.
+They do not establish local wood-group or washer-metal resistance. The
+original machine register remains preserved; these local allocations do not
+feed back into the integrated frame.
+
 ## Finite remaining load-transfer decisions
 
 1. **Panel sharing and the actual head/withdrawal route.** The current model's
