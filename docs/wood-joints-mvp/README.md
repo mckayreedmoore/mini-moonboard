@@ -1,265 +1,89 @@
 # Wood-joint development
 
-**Current summary: October 2, 2026.** Candidate `compact-floor-flush-wood-joints-development`,
-reviewed revision `led-clearance-2x6-runner-seated-blocks-v1`, has its own
-[contract](../../wood-joints-candidate.json). The selected screw-and-bracket
-[baseline](../../current-candidate.json) and its passes remain separate.
+This is the active development lane for the Mini MoonBoard project:
+`compact-floor-flush-wood-joints-development`. Start here for the current
+engineering record. The selected screw-and-bracket baseline remains a separate
+[preserved reference](../../current-candidate.json); its passes do not transfer.
 
-Maintained sources and readable summaries are published. Generated arrays, CAD copies and
-raw receipts remain local and ignored; complete replay needs the preserved workspace inputs.
+## Current disposition
 
-The [reviewed WJ24 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-wj24-viewer.html)
-and [scene](../../site/owner-wood-joints-wj24-scene.json) preserve 24 blocks, 92 candidate bolt axes,
-twelve starting frame-bolt arrangements and 66 Hillman panel/kicker axes: 58 unchanged and eight
-recorded moves. Report required changes before altering that geometry.
+The **conditional model/shop packet is complete within its recorded scope**.
+**Complete structural acceptance remains unresolved: all 47 formal criteria
+remain pending and all eight release flags remain false.** Read the
+[joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md)
+for completed comparisons, their applicability and actual remaining limits.
+Current work is the main-coordinated numerical assessment of the complete
+joint system: record passing, failed and unsupported checks to decide which
+model changes are needed. The completed conditional packet is its starting
+record, not completion of that assessment.
 
-**The conditional engineering MVP is incomplete: all 47 criteria are pending and all physical
-release flags are false.** Three authenticated rear diagnostic exports are usable within their
-recorded scope: **A1-rear, A12-rear and K12-rear**. **A12-forward, A12-left and K12-right remain
-unresolved.** The separate A12 reduced-operator comparison retains **27 force-interval failures
-and STOP**; later two-body recovery did not clear the discrepancy or supply accepted forces.
-No complete joint, physical inspection, floor qualification or fabrication, drilling or climbing
-release is established.
+| Record in this lane | Structural bolts / nuts | Washers | Governing scope |
+| --- | ---: | ---: | --- |
+| Reviewed 104-axis basis | 104 / 104 | 208 | Reviewed authority and preserved analytical/shop record |
+| [Knee-bridge working packet](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md) | 108 / 108 | 216 | Complete conditional four-bolt proposal; **unadopted** |
 
-## Current working model
+Both retain 24 blocks, 44 timber blanks, 50 transport bodies and 66 purchased
+Hillman panel/kicker screws. The proposal adds two transverse bolts in each
+outer knee spine. Its forces, geometry and order are identified separately;
+it does not replace the reviewed [candidate contract](../../wood-joints-candidate.json).
 
-The continuation now uses the owner-authorized four-upper-screw layout,
-`upper-corner-screw-layout/frame-250-attempt02/`. All six zero-gap and six
-nominal-gap states meet the recorded equilibrium, connector and no-slip
-floor checks. Nominal seating remains bounded and nonunique at rank 296/297.
-The [current analytical summary and component table](hypotheses/mvp-resume-2026-10-01/README.md#current-analytical-working-model-for-the-mvp-goal)
-and [current joint register](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-register.md)
-bind one force source across 24 blocks, 104 bolts and 66 screws. Fresh replays
-retain the top-rail shear/torsion comparison of 1.021524 and panel axial peak
-1871.251 N; both remain unresolved conditional reference comparisons.
-The [material-fidelity note](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-material-fidelity.md)
-distinguishes the known Roseburg purchase from assumed group, grain placement
-and transverse response properties. The [shop overlay](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/shop-addendum.md)
-records the four moves without changing fabrication or release authority.
+Use the [reviewed WJ24 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-wj24-viewer.html)
+for the recorded layout. Its [scene](../../site/owner-wood-joints-wj24-scene.json)
+is the reviewed basis, not the later shop corrections or 108-axis proposal.
+Current corrections are in the [joint addendum](hypotheses/mvp-resume-2026-10-01/assembly-package/current-joint-addendum.md);
+the proposal has its own [drawing](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-proposal.svg).
 
-### Preserved previous working-model summary
+## Engineering reading order
 
-The following source, table and numerical paragraphs preserve the earlier
-`two-receiver-frame-attempt03/` summary. Use the current analytical summary
-and register above for ongoing calculations; earlier evidence retains its
-own scope. Native authentication status and all release flags are unchanged.
-
-The owner selected a simple MVP model and stopped recurring agent reviews. The parent has
-integrated an [isolated top-corner correction](hypotheses/mvp-resume-2026-10-01/top-corner-correction.md)
-with modeled radial clearance on all 88 independent two-receiver candidate bolts.
-The previous force reference is `two-receiver-frame-attempt03/`: all twelve
-zero/nominal states meet equilibrium, connector and floor laws across six cases.
-Each nominal state has finite fixed-force seating bounds, with rank296/297;
-unique pose and strict tangent stability are not established. Four continuous
-candidate bolts and twelve retained bolts remain at zero modeled clearance.
-These working calculations retain conditional Hillman stiffness and no-slip support; they do
-not replace the native authentication statuses above or alter reviewed geometry.
-
-The [retained bolt-pair calculation](hypotheses/mvp-resume-2026-10-01/retained-group-checks.md)
-adds 36 signed pair records and four declared row-factor area scenarios. Its governing
-front-left individual ratio becomes 0.9613 under the smallest of those scenarios, compared
-with the 0.9521 unadjusted reference below. The actual group carries oblique forces and
-a couple, so this is a sensitivity rather than an adopted complete-group factor.
-
-The [retained-washer comparison](hypotheses/mvp-resume-2026-10-01/retained-washer-checks.md)
-binds the separate 3/8-inch and 1/2-inch catalog envelopes and saved bores
-across 144 seat states. The subsequent
-[current saved-STEP support check](hypotheses/mvp-resume-2026-10-01/retained-washer-support.md)
-confirms all 24 nominal concentric annuli across 72 shallow probes, using the
-corrected side-member copies. Uniform-pressure wood indices remain
-0.2083/0.2878; loaded shift/tilt and washer metal acceptance remain open.
-
-| Current six-case result | Conditional working result |
+| Question | Maintained record |
 | --- | --- |
-| Top outer corners | Conditional 92 ksi component ratios 0.7268 left / 0.8138 right; concurrent steel scenarios 0.7356 / 0.8253 |
-| Bottom outer corners | Left component ratio 0.2819, concurrent steel scenario 0.2839; right below 0.00569 |
-| Left lower outer service | Individual 92 ksi reference ratio 0.00704; governing same-state shear/tie 6.677 / 7.286 N |
-| Member arithmetic | 264 balances, 54,888 signed cut traces; elementary normal/shear references 0.5746 / 0.3700 |
-| Member torsion/stability | Braced normal interaction 0.6144; top-rail face shear/torsion proxy 1.0392 exceeds declared 180 psi reference |
-| End-grain lateral route | 12 axes / 72 states; NDS perpendicular bearing and Ceg=0.67, individual 92 ksi ratio 0.04648 before group/detailing adjustments |
-| Six block/header joints | Adjusted component sensitivity 0.04692, washer wood bearing 0.2627; 36 interfaces and 42 body balances close |
-| Continuous knee bolts | 24 asymmetric cases; endpoint sum 0.9192 at 92 ksi / 1.3125 at 45 ksi; recovered nominal bearing/steel indices 0.3596 / 0.5926, with contact/clearance and full joint transfer open |
-| Remaining eligible individual bolts | No eligible ratio above one at 45/92/106 ksi; retained front-left second bolt governs at 0.9521 |
+| What completed, and what remains unresolved? | [Joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md) |
+| Which actions apply to the 104-axis basis? | [Working force register](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/working-joint-register.md) |
+| Which actions and parts apply to the proposal? | [108-axis packet and source index](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md) |
+| What is known about splitting? | [All-joint demand/path assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/README.md) |
+| What does the panel model assume? | [Panel path](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-path-reconciliation.md), [material fidelity](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-material-fidelity.md), [attachment comparisons](hypotheses/mvp-resume-2026-10-01/panel-attachment/README.md) |
+| What are the formal acceptance boundaries? | [Completion ledger](completion-ledger.md), [47-criterion register](current-criteria-coverage.md), [criteria](criteria.json) |
 
-Different peaks are not simultaneous. The [bottom-corner calculation](hypotheses/mvp-resume-2026-10-01/bottom-corner-checks.md),
-[top-corner worksheet](hypotheses/mvp-resume-2026-10-01/top-corner-component-checks.md),
-[member screen](hypotheses/mvp-resume-2026-10-01/member-checks.md),
-[torsion/stability calculation](hypotheses/mvp-resume-2026-10-01/member-stability.md) and
-[end-grain applicability](hypotheses/mvp-resume-2026-10-01/end-grain-route.md) and
-[three-member screen](hypotheses/mvp-resume-2026-10-01/three-member-checks.md) and
-[header worksheet](hypotheses/mvp-resume-2026-10-01/header-joint-checks.md) bind current
-same-state inputs. The existing service worker's
-[upper/lower assessments and earlier Hillman evidence](hypotheses/mvp-resume-2026-10-01/service-and-hillman-integration.md)
-remain preserved and ingested without regenerating their historical force records.
+Loads retain six cases with **250 lb × 2 downward, signed 300 N horizontal,
+original 100 mm hold lever**, recorded gravity and the proportional 25 kg
+accessory allowance. The 50 mm comparison and incomplete lighter-climber
+branches are historical sensitivities, not selected loading envelopes.
 
-The [continuous-bolt bearing construction](hypotheses/mvp-resume-2026-10-01/knee-bearing-checks.md)
-recovers shear and bending through all three receivers while preserving 72 saved
-receiver wrenches. Its 96 normalized endpoint fields fit the declared nominal
-bearing/bending bounds; actual bore-wall contact compatibility and common-bolt
-clearance remain open. This does not supply an adjusted asymmetric joint capacity.
+Current physical top-rail comparisons are complete under the documented
+placement, sharing and duration assumptions. The all-joint assessment covers
+30 duties, 44 timber sides and 528 states; it supplies demands and candidate
+paths, **not complete splitting resistance**. Panel head demand remains about
+1871 N against the stated 930–984 N nominal references. Neither comparison
+is an observed physical failure. Material/contact hypotheses, global
+compatibility and stability, no-slip support and actual hardware remain explicit
+limits. Permanent-load evidence retains its original force scope.
+The disposition links each result to its own forces and method.
 
-The [shared-shaft placement check](hypotheses/mvp-resume-2026-10-01/knee-bore-fit.md)
-finds 96 straight-shaft witnesses through the three saved bores. Total-motion
-fits retain at least 0.435309 mm conservative radial margin; complete bore
-deformation and loaded contact are not reconstructed. This geometry result
-does not require bore enlargement or change the frame's zero-clearance laws.
+## Conditional operations and purchasing
 
-The original [zero-withdrawal calculation](hypotheses/mvp-resume-2026-10-01/no-withdrawal-frame-checks.md)
-stops in all six cases: upper panels need outward restraint. The
-[panel attachment worksheet](hypotheses/mvp-resume-2026-10-01/panel-attachment/README.md)
-now finds a concrete reference deficit: 1837 N current modeled-gap withdrawal exceeds the declared
-277–629 N unadjusted head references and 711–1073 N generic timber withdrawal references.
-Preserved six-joint softer withdrawal-law scenarios reduce the peak to 1240 or 916 N; both still exceed
-those head references and increase opening. A separate
-[100 N/mm replay on the current all-88-clearance frame](hypotheses/mvp-resume-2026-10-01/panel-attachment/README.md#all-two-receiver-100-nmm-sensitivity-attempt09)
-gives 907 N modeled-gap withdrawal and 9.066 mm representative opening;
-its favorable generic combined index reaches 3.0068. That hypothesis still
-exceeds every declared head reference. These are conditional reference comparisons,
-not measured Hillman resistance or a physical failure claim. No changed screw law is selected.
+The [assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
+and [shop guide](hypotheses/mvp-resume-2026-10-01/assembly-package/shop-guide.md)
+join assembly/removal, individual-member transport, hardware and costs.
+Use the [44-blank list](hypotheses/mvp-resume-2026-10-01/assembly-package/blank-cut-list.md),
+[hardware specification](hypotheses/mvp-resume-2026-10-01/assembly-package/hardware-engagement.md)
+and [washer census](hypotheses/mvp-resume-2026-10-01/assembly-package/washer-coverage.md)
+for the reviewed record; the proposal's [shop delta](hypotheses/mvp-resume-2026-10-01/assembly-package/knee-bridge-shop.md)
+and [order](hypotheses/mvp-resume-2026-10-01/assembly-package/knee-bridge-order.md)
+identify its four additional stacks. Actual/Disposition cells remain blank.
+No physical build, floor or delivered parts have been inspected.
 
-The parent has completed same-state component replays at all 88 two-receiver candidate bolts.
-Their rank296/297 nominal modes are reported as
-[bounded nonunique seating](hypotheses/mvp-resume-2026-10-01/bounded-clearance.md), with strict
-rank300/stability flags retained false. Four continuous bolts still need common-bolt clearance
-treatment. This variant's peak panel withdrawal is 1837 N, so the head-reference deficit
-persists. The specific top-rail reference exceedance also remains unresolved;
-its governing cut lies 52.189 mm beyond a cleat contact footprint in a short
-transfer run, so the developed pointwise stress-field assumption is unproved.
-No physical wood failure, material factor or geometry change is adopted. The preceding table now uses
-one coherent current force source. Earlier six-joint results, terminal packets
-and exact producer snapshots remain preserved. All complete-joint flags stay false.
+## History and evidence recovery
 
-The [assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md) reconciles
-50 transport bodies, 104 bolts/nuts, 208 washers and 66 separate Hillman screws. Larger stock
-scenarios place all 44 timber blanks; the 8-foot-only scenario misses five. The recorded priced
-hardware terms total $158.46 plus explicit missing terms, rather than a complete purchase total.
-The [dated catalog update](hypotheses/mvp-resume-2026-10-01/assembly-package/catalog-costs.md)
-adds $31.12 of retained hardware at displayed piece prices. Combining that increment once
-with the historical partial sum gives $189.58 before freight/tax, still incomplete.
-The [hardware engagement worksheet](hypotheses/mvp-resume-2026-10-01/assembly-package/hardware-engagement.md)
-now supplies fourteen family specifications for all 104 stacks, including
-body/thread and nut coverage. The [conditional shop guide](hypotheses/mvp-resume-2026-10-01/assembly-package/shop-guide.md)
-joins those parts, stock, assembly/removal and transport instructions; Actual/Disposition
-cells remain blank. The [longer-bolt occupancy screen](hypotheses/mvp-resume-2026-10-01/assembly-package/hardware-length-fit.md)
-finds no clash in twelve proposed added tips and headward-travel increments: 48,190 source pairs
-separate by conservative bounds, and two saved STEP pairs have zero intersection and
-18.158 mm minimum distance. Full nut/thread/tool operations are outside that finite screen.
-Supplier profile guarantees, complete order cost, actual tools and harness staging remain open.
-The parent retains integrated mechanics, shared staging and commits; the panel, member and
-clearance helpers have delivered their finite results, and the fit worker owns its leaf packet.
-No recurring review loop is used.
+Earlier work orders and method checkpoints are historical reading, not the
+current task queue. The [design-history catalog](../history/design-history.md#archive-reading-groups)
+keeps layouts, successes, failures and writeup material together. The
+[previous landing-page snapshot](../history/wood-joint-development-summary-before-navigation-cleanup.md)
+preserves its earlier numerical summaries and panel-comparison addition.
 
-The [central bearing scenario](hypotheses/mvp-resume-2026-10-01/partial-seat-bearing.md)
-provides supported geometry at the center-principal partial washer seat. Its current all-two-receiver
-wood-bore-only pressure ratio is 0.1425. Including the catalog washer's maximum
-8.3058 mm opening raises the conditional uniform-pressure ratio to 0.2146;
-the preserved six-joint wood-bore-only value is 0.5147.
-Actual washer/nut transfer remains unqualified. The
-[lower-left service comparison](hypotheses/mvp-resume-2026-10-01/service-joint-current-checks.md)
-now supplies all 24 current signed bolt states and a peak conditional Grade 5 lateral ratio
-0.00704 for the all-two-receiver replay (preserved six-joint value 0.00568);
-zero-lateral directions remain null and complete-joint acceptance stays false.
-Complete wood/group/washer resistance, finished member sections, restraint and operation checks
-remain unfinished. Detailed washer meshes, stiffness-output builds and provenance tooling remain
-parked method work. No stronger bottom hardware or stock change is selected by the current screen.
-
-## Useful results
-
-- The [October 1 evidence summary](parallel-owner-handoff-2026-10-01.md) records source-action work;
-  local center-boundary and retained-bolt validations preserve signed three-case actions and modeled
-  equilibrium. Direct-seat and cleat routes remain distinct; physical sharing, stiffness and resistance are unqualified.
-- [Finished geometry](hypotheses/current-finished-feature-register-2026-10-01/README.md),
-  [stock scenarios](hypotheses/current-stock-envelope-reconciliation-2026-10-01/README.md) supply 44-piece
-  geometry bindings. Local retained-edge samples do not establish full-depth minima, observed grade or approved cuts.
-- Local annulus/contact fixtures qualify their frozen software/output scopes. The
-  [washer-method note](hypotheses/corner-washer-method-investigation-2026-10-01/source-note.md) explains the
-  remaining transfer gap; candidate pressure, washer metal, wood resistance and partial-seat capacity are unqualified.
-
-## Remaining work and next actions
-
-Complete the remaining requirements across all 24 replacement duties and affected members:
-common-bolt clearance at the four continuous knee bolts, compatible slip/rotation, full
-head/nut/washer transfer, local splitting and applicable group interaction. The partial seat
-at `center_principal_right_2` has a supported central-ring pressure comparison; actual
-nut/washer transfer remains open. The
-[current header-action replay](hypotheses/mvp-resume-2026-10-01/header-joint-checks.md#current-bounded-replay--attempt02final)
-has no first-ray normal distance below 4D and no adopted actual detailing failure. The old
-BG045 edge exception remains historical evidence. The
-[current placement worksheet](hypotheses/mvp-resume-2026-10-01/header-endgrain-placement/README.md)
-covers all twelve axes and 72 signed states; applicable translational placement
-checks clear, with 1.55 mm margin at the two active loaded edges. Local splitting,
-eccentric load transfer and torque resistance remain open. No axis move follows
-from these states.
-
-The [header load-path worksheet](hypotheses/mvp-resume-2026-10-01/header-local-transfer/README.md)
-attributes the section actions to their actual connections: target bolt
-interfaces contribute negligible Y force; the kicker withdrawal/contact path
-supplies the outward Y loads. Existing Z through-bolts act through inward
-seat bearing. A connected finished-section probe locates the declared nominal
-kicker receiving segment wholly on the bending tension side. This closes
-that location question while retaining the specific combined Y transfer
-requirement and actual metal/seat checks. No complete joint pass is claimed.
-
-The unadopted [panel corner-restraint proposal](hypotheses/mvp-resume-2026-10-01/panel-attachment/edge-restraint-proposal.md)
-reserves 20 mm front corner margins on four main panels and includes lateral
-edge bearing. All 48 panel states have static allocations with zero
-main-panel screw credit; the largest minimum corner L1 load is 1083.408 N.
-Keeper geometry, frame attachments, resistance and compatible frame response
-remain unestablished. The [one-stock fastener alternative](hypotheses/mvp-resume-2026-10-01/panel-attachment/fastener-alternative.md)
-does not close current demands. Neither correction is selected. The owner's
-October 2 mounting-pattern challenge changes the next priority: compare the
-reviewed screw layout and load sharing against the described four-per-edge,
-shared-corner arrangement before treating a hardware correction as necessary.
-See the [mounting comparison](hypotheses/mvp-resume-2026-10-01/panel-attachment/official-pattern-comparison.md)
-and [force direction/load basis](hypotheses/mvp-resume-2026-10-01/panel-attachment/force-direction-and-load-basis.md).
-
-The owner then authorized moving the upper screws upward. The
-[four-station relocation calculation](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/README.md)
-checks new backing and completes all twelve 250 lb dynamic states. Nominal
-axial peak is 1871.251 N, still above retained generic head references.
-Both 140 lb comparisons stop on contact branch cycling after two zero-gap
-states; no full lighter-climber envelope is established. This revision is now the analytical source linked above. Its fresh
-component replays remain separate from the preserved previous-source checks.
-
-The [conditional assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
-already reconciles 50 transport bodies, 44 timber blanks, 104 bolt/nut stacks, 208 washers
-and 66 separate Hillman screws, with stock and assembly/removal scenarios. Full tool/harness
-operations, compatible delivered axial profiles and the complete purchase cost remain
-unresolved. Priced hardware terms total $189.58 when the $31.12 retained increment is
-counted once; wood and other explicitly missing terms remain separate. The earlier
-[stock-price observations](hypotheses/current-stock-package-cost-2026-10-01/README.md) retain
-their source scope and do not replace this current reconciliation.
-
-1. Check the panel mounting and load-sharing representation against the owner's described
-   official shared-corner arrangement. The source has twelve screws per main panel, but
-   its upper vertical-row endpoints are 65.95 mm below its two top-rail screws; the lower
-   bottom-row endpoints likewise differ by 76.9 mm. Count alone does not establish the
-   same mounting pattern. Retain the current conditional reference exceedances, purchased
-   Hillman policy and preserved reviewed axes. Four upper axes now have an
-   owner-authorized child calculation; finish the 140 lb contact-branch comparison
-   and applicable receiver/member recalculations before adopting that revision.
-   Keeper or replacement fastener selection follows the comparison if a deficit remains.
-2. Recalculate the top rail with the corrected panel load path. Retain the current 1.0392
-   face shear/torsion exception and its short-transfer applicability limit until that result
-   is resolved. Do not increase a material factor or infer a physical failure from the proxy.
-3. Use the completed twelve-bolt added-occupancy screen when reconciling the conditional shop
-   package; its clear additions do not select the proposed lengths or prove full operations.
-   Preserve the four captured-nut
-   paths and retained leg-bolt harness dependency. Hardware profiles, actual operation fit and
-   the complete compatible purchase total remain explicit conditions.
-
-Use the current all-two-receiver force source for subsequent component calculations. Earlier
-six-joint sources, native failures and parked method work remain preserved evidence. Complete
-joint qualification and all physical-release flags stay unchanged; no recurring review round
-is scheduled.
-
-## Detailed coordination and evidence
-
-Local `NEXT-AGENT-HANDOFF-2026-10-01.md` gives exact restart points;
-`hypotheses/mvp-integration-2026-10-01/` holds the current integration, exact-47 audit and validation receipts.
-The published [endpoint](luna-max-completion-handoff.md#1-endpoint-and-authority) and [criteria register](current-criteria-coverage.md)
-retain full requirements. Long [coordinator](hypotheses/mvp-acceleration-2026-09-28/LUNA-MAX-COORDINATOR-CURRENT-CHECKPOINT-2026-09-29.md)
-and [four-gate](hypotheses/mvp-acceleration-2026-09-28/four-gate-closure-matrix-2026-09-29.md) chronologies preserve earlier snapshots; later dispositions govern continuation.
-The parent owns readiness, frozen inputs, serialized heavy runs and final validation under [AGENTS.md](../../AGENTS.md).
-Reuse evidence within its limits; numerical stops, missing evidence and strength failures remain distinct.
-Preserve other owners' work, source snapshots and [historical models](../history/design-history.md); check references before pruning outputs.
+Published sources and notes retain their original evidence paths. Some frozen
+arrays, geometry copies and receipts are ignored local inputs. Use the
+[archive/recovery record](../repository-cleanup-evaluation-2026-09-28.md)
+before replaying from a fresh clone or moving an older packet. Older geometry
+and helpers can remain current dependencies; their dates do not establish
+that they are disposable. Work on `master`, coordinate owned paths, and update
+this entry rather than adding another routine checkpoint.

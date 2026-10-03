@@ -1,11 +1,16 @@
-# Selected working set
+# Selected baseline working set
 
-This is the selected screw-and-bracket floor-runner baseline. The separate
-[wood-joint development lane](wood-joints-mvp/README.md) is also active; it
-does not replace this authority or inherit its passes. Earlier options remain
-available in the [design-history catalog](history/design-history.md) and viewer.
+For active engineering work, start at the
+[wood-joint development summary](wood-joints-mvp/README.md).
 
-## Open these first
+This page lists only the selected screw-and-bracket floor-runner baseline,
+`compact-floor-flush-development`, governed by `current-candidate.json`. It is
+a baseline reference guide, not the wood-joint working set. The separate
+development lane does not replace this authority or inherit its passes.
+Earlier options remain available in the [design-history catalog](history/design-history.md)
+and viewer.
+
+## Baseline files
 
 | Role | Path |
 | --- | --- |
@@ -18,8 +23,8 @@ available in the [design-history catalog](history/design-history.md) and viewer.
 | Six-case archives | `fea/results/floor-runner-mvp/` |
 | Geometry snapshot named in authority | `fea/results/clear-space-floorflush/a12-left/geometry.json` |
 
-Start at [docs/README.md](README.md) if you are building. Older studies are in
-[history/](history/).
+Read the [baseline reference packet](README.md) for its conditional shop
+instructions and evidence. Older studies are in [history/](history/).
 
 ## Outside this baseline's reading path
 
@@ -31,12 +36,13 @@ Start at [docs/README.md](README.md) if you are building. Older studies are in
 
 This is a reading guide, not a deletion or sparse-checkout list. The selected
 model imports earlier geometry modules, and evidence can reference ignored
-generated files. Preserve historical viewer assets, inherited code, saved
+generated files. Paths outside this baseline list may be active inputs to the
+wood-joint lane. Preserve historical viewer assets, inherited code, saved
 results and other agents' work. See the
 [cleanup evaluation](repository-cleanup-evaluation-2026-09-28.md) before moving
 or pruning files. No Git history rewrite is needed.
 
-## Next geometry change
+## Baseline geometry changes
 
 If the selected frame changes, write a complete selected-module contract
 (inventory, bolts, angles, datums) rather than another `__getattr__` overlay.

@@ -1,5 +1,107 @@
 # Repository cleanup evaluation
 
+## October 3 navigation and retention update
+
+The owner authorized addressing the repository-state audit: one obvious
+development reading path, with older material retained for reference and a
+writeup. The active path is now [wood-joint development](wood-joints-mvp/README.md).
+The selected screw-and-bracket baseline keeps its machine authority and is
+presented as a separate reference packet. No candidate, geometry, load,
+mechanics source or acceptance criterion changes in this cleanup.
+
+- **Current entry:** the root README leads with wood-joint work. The development
+  landing page is 89 lines, linking the current disposition, corrected force
+  register, assembly packet and unadopted knee proposal. It distinguishes
+  reviewed 104/208 bolt/washer inventory from proposed 108/216, completed
+  conditional packet from ongoing numerical assessment, and all 47 pending
+  formal criteria/eight false release flags.
+- **Preserved text:** the [historical landing-page snapshot](history/wood-joint-development-summary-before-navigation-cleanup.md)
+  retains all 284 original lines, including the unpublished panel-comparison
+  addition. Its original payload SHA-256 is
+  `c03de6d8542f6b4082e01df4fca7f20f9331c45a632a168824c46bcdf756c5a3`.
+  Formal coverage and completion-ledger headers now direct readers to current
+  results while preserving their earlier method mappings and chronology.
+- **History:** the [design-history catalog](history/design-history.md) adds the
+  conditional packet milestone and groups superseded work orders, earlier
+  layouts and closed method investigations. Its original seventy-model
+  collection remains byte-identical. Historical paths, failed results,
+  reusable fixtures and live inherited dependencies remain available.
+- **Viewer navigation:** the menu labels the selected baseline as preserved
+  and V4/corner/barrel layouts as previous bolted concepts. A current wood-joint
+  status link precedes the reviewed-scene link. Model values, ordering and
+  asset references are unchanged. A separate owner-authorized worker now owns
+  native proposal integration into the viewer; that work is not this cleanup's
+  geometry or acceptance result.
+
+Validation checked 548 local link targets, resolving preserved snapshot links
+against their original directory, and checked exact historical payload bytes,
+unchanged original menu construction and JavaScript syntax. The existing
+mesh URL gate verified 13,618 shared URLs. The selected-candidate identity
+check still reports the previously documented `compact_floor_flush_frame.py`
+geometry-source snapshot mismatch. Its source and authority were not edited.
+No native solve, CAD rebuild, broad historical test run, source relocation or
+pruning was performed.
+
+### Current evidence recovery bundle
+
+The finite direct-consumer snapshot is stored outside the checkout:
+
+```text
+/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-03/
+  current-evidence.tar.gz
+  current-evidence.tar.gz.manifest.json
+```
+
+It contains **2,146 files / 2,010,788,027 uncompressed bytes**, including
+2,139 repository files, two externally pinned inputs, two historical Git
+versions and three preservation records. The archive is **528,179,840 bytes**.
+The selection plan retains expected hashes separately from current bytes.
+It covers the direct reviewed-force/operator/register, assembly and fit
+inputs, all 390 proposed-knee source pins and all 498 all-joint source pins,
+their recorded outputs, and the older artifact manifest's live files.
+It does not recursively collect every closed native/build experiment.
+
+| Recovery artifact | SHA-256 |
+| --- | --- |
+| `current-evidence.tar.gz` | `e3bae4b51370ed415af7a0c4c95c06146a7590b6468e7dfe5ceac6acb7dc5ead` |
+| Companion manifest | `be557e2946fbecb021ee8c2c1e09f9f698544314285d26f1ee69388a24132163` |
+
+Existing `scripts/evidence_archive.py` inventory, archive writer and verifier
+APIs produced a namespaced explicit-file snapshot, avoiding broad dirty source
+directories. Every archive member and a complete fresh restored tree were
+verified. All 2,141 live repository/external source files were hash-checked
+again after archival and remained unchanged. Originals stay in place.
+
+To recover, transfer both files together and restore into a fresh external
+directory. This command uses the existing standard-library CLI:
+
+```sh
+python3 scripts/evidence_archive.py restore \
+  --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-03/current-evidence.tar.gz.manifest.json \
+  --destination /tmp/mini-moonboard-current-evidence-restored
+```
+
+`repository/` preserves original repository-relative file names. Copy only
+needed frozen files into a clone after comparing its existing versions; do
+not overwrite newer work. `external-inputs/tmp/` preserves the exact NDS PDF
+and retained-frame-bolt resistance JSON at their recorded temporary-path
+identities. `preservation-record/` describes source selection and limitations.
+`historical-artifact-pins/` contains the older completion-ledger version from
+commit `33d0e129742f5683ee06c3087694c811309b1fd1` and earlier outer-viewer version
+from `40b97ecffe30d06b0167b15219063e011defc0d5`, matching their old manifest pins.
+
+The old `luna-max-completion-handoff.md` manifest pin
+`b40650e35ce0b012d0879b8997a6a6d60b656943f9fca5f4c6a3943b76a01d9d`
+differs from its preserved current version; its exact earlier bytes were not
+recovered. This historical-document mismatch is explicit, and no frozen pin
+was replaced. All current knee/all-joint source and output pins match.
+
+This is a restore-only snapshot, not a source-tree pruning manifest. It is a
+local transferable backup, not a hosted download supplied by a fresh clone.
+Later assessment or viewer inputs need their own recorded snapshot; this
+bundle does not claim to cover future changes. The earlier closed-run archive
+below remains the recovery source for its separate historical raw data.
+
 ## October 1 implementation
 
 The owner authorized mesh sharing, a short current development summary,
@@ -98,7 +200,7 @@ the current working tree. It changes no candidate, geometry, mechanics method,
 acceptance criterion, or evidence disposition. No existing files were moved or
 deleted, and no native solver was run.
 
-## Recommendation
+## Earlier recommendation
 
 Keep two clearly labeled working lanes: the selected screw-and-bracket baseline
 and the reviewed wood-joint development candidate. Put older designs and closed

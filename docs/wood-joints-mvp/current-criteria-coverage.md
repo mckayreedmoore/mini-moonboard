@@ -1,5 +1,23 @@
 # Current wood-joint criteria coverage
 
+## Formal status and reading order
+
+**All 47 formal criteria remain pending; no release flag changes.** The
+[current joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md)
+records completed conditional calculations and their remaining limits.
+The [108-axis proposal packet](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md)
+is complete within its recorded model/shop scope and remains unadopted;
+the reviewed 104-axis authority is preserved.
+
+The method/evidence mapping below retains the earlier readiness freeze. Its
+statements that an action producer or washer calculation does not yet exist
+describe that freeze, not the current calculation inventory. Its planned
+native-method sequence is historical guidance, not the active task queue.
+Use the disposition and [development entry](README.md) for ongoing work;
+the frozen criteria and machine-readable coverage are not reclassified here.
+
+## Preserved readiness and method mapping
+
 **Status: planning/readiness only; all 47 criteria remain pending.** This register maps the 36 adopted legacy criteria and 11 new candidate obligations to methods, evidence available for the current freeze, and the next dependency. It does not change [`criteria.json`](criteria.json), release flags, or any acceptance decision. Current joint-axis locations supersede the old map’s “66 fixed” wording: preserve 66 axes/purchased policy as 58 unchanged plus 8 moved, and recheck those eight receivers, support and transfer paths. The old map is stale for location only; its general methods remain reference material.
 
 Current pin: `led-clearance-2x6-runner-seated-blocks-v1`, reviewed repository commit `b1e8707d`; scene [`owner-wood-joints-wj24-scene.json`](../../site/owner-wood-joints-wj24-scene.json), report [`owner-wood-joints-review-report.json`](../../site/owner-wood-joints-review-report.json), and snapshot [`geometry-snapshot.json`](hypotheses/evaluation-resume-2026-09-24/geometry-snapshot.json). The scene’s `source_binding.source_commit=df7f5eca…` identifies the preserved source baseline; it is not the current implementation commit.

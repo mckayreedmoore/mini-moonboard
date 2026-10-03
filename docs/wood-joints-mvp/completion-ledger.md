@@ -1,6 +1,27 @@
 # Wood-joint MVP completion ledger
 
-## October 2 conditional MVP continuation
+## Current conditional packet and qualification status
+
+The [joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md)
+is the maintained operational summary. The reviewed 104-axis record remains
+authority; the [108-axis knee proposal](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md)
+is a completed conditional model/shop packet, not an adopted replacement.
+
+The [all-joint splitting assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/README.md)
+now completes demands and candidate paths for 30 duties, 44 timber sides and
+528 states. Supported boundary placement, simultaneous host transfer and
+applicable anchorage remain missing for complete splitting resistance.
+Panel reference deficits, material/contact assumptions, stability/common
+deformation, original-scope permanent-load evidence and delivered hardware
+retain their stated limitations. **All 47 formal criteria remain pending and
+all eight release flags remain false.** Completed reference arithmetic is
+not complete structural acceptance.
+
+Use the [development entry](README.md) for the current reading order. The
+chronology below preserves earlier results, work orders and then-current
+readiness statements; it does not commission those tasks again.
+
+## Preserved October 2 conditional MVP continuation
 
 Current work follows the owner's simpler
 [working model and conditional shop scope](hypotheses/mvp-resume-2026-10-01/README.md).

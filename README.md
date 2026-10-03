@@ -1,90 +1,64 @@
 # Mini MoonBoard DIY frame
 
-Plans, a 3D viewer, and shop sheets for a Mini MoonBoard-sized climbing wall
-you can build yourself. This is an independent project, not affiliated with or
-endorsed by Moon Climbing.
+Engineering models, calculations, viewers and conditional shop documents for
+a Mini MoonBoard-sized climbing wall. This is an independent project, not
+affiliated with or endorsed by Moon Climbing.
 
-This is a DIY build. It has not been signed off by an engineer.
+## Active development: bolted wood joints
 
-## Find your working area
+Start at the [wood-joint development summary](docs/wood-joints-mvp/README.md).
+Use the [reviewed WJ24 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-wj24-viewer.html)
+to inspect its recorded geometry. The viewer shows the reviewed basis;
+the separate knee-bridge proposal is described in its linked packet.
 
-The selected baseline is `compact-floor-flush-development`. The wood-joint
-model is a separate development candidate; its evaluation is ongoing.
+The [engineering disposition](docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md)
+collects completed finite checks, working assumptions and unresolved load
+and resistance questions. The conditional model/shop packet is complete
+within that scope. All 47 formal criteria remain pending and all eight
+release flags remain false.
+Current work assesses the complete joint system numerically, retaining passing,
+failed and unsupported outcomes to decide necessary model changes.
 
-| Purpose | Start here |
-| --- | --- |
-| Selected screw-and-bracket baseline | [Builder documents](docs/README.md) and [selected working set](docs/selected-working-set.md) |
-| Current wood-joint development | [Development entry point](docs/wood-joints-mvp/README.md) and [reviewed WJ24 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-wj24-viewer.html) |
-| Explore previous options | [Design history, results and lessons](docs/history/design-history.md); all earlier choices remain in the [interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/) |
+| Wood-joint record | Structural bolts / nuts | Washers | Status |
+| --- | ---: | ---: | --- |
+| Reviewed basis | 104 / 104 | 208 | Preserved geometry and analytical reference |
+| [Knee-bridge packet](docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md) | 108 / 108 | 216 | Complete conditional packet; unadopted proposal |
 
-## Start here
+Both retain 24 blocks, 44 timber blanks, 50 transport bodies and 66 purchased
+Hillman panel/kicker screws. The proposal adds four bolts in two knee spines;
+it does not replace the reviewed authority. The [wood-joint contract](wood-joints-candidate.json)
+records this separate development lane.
 
-**How you get the plywood decides which sheets to use.**
+Calculations retain six cases with 250 lb × 2 downward, signed 300 N horizontal,
+the original 100 mm hold lever, recorded gravity and the equipment allowance.
+The all-joint demand/path assessment is complete; splitting resistance remains
+unresolved. The panel-head reference deficit, assumed material/contact behavior,
+no-slip floor and delivered-part limits remain explicit in the disposition.
+This engineer-unreviewed documentation supplies no fabrication or climbing release.
 
-| Your plywood | Cut and drill sheets | 3D model |
-| --- | --- | --- |
-| Bought as **4×4** (or Mini kit panels) | [github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction) | [https://mckayreedmoore.github.io/mini-moonboard/](https://mckayreedmoore.github.io/mini-moonboard/) |
-| **Cut from 4×8** (saw takes about 1/8 in) | [github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction-kerf-right) | [https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right](https://mckayreedmoore.github.io/mini-moonboard/?model=compact-floor-flush-kerf-right) |
+## Selected baseline and design history
 
-You can also open the 3D page and, under **Design**, pick **Bought 4×4 plywood**
-or **Cut from 4×8**. You do not have to edit the address bar.
+The selected screw-and-bracket baseline remains `compact-floor-flush-development`,
+governed by [current-candidate.json](current-candidate.json). Its preserved
+[reference packet](docs/README.md) contains the plywood variants, checklist,
+assembly guide and baseline evidence. The [selected working set](docs/selected-working-set.md)
+lists that baseline's files. Its passes do not qualify the wood-joint lane.
 
-Why two folders: a 4×8 ripped in half loses about 1/8 in to the blade, split
-across both faces. Hold and screw layout still starts from the left, like the
-Moon drawings, so that missing width lands on the right. More detail:
-[Which plywood packet](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-width-option.md).
+The [design-history catalog](docs/history/design-history.md) preserves previous
+options, results and lessons for reference and a future writeup. Historical
+models remain available in the [full viewer collection](https://mckayreedmoore.github.io/mini-moonboard/).
 
-Start in [docs/](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs)
-([docs/README.md](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/README.md)).
-Then follow the [shop checklist](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-shop-checklist.md)
-and [assembly guide](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-assembly-guide.md).
-Use only the folder that matches your plywood. Do not mix them.
+## Contributor setup
 
-The selected design name in the files is `compact-floor-flush-development`.
-
-## What you are building
-
-4×6 rear legs and side rims, 2×6 header, posts, rails and floor runners, whole
-kicker panels, a 1:12 cut on the back of each rear leg, twelve bolt stacks,
-24 Simpson ML24Z angles with SDS screws, and 66 Hillman deck screws through
-the faces.
-
-- **Angle screws (SDS):** 5/32 in pilot through the metal angle into the wood.
-- **Face screws (Hillman #10):** Kobalt #10 bit, 1/8 in pilot and 3/8 in
-  countersink. Try it on a scrap first.
-- **Frame bolts:** slightly oversize holes; use partially threaded bolts and
-  check the smooth shank on the parts you actually bought.
-
-Calculations used 250 lb holds and assumed the feet stay put. Some Simpson
-angle actions have no published rating; that is noted in the ledger. Crash pads
-in the 3D view are a size check only. Older designs are in the archive menus.
-
-## If you want the background
-
-| Document | What it is |
-| --- | --- |
-| [Shop checklist](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-shop-checklist.md) | Cut, drill, assemble, inspect |
-| [Assembly guide](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-assembly-guide.md) | Order of work and hardware |
-| [Which plywood packet](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-width-option.md) | 4×4 vs 4×8 |
-| [Build package](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-flush-build-package.md) | Parts list and current status |
-| [MVP master plan](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-runner-mvp-master-plan.md) | How the calculations were finished |
-| [Completion ledger](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/floor-runner-mvp-completion-ledger.md) | What passed and what is still open |
-| [History](https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/history/README.md) | Older ideas; not current |
-
-The baseline's remaining conditions are recorded in its completion ledger and
-shop checklist. Its recorded passes do not qualify the wood-joint candidate.
-
-## For people editing the code
+Work on `master` and coordinate file ownership and publication with other agents.
+Read [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md) before changing
+geometry, evidence or archived files.
 
 ```sh
 uv sync --locked
 uv run python -m http.server 8767 --directory site
-uv run python -m scripts.floor_flush_exports
-uv run python -m scripts.floor_flush_construction
-uv run python -m scripts.current_candidate --check-exports
-uv run python -m scripts.compact_viewer_meshes --run -- uv run pytest -q
 ```
 
-[`current-candidate.json`](https://github.com/mckayreedmoore/mini-moonboard/blob/master/current-candidate.json)
-points at the selected files. See
-[CONTRIBUTING.md](https://github.com/mckayreedmoore/mini-moonboard/blob/master/CONTRIBUTING.md).
+Open [the local WJ24 viewer](http://localhost:8767/wood-joints-wj24-viewer.html).
+Contributor instructions cover affected checks, mesh aliases and verified
+evidence archiving. Preserve frozen inputs and historical results.

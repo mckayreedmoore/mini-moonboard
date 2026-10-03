@@ -1,5 +1,15 @@
 # Repository working agreements
 
+## Active working lane
+
+Start ongoing work at [wood-joint development](docs/wood-joints-mvp/README.md)
+and its maintained joint disposition. This is the primary development reading
+path; the selected screw-and-bracket baseline below retains its own authority.
+Keep reviewed geometry, unadopted proposals, conditional packet completion and
+structural acceptance distinct. Earlier work orders and checkpoints belong in
+the [history reading path](docs/history/design-history.md), even when their
+original titles say "current." Preserve their source paths and frozen bytes.
+
 ## Selected authority
 
 The selected candidate is `compact-floor-flush-development`. Machine authority

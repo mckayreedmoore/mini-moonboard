@@ -25,12 +25,38 @@ The [decision log](decision-log.md) records the sequence and changing constraint
 | What happened when a solve did not converge? | A12-forward had three rejected contact searches before a fourth converged in 69 cycles under the same physical assumptions and final gates. A numerical search failure was not silently treated as a physical failure or an accepted result. | [Search history](../floor-runner-mvp-case-log.md#numerical-search-history), [six-case evidence](../floor-runner-mvp-evidence.json) |
 | Could routine structural wood-screw removal be replaced by bolted connections? | V4, corner-block and barrel-nut layouts explored different paths. The later direction selected wood blocks for development; their predecessors remain valuable geometry and access studies, not accepted block capacities. | [Bolted plan](../bolted-candidate-plan.md), [V4 model](https://mckayreedmoore.github.io/mini-moonboard/?model=bolted-v4-development), [corner model](https://mckayreedmoore.github.io/mini-moonboard/?model=owner-corner-layout), [barrel model](https://mckayreedmoore.github.io/mini-moonboard/?model=owner-barrel-layout) |
 | What did the detailed wood-joint simulation effort achieve and cost? | It produced useful method checks and exposed numerical problems, but did not establish a passing current joint. The September 29 direction uses whole-frame static demands and applicable connection checks, with detailed local work reserved for unresolved mechanisms. | [Reviewed WJ24 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-wj24-viewer.html), [solver assessment](../wood-joints-mvp/solver-reuse-assessment-2026-09-27.md), [analysis reassessment](../wood-joints-mvp/hypotheses/mvp-acceleration-2026-09-28/README.md) |
+| Could the simpler wood-joint route finish a coherent conditional model and shop packet? | The conditional packet is complete: six zero/nominal cases, joined joint/member actions, finite fit checks, assembly/removal, transport, BOM and cost terms. The reviewed authority remains 104 bolts / 208 washers; the unadopted knee proposal has 108 bolts / 216 washers. Both retain 50 bodies and 66 Hillman screws. Complete splitting resistance, the panel reference exception, actual hardware properties and compatibility remain unqualified; all 47 formal criteria remain pending and all eight release flags remain false. | [Goal disposition](../wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md), [bound proposal packet](../wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md), [reviewed authority](../../wood-joints-candidate.json), [conditional shop guide](../wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/assembly-package/shop-guide.md) |
+
+## Archive reading groups
+
+Use these groups to follow the decisions and methods behind the latest packet.
+For ongoing work, start at [wood-joint development](../wood-joints-mvp/README.md)
+and follow its current disposition. Earlier documents retain their original
+titles, labels, force sources and work orders. A historical “current” label or
+unfinished next-step instruction describes that snapshot; it does not reopen
+a task or change today's authority.
+
+| Reading group | What to preserve and learn | Starting records |
+| --- | --- | --- |
+| Superseded coordination and publication snapshots | Earlier ownership, restart sequence and publication boundaries explain how the work progressed. Their task queues and next actions are historical instructions; preserve any still-applicable engineering requirements separately from old execution order. | [Orchestration handoff](../wood-joints-mvp/orchestration-handoff.md), [full MVP handoff](../wood-joints-mvp/luna-max-completion-handoff.md), [September 29 checkpoint](../wood-joints-mvp/hypotheses/mvp-acceleration-2026-09-28/LUNA-MAX-COORDINATOR-CURRENT-CHECKPOINT-2026-09-29.md), [source-only publication checkpoint](../wood-joints-mvp/code-summary-checkpoint-2026-09-30.md), [earlier parallel-owner handoff](../wood-joints-mvp/parallel-owner-handoff-2026-10-01.md) |
+| Earlier WJ layouts and integration trials | Preserve geometry, access conflicts, receiver changes and the distinction between a static diagnostic and an accepted joint. These predecessors also contain inherited sources used by later work. | [WJ-03 / WJ-04 / WJ-05 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-outer-viewer.html), [WJ16 inputs](../wood-joints-mvp/hypotheses/wj16-full-stock-mechanics-inputs/README.md), [WJ18 diagnostic](../wood-joints-mvp/hypotheses/wj18-integrated-static/README.md), [WJ24 diagnostic](../wood-joints-mvp/hypotheses/wj24-integrated-static/README.md) |
+| Code_Aster and closed solver-method investigations | Keep passing primitive fixtures, numerical failures and output/source findings with their exact applicability limits. A passing method fixture is reusable evidence, not complete-joint acceptance or a standing instruction to repeat the experiment. | [Solver reuse decision](../wood-joints-mvp/solver-reuse-assessment-2026-09-27.md), [Code_Aster primitive results](../wood-joints-mvp/hypotheses/code-aster-stock-trial-2026-09-27/RESULTS.md), [shared-edge MORTAR failure](../wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-mortar-shared-edge-known-answer-attempt02/README.md), [elastic matrix export method](../wood-joints-mvp/hypotheses/elastic-matrix-export-method-2026-09-30/README.md) |
+
+This is an archive reading order, not a list of directories safe to prune.
+Current producers still consume some earlier geometry, operators, helpers and
+receipts. All primary evidence stays at its original paths; no frozen bytes,
+viewer choices or sources are moved by this catalog. Closed bulky raw runs
+can be archived only after ownership and consumer checks and verified recovery
+under the [contributor workflow](../../CONTRIBUTING.md). Existing archive
+locations and recovery instructions are in the
+[cleanup record](../repository-cleanup-evaluation-2026-09-28.md).
 
 ## Material for a presentation or writeup
 
 Use the milestones as chapters: initial constraints, geometry exploration,
 connection failures, the bracketed baseline's bounded success, removable-joint
-alternatives, and the ongoing analysis-method lessons. Keep the limitations
+alternatives, analysis-method lessons and the completed conditional wood-joint
+packet with its remaining qualification limits. Keep the limitations
 beside each result rather than combining different revisions into one pass.
 
 For each chapter, preserve the exact candidate/revision, the problem it aimed
