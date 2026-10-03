@@ -13,9 +13,9 @@ Use matched quarter-inch Grade 5 metal nuts, and **25.4/8.3058/2.5 mm
 OD/ID/thickness washer hypotheses at both ends**. [Existing product basis](washer-product-basis.md),
 [washer hypothesis](retail-washer.md) and [axial-profile convention](../assembly-package/hardware-engagement.md)
 are source-pinned. Nominal length does not establish thread at the nut seat.
-Delivered body/thread length, thread engagement, head/nut bearing profile,
-washer metal resistance, neighboring scene, bolt-tip clearance and tool access
-remain unproved. The producer records the necessary conditional thread window.
+Delivered body/thread dimensions, engagement and head/nut profile remain conditional.
+The [washer comparison](knee-bridge-washer.md) is complete; scene, tip and access checks are separate.
+Actual product resistance remains unqualified. The producer records the necessary conditional thread window.
 
 ## Frozen load and geometry basis
 
