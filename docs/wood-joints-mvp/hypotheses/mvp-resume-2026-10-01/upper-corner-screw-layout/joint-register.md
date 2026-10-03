@@ -6,6 +6,11 @@ to its current saved forces and applicable method records. It supplies no new
 joint capacity or acceptance. Complete joints and physical release remain
 **HOLD**; the 47-criterion authority and release flags are unchanged.
 
+Use the [concise MVP disposition](mvp-joint-disposition.md) for the latest
+completed local methods and explicit working assumptions. The machine index
+and force tables here retain the frozen integrated-frame allocation; later
+first-order local allocations are identified in their own notes.
+
 The [preserved earlier register](../joint-register.md) uses the historical
 `ec69b49c…` force source. Its numerical envelopes are not used here. Current
 method selection follows [bolted replay](bolted-replay.md),
@@ -45,6 +50,12 @@ at exactly two resolutions. Stress proxies 510.595/512.232 MPa differ by
 exceeds the expressly hypothetical 250 MPa yield input; delivered washer
 yield and resistance remain unknown. No product failure or frame/pair force
 feedback is inferred.
+
+The later [retail thick-washer screen](retail-washer.md) uses the current
+first-order 707.884 N / 2432.068 N mm witness. Its declared 25.4/8.3058/2.5 mm
+washer gives a finer stress proxy of 207.205 MPa, or 0.828821 of assumed
+250 MPa yield, with saved nominal face support. It changes no hardware count
+or frame response and supplies no measured product resistance.
 
 ## Census and force convention
 
@@ -173,6 +184,13 @@ They do not establish local wood-group or washer-metal resistance. The
 original machine register remains preserved; these local allocations do not
 feed back into the integrated frame.
 
+The [bottom first-order transfer](bottom-corner-transfer.md) now independently
+balances all 12 block and 24 host states. Its [fresh component replay](bottom-corner-components.md)
+covers 48 bolt states, with global 45/92 ksi lateral indices 0.397806/0.278217,
+finished-path index 0.036552, mean-seat index 0.229340 and smooth-steel index
+0.112332. These component comparisons are complete under their declared
+assumptions; the original frame index is preserved.
+
 ## Finite remaining load-transfer decisions
 
 1. **Panel sharing and the actual head/withdrawal route.** The current model's
@@ -189,11 +207,14 @@ feed back into the integrated frame.
    K12-rear. Normal/stability references peak at 0.628421 under the stated
    timber restraints. The shear/torsion exception remains; local transfer near
    the cleat and hole slices is not established by that beam field.
-3. **Complete corner transfer.** Individual dowel-yield references, signed ties,
-   nominal supported areas and washer strip stresses have not been combined
-   into a common contact/displacement solution for both orthogonal bolt groups.
-   Head/nut footprint, washer reaction distribution, bolt bending, timber
-   bearing, local splitting and slip/rotation must refer to the same state.
+3. **Corner transfer and nominal timber sections.** Both top and bottom
+   first-order calculations now combine both orthogonal bolt groups at the
+   same cleat datum, independently recover physical forces and moments, and
+   replay component references on the same states. The top
+   [bore-wall map](corner-bore-wall.md) supplies a supported pressure route
+   into the deciding net sections. Nominal regional sharing, complete
+   splitting/group resistance and actual washer/head/nut material remain
+   separate recorded scope limits.
    [Upper-right washer bounds](upper-right-washer-contact-bounds.md) retain
    their pressure-cap and strip assumptions; they are not predicted physical
    stresses or a product rating.

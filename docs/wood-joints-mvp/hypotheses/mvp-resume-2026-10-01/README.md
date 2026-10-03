@@ -53,7 +53,7 @@ their recorded status.
 | Both top outer corners | First-order physical bore, washer and face forces balance all 12 block / 24 host states; maximum whole-cleat moment residual 0.004500 N mm | [Current first-order forces](upper-corner-screw-layout/corner-first-order.md) |
 | Right common rigid block | Fresh lateral/path/mean-seat/smooth-bolt indices 0.813949 / 0.160367 / 0.768962 / 0.318740 | [Same-state component replay](upper-corner-screw-layout/corner-first-order-components.md) |
 | Left common rigid block | Fresh actual-left lateral/path/mean-seat/smooth-bolt indices 0.722296 / 0.142295 / 0.666554 / 0.279901 | [Same-state component replay](upper-corner-screw-layout/corner-first-order-components.md) |
-| Bottom corners | Conditional lateral ratios 0.278217 / 0.005421; finished paths and seats replayed | [Bottom replay](upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat) |
+| Bottom outer corners | First-order transfer closes 12 block / 24 host states; all 48 fresh bolt records have conditional component indices below one, with 45/92 ksi lateral maxima 0.397806 / 0.278217 | [Bottom transfer](upper-corner-screw-layout/bottom-corner-transfer.md), [same-state components](upper-corner-screw-layout/bottom-corner-components.md) |
 | Remaining eligible bolts and lower service | 92 included axes in the remaining method; separate four-axis service result 0.007468 | [Methods and exact exclusions](upper-corner-screw-layout/bolted-replay.md) |
 | Header joints and end-grain routes | 72 header bolt states, 36 interfaces and 42 balances; individual end-grain reference 0.052042 | [Header replay](upper-corner-screw-layout/header-replay.md) |
 | Retained pairs and washers | Row-factor sensitivity 0.962538; ideal washer wood indices 0.208053 / 0.264300 | [Retained replay](upper-corner-screw-layout/bolted-replay.md#retained-pairs-and-washer-families) |
@@ -130,9 +130,12 @@ covers all 48 local bolt states. Its conditional maxima are 0.813949 lateral,
 0.160367 finished path, 0.768962 mean washer pressure and 0.318740 smooth
 steel / 92 ksi. The [actual cleat section inventory](upper-corner-screw-layout/corner-timber-sections.md)
 now uses those balanced physical actions: 25,224 signed cut limits retain
-the paired-bore ligaments and their full bending and torque demands. Regional
-transfer through those ligaments remains unfinished; intact sections do not
-qualify the openings.
+the paired-bore ligaments and their full bending and torque demands. The
+[finite bore-wall map](upper-corner-screw-layout/corner-bore-wall.md) preserves
+each transverse force and full moment on supported cylindrical walls and
+returns eight deciding cuts under an explicit cosine pressure hypothesis.
+Nominal regional section sharing is being evaluated under the recorded
+end-bridge assumption; intact sections do not qualify the openings.
 The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
 repairs the earlier approximation defect at one fixed 709.053 N / 2.292 Nm
 end witness. Its two prescribed resolutions give 510.595 / 512.232 MPa
@@ -146,6 +149,15 @@ steel wording, without a numerical minimum yield. The nearby standard head
 gage circle is not a guaranteed installed flat contact circle. Those facts
 preserve the analytical material/footprint assumptions rather than converting
 the stress proxy into a product capacity or a new procurement minimum.
+
+The owner's requested [retail thick-washer comparison](upper-corner-screw-layout/retail-washer.md)
+now completes both prescribed resolutions at the current first-order
+707.884 N / 2.432 Nm rail-end witness. The single declared 25.4 mm OD,
+8.3058 mm ID and 2.5 mm thickness gives 206.790 / 207.205 MPa stress proxies;
+the finer result is 0.828821 of the assumed 250 MPa yield. The saved finished
+face supports the enlarged concentric annulus. This is one conditional
+hardware option; actual retail dimensions, yield and installed fit remain
+unmeasured, and the 208-washer census is unchanged.
 
 The [assembly package](assembly-package/README.md) remains the dimensional,
 transport, stock, purchasing and operation basis, read with the four-axis
@@ -183,6 +195,12 @@ physical model. Ten accepted states are reused and fourteen new states close
 independent receiver force and moment balances. This finite K requirement
 has no remaining state; local wood and delivered hardware retain their own
 recorded scope.
+
+The concise [joint MVP disposition](upper-corner-screw-layout/mvp-joint-disposition.md)
+collects the completed finite checks, conditional shop links and the two
+remaining panel-head/top-rail reference exceptions. Use it for the current
+working decision; preserved preparation notes and historical force tables
+do not add new prerequisites or replace the current source.
 
 ## Preserved previous working model and ownership
 
