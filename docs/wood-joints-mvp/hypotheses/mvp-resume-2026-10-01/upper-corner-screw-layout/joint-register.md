@@ -197,12 +197,14 @@ feed back into the integrated frame.
    [Upper-right washer bounds](upper-right-washer-contact-bounds.md) retain
    their pressure-cap and strip assumptions; they are not predicted physical
    stresses or a product rating.
-4. **Continuous knee compatibility and delivered bolt profiles.** The 92 ksi
-   endpoint scenario peaks at 0.922843; the alternative 45 ksi scenario reaches
-   1.317816. Affine bearing fields satisfy static constraints and common-shaft
-   placements exist, but those separate witnesses do not establish one loaded
-   contact solution. Actual smooth shank/thread/runout and steel properties
-   remain part of the conditional hardware basis.
+4. **Continuous knees: finite loaded method complete.** The
+   [first-order contact-entry result](knee-contact-entry.md) independently
+   closes all three receiver wrenches for four shafts and six cases. Its
+   same-state smooth steel peak is 192.479 MPa, or 0.303443 against the
+   declared 92 ksi basis. This completes the bounded loaded-shaft requirement;
+   the old static endpoint references are retained as separate history.
+   Actual shank/thread/runout and steel properties remain conditional product
+   assumptions, with local wood and washer resistance in their own scope.
 5. **Local resistance applicability.** Actual oblique group factors, complete
    splitting/torque interaction, excluded finished sections, retained seat
    support and the central washer crescent remain explicit method limits.

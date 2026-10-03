@@ -37,18 +37,27 @@ checks. Nominal rank remains 296/297 with bounded, nonunique fixed-force
 seating. This establishes usable simultaneous forces within the model;
 strict stability, a motion envelope and dynamic qualification remain open.
 
+On October 2 the owner directed using reasonable working assumptions and
+simplifying the remaining MVP work. Keep this existing load source; hold
+dimensions and further lever variants are not prerequisites. The working
+joint model uses first-order geometry, rigid timber receivers, the existing
+K20 compression-only contacts, smooth partially threaded bolt envelopes
+and declared concentric washer lands. Continue the finite joint checks
+under those assumptions. Product qualification and physical release retain
+their recorded status.
+
 ### Replays using this one force source
 
 | Scope | Fresh result under its recorded assumptions | Evidence |
 | --- | --- | --- |
-| Both top outer corners | Conditional lateral ratios 0.722296 / 0.813949; ideal washer wood indices 0.717681 / 0.822681 | [Bolted replay](upper-corner-screw-layout/bolted-replay.md#completed-top-corner-replay) |
-| Right common rigid block | Four compatible bolts and 32 face cells balance in all six nominal cases; replayed lateral/path/mean-seat/smooth-bolt indices 0.813949 / 0.160367 / 0.770232 / 0.313740 | [Whole-block integration](upper-corner-screw-layout/upper-right-block.md) |
-| Left common rigid block | Four actual left bolts and 32 face cells balance in all six nominal cases; replayed lateral/path/mean-seat/smooth-bolt indices 0.722296 / 0.142295 / 0.667024 / 0.275588 | [Compatible component replay](upper-corner-screw-layout/upper-left-block-components.md) |
+| Both top outer corners | First-order physical bore, washer and face forces balance all 12 block / 24 host states; maximum whole-cleat moment residual 0.004500 N mm | [Current first-order forces](upper-corner-screw-layout/corner-first-order.md) |
+| Right common rigid block | Fresh lateral/path/mean-seat/smooth-bolt indices 0.813949 / 0.160367 / 0.768962 / 0.318740 | [Same-state component replay](upper-corner-screw-layout/corner-first-order-components.md) |
+| Left common rigid block | Fresh actual-left lateral/path/mean-seat/smooth-bolt indices 0.722296 / 0.142295 / 0.666554 / 0.279901 | [Same-state component replay](upper-corner-screw-layout/corner-first-order-components.md) |
 | Bottom corners | Conditional lateral ratios 0.278217 / 0.005421; finished paths and seats replayed | [Bottom replay](upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat) |
 | Remaining eligible bolts and lower service | 92 included axes in the remaining method; separate four-axis service result 0.007468 | [Methods and exact exclusions](upper-corner-screw-layout/bolted-replay.md) |
 | Header joints and end-grain routes | 72 header bolt states, 36 interfaces and 42 balances; individual end-grain reference 0.052042 | [Header replay](upper-corner-screw-layout/header-replay.md) |
 | Retained pairs and washers | Row-factor sensitivity 0.962538; ideal washer wood indices 0.208053 / 0.264300 | [Retained replay](upper-corner-screw-layout/bolted-replay.md#retained-pairs-and-washer-families) |
-| Four continuous knee bolts | Static bearing/steel indices 0.357992 / 0.592947; 96 shaft-placement witnesses, minimum nominal radial margin 0.435895 mm | [Knee replay](upper-corner-screw-layout/knee-replay.md) |
+| Four continuous knee bolts | All 24 loaded states close three receiver wrenches; same-state smooth steel / 92 ksi 0.303443; 96 existing placements retained | [Completed loaded-shaft method](upper-corner-screw-layout/knee-contact-entry.md) |
 | Members | 264 balances and 55,176 cuts; declared normal/stability index 0.628421; top-rail shear/torsion exception **1.021524** | [Member replay](upper-corner-screw-layout/member-replay.md) |
 | Central partial nut seat | Maximum signed tie 22.952333 N; supported-ring mean-pressure index 0.218668, with actual nut/washer transfer open | [Central replay](upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat) |
 
@@ -167,6 +176,13 @@ coverage, centering and material properties remain explicit hypotheses.
 The [header input contract](upper-corner-screw-layout/header-local-transfer.md)
 preserves all 394 simultaneous header actions per case and the six existing
 disconnected paired-bore sections for the remaining local transfer work.
+The [loaded knee method](upper-corner-screw-layout/knee-contact-entry.md)
+is now complete for four shafts and six cases. An exact forward clearance-entry
+step resolves the earlier low-load iteration stops without changing the
+physical model. Ten accepted states are reused and fourteen new states close
+independent receiver force and moment balances. This finite K requirement
+has no remaining state; local wood and delivered hardware retain their own
+recorded scope.
 
 ## Preserved previous working model and ownership
 
