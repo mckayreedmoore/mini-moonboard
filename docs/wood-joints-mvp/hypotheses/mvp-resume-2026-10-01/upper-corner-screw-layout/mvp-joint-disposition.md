@@ -25,11 +25,15 @@ Indices compare demands with each method's own declared reference; different max
 
 The [top-corner nominal net-section comparison](corner-net-section.md) covers eight deciding signed cuts and 24 actual ligaments. Tension/compression/bending indices are **0.0781 / 0.0286 / 0.0430**; the same-state regional shear/torsion bound is **0.2420**. Exact regional offsets recover all six wrench components. Common longitudinal strain, end-bridge continuity, area-shared transverse force and equal-modulus twist remain explicit MVP assumptions; no notch or splitting capacity is assigned.
 
+The completed [four-corner static group assessment](corner-group-finish.md) covers **24 states / 101,276 finite signed cuts** using physical wall/seat/contact forces and weight once. Grain shear/torsion, normal diagnostic, single-channel and two-rail-row longitudinal references peak at **0.3349 / 0.0538 / 0.1699 / 0.0991**. Transverse opening stress reaches **0.1700 MPa** with no adopted perpendicular-tension or whole crossed-group capacity; local cracking remains the explicit working assumption.
+
 The [remaining twelve blocks](remaining-net-sections.md) complete **2,304 recorded opening-section limits** across all six cases under the same assumptions. The normal diagnostic sum and same-state shear/torsion bound peak at **0.00180 / 0.03221**. These are finite nominal section comparisons; continuous-station maxima and notch/splitting capacity are outside the method.
 
 The [six header paired-bore sections](header-net-section.md) complete **72 signed limits / 216 regional comparisons** using all 394 source actions per case. Tension/compression/bending indices are **0.2557 / 0.1281 / 0.1632**; the same-state shear/torsion bound is **0.3486**. Full A1-rear torque is retained. This completes the finite nominal comparison under the same sharing assumptions, without new strength or qualification.
 
 The [six header cleat bodies](header-cleat-net-sections.md) complete another **1,968 signed traces / 36 body-case comparisons** using a documented retained-rectangle subset around longitudinal holes. Normal diagnostic/shear bound peaks are **0.02093 / 0.13814**. Omitted sound wood and nominal sharing assumptions are explicit; no local stress bound or splitting capacity is inferred.
+
+The [two knee spines](knee-spine-net-sections.md) complete **600 existing opening-section limits** across all six cases. Normal diagnostic/shear bound peaks are **0.09635 / 0.38258**. Their asymmetric net centroids, full signed torque and original global-force scope are retained; local shaft fields and splitting capacity are not transferred.
 
 The [retail thick-washer option](retail-washer.md) completes two resolutions at the current **707.884 N / 2.432 N·m** witness. Declared **25.4/8.3058/2.5 mm OD/ID/thickness** gives finer stress **207.205 MPa**, index **0.829** against assumed 250 MPa yield, with saved nominal timber support. This changes no inventory and qualifies no actual retail material.
 
@@ -60,6 +64,8 @@ Paths below are relative to this folder; linked notes contain complete source/ou
 | `rawlocal/working-joint-register/attempt03/register.json` | `c34745395481038e32c7474de1798882263de7e54a7cc494949948b4a5e3464c` |
 | `rawlocal/dead-load-check/parent-attempt06/comparison.json` | `20802196776a89ea8b041832b413ef8d8613493b1bf36f89a3810807c5166e75` |
 | `rawlocal/header-cleat-net-sections/attempt01/checks.json` | `b70fd818654a4d6509186a2718a81fa0b564cfc7ad808be52946f0eddfead1a2` |
+| `rawlocal/knee-spine-net-sections/attempt02/checks.json` | `6b6c8df94f1ccab859ee980dd1835ba19286718f44e8a36ce6b9d0014064fc85` |
+| `rawlocal/corner-group-finish/attempt03/checks.json` | `2ae3a84f273823dc6ca751e6fdddab8e0d70425ee7b34e1e38ebc79d5b672f23` |
 | `rawlocal/corner-first-order-components/attempt01/checks.json` | `f220673994b6a6c5b6bc0afd104becd61b5bb68f5e22bc700ed07b901b94525c` |
 | `rawlocal/bottom-corner-transfer/first-order-attempt01/checks.json` | `4d255ba5ebd8f1f93fb41ef90511eb3da49906f4729f33f5f63766e0a0bd78ed` |
 | `rawlocal/bottom-corner-components/attempt01/checks.json` | `39e698d7ffec6646e2295f5ce96be0764ea8fbe6654ed3b0e881040b410bcc95` |

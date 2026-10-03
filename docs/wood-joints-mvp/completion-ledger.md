@@ -24,6 +24,16 @@ top/bottom/knee allocations and eighty-four retained source allocations.
 The [six header cleat bodies](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/header-cleat-net-sections.md)
 complete 1,968 nominal retained-wood traces under their documented subset and
 sharing hypotheses. Neither result supplies missing local cracking capacity.
+The [two knee-spine opening comparisons](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-spine-net-sections.md)
+also complete 600 limits in all six cases, preserving original global-force
+scope and asymmetric net-section torque. All reported nominal references
+remain below one; local splitting capacity is not supplied.
+The [four-corner static assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/corner-group-finish.md)
+completes 24 states and 101,276 finite signed cuts. Grain-direction nominal
+references and declared longitudinal tear-out comparisons remain below one.
+Transverse opening stress is reported with its capacity left null; local
+cracking remains an explicit unsupported working assumption. No complete
+joint, group fracture or physical acceptance is inferred.
 
 The [timber duration comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-duration.md)
 reproduces all 34,704 applicable original cut checks exactly. Under its

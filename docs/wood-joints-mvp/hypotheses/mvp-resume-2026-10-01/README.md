@@ -168,6 +168,15 @@ compression, bending and same-state shear/torsion indices are respectively
 0.078053, 0.028558, 0.043033 and 0.241977. Regional forces and moments recover
 the complete signed source wrench; these nominal comparisons do not assign
 notch, splitting or whole-group capacity.
+The completed [four-corner group assessment](upper-corner-screw-layout/corner-group-finish.md)
+extends the same static route to all four corners and six cases: 101,276
+finite signed cuts retain physical wall, washer and face actions plus
+mapped weight once. The nominal grain shear/torsion and normal diagnostic
+peaks are **0.334876 / 0.053731**; individual-channel and two-rail-row
+longitudinal comparisons peak at **0.169825 / 0.099051**. Transverse opening
+stress reaches **0.169988 MPa**, with perpendicular-tension and full
+crossed-group capacity left null. This completes the conditional static
+assessment without inventing fracture or bolt-reinforcement credit.
 The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
 repairs the earlier approximation defect at one fixed 709.053 N / 2.292 Nm
 end witness. Its two prescribed resolutions give 510.595 / 512.232 MPa
@@ -229,6 +238,11 @@ retained-rectangle subset encloses the longitudinal circular holes; its
 normal diagnostic and same-state shear bounds peak at **0.020923 / 0.138131**.
 Omitted sound wood, common-strain/twist assumptions and the distinction from
 actual local stress or splitting capacity remain explicit.
+The [two knee-spine opening comparisons](upper-corner-screw-layout/knee-spine-net-sections.md)
+complete 600 recorded limits in all six cases, with full net-centroid offsets
+and signed torque. Normal diagnostic and same-state shear bound maxima are
+**0.096344 / 0.382571** under the same nominal hypotheses. These use the
+original global cut forces; no local shaft stress field is transferred.
 The [header input contract](upper-corner-screw-layout/header-local-transfer.md)
 preserves all 394 simultaneous header actions per case. The
 [header nominal section check](upper-corner-screw-layout/header-net-section.md)

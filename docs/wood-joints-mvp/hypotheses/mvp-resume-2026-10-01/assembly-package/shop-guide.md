@@ -7,9 +7,16 @@ or climbing release. Use it with the [assembly and procurement reconciliation](R
 screen](hardware-length-fit.md), and the current [top-corner fit
 worksheet](../top-corner-hardware/assembly-fit.md).
 
+Read it with the [current-joint addendum](current-joint-addendum.md) and
+[joint MVP disposition](../upper-corner-screw-layout/mvp-joint-disposition.md). They connect the
+unchanged parts and operation records to the current 100 mm analytical load case and completed
+local joint allocations. Panel attachment retains its recorded **reference HOLD**. The sequence
+below remains conditional; it does not authorize cutting, drilling or climbing.
+
 Read panel stations with the [four-upper-screw coordinate
-overlay](../upper-corner-screw-layout/shop-addendum.md). It records the current analytical
-layout; its stations are conditional and are not instructions to drill the preserved source solids.
+overlay](../upper-corner-screw-layout/shop-addendum.md): 62 stations remain and four move upward,
+with two center receivers now `base_rail_top`. Its stations are analytical coordinates, not
+instructions to drill the preserved source solids or add the old and moved holes together.
 
 ## Parts and current layout
 
@@ -27,8 +34,11 @@ layout; its stations are conditional and are not instructions to drill the prese
 
 The 44 blank identities include the two top cleats changed from 4×4 to 4×6. Four prepared section
 rips remain in the 4×6 source class. Transport means individual bodies, not subassemblies. The six
-panels are not six purchased sheets. Finished envelopes and planning masses are in the [assembly
-package](README.md).
+panels are not six purchased sheets. The [individual-member transport table](README.md#individual-member-transport-sizes-and-masses)
+lists all 50 finished envelopes and planning masses; those dimensions are not stock blanks or
+machining instructions. Its 600 kg/m³ body subtotal is 215.797379 kg, excluding hardware and
+accessories. It is distinct from the 224.949955 kg analytical frame mass and separate 25 kg
+equipment load allowance; none establishes an actual carried weight.
 
 The former 144 Simpson SDS25112 screws and 24 ML24Z angles are absent from this lane. Do not add
 them to this bill of materials or substitute them for the 66 Hillman screws. Hold T-nuts, mounted
@@ -87,7 +97,7 @@ engagement](hardware-engagement.md).
 | Corrected top rail | Four bolts from shared Lawson pack; four `2569` nuts; eight `2994` washers | Nuts $0.28, washers $0.48. Motion `11706127` is an alternative. |
 | Center principal | Four K.L. Jack `25C550HCS5Z`; 100-piece box | $30.59; 96 surplus. |
 | Center post/header | Four conditional HiStrength `104-049`, 7.5 in | Part of eight-bolt $20.32 listing. |
-| Center principal/header | Four 7.5 in bodies unresolved; proposed Lawson `FA21103` 8 in alternative | Geometry reconciliation required before alternative; no selection. |
+| Center principal/header | Four 7.5 in bodies unresolved; proposed Lawson `FA21103` 8 in alternative | Added-tip/travel occupancy complete; delivered body/thread fit remains conditional and no length is selected. |
 | Remaining 1/4 in nuts/washers | 84 nuts of 100; 168 washers from two 100-piece packs | $4.71 + 2 × $3.47; fit remains conditional. |
 | Outer posts | Four K.L. Jack `25C400HCS5Z`; listed pack of 100 | Reliable price absent; 96 surplus. |
 | Center posts | Four 6 in options, including HiStrength `104-044` / `25C600HCS5P` | $1.23 displayed per item; payable pack basis unresolved. |
@@ -100,7 +110,8 @@ The recorded earlier hypothetical recipe has a **$158.46 partial priced subtotal
 principal/header 7.5 in bodies remain unresolved. If those four later use Lawson 8 in bolts, the
 shared pack grows from 20 to 24 of the same 25-pack, leaving one spare. That alternative is not in
 the subtotal, and its complete-order price is not established. Lawson, outer-post, center-post,
-knee-side, and retained hardware, lumber, eligible plywood, pads, holds, lighting/service parts,
+knee-side hardware, purchased Hillman acquisition cost, lumber, eligible plywood, pads, holds,
+lighting/service parts,
 freight, and tax remain unpriced or unresolved. No missing price is zero.
 
 The October 2 [catalog update](catalog-costs.md) records the separate $31.12 retained-hardware
@@ -129,16 +140,23 @@ for under-head length, `LB`, and full-form thread requirements; the named catalo
 not guarantee delivered body or thread profile. Its three-pitch endpoint is a declared fit scenario,
 not a universal shop rule.
 
-The separate longer-bolt screen found no added-occupancy clash for four proposed 6 in center-post
+The completed [longer-bolt screen](hardware-length-fit.md) found no added-occupancy clash for four
+proposed 6 in center-post
 shafts, four proposed 8 in center principal/header shafts, and four proposed 8 in inner knee/header
 shafts. Their headward travel references become 150.749 mm, 201.549 mm, and 201.549 mm respectively.
 That finite result checks only added tips and the additional headward shaft/head/washer sweep.
 It does not select those lengths, verify delivered profiles, or establish full nut, thread,
-tool or harness operations. Use its named source-pair results with the existing operation sequence.
+tool or harness operations. The completed [four-upper-screw travel delta](upper-screw-travel.md)
+also separates the four moved screw enclosures from every saved added-tip/travel query. These
+two receipts cover the unchanged and changed pairs respectively; use them with the existing
+captured-nut and intact-harness sequence.
 
 Use one compatible washer below each head and nut. Conditional matched nut/washer routes are in the
-hardware worksheet. The partial seat at `center_principal_right_2` has idealized bearing arithmetic
-only; actual washer/nut footprint contact and metal transfer remain unqualified. Catalog washer
+hardware worksheet. The partial seat at `center_principal_right_2` has a completed six-case
+[centered supported-ring static route](../upper-corner-screw-layout/central-seat-transfer.md).
+It leaves the unsupported crescent unloaded under its stated centering, nut-land and plastic
+transfer assumptions. Actual washer/nut footprint contact and metal transfer remain unqualified;
+this route selects no replacement washer and changes none of the 208 washer roles. Catalog washer
 labels do not supply numeric yield minima.
 
 ## Forward assembly
@@ -157,9 +175,12 @@ condition is not assembly support; no temporary support fixture is specified her
 4. At each top corner, install two 5/16 in side bolts from side host into cleat, then two 1/4 in
    rail bolts from rail into cleat. Keep receiver order and thread families distinct. These are
    part of the 92 candidate bolts, not additional stacks.
-5. Install panels after frame receivers and panel edge support are reconciled to current design
-   records. Use the current receiver inventory for all 66 screw stations, including four
-   center-kicker receiver changes.
+5. The conditional panel-installation step follows reconciliation of frame receivers and panel
+   edge support and retains the panel reference HOLD below. Use the preserved receiver inventory
+   together with the current four-upper-screw overlay for all 66 stations: retain 62 and move four
+   upper stations, with both moved center screws entering `base_rail_top`. Preserve the four
+   earlier center-kicker receiver changes into the center posts. Old bores in source solids are
+   historical geometry, not additional screw stations.
 6. Use purchased Lowe’s 755741 / Fas-n-Tite-Hillman 42605 screws: #10 × 2-1/2 in (63.5 mm), #2
    Phillips. With the owner-selected Kobalt 80277 / Lowe’s 1208451 #10 insert, drill a 1/8 in
    (3.175 mm) lead pilot through plywood into its intended receiver and a 3/8 in (9.525 mm)
@@ -175,9 +196,14 @@ condition is not assembly support; no temporary support fixture is specified her
 
 The [purchase record](../../../../current-panel-screw-purchase.md) supplies the screw listing and
 tool choice, not Hillman head, root, thread, withdrawal, lateral, or plywood pull-through design
-values. The existing [panel-attachment worksheet](../panel-attachment/README.md) remains **HOLD**:
-saved cases exceed declared unadjusted screw-head references, and no Hillman capacity is
-established. This purchase and operation sequence do not establish panel-joint acceptance.
+values. Panel attachment remains **HOLD** in the
+[current panel-path reconciliation](../upper-corner-screw-layout/panel-path-reconciliation.md)
+and [panel-attachment worksheet](../panel-attachment/README.md). The saved upper-left A12-rear
+`edge_2` demand is 1871.251 N at the head, with simultaneous 726.611 N lateral action. Even the
+favorable nominal-head references of 930.222–984.128 N remain exceeded; no actual Hillman
+withdrawal, lateral or head-transfer capacity is established. Those references are comparisons,
+not measured failure loads. Timber's duration basis below supplies no panel-screw capacity.
+This purchase and operation sequence do not establish panel-joint acceptance or release its HOLD.
 
 ## Removal and member transport
 
@@ -240,32 +266,74 @@ force, or a screw misses its receiver, splits wood, protrudes, or overdrives the
 
 Panel attachment remains on its recorded reference HOLD. Bolt body end, full-form thread position,
 matched nut engagement, actual bearing footprints, and supplier profile facts remain conditional.
-The central partial washer seat does not demonstrate actual washer transfer. Real wrench access,
-counterhold, shaft extraction, and harness staging remain unobserved.
+The completed central supported-ring calculation does not demonstrate actual washer transfer.
+Real wrench access, counterhold, shaft extraction, and harness staging remain unobserved.
 
 ### Engineering source pins
 
 The [current analytical frame and fresh component replays](../README.md#current-analytical-working-model-for-the-mvp-goal)
-use the four-upper-screw layout. The comparison retains bounded seating nonuniqueness and
-`frame_state_accepted = false`. All six zero-gap states have rank 300; the six gap states have
-bounded certificates with rank 296 or 297. The [current joint register](../upper-corner-screw-layout/joint-register.md)
-maps all 104 bolts to this force source. Hashes below identify saved evidence; none is a physical observation.
-Wood resistance references use conditional DF-L No. 2; stock sizing and nesting do not establish
-delivered grade or the grade of prepared section rips. No-slip floor support remains an unverified
-analytical assumption.
+use the four-upper-screw layout and original 100 mm hold lever: six rated cases at 250 lb × 2
+downward, signed 300 N horizontal, recorded gravity and the separate 25 kg equipment allowance.
+The 50 mm comparison remains non-adopted. The source comparison retains bounded seating
+nonuniqueness and `frame_state_accepted = false`. All six zero-gap states have rank 300; the six
+gap states have bounded certificates with rank 296 or 297.
+
+The completed [working force register](../upper-corner-screw-layout/working-joint-register.md)
+covers all 104 physical bolt axes across six cases: 624 bolt/case states and 648 plane states,
+plus 396 separate panel/kicker screw states. Eight top and eight bottom axes use completed
+first-order local allocations; four continuous knee axes use completed contact-entry results.
+These twenty corrected axes and the remaining 84 source-force axes are one inventory, including
+the twelve retained frame bolts. Independent interface balances are complete. The local
+allocations do not feed displacement or stiffness changes back into the frame and do not establish
+global compatibility or complete-joint acceptance. The [original source register](../upper-corner-screw-layout/joint-register.md)
+and earlier force ratios remain comparison history; reusing their dimensions does not adopt
+their old local force values.
+
+Wood resistance references use conditional dry DF-L No. 2. The completed
+[timber duration comparison](../upper-corner-screw-layout/member-duration.md) uses **C_D = 1.25**
+for the six rated peak states, assuming cumulative exposure to the full peak totals **at most
+seven days over the frame's life**. This is declared use, not measured use. The separate permanent
+frame/equipment-gravity comparison uses **C_D = 0.9**. Conditional normal/stability,
+compatible shear/torsion and component-bound peaks are 0.519 / 0.817 / 0.951 for rated cases
+and 0.174 / 0.133 / 0.182 for permanent gravity. The original C_D = 1 rail face result of
+1.021524 remains recorded, as does the non-adopted coefficient-5 sensitivity. The duration
+comparison preserves its restraint, orthotropy, excluded-hole and local-joint limits and gives
+no Hillman or washer capacity. Formal qualification and physical-release flags remain unchanged.
+Stock sizing and nesting establish neither delivered grade nor the grade of prepared section
+rips. No-slip floor support remains an unverified analytical assumption.
+
+The [length screen](hardware-length-fit.md) completes 48,192 added-occupancy pairs: 48,190
+positive conservative box separations and two clear exact STEP intersections. Each exact
+knee-tip/bottom-rail pair has 18.157582 mm clearance. The [upper-screw delta](upper-screw-travel.md)
+completes the 192 changed pairs with positive conservative box separation, minimum 2167.746444 mm.
+These pair-specific results establish no full installed-stack, nut/thread/tool or harness operation.
+Hashes below identify saved evidence; none is a physical observation.
 
 - `upper-corner-screw-layout/frame-250-attempt02/comparison.json` SHA-256:
   `bea6cbc330af3cdb20499d774a8f6bb24481d687c3150adb01ede18e4c1d50ca`
 - `upper-corner-screw-layout/frame-250-attempt02/response.npz` SHA-256:
   `0625196497b0dbc7b297724d7b9947f7c7c61bb282cd4d9681705629302c76c7`
+- Working register `rawlocal/working-joint-register/attempt03/register.json` SHA-256:
+  `c34745395481038e32c7474de1798882263de7e54a7cc494949948b4a5e3464c`
+- Rated timber duration `rawlocal/member-duration/parent-attempt01/checks.json` SHA-256:
+  `50fcb02f05744d5d054bbc5d65aea07e92ef742497fc697ba6c9b31ad3a61623`
+- Permanent gravity `rawlocal/dead-load-check/parent-attempt06/comparison.json` SHA-256:
+  `20802196776a89ea8b041832b413ef8d8613493b1bf36f89a3810807c5166e75`
+- Added-occupancy `assembly-package/rawlocal/hardware-length-fit/saved-source-attempt02/result.json` SHA-256:
+  `df5271e4c65f90a620dff4630cfa5d0dec303456fa1bb4a1185fc950dbaf2aa5`
 - Preserved all-outer hardware comparison SHA-256
   `ec69b49c821a56fdde76d94148405f9f743e4f72add17c89d35af512be76f6a3`; response SHA-256
   `aa70480aa18c33bb1cbd7d3a53ff582a0c7a90c93487f92721619474ec251901`.
 - Top-corner proposal SHA-256 `5932768c7a7d91535f69a90787b32222eb4d165ac6353d3e2ed4daf9e248e2b2`;
   catalog inputs SHA-256 `a2110d7580621dee92017403345f21c458729612547ac1f7b2eb8068d0c723c7`.
 
+Bare `rawlocal/` paths above are relative to `upper-corner-screw-layout/`; the added-occupancy
+path is relative to `mvp-resume-2026-10-01/`. The preserved all-outer force
+packet identifies historical geometry provenance, not current force acceptance.
+
 The [assembly reconciliation](README.md) records transport masses, stock scenarios, quantities, and
-price scope. Read the [top-corner correction summary](../top-corner-correction.md) and preserved
+price scope. Read the [current-joint addendum](current-joint-addendum.md),
+[top-corner correction summary](../top-corner-correction.md) and preserved
 [receiver inventory](../../current-panel-receiver-transfer-2026-10-01/inventory.md) with the
 [four-axis overlay](../upper-corner-screw-layout/shop-addendum.md). All dimensions here describe saved
 records; this guide update performs no new CAD, native solve or physical inspection.
