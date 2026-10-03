@@ -1,14 +1,44 @@
 # Wood-joint MVP completion ledger
 
+## October 2 conditional MVP continuation
+
+Current work follows the owner's simpler
+[working model and conditional shop scope](hypotheses/mvp-resume-2026-10-01/README.md).
+Use the [concise joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md)
+for completed calculations, explicit assumptions and unresolved references.
+The owner stopped routine agent review loops and further hold-lever studies.
+Implementation workers have disjoint ownership; the parent executes and
+publishes finite calculations on `master`.
+
+The original 100 mm, 250 lb × 2 plus signed 300 N six-case source is retained.
+Top and bottom corner transfer, continuous knee-shaft contact, the header
+supported-boundary map, central static seat route, finite nominal timber
+sections, hardware-length fit and conditional shop/cost package are completed
+within their stated method scopes. Local corrections retain source group
+wrenches and do not establish global displacement feedback. Current panel
+head/withdrawal/lateral reference deficits remain explicit.
+
+The [timber duration comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-duration.md)
+reproduces all 34,704 applicable original cut checks exactly. Under its
+declared seven-day cumulative full-peak hypothesis, the compatible rail face
+and conservative component bound are below one. Its separate permanent-load
+calculation remains pending; the duration basis is not yet complete. Original
+normal-duration findings and all historical method stops remain preserved.
+
+These working calculations do not close the formal coverage register.
+**All 47 entries remain pending and all eight physical-release flags remain
+false.** No physical build, floor, delivered hardware or fabrication release
+is inferred.
+
+## Preserved earlier execution sequence
+
 The [refined execution plan](next-mvp-plan.md#refined-execution-plan-september-24-evening)
-is the current work sequence. Its immediate milestone is to finish the selected
-direct ordinary-joint method/sensitivity gate while current-frame demand
-preparation proceeds in parallel. Current geometry and numerical-method
-preparation do not close structural criteria; all 47 entries in the current
-coverage register remain pending.
+records the earlier ordinary-joint method/sensitivity work and parallel
+current-frame demand preparation. The current owner scope above governs the
+continuation; the earlier evidence is preserved as history.
 
 The owner's requested [Luna/max completion handoff](luna-max-completion-handoff.md)
-and [14-task queue](luna-max-task-queue.json) now provide the operational resume
+and [14-task queue](luna-max-task-queue.json) record the earlier operational resume
 sequence, ownership for all 47 criteria, native-run protocol and full MVP-E
 exit gates. This planning handoff changes no criterion or release disposition.
 

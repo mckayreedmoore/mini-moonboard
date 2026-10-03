@@ -85,6 +85,16 @@ returns eight states before contact cycling; it does not replace this
 complete source or the 250 lb requirement. Both 140 lb comparisons also
 remain incomplete.
 
+The completed [same-state panel load-path reconciliation](upper-corner-screw-layout/panel-path-reconciliation.md)
+retains all twelve upper-left screw ties and every compression-contact action
+at A12-rear. The signed panel balance closes to 7.3e-12 N / 9.5e-9 N mm.
+Only `edge_2` exceeds the favorable head reference in that exact state;
+its existing receiver is already `base_rail_top`. At G = 0.50 and C_D = 1.6,
+the current maximum gross embedment is also below the necessary value for
+finite combined withdrawal/lateral resistance. A larger-head extrapolation
+supplies no capacity. No hardware or geometry change is selected by this
+finite reconciliation, and the original 66-screw policy remains intact.
+
 The [purchased-panel material check](upper-corner-screw-layout/panel-material-fidelity.md)
 confirms a flexible layered operator matching conditional APA AC-plywood
 targets. Roseburg product identity is known; Group 1, face-grain placement
