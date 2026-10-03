@@ -43,6 +43,7 @@ strict stability, a motion envelope and dynamic qualification remain open.
 | --- | --- | --- |
 | Both top outer corners | Conditional lateral ratios 0.722296 / 0.813949; ideal washer wood indices 0.717681 / 0.822681 | [Bolted replay](upper-corner-screw-layout/bolted-replay.md#completed-top-corner-replay) |
 | Right common rigid block | Four compatible bolts and 32 face cells balance in all six nominal cases; replayed lateral/path/mean-seat/smooth-bolt indices 0.813949 / 0.160367 / 0.770232 / 0.313740 | [Whole-block integration](upper-corner-screw-layout/upper-right-block.md) |
+| Left common rigid block | Four actual left bolts and 32 face cells balance in all six nominal cases; replayed lateral/path/mean-seat/smooth-bolt indices 0.722296 / 0.142295 / 0.667024 / 0.275588 | [Compatible component replay](upper-corner-screw-layout/upper-left-block-components.md) |
 | Bottom corners | Conditional lateral ratios 0.278217 / 0.005421; finished paths and seats replayed | [Bottom replay](upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat) |
 | Remaining eligible bolts and lower service | 92 included axes in the remaining method; separate four-axis service result 0.007468 | [Methods and exact exclusions](upper-corner-screw-layout/bolted-replay.md) |
 | Header joints and end-grain routes | 72 header bolt states, 36 interfaces and 42 balances; individual end-grain reference 0.052042 | [Header replay](upper-corner-screw-layout/header-replay.md) |
@@ -96,7 +97,7 @@ a new screw inventory or demonstrate that screw count alone improves sharing.
 The top-rail 1.021524 shear/torsion reference exceedance remains unresolved.
 Local disturbed stresses, elastic timber/two-group resistance, washer/head/nut
 transfer, continuous-knee contact and actual shank/thread profiles retain
-their stated limits. The completed right rail/side pairs supply compatible
+their stated limits. The completed left and right rail/side pairs supply compatible
 local bolt responses at the unchanged source group wrenches. Their combined
 rigid-block accounting does not feed redistribution back into the frame.
 The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
@@ -119,8 +120,10 @@ All 47 formal criteria remain pending and all eight release flags false.
 Selected-baseline authority and historical packets are preserved. This
 integration adds no native run, hardware substitution, software tests or
 agent review loop. Parent owns shared staging, execution and the returned
-register leaves. Upper-left common-block preparation is owned separately;
-parent serializes its local execution and subsequent component integration.
+register leaves. Both top common-block calculations and their component
+replays are complete within the explicit rigid-cleat assumptions. Separate
+workers consolidate remaining block duties and applicable group resistance;
+the load-lever comparison remains preparation only until parent execution.
 
 ## Preserved previous working model and ownership
 
