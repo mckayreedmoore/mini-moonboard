@@ -355,6 +355,557 @@ resistance remain the primary's next scope. The upper owner's five-member
 section-property extractor can be reused when frozen without duplicating
 its top-outer stations or changing either candidate geometry.
 
+The primary now owns `hypotheses/bottom-outer-finished-sections-2026-10-01/`,
+limited to bottom-left cleat/rail/side bore planes and complete same-state
+source cut demands. It will reuse the published upper `host_actions.py`
+generic extraction/wrench/cut helpers and the new `section_geometry.py`
+after its owner freezes the helper. No top-outer station or producer is
+duplicated. The first geometry question is whether the normal-to-grain bore
+planes separate into two or three planar ligaments; neither a net area nor
+sum of component inertias by itself establishes a common strain field.
+The parent has separate Luna/max method and geometric reviewers. A third
+Luna/max worker owns only the open washer steel/contact method review in
+`hypotheses/washer-metal-method-preflight-2026-10-01/`; it may not substitute
+clamped wood support, an invented metal yield value or an adopted capacity.
+
+Primary read-only integration finding for the upper section owner: the current
+draft `upper-outer-finished-sections-2026-10-01/produce.py` sets
+`HERE = Path(__file__).resolve().parent` then `ROOT = HERE.parents[4]`.
+For this folder that resolves to `/home/mckay-linux/repos`, one directory
+above the repository; `HERE.parents[3]` is the repository root. The primary
+has not edited that owned file. Please resolve this before actual-input
+extraction/freeze; tests that pass an explicit fixture root can miss it.
+
 This handoff supplies no criterion pass, completed joint, physical inspection,
 fabrication permission or climbing release. The full conditional MVP-E goal
 and its 47-criterion endpoint remain active.
+
+## Resumed primary checkpoint, October 1
+
+The owner designated the resumed primary thread
+`01a0f821-5e03-7781-bb0e-0d15efebcbe2`; the user-designated secondary is
+`01a0f822-102c-74f1-bf9b-6d33a0b66ab3`. Their scopes were reconciled through
+thread messages. Primary owns the bottom-outer finished-section packet,
+bottom joint disposition, washer method/benchmark packet and this handoff.
+Secondary owns completion of the upper-outer section packet and then the
+disjoint `hypotheses/current-panel-receiver-transfer-2026-10-01/` join.
+The mechanics coordinator retains new native readiness, serialization and
+response acceptance. No reviewed geometry or selected authority was changed.
+
+The [bottom section packet](hypotheses/bottom-outer-finished-sections-2026-10-01/README.md)
+now implements six finished bore planes on three saved solids and all eight
+receiver memberships for the four bottom-left bolts. Its 63 whole-body states
+and 252 one-sided cut traces reproduce the existing three-case source actions,
+residuals and rounding bounds. All six planes have two or three separate
+planar wood regions and intersect a finite source contact footprint. Compatible
+regional load sharing and actual traction are therefore still unestablished.
+No net-area or common-strain resistance is adopted. The simultaneous source
+wrenches and point-force jumps remain explicit.
+
+Twenty tests, Ruff and format checks pass, including temporary-source complete
+producer coverage and an independent hand-calculated emitted-wrench oracle.
+The same suite passes in a source-only workspace without frozen raw JSON or
+STEP files. Two complete local extractions are byte-identical; parent replay
+of the independently implemented raw-source verifier passes all states and
+rejects six deliberately corrupted reports. The
+[validation record](hypotheses/bottom-outer-finished-sections-2026-10-01/validation.md)
+retains exact identities and review receipts. Producer SHA-256 is
+`662404918c93bb9d96fa48b0b9f02237aaf260b8db1c510dfe866334017e4da7`;
+raw output remains local at
+`4303d229d154708a0356924d42b9daab8df78314f40d3e2d8d165ad209cbf6b8`.
+The independent review loop is complete after fixing both confirmed test
+gaps. The final correctness, testing and architecture rechecks have no
+substantial unresolved findings. This completes the bounded primary section
+packet; it does not promote the source join to resistance or a formal criterion.
+
+The [bottom resistance disposition](hypotheses/bottom-outer-finished-sections-2026-10-01/resistance-disposition.md)
+keeps the 1.094508867 unadopted bolt scenario, quarter-inch material/adjustment
+questions, oblique group actions, bore-region transfer, splitting, contact,
+combined axial/lateral behavior and washer metal/contact requirements open.
+It routes existing evidence and the next needed method without selecting
+replacement hardware, changing geometry or adding an inspection/sign-off gate.
+
+The owner's research/status relay supplied three Teranishi 2021 experimental
+and FEA stiffness/yield pairs. Primary checked the exact local PDF hash and
+visually inspected Tables 2–4; a separate Luna/max source reviewer confirmed
+the [benchmark transcript and CSV](hypotheses/washer-metal-method-preflight-2026-10-01/benchmark-inputs.md).
+The [benchmark review](hypotheses/washer-metal-method-preflight-2026-10-01/benchmark-review.md)
+also records that the printed Poisson pairs fail conventional reciprocity
+with the listed Young's moduli. The paper does not identify the actual
+reciprocal constants entered in its solver, so an explicitly declared material
+reconstruction remains necessary. These are SS400/Japanese-cedar square-washer
+targets, not DF-L properties, ordinary-washer yield, actual first-metal-yield
+loads, design capacities or a partial-seat qualification. No native benchmark
+run or material card is approved by recording them.
+
+Secondary reports its upper packet ready after twenty tests, source-only
+validation and exact full replay. Its generic section helper remains frozen
+at `8672daac3cef4aa55641a3e1bf6cee636d779be48145858282ffb0ed4d76f8d3`,
+which the primary reused without editing. The earlier default-root finding
+is resolved in that owner's producer. Secondary is implementing the panel
+join on current receivers, including center posts rather than historical
+inner backers, with its own independent checks. Its current working results
+are reported by that owner; primary does not claim a separate panel replay or
+Hillman resistance pass. Preserve both owners' uncommitted work during the
+current Denver quiet-hours window. Complete joint resistance and the
+integrated 47-criterion endpoint remain open.
+
+Secondary's panel mapping diagnostic initially refused transfer: recursive
+expansion through constrained physical receiver DOFs produced 77 moment
+discrepancies and 42 force discrepancies on four kicker screws. All force
+discrepancies occurred in A1; moment discrepancies were A12=14, A1=49 and
+K12=14. Preserve this diagnostic. Secondary's alternate independent
+reconstruction stops at the first owned physical-body DOF, before support
+elimination, and reports closure of all 5,544 panel endpoint records, with
+maximum moment discrepancy 9.89e-8 Nmm. This physical-body projection and its
+known-answer fixture still await the secondary's independent review; it does
+not alter source laws, source audit gates or the shared reduced-DOF helper.
+Physical support reactions remain separate from carrier endpoint loads.
+Primary confirmed that the completed bottom/finished-host producers use
+saved physical point actions directly and do not call that MPC expansion.
+Secondary also reports exact saved-byte verification of the original upper
+block action/nodal packets (42 block states and 672 transfers). These scoped
+checks do not establish broader mechanics or joint acceptance.
+
+Primary's subsequent read-only panel `produce.py --verify` replay matches
+the saved report and pins exactly, and all 16 focused tests pass. The report
+retains 66 axes (58 unchanged and eight moved), 22 panel/receiver pairs,
+16 receivers, 1,386 screw states, 4,158 scalar states, 5,544 endpoints and
+924 physical-body projection groups. There are zero physical-projection
+endpoint or group force/moment refusals; the reduced mapping still records
+42 force and 77 moment refusals. Saved report SHA-256 is
+`d2ff134ab540f171074b57622457ee15b79653541f70878fffc0adab06aee6ac`;
+pins SHA-256 is
+`d0193907466712adbacd2344985f01128f388618ba973cae905089574abd4009`.
+The secondary's three closing reviews remain pending at this checkpoint.
+
+The first panel architecture review identified two missing provenance pins:
+the purchased screw policy and shop checklist cited in the Hillman note.
+Secondary added those pins and formatted code, then regenerated the local
+report. The preceding 103-pin hashes are historical. Primary's read-only
+final replay matches the regenerated bytes; all 16 tests pass, and a separate
+byte/hash/size check verifies all 105 distinct source pins. The reported
+action counts and mapping dispositions are unchanged. Final producer hash is
+`7482a21e9b3a52c70679b6701112651ef42abbc1a1b8a761c885780827f88731`;
+report hash is
+`82efb6a21ef2565abc6f43b037f20373b4633499893587f8ed33f7b7aeaefc1c`;
+pins hash is
+`57796feeaec208dc40279117a95bb53ba1fce71db0bf31ca30b23afe2167c651`.
+A fresh three-agent closing review pass is pending on these final bytes.
+
+## Full MVP goal and two-secondary dispatch, October 1
+
+The owner now directs the primary to complete the full MVP-E and keep two
+secondary tmux chats supplied with disjoint work that the primary can verify.
+The [current integration checkpoint](hypotheses/mvp-integration-2026-10-01/README.md)
+records the full endpoint, current ownership and resource constraint. The
+second secondary is `01a0f823-860d-7b63-a57d-1917507f3b53`, tmux `main:9.2`;
+it owns `hypotheses/bottom-quarter-inch-resistance-basis-2026-10-01/` for the
+existing bottom quarter-inch material/adjustment question. First secondary
+will finish the panel closing review before its accepted
+`hypotheses/right-corner-finished-sections-2026-10-01/` task. Primary owns
+washer/contact method preparation and any parent-gated serialized execution.
+Preserve native method histories, stopped force comparisons, reviewed geometry
+and separate selected-candidate authority. The owner says to stop if included
+usage is exhausted and not use credits; all workers received that constraint.
+
+The second secondary's quarter-inch packet subsequently closed with seven
+tests, Ruff and three independent Luna/max reviews. Primary verified all
+stable receipt hashes and a byte-identical producer replay, report SHA-256
+`d9740027cc0d72295e21986ba0711be767ccab043822e0a28f91fd89aa9ef962`.
+Primary checked the source PDFs, including rendered Appendix I1 and Table
+12A, and integrated attribution/diameter wording corrections in the
+[additive current source record](hypotheses/mvp-integration-2026-10-01/source-wording-reconciliation.md).
+Both 45 and 106 ksi remain unadopted; group/geometry factors, adjusted
+resistance and the full simultaneous action check remain open. This
+secondary now owns only the retained twelve frame-bolt current load-path
+packet, starting with a duplicate/source/axis audit before implementation.
+
+Primary also verified the integration evidence audit's exact 47-ID parity,
+pending statuses and local links. It records current partial evidence rather
+than importing old passes. Washer known-answer inputs remain in preparation;
+the primary identified draft reaction-sign and tolerance-key issues before
+freezing or execution. A separate worker prepares only a two-body physical
+endpoint recovery contract for A12 row 1586; no actual recovery or acceptance
+has occurred and all 27 original force-interval misses remain controlling.
+
+The first secondary's final panel handoff then passed primary's read-only
+full exact replay, all 30 focused tests, Ruff and every one of 171 source
+pins. Final report SHA-256 is
+`0ac0e30d582322f8919277aabec3af134c7bf5ecb2b0523d649622bcd4a47534`;
+pins SHA-256 is
+`973ffd947cb6bcaa823e4038c0b6c98fc18736423a872ef87666806878784b3e`.
+Five review passes closed with correctness/testing clean. A direct
+cross-checkout action-API guard and an optional synthetic combination are
+explicitly deferred in the final review record; supported producer paths
+and the independent complete raw-source oracle cover the present replay.
+The physical-body source join is accepted only within that bounded claim:
+the reduced map still records 77 moment and 42 force refusals, Hillman
+stiffness/resistance remains unqualified, and no response/criterion pass is
+adopted. The first secondary now prepares the right-corner section plan.
+
+Primary subsequently verified the final retained-bolt packet: eight tests,
+Ruff, a byte-identical complete producer replay, independent raw-token oracle,
+143 input pins and seven final code/review pins. Report SHA-256 is
+`f068cd5afc93c2b7027624b1fbec94ccb419f664833d920d2959f79bed661cc1`;
+raw oracle SHA-256 is
+`c6d43017d67f864dfc25e6a77832a542a97257a1da23f4ca3a12e82d6a829ea9`.
+This supplies current signed demands, including all 252 bolt states and 504
+receiver wrenches; it transfers no historical capacity. The second secondary
+now checks the current retained-bolt resistance basis in its own new folder.
+
+The first secondary's right-corner source plan passed primary's exact replay,
+ten source-only tests and 180 byte/size/hash pins. The current plan retains
+902 point identities, 271 planes and the entire 338-interface five-body
+boundary, including all header ports. Primary reserved one 300-second,
+4-GiB, one-process CAD extraction in the integration folder; no retry is
+authorized and empty terminal topology stays distinct from kernel failure.
+
+The primary's first washer affine software fixture consumed exactly one
+native launch under freeze
+`093ab967c805858b33e3d0530cadab25625cc3b8c69f696d3c39885302fa6817`.
+Three independent readiness reviews were satisfied, including explicit
+parent enforcement of the one-launch/60-second/1-GiB/one-CPU bounds. The
+solver exited successfully, fixed displacement/stress/reaction/energy gates
+pass and the slot returned idle. Independent result reviews remain pending;
+this hypothetical fixture establishes no contact or candidate resistance.
+All 47 formal criterion dispositions remain pending. Included usage was
+95% at this checkpoint; no credit or paid fallback is authorized.
+
+All three affine post-run reviews subsequently passed; primary authenticated
+raw outputs, execution, ledger and review hashes in final parent receipt
+`8ef7b5a09f683ab3c8e0cc7e5f27707d536122ed17a4ddae867381d1c500c44c`.
+The right-corner reserved CAD task is terminal after 71.20 seconds, with
+182 pins verified by primary; one of 271 planes remains null and source
+actions cover 5,691 cuts. Raw-cut validation and final reviews remain open.
+
+Primary refused the first contact freeze before any native launch. The actual
+deck omits every `*BOUNDARY` card even though its generator calculates ground
+and gauge lines. Original freeze
+`6ccdd8cee4c499c7438aef8c07a6ee9cba8d11beb145fdb1719cde9f4b7e95c4`
+is preserved with zero consumed launches; parent refusal SHA-256 is
+`68c9c754328dd4049f415eb03208bf2076f1fa39d97cce05c965ff5fee33451e`.
+It supersedes earlier packet-ready reviews. A worker owns a new preparation
+folder only, with an actual-deck constraint regression and fresh independent
+review before any new freeze can launch. No gate or result tolerance changes.
+
+The right-corner final handoff subsequently passed primary's independent
+saved-point/cut and contact oracles, 13 tests, Ruff and all final hashes. The
+final terminal receipt is
+`926df67d9dd4d443d2ee14c6ecbe11fce5ec8cd154c67ddfbe3e75d57e7b4169`.
+The first secondary now owns current center-kicker backing and receiver duty
+paths. Its geometry-only atlas reuse preserves one explicit stale historical
+method-map prose pin while authenticating the unchanged numerical dependency
+set; it cannot claim a full historical closure pass. The primary also records
+the kicker count correction additively: 18 axes total, nine per kicker, within
+66. Direct-backing gaps alone neither fail the recorded edge-duty obligation
+nor prescribe a new continuous member.
+
+The final retained-bolt conditional resistance packet passed primary exact
+producer/oracle replay, nine tests, Ruff and every final file/artifact pin,
+with three final independent Luna/max reviews. Report SHA-256 is
+`c3250f067c4590ee43f7ec7a5765d056d87e6ff5adb42837ed27710d9b4d4eb1`;
+oracle SHA-256 is
+`82064d584dd66810dcde8caad6b6445e8f699c7255a30529a3621bcbd6d743b1`.
+Adjusted joint capacities and group/geometry factors remain null. The second
+secondary now owns a source-only finished directional-edge method for those
+24 receiver memberships; midpoint/sampled-depth values cannot be described
+as through-depth minima without an analytic bound. Any required CAD extraction
+needs its own concrete parent reservation.
+
+Primary executed the single A12 row-1586 source recovery under final freeze
+`a4f0ba75a5a3d46b047880ea4b6feae7df40470be1ca921ef78da398261b537a`.
+The 5.23-second process used two body factorizations and zero corrections,
+passed its numerical screens, and still missed the unchanged native RF
+interval. Three result reviews are complete and parent result SHA-256 is
+`79b97a8191bcbdc5d9cbc3a806998fcdc741283717d9c3922b2330bd102bc908`.
+All 27 original interval failures remain; no source force is adopted and no
+retry is authorized. This is not a new native solve or complete frame state.
+
+The separate corrected contact freeze
+`87894949d0f9aa45ca479fa290fb2ae8c354884d290b9ac0e13e2a902522c8aa`
+passed fresh readiness reviews and consumed one parent run,
+`wj-washer-finite-sector-contact-20261001-a02`, with exact 60-second/1-GiB/
+one-CPU bounds. It exited zero in 5.596 seconds and returned the slot idle.
+Its frozen integrated-resultant audit passes with unchanged limits; result
+reviews are closing. Raw outputs, execution and frozen audit inputs bind in
+parent output receipt
+`fa97942ad86cebfe1a35f0c1a50a05574a43b2a480d8f63a4ed9e1cc123d738d`.
+This supplies hypothetical contact-output method evidence only; actual washer
+metal, wood response and partial-seat resistance remain unresolved. All 47
+formal criteria remain pending. Included usage currently reports 96% and
+ordinary usage allowed; no credits or paid fallback are authorized.
+
+All three contact result reviews subsequently passed. Primary authenticated
+raw outputs, the frozen oracle/code/coordinate chain, ledger and review hashes
+in final parent result
+`8fa2c65a09395f177123ce77e7305a81f690f5e843bc69b1ff7b1e0cc9d1deea`.
+The unpinned current README now reflects execution. Independent constrained-
+DOF-only reconstruction also passes despite the frozen verifier including one
+free gauge-x RF of `1.015614e-15 N`; that immaterial detail is preserved and a
+future packet should mask constrained DOFs. The result does not qualify local
+contact pressure/stress, metal, wood or partial-seat capacity. Separate
+source-only workers now prepare a concrete candidate washer 3D input contract
+and a bounded next-method discriminator for the A12 source discrepancy. No
+new native run or retry is authorized by those plans.
+
+Primary subsequently verified the completed center-backing source packet:
+report `79f7058b9067d4c0a34206d04f6c6580c005a603a42388dd00bb54ac070979ad`,
+302 byte/size pins, 42 tests, Ruff, exact producer replay and both independent
+raw-source oracle replays. The final three-review record is authenticated.
+Parent receipt is
+`7e87637b6af211f3ac1afb51e2c25b8567c5104e6e866ba8119542ae126c7de7`.
+The atlas's disclosed stale prose pin remains a refused historical closure.
+The first secondary now owns complete center-post/cleat/header boundary
+actions in a new source-only folder. No force allocation or backing revision
+is adopted.
+
+The A12 saved arithmetic packet also reproduces the retained result apart
+from elapsed time. High-precision rationalized arithmetic on the same rounded
+endpoints changes the force by only `-3.65e-12 N`; it leaves the original RF
+miss and 27 failures intact. A separate proposed output patch changes only
+stiffness printing from 14 to 17 significant digits. Primary reproduced its
+16-value host-C known answer and exact one-line patch dry-run; mass printing
+remains unchanged. These checks do not prove export rounding caused the miss.
+Fresh source reviews are closing, and an isolated build/coupon preparation
+is underway without execution. Included usage reports 97% with ordinary usage
+allowed; stop at exhaustion without credits. All 47 criteria remain pending.
+
+The three fresh A12 arithmetic/formatting reviews subsequently passed.
+Primary authenticated their hashes and the final stable source packets in
+`5cae8f60ce6f9af80ffd9049fb0643e7cfa44e01cddecf6799fe6f5ee12e87b2`.
+The proposed patch remains unbuilt and supplies no cause for the source/native
+RF difference. Its next isolated build/coupon preparation preserves the old
+solver image, binary, source tree and profile and authorizes no candidate
+matrix export.
+
+At 20:48 UTC the workspace permission profile changed. Direct tmux transport
+and the primary's quota RPC are unavailable. Fresh local quota events still
+report 97% included use; the allowed read-only monitor is
+`/tmp/mini-moonboard-included-usage-rollout-check.py`, which refuses evidence
+older than 120 seconds, missing evidence or exhaustion and outputs no credit
+balance. It alters no billing setting. The earlier local preparation agents
+no longer appear live; replacement Luna/max workers now own only the separate
+STI17 build/coupon and washer crop/mesh preparation folders. No live heavy
+work is authorized by this continuation. Existing secondary scopes and all
+completed hashes remain unchanged; outgoing tmux reassignment is unavailable.
+
+By 21:29 UTC the existing secondary chats were progressing on their already
+assigned center boundary and finished-edge scopes with fresh local evidence
+of 98% included weekly usage. The primary independently passed the current
+39 edge tests and reproduced the revised raw-oracle receipt byte-identically:
+`faa735bc0c386373c4639e7d7e9dcf88dbc97e28552ddc1719a66075f8efc028`.
+The required fresh fourth review remains pending; sampled distances do not
+establish through-depth minima or NDS detailing acceptance. The center
+boundary draft is undergoing independent saved-DAT verification.
+
+The source-only STI17 build/coupon scripts need refusal tests before review.
+The washer worker has an explicit additive hypothetical nut profile and is
+preparing the first executable R75/H1 five-solid mesh job without executing
+CAD or meshing. Independent hardware section arithmetic agrees with the
+parent oracle. The pinned solver manual's default local stress output still
+needs a small rotated-orthotropic output check; the existing matrix and
+affine coupons do not demonstrate that distinction. All 47 criteria remain
+pending, no new heavy run has occurred, and credit fallback stays forbidden.
+
+The finished-edge packet subsequently completed its fourth review. Primary
+verified all 165 source pins and 23 final file/artifact pins, 39 tests, Ruff,
+exact producer replay and byte-identical independent raw-oracle replay.
+Parent validation SHA-256 is
+`2a20f1f1f9ba783e59383c909972e62852e2dbd97f89daf284c1211ed7fea661`.
+The optional duplicate oracle invocation inside pytest is explicitly deferred;
+the complete raw replay remains a mandatory separate gate and passed.
+Nominal samples do not close through-depth minima or NDS/joint resistance.
+The next second-secondary assignment, a source-only complete bearing-depth
+bound plan, is recorded in the integration folder's shared dispatch; direct
+tmux delivery is not claimed.
+
+The primary prepared an unfrozen rotated-orthotropic stress-output deck and
+pure reader; 16 synthetic checks and Ruff pass, with three source reviews
+now running alongside STI17 preparation review. No new solver/build/mesh run
+occurred. Docker denied even read-only image inspection at 21:35 UTC; current
+runtime readiness remains false. The full MVP-E goal remains incomplete.
+
+The owner then requested enough documentation for another agent to resume
+with only 2% included usage left. Start at
+[NEXT-AGENT-HANDOFF-2026-10-01.md](NEXT-AGENT-HANDOFF-2026-10-01.md).
+The first secondary's final center-boundary packet passed primary exact replay,
+324 source pins, 12 artifact hashes, 74 tests/Ruff and byte-identical raw-DAT
+reconstruction. Parent receipt is
+`ee4f7cb8ea97bb4a53e66717e8ff2993d04d4c02e41468118f449b0ab83a2b50`.
+Its reuse of recorded floor corrections remains explicit.
+
+The STI17 provenance correction passes 15 synthetic tests and Ruff; its fresh
+review pass is still pending. The stress-frame packet passes 17 tests including
+independent constitutive arithmetic, but the parent provenance wrapper was not
+started. The washer worker saved a checkpoint identifying the latest mesh
+producer as unready, unverified and unexecuted. Workers have stopped new work
+for handoff; no new heavy reservation was made.
+
+Secondaries report restored access and successful TUI delivery. The retained
+edge communication metadata now authenticates under final-pins SHA
+`c730ead2753f2485f95c3ef03648a34cfedea66418b39078cc43652e05871354`;
+the original geometry validation and previous snapshot are preserved, and a
+separate metadata reconciliation checks the unchanged code/result chain.
+Primary has not revalidated outgoing TUI or Docker access. Current goal
+completion and all 47 criterion dispositions remain open. Credit fallback
+stays forbidden.
+
+## Primary read-only handoff recheck, October 1 at 22:20 UTC
+
+All 109 checkpointed files still match. Restored primary permissions allow
+read-only account RPC, tmux listing and inspection of the original pinned
+Docker image. RPC still reports 98% included use; no new analysis, worker
+assignment, build, mesh or native run was started. Direct TUI send remains
+unavailable in the primary tool catalog. Current observations are recorded
+in [the recheck receipt](hypotheses/mvp-integration-2026-10-01/handoff-readonly-recheck-2026-10-01.json)
+and the [canonical restart guide](NEXT-AGENT-HANDOFF-2026-10-01.md). The full
+MVP goal remains incomplete and credits/paid fallback remain prohibited.
+
+## Bounded primary washer source continuation
+
+Primary parsed the four saved washer-source modules and reran six synthetic
+tests. The full pure preparation exposed a contract-guard wording mismatch;
+a one-line correction preserves the immutable source contract, source pins,
+reviewed geometry and mesh producer. A regression failed before the fix and
+all seven tests pass afterward. The pure CLI now completes and replays
+byte-identically with 27 authenticated source pins. Exact hashes, scope and
+pending independent review are in [the source-only parent receipt](hypotheses/mvp-integration-2026-10-01/washer-source-preparation-parent-validation.json).
+No CAD, mesh or native job was started. Current account RPC remains at 98%
+included usage, ordinary usage allowed; no credits or paid fallback used.
+The canonical handoff and hash snapshot include this follow-up. All 47
+criteria remain pending and the full MVP-E remains incomplete.
+
+## Source review pass 2 and verified testing fixes
+
+Two existing tmux chats and one primary-owned Luna/max architecture reviewer
+completed a fresh independent pass on the 15 pinned STI17/stress inputs.
+Primary confirmed three testing gaps and a TERM-only timeout defect; the
+architecture oracle finding was withdrawn after full-chain verification and
+an independent synthetic live-source drift refusal. Reviewed input bytes and
+all role receipts are preserved in the
+[source-review packet](hypotheses/mvp-integration-2026-10-01/source-review-pass2-2026-10-01/parent-triage.md).
+
+Both secondaries then completed disjoint test fixes. Primary reran STI17:
+16 tests / 41 subtests passed, and stress-frame: 19 tests passed, with Ruff
+passing. Only three test files changed; twelve other reviewed inputs and the
+original stock runner are unchanged. Exact pins and remaining gates are in
+[post-fix validation](hypotheses/mvp-integration-2026-10-01/source-review-pass2-2026-10-01/post-fix-parent-validation.json).
+Hard native termination, stress provenance wrapper and fresh final review
+remain open. No build/native/CAD/mesh or Git work was performed. Current
+included usage is 99%; no additional review/native task is assigned during
+handoff and credits/paid fallback remain prohibited.
+
+Research thread `01a0f877-dd48-7ce1-a025-39a6fc1a88f3`, `main:9.4`, separately
+reports owner-directed complete conditional upper-left service joint work
+with reasonable assumptions. Primary confirmed no ownership overlap and
+retained the missing-frame-case/physical-release boundaries. Its final
+packet is not yet reported. The canonical handoff includes this coordination.
+All 47 criteria and the full MVP-E remain pending.
+
+## In-progress upper-left service joint observation
+
+The owner-directed research thread is working in
+`hypotheses/upper-left-service-joint-mvp-2026-10-01`. Primary replayed the pure
+draft producer to a separate `/tmp` file, verified 30 source pins and unchanged
+draft source hashes across the observation, and recorded 84 bolt states,
+21 whole-boundary states and eight nominal seats. Current status is
+`HOLD_COMPLETE_JOINT_EVIDENCE_MISSING`, with local completion/acceptance false.
+The proposed local load box and generic resistance budgets remain unadopted.
+[The observation](hypotheses/mvp-integration-2026-10-01/upper-left-joint-draft-parent-observation.json)
+is a checkpoint, not final parent review. The owner thread is still working;
+obtain its final handoff before using a later disposition. No solver, CAD or
+geometry change occurred in the parent observation. Included usage remains
+99%, with credits/paid fallback prohibited. The canonical handoff is updated.
+
+## Scoped STI17 hard-stop source implementation
+
+Primary implemented `launch_sti17_coupon.py` without changing the preserved
+stock runner (`ff7a81bc…`) or any real native ledger entry. The separate
+scope-locked API fixes one CPU / 2 GiB and requests KILL at the 60-second
+native payload timer. It shares the original verifier/ledger/lock; copied
+kernel syntax-tree equivalence was checked with only the admitted resource,
+guard and timeout changes. Coupon freeze/post-run checks bind this source.
+
+Twenty tests / 42 subtests and Ruff pass, including mocked execution/ledger
+handling and TERM-only refusal. A local GNU-timeout fixture killed a
+TERM-ignoring Python process. It qualifies the local control primitive only;
+fresh independent source review and pinned-container qualification remain
+pending. No Docker, build, compiler, solver, CAD or mesh job started. Exact
+pins and remaining gates are in
+[the new parent validation](hypotheses/mvp-integration-2026-10-01/sti17-hard-stop-source-parent-validation.json).
+The earlier sixteen-test stage was reconstructed through reversible edits,
+verified against its recorded hashes and preserved in
+[the post-fix source archive](hypotheses/mvp-integration-2026-10-01/source-review-pass2-2026-10-01/post-fix-source-archive.json).
+
+Research separately reports six joint tests/Ruff and a third review round
+with correctness pending. Its complete full-seat transfer method remains
+missing for the 1.913 N·m peak receiver-datum moment; primary supplied the
+current method boundary and kept the conditional analytical route open.
+No completed joint or criterion acceptance follows. Included usage remains
+99%, credits/paid fallback prohibited. The explicit pause question is still
+unanswered; the primary goal remains active and incomplete.
+
+## Final upper-left source packet and account handoff
+
+The research owner completed the final bounded source packet. Primary reran
+six tests and Ruff, authenticated all three final correctness/testing/
+architecture receipts and 30 source pins, and reproduced the final report
+byte-identically (`35f11b92…`). The final source validation is
+[recorded here](hypotheses/mvp-integration-2026-10-01/upper-left-joint-final-source-parent-validation.json).
+It covers 84 bolt states, 21 whole-boundary states with 16 ports each, and
+eight nominal seats. The joint remains
+`HOLD_COMPLETE_JOINT_EVIDENCE_MISSING`; all seven complete-joint gates are
+open. No criterion acceptance, authority change or native/CAD job follows.
+
+The canonical [next-agent handoff](NEXT-AGENT-HANDOFF-2026-10-01.md) now
+supersedes the earlier pending-review observations and lists the seven
+gates, source replay, final review target and concrete method gap. Included
+usage was freshly checked at 99%. No further review, worker or native job
+is assigned; credits and paid/API fallback remain prohibited. Preserve the
+whole dirty workspace and referenced temporary files. The full MVP-E and
+all 47 criteria remain incomplete; no explicit pause instruction was received.
+
+## Base-image hard-stop control known-answer
+
+Primary continued with one bounded software fixture in the existing
+immutable `31336f51…` base image. GNU timeout KILL terminated a Python child
+that had installed a TERM-ignore handler at the requested 0.25-second timer;
+observed elapsed time was 0.25277 seconds and child return code -9. The
+controller exited successfully, the container was removed, and the native
+ledger hash remained unchanged. No compiler, CalculiX, mesh or candidate
+mechanics job ran. Exact identities, command and terminal state are in the
+[known-answer receipt](hypotheses/mvp-integration-2026-10-01/sti17-base-image-hard-stop-known-answer.json).
+
+This closes the existing base-image control-primitive uncertainty. Final
+STI17-image utility/invocation checks and independent source review remain
+pending; native readiness and all engineering/physical release flags remain
+false. The canonical handoff and preservation snapshot include this result.
+
+## Final service-joint analytical feasibility finding
+
+The bounded Luna/max feasibility worker finished its separate
+[note](hypotheses/upper-left-service-joint-mvp-2026-10-01/analytical-route-feasibility.md),
+SHA `837dbd55…`, with joint HOLD. Primary read the terminal note, verified
+13 source pins and unchanged frozen checker/test/README/target/report, and
+independently checked four access rows with 24 clear component geometry
+routes and unresolved turn/counterhold flags. See
+[parent validation](hypotheses/mvp-integration-2026-10-01/upper-left-joint-feasibility-parent-validation.json).
+
+The next complete-joint work needs simultaneous signed interface-wrench and
+slip/rotation demands, a validated coupled contact/bolt/washer transfer
+model, applicable metal inputs/engagement geometry, and shared-cleat/host
+splitting criteria. Explicit conditional material specifications remain
+allowed. This bounded current-method gap finding does not prove that no
+analytical method can ever work and does not adopt a resistance, load
+scenario or criterion pass. The research owner reports no further task
+assigned at 99% included usage. No new solver, mesh, geometry or Git work
+occurred in this validation. The canonical handoff includes the final note.
+
+Primary additionally verified the twelve raw manifest/access/operation
+records directly: three complete file hashes, canonical record hashes,
+the four exact axis indexes, receiver identities and copied operation
+statuses all match. The separate
+[raw rejoin receipt](hypotheses/mvp-integration-2026-10-01/upper-left-joint-access-raw-parent-validation.json)
+preserves the computation. It supplies no CAD replay or installed-operation
+acceptance; the joint remains HOLD.
