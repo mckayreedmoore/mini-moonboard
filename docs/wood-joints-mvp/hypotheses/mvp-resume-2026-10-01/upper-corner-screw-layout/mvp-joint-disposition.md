@@ -20,7 +20,7 @@ Indices compare demands with each method's own declared reference; different max
 | Six header duties | **72 bolt states / 36 interfaces**; six supported-boundary maps preserve signed wrenches. Twelve supported seats; 116 contact centroids on wood. Peak tie **239.705 N**, mean **1.122 MPa**. | [References](header-replay.md), [boundary map](header-traction-map.md). Opposite-wall/ligament-sharing hypotheses retained; full A1-rear torque **−12.768 N·m** remains despite zero knee contact samples. |
 | Central partial nut seat | Six ties admit the centered supported-ring route: peak **22.952 N**, trial **0.942 MPa**, mean wood index **0.219**. Signed coupon/integrals complete. | [Static route](central-seat-transfer.md). Unsupported crescent unloaded; centering, rigid nut land and ductile plastic interpretation explicit. |
 | Panels / 66 screws | Head demand **1871.251 N**, simultaneous lateral **726.611 N**, A12-rear upper-left `edge_2`; favorable nominal-head references **930.222–984.128 N** remain exceeded. All twelve ties/contact actions balance in this state. | [Head worksheet](head-reference-basis.md), [complete saved path](panel-path-reconciliation.md), [panel material](panel-material-fidelity.md). **Declared reference exception**; actual Hillman resistance/stiffness unverified. |
-| Members / top rail | Normal/stability reference peak **0.628**; compatible rail shear/torsion **1.021524** remains above its unchanged reference. | [Member replay](member-replay.md), [rail isolation](top-rail-limit.md). **Declared exception**, approximately 2.2%; no rounding to PASS. |
+| Members / top rail | Under the declared C_D = 1.25 rated-peak hypothesis, normal/face/component-bound peaks **0.519 / 0.817 / 0.951**. Permanent C_D = 0.9 peaks **0.174 / 0.133 / 0.182**. Original C_D = 1 rail face remains **1.021524**. | [Duration basis](member-duration.md), [permanent calculation](dead-load-check.md), [original replay](member-replay.md). Finite conditional duration comparisons complete; original exceedance and method limits preserved. |
 | Other duties / retained pairs | Existing exclusions retained; row-factor sensitivity **0.963**, ideal washer wood indices **0.208 / 0.264**. | [Register](joint-register.md), [24-block duties](remaining-block-duties.md), [methods](bolted-replay.md). Applicable component evidence reused. |
 
 The [top-corner nominal net-section comparison](corner-net-section.md) covers eight deciding signed cuts and 24 actual ligaments. Tension/compression/bending indices are **0.0781 / 0.0286 / 0.0430**; the same-state regional shear/torsion bound is **0.2420**. Exact regional offsets recover all six wrench components. Common longitudinal strain, end-bridge continuity, area-shared transverse force and equal-modulus twist remain explicit MVP assumptions; no notch or splitting capacity is assigned.
@@ -33,11 +33,11 @@ The [retail thick-washer option](retail-washer.md) completes two resolutions at 
 
 ## Practical disposition
 
-The finite checks provide a reproducible conditional working model. Complete joint qualification and the rail/panel reference exceptions remain open.
+The finite checks provide a reproducible conditional working model. Complete joint qualification and the panel reference exception remain open. Rail duration comparisons complete under the stated cumulative-peak assumption; the original normal-duration exceedance remains recorded.
 
 Bottom left's governing record is A1-rear `side_1`: simultaneous **T=203.598 N, V=243.435 N**, smooth steel **71.254 MPa**. Right lateral/steel governs at K12-rear `side_1`: **T=5.283 N, V=4.842 N**; its path and mean-seat peaks are separate A12-left records.
 
-The coordinator sets MVP disposition with both exceptions visible. Panel head is the larger deficit; rail is close to its reference. Neither is an observed physical failure. This sheet commissions no further models, research, tests or external sign-off.
+The coordinator sets MVP disposition with the panel deficit and original rail finding visible. Neither is an observed physical failure. This sheet commissions no further models, research, tests or external sign-off.
 
 Actual hardware/washer capacity, full splitting/group/torque resistance and delivered fit remain unqualified where stated. Equilibrium and small component indices supply no missing capacity. **47-criterion authority, complete-joint HOLD and fabrication/physical-release flags remain unchanged**.
 

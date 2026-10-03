@@ -101,6 +101,22 @@ Runtime was Python 3.12 with NumPy 2.5.2 and SciPy 1.18.1. The source
 baseline reproduction is explicit. No frame, CAD, native or software-test
 run occurs in this saved-cut calculator.
 
-The separate permanent-load result is pending. The combined duration basis
-is not complete until that comparison is returned. Formal qualification,
-complete-joint acceptance and all physical-release flags remain unchanged.
+## Permanent-load completion and conditional working decision
+
+Parent completed the [gravity-only calculation](dead-load-check.md) at both
+zero and nominal clearance, with original frame/equipment gravity and no
+live load. All 88 member balances and 11,568 applicable cut traces complete.
+At C_D = 0.9, normal/stability, compatible shear/torsion and component-bound
+peaks are **0.174220 / 0.132797 / 0.181737**. All applicable normal checks
+retain their declared domain. Permanent comparison SHA-256:
+`20802196776a89ea8b041832b413ef8d8613493b1bf36f89a3810807c5166e75`.
+
+For the conditional MVP working assessment, use C_D = 1.25 for the six
+rated cases and C_D = 0.9 for permanent gravity, with the seven-day cumulative
+full-peak assumption above. This completes this finite load-duration
+comparison. The individual producers do not select an authority or update
+formal gates; this parent working decision is recorded here after both runs.
+The original C_D = 1 rail exceedance, non-adopted coefficient-5 sensitivity,
+restraint/torsion limits and panel reference deficits remain visible.
+Formal qualification, complete-joint acceptance and all physical-release
+flags remain unchanged.

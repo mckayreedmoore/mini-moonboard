@@ -120,8 +120,13 @@ reproduces all 34,704 applicable original cut checks exactly. Under the
 declared seven-day cumulative full-peak hypothesis, C_D = 1.25 gives
 normal/stability, compatible rail-face and component-bound peaks of
 **0.518810 / 0.817219 / 0.951332**, with unchanged loads and elastic response.
-The separate permanent-load comparison at C_D = 0.9 is still pending;
-this does not yet complete or adopt the duration basis. The completed
+The separate [permanent-load comparison](upper-corner-screw-layout/dead-load-check.md)
+at C_D = 0.9 also completes both clearance states and 11,568 applicable cuts;
+its normal, face and component-bound peaks are **0.174220 / 0.132797 / 0.181737**.
+Use this conditional rated/permanent duration basis for the working timber
+assessment, retaining the seven-day cumulative full-peak assumption and
+unchanged formal C_D = 1 findings. No hardware strength receives this credit.
+The completed
 [50 mm lever sensitivity](upper-corner-screw-layout/load-lever.md)
 preserves the full forces and completes twelve frame states. Nominal peak
 screw tension falls to 1707.613 N and lateral force to 1126.477 N; the

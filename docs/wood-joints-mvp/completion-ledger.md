@@ -22,8 +22,11 @@ The [timber duration comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-s
 reproduces all 34,704 applicable original cut checks exactly. Under its
 declared seven-day cumulative full-peak hypothesis, the compatible rail face
 and conservative component bound are below one. Its separate permanent-load
-calculation remains pending; the duration basis is not yet complete. Original
-normal-duration findings and all historical method stops remain preserved.
+calculation now completes both clearance states and 11,568 applicable cuts at
+C_D = 0.9, with normal, face and component-bound peaks 0.174220 / 0.132797 /
+0.181737. The finite rated/permanent duration comparison is complete for the
+conditional working assessment. Original normal-duration findings and all
+historical method stops remain preserved.
 
 These working calculations do not close the formal coverage register.
 **All 47 entries remain pending and all eight physical-release flags remain
