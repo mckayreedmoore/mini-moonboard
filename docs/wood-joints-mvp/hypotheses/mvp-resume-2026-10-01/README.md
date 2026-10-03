@@ -94,7 +94,15 @@ The separate 20-main-panel-screw/98-total comparison also completes all
 twelve states, with a 2180.721 N nominal lower-left peak; it does not select
 a new screw inventory or demonstrate that screw count alone improves sharing.
 
-The top-rail 1.021524 shear/torsion reference exceedance remains unresolved.
+The top-rail 1.021524 shear/torsion reference exceedance remains unresolved
+for the current 100 mm force lever. The completed
+[50 mm lever sensitivity](upper-corner-screw-layout/load-lever.md)
+preserves the full forces and completes twelve frame states. Nominal peak
+screw tension falls to 1707.613 N and lateral force to 1126.477 N; the
+declared head/wood reference deficit remains. The targeted
+[top-rail replay](upper-corner-screw-layout/top-rail-limit.md)
+returns a 0.960773 face ratio and 1.118391 same-cut component upper bound.
+The sensitivity is not adopted and does not establish an all-section pass.
 Local disturbed stresses, elastic timber/two-group resistance, washer/head/nut
 transfer, continuous-knee contact and actual shank/thread profiles retain
 their stated limits. The completed left and right rail/side pairs supply compatible
@@ -129,8 +137,13 @@ integration adds no native run, hardware substitution, software tests or
 agent review loop. Parent owns shared staging, execution and the returned
 register leaves. Both top common-block calculations and their component
 replays are complete within the explicit rigid-cleat assumptions. Separate
-workers consolidate remaining block duties and applicable group resistance;
-the load-lever comparison remains preparation only until parent execution.
+workers completed the [24-block duty map](upper-corner-screw-layout/remaining-block-duties.md)
+and [group applicability worksheet](upper-corner-screw-layout/block-group-resistance.md).
+All 48 exterior host cuts admit the complete local group footprint, so
+their whole-host wrenches remain reusable after the bounded redistribution.
+Interior group tractions and local splitting resistance remain separate.
+Current bounded implementations address those cleat tractions, the four
+continuous knee bolts, one partial central seat and six header duties.
 
 ## Preserved previous working model and ownership
 

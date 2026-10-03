@@ -125,11 +125,13 @@ remain reusable; it does not select these proposed lengths or establish a
 complete nut/tool/thread sequence.
 
 Its sixty-six screw enclosures precede the four-upper-axis relocation.
-The new overlay's installed screw/bolt-axis separation does not evaluate
-those four relocated screws against the moving length-extension queries.
-Do not relabel the older receipt as a complete current-overlay moving-path
-screen. This scope distinction does not discard its unchanged pairs,
-restart the completed check or impose a new blanket prerequisite.
+The completed [upper-screw travel delta](upper-screw-travel.md) checks
+the four translated screw enclosures against all 48 saved added-tip and
+travel-increment queries: **192 conservative box separations**, zero
+overlap or undecided pair, minimum separation 2167.746444 mm. This closes
+the changed-pair scope without rebuilding the scene. The older receipt
+continues to cover its unchanged pairs; neither packet establishes the
+full tool/turning/removal sequence or delivered screw-head geometry.
 
 ## Affected operations
 
