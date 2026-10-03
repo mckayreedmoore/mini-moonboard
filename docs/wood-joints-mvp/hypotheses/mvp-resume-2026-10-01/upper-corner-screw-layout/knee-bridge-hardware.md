@@ -40,5 +40,5 @@ If later adopted, four new bolts/nuts and eight washers give **108 / 108 / 216**
 with **66 Hillman screws unchanged**. The current 104-stack order stays frozen;
 no extra Lawson pack is inferred from this shorter proposal. Stock lead prices,
 package terms and the complete current order total remain unrecorded here.
-The saved-scene fit report separately states its length envelope. No physical
+The [completed saved-scene fit](../assembly-package/knee-bridge-fit.md) retains the longer 203.2-mm envelope and separately checks all four new stacks together. No physical
 selection, drilling, preload or fabrication is authorized by this note.

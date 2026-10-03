@@ -14,7 +14,7 @@ OD/ID/thickness washer hypotheses at both ends**. [Existing product basis](washe
 [washer hypothesis](retail-washer.md) and [axial-profile convention](../assembly-package/hardware-engagement.md)
 are source-pinned. Nominal length does not establish thread at the nut seat.
 Delivered body/thread dimensions, engagement and head/nut profile remain conditional.
-The [washer comparison](knee-bridge-washer.md) is complete; scene, tip and access checks are separate.
+The [washer comparison](knee-bridge-washer.md) and [bounded scene fit](../assembly-package/knee-bridge-fit.md) are complete; actual tool operation remains conditional.
 Actual product resistance remains unqualified. The producer records the necessary conditional thread window.
 
 ## Frozen load and geometry basis
@@ -96,4 +96,4 @@ Saved `rawlocal/knee-spine-reinforcement/attempt01/checks.json` SHA **c9360e7ca4
 At the declared 1.25 force margin, peak bolt tension is **1060.657 N**; wood compression/washer-mean/bolt-yield/nut-proof indices are **0.616 / 0.544 / 0.082 / 0.063**. Full-wrench recovery error is below 0.000000001 N/N·mm.
 Bare hull optima do not supply finite pressure. The linked margin construction retains both shears and torque; it establishes a prescribed static route without an elastic allocation or global feedback.
 No software tests, review loop, CAD/frame/native solve, geometry adoption or physical release occurred. Old applicability note and frozen evidence remain active.
-Parent owns the separate grain result; Tesla owns the saved-scene fit task.
+Parent completed grain, washer and scene-fit integration. The four added stacks are reviewable in the linked axis diagram; current geometry and inventory remain authority until adoption.
