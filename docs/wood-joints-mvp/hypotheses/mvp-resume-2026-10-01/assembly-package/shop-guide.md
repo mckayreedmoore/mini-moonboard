@@ -179,6 +179,8 @@ labels do not supply numeric yield minima.
 The [current fourteen-family hardware table](working-hardware.md) lists all
 104 bolts and nuts, 208 washers and 66 separate purchased Hillman screws.
 Use its current lengths and matched routes with the per-axis worksheet.
+The [per-joint hardware map](joint-hardware-map.md) assigns these routes to
+all 24 block identities and keeps the four shared knee shafts counted once.
 
 Use the [conditional planning routes](hardware-engagement.md#current-conditional-planning-lengths):
 four center-post bolts at six inches, four center-principal/header bolts at

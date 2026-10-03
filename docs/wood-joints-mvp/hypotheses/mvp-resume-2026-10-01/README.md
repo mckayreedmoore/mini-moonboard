@@ -326,6 +326,19 @@ independent receiver force and moment balances. This finite K requirement
 has no remaining state; local wood and delivered hardware retain their own
 recorded scope.
 
+The completed [remaining twenty-cleat transverse assessment](upper-corner-screw-layout/remaining-block-transverse.md)
+now covers every registered body beyond the four outer corners: 120 body/case
+states and 19,536 finite cuts, with no scope stop. Uniform retained-timber
+gravity and original hardware wrenches replace the equivalent node placement
+once; all other archived point forces and free couples remain unchanged.
+Fresh grain tension/shear-torsion reference peaks are 0.134565 / 0.382535.
+All 5,450 finite compression constructions are below the existing wood
+reference; 5,614 source-placement cuts require tensile normal transfer.
+The largest lower bound is 430.148 N at the left knee spine/A12-left, which
+has four same-axis shafts. Its beam-splitting applicability is the next finite
+connection check. The result is neither a physical failure nor complete
+splitting resistance; simultaneous shears and torque remain explicit.
+
 The concise [joint MVP disposition](upper-corner-screw-layout/mvp-joint-disposition.md)
 collects completed finite checks, conditional shop links, the panel-head
 reference exception and remaining joint-resistance limits. The physical

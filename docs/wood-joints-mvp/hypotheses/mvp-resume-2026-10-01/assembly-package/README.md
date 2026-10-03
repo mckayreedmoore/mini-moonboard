@@ -65,6 +65,10 @@ Use the concise [current hardware table](working-hardware.md) for all fourteen
 families, matched nuts/washers and pooled quantities. It follows attempt03
 working fields; earlier source labels and price recipes below retain their
 historical scopes.
+The [joint hardware map](joint-hardware-map.md) joins every named block to
+its current fastener families. Four continuous knee shafts appear at both
+connected blocks but count once: 96 block incidences, 92 candidate bolts and
+twelve retained frame bolts.
 
 The [208-endpoint washer census](washer-coverage.md) maps every named role
 to its applicable saved force, seat and product evidence. The former eight

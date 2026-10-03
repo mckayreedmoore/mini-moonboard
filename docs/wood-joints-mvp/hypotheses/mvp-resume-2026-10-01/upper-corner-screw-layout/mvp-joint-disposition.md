@@ -37,6 +37,8 @@ The [two knee spines](knee-spine-net-sections.md) complete **600 existing openin
 
 The [retail thick-washer option](retail-washer.md) and [complete 48-end suite](retail-washer-suite.md) use declared **25.4/8.3058/2.5 mm OD/ID/thickness**. All four top-rail bolts, both ends and six cases complete at the fixed fine resolution; peak stress remains **207.205 MPa**, index **0.829** against assumed 250 MPa yield. The original **707.884 N / 2.432 N·m** witness and fields reproduce exactly. Eight nominal lands support the annulus; [saved-scene fit](../assembly-package/top-washer-fit.md) completes **37,352 pairs**, zero overlap/undecided. The [current order](../assembly-package/hardware-engagement.md#working-order-export) uses eight Hillman 885522 washers for conditional planning; actual material, dimensions and full tool operation remain conditional.
 
+The [remaining twenty-cleat transverse assessment](remaining-block-transverse.md) completes **120 body/case states / 19,536 cuts**, including **8,472 grain and 11,064 transverse cuts**, with no affected-body stops. Archived mechanical point forces/couples remain; only gravity placement changes, preserving whole-body wrenches. Fresh grain tension/shear-torsion indices peak at **0.134565 / 0.382535**. All **5,450 compression constructions** remain below the existing pressure reference; **5,614 cuts** need tensile normal transfer in that source placement. Largest lower bound is **430.148 N**, left knee spine/A12-left. This completes finite coverage, not splitting capacity or a physical failure finding; actual knee-duty applicability is the next bounded check.
+
 ## Practical disposition
 
 The finite checks provide a reproducible conditional working model. Current physical top-rail recovery and bottom grain comparisons are complete under their stated assumptions. Complete joint qualification and the panel reference exception remain open. Rail duration comparisons use the stated cumulative-peak assumption; original normal-duration exceedances and original-point net sensitivity remain recorded.
@@ -49,7 +51,7 @@ The [corner splitting applicability decision](corner-splitting-disposition.md) i
 
 ## Conditional shop references
 
-Use the [shop guide](../assembly-package/shop-guide.md), [44-blank list](../assembly-package/blank-cut-list.md), [joint addendum](../assembly-package/current-joint-addendum.md), [length fit](../assembly-package/hardware-length-fit.md), [costs](../assembly-package/catalog-costs.md) and [66-axis overlay](shop-addendum.md): 62 axes unchanged, four moved, two center receivers now `base_rail_top`. Historical STEP holes are not extra drill instructions.
+Use the [shop guide](../assembly-package/shop-guide.md), [joint hardware map](../assembly-package/joint-hardware-map.md), [44-blank list](../assembly-package/blank-cut-list.md), [joint addendum](../assembly-package/current-joint-addendum.md), [length fit](../assembly-package/hardware-length-fit.md), [costs](../assembly-package/catalog-costs.md) and [66-axis overlay](shop-addendum.md): 62 axes unchanged, four moved, two center receivers now `base_rail_top`. Historical STEP holes are not extra drill instructions.
 
 BOM: 20 frame timber bodies, 24 blocks, 44 timber blanks, six plywood bodies, 104 bolt stacks/nuts, 208 washers, 66 panel/kicker screws. Owner-reported assembly/movement acceptability remains a working assumption. No build or floor inspection is claimed; Actual/Disposition cells stay blank until observed. No physical work is authorized.
 
@@ -68,7 +70,7 @@ The parent checked the objective against the current saved results and condition
 | Shop documentation / geometry changes | [Current joint addendum](../assembly-package/current-joint-addendum.md), corrected top bodies/bolts and four moved screw coordinates; source solids and overlays remain distinct. |
 | Panel assumptions / history / formal flags | Panel reference deficit, stiffness and material hypotheses are explicit; frozen history, 47 pending criteria and eight false flags preserved. |
 
-The retail washer suite, replacement fit and [full endpoint census](../assembly-package/washer-coverage.md) are complete; lower service adds 48 mean wood-bearing records, peak **0.012174**. Current rail placement, physical bottom gravity and corner splitting applicability need no further replay. Panel reference exception and missing complete-joint resistance still prevent whole-goal acceptance. Remaining twenty-cleat source applicability is complete; its finite transverse assessment is in progress without another frame model.
+The retail washer suite, replacement fit and [full endpoint census](../assembly-package/washer-coverage.md) are complete; lower service adds 48 mean wood-bearing records, peak **0.012174**. Current rail placement, physical bottom gravity, corner applicability and twenty-cleat finite assessment need no further replay. Panel reference exception and missing complete-joint resistance still prevent whole-goal acceptance. The two same-axis knee spines now have a bounded beam-splitting applicability assignment using their existing six-case source.
 
 ## Frozen receipt index
 
