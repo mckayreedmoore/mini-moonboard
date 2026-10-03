@@ -1,7 +1,10 @@
 # Knee bridge common displacement compatibility
 
-**Status: final implementation and source/API preparation complete; the finite
-engineering run has not been executed.** The bounded question is whether the four specific saved continuous
+**Status: finite reconciliation complete; all six cases conflict with the
+declared common affine-pose hypothesis.** This rejects combining these specific
+saved local solutions and total connector motions as one affine receiver
+state. It does not establish physical assembly failure. The bounded question
+is whether the four specific saved continuous
 shaft states and the saved simultaneous knee connector motions admit one common
 first order affine pose per receiver in each of the six nominal cases. The new
 internal v pairs also need a passive law and an elastic seat displacement field;
@@ -26,7 +29,42 @@ Importing the module reads no evidence and imports no numerical library.
 
 The APIs accept only a fresh immediate child of the owned raw directory.
 Neither API falls back to other loads, geometry, laws or historical mechanical
-states. `build` is reserved for the parent's subsequent finite engineering run.
+states. The parent executed `build` in the preserved fresh `attempt01` child.
+
+### Completed finite result
+
+Attempt01 returned
+`COMPLETE_FINITE_RECONCILIATION_WITH_COMMON_POSE_CONFLICT_AND_MISSING_PASSIVE_FIELDS`.
+Both new known-answer references and the saved-D coordinate checks passed.
+All 135 source pins and three output hashes matched independently afterward.
+Each of the six minimax LPs returned matching primal and dual bounds:
+
+| Nominal case | Minimum maximum scaled kinematic residual (mm) |
+| --- | ---: |
+| A12 rear | 5.022769 |
+| A12 forward | 5.856550 |
+| A12 left | 5.478945 |
+| K12 right | 5.370102 |
+| K12 rear | 4.956824 |
+| A1 rear | 1.499667 |
+
+The residual combines translations and slopes scaled by the actual 215.9 mm
+grip. It is not a predicted frame deflection or an adopted serviceability
+limit. Every case has nine duplicate-row conflict certificates. In particular,
+the two independent shafts prescribe different rotations for the same receiver.
+Their source local equilibria remain unchanged and valid within their own
+isolated hypotheses.
+
+| Finite artifact | SHA-256 |
+| --- | --- |
+| `attempt01/report.json` | `05741edf258ad5608d8db7414e7b2e52426ac01d6aa6e17c2bf1f06e79f28f7f` |
+| `attempt01/receipt.json` | `500091d3e6d2054be4603e0a75293d072b289e12d6468189ef577f2409790833` |
+| `attempt01/producer.py.snapshot` | `cb6e607cb5b61225e5c1a513aadfd45a58a4d6d5b2dbc17aa4caf58d267a7485` |
+
+The required next reconciliation is a common elastic receiver/seat field with
+an explicit passive law and unloaded reference for the four internal v ties.
+Changing hardware is not justified by this kinematic diagnostic alone. The
+finite result does not search alternate contact equilibria or elastic fields.
 
 The final preparation command executed after the parent restored the corrupted
 washer receipt was:
@@ -75,7 +113,7 @@ bytes remain at
 parent ownership. Final preparation resumed afterward and authenticated this
 adapter's unchanged 135 pins. No washer pin or source was changed by this task.
 
-The parent can now authorize the finite call:
+The parent executed the finite call:
 
 ```python
 report = module.build(
@@ -242,20 +280,20 @@ The existing contact and beam checks are reused within their original scope:
 | `rawlocal/knee-compatible/coupon-attempt01/coupon.json`, hash `c76aacdd80d42adc6ae7a080ea3ae3ab4b614cb1dcce2709a429e764a11fa1cd` | All 24 arithmetic records matched: beam energy/fields, circular-bore force/moment recovery, common rigid gauge invariance, zero-tilt axial opening, annular tractions and rotational virtual-work scaling. These support the retained local laws, not common receiver poses. |
 | `rawlocal/knee-contact-entry/coupon-attempt01/coupon.json`, hash `3301215eaef7b83ec4ac1d940615f44e2004e112029f1d3c64b99a6f8a84f3b1` | Three analytical circular-clearance contact responses matched. No contact solver is rerun in this reconciliation. |
 
-Only two new engineering references are prepared for the parent's finite run:
+Two new engineering references were executed in the parent's finite run:
 a point-motion row with known rotation/datum displacement of -0.98 mm, and
 identical scalar rows with targets 0/2 mm whose minimax error is exactly 1 mm.
-They gate the new coordinate adapter and feasibility/certificate method. They
-have not been executed and are not software test suites.
+They passed and gate the new coordinate adapter and feasibility/certificate
+method. They are engineering references, not software test suites.
 
-The final preparation establishes the bounded source/API layout and pinned
-runtime after the integrity interruption. The two new method references, the
-saved-D check and six finite LPs remain for the parent.
+The final preparation established the bounded source/API layout and pinned
+runtime after the integrity interruption. The parent subsequently completed
+the two new method references, saved-D check and six finite LPs.
 The full passive common-state question is not ready for a positive conclusion
 because the two named fields are missing.
 
-The likely finite outcome is an affine-pose conflict and/or an explicit
-unsupported elastic/passive state. A conflict rejects embedding of these
+The finite outcome is an affine-pose conflict plus explicit missing
+elastic/passive fields. A conflict rejects embedding of these
 particular frozen local states and total port motions into the declared affine
 receiver hypothesis. It does not prove failure of an elastic timber assembly,
 rule out every alternate contact equilibrium at the same loads or transfer a

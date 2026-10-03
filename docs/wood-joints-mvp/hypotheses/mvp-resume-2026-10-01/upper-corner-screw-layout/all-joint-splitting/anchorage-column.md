@@ -4,7 +4,8 @@
 ties admit an exact equilibrium field through their washer annuli, provided
 the two end faces use the same bounded normal-pressure profile. This does not
 close splitting resistance for all 30 duties or establish a complete-joint
-pass. The producer is prepared but has not been executed here; parent owns
+pass. Parent executed the corrected producer in attempt 03 on October 3,
+2026; its conditional component result is recorded below. Parent owns
 engineering runs and integration.
 
 ## Exact field
@@ -49,7 +50,19 @@ hypothesis is `25.4/8.3058/2.5 mm OD/ID/thickness`; proposed bore radius is
 The producer recomputes finite axis-segment distances from the saved six-bore
 geometry, checks the full proposed through-bore interval, both washer centers
 and signs at each spine, plus annulus containment on the rectangular stock
-faces. Frozen geometry gives these limiting clearances:
+faces.
+
+The saved original bores carry a global axis and finite parameter interval.
+The proposed bores instead carry local centers; their finite `v` endpoints
+are the two saved washer-land centers. The consumer normalizes those schemas
+separately, verifies each proposed land against its recorded global position
+and both stock end faces, and refuses partial or unrecognized schemas. It
+does not add axis fields to the frozen proposal. Parent attempt 02 stopped
+on the earlier global-only parser before completing the numerical assessment;
+its snapshot and stop record remain preserved. The corrected parser requires
+a fresh parent-owned attempt.
+
+Frozen geometry gives these limiting clearances:
 
 | Check | Minimum clearance |
 | --- | ---: |
@@ -106,6 +119,51 @@ the zero net end-pair wrench. Its signed end wrenches are
 section stress resultant is `[0,0,-100]` in local `(g,u,v)` coordinates. It
 is arithmetic only. The producer reports a local conditional field; it never
 sets `complete_joint_acceptance` or `physical_release` true.
+
+## Executed component result
+
+Parent attempt 03 returned `CONDITIONAL_STATIC_ANNULAR_COLUMN_WITNESS`.
+The uniform-column coupon passed; all four swept columns clear the recorded
+stock boundaries and voids. All 24 fresh-replay tie states (four ties in six
+cases) satisfy the local pressure screen for their 48 washer-end tractions.
+Read-only verification matched all 241 source pins and all four output pins.
+The failed attempts 01 and 02 remain separate and preserved.
+
+| Quantity | Attempt 03 result |
+| --- | ---: |
+| Continuous saved-envelope pressure maximum | 2.610452662 MPa, 60.58% of the recorded compression reference |
+| Fresh-replay maximum column pressure | 2.557112540 MPa, 59.34% of the recorded compression reference |
+| Controlling fresh-replay state | Left spine, `a12-forward`, bridge 2 |
+| Controlling load-induced tie tension | 1038.983907 N; the existing 1.25 margin is included |
+| Largest pressure-integral force residual | 4.10e-12 N |
+
+The continuous maximum uses the recovered finite polynomial, including its
+stationary points. This result establishes the conditional normal anchorage
+component; it does not establish compatibility or splitting resistance for
+the complete knee joint. Both washers must carry the same bounded pressure
+profile, and the other stresses must be combined without counting this
+normal transfer twice. The reviewed 104-axis system and all other joint
+duties inherit no acceptance from the unadopted four-tie proposal.
+
+Receipt-bound output directory:
+`rawlocal/anchorage-column/attempt03/`.
+
+| Artifact | SHA256 |
+| --- | --- |
+| Producer snapshot | `361cdc17018d723ab6a9e5bf5d052dfc689c25ffb2bcd8fcf3604f28a56c8ee2` |
+| `checks.json` | `310e0922be2a1cc8a60103d0714268d10ebb589bd81cfc0cf5ff1bc4db6fbdac` |
+| `pressure-profile.json` | `0ac3966621bfc9228ac12bf284a4fee12f5780c5b9580d3cea1b5fbd6dff2bf3` |
+| `receipt.json` | `e8e15449f8bb178776e2604d8bc28e77048244347d40b879980764f83f08cf4f` |
+
+All 241 source pins matched when this run completed. A subsequent owner-directed
+purchasing update changed only navigation and purchasing text in
+`assembly-package/hardware-engagement.md`; that one live documentation path
+now differs from its historical receipt pin. Its exact consumed bytes are
+preserved at
+`rawlocal/anchorage-column/source-snapshots/hardware-engagement-before-parts-update.md`,
+SHA256 `1790255824f49069883e5f9ab7a78ac55c42a1df57fdd8f3159cad029e8d1e4c`,
+and in commit `3b91a60076e6f4f267bd8db9f8ac18dd04efc4f2`. Numerical inputs and
+all four output hashes remain unchanged. The original receipt is not repinned.
 
 ## Use with fresh complete demand
 

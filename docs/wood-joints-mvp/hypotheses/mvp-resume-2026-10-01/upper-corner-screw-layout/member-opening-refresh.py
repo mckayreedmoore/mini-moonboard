@@ -248,8 +248,8 @@ def comparison_summary(rows, metrics, expected):
         finite = [(row, value) for row, value in values if value is not None]
         witness = max(finite, key=lambda item: item[1])[0] if finite else None
         result[metric] = {"expected": expected, "finite": len(finite), "uncalculated": expected - len(finite),
-                          "above_one": sum(value > 1 for _, value in finite),
-                          "at_or_below_one": sum(value <= 1 for _, value in finite), "maximum_witness": witness}
+                          "above_one": sum(int(value > 1) for _, value in finite),
+                          "at_or_below_one": sum(int(value <= 1) for _, value in finite), "maximum_witness": witness}
     return {"expected_comparison_count": expected,
             "complete_finite": all(r["finite"] == expected for r in result.values()),
             "all_computed_comparisons_at_or_below_one": all(

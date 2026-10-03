@@ -298,7 +298,17 @@ acceptance remain open; frozen actual-support fields are not overwritten.
 
 ## Working-order export
 
-The current planning export is `rawlocal/working-order/attempt03/`, produced
+The active purchasing list is [current-parts-manifest.json](current-parts-manifest.json).
+The owner-directed October 3 update uses Bolt Depot Grade 5 partially threaded
+bolts: 48 of item 338 (1/4-20 × 6 in), four of item 337 (1/4-20 × 5.5 in),
+and four of item 334 (1/4-20 × 4 in), purchased individually. Listed each prices
+are $0.77, $0.72 and $0.45 respectively, before shipping/tax. These supplier
+leads still require the smooth-shank and full-form nut engagement checks above;
+the listed minimum thread length does not establish delivered conformity.
+The separate four-bolt knee proposal is a delta in that manifest, not adopted
+geometry. No complete order price or hardware resistance is established.
+
+The preserved analysis export is `rawlocal/working-order/attempt03/`, produced
 by [working_order.py](working_order.py). It records all 104 axes and fourteen
 families, the 48/100 and 24/25 bolt pools, and each axis's source profile plus
 its explicitly separate working profile. The parent now uses eight Hillman

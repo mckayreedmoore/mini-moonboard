@@ -160,17 +160,42 @@ def local_direction(direction_xyz, frame_rows):
     return tuple(sum(row[j] * direction_xyz[j] for j in range(3)) for row in frame_rows)
 
 
-def bore_segment_local(bore: dict, geometry: dict) -> dict:
-    origin = bore["axis_origin_global_xyz_mm"]
-    axis = bore["axis_unit_global_xyz"]
-    low, high = bore["saved_axis_parameter_interval_mm"]
-    start = geometry["start_xyz_mm"]
-    frame = geometry["grain_frame_rows_xyz"]
-    endpoints = [
-        local_point([origin[j] + t * axis[j] for j in range(3)], start, frame)
-        for t in (low, high)
-    ]
-    direction = local_direction(axis, frame)
+def bore_segment_local(bore: dict, geometry: dict, washer_lands=()) -> dict:
+    global_keys = {"axis_origin_global_xyz_mm", "axis_unit_global_xyz",
+                   "saved_axis_parameter_interval_mm"}
+    if global_keys <= bore.keys():
+        origin = bore["axis_origin_global_xyz_mm"]
+        axis = bore["axis_unit_global_xyz"]
+        low, high = bore["saved_axis_parameter_interval_mm"]
+        start = geometry["start_xyz_mm"]
+        frame = geometry["grain_frame_rows_xyz"]
+        endpoints = [
+            local_point([origin[j] + t * axis[j] for j in range(3)], start, frame)
+            for t in (low, high)
+        ]
+        direction = local_direction(axis, frame)
+    else:
+        require(not global_keys.intersection(bore), "incomplete global bore schema")
+        require("proposed_v_bridge" in bore["axis_id"]
+                and bore["removed_interval_axis"] == 1,
+                "unrecognized local bore schema")
+        lands = [land for land in washer_lands if land["axis_id"] == bore["axis_id"]]
+        require(len(lands) == 2 and {land["end_v_sign"] for land in lands} == {-1, 1},
+                "local bore lacks both saved washer-end lands")
+        endpoints = [tuple(land["seat_center_local_guv_mm"]) for land in lands]
+        for land, endpoint in zip(lands, endpoints, strict=True):
+            expected = (bore["station_mm"], bore["transverse_center_mm"],
+                        land["end_v_sign"] * geometry["width_depth_mm"][1] / 2)
+            global_local = local_point(land["seat_center_xyz_mm"],
+                                       geometry["start_xyz_mm"],
+                                       geometry["grain_frame_rows_xyz"])
+            require(len(endpoint) == 3
+                    and all(abs(actual - target) < 1e-8
+                            for actual, target in zip(endpoint, expected, strict=True))
+                    and all(abs(actual - target) < 1e-8
+                            for actual, target in zip(endpoint, global_local, strict=True)),
+                    "saved local/global washer lands disagree with proposed bore")
+        direction = (0.0, 0.0, 1.0)
     varying = [i for i, value in enumerate(direction) if abs(value) > 1e-8]
     require(len(varying) == 1 and abs(abs(direction[varying[0]]) - 1.0) < 1e-8,
             "frozen bore axis is not aligned with local g/u/v")
@@ -234,7 +259,7 @@ def verify_geometry(normal_checks: dict) -> dict:
                     and axis["removed_interval_axis"] == 1,
                     "proposed v-bore geometry differs")
             g = axis["station_mm"]
-            axis_segment = bore_segment_local(axis, geometry)
+            axis_segment = bore_segment_local(axis, geometry, record["washer_lands"])
             intervals = axis_segment["intervals_local_guv_mm"]
             require(axis_segment["axis_index"] == 2
                     and axis_segment["radius_mm"] == BORE_RADIUS_MM

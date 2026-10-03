@@ -2,21 +2,23 @@
 
 ## Status and parent API
 
-**Prepared; numerical execution belongs to the parent.** The new
+**Finite comparisons complete in parent-run attempt02.** All 1,320 unique
+signed cut limits and 1,632 duration comparison records are finite, with no
+reference exceedance in the retained nominal methods. This does not establish
+transverse splitting resistance or complete joint acceptance. The
 [producer](member-opening-refresh.py) exposes `build(output)`. Import is inert.
 `--prepare` authenticates saved sources and joins station identities using only
 the standard library. No numerical helper is imported by preparation.
 
-Preparation used Python **3.12.3**; installed NumPy is **2.5.2**. Build elapsed
-time is unmeasured because this agent has not executed strength arithmetic.
+Preparation and arithmetic used Python **3.12.3** and NumPy **2.5.2**.
 The workload is 1,320 signed cut limits and 1,632 duration comparison records;
 each of the 24 physical cleat states supplies 96 exact bore-pressure profiles.
 
-Run once under parent serialization, from the repository root:
+The successful run used parent serialization, from the repository root:
 
 ```sh
 .venv/bin/python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-refresh.py \
-  --output docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-refresh/attempt01
+  --output docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-refresh/attempt02
 ```
 
 The API accepts only a new immediate child of
@@ -30,11 +32,16 @@ producers are called; their build, solve, coupon and test entry points are not.
 and its [receipt](rawlocal/member-opening-refresh/preparation02/receipt.json)
 record **174 source pins**, including the producer itself. All matched before
 and after the saved-source join and output writes. Preparation 01 remains
-preserved as the earlier implementation snapshot. Preparation 02 is current.
+preserved as the earlier implementation snapshot. Preparation 02 records the
+original prepared producer; attempt02 authenticates the current producer and
+the same frozen engineering inputs.
 
 | Binding | SHA-256 |
 | --- | --- |
-| New producer | `fcd344944837e35da376b16aec664499f454bc9f260ff425aa18a83e600099a0` |
+| Current producer | `53f5a40e71f33558a4d23a36846b66b4261e4cf9600896f7629d45012b9f68c2` |
+| Prepared producer snapshot | `fcd344944837e35da376b16aec664499f454bc9f260ff425aa18a83e600099a0` |
+| Attempt02 checks | `40beca5a3a5863612a0fadcee4b259f1edacf55f9c58035bc058918c1d64f7e8` |
+| Attempt02 receipt | `1b31e5582c67c5374bbabcfbbd179957aea976701fbb991f41a0268084d3d694` |
 | Preparation 02 | `5681322791e516465510fe63ff844465acce58315b68b4d36d8b74f84c283e6b` |
 | Preparation 02 receipt | `5f1e43042856aead4fa427a3726e33fdbfb286c0b95862950b497328a65ffed6` |
 | Current gravity assessment | `ce69ba58e3c6265d31ab0dfdec1ffac4c019b93fc1106c8f9677ed9b5b2c3f95` |
@@ -68,7 +75,32 @@ signed cuts, with all six existing cases and both before/after limits.
 | `bottom_outer_right_cleat` | 16 | 192 | 192 | Fresh physical cleat actions; original C_D=1 |
 | `base_side_left` | 13 | 156 | 312 | Fresh saved point actions; original C_D=1 and existing C_D=1.25 scenario |
 | `base_side_right` | 13 | 156 | 312 | Fresh saved point actions; original C_D=1 and existing C_D=1.25 scenario |
-| **Total** | **110** | **1,320** | **1,632** | **Numerical outcomes pending parent build** |
+| **Total** | **110** | **1,320** | **1,632** | **All finite; no retained reference exceedance** |
+
+### Completed numerical result
+
+Attempt02 returned `COMPLETE_FINITE_COMPARISONS`. Its 174 source pins and six
+output hashes matched independently after execution. Every retained normal,
+tension, compression, shear and torsion comparison is finite and at or below
+one. The governing sufficient combined shear bounds are:
+
+| Family | Duration factor | Maximum bound / Fv |
+| --- | ---: | ---: |
+| Four outer cleats, governing top-right | 1.0 | 0.334554 |
+| Left side host | 1.0 | 0.691133 |
+| Right side host | 1.0 | 0.682198 |
+| Left side host | 1.25 | 0.552906 |
+| Right side host | 1.25 | 0.545758 |
+
+The two side-host evaluated face peaks at C_D=1.25 are 0.523968 and 0.528352.
+These are nominal section comparisons using the demand interpretations below,
+not splitting capacities or a physical pressure solution for the side hosts.
+
+Attempt01 completed the arithmetic but stopped while serializing NumPy integer
+counters into summary JSON. Its snapshot, partial outputs and stop record are
+preserved. The only producer changes convert the two Boolean counter sums to
+ordinary integers; geometry, loads, methods and reference values are unchanged.
+Attempt01 supplies no accepted numerical receipt.
 
 ### Four cleat grain families
 
@@ -116,9 +148,9 @@ interpretation.
 
 ## Explicit outcomes and outputs
 
-Until parent build succeeds, all 1,320 target limits remain uncalculated.
-Preparation establishes source and coverage identities, with no numerical
-pass or exceedance claim.
+All 1,320 target limits now have finite comparison records. Preparation alone
+supplied source and coverage identities; the accepted attempt02 supplies the
+numerical results.
 
 Build writes:
 
@@ -149,8 +181,8 @@ the existing diagnostic, without a new resistance or interaction rule.
 
 ## Genuine remaining comparison scope
 
-Only when all target comparisons are finite may the parent remove 1,320
-signed limits from the frozen gap. The resulting inventory is **12,624
+The complete finite result removes 1,320 signed limits from the frozen gap.
+The remaining inventory is **12,624
 finished-opening traces at 1,052 stations**, plus **264 unmachined exclusion
 traces at 22 stations**. All are on the 20 frame bodies. The unchanged 1,176
 terminal traces at 98 stations remain inapplicable to the point-load rectangle
@@ -186,11 +218,11 @@ scope; global stability and permanent-load comparisons remain the parent's.
 
 ## Preparation checks and retention
 
-This agent performed stdlib authentication/coverage preparation, AST syntax
-parsing and Ruff lint only. Numerical helper imports and build arithmetic
-remain unexecuted. No CAD, native solver, frame run, tests, review loop,
-staging or commit was performed. Existing coverage leaves and source evidence
-remain unchanged.
+Preparation used stdlib authentication/coverage joins, AST parsing and Ruff.
+The parent subsequently executed the finite engineering arithmetic and checked
+all source and output hashes. No CAD, native solver, new frame run, software
+tests or review loop was performed. Existing coverage leaves, historical
+attempts and source evidence remain unchanged.
 
 Only the two new producer/document leaves and their ignored raw output are
 owned here. Preparation snapshots remain active provenance for parent

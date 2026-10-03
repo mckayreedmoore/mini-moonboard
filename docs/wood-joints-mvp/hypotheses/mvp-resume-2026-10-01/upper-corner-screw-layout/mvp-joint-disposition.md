@@ -57,16 +57,16 @@ BOM: 20 frame timber bodies, 24 blocks, 44 timber blanks, six plywood bodies, 10
 
 ## Goal coverage and remaining work
 
-The parent checked the objective against the current saved results and conditional shop records. Coverage is not complete structural acceptance.
+The parent is completing the owner's full-qualification goal against saved results and conditional shop records. Recent numerical completion does not close every obligation; all 47 formal criteria remain pending.
 
 | Objective requirement | Current evidence and disposition |
 | --- | --- |
 | Resolve bolted timber joints | Reviewed 24-block/104-axis records remain preserved. The separate proposal adds four bolts in two knee spines with fresh static transfer and finite references; full splitting/group and actual hardware resistance remain unqualified. |
-| One coherent working model / six cases | [Reviewed force register](working-joint-register.md) and [proposal packet](knee-bridge-working-package.md) retain separate six-case sources. Fresh gravity, corner/shaft boundaries and two-spine actions are bound within the proposal; no displacement feedback or stability acceptance. |
-| Member checks | Proposal reuses fresh 42-body actions, both six-bore spine cuts, 144 physical top-rail traces and 4,344 remaining opening limits. Permanent evidence retains original source scope; formal torsion/local concentration qualification remains open. |
+| One coherent working model / six cases | [Reviewed force register](working-joint-register.md) and [proposal packet](knee-bridge-working-package.md) retain separate sources. [Common knee reconciliation](knee-bridge-common-compatibility.md) finds conflicts in all six frozen affine-pose embeddings, not physical failure. [Frame seating](frame-stability.md) is bounded; nominal strict-rank checks fail. Shared elastic response and permanent nominal-load resolution remain open. |
+| Member checks | Fresh 42-body actions, six-bore spines, 144 top-rail traces and 4,344 opening limits remain bound. [Opening refresh](member-opening-refresh.md) adds 1,320 finite signed limits / 1,632 comparisons with no exceedance; [annular knee columns](all-joint-splitting/anchorage-column.md) reach peak fresh compression ratio about 0.5934. Other opening, splitting, local concentration and current permanent checks remain open. |
 | Hardware fit | [Existing lengths](../assembly-package/hardware-length-fit.md), moved screws/thicker washers and [58,296 proposal pairs plus 1,176 mutual paths](../assembly-package/knee-bridge-fit.md) retain their exact geometry scope. Delivered profiles and full tool operation remain unobserved. |
 | Assembly / removal / transport | [Shop sequence](../assembly-package/shop-guide.md) and [proposal delta](../assembly-package/knee-bridge-shop.md) preserve captured-nut/wire routes and all 50 individual bodies. Actual operation is conditional. |
-| BOM / cost | Reviewed 104 bolts/nuts and 208 washers remain separate from proposed [108 bolts/nuts and 216 washers](../assembly-package/knee-bridge-order.md); both retain 66 Hillman screws. Dated prices, the new 6.5-inch family and unknown terms remain explicit. |
+| BOM / cost | [Active purchasing manifest](../assembly-package/current-parts-manifest.json) retains 104 bolts/nuts and 208 washers; Bolt Depot #338/#337/#334 quantities are 48/4/4. The proposed [108-bolt delta](../assembly-package/knee-bridge-order.md) remains unadopted. Both retain 66 Hillman screws; delivered shank/thread conformity and unknown prices remain explicit. |
 | Shop documentation / geometry changes | [Existing addendum](../assembly-package/current-joint-addendum.md), [two modified six-bore solids](knee-bridge-geometry.md), [proposal drawing](knee-bridge-proposal.svg) and [shop delta](../assembly-package/knee-bridge-shop.md) identify every change; reviewed authority remains unchanged. |
 | Panel assumptions / history / formal flags | Panel reference deficit, stiffness and material hypotheses are explicit; frozen history, 47 pending criteria and eight false flags preserved. |
 
