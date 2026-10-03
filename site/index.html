@@ -40,7 +40,7 @@
     </style>
   </head>
   <body>
-    <header><h1>Mini MoonBoard DIY frame</h1><p id="disclaimer">Independent DIY project. Not affiliated with Moon Climbing.</p><p id="model-status">Drag to orbit · scroll to zoom · click a part to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall assembly dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div><a class="support-link" href="wood-joints-wj24-viewer.html">Reviewed wood-joint development · WJ24 · not build-ready</a><a class="support-link" href="wood-joints-outer-viewer.html">Earlier wood-joint trials · WJ-03 / WJ-04 / WJ-05</a><a class="support-link" href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/history/design-history.md">Design history · results and lessons</a><a class="support-link" href="https://ko-fi.com/mckayreedmoore" target="_blank" rel="noopener noreferrer">Support this project on Ko-fi ↗</a></header>
+    <header><h1>Mini MoonBoard DIY frame</h1><p id="disclaimer">Independent DIY project. Not affiliated with Moon Climbing.</p><p id="model-status">Drag to orbit · scroll to zoom · click a part to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall assembly dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div><a class="support-link" href="?model=wood-joints-working-proposal">Working wood-joint model · 108-bolt proposal · HOLD</a><a class="support-link" href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/wood-joints-mvp/README.md">Current wood-joint work · status and evidence</a><a class="support-link" href="wood-joints-wj24-viewer.html">Reviewed wood-joint scene · 104 bolts · not build-ready</a><a class="support-link" href="wood-joints-outer-viewer.html">Earlier wood-joint trials · WJ-03 / WJ-04 / WJ-05</a><a class="support-link" href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/history/design-history.md">Design history · results and lessons</a><a class="support-link" href="https://ko-fi.com/mckayreedmoore" target="_blank" rel="noopener noreferrer">Support this project on Ko-fi ↗</a></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>
@@ -52,6 +52,7 @@
       import {loadMeshAliases, resolveMeshPath} from './mesh-assets.mjs';
       import {validateOwnerCornerScene, renderOwnerCornerScene} from './owner-corner-overlay.mjs';
       import {validateOwnerBarrelScene, renderOwnerBarrelScene} from './owner-barrel-overlay.mjs?v=approved-bore-pose';
+      import {loadWoodJointScene} from './wood-joints-overlay.mjs';
 
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -78,6 +79,7 @@
       const key = new THREE.DirectionalLight(0xffffff, 2.5); key.position.set(2000, 2500, 500); scene.add(key);
       const grid = new THREE.GridHelper(5000, 25, 0x6a6256, 0x34302a); grid.rotateX(Math.PI / 2); scene.add(grid);
       const loader = new STLLoader(), meshes = [], raycaster = new THREE.Raycaster(), pointer = new THREE.Vector2();
+      let viewerMeshAliases;
       // Mirror CAD X for the climber-facing convention: visible left is the A
       // side (where McKay stands); visible right is the K side.
       // Presentation offset only: keep McKay at the established front-left
@@ -243,6 +245,11 @@
         return `${feet} ft ${inches} in`;
       };
       const requestedModel = new URLSearchParams(location.search).get('model');
+      const woodJointModels = [
+        ['wood-joints-working-proposal', 'Wood-joint working proposal · 108 bolts · unadopted'],
+        ['wood-joints-reviewed', 'Reviewed wood-joint source · 104 bolts · HOLD'],
+      ];
+      const isWoodJoint = woodJointModels.some(([key]) => key === requestedModel);
       const lumberModels = ['2x6', '2x8', '2x10', '2x12'].flatMap(size => [0, 150, 300].map(extension => [`lumber-leg-${size}-e${extension}`, `${size} straight legs · +${extension} mm (${(extension / 25.4).toFixed(2)} in) · unqualified`]));
       lumberModels.push(['lumber-leg-spread-2x8-e300', '2x8 +300 mm · spread100×50 / top150 · unqualified']);
       lumberModels.push(['lumber-leg-spread-2x6-e300', '2x6 +300 mm · spread100×50 / top150 · unqualified']);
@@ -250,7 +257,7 @@
       const clearSpaceModels = [['compact-floor-flush-development', 'Bought 4×4 plywood · official Mini faces'], ['compact-floor-flush-kerf-right', 'Cut from 4×8 · kerf on the right'], ['compact-spliced-flush-top-development', 'Historical 4×6 frame · spliced knees · flush leg tops'], ['compact-floor-rail-development', 'Previous 2×6 floor rails · conditional no-slip package'], ['compact-exterior-brace-development', 'Previous exterior knees · conditional μ=0.4 package'], ['compact-floor-rail-2x4-development', '2×4 floor rails · numerical response rejected · NOT ACCEPTED'], ['compact-floor-recess-development', 'Outboard floor rails · recessed leg ends · development / unaccepted'], ['compact-floor-taper-development', 'Tapered leg recess · 2×6 floor rails · development']];
       const squareModels = [['square-2x6-development', 'Historical 2×6 · paired seam rails · failed baseline'], ['square-2x6-revised-development', 'Historical 2×6 · paired seam rails · revised connections'], ['single-2x6-development', 'Single 2×6 · retained baseline · seam / bearing failures'], ['selective-2x6-development', '2×6 base · selective single 3×6 / 2×10 · historical unqualified'], ['paired-rail-base-development', '2×6 paired rails · center base bracket · unqualified'], ['vertical-principal-development', '2×6 vertical principals · open middle bays · unqualified'], ['split-center-development', '2×6 split center · open service corridor · unqualified'], ['infill-panel-development', '2×6 split center · panel screw infill · unqualified'], ['angle-base-development', '2×6 split center · base angles · unqualified'], ['horizontal-service-development', '2×6 horizontal rails · lights and wiring · unqualified'], ['round-bore-service-development', '2×6 round passages · 12 screws per face · unqualified'], ['round-insert-development', 'Historical removable-panel inserts · unqualified'], ['round-structural-development', 'Structural screws · 1½-inch 2×6 passages · future insert space'], ['round-reinforcement-development', 'Historical 2×6 with shoes · four bolts per leg · assessed / unqualified'], ['wider-leg-development', 'Historical 2×8 with shoes · six bolts per leg · assessed / unqualified'], ['no-shoes-development', '2×6 legs · standard base angles · no custom shoes · unassessed'], ['thick-leg-centered-pivot-development', '4×6 legs / rims · centered ⅝-inch pivot · development'], ['compact-thick-development', 'Historical 4×6 compact frame · three bolts per leg · unqualified'], ['compact-spliced-knee-development', 'Previous 4×6 frame · inboard spliced knees · conditional package']];
       squareModels.push(...clearSpaceModels);
-      const model = ['plywood', '2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', 'compact-floor-flush-kerf-right', 'bolted-v4-development', 'owner-corner-layout', 'owner-barrel-layout', ...lumberModels.map(([value]) => value), ...squareModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'compact-floor-flush-development';
+      const model = ['plywood', '2x10', '2x12', '2x8-shallow', '2x8-foot100', 'joint-development', 'independent-leg-development', 'screw-spacing-development', 'mid-batten-clip-development', 'lower-transition-development', 'selected-hardware-development', 'top-joint-development', 'wood-first-mvp', 'commercial-bracket-mvp', 'square-cut-bracket', 'square-cut-wood-blocks', 'bolted-clip-frame', 'bolted-block-frame', 'lean-38mm-frame', 'continuous-lean-frame', 'bearing-lean-frame', 'base-bearing-concept', 'timber-base-development', 'panel-insert-development', 'wide-principal-development', 'compact-floor-flush-kerf-right', 'bolted-v4-development', 'owner-corner-layout', 'owner-barrel-layout', ...woodJointModels.map(([value]) => value), ...lumberModels.map(([value]) => value), ...squareModels.map(([value]) => value)].includes(requestedModel) ? requestedModel : 'compact-floor-flush-development';
       const modelLabel = document.createElement('label'); modelLabel.textContent = 'Design ';
       const modelSelect = document.createElement('select'); modelSelect.id = 'model';
       [['plywood', 'Plywood reference'], ['2x12', '2×12 hybrid candidate'], ['2x10', '2×10 hybrid candidate'], ['2x8-shallow', '2×8 rotated-rear candidate'], ['2x8-foot100', '2×8 with 100 mm extended feet'], ['joint-development', 'Joint redesign · provisional'], ['independent-leg-development', 'Independent leg plies · provisional'], ['screw-spacing-development', 'Revised screw spacing · provisional'], ['mid-batten-clip-development', 'Mid-batten clips · unselected hardware'], ['lower-transition-development', 'Perimeter transitions · unselected hardware'], ['selected-hardware-development', 'Selected products · fit unqualified'], ['top-joint-development', 'Revised top joint · strength unqualified'], ['wood-first-mvp', 'Wood-first MVP · housed joints'], ['commercial-bracket-mvp', 'Commercial-bracket MVP · factory connectors']].forEach(([value, text]) => modelSelect.add(new Option(text, value)));
@@ -270,9 +277,11 @@
       modelSelect.add(new Option('DEVELOPMENT V4 · PB02/PB04 center + PB05 outer scene', 'bolted-v4-development'));
       modelSelect.add(new Option('Corner-block layout · complete concept · NOT build-ready', 'owner-corner-layout'));
       modelSelect.add(new Option('Barrel-nut layout · 24 duties · NOT build-ready', 'owner-barrel-layout'));
-      // Keep the active candidate separate from preserved history.
-      const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Current design';
-      const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Active development · not build-ready';
+      woodJointModels.forEach(([value, text]) => modelSelect.add(new Option(text, value)));
+      // The wood-joint work has its own entry above; these models preserve the baseline and history.
+      const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Preserved selected baseline';
+      const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Previous bolted concepts · not build-ready';
+      const woodJointDesigns = document.createElement('optgroup'); woodJointDesigns.label = 'Active wood-joint development · not build-ready';
       const recentDesigns = document.createElement('optgroup'); recentDesigns.label = 'Recent floor-runner / 4×6 history';
       const historicalDesigns = document.createElement('optgroup'); historicalDesigns.label = 'Earlier studies';
       const recentKeys = new Set([...clearSpaceModels.map(([value]) => value),
@@ -281,13 +290,17 @@
       recentKeys.delete('compact-floor-flush-development');
       recentKeys.delete('compact-floor-flush-kerf-right');
       for (const option of Array.from(modelSelect.options).reverse()) {
+        if (woodJointModels.some(([key]) => key === option.value)) { woodJointDesigns.prepend(option); continue; }
         (['bolted-v4-development', 'owner-corner-layout', 'owner-barrel-layout'].includes(option.value) ? developmentDesigns : ['compact-floor-flush-development', 'compact-floor-flush-kerf-right'].includes(option.value) ? currentDesigns : recentKeys.has(option.value) ? recentDesigns : historicalDesigns).append(option);
       }
-      modelSelect.replaceChildren(currentDesigns, developmentDesigns, recentDesigns, historicalDesigns);
+      modelSelect.replaceChildren(currentDesigns, woodJointDesigns, developmentDesigns, recentDesigns, historicalDesigns);
       modelSelect.value = model; modelLabel.append(modelSelect); document.querySelector('header').append(modelLabel);
       document.querySelector('#dimensions').parentElement.lastChild.textContent = ' Overall assembly dimensions';
       modelSelect.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('model', modelSelect.value); location.assign(url); });
       if (model !== 'plywood') document.querySelector('#model-status').textContent = `${model} complete candidate geometry · NOT build-ready · drag to orbit · click to inspect · bolts steel gray, screws blue, angles gray; red marks an explicit clearance failure, not a strength rating`;
+      if (isWoodJoint) document.querySelector('#model-status').textContent = model === 'wood-joints-working-proposal'
+        ? 'Loading wood-joint working proposal · 108 bolts / 66 Hillman screws · unadopted · HOLD'
+        : 'Loading reviewed wood-joint source · 104 bolts / 66 Hillman screws · HOLD';
       if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
       if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
       if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
@@ -388,9 +401,11 @@
       function showWeights(catalog) {
         const rows = catalog?.models || {};
         for (const option of modelSelect.options) {
+          if (woodJointModels.some(([key]) => key === option.value)) continue;
           const row = rows[option.value];
           option.text = `${designLabels.get(option.value)} · ${validWeight(row) ? formatWeight(row) : 'weight unavailable'}`;
         }
+        if (isWoodJoint) return;
         const row = rows[model];
         weightLine.textContent = `Estimated frame weight: ${validWeight(row) ? formatWeight(row) : 'unavailable'}`;
         if (validWeight(row)) {
@@ -506,7 +521,7 @@
         }
         return result;
       }
-      const manifestKey = ['bolted-v4-development', 'owner-corner-layout', 'owner-barrel-layout'].includes(model) ? 'compact-floor-flush-kerf-right' : model;
+      const manifestKey = isWoodJoint || ['bolted-v4-development', 'owner-corner-layout', 'owner-barrel-layout'].includes(model) ? 'compact-floor-flush-kerf-right' : model;
       const v4ReplacedLegacyStations = new Set([
         'clip_horizontal_lower_left_2',
         'clip_horizontal_lower_right_1',
@@ -539,11 +554,28 @@
       const ownerConceptBaselineLoaded = ['owner-corner-layout', 'owner-barrel-layout'].includes(model) ?
         new Promise((resolve, reject) => { resolveOwnerConceptBaseline = resolve; rejectOwnerConceptBaseline = reject; }) : null;
       const manifestResponse = model === 'plywood' ? fetch('parts.json') : fetch(`hybrid/${manifestKey}/parts.json`);
-      const manifest = Promise.all([manifestResponse, loadMeshAliases()]).then(([response, sharedMeshes]) => {
+      const manifest = Promise.all([manifestResponse, loadMeshAliases()]).then(async ([response, sharedMeshes]) => {
+        viewerMeshAliases = sharedMeshes;
         loader.manager.setURLModifier(path => resolveMeshPath(path, sharedMeshes));
-        return response;
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        if (!isWoodJoint) return response.json();
+        const baselineText = await response.text();
+        const reviewed = model === 'wood-joints-reviewed';
+        const data = await loadWoodJointScene(THREE, {
+          url: reviewed ? 'owner-wood-joints-wj24-scene.json' : 'owner-wood-joints-working-scene.json',
+          expectedSha256: reviewed ? '74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf' : '8fb9bb8d8908ec738a0de95b45a502833fb3b502a2daa7f0025a956091ac07ac',
+          baselineParts: JSON.parse(baselineText).parts, baselineText,
+          resolveMeshPath: path => resolveMeshPath(path, sharedMeshes),
+        });
+        document.querySelector('#model-status').textContent = reviewed
+          ? 'Reviewed wood-joint source · 104 bolts / 208 washers / 66 Hillman screws · HOLD. Geometry and hardware occupancy are conditional; no build or climbing release.'
+          : 'Wood-joint working proposal · 108 bolts / 216 washers / 66 Hillman screws · unadopted · HOLD. Corrected top corners, four upper screw moves and proposed knee bridges shown. No build or climbing release.';
+        const mass = data.meta?.planning_mass_kg;
+        weightLine.textContent = Number.isFinite(mass) ? `Analytical planning mass: ${mass.toFixed(1)} kg (${(mass * 2.20462262185).toFixed(1)} lb)` : 'Planning mass: not supplied for this reviewed scene';
+        weightNote.textContent = 'Saved analytical planning value under declared densities; not an observed transport weight. Display meshes do not establish resistance or hardware fit.';
+        return data;
       });
-      manifest.then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); }).then(({ parts, bounds_mm, design }) => {
+      manifest.then(({ parts, bounds_mm, design }) => {
         if (design) {
           mainFaceHeight = design.main_face_height_mm ?? 225;
           kickerHoldHeight = design.kicker_hold_height_mm ?? 150;
@@ -557,7 +589,7 @@
               box = document.createElement('details');
               box.id = 'shop-docs';
               const sum = document.createElement('summary');
-              sum.textContent = ['bolted-v4-development', 'owner-corner-layout', 'owner-barrel-layout'].includes(model) ? 'Development references · no shop release' : 'Shop packet and evidence';
+              sum.textContent = isWoodJoint || ['bolted-v4-development', 'owner-corner-layout', 'owner-barrel-layout'].includes(model) ? 'Development references · no shop release' : 'Shop packet and evidence';
               const primary = document.createElement('nav');
               primary.id = 'shop-docs-primary';
               primary.className = 'doc-row';
@@ -630,37 +662,57 @@
         boltLabel.hidden = boltSelect.options.length === 1;
         drawDimensions(bounds_mm);
         partCard.textContent = model === 'bolted-v4-development' ? 'Selected baseline parts are context. Eight replaced service-rail angles and forty-eight SDS visuals are hidden; the remaining 14 legacy angle duties persist. Colored PB02, PB04 center, and PB05 outer blocks, bores, and nominal stack envelopes are diagnostic only.' :
+          isWoodJoint ? 'Click timber or hardware to inspect this source-bound development scene. Display dimensions are occupancy bounds; consult conditional shop records for part specifications. Joint and release status remains HOLD.' :
           model === 'owner-corner-layout' ? 'Complete corner-block layout proposal: 24 old angles and 144 SDS visuals hidden. Red means revise geometry, not a strength rating. Click a colored block or bolt path to inspect; no drilling release.' :
           model === 'owner-barrel-layout' ? 'Barrel-only development concept: 24 old angles and 144 SDS visuals hidden. The seam-side center posts receive four fixed kicker screws; no separate backers remain. All 46 barrel pairs have visible timber trial cuts, including the cut-derived header. The revised left rows clear their modeled service bores; wood strength and tolerances remain unverified. Alt-click to inspect; no drilling release.' :
           'Click wood for cut dimensions or colored connection geometry for its clearance-screen status.';
         let loadedParts = 0;
         if (!displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
-        displayParts.forEach(part => loader.load(part.path, geometry => {
-          geometry.computeVertexNormals();
-          const luminous = part.fabrication.kind === 'light' && !part.fabrication.clearance_status?.startsWith('FAIL');
-          const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part), roughness: luminous ? .25 : .7, metalness: .05,
-            emissive: luminous ? 0x00ff35 : 0x000000, emissiveIntensity: luminous ? 1.5 : 1 }));
-          if (part.translation_mm) mesh.position.fromArray(part.translation_mm);
-          mesh.userData.baseEmissive = mesh.material.emissive.getHex();
-          mesh.userData.part = part; meshes.push(mesh); climberView.add(mesh);
-          updateBoltVisibility();
-          const name = part.fabrication.connection_name;
-          if (name && boltMeshes(name).length === 5) {
-            const option = Array.from(boltSelect.options).find(option => option.value === name);
-            if (option) option.disabled = false;
-          }
-          if (++loadedParts === displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
-        }, undefined, error => {
-          partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`;
-          rejectOwnerConceptBaseline?.(new Error(`Baseline mesh ${part.name} failed`));
-          if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 overlay unavailable: baseline context did not finish loading. No fabrication release.';
-          if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Owner corner layout overlay unavailable: incomplete baseline with old joints hidden. Select the kerf-right model to see intact history. No fabrication release.';
-          if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Owner barrel overlay unavailable: incomplete baseline with old joints hidden. Select the kerf-right model to see intact history. No fabrication release.';
-        }));
+        displayParts.forEach(part => {
+          const loaded = geometry => {
+            geometry.computeVertexNormals();
+            const luminous = part.fabrication.kind === 'light' && !part.fabrication.clearance_status?.startsWith('FAIL');
+            const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: colorFor(part), roughness: luminous ? .25 : .7, metalness: .05,
+              emissive: luminous ? 0x00ff35 : 0x000000, emissiveIntensity: luminous ? 1.5 : 1 }));
+            if (part.translation_mm) mesh.position.fromArray(part.translation_mm);
+            mesh.userData.baseEmissive = mesh.material.emissive.getHex();
+            mesh.userData.part = part; meshes.push(mesh); climberView.add(mesh);
+            updateBoltVisibility();
+            const name = part.fabrication.connection_name;
+            if (name && boltMeshes(name).length === 5) {
+              const option = Array.from(boltSelect.options).find(option => option.value === name);
+              if (option) option.disabled = false;
+            }
+            if (++loadedParts === displayParts.length) { resolveV4Baseline?.(); resolveOwnerConceptBaseline?.(); }
+          };
+          const failed = error => {
+            partCard.textContent = `Could not load ${part.name}: ${error.message || 'mesh request failed'}`;
+            rejectOwnerConceptBaseline?.(new Error(`Baseline mesh ${part.name} failed`));
+            if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 overlay unavailable: baseline context did not finish loading. No fabrication release.';
+            if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Owner corner layout overlay unavailable: incomplete baseline with old joints hidden. Select the kerf-right model to see intact history. No fabrication release.';
+            if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Owner barrel overlay unavailable: incomplete baseline with old joints hidden. Select the kerf-right model to see intact history. No fabrication release.';
+            if (isWoodJoint) document.querySelector('#model-status').textContent = `Wood-joint scene incomplete: ${part.name} could not load. HOLD; reload to retry.`;
+          };
+          if (part.geometry) loaded(part.geometry);
+          else if (part.expected_sha256) {
+            fetch(resolveMeshPath(part.path, viewerMeshAliases)).then(async response => {
+              if (!response.ok) throw new Error(`HTTP ${response.status}`);
+              const bytes = await response.arrayBuffer();
+              const digest = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)))
+                .map(byte => byte.toString(16).padStart(2, '0')).join('');
+              if (digest !== part.expected_sha256) throw new Error('pinned source mesh changed');
+              return loader.parse(bytes);
+            }).then(loaded).catch(failed);
+          } else loader.load(part.path, loaded, undefined, failed);
+        });
       }).catch(error => {
         rejectOwnerConceptBaseline?.(error);
         partCard.textContent = `Could not load CAD parts: ${error.message}`;
         holdStatus.textContent = 'Holds unavailable until this design’s frame data loads. Select an available design.';
+        if (isWoodJoint) {
+          document.querySelector('#model-status').textContent = `Wood-joint scene unavailable: ${error.message}. HOLD; source identity must match.`;
+          weightLine.textContent = 'Planning mass: unavailable';
+        }
       });
       if (model === 'bolted-v4-development') {
         v4BaselineLoaded.then(() => fetch('v4-diagnostic-scene.json')).then(async response => {
@@ -935,7 +987,7 @@
           return;
         }
         const [x, y, z] = part.fabrication.dimensions_mm;
-        partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; nominal dimensions ${[x, y, z].map(v => Number(v.toFixed(3))).join(' × ')} mm (${[x, y, z].map(feetAndInches).join(' × ')}).${model === 'bolted-v4-development' && !part.fabrication.v4_overlay ? ' Selected baseline context only; not V4 fabrication geometry.' : ''}`;
+        partCard.textContent = `${part.name}: ${part.fabrication.description}; ${part.fabrication.clearance_status || 'clearance not screened'}; ${isWoodJoint ? 'display dimensions' : 'nominal dimensions'} ${[x, y, z].map(v => Number(v.toFixed(3))).join(' × ')} mm (${[x, y, z].map(feetAndInches).join(' × ')}).${model === 'bolted-v4-development' && !part.fabrication.v4_overlay ? ' Selected baseline context only; not V4 fabrication geometry.' : ''}`;
       });
       function resize() { const { innerWidth:w, innerHeight:h } = window; renderer.setSize(w,h); camera.aspect=w/h; camera.zoom=Math.min(1,w/h); camera.updateProjectionMatrix(); }
       addEventListener('resize', resize); resize();
