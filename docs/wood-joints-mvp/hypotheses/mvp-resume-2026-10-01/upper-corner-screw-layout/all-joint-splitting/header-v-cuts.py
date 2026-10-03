@@ -16,6 +16,7 @@ import json
 import math
 import re
 import sys
+from itertools import pairwise
 from pathlib import Path
 from typing import Any
 
@@ -40,8 +41,8 @@ GRAVITY_TOL = 1e-6
 POINT_TOL_MM = 1e-6
 GEOMETRY_TOL_MM = 1e-7
 ALIGN_TOL = 1e-8
-BOUNDARY_SOURCE_SHA256 = "e7c2a0be9577a9946a61736cb06c913874337549d2934ba0af1a9852cc6788ea"
-BOUNDARY_DOC_SHA256 = "5e9e68f8135b94862d9ab61d64d78d6f91522dce33d1970cb1052a561d24f41e"
+BOUNDARY_SOURCE_SHA256 = "5108639d6a1afa955f4f0a1db44aa10e194ad93d24b525011bb13b09b887d43c"
+BOUNDARY_DOC_SHA256 = "b6960938a74b9faceb63d7b6ca89f8511490412a09648f35b4ece4b4effbeeb1"
 
 
 class UnsupportedField(ValueError):
@@ -156,6 +157,120 @@ def disk_integrals(
     return disk_helper.disk_strip(low, high, 0.0, 0.0, radius)
 
 
+def disk_rectangle_integrals(
+    bounds: list[list[float]], center: list[float], radius: float
+) -> np.ndarray:
+    """Exact disk/rectangle area and first moments in the rectangle coordinates."""
+    rectangle = np.asarray(bounds, dtype=float)
+    center_array = np.asarray(center, dtype=float)
+    require(
+        rectangle.shape == (2, 2)
+        and center_array.shape == (2,)
+        and np.isfinite(rectangle).all()
+        and np.isfinite(center_array).all()
+        and math.isfinite(radius)
+        and radius > 0
+        and np.all(rectangle[:, 1] >= rectangle[:, 0]),
+        "invalid saved disk/rectangle geometry",
+    )
+    x_low = max(rectangle[0, 0] - center_array[0], -radius)
+    x_high = min(rectangle[0, 1] - center_array[0], radius)
+    y_low, y_high = rectangle[1] - center_array[1]
+    if x_high <= x_low or y_high <= -radius or y_low >= radius:
+        return np.zeros(3)
+
+    breaks = [x_low, x_high]
+    for y_edge in (y_low, y_high):
+        if abs(y_edge) < radius:
+            root = math.sqrt(max(0.0, radius * radius - y_edge * y_edge))
+            breaks.extend(x for x in (-root, root) if x_low < x < x_high)
+    breaks = sorted(set(breaks))
+
+    def circle_primitives(x: float) -> tuple[float, float, float]:
+        root = math.sqrt(max(0.0, radius * radius - x * x))
+        angle = math.asin(max(-1.0, min(1.0, x / radius)))
+        return (
+            0.5 * (x * root + radius * radius * angle),
+            -(root**3) / 3.0,
+            radius * radius * x - (x**3) / 3.0,
+        )
+
+    def bound_primitives(x: float, circle_sign: int | None, constant: float) -> np.ndarray:
+        if circle_sign is None:
+            return np.array([constant * x, 0.5 * constant * x * x, 0.5 * constant * constant * x])
+        area_root, x_root, root_squared = circle_primitives(x)
+        return np.array(
+            [
+                circle_sign * area_root,
+                circle_sign * x_root,
+                0.5 * root_squared,
+            ]
+        )
+
+    relative = np.zeros(3)
+    for left, right in pairwise(breaks):
+        if right <= left:
+            continue
+        middle = 0.5 * (left + right)
+        root = math.sqrt(max(0.0, radius * radius - middle * middle))
+        if min(y_high, root) <= max(y_low, -root):
+            continue
+        lower_circle = y_low <= -root
+        upper_circle = y_high >= root
+        lower_kind = -1 if lower_circle else None
+        upper_kind = 1 if upper_circle else None
+        lower_constant = 0.0 if lower_circle else y_low
+        upper_constant = 0.0 if upper_circle else y_high
+        upper = bound_primitives(right, upper_kind, upper_constant) - bound_primitives(
+            left, upper_kind, upper_constant
+        )
+        lower = bound_primitives(right, lower_kind, lower_constant) - bound_primitives(
+            left, lower_kind, lower_constant
+        )
+        relative += upper - lower
+
+    result = relative.copy()
+    result[1] += center_array[0] * result[0]
+    result[2] += center_array[1] * result[0]
+    return result
+
+
+def contact_tile_integrals(
+    tile_helper: Any,
+    bounds: list[list[float]],
+    bores: list[dict[str, Any]],
+    cut: float | None = None,
+) -> np.ndarray:
+    """Integrate rectangle minus exact disk/rectangle intersections."""
+    rectangle = np.asarray(bounds, dtype=float)
+    require(
+        rectangle.shape == (2, 2)
+        and np.isfinite(rectangle).all()
+        and np.all(rectangle[:, 1] >= rectangle[:, 0])
+        and (cut is None or math.isfinite(cut)),
+        "invalid saved contact tile bounds",
+    )
+    clipped = rectangle.copy()
+    if cut is not None:
+        clipped[0, 1] = min(clipped[0, 1], cut)
+    if clipped[0, 1] <= clipped[0, 0] or clipped[1, 1] <= clipped[1, 0]:
+        return np.zeros(3)
+
+    value = np.asarray(
+        tile_helper.supported_tile_integrals(clipped.tolist(), [], cut=None),
+        dtype=float,
+    )
+    require(value.shape == (3,) and np.isfinite(value).all(), "invalid rectangle integrals")
+    for bore in bores:
+        center = [float(bore["station_mm"]), float(bore["transverse_center_mm"])]
+        radius = float(bore["radius_mm"])
+        value -= disk_rectangle_integrals(clipped.tolist(), center, radius)
+    require(value[0] >= -1e-8, "saved contact bores exceed the clipped cell area")
+    if value[0] < 0.0:
+        value[:] = 0.0
+    return value
+
+
 def annulus_field_wrench(
     field: dict[str, Any], own: dict[str, Any], station: float | None, datum: np.ndarray, disk_helper: Any
 ) -> np.ndarray:
@@ -200,6 +315,18 @@ def contact_integrals(
     ]
     require(len(corners) == 4, "saved contact cell needs four global corners")
     u_bounds, v_bounds = cell_bounds_uv
+    source_rectangle = np.asarray(trimmed["source_patch_rectangle_uv_mm"], dtype=float)
+    cell_rectangle = np.asarray(cell_bounds_uv, dtype=float)
+    require(
+        source_rectangle.shape == cell_rectangle.shape == (2, 2)
+        and np.isfinite(source_rectangle).all()
+        and np.isfinite(cell_rectangle).all()
+        and np.all(source_rectangle[1] >= source_rectangle[0])
+        and np.all(cell_rectangle[:, 1] >= cell_rectangle[:, 0])
+        and np.all(cell_rectangle[:, 0] >= source_rectangle[0] - POINT_TOL_MM)
+        and np.all(cell_rectangle[:, 1] <= source_rectangle[1] + POINT_TOL_MM),
+        "saved contact sampler cell falls outside its source patch",
+    )
     axes = [
         (corners[2] - corners[0]) / (u_bounds[1] - u_bounds[0]),
         (corners[1] - corners[0]) / (v_bounds[1] - v_bounds[0]),
@@ -210,20 +337,35 @@ def contact_integrals(
     other = 1 - selected
     bounds = [cell_bounds_uv[selected], cell_bounds_uv[other]]
     bores = []
+    circles = []
     for index, circle in enumerate(trimmed["excluded_circles_patch_uv"]):
         center_uv = vec(circle["center_patch_uv_mm"], shape=(2,))
+        radius = float(circle["radius_mm"])
+        require(
+            math.isfinite(radius)
+            and radius > 0
+            and np.all(center_uv - radius >= source_rectangle[0] - POINT_TOL_MM)
+            and np.all(center_uv + radius <= source_rectangle[1] + POINT_TOL_MM),
+            "saved contact void circle falls outside its source patch",
+        )
+        for previous_center, previous_radius in circles:
+            require(
+                np.linalg.norm(center_uv - previous_center)
+                >= radius + previous_radius - POINT_TOL_MM,
+                "saved contact void circles overlap",
+            )
+        circles.append((center_uv, radius))
         bores.append(
             {
                 "axis_id": f"saved-contact-bore-{index}",
                 "station_mm": float(center_uv[selected]),
                 "transverse_center_mm": float(center_uv[other]),
-                "radius_mm": float(circle["radius_mm"]),
+                "radius_mm": radius,
             }
         )
 
     def integral(cut: float | None) -> np.ndarray:
-        raw = tile_helper.supported_tile_integrals(bounds, bores, cut=cut)
-        return np.asarray(raw, dtype=float)
+        return contact_tile_integrals(tile_helper, bounds, bores, cut=cut)
 
     total = integral(None)
     if station is None:
@@ -547,6 +689,59 @@ def coupon(disk_helper: Any, tile_helper: Any, bore_helper: Any) -> dict[str, An
         np.max(abs(tile - np.array([50.0 - math.pi, 125.0 - 4.0 * math.pi, 0.0]))) < 1e-12,
         "trimmed tile known answer differs",
     )
+    local_cut_tile = contact_tile_integrals(
+        tile_helper,
+        [[0.0, 10.0], [-5.0, 5.0]],
+        [{"station_mm": 4.0, "transverse_center_mm": 0.0, "radius_mm": 1.0}],
+        cut=5.0,
+    )
+    require(
+        np.max(abs(local_cut_tile - tile)) < 1e-12,
+        "local contact tile cut differs from the existing known answer",
+    )
+
+    full_disk = disk_rectangle_integrals([[1.0, 5.0], [-6.0, -2.0]], [3.0, -4.0], 2.0)
+    half_disk = disk_rectangle_integrals([[3.0, 5.0], [-6.0, -2.0]], [3.0, -4.0], 2.0)
+    quarter_disk = disk_rectangle_integrals([[3.0, 5.0], [-4.0, -2.0]], [3.0, -4.0], 2.0)
+    clipped_disk = disk_rectangle_integrals([[5.0, 7.0], [-3.0, 1.0]], [2.0, -3.0], 5.0)
+    clipped_area = 25.0 * math.pi / 4.0 - 6.0 - 25.0 / 2.0 * math.asin(3.0 / 5.0)
+    disk_answers = [
+        (full_disk, [4.0 * math.pi, 12.0 * math.pi, -16.0 * math.pi]),
+        (half_disk, [2.0 * math.pi, 6.0 * math.pi + 16.0 / 3.0, -8.0 * math.pi]),
+        (quarter_disk, [math.pi, 3.0 * math.pi + 8.0 / 3.0, -4.0 * math.pi + 8.0 / 3.0]),
+        (
+            clipped_disk,
+            [clipped_area, 2.0 * clipped_area + 64.0 / 3.0, -3.0 * clipped_area + 26.0 / 3.0],
+        ),
+    ]
+    require(
+        all(np.max(abs(actual - expected)) < 1e-11 for actual, expected in disk_answers),
+        "disk/rectangle area or first-moment known answer differs",
+    )
+    clipped_tile = contact_tile_integrals(
+        tile_helper,
+        [[5.0, 7.0], [-3.0, 1.0]],
+        [{"station_mm": 2.0, "transverse_center_mm": -3.0, "radius_mm": 5.0}],
+    )
+    rectangle_area = 8.0
+    rectangle_first_x = 6.0 * rectangle_area
+    rectangle_first_y = -rectangle_area
+    require(
+        np.max(
+            abs(
+                clipped_tile
+                - np.array(
+                    [
+                        rectangle_area - clipped_area,
+                        rectangle_first_x - (2.0 * clipped_area + 64.0 / 3.0),
+                        rectangle_first_y - (-3.0 * clipped_area + 26.0 / 3.0),
+                    ]
+                )
+            )
+        )
+        < 1e-11,
+        "translated clipped contact tile known answer differs",
+    )
 
     profile = bore_helper.pressure_profile(
         [0.0, 0.0, 0.0], [10.0, 0.0, 0.0], [0.0, 0.0, 1.0], 2.0, 1.0, identity="v-cut-coupon"
@@ -563,6 +758,11 @@ def coupon(disk_helper: Any, tile_helper: Any, bore_helper: Any) -> dict[str, An
         "annulus_negative_half_area_mm2": float(annulus[0]),
         "annulus_negative_half_first_moment_mm3": float(annulus[1]),
         "trimmed_cell_cut_area_first_moments": np.asarray(tile).tolist(),
+        "local_contact_tile_cut_area_first_moments": local_cut_tile.tolist(),
+        "contact_disk_rectangle_moments_area_u_v_mm2_mm3": [
+            value.tolist() for value, _expected in disk_answers
+        ],
+        "translated_clipped_contact_tile_area_first_moments": clipped_tile.tolist(),
         "bore_negative_half_arc_force_n": arc[:3].tolist(),
         "scope": "Exact-helper algebra only; no engineering case or joint is evaluated.",
     }
@@ -724,7 +924,7 @@ def build(
         if body in packet_geometries
     }
     require(set(body_geometries) == set(boundary.BODIES), "saved net-section packets do not cover six cleats")
-    expected_cuts = boundary.cut_catalog(boundary.ALL_JOINT_DIR / "receiver-cuts.jsonl", source["all_joint"])
+    expected_cuts = boundary.cut_catalog(boundary.REMAINING_DIR / "cuts.jsonl.gz", source["all_joint"])
     remaining_states = {
         (state["block"], state["case_id"], int(state["axis"])): state
         for state in source["remaining"]["states"]

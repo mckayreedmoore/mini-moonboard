@@ -15,11 +15,14 @@ retained-timber gravity integral and allocated hardware point wrenches. The
 source gravity whole-body wrench and each negative-half cut are checked before
 comparison.
 
-## Reused integrations
+## Integrations
 
 - Washer annuli use `disk_strip` for the outer disk minus the inner disk.
-- Contact cells use `supported_tile_integrals` on each saved trimmed cell and
-  its saved circles.
+- Contact cells use exact rectangle-minus-disk area and both first moments.
+  Each disk is clipped to both saved tile coordinates and the cut half-space;
+  closed antiderivatives are evaluated between the circle/boundary events.
+  This includes circles crossing tile boundaries. Saved disjoint voids and
+  pressure laws remain unchanged; no contact law or stiffness is added.
 - Lateral bore fields use `coordinate_roots` and `pressure_arc_wrench` for
   each saved half-cosine pressure profile.
 - Each saved source action is split into its integrated field and an exact
@@ -46,9 +49,12 @@ uv run python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner
 Expected values are: half-annulus area `10.5π mm²`, half-annulus first moment
 `−78 mm³`, trimmed-cell area/first moments
 `[50−π mm², 125−4π mm³, 0 mm³]`, and half-arc bore force
-`[5, −10/π, 0] N`. Each comparison tolerance is `1e-12` in the declared
-units. This coupon exercises existing integration helpers only; it carries no
-engineering result.
+`[5, −10/π, 0] N`. These comparison tolerances are `1e-12` in the declared
+units. The new contact integrator also reproduces the trimmed-cell cut and
+checks full, half, quarter and translated clipped disks against analytical
+areas and first moments. The disk/rectangle and translated clipped-cell
+checks use `1e-11` in the declared units. The coupon carries no engineering
+result.
 
 ## Frozen consumer command
 
@@ -65,8 +71,75 @@ uv run python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner
   --output docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/header-v-cuts/attempt01
 ```
 
-Parent owns both commands and any source-data run. This producer has not been
-executed in this preparation turn.
+Parent owns both commands and any source-data run. A fresh output child is
+required; preserve earlier attempts.
+
+## Completed comparison 01
+
+Parent comparison 01 completed 36 body/case states and 3,024 `v`-cut limits
+with no body-scope stops. Its 168 unsupported fields remained as exact source
+points: 72 washer rows rejected by the boundary producer's opposite-normal
+guard and 96 contact cells refused by the reused circle/tile integrator.
+Thus the result is a partial placement comparison, not a completed physical
+boundary integration or splitting qualification. The largest original and
+mapped normal-hull tensile lower bounds are both `55.452556 N`, for the left
+inner-knee block in `a12-forward`.
+
+The source free couples are retained exactly; all 249 nonzero rows are below
+the existing `1e-5 N·mm` component accounting tolerance. They do not establish
+a physical moment-transfer blocker. New runs must use the corrected boundary
+producer and complete clipped-cell integration. Comparison 01, its snapshot,
+cut archive and receipt remain preserved.
+
+| Artifact | SHA256 |
+| --- | --- |
+| `result.json` | `298b310f90c6556c2eef72338e8d4dc2a6f03bdd41a3b45b48a5e8aa6833cc32` |
+| `v-cuts.jsonl.gz` | `df21a56def68448aa02790432709ae41dc922fbb1bb9672980982745aa8403f8` |
+| `receipt.json` | `ed7dee7dda8d43662f10d38c8c88ecadf70de86b1c175069b7a644d8b6c2efda` |
+
+## Completed comparison 02
+
+Parent ran the new analytical contact coupons, corrected boundary preparation
+06 and comparison 02. All 36 body/case pairs and 3,024 `v` limits complete
+with zero unsupported fields and zero body-scope stops. The 72 washer and 96
+contact-cell fallbacks in comparison 01 are eliminated. This completes the
+header-interface integration at these stations, not a complete-body stress
+field or splitting resistance check.
+
+Before annotation, independent authentication matched all 60 comparison input
+pins and four output hashes; preparation 06 matched 28 pins and three outputs.
+Exact consumed source and document bytes are preserved under
+`rawlocal/header-v-cuts/source-snapshots/*-consumed-attempt02.*`. The producer
+methods and all earlier attempts remain unchanged.
+
+The original and mapped inventories each have 2,980 positive normal-hull
+tension bounds and 44 existing finite compression witnesses. The global peak
+remains `55.452555565 N` for the left inner-knee block, `a12-forward`, after
+`v=2.796913348 mm`. The largest recorded components of the mapped-inventory
+and physical-gravity accounting residual are `8.5269e-14 N` and
+`1.0761e-11 N·mm`. These numerical recoveries do not supply fracture resistance.
+
+| Body | Maximum mapped normal-hull tension bound (N) |
+| --- | ---: |
+| Left center-post cleat | 1.364486 |
+| Right center-post cleat | 1.468498 |
+| Left center-principal cleat | 25.202581 |
+| Right center-principal cleat | 28.539717 |
+| Left inner-knee block | 55.452556 |
+| Right inner-knee block | 49.262828 |
+
+These are saved normal-transfer diagnostics, not loads assigned to individual
+bolts or required manufacturer ratings. Other-interface actions remain exact
+source points. All splitting, complete-joint and physical-release flags remain
+false. Fresh proposal forces require their own bound adapter; the reviewed
+104-axis result is preserved as history and does not qualify the 108-axis
+proposal.
+
+| Artifact | SHA256 |
+| --- | --- |
+| `result.json` | `977f25094bf979db9aff9e234674a050b9644de2d1f40698b114808e8ef77ef8` |
+| `v-cuts.jsonl.gz` | `8ad8a43813d940fab688cfc59409017a8a1f3a164f5cab6bf7065fad917a1ead` |
+| `receipt.json` | `8adf31c8d3756b333a8c3d6729d2959bf31cbd8c495efa4d2396f851a5ce0fa5` |
 
 ## Result criterion and limits
 

@@ -9,6 +9,7 @@ calculation. Parent owns execution and numeric validation.
 from __future__ import annotations
 
 import argparse
+import gzip
 import hashlib
 import importlib.util
 import json
@@ -89,15 +90,17 @@ PINS = {
     / "checks.json": "f3118804d3a03df66d274d783ca93248757ac3d629de4a874d23e85da9a61f19",
     REMAINING_DIR
     / "receipt.json": "dce3437a105cdd269aec9ff98ac831c00d6e64e34a807c42254030ca4fffb519",
+    REMAINING_DIR
+    / "cuts.jsonl.gz": "86757d2db86751aa5cba5343df0065ac3d38cc7d69eeab71f02c55eedc72d4cc",
     ALL_JOINT_DIR
     / "checks.json": "91124cdd68bd440d5221047f77d81b47f13cbcf06e68093f3ebc6c5091a74fb9",
     ALL_JOINT_DIR
     / "receipt.json": "1c037ed5f138cf738f4f4ca8628e377ef2ffbcf332419f496a5b03aab7d759b9",
     ALL_JOINT_DIR
-    / "receiver-cuts.jsonl": "d12678cc317837f47909852965f4fcb9f6f492a0a44c750a7989751907866e3",
-    HEADER_MAP
+    / "receiver-cuts.jsonl": "9ed12678cc317fac8e0797d295ee8c986e0c7033707fd27361f2c64252077381",
+    HEADER_MAP_DIR
     / "result.json": "39d63b41dc495659b02cb4ff4fb638a19a491bc09e6ea3fd76a70314db08a837",
-    HEADER_MAP
+    HEADER_MAP_DIR
     / "receipt.json": "1d454a949640a9b43d6ae3e3cf56ca20705e12ff6ae06f9bb51c1749623d96fd",
     HEADER_MAP: "87bd3b14e6961b95e04788d89ece412334ff5cc5f4ad735433a8ced97472d34d",
     UPPER
@@ -224,8 +227,8 @@ def source_context(pins: dict[Path, str]) -> dict[str, Any]:
     remaining_receipt = read(REMAINING_DIR / "receipt.json")
     member_geometry = read(MEMBER / "geometry.json")
     member_results = read(MEMBER / "member-results.json")
-    header_map = read(HEADER_MAP / "result.json")
-    header_map_receipt = read(HEADER_MAP / "receipt.json")
+    header_map = read(HEADER_MAP_DIR / "result.json")
+    header_map_receipt = read(HEADER_MAP_DIR / "receipt.json")
 
     receipt_output(input_receipt, "inputs.json", pins[INPUT_DIR / "inputs.json"])
     receipt_output(input_receipt, "model.json", pins[INPUT_DIR / "model.json"])
@@ -240,7 +243,10 @@ def source_context(pins: dict[Path, str]) -> dict[str, Any]:
     receipt_output(
         remaining_receipt, "checks.json", pins[REMAINING_DIR / "checks.json"]
     )
-    receipt_output(header_map_receipt, "result.json", pins[HEADER_MAP / "result.json"])
+    receipt_output(
+        remaining_receipt, "cuts.jsonl.gz", pins[REMAINING_DIR / "cuts.jsonl.gz"]
+    )
+    receipt_output(header_map_receipt, "result.json", pins[HEADER_MAP_DIR / "result.json"])
     require(
         input_receipt["status"]
         == "PREPARED_HEADER_INPUT_CONTRACT_FOR_METHOD_SELECTION",
@@ -320,8 +326,8 @@ def source_context(pins: dict[Path, str]) -> dict[str, Any]:
         "saved header-side map schema/status differs",
     )
     require(
-        header_map["annulus_hypothesis"]["inner_radius_mm"] == 4.1529
-        and header_map["annulus_hypothesis"]["outer_radius_mm"] == 9.2329,
+        abs(header_map["annulus_hypothesis"]["inner_radius_mm"] - 4.1529) < GEOMETRY_TOL_MM
+        and abs(header_map["annulus_hypothesis"]["outer_radius_mm"] - 9.2329) < GEOMETRY_TOL_MM,
         "saved minimum-area plain-washer envelope differs",
     )
 
@@ -557,6 +563,11 @@ def feature_circle(edge: dict[str, Any]) -> dict[str, Any]:
     }
 
 
+def opposed_unit_normals(first: np.ndarray, second: np.ndarray) -> bool:
+    """Require inward traction and the already-selected outward face to oppose."""
+    return abs(float(first @ second) + 1.0) < ALIGN_TOL
+
+
 def end_face_certificate(
     body: str,
     geometry: dict[str, Any],
@@ -717,7 +728,7 @@ def end_face_certificate(
         min(edge_clearance, other_clearance, bore_clearance) >= -GEOMETRY_TOL_MM
         and circle_axes_aligned
         and max_abs(axis_miss) < GEOMETRY_TOL_MM
-        and abs(float(normal @ inward) - 1.0) < ALIGN_TOL
+        and opposed_unit_normals(normal, inward)
     )
     return {
         "status": "FULL_ANNULAR_LAND_SUPPORTED"
@@ -844,7 +855,7 @@ def bore_support_certificate(
         and area_error < 1e-4
     )
     return {
-        "whole_circumference_supported_by_saved_geometry": passed,
+        "whole_circumference_support_certified": passed,
         "target_cylinder_feature_id": target["feature_id"],
         "stock_coordinate_margins_mm": stock_margins,
         "minimum_stock_margin_mm": min_stock,
@@ -1028,6 +1039,44 @@ def map_contact_cell(
     }
 
 
+def matches_receiver_cylinder(feature: dict[str, Any], saved: dict[str, Any]) -> bool:
+    """Bind saved cylinders by geometry; STEP face enumeration can differ."""
+    cylinder = feature["cylinder"]
+    if abs(float(cylinder["radius_mm"]) - float(saved["radius_mm"])) >= GEOMETRY_TOL_MM:
+        return False
+    first = tuple(map(float, cylinder["axis_unit_global_xyz"]))
+    second = tuple(map(float, saved["cylinder_axis_unit_global_xyz"]))
+    require(len(first) == len(second) == 3, "invalid saved cylinder direction")
+    first_norm = math.sqrt(sum(value * value for value in first))
+    second_norm = math.sqrt(sum(value * value for value in second))
+    require(first_norm > 0 and second_norm > 0, "zero saved cylinder direction")
+    first = tuple(value / first_norm for value in first)
+    second = tuple(value / second_norm for value in second)
+
+    def cross_norm(a, b):
+        return math.sqrt(sum((a[j] * b[k] - a[k] * b[j]) ** 2
+                             for j, k in ((1, 2), (2, 0), (0, 1))))
+
+    if cross_norm(first, second) >= ALIGN_TOL:
+        return False
+    origin = tuple(map(float, cylinder["axis_origin_global_xyz_mm"]))
+    saved_origin = tuple(map(float, saved["cylinder_axis_location_global_xyz_mm"]))
+    require(len(origin) == len(saved_origin) == 3, "invalid saved cylinder origin")
+    offset = tuple(a - b for a, b in zip(origin, saved_origin, strict=True))
+    if cross_norm(offset, second) >= GEOMETRY_TOL_MM:
+        return False
+    endpoints = [tuple(origin[j] + float(t) * first[j] for j in range(3))
+                 for t in cylinder["axis_parameter_interval_mm"]]
+    saved_endpoints = [tuple(saved_origin[j] + float(t) * second[j] for j in range(3))
+                       for t in saved["v_parameter_bounds_mm"]]
+    require(len(endpoints) == len(saved_endpoints) == 2,
+            "saved cylinder requires two finite endpoints")
+    same = max(math.dist(a, b) for a, b in zip(endpoints, saved_endpoints, strict=True))
+    reversed_order = max(math.dist(a, b) for a, b in
+                         zip(endpoints, reversed(saved_endpoints), strict=True))
+    return min(same, reversed_order) < GEOMETRY_TOL_MM
+
+
 def map_lateral_bore(
     body: str,
     action: dict[str, Any],
@@ -1047,11 +1096,22 @@ def map_lateral_bore(
         None,
     )
     require(receiver is not None, f"missing receiver bore geometry: {axis_id}/{body}")
+    saved_faces = receiver["coaxial_cylindrical_finished_faces"]
+    require(len(saved_faces) == 1
+            and receiver["receiver_step_sha256"]
+            == body_record["member_geometry"]["current_finished_step_sha256"],
+            f"receiver cylinder/finished STEP binding differs: {axis_id}/{body}")
+    matching_features = [feature for feature in
+                         body_record["finished_surface_record"]["features"]
+                         if feature["surface_kind"] == "CYLINDER"
+                         and matches_receiver_cylinder(feature, saved_faces[0])]
+    require(len(matching_features) == 1,
+            f"finished bore geometry does not bind uniquely: {axis_id}/{body}")
+    all_bores = bore_features(body_record, geometry)
     target_features = [
         feature
-        for feature in bore_features(body_record, geometry)
-        if feature["face_index_one_based"]
-        == receiver["coaxial_cylindrical_finished_faces"][0]["face_index"]
+        for feature in all_bores
+        if feature["feature_id"] == matching_features[0]["feature_id"]
     ]
     require(
         len(target_features) == 1,
@@ -1067,7 +1127,6 @@ def map_lateral_bore(
         target["complete_cylindrical_area_error_mm2"] < 1e-4,
         f"saved target cylinder is not complete: {axis_id}/{body}",
     )
-    all_bores = bore_features(body_record, geometry)
     support = bore_support_certificate(target, all_bores, geometry)
     force = vec(action["force_n"])
     shaft = target["axis_xyz"]
@@ -1098,7 +1157,7 @@ def map_lateral_bore(
             "source_axis_miss_mm": line_miss,
             "source_plane_to_cylinder_end_mm": min(distances),
         }
-    if not support["whole_circumference_supported_by_saved_geometry"]:
+    if not support["whole_circumference_support_certified"]:
         return {
             "source_action": action,
             "field_kind": "frictionless_lateral_bore_pressure",
@@ -1186,6 +1245,11 @@ def map_lateral_bore(
 def known_answer_coupon(bore_helper: Any) -> dict[str, Any]:
     """Check annulus first moments and opposite-wall bore-strip wrench algebra."""
     bore_coupon = bore_helper.algebraic_coupon()
+    face_normal = np.array([0.0, 0.0, 1.0])
+    inward_normal = -face_normal
+    require(opposed_unit_normals(face_normal, inward_normal)
+            and not opposed_unit_normals(face_normal, face_normal),
+            "outward/inward washer-normal known answer differs")
     datum = np.array([0.0, 0.0, 0.0])
     source = np.array([3.0, 4.0, 5.0])
     force = np.array([10.0, 0.0, 0.0])
@@ -1253,6 +1317,12 @@ def known_answer_coupon(bore_helper: Any) -> dict[str, Any]:
         "annulus_wrench_expected_n_nmm": ring_expected.tolist(),
         "annulus_wrench_returned_n_nmm": ring_wrench.tolist(),
         "scope": "Algebra only. No solver, CAD, strength value or actual pressure field is evaluated.",
+        "washer_normal_coupon": {
+            "outward_face_normal_xyz": face_normal.tolist(),
+            "inward_pressure_normal_xyz": inward_normal.tolist(),
+            "outward_dot_inward": float(face_normal @ inward_normal),
+            "opposed_normals_accepted_same_normals_refused": True,
+        },
     }
 
 
@@ -1271,17 +1341,17 @@ def cut_catalog(
     stations: dict[tuple[str, str, int], dict[float, set[str]]] = defaultdict(
         lambda: defaultdict(set)
     )
-    with path.open() as stream:
+    with gzip.open(path, "rt") as stream:
         for line in stream:
             record = json.loads(line)
-            body = record["body"]
-            if body not in BODIES or record["case_id"] not in CASES:
-                continue
+            body = record["block"]
             axis = int(record["axis"])
+            if body not in BODIES or record["case_id"] not in CASES or axis not in (1, 2):
+                continue
             identity = (body, record["case_id"], axis)
             require(
                 identity in states and record["limit"] in ("before", "after"),
-                "receiver cut line is outside six-body source state",
+                "cleat cut line is outside six-body transverse source state",
             )
             stations[identity][float(record["station_mm"])].add(record["limit"])
     result = {}
@@ -1322,7 +1392,7 @@ def build(output: Path) -> dict[str, Any]:
     context = source_context(pins)
     inputs, model = context["inputs"], context["model"]
     cut_states = cut_catalog(
-        ALL_JOINT_DIR / "receiver-cuts.jsonl", context["all_joint"]
+        REMAINING_DIR / "cuts.jsonl.gz", context["all_joint"]
     )
     connection_map = {axis["axis_id"]: axis for axis in model["header_connections"]}
     closure_duties = {
@@ -1331,7 +1401,7 @@ def build(output: Path) -> dict[str, Any]:
     remaining_states = {
         (state["block"], state["case_id"], int(state["axis"])): state
         for state in context["remaining"]["states"]
-        if state["block"] in BODIES
+        if state["block"] in BODIES and int(state["axis"]) in (1, 2)
     }
     require(
         len(remaining_states) == len(BODIES) * len(CASES) * 2,
@@ -1349,6 +1419,7 @@ def build(output: Path) -> dict[str, Any]:
         "u_v_cut_states": 0,
         "u_v_cut_limits": 0,
         "unsupported_source_free_couple_rows": 0,
+        "nonzero_source_free_couple_rows": 0,
         "unsupported_boundary_action_rows": 0,
     }
     for case in inputs["cases"]:
@@ -1498,6 +1569,9 @@ def build(output: Path) -> dict[str, Any]:
                 aggregate["source_actions"] += 1
                 aggregate["boundary_fields"] += len(fields)
                 aggregate["unsupported_source_free_couple_rows"] += int(
+                    max_abs(vec(action["free_moment_nmm"])) >= MOMENT_ACCOUNTING_TOL_NMM
+                )
+                aggregate["nonzero_source_free_couple_rows"] += int(
                     any(float(value) != 0.0 for value in action["free_moment_nmm"])
                 )
                 aggregate["unsupported_boundary_action_rows"] += int(
@@ -1657,7 +1731,19 @@ def build(output: Path) -> dict[str, Any]:
     authenticate(pins)
     result = {
         "schema": "six_header_cleat_boundary_fields/v1",
-        "status": "PREPARED_CONDITIONAL_HEADER_BOUNDARY_FIELDS_WITH_UNRESOLVED_PHYSICAL_FREE_COUPLES",
+        "status": "PREPARED_CONDITIONAL_HEADER_BOUNDARY_FIELDS",
+        "source_free_couple_classification": {
+            "status": "UNRESOLVED_PHYSICAL_FREE_COUPLES"
+            if aggregate["unsupported_source_free_couple_rows"]
+            else "WITHIN_SAVED_NUMERICAL_ACCOUNTING_TOLERANCE",
+            "component_tolerance_nmm": MOMENT_ACCOUNTING_TOL_NMM,
+            "maximum_absolute_component_nmm": max(
+                max_abs(vec(action["free_moment_nmm"]))
+                for case in inputs["cases"] for interface in case["interfaces"]
+                for action in interface["actions_on_block"]
+            ),
+            "all_raw_free_couples_retained": True,
+        },
         "source_authority": {
             "candidate": model["source_identity"]["candidate"],
             "development_revision": model["source_identity"]["development_revision"],
