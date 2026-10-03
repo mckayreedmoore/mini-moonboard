@@ -58,7 +58,7 @@ their recorded status.
 | Header joints and end-grain routes | 72 header bolt states, 36 interfaces and 42 balances; individual end-grain reference 0.052042 | [Header replay](upper-corner-screw-layout/header-replay.md) |
 | Retained pairs and washers | Row-factor sensitivity 0.962538; ideal washer wood indices 0.208053 / 0.264300 | [Retained replay](upper-corner-screw-layout/bolted-replay.md#retained-pairs-and-washer-families) |
 | Four continuous knee bolts | All 24 loaded states close three receiver wrenches; same-state smooth steel / 92 ksi 0.303443; 96 existing placements retained | [Completed loaded-shaft method](upper-corner-screw-layout/knee-contact-entry.md) |
-| Members | 264 balances and 55,176 cuts; declared normal/stability index 0.628421; top-rail shear/torsion exception **1.021524** | [Member replay](upper-corner-screw-layout/member-replay.md) |
+| Members | Original C_D = 1 replay: 264 balances / 55,176 cuts, normal/stability 0.628421 and rail face 1.021524. Working C_D = 1.25 current physical rail bound **0.976479** | [Original replay](upper-corner-screw-layout/member-replay.md), [current placement](upper-corner-screw-layout/top-host-physical-actions.md) |
 | Central partial nut seat | Maximum signed tie 22.952333 N; supported-ring mean-pressure index 0.218668, with actual nut/washer transfer open | [Central replay](upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat) |
 
 Peaks belong to separate states and are not added. These replays preserve
@@ -184,6 +184,17 @@ equilibrium; the maximum necessary tensile normal resultant is 0.165250 N
 at bottom-right/A12-rear. This is an unbounded-pressure resultant certificate,
 not a finite wood-pressure or splitting resistance. Full shear and torque
 remain recorded while the existing bolt/host transfer route is addressed.
+The completed [physical bottom-gravity replacement](upper-corner-screw-layout/corner-physical-gravity.md)
+keeps the complete gravity wrench and replaces equivalent MPC node loads on
+sub-cuts with the actual retained timber body force plus allocated hardware
+loads. It recomputes 50,604 bottom cuts; necessary transverse tension falls
+to 0.054538 N in 100 bottom-right/A12-rear cuts. Fresh nominal comparisons
+on all 24,812 grain cuts / twelve states give tension, compression, bending
+and shear/torsion indices 0.023747 / 0.009636 / 0.013126 / 0.088243.
+These are below their original references. The small tensile demand remains
+explicit; no new bolt force, preload or splitting capacity is assigned.
+Corrected top timber has a different recorded mass-placement convention,
+so this bottom replacement is not transferred to the top blocks.
 The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
 repairs the earlier approximation defect at one fixed 709.053 N / 2.292 Nm
 end witness. Its two prescribed resolutions give 510.595 / 512.232 MPa
@@ -226,9 +237,17 @@ Normal indices are low; the top-rail same-face shear reference reaches
 original integrated-frame point/couple actions inside the joint footprint.
 The completed physical corner actions preserve whole-host wrenches but differ
 locally. The source-scope inventory confirms that the old lumped rows do not
-establish the current physical-host result at this cut. Saved reaction
-replacement is being prepared; the bore-free duration result does not close
-this local recovery, and no physical wood failure is inferred.
+establish the current physical-host result at this cut.
+The completed [physical top-rail reaction placement](upper-corner-screw-layout/top-host-physical-actions.md)
+replaces only the two corner interfaces, preserving each whole-host wrench
+and every other source action. All 144 existing rail traces / 288 duration
+comparisons are recomputed. At C_D = 1.25, the maximum compatible-face and
+sufficient rectangle indices are **0.976425 / 0.976479**, with no exceedance.
+This supports retaining the rail geometry in the conditional working model.
+Uniform supported face-cell pressure, half-cosine bore pressure, saved washer
+quadrature and nominal regional sharing remain explicit placement assumptions.
+The original C_D = 1 sufficient bound is 1.220599; neither result supplies
+local concentration, continuous-station or whole-joint qualification.
 
 The [assembly package](assembly-package/README.md) remains the dimensional,
 transport, stock, purchasing and operation basis, read with the four-axis
@@ -301,8 +320,10 @@ has no remaining state; local wood and delivered hardware retain their own
 recorded scope.
 
 The concise [joint MVP disposition](upper-corner-screw-layout/mvp-joint-disposition.md)
-collects the completed finite checks, conditional shop links and the two
-remaining panel-head/top-rail reference exceptions. Use it for the current
+collects completed finite checks, conditional shop links, the panel-head
+reference exception and remaining joint-resistance limits. The physical
+top-rail comparison is complete under the recorded duration assumption.
+Use the disposition for the current
 working decision; preserved preparation notes and historical force tables
 do not add new prerequisites or replace the current source.
 

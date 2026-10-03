@@ -61,6 +61,11 @@ Attempt03 preserves source dimensional fields and adds the current working
 body/thread requirements; original reconciliation and price recipes remain
 history. Product material and delivered fit are not established.
 
+Use the concise [current hardware table](working-hardware.md) for all fourteen
+families, matched nuts/washers and pooled quantities. It follows attempt03
+working fields; earlier source labels and price recipes below retain their
+historical scopes.
+
 The [208-endpoint washer census](washer-coverage.md) maps every named role
 to its applicable saved force, seat and product evidence. The former eight
 lower-service endpoints now have all 48 annular wood-bearing references,

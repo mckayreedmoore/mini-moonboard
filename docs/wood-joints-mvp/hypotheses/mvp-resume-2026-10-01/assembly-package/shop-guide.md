@@ -176,6 +176,10 @@ labels do not supply numeric yield minima.
 
 ## Current working order
 
+The [current fourteen-family hardware table](working-hardware.md) lists all
+104 bolts and nuts, 208 washers and 66 separate purchased Hillman screws.
+Use its current lengths and matched routes with the per-axis worksheet.
+
 Use the [conditional planning routes](hardware-engagement.md#current-conditional-planning-lengths):
 four center-post bolts at six inches, four center-principal/header bolts at
 eight inches, and four inner-knee/header bolts at eight inches. The completed

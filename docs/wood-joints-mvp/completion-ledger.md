@@ -67,12 +67,25 @@ washers with Hillman 885522 / Lowe's 755754, retaining 208 washers. The
 complete 456 signed traces and retain a 1.168694 original-point rail face
 sensitivity at C_D = 1.25. Its cut is inside the changed physical joint
 footprint; the old lumped actions do not establish the current local-host
-result. Saved physical reaction replacement is being prepared.
+result. The completed
+[physical reaction placement](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/top-host-physical-actions.md)
+preserves whole-host wrenches and recomputes all 144 existing rail traces.
+At C_D = 1.25, compatible-face and sufficient rectangle indices are
+0.976425 / 0.976479, with no exceedance. This supports retaining current rail
+geometry under its stated pressure-placement and nominal sharing assumptions.
+The original C_D = 1 sufficient bound 1.220599 remains recorded.
 The [normal-transfer census](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/corner-split-closure.md)
 also completes 51,312 transverse cuts. Its former affine opening witness is
 compression-feasible, with only 0.1653 N maximum necessary tensile resultant.
 Finite retained-material compression patches cover 51,130 cuts below the
 declared bearing reference; the two positive bottom rows remain explicit.
+The [physical bottom-gravity comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/corner-physical-gravity.md)
+now recomputes all 50,604 bottom cuts while preserving whole gravity wrenches.
+The necessary transverse-tension peak falls to 0.054538 N in 100 right-side
+cuts; it is not an assigned bolt force or splitting capacity. All 24,812
+changed grain cuts have fresh nominal comparisons, maximum shear/torsion
+0.088243 and grain tension 0.023747 against original references. No top gravity
+replacement or new frame response is adopted.
 The [208-endpoint washer census](hypotheses/mvp-resume-2026-10-01/assembly-package/washer-coverage.md)
 now includes all 48 lower-service annular wood-bearing references, maximum
 0.012174, closing that exact bookkeeping gap without assigning metal capacity.
