@@ -177,6 +177,13 @@ longitudinal comparisons peak at **0.169825 / 0.099051**. Transverse opening
 stress reaches **0.169988 MPa**, with perpendicular-tension and full
 crossed-group capacity left null. This completes the conditional static
 assessment without inventing fracture or bolt-reinforcement credit.
+The subsequent [normal-transfer census](upper-corner-screw-layout/corner-split-closure.md)
+checks all 51,312 transverse cuts using the exact retained-material hull.
+The original affine opening witness admits compression-only normal
+equilibrium; the maximum necessary tensile normal resultant is 0.165250 N
+at bottom-right/A12-rear. This is an unbounded-pressure resultant certificate,
+not a finite wood-pressure or splitting resistance. Full shear and torque
+remain recorded while the existing bolt/host transfer route is addressed.
 The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
 repairs the earlier approximation defect at one fixed 709.053 N / 2.292 Nm
 end witness. Its two prescribed resolutions give 510.595 / 512.232 MPa
@@ -204,9 +211,24 @@ now covers all four top-rail bolts, both exterior ends and all six cases at
 that same fixed fine resolution. Peak stress remains 207.205343 MPa against
 the assumed 250 MPa yield; the original source, state, coupon and full field
 CSV reproduce exactly. All eight nominal supported lands are checked.
-The parent is checking installed replacement occupancy before choosing this
-washer as a conditional planning route; actual material and profile remain
-unqualified, and no altered compliance is fed back into the frame.
+The [saved-scene replacement fit](assembly-package/top-washer-fit.md) now
+completes 37,352 installed/removal enclosure pairs with zero overlap or
+undecided pair. Actual material and profile remain unqualified, and no
+altered compliance is fed back into the frame.
+The parent now uses eight Hillman 885522 / Lowe's 755754 washers for
+[conditional working-order planning](assembly-package/hardware-engagement.md#working-order-export),
+replacing eight original top-rail washers while preserving the 208 total.
+
+The [top-host bore-section comparison](upper-corner-screw-layout/top-host-net-sections.md)
+also completes 38 saved sections / 456 signed traces in the three hosts.
+Normal indices are low; the top-rail same-face shear reference reaches
+1.168694 at C_D = 1.25, K12-right before the right bore-center cut. This uses
+original integrated-frame point/couple actions inside the joint footprint.
+The completed physical corner actions preserve whole-host wrenches but differ
+locally. The source-scope inventory confirms that the old lumped rows do not
+establish the current physical-host result at this cut. Saved reaction
+replacement is being prepared; the bore-free duration result does not close
+this local recovery, and no physical wood failure is inferred.
 
 The [assembly package](assembly-package/README.md) remains the dimensional,
 transport, stock, purchasing and operation basis, read with the four-axis
@@ -222,6 +244,10 @@ inner-knee/header bolts at eight inches. The ordinary/center-post need pools
 to 48 of one 100-box; Lawson eight-inch duties pool to 24 of one 25-pack.
 All 104 axis-specific profile requirements remain conditional. Missing order
 terms remain listed, and Actual/Disposition cells stay blank.
+The completed [44-blank cut list](assembly-package/blank-cut-list.md) preserves
+source stock lengths, prepared sections and finished envelopes separately;
+the six plywood bodies and all fifteen original nesting scenarios remain
+distinct. Missing machining facts are explicit rather than inferred.
 
 All 47 formal criteria remain pending and all eight release flags false.
 Selected-baseline authority and historical packets are preserved. This

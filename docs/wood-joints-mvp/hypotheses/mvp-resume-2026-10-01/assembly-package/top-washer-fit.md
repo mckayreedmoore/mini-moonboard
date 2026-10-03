@@ -5,8 +5,8 @@ reports exit 0 for `rawlocal/top-washer-fit/run-attempt01/`, using the frozen
 `prepare-attempt02/setup.json`. The saved result records 37,268 AABB-separated
 pairs, twelve finite-cylinder projection certificates, and 72 clear exact
 intersection pairs against five imported saved STEP solids. Overlap and
-undecided counts are both zero. The eight 2.5-mm washers remain a proposed
-conditional working-plan option; delivered fit, physical access, full turning
+undecided counts are both zero. The parent now uses the eight 2.5-mm washers
+for [conditional working-order planning](hardware-engagement.md#working-order-export); delivered fit, physical access, full turning
 and complete-joint acceptance remain unestablished.
 
 ## Frozen scope and sources

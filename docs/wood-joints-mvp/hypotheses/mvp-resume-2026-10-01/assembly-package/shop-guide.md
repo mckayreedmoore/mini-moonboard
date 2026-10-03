@@ -127,6 +127,13 @@ and leaves 52 spare. This quantity scenario selects no product and adds no secon
 
 ## Fastener counts and top corners
 
+For current conditional planning, use the [working-order export](hardware-engagement.md#working-order-export).
+It preserves the 48 six-inch and 24 eight-inch bolt pools and replaces the eight top-rail washers
+in the earlier price recipe with Hillman 885522 / Lowe's 755754: two listed four-packs. The
+25.4/8.3058/2.5 mm model is a dimensional/material hypothesis. The completed
+[replacement fit](top-washer-fit.md) covers installed and removal enclosures; actual dimensions,
+steel properties and tool operation remain unobserved. Current order cost remains incomplete.
+
 | Stack family | Bolts | Nuts | Washers | Duty |
 | --- | ---: | ---: | ---: | --- |
 | Candidate 1/4 in | 88 | 88 | 176 | Includes four corrected top-rail axes. |
@@ -143,6 +150,10 @@ Nominal 8 in length is 203.2 mm, distinct from 177.8 mm wood grip. Use the top-c
 for under-head length, `LB`, and full-form thread requirements; the named catalog lengths alone do
 not guarantee delivered body or thread profile. Its three-pitch endpoint is a declared fit scenario,
 not a universal shop rule.
+
+With the thicker rail washers, use the separate current working profile: `LB >= 145.375 mm`,
+full-form coverage 182.8000–188.5404 mm and three-pitch `Lmin = 192.3504 mm`. These figures keep
+the 177.8 mm wood grip and eight-inch nominal shaft; the older washer-profile figures are history.
 
 The completed [longer-bolt screen](hardware-length-fit.md) found no added-occupancy clash for four
 proposed 6 in center-post

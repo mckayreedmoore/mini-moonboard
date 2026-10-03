@@ -298,14 +298,30 @@ acceptance remain open; frozen actual-support fields are not overwritten.
 
 ## Working-order export
 
-The current planning export is `rawlocal/working-order/attempt02/`, produced
-by [working_order.py](working_order.py). It records all 104 axes, fourteen
-families, unchanged matched nut/washer routes, the 48/100 and 24/25 bolt pools,
-and each axis's minimum length, body end, shear planes and full-form window.
-All current prices and delivery-conformity fields are null. The earlier
-attempt01 remains byte-exact; the producer refuses differing saved outputs
-before writing any file. Parent authenticated all six inputs and output
-bindings and checked both attempts' retained bytes.
+The current planning export is `rawlocal/working-order/attempt03/`, produced
+by [working_order.py](working_order.py). It records all 104 axes and fourteen
+families, the 48/100 and 24/25 bolt pools, and each axis's source profile plus
+its explicitly separate working profile. The parent now uses eight Hillman
+885522 / Lowe's 755754 washers for conditional top-rail planning, replacing
+the eight Bolt Depot 2994 washers in the frozen tables above. Two listed
+four-packs cover the eight roles; the total remains 208 washers. All other
+matched nut/washer routes remain as recorded.
+
+The [48-end mechanics suite](../upper-corner-screw-layout/retail-washer-suite.md)
+and [37,352-pair replacement fit](top-washer-fit.md) bind this working option.
+Its model uses OD/ID/thickness 25.4/8.3058/2.5 mm and assumed 250 MPa yield;
+actual dimensions and material remain null. The four rail stacks now require
+`LB >= 145.375 mm`, three-pitch `Lmin = 192.3504 mm` and full male-thread
+coverage at 182.8000–188.5404 mm under that profile. Bearing/shear locations
+shift 0.468 mm relative to the old maximum-thickness head-washer datum; wood
+grip stays 177.8 mm and nominal bolt length 203.2 mm. These working values
+supersede the original top-rail profile for planning only. No compliance
+change is fed back into the frame.
+
+All current prices and delivery-conformity fields are null. Attempts01/02
+remain byte-exact; the producer refuses differing saved outputs before
+writing any file. Parent authenticated all nine current inputs, output
+bindings and 104 unchanged source-field rows, plus both prior receipts.
 
 ```sh
 python3 -B docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/assembly-package/working_order.py --verify
@@ -313,10 +329,10 @@ python3 -B docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/assembly-packag
 
 | Current planning artifact | SHA-256 |
 | --- | --- |
-| Producer and attempt02 snapshot | `460bdd0487743c8d3a2f9b8ef27368238ce115daf624bb2dae17b3d2349686f9` |
-| `attempt02/working-order.json` | `3ba75dad67a22e621ce49572cf8fd5b7dfd393c41e13df2f135e3153ba770085` |
-| `attempt02/working-order-axes.csv` | `7fa7faf8131b015e723a013c5743b2853b9b4eab7e3d695d89f78f8bc627795c` |
-| `attempt02/receipt.json` | `8ea1cf732bac17a972f6f8044ff6e5ff2c0b254d278e6400ed2eab0e3ff40dc7` |
+| Producer and attempt03 snapshot | `a0bf0d59a33134ba839a54ce54e80b39da6e897804c1817cd0eeedc207058253` |
+| `attempt03/working-order.json` | `6becf19a9b06f625b4292cc8cd60f908fd3bff8d865430e60abcec155af4e9be` |
+| `attempt03/working-order-axes.csv` | `b5eb648c0e684f110efd6ec39700e1ba954bbea6642cff88dac6b8022b5cde5f` |
+| `attempt03/receipt.json` | `6c2fe49ae51b6a7c1fbf96dc55f580a2995e341c4582c1d4545bf01ebdd5c260` |
 
 ## Reproduction and record
 

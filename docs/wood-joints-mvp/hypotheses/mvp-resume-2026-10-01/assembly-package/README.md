@@ -54,6 +54,19 @@ installed/removal enclosure pairs for the eight thicker washers with no
 overlap or undecided pair. This saved-scene geometry result retains the
 conditional product dimensions and does not establish actual tool operation.
 
+The [current conditional order](hardware-engagement.md#working-order-export)
+uses eight Hillman 885522 / Lowe's 755754 top-rail washers, two listed
+four-packs, instead of the eight original 2994 washers. The total stays 208.
+Attempt03 preserves source dimensional fields and adds the current working
+body/thread requirements; original reconciliation and price recipes remain
+history. Product material and delivered fit are not established.
+
+The [208-endpoint washer census](washer-coverage.md) maps every named role
+to its applicable saved force, seat and product evidence. The former eight
+lower-service endpoints now have all 48 annular wood-bearing references,
+peak 0.012174. That fills the recorded comparison gap without supplying
+washer-metal or delivered-product capacity for other positions.
+
 ## Parts and hardware
 
 | Scope | Transport parts | Bolts | Nuts | Separate washers | Hillman screws |

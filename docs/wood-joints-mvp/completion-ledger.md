@@ -61,6 +61,22 @@ profiles, material and full tool operation remain conditional. The completed
 keeps source stock lengths separate from finished envelopes and retains all
 four section reductions; missing machining instructions are explicit.
 
+Current conditional order planning now replaces eight original top-rail
+washers with Hillman 885522 / Lowe's 755754, retaining 208 washers. The
+[three top-host bore comparisons](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/top-host-net-sections.md)
+complete 456 signed traces and retain a 1.168694 original-point rail face
+sensitivity at C_D = 1.25. Its cut is inside the changed physical joint
+footprint; the old lumped actions do not establish the current local-host
+result. Saved physical reaction replacement is being prepared.
+The [normal-transfer census](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/corner-split-closure.md)
+also completes 51,312 transverse cuts. Its former affine opening witness is
+compression-feasible, with only 0.1653 N maximum necessary tensile resultant.
+Finite retained-material compression patches cover 51,130 cuts below the
+declared bearing reference; the two positive bottom rows remain explicit.
+The [208-endpoint washer census](hypotheses/mvp-resume-2026-10-01/assembly-package/washer-coverage.md)
+now includes all 48 lower-service annular wood-bearing references, maximum
+0.012174, closing that exact bookkeeping gap without assigning metal capacity.
+
 These working calculations do not close the formal coverage register.
 **All 47 entries remain pending and all eight physical-release flags remain
 false.** No physical build, floor, delivered hardware or fabrication release
