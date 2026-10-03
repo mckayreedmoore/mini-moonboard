@@ -79,8 +79,8 @@ source CF references on modified sections. No old grain pass transfers. Equal co
 axial-tie pairs give zero whole-body and grain-cut wrench under declared symmetry;
 that identity supplies no regional sharing or compatibility solution.
 
-Removed-wood volume/mass is recorded geometrically; added hardware mass and the
-combined gravity delta remain pending global adoption. Current loads are kept
+[Proposal geometry](knee-bridge-geometry.md) and [order/mass reconciliation](../assembly-package/knee-bridge-order.md) are complete: two valid solids, four added stacks, net planning mass +0.247959 kg.
+The combined gravity delta remains pending global adoption. Current loads are kept
 fixed for this proposal. Static witnesses, reference comparisons, delivered fit,
 compatibility and qualification are distinct. Existing tangential/torque duties
 remain; no Ft-perpendicular, complete-joint or physical acceptance is claimed.
@@ -95,5 +95,5 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/wood-joints-mvp/hypotheses/mvp-r
 Saved `rawlocal/knee-spine-reinforcement/attempt01/checks.json` SHA **c9360e7ca4ab167a5cbc505373b2bd1342aa6a830f72a26113da9f7c4a8ad778**; receipt SHA **991f6742f6aae386552338b1fea79f02766bd0def09bfa8fabea27560ba13819**. All 47 source pins and four receipt artifacts match.
 At the declared 1.25 force margin, peak bolt tension is **1060.657 N**; wood compression/washer-mean/bolt-yield/nut-proof indices are **0.616 / 0.544 / 0.082 / 0.063**. Full-wrench recovery error is below 0.000000001 N/N·mm.
 Bare hull optima do not supply finite pressure. The linked margin construction retains both shears and torque; it establishes a prescribed static route without an elastic allocation or global feedback.
-No software tests, review loop, CAD/frame/native solve, geometry adoption or physical release occurred. Old applicability note and frozen evidence remain active.
-Parent completed grain, washer and scene-fit integration. The four added stacks are reviewable in the linked axis diagram; current geometry and inventory remain authority until adoption.
+The normal-transfer run performed no software tests, review loop, CAD/frame/native solve, geometry adoption or physical release. Old applicability note and frozen evidence remain active.
+Parent completed grain, washer, scene-fit, geometry exports and order/mass reconciliation. The four added stacks are reviewable in the linked axis diagram; current geometry and inventory remain authority until adoption.
