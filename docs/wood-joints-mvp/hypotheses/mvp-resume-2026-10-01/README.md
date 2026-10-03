@@ -42,6 +42,7 @@ strict stability, a motion envelope and dynamic qualification remain open.
 | Scope | Fresh result under its recorded assumptions | Evidence |
 | --- | --- | --- |
 | Both top outer corners | Conditional lateral ratios 0.722296 / 0.813949; ideal washer wood indices 0.717681 / 0.822681 | [Bolted replay](upper-corner-screw-layout/bolted-replay.md#completed-top-corner-replay) |
+| Right common rigid block | Four compatible bolts and 32 face cells balance in all six nominal cases; replayed lateral/path/mean-seat/smooth-bolt indices 0.813949 / 0.160367 / 0.770232 / 0.313740 | [Whole-block integration](upper-corner-screw-layout/upper-right-block.md) |
 | Bottom corners | Conditional lateral ratios 0.278217 / 0.005421; finished paths and seats replayed | [Bottom replay](upper-corner-screw-layout/bolted-replay.md#bottom-corners-and-central-partial-seat) |
 | Remaining eligible bolts and lower service | 92 included axes in the remaining method; separate four-axis service result 0.007468 | [Methods and exact exclusions](upper-corner-screw-layout/bolted-replay.md) |
 | Header joints and end-grain routes | 72 header bolt states, 36 interfaces and 42 balances; individual end-grain reference 0.052042 | [Header replay](upper-corner-screw-layout/header-replay.md) |
@@ -80,17 +81,31 @@ targets. Roseburg product identity is known; Group 1, face-grain placement
 and transverse elastic proxies remain hypotheses. No demonstrated product
 contradiction was found. The separate rigid/elastic diagnostic identifies
 local bending and compliance as sharing questions, not a lower accepted load.
-The three-sheet width nesting would put a typical factory long-axis face
-grain across the board, whereas this operator assumes grain along the slope.
-That conditional placement mismatch needs reconciliation; no actual sheet
-orientation or revised material response is adopted by this summary.
+The owner reports cutting full sheets into approximately square halves.
+Cross lamination does not make panel bending stiffness equal in both
+directions, and a square cut retains the original face-grain direction.
+Both directional operators now have complete six-case calculations:
+the original slope-grain operator remains this joint replay's source;
+the [width-grain comparison](upper-corner-screw-layout/panel-orientation-comparison.md)
+has nominal peak panel tension 1280.799 N. Neither calculation establishes
+the actual cut panels' grain orientation or requires recutting them.
+The separate 20-main-panel-screw/98-total comparison also completes all
+twelve states, with a 2180.721 N nominal lower-left peak; it does not select
+a new screw inventory or demonstrate that screw count alone improves sharing.
 
 The top-rail 1.021524 shear/torsion reference exceedance remains unresolved.
-Local disturbed stresses, two-group joint interaction, washer/head/nut
+Local disturbed stresses, elastic timber/two-group resistance, washer/head/nut
 transfer, continuous-knee contact and actual shank/thread profiles retain
-their stated limits. The [upper-right washer worksheet](upper-corner-screw-layout/upper-right-washer-contact-bounds.md)
-resolves the washer-standard label crosswalk and bounds its existing strip
-model; it supplies no physical contact solution or assigned product yield.
+their stated limits. The completed right rail/side pairs supply compatible
+local bolt responses at the unchanged source group wrenches. Their combined
+rigid-block accounting does not feed redistribution back into the frame.
+The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
+repairs the earlier approximation defect at one fixed 709.053 N / 2.292 Nm
+end witness. Its two prescribed resolutions give 510.595 / 512.232 MPa
+elastic plate stress proxies with decreasing free-edge residuals. This
+conflicts with the expressly hypothetical 250 MPa yield input; actual
+washer yield and resistance remain unknown. No delivered hardware failure
+or stronger-hardware requirement is inferred from that hypothesis alone.
 
 The [assembly package](assembly-package/README.md) remains the dimensional,
 transport, stock, purchasing and operation basis, read with the four-axis
@@ -104,8 +119,8 @@ All 47 formal criteria remain pending and all eight release flags false.
 Selected-baseline authority and historical packets are preserved. This
 integration adds no native run, hardware substitution, software tests or
 agent review loop. Parent owns shared staging, execution and the returned
-register leaves. The joint worker continues in its separate upper-right
-combined-transfer leaves.
+register leaves. Upper-left common-block preparation is owned separately;
+parent serializes its local execution and subsequent component integration.
 
 ## Preserved previous working model and ownership
 
