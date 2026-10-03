@@ -33,6 +33,7 @@ There are still **44 timber blanks / 50 timber-and-plywood bodies**. Reinforceme
 bolts connect only the two faces of their own spine; they join no transport
 members. They can remain in each spine during individual-member transport or
 be removed using metal nuts. This introduces no routine wood-thread removal.
+The [shop delta](knee-bridge-shop.md) records the four proposed stations and logical stack order.
 The [fit report](knee-bridge-fit.md) covers the installed and straight axial
 envelopes; actual wrench turning/handling remains unobserved. This note does
 not change the published shop sequence or authorize drilling.
