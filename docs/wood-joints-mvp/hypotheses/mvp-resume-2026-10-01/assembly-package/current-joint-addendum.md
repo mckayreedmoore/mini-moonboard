@@ -161,11 +161,13 @@ packets do not replace this sixty-six-axis operation schedule.
 
 ## Force results and blank observations
 
-Use the current [joint register](../upper-corner-screw-layout/joint-register.md),
-[right block](../upper-corner-screw-layout/upper-right-block.md),
-[left block](../upper-corner-screw-layout/upper-left-block.md) and
-[left component replay](../upper-corner-screw-layout/upper-left-block-components.md)
-for current demands and their limits. Historical force ratios in the isolated
+Use the current [working force register](../upper-corner-screw-layout/working-joint-register.md)
+for the twenty corrected local allocations and eighty-four retained source
+allocations. The original [source register](../upper-corner-screw-layout/joint-register.md)
+is preserved as comparison evidence. The completed
+[first-order corner forces](../upper-corner-screw-layout/corner-first-order.md)
+and [same-state components](../upper-corner-screw-layout/corner-first-order-components.md)
+provide current top-corner demands and their limits. Historical force ratios in the isolated
 top-corner fit worksheet or old assembly source remain labeled history;
 reusing their dimensions does not transfer those ratios.
 

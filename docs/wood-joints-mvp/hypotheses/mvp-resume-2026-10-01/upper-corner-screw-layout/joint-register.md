@@ -1,6 +1,15 @@
-# Current four-screw-layout joint register
+# Four-screw-layout source register and working force integration
 
-This register indexes the frozen 250 lb, six-case working scenario after the
+Use the completed [working six-case force register](working-joint-register.md)
+for the current joined force index. It replaces eight top, eight bottom and
+four continuous knee-shaft allocations with their completed local records;
+the other 84 axes retain this original integrated-frame allocation. All
+104 bolts, 24 blocks and 66 screws remain mapped to exact cases and receivers.
+Independent local/source wrench checks complete, with no displacement feedback
+or global compatibility inferred. The machine index and numerical tables below
+preserve the original integrated-frame source as comparison evidence.
+
+This source register indexes the frozen 250 lb, six-case working scenario after the
 four owner-authorized upper-panel screw moves. It connects each physical bolt
 to its current saved forces and applicable method records. It supplies no new
 joint capacity or acceptance. Complete joints and physical release remain

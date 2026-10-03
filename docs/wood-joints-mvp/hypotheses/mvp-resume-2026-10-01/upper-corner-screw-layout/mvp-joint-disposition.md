@@ -4,7 +4,7 @@
 
 Use the [current analytical packet](../README.md#current-analytical-working-model-for-the-mvp-goal): six nominal cases, **250 lb × 2 downward, signed 300 N horizontal, original 100 mm hold lever**, recorded gravity and separate 25 kg accessory allowance. The complete zero/nominal source is retained; the 50 mm comparison is non-adopted.
 
-The register covers **24 blocks, 104 structural bolts and 66 purchased Hillman 42605 screws**: 624 bolt-axis states, 648 bolt-interface states and 396 screw states. Local result counts below overlap this inventory and must not be added to it.
+The [working force register](working-joint-register.md) covers **24 blocks, 104 structural bolts and 66 purchased Hillman 42605 screws**: 624 bolt-axis states, 648 bolt-interface states and 396 screw states. Twenty corrected axes use their local allocations; 84 retain source-frame records. Local result counts below overlap this inventory and must not be added to it.
 
 Working assumptions: dry DF-L No. 2, stated wood/steel properties, partially threaded smooth-shank bolt envelopes, first-order local geometry, rigid timber, K20 compression-only contacts, concentric washer lands, unqualified Hillman stiffness/plywood properties and no-slip floor. Local reallocations do not feed back into the frame. Nonunique seating supplies no motion/stability acceptance.
 
@@ -28,6 +28,8 @@ The [top-corner nominal net-section comparison](corner-net-section.md) covers ei
 The [remaining twelve blocks](remaining-net-sections.md) complete **2,304 recorded opening-section limits** across all six cases under the same assumptions. The normal diagnostic sum and same-state shear/torsion bound peak at **0.00180 / 0.03221**. These are finite nominal section comparisons; continuous-station maxima and notch/splitting capacity are outside the method.
 
 The [six header paired-bore sections](header-net-section.md) complete **72 signed limits / 216 regional comparisons** using all 394 source actions per case. Tension/compression/bending indices are **0.2557 / 0.1281 / 0.1632**; the same-state shear/torsion bound is **0.3486**. Full A1-rear torque is retained. This completes the finite nominal comparison under the same sharing assumptions, without new strength or qualification.
+
+The [six header cleat bodies](header-cleat-net-sections.md) complete another **1,968 signed traces / 36 body-case comparisons** using a documented retained-rectangle subset around longitudinal holes. Normal diagnostic/shear bound peaks are **0.02093 / 0.13814**. Omitted sound wood and nominal sharing assumptions are explicit; no local stress bound or splitting capacity is inferred.
 
 The [retail thick-washer option](retail-washer.md) completes two resolutions at the current **707.884 N / 2.432 N·m** witness. Declared **25.4/8.3058/2.5 mm OD/ID/thickness** gives finer stress **207.205 MPa**, index **0.829** against assumed 250 MPa yield, with saved nominal timber support. This changes no inventory and qualifies no actual retail material.
 
@@ -55,6 +57,9 @@ Paths below are relative to this folder; linked notes contain complete source/ou
 | --- | --- |
 | `frame-250-attempt02/comparison.json` | `bea6cbc330af3cdb20499d774a8f6bb24481d687c3150adb01ede18e4c1d50ca` |
 | Same frame, `response.npz` | `0625196497b0dbc7b297724d7b9947f7c7c61bb282cd4d9681705629302c76c7` |
+| `rawlocal/working-joint-register/attempt03/register.json` | `c34745395481038e32c7474de1798882263de7e54a7cc494949948b4a5e3464c` |
+| `rawlocal/dead-load-check/parent-attempt06/comparison.json` | `20802196776a89ea8b041832b413ef8d8613493b1bf36f89a3810807c5166e75` |
+| `rawlocal/header-cleat-net-sections/attempt01/checks.json` | `b70fd818654a4d6509186a2718a81fa0b564cfc7ad808be52946f0eddfead1a2` |
 | `rawlocal/corner-first-order-components/attempt01/checks.json` | `f220673994b6a6c5b6bc0afd104becd61b5bb68f5e22bc700ed07b901b94525c` |
 | `rawlocal/bottom-corner-transfer/first-order-attempt01/checks.json` | `4d255ba5ebd8f1f93fb41ef90511eb3da49906f4729f33f5f63766e0a0bd78ed` |
 | `rawlocal/bottom-corner-components/attempt01/checks.json` | `39e698d7ffec6646e2295f5ce96be0764ea8fbe6654ed3b0e881040b410bcc95` |
@@ -63,4 +68,4 @@ Paths below are relative to this folder; linked notes contain complete source/ou
 | `rawlocal/header-traction-map/attempt01/result.json` | `39d63b41dc495659b02cb4ff4fb638a19a491bc09e6ea3fd76a70314db08a837` |
 | `rawlocal/central-seat-transfer/coupon-attempt01/coupon.json` | `bdc35b60ca03039f6e5acad8c5c81784086368a3472183ae7515f66335fe41bb` |
 
-Root authenticated seven frozen result hashes, all 32 bottom-component source pins/two artifact bindings, and all local links. Executed producer: `5239f1b4897e17ade2c4c4e73b8f9a42e9433f76357fbe0f355308c84fcbd3a7`. Sheet complete; coordinator owns disposition/publication. No producer edits, mechanics/frame/CAD/native runs, tests, review, research, staging or commit performed here.
+Parent authenticated the current result/source/output bindings and local links before publication. Each linked calculation retains its stated method scope. Original source vectors and formal flags remain unchanged; no software tests or agent review loop ran.

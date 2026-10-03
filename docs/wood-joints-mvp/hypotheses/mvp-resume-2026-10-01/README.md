@@ -64,12 +64,17 @@ their recorded status.
 Peaks belong to separate states and are not added. These replays preserve
 each method's applicability limits and false complete-joint flags. The
 [earlier joint register](joint-register.md) is a historical force index.
-The completed [current register](upper-corner-screw-layout/joint-register.md)
-maps 24 blocks, 104 bolts and 66 screws to these new vectors: 624 bolt-axis
-states, 648 bolt-interface states and 396 screw states. It authenticates
-246 consumed bindings, with one inherited helper receipt explicitly
-attested through its preserved snapshot and a metadata-only source change.
-No additional mechanics solve was needed.
+The completed [working force register](upper-corner-screw-layout/working-joint-register.md)
+joins all 24 blocks, 104 bolts and 66 screws: 624 bolt-axis states,
+648 bolt-interface states and 396 screw states. Twenty corrected top,
+bottom and continuous-knee axes use their completed local allocations;
+the other 84 retain original integrated-frame forces and method records.
+Independent physical bore/seat/contact sums preserve the original group
+wrenches; maximum comparison force/moment residuals are 9.92e-5 N /
+0.006632 N mm. No global displacement feedback is asserted. The
+[source register](upper-corner-screw-layout/joint-register.md), including its
+246 consumed bindings and inherited-helper distinction, remains comparison
+history. Joining these saved results required no mechanics solve.
 
 ### Remaining decisions
 
@@ -218,6 +223,12 @@ sharing assumptions. All evaluated comparisons are below their stated
 references, with peak normal diagnostic sum 0.001798 and regional
 shear/torsion bound 0.032202. Source forces, actual finished bores and
 member identities remain unchanged.
+The separate [six header-cleat body comparison](upper-corner-screw-layout/header-cleat-net-sections.md)
+completes 1,968 signed traces across 36 body/case records. A documented
+retained-rectangle subset encloses the longitudinal circular holes; its
+normal diagnostic and same-state shear bounds peak at **0.020923 / 0.138131**.
+Omitted sound wood, common-strain/twist assumptions and the distinction from
+actual local stress or splitting capacity remain explicit.
 The [header input contract](upper-corner-screw-layout/header-local-transfer.md)
 preserves all 394 simultaneous header actions per case. The
 [header nominal section check](upper-corner-screw-layout/header-net-section.md)

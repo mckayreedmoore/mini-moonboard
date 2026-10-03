@@ -18,6 +18,13 @@ within their stated method scopes. Local corrections retain source group
 wrenches and do not establish global displacement feedback. Current panel
 head/withdrawal/lateral reference deficits remain explicit.
 
+The [working force register](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/working-joint-register.md)
+joins all six cases with exact receiver and axis identities: twenty corrected
+top/bottom/knee allocations and eighty-four retained source allocations.
+The [six header cleat bodies](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/header-cleat-net-sections.md)
+complete 1,968 nominal retained-wood traces under their documented subset and
+sharing hypotheses. Neither result supplies missing local cracking capacity.
+
 The [timber duration comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-duration.md)
 reproduces all 34,704 applicable original cut checks exactly. Under its
 declared seven-day cumulative full-peak hypothesis, the compatible rail face
