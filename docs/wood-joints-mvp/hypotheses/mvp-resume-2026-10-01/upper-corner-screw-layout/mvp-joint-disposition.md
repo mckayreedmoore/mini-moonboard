@@ -45,7 +45,7 @@ Bottom left's governing record is A1-rear `side_1`: simultaneous **T=203.598 N, 
 
 The coordinator sets MVP disposition with the panel deficit and original rail finding visible. Neither is an observed physical failure. This sheet commissions no further models, research, tests or external sign-off.
 
-Actual hardware/washer capacity, full splitting/group/torque resistance and delivered fit remain unqualified where stated. Equilibrium and small component indices supply no missing capacity. **47-criterion authority, complete-joint HOLD and fabrication/physical-release flags remain unchanged**.
+The [corner splitting applicability decision](corner-splitting-disposition.md) identifies the actual bottom-right `u`-opening path and existing side-bolt/host route. NDS opening provisions apply, but the cited E.4/EC5 scalar rules supply no complete crossed-group capacity. Actual hardware/washer capacity, full splitting/group/torque resistance and delivered fit remain unqualified where stated. **47-criterion authority, complete-joint HOLD and fabrication/physical-release flags remain unchanged**.
 
 ## Conditional shop references
 
@@ -68,7 +68,7 @@ The parent checked the objective against the current saved results and condition
 | Shop documentation / geometry changes | [Current joint addendum](../assembly-package/current-joint-addendum.md), corrected top bodies/bolts and four moved screw coordinates; source solids and overlays remain distinct. |
 | Panel assumptions / history / formal flags | Panel reference deficit, stiffness and material hypotheses are explicit; frozen history, 47 pending criteria and eight false flags preserved. |
 
-The retail washer suite, replacement fit and [full endpoint census](../assembly-package/washer-coverage.md) are complete; lower service adds 48 mean wood-bearing records, peak **0.012174**. Current rail placement and physical bottom gravity need no further replay. Panel reference exception and missing complete-joint resistance still prevent whole-goal acceptance; remaining twenty-cleat source applicability and the existing corner splitting criterion are being resolved without another frame model.
+The retail washer suite, replacement fit and [full endpoint census](../assembly-package/washer-coverage.md) are complete; lower service adds 48 mean wood-bearing records, peak **0.012174**. Current rail placement, physical bottom gravity and corner splitting applicability need no further replay. Panel reference exception and missing complete-joint resistance still prevent whole-goal acceptance. Remaining twenty-cleat source applicability is complete; its finite transverse assessment is in progress without another frame model.
 
 ## Frozen receipt index
 

@@ -86,6 +86,12 @@ cuts; it is not an assigned bolt force or splitting capacity. All 24,812
 changed grain cuts have fresh nominal comparisons, maximum shear/torsion
 0.088243 and grain tension 0.023747 against original references. No top gravity
 replacement or new frame response is adopted.
+The [corner splitting applicability disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/corner-splitting-disposition.md)
+now identifies the bottom-right grain-parallel opening plane and side-bolt/host
+route. Applicable NDS opening provisions supply no numerical perpendicular
+tensile capacity; longitudinal E.4 and EC5 beam splitting do not qualify the
+complete crossed duty. This finite source decision is complete. Existing
+bolt tension is not additional reinforcement reserve.
 The [208-endpoint washer census](hypotheses/mvp-resume-2026-10-01/assembly-package/washer-coverage.md)
 now includes all 48 lower-service annular wood-bearing references, maximum
 0.012174, closing that exact bookkeeping gap without assigning metal capacity.

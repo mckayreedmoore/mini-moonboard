@@ -195,6 +195,13 @@ These are below their original references. The small tensile demand remains
 explicit; no new bolt force, preload or splitting capacity is assigned.
 Corrected top timber has a different recorded mass-placement convention,
 so this bottom replacement is not transferred to the top blocks.
+The [corner splitting applicability decision](upper-corner-screw-layout/corner-splitting-disposition.md)
+maps that small demand to the actual grain-parallel `u`-opening plane and
+existing side-bolt/host route. NDS opening provisions apply; the cited
+longitudinal group and EC5 beam rules do not supply a complete crossed-group
+capacity. Existing bolt tension is already included. Local cracking remains
+an explicit unqualified working assumption, not an observed failure or a
+new blanket prerequisite.
 The [washer free-edge calculation](upper-corner-screw-layout/upper-right-washer-edge.md)
 repairs the earlier approximation defect at one fixed 709.053 N / 2.292 Nm
 end witness. Its two prescribed resolutions give 510.595 / 512.232 MPa
