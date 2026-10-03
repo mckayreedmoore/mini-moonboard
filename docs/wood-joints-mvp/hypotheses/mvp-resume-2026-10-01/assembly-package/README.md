@@ -43,6 +43,17 @@ and their input hashes are kept under `rawlocal/`; they are not published
 evidence links. The mass basis is analytical, and Actual/Disposition cells
 remain blank until observed.
 
+The [conditional blank cut list](blank-cut-list.md) now lists all 44 timber
+blanks and six separate plywood bodies, joining the unchanged stock records
+and four top geometry overrides. Source blank lengths, prepared sections,
+finished envelopes and grain identities remain separate; missing machining
+facts are not inferred from historical CAD holes.
+
+The [top-rail washer replacement fit](top-washer-fit.md) completes 37,352
+installed/removal enclosure pairs for the eight thicker washers with no
+overlap or undecided pair. This saved-scene geometry result retains the
+conditional product dimensions and does not establish actual tool operation.
+
 ## Parts and hardware
 
 | Scope | Transport parts | Bolts | Nuts | Separate washers | Hillman screws |

@@ -40,6 +40,10 @@ machining instructions. Its 600 kg/m³ body subtotal is 215.797379 kg, excluding
 accessories. It is distinct from the 224.949955 kg analytical frame mass and separate 25 kg
 equipment load allowance; none establishes an actual carried weight.
 
+Use the [44-blank stock-length list](blank-cut-list.md) for source stock lengths and prepared
+sections. Finished envelopes in the transport table are separate dimensions. Missing profile cuts,
+bevels, drilling and setup facts remain explicit; the blank list does not supply those operations.
+
 The former 144 Simpson SDS25112 screws and 24 ML24Z angles are absent from this lane. Do not add
 them to this bill of materials or substitute them for the 66 Hillman screws. Hold T-nuts, mounted
 holds, lights, and wires are separate from structural fastener counts.

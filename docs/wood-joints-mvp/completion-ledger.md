@@ -49,8 +49,17 @@ The [fixed-dimension retail washer suite](hypotheses/mvp-resume-2026-10-01/upper
 also completes all 48 current top-rail end states and eight nominal supported
 lands. Its maximum elastic stress proxy remains 207.205343 MPa against the
 declared 250 MPa yield hypothesis, with the earlier witness and fields
-byte-identical. Replacement occupancy is being checked before any planning
-change. Actual product capacity and changed-compliance feedback remain open.
+byte-identical. Actual product capacity and changed-compliance feedback remain
+open.
+
+The subsequent [saved-scene replacement fit](hypotheses/mvp-resume-2026-10-01/assembly-package/top-washer-fit.md)
+completes 37,352 installed/removal pairs for eight thicker top-rail washers:
+37,268 separated bounding boxes, twelve finite-cylinder projection certificates
+and 72 saved-STEP intersections, with no overlap or undecided pair. Delivered
+profiles, material and full tool operation remain conditional. The completed
+[44-blank cut list](hypotheses/mvp-resume-2026-10-01/assembly-package/blank-cut-list.md)
+keeps source stock lengths separate from finished envelopes and retains all
+four section reductions; missing machining instructions are explicit.
 
 These working calculations do not close the formal coverage register.
 **All 47 entries remain pending and all eight physical-release flags remain
