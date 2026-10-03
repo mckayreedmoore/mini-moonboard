@@ -23,7 +23,7 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 UPPER = HERE.parent
-RAW = UPPER / "rawlocal/header-v-cuts"
+RAW = HERE / "rawlocal/header-v-cuts"
 ROOT = next(path for path in HERE.parents if (path / "current-candidate.json").is_file())
 FLAGS = {
     "new_splitting_capacity": False,
@@ -211,7 +211,7 @@ def contact_integrals(
     bounds = [cell_bounds_uv[selected], cell_bounds_uv[other]]
     bores = []
     for index, circle in enumerate(trimmed["excluded_circles_patch_uv"]):
-        center_uv = vec(circle["center_patch_uv_mm"])
+        center_uv = vec(circle["center_patch_uv_mm"], shape=(2,))
         bores.append(
             {
                 "axis_id": f"saved-contact-bore-{index}",
