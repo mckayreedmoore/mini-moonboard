@@ -128,12 +128,12 @@ def functions(path, names, namespace):
 
 
 def basis():
-    namespace = dict(Path=Path, ast=ast, json=json, math=math, struct=struct,
-                     SimpleNamespace=SimpleNamespace, ZipFile=ZipFile, require=require,
-                     N_PER_LBF=4.4482216152605, ATTACHMENT=ATTACHMENT, LATERAL=LATERAL,
-                     YIELD=YIELD, PANEL=PANEL, REFERENCE=REFERENCE, WRENCH=WRENCH,
-                     OPERATORS=OPERATORS, RESPONSE=RESPONSE, PROJECTION=PROJECTION,
-                     CASES=("permanent-only",), AXIAL=AXIAL, SHEAR=SHEAR, CONTACT=CONTACT)
+    namespace = {"Path": Path, "ast": ast, "json": json, "math": math, "struct": struct,
+                 "SimpleNamespace": SimpleNamespace, "ZipFile": ZipFile, "require": require,
+                 "N_PER_LBF": 4.4482216152605, "ATTACHMENT": ATTACHMENT, "LATERAL": LATERAL,
+                 "YIELD": YIELD, "PANEL": PANEL, "REFERENCE": REFERENCE, "WRENCH": WRENCH,
+                 "OPERATORS": OPERATORS, "RESPONSE": RESPONSE, "PROJECTION": PROJECTION,
+                 "CASES": ("permanent-only",), "AXIAL": AXIAL, "SHEAR": SHEAR, "CONTACT": CONTACT}
     return functions(N14, ("definitions", "headers", "references", "nominal_receiver",
                            "comparison_row", "screw_references", "panel_sections"), namespace)
 
@@ -188,9 +188,9 @@ def inputs(pins):
                 and r["ownership"]["point_mm"] == axial[axis]["ownership"]["point_mm"] for r in components), "screw components differ")
         require(members[panel]["member_kind"] == "panel" and members[receiver]["member_kind"] == "timber"
                 and source["purchased_nominal_length_mm"] == 63.5, "existing receiver/product differs")
-        axes.append(dict(axis_id=axis, panel=panel, receiver=receiver, rows=[r["row"] for r in components],
-                         point_mm=axial[axis]["ownership"]["point_mm"], axis=connection["axis_xyz"],
-                         source_axis_record=source, receiver_geometry=members[receiver]["reduced_geometry_descriptor"]))
+        axes.append({"axis_id": axis, "panel": panel, "receiver": receiver, "rows": [r["row"] for r in components],
+                     "point_mm": axial[axis]["ownership"]["point_mm"], "axis": connection["axis_xyz"],
+                     "source_axis_record": source, "receiver_geometry": members[receiver]["reduced_geometry_descriptor"]})
     require(Counter(a["panel"] for a in axes) == {"main_upper_left": 12, "main_upper_right": 12,
             "main_lower_left": 12, "main_lower_right": 12, "kicker_left": 9, "kicker_right": 9}
             and len({(a["panel"], a["receiver"]) for a in axes}) == 22, "six-panel/22-group census differs")
@@ -359,8 +359,8 @@ def execute(output, numerical):
           output_sha256=artifacts, sources_authenticated_before_and_after=error is None, **FLAGS))
     if error is not None:
         raise error
-    return dict(status=report["status"], output=key(output), producer_sha256=pins[Path(__file__).resolve()],
-                summary_sha256=sha(output / "summary.json"), receipt_sha256=sha(output / "receipt.json"), source_pin_count=len(pins))
+    return {"status": report["status"], "output": key(output), "producer_sha256": pins[Path(__file__).resolve()],
+            "summary_sha256": sha(output / "summary.json"), "receipt_sha256": sha(output / "receipt.json"), "source_pin_count": len(pins)}
 
 
 def run(output):

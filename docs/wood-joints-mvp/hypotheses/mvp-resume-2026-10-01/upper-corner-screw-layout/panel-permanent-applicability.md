@@ -261,8 +261,15 @@ bases and requires exact equality with the frozen N14 head, withdrawal and
 lateral catalogs before setting the private duration tuple to `[0.9]`.
 The existing N14 receipt/summary provide the recorded formula evidence.
 
-Frozen producer SHA-256:
+Executed producer snapshot SHA-256:
 `196a3211ee78edc0a7b93b25559d5b62f0dc1a3812e417baa43d3b3554261190`.
+The maintained source uses dictionary literals after three C408 style fixes;
+its SHA-256 is `0e699b152173513c7c8728ebef893bdc4a4b9e03ca930f7478d8465767aa90f9`.
+The parent compared both syntax trees after normalizing keyword `dict()` calls
+to literals: they are identical. Targeted Ruff passes. The executed snapshot,
+receipt and all eight numerical output hashes remain unchanged; the historical
+producer pin resolves through `attempt01/producer.py.snapshot`. No numerical
+rerun followed this publication cleanup.
 The 24-source manifest returned by `prepare()` has canonical SHA-256
 `262e0e93a0ab54f3e76a2530a4b44e41bf567971b6497ef914428568baec4672`,
 using UTF-8 JSON with `sort_keys=True, separators=(",", ":")` on
