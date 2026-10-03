@@ -1,7 +1,7 @@
 # Knee-spine direct bridge: bounded proposal
 
 **Parent calculation complete: all 984 listed cuts / 12 body-case states have finite normal-transfer witnesses below the declared references. Proposal remains unadopted.**
-Add two hypothetical 1/4-in through-bolts along local `v` in each spine, at
+Add two hypothetical 1/4-in through-bolts along local `v` in each spine ([axis diagram](knee-bridge-proposal.svg)), at
 `(grain,u)=(100,0)` and `(250,0)` mm, through the 139.7-mm depth. Proposed bore
 envelope is 7.5 mm, matching current quarter-inch envelopes; it is not a drill
 instruction. Current model and 104 axes remain authority. Four added stacks
