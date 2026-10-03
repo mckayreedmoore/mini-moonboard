@@ -234,6 +234,14 @@ assumptions; the original frame index is preserved.
    support and the central washer crescent remain explicit method limits.
    Small component ratios do not remove these missing checks.
 
+The finite nominal section work now also covers the [twelve other blocks](remaining-net-sections.md)
+at 2,304 recorded opening-section limits and the [six header paired-bore sections](header-net-section.md)
+at 72 signed limits / 216 regions. Same-state shear/torsion bounds peak at
+0.032202 and 0.348589 respectively; header normal tension/compression/bending
+indices are 0.255719/0.128060/0.163160. These complete the named nominal
+comparisons under common-strain, end-bridge and sharing assumptions; their
+full signed wrenches and original references are preserved.
+
 The finite shared-rail and shared-side calculations now provide local
 same-state bolt/contact reactions under their stated rigid-host assumptions.
 Local washer flexure now supplies a fixed-load deformation sensitivity;

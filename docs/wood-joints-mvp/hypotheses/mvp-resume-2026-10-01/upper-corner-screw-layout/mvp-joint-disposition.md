@@ -27,6 +27,8 @@ The [top-corner nominal net-section comparison](corner-net-section.md) covers ei
 
 The [remaining twelve blocks](remaining-net-sections.md) complete **2,304 recorded opening-section limits** across all six cases under the same assumptions. The normal diagnostic sum and same-state shear/torsion bound peak at **0.00180 / 0.03221**. These are finite nominal section comparisons; continuous-station maxima and notch/splitting capacity are outside the method.
 
+The [six header paired-bore sections](header-net-section.md) complete **72 signed limits / 216 regional comparisons** using all 394 source actions per case. Tension/compression/bending indices are **0.2557 / 0.1281 / 0.1632**; the same-state shear/torsion bound is **0.3486**. Full A1-rear torque is retained. This completes the finite nominal comparison under the same sharing assumptions, without new strength or qualification.
+
 The [retail thick-washer option](retail-washer.md) completes two resolutions at the current **707.884 N / 2.432 N·m** witness. Declared **25.4/8.3058/2.5 mm OD/ID/thickness** gives finer stress **207.205 MPa**, index **0.829** against assumed 250 MPa yield, with saved nominal timber support. This changes no inventory and qualifies no actual retail material.
 
 ## Practical disposition

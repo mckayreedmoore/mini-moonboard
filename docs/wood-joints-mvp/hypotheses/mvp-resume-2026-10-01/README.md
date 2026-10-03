@@ -197,8 +197,14 @@ references, with peak normal diagnostic sum 0.001798 and regional
 shear/torsion bound 0.032202. Source forces, actual finished bores and
 member identities remain unchanged.
 The [header input contract](upper-corner-screw-layout/header-local-transfer.md)
-preserves all 394 simultaneous header actions per case and the six existing
-disconnected paired-bore sections for the remaining local transfer work.
+preserves all 394 simultaneous header actions per case. The
+[header nominal section check](upper-corner-screw-layout/header-net-section.md)
+now completes the six existing disconnected paired-bore sections: 72 signed
+limits and 216 regional comparisons. Peak tension/compression/bending
+indices are 0.255719/0.128060/0.163160; the same-state shear/torsion bound
+is 0.348589. The full A1-rear torque remains in the source and regional
+accounting. Sharing is the same explicit nominal MVP assumption, with no
+new strength allowance, frame response or complete-joint qualification.
 The [loaded knee method](upper-corner-screw-layout/knee-contact-entry.md)
 is now complete for four shafts and six cases. An exact forward clearance-entry
 step resolves the earlier low-load iteration stops without changing the
