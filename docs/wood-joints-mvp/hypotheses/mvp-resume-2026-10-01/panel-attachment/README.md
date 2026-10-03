@@ -1,5 +1,262 @@
 # Panel attachment: a practical decision worksheet
 
+## Corrected added stations and left/right interpretation
+
+**The first 20-screw proposal had unequal left/right gap choices.** Its
+longest-gap rule selected the outer and middle horizontal gaps on the left,
+but the inner and middle gaps on the right, because the right outer gap
+was 3.175 mm shorter. Four right-side hypothetical additions were at
+X=252.5375 rather than the comparable outer location X=1016.025 mm.
+This is a placement error in the comparison, not evidence that wood frames
+naturally have different left/right capacities. Preserve the original
+helpers, inputs, response and [count-comparison.json](count-comparison.json)
+as evidence for their particular asymmetric stations.
+
+[count_mirrored_layout.py](count_mirrored_layout.py) corrects those four
+additions, retaining all existing twelve stations and the proposed count
+of twenty per main panel. [mirror_projection.py](mirror_projection.py)
+reprojects only twelve changed scalar rows on six right-side bodies using
+the existing delta-projection equations. The original twelve-screw operator
+block remains byte-identical, and all new points map into the gross meshes.
+No live CAD, hold-grid, purchased hardware policy or native solver changes.
+
+The corrected frame completes all twelve states with the existing QP seed
+option and unchanged physical equations/tolerances:
+
+| Actual-grid case, modeled bolt clearances | Source 12-screw peak | Corrected 20-screw peak |
+| --- | ---: | ---: |
+| A12-rear, upper left | 1871.251 N | 1244.179 N |
+| K12-rear, upper right | 1603.442 N | 1829.446 N |
+| A1-rear, lower left | 987.395 N | 2171.094 N |
+
+Correcting screw placement does not eliminate the side difference or close
+the generic reference gap. A12 and K12 carry identical force vectors in
+separate cases, but their X coordinates are -1019.2 and +980.8 mm. Relative
+to the corrected nearest added screws, their offsets are -1.5875 and
+-35.225 mm, so these are not mirrored load locations.
+
+### Bounded right-side load-position probe
+
+One diagnostic translates the saved eight-node K12-rear force patch by
+36.8125 mm in X, bringing its relative screw offset to +1.5875 mm. The
+nodal forces are interpolated onto the existing gross right-panel mesh.
+Force and moment are conserved; a zero-translation oracle reproduces
+the original nodal map to 1.14e-9 N. Only this right-side case is solved,
+at zero and modeled bolt gaps. This is a different load position from real
+K12, not a new hold or replacement design case. No remesh or physical
+calibration is implied by the interpolation check.
+
+| Rear case | Corrected left, actual A12 | Corrected right, actual K12 | Right with matched local hold offset |
+| --- | ---: | ---: | ---: |
+| Zero bolt gaps | 1202.172 N | 1513.495 N | 1276.755 N |
+| Modeled bolt gaps | 1244.179 N | 1829.446 N | 1585.342 N |
+
+The matched-offset zero-gap peaks differ by 6.2%; with modeled gaps they
+differ by 27.4%. The gap increment is about 42 N on the left and 309 N
+in the right position probe. This isolates load location as a contributor
+and shows additional sensitivity to the coupled frame's clearance/seating
+and contact response. It is not an exactly mirrored mesh/geometry test,
+and does not establish that the physical build will have that residual
+asymmetry or a unique force allocation. Bounded nonunique seating and
+failed strict stiffness/stability flags remain explicit.
+
+### What the screw peak means
+
+All 98 proposed panel/kicker screws are solved in the same coupled frame,
+along with frame bolts and compression contacts. Each screw has two lateral
+components and one tension-only axial component. The climber force is
+applied once per case; the force solution satisfies all screw laws, body
+equilibrium and contact laws simultaneously. These are predictions, not
+physical force measurements. Equality of screw forces is not imposed.
+
+For the corrected lower-left A1-rear state, all twenty panel screws carry
+4466.891 N total tension. The largest carries 2171.094 N, about 48.6%; the
+other nineteen together carry 2295.797 N. The next two carry approximately
+391 and 385 N. Local bending and backing compression concentrate load at
+the new screw near the hold. The larger total than the external outward
+load is balanced by contact reactions, as explained in the preserved
+first-layout section below. These figures remain conditional on the
+unmeasured screw and panel/contact laws.
+
+[mirror-comparison.json](mirror-comparison.json) records all twelve
+corrected states, both position-probe states, every loaded-panel screw
+tension, source/output hashes and reconstruction commands. Raw packets
+remain in ignored `results/count20-mirrored-*` and
+`results/right-position-probe-*` paths, with exact launcher snapshots.
+Two symmetry-placement tests and helper/projection lint pass; operator
+reciprocity is 9.07e-11 relative and the original source hashes recheck.
+The position projection used the project environment; its initial frame
+import lacked OSQP and produced no frame result. The separate completed
+two-state run used the pinned NumPy 2.2.6/SciPy 1.15.3/OSQP 1.0.4 environment.
+No further solve or branch search remains active. Preserve the corrected
+comparison, probe and original asymmetric packet as distinct evidence.
+
+## Owner-requested 12-versus-20 screw and model check
+
+This section preserves the first asymmetric 20-screw station proposal;
+the corrected side-comparable proposal and position probe are above.
+
+**The evaluated 20-screw layout does not close the conditional reference
+gap.** It improves the upper-left high-hold case but shifts the governing
+demand to an added screw on the lower-left panel. This applies to the
+particular proposed stations, not every 20-screw arrangement or the physical
+purchased screws. No live candidate or hardware change is adopted.
+
+The comparison starts from the owner's four-upper-station relocation,
+[`operators-attempt02`](../upper-corner-screw-layout/operators-attempt02/operator-assessment.json)
+and its completed twelve-state 250 lb response. It preserves each panel's
+twelve existing stations, including the lower-panel row offsets.
+[count_layout.py](count_layout.py) adds two stations in each vertical column
+and two in each horizontal rail row, using midpoints of the two longest
+current gaps. Eight additions per main panel change 48 main plus 18 kicker
+screws to 80 main plus 18 kicker screws: **98 hypothetical total screws**,
+outside the existing 66 purchased-axis inventory.
+
+[count_projection.py](count_projection.py) appends 96 scalar connector rows
+using the saved native member operators. All 32 added points project into
+both gross receiving meshes and pass coarse AABB checks. These do not
+certify finished holes, edge distances, hold/LED conflicts, installation or
+resistance. Original operator blocks, members, contacts, bolt layouts,
+loads and conditional screw laws are retained; added screw mass is omitted.
+No CAD rebuild or native solver is launched, and the live reviewed model
+is unchanged.
+
+[count_frame.py](count_frame.py) preserves the frozen frame producer. Its
+only adaptations change the 66/132 screw inventory guard to 98/196 and pad
+raw numerical seeds/reference differences with 96 zeros. No equilibrium
+equation, law, tolerance or floor assumption changes. The first attempt
+completed six zero-gap states, then stopped on a normal active-set cycle.
+One bounded retry using the producer's existing QP seeding option completed
+all twelve states; its exact launcher/function snapshots are retained.
+No further branch search is active.
+
+| Load case, modeled bolt clearances | 12 screws: peak axial demand | 20 screws: peak axial demand | Simultaneous shear at the 20-screw peak |
+| --- | ---: | ---: | ---: |
+| Upper-left A12-rear | 1871.251 N | 1243.913 N | 503.053 N |
+| Upper-right K12-rear | 1603.442 N | 1550.561 N | 724.349 N |
+| Lower-left A1-rear | 987.395 N | 2171.245 N | 173.278 N |
+
+The 20-screw nominal envelope governs at added bottom-rail station
+`hyp20_main_lower_left_edge_gap_1`, with 0.807251 mm modeled opening.
+Its zero-gap envelope is 2071.947 N at the same station, versus the old
+1923.816 N upper-left zero-gap envelope. Extra springs change local
+compatibility and prying; dividing the old peak by the count ratio is
+invalid. The 2171 N peak exceeds the retained 277–629 N unadjusted head
+references and explicit 1006 N favorable duration-adjusted head scenario.
+These are conditional ASD references, not measured Hillman breaking loads.
+
+Read-only recovery of the saved responses explains part of the unexpected
+lower-panel increase. The added governing screw is only 1.5875 mm from
+A1's X coordinate and 36.75 mm upslope of its face patch. Its source live
+force/moment gives approximately 90.1 N m about the screw's front-face point.
+At that same new station, probing the old response with the appended
+`D a + e - H f` row gives 2.997833 mm nominal-gap opening without the screw;
+the new response gives 0.807251 mm with it. At zero bolt gaps the respective
+values are 4.202036 and 0.770333 mm. These are conditional relative panel/
+receiver motions, not physical measurements or new solves. The old 987 N
+maximum is at a different station, so comparing peak forces alone hides
+this local improvement in restraint.
+
+For A1-rear at modeled gaps, the lower panel's total external outward
+normal load, including its proportional dead load, is 1775.487 N in both
+models. Its twelve-screw response balances 2622.318 N total screw tension
+against 846.831 N net outward contact force. The twenty-screw response
+balances 4469.319 N tension against 2693.832 N net outward contact force:
+in each case, tension minus net contact equals the same external load.
+The net contact term includes the kicker interface; it is not solely the
+sum of unsigned backing pressures. Contact/tension couples can amplify
+individual forces while preserving equilibrium. Recovered external load
+work also decreases in both compared rear cases when the added springs
+are present. These checks make the higher individual screw demand
+mechanically coherent; they do not calibrate the contact or spring laws.
+
+### Local bending benchmark and official backing comparison
+
+[count_benchmark.py](count_benchmark.py) isolates upper-left panel-normal
+translation/bending with fixed receivers, the same screw/contact stations
+and normal load/moment. It compares rigid plywood with the saved elastic
+plywood operator. Both omit frame motion, panel-seam constraints and
+in-plane connector reactions. The elastic version retains the panel's
+elastic response to the full load vector, while rigid balance is projected
+onto three normal/bending coordinates. Neither replaces the full frame.
+
+| Upper-left A12-rear, fixed receivers | 12 screws | 20 screws |
+| --- | ---: | ---: |
+| Rigid panel: largest axial force | 396.794 N | 229.870 N |
+| Elastic panel: largest axial force | 2130.507 N | 1402.797 N |
+
+Large concentration persists without frame movement or its bolt-clearance
+iteration. This identifies local plywood bending, contact and screw
+compliance as a useful fidelity question; it does not validate those
+properties or justify adopting a rigid panel to claim a pass. The saved
+panel material is a conditional APA Group 1 equivalent-layer fit with
+unobserved face axes and out-of-plane proxies. Preserve the purchased
+[Roseburg AC fir identification](../../../../purchased-materials.md);
+remaining property questions concern that product/lot.
+
+Moon's [Mini DIY guide, page 2](https://moonclimbing.com/media/moonboard-pdf/How-to-build-a-MoonBoard_v2.3.pdf)
+specifies four uprights spaced **813 mm** apart. This candidate's main-panel
+rim/center screw columns are approximately **1130 mm** apart. Its upper-left
+panel has normal timber contacts only on the rim, center principal, top
+rail and service rail, with no intervening upright contact. Moon also
+requires [horizontal bracing across panel joints](https://us.moonclimbing.com/blogs/guides/how-to-build-your-moonboard)
+and supplies [birch plywood panels](https://moonclimbing.com/mini-moonboard-diy-panels.html).
+Therefore equal screw count does not establish equal support, panel bending
+or connection demand. The quantitative effect of these differences has
+not been evaluated here, and the video's count remains the owner's report.
+
+### Measured climbing forces and design actions
+
+The current 250 lb case applies **2.224 kN downward, or 2.0 bodyweights**,
+plus 300 N horizontal, or 0.270 bodyweight, at one hold 100 mm outward from
+the face datum. The 2x includes static weight; it is not added twice.
+
+| Primary source | Finding | Limit |
+| --- | --- | --- |
+| [Fuss and Niegl, 2010](https://www.researchgate.net/publication/225113929_Biomechanics_of_the_two-handed_dyno_technique_for_sport_climbing) | Nine climbers, 45–60 kg; upper-hold vertical catch peaks 1.1–1.63 bodyweights after two-hand dynos. | Rescaling 1.63 to 250 lb gives 1.813 kN, about 23% below our case. This is an inference, not a measured 250 lb result or upper bound. |
+| [Hugues et al., published 2025](https://mbj.episciences.org/en/articles/14571) | Seven experts; peak of averaged total vertical support profile 2.26 bodyweights. Separate hand/foot profiles peak at 0.84/1.57 at different times. | Short conference paper about four-contact takeoff, not single-hold catching or individual maximum-force bounds. |
+| [CWA first edition, January 2009](https://www.cwapro.org/file/secure/cwadesignpecfinal2022.pdf) | Table 1 specifies 1.2 kN unroped-climber live load; current 2.224 kN is 1.85 times that action. | Specified design action, not measured maximum or failure resistance. Scope is stationary/fixed-in-place, not specifically portable. Filename/hosting does not make it a new edition. |
+| [Official EN 12572-2:2017 preview](https://preview.sist.si/sist-preview/39968/eb82f102549541eba9b79bad025432c2/SIST-EN-12572-2-2017.pdf) | Structural integrity uses characteristic actions and Annexes A/B; panel deflection uses 0.8 kN. | Service deflection, strength and panel-insert qualification are separate checks. Preview omits full annex factors; no standard-based reduction is adopted. |
+
+Hugues also reports opposed antero-posterior hand/foot profiles peaking at
+0.66/0.55 bodyweight, with mean net force about 0.053 bodyweight. A modest
+net horizontal force can coexist with larger local forces and a contact
+couple. This does not calibrate our 300 N at one hold. Neither dynamic
+paper establishes the 100 mm hold lever or matches our 40-degree/250 lb
+conditions.
+
+**Assessment:** 2x bodyweight is a plausible screening case, neither an
+absurd magnitude nor a proven dynamic bound. Full single-hold concentration
+is demanding relative to multi-contact movement. Reducing it solely to
+obtain a screw pass is unsupported. The method is arithmetically consistent
+and useful for sensitivities; local peaks remain conditional on the screw
+laws, sheet properties and backing/contact fidelity. Reconcile those
+assumptions before selecting an attachment correction.
+
+### Receipts and finite closure
+
+[count-comparison.json](count-comparison.json) retains all 24 frame-state
+comparisons, simultaneous shear/opening, source/output hashes, commands and
+runtime versions. Bulky raw operators/responses are in ignored
+`results/count20-*` paths. The first stop is preserved; the completed packet
+is [count20-frame-attempt02-qp](results/count20-frame-attempt02-qp/comparison.json).
+Restore its `count-only-launcher.py.snapshot` to a temporary Python file
+and use the recorded pinned command with fresh output directories.
+Projection used Python 3.12.3/NumPy 2.5.2/SciPy 1.18.1; frame and benchmark
+used NumPy 2.2.6/SciPy 1.15.3/OSQP 1.0.4.
+
+Three layout tests and centered/eccentric four-tie known answers pass.
+All 24 benchmark states meet their balance/law tolerances. Maximum
+20-screw frame force, moment, finite-law and circular-gap residuals are
+`1.46e-11 N`, `1.65e-8 N mm`, `1.35e-6 N` and `9.07e-9 N`.
+Projection reciprocity is `9.09e-11` relative; old H/D/e blocks are unchanged.
+An independent read-only review found no algebra/index/count-adaptation
+error. Six lint advisories remain in already frozen helpers; no clean-lint
+claim is made. The `reviewed_geometry_changed` flag denotes a hypothetical
+model difference, not approval of added screws. No force-case or native
+run remains active. Preserve this comparison and failed attempt as evidence;
+physical fit, actual Hillman resistance and release remain unestablished.
+
 **Preserved all-outer/soft-law results (attempt05–07):** none of those three
 saved compatible frame allocations meets declared unadjusted head references.
 Reducing assumed withdrawal stiffness from 2689.7 to 100 N/mm lowers their

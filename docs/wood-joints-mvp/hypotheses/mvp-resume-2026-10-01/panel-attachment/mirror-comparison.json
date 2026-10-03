@@ -1,0 +1,1393 @@
+{
+  "schema": "corrected_panel_layout_and_position_diagnostic/v1",
+  "scope": "Correct hypothetical horizontal placement and explain side-to-side force differences; no live geometry/load-contract changes",
+  "correction": "Original longest-gap rule chose left outer+middle gaps but right inner+middle gaps due 3.175 mm outer-gap difference. Four right hypothetical stations relocate X252.5375 to X1016.025. Existing12 stations and source scripts/packets preserved.",
+  "coupled_screws": {
+    "original_total": 66,
+    "proposed_total": 98,
+    "per_main_panel": 20,
+    "scalars_per_screw": 3,
+    "climber_load_applied_once_per_case": true,
+    "physical_measurement": false
+  },
+  "results": [
+    {
+      "scenario": "corrected20",
+      "state_count": 12,
+      "states": [
+        {
+          "case_id": "a12-rear",
+          "gap_scale": 0.0,
+          "axis_id": "hyp20_main_upper_left_edge_gap_1",
+          "peak_axial_n": 1202.1723487223567,
+          "simultaneous_lateral_n": 271.2075544553994,
+          "loaded_panel_screw_tension_total_n": 2367.7071415783516,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_1",
+              "tension_n": 1202.1723487223567
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_2",
+              "tension_n": 391.6173175225488
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_4",
+              "tension_n": 156.88042554940466
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_3",
+              "tension_n": 107.4083554850165
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_4",
+              "tension_n": 97.49073015385042
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_2",
+              "tension_n": 81.00671121749855
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_1",
+              "tension_n": 58.53918381810535
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_3",
+              "tension_n": 39.13848442110902
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_2",
+              "tension_n": 37.42016063792844
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_3",
+              "tension_n": 34.676408998152475
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_1",
+              "tension_n": 34.66709427238232
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_2",
+              "tension_n": 24.426039471473203
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_1",
+              "tension_n": 20.706450813346624
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_2",
+              "tension_n": 19.153851656411348
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_1",
+              "tension_n": 15.466406196627371
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_3",
+              "tension_n": 12.237616723876565
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_2",
+              "tension_n": 11.051721489212268
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_1",
+              "tension_n": 10.894728864025115
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_1",
+              "tension_n": 9.378336929950445
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_1",
+              "tension_n": 3.374768635075409
+            }
+          ],
+          "force_bearing_rank": 300
+        },
+        {
+          "case_id": "a12-forward",
+          "gap_scale": 0.0,
+          "axis_id": "hyp20_main_upper_left_edge_gap_1",
+          "peak_axial_n": 1114.7260572213643,
+          "simultaneous_lateral_n": 248.29958163822684,
+          "loaded_panel_screw_tension_total_n": 1995.37587571927,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_1",
+              "tension_n": 1114.7260572213643
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_2",
+              "tension_n": 230.4476137176811
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_4",
+              "tension_n": 140.87580769722743
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_3",
+              "tension_n": 138.77409290148617
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_4",
+              "tension_n": 78.27681594364697
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_3",
+              "tension_n": 77.65272388078584
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_2",
+              "tension_n": 38.091678800638704
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_1",
+              "tension_n": 31.82128536634691
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_3",
+              "tension_n": 27.408342349161316
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_2",
+              "tension_n": 26.78830150105331
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_3",
+              "tension_n": 16.017011629096896
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_1",
+              "tension_n": 11.568278616776762
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_1",
+              "tension_n": 11.382165652128421
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_1",
+              "tension_n": 11.000086948636921
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_2",
+              "tension_n": 9.201989035161422
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_1",
+              "tension_n": 8.34244210170593
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_1",
+              "tension_n": 8.17148732320252
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_2",
+              "tension_n": 5.505756999440247
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_1",
+              "tension_n": 4.983452289393268
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_2",
+              "tension_n": 4.340485744335628
+            }
+          ],
+          "force_bearing_rank": 300
+        },
+        {
+          "case_id": "a12-left",
+          "gap_scale": 0.0,
+          "axis_id": "hyp20_main_upper_left_edge_gap_1",
+          "peak_axial_n": 1140.98259390728,
+          "simultaneous_lateral_n": 277.1013256317562,
+          "loaded_panel_screw_tension_total_n": 2136.5217493632094,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_1",
+              "tension_n": 1140.98259390728
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_2",
+              "tension_n": 425.8894275212587
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_4",
+              "tension_n": 112.41532233534703
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_4",
+              "tension_n": 85.75513042151223
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_2",
+              "tension_n": 64.87589749248858
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_1",
+              "tension_n": 49.39741250210055
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_3",
+              "tension_n": 40.77894084449153
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_3",
+              "tension_n": 33.25891162295812
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_3",
+              "tension_n": 25.994597760356378
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_1",
+              "tension_n": 25.795788279703785
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_2",
+              "tension_n": 22.665300529794774
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_2",
+              "tension_n": 19.816190320881365
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_1",
+              "tension_n": 18.994940633474773
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_2",
+              "tension_n": 17.556711766083374
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_1",
+              "tension_n": 15.76859636018967
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_1",
+              "tension_n": 9.961702487405205
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_3",
+              "tension_n": 9.233872068604168
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_1",
+              "tension_n": 8.609954958235797
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_2",
+              "tension_n": 6.731761549567891
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_1",
+              "tension_n": 2.038696001475375
+            }
+          ],
+          "force_bearing_rank": 300
+        },
+        {
+          "case_id": "k12-right",
+          "gap_scale": 0.0,
+          "axis_id": "hyp20_main_upper_right_edge_gap_3",
+          "peak_axial_n": 1487.2811247385978,
+          "simultaneous_lateral_n": 346.71856948995037,
+          "loaded_panel_screw_tension_total_n": 2649.27827828503,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_3",
+              "tension_n": 1487.2811247385978
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_2",
+              "tension_n": 531.6502643291476
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_4",
+              "tension_n": 164.80935762475423
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_4",
+              "tension_n": 89.81786157485321
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_2",
+              "tension_n": 58.047983929335494
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_3",
+              "tension_n": 51.12772610041835
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_1",
+              "tension_n": 47.83408319718563
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_3",
+              "tension_n": 32.38601991773203
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_1",
+              "tension_n": 27.014523081082327
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_2",
+              "tension_n": 25.18119815285577
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_3",
+              "tension_n": 23.95800176852363
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_2",
+              "tension_n": 18.510276815982664
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_1",
+              "tension_n": 18.43193595347606
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_3",
+              "tension_n": 16.61170294346868
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_2",
+              "tension_n": 15.891971548748103
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_1",
+              "tension_n": 14.453544022317129
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_1",
+              "tension_n": 9.286980694372174
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_1",
+              "tension_n": 8.794887491994606
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_2",
+              "tension_n": 4.514431623940307
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_3",
+              "tension_n": 3.674402776244074
+            }
+          ],
+          "force_bearing_rank": 300
+        },
+        {
+          "case_id": "k12-rear",
+          "gap_scale": 0.0,
+          "axis_id": "hyp20_main_upper_right_edge_gap_3",
+          "peak_axial_n": 1513.4953966118212,
+          "simultaneous_lateral_n": 308.18013882922725,
+          "loaded_panel_screw_tension_total_n": 2775.1574446510576,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_3",
+              "tension_n": 1513.4953966118212
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_2",
+              "tension_n": 499.87044902941653
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_4",
+              "tension_n": 164.63261274369285
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_4",
+              "tension_n": 103.70380181643375
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_2",
+              "tension_n": 78.50296731023252
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_3",
+              "tension_n": 73.13024977923622
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_1",
+              "tension_n": 59.547951879441996
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_3",
+              "tension_n": 39.25002263562803
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_1",
+              "tension_n": 39.08252876620827
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_2",
+              "tension_n": 36.152775837230266
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_3",
+              "tension_n": 34.34203183811642
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_2",
+              "tension_n": 24.431506090361435
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_3",
+              "tension_n": 22.628782536246714
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_1",
+              "tension_n": 21.020333801082153
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_1",
+              "tension_n": 16.01458063265723
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_2",
+              "tension_n": 14.7361005557459
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_2",
+              "tension_n": 11.196664038823075
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_1",
+              "tension_n": 10.236812559692119
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_1",
+              "tension_n": 8.814350303958772
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_3",
+              "tension_n": 4.367525885032069
+            }
+          ],
+          "force_bearing_rank": 300
+        },
+        {
+          "case_id": "a1-rear",
+          "gap_scale": 0.0,
+          "axis_id": "hyp20_main_lower_left_edge_gap_1",
+          "peak_axial_n": 2071.9648295160873,
+          "simultaneous_lateral_n": 297.15611014996466,
+          "loaded_panel_screw_tension_total_n": 4123.990524360698,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_lower_left_edge_gap_1",
+              "tension_n": 2071.9648295160873
+            },
+            {
+              "axis_id": "round_panel_lower_left_edge_2",
+              "tension_n": 415.1733748595106
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_rim_gap_1",
+              "tension_n": 247.64695000644016
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_edge_gap_2",
+              "tension_n": 219.41340350794582
+            },
+            {
+              "axis_id": "round_panel_lower_left_edge_1",
+              "tension_n": 164.57762483077178
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_service_gap_2",
+              "tension_n": 113.15561734523787
+            },
+            {
+              "axis_id": "round_panel_lower_left_service_2",
+              "tension_n": 111.2317971537426
+            },
+            {
+              "axis_id": "round_panel_lower_left_rim_2",
+              "tension_n": 95.26697448799187
+            },
+            {
+              "axis_id": "round_panel_lower_left_center_2",
+              "tension_n": 83.9985835441502
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_center_gap_1",
+              "tension_n": 81.47697998763122
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_center_gap_2",
+              "tension_n": 78.214571714518
+            },
+            {
+              "axis_id": "round_panel_lower_left_rim_1",
+              "tension_n": 77.30245259461938
+            },
+            {
+              "axis_id": "round_panel_lower_left_service_1",
+              "tension_n": 76.87167410019525
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_service_gap_1",
+              "tension_n": 71.09057548487128
+            },
+            {
+              "axis_id": "round_panel_lower_left_center_3",
+              "tension_n": 63.19276118928621
+            },
+            {
+              "axis_id": "round_panel_lower_left_center_1",
+              "tension_n": 60.420529945462064
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_rim_gap_2",
+              "tension_n": 30.26209999215773
+            },
+            {
+              "axis_id": "round_panel_lower_left_center_4",
+              "tension_n": 27.338817147525337
+            },
+            {
+              "axis_id": "round_panel_lower_left_rim_3",
+              "tension_n": 20.626511310926123
+            },
+            {
+              "axis_id": "round_panel_lower_left_rim_4",
+              "tension_n": 14.764395641627315
+            }
+          ],
+          "force_bearing_rank": 300
+        },
+        {
+          "case_id": "a12-rear",
+          "gap_scale": 1.0,
+          "axis_id": "hyp20_main_upper_left_edge_gap_1",
+          "peak_axial_n": 1244.179271662827,
+          "simultaneous_lateral_n": 503.4172841674921,
+          "loaded_panel_screw_tension_total_n": 3517.1818073459804,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_1",
+              "tension_n": 1244.179271662827
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_2",
+              "tension_n": 534.5571612561187
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_4",
+              "tension_n": 329.09697565695353
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_2",
+              "tension_n": 253.08651022140975
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_1",
+              "tension_n": 247.5250596421262
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_4",
+              "tension_n": 227.1212369177187
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_3",
+              "tension_n": 151.0106637489434
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_3",
+              "tension_n": 87.79407038875146
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_2",
+              "tension_n": 77.3066443880831
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_3",
+              "tension_n": 73.09619186210962
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_1",
+              "tension_n": 68.78904462675781
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_2",
+              "tension_n": 56.36003423989236
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_2",
+              "tension_n": 41.4601443324967
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_1",
+              "tension_n": 36.29626248934843
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_1",
+              "tension_n": 34.38909016540109
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_1",
+              "tension_n": 30.77783981772484
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_1",
+              "tension_n": 10.507037176905293
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_2",
+              "tension_n": 8.840084790210014
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_3",
+              "tension_n": 4.988483962202288
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_1",
+              "tension_n": 0.0
+            }
+          ],
+          "force_bearing_rank": 296
+        },
+        {
+          "case_id": "a12-forward",
+          "gap_scale": 1.0,
+          "axis_id": "hyp20_main_upper_left_edge_gap_1",
+          "peak_axial_n": 1127.6241047176222,
+          "simultaneous_lateral_n": 451.33993693736994,
+          "loaded_panel_screw_tension_total_n": 2781.0646995300635,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_1",
+              "tension_n": 1127.6241047176222
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_2",
+              "tension_n": 342.26497248182943
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_4",
+              "tension_n": 308.4297597890137
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_4",
+              "tension_n": 189.63794449897946
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_1",
+              "tension_n": 186.50504034626138
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_2",
+              "tension_n": 162.6480298429065
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_1",
+              "tension_n": 74.9087178818146
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_2",
+              "tension_n": 63.36588419271471
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_3",
+              "tension_n": 62.132355612485455
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_3",
+              "tension_n": 56.65371295455766
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_2",
+              "tension_n": 45.60875311500879
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_3",
+              "tension_n": 39.23760115494396
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_1",
+              "tension_n": 37.17602502558165
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_1",
+              "tension_n": 20.62304252143202
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_3",
+              "tension_n": 17.581894663250736
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_2",
+              "tension_n": 16.63737237077404
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_1",
+              "tension_n": 15.585979285489588
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_1",
+              "tension_n": 7.270177953627638
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_2",
+              "tension_n": 4.840609420161808
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_1",
+              "tension_n": 2.332721701608131
+            }
+          ],
+          "force_bearing_rank": 296
+        },
+        {
+          "case_id": "a12-left",
+          "gap_scale": 1.0,
+          "axis_id": "hyp20_main_upper_left_edge_gap_1",
+          "peak_axial_n": 1245.81800121647,
+          "simultaneous_lateral_n": 492.403384297597,
+          "loaded_panel_screw_tension_total_n": 3213.350828090203,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_1",
+              "tension_n": 1245.81800121647
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_2",
+              "tension_n": 547.221957308194
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_4",
+              "tension_n": 299.2469326066171
+            },
+            {
+              "axis_id": "round_panel_upper_left_edge_1",
+              "tension_n": 214.71836019878734
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_edge_gap_2",
+              "tension_n": 214.3873137631596
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_4",
+              "tension_n": 207.9521282525959
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_1",
+              "tension_n": 74.47524859252945
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_3",
+              "tension_n": 72.73054873719536
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_2",
+              "tension_n": 70.45599601999655
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_3",
+              "tension_n": 50.00681132136816
+            },
+            {
+              "axis_id": "round_panel_upper_left_service_2",
+              "tension_n": 47.19601549045734
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_3",
+              "tension_n": 43.87852153133244
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_service_gap_1",
+              "tension_n": 30.769079413188702
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_1",
+              "tension_n": 29.886736273624937
+            },
+            {
+              "axis_id": "round_panel_upper_left_center_2",
+              "tension_n": 26.43559639274632
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_center_gap_1",
+              "tension_n": 23.213919208076476
+            },
+            {
+              "axis_id": "hyp20_main_upper_left_rim_gap_1",
+              "tension_n": 8.756189272048426
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_2",
+              "tension_n": 6.201472491814915
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_1",
+              "tension_n": 0.0
+            },
+            {
+              "axis_id": "round_panel_upper_left_rim_3",
+              "tension_n": 0.0
+            }
+          ],
+          "force_bearing_rank": 297
+        },
+        {
+          "case_id": "k12-right",
+          "gap_scale": 1.0,
+          "axis_id": "hyp20_main_upper_right_edge_gap_3",
+          "peak_axial_n": 1815.7845668499144,
+          "simultaneous_lateral_n": 532.3812121417384,
+          "loaded_panel_screw_tension_total_n": 3889.809098936345,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_3",
+              "tension_n": 1815.7845668499144
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_2",
+              "tension_n": 588.4119958902284
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_4",
+              "tension_n": 403.314339834277
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_1",
+              "tension_n": 205.41384133385165
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_2",
+              "tension_n": 199.33117969547453
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_4",
+              "tension_n": 183.3899660246845
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_1",
+              "tension_n": 81.69786702433719
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_3",
+              "tension_n": 70.35135525130295
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_2",
+              "tension_n": 68.14100502688663
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_3",
+              "tension_n": 63.179499421931396
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_3",
+              "tension_n": 46.62504678399837
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_3",
+              "tension_n": 40.45189600668138
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_2",
+              "tension_n": 37.602410569442064
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_1",
+              "tension_n": 28.226729881987723
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_2",
+              "tension_n": 24.34851190938127
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_1",
+              "tension_n": 21.174126592448985
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_1",
+              "tension_n": 7.870945609707178
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_2",
+              "tension_n": 4.493815229809325
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_1",
+              "tension_n": 0.0
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_3",
+              "tension_n": 0.0
+            }
+          ],
+          "force_bearing_rank": 297
+        },
+        {
+          "case_id": "k12-rear",
+          "gap_scale": 1.0,
+          "axis_id": "hyp20_main_upper_right_edge_gap_3",
+          "peak_axial_n": 1829.4457996926621,
+          "simultaneous_lateral_n": 482.09348179486886,
+          "loaded_panel_screw_tension_total_n": 4087.3674340282505,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_3",
+              "tension_n": 1829.4457996926621
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_2",
+              "tension_n": 555.3454102756683
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_4",
+              "tension_n": 406.05584239557925
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_1",
+              "tension_n": 226.17276817492706
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_2",
+              "tension_n": 224.07029247299857
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_4",
+              "tension_n": 192.74924351693346
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_3",
+              "tension_n": 120.37038348896786
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_3",
+              "tension_n": 84.68066462349208
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_1",
+              "tension_n": 75.52885780362891
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_2",
+              "tension_n": 74.65527619049499
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_3",
+              "tension_n": 71.2714007030408
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_3",
+              "tension_n": 49.60424723316755
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_2",
+              "tension_n": 44.25829426238707
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_2",
+              "tension_n": 40.64288810822055
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_1",
+              "tension_n": 33.298282571459495
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_1",
+              "tension_n": 29.245976786080934
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_3",
+              "tension_n": 10.660528190844607
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_1",
+              "tension_n": 9.60426228524529
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_2",
+              "tension_n": 8.479073020855125
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_1",
+              "tension_n": 1.227942231596419
+            }
+          ],
+          "force_bearing_rank": 296
+        },
+        {
+          "case_id": "a1-rear",
+          "gap_scale": 1.0,
+          "axis_id": "hyp20_main_lower_left_edge_gap_1",
+          "peak_axial_n": 2171.094128487258,
+          "simultaneous_lateral_n": 173.30727386208633,
+          "loaded_panel_screw_tension_total_n": 4466.890775009091,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_lower_left_edge_gap_1",
+              "tension_n": 2171.094128487258
+            },
+            {
+              "axis_id": "round_panel_lower_left_edge_2",
+              "tension_n": 390.6031852739537
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_rim_gap_1",
+              "tension_n": 385.4642959098803
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_edge_gap_2",
+              "tension_n": 219.9599391087029
+            },
+            {
+              "axis_id": "round_panel_lower_left_edge_1",
+              "tension_n": 149.38013368306574
+            },
+            {
+              "axis_id": "round_panel_lower_left_center_2",
+              "tension_n": 125.042041894796
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_center_gap_2",
+              "tension_n": 122.47617594703314
+            },
+            {
+              "axis_id": "round_panel_lower_left_rim_2",
+              "tension_n": 121.34888392511125
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_center_gap_1",
+              "tension_n": 107.2787816042863
+            },
+            {
+              "axis_id": "round_panel_lower_left_center_3",
+              "tension_n": 103.75119610678263
+            },
+            {
+              "axis_id": "round_panel_lower_left_rim_1",
+              "tension_n": 103.19132656559772
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_service_gap_1",
+              "tension_n": 93.55729570533754
+            },
+            {
+              "axis_id": "round_panel_lower_left_center_1",
+              "tension_n": 72.4825625424597
+            },
+            {
+              "axis_id": "round_panel_lower_left_center_4",
+              "tension_n": 63.588065488917664
+            },
+            {
+              "axis_id": "round_panel_lower_left_service_1",
+              "tension_n": 52.72951582184139
+            },
+            {
+              "axis_id": "round_panel_lower_left_rim_4",
+              "tension_n": 51.94918996607638
+            },
+            {
+              "axis_id": "round_panel_lower_left_service_2",
+              "tension_n": 37.77021339882492
+            },
+            {
+              "axis_id": "round_panel_lower_left_rim_3",
+              "tension_n": 37.47066702567071
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_rim_gap_2",
+              "tension_n": 32.31386646180891
+            },
+            {
+              "axis_id": "hyp20_main_lower_left_service_gap_2",
+              "tension_n": 25.439310091686007
+            }
+          ],
+          "force_bearing_rank": 296
+        }
+      ],
+      "max_audit": {
+        "force_balance_n": 1.358557716796791e-11,
+        "moment_balance_nmm": 2.2028759675760123e-08,
+        "finite_law_error_n": 2.053602194962423e-06,
+        "circular_gap_law_error_n": 7.13288983433813e-09
+      }
+    },
+    {
+      "scenario": "right_position_probe",
+      "state_count": 2,
+      "states": [
+        {
+          "case_id": "k12-rear",
+          "gap_scale": 0.0,
+          "axis_id": "hyp20_main_upper_right_edge_gap_3",
+          "peak_axial_n": 1276.7553264348633,
+          "simultaneous_lateral_n": 321.2546673061569,
+          "loaded_panel_screw_tension_total_n": 2311.9512765782097,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_3",
+              "tension_n": 1276.7553264348633
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_2",
+              "tension_n": 248.3442706364394
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_4",
+              "tension_n": 151.27516978134378
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_3",
+              "tension_n": 114.21706478165318
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_4",
+              "tension_n": 97.97363779851244
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_2",
+              "tension_n": 85.72499530591833
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_1",
+              "tension_n": 65.03265026265228
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_1",
+              "tension_n": 39.44270992296308
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_3",
+              "tension_n": 39.27104134966144
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_2",
+              "tension_n": 37.412219705121316
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_3",
+              "tension_n": 34.97229337756692
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_2",
+              "tension_n": 24.912001939157513
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_1",
+              "tension_n": 21.280215791043496
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_2",
+              "tension_n": 15.87738588295288
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_1",
+              "tension_n": 15.796840351279906
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_2",
+              "tension_n": 12.753449132816108
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_1",
+              "tension_n": 10.480355853190826
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_1",
+              "tension_n": 9.069530147507047
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_3",
+              "tension_n": 6.345850448727569
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_3",
+              "tension_n": 5.014267674839118
+            }
+          ],
+          "force_bearing_rank": 300
+        },
+        {
+          "case_id": "k12-rear",
+          "gap_scale": 1.0,
+          "axis_id": "hyp20_main_upper_right_edge_gap_3",
+          "peak_axial_n": 1585.3416522414539,
+          "simultaneous_lateral_n": 494.13183351538987,
+          "loaded_panel_screw_tension_total_n": 3647.260259856692,
+          "loaded_panel_tension_ranked": [
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_3",
+              "tension_n": 1585.3416522414539
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_4",
+              "tension_n": 393.73777629942276
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_2",
+              "tension_n": 305.09148763260725
+            },
+            {
+              "axis_id": "round_panel_upper_right_edge_1",
+              "tension_n": 239.38519790143366
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_edge_gap_2",
+              "tension_n": 237.99363741367682
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_4",
+              "tension_n": 203.1506278957234
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_3",
+              "tension_n": 154.64512007610986
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_3",
+              "tension_n": 85.22254701791438
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_2",
+              "tension_n": 75.11419935361076
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_1",
+              "tension_n": 75.07371195310762
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_3",
+              "tension_n": 71.86526744193338
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_service_gap_3",
+              "tension_n": 51.377371960419545
+            },
+            {
+              "axis_id": "round_panel_upper_right_service_2",
+              "tension_n": 45.092424134811445
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_2",
+              "tension_n": 40.903795049149636
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_center_gap_1",
+              "tension_n": 33.41501082145468
+            },
+            {
+              "axis_id": "round_panel_upper_right_center_1",
+              "tension_n": 29.23828679559361
+            },
+            {
+              "axis_id": "hyp20_main_upper_right_rim_gap_1",
+              "tension_n": 10.29647296332957
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_2",
+              "tension_n": 8.65132743907867
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_1",
+              "tension_n": 1.6643454658610963
+            },
+            {
+              "axis_id": "round_panel_upper_right_rim_3",
+              "tension_n": 0.0
+            }
+          ],
+          "force_bearing_rank": 296
+        }
+      ],
+      "max_audit": {
+        "force_balance_n": 8.41282695515629e-12,
+        "moment_balance_nmm": 4.6877889337057265e-09,
+        "finite_law_error_n": 5.709323573910297e-07,
+        "circular_gap_law_error_n": 3.737921971946889e-09
+      }
+    }
+  ],
+  "position_probe": {
+    "scope": "Right K12-rear load-position probe only, original case_id retained for seed lookup; not original hold-grid action or replacement envelope",
+    "translation_x_mm": 36.8125,
+    "source_patch_center_x_mm": 980.8,
+    "translated_patch_center_x_mm": 1017.6125,
+    "left_nearest_screw_offset_mm": -1.5875,
+    "right_new_nearest_screw_offset_mm": 1.5875,
+    "zero_translation_max_nodal_force_error_n": 1.133087996580343e-09,
+    "delta_rigid_load_n_and_knmm": [
+      -1.2251918087755348e-23,
+      -2.9022218970019655e-12,
+      8.020745863206447e-13,
+      3.932019756890283e-12,
+      81.87507910588845,
+      11.043749999999424
+    ],
+    "expected_delta_rigid_load_n_and_knmm": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      81.87507910588856,
+      11.04375
+    ],
+    "loading_limits": "Translate all eight saved force-patch node locations and interpolate onto the existing gross right-panel mesh; preserves patch nodal forces/moments but does not remesh or qualify interpolation/physical response. Different from real K12 at X980.8.",
+    "producer_sha256": "4cfc8efcfa9823147c1a88f73d9e878aa08a7a3f76d48833f1c2ea6716a33aaa",
+    "native_launch": false
+  },
+  "interpretation": [
+    "Original A12-rear and K12-rear have equal force vectors but X positions -1019.2 and +980.8, so they are not mirrored relative to new outer screw stations.",
+    "Corrected actual-grid zero-gap left/right peaks: 1202.172/1513.495 N. Matched-offset right position probe reduces right zero-gap peak to1276.755 N (6.2% above left).",
+    "Corrected actual-grid modeled-gap left/right peaks:1244.179/1829.446 N. Matched-offset right probe gives1585.342 N (27.4% above left).",
+    "Clearance increment in matched-position comparison is42.007 N left versus308.586 N right. This identifies numerical seating/contact sensitivity; it does not establish a physical asymmetry or unique force path.",
+    "Position probe translates the existing eight-node force patch by36.8125 mm and maps onto existing gross right mesh. It preserves force/moment but is a different load from actual K12; no remesh/refinement proof or new physical hold is implied.",
+    "Lower-left actual-grid corrected peak2171.094 N is about49% of4466.891 N total panel-screw tension; remaining19 screws carry the rest."
+  ],
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-operators-attempt01/operator-assessment.json": "ba43db7552314ba02769b45bae800574f7d16974305a6a3dfb21340ca0bcb15c",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-operators-attempt01/operators.npz": "6ff0f2e804d27b121f82561970052ab4c621316fa125c7c1102d55f17891718c",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-operators-attempt01/row-identities.json": "8025b3037bd263abe0148ebd34f1dd0b545178b0b398f6f4cf9fd87e58e36271",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-operators-attempt01/model-inputs.json": "e11ce3a184d0a427ef54f82b958b42b94bd0d4135b4376eba93809a720c74e3c",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-frame-attempt01-qp/comparison.json": "c1bf7e29c3a99bf86e5c813da1b618cbe598caeba1fe852c49beae023815709d",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-frame-attempt01-qp/response.npz": "d74e7c1efd37cdf8f3a502adb2b341b8bd97a4595bf0d6d871307bef232b0a15",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-frame-attempt01-qp/count-only-launcher.py.snapshot": "d0b73dcd1d92c6f9a4d2f809bf81a9e28e1ddf5cb444ca490e3c32d4d9443d6b",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-frame-attempt01-qp/count-only-adaptation.json": "d44d1dc949887fea5ba5fbbea4729ee07426bea282faa2fddd9c8ed2623bd01e",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/count20-mirrored-frame-attempt01-qp/adapted-run.py.snapshot": "fd7455fcc875017205c7f7d3413b837df903bc53f772bb7d5574064bdfcafbdc",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-operators-attempt01/operator-assessment.json": "e9fbc4da857e5710df72b2c0fe3286fca62a82bc83cdd83860a682a95d71e693",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-operators-attempt01/operators.npz": "20f6073e0ae9aab7f7c843f9a0b0a55e19836f323c4088d8d962bea841591b04",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-operators-attempt01/row-identities.json": "8025b3037bd263abe0148ebd34f1dd0b545178b0b398f6f4cf9fd87e58e36271",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-operators-attempt01/model-inputs.json": "e11ce3a184d0a427ef54f82b958b42b94bd0d4135b4376eba93809a720c74e3c",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-frame-attempt01/comparison.json": "98bafc828f2faa94791fa404e5c4975d3c4d405e8503cc18fc755c6fddfd7eb1",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-frame-attempt01/response.npz": "639e45b643a56d2e9edfebd2d2ada66b7a3c0cc8032ba13f66abcbdb66a52a9d",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-frame-attempt01/count-only-launcher.py.snapshot": "e1bbee620b4657a866a2705304a024679b70323e5e3edfd26bf8a84828b57144",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-frame-attempt01/count-only-adaptation.json": "8d6231ab14291c1ecfbb63c1a6221796d675fc415d6ba37ffb57201b520b8325",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-frame-attempt01/adapted-run.py.snapshot": "be364264a50a0669b260afd047297d25d750cf5a411e3f311d34b3915e9f108d",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-operators-attempt01/load-position-probe.json": "c46adeb58c363b966ef0358a49a861514a38db4c482c600a31d94fc109c3d8a6",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/results/right-position-probe-operators-attempt01/load-position-producer.py.snapshot": "4cfc8efcfa9823147c1a88f73d9e878aa08a7a3f76d48833f1c2ea6716a33aaa"
+  },
+  "checks": {
+    "all_producer_input_hashes_unchanged": true,
+    "mirror_layout_unit_tests": 2,
+    "mirror_layout_and_projection_lint": "passed",
+    "zero_translation_force_map_error_n": 1.133087996580343e-09,
+    "force_wrench_conservation": "six rigid components match expected translation within1e-5 N or kNmm",
+    "no_native_launch": true
+  },
+  "commands": {
+    "projection": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/panel-attachment/mirror_projection.py --output <fresh-directory>",
+    "corrected_frame": "Restore count20-mirrored-frame-attempt01-qp/count-only-launcher.py.snapshot to a temporary .py file and run with OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run --offline --no-project --python3.12 --with numpy==2.2.6 --with scipy==1.15.3 --with osqp==1.0.4 python <launcher>; choose fresh output directories.",
+    "position_projection": "Restore right-position-probe-operators-attempt01/load-position-producer.py.snapshot to temporary .py; projection uses project .venv Python3.12.3/NumPy2.5.2/SciPy1.18.1/CadQuery. Initial same-process frame import stopped because .venv lacks OSQP; no frame result accepted from that launch.",
+    "position_frame": "Restore right-position-probe-frame-attempt01/count-only-launcher.py.snapshot; pinned UV NumPy2.2.6/SciPy1.15.3/OSQP1.0.4 executes only index4 at zero/modeled gaps using generated probe operators.",
+    "snapshots": "Both launchers and exact adapted run functions retained; change output directories for reproduction."
+  },
+  "limits": [
+    "Force peaks conditional on unmeasured Hillman stiffness and panel/contact assumptions; no product rating or physical release.",
+    "Not an exactly symmetric mesh/geometry/force-envelope test. Matched local hold offset leaves other geometric/mesh/contact differences.",
+    "Modeled-gap states retain bounded nonunique seating and failed strict stiffness/stability flags; numerical completion is not complete-joint acceptance.",
+    "Frozen original count-comparison.json and asymmetric runs remain valid for their particular source stations, but are not a mirrored left/right attachment comparison."
+  ],
+  "physical_release": false
+}
