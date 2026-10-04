@@ -9042,5 +9042,1009 @@
     "all30_joint_acceptance_inferred": false,
     "qualification": "unresolved;parent retains final judgment",
     "parent_frozen_documents_bound_once": true
+  },
+  "maintained_source_resolution": {
+    "docs/wood-joints-mvp/README.md": {
+      "snapshot_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/source-snapshots/numerical-acceptance/development-summary.md.snapshot",
+      "sha256": "96bc5ffcca94f5c59612d38075962262e498647c63eb003a9df5b5af155e8038",
+      "original_path": "docs/wood-joints-mvp/README.md"
+    },
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md": {
+      "snapshot_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/source-snapshots/numerical-acceptance/joint-disposition.md.snapshot",
+      "sha256": "df3b4e6d873c3fe305121de195f27b8b0ddf338c7e61b987c7fb912d85f62e05",
+      "original_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md"
+    }
+  },
+  "numerical_acceptance_extension": {
+    "status": "in_progress",
+    "owner_instruction": "Complete numerical acceptance; reference exceedances acceptable outcomes for now.",
+    "completion_plan": {
+      "status": "focused_numerical_execution_active",
+      "documentation": "docs/wood-joints-mvp/completion-ledger.md#planned-numerical-completion",
+      "next_question": "Central-cleat hotspot with surrounding-frame restraint and redistributing interface reactions; validate assembled energy before selected crack-family expansion.",
+      "connection_families": 8,
+      "joint_duties": 30,
+      "timber_sides": 44,
+      "original_splitting_inventory_preserved": 37056,
+      "original_inventory_completed": false,
+      "broad_queue_is_next_action": false,
+      "approved_numerical_washer_profile": {
+        "roles": "eight top-rail washers",
+        "working_product": "Hillman 885522 / Lowes 755754",
+        "analytical_inner_diameter_mm": 8.3058,
+        "analytical_outer_diameter_mm": 25.4,
+        "analytical_thickness_mm": 2.5,
+        "evidence": "retail-washer-suite.md and assembly-package/top-washer-fit.md",
+        "original_48_state_scope_preserved": true,
+        "current_frame_compliance_update_pending": false
+      },
+      "existing_workstream_completion_means": "Completed recorded comparison scopes, not availability of every mechanical output or structural acceptance.",
+      "additional_numerical_questions": [
+        "Current nominal seating/member-motion bounds and stability implications",
+        "Current-force scalar shaft bending, own-end moments and washer metal fields",
+        "Panel backing and head-reference applicability benchmark",
+        "Critical receiver load introduction and coherent downstream force-source joins"
+      ],
+      "execution_progress": {
+        "preserved_saved_cleat_fields": {
+          "status": "complete_independent_audit_of_existing_fields",
+          "completed_comparisons": 768,
+          "original_unperformed_identities": 36288,
+          "full_splitting_qualification": false
+        },
+        "frame08_fixed_force_motion": {
+          "status": "complete_conditional_scope",
+          "result_key": "current_frame_fixed_force_motion",
+          "changed_branch_assessed": false,
+          "second_order_stability_established": false
+        },
+        "panel_backing_sensitivity": {
+          "status": "complete_conditional_scope",
+          "result_key": "panel_backing_comparison",
+          "whole_frame_force_allocation_replaced": false
+        },
+        "washer_updated_frame": {
+          "status": "all_five_consumer_categories_audited_full_plate_required_before_selection",
+          "profile_packet": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/washer-working-profile-completion/preparation01",
+          "result_packet_pending": false,
+          "result_key": "washer_updated_frame_first_attempt",
+          "accepted_states": 9,
+          "floor_search_procedure_limits": 5,
+          "previously_accepted_states_to_refine": 3,
+          "selected_new_force_basis": false,
+          "fixed_mask_retry_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/retry01/receipt.json",
+          "fixed_mask_retry_receipt_sha256": "49e7ddde970b3f6ebcb8f45c052a737ab71d6c72ae2feb359c727ca1704b6ee1",
+          "fixed_mask_retry_passed_states": 2,
+          "fixed_mask_retry_pending_states": 0,
+          "pending_state_physical_and_panel_gates_passed": true,
+          "pending_state_solver_status": "Solved",
+          "actual_accepted_states_available": 12,
+          "strict_precision_retry_receipts": [
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/backend-retry01/receipt.json",
+              "sha256": "0aa57f222483ee6d1641ba900fda06ac31a5629dd7c2c98ff0eefbedcdd5f36a",
+              "status": "STOP_ONE_STRICT_QDLDL_PROFILE_SOURCE_MASK_RETRY",
+              "accepted_force_field_exists": false
+            },
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/precision-retry01/receipt.json",
+              "sha256": "a477db278035f191c34b6db4a8d2d987bc45856980bf60cd11f8cc8c9edc23eb",
+              "status": "STOP_ONE_STRICT_REGULARIZATION_PROFILE_SOURCE_MASK_RETRY",
+              "accepted_force_field_exists": false
+            },
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/precision-retry02/receipt.json",
+              "sha256": "248a46a11f4efd8127969bea0ff0c5b6ba3481bdb1c82e44306e9fbdbf249f6a",
+              "status": "STOP_ONE_STRICT_REGULARIZATION_PROFILE_SOURCE_MASK_RETRY",
+              "accepted_force_field_exists": false
+            },
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/precision-retry03/receipt.json",
+              "sha256": "f4de54e42a36b32ec0ba3c2e035f5b067eb4ec717405f582f49553e9b4f80468",
+              "status": "STOP_ONE_STRICT_REGULARIZATION_PROFILE_SOURCE_MASK_RETRY",
+              "accepted_force_field_exists": false
+            }
+          ],
+          "regularization_configuration_sweep_completed": true,
+          "parent_saved_packet_authentication": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/precision-source-audit01.json",
+          "all_three_regularization_configuration_trials_unaccepted": true,
+          "strict_termination_diagnostic": {
+            "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/termination-retry01/receipt.json",
+            "receipt_sha256": "eeef38c65f57b0a3daa9fca9aae88dba46b694b51218078c31eb7c2c84375975",
+            "status": "STOP_ONE_STRICT_TERMINATION_DIAGNOSTIC",
+            "observed_trigger": "CONE_SCALING_FAILURE",
+            "accepted_force_field_exists": false,
+            "all_original_physical_and_panel_gates_passed": true,
+            "raw_solver_status": "NumericalError",
+            "iterations": 29,
+            "full_strict_acceptance_relaxed": false
+          },
+          "final_profile_frame_binding": {
+            "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/profile-enriched01/receipt.json",
+            "sha256": "317f8800d0f1ad947778d4f553a46403b50fbb9d921d0b70f8854928f9994455"
+          },
+          "final_profile_action_binding": {
+            "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/profile-attempt01/receipt.json",
+            "sha256": "ae201061f06ce1d4f8610903279d224c0a3830820d2b2629ef0b579b8fed891a"
+          },
+          "strict_cone_retry_binding": {
+            "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/lorentz-retry01/receipt.json",
+            "sha256": "dbce731c0922de869914dcd78ee1014e08a7365eae225ea910ba8dd0b4f476f8",
+            "original_acceptance_gates_relaxed": false
+          },
+          "final_result_key": "washer_updated_frame_final"
+        },
+        "coupled_cleat_pilot": {
+          "status": "first_three_coupled_comparisons_audited_remaining_variants_active",
+          "project_comparisons_executed": 3,
+          "mapping_known_answer_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/mapping-known-answer01/receipt.json",
+          "mapping_known_answer_receipt_sha256": "a0fc3b5048e0feda7d81d9a466149006e600baea4883000f6b5b0ef19438a7b8",
+          "operator_groups_attempted": 3,
+          "operator_groups_completed": 2,
+          "actual_operator_stop_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-operators-attempt01/receipt.json",
+          "actual_operator_stop_receipt_sha256": "592c8a9fcfca5bbc49c9b46bc1466dfacb94bc47f35ad5f85c7d05ca855343bd",
+          "parent_stop_observation": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-operators-attempt01/parent-stop.json",
+          "parent_stop_observation_sha256": "457d1232117762f3963c25209520154227c79fad650fa3a6bbe225996cbf187b",
+          "diagnostic_attempt_output": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-operators-schur-attempt02",
+          "additional_diagnostics": [
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/schur-precision-known-attempt01/receipt.json",
+              "sha256": "39829ffbb2c4e379fe6e63e7dec48d59672c01d564d114fc78af0f6a434607a3",
+              "status": "PASS_FACTOR_FREE_HIGH_PRECISION_SCHUR_AND_ORIGINAL_FIELD_GATES"
+            },
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/schur-precision-known-independent-audit01/receipt.json",
+              "sha256": "8a3ddbc5491734694adf0312b9a1a6539dfaee4fa96dc9814b80a70039d59dbf",
+              "status": "PASS_SAVED_MONOLITHIC_FIELDS_AND_FULL_H_e_L_CROSS_WORK"
+            },
+            {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/schur-precision-actual-attempt01/receipt.json",
+              "sha256": "488e0d89b08d41bf7936293801578219684dc8f494d152a8131d381bb6a42006",
+              "status": "DIAGNOSTIC_RECOMPUTED_SCHUR_WITH_UNPASSED_ORIGINAL_GATE"
+            }
+          ],
+          "new_global_or_interior_factorizations_in_precision_diagnostic": 0,
+          "accepted_body_operator_published": true,
+          "quotient_projection_proofs": [
+            {
+              "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/quotient-projection-known-attempt02/receipt.json",
+              "sha256": "2b75e6eddb69fa64cc81f2621ce7d5bd9d64c3e1719534aad945cc1e7b581e52",
+              "status": "PASS_FACTOR_FREE_PROJECTED_ELASTIC_QUOTIENT_AND_ORIGINAL_FIELD_GATES"
+            },
+            {
+              "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/quotient-projection-known-independent-audit02/receipt.json",
+              "sha256": "848f41e5f1b010d68ae91475bed4b63b4400d39f2d2aa612bfc7db7c8651e226",
+              "status": "PASS_SAVED_MONOLITHIC_FIELDS_AND_FULL_H_e_L_CROSS_WORK"
+            },
+            {
+              "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/quotient-projection-actual-attempt02/receipt.json",
+              "sha256": "473e84e1015bc78b0a558fd592dec8681b2bbec217d94df6127df0c7300799ed",
+              "status": "PASS_FACTOR_FREE_PROJECTED_ELASTIC_QUOTIENT_AND_ORIGINAL_FIELD_GATES"
+            }
+          ],
+          "first_assembled_pilot": {
+            "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-assembled-attempt01/receipt.json",
+            "sha256": "96a48f2913105a022364ecf9ac5cd24959c1460a0779e32e1140529b6004c1e1",
+            "comparisons": 3,
+            "operator_states": 9,
+            "mesh_convergence_established": false,
+            "near_zero_nominal_energy_precision_qualified": true
+          },
+          "remaining_eligible_case_replay_status": "three_new_intact_states_passed_then_strict_canonical_solver_stop_pending_retry",
+          "finer_grid_operator_status": "allocation_failure_diagnosed_before_accepted_operator",
+          "matched_assembly_restraint": {
+            "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-matched-fixed-coupled01/receipt.json",
+            "receipt_sha256": "5c579e41be28c1a24912cd2850b1c45e65b6c996ba07c3ca3cf19156f5b73637",
+            "matched_geometry_loads_and_footprint": true,
+            "governing_fixed_stress_mpa": 6.11346,
+            "governing_coupled_stress_mpa": 4.69562,
+            "sampled_stress_reduction_percent": 23.19,
+            "convergence_or_full_splitting_qualification": false
+          }
+        },
+        "current_force_shaft_and_plate_fields": {
+          "status": "supported_shaft_complete_full_plate_native_running",
+          "method_pilot_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/pilot01/receipt.json",
+          "method_pilot_receipt_sha256": "4c353898ce45d89a84f18d57d51762dff1ddf7ca96cbb66234eae066ecd83c2c",
+          "fresh_force_fields_complete": true,
+          "supported_shaft_fields": 1152,
+          "source_geometry_limited_shaft_states": 48,
+          "complete_own_end_moments": 2304,
+          "null_source_limited_own_ends": 96,
+          "ordinary_shaft_solver_stops": 0,
+          "current_plate_pilot_fields": 12,
+          "current_plate_pilot_reference_exceedances": 3,
+          "full_plate_fields_complete": false,
+          "fresh_field_receipt": {
+            "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/current-fields01/receipt.json",
+            "sha256": "705c6c0e2ab927ba23407c036bf0567b6547c4879f58b598a3b7a195660d35c1"
+          }
+        },
+        "washer_updated_fixed_force_motion": {
+          "status": "complete_conditional_scope",
+          "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/profile-attempt01/receipt.json",
+          "receipt_sha256": "05ba140821e412da12e4f4b123649f771135d53dfeb197af80186139d691208d",
+          "accepted_states": 12,
+          "maximum_incremental_seating_mm": 1.149111895,
+          "second_order_stability_established": false,
+          "external_load_geometry_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/profile-load-geometry01/receipt.json",
+          "external_load_geometry_receipt_sha256": "2c2d0f74896a3992c355e1379876e6d9b11c17f2b01ca2280f9eda3171b0bea2"
+        },
+        "fresh_panel_consumer": {
+          "status": "complete_accepted_subset_comparisons",
+          "result_key": "compatible_panel_references_profile",
+          "required_states": 14,
+          "accepted_states": 12,
+          "excluded_states": 2,
+          "original_arithmetic_unchanged": true
+        },
+        "fresh_member_consumer": {
+          "status": "complete_independently_audited_member_and_nominal_fields",
+          "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/washer-updated-complete-attempt02/receipt.json",
+          "receipt_sha256": "64dbd1a1d289712ab057f63850dd5c07a8a5be6ecc8ddbc8927cf850bdef68eb",
+          "finite_cuts": 49344,
+          "analytic_endpoints": 240,
+          "normal_reference_exceedances": 200,
+          "shear_reference_exceedances": 414,
+          "curved_normal_reference_exceedances": 0,
+          "member_result_key": "compatible_finished_member_cuts_wide_top_rail_profile",
+          "nominal_result_key": "nominal_transverse_components_wide_top_rail_profile",
+          "nominal_comparisons": 2112,
+          "nominal_reference_exceedances": 0
+        }
+      }
+    },
+    "prior_assessment_scope_preserved": true,
+    "previous_index_binding": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/full-assessment-index.json",
+      "git_commit": "95852a9942250254fba8e0ff5c355bdec0588d78",
+      "sha256": "2b1ccfd2650c6bede6e83ad8188fc98295bc9fa07559150ac5e809abfe643357",
+      "recovery_command": "git show 95852a9942250254fba8e0ff5c355bdec0588d78:docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/full-assessment-index.json"
+    },
+    "physical_or_structural_release_inferred": false,
+    "formal_statuses_changed": false,
+    "workstreams": [
+      "restricted washer contact",
+      "reviewed104 coupled knee/frame compatibility",
+      "three-dimensional conditional splitting resistance",
+      "general finished member openings",
+      "panel local/net sections",
+      "single G7 shaft recovery",
+      "compatible action reconciliation"
+    ],
+    "results": {
+      "restricted_washer_contact": {
+        "status": "complete_conditional_numerical_comparisons",
+        "source_scope": "matching own-end force branch; unchanged saved source forces, restricted physical washer support",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/washer-restricted-contact-completion/attempt03/washer-restricted-contact-completion.json",
+        "result_sha256": "32929970cc3fb04d9735e49af41d6da0d7ad4af8031a4369f251aca2c4cdd2c8",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/washer-restricted-contact-completion/attempt03/receipt.json",
+        "receipt_sha256": "bb235d56e850b93183a4bd9dc803e30850f0281ce51f6ae61e331985a3ab5804",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/washer-restricted-contact-completion/attempt03/producer.py.snapshot",
+        "preserved_producer_sha256": "d79e0a408f60184b074de08157427bfaedf57d20c5e8b51828868614eb9cade4",
+        "documentation_link": "washer-restricted-contact-completion.md",
+        "counts": {
+          "Fy250_exceedances": 0,
+          "completed_states": 12,
+          "numerical_stops": 0,
+          "old_static_trials_retained": 6,
+          "own_end_solves": 12,
+          "plate_assemblies": 1,
+          "source_states": 12,
+          "supported_models": 2,
+          "wood_reference_exceedances": 0
+        },
+        "same_state_peaks": {
+          "sampled_stress_proxy_mpa": {
+            "M_nmm": 4.225786387479502e-15,
+            "T_n": 22.91604796374847,
+            "join_key": [
+              "k12-right",
+              "center_principal_right_2",
+              "head",
+              "center_principal_cleat_right"
+            ],
+            "value": 9.250588688520835
+          },
+          "stress_proxy_over_Fy250": {
+            "M_nmm": 4.225786387479502e-15,
+            "T_n": 22.91604796374847,
+            "join_key": [
+              "k12-right",
+              "center_principal_right_2",
+              "head",
+              "center_principal_cleat_right"
+            ],
+            "value": 0.03700235475408334
+          },
+          "wood_peak_over_base_reference": {
+            "M_nmm": 4.225786387479502e-15,
+            "T_n": 22.91604796374847,
+            "join_key": [
+              "k12-right",
+              "center_principal_right_2",
+              "nut",
+              "base_principal_center_right"
+            ],
+            "value": 0.03588634936720559
+          }
+        },
+        "actual_product_or_complete_joint_acceptance": false,
+        "result_status": "COMPLETE_TWELVE_CONDITIONAL_MASK_CONTACT_REFERENCES"
+      },
+      "g7_shaft_recovery": {
+        "status": "complete_conditional_numerical_comparisons",
+        "source_scope": "single G7 completion of existing isolated proposal-gravity ordinary-shaft branch;503 prior shafts/1006 prior ends preserved",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/g7-shaft-completion/attempt01/summary.json",
+        "result_sha256": "dd442a24c08bfe724248b20224d7d28a2867de8900e71ee78317f09af9bca9a6",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/g7-shaft-completion/attempt01/receipt.json",
+        "receipt_sha256": "79aac71598f9e63f787620b14f2344c42f21417f2d87972b09991f85ee92032f",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/g7-shaft-completion/attempt01/producer.py.snapshot",
+        "preserved_producer_sha256": "7db839064cb4aa3327cc65f436d96d54a25d22805a6e39a8f2ea125c2a1d0f7b",
+        "documentation_link": "g7-shaft-completion.md",
+        "counts": {
+          "completed_shaft_states": 504,
+          "new_shaft_calls": 1,
+          "null_shaft_states": 0,
+          "null_washer_end_states": 0,
+          "recovered_washer_end_states": 1008,
+          "shaft_field_samples": 40320
+        },
+        "actual_product_or_complete_joint_acceptance": false,
+        "result_status": "COMPLETE_CONDITIONAL_COMPARISONS",
+        "source_resolution": {
+          "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/g7-shaft-completion.md": {
+            "original_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/g7-shaft-completion.md",
+            "snapshot_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/g7-shaft-completion/attempt01/documentation.md.snapshot",
+            "sha256": "81eae438832cf59719d7e630df0e1067e59dd9a3d7af7d499aa1d1c8493bca8b"
+          }
+        }
+      },
+      "panel_local_net": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETED_CONDITIONAL_LOCAL_NET_NUMERICAL_COMPARISON",
+        "source_scope": "distinct saved original104 and proposal-gravity live/permanent comparisons",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/attempt05/summary.json",
+        "result_sha256": "61223ff7ffae4a4cc7bca567c0d3a2aac1fc69674795a7cfe0f1f06c303bf4b3",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/attempt05/receipt.json",
+        "receipt_sha256": "cc0913beefa78e9cb146f257049b45a6388eedcd29fc483b2b1ab5351b171073",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/attempt05/producer.py.snapshot",
+        "preserved_producer_sha256": "595225593819cecbcbe865e6c90e98b043e585a72891cd1a3fcdc19b53ae46b7",
+        "documentation_link": "panel-local-net-completion.md",
+        "counts": {
+          "hold_duration_records": 36,
+          "live_screw_states_per_duration": 396,
+          "net_section_duration_records": 6370,
+          "openings": {
+            "LED": 132,
+            "hold": 142,
+            "screw": 66
+          },
+          "permanent_screw_states": 66
+        },
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "panel_original104_permanent": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETED_CONDITIONAL_ORIGINAL104_PERMANENT_LOCAL_NET_NUMERICAL_COMPARISON",
+        "source_scope": "original reviewed104 nominal permanent forces at CD0.9",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/original104-permanent-attempt01/summary.json",
+        "result_sha256": "73229dc9fdaa70a0ce1daeab20131b7a1515ed306da26027fc4ce65383a8daa5",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/original104-permanent-attempt01/receipt.json",
+        "receipt_sha256": "488eeb467fbc0c1fa54fda68565ea94800ab1c667e27a44e88bcb3b66d92e6bd",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/original104-permanent-attempt01/producer.py.snapshot",
+        "preserved_producer_sha256": "8034adfee0f052aebf3f51aecfaf07a82e9cdcee5264e3de0c5f79b84b6f93cd",
+        "documentation_link": "panel-local-net-completion.md",
+        "counts": {
+          "net_section_records": 490,
+          "openings": {
+            "LED": 132,
+            "hold": 142,
+            "screw": 66
+          },
+          "panel_balances": 6,
+          "recovered_gross_source_cuts": 376,
+          "screw_states": 66
+        },
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "reviewed104_coupled_frame": {
+        "status": "complete_finite_numerical_disposition",
+        "result_status": "PARTIAL_CONDITIONAL_COUPLED_FRAME_STATES_WITH_DECLARED_STOPS",
+        "source_scope": "Reviewed104 original gravity and six live cases plus permanent loads, each at nominal and zero gaps. Twelve accepted coupled fields; two bounded floor-search dispositions without an accepted field. No physical-equilibrium impossibility or strict stability claim.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-compatibility-completion/frame-attempt06/comparison.json",
+        "result_sha256": "b93b4290a1818c43402b88304101cd188130ff871511754eb7f19343f612c50a",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-compatibility-completion/frame-attempt06/receipt.json",
+        "receipt_sha256": "e86fcfb6d5a169a318bc0013c0211369934017ee0034355a007e30a18ff13368",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-compatibility-completion/frame-attempt06/producer.py.snapshot",
+        "preserved_producer_sha256": "71e72a935353500b6e3e140a4ac7f042d05226e975cab83493ccbb5136f9a0e1",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-compatibility-completion.md",
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "compatible_action_reconciliation": {
+        "status": "complete_finite_numerical_disposition",
+        "result_status": "COMPLETE_SAVED_COUPLED_ACTION_RECONCILIATION_NOT_RESISTANCE_QUALIFICATION",
+        "source_scope": "Complete body/action reconciliation for the twelve audited accepted reviewed104 coupled-frame fields; fourteen-case disposition inventory retains two zero-gap method limits without exported forces. This is action reconciliation, not a resistance pass.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/attempt02/summary.json",
+        "result_sha256": "705841d25f9af5261f80e997ef199e5a80870d09bbe31b996b331cd7838eb8c4",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/attempt02/receipt.json",
+        "receipt_sha256": "d79abda0dd3df21c84b65b83f95d1f2e0d4c00e5139fd356533b5b0ec0d60f18",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/attempt02/producer.py.snapshot",
+        "preserved_producer_sha256": "ebbd987e9cd2f105c89631677f292b9cc8a2939e300b2cd4bdd4c8de16dc89e9",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-action-reconciliation.md",
+        "counts": {
+          "required_states": 14,
+          "accepted_states": 12,
+          "finite_floor_search_dispositions": 2,
+          "unassessed_states": 0,
+          "unresolved_numerical_stops": 0,
+          "rejected_force_fields_exported": 0,
+          "assessed_states": 14
+        },
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "compatible_bolt_direct_references": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_DIRECT_REFERENCES_FOR_ACCEPTED_SUBSET_WITH_DECLARED_METHOD_LIMITS_AND_UNAVAILABLE_STATES",
+        "source_scope": "Twelve accepted reviewed104 coupled-frame states under the source 0.1 N global law gate: 1,200 scalar direct references and 48 continuous diagnostics. The 208 unavailable axis-state identities remain null. Full scalar bending, washer moments/material and source/shop diameter mismatches retain explicit limits.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/attempt02/summary.json",
+        "result_sha256": "96ecd3343f9e05a5098f468ee68a02c60836e71672ebc353497332ed4b60d1b7",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/attempt02/receipt.json",
+        "receipt_sha256": "f3ed178bda72688246fadcda45ac2067c248dcd0e2fe5c6352d2ce7b0b487097",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/attempt02/producer.py.snapshot",
+        "preserved_producer_sha256": "d6bef23c9a49a17dd6237c71881ec5a038b00a045f0449d4986ae12bf9ee83eb",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-bolt-reference.md",
+        "counts": {
+          "accepted_states": 12,
+          "continuous_axes": 4,
+          "continuous_axis_states": 48,
+          "required_states": 14,
+          "scalar_axes": 100,
+          "scalar_axis_states": 1200,
+          "unavailable_axis_states": 208,
+          "unavailable_states": 2
+        },
+        "actual_product_or_complete_joint_acceptance": false,
+        "source_resolution": {
+          "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-action-reconciliation.py": {
+            "original_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-action-reconciliation.py",
+            "sha256": "ebbd987e9cd2f105c89631677f292b9cc8a2939e300b2cd4bdd4c8de16dc89e9",
+            "snapshot_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/attempt02/producer.py.snapshot"
+          }
+        }
+      },
+      "reviewed104_coupled_frame_refined": {
+        "status": "complete_finite_numerical_disposition",
+        "result_status": "PARTIAL_CONDITIONAL_COUPLED_FRAME_STATES_WITH_DECLARED_STOPS",
+        "source_scope": "Reviewed104 original loads at both gap states. Twelve accepted fields including two bounded fixed-mask refinements satisfying the unchanged 1e-4 N panel-screw gate; two preserved finite floor-search limits, with no exported forces. Ten accepted states preserved byte-for-byte.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-compatibility-completion/frame-attempt08/comparison.json",
+        "result_sha256": "57f7c0894ffc0fef48ce07cf796f80efacc59e54edd2e2e7a6c2b16ed0ddafc8",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-compatibility-completion/frame-attempt08/receipt.json",
+        "receipt_sha256": "74930ca8ace4a79cbf9165f570bd2bb7785faba631324a83c0728f673e27ac2d",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-compatibility-completion/frame-attempt08/producer.py.snapshot",
+        "preserved_producer_sha256": "9a20b35532ee9357c75c8d466f5f40aba003947291f7f5982e19c00a459dd63a",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-compatibility-completion.md",
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "compatible_action_reconciliation_refined": {
+        "status": "complete_finite_numerical_disposition",
+        "result_status": "COMPLETE_SAVED_COUPLED_ACTION_RECONCILIATION_NOT_RESISTANCE_QUALIFICATION",
+        "source_scope": "Final frame08 accepted subset: all14 dispositions,12 accepted states and2 frozen floor-search limits. Exact canonical action reconciliation, no resistance or physical failure inference.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/attempt03/summary.json",
+        "result_sha256": "353ce1316bbd005be0e3f286e416eab7bd549c465a99c629d6f34ce11d8c7330",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/attempt03/receipt.json",
+        "receipt_sha256": "370dafc75a90967cc45e9888bdbd5610fa2df6930a5821d4cd52d01bae70904e",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/attempt03/producer.py.snapshot",
+        "preserved_producer_sha256": "8eaf209dc594be9468b9bea60ddd02974e1a05f2bc915fd2dc41dcf2b11eaf8c",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-action-reconciliation.md",
+        "actual_product_or_complete_joint_acceptance": false,
+        "counts": {
+          "required_states": 14,
+          "accepted_states": 12,
+          "finite_floor_search_dispositions": 2,
+          "unassessed_states": 0,
+          "unresolved_numerical_stops": 0,
+          "rejected_force_fields_exported": 0,
+          "assessed_states": 14
+        }
+      },
+      "finished_member_sections": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "ACTUAL_SECTION_LONGITUDINAL_REFERENCES_COMPLETE_WITH_EXPLICIT_REMAINING_DUTIES",
+        "source_scope": "Distinct saved original104 live/permanent and proposal-gravity forces. All20944 signed section traces assessed,20624 finite longitudinal and whole-domain shear comparisons,320 explicit analytic endpoints. Mesh-sensitive samples, tangent topology and disconnected allocation remain conditional method limits.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/elastic-tangent-attempt02/summary.json",
+        "result_sha256": "2939ef70c81ebf4883cd7be60f0f1bb0aa3513bd03b7f16aae0ecbf66a16de0b",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/elastic-tangent-attempt02/receipt.json",
+        "receipt_sha256": "91c7e54a0d9a35137e87920c9e7bb191fc099d64e673022f99e95b6d9f79db3d",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/elastic-tangent-attempt02/producer.py.snapshot",
+        "preserved_producer_sha256": "4837537ad42ae9e92abf3146cdd5b5d6be11fd0a742a300a71047c0db095921e",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-general-completion.md",
+        "actual_product_or_complete_joint_acceptance": false,
+        "numerical_scope": "finished_longitudinal_and_shear"
+      },
+      "compatible_bolt_direct_references_refined": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_DIRECT_REFERENCES_FOR_ACCEPTED_SUBSET_WITH_DECLARED_METHOD_LIMITS_AND_UNAVAILABLE_STATES",
+        "source_scope": "Final frame08/action03 reviewed104 accepted subset:1200 scalar direct comparisons,48 continuous diagnostics,208 explicitly unavailable axis-state identities. Ten lateral exceedances retained; own-end moment/product/diameter and full joint limitations remain explicit.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/attempt03/summary.json",
+        "result_sha256": "d07a799272f029fdc72495bd7bf31912b01d4fd75565895ce6c4bcffa8c6bda8",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/attempt03/receipt.json",
+        "receipt_sha256": "730144d3762ff0238528dee23eca2e0ac52c61845d48a847ec47f099f4418885",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/attempt03/producer.py.snapshot",
+        "preserved_producer_sha256": "b543630283f495d6ee31b9cd8a711e65a95b911d7adc74c7ad4610511ecc9805",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-bolt-reference.md",
+        "counts": {
+          "accepted_states": 12,
+          "continuous_axes": 4,
+          "continuous_axis_states": 48,
+          "required_states": 14,
+          "scalar_axes": 100,
+          "scalar_axis_states": 1200,
+          "unavailable_axis_states": 208,
+          "unavailable_states": 2
+        },
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "compatible_mean_references_refined": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_SAVED_MEAN_REFERENCES_WITH_DECLARED_CONTACT_PROFILE_MATERIAL_STRESS_LIMITS",
+        "source_scope": "Final frame08/action03 accepted reviewed104 states:1296 wood-face,96 floor,2376 receiver-side and2496 own-end mean comparisons. Scalar end moments, actual metal stress, area/profile/material and inherited contact-law/activity limits remain explicit; no force repair or complete joint qualification.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/mean-reference-attempt01/summary.json",
+        "result_sha256": "e97e6ede57952052187192213199512fe9186290ebce39f776cd1f8377590884",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/mean-reference-attempt01/receipt.json",
+        "receipt_sha256": "67e98ce04e58aab46659207295d8d200ace179b59809852b1fb8e549f6e6f890",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/mean-reference-attempt01/producer.py.snapshot",
+        "preserved_producer_sha256": "aa44d9840be4baf1002ed62446ce8219ed9e8d0f0fe3c0ea4be4426ff41b7d17",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-action-reconciliation.md",
+        "counts": {
+          "accepted_states": 12,
+          "required_states": 14,
+          "excluded_states": 2,
+          "wood_contact_face_states": 1296,
+          "floor_mean_states": 96,
+          "base_header_face_states": 192,
+          "receiver_mean_states": 2376,
+          "parallel_or_oblique_receiver_interface_states": 408,
+          "washer_own_end_states": 2496,
+          "continuous_own_end_states": 96,
+          "scalar_own_end_moment_limits": 2400,
+          "legacy_contact_law_gate_limited_groups": 63,
+          "legacy_contact_law_gate_limited_cells": 121,
+          "force_motion_activity_disagreements": 7739,
+          "legacy_activity_gate_limited_cells": 5,
+          "unsupported_washer_area_states": 348,
+          "shop_source_profile_mismatch_end_states": 96,
+          "washer_metal_stress_method_limits": 2496
+        },
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "compatible_panel_references_refined": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETED_ACCEPTED_COMPATIBLE_ORIGINAL104_PANEL_REFERENCE_COMPARISONS_WITH_EXCLUDED_STATES",
+        "source_scope": "Final frame08/action03 original104 accepted subset,66Hillman axes,792screw tuples,72panel balances,1452local and10780net duration rows. Permanent local/net/screw resistance CD0.9;4512 inherited gross cuts retain source CD1 baseline diagnostic labels. Two excluded floor states have no comparison rows; generic Hillman and plywood hypotheses remain conditional.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-compatible-response/attempt02/summary.json",
+        "result_sha256": "2399bb5b863b3f26b7b5599f0f78fbfb41b444249f2c78d1b96c20c609257be7",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-compatible-response/attempt02/receipt.json",
+        "receipt_sha256": "08098b366c9ec8a513a36bafdeb0c195e047c8726773c9e971e15a3065255f21",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-compatible-response/attempt02/producer.py.snapshot",
+        "preserved_producer_sha256": "56fc683c5713dec4e21a82557b5e406e2659462b3bcb4d75b4a91105b1b35841",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-compatible-response.md",
+        "counts": {
+          "Hillman_steel_resistance_rows": 0,
+          "accepted_states": 12,
+          "excluded_required_states": 2,
+          "gross_cut_traces": 4512,
+          "local_duration_rows": 1452,
+          "net_duration_rows": 10780,
+          "panel_balances": 72,
+          "required_states": 14,
+          "screw_tuples": 792
+        },
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "corrected_bore_splitting_pilot": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPARED_WITH_MESH_LIMITS",
+        "source_scope": "Historical original104 eight-state center_post_cleat_left comparison only:one R=u,T=v binding,two named grain-end/bore-low paths,20/15-mm grids,32 completed rows. Energy/upper mesh changes meet20%;three unique intact states retain stress mesh limits and one fine initiation reference exceeds. All four bores sampled. No active frame08/action03 force transfer or all-duty qualification; aggregate both-R/T prose is superseded by its explicit sampled inventory.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/center-post-cleat-v01/result.json",
+        "result_sha256": "4a1cd8c2a651a1dc0ae7db5bc6cc5e97ba13e26280b630b8911726e50602e5f5",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/center-post-cleat-v01/receipt.json",
+        "receipt_sha256": "6d22f2842274d60cd1ccd6ab92b65af19bb74c3a352126060e134dd38306d4ad",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/center-post-cleat-v01/producer.py.snapshot",
+        "preserved_producer_sha256": "1682cb15acdf9d24f77856cce8cc6f778a13f47148c76201b2a425aaeb1578a5",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/splitting-capacity-completion.md",
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "compatible_finished_member_cuts_refined": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_ACCEPTED_COUPLED_SUBSET_OPENING_COMPARISONS_WITH_DECLARED_EXCLUSIONS",
+        "source_scope": "Final frame08/action03 accepted reviewed104 states:49584 finite-inventory traces,49344 longitudinal/shear comparisons and240 analytic endpoints. Includes2496rear-recess+6144action-event cuts;7008 actual curved longitudinal normals remain parallel to retained-subset shear. All40944 previous action03 rows preserved exactly.200normal/420sampled shear exceeds,mesh/topology/disconnected allocation limits retained; two unavailable floor states excluded.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/coupled-complete-attempt02/summary.json",
+        "result_sha256": "069418d2309b17ad41ebe54f0086b8e81c9d9970f070002f6a42f83c04a6de35",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/coupled-complete-attempt02/receipt.json",
+        "receipt_sha256": "dc149b7b37f338fd5b23e9c5f9900a9f668d8ddf4cc92a2e51f1bb23f3248b5c",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/coupled-complete-attempt02/producer.py.snapshot",
+        "preserved_producer_sha256": "0c30dc5870037c384cb56f04625dc0fcf5dad3a8b1ce8ee1f6f7b6f05c4e7955",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-general-completion.md",
+        "actual_product_or_complete_joint_acceptance": false,
+        "source_resolution": {
+          "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-general-completion.py": {
+            "original_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-general-completion.py",
+            "snapshot_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/attempt07/producer.py.snapshot",
+            "sha256": "c4bf4023c67f861daa287503569c97a3d9c65e7c36ad5928566bfb787ddd1463"
+          }
+        }
+      },
+      "compatible_transverse_normal_component": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_CONDITIONAL_NORMAL_TRACTION_COMPONENT_FRACTURE_PENDING",
+        "source_scope": "Frame08/action03 all44timbers and528 accepted body states:2112 before/after cuts and1056 u/v orientations on exact net geometry. Nominal common-plane Ft90 component peak0.9457669511,no reference exceedances. Two unavailable floor states/88timber slots retained. All active fracture comparisons remain pending; this component does not complete splitting resistance.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/active-component-coverage01/summary.json",
+        "result_sha256": "74a7aa321978a3088107143073e3de21d4f67790573dbba284aa49ed397817db",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/active-component-coverage01/receipt.json",
+        "receipt_sha256": "587fe634430af81fe8c425fa139ac3063beb5485d6f4be82ace48ecf57cb348e",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/active-component-coverage01/producer.py.snapshot",
+        "preserved_producer_sha256": "cbedb4e81a5630aa560a0617ccd6be864ecaa8f13682e5cf4a9d6ec99f692896",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/splitting-capacity-completion.md",
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "current_frame_fixed_force_motion": {
+        "status": "complete_conditional_numerical_comparisons",
+        "numerical_scope": "fixed_force_344_coordinate_motion",
+        "source_scope": "Twelve accepted frame08/action03 fields in the current344-coordinate system; finite original-law fixed-force seating bounds and first-order stability implications. Two unavailable floor fields retain their separate traced dispositions; no second-order or dynamic stability proof.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/attempt02/summary.json",
+        "result_sha256": "807a4a1ec3847bc86378b8a2700cf903b95a27afcaa8991f0d6e1b297e51ef0c",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/attempt02/receipt.json",
+        "receipt_sha256": "2a4aa36755825e95c4e7837f5427674283f654aaa7f113950c0e728a3f19d7ac",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/attempt02/producer.py.snapshot",
+        "preserved_producer_sha256": "8673c676d006c0aa99b6880a82a82e1e28c34185d59aa79d2e4050024d6d91df",
+        "documentation_link": "joint-frame-motion-bounds.md",
+        "result_status": "COMPLETE_FIXED_FORCE_MOTION_AND_FINITE_STABILITY_DISPOSITION",
+        "counts": {
+          "required_states": 14,
+          "accepted_states_assessed": 12,
+          "source_floor_stops_without_pose_field": 2,
+          "body_seating_bounded_states": 12,
+          "all_coordinate_bounded_states": 12,
+          "nonunique_body_witness_states": 7
+        },
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "panel_backing_comparison": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETED_CONDITIONAL_ADDITIONAL_BACKING_PANEL_COMPARISON",
+        "evidence_kind": "actual_paired_full_vector_panel_additional_backing_sensitivity",
+        "source_scope": "A12-rear upper-left panel only; unchanged versus additional fixed backing; original AC-fir equivalent layers, twelve Hillman screw triples and all six wrench components. Same-state force/contact/field records are completed under declared laws; no frame08 source force replacement, exact Moon assembly, changed candidate or head qualification.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-backing-comparison/attempt01/summary.json",
+        "result_sha256": "956f46cf58810e912c2394d4a2fb0279c5c2c9efed6d86f36412190b17841c36",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-backing-comparison/attempt01/receipt.json",
+        "receipt_sha256": "c050d8bfbc8848dd7b779c9b3a3c63c3ad8e33b717274ce1e81bd3890acbfc7d",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-backing-comparison/attempt01/producer.py.snapshot",
+        "preserved_producer_sha256": "f7db8bf1625506f5ffaf551fadbbc794ea64af2d310161a2451c28ee862f70d7",
+        "result_matched_to_receipt_output": true,
+        "actual_source_count": 50,
+        "bound_output_count": 16,
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-backing-comparison.md",
+        "documentation_sha256": "c81c7845b567baec9b7f733e1a84eaf12a0fcd3cf8fb4321a7bd9c963a7266f5",
+        "numerical_comparison_complete": true,
+        "claims_complete_joint_acceptance": false,
+        "actual_product_or_complete_joint_acceptance": false,
+        "complete_panel_acceptance": false,
+        "physical_release": false,
+        "binding_limit": "The fixed-receiver additional-backed Moon-like sensitivity retains all current screw receivers. Exact four-upright replacement would leave current center stations unsupported. Original Hillman stiffness/contact penalty are unmeasured; gross filled-bore stresses and provisional face-pressure/unrolled-strip comparisons are not empirical head/crack capacities. The candidate and frame08 compatible force basis are unchanged."
+      },
+      "washer_updated_frame_first_attempt": {
+        "status": "complete_finite_numerical_disposition",
+        "result_status": "PARTIAL_CONDITIONAL_COUPLED_FRAME_STATES_WITH_DECLARED_STOPS",
+        "source_scope": "Fresh reviewed104 gross-frame branch with the eight approved wider/thicker top-rail washer roles and four updated axial laws. All14 requested dispositions:9 accepted fields and5 exhaustive floor-search procedure limits. Three newly lost previously accepted states await bounded stricter fixed-mask refinement; this first attempt is preserved and is not the selected new force basis.",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/profile-frame01/comparison.json",
+        "result_sha256": "b3a80d09f0dfb142a89b385a283cbbce89543d921b6c5656528aa9cdf7d2c774",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/profile-frame01/receipt.json",
+        "receipt_sha256": "3688daecf06c6966c534d198a27830b11ccbfb021b83455cfa8e89c724948b0a",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/profile-frame01/producer.py.snapshot",
+        "preserved_producer_sha256": "0f4c5b62c1b2fecda31ff83c4d7d641d03f51f164beda37f797a461ca90d909b",
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-member-replacement.md",
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "compatible_panel_references_profile": {
+        "accepted_state_numerical_comparisons_complete": true,
+        "actual_product_or_complete_joint_acceptance": false,
+        "actual_source_count": 684,
+        "all14_required_states_compared": false,
+        "audit_binding": {
+          "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-compatible-response/profile-audit01/audit.json",
+          "sha256": "710b5aa05b28697dce841767ccd58ed281dcb10e7e44e2ec548c00286816648c"
+        },
+        "bound_output_count": 11,
+        "claims_complete_joint_acceptance": false,
+        "complete_panel_acceptance": false,
+        "counts": {
+          "Hillman_steel_resistance_rows": 0,
+          "accepted_states": 12,
+          "excluded_required_states": 2,
+          "gross_cut_traces": 4512,
+          "local_duration_rows": 1452,
+          "net_duration_rows": 10780,
+          "panel_balances": 72,
+          "required_states": 14,
+          "screw_tuples": 792
+        },
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-compatible-response.md",
+        "documentation_sha256": "3cfa5a6404705f9b5870baa39d47cc1ef9f67ba06c7dd8a70bade0a0ff76f912",
+        "executed_source_key_wrapper_sha256": "afd56e45dbebff6a2cea7bfb657628a88fcd9b5edc3e3f2b0f4844129ac1f8c4",
+        "executed_source_key_wrapper_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-compatible-response/profile-attempt02/source-key-wrapper.py.snapshot",
+        "numerical_comparison_complete": false,
+        "physical_release": false,
+        "preserved_producer_sha256": "56fc683c5713dec4e21a82557b5e406e2659462b3bcb4d75b4a91105b1b35841",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-compatible-response/profile-attempt02/producer.py.snapshot",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-compatible-response/profile-attempt02/receipt.json",
+        "receipt_sha256": "5199e4c81e8be1d38bd39057728c2b004939b031855a072e0d4a1c620591507a",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-compatible-response/profile-attempt02/summary.json",
+        "result_matched_to_receipt_output": true,
+        "result_sha256": "2720180c3143ef944ab27a33d3be6b5072a95813e5e73aef52619ed7b5f48fdc",
+        "result_status": "COMPLETED_ACCEPTED_COMPATIBLE_ORIGINAL104_PANEL_REFERENCE_COMPARISONS_WITH_EXCLUDED_STATES",
+        "source_scope": "Fresh profile action ae201061; original104 accepted12/required14 with two finite floor exclusions and no unassessed state.66Hillman axes,792screw tuples,72panel balances,4512gross CD1 diagnostics,1452local and10780net duration rows; permanent strength CD0.9. Original56fc arithmetic and gates are unchanged; wrapper afd56 only permits the exact three authenticated absolute /tmp source keys and binds execution provenance.",
+        "status": "complete_conditional_numerical_comparisons"
+      },
+      "washer_updated_frame_final": {
+        "status": "complete_finite_numerical_disposition",
+        "result_status": "PARTIAL_CONDITIONAL_COUPLED_FRAME_STATES_WITH_DECLARED_STOPS",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/profile-enriched01/comparison.json",
+        "result_sha256": "0a262d5933367be8a6ba98efde200048af67e6005dc6134ffbccb3332d0be34a",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/profile-enriched01/receipt.json",
+        "receipt_sha256": "317f8800d0f1ad947778d4f553a46403b50fbb9d921d0b70f8854928f9994455",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/profile-enriched01/producer.py.snapshot",
+        "preserved_producer_sha256": "393b6870a87fd0f16129c1048614bd2075b31514fbe5bdbad11de9581ad3d342"
+      },
+      "washer_updated_action_final": {
+        "status": "complete_finite_numerical_disposition",
+        "result_status": "COMPLETE_SAVED_COUPLED_ACTION_RECONCILIATION_NOT_RESISTANCE_QUALIFICATION",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/profile-attempt01/summary.json",
+        "result_sha256": "5da261dc92e2d4a52453eca881ab0f1e24a61c62d7bee5b0be3e701a5a83a6a5",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/profile-attempt01/receipt.json",
+        "receipt_sha256": "ae201061f06ce1d4f8610903279d224c0a3830820d2b2629ef0b579b8fed891a",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/profile-attempt01/producer.py.snapshot",
+        "preserved_producer_sha256": "8eaf209dc594be9468b9bea60ddd02974e1a05f2bc915fd2dc41dcf2b11eaf8c"
+      },
+      "washer_updated_fixed_force_motion": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_FIXED_FORCE_MOTION_AND_FINITE_STABILITY_DISPOSITION",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/profile-attempt01/summary.json",
+        "result_sha256": "07820536d615a6abaec0a19dc20113ad455290c3fc2322eb6af4160e36fe367c",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/profile-attempt01/receipt.json",
+        "receipt_sha256": "05ba140821e412da12e4f4b123649f771135d53dfeb197af80186139d691208d",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/profile-attempt01/producer.py.snapshot",
+        "preserved_producer_sha256": "8673c676d006c0aa99b6880a82a82e1e28c34185d59aa79d2e4050024d6d91df",
+        "numerical_scope": "fixed_force_344_coordinate_motion"
+      },
+      "washer_updated_load_geometry": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_RIGID_LOAD_LOCATION_REMAINDER_AND_EXTERNAL_CURVATURE_DIAGNOSTIC",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/profile-load-geometry01/summary.json",
+        "result_sha256": "6c6ba499f212755b3313a248888ce50cdf435d2e0ffa8e360a9c84fcba221236",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/profile-load-geometry01/receipt.json",
+        "receipt_sha256": "2c2d0f74896a3992c355e1379876e6d9b11c17f2b01ca2280f9eda3171b0bea2",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-motion-bounds/profile-load-geometry01/producer.py.snapshot",
+        "preserved_producer_sha256": "04c3d300f68d63e8822f7a434ab2080156f905c06c8ba0c6c92e14dea61274ad"
+      },
+      "washer_updated_shaft_dispositions": {
+        "status": "complete_finite_numerical_disposition",
+        "result_status": "ASSESSED_ISOLATED_CURRENT_FORCE_FIELDS_WITH_DECLARED_STOPS",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/current-fields01/summary.json",
+        "result_sha256": "021b371e38dec332ae37951b693acd82fa574bc63a745630c41304802f068210",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/current-fields01/receipt.json",
+        "receipt_sha256": "705c6c0e2ab927ba23407c036bf0567b6547c4879f58b598a3b7a195660d35c1",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/current-fields01/producer.py.snapshot",
+        "preserved_producer_sha256": "6c5622b1086b8d05458ba14aff89b0fadba34e9bd35955c416de532d5ff5b96b",
+        "numerical_scope": "current_accepted_shaft_dispositions",
+        "field_audit_binding": {
+          "receipt": {
+            "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/audit-current-fields01/receipt.json",
+            "sha256": "c7a416065a69e4caeb38a34de0087f8bc0ad5e54f4c059a7d0b5a80ad8917bd5"
+          },
+          "result": {
+            "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/audit-current-fields01/result.json",
+            "sha256": "8cbaa5e88f89b32608919ff476c403fbf158e17d458abaccf66660bcbdab6736"
+          }
+        },
+        "support_audit_binding": {
+          "receipt": {
+            "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/audit-current-support01/receipt.json",
+            "sha256": "a5e58b5add81a6ece6a2af7463acba3546afcf5104e45bd3a7ea7b54cb4e11d0"
+          },
+          "result": {
+            "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-shaft-recovery/audit-current-support01/result.json",
+            "sha256": "252052fac419b48a56f181a29a7f57c919f7068d69abbb7ae3e8e9b32180fae2"
+          }
+        }
+      },
+      "washer_updated_mean_references": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_SAVED_MEAN_REFERENCES_WITH_DECLARED_CONTACT_PROFILE_MATERIAL_STRESS_LIMITS",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/profile-means01/summary.json",
+        "result_sha256": "81ac4b025cd809b82ffc2117228b07909f8304bb76422bbf2a45c8a226bad20f",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/profile-means01/receipt.json",
+        "receipt_sha256": "c9ebd3c5c9f338b7678baed64d54e520a0314a254d10afbb5f77d77b93740c93",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-action-reconciliation/profile-means01/producer.py.snapshot",
+        "preserved_producer_sha256": "aa44d9840be4baf1002ed62446ce8219ed9e8d0f0fe3c0ea4be4426ff41b7d17"
+      },
+      "washer_updated_profile_mean_rejoin": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_CURRENT_PROFILE_MEAN_REJOIN_NOT_METAL_STRESSES",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/washer-working-profile-completion/mean-profile-rejoin01/summary.json",
+        "result_sha256": "246ba2e3c7afe50acfaf1bdfe00b98f07b044ae529c8a6ee7928d5851c7025f9",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/washer-working-profile-completion/mean-profile-rejoin01/receipt.json",
+        "receipt_sha256": "6f1710f8a0de7a91790a13c5ce607a4c2def834cb34aacec3d43e3e3055ea7ff",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/washer-working-profile-completion/mean-profile-rejoin01/producer.py.snapshot",
+        "preserved_producer_sha256": "8544635143b17707549ceb0c2660454f648c0137ce571c370eb3c58222b725dc"
+      },
+      "washer_updated_bolt_references": {
+        "status": "complete_conditional_numerical_comparisons",
+        "result_status": "COMPLETE_DIRECT_REFERENCES_FOR_ACCEPTED_SUBSET_WITH_DECLARED_METHOD_LIMITS_AND_UNAVAILABLE_STATES",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/profile-attempt01/summary.json",
+        "result_sha256": "12e39c24dde4e9cd34c6df434af1d7a6ebf0b2e140e744e7a511b30c7f2dc198",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/profile-attempt01/receipt.json",
+        "receipt_sha256": "2414ddc5850b0da445f64cbc97283c767c4b74a558dd8dd116b9d7eeae9e60df",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-bolt-reference/profile-attempt01/producer.py.snapshot",
+        "preserved_producer_sha256": "b543630283f495d6ee31b9cd8a711e65a95b911d7adc74c7ad4610511ecc9805",
+        "counts": {
+          "accepted_states": 12,
+          "continuous_axes": 4,
+          "continuous_axis_states": 48,
+          "required_states": 14,
+          "scalar_axes": 100,
+          "scalar_axis_states": 1200,
+          "unavailable_axis_states": 208,
+          "unavailable_states": 2
+        },
+        "source_scope": "Updated wide-top-rail frame317f/actionae201 accepted12-state direct references with two source exclusions; no scalar bending or washer metal claim.",
+        "actual_product_or_complete_joint_acceptance": false
+      },
+      "compatible_finished_member_cuts_wide_top_rail_profile": {
+        "actual_product_or_complete_joint_acceptance": false,
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-general-completion.md",
+        "historical_force_results_transferred": false,
+        "independent_audit": {
+          "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/washer-updated-member-audit01/audit.json",
+          "sha256": "192f9efd80662b1cfdbe8ba669c19f866c15df695541eb7c6f85101816e367c1"
+        },
+        "independent_audit_receipt": {
+          "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/washer-updated-member-audit01/receipt.json",
+          "sha256": "a7bd2af8af065a17ffa8d21cbf30995034a36c869a7c31f3e05720d521b5639a"
+        },
+        "numerical_scope": "compatible_finished_member_cut_subset",
+        "preserved_producer_sha256": "933ceaa9e1a19e5ffbfbf1cc6b72d321afcd711bbae70a7692e45235fee76a6b",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/washer-updated-complete-attempt02/producer.py.snapshot",
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/washer-updated-complete-attempt02/receipt.json",
+        "receipt_sha256": "64dbd1a1d289712ab057f63850dd5c07a8a5be6ecc8ddbc8927cf850bdef68eb",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/washer-updated-complete-attempt02/summary.json",
+        "result_schema": "coupled_original104_opening_replay/v2",
+        "result_sha256": "7f0aea1d1925514b833f23ebb273dffaf75b041e27a837fbf932e37bcfc0561e",
+        "result_status": "COMPLETE_ACCEPTED_COUPLED_SUBSET_OPENING_COMPARISONS_WITH_DECLARED_EXCLUSIONS",
+        "source_resolution": {
+          "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-general-completion.py": {
+            "original_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-general-completion.py",
+            "sha256": "c4bf4023c67f861daa287503569c97a3d9c65e7c36ad5928566bfb787ddd1463",
+            "snapshot_path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/attempt07/producer.py.snapshot"
+          }
+        },
+        "source_scope": "Fresh reviewed104_wide_top_rail_profile_frame01 actions ae201: all49344 finite normal/shear cuts and240 analytic endpoints over12 accepted states;14 finite source dispositions retain two unavailable floor states. Includes2496 rear-recess and6144 action-event cuts;7008 actual curved normals remain separate from subset shear. Every force-dependent row recomputed;2066 exact unit-field cache identities reused.200 normal and414 sampled shear reference exceedances,5409 peak-mesh limits,1176 tangent idealizations/408 topology limits retained. No curved-shear, continuous-peak or local3D receiver claim.",
+        "status": "complete_conditional_numerical_comparisons",
+        "recorded_comparison_counts": {
+          "actual_curved_longitudinal_cuts": 7008,
+          "actual_curved_normal_reference_exceedances": 0,
+          "additional_action_event_cuts": 6144,
+          "bore_free_rear_recess_cuts": 2496,
+          "divergent_endpoint_limits": 120,
+          "elastic_shear_reference_exceedances": 414,
+          "finite_elastic_shear_cuts": 49344,
+          "finite_normal_cuts": 49344,
+          "mesh_sensitive_peak_cuts": 5409,
+          "normal_reference_exceedances": 200,
+          "retained_subset_cuts": 7008,
+          "tangent_idealized_cuts": 1176,
+          "tangent_topology_changed_cuts": 408,
+          "target_cuts": 49584,
+          "zero_endpoint_limits": 120
+        }
+      },
+      "nominal_transverse_components_wide_top_rail_profile": {
+        "actual_product_or_complete_joint_acceptance": false,
+        "documentation_link": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-opening-general-completion.md",
+        "historical_force_results_transferred": false,
+        "numerical_scope": "nominal_transverse_components",
+        "preserved_producer_sha256": "fe5fd179ecb83591abca9823edb99ace8fbb82673854253966d2ab9aa19b361d",
+        "preserved_producer_snapshot": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/washer-updated-nominal-audit01.py.snapshot",
+        "raw_nominal_receipt": {
+          "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/washer-updated-nominal-attempt03/receipt.json",
+          "sha256": "2b222d9d7899ccaf9f8b2ae1eb389e57147b8e9202117a69720160bf48149b95"
+        },
+        "raw_nominal_result": {
+          "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/washer-updated-nominal-attempt03/nominal.json",
+          "sha256": "69921f343e8e4913546e03781969c9d9947bebac2a7c5ada0d3c92852db2a2e5"
+        },
+        "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/washer-updated-nominal-audit01-receipt.json",
+        "receipt_sha256": "14d8f78c3f63ae7dc3e3776b05a43d8cb34b57c95bbf2a22bcc286d12c2de916",
+        "result": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/washer-updated-nominal-audit01.json",
+        "result_schema": "source_bound_current_transverse_nominal_audit/v1",
+        "result_sha256": "9667ea4063c73829c5d98f32d9b17b53cb9ee8db5d6c056520b8f3fdf83034ca",
+        "result_status": "PASS_REFRESHED44_NOMINAL_TRANSVERSE_SOURCE_AND_ARITHMETIC",
+        "source_scope": "Fresh reviewed104_wide_top_rail_profile_frame01 actionae201,528 exact timber/action joins,all44 bodies and2112 before/after nominal transverse component comparisons over12 accepted states;two unavailable floor states remain explicit88 timber slots.1728 rectangle-method and384 source-profile rows freshly recomputed;16 exact profile geometries retained.0 conditionalFt90=.5MPa reference exceedances,max0.9456771643383988. No fracture, local hole stress, continuous-plane or physical resistance qualification.",
+        "status": "complete_conditional_numerical_comparisons",
+        "recorded_comparison_counts": {
+          "accepted_body_states": 528,
+          "accepted_states": 12,
+          "geometry_limits": 0,
+          "normal_component_comparisons": 2112,
+          "reference_exceedances": 0,
+          "timber_bodies": 44
+        }
+      }
+    },
+    "workstream_results": {
+      "restricted washer contact": [
+        "restricted_washer_contact",
+        "washer_updated_profile_mean_rejoin"
+      ],
+      "single G7 shaft recovery": [
+        "g7_shaft_recovery",
+        "washer_updated_shaft_dispositions"
+      ],
+      "panel local/net sections": [
+        "panel_local_net",
+        "panel_original104_permanent",
+        "compatible_panel_references_refined",
+        "compatible_panel_references_profile"
+      ],
+      "reviewed104 coupled knee/frame compatibility": [
+        "reviewed104_coupled_frame_refined",
+        "washer_updated_frame_first_attempt",
+        "washer_updated_frame_final",
+        "washer_updated_fixed_force_motion",
+        "washer_updated_load_geometry"
+      ],
+      "compatible action reconciliation": [
+        "compatible_action_reconciliation_refined",
+        "compatible_bolt_direct_references_refined",
+        "compatible_mean_references_refined",
+        "compatible_transverse_normal_component",
+        "washer_updated_action_final",
+        "washer_updated_mean_references",
+        "washer_updated_bolt_references",
+        "nominal_transverse_components_wide_top_rail_profile"
+      ],
+      "general finished member openings": [
+        "finished_member_sections",
+        "compatible_finished_member_cuts_refined",
+        "compatible_finished_member_cuts_wide_top_rail_profile"
+      ]
+    },
+    "parent_final_validation": {
+      "confirmed": false,
+      "scope": "Source-bound conditional numerical comparisons; reference exceedances retained; complete joint and physical acceptance remain unresolved."
+    },
+    "selected_coupled_force_basis": {
+      "frame_result": "reviewed104_coupled_frame_refined",
+      "action_result": "compatible_action_reconciliation_refined",
+      "consumer_results": [
+        "compatible_bolt_direct_references_refined",
+        "compatible_mean_references_refined",
+        "compatible_panel_references_refined",
+        "compatible_finished_member_cuts_refined",
+        "compatible_transverse_normal_component"
+      ]
+    },
+    "prepared_updated_coupled_force_basis": {
+      "frame_result": "washer_updated_frame_final",
+      "action_result": "washer_updated_action_final",
+      "consumer_results": [
+        "washer_updated_bolt_references",
+        "washer_updated_mean_references",
+        "washer_updated_profile_mean_rejoin",
+        "compatible_panel_references_profile",
+        "compatible_finished_member_cuts_wide_top_rail_profile",
+        "nominal_transverse_components_wide_top_rail_profile"
+      ]
+    }
   }
 }

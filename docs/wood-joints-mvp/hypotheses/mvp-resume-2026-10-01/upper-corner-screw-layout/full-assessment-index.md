@@ -1,5 +1,92 @@
 # Full numerical assessment index
 
+## Owner-directed numerical acceptance extension
+
+The owner has directed completion of the remaining numerical fields and
+accepts reference exceedances as outcomes for now. This extension is in
+progress; the original assessment below remains a completed record within
+its original method domains. Its 47 definitions, original path/hash identities
+and false release flags are preserved. The machine map's
+`numerical_acceptance_extension` records new, separately scoped actual packets.
+`maintained_source_resolution` resolves the two updated maintained summaries
+to their byte-identical consumed snapshots; historical receipts are unchanged.
+
+The twelve [restricted washer ends](washer-restricted-contact-completion.md)
+are now complete without numerical stops. The [single G7 recovery](g7-shaft-completion.md)
+completes its existing 504-shaft/1,008-end proposal-force inventory without
+replaying the accepted rows. The [panel local/net packet](panel-local-net-completion.md)
+also has a separate original104 permanent branch; its declared local head
+and punching exceedances remain outcomes. The
+[refined compatible frame](joint-frame-compatibility-completion.md) assesses
+fourteen states: twelve accepted fields and two finite floor-search limits.
+Exactly two fixed-mask refinements satisfy the unchanged 1e-4 N panel-screw
+gate; ten accepted fields remain byte-identical. The
+[final action exports](joint-frame-action-reconciliation.md) and
+[bolt direct references](joint-frame-bolt-reference.md) share that exact
+force basis; ten lateral-reference exceedances remain recorded.
+[Finished-section fields](member-opening-general-completion.md) cover all
+20,624 finite cuts and 320 analytic endpoint dispositions within their
+separate source branches. Tangent topology, disconnected allocation and
+mesh-sensitive sampled peaks retain explicit limits. The final compatible
+member inventory adds exact source joins for 49,344 finite cuts and 240
+analytic endpoints, including 2,496 recess and 6,144 action-event cuts.
+Nominal transverse tension now covers all 44 timbers, with 2,112 before/after
+comparisons and no geometry limits. Three-dimensional fracture remains
+active. The original 37,056-identity inventory is preserved. The owner-directed
+[numerical completion plan](../../../completion-ledger.md#planned-numerical-completion)
+starts with surrounding-frame restraint and redistribution, then selected
+connection families. Completed comparison scopes do not supply every metal,
+motion or stability field. [Localized condensation](all-joint-splitting/splitting-capacity-completion.md#supported-method-checks-and-preserved-historical-comparisons)
+passed 38 small known-answer states and reproduced three historical joint
+configurations across eight saved states in 159 seconds. The first current-load
+cleat has all 384 comparisons across eight paths, both grids, both material
+orientations and twelve accepted states, with independent saved-field audits.
+Its initiation index reaches 12.46, with 136 reference exceedances; 94 stress
+comparisons exceed the 20% mesh guard, while energy-release comparisons stay
+within that guard and their declared reference. The right cleat also completes
+all 384 independently audited comparisons: initiation index 8.93, 116 reference
+exceedances and 86 stress mesh-limit comparisons, with both energy measures
+below their declared reference. The combined native and audited tally is 768.
+The original inventory has 36,288 unperformed identities. The broad
+queue is not the next action; unsampled identities remain outside the planned
+focused study without a strength pass or method exclusion. Existing numerical
+grid, condensation and tapered-leg proofs retain their source-bound scope.
+Combined-plane and load-cloud stops remain preserved method records. The corrected historical solid pilot
+does not qualify changed coupled forces or unrun joint paths.
+
+The [344-coordinate motion assessment](joint-frame-motion-bounds.md) bounds
+fixed-force seating in all twelve accepted wider-profile states. Seven nominal
+states have admissible distinct positions under unchanged laws; maximum
+incremental seating is bounded by 1.15 mm. Absolute elastic nodal motion and
+second-order stability remain separate limits. Fresh conditional external-load
+geometry bounds the hold-point rotation remainder by 0.017064 mm and gravity-CG
+remainder by 0.045611 mm, without the full prestressed tangent. Frame08 remains
+preserved; fracture variants require their own motion evidence.
+
+The supported eight-role wider/thicker top-rail washer profile is now in a
+separate gross-frame branch with twelve accepted states and two source-domain
+floor-search limits. Strict fixed-mask refinements and an equivalent cone
+formulation preserve all original acceptance gates. Fresh exports are complete;
+all five consumer categories are independently audited and registered through
+six exact packets. Source selection awaits the full current-force washer
+replay. Failed trials
+stay rejected. The first surrounding-frame cleat pilot publishes three audited
+comparisons and nine intact/cracked fields. Forward zero-clearance initiation
+and energy indices are 9.39 and 0.00817; very small nominal energy differences
+retain precision qualifications. One grid and orientation do not establish
+convergence. Matched fixed-force and assembled fields reduce the forward
+zero-clearance tensile peak from 6.11 to 4.70 MPa (23.19%), while initiation
+still exceeds its reference. Current supported shaft recovery has 1,152 finite fields and 2,304
+own-end moments, no numerical stops and no steel-reference exceedances. The
+twelve-end washer pilot records three assumed-yield exceedances, including one
+widened top-rail end under updated forces; its full fresh replay remains active.
+
+Check source and result bindings without running mechanics:
+
+```sh
+uv run --no-sync python scripts/check_wood_joint_numerical_acceptance.py --check
+```
+
 ## Authority and interpretation
 
 This index consolidates existing obligations and saved actual results. The
@@ -13,8 +100,10 @@ The reviewed development authority remains **24 blocks, 104 structural bolts
 and 66 Hillman screws**. The **108-bolt, 216-washer, 50-body / 44-timber** packet
 is a separate unadopted proposal. Fresh ce69 gravity, c3a8 frame comparison and
 62bd response retain 104 global bolt axes; four proposed internal ties have
-separate static allocations. Common-knee fields have their own redistributed
-actions and do not update the global frame. Original 104-force results remain
+separate static allocations. Earlier isolated common-knee fields have their
+own redistributed actions and do not update their source global frame. The
+extension uses the separately bound `frame-attempt08` sensitivity; its force
+joins do not select a fabrication basis. Original 104-force results remain
 history within their original scope; geometry identity permits only the
 specifically authenticated geometry reuse.
 
@@ -33,7 +122,7 @@ strength comparison. Null resistance is not zero utilization. A missing
 ordinary capacity law is an applicability limit, not evidence of physical
 failure or a new blanket prerequisite.
 
-## Actual N01–N19 results
+## Preserved original N01–N19 results
 
 Counts below have each packet's own denominator. Overlapping samples, duration
 records, local reallocations and interface inventories are not summed into a

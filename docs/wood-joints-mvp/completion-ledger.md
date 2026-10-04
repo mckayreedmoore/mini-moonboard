@@ -2,6 +2,50 @@
 
 ## Current conditional packet and qualification status
 
+The owner-directed numerical-acceptance extension is active. Reference
+exceedances are acceptable recorded outcomes; unresolved numerical fields
+remain work. Restricted washer ends, the G7 shaft, panel local/net branches,
+the fourteen-state frame disposition and final compatible action exports are
+recorded. Twelve frame states pass the original physical and panel-screw gates;
+two zero-gap floor searches have no accepted field. The final bolt join retains
+ten lateral-reference exceedances. The final compatible member inventory now
+covers 49,344 finite cuts and 240 analytic endpoints, including additional
+action stations and rear recesses. Nominal transverse tension covers all 44
+timbers and 2,112 before/after comparisons. Three-dimensional fracture
+resistance remains active. The original 44-timber inventory has 37,056 identities
+and remains preserved. The owner-directed focused-study plan below replaces
+broad enumeration as the next action; it does not complete unsampled paths.
+Localized condensation
+passed 38 small
+known-answer states and reproduced three historical joint configurations across
+eight saved states in 159 seconds. The first current-load cleat has all 384
+comparisons across eight paths, both grids, both material orientations and twelve
+accepted states, independently audited from saved fields. Its initiation index
+reaches 12.46, with 136 reference exceedances; 94 stress comparisons exceed the
+20% mesh guard, while the energy-release comparisons stay within that guard
+and their declared reference. The right cleat completes all 384 comparisons
+with independent saved-field reconstruction: initiation index 8.93,
+116 reference exceedances and 86 stress mesh-limit comparisons, with neither
+energy measure exceeding its declared reference. The combined native and
+audited tally is 768, leaving 36,288 unperformed original identities.
+Parent SHA authentication passes all 1,054 source and 24 output bindings in
+`all-joint-splitting/rawlocal/splitting-capacity-completion/multi-plane-grid-serial01/right-cleat-priority-attempt02/receipt.json`.
+The right-body publication is bound by result
+`57c430a6cac8831fe2b6016f5ee4008456b4de89f13d4a9abe2e8688fd65c2aa`
+and receipt `4e47cffcceb309adb09f421d382b5a25c7b7bc7dec5d2a2d7390c2e97d30ea5f`
+in the same splitting completion directory. Existing grid, condensation and
+tapered-leg known-answer evidence stays active. Combined-plane and load-cloud
+stops remain preserved method records. Original
+reviewed104 permanent evidence is at
+`rawlocal/dead-load-check/parent-attempt06`; proposal-gravity and six-bore
+comparisons remain separate. Parent owns serialized heavy execution and final
+source-bound validation. The existing assessment index preserves its original
+47 definitions, evidence and formal statuses, and records extension progress.
+Original hash-bound summary bytes are retained in its
+`source-snapshots/numerical-acceptance/` directory; the preceding index is
+recoverable from commit `95852a9942250254fba8e0ff5c355bdec0588d78` at its
+original path. No source receipt is rewritten.
+
 The [joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md)
 is the maintained operational summary. The reviewed 104-axis record remains
 authority; the [108-axis knee proposal](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md)
@@ -17,9 +61,280 @@ retain their stated limitations. **All 47 formal criteria remain pending and
 all eight release flags remain false.** Completed reference arithmetic is
 not complete structural acceptance.
 
+The [current motion assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-motion-bounds.md)
+completes the fixed-force seating question for all twelve accepted
+344-coordinate wider-profile states: all motions are bounded, with seven nominal
+states admitting distinct unchanged-law positions. The largest incremental
+seating bound is 1.15 mm; rotation increments vanish within the recorded
+coefficient tolerance. Saved rigid-pose bounds and rotation remainders are
+reported separately. This supplies first-order stability implications, not
+second-order or dynamic stability. The fresh conditional external-load
+geometry check bounds the hold-point rotation remainder by 0.017064 mm and
+the gravity-CG remainder by 0.045611 mm. It does not supply the full internal
+prestressed tangent. Frame08 motion remains preserved; fracture variants
+require their own motion assessment.
+
+The [panel-backing comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-backing-comparison.md)
+completes the bounded same-material, same-screw, same-load comparison at fixed
+receivers. Added Moon-spacing interior backing and joint bracing reduce the
+governing head tension by 0.14%, from 1,972.5 to 1,969.7 N. Both variants retain
+the empirical head-reference exceedance. This is an augmented support
+sensitivity, not an exact Moon assembly, material substitution or frame revision.
+
 Use the [development entry](README.md) for the current reading order. The
 chronology below preserves earlier results, work orders and then-current
 readiness statements; it does not commission those tasks again.
+
+## Planned numerical completion
+
+The owner directed this plan after questioning exhaustive crack enumeration,
+surrounding-member restraint and the interpretation of panel and washer
+references, then authorized execution and incorporation of the supported
+wider-washer evidence into the numerical model. Implementation and preparation
+are active; completed execution is recorded only with its actual evidence.
+The updated-profile frame now has twelve accepted states and two
+source-domain floor-search limits. Strict fixed-mask refinements and an
+equivalent Lorentz-cone formulation resolve the three numerical precision
+stops while preserving all original gates. Its enriched receipt is
+`317f8800d0f1ad947778d4f553a46403b50fbb9d921d0b70f8854928f9994455`;
+fresh actions use `ae201061f06ce1d4f8610903279d224c0a3830820d2b2629ef0b579b8fed891a`.
+All five resistance-consumer categories are refreshed, independently audited
+and registered through six exact packets. The updated member inventory retains
+49,344 finite cuts, 240 analytic endpoints, 200 normal and 414 shear-reference
+exceedances; all 2,112 nominal transverse comparisons remain below their
+reference. The candidate joins pass, but force-basis selection awaits the full
+current-force washer replay.
+The first-attempt and failed-trial bytes remain preserved. The six-configuration
+affine/rigid mapping proof and independently checked full H/e/L quotient
+proofs pass. Saved native matrices yield three accepted 20 mm R=u/T=v cleat
+operators with no additional interior factorization. The first coupled pilot
+has three comparisons and nine accepted intact/cracked fields, receipt
+`96a48f2913105a022364ecf9ac5cd24959c1460a0779e32e1140529b6004c1e1`.
+Forward zero-clearance initiation/energy indices are 9.39124/0.00816803;
+the nominal energy differences retain explicit precision qualifications.
+The matched fixed-force/assembled comparison uses identical load and interface
+footprints: forward zero-clearance peak tensile stress falls from 6.11346 to
+4.69562 MPa (23.19%), while initiation still exceeds its reference. Its receipt
+is `5c579e41be28c1a24912cd2850b1c45e65b6c996ba07c3ca3cf19156f5b73637`.
+Other grids, material orientations, load states and selected families remain
+active. Current-force shaft fields complete 1,152 supported states and 2,304
+own-end moments with no numerical stops or steel-reference exceedances;
+four source-geometry-limited axes retain null results. The twelve-end washer
+pilot completes without stops, with three assumed-yield exceedances including
+one widened top-rail end under updated forces. Its earlier 48-state retail
+comparison stays valid within its original scope; the full fresh replay is
+pending. Existing leaf records hold detailed method and source evidence.
+The source/result checker validates 30 registered packets (22 complete
+comparisons and eight finite-disposition packets), all 47 original criteria
+and eight false release flags. The affected checker tests pass all 175 tests.
+Shared publication checks retain pre-existing full-repository lint and selected
+frame-snapshot findings; frozen numerical producers are not reformatted to
+remove their existing lint findings. The full repository test run is separate
+and remains in progress at this checkpoint.
+Numerical completion means answering the
+defined mechanical questions with authenticated comparisons or justified
+method limitations. Reference exceedances may remain. A timeout, missing
+field or unperformed selected comparison is not a completed method limit.
+The 47 structural criteria and eight release flags keep their separate status.
+
+The scope follows focused primary studies rather than a universal numerical
+crack census: [Jensen's moment-joint study](https://jwoodscience.springeropen.com/counter/pdf/10.1007/s10086-005-0706-y.pdf)
+tested nine geometry combinations, and [Majano-Majano's beam study](https://link.springer.com/article/10.1617/s11527-022-01983-z)
+tested four connection geometries using measured material properties. Those
+studies support deliberate selection and method validation; their capacities
+do not transfer to this candidate.
+
+Preserve the reviewed 104 structural axes, 44 timbers, six panels and 66 Hillman
+axes. Keep one 250 lb climber with the existing factor of two, signed 300 N,
+100 mm hold lever, gravity and proportional 25 kg allowance. Retain the
+current nominal-clearance and zero-clearance scenarios and no-slip support.
+Material, screw stiffness, preload and friction assumptions must be explicit;
+no unmeasured preload or friction benefit is introduced. Changes to analytical
+compliance or interface placement are separately identified model branches.
+The approved numerical washer-profile update uses the supported top-rail
+replacement: eight Hillman 885522 roles, analytical ID/OD/thickness
+8.3058/25.4/2.5 mm. The completed 48-state retail suite and saved fit evidence
+are reused within their original force scope. Both increased diameter and
+thickness belong to that evidence; width alone is not substituted for the
+tested profile. Update the represented annulus/end compliance and applicable
+plate comparisons before the new frame branch is selected. Actual delivered
+dimensions/material remain conditional. Other physical geometry or hardware
+revisions are not commissioned by this plan.
+
+### 1. Reuse and freeze the study
+
+Authenticate and independently reconstruct the remaining saved right-cleat
+fields before considering any repeat. Reuse the all-44 nominal transverse
+screen, existing joint action inventory, bore/profile geometry proofs and
+validated reduction kernels. Preserve the failed attempts and original
+37,056-identity family. Do not automatically resume its broad queue.
+
+Freeze a revised study manifest before execution: physical joint and member
+IDs, selected flaws and added sound areas, external load states, R/T bindings,
+mesh/refinement variants, interface footprints, force basis, references,
+numerical gates and bounded resource allowance. Existing source-absent-front
+certificates remain path-specific geometry evidence. They do not exclude
+other paths on those bodies.
+
+### 2. Check the surrounding frame at the central-cleat hotspot
+
+The first question is whether the saved-force hotspot persists when local
+compliance and interface reactions are solved with the surrounding frame.
+Use `center_post_cleat_left`, its header and center-post connections, while
+retaining the complete frame through its existing interface operators. Start
+with the governing `a12-forward_zero`, its nominal counterpart and nominal
+gravity-only state. Use the right counterpart as an independent check before
+extending the families; do not mirror a left result into right acceptance.
+
+Reuse `joint-frame-port-reduction.py`, its native free-body quotient helper,
+and `joint-frame-compatibility-completion.py`. Reconstruct the selected
+timber's complete old contribution from bound native K/B/F inputs. Replace
+that contribution with the drilled intact or cracked timber's interface
+compliance and body-load response, including cross-port terms. Do not append
+new compliance to the old contribution. Preserve the rest of the frame,
+rigid-coordinate conventions and connection laws. Unit port loads generally
+are not balanced individually; use the validated elastic quotient rather
+than requiring each unit column to have a vanishing gauge reaction.
+
+Verify the new coupling on three small known-answer configurations: elastic
+load sharing through a connection; a changing member compliance with known
+assembled energy release; and opening/closing contact with clearance. Check
+force/moment and virtual-work recovery, reciprocal compliance, rigid modes,
+source-body replacement without double counting, and external-load identity.
+Existing small proofs are reused wherever their inputs and question match.
+
+Then compare the existing fixed-force block with the intact frame-coupled
+block and one physically justified 5-to-10 mm flaw near the bore/end region.
+The initial native allowance is twelve configuration operators:
+intact/initial/final × two grids × two R/T bindings. Reuse operators across
+load states; this does not require twelve complete frame mesh rebuilds.
+Publish all fourteen requested state dispositions when the case sweep is
+extended, with forces only for newly audited accepted states.
+The washer-updated gross-frame baseline defines the eligible load-state
+domain for the focused fracture comparisons. Retain all fourteen baseline
+dispositions, then freeze the actual accepted subset before comparing crack
+variants. A baseline state without an audited field is outside this selected
+source domain; it is not evidence that a cracked body has no equilibrium.
+An ordinary solver stop on a selected eligible variant remains unfinished
+work. This scope does not repeat exhaustive floor searches for unavailable
+baseline states in every crack variant.
+
+The interface footprint is a separate sensitivity. Account for all signed
+bolt, contact and body actions; distinguish actual shaft/washer connections
+that can bridge an opening from an artificial force cloud across the seam.
+Use bounded, geometry-supported contact footprints. Compare stress location,
+averaged stresses over a fixed physical region, reactions, contact changes,
+local opening and fracture energy. Retain the original sampled peak and mesh
+guard. A large or unstable peak is not a converged crack-initiation capacity.
+
+When reactions redistribute, the old local fixed-force energy difference is
+not the coupled fracture measure. Recover total assembled potential energy,
+including timber, shaft and contact/spring energy, clearance terms, external
+work and condensed body-load constants. At unchanged prescribed external
+loads, use `G = (Pi_initial - Pi_final) / added_sound_area`. Validate its sign
+and magnitude on the assembled known answer. The old fixed-force contact
+upper-bound oracle does not automatically establish a coupled bound.
+Export the full body-load matrix `L = F.T K_plus F` alongside interface
+compliance and body-load response. Its contribution for a gravity/live
+combination `c` is `0.5 c.T L c`; keep the cross terms. The equilibrium solver's
+complementary objective alone does not provide this energy constant.
+
+### 3. Cover distinct connection families
+
+Use this exact partition of the existing 30 duties; their receiver-side union
+contains all 44 timbers. Select governing examples using actual geometry,
+loaded edge/end distances, bores, grain direction, signed forces/couples and
+available bearing/tie routes. Similar labels or a lower nominal resultant
+alone do not prove that another joint is bounded.
+
+| Family | Duties | Distinct question to retain |
+| --- | ---: | --- |
+| Center post/header | 2 | Central cleat hotspot, longitudinal bore and post/header restraint |
+| Center principal/header | 2 | Inclined receiver and crossed bolt groups |
+| Outer knee inner block and spine | 4 | Shared continuous shafts, outer post, side member and header acting together |
+| Top outer corner | 2 | Cleat/rail/side transfer and end restraint |
+| Ordinary center/service rail cleats | 12 | Bottom/top center and eight service duties; the short WJ04 crosscut block is a distinct subtype |
+| Bottom outer corner | 2 | Bottom rail/side transfer and loaded-end geometry |
+| Retained front post/runner pair | 2 | Receiver splitting and existing retained-bolt route |
+| Retained rear-leg upper and runner pairs | 4 | Both leg ends, actual 1:12 profile and connected side/runner receivers |
+
+The planning range is six to eight initial detailed targets with two to three
+governing paths each, two grids, two R/T bindings and the twelve presently
+accepted states: approximately 576–1,152 path comparisons, plus coupling
+controls. This is a starting estimate, not an acceptance quota. Freeze exact
+targets after the pilot. A distinct subtype, changed accepted-state inventory
+or unbounded partner requires an explicit addition; left/right duties retain
+independent source joins. Check the receiver as well as the cleat. Expand only
+to resolve a named remaining mechanical question.
+
+The coverage table must identify direct results, demonstrably bounded
+representatives and unresolved domains separately. Bodies or paths that have
+only nominal screening keep that label. Unsampled original paths are
+`unassessed_outside_revised_scope`, not strength passes or method exclusions.
+Completion of this focused study must never set full splitting qualification
+or completion of the original 37,056-path/state inventory.
+
+### 4. Resolve the other numerical model questions
+
+| Work | Existing evidence to retain | Remaining action |
+| --- | --- | --- |
+| Assembled motion and stability | Twelve frame08 equilibria; two fully traced floor-search limits | Bound feasible nominal seating/member motion in the current 344-coordinate system. Separate timber mechanisms from metal-only modes; assess the implications for local reactions and second-order stability on governing states. Rank or equilibrium alone is not stability. Reassess changed coupled branches rather than transferring old certificates. |
+| Bolt shafts and washer bending | Current direct T/V comparisons, four continuous knee shafts, old ordinary/corner fields and the completed 48-state top-rail retail fix | Recover the missing current-force shaft bending and 2,400 scalar own-end moments with the existing ordinary/corner methods and explicit clearance joins. Supply applicable current-force plate comparisons for the 2,496 washer end states, including the 96 continuous ends whose moments already exist. Preserve incompatible fixed-force recovery as a separately labeled comparison; it is not a globally compatible field. Do not fill missing moments with zero or substitute T/A for bending. |
+| Panel response and head references | Current gross/local/net arithmetic, head references, orientation and screw-count sensitivities | Run one bounded backing-only comparison against [Moon's Mini guide, p. 2](https://moonclimbing.com/media/moonboard-pdf/How-to-build-a-MoonBoard_v2.3.pdf) and its four-upright/joint-bracing arrangement under unchanged loading and screw law. Initially retain the same plywood to isolate support effects. Keep Moon-like and purchased A-C fir material scopes distinct. Separate deformation bearing, assumed punching and empirical head pull-through references; identify stiffness/contact sensitivity before interpreting a hardware change. |
+| Critical member sections and load introduction | 49,344 finite cuts, 240 analytic endpoints, 7,008 actual curved-section normal comparisons | Use the selected joint/receiver fields to investigate governing end/bore/taper stress concentrations and load introduction. Retain prismatic shear, warping, disconnected-region allocation and curved-shear limits where no applicable field is supplied. Do not repeat all completed section arithmetic or interpret a vanishing-area beam divergence as a physical failure load. |
+| Force-source consistency | Frame08/action03 and the five reconciled current consumers | If intact coupled compliance becomes the selected numerical force basis, export its actual actions and refresh affected bolt, bearing/washer, panel, member and transverse comparisons using existing helpers. Keep crack variants separate. Earlier source-force results remain preserved and cannot become fresh results by relabeling. |
+
+The scalar model does not algebraically determine continuous shaft bending.
+Its recovery needs actual bounded method execution. The four top-side source
+quarter-inch/shop-5/16 mismatches, partial washer supports and differing saved
+profiles require explicit joins or limitations. The top-rail replacement suite
+already resolved its old 48-state force scope; it is not commissioned again
+unless current forces, support or compliance change.
+The old ordinary method covers 84 axes at nominal clearance; the other 16
+scalar corner axes need prescribed-force adapters rather than reused local
+redistributions. Zero-clearance recovery needs its own effective-clearance
+join. For globally compatible bending/end moments, extend the scalar laws
+with a coupled shaft/end-contact model and re-audit the reactions; an isolated
+shaft replay cannot establish that claim. Resolve the 348 unavailable
+supported-area joins where modeled geometry supplies an answer, retaining
+exact unsupported-profile or partial-support limitations elsewhere.
+
+No physical timber, floor, screw stiffness or delivered hardware inspection
+is added as a numerical prerequisite. The Ft90/Gc and steel-property scenarios
+remain conditional. An unavailable product resistance stays unavailable even
+when a demand field is numerically complete.
+
+### 5. Validate and close the revised assessment
+
+Add a separately versioned representative/coupled-study scope to the existing
+numerical checker when implementing the study. Preserve the exhaustive
+fixed-force scope and its gates unchanged. Bind the original inventory,
+selection rationale and newly frozen coupled variant identities. Verify that
+every selected identity has an actual audited result or justified finite
+disposition, with no selected pending fields. Check external-load and port
+contracts, accepted-state provenance, same-state force/moment balance,
+assembled-energy arithmetic, mesh/reference interpretation and exact source
+and output hashes. A redistributing interface force is not subject to the old
+requirement that local force vectors remain identical between cracks.
+
+Add focused negative checks for missing selected results, stale force bases,
+rejected force exports, omitted grid/material/boundary variants, unsampled
+paths labeled as passes and false completion of the original inventory.
+Run affected checks and independently reconstruct governing saved fields.
+Use a final table of stable comparisons, reference exceedances, numerical
+sensitivity and exact remaining method/material limits. Reconcile it with the
+existing index, joint disposition, development summary and parent validation.
+
+Parent owns frozen requests, readiness, serialized heavy execution and final
+validation. Independent agents can prepare family selection, adapters and
+source audits in parallel. Measure resources before the first real pilot and
+reuse its operators; do not start an overnight enumeration to discover a
+method defect. Keep active frame operators, shared helpers and required saved
+evidence. The abandoned broad queue and failed trials remain recoverable;
+archive or prune only after consumer/ownership review through the repository
+archive workflow. No pruning is commissioned by this plan. Preparation and
+execution results will be recorded in the existing evidence packets and
+maintained index rather than another routine checkpoint.
 
 ## Preserved October 2 conditional MVP continuation
 

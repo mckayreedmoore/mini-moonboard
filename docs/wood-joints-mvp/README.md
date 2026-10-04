@@ -7,13 +7,92 @@ engineering record. The selected screw-and-bracket baseline remains a separate
 
 ## Current disposition
 
+The owner has directed completion of **numerical acceptance**, accepting
+reference exceedances as assessment outcomes for now. This extension is in
+progress. Restricted-washer, G7-shaft and panel-local comparisons are recorded.
+The compatible-frame assessment covers all fourteen requested states: twelve
+accepted fields and two zero-gap floor-search limits, with no forces exported
+for the latter. Two bounded refinements satisfy the original panel-screw
+tolerance; ten accepted states are unchanged. The final action exports and
+bolt, panel and mean-reference joins are complete. The final compatible member
+inventory covers 49,344 finite cuts and 240 analytic endpoints, including the
+rear recesses and additional action stations. All 44 timbers also have finite
+nominal transverse-tension comparisons. Three-dimensional fracture resistance
+remains active. The owner has authorized the smaller study that checks
+surrounding-frame restraint and redistribution before additional crack paths,
+including the supported wider/thicker top-rail washer profile in the numerical
+model. Implementation and preparation are active; actual runs retain their
+separate evidence status.
+The wider/thicker-washer frame now has twelve accepted fields and two
+source-domain floor-search limits. An equivalent cone formulation resolves
+the last precision stop while preserving the original numerical, physical
+and panel gates. Fresh action exports and all five resistance-consumer
+categories are independently audited and registered; selection awaits the
+full current-force washer replay. The
+first coupled cleat pilot completes three comparisons and nine audited
+intact/cracked solutions. Its forward zero-clearance initiation index is
+9.39 and energy index is 0.00817; the nominal cases have very small energy
+differences with explicit precision qualifications. This single-grid,
+single-orientation pilot is not a converged splitting capacity. Matched
+fixed-force and assembled fields reduce the forward zero-clearance peak
+tensile stress from 6.11 to 4.70 MPa, a 23.19% reduction; the initiation
+reference remains exceeded. Saved-matrix
+quotient recovery passed the original full-field force/work and independently
+checked H/e/L proofs; the original raw numerical rejections remain preserved.
+Current-force shaft recovery completes 1,152 supported fields and 2,304
+own-end moments without numerical stops or steel-reference exceedances.
+Four source-geometry-limited axes retain null fields. The first twelve-end
+washer replay completes without stops and records three assumed-yield
+exceedances, including one widened top-rail end under updated forces. That
+result is separate from the earlier successful 48-state retail-profile scope.
+The [numerical completion plan](completion-ledger.md#planned-numerical-completion)
+defines the pilot, eight connection families, remaining model questions and
+closure requirements. The original 37,056-identity inventory is preserved;
+unsampled paths are not splitting passes or method exclusions.
+[Localized condensation](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/splitting-capacity-completion.md#supported-method-checks-and-preserved-historical-comparisons) passed
+38 small known-answer states and reproduced three historical joint
+configurations across eight saved states in 159 seconds. The first current-load
+cleat now has all 384 comparisons covering eight paths, both grids, both
+material orientations and twelve accepted states, with independent saved-field
+audits. Its initiation index reaches 12.46, with 136 reference exceedances;
+94 stress comparisons exceed the 20% mesh guard. The energy-release comparisons
+stay within that guard and their declared reference. The right cleat also
+completes all 384 comparisons, with independent saved-field reconstruction.
+Its initiation index reaches 8.93, with 116 reference exceedances and 86
+stress mesh-limit comparisons; both energy-release measures remain below
+their declared reference. The combined native and audited tally is 768.
+The original inventory therefore
+has 36,288 unperformed identities, separate from completed-field audit work.
+The broad continuation queue is not the next action. Existing geometry,
+condensation and tapered-leg method evidence will be reused within its limits.
+Six workstreams have completed their recorded comparison scopes; current
+washer metal fields and second-order stability retain their stated limits.
+The [current motion check](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-motion-bounds.md)
+bounds fixed-force seating in all twelve accepted 344-coordinate states.
+Seven nominal states admit multiple positions under unchanged laws; the
+largest incremental seating bound is 1.15 mm. This is a first-order,
+fixed-force result, not second-order stability or absolute elastic motion.
+The [paired panel-backing check](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-backing-comparison.md)
+retains all screw stations, plywood, loads and laws. Added interior backing and
+joint bracing reduce the governing head tension from 1,972.5 to 1,969.7 N
+at fixed receivers; this support sensitivity leaves the head-reference deficit.
+These questions are explicit in the completion plan. Combined-plane and load-cloud stops remain preserved
+method records, not completed exclusions.
+Validate each result's exact force and geometry
+scope. This direction does not authorize geometry changes or
+physical work. The preceding completed assessment remains preserved within
+its original method domains; preparation and numerical stops do not complete
+the extension. The [assessment machine map](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/full-assessment-index.json)
+records this distinction and the authenticated original summary snapshots.
+
 The **conditional model/shop packet is complete within its recorded scope**.
 **Complete structural acceptance remains unresolved: all 47 formal criteria
 remain pending and all eight release flags remain false.** Read the
 [joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md)
 for completed comparisons, their applicability and actual remaining limits.
-The numerical assessment is complete within its documented assumptions and
-method domains. It records supported comparisons, exceedances and specific
+The preceding consolidated numerical assessment is complete within its
+documented assumptions and method domains. It records supported comparisons,
+exceedances and specific
 applicability limits to identify needed model changes. It does not establish
 complete joint resistance or fabrication/climbing acceptance.
 
@@ -50,7 +129,8 @@ original 100 mm hold lever**, recorded gravity and the proportional 25 kg
 accessory allowance. The 50 mm comparison and incomplete lighter-climber
 branches are historical sensitivities, not selected loading envelopes.
 
-Current physical top-rail comparisons are complete under the documented
+The following preserved comparisons use their recorded source forces and
+assumptions. Top-rail comparisons are complete under their documented
 placement, sharing and duration assumptions. The [reduced-depth beam check](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/beam-connection-shear-completion.md)
 finds eight conditional post-component exceedances under both recorded
 duration references, with maximum index 8.820905 at C_D=1.25. These are

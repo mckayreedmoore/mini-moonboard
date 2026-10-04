@@ -1,6 +1,81 @@
 # Joint MVP working disposition
 
+## Numerical acceptance extension
+
+The owner-directed extension is in progress. Reference exceedances remain
+acceptable assessment outcomes; incomplete numerical fields remain work.
+The [assessment index](full-assessment-index.md) binds the new actual results
+separately from the original comparisons below. Twelve restricted washer
+ends complete with no numerical stops or declared-reference exceedances.
+The one remaining G7 stationary shaft now completes its existing
+proposal-force inventory: 504 shafts and 1,008 own ends, zero numerical nulls.
+Panel local/net comparisons include a separate original104 permanent branch
+with explicit head-bearing and punching exceedances. The
+[compatible original104 frame](joint-frame-compatibility-completion.md) has
+twelve accepted fields and two preserved zero-gap floor-search limits. Two
+bounded refinements satisfy the original panel-screw tolerance; ten fields
+remain unchanged. Its [final actions](joint-frame-action-reconciliation.md)
+and [bolt references](joint-frame-bolt-reference.md) are reconciled, retaining
+ten lateral-reference exceedances. The final compatible member inventory
+supplies 49,344 finite cuts and 240 analytic endpoint dispositions, retaining
+200 normal and 420 sampled shear-reference exceedances and explicit method
+limits. All 44 timbers also have finite nominal transverse-tension component
+comparisons. Three-dimensional fracture resistance remains active. The
+original 44-timber inventory has 37,056 identities and stays preserved.
+The owner-directed [focused numerical completion plan](../../../completion-ledger.md#planned-numerical-completion)
+checks surrounding-frame restraint and redistribution before further selected
+paths. It also identifies current-force metal, nominal seating/stability and
+panel-model questions hidden by completed comparison scopes. Localized
+condensation passed 38 small
+known-answer states and reproduced three historical joint configurations across
+eight saved states in 159 seconds. The first current-load cleat has all 384
+comparisons across eight paths, both grids, both material orientations and twelve
+accepted states, with independent saved-field audits. Its initiation index
+reaches 12.46, with 136 reference exceedances; 94 stress comparisons exceed the
+20% mesh guard, while energy-release comparisons stay within that guard and
+their declared reference. The right cleat also completes all 384 independently
+audited comparisons: initiation index 8.93, 116 reference exceedances and
+86 stress mesh-limit comparisons, with both energy measures below their
+declared reference. Both native and audited tallies are now 768. The original inventory has 36,288
+unperformed identities. The broad queue is not the next action. Existing
+grid, condensation and tapered-leg method evidence remains available for the
+focused study. Unsampled paths and preserved combined-plane/load-cloud stops
+are not completed method exclusions or splitting passes.
+The [current motion assessment](joint-frame-motion-bounds.md) bounds all twelve
+accepted 344-coordinate wider-profile states at fixed forces. Seven nominal states
+admit distinct unchanged-law positions; the maximum incremental seating bound
+is 1.15 mm. This closes the first-order fixed-force motion question while
+retaining the separate second-order stability limit. Fresh conditional load
+geometry bounds the hold-point remainder by 0.017064 mm and gravity-CG remainder
+by 0.045611 mm; the full prestressed tangent remains unavailable. Frame08 is
+preserved, and fracture variants need their own motion evidence.
+The wider/thicker top-rail washer branch has twelve accepted frame states and
+two source-domain floor-search limits. The last precision stop is resolved by
+an equivalent cone formulation with original gates preserved. Fresh exports
+and all five resistance-consumer categories are independently audited and
+registered through six exact packets. The updated member comparison retains
+200 normal and 414 shear-reference exceedances; all 2,112 nominal transverse
+comparisons remain below their reference. Source selection awaits the full
+current-force washer replay.
+The first surrounding-frame cleat pilot publishes three audited comparisons
+and nine intact/cracked fields: forward zero-clearance initiation index 9.39,
+energy index 0.00817, with nominal near-zero energy differences qualified for
+precision. A matched fixed-force/assembled comparison reduces the forward
+zero-clearance tensile peak by 23.19% (6.11 to 4.70 MPa), while initiation
+still exceeds its reference. Further grids, material orientations, states and families remain
+active. Current supported shaft recovery completes 1,152 fields and 2,304
+own-end moments without numerical stops or steel-reference exceedances;
+four source-geometry-limited axes retain null results. The twelve-end washer
+pilot records three assumed-yield exceedances, including one widened top-rail
+end under updated forces. The earlier 48-state retail-profile result remains
+valid in its original scope; the full fresh washer replay is pending.
+The reviewed geometry, unadopted proposal and
+all physical-release flags retain their authority.
+
 ## Working scenario
+
+The following tables preserve the original reviewed force packets. The
+numerical extension above uses its separately bound compatible-frame fields.
 
 The tables below retain the reviewed [104-axis analytical packet](../README.md#current-analytical-working-model-for-the-mvp-goal). The separate [108-axis knee proposal](knee-bridge-working-package.md) is recorded under goal coverage. Both use six nominal cases, **250 lb × 2 downward, signed 300 N horizontal, original 100 mm hold lever**, recorded gravity and the proportional 25 kg accessory allowance. The complete zero/nominal sources are retained; the 50 mm comparison is non-adopted.
 
@@ -55,9 +130,9 @@ Use the [shop guide](../assembly-package/shop-guide.md), [joint hardware map](..
 
 BOM: 20 frame timber bodies, 24 blocks, 44 timber blanks, six plywood bodies, 104 bolt stacks/nuts, 208 washers, 66 panel/kicker screws. Owner-reported assembly/movement acceptability remains a working assumption. No build or floor inspection is claimed; Actual/Disposition cells stay blank until observed. No physical work is authorized.
 
-## Goal coverage and remaining work
+## Preserved original goal coverage
 
-The full structural assessment is complete under the simplest defensible declared assumptions, with comparisons, exceedances and justified applicability limits recorded separately in the [assessment index](full-assessment-index.md). The owner's instruction is: “We don't need everything passing, we just need fully qualified so we can undertand if the model needs to be changed at all.” This defines assessment completion without changing any acceptance criterion; prepared code and inventories do not complete a check. [Frozen loads](frozen-load-basis.md) verify one 250 lb climber × 2 dynamic factor, signed 300 N, gravity and the separate 25 kg allowance. All 47 formal criteria remain pending.
+The preserved original assessment is complete within its declared method domains, with comparisons, exceedances and justified applicability limits recorded separately in the [assessment index](full-assessment-index.md). The active numerical extension is tracked above. The owner's instruction is: “We don't need everything passing, we just need fully qualified so we can undertand if the model needs to be changed at all.” This defines assessment completion without changing any acceptance criterion; prepared code and inventories do not complete a check. [Frozen loads](frozen-load-basis.md) verify one 250 lb climber × 2 dynamic factor, signed 300 N, gravity and the separate 25 kg allowance. All 47 formal criteria remain pending.
 
 | Objective requirement | Current evidence and disposition |
 | --- | --- |
