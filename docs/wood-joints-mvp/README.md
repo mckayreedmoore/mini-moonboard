@@ -12,10 +12,10 @@ The **conditional model/shop packet is complete within its recorded scope**.
 remain pending and all eight release flags remain false.** Read the
 [joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md)
 for completed comparisons, their applicability and actual remaining limits.
-Current work is the main-coordinated numerical assessment of the complete
-joint system: record passing, failed and unsupported checks to decide which
-model changes are needed. The completed conditional packet is its starting
-record, not completion of that assessment.
+The numerical assessment is complete within its documented assumptions and
+method domains. It records supported comparisons, exceedances and specific
+applicability limits to identify needed model changes. It does not establish
+complete joint resistance or fabrication/climbing acceptance.
 
 | Record in this lane | Structural bolts / nuts | Washers | Governing scope |
 | --- | ---: | ---: | --- |
@@ -38,6 +38,7 @@ the proposal has its own [drawing](hypotheses/mvp-resume-2026-10-01/upper-corner
 | Question | Maintained record |
 | --- | --- |
 | What completed, and what remains unresolved? | [Joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md) |
+| Which checks have actual results, exceedances or method limits? | [Full assessment index](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/full-assessment-index.md) |
 | Which actions apply to the 104-axis basis? | [Working force register](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/working-joint-register.md) |
 | Which actions and parts apply to the proposal? | [108-axis packet and source index](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md) |
 | What is known about splitting? | [All-joint demand/path assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/README.md) |
@@ -50,13 +51,41 @@ accessory allowance. The 50 mm comparison and incomplete lighter-climber
 branches are historical sensitivities, not selected loading envelopes.
 
 Current physical top-rail comparisons are complete under the documented
-placement, sharing and duration assumptions. The all-joint assessment covers
+placement, sharing and duration assumptions. The [reduced-depth beam check](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/beam-connection-shear-completion.md)
+finds eight conditional post-component exceedances under both recorded
+duration references, with maximum index 8.820905 at C_D=1.25. These are
+available component comparisons; separate axial and combined-load duties
+do not erase the transverse result. [Fixed-force receiver bounds](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/receiver-revision-bounds.md)
+find necessary knee-pair shifts of 40–41 mm and front-floor-pair shifts of about
+3 mm at C_D=1.25; partner support and revised forces remain unqualified.
+The all-joint assessment covers
 30 duties, 44 timber sides and 528 states; it supplies demands and candidate
 paths, **not complete splitting resistance**. Panel head demand remains about
 1871 N against the stated 930–984 N nominal references. Neither comparison
 is an observed physical failure. Material/contact hypotheses, global
 compatibility and stability, no-slip support and actual hardware remain explicit
-limits. Permanent-load evidence retains its original force scope.
+limits. The [shared knee-spine check](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/common-spine-opening.md)
+recovers up to 360.623 N necessary transverse tension from the compatible local
+shaft fields; that is a demand, not splitting resistance. [Actual top-side washer rings](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/washer-land-reference-completion.md)
+are supported in all eight nominal seats, with mean wood-pressure index
+0.387606. Their [fresh bending comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/washer-top-side-fine-reference.md)
+completes 48 states, with ten sampled first-yield reference exceedances and
+maximum index 1.357301 against assumed 250 MPa steel.
+The [ordinary washer comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/washer-ordinary-fine-reference.md)
+completes all 994 states without numerical stops. Quarter-inch references
+remain below one; ten retained-washer references exceed assumed first yield,
+with maximum index 1.629450. [Permanent panel and screw comparisons](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-permanent-applicability.md)
+are complete for the saved gravity-only state: worst combined screw index
+0.532250, no declared reference exceedance. [Receiver bearing](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/receiver-bearing-applicability.md)
+adds 93 conditional comparisons below references and 15 explicit material
+binding limits. Each comparison retains its own force and method scope.
+The [gravity-only bearing comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/permanent-bearing-completion.md)
+adds 108 wood faces and eight floor footprints with no supported reference
+exceedance; four ripped-block material bindings remain unsupported.
+The [gravity-only opening comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/permanent-opening-completion.md)
+completes 3,704 ordinary and 656 separate retained-subset cut comparisons under
+C_D=0.9, with no reference exceedance. The remaining 2,552 cuts have explicit
+geometry or load-accounting limits; they are not strength passes.
 The disposition links each result to its own forces and method.
 
 ## Conditional operations and purchasing
@@ -86,4 +115,7 @@ arrays, geometry copies and receipts are ignored local inputs. Use the
 before replaying from a fresh clone or moving an older packet. Older geometry
 and helpers can remain current dependencies; their dates do not establish
 that they are disposable. Work on `master`, coordinate owned paths, and update
-this entry rather than adding another routine checkpoint.
+this entry rather than adding another routine checkpoint. The finite
+[assessment machine map](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/full-assessment-index.json)
+preserves all 47 original definitions and exact result/source bindings;
+raw runs remain ignored local evidence.
