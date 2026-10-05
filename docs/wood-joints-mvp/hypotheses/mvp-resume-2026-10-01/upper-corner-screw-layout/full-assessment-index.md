@@ -68,8 +68,9 @@ separate gross-frame branch with twelve accepted states and two source-domain
 floor-search limits. Strict fixed-mask refinements and an equivalent cone
 formulation preserve all original acceptance gates. Fresh exports are complete;
 all five consumer categories are independently audited and registered through
-six exact packets. Source selection awaits the full current-force washer
-replay. Failed trials
+six exact packets; current shaft and washer-end packets complete the eight
+consumer joins. The wider-profile frame is the active numerical force basis.
+Failed trials
 stay rejected. The first surrounding-frame cleat pilot publishes three audited
 comparisons and nine intact/cracked fields. Forward zero-clearance initiation
 and energy indices are 9.39 and 0.00817; very small nominal energy differences
@@ -78,8 +79,15 @@ convergence. Matched fixed-force and assembled fields reduce the forward
 zero-clearance tensile peak from 6.11 to 4.70 MPa (23.19%), while initiation
 still exceeds its reference. Current supported shaft recovery has 1,152 finite fields and 2,304
 own-end moments, no numerical stops and no steel-reference exceedances. The
-twelve-end washer pilot records three assumed-yield exceedances, including one
-widened top-rail end under updated forces; its full fresh replay remains active.
+full washer replay records 2,496 end dispositions: 2,400 finite bending fields
+and 96 source-geometry-limited ends, with no ordinary numerical stops. Eighteen
+fields exceed assumed 250 MPa yield; the overall reference-index maximum is
+1.785. Of the 96 widened top-rail fields, four exceed and the maximum is 1.223.
+The earlier 48-state retail result remains valid within its original forces.
+The [current publication](rawlocal/washer-working-profile-completion/plate-current-dispositions01/summary.json)
+and its saved-field and publication audits are bound in the machine map.
+The finer 15 mm R=u intact/5 mm/10 mm operators pass their original recovered
+field and full H/e/L checks; their assembled comparisons remain pending.
 
 Check source and result bindings without running mechanics:
 
@@ -102,8 +110,9 @@ is a separate unadopted proposal. Fresh ce69 gravity, c3a8 frame comparison and
 62bd response retain 104 global bolt axes; four proposed internal ties have
 separate static allocations. Earlier isolated common-knee fields have their
 own redistributed actions and do not update their source global frame. The
-extension uses the separately bound `frame-attempt08` sensitivity; its force
-joins do not select a fabrication basis. Original 104-force results remain
+extension selects the separately bound wider-profile numerical frame and
+fresh action exports; `frame-attempt08` remains preserved within its original
+scope. These numerical force joins do not select a fabrication basis. Original 104-force results remain
 history within their original scope; geometry identity permits only the
 specifically authenticated geometry reuse.
 

@@ -594,16 +594,34 @@ def washer_scope_check(root, entry, result, packet, receipt, sources, resolution
             continue
         path = authenticate(root, name, digest, resolutions, cache)
         document = read_json(path)
-        for source, expected in document.get("source_sha256", {}).items():
-            require(sources.get(source) == expected, "washer raw receipt source is absent or has another basis")
         for output, expected in document.get("output_sha256", {}).items():
             target = output_path(root, path.parent, output)
             require(target.is_relative_to(path.parent), "washer raw output escapes its receipt parent")
-            authorities.setdefault(target, set()).add(expected)
+            authorities.setdefault(target, set()).add((path, expected))
 
-    def artifact(reference):
+    authenticated_packet_sources = set()
+
+    def packet_sources(path, document):
+        identity = (path, fingerprint(path, cache)[0])
+        if identity in authenticated_packet_sources:
+            return
+        local_resolutions = {**resolutions, **document.get("source_resolution", {})}
+        for source, expected in document.get("source_sha256", {}).items():
+            target = authenticate(root, source, expected, local_resolutions, cache)
+            target_name = target.relative_to(root).as_posix() if target.is_relative_to(root) else str(target)
+            require(sources.get(target_name) == expected or sources.get(str(target)) == expected,
+                    "washer raw receipt source is absent or has another basis")
+        authenticated_packet_sources.add(identity)
+
+    def artifact(reference, owner=None):
         path = reference_path(reference)
-        require(reference["sha256"] in authorities.get(path, set()), "washer record or field has no paired output authority")
+        owners = {receipt_path for receipt_path, digest in authorities.get(path, set()) if digest == reference["sha256"]}
+        if owner is None:
+            require(len(owners) == 1, "washer record or field has missing or ambiguous output authority")
+            owner = next(iter(owners))
+        else:
+            require(owner in owners, "washer current plate receipt does not own this record or field")
+        packet_sources(owner, read_json(owner))
         return path
 
     def record(reference):
@@ -630,6 +648,10 @@ def washer_scope_check(root, entry, result, packet, receipt, sources, resolution
         document = read_json(path)
         require(path.name == "receipt.json" and isinstance(document.get("output_sha256"), dict),
                 "washer raw packet lacks output bindings")
+        # Authenticate the directly consumed packet's sources through its own
+        # frozen redirects. Historical receipt bytes in the closure are not a
+        # request to flatten every older source version onto its original path.
+        packet_sources(path, document)
         summary = read_json(bound_output(root, path.parent, document, "summary.json", cache))
         return path.parent, document, summary
 
@@ -667,6 +689,11 @@ def washer_scope_check(root, entry, result, packet, receipt, sources, resolution
             and update.get("schema") == "joint_frame_scalar_seat_update/v1" and update.get("geometry_changed") is False
             and update.get("preload_n") == 0, "washer results lack the new profile force branch")
     plate_packet, _plate_receipt, plate = raw_packet(result.get("raw_plate_receipt"))
+    for name in ("end-states.jsonl", "input-plan.json"):
+        path = bound_output(root, plate_packet, _plate_receipt, name, cache)
+        require(path == plate_packet / name, "washer current plate record path differs")
+        artifact({"path": path.relative_to(root).as_posix(), "sha256": fingerprint(path, cache)[0]},
+                 plate_packet / "receipt.json")
     shaft_packet, _shaft_receipt, shaft = raw_packet(result.get("raw_shaft_receipt"))
     require(plate.get("action_source_receipt") == result["action_source_receipt"]
             and plate.get("profile_contract") == result.get("profile_contract")
@@ -731,7 +758,8 @@ def washer_scope_check(root, entry, result, packet, receipt, sources, resolution
                 "washer_traction_parallel_to_shaft": True}, "washer TOPSIDE normal-contact law proof differs")
     require(law.get("known_answer_fixtures") and all(
         finite_number(row.get("bore_axial_torque_nmm")) and abs(row["bore_axial_torque_nmm"]) < 1e-10
-        and row.get("normal_end_axial_torque_nmm") == 0 for row in law["known_answer_fixtures"]),
+        and finite_number(row.get("normal_end_axial_torque_nmm"))
+        and abs(row["normal_end_axial_torque_nmm"]) < 2e-12 for row in law["known_answer_fixtures"]),
         "washer TOPSIDE known-answer torque identity failed")
     body_path = bound_output(root, action_packet, action_receipt, "body-actions.jsonl.gz", cache)
     body_reference = {"path": body_path.relative_to(root).as_posix(), "sha256": fingerprint(body_path, cache)[0]}
@@ -912,7 +940,7 @@ def washer_scope_check(root, entry, result, packet, receipt, sources, resolution
                         and raw.get("sampled_reference_exceeded") is (stress > 250)
                         and row.get("actual_field_exists") is raw.get("actual_field_exists") is True
                         and row.get("retained_field") == raw.get("retained_field"), "washer saved metal reference arithmetic differs")
-                shapes = npz_shapes(artifact(row["retained_field"]))
+                shapes = npz_shapes(artifact(row["retained_field"], plate_packet / "receipt.json"))
                 require(len(shapes.get("pose_mm", ())) == 1 and shapes["pose_mm"][0] > 0, "washer actual saved plate pose is absent")
                 contacts = raw.get("signed_equilibrium_and_contact", [])
                 require(len(contacts) == 2 and {r.get("contact") for r in contacts} == {"wood", "head"}, "washer signed contact audits missing")

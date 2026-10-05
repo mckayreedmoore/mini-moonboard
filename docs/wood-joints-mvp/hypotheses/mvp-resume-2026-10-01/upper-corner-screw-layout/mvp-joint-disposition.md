@@ -55,8 +55,9 @@ an equivalent cone formulation with original gates preserved. Fresh exports
 and all five resistance-consumer categories are independently audited and
 registered through six exact packets. The updated member comparison retains
 200 normal and 414 shear-reference exceedances; all 2,112 nominal transverse
-comparisons remain below their reference. Source selection awaits the full
-current-force washer replay.
+comparisons remain below their reference. Current shaft and washer-end packets
+complete the eight consumer joins, and this wider-profile frame is now the
+active numerical force basis.
 The first surrounding-frame cleat pilot publishes three audited comparisons
 and nine intact/cracked fields: forward zero-clearance initiation index 9.39,
 energy index 0.00817, with nominal near-zero energy differences qualified for
@@ -65,10 +66,14 @@ zero-clearance tensile peak by 23.19% (6.11 to 4.70 MPa), while initiation
 still exceeds its reference. Further grids, material orientations, states and families remain
 active. Current supported shaft recovery completes 1,152 fields and 2,304
 own-end moments without numerical stops or steel-reference exceedances;
-four source-geometry-limited axes retain null results. The twelve-end washer
-pilot records three assumed-yield exceedances, including one widened top-rail
-end under updated forces. The earlier 48-state retail-profile result remains
-valid in its original scope; the full fresh washer replay is pending.
+four source-geometry-limited axes retain null results. The full washer replay
+completes all 2,496 end dispositions, with 2,400 finite bending fields,
+96 source-geometry-limited ends and no ordinary solver stops. Eighteen fields
+exceed assumed steel yield; the maximum index is 1.785. Four of the 96 widened
+top-rail fields exceed, with maximum index 1.223. The earlier successful
+48-state retail comparison retains its original force scope. Finer 15 mm R=u
+cleat operators pass original recovered-field and H/e/L gates; further
+assembled comparisons and the representative study remain active.
 The reviewed geometry, unadopted proposal and
 all physical-release flags retain their authority.
 

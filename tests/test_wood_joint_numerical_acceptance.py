@@ -706,6 +706,104 @@ def test_washer_current_end_disposition_rejects_invented_or_missing_evidence(tmp
         check("index.json", tmp_path)
 
 
+def publish_washer_source_bindings(tmp_path, result, bindings, *, removed=()):
+    """Republish fixture metadata after changing a raw owner, preserving its fields."""
+    receipt = json.loads((tmp_path / "packet/receipt.json").read_text())
+    for name in removed:
+        receipt["source_sha256"].pop(name)
+    receipt["source_sha256"].update(bindings)
+    for field in ("action_source_receipt", "raw_plate_receipt", "raw_shaft_receipt"):
+        reference = result[field]
+        if reference["path"] in bindings:
+            reference["sha256"] = bindings[reference["path"]]
+    result_sha = write_json(tmp_path / "packet/result.json", result)
+    receipt["output_sha256"]["result.json"] = result_sha
+    index = json.loads((tmp_path / "index.json").read_text())
+    index["numerical_acceptance_extension"]["results"]["study"].update(
+        result_sha256=result_sha, receipt_sha256=write_json(tmp_path / "packet/receipt.json", receipt))
+    write_json(tmp_path / "index.json", index)
+
+
+@pytest.mark.parametrize("fault", [None, "missing_snapshot_pin", "wrong_owner_source_sha",
+                                  "malformed_owner_redirect", "invalid_owner_source_sha", "ambiguous_owner"])
+def test_washer_consumed_owner_preserves_its_own_source_snapshot(tmp_path, monkeypatch, fault):
+    result, _raw, _ends, _oracle, _bodies, _arrays, receipts, _refresh = washer_fixture(tmp_path, monkeypatch)
+    original, snapshot = "profile/producer.py", "profile/producer.py.snapshot"
+    (tmp_path / snapshot).write_text("frozen profile producer")
+    frozen_sha = hashlib.sha256((tmp_path / snapshot).read_bytes()).hexdigest()
+    (tmp_path / original).write_text("later maintained profile producer")
+    current_sha = hashlib.sha256((tmp_path / original).read_bytes()).hexdigest()
+    owner = deepcopy(receipts["profile"])
+    owner["source_sha256"] = {original: frozen_sha}
+    owner["source_resolution"] = {original: {
+        "original_path": original, "snapshot_path": snapshot, "sha256": frozen_sha}}
+    # The primary closure stores the resolved snapshot using an absolute alias;
+    # the current original bytes remain separately pinned, never repinned.
+    snapshot_key = str(tmp_path / snapshot)
+    bindings = {snapshot_key: frozen_sha, original: current_sha}
+    if fault == "wrong_owner_source_sha":
+        owner["source_sha256"][original] = "0" * 64
+    elif fault == "malformed_owner_redirect":
+        owner["source_resolution"][original]["original_path"] = "another-producer.py"
+    elif fault == "invalid_owner_source_sha":
+        owner["source_sha256"][original] = "not-a-SHA256"
+    bindings["profile/receipt.json"] = write_json(tmp_path / "profile/receipt.json", owner)
+    if fault == "ambiguous_owner":
+        digest = json.loads((tmp_path / "packet/receipt.json").read_text())["source_sha256"]["profile/contract.json"]
+        bindings["receipt.json"] = write_json(tmp_path / "receipt.json", {
+            "source_sha256": {}, "output_sha256": {"profile/contract.json": digest}})
+    else:
+        # An unused historical receipt is preserved as context; it supplies no
+        # current record authority and does not require a conflicting flattening.
+        bindings["history/receipt.json"] = write_json(tmp_path / "history/receipt.json", {
+            "source_sha256": {original: frozen_sha}, "output_sha256": {}})
+    publish_washer_source_bindings(tmp_path, result, bindings)
+    # Remove only after publication: the negative retains the actual old file
+    # and owner redirect, but omits its authenticated primary source binding.
+    if fault == "missing_snapshot_pin":
+        publish_washer_source_bindings(tmp_path, result, {}, removed=(snapshot_key,))
+    if fault is None:
+        assert check("index.json", tmp_path)["finite_disposition_packets"] == 1
+        assert hashlib.sha256((tmp_path / snapshot).read_bytes()).hexdigest() == frozen_sha
+        assert hashlib.sha256((tmp_path / original).read_bytes()).hexdigest() == current_sha
+    else:
+        with pytest.raises(ValueError, match="washer|redirect|SHA256"):
+            check("index.json", tmp_path)
+
+
+@pytest.mark.parametrize("output", ["field-head.npz", "field-nut.npz", "input-plan.json", "end-states.jsonl"])
+def test_washer_historical_advertiser_cannot_replace_current_plate_owner(tmp_path, monkeypatch, output):
+    result, _raw, _ends, _oracle, _bodies, _arrays, receipts, _refresh = washer_fixture(tmp_path, monkeypatch)
+    assert check("index.json", tmp_path)["finite_disposition_packets"] == 1
+    owner = deepcopy(receipts["plates"])
+    digest = owner["output_sha256"].pop(output)
+    bindings = {"plates/receipt.json": write_json(tmp_path / "plates/receipt.json", owner),
+        "receipt.json": write_json(tmp_path / "receipt.json", {
+            "source_sha256": {}, "output_sha256": {"plates/" + output: digest}})}
+    publish_washer_source_bindings(tmp_path, result, bindings)
+    with pytest.raises(ValueError, match="current plate receipt|artifact absent from receipt outputs"):
+        check("index.json", tmp_path)
+
+
+@pytest.mark.parametrize("torque, accepted", [
+    (2.34e-13, True), (-2.34e-13, True), (2e-12 - 1e-20, True),
+    (2e-12, False), (-2e-12, False), (2e-12 + 1e-20, False),
+])
+def test_washer_normal_contact_oracle_uses_its_original_torque_bound(tmp_path, monkeypatch, torque, accepted):
+    result, _raw, _ends, _oracle, _bodies, _arrays, receipts, refresh = washer_fixture(tmp_path, monkeypatch)
+    law = json.loads((tmp_path / "law/result.json").read_text())
+    law["known_answer_fixtures"][0]["normal_end_axial_torque_nmm"] = torque
+    digest = write_json(tmp_path / "law/result.json", law)
+    receipts["law"]["output_sha256"]["result.json"] = digest
+    refresh()
+    publish_washer_source_bindings(tmp_path, result, {"law/result.json": digest})
+    if accepted:
+        assert check("index.json", tmp_path)["finite_disposition_packets"] == 1
+    else:
+        with pytest.raises(ValueError, match="known-answer torque identity"):
+            check("index.json", tmp_path)
+
+
 def motion_fixture(tmp_path):
     index, _extension, entry, _result, receipt = extension_fixture(tmp_path)
     packet = tmp_path / "packet"

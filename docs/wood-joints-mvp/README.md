@@ -27,8 +27,9 @@ The wider/thicker-washer frame now has twelve accepted fields and two
 source-domain floor-search limits. An equivalent cone formulation resolves
 the last precision stop while preserving the original numerical, physical
 and panel gates. Fresh action exports and all five resistance-consumer
-categories are independently audited and registered; selection awaits the
-full current-force washer replay. The
+categories are independently audited and registered. The wider-profile frame
+is now the active numerical force basis, joined to eight current consumer
+packets. The
 first coupled cleat pilot completes three comparisons and nine audited
 intact/cracked solutions. Its forward zero-clearance initiation index is
 9.39 and energy index is 0.00817; the nominal cases have very small energy
@@ -41,10 +42,15 @@ quotient recovery passed the original full-field force/work and independently
 checked H/e/L proofs; the original raw numerical rejections remain preserved.
 Current-force shaft recovery completes 1,152 supported fields and 2,304
 own-end moments without numerical stops or steel-reference exceedances.
-Four source-geometry-limited axes retain null fields. The first twelve-end
-washer replay completes without stops and records three assumed-yield
-exceedances, including one widened top-rail end under updated forces. That
-result is separate from the earlier successful 48-state retail-profile scope.
+Four source-geometry-limited axes retain null fields. The full current-force
+washer replay records all 2,496 end states: 2,400 finite bending fields and
+96 source-geometry-limited ends, with no ordinary solver stops. Eighteen fields
+exceed the assumed steel-yield reference, including four widened top-rail ends;
+the maximum widened-profile index is 1.223. The earlier successful 48-state
+retail comparison retains its original force scope. The finer 15 mm R=u cleat
+operators now pass the original full-field and energy gates; assembled
+comparisons, the other fine orientation and representative families remain
+active.
 The [numerical completion plan](completion-ledger.md#planned-numerical-completion)
 defines the pilot, eight connection families, remaining model questions and
 closure requirements. The original 37,056-identity inventory is preserved;

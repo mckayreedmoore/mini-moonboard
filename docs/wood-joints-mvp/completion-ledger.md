@@ -102,8 +102,8 @@ All five resistance-consumer categories are refreshed, independently audited
 and registered through six exact packets. The updated member inventory retains
 49,344 finite cuts, 240 analytic endpoints, 200 normal and 414 shear-reference
 exceedances; all 2,112 nominal transverse comparisons remain below their
-reference. The candidate joins pass, but force-basis selection awaits the full
-current-force washer replay.
+reference. Current shaft and washer-end packets complete the eight consumer
+joins. The wider-profile frame is now the active numerical force basis.
 The first-attempt and failed-trial bytes remain preserved. The six-configuration
 affine/rigid mapping proof and independently checked full H/e/L quotient
 proofs pass. Saved native matrices yield three accepted 20 mm R=u/T=v cleat
@@ -119,18 +119,27 @@ is `5c579e41be28c1a24912cd2850b1c45e65b6c996ba07c3ca3cf19156f5b73637`.
 Other grids, material orientations, load states and selected families remain
 active. Current-force shaft fields complete 1,152 supported states and 2,304
 own-end moments with no numerical stops or steel-reference exceedances;
-four source-geometry-limited axes retain null results. The twelve-end washer
-pilot completes without stops, with three assumed-yield exceedances including
-one widened top-rail end under updated forces. Its earlier 48-state retail
-comparison stays valid within its original scope; the full fresh replay is
-pending. Existing leaf records hold detailed method and source evidence.
-The source/result checker validates 30 registered packets (22 complete
-comparisons and eight finite-disposition packets), all 47 original criteria
-and eight false release flags. The affected checker tests pass all 175 tests.
+four source-geometry-limited axes retain null results. The full washer replay
+completes 2,496 end dispositions: 2,400 finite bending fields,
+96 source-geometry-limited ends and no ordinary solver stops. Eighteen fields
+exceed assumed steel yield, with maximum index 1.785. Four of the 96 widened
+top-rail fields exceed, with maximum index 1.223. The earlier successful
+48-state retail comparison stays valid within its original forces. Raw-field,
+publication and output-ownership audits bind the fresh result. Existing leaf
+records hold the detailed method and source evidence. The finer 15 mm R=u
+operators now pass their original field, gauge and full H/e/L gates using
+saved LDL inverse columns; no interior factor is repeated during recovery.
+Their assembled comparisons and the other fine orientation remain active.
+The source/result checker validates 31 registered packets (22 complete
+comparisons and nine finite-disposition packets), all 47 original criteria
+and eight false release flags. The exact updated checker and test bytes pass
+all 191 tests, including 16 source-ownership and torque-bound regressions.
 Shared publication checks retain pre-existing full-repository lint and selected
 frame-snapshot findings; frozen numerical producers are not reformatted to
-remove their existing lint findings. The full repository test run is separate
-and remains in progress at this checkpoint.
+remove their existing lint findings. Publication at `023a355c` records a
+partial broader replay (2,477 passes and 21 failures), affected-check success
+and reuse of unchanged geometry coverage from the successful base CI run.
+It does not claim a passing full local suite.
 Numerical completion means answering the
 defined mechanical questions with authenticated comparisons or justified
 method limitations. Reference exceedances may remain. A timeout, missing
