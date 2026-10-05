@@ -276,6 +276,55 @@ their rejected attempts. No archive or pruning occurred. All 47 formal criteria
 stay pending and all eight release flags stay false. No geometry, physical
 work, inspection, candidate selection or fabrication/climbing release is inferred.
 
+## Smallest remedy proposals
+
+The owner requested the simplest response to each reported exceedance. These
+are **unadopted proposals**, using the reviewed wider-washer demand basis;
+neither the model nor the hardware policy changes. Several diagnostics first
+need an applicable resistance comparison. A code comparison that is applicable
+and still exceeds requires a physical remedy; a conditional label does not
+waive it. No additional native, frame, CAD or plate solution was run.
+
+| Finding | Smallest proposed response | What would establish resolution |
+| --- | --- | --- |
+| Panel head pull-through, maximum favorable generic index 2.068 | Address the loaded screw-head contact: a compatible countersunk load spreader or a fastener with applicable published panel pull-through resistance. Retaining the 66 Hillman screws requires proving the spreader/head fit and revised installation; changing screws requires a hardware-policy exception. | Applicable adjusted pull-through and withdrawal resistance at the governing 1.924 kN tension, together with lateral action, panel edge support and a usable climbing face. The current favorable head reference is about 0.930 kN. Moving existing axes to distribute tension is an alternative only if the changed load path demonstrably reduces that concentration. |
+| Local head pressure, maximum 25.819 | Use the same larger supported head contact if indentation is unacceptable; first evaluate the actual conical/countersunk contact against a relevant deformation criterion. | The 360 psi reference corresponds to indentation, not panel breaking strength. Do not multiply panel thickness or hardware capacity by 25.819. |
+| Local punching-strip index, maximum 15.318 | Address the same head load concentration and replace the elastic strip hypothesis with an applicable pull-through/local panel comparison. | The current strip calculation is not an APA punching capacity. A larger head alone is not a demonstrated repair for every local panel mode. |
+| Directional panel edge shear-out index, maximum 2.693 | Move the governing existing screw inward along supported timber, or extend its hidden receiver to permit that move, before adding fasteners or enlarging the entire panel. | Recheck the actual edge/void ligaments, signed lateral load, head tension, backing and remaining 66-axis load distribution. The two-ray diagnostic is not a complete fracture mechanism. No axis move is selected. |
+| Net panel rolling-shear index, maximum 1.559 at CD1.0 | First bind the purchased panel grade, thickness and strength axis to the applicable APA reference. If the same net-section comparison remains exceeded, shorten the governing unsupported span with a targeted receiver/backer. | Recheck the governing panel state with the changed load path. The existing one-panel backing sensitivity changes gross equivalent-layer shear by essentially zero and reduces its governing head tension only 0.14%; it does not establish this remedy. Do not substitute shear-through-thickness strength for rolling shear. |
+| Washer bending, 18 fields / 12 physical ends, maximum 1.785 | Replace only the loaded thin washers with one thicker, specified-material washer or flat load plate. First sizing candidates are about 3 mm at the affected retained 1/2-inch and widened top-rail ends, and 2 mm at retained 3/8-inch ends if their bolt diameter is unchanged. | Check the matching bore/OD, supported seat, bolt grip and actual elastic plate result. Fixed-load screening suggests thicknesses 2.918, 2.764 and 1.751 mm respectively; these are not validated replacement profiles. Two loose washers have not provided a supported repair. |
+| Bolt lateral references, 10 axis-state exceedances | First reconcile the four top-side model diameters with the recorded 5/16-inch shop basis. If the deficit remains, screen 3/8 inch at the governing side_2 bolts. For the two retained front-floor _2 bolts, a 1/2-inch replacement is a simple candidate. | At saved forces the top peak becomes 1.145 at 5/16 inch and 0.817 at 3/8 inch; the front-floor peak becomes 0.856 at 1/2 inch instead of 1.054 at 3/8 inch. Larger holes require their own edge/end/spacing, non-square receiver, washers, fit and changed-demand checks. No clamp friction or additional duration factor is credited. |
+| Finished-member normal/shear references, 200 / 414 fields | Separate the terminal-section method problem from ordinary receiver strength before resizing timber. All 200 normal and 240 shear exceedances occur on finite sections of at most 1 mm²; evaluate their actual load-introduction and local bearing/net transfer. Check the remaining 174 shear exceedances with an applicable receiver/net-section method. | The larger sections include header, outer-post and top-rail results; their sampled peaks retain substantial refinement differences. They cannot all be dismissed as tiny tips, or treated as converged bore stresses. If an applicable residual check fails, move load introduction away from the thin end or restore only the needed local timber ligament. |
+| Local splitting initiation, left/right pilot indices about 9.39 / 7.10 | Prefer a real compression-bearing seat or plain overlap for the downward load, plus an explicit through-bolt/nut/washer tie across the potential opening plane for uplift and couples. Use a diagonal brace only where its bearing and receiver transfer fit the duty. | Check both load signs, loaded edges and the complete tie/receiver anchorage. The coupled model already includes surrounding restraint; the left peak still exceeds after its 23.19% reduction. The central-post hotspot includes a Hillman kicker screw, so changing only a frame bolt is not a demonstrated repair. Small trial growth energies and unmeasured Ft90 do not establish splitting resistance. |
+
+The bolt and washer sizing arithmetic is retained in the small ignored
+[screen](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/exceedance-remedy-screen/screen01.json),
+SHA256 `81688cf4374fb86da6e283a23e6127ffd192a60a4978b5b2310d5cd58828e445`.
+Its adjacent [reproduction script](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/exceedance-remedy-screen/screen01.py)
+reuses the pinned existing reference helpers, reproduces original ratios with
+zero observed error and records every consumed source hash. It holds bearing
+lengths, grain angles and forces fixed. The washer estimate uses
+`t_new = t_old * sqrt(index)` only as an elastic fixed-load sizing screen;
+contact redistribution and changed stiffness are not recalculated. No bulky
+permanent artifact, new dependency or changed frozen input is added.
+
+For the panel head proposal, the
+[AWC head pull-through basis](https://web-media.awc.org/wp-content/uploads/2021/12/17210650/2018-nds-head-pull-through-paper.pdf)
+limits its design equations to head/washer diameters of at most 1/2 inch.
+An extrapolated 3/4- or 1-inch washer calculation cannot establish the proposed
+panel resistance. The
+[AWC Manual, M3.8](https://web-media.awc.org/wp-content/uploads/2022/01/17210413/AWC-2018-Manual-1810.pdf)
+supports avoiding tension perpendicular to grain and checking member net-force
+transfer alongside the connection; it supplies no capacity for this block.
+
+Keep the current assessment and consumer evidence active. The next bounded
+work is diameter reconciliation and hardware fit, the governing panel-head
+detail, and one bearing/tie detail for the central duties. Existing backing,
+failed washer sensitivities and fracture pilots remain available within their
+recorded limits; do not repeat them merely to fill a numerical inventory.
+No geometry, axis, screw count, physical work or release flag changes, and no
+archive or pruning is commissioned.
+
 ## Planned numerical completion
 
 This earlier plan is preserved for its study accounting. The adopted reduced
