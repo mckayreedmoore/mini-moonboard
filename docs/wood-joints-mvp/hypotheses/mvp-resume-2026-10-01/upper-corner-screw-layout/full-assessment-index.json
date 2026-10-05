@@ -9059,9 +9059,9 @@
     "status": "in_progress",
     "owner_instruction": "Complete numerical acceptance; reference exceedances acceptable outcomes for now.",
     "completion_plan": {
-      "status": "focused_numerical_execution_active",
+      "status": "complete_reduced_desktop_review_legacy_study_preserved",
       "documentation": "docs/wood-joints-mvp/completion-ledger.md#planned-numerical-completion",
-      "next_question": "Complete the selected central-cleat grids, orientations and eligible states, independent right control and full-post receiver control; then freeze the justified representative family scope.",
+      "next_question": "Use the 30-duty desktop table and exact unresolved inputs for any further design decision. No new native diagnostic or geometry change is selected.",
       "connection_families": 8,
       "joint_duties": 30,
       "timber_sides": 44,
@@ -9175,12 +9175,12 @@
           "final_result_key": "washer_updated_frame_final"
         },
         "coupled_cleat_pilot": {
-          "status": "first_three_coupled_comparisons_audited_remaining_variants_active",
-          "project_comparisons_executed": 3,
+          "status": "execution_held_with_partial_left_fields_and_completed_independent_controls",
+          "project_comparisons_executed": 6,
           "mapping_known_answer_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/mapping-known-answer01/receipt.json",
           "mapping_known_answer_receipt_sha256": "a0fc3b5048e0feda7d81d9a466149006e600baea4883000f6b5b0ef19438a7b8",
-          "operator_groups_attempted": 3,
-          "operator_groups_completed": 2,
+          "operator_groups_attempted": 4,
+          "operator_groups_completed": 4,
           "actual_operator_stop_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-operators-attempt01/receipt.json",
           "actual_operator_stop_receipt_sha256": "592c8a9fcfca5bbc49c9b46bc1466dfacb94bc47f35ad5f85c7d05ca855343bd",
           "parent_stop_observation": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-operators-attempt01/parent-stop.json",
@@ -9230,8 +9230,8 @@
             "mesh_convergence_established": false,
             "near_zero_nominal_energy_precision_qualified": true
           },
-          "remaining_eligible_case_replay_status": "three_new_intact_states_passed_then_strict_canonical_solver_stop_pending_retry",
-          "finer_grid_operator_status": "allocation_failure_diagnosed_before_accepted_operator",
+          "remaining_eligible_case_replay_status": "held_incomplete_original_selection_preserved",
+          "finer_grid_operator_status": "both_15mm_RT_groups_have_accepted_operators_assembled_comparisons_pending",
           "matched_assembly_restraint": {
             "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-matched-fixed-coupled01/receipt.json",
             "receipt_sha256": "5c579e41be28c1a24912cd2850b1c45e65b6c996ba07c3ca3cf19156f5b73637",
@@ -9250,6 +9250,565 @@
             "fine_assembled_comparisons_complete": false,
             "new_interior_factorizations_in_recovery": 0,
             "original_raw_rejection_preserved": true
+          },
+          "fine_Rv_operator_recovery": {
+            "status": "PASS_ACTUAL_COUPLED_BODY_OPERATOR_GROUP",
+            "operator_packet": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-v15-ldl-operators-recovered01",
+            "receipt_sha256": "57549213d3b5efee008ac1875c6bf2d55ea73a209f253e12b4ee114b5a735dea",
+            "result_sha256": "a9d246753cd946b12750698e51d3ec3ca7632d3a2056f8d5d81c71268e556b03",
+            "operator_configurations": 3,
+            "fine_assembled_comparisons_complete": false,
+            "new_interior_factorizations_in_recovery": 0,
+            "original_raw_rejection_preserved": true,
+            "independent_saved_field_audit": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/factor-method-draft01/recovery-v15-saved-field-audit01/audit.json",
+              "sha256": "a265d7efa273b27d2db6eb4b46e41c0d14db37c0a31e3b8bb7b13523b9874731",
+              "status": "PASS_INDEPENDENT_SAVED_LDL_FIELDS_AND_FULL_H_e_L_WORK"
+            }
+          },
+          "bounded_solver_method_question": {
+            "known_answer_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/lorentz-half-cache-coupon01/receipt.json",
+            "known_answer_receipt_sha256": "3a35ea2f26440520d699133d6766d2481c87a905fae3296281275c7762058b52",
+            "known_answer_calls_passed": 4,
+            "actual_project_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/lorentz-half-cache-project01/receipt.json",
+            "actual_project_receipt_sha256": "28efc757a76c6c3c2f0eb8d2670c4586611ade1a505b0f353da8a17be1f6d142",
+            "actual_project_status": "STOP_CACHED_LORENTZ_HALF_INTERNAL",
+            "native_status": "NumericalError",
+            "original_primal_residual": 6.992559913308803e-11,
+            "original_dual_residual": 2.625357048815941e-12,
+            "original_relative_gap": 1.0085382892905157e-13,
+            "original_tolerances_unchanged": true,
+            "accepted_force_field": false,
+            "repeated_solver_parameter_sweep_authorized": false
+          },
+          "independent_right_mapping_preflight": {
+            "receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/right-u20-native-mapping-count-attempt01/receipt.json",
+            "sha256": "d840cd0233b71d65cdbf200e4caf410611b84164595b07594f41d04920d91269",
+            "union_dofs": 64977,
+            "retained_dofs": 534,
+            "interior_dofs": 64443,
+            "source_columns": 32,
+            "native_operator_accepted": true,
+            "assembled_fields_complete": true,
+            "accepted_operator_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/right-u20-operators-recovered01/receipt.json",
+              "sha256": "0c53f3045290010f3d223d4e133b20c31ea858d8d80554362615b00036844db8"
+            },
+            "accepted_assembled_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/right-u20-assembled-attempt01/receipt.json",
+              "sha256": "93c10c72f50aee855f5c5f350fbbb04c7f4ad519d1abeb641ad8cc6cfb45c949"
+            },
+            "accepted_assembled_result": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/right-u20-assembled-attempt01/result.json",
+              "sha256": "536c223f6fc6260141940ec689707490e9c1677f1f299d1ebd633b5a46a3bf02"
+            },
+            "comparisons_completed": 3,
+            "operator_states_completed": 9,
+            "mesh_convergence_or_full_splitting_qualification": false,
+            "forward_zero_initiation_index": 7.10134800630607,
+            "forward_zero_energy_index": 0.005093723797726803,
+            "raw_rigid_gate_rejection_preserved": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/right-u20-operators-schur-attempt01/receipt.json",
+              "sha256": "5eb6295717aeba3d2e3519dd8c2488dd43be30d5603a2659cc54bc98dcc24793"
+            },
+            "independent_saved_field_audit_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/right-u20-saved-field-audit-attempt01/receipt.json",
+              "sha256": "6f253dae69bd34b227cdadcf267701035aaa1cf02bdebbcb0d97ef3b92b725b2"
+            },
+            "independent_saved_field_audit": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/right-u20-saved-field-audit-attempt01/audit.json",
+              "sha256": "e01be019c25ba7d4457319448209ed624c91c1df7094358b86dd58bbd87e1133"
+            },
+            "nominal_near_zero_energy_signed_arithmetic_precision_qualified": true
+          },
+          "full_intact_post_control": {
+            "known_answer_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-receiver-known01/receipt.json",
+            "known_answer_receipt_sha256": "ec27d8269c33439c355eeae557a3245eef6eeb5375d3a91fcf06e465da11664f",
+            "whole_finished_post_length_mm": 238.9,
+            "configured_transverse_pitch_mm": 20.0,
+            "actual_maximum_grain_pitch_mm": 51.716666666666654,
+            "receiver_operator_complete": true,
+            "selected_assembled_fields": 6,
+            "assembled_fields_complete": true,
+            "actual_operator_stop_receipt": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-operator-instrumented-attempt01/receipt.json",
+            "actual_operator_stop_receipt_sha256": "1c9229542282d4a383b892d630d421f55d95fb387e49b73c75d5e577b905595d",
+            "measured_stored_factor_nonzeros": 416356141,
+            "prior_storage_allowance": 300000000,
+            "retry_storage_allowance": 650000000,
+            "measured_maximum_RSS_KiB": 6320904,
+            "address_space_allowance_bytes_unchanged": 10737418240,
+            "failed_attempt_preserved": true,
+            "physical_acceptance_inferred": false,
+            "accepted_operator_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-operator-recovered01/receipt.json",
+              "sha256": "fed4e37935bd7db3298302f5bfe48994e730042562cae6349b09dd3608454b5b"
+            },
+            "accepted_projection_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-quotient-projection-attempt01/receipt.json",
+              "sha256": "318cb9a2d62fbb8d16026f54dbe4b35d11c50c4aad8bb289f1881ca42fd89301"
+            },
+            "accepted_assembled_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-assembled-control-attempt01/receipt.json",
+              "sha256": "2ccff0a42612592c0affae1d47df00c85760e87ce17f84b7e45c034a2be2dad5"
+            },
+            "accepted_assembled_result": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-assembled-control-attempt01/result.json",
+              "sha256": "71481018d1aa676c7272274ea98547ec28752c5ab015f6d395a95ec3e7fcc18c"
+            },
+            "assembled_fields_completed": 6,
+            "raw_rigid_gate_rejection_preserved": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-operator-instrumented-attempt02/receipt.json",
+              "sha256": "f695532692e07e1dcb8df0adb283e627dc7a5de9264cc2780b700555894408d1"
+            },
+            "maximum_sampled_sigma90_mpa": 2.7084509390569,
+            "same_case_without_intact_cleat_replacement_sigma90_mpa": 2.7013405660849528,
+            "stress_convergence_or_receiver_fracture_qualified": false,
+            "new_interior_factorizations_in_recovery": 0,
+            "independent_saved_field_audit_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-saved-field-audit-attempt01/receipt.json",
+              "sha256": "5d006932d15d2153a76173c320bbd334faa508179183aadfd49c940a7f9f66e9"
+            },
+            "independent_saved_field_audit": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-saved-field-audit-attempt01/audit.json",
+              "sha256": "8bfb51637471a44205d38965b7d12ad15e36470f21f7004be38efa1921c29f52"
+            },
+            "actual_transverse_pitch_upper_bound_mm": [
+              16.979899999999997,
+              19.957142857142856
+            ],
+            "sampled_hotspot_locator": {
+              "all_six_fields_same_element_gauss_witness": true,
+              "element_zero_based": 415,
+              "grain_u_v_mm": [
+                58.84829814124919,
+                -1.9534481412491984,
+                67.60079676378822
+              ],
+              "source_bore_id": "base_post_center_left/facet009",
+              "radial_distance_minus_source_radius_mm": 0.1975809325828939,
+              "exact_curved_bore_surface_or_stress_convergence_claimed": false,
+              "modeled_screw_axis": "round_kicker_left_center_1",
+              "nearby_roles": "screw lateral, parametric withdrawal and separate kicker/post compression contact; no individual causality inferred"
+            },
+            "hotspot_feature_join": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-hotspot-feature-join01.json",
+              "sha256": "b11af78c2607566c3db4e0801a86be19bb3f17b21a043f92e7cde55f811797a2"
+            },
+            "fixed_region_stress_diagnostic": {
+              "known_answer_receipt": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-roi-known-attempt01/receipt.json",
+                "sha256": "be88c13954c022f17ee7cd4745ac63011067fc1f6b894cba3bd9fb67baddc3cf"
+              },
+              "receipt": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-roi-saved-attempt01/receipt.json",
+                "sha256": "5f7b93d322037f9b2496604c0d7f5a76a21b34ae7f4f890b869bcdd0fb20bbd9"
+              },
+              "result": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/member-opening-general-completion/ownership-draft01/short-post-roi-saved-attempt01/result.json",
+                "sha256": "97be18cff7f7ca53d6b73fd13ba24199b0e45936f5218097472b841104fe7c27"
+              },
+              "saved_fields": 6,
+              "fixed_region_tensor_means": 12,
+              "nominal_post_only_near_entry_sigma90_mpa": 0.257412293706182,
+              "nominal_post_only_deeper_sigma90_mpa": 0.09301403906502403,
+              "maximum_resampled_region_sigma90_mpa": 3.660633714057832,
+              "retained_volume_each_region_mm3": 435.7202898500004,
+              "integration_domain": "fixed boxes intersected with retained staircase cells",
+              "calibrated_averaging_capacity_or_splitting_resistance_established": false,
+              "curved_bore_stress_convergence_established": false,
+              "new_mesh_stiffness_factors_or_frame_solves": 0
+            }
+          },
+          "left_pilot_comparisons_completed": 3,
+          "independent_right_comparisons_completed": 3,
+          "bounded_refined_solver_method": {
+            "known_answer_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/lorentz-half-boundary-gap-coupon01/receipt.json",
+              "sha256": "82c098488756d318a4ff74fa2e2f81ecf31095dec33cc3a52bc9ff94bca128ce"
+            },
+            "known_answer_calls_passed": 4,
+            "actual_project_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/lorentz-half-boundary-gap-project01/receipt.json",
+              "sha256": "f978b4077a251363ec313d00d446f891c991d1904195d99a0650b49c8ef82e61"
+            },
+            "actual_project_status": "CANONICAL_PASS_PHYSICAL_RECONNECTION_REQUIRED",
+            "native_status": "Solved",
+            "native_iterations": 33,
+            "fixed_binary_boost": 0.5,
+            "fixed_binary_max_step_fraction": 0.875,
+            "internal_tol_feas": 2e-11,
+            "internal_tol_gap_abs": 1e-11,
+            "original_primal_residual": 7.006650423344929e-13,
+            "original_dual_residual": 4.273612218809795e-13,
+            "original_relative_gap": 6.590606225880134e-14,
+            "original_tolerances_unchanged": true,
+            "accepted_force_field": true,
+            "fresh_physical_body_potential_checks_pending": false,
+            "failed_preceding_trials_preserved": true,
+            "repeated_solver_parameter_sweep_authorized": false,
+            "actual_full_field_recovery_receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-cached-k12-right-gap-recovery-attempt01/receipt.json",
+              "sha256": "c486026ac119d64a3bab9aaea09101f269acb8b7fef43a1a7f974165b39a2070"
+            },
+            "actual_full_field_recovery_result": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-cached-k12-right-gap-recovery-attempt01/result.json",
+              "sha256": "762277616edd84914cd33ceaeaf601144f93aee196c21446ce47662d805a40c1"
+            },
+            "accepted_supporting_operator_states": 1,
+            "new_optimizer_calls_in_physical_recovery": 0,
+            "new_interior_factors_in_physical_recovery": 0,
+            "completed_comparison_triplets": 0,
+            "subsequent_loose_default_physical_residual_stop": {
+              "receipt": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-remaining-assembled-attempt04/receipt.json",
+                "sha256": "a4c06fd4bc3028604f90d3161cfcb6eb2c4724cab33b69cb46c0c67ee0414495"
+              },
+              "original_audit": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-remaining-assembled-attempt04/intact-k12-rear_zero-failed-physical/original-physical-audit.json",
+                "sha256": "5e8df3c039c0c2b1d0087fb3f5bd7a2303b8aa3e7cc8cccb3d14e6a6c85a54d1"
+              },
+              "state": "intact-k12-rear_zero",
+              "failed_check": "panel_screw_law_residual_n",
+              "actual_residual_n": 0.006088215510259969,
+              "unchanged_gate_n": 0.0001,
+              "other_sixteen_physical_checks_pass": true,
+              "default_native_status": "Solved",
+              "default_absolute_gap_setting": 1e-08,
+              "default_relative_gap_setting": 1e-10,
+              "ordinary_stop_remains_pending": true,
+              "direct_qualified_method_source_preparation_only": true
+            }
+          },
+          "fine_default_assembled_trials": {
+            "R=u,T=v": {
+              "receipt": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u15-default-assembled-attempt01/receipt.json",
+                "sha256": "679dd4b6cc8014858e5be50637bb014d690aaea500fd36591cd47fe0006d517e"
+              },
+              "status": "STOP_BOUNDED_ASSEMBLED_REPLAY",
+              "accepted_intact_fields": 6,
+              "completed_comparisons": 0,
+              "stopped_state": "intact-k12-rear_zero",
+              "stop_reason": "Replacement baseline-mask branch failed unchanged original physical audit",
+              "ordinary_stop_remains_pending": true,
+              "failed_check_values_not_preserved_by_frozen_producer": true,
+              "reuse_requires_source_owned_original_accepted_fields": true
+            },
+            "R=v,T=u": {
+              "receipt": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-v15-default-assembled-attempt01/receipt.json",
+                "sha256": "3afd64e6ad4d4e64d36b869e1f0eaa1a6a838aa45ad4dc4a2f19c208001e54da"
+              },
+              "status": "STOP_BOUNDED_ASSEMBLED_REPLAY",
+              "accepted_intact_fields": 6,
+              "completed_comparisons": 0,
+              "stopped_state": "intact-k12-rear_zero",
+              "stop_reason": "Replacement baseline-mask branch failed unchanged original physical audit",
+              "ordinary_stop_remains_pending": true,
+              "failed_check_values_not_preserved_by_frozen_producer": true,
+              "reuse_requires_source_owned_original_accepted_fields": true
+            }
+          },
+          "physical_pressure_mapping_known_answer": {
+            "receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-interface-footprint-method/known-answer01/receipt.json",
+              "sha256": "7d72d1a0545947adaf34c98625aa3df70bdf0a8946195f412f4975b7b818861e"
+            },
+            "result": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-interface-footprint-method/known-answer01/result.json",
+              "sha256": "5531850b47d4bc00892a777f812a3ef1d7a6769431b6e752b7a48c4487de0def"
+            },
+            "status": "PASS_TRIMMED_POSITIVE_PRESSURE_TRACE_MAPPING_KNOWN_ANSWER",
+            "new_stiffness_or_factors": 0,
+            "production_bored_face_coverage_native_B_sign_and_inverse_span_proved": false,
+            "new_candidate_footprint_fields_exported": false,
+            "steel_bridge_or_full_splitting_qualification": false,
+            "production_saved_mapping_audit": {
+              "receipt": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-interface-footprint-production-audit/attempt01/receipt.json",
+                "sha256": "5c096c9f89099b5cf6b10458a72a15bd6a0d4ed3dfeba2be3f9bdb51e72aa20b"
+              },
+              "status": "stopped_on_missing_runtime_namespace_binding_before_mapping_findings",
+              "actual_candidate_mapping_rejection_established": false,
+              "source_only_namespace_repair": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-interface-footprint-production-audit/namespace-repair01/producer.py.snapshot",
+                "sha256": "74050f50d8c42cce1b07278cdb32cd0680231c76cdcb7283cdde743eabbb1038"
+              },
+              "repair_proof": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-interface-footprint-production-audit/namespace-repair01/proof.json",
+                "sha256": "f09f3f11e44c403637125f9446f2c8f5086c61b00a95df7ca98630db37fe55f8"
+              },
+              "repair_receipt": {
+                "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-interface-footprint-production-audit/namespace-repair01/receipt.json",
+                "sha256": "b4331468b7fcf1f831bb83dfbf294ca8081761bbb136900fe8b2a5e4e70e996d"
+              },
+              "repaired_source_executed": false,
+              "new_launches_held": true
+            }
+          },
+          "representative_family_continuation_proposal": {
+            "source_plan": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/family-continuation-source-plan01.md",
+              "sha256": "1324777d5bdd2be9463f6b46110fe4be6cbde397d94ee326a18c9454f02f64a1"
+            },
+            "machine_selectors": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/family-continuation-source-plan01.json",
+              "sha256": "105c09a72041084603404b970320f18647f260a6b9d076f16cbdb2c989f90d9f"
+            },
+            "original_duties": 30,
+            "receiver_timber_union": 44,
+            "status": "source_only_unadopted_continuation_held",
+            "ranked_signed_resultants_bound_unsampled_fracture": false,
+            "ordinary_service_subtypes_kept_distinct": true,
+            "both_rear_leg_end_questions_retained": true,
+            "finished_body_census_readiness": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/family-finished-geometry-prepared01/readiness.json",
+              "sha256": "6a7d79a5d3d49b965f231bccfdcfebe9a9f4572e17c8a796ad772d828d9e9d53"
+            },
+            "finished_body_census_executed": false,
+            "new_family_operators_or_fracture_runs_started": false,
+            "original_body_input_checks": [
+              {
+                "body_id": 47,
+                "source_check_receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/family-wj04-upper-source-check01/receipt.json",
+                  "sha256": "a257e61d2b9c0eee51ea031ac4d3fe4505630c7672bb3c63bdde140e27f8a592"
+                },
+                "source_export_receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/family-wj04-upper-source-body01/receipt.json",
+                  "sha256": "b3f729a469e961a1356b990e9ad803e506c9f75aefbb5af263fcc0239921df0b"
+                }
+              },
+              {
+                "body_id": 46,
+                "source_check_receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/family-wj04-lower-source-check01/receipt.json",
+                  "sha256": "059f90f01bba1c6c34e3b1ddcc62cb659e0b843295f1ac3a4f499afdd6b64a5e"
+                },
+                "source_export_receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/family-wj04-lower-source-body01/receipt.json",
+                  "sha256": "5de30e7ac80699bea096e2ae6b78ffb1b8eff6112f042ab5b05deb4f5352b66c"
+                }
+              },
+              {
+                "body_id": 5,
+                "source_check_receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/family-outer-post-left-source-check01/receipt.json",
+                  "sha256": "e479f2cf4d03d8f97af8b74813139e2b1bd75363736ba44dc1f880fe6b0b9598"
+                },
+                "source_export_receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-member-replacement/family-outer-post-left-source-body01/receipt.json",
+                  "sha256": "1e9b05a4fcd4425ff01b251d4eb9104a482daca179ad88d92dc0d576afb1ff6a"
+                }
+              }
+            ]
+          },
+          "direct_qualified_assembled_trials": {
+            "status": "held_after_four_original_canonical_energy_gap_stops",
+            "accepted_inventory_API": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/saved-accepted-phase-inventory.py",
+              "sha256": "4d68b74a6c28ce9e0da2bbe3d071403761be8e93d8aa30f85f5fc4d14df383b4"
+            },
+            "trials": [
+              {
+                "domain": "u20",
+                "receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-remaining-assembled-attempt05/receipt.json",
+                  "sha256": "65cba9e22eac55ad7b743552952d7f1971153bcd0b3a0ae998f1d6f3e460a68f"
+                },
+                "readiness": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-remaining-assembled-prepared07/readiness.json",
+                  "sha256": "1ac7b673f9b6aebc4f7896a9931e41bab4bdf891140092684b9b0483f7a2dadf"
+                },
+                "parent_log": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u20-remaining-assembled-prepared07/parent-stdout.log",
+                  "sha256": "583d9068d3f6c69d2b3a02f5883af7153ede19da145fd91fabdc51e5b7bb534f"
+                },
+                "accepted_phase_fields": {
+                  "intact": 9,
+                  "initial": 0,
+                  "final": 0
+                },
+                "actual_direct_calls": 6,
+                "actual_accepted_states_reused": 4,
+                "stopped_phase": "initial",
+                "stopped_state": "a12-rear_zero",
+                "rejected_original_canonical_audit": {
+                  "schema": "original_canonical_conic_audit/v1",
+                  "primal_residual": 9.905612774294374e-16,
+                  "dual_residual": 4.597244830646564e-12,
+                  "primal_residual_vector_max": 1.7053025658242404e-12,
+                  "dual_residual_vector_max": 9.8811114845887e-10,
+                  "primal_objective_nmm": -37788.66422857323,
+                  "dual_objective_nmm": -37788.66422857734,
+                  "gap_abs": 4.110916052013636e-09,
+                  "gap_rel": 1.0878701684578836e-13,
+                  "checks": {
+                    "primal_residual": true,
+                    "dual_residual": true,
+                    "objective_gap": false,
+                    "native_Solved": true
+                  },
+                  "all_passed": false
+                },
+                "remaining_comparisons_completed": 0
+              },
+              {
+                "domain": "v20",
+                "receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-v20-all-assembled-attempt04/receipt.json",
+                  "sha256": "c023f5afb20626df931107536be1697190fa00255efef2b20b94093e95c2c2ad"
+                },
+                "readiness": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-v20-all-assembled-prepared06/readiness.json",
+                  "sha256": "121133bba64b83739681221c336b0c956274d966b6705c3716f5dcc85676345b"
+                },
+                "parent_log": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-v20-all-assembled-prepared06/parent-stdout.log",
+                  "sha256": "145ecbb69f5f419c351fcf42262b5060d8267b71bda8ce5b546811a45d65b04a"
+                },
+                "accepted_phase_fields": {
+                  "intact": 12,
+                  "initial": 9,
+                  "final": 0
+                },
+                "actual_direct_calls": 17,
+                "actual_accepted_states_reused": 5,
+                "stopped_phase": "initial",
+                "stopped_state": "a1-rear_gap",
+                "rejected_original_canonical_audit": {
+                  "schema": "original_canonical_conic_audit/v1",
+                  "primal_residual": 1.3663582374026115e-13,
+                  "dual_residual": 1.8051003492557112e-13,
+                  "primal_residual_vector_max": 3.531681613822002e-10,
+                  "dual_residual_vector_max": 2.525490927496321e-11,
+                  "primal_objective_nmm": -13001.832144486783,
+                  "dual_objective_nmm": -13001.832144488108,
+                  "gap_abs": 1.3242242857813835e-09,
+                  "gap_rel": 1.0184905258470818e-13,
+                  "checks": {
+                    "primal_residual": true,
+                    "dual_residual": true,
+                    "objective_gap": false,
+                    "native_Solved": true
+                  },
+                  "all_passed": false
+                },
+                "remaining_comparisons_completed": 0
+              },
+              {
+                "domain": "u15",
+                "receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u15-direct-assembled-attempt01/receipt.json",
+                  "sha256": "d0b5eaabafc9856c812e374e5d8e85ab2baf0cd68aa164637d772be923e4e248"
+                },
+                "readiness": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u15-direct-assembled-prepared01/readiness.json",
+                  "sha256": "b12e4ea8ca81eecd51e963591e9806484f790d337b55ec6b0182533a64338cdd"
+                },
+                "parent_log": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-u15-direct-assembled-prepared01/parent-stdout.log",
+                  "sha256": "83abe673841b8173cfc7fa9a04a024a555421e56fb635a02ef6639a766de728a"
+                },
+                "accepted_phase_fields": {
+                  "intact": 9,
+                  "initial": 0,
+                  "final": 0
+                },
+                "actual_direct_calls": 4,
+                "actual_accepted_states_reused": 6,
+                "stopped_phase": "intact",
+                "stopped_state": "a1-rear_gap",
+                "rejected_original_canonical_audit": {
+                  "schema": "original_canonical_conic_audit/v1",
+                  "primal_residual": 5.877907317143774e-14,
+                  "dual_residual": 1.467440856628242e-13,
+                  "primal_residual_vector_max": 1.587920905876672e-10,
+                  "dual_residual_vector_max": 1.694333562340944e-11,
+                  "primal_objective_nmm": -13001.831908080298,
+                  "dual_objective_nmm": -13001.831908081665,
+                  "gap_abs": 1.367880031466484e-09,
+                  "gap_rel": 1.0520671557185588e-13,
+                  "checks": {
+                    "primal_residual": true,
+                    "dual_residual": true,
+                    "objective_gap": false,
+                    "native_Solved": true
+                  },
+                  "all_passed": false
+                },
+                "remaining_comparisons_completed": 0
+              },
+              {
+                "domain": "v15",
+                "receipt": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-v15-direct-assembled-attempt01/receipt.json",
+                  "sha256": "e11b6d21b276115ad257d5324ee752bb4f4312aaf51d37f6aab82c51c8714299"
+                },
+                "readiness": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-v15-direct-assembled-prepared01/readiness.json",
+                  "sha256": "7f7706ff8ebe322fa8fbae661cbb7d612f30490f492705dc4ef62157e4ee59f8"
+                },
+                "parent_log": {
+                  "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/coupled-family-completion/left-v15-direct-assembled-prepared01/parent-stdout.log",
+                  "sha256": "307c12d2e9020a297140cd75a76160d254bedc07a1399d833ca22abf27b80ce1"
+                },
+                "accepted_phase_fields": {
+                  "intact": 9,
+                  "initial": 0,
+                  "final": 0
+                },
+                "actual_direct_calls": 4,
+                "actual_accepted_states_reused": 6,
+                "stopped_phase": "intact",
+                "stopped_state": "a1-rear_gap",
+                "rejected_original_canonical_audit": {
+                  "schema": "original_canonical_conic_audit/v1",
+                  "primal_residual": 2.624659589168177e-13,
+                  "dual_residual": 2.15984963699076e-13,
+                  "primal_residual_vector_max": 6.580194167327136e-10,
+                  "dual_residual_vector_max": 3.4938274495743826e-11,
+                  "primal_objective_nmm": -13001.831930100998,
+                  "dual_objective_nmm": -13001.83193010233,
+                  "gap_abs": 1.331500243395567e-09,
+                  "gap_rel": 1.0240866445235029e-13,
+                  "checks": {
+                    "primal_residual": true,
+                    "dual_residual": true,
+                    "objective_gap": false,
+                    "native_Solved": true
+                  },
+                  "all_passed": false
+                },
+                "remaining_comparisons_completed": 0
+              }
+            ],
+            "new_direct_calls_attempted": 31,
+            "new_accepted_fields": 27,
+            "accepted_fields_reused_in_four_trials": 21,
+            "accepted_phase_fields_in_four_trials": 48,
+            "prior_first_pilot_phase_fields": 9,
+            "selected_phase_fields_accepted": 57,
+            "selected_phase_fields_required": 144,
+            "selected_triplets_completed": 3,
+            "selected_triplets_required": 48,
+            "selected_triplets_pending": 45,
+            "rejected_trials_accepted": false,
+            "ordinary_solver_stops_are_finite_method_exclusions": false,
+            "original_gates_waived": false
+          },
+          "half_relative_method_preparation": {
+            "readiness": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/lorentz-half-boundary-relative-prepared01/readiness.json",
+              "sha256": "0a0ac6e92c29236c4eca90e6121500346e97d01a1b4fa4174d511afd2be286f0"
+            },
+            "receipt": {
+              "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/joint-frame-profile-followup/lorentz-half-boundary-relative-prepared01/receipt.json",
+              "sha256": "2ffb14f940ce158b8763bb2acec6b0441466131e7f3911699121bfcf67db49ef"
+            },
+            "status": "source_only_frozen_unexecuted_on_hold",
+            "known_answer_or_project_execution_completed": false,
+            "original_acceptance_tolerances_changed": false
           }
         },
         "current_force_shaft_and_plate_fields": {
@@ -9323,6 +9882,23 @@
           "nominal_comparisons": 2112,
           "nominal_reference_exceedances": 0
         }
+      },
+      "proposed_reduced_scope": {
+        "documentation": "docs/wood-joints-mvp/completion-ledger.md#proposed-reduced-numerical-scope",
+        "status": "complete_desktop_decision_review",
+        "adopted": true,
+        "prior_selected_scope_changed": false,
+        "new_native_launches_and_further_family_work_held": false,
+        "default_new_native_solve_budget": 0,
+        "proposed_maximum_decision_driven_diagnostics": 2,
+        "proposed_maximum_new_solution_attempts_including_unsuccessful_calls": 12,
+        "physical_or_structural_release_inferred": false,
+        "selection": {
+          "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/selection01.json",
+          "sha256": "6f2e8238c9d49a569b62b91e9802f2fd191a0bb9e48366804894040d5607043b"
+        },
+        "earlier_native_expansion_outside_adopted_scope": true,
+        "new_native_diagnostics_selected": 0
       }
     },
     "prior_assessment_scope_preserved": true,
@@ -10096,13 +10672,15 @@
         "status": "PASS_CURRENT_REGISTERED_PACKETS_WITH_FOCUSED_STUDY_PENDING",
         "checker": {
           "path": "scripts/check_wood_joint_numerical_acceptance.py",
-          "sha256": "4e5b0a44d154abaa1a298a150aab3ec0346d173fa4963f2cceeeac909cfa7614"
+          "sha256": "97d88a85ab590907e6080f94c016819bdd1ba560a54453fbd4ce81c8af8e50cf"
         },
         "affected_tests": {
           "path": "tests/test_wood_joint_numerical_acceptance.py",
-          "sha256": "755ecf0d1578d57ef310f39df159307a9d949b524c21c4c4bde6665a6469a681",
-          "passed": 191,
-          "source_identical_preintegration_validation_reused": true
+          "sha256": "d2bc3c08cad8573889405f1d5b718c7fbc51b748fb11c1ad94a1a7d516f4ba2d",
+          "passed": 207,
+          "source_identical_preintegration_validation_reused": true,
+          "elapsed_seconds": 87.64,
+          "saved_LDL_corruption_cases": 16
         },
         "result_packets": 31,
         "complete_comparison_packets": 22,
@@ -10146,6 +10724,37 @@
         "washer_updated_shaft_dispositions",
         "washer_updated_plate_dispositions"
       ]
+    }
+  },
+  "reduced_assessment": {
+    "schema": "reduced_desktop_decision_assessment/v1",
+    "status": "complete_desktop_decision_review",
+    "selection": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/selection01.json",
+      "sha256": "6f2e8238c9d49a569b62b91e9802f2fd191a0bb9e48366804894040d5607043b"
+    },
+    "result": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/assessment-attempt03/summary.json",
+      "sha256": "3254fed62ce786ac3afadb831a0582678b3aa4e72c0eb4cd99890dd0c30af608"
+    },
+    "receipt": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/assessment-attempt03/receipt.json",
+      "sha256": "49caeca590f4f328b98df5ff4f957e1be96ed2ef8ecc9f476bf093158e45ebfc"
+    },
+    "preserved_producer_snapshot": {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/assessment-attempt03/producer.py.snapshot",
+      "sha256": "ff502f0c6073e50ae78a6f064b664a595ac9c5cc011f60c9a4b10da19ddd6abf"
+    },
+    "documentation": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md#reduced-desktop-assessment",
+    "parent_final_validation": {
+      "confirmed": true,
+      "scope": "Reduced desktop decision review only; original numerical extension and all structural release gates remain unchanged.",
+      "saved_arithmetic_audit": {
+        "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/parent-arithmetic-audit01.json",
+        "sha256": "6843c87036b3e2bfb7c508d636461cd00656390f2ff6857d552d006f07ed4c29"
+      },
+      "independent_engineering_review": "All 30 duties and 44 timber contexts reviewed; no material missing modeled load path or acceptance overclaim found.",
+      "new_native_solution_attempts": 0
     }
   }
 }

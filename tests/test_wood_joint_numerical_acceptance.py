@@ -224,6 +224,208 @@ def test_projected_operator_retains_original_field_and_cross_work_gates(fault):
         validate()
 
 
+def saved_ldl_fixture(tmp_path):
+    """Tiny real owner receipts, all inverse columns and scalar factor witnesses."""
+    owners = {name: {} for name in ("raw", "matrix", "probe", "coupon")}
+    for name in owners:
+        (tmp_path / name).mkdir()
+    (tmp_path / "evidence.txt").write_text("immutable method input")
+    variants = {phase: {"id": phase, "configuration": phase} for phase in ("intact", "initial", "final")}
+    interior, retained, union = 7, 8, 15
+
+    def ref(name):
+        return {"path": name, "sha256": hashlib.sha256((tmp_path/name).read_bytes()).hexdigest()}
+
+    def arrays(owner, name, layout):
+        path = tmp_path/owner/name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        write_arrays(path, layout)
+        owners[owner][name] = None
+        return ref(owner + "/" + name)
+
+    def record(owner, name, value):
+        write_json(tmp_path/owner/name, value)
+        owners[owner][name] = None
+        return ref(owner + "/" + name)
+
+    for name in ("union-K", "interior-Kii", "interior-Kip", "interior-Kpi"):
+        arrays("matrix", "schur-call-1/" + name + ".npz", {"data": (2,)})
+        target = tmp_path/"raw"/"schur-call-1"/(name + ".npz")
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.symlink_to(tmp_path/"matrix"/"schur-call-1"/(name + ".npz"))
+        owners["raw"]["schur-call-1/" + name + ".npz"] = None
+    original, recovered, observed = [], [], []
+    for phase, variant in variants.items():
+        source = arrays("matrix", phase + "-source-basis.npz", {
+            "raw_rhs": (union, 32), "Q": (union, 6), "physical_R": (union, 6),
+            "active_port_rows": (20,), "original_fixed_scalar_dofs": (6,)})
+        incidence = arrays("matrix", phase + "-P.npz", {"data": (2,)})
+        layout = {"raw_rhs": (union, 32), "projected_rhs": (union, 32), "Q": (union, 6),
+            "physical_R": (union, 6), "active_port_rows": (20,), "original_fixed_scalar_dofs": (6,),
+            "Fi": (interior, 32), "inverse_Fi": (interior, 32), "inverse_Fi_residual": (interior, 32),
+            "lifted_F_retained": (retained, 32)}
+        field = arrays("raw", "schur-call-1/" + phase + "-factor-derived.npz", layout)
+        arrays("probe", phase + "-interior-source-inverse.npz", {"Fi": (interior, 32), "inverse_Fi": (interior, 32)})
+        original.append({"variant": variant, "source_basis": source, "P": incidence})
+        recovered.append({"variant": variant, "factor_derived": field, "P": incidence})
+        observed.append({"configuration": phase, "source_basis": source, "source_columns": 32})
+    chunks = [{"first": 0, "last": 6}, {"first": 6, "last": retained}]
+    chunk_refs = [arrays("probe", f"schur-unit-inverse-{item['first']:04d}-{item['last']:04d}.npz",
+                         {"rhs": (interior, item["last"]-item["first"]),
+                          "inverse_Kip": (interior, item["last"]-item["first"])}) for item in chunks]
+    arrays("coupon", "coupon-fields.npz", {"exact": (4, 33), "rhs": (4, 33), "actual": (4, 33), "K": (3, 3),
+        "raw_rhs": (3, 4), "projected_rhs": (3, 4), "full_U": (3, 4), "analytical_U": (3, 4),
+        "H": (2, 2), "e": (2, 2), "L": (2, 2)})
+    matrix = {"schema": "splitting_native_prefactor_input/v1", "all_passed": True,
+        "checks": {"original_CSC_and_equations": True}, "native_factorization_executed": False,
+        "native_solve_executed": False, "stiffness_rhs_gauge_or_physical_gate_changed": False,
+        "interior_dofs": interior, "retained_dofs": retained, "union_dofs": union, "configurations": original}
+    padding = {"full_numeric_value_difference": 0., "project_back_maximum_numeric_error": 0.,
+        "numeric_averaging_or_entry_drop": False, "original_CSC_residual_authority": True,
+        "padded_pattern_structurally_symmetric": True}
+    coupon = {"status": "PASS_TINY_INSTALLED_SPARSE_SPD_ZERO_PADDING_AND_COLUMN_CENSUS", "multi_rhs_columns": 33,
+        "Cholesky_plugin_crosscheck_passed": True, "wrong_actual_column_count_rejected": True,
+        "significant_numeric_skew_rejected": True, "transpose_property_source_api_audit": {"Sparsity_T_is_property": True},
+        "invalid_SPD_cases_rejected": ["negative_pivot", "zero_pivot", "nonsymmetric"],
+        **dict.fromkeys(("factor_reconstruction_error", "maximum_original_residual", "known_field_error",
+            "body_projected_residual", "body_fullfield_error", "body_H_e_L_error", "body_energy_error", "body_gauge_error"), 1e-16),
+        "symmetric_storage_padding_fixtures": [{"fixture": name, "original_CSC_unchanged": True,
+            "padding": deepcopy(padding), "full_original_residual": 1e-16}
+            for name in ("one_sided_explicit_zero", "one_sided_tiny_nonzero")]}
+    probe = {"status": "MEASURED_INSTALLED_SPD_FACTOR_AND_ALL_SOURCE_INVERSES", "matrix_input_arrays_unchanged": True,
+        "storage_only_zero_padding": True, "original_full_CSC_remains_residual_authority": True,
+        "stiffness_or_fullfield_coupling_discarded": False, "all_D_finite_and_positive": True,
+        "interior_factorizations": 1, "accepted_body_operator_exists": False, "matrix_symmetry_relative_error": 1e-16,
+        "storage_padding_audits": [padding], "minimum_D": 1., "maximum_D": float(interior),
+        "stored_factor_nonzeros": 2*interior, "unit_port_columns": retained,
+        "unit_port_chunks": chunks, "configurations": observed}
+    raw = {"schema": "saved_actual_ldl_inverse_materialization_receipt/v1",
+        "status": "SAVED_ACTUAL_LDL_INVERSES_AND_ORIGINAL_BASIS_BOUND", "accepted_body_operator_exists": False,
+        "new_global_or_interior_factorizations": 0, "new_small_interface_factorizations": 0,
+        "new_stiffness_assembly_or_rhs_mapping": False}
+    report = {"schema": "splitting_raw_schur_rigid_diagnostic/v1", "status": raw["status"],
+        "original_gate_unchanged": True, "stiffness_or_rhs_projection_added": False, "accepted_body_operator_exists": False,
+        "interior_dofs": interior, "retained_dofs": retained, "union_dofs": union,
+        "inverse_Kip_chunks": chunk_refs, "configurations": recovered}
+    factor = {"D": [float(i) for i in range(1, interior+1)], "permutation": list(reversed(range(interior))),
+              "LT_colind": list(range(interior+1))}
+    sources = {}
+    raw_ref = {}
+    options = {}
+
+    def publish():
+        path = tmp_path/"probe/factor-diagonal-permutation.npz"
+        with zipfile.ZipFile(path, "w") as archive:
+            for name, values in factor.items():
+                code, descr = ("d", "<f8") if name == "D" else ("q", "<i8")
+                header = repr({"descr": descr, "fortran_order": False, "shape": (len(values),)}).encode()
+                header += b" " * ((-10-len(header)-1) % 64) + b"\n"
+                archive.writestr(name + ".npy", b"\x93NUMPY\x01\x00" + struct.pack("<H", len(header))
+                    + header + struct.pack("<" + code*len(values), *values))
+        owners["probe"][path.name] = None
+        evidence = ref("evidence.txt")
+
+        def receipt(owner, status, pins, **extra):
+            value = {"status": status, "source_sha256": pins,
+                "output_sha256": {name: ref(owner+"/"+name)["sha256"] for name in owners[owner]}, **extra}
+            write_json(tmp_path/owner/"receipt.json", value)
+            return ref(owner + "/receipt.json")
+
+        record("matrix", "schur-call-1/prefactor-input.json", matrix)
+        matrix_ref = receipt("matrix", "EXPORTED", {evidence["path"]: evidence["sha256"]})
+        record("coupon", "result.json", coupon)
+        coupon_ref = receipt("coupon", coupon["status"], {evidence["path"]: evidence["sha256"]})
+        request = {"schema": "sparse_spd_solver_probe_request/v1", "mode": "probe", "storage_only_zero_padding": True,
+            "matrix_packet_receipt_sha256": matrix_ref["sha256"], "expected_source_columns_per_configuration": 32,
+            "stiffness_averaging_clipping_dropping_or_shift": False, "coupon_packet": "coupon",
+            "coupon_packet_receipt_sha256": coupon_ref["sha256"]}
+        write_json(tmp_path/"request/request.json", request)
+        request_ref = ref("request/request.json")
+        probe["matrix_receipt_sha256"] = options.get("matrix_token_override", matrix_ref["sha256"])
+        record("probe", "result.json", probe)
+        probe_ref = receipt("probe", probe["status"], {item["path"]: item["sha256"] for item in
+            (matrix_ref, coupon_ref, request_ref, evidence)})
+        report["original_factor_free_matrix_export"], report["actual_ldl_probe"] = matrix_ref, probe_ref
+        record("raw", "schur-call-1/raw-Schur-audit.json", report)
+        pins = {str(path.relative_to(tmp_path)): hashlib.sha256(path.read_bytes()).hexdigest()
+                for path in tmp_path.rglob("*") if path.is_file() and path != tmp_path/"raw/receipt.json"}
+        raw_ref.update(receipt("raw", raw["status"], pins, **{k:v for k,v in raw.items() if k != "status"},
+                               source_before=pins, source_after=pins))
+        sources.clear()
+        sources.update({str(path.relative_to(tmp_path)): hashlib.sha256(path.read_bytes()).hexdigest()
+                        for path in tmp_path.rglob("*") if path.is_file()})
+
+    publish()
+    return {"variants": variants, "raw": raw, "report": report, "matrix": matrix, "probe": probe,
+        "coupon": coupon, "factor": factor, "owners": owners, "sources": sources, "raw_ref": raw_ref,
+        "options": options,
+        "publish": publish, "validate": lambda: acceptance.saved_ldl_materialization_check(
+            tmp_path, raw_ref, variants, sources, {}, {})}
+
+
+@pytest.mark.parametrize("fault", [None, "ordinary_stop", "stale_matrix", "changed_coefficient", "zero_pivot",
+    "nonfinite_pivot", "duplicate_permutation", "missing_columns", "unowned_inverse", "missing_source_basis",
+    "wrong_source_columns", "duplicate_phase", "bad_known_answer", "mutable_source", "tampered_inverse"])
+def test_saved_ldl_requires_original_CSC_and_every_owned_inverse(tmp_path, fault):
+    fixture = saved_ldl_fixture(tmp_path)
+    fixture["validate"]()
+    if fault is None:
+        return
+    if fault == "ordinary_stop":
+        fixture["raw"]["status"] = "STOP_NUMERICAL_RESOURCE"
+    elif fault == "stale_matrix":
+        fixture["options"]["matrix_token_override"] = "b"*64
+    elif fault == "changed_coefficient":
+        fixture["probe"]["storage_padding_audits"][0]["full_numeric_value_difference"] = 1e-15
+    elif fault == "zero_pivot":
+        fixture["factor"]["D"][2] = 0.
+    elif fault == "nonfinite_pivot":
+        fixture["factor"]["D"][2] = float("nan")
+    elif fault == "duplicate_permutation":
+        fixture["factor"]["permutation"][1] = fixture["factor"]["permutation"][0]
+    elif fault == "missing_columns":
+        fixture["probe"]["unit_port_chunks"].pop()
+    elif fault == "unowned_inverse":
+        fixture["owners"]["probe"].pop("schur-unit-inverse-0006-0008.npz")
+    elif fault == "missing_source_basis":
+        fixture["owners"]["matrix"].pop("initial-source-basis.npz")
+    elif fault == "wrong_source_columns":
+        fixture["probe"]["configurations"][1]["source_columns"] = 33
+    elif fault == "duplicate_phase":
+        fixture["report"]["configurations"][1] = deepcopy(fixture["report"]["configurations"][0])
+    elif fault == "bad_known_answer":
+        fixture["coupon"]["body_H_e_L_error"] = 1e-12
+    fixture["publish"]()
+    if fault == "mutable_source":
+        (tmp_path/"evidence.txt").write_text("changed input")
+    elif fault == "tampered_inverse":
+        (tmp_path/"probe/final-interior-source-inverse.npz").write_bytes(b"changed saved field")
+    with pytest.raises(ValueError):
+        fixture["validate"]()
+
+
+def test_saved_ldl_supporting_packet_still_requires_full_projected_field_gates(tmp_path):
+    fixture = saved_ldl_fixture(tmp_path)
+    group, variants, proof, _known, raw, _stop, _validate = projected_method_fixture()
+    for phase, variant in variants.items():
+        variant.clear()
+        variant.update(fixture["variants"][phase])
+    group["raw_factor_rejection_binding"].update(fixture["raw_ref"])
+    raw.clear()
+    raw.update(json.loads((tmp_path/"raw/receipt.json").read_text()))
+    with pytest.raises(ValueError, match="typed closure check"):
+        acceptance.projected_operator_method_check(group, variants, lambda reference:
+            proof if reference["path"] == "proof/result.json" else _known, lambda _reference: raw)
+    callback = lambda reference, expected: acceptance.saved_ldl_materialization_check(
+        tmp_path, reference, expected, fixture["sources"], {}, {})
+    arguments = (group, variants, lambda reference:
+                 proof if reference["path"] == "proof/result.json" else _known, lambda _reference: raw)
+    acceptance.projected_operator_method_check(*arguments, saved_ldl_check=callback)
+    proof["records"][0]["native_rhs_recovery"][0]["projection_effects"]["projection_port_force_effect_peak_n"] = 1e-5
+    with pytest.raises(ValueError, match="original budget"):
+        acceptance.projected_operator_method_check(*arguments, saved_ldl_check=callback)
+
+
 def shaft_fixture(tmp_path, monkeypatch):
     """Real authenticated JSONL outputs, 12 current states and four null-source axes."""
     sources = {}
@@ -1982,3 +2184,214 @@ def test_finite_disposition_requires_exact_inventory_and_accepted_exports(tmp_pa
     refresh()
     with pytest.raises(ValueError):
         check("index.json", tmp_path)
+
+
+@pytest.fixture
+def desktop_fixture(tmp_path):
+    from scripts import check_wood_joint_reduced_desktop as desktop
+
+    producer = tmp_path / "producer.txt"
+    producer.write_text("immutable current source")
+    producer_sha = hashlib.sha256(producer.read_bytes()).hexdigest()
+    packet = tmp_path / "current"
+    packet.mkdir()
+    frame_sha = write_json(packet / "frame.json", {"states": [{"case_id": "a12-rear", "gap_scale": 0.}]})
+    state_ref = {"path": "current/frame.json", "sha256": frame_sha, "pointer": "/states/0"}
+    source_rows = [{"axis_id": f"axis{i}", "state_tag": "a12-rear_zero", "case_id": "a12-rear",
+                    "gap_scale": 0., "source_state_record": state_ref, "signed_T_n": float(i + 1),
+                    "signed_sourceD_lateral_vector_xyz_n": [float(i), -2., 3.]} for i in range(30)]
+    records = packet / "witnesses.jsonl"
+    records.write_text("".join(json.dumps(row) + "\n" for row in source_rows))
+    records_sha = hashlib.sha256(records.read_bytes()).hexdigest()
+    receipt = {"source_sha256": {"producer.txt": producer_sha}, "output_sha256": {
+        "frame.json": frame_sha, "witnesses.jsonl": records_sha}}
+    receipt_sha = write_json(packet / "receipt.json", receipt)
+    receipt_ref = {"path": "current/receipt.json", "sha256": receipt_sha}
+    evidence = desktop.Evidence(tmp_path, acceptance, {}, {})
+    evidence.owner(receipt_ref, current=True)
+    timbers = [f"timber{i}" for i in range(44)]
+    duties, rows = [], []
+    for i in range(30):
+        duty = {"joint_id": f"joint{i}", "family_id": f"family{i % 8}", "physical_axis_ids": [f"axis{i}"],
+                "timber_sides": [timbers[2 * i % 44], timbers[(2 * i + 1) % 44]]}
+        duties.append(duty)
+        witness = {"state_tag": "a12-rear_zero", "source_state_record": state_ref,
+                   "source_record": {"path": "current/witnesses.jsonl", "sha256": records_sha,
+                                     "pointer": f"/{i}", "jsonl_line_zero_based": i},
+                   "copied_values": {"/signed_T_n": source_rows[i]["signed_T_n"],
+                                     "/signed_sourceD_lateral_vector_xyz_n": source_rows[i]["signed_sourceD_lateral_vector_xyz_n"]}}
+        rows.append({**deepcopy(duty), "disposition": {"decision": "retain", "reason": "Conditional desktop layout only"},
+                     "physical_or_strength_acceptance": False, "joint_load_path": "saved signed load path",
+                     "governing_demands": "literal same-state witness", "geometry_detail": {"reviewed": True},
+                     "reference_findings": ["applicable conditional comparison with its limit"], "next_action": "retain evidence",
+                     "unresolved_inputs": [], "diagnostic_proposal": None,
+                     "receiver_findings": [{"timber": body, "finding": "current receiver context"} for body in duty["timber_sides"]],
+                     "signed_current_witnesses": [witness], "source_sha256": {"producer.txt": producer_sha}})
+    selection = {"duties": duties, "duty_count": 30, "family_count": 8, "timber_count": 44,
+                 "canonical_timber_names": timbers,
+                 "families": [{"id": f"family{i}", "duty_ids": [d["joint_id"] for d in duties if d["family_id"] == f"family{i}"]}
+                              for i in range(8)],
+                 "accepted_states": [{"state_tag": "a12-rear_zero", "case_id": "a12-rear", "gap_scale": 0.,
+                                      "source_state_record": state_ref}]}
+    return desktop, selection, rows, evidence, receipt, receipt_ref
+
+
+def test_desktop_decisions_cover_receivers_without_strength_acceptance(desktop_fixture):
+    desktop, selection, rows, evidence, _, _ = desktop_fixture
+    rows[0]["disposition"] = {"decision": "unresolved", "reason": "exact local law unavailable"}
+    rows[0]["unresolved_inputs"] = ["Applicable complete receiver law"]
+    rows[0]["timber_sides"].reverse()
+    evidence.prime_lines(rows)
+    receivers, decisions = desktop.row_inventory(selection, rows, evidence)
+    assert len(receivers) == 44
+    assert decisions == {"unresolved": 1, "retain": 29}
+
+
+def test_desktop_geometry_array_remains_source_metadata(desktop_fixture):
+    desktop, _, rows, evidence, _, _ = desktop_fixture
+    geometry = [{"body": "timber0", "signed_T_n": 1.0, "state_tag": "a12-rear_zero"}]
+    digest = write_json(evidence.root / "geometry-bindings.json", geometry)
+    reference = {"path": "geometry-bindings.json", "sha256": digest, "pointer": "/0"}
+    evidence.sources({"source_sha256": {reference["path"]: digest}})
+    assert evidence.record(reference, owned=False) == geometry[0]
+    witness = deepcopy(rows[0]["signed_current_witnesses"][0])
+    witness["source_record"] = reference
+    with pytest.raises(ValueError, match="current output owner"):
+        desktop.witness_check(witness, {"a12-rear_zero": {
+            "case_id": "a12-rear", "gap_scale": 0.,
+            "source_state_record": witness["source_state_record"]}}, evidence)
+
+
+@pytest.mark.parametrize("fault", ["missing_duty", "duplicate_axis", "missing_receiver", "false_strength", "foreign_witness"])
+def test_desktop_rejects_incomplete_or_fictitious_duty_coverage(desktop_fixture, fault):
+    desktop, selection, rows, evidence, _, _ = desktop_fixture
+    if fault == "missing_duty":
+        rows.pop()
+    elif fault == "duplicate_axis":
+        rows[0]["physical_axis_ids"] *= 2
+    elif fault == "missing_receiver":
+        rows[0]["receiver_findings"].pop()
+    elif fault == "false_strength":
+        rows[0]["receiver_findings"][0]["complete_receiver_resistance_qualified"] = True
+    else:
+        rows[0]["signed_current_witnesses"] = deepcopy(rows[1]["signed_current_witnesses"])
+    with pytest.raises(ValueError):
+        desktop.row_inventory(selection, rows, evidence)
+
+
+@pytest.mark.parametrize("fault", ["component", "unavailable_state", "wrong_state_pointer", "wrong_line", "unsigned_reference"])
+def test_desktop_signed_witness_cannot_mix_states_or_replace_loads(desktop_fixture, fault):
+    desktop, selection, rows, evidence, _, _ = desktop_fixture
+    witness = deepcopy(rows[0]["signed_current_witnesses"][0])
+    if fault == "component":
+        witness["copied_values"]["/signed_sourceD_lateral_vector_xyz_n"][0] = 99.
+    elif fault == "unavailable_state":
+        witness["state_tag"] = "a12-left_zero"
+    elif fault == "wrong_state_pointer":
+        witness["source_state_record"]["pointer"] = "/states/1"
+    elif fault == "wrong_line":
+        witness["source_record"]["jsonl_line_zero_based"] = 1
+    else:
+        witness["copied_values"] = {"/state_tag": "a12-rear_zero"}
+    with pytest.raises(ValueError):
+        desktop.witness_check(witness, {r["state_tag"]: r for r in selection["accepted_states"]}, evidence)
+
+
+def test_desktop_historical_output_advertiser_cannot_supply_current_witness(desktop_fixture):
+    desktop, selection, rows, old, receipt, _ = desktop_fixture
+    digest = receipt["output_sha256"].pop("witnesses.jsonl")
+    current_sha = write_json(old.root / "current/receipt.json", receipt)
+    historical_sha = write_json(old.root / "historic-receipt.json", {
+        "source_sha256": receipt["source_sha256"], "output_sha256": {"current/witnesses.jsonl": digest}})
+    evidence = desktop.Evidence(old.root, acceptance, {}, {})
+    evidence.owner({"path": "current/receipt.json", "sha256": current_sha}, current=True)
+    evidence.owner({"path": "historic-receipt.json", "sha256": historical_sha})
+    with pytest.raises(ValueError, match="current output owner"):
+        desktop.witness_check(rows[0]["signed_current_witnesses"][0],
+                              {r["state_tag"]: r for r in selection["accepted_states"]}, evidence)
+
+
+def test_desktop_consumed_owner_authenticates_its_own_source(desktop_fixture):
+    desktop, _, _, old, _, receipt_ref = desktop_fixture
+    (old.root / "producer.txt").write_text("changed source")
+    with pytest.raises(ValueError, match="SHA256 mismatch"):
+        desktop.Evidence(old.root, acceptance, {}, {}).owner(receipt_ref, current=True)
+
+
+def test_desktop_aggregate_cannot_omit_a_consulted_input(desktop_fixture):
+    desktop, _, _, evidence, _, receipt_ref = desktop_fixture
+    desktop.receipt_covers(evidence, receipt_ref)
+    digest = write_json(evidence.root / "extra.json", {"consulted": "method limit"})
+    evidence.file({"path": "extra.json", "sha256": digest})
+    with pytest.raises(ValueError, match="omits consumed"):
+        desktop.receipt_covers(evidence, receipt_ref)
+
+
+def test_desktop_context_redirect_does_not_replace_older_owner_resolution(tmp_path):
+    from scripts import check_wood_joint_reduced_desktop as desktop
+
+    (tmp_path / "context.md").write_text("maintained newest")
+    (tmp_path / "old.snapshot").write_text("old original")
+    (tmp_path / "code.snapshot").write_text("code consulted")
+    old_sha = hashlib.sha256((tmp_path / "old.snapshot").read_bytes()).hexdigest()
+    code_sha = hashlib.sha256((tmp_path / "code.snapshot").read_bytes()).hexdigest()
+    old_redirect = {"context.md": {"original_path": "context.md", "sha256": old_sha, "snapshot_path": "old.snapshot"}}
+    artifact_sha = write_json(tmp_path / "code.json", {"source_sha256": {"context.md": code_sha}})
+    artifact = {"path": "code.json", "sha256": artifact_sha}
+    ledger_sha = write_json(tmp_path / "ledger.json", {"schema": "reduced_consulted_context_resolution/v1", "artifact": artifact,
+        "source_resolution": {"context.md": {"original_path": "context.md", "sha256": code_sha, "snapshot_path": "code.snapshot"}},
+        "original_artifact_changed": False, "live_context_restored_or_changed": False})
+    evidence = desktop.Evidence(tmp_path, acceptance, old_redirect, {})
+    evidence.context_resolutions([{"path": "ledger.json", "sha256": ledger_sha}])
+    evidence.sources(json.loads((tmp_path / "code.json").read_text()), artifact)
+    output_sha = write_json(tmp_path / "older-result.json", {"original": True})
+    owner_sha = write_json(tmp_path / "older-receipt.json", {"source_sha256": {"context.md": old_sha},
+        "output_sha256": {"older-result.json": output_sha}})
+    evidence.owner({"path": "older-receipt.json", "sha256": owner_sha})
+    assert evidence.pins["old.snapshot"] == old_sha
+    assert evidence.pins["code.snapshot"] == code_sha
+
+
+@pytest.mark.parametrize("schema", ["reduced_desktop_joint_shard/v1", "reduced_desktop_retained_joint_dispositions/v1",
+    "reduced_desktop_assessment_outer_shard/v1", "reduced_desktop_joint_assessment_shard/v1", "reduced-desktop-joint-assessment-shard/v1"])
+def test_desktop_frozen_schema_alias_requires_identical_selection(desktop_fixture, schema):
+    desktop = desktop_fixture[0]
+    ref = {"path": "selection.json", "sha256": "a" * 64}
+    desktop.shard_check({"schema": schema, "common_selection": ref}, ref)
+    with pytest.raises(ValueError):
+        desktop.shard_check({"schema": schema, "common_selection": ref,
+                             "selection_binding": {"path": "older.json", "sha256": "b" * 64}}, ref)
+
+
+@pytest.mark.parametrize("claim", ["proposal_108_adopted", "original_inventory_completed", "baseline_300_certificate_transferred"])
+def test_desktop_does_not_transfer_proposals_or_old_completion(desktop_fixture, claim):
+    desktop = desktop_fixture[0]
+    with pytest.raises(ValueError):
+        desktop.decision_claims({"geometry_or_scope": {claim: True}})
+
+
+@pytest.mark.parametrize("wrong_enclosing_state", [False, True])
+def test_desktop_nested_action_uses_its_actual_enclosing_state(desktop_fixture, wrong_enclosing_state):
+    desktop, selection, rows, evidence, receipt, _ = desktop_fixture
+    source_state = rows[0]["signed_current_witnesses"][0]["source_state_record"]
+    body = {"body": "timber0", "state_tag": "a12-rear_gap" if wrong_enclosing_state else "a12-rear_zero",
+            "case_id": "a12-rear", "gap_scale": 1. if wrong_enclosing_state else 0.,
+            "source_state_record": source_state, "actions": [{"force_n": [1., -2., 3.],
+                "free_moment_nmm": [0., 4., 0.], "source_force_available": True,
+                "replaced_source_row_placeholder": False}]}
+    path = evidence.root / "current/body-actions.jsonl"
+    path.write_text(json.dumps(body) + "\n")
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()
+    owner_sha = write_json(evidence.root / "current/body-receipt.json", {
+        "source_sha256": receipt["source_sha256"], "output_sha256": {"body-actions.jsonl": digest}})
+    evidence.owner({"path": "current/body-receipt.json", "sha256": owner_sha}, current=True)
+    evidence.body_action_binding = {"path": "current/body-actions.jsonl", "sha256": digest}
+    witness = {"state_tag": "a12-rear_zero", "source_state_record": source_state,
+        "source_record": {**evidence.body_action_binding, "pointer": "/0/actions/0", "jsonl_line_zero_based": 0},
+        "copied_values": {"/force_n": [1., -2., 3.], "/free_moment_nmm": [0., 4., 0.]}}
+    accepted = {r["state_tag"]: r for r in selection["accepted_states"]}
+    if wrong_enclosing_state:
+        with pytest.raises(ValueError, match="mixed-state"):
+            desktop.witness_check(witness, accepted, evidence, selection["duties"][0])
+    else:
+        desktop.witness_check(witness, accepted, evidence, selection["duties"][0])

@@ -1,6 +1,79 @@
 # Joint MVP working disposition
 
+## Reduced desktop assessment
+
+**Reduced desktop assessment complete and source-validated.** The owner-adopted
+[scope](../../../completion-ledger.md#proposed-reduced-numerical-scope) covers
+all **30 duties, eight families and 44 timber receiver contexts** using the
+current wider-washer frame/action basis and its eight registered consumers.
+Decisions are **22 retain, zero revise and eight unresolved**. Retain means
+keeping the recorded layout for conditional development; it does not establish
+complete joint resistance. Unresolved identifies a specific barrier to
+choosing retain or revise. No new native diagnostic was selected or executed.
+
+The [validated assessment](rawlocal/reduced-desktop-assessment/assessment-attempt03/summary.json)
+and [receipt](rawlocal/reduced-desktop-assessment/assessment-attempt03/receipt.json)
+bind 234 literal signed witnesses and 5,166 consumed source/output pins.
+Every detailed row carries actual axis/receiver IDs, same-state signed demands,
+geometry/detail joins, reference findings and exact missing inputs. Read the
+[frozen selection](rawlocal/reduced-desktop-assessment/selection01.json),
+[independent arithmetic audit](rawlocal/reduced-desktop-assessment/parent-arithmetic-audit01.json)
+and [pinned-code review](rawlocal/reduced-desktop-assessment/code-detail-basis01.json).
+The code review uses the pinned 2024 edition. N03/N15 geometry from the
+108-axis proposal requires exact unchanged joins; its old signed directions,
+group factors and two changed knee-spine recipes do not transfer.
+
+| Duty | Family | Desktop decision | Governing finding / remaining question |
+| --- | --- | --- | --- |
+| `center_post_cleat_left` | Central post | unresolved | Complete receiver splitting/anchorage and group applicability unresolved. Post averaging is diagnostic. |
+| `center_post_cleat_right` | Central post | unresolved | Complete receiver splitting/anchorage and group applicability unresolved. Post averaging is diagnostic. |
+| `center_principal_cleat_left` | Central principal | unresolved | Complete receiver/group resistance unresolved; tiny terminal-section peaks retain domain limits. |
+| `center_principal_cleat_right` | Central principal | unresolved | Complete receiver/group resistance unresolved; tiny terminal-section peaks retain domain limits. |
+| `knee_outer_left_inner_frame_block` | Outer knee | retain | Three-host shaft transfer included; receiver splitting/group resistance and stock/detail applicability unresolved. |
+| `knee_outer_left_spine` | Outer knee | retain | Three-host shaft transfer included; receiver splitting/group resistance and stock/detail applicability unresolved. |
+| `knee_outer_right_inner_frame_block` | Outer knee | retain | Three-host shaft transfer included; receiver splitting/group resistance and stock/detail applicability unresolved. |
+| `knee_outer_right_spine` | Outer knee | retain | Three-host shaft transfer included; receiver splitting/group resistance and stock/detail applicability unresolved. |
+| `top_outer_left_cleat` | Top outer | unresolved | Source 6.35 mm versus shop 5/16 in side-bolt diameter; side own-end fields unavailable. Widened washer Fy250 index 1.083. |
+| `top_outer_right_cleat` | Top outer | unresolved | Source 6.35 mm versus shop 5/16 in side-bolt diameter; side own-end fields unavailable. Widened washer Fy250 index 1.223. |
+| `bottom_center_left_cleat` | Center / service | unresolved | Five wire enclosures intersect the named bottom rail in the nominal envelope; routing/fit disposition missing. |
+| `bottom_center_right_cleat` | Center / service | unresolved | Five wire enclosures intersect the named bottom rail in the nominal envelope; routing/fit disposition missing. |
+| `left_service_inner_lower_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `left_service_inner_upper_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `left_service_outer_lower_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `left_service_outer_upper_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `top_center_left_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `top_center_right_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `wj04_lower_full_stock_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `wj04_upper_g7_crosscut_full_stock_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `wj06_outer_lower_right_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `wj06_outer_upper_right_cleat` | Center / service | retain | Block comparisons retained; receiver, Hillman backing, loaded-edge/group and local splitting limits explicit. |
+| `bottom_outer_left_cleat` | Bottom outer | retain | Current transfer/components retained; complete receiver splitting/group resistance unresolved. |
+| `bottom_outer_right_cleat` | Bottom outer | retain | Current transfer/components retained; complete receiver splitting/group resistance unresolved. |
+| `rail_front_bolt_left` | Front floor | retain | Current bolt/seat path retained; conditional lateral/washer exceedances and complete anchorage/group limits explicit. |
+| `rail_front_bolt_right` | Front floor | retain | Current bolt/seat path retained; conditional lateral/washer exceedances and complete anchorage/group limits explicit. |
+| `lumber_leg_bolt_left` | Rear leg / runner | retain | Both leg ends/1:12 profile reviewed; washer exceedance and non-square end/detail applicability explicit. |
+| `lumber_leg_bolt_right` | Rear leg / runner | retain | Both leg ends/1:12 profile reviewed; washer exceedance and non-square end/detail applicability explicit. |
+| `rail_rear_bolt_left` | Rear leg / runner | retain | Recessed leg-foot/runner path reviewed; local anchorage, loaded-end classification and complete resistance unresolved. |
+| `rail_rear_bolt_right` | Rear leg / runner | retain | Recessed leg-foot/runner path reviewed; local anchorage, loaded-end classification and complete resistance unresolved. |
+
+The independent current arithmetic audit reproduces 200 normal and 414 sampled
+shear member exceedances, 18 washer Fy250 exceedances and the panel head-reference
+deficit. These retain their conditional reference and method domains; they
+are not observed failures or automatic geometry changes. See the
+[completion ledger](../../../completion-ledger.md#reduced-assessment-results)
+for cross-family findings, exact unresolved inputs and next actions.
+
+The earlier 37,056-identity census and 48-triplet pilot remain incomplete and
+recoverable, outside this adopted review's completion denominator. All 47
+formal criteria remain pending; all eight release flags remain false. Reviewed
+geometry is unchanged, the 108-axis proposal remains unadopted and no actual
+wood, hardware, assembly or floor inspection is claimed.
+
 ## Numerical acceptance extension
+
+This section preserves extension packets in their recorded source branches.
+The reduced desktop table above uses the current wider-washer selection;
+earlier force-dependent counts below do not replace that authority.
 
 The owner-directed extension is in progress. Reference exceedances remain
 acceptable assessment outcomes; incomplete numerical fields remain work.
@@ -17,14 +90,13 @@ bounded refinements satisfy the original panel-screw tolerance; ten fields
 remain unchanged. Its [final actions](joint-frame-action-reconciliation.md)
 and [bolt references](joint-frame-bolt-reference.md) are reconciled, retaining
 ten lateral-reference exceedances. The final compatible member inventory
-supplies 49,344 finite cuts and 240 analytic endpoint dispositions, retaining
+previously supplied 49,344 finite cuts and 240 analytic endpoint dispositions, retaining
 200 normal and 420 sampled shear-reference exceedances and explicit method
 limits. All 44 timbers also have finite nominal transverse-tension component
-comparisons. Three-dimensional fracture resistance remains active. The
+comparisons. Three-dimensional fracture resistance remains unresolved. The
 original 44-timber inventory has 37,056 identities and stays preserved.
-The owner-directed [focused numerical completion plan](../../../completion-ledger.md#planned-numerical-completion)
-checks surrounding-frame restraint and redistribution before further selected
-paths. It also identifies current-force metal, nominal seating/stability and
+The preserved [focused numerical completion plan](../../../completion-ledger.md#planned-numerical-completion)
+records the earlier restraint/redistribution study and its uncompleted paths. It also identifies current-force metal, nominal seating/stability and
 panel-model questions hidden by completed comparison scopes. Localized
 condensation passed 38 small
 known-answer states and reproduced three historical joint configurations across
@@ -63,8 +135,12 @@ and nine intact/cracked fields: forward zero-clearance initiation index 9.39,
 energy index 0.00817, with nominal near-zero energy differences qualified for
 precision. A matched fixed-force/assembled comparison reduces the forward
 zero-clearance tensile peak by 23.19% (6.11 to 4.70 MPa), while initiation
-still exceeds its reference. Further grids, material orientations, states and families remain
-active. Current supported shaft recovery completes 1,152 fields and 2,304
+still exceeds its reference. The owner has adopted the
+[reduced desktop scope](../../../completion-ledger.md#proposed-reduced-numerical-scope)
+for all 30 duties and 44 timber receivers. No new native diagnostic is selected.
+Further crack-study grids, orientations and states remain preserved outside
+this review's completion denominator; their prior selection is incomplete.
+Current supported shaft recovery completes 1,152 fields and 2,304
 own-end moments without numerical stops or steel-reference exceedances;
 four source-geometry-limited axes retain null results. The full washer replay
 completes all 2,496 end dispositions, with 2,400 finite bending fields,
@@ -72,8 +148,20 @@ completes all 2,496 end dispositions, with 2,400 finite bending fields,
 exceed assumed steel yield; the maximum index is 1.785. Four of the 96 widened
 top-rail fields exceed, with maximum index 1.223. The earlier successful
 48-state retail comparison retains its original force scope. Finer 15 mm R=u
-cleat operators pass original recovered-field and H/e/L gates; further
-assembled comparisons and the representative study remain active.
+and R=v cleat operators pass original recovered-field and H/e/L gates. All
+four pilot grid/orientation groups have accepted operators; further
+assembled comparisons and the representative study are held.
+The independent right-cleat control completes three comparisons and nine
+fields, with forward zero-clearance initiation/energy indices 7.10/0.00509.
+Six intact full-post controls pass, including simultaneous post/cleat
+replacement. Their 2.708 MPa sampled transverse-tension peak is a
+load-introduction result, without receiver fracture or stress convergence.
+Bounded direct replays preserve 57 of 144 selected left-pilot phase fields;
+three of 48 triplets are complete. Four original energy-gap stops remain
+rejected. Fixed-region post averages give nominal tension of 0.257 MPa near
+the screw and 0.093 MPa deeper in the wood, while local resampling reaches
+3.661 MPa. Averaging and low energy indices do not establish splitting
+resistance; the footprint, material and convergence limits remain explicit.
 The reviewed geometry, unadopted proposal and
 all physical-release flags retain their authority.
 

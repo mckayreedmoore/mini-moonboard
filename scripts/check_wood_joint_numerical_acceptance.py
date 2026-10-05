@@ -1179,7 +1179,197 @@ def projected_receipt_resolutions(root, receipt, resolutions):
     return dict(resolutions)
 
 
-def projected_operator_method_check(group, expected, paired_output, source_packet):
+def saved_ldl_materialization_check(root, reference, expected, sources, resolutions, cache):
+    """Authenticate saved inverses; full original field gates still follow."""
+    def packet(binding):
+        receipt = source_json(root, binding, sources, resolutions, cache)
+        directory = file_path(root, binding["path"]).parent
+        redirects = projected_receipt_resolutions(root, receipt, resolutions)
+        pins = receipt.get("source_sha256", {})
+        require(isinstance(pins, dict) and pins, "saved LDL packet lacks source authority")
+        for name, digest in pins.items():
+            authenticate(root, name, digest, redirects, cache)
+        outputs = receipt.get("output_sha256", {})
+        require(isinstance(outputs, dict) and outputs, "saved LDL packet lacks output authority")
+        for name, digest in outputs.items():
+            path = output_path(root, directory, name)
+            authenticate(root, path.relative_to(root).as_posix(), digest, {}, cache)
+        return directory, receipt
+
+    def output(directory, receipt, name):
+        # The metadata-only resume owns named aliases to immutable input01
+        # files. Authenticate that exact output name, not an ancestor advertiser.
+        path = directory / name
+        named = {name, (directory.relative_to(root) / name).as_posix()}
+        matches = [digest for key, digest in receipt["output_sha256"].items()
+                   if key in named and output_path(root, directory, key) == path.resolve()]
+        require(len(matches) == 1, "saved LDL artifact lacks its exact owner output name")
+        authenticate(root, path.relative_to(root).as_posix(), matches[0], {}, cache)
+        return path
+
+    def shapes(directory, receipt, name):
+        return npz_shapes(output(directory, receipt, name))
+
+    directory, receipt = packet(reference)
+    require(receipt.get("schema") == "saved_actual_ldl_inverse_materialization_receipt/v1"
+            and receipt.get("status") == "SAVED_ACTUAL_LDL_INVERSES_AND_ORIGINAL_BASIS_BOUND"
+            and receipt.get("accepted_body_operator_exists") is False
+            and receipt.get("new_global_or_interior_factorizations") == 0
+            and receipt.get("new_small_interface_factorizations") == 0
+            and receipt.get("new_stiffness_assembly_or_rhs_mapping") is False
+            and receipt.get("source_before") == receipt.get("source_after") == receipt["source_sha256"],
+            "saved LDL materialization is stopped, changed or claims an accepted operator")
+    report = read_json(output(directory, receipt, "schur-call-1/raw-Schur-audit.json"))
+    require(report.get("schema") == "splitting_raw_schur_rigid_diagnostic/v1"
+            and report.get("status") == receipt["status"]
+            and report.get("original_gate_unchanged") is True
+            and report.get("stiffness_or_rhs_projection_added") is False
+            and report.get("accepted_body_operator_exists") is False,
+            "saved LDL raw fields bypass an original gate")
+    matrix_binding = report.get("original_factor_free_matrix_export")
+    matrix_directory, matrix_receipt = packet(matrix_binding)
+    matrix = read_json(output(matrix_directory, matrix_receipt, "schur-call-1/prefactor-input.json"))
+    accepted_audit({"audit": matrix})
+    interior, retained, union = [matrix.get(name) for name in ("interior_dofs", "retained_dofs", "union_dofs")]
+    require(all(type(value) is int and value > 0 for value in (interior, retained, union))
+            and union == interior + retained
+            and matrix.get("schema") == "splitting_native_prefactor_input/v1"
+            and matrix.get("native_factorization_executed") is False
+            and matrix.get("native_solve_executed") is False
+            and matrix.get("stiffness_rhs_gauge_or_physical_gate_changed") is False
+            and all(report.get(name) == matrix[name] for name in ("interior_dofs", "retained_dofs", "union_dofs")),
+            "saved LDL source CSC or quotient inventory differs")
+    for name in ("union-K", "interior-Kii", "interior-Kip", "interior-Kpi"):
+        first = output(directory, receipt, "schur-call-1/" + name + ".npz")
+        original = output(matrix_directory, matrix_receipt, "schur-call-1/" + name + ".npz")
+        require(fingerprint(first, cache)[0] == fingerprint(original, cache)[0], "saved LDL original matrix bytes differ")
+    probe_directory, probe_receipt = packet(report.get("actual_ldl_probe"))
+    probe = read_json(output(probe_directory, probe_receipt, "result.json"))
+    require(probe.get("status") == probe_receipt.get("status") == "MEASURED_INSTALLED_SPD_FACTOR_AND_ALL_SOURCE_INVERSES"
+            and probe.get("matrix_receipt_sha256") == matrix_binding["sha256"]
+            and probe.get("matrix_input_arrays_unchanged") is True
+            and probe.get("storage_only_zero_padding") is True
+            and probe.get("original_full_CSC_remains_residual_authority") is True
+            and probe.get("stiffness_or_fullfield_coupling_discarded") is False
+            and probe.get("all_D_finite_and_positive") is True and probe.get("interior_factorizations") == 1
+            and probe.get("accepted_body_operator_exists") is False
+            and finite_number(probe.get("matrix_symmetry_relative_error"))
+            and 0 <= probe["matrix_symmetry_relative_error"] < 1e-13,
+            "saved LDL probe has no complete original CSC inverse proof")
+    padding = probe.get("storage_padding_audits", [])
+    require(len(padding) == 1 and padding[0].get("full_numeric_value_difference") == 0
+            and padding[0].get("project_back_maximum_numeric_error") == 0
+            and padding[0].get("numeric_averaging_or_entry_drop") is False
+            and padding[0].get("original_CSC_residual_authority") is True
+            and padding[0].get("padded_pattern_structurally_symmetric") is True,
+            "saved LDL storage padding changes a source coefficient")
+    factor_path = output(probe_directory, probe_receipt, "factor-diagonal-permutation.npz")
+    factor_shapes = npz_shapes(factor_path)
+    require(factor_shapes == {"D": (interior,), "permutation": (interior,), "LT_colind": (interior + 1,)},
+            "saved LDL diagonal/permutation is incomplete")
+    # Read only the scalar factor witness, in bounded blocks; never K or fields.
+    def values(name, dtype, code):
+        with zipfile.ZipFile(factor_path) as archive, archive.open(name + ".npy") as stream:
+            magic = stream.read(8)
+            size_format = "<H" if magic[6] == 1 else "<I"
+            size = struct.unpack(size_format, stream.read(struct.calcsize(size_format)))[0]
+            header = ast.literal_eval(stream.read(size).decode("utf-8" if magic[6] == 3 else "latin1"))
+            require(header["descr"] == dtype and header["fortran_order"] is False, "saved LDL factor scalar layout differs")
+            while block := stream.read(32768):
+                yield from (item[0] for item in struct.iter_unpack("<" + code, block))
+    minimum, maximum = math.inf, -math.inf
+    for value in values("D", "<f8", "d"):
+        require(finite_number(value) and value > 0, "saved LDL has a nonpositive or nonfinite pivot")
+        minimum, maximum = min(minimum, value), max(maximum, value)
+    require(minimum == probe.get("minimum_D") and maximum == probe.get("maximum_D"), "saved LDL pivot extrema differ")
+    permutation = set(values("permutation", "<i8", "q"))
+    require(permutation == set(range(interior)), "saved LDL permutation repeats or omits an equation")
+    previous = 0
+    for index, value in enumerate(values("LT_colind", "<i8", "q")):
+        require(value >= previous and (index > 0 or value == 0), "saved LDL factor column pointers differ")
+        previous = value
+    require(previous + interior == probe.get("stored_factor_nonzeros"), "saved LDL thin factor census differs")
+    requests = []
+    for name, digest in probe_receipt["source_sha256"].items():
+        if name.endswith("/request.json"):
+            candidate = source_json(root, {"path": name, "sha256": digest}, sources, resolutions, cache)
+            if candidate.get("schema") == "sparse_spd_solver_probe_request/v1" and candidate.get("mode") == "probe" and candidate.get("storage_only_zero_padding") is True:
+                requests.append(candidate)
+    require(len(requests) == 1 and requests[0].get("matrix_packet_receipt_sha256") == matrix_binding["sha256"]
+            and requests[0].get("expected_source_columns_per_configuration") == 32
+            and requests[0].get("stiffness_averaging_clipping_dropping_or_shift") is False,
+            "saved LDL request has a stale matrix, source-column census or coefficient law")
+    request = requests[0]
+    coupon_directory, coupon_receipt = packet({"path": request["coupon_packet"] + "/receipt.json",
+                                              "sha256": request["coupon_packet_receipt_sha256"]})
+    coupon = read_json(output(coupon_directory, coupon_receipt, "result.json"))
+    require({"exact", "rhs", "actual", "K", "raw_rhs", "projected_rhs", "full_U", "analytical_U", "H", "e", "L"}
+            <= set(shapes(coupon_directory, coupon_receipt, "coupon-fields.npz")), "saved LDL coupon has no saved full-field/cross-work witness")
+    require(coupon.get("status") == coupon_receipt.get("status") == "PASS_TINY_INSTALLED_SPARSE_SPD_ZERO_PADDING_AND_COLUMN_CENSUS"
+            and coupon.get("multi_rhs_columns") == 33 and coupon.get("Cholesky_plugin_crosscheck_passed") is True
+            and coupon.get("wrong_actual_column_count_rejected") is True and coupon.get("significant_numeric_skew_rejected") is True
+            and coupon.get("transpose_property_source_api_audit", {}).get("Sparsity_T_is_property") is True
+            and set(coupon.get("invalid_SPD_cases_rejected", [])) == {"negative_pivot", "zero_pivot", "nonsymmetric"}
+            and all(finite_number(coupon.get(name)) and 0 <= coupon[name] < 1e-12 for name in (
+                "factor_reconstruction_error", "maximum_original_residual", "known_field_error", "body_projected_residual",
+                "body_fullfield_error", "body_H_e_L_error", "body_energy_error", "body_gauge_error")),
+            "saved LDL storage/permutation/full-field known answer is unqualified")
+    fixtures = coupon.get("symmetric_storage_padding_fixtures", [])
+    require(len(fixtures) == 2 and {item.get("fixture") for item in fixtures} == {"one_sided_explicit_zero", "one_sided_tiny_nonzero"}
+            and all(item.get("original_CSC_unchanged") is True
+                and item.get("padding", {}).get("full_numeric_value_difference") == 0
+                and item.get("padding", {}).get("project_back_maximum_numeric_error") == 0
+                and finite_number(item.get("full_original_residual")) and 0 <= item["full_original_residual"] < 1e-12
+                for item in fixtures), "saved LDL padding coupon omits immutable original-coefficient fixtures")
+    chunks = probe.get("unit_port_chunks", [])
+    cursor, chunk_refs = 0, []
+    for item in chunks:
+        first, last = item.get("first"), item.get("last")
+        require(type(first) is int and type(last) is int and first == cursor and 0 < last - first <= 6 and last <= retained,
+                "saved LDL inverse chunks omit, duplicate or reorder retained columns")
+        name = f"schur-unit-inverse-{first:04d}-{last:04d}.npz"
+        path = output(probe_directory, probe_receipt, name)
+        require(npz_shapes(path).get("inverse_Kip") == (interior, last - first)
+                and npz_shapes(path).get("rhs") == (interior, last - first), "saved LDL retained inverse layout differs")
+        chunk_refs.append({"path": path.relative_to(root).as_posix(), "sha256": fingerprint(path, cache)[0]})
+        cursor = last
+    require(cursor == retained == probe.get("unit_port_columns") and report.get("inverse_Kip_chunks") == chunk_refs,
+            "saved LDL materializer uses different or incomplete retained inverses")
+    original = {item["variant"]["id"]: item for item in matrix.get("configurations", [])}
+    recovered = report.get("configurations", [])
+    require(len(recovered) == len(original) == len(probe.get("configurations", [])) == 3 and set(original) == set(expected)
+            and {item.get("variant", {}).get("id") for item in recovered} == set(expected)
+            and {item["configuration"] for item in probe["configurations"]} == {"intact", "initial", "final"},
+            "saved LDL phase inventory differs")
+    for item in recovered:
+        variant = item.get("variant", {})
+        source = original.get(variant.get("id"), {})
+        phase = variant.get("configuration")
+        require(variant == expected.get(variant.get("id")) == source.get("variant") and item.get("P") == source.get("P"),
+                "saved LDL recovered phase changes geometry/material/incidence")
+        observed = next(row for row in probe["configurations"] if row["configuration"] == phase)
+        require(observed.get("source_basis") == source.get("source_basis") and observed.get("source_columns") == 32,
+                "saved LDL phase uses another physical source basis")
+        basis = shapes(matrix_directory, matrix_receipt,
+                       Path(source["source_basis"]["path"]).relative_to(matrix_directory.relative_to(root)).as_posix())
+        output(matrix_directory, matrix_receipt, Path(source["P"]["path"]).relative_to(matrix_directory.relative_to(root)).as_posix())
+        inverse = shapes(probe_directory, probe_receipt, phase + "-interior-source-inverse.npz")
+        field = output(directory, receipt, "schur-call-1/" + phase + "-factor-derived.npz")
+        layout = npz_shapes(field)
+        require(sources.get(item.get("factor_derived", {}).get("path")) == fingerprint(field, cache)[0]
+                == item.get("factor_derived", {}).get("sha256"), "saved LDL original recovered field alias is unbound")
+        dofs = layout.get("raw_rhs", (0,))[0]
+        require(dofs > 0 and basis.get("raw_rhs") == layout.get("raw_rhs") == layout.get("projected_rhs") == (dofs, 32)
+                and basis.get("Q") == basis.get("physical_R") == (dofs, 6)
+                and basis.get("active_port_rows") == (20,) and basis.get("original_fixed_scalar_dofs") == (6,)
+                and layout.get("physical_R") == layout.get("Q") == (dofs, 6)
+                and layout.get("active_port_rows") == (20,) and layout.get("original_fixed_scalar_dofs") == (6,)
+                and all(layout.get(name) == (interior, 32) for name in ("Fi", "inverse_Fi", "inverse_Fi_residual"))
+                and all(inverse.get(name) == (interior, 32) for name in ("Fi", "inverse_Fi"))
+                and layout.get("lifted_F_retained") == (retained, 32), "saved LDL original 20B/12F/R/gauge recovery is incomplete")
+
+
+def projected_operator_method_check(group, expected, paired_output, source_packet, *, saved_ldl_check=None):
     """Join the explicit Schur correction to its original fields and known answer."""
     operators = group.get("operators", [])
     require(group.get("schema") == "splitting_coupled_body_operator_group/v1"
@@ -1206,7 +1396,10 @@ def projected_operator_method_check(group, expected, paired_output, source_packe
             and len(proof.get("records", [])) == 1, "projected operator correction lacks its paired actual proof")
     raw_reference = group.get("raw_factor_rejection_binding")
     raw = source_packet(raw_reference)
-    if raw.get("status") != "PASS_ACTUAL_COUPLED_BODY_OPERATOR_GROUP":
+    if raw.get("status") == "SAVED_ACTUAL_LDL_INVERSES_AND_ORIGINAL_BASIS_BOUND":
+        require(callable(saved_ldl_check), "saved LDL source materialization requires its typed closure check")
+        saved_ldl_check(raw_reference, expected)
+    elif raw.get("status") != "PASS_ACTUAL_COUPLED_BODY_OPERATOR_GROUP":
         output_sha = raw.get("output_sha256", {}).get("stop.json")
         require(isinstance(output_sha, str), "projected method has no authenticated raw gate disposition")
         stop = paired_output({"path": (Path(raw_reference["path"]).parent / "stop.json").as_posix(), "sha256": output_sha})
@@ -1664,7 +1857,9 @@ def representative_scope_check(root, entry, result, packet, receipt, sources, re
             group = read_json(output(group_reference))
             expected = {identifier: variants[identifier] for identifier in identity["operator_variants"].values()}
             projected_operator_method_check(group, expected, paired_method_output,
-                lambda reference: source_json(root, reference, sources, resolutions, cache))
+                lambda reference: source_json(root, reference, sources, resolutions, cache),
+                saved_ldl_check=lambda reference, variants: saved_ldl_materialization_check(
+                    root, reference, variants, sources, resolutions, cache))
             validated_groups[group_key] = group
         group = validated_groups[group_key]
         native_operator = next((item for item in group["operators"] if item["variant"]["id"] == checkpoint["operator_variant_id"]), {})
@@ -2436,6 +2631,13 @@ def check(index=INDEX, root=ROOT):
         validation = extension.get("parent_final_validation", {})
         require(isinstance(validation, dict) and validation.get("confirmed") is True and not pending,
                 "complete extension lacks parent confirmation or completed workstreams")
+    desktop = {}
+    if "reduced_assessment" in document:
+        if __package__:
+            from .check_wood_joint_reduced_desktop import check_reduced_assessment
+        else:
+            from check_wood_joint_reduced_desktop import check_reduced_assessment
+        desktop = check_reduced_assessment(root, document, sys.modules[__name__], cache)
     return {"status": status, "original_sources": len(pins), "original_criteria": len(after),
             "false_release_flags": len(flags), "result_packets": len(results),
             "complete_comparison_packets": sum(entry.get("status") == COMPLETE for entry in results.values()),
@@ -2443,7 +2645,7 @@ def check(index=INDEX, root=ROOT):
             "representative_study_packets": sum(entry.get("status") == REPRESENTATIVE_COMPLETE for entry in results.values()),
             "selected_coupled_consumers": coherent_consumers,
             "packet_source_bindings": source_count, "packet_output_bindings": output_count,
-            "pending_workstreams": len(pending)}
+            "pending_workstreams": len(pending), **desktop}
 
 
 def main():

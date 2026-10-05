@@ -1,5 +1,27 @@
 # Full numerical assessment index
 
+## Reduced desktop assessment
+
+The reduced desktop assessment is complete and source-validated. The owner-adopted
+[scope](../../../completion-ledger.md#proposed-reduced-numerical-scope) covers
+all 30 duties and 44 timber receiver contexts with 22 conditional layout
+retentions, zero revisions and eight unresolved decisions. See the
+[decision table](mvp-joint-disposition.md#reduced-desktop-assessment) and
+[governing findings](../../../completion-ledger.md#reduced-assessment-results).
+The frozen selection uses the current wider-washer frame/actions and eight
+consumer packets. No new native diagnostic was selected or executed.
+
+The [assessment](rawlocal/reduced-desktop-assessment/assessment-attempt03/summary.json)
+and [receipt](rawlocal/reduced-desktop-assessment/assessment-attempt03/receipt.json)
+bind all 234 signed witnesses and 5,166 consumed source/output pins. Its
+[machine-registration check](rawlocal/reduced-desktop-assessment/index-validation01.json)
+authenticates the current index with all preserved definitions and release flags.
+
+This closure is recorded separately as `reduced_assessment`; it does not
+complete the legacy `numerical_acceptance_extension`, its original inventories
+or any strength/release flag. All 47 formal criteria remain pending. The
+following section preserves packets in their own force and geometry scopes.
+
 ## Owner-directed numerical acceptance extension
 
 The owner has directed completion of the remaining numerical fields and
@@ -32,10 +54,10 @@ member inventory adds exact source joins for 49,344 finite cuts and 240
 analytic endpoints, including 2,496 recess and 6,144 action-event cuts.
 Nominal transverse tension now covers all 44 timbers, with 2,112 before/after
 comparisons and no geometry limits. Three-dimensional fracture remains
-active. The original 37,056-identity inventory is preserved. The owner-directed
+unresolved. The original 37,056-identity inventory is preserved. The earlier
 [numerical completion plan](../../../completion-ledger.md#planned-numerical-completion)
-starts with surrounding-frame restraint and redistribution, then selected
-connection families. Completed comparison scopes do not supply every metal,
+records surrounding-frame restraint and redistribution, then selected
+connection families; it no longer commissions that queue. Completed comparison scopes do not supply every metal,
 motion or stability field. [Localized condensation](all-joint-splitting/splitting-capacity-completion.md#supported-method-checks-and-preserved-historical-comparisons)
 passed 38 small known-answer states and reproduced three historical joint
 configurations across eight saved states in 159 seconds. The first current-load
@@ -86,8 +108,36 @@ fields exceed assumed 250 MPa yield; the overall reference-index maximum is
 The earlier 48-state retail result remains valid within its original forces.
 The [current publication](rawlocal/washer-working-profile-completion/plate-current-dispositions01/summary.json)
 and its saved-field and publication audits are bound in the machine map.
-The finer 15 mm R=u intact/5 mm/10 mm operators pass their original recovered
-field and full H/e/L checks; their assembled comparisons remain pending.
+The finer 15 mm R=u and R=v intact/5 mm/10 mm operators pass their original
+recovered field and full H/e/L checks. All four pilot grid/orientation groups
+have accepted operators; their remaining assembled comparisons are pending.
+The owner has adopted the
+[reduced desktop scope](../../../completion-ledger.md#proposed-reduced-numerical-scope)
+for all 30 duties and 44 timber receivers. Its common selection is frozen;
+no new native diagnostic is selected. The previous crack-study selection is
+preserved and incomplete, outside this review's completion denominator.
+The independent right-cleat control completes three comparisons and nine
+fields; forward zero-clearance initiation/energy indices are 7.10/0.00509.
+Six intact full-post controls also pass, including simultaneous post/cleat
+replacement. Sampled transverse tension reaches 2.708 MPa; these fields
+do not establish receiver fracture resistance or stress convergence.
+The checker passes 207 tests, including saved-factor corruption controls. A
+bounded half-boost solver trial passes equilibrium but misses the original
+energy-gap/native-status gates; that trial remains rejected. A separately
+proved stricter internal-gap method passes the same project's original
+optimizer and fresh physical/body/energy checks, adding one usable intact
+state. Both finer-grid default attempts retain six accepted intact states
+before a physical-audit stop; uncompleted crack comparisons remain pending.
+Four later direct replays stop at the original energy-gap gate, preserving
+57 of 144 selected left-pilot fields when joined to the first nine fields.
+Only three of 48 crack triplets are complete. No rejected trial is an accepted
+field or finite method exclusion. The post's twelve fixed-region averages
+give nominal transverse tension of 0.257 MPa near the screw and 0.093 MPa
+deeper in the wood; local resampling reaches 3.661 MPa. These saved-field
+diagnostics establish neither a calibrated averaging resistance nor splitting
+capacity. The production pressure-mapping audit stops on a missing runtime
+namespace binding; its source-only repair is held without execution. Actual
+face coverage and changed-footprint response remain unqualified.
 
 Check source and result bindings without running mechanics:
 

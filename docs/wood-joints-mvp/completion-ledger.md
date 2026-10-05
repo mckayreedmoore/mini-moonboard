@@ -2,9 +2,10 @@
 
 ## Current conditional packet and qualification status
 
-The owner-directed numerical-acceptance extension is active. Reference
-exceedances are acceptable recorded outcomes; unresolved numerical fields
-remain work. Restricted washer ends, the G7 shaft, panel local/net branches,
+The owner-directed reduced desktop assessment is complete and source-validated. Reference
+exceedances are acceptable recorded outcomes; exact unresolved resistance and
+method inputs remain visible. The earlier numerical extension stays open
+under its preserved study requirements. Restricted washer ends, the G7 shaft, panel local/net branches,
 the fourteen-state frame disposition and final compatible action exports are
 recorded. Twelve frame states pass the original physical and panel-screw gates;
 two zero-gap floor searches have no accepted field. The final bolt join retains
@@ -12,9 +13,10 @@ ten lateral-reference exceedances. The final compatible member inventory now
 covers 49,344 finite cuts and 240 analytic endpoints, including additional
 action stations and rear recesses. Nominal transverse tension covers all 44
 timbers and 2,112 before/after comparisons. Three-dimensional fracture
-resistance remains active. The original 44-timber inventory has 37,056 identities
-and remains preserved. The owner-directed focused-study plan below replaces
-broad enumeration as the next action; it does not complete unsampled paths.
+resistance remains unresolved. The original 44-timber inventory has 37,056 identities
+and remains preserved. The owner-adopted reduced review covers all 30 duties
+and 44 receivers using current completed calculations; its closure does not
+complete unsampled crack paths.
 Localized condensation
 passed 38 small
 known-answer states and reproduced three historical joint configurations across
@@ -78,14 +80,207 @@ The [panel-backing comparison](hypotheses/mvp-resume-2026-10-01/upper-corner-scr
 completes the bounded same-material, same-screw, same-load comparison at fixed
 receivers. Added Moon-spacing interior backing and joint bracing reduce the
 governing head tension by 0.14%, from 1,972.5 to 1,969.7 N. Both variants retain
-the empirical head-reference exceedance. This is an augmented support
+the generic head-reference exceedance. This is an augmented support
 sensitivity, not an exact Moon assembly, material substitution or frame revision.
 
 Use the [development entry](README.md) for the current reading order. The
 chronology below preserves earlier results, work orders and then-current
 readiness statements; it does not commission those tasks again.
 
+## Proposed reduced numerical scope
+
+**Owner adopted; reduced desktop review complete.** The owner directed beginning this
+reduced scope and setting a goal for it. The heading preserves the proposal's
+existing link. This replaces the execution purpose of the earlier plan below
+with a bounded conditional design review of 30 duties and 44 timber receivers.
+The common selection is frozen in
+`upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/selection01.json`
+(SHA256 `6f2e8238c9d49a569b62b91e9802f2fd191a0bb9e48366804894040d5607043b`).
+No new native diagnostic is selected. Completed fields and rejected attempts
+remain preserved. Reduced-review closure will be named separately: it does
+not complete the former selected comparisons, change the 47 formal criteria
+or change the eight release flags.
+
+### Purpose and published practice
+
+The intended decision is whether the reviewed model needs changes, using the
+recorded loads and assumptions. The deliverable is a conditional design
+assessment identifying supported comparisons, revision priorities and exact
+unresolved resistance or load-path questions. It does not require qualifying
+a general three-dimensional timber-fracture method.
+
+The [AWC engineering manual](https://web-media.awc.org/wp-content/uploads/2022/01/17210413/AWC-2018-Manual-1810.pdf)
+sets out member, bearing, fastener and serviceability calculations and
+installation requirements (M3, M11 and M12). It advises avoiding perpendicular-
+to-grain tension (M3.8). [NDS Appendix E](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210113_AWCWebsite_Appendix.pdf)
+provides net-section and tear-out checks for closely spaced fasteners loaded
+parallel to grain; it does not qualify every crossed-axis or cross-grain joint.
+[WoodWorks connection guidance](https://www.woodworks.org/cad-revit/mass-timber/beam-connected-to-girder-with-steel-angles/)
+likewise addresses eccentricity, reduced sections, spacing, movement and
+splitting through connection detailing. These are practice references, not
+capacities for this candidate. The inference is that a design-decision review
+can use established calculations and targeted investigation rather than a
+large crack census. None of these sources prescribes the adopted run budget.
+
+[AWC's 2025 calculator update](https://awc.org/about/press/awc-releases-updates-to-connection-calculator/)
+supports NDS-2024 single-fastener calculations, including head pull-through.
+That supports an ordinary calculation route where applicable, not a product
+rating for Hillman 42605 or a complete joint check. Keep the existing pinned
+design edition and matching values together; this scope does not replace
+them with newer equations. [Moon's builder guidance](https://moonclimbing.com/build-your-moonboard)
+addresses frame support and panel-joint bracing; it supplies no resistance
+qualification for these custom freestanding bolted cleats.
+
+### Reduced work and explicit stopping rules
+
+1. **Reuse the completed force basis and calculations.** Retain all fourteen
+   frame-state dispositions, using only the twelve audited accepted fields
+   for demand calculations. Reuse current member, panel, bolt, shaft, washer
+   and motion evidence within its actual scope. Summarize governing signed
+   cases, adjustment factors and assumptions without repeating their full
+   inventories. Nominal and zero-clearance results remain separate. Do not
+   combine maxima from different states into a fictitious joint load.
+2. **Give every duty and receiver a desktop disposition.** Use the existing
+   eight-family partition to cover all 30 duties and their 44 timber sides,
+   with explicit member IDs and source joins. Check complete force/moment
+   transfer, loaded edge/end distances, net sections, bearing, fastener/group
+   applicability, shrinkage and assembly access. Reuse valid detailing
+   calculations; the separate 108-axis proposal does not supply automatic
+   evidence for the reviewed 104-axis geometry. A representative needs a
+   geometry and signed-demand bounding argument. Similar names or lower
+   resultant force alone are insufficient. Unsupported ordinary-code
+   applicability remains an exact unresolved issue, not a reason to launch a
+   fracture study for every family.
+3. **Resolve the governing design questions from existing evidence first.**
+   Prioritize the central cleat/post load introduction and cross-grain route,
+   shared knee/receiver transfer, retained rear-leg geometry, panel/head
+   reference deficit, washer-yield exceedances and the scope of motion and
+   stability assumptions. The existing coupled cleat pilot already shows
+   restraint reduces its sampled hotspot while the initiation reference stays
+   exceeded. Nominal or averaged stresses and low energy indices do not
+   establish splitting resistance. Record whether each finding is an
+   applicable failed criterion, conditional reference exceedance, numerical
+   sensitivity or unavailable resistance. Unsupported capacity and known
+   adopted failures stay visible; no further numerical study is needed merely
+   to populate a research matrix. Any required geometry change is reported
+   before altering the reviewed model.
+4. **Allow only decision-changing diagnostics.** The default budget is zero
+   new native solves. If the desktop review cannot distinguish retaining a
+   detail from revising it, define the exact competing interpretations,
+   observable and result that would change the decision. Use saved fields or
+   ordinary mechanics first. The adopted upper allowance is two diagnostics
+   and twelve new solution attempts in total, counting unsuccessful calls,
+   with at most one justified retry per diagnostic inside that allowance.
+   Freeze loads, geometry, sources, method, physical checks and resource limit
+   before execution; cap native execution at thirty minutes per diagnostic.
+   A missing validated method is recorded as a development
+   limitation; do not build a new solver programme within this allowance.
+   Existing gates and rejected attempts remain unchanged. A cap or timeout
+   ends work on that diagnostic without becoming a capacity result or a
+   completed method exclusion.
+
+The eight families remain a **desktop coverage partition**, not eight native
+fracture studies. The 48-comparison pilot sweep, its 114-new-call replay plan
+and the estimated 576–1,152 representative comparisons are not completion
+quotas under this scope. Preserve their frozen inputs and actual results;
+unperformed identities remain unperformed outside the adopted reduced scope.
+The original 37,056-identity inventory retains its historical accounting.
+Do not retry solver precision stops solely to fill those inventories.
+
+### Closure and work retained
+
+The reduced assessment can close when every duty has a
+source-bound demand/load-path disposition, every governing finding has an
+applicable comparison or exact unresolved input/method, and any selected
+diagnostic has its actual result or an explicit unfinished disposition.
+Publish one concise retain/revise/unresolved table in the existing joint
+disposition, independently audit governing arithmetic and source joins, and
+reconcile the maintained summary and machine index. If an optional diagnostic
+stops, remove its pending work from the closure claim or leave that claim
+incomplete; never call the failed execution a finite method exclusion.
+
+Do not set numerical completion for the old extension merely by adopting a
+smaller purpose. Any new closure claim must name this reduced scope and its
+unresolved issues. A conditional assessment can be complete while resistance
+questions remain open; it cannot establish structural, fabrication or climbing
+acceptance. The no-slip floor assumption stays explicit, without adding a
+friction test or new external sign-off prerequisite. Actual hardware and wood
+observations are not numerical prerequisites or claimed inspections.
+
+Keep current frame operators, shared helpers, receipts and independently
+audited fields active for this review. Wider family preparations, abandoned
+enumerations and failed trials remain recoverable historical or unadopted
+work. This scope commissions no archive, pruning, physical work or geometry
+change. The initial workload is a desktop review and governing-result audit;
+additional native work depends on a named decision, not a target run count.
+
+## Reduced assessment results
+
+**Desktop assessment complete and publication validated.** All 30 duties
+and 44 timber receiver contexts have source-bound current-demand, load-path,
+geometry/detail, reference and next-action dispositions. The
+[joint table](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md#reduced-desktop-assessment)
+records **22 conditional layout retentions, zero revisions and eight unresolved
+decisions**. Retention is a development-layout decision, not complete joint
+resistance or permission to build. An independent read-only review found no
+missing modeled duty/receiver or overstated acceptance claim. Parent
+[saved-arithmetic verification](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/parent-arithmetic-audit01.json)
+reproduces the governing current comparisons and signed source joins without
+any solver calls.
+
+The [validated aggregate](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/assessment-attempt03/summary.json)
+and its [receipt](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/assessment-attempt03/receipt.json)
+bind 234 literal current signed witnesses and 5,166 consumed source/output pins.
+The [machine registration](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/reduced-desktop-assessment/index-validation01.json)
+passes with all 217 original pins, 47 pending definitions, eight false flags
+and the open legacy workstream preserved. The affected checker suite passes
+**233 tests**; targeted Ruff and whitespace checks pass. The shared desktop
+validator extends the existing source-ownership API; all aggregate records,
+input shards and reader-stop records remain in ignored evidence locations.
+No bulky raw artifacts, copied installations or manuals are added to the
+tracked working set. Two initial publication-reader stops remain preserved;
+neither executed a native solution or changed an engineering result.
+
+| Governing question | Reused result and disposition | Exact next input / action |
+| --- | --- | --- |
+| Central cleat and post load introduction | Four central duties unresolved. Coupled left/right pilots and six intact post controls retain their exact states. Restraint lowers the matched left peak by 23.19%; conditional initiation still exceeds. Post averages and local resampling are diagnostics. | Establish the actual cross-grain opening/anchorage route and applicable complete receiver/group resistance. Resolve load introduction and sampling interpretation before using a local peak or volume average as resistance. |
+| Shared outer knees | Four layouts retained conditionally. All three shaft hosts, distributed bore and wood-seat ports are included; 48 current axis-state wrench sums independently close to about 1e-13 N / 9.45e-11 Nmm. Replaced placeholders and a hypothetical spare tie are excluded. | Exact current loaded-edge/group applicability and complete shared receiver anchorage remain unresolved. Replace proposal-hole recipes with reviewed spine geometry where needed; do not inherit the 108-axis proposal's capacities or signed directions. |
+| Ordinary centers and service joints | Ten layouts retained; two bottom-center fit decisions unresolved. Ordinary block comparisons are below their declared references. Receivers retain local, terminal-section and mesh limits, with current Hillman backing identities included. | Disposition the five wire enclosures intersecting each bottom rail in the nominal envelope. The enclosure intersections are a routing/fit question, not an observed collision. Complete receiver/group/anchorage resistance remains unavailable. |
+| Top outer corners and wider washers | Both top duties unresolved at the hardware/source endpoint. The wider/thicker eight-washer profile is already in the current force basis. Of 96 widened own-end fields, four exceed assumed Fy250; maximum index 1.222753. Across all washer families, 2,400 finite fields retain 18 exceedances, maximum 1.784760, and 96 source-geometry-limited ends remain null. | Reconcile four side-axis source diameters of 6.35 mm with the recorded shop 5/16 in basis and its unavailable own-end fields before a hardware-complete claim. Actual metal properties and combined elastic compatibility remain conditional. The earlier successful 48-field retail suite keeps its original force scope. |
+| Retained front floor and rear legs/runners | Six layouts retained conditionally. Both leg ends, the 1:12 recess, 50.8 mm foot section and actual side hosts are reviewed. Conditional lateral and retained-washer exceedances remain explicit. | Actual non-square end/loaded-edge applicability and complete local anchorage/group resistance remain unresolved. Do not substitute a square-cut end rule or move a bolt based only on a receiver envelope. |
+| Finished members and final stock references | Current inventory retains 49,344 finite cuts / 240 analytic endpoints, 200 normal and 414 sampled shear reference exceedances, and 5,409 peak differences above 5%. All 44 nominal transverse components are finite; maximum conditional Ft90 index 0.945677. | Keep tiny-apex/prismatic, curved-shear, load introduction and peak-convergence limits. Supported final grade/size/reference bindings are missing for both center-principal cleats and both knee inner-frame blocks. Their CF=1 comparisons are hypotheses. Nominal Ft90 is not a complete splitting capacity. |
+| Panels and Hillman screw heads | Current nominal/zero-gap head tension is 1,868.931 / 1,923.782 N; favorable generic CD1.6 reference indices are 2.009125 / 2.068090. Local pressure, punching, ligament and rolling-shear comparisons retain their own conditional exceedances. The paired Moon-like backing sensitivity reduces its governing tension only 0.14%. | Actual Hillman/head/plywood resistance and contact/stiffness applicability remain unresolved. The support sensitivity is not a Moon assembly qualification or empirical Hillman breaking-strength measurement. No screw or panel change is selected. |
+| Motion, stability and unavailable floor branches | Twelve current fields support finite first-order seating bounds; seven nominal states have nonunique positions. Maximum incremental seating is 1.149 mm. Two zero-gap branches have no audited force field. | Prestressed/geometric tangent and changed-branch stability remain unqualified. Unavailable states have no demand to compare and are not zero-load or physical-infeasibility proofs. Preserve the recorded unverified no-slip assumption without commissioning a floor test. |
+
+The pinned 2024 code review identifies ordinary geometry and detailing routes,
+but it does not assign a generic cross-grain capacity or an oblique interpolation
+rule. The prior 108-axis N03/N15 packets supply geometry only where the current
+body/axis/diameter binding matches; their all-pair census is not a current row
+map or assigned group factor. Detail-envelope hypothesis shortfalls are not
+adopted failures. This review identifies no new applicable adopted failure;
+conditional reference exceedances remain recorded as requested.
+
+**Diagnostic decision: zero selected; zero executed.** No remaining question
+has a defined native result that would resolve its missing resistance rule,
+source/shop identity, stock binding or fit instruction. The two-diagnostic,
+twelve-attempt allowance is a ceiling, not work to fill. Half-gap retries,
+pressure-mapping continuation and wider family preparations stay outside the
+completed desktop purpose; no new solver programme is commissioned.
+
+The current 104-axis wider-washer frame/actions, eight consumer packets, shared
+helpers, frozen selection, duty shards and parent audit remain active evidence.
+The earlier 37,056-identity inventory retains 768 completed and 36,288 unperformed
+identities; the 48-triplet pilot retains three complete triplets and 57 of 144
+accepted phase fields. They remain recoverable incomplete history, including
+their rejected attempts. No archive or pruning occurred. All 47 formal criteria
+stay pending and all eight release flags stay false. No geometry, physical
+work, inspection, candidate selection or fabrication/climbing release is inferred.
+
 ## Planned numerical completion
+
+This earlier plan is preserved for its study accounting. The adopted reduced
+scope above now defines the active execution purpose; the following readiness
+and continuation statements do not commission additional runs.
 
 The owner directed this plan after questioning exhaustive crack enumeration,
 surrounding-member restraint and the interpretation of panel and washer
@@ -126,14 +321,43 @@ exceed assumed steel yield, with maximum index 1.785. Four of the 96 widened
 top-rail fields exceed, with maximum index 1.223. The earlier successful
 48-state retail comparison stays valid within its original forces. Raw-field,
 publication and output-ownership audits bind the fresh result. Existing leaf
-records hold the detailed method and source evidence. The finer 15 mm R=u
+records hold the detailed method and source evidence. The finer 15 mm R=u and R=v
 operators now pass their original field, gauge and full H/e/L gates using
 saved LDL inverse columns; no interior factor is repeated during recovery.
-Their assembled comparisons and the other fine orientation remain active.
+All four pilot grid/orientation groups have accepted operators. Their
+remaining assembled comparisons and representative families remain active.
+The independent right-cleat control completes three comparisons and nine
+fields, receipt `93c10c72f50aee855f5c5f350fbbb04c7f4ad519d1abeb641ad8cc6cfb45c949`.
+Forward zero-clearance initiation/energy indices are 7.10135/0.00509372.
+The six full-post controls complete both post-only and simultaneous
+post/cleat replacement, receipt
+`2ccff0a42612592c0affae1d47df00c85760e87ce17f84b7e45c034a2be2dad5`.
+The whole finished 238.9 mm post retains its four bores; actual maximum grain
+pitch is 51.7167 mm. The sampled peak is 2.70845 MPa, versus 2.70134 MPa
+in the matching post-only nominal case. These are intact load-introduction
+comparisons, without receiver fracture or stress-convergence qualification.
+Both raw rigid-gate rejections remain preserved; saved-field quotient
+recovery satisfies the original gates without another interior factorization.
+The bounded half-boost solver trial passes
+its four known answers and the project equilibrium gates, but its relative
+energy gap is 1.00854e-13 against 1e-13 and native status is NumericalError.
+That actual trial stays rejected; it does not finish a splitting comparison.
+Its separately proved fixed 7/8-step refinement with internal absolute gap
+1e-11 passes all four known answers and the stalled project's unchanged
+native/canonical gates. Receipt
+`f978b4077a251363ec313d00d446f891c991d1904195d99a0650b49c8ef82e61`
+passes the fresh physical, full-body and potential-energy checks in supporting
+recovery `c486026ac119d64a3bab9aaea09101f269acb8b7fef43a1a7f974165b39a2070`.
+This adds one usable intact state and no completed crack triplet. No solver
+status or original tolerance is waived. Both finer-grid default attempts save
+six accepted intact states before failing a physical audit at `k12-rear_zero`;
+those twelve fields are retained for authenticated reuse, with remaining
+comparisons pending.
 The source/result checker validates 31 registered packets (22 complete
 comparisons and nine finite-disposition packets), all 47 original criteria
 and eight false release flags. The exact updated checker and test bytes pass
-all 191 tests, including 16 source-ownership and torque-bound regressions.
+all 207 tests, including 16 source-ownership/torque-bound regressions and
+16 saved-factor corruption and full-field-gate controls.
 Shared publication checks retain pre-existing full-repository lint and selected
 frame-snapshot findings; frozen numerical producers are not reformatted to
 remove their existing lint findings. Publication at `023a355c` records a
