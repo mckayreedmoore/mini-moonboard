@@ -38,8 +38,9 @@ A geometry-only study will not complete the new goal. Joint-method readiness
 passed independent review. The single lean case has now ended with a floor
 activation cycle: all five fixed support patterns reached the residual
 tolerance, but their activation did not settle. It exports no admitted q or
-joint forces. The new goal remains unachieved, and no automatic retry is
-queued. The revised nominal occupied
+joint forces. The new goal is **blocked** on a compatible admitted field:
+its one-attempt allowance is used, and no automatic retry is queued.
+The revised nominal occupied
 layout clears the enumerated interference and support checks. The review model
 is exported and its file-backed viewer loader is validated. The
 [access/takeoff packet](hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md)

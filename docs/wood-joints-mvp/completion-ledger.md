@@ -6,7 +6,8 @@ The current development is the reviewed thin, through-bolted v4 successor
 in the [HL35 replacement lane](#hl35-replacement-candidate). The owner now
 prioritizes joint mechanics and reusing previous floor work. The one bounded
 lean A12 attempt ended with a floor-activation cycle and no admitted joint
-forces; the numerical goal remains unachieved, with no automatic retry.
+forces; the numerical goal is **blocked** on an admitted compatible field,
+with its one-attempt allowance used and no automatic retry.
 The earlier enlarged 24-duty HL35 fit experiment remains **REVISE** history.
 The selected baseline and reviewed wood-joint authority remain unchanged.
 
@@ -1165,6 +1166,22 @@ centroid/whole-foot law has a self-consistent pattern and whether a
 law-preserving support method can find or certify it. The five visited
 patterns prove neither absence of a fixed point nor physical instability,
 and they do not establish corner refinement as mandatory.
+
+**Bounded completion audit:** the preceding continuation made concrete
+progress through the floor/component reuse review, full default test coverage
+and publication at commit `d19900d9`. The next audit rechecked the current
+failed field against its exact SHA above: all 163 source pins still match,
+the configured seventy shafts and six timber interfaces remain present, and
+no analysis or test process is live. The independent linear-face gate rejects
+the field with `KeyError: 'q'`; only the explicitly unaccepted diagnostic
+vector exists. Usable-action/MVP/release flags remain false. Neither that
+vector nor historical reactions can supply the required current demands.
+The same missing admitted-field condition persists through the case result,
+reuse/publication continuation and this closure audit. The lean goal is
+blocked, not complete: another candidate run needs an expanded allowance
+beyond the objective's single attempt. The existing geometry, operators,
+joint methods, resistance inputs and recovery mappings remain active for
+that future work. No new experiment or bulky artifact was added.
 
 **Joint-first continuation and floor reuse:** the owner again prioritizes
 joint mechanics, asks to reuse previous floor work, and authorizes committing
