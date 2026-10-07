@@ -1,0 +1,67 @@
+{
+  "schema": "thin_bolted_objective_finite_plate_method/v1",
+  "source_sha256": {
+    "scripts/check_thin_bolted_finite_plate.py": "4a6d58d579e42ee40a4da69aac7292b364e8b7417bfdd3b2696c37aead39376f",
+    "scripts/thin_bolted_finite_plate.py": "2b0de347d0ef35d08ab7a8d4078fa2e26a50cee6e7c2f708560dd1f0979b9180",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "tests/test_thin_bolted_finite_plate.py": "e761776329ee476650be381c68aa0e09401700d65f0b6cf41ef4b3da7e843518"
+  },
+  "scope": "standalone flat-reference objective geometry and conditional APA section-energy proxy",
+  "parameters": {
+    "thickness_mm": 18.256249999999998,
+    "strength_axis": "reference physical x",
+    "twist_scale": 1.0,
+    "reference_area_energy": true
+  },
+  "observed_coupons": {
+    "rigid_rotation": {
+      "rotation_deg": 20.0,
+      "maximum_absolute_Green_strain": 2.220446049250313e-16,
+      "maximum_absolute_curvature_per_mm": 9.483387241654331e-17,
+      "energy_density_n_per_mm": 1.0085104927642944e-26,
+      "offset_port_position_error_mm": 3.1887955513483207e-14
+    },
+    "local_derivatives": {
+      "central_difference_step": 1e-06,
+      "gradient_relative_L2_error": 1.038446380209732e-11,
+      "full_Hessian_relative_Frobenius_error": 2.4307520805182797e-12,
+      "Hessian_relative_symmetry_error": 1.4035492654814776e-17
+    },
+    "offset_point_port": {
+      "z_mm": 109.128125,
+      "central_difference_step_mm": 1e-05,
+      "directional_Jacobian_relative_L2_error": 2.9167696028614723e-10,
+      "directional_Hessian_relative_Frobenius_error": 1.0720479196849383e-10
+    },
+    "reference_linear_tangent": {
+      "maximum_absolute_Hessian_difference_n_per_mm": 4.3655745685100555e-11,
+      "relative_Frobenius_difference": 2.0373974207699548e-16
+    },
+    "certificate_checks_pass": true
+  },
+  "pytest_tests_passed": 9,
+  "ruff": "pass",
+  "commands": [
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m pytest tests/test_thin_bolted_finite_plate.py -q",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache uv run --offline ruff check scripts/thin_bolted_finite_plate.py scripts/check_thin_bolted_finite_plate.py tests/test_thin_bolted_finite_plate.py",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m scripts.check_thin_bolted_finite_plate --out NEW_UNUSED_PATH.json"
+  ],
+  "primary_sources": [
+    "https://arxiv.org/html/2008.05254v2",
+    "https://portal.fis.tum.de/de/publications/isogeometric-shell-analysis-with-kirchhoff-love-elements/"
+  ],
+  "limits": [
+    "Objective midsurface metric/director geometry does not establish plywood laminate, product, nonlinear material or through-thickness constitutive qualification.",
+    "Quadratic reference-area section energy omits Poisson and membrane-bending coupling and higher thickness-metric terms; curvature/strain applicability must be assessed.",
+    "No candidate field, contact solve, native model, actual hold footprint, local hole/seat field or structural acceptance is computed."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

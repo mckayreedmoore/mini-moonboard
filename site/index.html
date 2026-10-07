@@ -53,6 +53,8 @@
       import {validateOwnerCornerScene, renderOwnerCornerScene} from './owner-corner-overlay.mjs';
       import {validateOwnerBarrelScene, renderOwnerBarrelScene} from './owner-barrel-overlay.mjs?v=approved-bore-pose';
       import {loadWoodJointScene} from './wood-joints-overlay.mjs';
+      import {loadHL35Scene} from './hl35-overlay.mjs';
+      import {loadThinBoltedScene} from './thin-bolted-overlay.mjs';
 
       const renderer = new THREE.WebGLRenderer({ antialias: true });
       renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
@@ -246,6 +248,10 @@
       };
       const requestedModel = new URLSearchParams(location.search).get('model');
       const woodJointModels = [
+        ['thin-bolted-development', 'Thin bolted frame · latest geometry proposal · strength pending'],
+        ['hl35-counterbore-development', 'HL35 current proposal · lower corners need revision'],
+        ['hl35-fit-development', 'HL35 v7 · bolt-tip conflicts · preserved study'],
+        ['hl35-development', 'HL35 initial direct swap · failed fit · REVISE'],
         ['wood-joints-working-proposal', 'Wood-joint working proposal · 108 bolts · unadopted'],
         ['wood-joints-reviewed', 'Reviewed wood-joint source · 104 bolts · HOLD'],
       ];
@@ -380,7 +386,7 @@
       crashPadToggle.addEventListener('change', () => updateBoltVisibility());
       let mainFaceHeight = 225, kickerHoldHeight = 150;
       let rowStations = Array.from({ length: 12 }, (_, index) => 80 + index * 200);
-      const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.fabrication.kind === 'light' ? 0x40ff65 : part.fabrication.kind === 'wire' ? 0x424a52 : ['bolt', 'tnut'].includes(part.fabrication.kind) ? 0x9aa5b1 : part.fabrication.kind === 'screw' || part.name.startsWith('analysis_') ? 0x29b6d6 : part.fabrication.kind === 'insert' || part.name.startsWith('angle_') || part.name.startsWith('clip_') || part.name.startsWith('transition_') ? 0x788791 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
+      const colorFor = part => part.fabrication.clearance_status?.startsWith('FAIL') ? 0xef5350 : part.fabrication.kind === 'light' ? 0x40ff65 : part.fabrication.kind === 'wire' ? 0x424a52 : ['bolt', 'tnut'].includes(part.fabrication.kind) ? 0x9aa5b1 : part.fabrication.kind === 'screw' || part.name.startsWith('analysis_') ? 0x29b6d6 : ['insert', 'bracket'].includes(part.fabrication.kind) || part.name.startsWith('angle_') || part.name.startsWith('clip_') || part.name.startsWith('transition_') ? 0x788791 : part.name.startsWith('main_') ? 0x20252b : part.name.startsWith('kicker_') ? 0x444b53 : 0x9d5a24;
       const boltLabel = document.createElement('label'); boltLabel.hidden = true; boltLabel.textContent = 'Inspect connection ';
       const boltSelect = document.createElement('select'); boltSelect.id = 'bolt-view';
       boltSelect.add(new Option('Full assembly', '')); boltLabel.append(boltSelect); document.querySelector('#model-status').after(boltLabel);
@@ -561,13 +567,23 @@
         if (!isWoodJoint) return response.json();
         const baselineText = await response.text();
         const reviewed = model === 'wood-joints-reviewed';
-        const data = await loadWoodJointScene(THREE, {
-          url: reviewed ? 'owner-wood-joints-wj24-scene.json' : 'owner-wood-joints-working-scene.json',
-          expectedSha256: reviewed ? '74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf' : '8fb9bb8d8908ec738a0de95b45a502833fb3b502a2daa7f0025a956091ac07ac',
+        const hl35Fit = model === 'hl35-fit-development';
+        const hl35Counter = model === 'hl35-counterbore-development';
+        const hl35 = hl35Counter || hl35Fit || model === 'hl35-development';
+        const thinBolted = model === 'thin-bolted-development';
+        const sceneLoader = thinBolted ? loadThinBoltedScene : hl35 ? loadHL35Scene : loadWoodJointScene;
+        const data = await sceneLoader(THREE, {
+          url: thinBolted ? 'thin-bolted-scene.json.gz' : hl35Counter ? 'hl35-counterbore-scene.json' : hl35Fit ? 'hl35-final-scene.json' : hl35 ? 'hl35-candidate-scene.json' : reviewed ? 'owner-wood-joints-wj24-scene.json' : 'owner-wood-joints-working-scene.json',
+          expectedSha256: thinBolted ? '2ec1dd37dcd867e1748abe4eeb7567e1f62347802964d14bfcb09dd1329e17dc' : hl35Counter ? 'f6781308d30773c9a4199f295e28853acf64132cac26498bf9cbc52c3d66c541' : hl35Fit ? '672a571c38bec13d711b09e64732fe98cab450e8f742b41397e4295c953bc015' : hl35 ? '8939255017abc3f24dee590be39b1858c445163b6514166179b0ebeb9f8e7326' : reviewed ? '74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf' : '8fb9bb8d8908ec738a0de95b45a502833fb3b502a2daa7f0025a956091ac07ac',
+          decodedSha256: thinBolted ? 'ec9bac9be2091aa76c24f4df305c020c69f890a11aa3de93e920e18b209c6c70' : undefined,
           baselineParts: JSON.parse(baselineText).parts, baselineText,
           resolveMeshPath: path => resolveMeshPath(path, sharedMeshes),
         });
-        document.querySelector('#model-status').textContent = reviewed
+        document.querySelector('#model-status').textContent = thinBolted
+          ? 'Latest thinner bolted proposal · original 2×6 members and 4×6 legs/rims · 36 fittings / 70 bolt axes / 66 Hillman screws. Revised header rows, selected smaller washers and shallow wire channels shown. Nominal fit clears; strength, actual hardware and disassembly remain pending.' : hl35Counter
+          ? 'HL35 current proposal · 30 angles / 112 planning bolt axes / 66 Hillman screws. Four lower corner joints need revision: washer recesses reduce receiving wood and flange support. Joint resistance and physical methods remain unqualified; no build or climbing release.' : hl35Fit
+          ? 'HL35 v7 · preserved failed input. Earlier partial checks cleared; the complete bolt-tip query found eight angle contacts and four unrelated-timber contacts. REVISE · no release.' : hl35
+          ? 'HL35 replacement candidate · 48 angles / 152 planning bolt axes / 66 preserved Hillman screws · REVISE. Receiving wood and paired-angle seats fail the nominal fit checks. No build or climbing release.' : reviewed
           ? 'Reviewed wood-joint source · 104 bolts / 208 washers / 66 Hillman screws · HOLD. Geometry and hardware occupancy are conditional; no build or climbing release.'
           : 'Wood-joint working proposal · 108 bolts / 216 washers / 66 Hillman screws · unadopted · HOLD. Corrected top corners, four upper screw moves and proposed knee bridges shown. No build or climbing release.';
         const mass = data.meta?.planning_mass_kg;

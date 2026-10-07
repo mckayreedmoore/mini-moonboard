@@ -1,0 +1,591 @@
+{
+  "scope": "same unobserved 2.6 m cube concept; quantity audit and cheaper supplier comparison only",
+  "lookup_date": "2026-10-05",
+  "python_version": "3.12.3",
+  "source_sha256": {
+    "scripts/aluminum_cube_takeoff_audit.py": "1d0955454f6b66e0c88487dc61e3e501400f63d079d2bc4e56fa98f630428ed3",
+    "scripts/aluminum_cube_estimate.py": "ee4f2b15aaba50ab08a532e96efc874e139f4f484ecd23c2f8d577571b9311c2",
+    "docs/wood-joints-mvp/hypotheses/aluminum-cube-concept/estimate.json": "e121004479ca375b4e0f6ef6246918df3d258b439208ebe69725883f00a745aa"
+  },
+  "original_pieces": 56,
+  "original_length_m": 65.769,
+  "cases": [
+    {
+      "name": "separate_transition_rows",
+      "condition": "Retains separate kicker-top and sloped-face-bottom rows.",
+      "takeoff": [
+        {
+          "description": "four continuous cube uprights",
+          "pieces": 4,
+          "nominal_piece_m": 2.6,
+          "total_m": 10.4
+        },
+        {
+          "description": "eight cube horizontals between uprights",
+          "pieces": 8,
+          "nominal_piece_m": 2.52,
+          "total_m": 20.16
+        },
+        {
+          "description": "sloped backing rails",
+          "pieces": 5,
+          "nominal_piece_m": 2.4384,
+          "total_m": 12.192
+        },
+        {
+          "description": "main panel crosspieces: 3 rows, 4 pieces each",
+          "pieces": 12,
+          "nominal_piece_m": 0.5596,
+          "total_m": 6.715199999999999
+        },
+        {
+          "description": "kicker uprights",
+          "pieces": 5,
+          "nominal_piece_m": 0.277,
+          "total_m": 1.3850000000000002
+        },
+        {
+          "description": "kicker crosspieces: 2 rows, 4 pieces each",
+          "pieces": 8,
+          "nominal_piece_m": 0.5596,
+          "total_m": 4.4768
+        },
+        {
+          "description": "side ties at the board top: between uprights",
+          "pieces": 2,
+          "nominal_piece_m": 2.52,
+          "total_m": 5.04
+        },
+        {
+          "description": "short corner braces: allowance",
+          "pieces": 8,
+          "nominal_piece_m": 0.5,
+          "total_m": 4.0
+        },
+        {
+          "description": "short board/frame standoffs: allowance",
+          "pieces": 4,
+          "nominal_piece_m": 0.15,
+          "total_m": 0.6
+        }
+      ],
+      "pieces": 56,
+      "length_m": 64.969,
+      "reduction_from_original_m": 0.8000000000000114,
+      "retained_profile_cost_mass_sensitivities": [
+        {
+          "profile": "TNUTZ EX-1515, 38.1 mm, assumed price scaling",
+          "total_usd_allowance_range": [
+            2650.5457795275593,
+            3727.3057795275595
+          ],
+          "frame_lb_allowance_range": [
+            328.562978252919,
+            350.60920447140677
+          ]
+        },
+        {
+          "profile": "80/20 40-4040-Lite",
+          "total_usd_allowance_range": [
+            4589.625239999999,
+            5655.585239999999
+          ],
+          "frame_lb_allowance_range": [
+            277.318123856283,
+            299.3643500747707
+          ]
+        },
+        {
+          "profile": "80/20 40-4040",
+          "total_usd_allowance_range": [
+            5087.807532,
+            6153.767532
+          ],
+          "frame_lb_allowance_range": [
+            359.93618291140115,
+            381.98240912988894
+          ]
+        }
+      ],
+      "sus_frame_lb_allowance_range": [
+        258.37923596466135,
+        280.4254621831491
+      ],
+      "stock_packing_examples": [
+        {
+          "method": "best fit decreasing; stock-count sufficiency for these assumed cuts only",
+          "stock_length_m": 6.0,
+          "kerf_per_piece_mm": 3.0,
+          "total_end_trim_per_stock_mm": 0.0,
+          "sticks": 11,
+          "purchased_length_m": 66.0,
+          "length_only_lower_bound_sticks": 11,
+          "offcuts_plus_kerf_and_trim_m": 1.031,
+          "patterns": [
+            {
+              "sticks": 2,
+              "piece_lengths_mm": [
+                2600.0,
+                2600.0,
+                559.6,
+                150.0
+              ]
+            },
+            {
+              "sticks": 5,
+              "piece_lengths_mm": [
+                2520.0,
+                2520.0,
+                559.6,
+                277.0
+              ]
+            },
+            {
+              "sticks": 2,
+              "piece_lengths_mm": [
+                2438.4,
+                2438.4,
+                559.6,
+                500.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                2438.4,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                150.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                150.0
+              ]
+            }
+          ]
+        },
+        {
+          "method": "best fit decreasing; stock-count sufficiency for these assumed cuts only",
+          "stock_length_m": 6.0,
+          "kerf_per_piece_mm": 3.0,
+          "total_end_trim_per_stock_mm": 20.0,
+          "sticks": 12,
+          "purchased_length_m": 72.0,
+          "length_only_lower_bound_sticks": 11,
+          "offcuts_plus_kerf_and_trim_m": 7.031,
+          "patterns": [
+            {
+              "sticks": 2,
+              "piece_lengths_mm": [
+                2600.0,
+                2600.0,
+                559.6,
+                150.0
+              ]
+            },
+            {
+              "sticks": 5,
+              "piece_lengths_mm": [
+                2520.0,
+                2520.0,
+                559.6,
+                277.0
+              ]
+            },
+            {
+              "sticks": 2,
+              "piece_lengths_mm": [
+                2438.4,
+                2438.4,
+                559.6,
+                500.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                2438.4,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                150.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                500.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                150.0
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "conditional_shared_transition_row",
+      "condition": "Sharing requires a connection/bearing detail supporting both panel edges, whose planes differ by 40 degrees.",
+      "takeoff": [
+        {
+          "description": "four continuous cube uprights",
+          "pieces": 4,
+          "nominal_piece_m": 2.6,
+          "total_m": 10.4
+        },
+        {
+          "description": "eight cube horizontals between uprights",
+          "pieces": 8,
+          "nominal_piece_m": 2.52,
+          "total_m": 20.16
+        },
+        {
+          "description": "sloped backing rails",
+          "pieces": 5,
+          "nominal_piece_m": 2.4384,
+          "total_m": 12.192
+        },
+        {
+          "description": "main panel crosspieces: 3 rows, 4 pieces each",
+          "pieces": 12,
+          "nominal_piece_m": 0.5596,
+          "total_m": 6.715199999999999
+        },
+        {
+          "description": "kicker uprights",
+          "pieces": 5,
+          "nominal_piece_m": 0.277,
+          "total_m": 1.3850000000000002
+        },
+        {
+          "description": "kicker bottom crosspieces: shared top row conditional",
+          "pieces": 4,
+          "nominal_piece_m": 0.5596,
+          "total_m": 2.2384
+        },
+        {
+          "description": "side ties at the board top: between uprights",
+          "pieces": 2,
+          "nominal_piece_m": 2.52,
+          "total_m": 5.04
+        },
+        {
+          "description": "short corner braces: allowance",
+          "pieces": 8,
+          "nominal_piece_m": 0.5,
+          "total_m": 4.0
+        },
+        {
+          "description": "short board/frame standoffs: allowance",
+          "pieces": 4,
+          "nominal_piece_m": 0.15,
+          "total_m": 0.6
+        }
+      ],
+      "pieces": 52,
+      "length_m": 62.7306,
+      "reduction_from_original_m": 3.038400000000003,
+      "retained_profile_cost_mass_sensitivities": [
+        {
+          "profile": "TNUTZ EX-1515, 38.1 mm, assumed price scaling",
+          "total_usd_allowance_range": [
+            2598.1989448818904,
+            3674.9589448818906
+          ],
+          "frame_lb_allowance_range": [
+            318.002447880682,
+            340.0486740991697
+          ]
+        },
+        {
+          "profile": "80/20 40-4040-Lite",
+          "total_usd_allowance_range": [
+            4487.218776,
+            5553.178776
+          ],
+          "frame_lb_allowance_range": [
+            268.52315062793656,
+            290.56937684642435
+          ]
+        },
+        {
+          "profile": "80/20 40-4040",
+          "total_usd_allowance_range": [
+            4968.237016800001,
+            6034.197016800001
+          ],
+          "frame_lb_allowance_range": [
+            348.2947403917161,
+            370.3409666102039
+          ]
+        }
+      ],
+      "sus_frame_lb_allowance_range": [
+        250.23677095802998,
+        272.2829971765177
+      ],
+      "stock_packing_examples": [
+        {
+          "method": "best fit decreasing; stock-count sufficiency for these assumed cuts only",
+          "stock_length_m": 6.0,
+          "kerf_per_piece_mm": 3.0,
+          "total_end_trim_per_stock_mm": 0.0,
+          "sticks": 11,
+          "purchased_length_m": 66.0,
+          "length_only_lower_bound_sticks": 11,
+          "offcuts_plus_kerf_and_trim_m": 3.2694,
+          "patterns": [
+            {
+              "sticks": 2,
+              "piece_lengths_mm": [
+                2600.0,
+                2600.0,
+                559.6,
+                150.0
+              ]
+            },
+            {
+              "sticks": 5,
+              "piece_lengths_mm": [
+                2520.0,
+                2520.0,
+                559.6,
+                277.0
+              ]
+            },
+            {
+              "sticks": 2,
+              "piece_lengths_mm": [
+                2438.4,
+                2438.4,
+                559.6,
+                500.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                2438.4,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                150.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                559.6,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                150.0
+              ]
+            }
+          ]
+        },
+        {
+          "method": "best fit decreasing; stock-count sufficiency for these assumed cuts only",
+          "stock_length_m": 6.0,
+          "kerf_per_piece_mm": 3.0,
+          "total_end_trim_per_stock_mm": 20.0,
+          "sticks": 11,
+          "purchased_length_m": 66.0,
+          "length_only_lower_bound_sticks": 11,
+          "offcuts_plus_kerf_and_trim_m": 3.2694,
+          "patterns": [
+            {
+              "sticks": 2,
+              "piece_lengths_mm": [
+                2600.0,
+                2600.0,
+                559.6,
+                150.0
+              ]
+            },
+            {
+              "sticks": 5,
+              "piece_lengths_mm": [
+                2520.0,
+                2520.0,
+                559.6,
+                277.0
+              ]
+            },
+            {
+              "sticks": 2,
+              "piece_lengths_mm": [
+                2438.4,
+                2438.4,
+                559.6,
+                500.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                2438.4,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                559.6,
+                150.0
+              ]
+            },
+            {
+              "sticks": 1,
+              "piece_lengths_mm": [
+                559.6,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                500.0,
+                150.0
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "suppliers": {
+    "framing_tech_standard": {
+      "url": "https://www.framingtech.com/shop/40x40-08-6m-40mm-x-40mm-t-slot-profile-4-8mm-32-tslots-403860",
+      "sku": "40X40-08/6M",
+      "stock_m": 6.0,
+      "stock_usd": 195.0,
+      "kg_per_m": 1.75,
+      "inertia_cm4": 9.18,
+      "alloy": "6063-T6",
+      "note": "Published metric mass used; listed 1.200 lb/ft is not its exact conversion. Supplier specifications and configured availability need confirmation.",
+      "normalized_usd_per_m": 32.5,
+      "raw_stock_usd_11_to_12_sticks": [
+        2145.0,
+        2340.0
+      ],
+      "raw_price_reduction_fraction_against_8020_lite": 0.1216216216216216,
+      "inertia_ratio_against_8020_lite": 0.9767723950076076
+    },
+    "framing_tech_light": {
+      "url": "https://www.framingtech.com/shop/40x40-08l-6m-40mm-x-40mm-light-t-slot-profile-4-8mm-32-tslots-403899",
+      "sku": "40X40-08L/6M",
+      "stock_m": 6.0,
+      "stock_usd": 175.0,
+      "kg_per_m": 1.49,
+      "inertia_cm4": 8.12,
+      "alloy": "6063-T6",
+      "normalized_usd_per_m": 29.166666666666668,
+      "raw_stock_usd_11_to_12_sticks": [
+        1925.0,
+        2100.0
+      ],
+      "raw_price_reduction_fraction_against_8020_lite": 0.21171171171171166,
+      "inertia_ratio_against_8020_lite": 0.8639860400285156
+    },
+    "framing_tech_standard_bundle": {
+      "url": "https://www.framingtech.com/shop/40x40-08-6m-16pk-40mm-x-40mm-t-slot-profile-4-8mm-32-tslots-16-pack-592339",
+      "stock_m": 6.0,
+      "sticks": 16,
+      "bundle_usd": 2380.0,
+      "note": "96 m purchase; lower unit price does not reduce the total bill below eleven individual sticks.",
+      "purchased_m": 96.0,
+      "normalized_usd_per_m": 24.791666666666668
+    },
+    "framing_tech_shipping": {
+      "url": "https://www.framingtech.com/shipping-returns",
+      "note": "Shipping calculated after packaging by weight, size and destination; cut fees and delivered project quote absent."
+    },
+    "automationdirect_light": {
+      "url": "https://www.automationdirect.com/adc/shopping/catalog/structural_frames_-z-_rails/t-slotted_rails/40-4040cl",
+      "sku": "40-4040CL",
+      "usd_per_cm": 0.3,
+      "max_length_m": 2.286,
+      "note": "Live page price overrides cheaper indexed catalog prices. No cut charges; eligible free shipping advertised. Too short for assumed long members; no splices priced or qualified.",
+      "normalized_usd_per_m": 30.0
+    },
+    "automationdirect_standard": {
+      "url": "https://www.automationdirect.com/adc/shopping/catalog/structural_frames_-z-_rails/t-slotted_rails/40-4040c",
+      "sku": "40-4040C",
+      "usd_per_cm": 0.41,
+      "max_length_m": 2.286,
+      "note": "Same 90-inch maximum; short-member source only within this concept.",
+      "normalized_usd_per_m": 41.0
+    },
+    "parco_standard_bundle": {
+      "url": "https://parco-inc.com/product/e1515s-120-t-slotted-aluminum/",
+      "sticks": 20,
+      "stock_m": 3.048,
+      "bundle_usd": 1879.2,
+      "profile_width_mm": 38.1,
+      "note": "Freight extra. Total 60.96 m is insufficient even before kerf/offcuts. Packaged shipping weight is not profile mass.",
+      "purchased_m": 60.96,
+      "normalized_usd_per_m": 30.826771653543307
+    },
+    "parco_light_bundle": {
+      "url": "https://parco-inc.com/product/e1515lg-120-t-slotted-aluminum/",
+      "sticks": 26,
+      "stock_m": 3.048,
+      "bundle_usd": 2049.84,
+      "profile_width_mm": 38.1,
+      "note": "79.248 m purchase; freight extra. Light section and 38.1 mm joint geometry require their own selection. This is not a structurally equivalent substitute.",
+      "purchased_m": 79.248,
+      "normalized_usd_per_m": 25.866141732283467
+    }
+  },
+  "limits": [
+    "Video and room dimensions remain unobserved; actual required inventory is not established.",
+    "2.6 m cube dimensions are outside dimensions in the audited butt-joint example. Actual connector offsets and cuts remain unknown.",
+    "The original 55-70 m range is a planning sensitivity, not demonstrated inventory bounds.",
+    "Five backing rails, cross rows, 4.6 m of braces/standoffs and all hardware inventories remain assumptions, without structural acceptance.",
+    "Shared transition row is conditional; no flat-bearing square-profile connection to both differently oriented panels has been selected.",
+    "Packing models square cuts and per-piece 3 mm kerf; delivered stock tolerance, end trim, mitres and machining are unverified. A 12-stick heuristic result does not prove eleven impossible.",
+    "Finished-member mass excludes unused stock and uses original 10-20 kg hardware allowance. New supplier raw-stock prices exclude cutting, connectors, freight and tax.",
+    "Price and inertia comparisons do not establish capacity, compatible connections or mixed-brand acceptance.",
+    "TNUTZ cost retains unverified per-inch scaling; long-member availability remains unquoted.",
+    "No contact with suppliers, purchase, model adoption, CAD or native mechanics runs."
+  ]
+}

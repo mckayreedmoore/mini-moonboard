@@ -1,0 +1,150 @@
+{
+  "schema": "thin_bolted_flange_torsion_method/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "scripts/thin_bolted_flange_torsion.py": "48e3181f65772cb2d21be6687a011eaeba6a35491b6299cd179759f66ffc6871",
+    "tests/test_thin_bolted_flange_torsion.py": "dd8127446e049348f17dde84ec886922e3f17ca51cc5730f0406c3de685f30e6",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c"
+  },
+  "method_sources": {
+    "rectangle_prandtl_series": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11467641/",
+      "locator": "Wang2024 Eq7, isotropic Gxz=Gyz, a=t/2,b=B/2; conventional single-series Prandtl solution",
+      "access": "Equation7 formula available in primary search excerpt; full-page browser request encountered access challenge"
+    },
+    "prandtl_equations": {
+      "url": "https://ocw.mit.edu/courses/16-20-structural-mechanics-fall-2002/e888339011c834eb2a02bd365fa25052_unit10.pdf",
+      "locator": "Unit10 pp13-21: stress-function derivatives, zero free-boundary value, torque integral and Poisson equation; long prismatic/free-warping assumptions pp5-6"
+    },
+    "exact_rectangle_J": {
+      "url": "https://zhaolab.stanford.edu/sites/g/files/sbiybj21256/files/media/file/part-ii.pdf",
+      "locator": "Equation3: rectangular torsion odd-integer tanh series; author-hosted primary research"
+    },
+    "independent_J_benchmark": {
+      "url": "https://zhaolab.stanford.edu/sites/g/files/sbiybj21256/files/media/file/supplementary_material_jam-22-1117.pdf",
+      "locator": "SupplementaryText p1: h2mm,t0.5mm,J0.0702mm4 (rounded)"
+    },
+    "independent_rectangle_table": {
+      "url": "https://www.iieta.org/node/2622",
+      "locator": "Ike2019 Table1: J/(bt3)0.1406 square,0.2287 aspect2,0.307 aspect8, limit1/3"
+    },
+    "short_connection_limit": {
+      "url": "https://ej.aisc.org/index.php/engj/article/download/1147/1146",
+      "locator": "Dowswell2019 pp63-65: uniform torsion and short connection warping; no plastic/warping/Wagner capacity adopted"
+    }
+  },
+  "analytical_proof": [
+    "For each odd Prandtl harmonic, 0<=C=cosh(ky)/cosh(kb/2)<=1 and |S|=|sinh(ky)|/cosh(kb/2)<=C.",
+    "The gradient vector factor [-sin(kz)*(1-C),cos(kz)*S] has norm<=1; its coefficient is8|Gtheta'|t/(pi\u00b2n\u00b2).",
+    "Absolute convergence and sumodd1/n\u00b2=pi\u00b2/8 give the pointwise ideal torsional shear bound |tau|<=|Gtheta'|t=|T|t/J.",
+    "Subtract partial+upperpositive tail in the exact J series to obtain J_lower; hence |T|t/J_lower is conservative for the ideal rectangle field.",
+    "At every point in the declared same-section field, |sigma|<=sigma_envelope and |tauV+tauT|<=tauV_bound+tauT_bound; VM<=sqrt[sigma_envelope\u00b2+3(tauV_bound+tauT_bound)\u00b2].",
+    "Separate component maxima need not coincide; the formula is a global upper bound, not an assertion of one physical peak location."
+  ],
+  "new_unit_torsion_references_per_1_nmm": [
+    {
+      "section_scenario": "gross_rectangle",
+      "removed_chord_mm": 0.0,
+      "same_section_force_N_V1_V2_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "same_section_moment_T_M1_M2_nmm": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "nominal_normal_stress_bound_mpa": 0.0,
+      "nominal_transverse_shear_norm_bound_mpa": 0.0,
+      "nominal_torsion_shear_norm_bound_mpa": 0.002572611185359158,
+      "simultaneous_nominal_vm_bound_mpa": 0.004455893281162056,
+      "specified_fy_mpa": 227.52699067455592,
+      "simultaneous_nominal_first_yield_bound_index": 1.9584020638393444e-05,
+      "torsion_rectangle": {
+        "long_side_mm": 41.275,
+        "short_side_mm": 5.55625,
+        "series_terms": 64,
+        "odd_series_partial": 1.004523762183132,
+        "positive_series_tail_upper_bound": 4.793823374403508e-10,
+        "J_lower_mm4": 2159.7705986901015,
+        "J_upper_mm4": 2159.7705987856843,
+        "finite_arithmetic_relative_allowance": 7.105427357601002e-15,
+        "global_torsion_shear_bound_mpa_per_nmm": 0.002572611185359158,
+        "polar_second_moment_substituted_for_J": false
+      },
+      "nominal_field_pointwise_analytic_bound": true,
+      "component_stress_maxima_claimed_at_one_same_point": false,
+      "gross_rectangle_fills_removed_hole": false,
+      "two_separate_ligaments_equal_twist_and_rectangular_shear_allocation_assumed": false,
+      "actual_holed_plate_torsion_sharing_or_stress_concentrations_verified": false,
+      "restrained_warping_heel_bimoment_or_local_load_introduction_included": false,
+      "physical_fitting_strength_or_complete_joint_acceptance": false
+    },
+    {
+      "section_scenario": "two_ligament_equal_twist_proxy",
+      "removed_chord_mm": 14.2875,
+      "same_section_force_N_V1_V2_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "same_section_moment_T_M1_M2_nmm": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "nominal_normal_stress_bound_mpa": 0.0,
+      "nominal_transverse_shear_norm_bound_mpa": 0.0,
+      "nominal_torsion_shear_norm_bound_mpa": 0.0048610623790789845,
+      "simultaneous_nominal_vm_bound_mpa": 0.008419607019326442,
+      "specified_fy_mpa": 227.52699067455592,
+      "simultaneous_nominal_first_yield_bound_index": 3.7004871353348396e-05,
+      "torsion_rectangle": {
+        "long_side_mm": 13.493749999999999,
+        "short_side_mm": 5.55625,
+        "series_terms": 64,
+        "odd_series_partial": 1.0035525065668771,
+        "positive_series_tail_upper_bound": 4.793823374403508e-10,
+        "J_lower_mm4": 571.5057292736009,
+        "J_upper_mm4": 571.505729369161,
+        "finite_arithmetic_relative_allowance": 7.105427357601002e-15,
+        "global_torsion_shear_bound_mpa_per_nmm": 0.009722124758157969,
+        "polar_second_moment_substituted_for_J": false
+      },
+      "nominal_field_pointwise_analytic_bound": true,
+      "component_stress_maxima_claimed_at_one_same_point": false,
+      "gross_rectangle_fills_removed_hole": false,
+      "two_separate_ligaments_equal_twist_and_rectangular_shear_allocation_assumed": true,
+      "actual_holed_plate_torsion_sharing_or_stress_concentrations_verified": false,
+      "restrained_warping_heel_bimoment_or_local_load_introduction_included": false,
+      "physical_fitting_strength_or_complete_joint_acceptance": false
+    }
+  ],
+  "validation": {
+    "fixtures_passed": 18,
+    "test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_flange_torsion.py",
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_flange_torsion.py tests/test_thin_bolted_flange_torsion.py",
+    "known_answers": [
+      "published rectangleJ table, square and2:1/4:1/8:1",
+      "independent2mm\u00d70.5mm primary J0.0702mm4 rounded",
+      "thinrectangle limit and dimensional scaling",
+      "positive-tail coarse/fine bracket",
+      "independent96\u00d796Gauss Prandtl torque integral",
+      "sampled shear-vector bound and free-surface conditions",
+      "simultaneous signedN/V/M/T and separateholeproxy",
+      "invalid inputs and historical report rejection"
+    ]
+  },
+  "limits": [
+    "The ideal gross-rectangle uniform-torsion method is complete for six signed nominal section actions; actual angle strength is unqualified.",
+    "At hole stations the gross case fills the opening; the separate two-ligament case assumes independent rectangles at equal twist and declared nominal shear allocation.",
+    "Actual hole/heel stress concentrations, short-leg restrained-warping normal stress, bimoment and formed open-angle load introduction are absent.",
+    "No candidate force field, physical fitting capacity, washer property, geometry change or native execution follows from these method fixtures."
+  ],
+  "native_or_CAD_execution": false,
+  "complete_joint_acceptance": false,
+  "fabrication_release": false,
+  "climbing_release": false
+}

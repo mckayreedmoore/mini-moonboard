@@ -1,0 +1,12 @@
+# Keep the existing, source-pinned pyproject.toml unchanged.
+extend = "pyproject.toml"
+
+[lint.per-file-ignores]
+# These two failed HL35 input versions are hashed evidence. Preserve their
+# harmless unused bindings/import order; maintained successors have no waiver.
+"scripts/hl35_fit_revision.py" = ["F401", "RUF059"]
+"scripts/hl35_full_fit_candidate.py" = ["I001"]
+# Issued timber receipts pin these bytes. Keep their harmless import ordering
+# and equivalent adjacent-pair iteration rather than invalidating evidence.
+"scripts/thin_bolted_timber_demand_checks.py" = ["I001"]
+"scripts/thin_bolted_timber_resistance.py" = ["I001", "RUF007"]

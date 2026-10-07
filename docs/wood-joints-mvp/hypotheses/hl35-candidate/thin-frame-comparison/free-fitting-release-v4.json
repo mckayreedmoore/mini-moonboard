@@ -1,0 +1,107 @@
+{
+  "schema": "thin_bolted_free_fitting_access/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.json": "0c5a09879c9b191c39b96ce670d71ad110661bff7dfeab68133f711b32de476c",
+    "scripts/thin_bolted_free_fitting_access.py": "ce40a1f21acdcbf7c2dbfb54ffc02cc80dde2f90133e6e7047bdddd80b4008b1"
+  },
+  "prior_initial_fittings_released": 28,
+  "prior_individual_timbers_released": 20,
+  "free_fitting_release_rows": [
+    {
+      "id": "B103ZN_clip_horizontal_lower_left_1_opposite",
+      "direction_xyz": [
+        0.0,
+        -0.766044443,
+        0.64278761
+      ],
+      "travel_mm": 100.0,
+      "hits": []
+    },
+    {
+      "id": "B103ZN_clip_horizontal_lower_left_2_opposite",
+      "direction_xyz": [
+        0.0,
+        0.766044443,
+        -0.64278761
+      ],
+      "travel_mm": 100.0,
+      "hits": []
+    },
+    {
+      "id": "B103ZN_clip_horizontal_upper_left_1_opposite",
+      "direction_xyz": [
+        0.0,
+        0.766044443,
+        -0.64278761
+      ],
+      "travel_mm": 100.0,
+      "hits": []
+    },
+    {
+      "id": "B103ZN_clip_horizontal_upper_left_2_opposite",
+      "direction_xyz": [
+        0.0,
+        -0.766044443,
+        0.64278761
+      ],
+      "travel_mm": 100.0,
+      "hits": []
+    },
+    {
+      "id": "B103ZN_clip_horizontal_lower_right_1_opposite",
+      "direction_xyz": [
+        0.0,
+        -0.766044443,
+        0.64278761
+      ],
+      "travel_mm": 100.0,
+      "hits": []
+    },
+    {
+      "id": "B103ZN_clip_horizontal_lower_right_2_opposite",
+      "direction_xyz": [
+        0.0,
+        0.766044443,
+        -0.64278761
+      ],
+      "travel_mm": 100.0,
+      "hits": []
+    },
+    {
+      "id": "B103ZN_clip_horizontal_upper_right_1_opposite",
+      "direction_xyz": [
+        0.0,
+        0.766044443,
+        -0.64278761
+      ],
+      "travel_mm": 100.0,
+      "hits": []
+    },
+    {
+      "id": "B103ZN_clip_horizontal_upper_right_2_opposite",
+      "direction_xyz": [
+        0.0,
+        -0.766044443,
+        0.64278761
+      ],
+      "travel_mm": 100.0,
+      "hits": []
+    }
+  ],
+  "free_fittings_released": 8,
+  "total_fittings_released": 36,
+  "unresolved_fittings": [],
+  "sequence": "Release panels/services/screws,70bolt stacks,28initial fittings,20individual timbers,then these8free fittings along their local width axis. Reverse the checked paths for nominal assembly on separately supported members.",
+  "method": "Two unperforated rectangular flanges contain every complete fitting. Continuous conservative polyhedral sweeps are checked against all remaining exact fittings and the floor, with100mm initial separation.",
+  "limits": "Prior diagonal failures are retained. This final state has no receiving timbers; moving across a seated face was not used while wood was present. Actual tools, tolerances, support stability, loaded removal and free handling remain unverified.",
+  "reproduce": ".venv/bin/python -m scripts.thin_bolted_free_fitting_access --out /tmp/thin-free-fitting-reproduced.json",
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

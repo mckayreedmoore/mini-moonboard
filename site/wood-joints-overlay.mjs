@@ -37,7 +37,7 @@ function decodeTypedArray(base64, type, count) {
   return {bytes, values};
 }
 
-function meshGeometry(THREE, mesh, topologies) {
+export function meshGeometry(THREE, mesh, topologies) {
   require(mesh?.encoding === 'base64_typed_arrays_le_v1' && vector(mesh.bounds_xyz_mm, 6) &&
     ['int16', 'int32'].includes(mesh.vertex_component_type) &&
     ['uint16', 'uint32'].includes(mesh.triangle_component_type) &&
@@ -226,3 +226,5 @@ export async function loadWoodJointScene(THREE, {url, expectedSha256, baselinePa
     complete_joint_acceptance: false, physical_release: false};
   return {parts, bounds_mm: displayBounds(data, manifest), design, meta};
 }
+
+export {sha256, decodeTypedArray};

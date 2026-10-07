@@ -1,0 +1,113 @@
+{
+  "schema": "thin_bolted_finite_steel_recovery_method/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "scripts/thin_bolted_corotational_methods.py": "7638a09c145135a19dcccb7cd84a01b8a01d2a4465b02ebfc33372e672e5ebc8",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/thin_bolted_finite_plate.py": "2b0de347d0ef35d08ab7a8d4078fa2e26a50cee6e7c2f708560dd1f0979b9180",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_panel_load_diagnostics.py": "ff5e0e7b3944e64379181a6b3a1c442b921c197b87d25da3bd20a2d69ec63ebd",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_floor_contact.py": "0852ced82484414621106314531e883f713f5943358541539e8750af243c2e1f",
+    "tests/test_thin_bolted_floor_contact.py": "e9ab6a5c3893c0e2f360c92b44d98e900bd267801398f6a7e584193cc7f6c022",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-geometry-v4.json": "e6c7ac4548b943bef4580b7c58efd67c11e29ed3335ae4036998a70c346986fc",
+    "scripts/thin_bolted_finite_connectors.py": "6bf2c5ca9006e474d8b10642e8e4dbbfc657070c0d221b98abfbc1d2d6e03060",
+    "scripts/thin_bolted_finite_mechanics.py": "8c2bf2f27538fc1d599db9ddee2efbbb6344687393781bd689de09a4998772a2",
+    "scripts/thin_bolted_finite_panel_adapter.py": "c0e2534158d10ca49e6e1ee20db7b8a7e72b746b49618a18bf5ab08a9526064b",
+    "scripts/thin_bolted_isotropic_shaft.py": "be8e5277999aa2ce01b4a8d81c0e9124dad9dc6023712c13e91595600c1c027a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/floor-corner-stick-method-coupons-v4.json": "e7569ddc3ea2addb6171b3a3bcccadaa1b004b8c14da94b0eb61320b3982355e",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "scripts/thin_bolted_finite_frame.py": "68f711549da9e6b52c60db4e4df78235ba8105084ded0d81c9a3430cf5973588",
+    "scripts/thin_bolted_common_shaft_steel.py": "4b28f7a055c50dc127569b7df387f8e8d973f74080d2937ceb5db356a89d9952",
+    "scripts/thin_bolted_flange_torsion.py": "48e3181f65772cb2d21be6687a011eaeba6a35491b6299cd179759f66ffc6871",
+    "scripts/thin_bolted_finite_steel_recovery.py": "c8f71a3eebb68e308ff814c5a8995d64c9e571f42556dfacff63280af7a7755a",
+    "tests/test_thin_bolted_finite_steel_recovery.py": "fd533318b903aea25fe11730bb566c1a7f758214dfb760f79e4d4218b5f3525e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-frame-method-v4.json": "790b1925f042cc3f48fae596f5f8097ec64f8dc9605a00d9e200b4cd7bf28e9f",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/common-shaft-steel-method-v4.json": "2f29dea742b136f0137c8ddd3691b490e7172332c61ba4a55bdacb4755b7216c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/steel-resistance-methods-v4.json": "d00ff10eb875c0d093f6c0e811a7b1e2ef850f6d3ec846b6b910eb2c4cdabf19",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/flange-torsion-method-v4.json": "5cd68b0b712495deda57478b7c3d3c8f7838851453923c7e1374f65ce826635c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json": "5e78ac49a2db2050caf7ee7d2002d0ebf4f9a92496e857a0e2d652629bd0d848"
+  },
+  "public_apis": {
+    "recover_current_actions": "finite_export,exact_response_q,frozen_layout,source_shaft_specs,optional_caller_sections -> current70 complete shaft cuts/current72 steel ports/current72 flange section tables/current140 own captures and same-cut circle/torsion references; recovery alone implies no admission",
+    "source_pins": "verify immutable loaded recovery and reused source composition for parent writer binding",
+    "current_shaft_cuts": "reference material ordering; current cut point/director; every own physical force arm and free spatial couple",
+    "current_steel_ports": "own current fitting-flange entry; two actual radial bearings and own axial capture with full free couple",
+    "fitting_source_leg_loads": "exact derivative of the source mean-two-flange point load: .5 source force at each own current rigid-arm port; source identity retained",
+    "current_flange_sections": "own flange pose, radial/capture/contact/source mean-port derivative loads; full signed same-cut N/V/M/T; reused ideal gross rectangle and holed equal-twist proxy bounds"
+  },
+  "admission_contract": {
+    "module": "scripts.thin_bolted_finite_state_audit",
+    "function": "audit_finite_state",
+    "receipt_schema": "thin_bolted_independent_finite_admission/v1",
+    "acceptance_key": "independent_finite_current_support_load_and_equilibrium_checks_pass",
+    "gate_source_digest_required_by_future_consumer": true,
+    "reference_or_failed_state_admitted_by_recovery": false,
+    "no_state_consumed_by_this_method_receipt": true
+  },
+  "source_census_contract": {
+    "physical_shafts": 70,
+    "steel_flange_ports": 72,
+    "shaft_radial_actions": 308,
+    "own_axial_captures": 140,
+    "exact_own_metal_gravity_roles": 350,
+    "fitting_mean_load_ports": 36
+  },
+  "cut_recovery": {
+    "side_membership": "reference material station; force exactly at cut belongs to upper portion",
+    "force_on_lower_material_part": "negative sum of all lower physical current forces",
+    "spatial_moment_on_lower_material_part": "negative sum of current free moments plus current load-to-cut arm cross force",
+    "current_basis": "saved geodesic material directors replayed from exact response.q; proper orthonormal basis checked",
+    "load_sides": "both sides of each reference material load station plus all source mesh stations and33 uniform stations",
+    "head_gravity_outside_beam_interval_retained": true,
+    "fitting_gravity_equal_physical_sharing_assumed": false,
+    "native_spatial_couples_zero_filled": false
+  },
+  "validation": {
+    "fixtures_passed": 17,
+    "test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_finite_steel_recovery.py",
+    "test_result": "17 passed",
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_finite_steel_recovery.py tests/test_thin_bolted_finite_steel_recovery.py",
+    "lint_result": "All checks passed",
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "known_answer_scope": [
+      "outside-interval head gravity and all six signed section actions",
+      "large rigid rotation covariance with reference material ordering",
+      "actual frozen map with nonuniform current centers and geodesic directors",
+      "actual finite serializer nonzero director spatial couple and own capture scalar",
+      "exact own350role gravity identity/current point/force rejection",
+      "mixed/duplicate state/case identity and different response.q rejection",
+      "current occupied steel entry wrench transport and frozen-layout preservation",
+      "independent per-flange current pose/full torsion-bound covariance",
+      "exact source mean-port gravity derivative and per-flange load recovery"
+    ],
+    "independent_review": {
+      "reviewer": "thin_independent_mvp_review",
+      "outcome": "No remaining blocker to freeze current recovery method; independent current-state gate still required"
+    }
+  },
+  "reuse": {
+    "old_unit_methods_recomputed": false,
+    "old_force_or_pass_transferred": false,
+    "frozen_circle_and_exact_rectangle_torsion_methods_reused": true,
+    "K_CAD_global_assembly_or_solve_performed": false
+  },
+  "limits": [
+    "No candidate finite force field is admitted or consumed by this method receipt.",
+    "Recovered material cuts belong to the declared current beam/strip/contact surrogate. Actual heel/hole/short-leg warping and local root/thread/head/nut geometry remain unqualified.",
+    "The gross filled rectangle and holed equal-twist ligament rows remain counterfactual/proxy checks, not actual angle strength bounds.",
+    "Own washer capture scalar and spatial director model couples do not establish actual pressure distribution, prying, seating or washer yield.",
+    "Conditional Grade5 tensile-yield reference is not NDS Fyb or verified delivered bolt material; root circles require explicit caller basis.",
+    "Current recovered stress references do not establish physical demand bounds, continuous extrema, complete joints or structural release."
+  ],
+  "structural_acceptance": false,
+  "fabrication_release": false,
+  "climbing_release": false
+}

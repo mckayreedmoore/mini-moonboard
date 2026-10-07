@@ -1,0 +1,121 @@
+{
+  "schema": "thin_bolted_finite_kinematics_method_coupons/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_corotational_methods.py": "7638a09c145135a19dcccb7cd84a01b8a01d2a4465b02ebfc33372e672e5ebc8",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/thin_bolted_finite_plate.py": "2b0de347d0ef35d08ab7a8d4078fa2e26a50cee6e7c2f708560dd1f0979b9180",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_panel_load_diagnostics.py": "ff5e0e7b3944e64379181a6b3a1c442b921c197b87d25da3bd20a2d69ec63ebd",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_floor_contact.py": "0852ced82484414621106314531e883f713f5943358541539e8750af243c2e1f",
+    "tests/test_thin_bolted_floor_contact.py": "e9ab6a5c3893c0e2f360c92b44d98e900bd267801398f6a7e584193cc7f6c022",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-geometry-v4.json": "e6c7ac4548b943bef4580b7c58efd67c11e29ed3335ae4036998a70c346986fc",
+    "scripts/thin_bolted_finite_connectors.py": "6bf2c5ca9006e474d8b10642e8e4dbbfc657070c0d221b98abfbc1d2d6e03060",
+    "scripts/thin_bolted_finite_mechanics.py": "8c2bf2f27538fc1d599db9ddee2efbbb6344687393781bd689de09a4998772a2",
+    "scripts/thin_bolted_finite_panel_adapter.py": "c0e2534158d10ca49e6e1ee20db7b8a7e72b746b49618a18bf5ab08a9526064b",
+    "scripts/thin_bolted_isotropic_shaft.py": "be8e5277999aa2ce01b4a8d81c0e9124dad9dc6023712c13e91595600c1c027a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/floor-corner-stick-method-coupons-v4.json": "e7569ddc3ea2addb6171b3a3bcccadaa1b004b8c14da94b0eb61320b3982355e",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "scripts/thin_bolted_finite_frame.py": "68f711549da9e6b52c60db4e4df78235ba8105084ded0d81c9a3430cf5973588",
+    "scripts/thin_bolted_timber_common_shaft_checks.py": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7",
+    "scripts/thin_bolted_timber_resistance.py": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d",
+    "scripts/thin_bolted_timber_demand_checks.py": "1be05e74563d2cc7a7ea5437aa4ff7217e62f8314f9fe011ff273d201f755e20",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "scripts/thin_bolted_finite_kinematics.py": "4d5467818a211f34c00aa897f1d0d64bc6c21dad07c2537a79c027820159174c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-kinematics-method-v4.py": "a3ecfc212331d311cd5e4c2b99ed548524da484e55aec4a75b0152d9db06090d",
+    "tests/test_thin_bolted_finite_kinematics.py": "462cd59abdb57bbf6d09ada45f8762ba7e2d8d1396732b9c949b8a0d34f4aafa"
+  },
+  "command": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=. .venv/bin/python docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-kinematics-method-v4.py",
+  "circular_arc_coupon": {
+    "element_reference_length_mm": 100.0,
+    "relative_director_turn_rad": 0.2,
+    "hand_chord_extension_over_reference_length": -0.0016658335317184525,
+    "observed_shaft_midpoint_axial_measure": -0.0016658335317184525,
+    "observed_timber_chord_extension_over_reference_length": -0.0016658335317184525,
+    "observed_shaft_bending_curvature_rad_mm": 0.002,
+    "comparison_is_a_recovered_candidate_axial_strain": false
+  },
+  "midpoint_extension_shear_coupon": {
+    "hand_axial_measure": 0.02,
+    "hand_shear_measures": [
+      0.03,
+      -0.04
+    ],
+    "observed_axial_measure": 0.020000000000000018,
+    "observed_shear_measures": [
+      0.03,
+      -0.04
+    ]
+  },
+  "large_common_rigid_motion": {
+    "timber": {
+      "neighbor_relative_rotation_rad": 0.0,
+      "chord_extension_mm": 0.0
+    },
+    "shaft": {
+      "neighbor_relative_rotation_rad": 0.0,
+      "chord_extension_mm": 0.0
+    },
+    "fitting": {
+      "neighbor_relative_rotation_rad": 0.0,
+      "chord_extension_mm": 0.0
+    }
+  },
+  "validation": {
+    "tests": 9,
+    "independent_read_only_review_pass": true,
+    "test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_finite_kinematics.py",
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_finite_kinematics.py tests/test_thin_bolted_finite_kinematics.py docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-kinematics-method-v4.py"
+  },
+  "candidate_command_template": "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m scripts.thin_bolted_finite_kinematics --field FIELD --admission RAW_BYTE_ADMISSION_RECEIPT --admission-sha256 RECEIPT_SHA --gate-sha256 FROZEN_GATE_SHA --out NEW_LOCAL_DIAGNOSTIC_JSON",
+  "reused_method_documentation": {
+    "corotational_beam": [
+      {
+        "url": "https://kth.diva-portal.org/smash/get/diva2:526302/FULLTEXT02.pdf",
+        "locator": "Thanh Nam Le (2012), chapter 3.1-3.3: moving chord/director frame, local rotations and work-conjugate transformations",
+        "use": "Corotational kinematic construction; this utility uses the existing local Timoshenko matrix, not the thesis's complete dynamic/warping element."
+      },
+      {
+        "url": "https://arxiv.org/pdf/1812.01537",
+        "locator": "Sola, Deray and Atchuthan, A micro Lie theory, Appendix B, SO(3) exp/log and Jacobians, equations 143-146",
+        "use": "SO(3) left exponential-map Jacobian, inverse and adjoint conventions."
+      }
+    ],
+    "isotropic_shaft": [
+      {
+        "url": "https://arxiv.org/pdf/1611.06436",
+        "locator": "Meier et al. (2016), section2.2.1 equations6-8 and AppendixA.4",
+        "use": "Material axial/shear and bending/torsion strain energy; objective relative-triad interpolation. The condensed midpoint finite extension here is a separately declared scenario."
+      },
+      {
+        "url": "https://arxiv.org/pdf/1812.01537",
+        "locator": "Sola et al., AppendixB SO(3) exp/log, adjoint and Jacobians",
+        "use": "Finite rotation composition, conjugation and work-conjugate analytic strain derivatives."
+      }
+    ]
+  },
+  "limits": [
+    "Only geometry/q and the unchanged source-bound timber reference triads are selected. No K, material energy, load/stress recovery, global assembly, CAD or solve is evaluated.",
+    "Timber quantities reproduce the frozen local corotational rotations and chord change; averaged shear-angle mismatch is a marker, not condensed Timoshenko strain/stress.",
+    "Shaft v and omega/L are exact measures of the recorded midpoint finite extension with condensed shear, not measured continuum stiffness or a large-curvature qualification.",
+    "Fitting quantities describe one condensed two-port pose. They cannot resolve individual flat-leg, heel or hole curvature from the saved map.",
+    "Circular-arc chord shortening is a geometric comparison, not a recovered second-order candidate strain or force correction.",
+    "Per-element rankings suggest where a targeted refinement comparison would be informative. No arbitrary acceptance threshold, stability conclusion or gross-versus-cut stiffness bound is supplied.",
+    "Candidate diagnostics require an immutable NEW finite-current admission with exact raw field bytes; canonical hashes or failed fields do not substitute for that admission."
+  ],
+  "candidate_evaluated": false,
+  "candidate_strength_or_release_established": false,
+  "arbitrary_acceptance_thresholds": null,
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

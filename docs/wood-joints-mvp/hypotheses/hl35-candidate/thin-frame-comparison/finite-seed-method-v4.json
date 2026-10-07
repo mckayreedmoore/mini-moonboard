@@ -1,0 +1,110 @@
+{
+  "schema": "thin_bolted_exact_map_finite_seed_method/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_finite_seed.py": "fbed348b8322c2a1c6e3bb1a6e1e5f00748ad29c0592dffce7dccb29f65271ff",
+    "tests/test_thin_bolted_finite_seed.py": "d6dda98d1fa7baf32c2c4f8d8078b66a58808b12b058ca1dc9b21e1099864564",
+    "scripts/thin_bolted_timber_contact_admission.py": "75011f4cfa042a46d8e45eb5716ae01df2edff3418b1439553afb04b14b14632",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-contact-admission-method-v4.json": "5b65487cdc442c11a3abb2b67f4ba8829176dd32892e3ceb3e1fb75203c6c7fc"
+  },
+  "api": {
+    "module": "scripts.thin_bolted_finite_seed",
+    "function": "read_seed",
+    "positional_arguments": [
+      "path",
+      "expected_field_sha256"
+    ],
+    "required_keyword_arguments": [
+      "target_map",
+      "target_ndof",
+      "target_body_identities",
+      "target_parameters"
+    ],
+    "return": "(copied finite q array, detached initialization provenance)"
+  },
+  "fixed_admission": {
+    "module": "scripts.thin_bolted_timber_contact_admission",
+    "schema": "thin_bolted_independent_timber_contact_admission/v1",
+    "success_key": "independent_finite_timber_contact_support_load_and_equilibrium_checks_pass",
+    "reviewed_method_receipt": "timber-contact-admission-method-v4.json",
+    "prior_authenticated_geometry_physics_load_and_132_body_proof_reused": true,
+    "no_duplicate_physics_or_source_inventory": true
+  },
+  "validation": {
+    "fixture_count": 41,
+    "focused_fixtures_passed": true,
+    "ruff_passed": true,
+    "independent_review": "Existing access/takeoff worker reran all41 focused fixtures and Ruff; parent accepted bounded readiness.",
+    "commands": [
+      [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_thin_bolted_finite_seed.py"
+      ],
+      [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/thin_bolted_finite_seed.py",
+        "tests/test_thin_bolted_finite_seed.py"
+      ]
+    ],
+    "synthetic_payloads_and_stubbed_admission": true,
+    "production_132_body_gate_or_candidate_field_exercised": false,
+    "checks": [
+      "one immutable raw payload and released SHA256",
+      "fixed reviewed loaded gate plus raw/canonical/state/case/accessory/source receipt identity",
+      "complete exact coordinate map including every reference frame/station/index/port/basis/mass field",
+      "exact ordered physical-body list and finite dimension",
+      "five coordinate-scenario parameters",
+      "failed, missing-map, diagnostic-only and unsupported-schema export rejection",
+      "wrong admission or stale source/file/target mutation rejection",
+      "copied vector and detached provenance without alias leakage"
+    ]
+  },
+  "tool_versions": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "ruff": "0.16.6"
+  },
+  "coordinate_parameters_compared": [
+    "panel_intervals",
+    "beam_size_mm",
+    "shaft_max_segment_mm",
+    "finite_kinematics_basis",
+    "finite_shaft_basis"
+  ],
+  "provenance_scope": {
+    "source_state_case_accessory_and_complete_parameters_recorded_separately": true,
+    "complete_target_parameters_and_target_map_digest_recorded": true,
+    "different_source_load_case_accessory_or_noncoordinate_scenario_permitted_if_exact_coordinates_match": true,
+    "source_case_or_admission_does_not_replace_target_identity": true,
+    "caller_must_bind_seed_to_actual_prepared_target_and_current_case": true,
+    "caller_must_resolve_original_physical_response_support_feedback_full_equilibrium_and_current_admission_again": true
+  },
+  "current_integration": {
+    "active_root_calls_helper": false,
+    "CLI_runner_or_gate_override_added": false,
+    "mesh_interpolation_supported": false,
+    "failed_finite_diagnostic_continuation_supported": false,
+    "q_projection_or_canonicalization_performed": false
+  },
+  "candidate_field_consumed_or_admitted": false,
+  "CAD_K_response_or_solve_executed": false,
+  "source_or_test_bytes_changed_after_independent_review": false,
+  "forces_admission_strength_or_release_transferred": false,
+  "limits": [
+    "This utility authenticates source initialization only; it does not admit a target response or establish stiffness, resistance, refinement completion or structural acceptance.",
+    "Frozen failed finite exports omit their coordinate map and cannot be authenticated by reconstructing a guessed map or selecting diagnostic_last_q.",
+    "Any changed node stations, coordinate indices, reference frames, discrete basis, physical-body order or coordinate parameters requires a separately authorized initialization method; this helper performs no interpolation."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema": "thin-bolted-independent-common-shaft-method/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "scripts/thin_bolted_common_shaft_audit.py": "a236900e59a3d5984598df56d4243408ce12801d4ab6fcc7f765f6a420de01ba",
+    "tests/test_thin_bolted_common_shaft_audit.py": "1005d80dd59ab87a4957f78f7e940d168668beb19c9025f6a512a04f5efb0f29",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/common-shaft-method-coupons-v4.json": "edf4942377a343fa72f49b2d620047c4f3f8faf2be2a01dbd4010820fd4a2e13",
+    "scripts/thin_bolted_equilibrium_audit.py": "748f637b918bf9b7faca673cb2e723c8dbb8f98bc4a2d3fd5b12987c20980b84",
+    "scripts/thin_bolted_finished_support_audit.py": "0a37e67ed20e3fd1eed8b8b4d0d12889df6fd9a6fb33d6f8f68a0c6768f5ada0",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json": "5e78ac49a2db2050caf7ee7d2002d0ebf4f9a92496e857a0e2d652629bd0d848",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-geometry-v4.json": "e6c7ac4548b943bef4580b7c58efd67c11e29ed3335ae4036998a70c346986fc",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.json": "0c5a09879c9b191c39b96ce670d71ad110661bff7dfeab68133f711b32de476c"
+  },
+  "API": {
+    "helper": "scripts.thin_bolted_common_shaft_audit.audit_common_shaft_state",
+    "acceptance_key": "independent_common_shaft_support_load_and_equilibrium_checks_pass",
+    "field_schema": "thin_bolted_common_shaft_frame/v1",
+    "bolt_connection_method": "continuous-circular-shafts-distributed-own-bore-bearing-axial-end-capture"
+  },
+  "coverage": {
+    "structural_body_identities": 132,
+    "host_bodies": 62,
+    "physical_shaft_bodies": 70,
+    "wood_bearing_surfaces": 82,
+    "steel_bearing_surfaces": 72,
+    "radial_quadrature_ports": 308,
+    "unilateral_own_end_captures": 140,
+    "finished_floor_hosts": 8,
+    "all_flange_contact_ports": 288,
+    "panel_screw_axes": 66,
+    "each_capture_checks_both_actual_action_datums": true,
+    "old_paired_attachment_or_retained_force_tables_required_empty": true
+  },
+  "source_load_coupon": {
+    "original_top_live_case_load_rows": 689,
+    "physical_metal_role_rows": 350,
+    "retained_screw_and_Tnut_gravity_share_rows": 274,
+    "duplicated_shaft_selfweight_rows": 0,
+    "gravity_migration_residual_force_n": [
+      0.0,
+      0.0,
+      2.3646862246096134e-11
+    ],
+    "gravity_migration_residual_moment_nmm": [
+      1.30385160446167e-08,
+      -5.122274160385132e-09,
+      0.0
+    ]
+  },
+  "validation": {
+    "fixtures_passed": 18,
+    "ruff_passed": true,
+    "commands": [
+      [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_thin_bolted_common_shaft_audit.py",
+        "-q"
+      ],
+      [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/thin_bolted_common_shaft_audit.py",
+        "tests/test_thin_bolted_common_shaft_audit.py"
+      ]
+    ]
+  },
+  "reuse": {
+    "frozen_62_body_equilibrium_audit_invoked": false,
+    "retained_load_reconstruction_and_point_wrench_helpers_reused": true,
+    "frozen_finished_support_geometry_API_reused": true,
+    "frozen_common_shaft_JSON_geometry_API_reused": true,
+    "native_or_CAD_execution": false
+  },
+  "limits": [
+    "No solved common-shaft field is accepted by this method receipt; each future field must pass source, geometry, load and132-body/global wrench checks.",
+    "Shared API authenticates distributed action tables and body equilibrium. Component consumers independently reconstruct aggregate steel/wood wrenches and all exported shaft section cuts before using those aliases.",
+    "First-order geometric applicability, full-frame refinement and actual connector/contact/floor stiffness or physical bounds remain unresolved.",
+    "Unilateral axial center capture supplies no rotational clamp, friction or qualified washer pressure/prying; actual material, thread, shank and seating remain unadopted."
+  ],
+  "release": {
+    "numerical_MVP_complete": false,
+    "physical_demand_bounds_established": false,
+    "structural_acceptance": false,
+    "fabrication_release": false,
+    "climbing_release": false
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "schema": "thin_bolted_isotropic_condensed_finite_shaft_method/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_corotational_methods.py": "7638a09c145135a19dcccb7cd84a01b8a01d2a4465b02ebfc33372e672e5ebc8",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/thin_bolted_finite_mechanics.py": "8c2bf2f27538fc1d599db9ddee2efbbb6344687393781bd689de09a4998772a2",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json": "5e78ac49a2db2050caf7ee7d2002d0ebf4f9a92496e857a0e2d652629bd0d848",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "scripts/check_thin_bolted_isotropic_shaft.py": "51109014c8d36065630ba328645ea010a4b815a1f16806a59f4871b69a9e1e37",
+    "scripts/thin_bolted_isotropic_shaft.py": "be8e5277999aa2ce01b4a8d81c0e9124dad9dc6023712c13e91595600c1c027a",
+    "tests/test_thin_bolted_isotropic_shaft.py": "39c560fc1fcd5a09e5d4e859016b83a052fd3aab50ee6f5e7597940b88653800",
+    "tests/test_thin_bolted_finite_mechanics.py": "c2a11abac34b792d65bea3a56a599483c2fde1c2e59f671d76340501eb5d1527"
+  },
+  "scope": "new scalar circular shaft energy, shaft-only adapter and synthetic coupons; no candidate response",
+  "finite_extension": "midpoint material strains with condensed shear S_eff, exactly matching reference Timoshenko K; not an exact large-curvature continuum element",
+  "observed_coupons": {
+    "reference_matrices": [
+      {
+        "length_mm": 15.0,
+        "rotated_reference_basis": false,
+        "analytic_reference_H_relative_error": 2.3582255387445753e-19,
+        "central_reference_H_relative_error": 1.0826156424722621e-13
+      },
+      {
+        "length_mm": 15.0,
+        "rotated_reference_basis": true,
+        "analytic_reference_H_relative_error": 1.8865774882483618e-16,
+        "central_reference_H_relative_error": 1.3975758149733153e-12
+      },
+      {
+        "length_mm": 50.0,
+        "rotated_reference_basis": false,
+        "analytic_reference_H_relative_error": 1.413154858776706e-19,
+        "central_reference_H_relative_error": 4.5495977994170625e-12
+      },
+      {
+        "length_mm": 50.0,
+        "rotated_reference_basis": true,
+        "analytic_reference_H_relative_error": 1.480912720321877e-16,
+        "central_reference_H_relative_error": 4.56512607124743e-12
+      },
+      {
+        "length_mm": 120.0,
+        "rotated_reference_basis": false,
+        "analytic_reference_H_relative_error": 2.9632743310686267e-21,
+        "central_reference_H_relative_error": 6.55105825716121e-12
+      },
+      {
+        "length_mm": 120.0,
+        "rotated_reference_basis": true,
+        "analytic_reference_H_relative_error": 1.8247140579144398e-16,
+        "central_reference_H_relative_error": 1.631537555165112e-11
+      }
+    ],
+    "cantilever_known_answers": [
+      {
+        "plane": 1,
+        "tip_mm": 0.002871685696751486,
+        "known_tip_mm": 0.0028716856967514865,
+        "relative_error": 1.1102230246251565e-16
+      },
+      {
+        "plane": 2,
+        "tip_mm": 0.002871685696751486,
+        "known_tip_mm": 0.0028716856967514865,
+        "relative_error": 1.1102230246251565e-16
+      }
+    ],
+    "rigid_world_motion": [
+      {
+        "rotation_deg": 20.0,
+        "energy_nmm": 7.44134319718909e-24,
+        "gradient_L2_n": 1.5784313864414002e-09
+      },
+      {
+        "rotation_deg": 73.0,
+        "energy_nmm": 2.97694557739191e-23,
+        "gradient_L2_n": 3.156863490763103e-09
+      }
+    ],
+    "analytic_derivatives": {
+      "directional_gradient_relative_error": 2.2758388145095404e-10,
+      "directional_tangent_relative_L2_error": 2.1212377986834394e-10,
+      "central_difference_step_mm": 0.0001
+    },
+    "bent_two_element_common_right_roll": {
+      "initial_energy_nmm": 3681392.454314553,
+      "common_material_roll_virtual_work_nmm_per_rad": -1.7171259969472885e-09,
+      "internal_force_balance_L2_n": 0.0,
+      "internal_spatial_moment_balance_L2_nmm": 7.465118328985478e-09,
+      "rolls": [
+        {
+          "roll_deg": 20.0,
+          "relative_energy_change": 7.589431875354486e-16,
+          "maximum_rotation_dual_covariance_absolute_error_n": 1.2278178473934531e-11
+        },
+        {
+          "roll_deg": 70.0,
+          "relative_energy_change": 0.0,
+          "maximum_rotation_dual_covariance_absolute_error_n": 3.887025968033131e-12
+        },
+        {
+          "roll_deg": -35.0,
+          "relative_energy_change": 1.5178863750708973e-15,
+          "maximum_rotation_dual_covariance_absolute_error_n": 1.1825617206291866e-11
+        }
+      ]
+    },
+    "minimal_director_gauge_and_world_work": {
+      "first_scaled_local_theta_x": 2.049382046271163e-14,
+      "energy_relative_change": 0.0,
+      "full_world_wrench_work_error_L2_n_nmm": 7.664447659831385e-12,
+      "quotient_world_wrench_work_error_L2_n_nmm": 7.568571011839412e-12,
+      "compensating_common_right_roll_per_world_rigid_component": [
+        -0.0,
+        -0.0,
+        -0.0,
+        -0.9472015051397156,
+        0.15576220368133176,
+        0.2944758741602296
+      ],
+      "metadata": {
+        "shaft/test": {
+          "removed_common_right_roll_rad": 0.03008151124059231,
+          "first_local_scaled_theta_x_after_gauge": 2.049382046271163e-14,
+          "first_axial_director_local": [
+            0.9837951788415499,
+            0.10168800669582276,
+            -0.14767056369619913
+          ]
+        }
+      },
+      "physical_twist_constraints_added": 0,
+      "full_global_ndof_preserved": true
+    },
+    "original_axis_port_scope": {
+      "source_sha256": {
+        "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+        "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json": "5e78ac49a2db2050caf7ee7d2002d0ebf4f9a92496e857a0e2d652629bd0d848",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c"
+      },
+      "physical_shafts": 70,
+      "original_metal_load_centroids": 350,
+      "centroids_projected_to_axis": 0,
+      "maximum_original_centroid_radial_offset_mm": 4.3715613161697907e-10,
+      "maximum_unprojected_centroid_gauge_position_change_mm": 1.531266751134856e-10,
+      "maximum_axial_director_gauge_change": 1.4752290795525882e-16,
+      "sum_gravity_work_change_nmm": -5.175966524296381e-11,
+      "sum_absolute_gravity_work_change_nmm": 3.8840034483966537e-10,
+      "synthetic_local_node_states": [
+        [
+          0.2,
+          -0.1,
+          0.3,
+          350.0,
+          200.0,
+          -150.0
+        ],
+        [
+          -0.3,
+          0.2,
+          -0.1,
+          500.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "minimal_gauge": {
+        "removed_common_right_roll_rad": 0.3518230324900458,
+        "first_local_scaled_theta_x_after_gauge": 9.640062188581854e-15,
+        "first_axial_director_local": [
+          0.969228809707695,
+          -0.11095386016477407,
+          -0.21973792423507707
+        ]
+      },
+      "candidate_state_evaluated": false
+    },
+    "local_arc_chord_refinement": {
+      "radius_mm": 1000.0,
+      "arc_length_mm": 120.0,
+      "expected_bending_energy_nmm": 2412.743157956961,
+      "records": [
+        {
+          "elements": 1,
+          "local_director_turn_rad": 0.12,
+          "energy_nmm": 2629.8118830293324,
+          "spurious_chord_axial_energy_nmm": 217.06872507237168,
+          "shear_energy_nmm": 4.514954948352084e-28,
+          "bending_energy_nmm": 2412.7431579569607
+        },
+        {
+          "elements": 2,
+          "local_director_turn_rad": 0.06,
+          "energy_nmm": 2426.31361682289,
+          "spurious_chord_axial_energy_nmm": 13.57045886592945,
+          "shear_energy_nmm": 1.2889909549591156e-24,
+          "bending_energy_nmm": 2412.74315795696
+        },
+        {
+          "elements": 4,
+          "local_director_turn_rad": 0.03,
+          "energy_nmm": 2413.591368888463,
+          "spurious_chord_axial_energy_nmm": 0.8482109315024224,
+          "shear_energy_nmm": 9.440956413372255e-24,
+          "bending_energy_nmm": 2412.7431579569607
+        }
+      ],
+      "candidate_local_curvature_refinement_established": false
+    },
+    "method_coupon_checks_pass": true
+  },
+  "pytest_tests_passed": 25,
+  "ruff": "pass",
+  "tool_versions": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "commands": [
+    "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_isotropic_shaft.py",
+    ".venv/bin/ruff check scripts/thin_bolted_isotropic_shaft.py scripts/check_thin_bolted_isotropic_shaft.py tests/test_thin_bolted_isotropic_shaft.py",
+    "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m scripts.check_thin_bolted_isotropic_shaft --out NEW_UNUSED_PATH.json"
+  ],
+  "primary_sources": [
+    {
+      "url": "https://arxiv.org/pdf/1611.06436",
+      "locator": "Meier et al. (2016), section2.2.1 equations6-8 and AppendixA.4",
+      "use": "Material axial/shear and bending/torsion strain energy; objective relative-triad interpolation. The condensed midpoint finite extension here is a separately declared scenario."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1812.01537",
+      "locator": "Sola et al., AppendixB SO(3) exp/log, adjoint and Jacobians",
+      "use": "Finite rotation composition, conjugation and work-conjugate analytic strain derivatives."
+    }
+  ],
+  "limits": [
+    "Exact common RIGHT material-roll symmetry applies to the declared circular energy and on-axis ports/axial directors. Actual off-axis loads, physical couples or orientation-specific contact invalidate that unrestricted gauge unless assessed.",
+    "All350 original metal centroids retain their recorded precision offsets; none is projected. Gauge invariance is demonstrated to the recorded residual, not exact decimal alignment.",
+    "The condensed finite extension retains curved-arc chord shortening and does not qualify candidate curvature, physical material stiffness, washers, delivered bolt shape/root, or joint strength.",
+    "The minimal director chart includes a compensating common roll in world rigid generators; full spatial duals are recovered before any future quotient solve.",
+    "Global near-pi, local90-degree turns, collapsed chords and antiparallel minimal-gauge regions are rejected rather than clamped. No candidate global/reduced solve occurs."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

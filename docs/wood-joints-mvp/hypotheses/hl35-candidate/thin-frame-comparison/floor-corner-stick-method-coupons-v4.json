@@ -1,0 +1,140 @@
+{
+  "schema": "thin_bolted_floor_corner_method/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_floor_contact.py": "0852ced82484414621106314531e883f713f5943358541539e8750af243c2e1f",
+    "tests/test_thin_bolted_floor_contact.py": "e9ab6a5c3893c0e2f360c92b44d98e900bd267801398f6a7e584193cc7f6c022",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-geometry-v4.json": "e6c7ac4548b943bef4580b7c58efd67c11e29ed3335ae4036998a70c346986fc"
+  },
+  "method": "finished-corner-local-rough-elastic-stick-v1",
+  "method_sources": {
+    "rough_sticking": {
+      "url": "https://docs.software.vt.edu/abaqusv2025/English/SIMACAEITNRefMap/simaitn-c-friction.htm",
+      "locator": "Preventing Slipping regardless of Contact Pressure; Shear Stress Versus Elastic Slip While Sticking",
+      "scope": "Primary contact-method analogy only, not an Abaqus execution or material capacity. Rough sticking acts while normal constraints are active; finite penalty permits elastic slip. The source warns that opening rough contact can cause convergence difficulty. Its customary no-separation option is NOT adopted."
+    },
+    "linear_solve": {
+      "implementation": "frozen scripts.thin_bolted_incremental_step and thin_bolted_numerical_step; existing scipy.sparse.linalg.spsolve",
+      "scope": "Existing source-pinned numerical step and tolerance reused; no new sparse-solver feature."
+    }
+  },
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "-m",
+    "scripts.thin_bolted_floor_contact"
+  ],
+  "coupons": [
+    {
+      "name": "fully_compressed_translation",
+      "maximum_coefficient_error_mm": 0.0,
+      "gradient_inf_n": 0.0,
+      "normal_force_n": [
+        25.0,
+        25.0,
+        25.0,
+        25.0
+      ],
+      "disabled_floor_support_ids": []
+    },
+    {
+      "name": "fully_compressed_yaw",
+      "maximum_coefficient_error_mm": 8.881784197001252e-16,
+      "gradient_inf_n": 0.0,
+      "normal_force_n": [
+        25.0,
+        25.0,
+        25.0,
+        25.0
+      ],
+      "disabled_floor_support_ids": []
+    },
+    {
+      "name": "free_block_edge_rocking_zero_normal_release",
+      "maximum_coefficient_error_mm": 9.999979999619768e-08,
+      "gradient_inf_n": 4.999989999809884e-06,
+      "normal_force_n": [
+        0.0,
+        0.0,
+        50.0,
+        50.0
+      ],
+      "disabled_floor_support_ids": [
+        "coupon-block/floor-0",
+        "coupon-block/floor-1"
+      ]
+    },
+    {
+      "name": "zero_normal_releases_all_shear",
+      "gradient_inf_n": 6.374593297664433e-09,
+      "normal_force_n": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coupon_external_springs_are_not_candidate_restraints": true
+    },
+    {
+      "name": "open_foot_releases_all_shear",
+      "gradient_inf_n": 2.490274653155211e-11,
+      "normal_force_n": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coupon_external_springs_are_not_candidate_restraints": true
+    },
+    {
+      "name": "physical_host_virtual_bookkeeping_energy_gradient_hessian_identity",
+      "gradient_energy_hessian_error": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "frozen_physical_body_recovery_inactive_rows_exact_zero",
+      "normal_rows": 4,
+      "tangent_rows": 8,
+      "disabled_zero_tangent_rows": 4,
+      "maximum_body_force_norm_n": 4.999989999809884e-06,
+      "maximum_body_moment_norm_nmm": 0.006656750164177649,
+      "virtual_ids_exported_as_bodies": false
+    },
+    {
+      "name": "off_origin_point_force_wrench_and_virtual_work_dual",
+      "maximum_generalized_force_error_n": 0.0
+    }
+  ],
+  "generalized_force_tolerance_n": 1e-05,
+  "normal_activation_threshold_n": 1e-07,
+  "floor_no_slip_assumed": true,
+  "floor_no_slip_verified": false,
+  "native_or_candidate_global_solves_performed": false,
+  "limits": [
+    "Four corner normal springs approximate bearing; actual distributed contact/stiffness remain unqualified.",
+    "Equal quarter-foot tangent stiffness preserves all-bearing translation only; yaw/rocking change.",
+    "Finite penalty permits elastic motion; no coefficient of friction or floor capacity is supplied.",
+    "Exactly zero or threshold-level normal disables all own-corner shear; this is the declared perfect-stick boundary convention.",
+    "The near-threshold comparison is a diagnostic, not an individual reaction error bound.",
+    "Only each fixed pattern has a conservative potential; history, global minimum, uniqueness, opening/reclosing and finite-motion applicability are unresolved.",
+    "Any repeated support pattern or unconverged physical residual supplies no accepted field."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

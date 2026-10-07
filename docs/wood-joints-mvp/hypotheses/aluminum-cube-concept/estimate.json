@@ -1,0 +1,289 @@
+{
+  "scope": "owner-directed aluminum cube concept; quantity, price and mass estimate only",
+  "lookup_date": "2026-10-05",
+  "python_version": "3.12.3",
+  "helper_sha256": "ee4f2b15aaba50ab08a532e96efc874e139f4f484ecd23c2f8d577571b9311c2",
+  "sources": {
+    "video": {
+      "url": "https://www.youtube.com/watch?v=Kj_uVZF9Wwk",
+      "observed": false,
+      "owner_description": "outer cube with Mini MoonBoard inside",
+      "supplied_creator_comments": "SUS SF series; 40x40 mm; Frame DIY Lab cut to length",
+      "capture": "YouTube web retrieval failed; local Chrome returned -5, setsockopt Operation not permitted; no screenshot exists"
+    },
+    "sus_4040": {
+      "url": "https://fa.sus.co.jp/service/detail?ItemNo=SFF-424",
+      "kg_per_m": 1.65,
+      "price": null,
+      "note": "Current example SFF-424, not identified as the video's exact part; US quote absent"
+    },
+    "sus_4080": {
+      "url": "https://fa.sus.co.jp/service/detail?ItemNo=SFF-434",
+      "kg_per_m": 2.8
+    },
+    "tnutz_1515": {
+      "url": "https://www.tnutz.com/product/ex-1515/",
+      "kg_per_m": 2.14,
+      "listed_variable_price_usd": [
+        0.55,
+        50.42
+      ],
+      "assumed_usd_per_in": 0.55,
+      "note": "Per-inch scaling is an estimate, not a verified configured price; 38.1 mm system, not SUS; 2.6 m member availability needs confirmation"
+    },
+    "8020_lite": {
+      "url": "https://8020.net/40-4040-lite.html",
+      "lb_per_in": 0.0998,
+      "usd_per_mm": 0.037,
+      "cut_charge_usd": 3.0
+    },
+    "8020_heavy": {
+      "url": "https://8020.net/40-4040.html",
+      "lb_per_in": 0.1321,
+      "usd_per_mm": 0.0441,
+      "cut_charge_usd": 3.0
+    },
+    "8020_4080": {
+      "url": "https://8020.net/40-4080.html",
+      "lb_per_in": 0.2317,
+      "usd_per_mm": 0.0821,
+      "cut_charge_usd": 3.79
+    },
+    "tnutz_gusset": {
+      "url": "https://www.tnutz.com/product/cb-015-a/",
+      "usd": 3.55
+    },
+    "tnutz_nut": {
+      "url": "https://www.tnutz.com/product/et-015/",
+      "usd": 0.19
+    },
+    "tnutz_screw": {
+      "url": "https://www.tnutz.com/product-category/15-series-hardware/",
+      "assumed_usd": 0.2,
+      "note": "Screw-price allowance; thread/length remain unselected"
+    },
+    "8020_gusset": {
+      "url": "https://8020.net/40-4332.html",
+      "usd": 7.73
+    },
+    "8020_bolt_nut": {
+      "url": "https://8020.net/75-3422.html",
+      "usd": 1.14
+    }
+  },
+  "takeoff": [
+    {
+      "description": "outer cube",
+      "pieces": 12,
+      "nominal_piece_m": 2.6,
+      "total_m": 31.200000000000003
+    },
+    {
+      "description": "sloped backing rails",
+      "pieces": 5,
+      "nominal_piece_m": 2.4384,
+      "total_m": 12.192
+    },
+    {
+      "description": "main panel crosspieces: 3 rows, 4 pieces each",
+      "pieces": 12,
+      "nominal_piece_m": 0.5596,
+      "total_m": 6.715199999999999
+    },
+    {
+      "description": "kicker uprights",
+      "pieces": 5,
+      "nominal_piece_m": 0.277,
+      "total_m": 1.3850000000000002
+    },
+    {
+      "description": "kicker crosspieces: 2 rows, 4 pieces each",
+      "pieces": 8,
+      "nominal_piece_m": 0.5596,
+      "total_m": 4.4768
+    },
+    {
+      "description": "side ties at the board top",
+      "pieces": 2,
+      "nominal_piece_m": 2.6,
+      "total_m": 5.2
+    },
+    {
+      "description": "short corner braces: allowance",
+      "pieces": 8,
+      "nominal_piece_m": 0.5,
+      "total_m": 4.0
+    },
+    {
+      "description": "short board/frame standoffs: allowance",
+      "pieces": 4,
+      "nominal_piece_m": 0.15,
+      "total_m": 0.6
+    }
+  ],
+  "representative_pieces": 56,
+  "representative_length_m": 65.769,
+  "length_range_m": [
+    55.0,
+    70.0
+  ],
+  "range_note": "55\u201370 m is a planning sensitivity, not observed lower/upper bounds or a validated cut list",
+  "tax_assumption": 0.08,
+  "profiles": [
+    {
+      "profile": "TNUTZ EX-1515, 38.1 mm, assumed price scaling",
+      "kg_per_m": 2.14,
+      "usd_per_m": 21.65354330708662,
+      "endpoints": [
+        {
+          "length_m": 55.0,
+          "extrusions_usd": 1190.944881889764,
+          "hardware_breakdown_usd": {
+            "80_standard_bracket_sets_usd": 346.4,
+            "20_angled_or_plate_connection_sets_usd": 160.0,
+            "66_panel_mount_sets_usd": 66.0,
+            "pads_caps_miscellaneous_usd": 75.0
+          },
+          "cutting_and_additional_machining_usd": 150.0,
+          "freight_allowance_usd": 250.0,
+          "tax_allowance_usd": 179.06759055118113,
+          "total_usd": 2417.4124724409453,
+          "frame_kg": 127.7,
+          "frame_lb": 281.5303088100887
+        },
+        {
+          "length_m": 70.0,
+          "extrusions_usd": 1515.7480314960633,
+          "hardware_breakdown_usd": {
+            "80_standard_bracket_sets_usd": 346.4,
+            "20_angled_or_plate_connection_sets_usd": 400.0,
+            "66_panel_mount_sets_usd": 198.0,
+            "pads_caps_miscellaneous_usd": 150.0
+          },
+          "cutting_and_additional_machining_usd": 350.0,
+          "freight_allowance_usd": 600.0,
+          "tax_allowance_usd": 284.8118425196851,
+          "total_usd": 3844.959874015749,
+          "frame_kg": 169.8,
+          "frame_lb": 374.34492118992216
+        }
+      ],
+      "representative_total_usd": 3207.6344409448825,
+      "representative_frame_lb": 343.360405290768
+    },
+    {
+      "profile": "80/20 40-4040-Lite",
+      "kg_per_m": 1.7822251388188977,
+      "usd_per_m": 37.0,
+      "endpoints": [
+        {
+          "length_m": 55.0,
+          "extrusions_usd": 2035.0,
+          "hardware_breakdown_usd": {
+            "80_standard_bracket_sets_usd": 800.8,
+            "20_angled_or_plate_connection_sets_usd": 320.0,
+            "66_panel_mount_sets_usd": 132.0,
+            "pads_caps_miscellaneous_usd": 75.0
+          },
+          "cutting_and_additional_machining_usd": 268.0,
+          "freight_allowance_usd": 250.0,
+          "tax_allowance_usd": 310.464,
+          "total_usd": 4191.264,
+          "frame_kg": 108.02238263503938,
+          "frame_lb": 238.14858842321217
+        },
+        {
+          "length_m": 70.0,
+          "extrusions_usd": 2590.0,
+          "hardware_breakdown_usd": {
+            "80_standard_bracket_sets_usd": 800.8,
+            "20_angled_or_plate_connection_sets_usd": 600.0,
+            "66_panel_mount_sets_usd": 264.0,
+            "pads_caps_miscellaneous_usd": 150.0
+          },
+          "cutting_and_additional_machining_usd": 418.0,
+          "freight_allowance_usd": 600.0,
+          "tax_allowance_usd": 433.824,
+          "total_usd": 5856.624000000001,
+          "frame_kg": 144.75575971732283,
+          "frame_lb": 319.13182251571567
+        }
+      ],
+      "representative_total_usd": 5154.573240000001,
+      "representative_frame_lb": 291.4845440521411
+    },
+    {
+      "profile": "80/20 40-4040",
+      "kg_per_m": 2.359037483346457,
+      "usd_per_m": 44.1,
+      "endpoints": [
+        {
+          "length_m": 55.0,
+          "extrusions_usd": 2425.5,
+          "hardware_breakdown_usd": {
+            "80_standard_bracket_sets_usd": 800.8,
+            "20_angled_or_plate_connection_sets_usd": 320.0,
+            "66_panel_mount_sets_usd": 132.0,
+            "pads_caps_miscellaneous_usd": 75.0
+          },
+          "cutting_and_additional_machining_usd": 268.0,
+          "freight_allowance_usd": 250.0,
+          "tax_allowance_usd": 341.704,
+          "total_usd": 4613.004000000001,
+          "frame_kg": 139.74706158405513,
+          "frame_lb": 308.08953330510195
+        },
+        {
+          "length_m": 70.0,
+          "extrusions_usd": 3087.0,
+          "hardware_breakdown_usd": {
+            "80_standard_bracket_sets_usd": 800.8,
+            "20_angled_or_plate_connection_sets_usd": 600.0,
+            "66_panel_mount_sets_usd": 264.0,
+            "pads_caps_miscellaneous_usd": 150.0
+          },
+          "cutting_and_additional_machining_usd": 418.0,
+          "freight_allowance_usd": 600.0,
+          "tax_allowance_usd": 473.584,
+          "total_usd": 6393.384000000001,
+          "frame_kg": 185.13262383425197,
+          "frame_lb": 408.1475705472117
+        }
+      ],
+      "representative_total_usd": 5658.889932000001,
+      "representative_frame_lb": 375.1199259419049
+    }
+  ],
+  "sus_4040_frame_mass_lb_range": [
+    222.11572915126416,
+    298.7263652605091
+  ],
+  "sus_4040_representative_frame_lb": 272.31245093474564,
+  "sus_4040_member_2_6m_lb": 9.457831047731247,
+  "plywood_volume_m3_nominal_3_4in": 0.126134457408,
+  "plywood_density_assumption_kg_m3": [
+    450,
+    650
+  ],
+  "plywood_mass_lb_range": [
+    125.13549518833396,
+    180.7512708275935
+  ],
+  "upgrade_five_sloped_rails": {
+    "length_m": 12.192,
+    "sus_4040_to_4080_extra_lb": 30.910572856417314,
+    "8020_heavy_4040_to_4080_extra_lb": 47.808,
+    "8020_heavy_4040_to_4080_extra_usd_with_tax_and_cut_difference": 504.62567999999993
+  },
+  "limits": [
+    "No video screenshots or observed member/connector count",
+    "Cube dimensions assumed; room dimensions pending",
+    "No configured TNUTZ/SUS quote, verified freight or tax",
+    "SUS mass must not be paired with TNUTZ/80/20 price as a quoted product",
+    "No structural capacities, new load demands, solves, CAD or candidate adoption",
+    "Cost excludes owned plywood/holds/LEDs, landing pads, labor/tools and design services",
+    "Frame weight excludes plywood/holds/LEDs/pads; hardware mass is an allowance",
+    "Repeated assembly sequence, long-member transport and joint access not yet checked",
+    "Shared members and further bracing can change the inventory; no acceptance transfers from wood"
+  ]
+}

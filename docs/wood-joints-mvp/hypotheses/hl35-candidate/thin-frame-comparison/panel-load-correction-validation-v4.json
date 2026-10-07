@@ -1,0 +1,43 @@
+{
+  "schema": "thin_bolted_panel_load_correction_validation/v1",
+  "state_id": "thin-v4-84ad844f63afddc032cf922c",
+  "report_sha256": "82795ef5b715b612ecf14c43b411ce139cea0ab8a03deef34bff496e71c50f68",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-load-correction-a12-rear-finished-floor-v4.json": "82795ef5b715b612ecf14c43b411ce139cea0ab8a03deef34bff496e71c50f68",
+    "scripts/thin_bolted_panel_load_diagnostics.py": "ff5e0e7b3944e64379181a6b3a1c442b921c197b87d25da3bd20a2d69ec63ebd",
+    "tests/test_thin_bolted_panel_load_diagnostics.py": "b8d7ece79182d1a5cfc182aa8041ab56935791659393d02b172278017df8e617",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-load-correction-v4.md": "f4dc5d4b3af887ba580503c29b9ff921f40108476159221ffab4d45e2c9476b6",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-coupled-validation-v4.json": "72641185e657116bc5ac38651423a6d2e54a2c6b20664bf8218a03c606d20741"
+  },
+  "all_report_source_pins_verified": 140,
+  "test_count_passed": 4,
+  "ruff": "pass",
+  "known_answers": [
+    "retained full-bore area and first moments",
+    "minimum coefficient norm six-wrench projection",
+    "uniform affine traction force and centroid moment",
+    "centered quadratic warp slopes and von Karman terms"
+  ],
+  "commands": [
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m pytest tests/test_thin_bolted_panel_load_diagnostics.py -q",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache uv run --offline ruff check scripts/thin_bolted_panel_load_diagnostics.py tests/test_thin_bolted_panel_load_diagnostics.py",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m scripts.thin_bolted_panel_load_diagnostics --field docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json --out NEW_UNUSED_PATH.json"
+  ],
+  "saved_npz_mass_load_comparison_max_abs_difference_n": 1.4210854715202004e-14,
+  "correction_work_nmm": 0.0068022082768923135,
+  "absolute_work_over_absolute_potential": 1.523812968647581e-07,
+  "new_CAD_K_or_solve_execution": false,
+  "retention": {
+    "active": "new helper/tests/result/note/receipt plus existing frozen interval-eight NPZ/datums and finished-floor field",
+    "pruning_performed": false
+  },
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "complete_panel_resistance_established": false
+}

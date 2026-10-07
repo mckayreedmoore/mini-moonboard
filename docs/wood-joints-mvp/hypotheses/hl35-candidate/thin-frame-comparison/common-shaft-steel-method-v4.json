@@ -1,0 +1,81 @@
+{
+  "schema": "thin_bolted_common_shaft_steel_method/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "scripts/thin_bolted_common_shaft_steel.py": "4b28f7a055c50dc127569b7df387f8e8d973f74080d2937ceb5db356a89d9952",
+    "tests/test_thin_bolted_common_shaft_steel.py": "9f8e624cd92f4a5f0b484414b8770e70b76035965e5f8622d9db18b2134c6ab6",
+    "scripts/thin_bolted_common_shaft_audit.py": "a236900e59a3d5984598df56d4243408ce12801d4ab6fcc7f765f6a420de01ba",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/steel-resistance-methods-v4.json": "d00ff10eb875c0d093f6c0e811a7b1e2ef850f6d3ec846b6b910eb2c4cdabf19",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/cap-head-face-reference-v4.json": "0cba6f3c9e36506807fe4d353eb970534f92a52c3ed35d91a8076d83c73cc7d4",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/common-shaft-method-coupons-v4.json": "edf4942377a343fa72f49b2d620047c4f3f8faf2be2a01dbd4010820fd4a2e13"
+  },
+  "public_apis": {
+    "aggregate_steel_ports": "layout,bearings,captures -> independently reduced own signed steel force/free moment at actual hole entries",
+    "verify_shaft_cuts": "demand,source_geometry -> authenticate complete axis/basis/mesh/cut census and replay every physical point force/free couple",
+    "own_washer_states": "frozen_methods,changed_head_reference,own_captures -> own-side axial component references",
+    "shaft_section_references": "cuts,optional_axis_keyed_caller_sections -> simultaneous N/V/M/T circular section envelopes",
+    "consume": "source_path,optional_caller_sections_path -> independent gate then source-bound conditional component report"
+  },
+  "census_contract": {
+    "physical_shafts": 70,
+    "steel_ports": 72,
+    "radial_actions": 308,
+    "own_end_captures": 140,
+    "source_metal_role_gravity_points": 350
+  },
+  "validation": {
+    "fixtures_passed": 27,
+    "test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_common_shaft_steel.py",
+    "test_result": "27 passed",
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_common_shaft_steel.py tests/test_thin_bolted_common_shaft_steel.py",
+    "lint_result": "All checks passed",
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "known_answer_scope": [
+      "signed wrench force arms and nonzero free couples",
+      "unequal two shared sides without allocation or capacity sum",
+      "each own washer head/nut force and head-only changed circle",
+      "simultaneous axial/shear/bending/torsion circle stress",
+      "preserved flange torsion with incomplete envelope marker",
+      "independent outside-interval head gravity and full signed cut replay",
+      "missing/duplicate/misidentified action, scenario and cut rejection"
+    ],
+    "independent_review": {
+      "reviewer": "thin_independent_mvp_review",
+      "outcome": "No physical/contract blocker found in reviewed source; explicit aggregate/cut replay remains required beyond frozen body audit"
+    }
+  },
+  "conditional_grade5_material_reference": {
+    "source": "https://www.fastenal.com/content/merch_rules/images/fcom/content-library/Fastener%20Reference%20Guide.pdf",
+    "locator": "p0 inch-series SAEJ429Grade5, quarter-to-one-inch size row",
+    "minimum_tensile_yield_psi": 92000,
+    "minimum_tensile_yield_mpa": 634.317670971456,
+    "minimum_tensile_strength_psi": 120000,
+    "proof_strength_psi": 85000,
+    "NDS_fyb_assigned": null,
+    "actual_product_property_verified": false
+  },
+  "reuse": {
+    "old_unit_methods_recomputed": false,
+    "old_force_or_pass_transferred": false,
+    "source_geometry_schema_only_zero_capture_check": {
+      "own_washer_rows": 140,
+      "ends_with_reused_applicable_plate_coefficients": 14,
+      "larger_ends_without_qualified_plate_coefficients": 126
+    }
+  },
+  "limits": [
+    "No candidate force field is consumed by this method receipt.",
+    "Flange normal/bending/transverse-shear envelopes omit torsion wherever flagged.",
+    "Own axial capture is a model force; actual washer pressure, own-end moment/prying and head/fillet/nut seating remain unresolved.",
+    "Actual bolt root/body/thread exposure and product conformance are unverified; caller root circles require explicit basis.",
+    "Conditional material stress indices are neither design strengths nor complete joint capacities.",
+    "First-order physical applicability and stiffness bounds remain unresolved."
+  ],
+  "native_or_CAD_execution": false,
+  "structural_acceptance": false,
+  "fabrication_release": false,
+  "climbing_release": false
+}

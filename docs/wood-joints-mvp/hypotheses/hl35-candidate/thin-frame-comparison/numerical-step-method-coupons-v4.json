@@ -1,0 +1,272 @@
+{
+  "schema": "thin_bolted_numerical_step_method_coupons/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/numerical-step-method-coupons-v4.py": "f1a259e4c173f36b6ab2393d555abaf6fa2f564ec142812423cee2484782bcfc",
+    "tests/test_thin_bolted_numerical_step.py": "7f07205b46d322518b2c248806fd6ed8a774c8f0c135b5f27d76a92e88b32b94",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-common-shaft-a12-rear-v4.json": "9064276ed46ad831fce3744b0355f77909ebe9c7443d974897c0dd9ad26ecd75"
+  },
+  "command": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=. .venv/bin/python docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/numerical-step-method-coupons-v4.py",
+  "known_answer_coupons": [
+    {
+      "name": "loaded_inactive_radial_and_axial_modes",
+      "hand_equilibrium_reference": {
+        "q": [
+          1.02,
+          -1.0,
+          1.04,
+          0.63,
+          0.84
+        ]
+      },
+      "response": {
+        "converged": true,
+        "q": [
+          1.0199999992040218,
+          -0.9999999999364567,
+          1.039999998714459,
+          0.63,
+          0.8400000000000001
+        ],
+        "connector_local_force_n": [
+          [
+            0.0,
+            3.0000000000000036,
+            4.000000000000004
+          ]
+        ],
+        "normal_contact_force_n": [
+          1.9999999510437183,
+          0.0
+        ],
+        "normal_contact_displacement_mm": [
+          0.019999999510437183,
+          -2.0399999986509156
+        ],
+        "gradient_inf_n": 4.89562816952116e-08,
+        "potential_energy_nmm": -107.16500000000002,
+        "generalized_residual_tolerance_n": 1e-05,
+        "newton_iterations": 7,
+        "floor_pattern_iterations": 1,
+        "accepted_numerical_steps": 6,
+        "rejected_numerical_trials": 29,
+        "iteration_history": [
+          {
+            "floor_pattern": 0,
+            "iteration": 0,
+            "gradient_inf_n": 50.99999999999999,
+            "physical_potential_energy_nmm": -80.155,
+            "step_damping": 1e-06,
+            "active_normal_contacts": 0,
+            "active_radial_groups": 1,
+            "active_axial_captures": 0,
+            "active_floor_ports": 0,
+            "accepted_step_alpha": 0.00390625,
+            "accepted_step_inf_mm": 0.390625,
+            "accepted_original_energy_nmm": -80.93820386418012,
+            "original_model_reduction_ratio": 1.0000000000000089
+          },
+          {
+            "floor_pattern": 0,
+            "iteration": 6,
+            "gradient_inf_n": 4.89562816952116e-08,
+            "physical_potential_energy_nmm": -107.16500000000002,
+            "step_damping": 1.5625e-05,
+            "active_normal_contacts": 1,
+            "active_radial_groups": 1,
+            "active_axial_captures": 1,
+            "active_floor_ports": 0
+          }
+        ],
+        "maximum_transient_scaled_step_regularization": 0.001,
+        "physical_residual_uses_unmodified_laws": true,
+        "nonbearing_no_slip_removed": [],
+        "active_contacts": 1,
+        "numerical_step_strategy": "adaptive-scaled-Levenberg-original-potential",
+        "termination": "constitutive equilibrium and floor-bearing pattern converged"
+      }
+    },
+    {
+      "name": "unloaded_floating_translations",
+      "hand_equilibrium_reference": {
+        "host_translations_mm": [
+          1.0,
+          -1.0
+        ],
+        "capture_forces_n": [
+          0.0,
+          0.0
+        ]
+      },
+      "response": {
+        "converged": true,
+        "q": [
+          0.9999999999995001,
+          -0.9999999999995001,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "connector_local_force_n": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "normal_contact_force_n": [
+          0.0,
+          0.0
+        ],
+        "normal_contact_displacement_mm": [
+          -0.9999999999995001,
+          -0.9999999999995001
+        ],
+        "gradient_inf_n": 4.999378688808065e-11,
+        "potential_energy_nmm": -100.0,
+        "generalized_residual_tolerance_n": 1e-05,
+        "newton_iterations": 3,
+        "floor_pattern_iterations": 1,
+        "accepted_numerical_steps": 2,
+        "rejected_numerical_trials": 0,
+        "iteration_history": [
+          {
+            "floor_pattern": 0,
+            "iteration": 0,
+            "gradient_inf_n": 50.0,
+            "physical_potential_energy_nmm": -75.0,
+            "step_damping": 1e-06,
+            "active_normal_contacts": 0,
+            "active_radial_groups": 0,
+            "active_axial_captures": 0,
+            "active_floor_ports": 0,
+            "accepted_step_alpha": 1.0,
+            "accepted_step_inf_mm": 0.4999990000019999,
+            "accepted_original_energy_nmm": -99.9999999999,
+            "original_model_reduction_ratio": 0.9999999999999999
+          },
+          {
+            "floor_pattern": 0,
+            "iteration": 2,
+            "gradient_inf_n": 4.999378688808065e-11,
+            "physical_potential_energy_nmm": -100.0,
+            "step_damping": 6.25e-08,
+            "active_normal_contacts": 0,
+            "active_radial_groups": 0,
+            "active_axial_captures": 0,
+            "active_floor_ports": 0
+          }
+        ],
+        "maximum_transient_scaled_step_regularization": 1e-06,
+        "physical_residual_uses_unmodified_laws": true,
+        "nonbearing_no_slip_removed": [],
+        "active_contacts": 0,
+        "numerical_step_strategy": "adaptive-scaled-Levenberg-original-potential",
+        "termination": "constitutive equilibrium and floor-bearing pattern converged"
+      }
+    },
+    {
+      "name": "unequal_two_support_circular_shaft",
+      "hand_equilibrium_reference": {
+        "radial_reactions_n": [
+          7.5,
+          2.5
+        ]
+      },
+      "response": {
+        "converged": true,
+        "q": [
+          0.0,
+          0.21499999999999855,
+          0.0,
+          0.0,
+          -0.10358720830530634,
+          0.0,
+          0.21235522539309523,
+          0.0,
+          0.0,
+          0.0,
+          -0.11276411903159392,
+          0.0,
+          0.2025000000000008,
+          -0.0,
+          0.0,
+          0.0,
+          -0.14029485121045773
+        ],
+        "connector_local_force_n": [
+          [
+            0.0,
+            7.499999999999271,
+            0.0
+          ],
+          [
+            0.0,
+            2.500000000000785,
+            0.0
+          ]
+        ],
+        "normal_contact_force_n": [
+          0.0,
+          0.0
+        ],
+        "normal_contact_displacement_mm": [
+          0.0,
+          0.0
+        ],
+        "gradient_inf_n": 9.521272659185342e-13,
+        "potential_energy_nmm": -2.061776126965427,
+        "generalized_residual_tolerance_n": 1e-05,
+        "newton_iterations": 1,
+        "floor_pattern_iterations": 1,
+        "accepted_numerical_steps": 0,
+        "rejected_numerical_trials": 0,
+        "iteration_history": [
+          {
+            "floor_pattern": 0,
+            "iteration": 0,
+            "gradient_inf_n": 9.521272659185342e-13,
+            "physical_potential_energy_nmm": -2.061776126965427,
+            "step_damping": 1e-06,
+            "active_normal_contacts": 0,
+            "active_radial_groups": 2,
+            "active_axial_captures": 0,
+            "active_floor_ports": 0
+          }
+        ],
+        "maximum_transient_scaled_step_regularization": 0.0,
+        "physical_residual_uses_unmodified_laws": true,
+        "nonbearing_no_slip_removed": [],
+        "active_contacts": 0,
+        "numerical_step_strategy": "adaptive-scaled-Levenberg-original-potential",
+        "termination": "constitutive equilibrium and floor-bearing pattern converged"
+      }
+    }
+  ],
+  "validation": {
+    "tests": 6,
+    "test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_numerical_step.py",
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_numerical_step.py tests/test_thin_bolted_numerical_step.py",
+    "physical_gradient_tolerance_n": 1e-05,
+    "body_force_tolerance_n": 0.0001,
+    "body_moment_tolerance_nmm": 0.1,
+    "physical_energy_gradient_hessian_derivative_coupon": true,
+    "failed_actual_iterate_is_separate_from_actions": true
+  },
+  "limits": [
+    "The preserved first common-shaft candidate state stopped at100iterations and21.828543799365463N residual; it supplies no valid force actions.",
+    "Open inactive contact modes do not alone establish a physical mechanism. The continuation changes numerical steps only and adds no physical spring, clamp or gauge.",
+    "These small fixtures do not guarantee convergence of the candidate. A fresh candidate state must retain the original laws/tolerances and independently close all132 body and global force/moment balances.",
+    "First-order beam/plate/port applicability, unmeasured stiffness and clearances, delivered product geometry/material and component resistance remain separate conditional requirements."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "candidate_strength_or_release_established": false
+}

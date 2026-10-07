@@ -1,0 +1,57 @@
+{
+  "schema": "hl35_candidate_evidence_bindings/v1",
+  "candidate": "compact-floor-flush-hl35-development",
+  "revision": "hl35-deeper-header-seat-and-bearing-audit-v8",
+  "command": ".venv/bin/python -m scripts.hl35_counterbore_candidate",
+  "versions": {
+    "cadquery": "2.8.0"
+  },
+  "source_sha256": {
+    "current-candidate.json": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+    "wood-joints-candidate.json": "2d1c43eae6f1515ad9fbb052d208b14648f4bf4f9003f49a7268d2ecb8ec545d",
+    "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/geometry-snapshot.json": "0b92357af648604ee8ce42d2f8906e0a4e5498e9e4b835a07938b81dc151d187",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "site/owner-wood-joints-wj24-scene.json": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf",
+    "scripts/hl35_candidate.py": "4fd07e925e0c252035361194f6854106099f839fee4132cb7b37a7b4aeef022d",
+    "scripts/hl35_revised_candidate.py": "1e86735d86d0c3f2dae3d8846e49b5c9c1c73f1c6c5158ac895eff623b01b5dc",
+    "scripts/hl35_fit_revision.py": "2b59b72c08a24e27654aa2a338ae4929ea8384dd78d273e0d0df91eec2103acc",
+    "scripts/hl35_full_fit_candidate.py": "e42f08e87362028b9cb6e63b26986520cbfe40d61ccf7386ca12fbe171adf2fa",
+    "scripts/hl35_service_clearance.py": "1d9ebcb0ed9e68c266367290584c53131a45d52a241b526cc99218878f282620",
+    "scripts/hl35_candidate_finish.py": "d28455e4d91727d60069f81ab38dd1916513d73a008b45672e63a94e1bf008bd",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/service-fit-v5/fit-assessment.json": "50cbdf5b07ec7f4d0fc384c2cfb2f8df54b73e707db1f4669b1f296d5f986a3b",
+    "scripts/hl35_nominal_service_candidate.py": "efabfbef901cf3cf2077af13b9691bd959f4724cac326b5f434b157861e6ba21",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/nominal-service-v6/fit-assessment.json": "3b685c995cb09b4c8cf30791541e06f4570a8d24af9b8d77dc7c90376f1f8c9a",
+    "site/hl35-nominal-service-scene.json": "6eec3d90362b601d38b9603426607db62ab5ec400c4d5406dd70870fe7fc6196",
+    "scripts/hl35_candidate_finalize.py": "e2323c476bf9cf3e2a468e026408f27aa8caad120ed8b9e89e0634b0ee169712",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/final-fit-v7/fit-assessment.json": "1ba27400c6051847855083f53aa0e8eb26458d5b7e97907aa077a2cdb861fcac",
+    "scripts/hl35_counterbore_candidate.py": "916321a3deb9c575cfcee89216f3cc01da91c9d9e5b0e522899199bcb7c6b04e"
+  },
+  "outputs": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/counterbore-fit-v8/fit-assessment.json": "10d4e8b6ca978491103b939c143b2e706f71c8eadacde565c80a22479d12bf58",
+    "site/hl35-counterbore-scene.json": "f6781308d30773c9a4199f295e28853acf64132cac26498bf9cbc52c3d66c541"
+  },
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "rendering": {
+    "command": "MPLCONFIGDIR=/tmp/mini-moonboard-matplotlib .venv/bin/python -m scripts.render_hl35_candidate --scene site/hl35-counterbore-scene.json --out docs/wood-joints-mvp/hypotheses/hl35-candidate/counterbore-fit-v8/overview.png",
+    "versions": {
+      "matplotlib": "3.11.1",
+      "numpy": "2.5.2"
+    },
+    "source_sha256": {
+      "scripts/render_hl35_candidate.py": "d5d27a2b87d9a5c0d1405e8740de0ffc8e699d62d3dd34502535cbf3c4294091",
+      "site/hl35-counterbore-scene.json": "f6781308d30773c9a4199f295e28853acf64132cac26498bf9cbc52c3d66c541",
+      "site/owner-wood-joints-wj24-scene.json": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf"
+    },
+    "outputs": {
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/counterbore-fit-v8/overview.png": "e98b2a56853f021d6a9ba5ccbd366543f33381e70428d8d7f785c0cfe2e91caa"
+    },
+    "scope": "Static overview only; metal stacks and service hardware omitted; browser launch unavailable in this sandbox."
+  }
+}

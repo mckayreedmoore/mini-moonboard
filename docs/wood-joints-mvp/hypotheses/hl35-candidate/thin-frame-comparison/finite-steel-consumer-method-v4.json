@@ -1,0 +1,75 @@
+{
+  "schema": "thin_bolted_finite_steel_consumer_method/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "scripts/thin_bolted_finite_steel_consumer.py": "1c4573b3c11baaed56c333d3d88653ca816b56e4982176eaf51358dcf6107a28",
+    "tests/test_thin_bolted_finite_steel_consumer.py": "d7d4fe59414c72fae8dd5ac7603eff7bcdaefa7e2309c9a308768be905353e05",
+    "scripts/thin_bolted_finite_steel_recovery.py": "c8f71a3eebb68e308ff814c5a8995d64c9e571f42556dfacff63280af7a7755a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-steel-recovery-method-v4.json": "fcac5af8927859bdc05dc360c787c418a1a801a02751b894f27fb1213b31f5d0"
+  },
+  "public_api": {
+    "consume": "field_path,mandatory_keyword_admission_sha256,optional_caller_sections_path -> admitted current component report",
+    "CLI": "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m scripts.thin_bolted_finite_steel_consumer --demands NEW_FINITE_FIELD --admission-sha256 REVIEWED_GATE_SHA --out DISTINCT_NEW_REPORT"
+  },
+  "admission_contract": {
+    "fixed_module": "scripts.thin_bolted_finite_state_audit",
+    "fixed_source_path": "scripts/thin_bolted_finite_state_audit.py",
+    "required_receipt_schema": "thin_bolted_independent_finite_admission/v1",
+    "required_success_key": "independent_finite_current_support_load_and_equilibrium_checks_pass",
+    "reviewed_gate_digest": "Mandatory lowercase64hex caller argument; exact fixed source path/file/loaded-code/receipt-source digest must agree",
+    "source_field_binding": "Exact original bytes plus canonical parsed digest and state_id/case_id/accessory_placement; source file reread must remain byte-identical before component issuance",
+    "source_bindings_checked_before_and_after_recovery": true,
+    "reference_or_failed_force_fields_relabelled": false
+  },
+  "recovery_contract": {
+    "frozen_helper_sha256": "c8f71a3eebb68e308ff814c5a8995d64c9e571f42556dfacff63280af7a7755a",
+    "frozen_receipt_sha256": "fcac5af8927859bdc05dc360c787c418a1a801a02751b894f27fb1213b31f5d0",
+    "physical_shafts": 70,
+    "steel_flange_ports_and_section_tables": 72,
+    "own_washer_captures": 140,
+    "own_exact_metal_gravity_roles": 350,
+    "current_response_q_passed_directly": true,
+    "full_current_force_arms_free_spatial_couples_and_material_directors_retained": true,
+    "reference_material_order_selects_load_side": true,
+    "model_fitting_gravity_derivative_retained": true,
+    "caller_circle_root_basis_required": true
+  },
+  "validation": {
+    "fixtures_passed": 22,
+    "test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_finite_steel_consumer.py",
+    "test_result": "22 passed",
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_finite_steel_consumer.py tests/test_thin_bolted_finite_steel_consumer.py",
+    "lint_result": "All checks passed",
+    "python": "3.12.3",
+    "known_answer_scope": [
+      "absent/malformed/wrong reviewed gate digest rejects before code import or recovery",
+      "wrong loaded audit source rejects despite matching file digest",
+      "failed/old/mixed-identity/byte-mismatched/canonical-mismatched/source-mismatched receipt prevents recovery",
+      "synthetic bound admitted orchestration passes exact q and preserves false release",
+      "field/gate/caller scenario mutation during recovery prevents issuance",
+      "old reference field schema rejected before current-state gate",
+      "complete component census guard rejects omitted own capture"
+    ],
+    "independent_review": {
+      "reviewer": "thin_independent_mvp_review",
+      "outcome": "No blocking steel orchestration finding; raw and canonical bindings prevent source reread mixing",
+      "actual_finite_field_consumed": false
+    }
+  },
+  "reuse": {
+    "old_methods_recomputed": false,
+    "old_forces_or_passes_transferred": false,
+    "frozen_current_recovery_used_unchanged": true,
+    "CAD_global_K_assembly_or_response_solve": false
+  },
+  "limits": [
+    "This method receipt consumes no candidate force field. Gate digest and accepted field are supplied later without editing frozen consumer code.",
+    "Conditional current beam/strip/contact components do not establish delivered material, actual hole/heel/warping/root geometry, pressure/prying/seating, complete joints or physical demand bounds.",
+    "Ideal gross rectangle and equal-twist ligament stress rows remain separately identified references.",
+    "Own washer model force and director spatial couple do not qualify actual washer pressure or combined resistance."
+  ],
+  "structural_acceptance": false,
+  "complete_joint_acceptance": false,
+  "fabrication_release": false,
+  "climbing_release": false
+}

@@ -7,14 +7,448 @@ engineering record. The selected screw-and-bracket baseline remains a separate
 
 ## Current disposition
 
-**The reduced desktop assessment is complete and source-validated.**
+**The owner now requests a thinner frame closer to the earlier screw-and-angle
+layout, while retaining through-bolted structural joints.** The comparison
+basis is the selected frame's solid 4×6 legs/rims, single 2×6 receiving members
+and split center. The enlarged HL35 stock proposal is preserved research;
+no thinner successor has been selected. The conditional mixed-fitting layout
+now has an [integrated review model](../../site/index.html?model=thin-bolted-development),
+bound by its separate [development contract](../../thin-bolted-candidate.json).
+Use the [earlier kerf-right frame](../../site/index.html?model=compact-floor-flush-kerf-right)
+as a geometry reference; its ML24Z/SDS attachments are not a bolted proposal.
+A single 2×6 does not meet the HL35 catalog's minimum 3½-inch wood thickness
+for table loads. Other through-bolt details need their own wood, steel,
+hole-placement and complete-joint checks. The mixed B104/B103 fitting proposal
+below is the current thinner-frame development model. See the
+[recorded direction](../../hl35-candidate.json).
+
+The owner has started a **new lean numerical MVP goal, with joint validation
+first and a separate floor-contact worker**. Reuse the reviewed geometry,
+access/takeoff, material references and passing method checks. The smallest
+adequate route retains the existing first-order common shafts, restores the
+six required timber compression interfaces and uses the declared centroid
+no-slip floor approximation with whole-foot release. Allow one narrow
+readiness repair and one A12-rear attempt capped at thirty minutes, without
+automatic retries or another solver framework. A fresh independently admitted
+field and quantitative joint/panel/member dispositions are required; explicit
+reference exceedances and unqualified capacities remain valid findings, not
+structural acceptance. The previous broader goal and its six-hour finite
+attempt remain blocked historical work, with their inputs and failures frozen.
+A geometry-only study will not complete the new goal. Joint-method readiness
+passed independent review. The single lean case has now ended with a floor
+activation cycle: all five fixed support patterns reached the residual
+tolerance, but their activation did not settle. It exports no admitted q or
+joint forces. The new goal remains unachieved, and no automatic retry is
+queued. The revised nominal occupied
+layout clears the enumerated interference and support checks. The review model
+is exported and its file-backed viewer loader is validated. The
+[access/takeoff packet](hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md)
+now records conditional initial removal paths for all six panels, seventy bolt
+stacks, thirty-six fittings and twenty individual timber members. Complete-joint
+mechanics remain incomplete. The catalog drawings now visually corroborate
+the nominal outside-corner leg lengths and general hole-offset construction;
+Eaton's SKU discrepancies, bend radii and tolerances remain unresolved.
+The [goal and sequence](completion-ledger.md#hl35-replacement-candidate)
+record scope, source limits and remaining work. The owner has viewed the latest
+model and requested GPT-6.1 Sol agents at xhigh to work in parallel with the
+parent toward numerical MVP completion. The joint-first sequence uses parallel
+joint-method, timber, floor-contact and independent-review workers; existing
+steel/hardware, panel and access/takeoff results remain reusable.
+The parent owns shared frozen inputs, serialized heavy execution and final
+integration. This review permits candidate-specific analysis; it does not
+select the candidate or establish a physical release.
+
+The owner's latest direction keeps **joint mechanics first** and reuses the
+bulk of floor work. The eight finished footprints, thirty-two normal ports,
+centroid restraint operators and existing audits remain applicable. The old
+and current A12 applied floor wrenches match to rounding; individual-foot
+reactions do not transfer to the changed joint model. No floor rebuild or
+corner refinement is required for joint method and resistance work. Existing
+bolt-yield curves, fitting/washer coefficients, exact timber sections and
+contact/force-recovery fixtures provide the joint starting point. They still
+need admitted current demands and their recorded material/applicability
+conditions before a strength disposition. The failed iterate's large
+rotation and tangential motion also warrant a small-motion applicability
+check; those unaccepted diagnostics are not physical movement predictions.
+Reuse the pure component calculations only after the new linear-face gate
+admits the same immutable field bytes. The older common-shaft wrappers do
+not authenticate this added face law, and the older panel/finite wrappers
+require their different field contracts. The detailed reuse mapping and
+current gaps are in the existing ledger.
+
+The [isolated-joint kinematics](hypotheses/hl35-candidate/thin-frame-comparison/isolated-joint-kinematics-v4.json)
+uses friction-free revolute bolt connectors: three point translations and two
+rotations are constrained, while shaft rotation is free. All twelve single
+fitting duties retain two local free motions; all twelve paired duties retain
+one. These exclude other joints, panel transfer and compression contact, so
+they are not an assembled-frame instability result. The
+[independent method audit](hypotheses/hl35-candidate/thin-frame-comparison/independent-method-audit-v4.json)
+checks the underlying transformations and source census. Static equilibrium
+witnesses, compatible stiffness results and resistance checks remain separate
+evidence gates.
+
+Workers share [authenticated exact solids](hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json)
+from one reconstruction of the reviewed model. The ignored BREP cache contains
+all 883 parts, twenty raw timber profiles and six panel outlines; all 909 files
+were reimported and independently rehashed. It is an active analysis input,
+not a new geometry selection or machining packet.
+
+The issued frame, panel, timber and steel method packets reuse that cache and
+validated helpers. Independent review found four raw leg-foot corners inside
+the existing rear recess. The first coupled state, its equilibrium receipt
+and its steel comparison are preserved as **failed support-geometry evidence**;
+their arithmetic closure does not qualify their physical load routing. The
+[finished-contact audit](hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-geometry-v4.json)
+authenticates all eight finished footprints and confirms all 288 nominal
+flange corners have timber backing. A new driver applies those footprints,
+binds their provenance into a distinct state identity, and reuses the frozen
+mechanics writer. The
+[corrected A12-rear case](hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json)
+passes the independent finished-support and arithmetic gate. Its simultaneous
+panel-screw peak is **2,014.269 N tension / 361.801 N lateral**: generic head
+indices **3.471 at CD1 / 2.169 at conditional CD1.6**. Nominal fitting-steel
+yield reaches **0.539**. These are one first-order, parameterized-stiffness
+case's component diagnostics. Physical shared-shaft behavior, rotation/contact
+applicability, remaining cases and complete resistance checks still need
+evidence before numerical MVP completion.
+Those diagnostics remain usable within their recorded scope: the generic
+panel-head and withdrawal references exceed, while nominal fitting yield is
+below its reference. Reporting that bounded outcome does not require the
+finite framework, and does not complete the changed model's assessment.
+
+The continuous-shaft method now represents all seventy bolts, with separate
+bearing in each of 82 wood and 72 steel spans and 140 own end captures. Its
+seventeen fixtures and source-bound 132-body export gate are ready. The
+[first common-shaft attempt](hypotheses/hl35-candidate/thin-frame-comparison/compatible-common-shaft-a12-rear-v4.json)
+stopped at the Newton iteration limit with residual 21.829 N. It retains
+inputs and failure provenance, with no recovered coefficients or actions;
+it is numerical nonconvergence, not a strength result or instability proof.
+The [stable-energy continuation](hypotheses/hl35-candidate/thin-frame-comparison/compatible-common-shaft-a12-rear-incremental-v4.json)
+now closes each fixed support pattern below 2.3e-7 N, but the centroid-floor
+activation pattern repeats. It remains a failed numerical experiment with no
+accepted coefficients or actions. A separate contact method places horizontal
+restraints at the actual bearing corners, retaining compression-only normal
+contact and the declared no-slip assumption. Its stiffness distribution and
+activation need their own validation; no floor capacity or anchor is inferred.
+Independent review does not establish this refinement as necessary for a
+bounded conditional MVP. The centroid approximation already releases a
+wholly lifted foot; corner activation changes yaw and partial-bearing transfer.
+The finished footprints, normal-port geometry and applicable method checks
+are reusable, but reactions do not transfer across changed mechanics laws.
+
+The finite panel adapter reproduces all six saved reference tangents and all
+66 screw ports. A new circular-shaft method also resolves the bent-shaft
+material-roll artifact without a torsional clamp. Their integrated finite
+response, contact, local curvature/refinement and complete resistance remain
+open. The first finite execution was stopped after review found that removing
+the twelve retained-bolt proxies also removed direct compression between six
+mating timber pairs. Radial shaft bearing and outer end captures do not supply
+that path. The [interruption receipt](hypotheses/hl35-candidate/thin-frame-comparison/finite-a12-rear-omitted-timber-contact-v4.json)
+preserves the frozen inputs and observed iterations; it contains no accepted
+force field. The [targeted query](hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json)
+of eight finished cached timbers found six occupied patches with their bolt
+holes excluded. A validated adapter adds 272 compression-only cells using the
+existing finite connector law, with a declared 1 N/mm³ bedding scenario and
+zero friction/preload. Its independent admission extension and three result
+wrappers are frozen. Its poor saved-initial-guess attempt was stopped and
+preserved. The corrected model's zero-reference attempt has identity
+`thin-finite-v4-ac64687d3665d6a4c818457d`. It was interrupted at the six-hour
+wall limit, exit 130, without an exported coefficient/action field or admission.
+The six-contact omission was an implementation error when replacing the
+retained-bolt proxies, not evidence of physical frame instability.
+Three fixed floor branches reached the residual tolerance. Floor-activation
+feedback changed all three. The fourth branch's last published residual was
+0.000160812 N against 0.00001 N; current equilibrium remains unresolved.
+Two targeted cached leg-section queries show why gross timber stiffness
+cannot be a bound: at the existing recess station, the weaker centroidal
+bending inertia is only 17.2% of gross. Unchanged geometry, access, material
+references and unit-resistance methods continue to be reused. Detailed method
+receipts and the interrupted attempts are in the existing
+[completion ledger](completion-ledger.md#hl35-replacement-candidate).
+Three further [existing receiver sections](hypotheses/hl35-candidate/thin-frame-comparison/timber-service-cut-sections-v4.json)
+now have exact centroid and cross-inertia properties, obtained through the
+same helper without repeating the inventory. At the queried lower-service
+and center-principal sections, the stronger principal bending inertia is
+72.2% of the nominal uncut rectangle. These geometry-only properties are
+available for later same-cut recovery; they do not establish complete member
+compliance or a strength result.
+
+The previous finite A12-rear attempt is closed and will not be restarted.
+The joint-first lean sequence has validated the shared-shaft and restored
+timber-face method paths, their off-axis force recovery and independent
+admission. The floor worker independently authenticated the new failed
+support cycle `2→3→4→2`. The current blocker is finding a self-consistent
+support state under the declared centroid law; this failure does not prove
+the absence of one or physical frame instability. Its one allowed case is
+closed, with the failed field and transcript preserved in ignored output.
+The previous conditional findings and exact hardware/resistance gaps remain
+in scope; old reactions do not supply the changed model's joint demands.
+Existing panel/timber/steel calculations remain gated on the new admitted
+field. Advanced checks and broader cases are deferred unless they can change
+the governing decision. Contact
+cycles, unresolved physical load paths or failed
+applicable criteria stop extension. Selected timber stresses can reuse the
+exact section helper. Washer seating pressure still needs a current own-face patch
+and wrench; the connector's director couple cannot supply that missing input.
+An unadopted DIN 433 M14 factory-washer option fits within the current external
+seat envelope and clears the maximum head fillet when centered. Its larger
+bore, changed bearing footprint and thickness require a seating/stack and
+resistance recheck; no exact researched product yet binds tolerances, numeric
+yield strength and price together. The existing ledger records the primary
+product sources and keeps the reviewed model unchanged.
+The four retained 8-inch leg bolts have an unadopted 8½-inch catalog comparison.
+At its minimum catalog length, the unchanged modeled stack leaves 15.6464 mm
+beyond the nut against the recorded two-pitch minimum of 3.9077 mm. The added
+tips fit inside existing solid socket corridors under the original overlap
+screen; this reuses saved geometry without another CAD query. A reviewed
+bounds-only supplement now covers all added serial extraction regions through
+217.9 mm travel, including other proposed longer tips as obstacles. It reuses
+the old corridors and removes the four leg stacks first. This closes the
+frozen-profile translation gap; delivered thread/shank geometry, seating,
+actual handling and changed mechanics remain open. Details and source limits
+are in the existing ledger.
+General solver optimization and broad arbitrary stiffness sweeps are deferred.
+The reviewed [finite initializer](../../scripts/thin_bolted_finite_seed.py)
+can copy an admitted coordinate vector for later cases when the complete
+prepared coordinate map and body order match. It keeps source and target
+scenarios separate and requires fresh target equilibrium/admission. The
+closed zero-reference attempt did not use it; future orchestration remains
+unimplemented.
+Two narrow post-admission methods are now frozen after parallel author/reviewer
+work: [contact-centre kinematics](hypotheses/hl35-candidate/thin-frame-comparison/timber-contact-centre-kinematics-method-v4.json)
+and the [corrected original-tangent admission wrapper](hypotheses/hl35-candidate/thin-frame-comparison/timber-contact-original-tangent-method-v4.json).
+Their 38 and 53 focused synthetic fixtures passed. They reuse existing poses,
+admission and matrix diagnostics; neither has consumed a candidate field.
+The centre pullback remains a local inverse approximation with a forward
+residual, and numerical tangent directions cannot establish stability.
+
+The [thin-frame raw comparison](hypotheses/hl35-candidate/thin-frame-comparison/mixed-far-hole-raw-v2.json)
+uses **24 B104ZN and 12 B103ZN angles**, all original timber sections, and two
+bottom rails shifted **2 inches upslope**. All 72 flange attachments have full
+raw-wood bore/rectangular-seat support, with no ideal plate/plate or plate/wood
+collisions. They use 58 new physical bolt axes plus the twelve starting frame
+axes. Conditional 5 mm screw bodies remain backed at all 66 locations; four
+axes move from the original layout and eight differ from the reviewed block
+layout. Brackets alone list at **$174.84 / 25.44 lb**; the twenty raw frame
+members are **240.89 lb at 500 kg/m³**, excluding panels and hardware. These
+are nominal raw-geometry results, not an integrated-model, access or strength
+pass. Shared rail bores require explicit rotational/contact behavior, and
+the lower-rail shift needs a panel-edge support calculation. The preceding
+B102-only trial's eight collisions remain preserved.
+
+The [revised occupied comparison](hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json)
+separates the four outer-header fitting rows by a local 18 mm shift, proposes
+fourteen smaller SAE washers, and routes all 131 wires through shallow,
+front-open timber channels at the retained LED endpoints. All 72 flange bores
+and seats and 140 washer seats outside intentional openings are supported;
+the checked steel/steel, steel/wood, steel/screw and service intersections are
+zero. These are conditional CAD results, not joint resistance or verified
+removal access. The original centered wire passages are not cut in this new
+timber proposal. Existing frozen failures remain unchanged.
+
+The preserved panel geometry uses **CAT 23/32 inch (18.25625 mm)** plywood;
+the owner described it as **3/4 inch**. The first screw-backing comparisons
+used nominal 19.05 mm panels and 44.45 mm penetration. The
+[integrated model evidence](hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json)
+now checks the full 45.24375 mm penetration at the preserved thinner panels:
+**66/66** conditional screw bodies have receivers in both thickness scenarios.
+Panel outlines are retained; all 142 T-nut, 132 LED and 66 mounting openings
+are rebuilt at their current world datums. Actual thickness, screw-body
+profile and head height have not been measured.
+
+The latest viewer option is **Thin bolted frame**: twenty original-size frame
+members, six panels, 36 fittings, 70 complete bolt stacks, 66 Hillman screw
+envelopes and 405 service bodies. Its lossless 6.98 MB gzip scene preserves
+every byte of the 15.16 MB raw export; unchanged lights and T-nuts share
+existing source assets. The raw export is ignored and recoverable without CAD
+using `scripts.thin_bolted_viewer_transport --restore-raw`. File-backed checks
+verify all 883 visible parts and reject invalid census, transforms, stack roles
+and hashes. They used existing bundled Three.js r184 geometry; the browser
+viewer uses its existing r161 import. No browser/WebGL launch was possible in
+this environment. Joint strength and physical access remain unqualified.
+
+For a local Windows browser, start the viewer from a WSL terminal:
+
+```sh
+python3 -m http.server 8767 --bind 127.0.0.1 --directory /home/mckay-linux/repos/mini-moonboard/site
+```
+
+Then open
+`http://localhost:8767/index.html?model=thin-bolted-development`.
+The agent's sandbox blocked server sockets, so it did not leave a server
+running. The updated option and data are local; no remote publication occurred.
+
+The owner prioritizes cost while retaining adequate strength and dimensional
+fit. Compare complete installed joint costs, including bracket quantity,
+through-bolts, nuts/washers, stock changes and shipping. Current Eaton
+comparison listings range from $3.53 for B103ZN to $6.92 for B115ZN; the
+cheaper BR904 and more expensive specialized fittings remain comparison
+leads, not selected details.
+The ledger records current prices and quantity sensitivities.
+
+**The earlier overnight HL35 attempt remains unqualified.**
+`compact-floor-flush-hl35-development` is now a separate, unadopted development
+candidate, preserving the selected baseline and reviewed wood-joint authority.
+Its [preserved v8 proposal](hypotheses/hl35-candidate/counterbore-fit-v8/README.md)
+maps 24 former block duties to 22 joints with **30 HL35s / 112 planning bolt
+axes / 66 Hillman screws**. Complete checked angle, metal, screw and service
+clashes now clear. **Four lower corner joints still need revision:** after
+washer recesses only **112/120** receiving-wood probes and **52/60** nominal
+flange seats meet the full-support comparison. The eight affected seats retain
+about 86–87% bearing area; no reduced-area resistance is established.
+
+Earlier v7 zero-clash and wood-support claims covered a narrower subset.
+Its supplemental tip check found eight angle contacts and four unrelated-timber
+contacts. V8 clears those contacts with deeper seats and adds the missing
+post-recess wood assessment; it does not inherit the narrower pass.
+Eight screw shifts, three wire proposals and changed stock/stacks remain confined
+to this candidate. All distinct failed inputs and original authorities remain
+preserved.
+
+This is **REVISE / UNQUALIFIED**. Fourteen single-angle ends still need complete
+reverse/contact and force/moment paths. Actual hardware, machining/access,
+net wood sections and candidate-specific forces remain open. The sixteen
+receivers alone are roughly **342 lb at an assumed 500 kg/m³**, excluding
+legs/runners, panels and hardware. No native solve or release exists.
+The owner's thinner-frame direction supersedes further development of this
+enlarged-stock layout. Its four failed lower interfaces and remaining
+engineering gates stay recorded; their results cannot qualify a successor.
+Read the [HL35 development entry](completion-ledger.md#hl35-replacement-candidate).
+
+**An aluminum-extrusion alternative is under consideration.** The owner has
+bought no structural wood and proposed a demountable frame based on a Mini
+MoonBoard video. Supplied creator comments identify SUS SF-series 40×40 mm
+profiles, supplied cut to length by Frame DIY Lab; exact sections, connectors
+and frame drawings remain unknown. The owner describes an outer cube containing
+the sloped board. An audit of the assumed 2.6 m cube gives **64.969 m / 56
+pieces** after one explicit butt-joint end-offset example, or **62.7306 m / 52
+pieces** if a suitable detail can share the kicker-top/sloped-face-bottom row.
+The original 55–70 m range remains a planning sensitivity, not validated bounds.
+Eleven 6 m sticks fit the assumed pieces with 3 mm kerf; a conservative end-trim
+packing example uses twelve for the separate-row case. Current Framing Tech
+list prices put **11–12 sticks at $1,925–2,340 for extrusion alone**, depending
+on section; cutting, hardware, freight and tax are additional. Parco bundles
+and AutomationDirect short members provide further comparisons. Reusing the
+original whole-frame allowances at the audited lengths gives **$2,600–3,700**
+for the assumed TNUTZ price scaling and **$4,500–6,200** for 80/20 examples.
+The SUS 40×40 example gives **250–280 lb** of frame including assumed hardware;
+its US price remains unquoted. Each profile has its own mass and section
+properties. These are concept quantities, not an observed video inventory or
+a configured supplier quote. The video/screenshot attempt remains unsuccessful.
+This is a separate, unselected concept retaining the owned plywood. Next work
+needs actual room/video dimensions and member counts, a matched supplier quote,
+connector evidence, panel attachment/support and stability checks at the
+original 250 lb envelope. See the
+[aluminum alternative](completion-ledger.md#quantity-audit-and-lower-cost-suppliers).
+
+**The corrected 250 lb assessment remains the design basis and does not pass.**
+The owner clarified that a full 145 lb evaluation is unnecessary; the completed
+145 lb subset below remains a secondary comparison. At the corrected 250 lb
+clearance-law basis, head pull-through is **2.373 at CD1.0 / 1.483 at conditional
+CD1.6**, net rolling shear is **1.542**, and the supported bolt maximum is
+**1.053**. The development recommendation is to revise panel load transfer and
+central receiver/joint details, while completing the applicable resistance and
+contact methods. Tested screw redistribution and added screws did not supply
+a passing remedy. No revised geometry or hardware is selected.
+
+**The owner's 145 lb comparison improves the supported numerical results.**
+It retains the 2× downward multiplier, 300 N horizontal force, 100 mm hold lever
+and source dead/accessory loads. Twelve source-available fields satisfy the
+original physical gates. Peak head tension falls to **858.820 N**, giving
+**1.480 at CD1.0 / 0.925 at conditional CD1.6**; normal-duration pull-through
+still exceeds its reference. Net rolling shear falls to **0.957**, and the
+supported scalar bolt maximum to **0.687**, with zero exceedances in those
+comparisons. Two source-unavailable floor states remain unassessed at 145 lb.
+The 250 lb envelope remains preserved.
+
+The central post's NDS transverse-component maximum remains **1.758**, with
+two definite exceedances. Relocating two existing screws reduces head tension
+to **774.746 N**, but its **1.335 CD1.0** comparison still exceeds. The tested
+98-screw fallback gives **1087.824 N / 1.875 CD1.0**, also exceeding conditional
+CD1.6 at **1.172**. Neither layout is adopted.
+
+Fresh single washers have
+**8/144 selected-end exceedances, maximum 1.512** against assumed Fy250;
+doubled stacks have **0/144, maximum 0.817**. This refreshes twelve selected
+ends across twelve states, not the full washer census, and retains bolt-fit
+limits. Independent
+validation authenticates 22 packets
+and 1635 file bindings. The contact coupon is method evidence and establishes
+no splitting capacity. Next work needs applicable screw-head/seating evidence,
+a complete revised central-receiver detail and actual bolt/thread windows.
+Read the
+[145 lb comparison](completion-ledger.md#145-lb-owner-weight-comparison).
+
+**The preserved 250 lb screw-layout remedies did not resolve the panel comparisons.**
+The owner confirmed that only the plywood panels have been cut; their mounting
+holes are undrilled. Redistribution of the existing 66 screws reduced peak head
+tension by only **0.44%**. The owner-authorized fallback adds eight screws on
+each main panel, two per edge: **98 total**, with 18 kicker screws unchanged.
+Two separately frozen 98-screw layouts were evaluated. The revised placement
+has twelve accepted fields, but peak head tension increases from **1.377 to
+1.871 kN**; its Group 1 head comparison is **3.225 at CD1.0 / 2.015 at CD1.6**,
+net rolling shear **1.543**, and bolt reference maximum **1.395**. Extra screws
+do not establish improved load sharing in these trials. These are unadopted
+development results; reviewed authority, the selected-baseline shop schedule
+and release flags remain unchanged. Read the
+[development remedy record](completion-ledger.md#development-remedies-after-method-corrections).
+
+**The preserved 250 lb corrections use the owner's Group 1, sanded A-C plywood.**
+APA's applicable head
+pull-through equivalent specific gravity is **0.50**. At the horizontal-panel
+forces, the 9 mm head comparison is **2.373 at CD1.0 / 1.483 at CD1.6**, with
+CAT 23/32 thickness and the explicit unmeasured 3 mm flush-head assumption.
+The previous **3.364 / 2.102** branch used ESG0.42 before the grade report;
+its frozen result remains preserved. The
+[corrected results and remaining remedies](completion-ledger.md#owner-input-corrections-and-recalculated-comparisons)
+record twelve accepted force fields, corrected bolt catalog identity, actual
+two-plate washer calculations and stresses integrated only over wood outside
+the cleat bores. Net rolling shear remains **1.543 at CD1.0** at the original
+horizontal force basis. The proposed 9 mm top-side bore-clearance response has
+**four bolt exceedances, maximum 1.053**; its top-side subset is **0.940**.
+It does not include bore-void stiffness changes. A same-diameter Grade 8
+sensitivity removes one bottom-axis exceedance at that force basis but leaves
+the timber-controlled front comparisons exceeding.
+
+At the preserved 250 lb force basis, doubling twelve selected washer ends gives
+**zero exceedances / maximum 0.992**
+against assumed Fy250 at the saved wider-profile forces. This requires twelve
+additional washers across seven axes and does not include changed global
+forces. Three leg bolt stacks cannot guarantee full nut engagement at the
+listed 8-inch length tolerance; all delivered thread windows remain unverified.
+The specified 5/16-inch top-side shafts also cannot fit eight reviewed 7.5 mm
+host bores. Static catalog screens identify 8½-inch leg and 4¼-inch front bolt
+profiles that improve the doubled-stack fit; delivered body and full-form
+thread windows remain unverified. The later 145 lb exact STEP screen finds
+static member clearance for the longer front tip; actual metal and installation
+access remain open. No CAD or order change is selected.
+Corrected left/right splitting diagnostics are **14.583 / 12.985** against
+unmeasured Ft90=0.5 MPa. The subsequent load-mapping audit finds bulk-wood
+force spreading without a compression-only bore-wall pressure law. These
+values therefore retain loading-footprint, stress-convergence and material
+limits; they do not establish splitting resistance. No geometry change or
+structural acceptance is selected.
+
+A **19.05 mm whole-cleat translation** is prepared for the two central
+receivers. Its favorable **0.777** loaded-edge sensitivity holds an old force
+fixed and is not a fresh joint result. The complete map identifies **40 moved
+bolt/contact ports**, cleat gravity and deferred hardware gravity; fresh
+equilibrium and finished-bore/contact checks remain unperformed. Parent
+validation authenticates **32 packets, 4,970 source bindings and 163 outputs**,
+independently reproduces the grade and bolt arithmetic, and passes a known
+answer for added dead load with unchanged port count. See the
+[validation and remaining actions](completion-ledger.md#remedy-validation-and-retention).
+
+**The preceding reduced desktop assessment remains complete, with saved source
+and arithmetic checks.**
 The owner adopted the [reduced scope](completion-ledger.md#proposed-reduced-numerical-scope)
 for the reviewed 104-axis model. All **30 duties, eight joint families and 44
 wood receivers** now have signed current-demand, load-path, geometry/detail,
 reference and next-action dispositions: **22 conditional layout retentions,
 zero revisions and eight unresolved decisions**. Retaining a layout does not
-establish complete joint resistance. No new native diagnostic was selected or
-executed; the review reused completed calculations.
+establish complete joint resistance. That desktop review reused completed
+calculations; the later owner-requested corrections above have their own runs
+and evidence, and do not rewrite its frozen disposition.
 
 Read the [30-duty decision table](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md#reduced-desktop-assessment)
 and [governing questions](completion-ledger.md#reduced-assessment-results).
@@ -24,7 +458,7 @@ loaded-edge/group applicability, four final stock-reference bindings, actual
 Hillman/head/plywood resistance and prestressed stability remain exact limits
 on the retained layouts too. No geometry change is selected.
 
-The current wider/thicker-washer force basis covers fourteen dispositions:
+The preserved wider/thicker-washer assessment force basis covers fourteen dispositions:
 **twelve audited accepted fields and two zero-gap floor-search limits** with
 no demand fields. Its final actions and eight current consumer packets are
 joined explicitly. Parent saved-arithmetic checks independently reproduce the
@@ -35,7 +469,7 @@ or overstated acceptance claim. Current finished-member comparisons retain
 reference exceedances, with geometry and peak-convergence limits.
 
 The wider/thicker eight-washer profile is already included in that model.
-Current washer fields have **2,400 finite / 96 source-geometry-limited ends**,
+Its original single-washer fields have **2,400 finite / 96 source-geometry-limited ends**,
 with **18 hypothetical Fy250 exceedances**, including four widened top-rail
 ends, maximum widened index **1.223**. The earlier successful 48-field retail
 comparison retains its original forces. Current shaft recovery completes
@@ -46,7 +480,11 @@ its governing head tension only **0.14%** and does not qualify this assembly.
 
 Surrounding-frame restraint is included in the completed coupled cleat controls:
 the matched left peak falls **23.19%**, while its initiation reference remains
-exceeded. Left/right pilots, six intact post controls and twelve saved post
+exceeded in that numerical model. The subsequent
+[method audit](completion-ledger.md#method-audit-of-the-reported-exceedances)
+finds its governing sample **0.778 mm inside the exact bolt-hole void**;
+neither that peak nor its reduction establishes actual-wood initiation.
+Left/right pilots, six intact post controls and twelve saved post
 region averages retain their state and method limits. Small growth-energy
 indices and averaged stresses do not establish splitting capacity. Both leg
 ends and the actual 1:12 recess are included in the desktop review. The motion
@@ -67,6 +505,20 @@ records its validated `reduced_assessment` separately from the open legacy
 extension. No-slip floor support remains an unverified
 analytical assumption. This work claims no physical inspection or build release.
 
+The [online/source audit](completion-ledger.md#method-audit-of-the-reported-exceedances)
+independently reproduces the reported ratios and separates design references
+from indentation, local strip/path and hypothetical first-yield indices.
+At its original forces, the unknown-ply-species NDS `G=0.42` head branch gives
+**2.931**, rather than the favorable `G=0.50` value 2.068. All 200 normal and 240 shear member
+exceedances lie at sections of at most 1 mm²; 174 shear exceedances remain
+elsewhere, with their governing sampled peaks changing 25–30% under recorded
+refinement. The subsequent connection-component screen retains **16 unique
+loaded-edge exceedances, maximum 2.264**, at that preserved force basis. The
+later recalculations above replace the doubled-washer estimate and invalid
+left bore-void stress interpretation. Frozen evidence and release gates remain
+unchanged; local punching-strip and two-ray edge-out values retain no supported
+independent capacities.
+
 The **conditional model/shop packet is complete within its recorded scope**.
 **Complete structural acceptance remains unresolved: all 47 formal criteria
 remain pending and all eight release flags remain false.** Read the
@@ -82,8 +534,10 @@ complete joint resistance or fabrication/climbing acceptance.
 | --- | ---: | ---: | --- |
 | Reviewed 104-axis basis | 104 / 104 | 208 | Reviewed authority and preserved analytical/shop record |
 | [Knee-bridge working packet](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md) | 108 / 108 | 216 | Complete conditional four-bolt proposal; **unadopted** |
+| [Doubled-washer calculation](completion-ledger.md#owner-input-corrections-and-recalculated-comparisons) | 104 / 104 | 220 conditional | Twelve additional washers; bolt-fit corrections required; **unadopted** |
 
-Both retain 24 blocks, 44 timber blanks, 50 transport bodies and 66 purchased
+The reviewed basis and knee proposal retain 24 blocks, 44 timber blanks,
+50 transport bodies and 66 purchased
 Hillman panel/kicker screws. The proposal adds two transverse bolts in each
 outer knee spine. Its forces, geometry and order are identified separately;
 it does not replace the reviewed [candidate contract](../../wood-joints-candidate.json).
@@ -100,6 +554,7 @@ the proposal has its own [drawing](hypotheses/mvp-resume-2026-10-01/upper-corner
 | --- | --- |
 | What completed, and what remains unresolved? | [Joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md) |
 | Which checks have actual results, exceedances or method limits? | [Full assessment index](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/full-assessment-index.md) |
+| What changed after the owner's panel measurements and online audit? | [Corrected comparisons and reproduction](completion-ledger.md#owner-input-corrections-and-recalculated-comparisons) |
 | Which actions apply to the 104-axis basis? | [Working force register](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/working-joint-register.md) |
 | Which actions and parts apply to the proposal? | [108-axis packet and source index](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md) |
 | What is known about splitting? | [All-joint demand/path assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/README.md) |

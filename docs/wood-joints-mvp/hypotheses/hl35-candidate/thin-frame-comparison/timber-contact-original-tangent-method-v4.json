@@ -1,0 +1,115 @@
+{
+  "schema": "thin_bolted_timber_contact_original_tangent_method/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_timber_contact_tangent.py": "f0fccad698ea0b0b1e035fe1eea639176397f2e76bf0ceb4d60b3b66304b9b3d",
+    "tests/test_thin_bolted_timber_contact_tangent.py": "668118d42ebee65a535f3df0cf4a7beabaffa4ee9411c7c9c526458e41b53ef8",
+    "scripts/thin_bolted_original_tangent_diagnostics.py": "d5870a32dc6a993d9fa4a494f304e9db900e6a0a7d70e6cf748da98e856cf281",
+    "scripts/thin_bolted_timber_contact_admission.py": "75011f4cfa042a46d8e45eb5716ae01df2edff3418b1439553afb04b14b14632",
+    "scripts/thin_bolted_finite_newton.py": "039282fa1c06d90b5e899c1c69c2920c003b42db1a8600e390a7a2d9aca75afe",
+    "scripts/thin_bolted_isotropic_shaft.py": "be8e5277999aa2ce01b4a8d81c0e9124dad9dc6023712c13e91595600c1c027a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-contact-admission-method-v4.json": "5b65487cdc442c11a3abb2b67f4ba8829176dd32892e3ceb3e1fb75203c6c7fc",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/original-tangent-diagnostic-method-v4.json": "22dc4f23975634bcf04381062941cebdf39ec4357f41ce9f69b1b566bd028abf"
+  },
+  "api": {
+    "module": "scripts.thin_bolted_timber_contact_tangent",
+    "function": "diagnose_timber_contact_tangent",
+    "positional_arguments": [
+      "original_fields",
+      "original_q",
+      "immutable_field_bytes",
+      "immutable_already_issued_admission_bytes"
+    ],
+    "required_keyword_arguments": [
+      "admission_receipt_sha256",
+      "quotient"
+    ],
+    "optional_keyword_arguments": [
+      "options",
+      "directions"
+    ],
+    "caller_supplies_original_physical_H_on_the_unchanged_admitted_q_and_floor_branch": true
+  },
+  "validation": {
+    "fixture_count": 53,
+    "focused_fixtures_passed": true,
+    "ruff_passed": true,
+    "independent_review": "Access worker independently ran the original 44 focused fixtures, demonstrated wrong interior-node mapping and overridden-budget bypasses before freeze, and verified the fixes with the nine added guard regressions plus Ruff. Parent reviewed the frozen generator and wrapper bindings and accepted bounded readiness.",
+    "commands": [
+      [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_thin_bolted_timber_contact_tangent.py"
+      ],
+      [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/thin_bolted_timber_contact_tangent.py",
+        "tests/test_thin_bolted_timber_contact_tangent.py"
+      ]
+    ],
+    "environment": {
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "synthetic_small_matrices_maps_and_stubbed_admission": true,
+    "production_132_body_gate_or_candidate_field_exercised": false,
+    "checks": [
+      "Known positive, negative and skew matrix work through the existing pure diagnostic",
+      "Immutable field and explicit raw receipt SHA with current corrected readmission",
+      "Exact unchanged full q, original gradient and energy, floor branch, source and tangent flags",
+      "Actual frozen quotient and isotropic-adapter classes with all 70 shaft identities, complete node indices, storage bases and first-twist indices",
+      "Frozen generator/state/work/budget bindings before and after search; full original material-roll work respects unchanged numerical budgets",
+      "Full real finite square original H fingerprint and q/gradient/response/source mutation checks",
+      "Every one of 272 zero/loaded timber-face branch margins retained"
+    ]
+  },
+  "tool_versions": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "ruff": "0.16.6"
+  },
+  "reuse": {
+    "pure_frozen_functions": [
+      "quotient_indices",
+      "diagnose_matrix",
+      "contact_context"
+    ],
+    "obsolete_diagnose_admitted_tangent_called_or_patched": false,
+    "fixed_corrected_admission_source_sha256": "75011f4cfa042a46d8e45eb5716ae01df2edff3418b1439553afb04b14b14632",
+    "prior_authenticated_geometry_physics_load_and_132_body_proof_reused": true,
+    "no_duplicate_physics_or_source_inventory": true
+  },
+  "original_response_guards": {
+    "full_gradient_limit_n": 1e-05,
+    "saved_gradient_rtol": 1e-10,
+    "saved_gradient_atol": 1e-10,
+    "saved_energy_difference_budget": "32*float64_epsilon*(abs(original_energy)+abs(saved_energy))+1e-12 Nmm",
+    "q_exactly_equal_to_admitted_q": true,
+    "disabled_and_enabled_floor_XY_ids_exact": true,
+    "physical_tangent_requested_and_zero_H_placeholders_rejected": true,
+    "shaft_elasticity_replaced_once_and_no_added_twist_support": true,
+    "all_response_source_pins_match_field_and_disk": true,
+    "actual_70_shaft_map_and_frozen_roll_implementations_required": true
+  },
+  "candidate_field_consumed_or_admitted": false,
+  "CAD_K_tangent_response_or_native_candidate_execution_performed": false,
+  "q_canonicalized_projected_or_H_physically_regularized": false,
+  "source_or_test_bytes_changed_after_independent_review": false,
+  "limits": [
+    "The original H is supplied by the parent, who owns source-bound reconstruction on the exact admitted q and recorded floor branch. This wrapper does not independently reassemble H.",
+    "The existing symmetric quadratic search inspects the unchanged original matrix through a separate search copy. Sparse Ritz values and intervals are numerical diagnostics, not certified global lower bounds.",
+    "Positive or partial Ritz output does not establish physical stability, tangent accuracy, complete resistance or candidate acceptance.",
+    "Contact kink margins describe the saved branch; they do not prove adjacent-branch stability.",
+    "No candidate field, physical response or original tangent has been evaluated by these focused synthetic fixtures."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "schema": "thin_bolted_cap_head_unit_reference/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "status": "CONDITIONAL_CHANGED_HEAD_FACE_INPUT_UNIT_REFERENCE",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/steel-resistance-methods-v4.json": "d00ff10eb875c0d093f6c0e811a7b1e2ef850f6d3ec846b6b910eb2c4cdabf19",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/thin_bolted_cap_head_reference.py": "4f4ecf86825bd131e38e50435c8c3451b91194fb572ef238b4fca630d18c73df"
+  },
+  "standard_source": {
+    "url": "https://www.wanhong-fastener.com/wp-content/uploads/2025/04/ASME-B18.2.1-2012.pdf",
+    "edition": "ASME B18.2.1-2012",
+    "clause": "4.3, printed page9/PDF page18; Table6 and Table10",
+    "maximum_half_inch_cap_AF_in": 0.75,
+    "face_min_factor": 0.9,
+    "derived_minimum_face_diameter_mm": 17.145,
+    "diameter_gaging_offset_toward_head_mm": 0.1016,
+    "maximum_underhead_fillet_diameter_mm": 13.97,
+    "source_pdf_byte_hash_available": false,
+    "actual_product_conformance_or_contact_circle_verified": false
+  },
+  "ends": [
+    {
+      "axis_id": "thin_factory_bolt_025",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_028",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_031",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_034",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_037",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_040",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_043",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_046",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_049",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_052",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_055",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    },
+    {
+      "axis_id": "thin_factory_bolt_058",
+      "role": "head_washer",
+      "support_material": "steel",
+      "profile_id": "cap-half-face17.145-opening14.2875-thickness1.8795999999999997"
+    }
+  ],
+  "profiles": {
+    "cap-half-face17.145-opening14.2875-thickness1.8795999999999997": {
+      "assumed_circular_bearing_diameter_mm": 17.145,
+      "support_opening_mm": 14.2875,
+      "minimum_washer_thickness_mm": 1.8795999999999997,
+      "tolerance_corner_comparisons": [
+        {
+          "status": "prescribed_two_face_axisymmetric_elastic_diagnostic",
+          "axial_n": 1.0,
+          "sampled_bending_peak": {
+            "radius_mm": 6.6802,
+            "radial_stress_mpa": -0.0,
+            "hoop_stress_mpa": -0.18474680860834428,
+            "von_mises_mpa": 0.18474680860834428
+          },
+          "required_fy_mpa_at_sampled_bending_first_yield": 0.18474680860834428,
+          "matrix_residual": 6.505213034913027e-19,
+          "outer_free_shear_residual_n_per_mm": -5.810673123218812e-18,
+          "thickness_to_radial_width": 0.27977315689981097,
+          "radial_bridge_width_mm": 0.4635499999999997,
+          "numeric_product_fy_mpa": null,
+          "actual_head_nut_bearing_circle_verified": false,
+          "own_end_moment_included": false,
+          "nonlinear_contact_solved": false,
+          "steel_through_thickness_bearing_and_local_shear_checked": false,
+          "source": "https://ocw.mit.edu/courses/2-080j-structural-mechanics-fall-2013/de27f1d8f647ff995771d4b8d48d34bc_MIT2_080JF13_Recitation5.pdf",
+          "complete_joint_acceptance": false,
+          "id_mm": 13.3604,
+          "od_mm": 26.796999999999997
+        },
+        {
+          "status": "prescribed_two_face_axisymmetric_elastic_diagnostic",
+          "axial_n": 1.0,
+          "sampled_bending_peak": {
+            "radius_mm": 6.6802,
+            "radial_stress_mpa": -0.0,
+            "hoop_stress_mpa": -0.19340053209893565,
+            "von_mises_mpa": 0.19340053209893565
+          },
+          "required_fy_mpa_at_sampled_bending_first_yield": 0.19340053209893565,
+          "matrix_residual": 4.336808689942018e-19,
+          "outer_free_shear_residual_n_per_mm": -6.0144597635591876e-18,
+          "thickness_to_radial_width": 0.2614840989399293,
+          "radial_bridge_width_mm": 0.4635499999999997,
+          "numeric_product_fy_mpa": null,
+          "actual_head_nut_bearing_circle_verified": false,
+          "own_end_moment_included": false,
+          "nonlinear_contact_solved": false,
+          "steel_through_thickness_bearing_and_local_shear_checked": false,
+          "source": "https://ocw.mit.edu/courses/2-080j-structural-mechanics-fall-2013/de27f1d8f647ff995771d4b8d48d34bc_MIT2_080JF13_Recitation5.pdf",
+          "complete_joint_acceptance": false,
+          "id_mm": 13.3604,
+          "od_mm": 27.7368
+        },
+        {
+          "status": "prescribed_two_face_axisymmetric_elastic_diagnostic",
+          "axial_n": 1.0,
+          "sampled_bending_peak": {
+            "radius_mm": 6.9342,
+            "radial_stress_mpa": -0.0,
+            "hoop_stress_mpa": -0.18077577083651236,
+            "von_mises_mpa": 0.18077577083651236
+          },
+          "required_fy_mpa_at_sampled_bending_first_yield": 0.18077577083651236,
+          "matrix_residual": 2.168404344971009e-19,
+          "outer_free_shear_residual_n_per_mm": -1.1621346246437624e-17,
+          "thickness_to_radial_width": 0.2907662082514735,
+          "radial_bridge_width_mm": 0.20955000000000013,
+          "numeric_product_fy_mpa": null,
+          "actual_head_nut_bearing_circle_verified": false,
+          "own_end_moment_included": false,
+          "nonlinear_contact_solved": false,
+          "steel_through_thickness_bearing_and_local_shear_checked": false,
+          "source": "https://ocw.mit.edu/courses/2-080j-structural-mechanics-fall-2013/de27f1d8f647ff995771d4b8d48d34bc_MIT2_080JF13_Recitation5.pdf",
+          "complete_joint_acceptance": false,
+          "id_mm": 13.8684,
+          "od_mm": 26.796999999999997
+        },
+        {
+          "status": "prescribed_two_face_axisymmetric_elastic_diagnostic",
+          "axial_n": 1.0,
+          "sampled_bending_peak": {
+            "radius_mm": 6.9342,
+            "radial_stress_mpa": -0.0,
+            "hoop_stress_mpa": -0.1894962552473212,
+            "von_mises_mpa": 0.1894962552473212
+          },
+          "required_fy_mpa_at_sampled_bending_first_yield": 0.1894962552473212,
+          "matrix_residual": 8.673617379884035e-19,
+          "outer_free_shear_residual_n_per_mm": -3.0072298817795938e-18,
+          "thickness_to_radial_width": 0.27106227106227104,
+          "radial_bridge_width_mm": 0.20955000000000013,
+          "numeric_product_fy_mpa": null,
+          "actual_head_nut_bearing_circle_verified": false,
+          "own_end_moment_included": false,
+          "nonlinear_contact_solved": false,
+          "steel_through_thickness_bearing_and_local_shear_checked": false,
+          "source": "https://ocw.mit.edu/courses/2-080j-structural-mechanics-fall-2013/de27f1d8f647ff995771d4b8d48d34bc_MIT2_080JF13_Recitation5.pdf",
+          "complete_joint_acceptance": false,
+          "id_mm": 13.8684,
+          "od_mm": 27.7368
+        }
+      ],
+      "unit_axial_two_face_bending": {
+        "status": "prescribed_two_face_axisymmetric_elastic_diagnostic",
+        "axial_n": 1.0,
+        "sampled_bending_peak": {
+          "radius_mm": 6.6802,
+          "radial_stress_mpa": -0.0,
+          "hoop_stress_mpa": -0.19340053209893565,
+          "von_mises_mpa": 0.19340053209893565
+        },
+        "required_fy_mpa_at_sampled_bending_first_yield": 0.19340053209893565,
+        "matrix_residual": 4.336808689942018e-19,
+        "outer_free_shear_residual_n_per_mm": -6.0144597635591876e-18,
+        "thickness_to_radial_width": 0.2614840989399293,
+        "radial_bridge_width_mm": 0.4635499999999997,
+        "numeric_product_fy_mpa": null,
+        "actual_head_nut_bearing_circle_verified": false,
+        "own_end_moment_included": false,
+        "nonlinear_contact_solved": false,
+        "steel_through_thickness_bearing_and_local_shear_checked": false,
+        "source": "https://ocw.mit.edu/courses/2-080j-structural-mechanics-fall-2013/de27f1d8f647ff995771d4b8d48d34bc_MIT2_080JF13_Recitation5.pdf",
+        "complete_joint_acceptance": false,
+        "id_mm": 13.3604,
+        "od_mm": 27.7368
+      }
+    }
+  },
+  "limits": [
+    "This is a new assumed circular head footprint; the standard's gaged diameter does not establish actual contact pressure.",
+    "The small washer ID13.3604..13.8684mm is below the allowed maximum fillet diameter13.97mm; actual seating/chamfer/fillet requires reconciliation.",
+    "The two small nut washers retain unresolved nut-face geometry and are outside this head-only scenario.",
+    "Same-end moments, unilateral contact, thick-washer/local bearing and numeric washer yield remain unresolved."
+  ],
+  "native_or_CAD_execution": false,
+  "prior_unit_responses_recomputed": false,
+  "complete_joint_acceptance": false,
+  "fabrication_release": false,
+  "climbing_release": false
+}

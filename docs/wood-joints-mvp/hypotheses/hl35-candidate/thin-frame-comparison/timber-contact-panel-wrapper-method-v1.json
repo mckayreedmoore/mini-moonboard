@@ -1,0 +1,102 @@
+{
+  "schema": "thin_bolted_timber_contact_panel_wrapper_method/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_timber_contact_panel_checks.py": "edc464a23dccda98dd7c6bcf73a1098c936eb7a46c2c77900ab0917d66e341ca",
+    "tests/test_thin_bolted_timber_contact_panel_checks.py": "a611e53decae6dc77bc5a410e28561a9fa616ca8be9c8cc5c055da83c2f54d94",
+    "scripts/thin_bolted_finite_panel_consumer.py": "e41c1efefddfdce5e7bceee594f7fb2608b45edae69d368a1ae728a3b552210b",
+    "tests/test_thin_bolted_finite_panel_consumer.py": "15d1f1adbb1680364fefa79e98f73c5fb9bc24edf986c24bc3fab103feb80ce9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-panel-consumer-method-v1.json": "893a50c558dbfda3909f43a822e2d7cbee050454dee46d7e7fae31abf88c50bc",
+    "scripts/thin_bolted_finite_kinematics.py": "4d5467818a211f34c00aa897f1d0d64bc6c21dad07c2537a79c027820159174c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-kinematics-method-v4.json": "23d07e105b28cda1e6c4de82c63721eea53930bb19a35fb41f71adec424fd921",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_finite_panel_adapter.py": "c0e2534158d10ca49e6e1ee20db7b8a7e72b746b49618a18bf5ab08a9526064b",
+    "scripts/thin_bolted_finite_plate.py": "2b0de347d0ef35d08ab7a8d4078fa2e26a50cee6e7c2f708560dd1f0979b9180",
+    "fea/generated/thin-bolted-panel/operators-intervals8.npz": "2b97d8c1741a0fbef119eb00b3f43bdf5f76e802b4851962a62fc555f1813468",
+    "fea/generated/thin-bolted-panel/operators-intervals8.json": "aeeb9b6ccd2c521896b32012ccbf9712fd67cdb7d0744e06d88afa4fd3f441d4"
+  },
+  "reused_transitive_dependency_pin_count": 33,
+  "reused_transitive_dependency_pins_canonical_sha256": "4411b660eb5252966147a5151384d8e65a88f2f09d8264fd4fdc3f5bfe3a4057",
+  "reused_transitive_dependency_pin_recipe": "merge_pins(thin_bolted_timber_contact_panel_checks.PINS, thin_bolted_finite_kinematics.source_pins())",
+  "API": {
+    "panel": "evaluate(field_path, samples=41, *, admission_sha256)",
+    "local_kinematics": "evaluate_local_kinematics(field_path, *, admission_sha256)",
+    "fixed_new_gate_module": "scripts.thin_bolted_timber_contact_admission",
+    "fixed_new_gate_source": "scripts/thin_bolted_timber_contact_admission.py",
+    "fixed_new_gate_API": "audit_timber_contact_state(immutable field bytes)",
+    "fixed_new_gate_receipt_schema": "thin_bolted_independent_timber_contact_admission/v1",
+    "fixed_new_gate_success_key": "independent_finite_timber_contact_support_load_and_equilibrium_checks_pass",
+    "reviewed_gate_SHA256_mandatory_runtime_pin": true,
+    "gate_pin_not_inferred_or_replaced_by_old_gate": true,
+    "outer_field_schema": "thin_bolted_finite_frame_response/v1"
+  },
+  "delegation": {
+    "panel_reader": "frozen MappedFinitePanel",
+    "current_screw_forces_and_generic_references": "frozen current_screw_diagnostics",
+    "Green_covariant_and_reference_section_diagnostics": "frozen section_diagnostics",
+    "two_generalized_load_terms": "frozen correction_diagnostics",
+    "optional_local_measures": "frozen thin_bolted_finite_kinematics.evaluate_map",
+    "old_gate_evaluate_entry_points_used": false,
+    "new_wood_contacts_become_panel_screw_or_load_identities": false
+  },
+  "fixed_panel_scope": {
+    "basis_intervals": 8,
+    "panel_backing_contact_count": 530,
+    "Hillman_axes": 66,
+    "panels": 6,
+    "generalized_correction_rows": 12,
+    "new_timber_contact_rows_admitted_separately": true,
+    "fine_grid_run_commissioned": false
+  },
+  "focused_verification": {
+    "command": "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m pytest tests/test_thin_bolted_timber_contact_panel_checks.py -q",
+    "passed": 17,
+    "observed_seconds": 1.83,
+    "checks": [
+      "immutable raw payload and canonical receipt binding",
+      "new gate schema/key/source/path/loaded-self-hash",
+      "malformed/wrong pins and old schema rejected",
+      "changed path and same-case different state rejected",
+      "8basis530contact scope retained",
+      "all66 screw actions/six field calls/12 correction rows delegated",
+      "optional K-free evaluate_map delegated after same new gate",
+      "all releases false"
+    ],
+    "unchanged_panel_and_kinematic_known_answer_controls_reused": true,
+    "unrelated_old_unit_controls_rerun": false,
+    "ruff_command": "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache uv run --offline ruff check scripts/thin_bolted_timber_contact_panel_checks.py tests/test_thin_bolted_timber_contact_panel_checks.py",
+    "ruff_passed": true
+  },
+  "independent_review": {
+    "agent": "thin_access_cost",
+    "readonly": true,
+    "wrapper17fixtures_and_Ruff_independently_passed": true,
+    "confirmed_findings": []
+  },
+  "source_preservation_checks_pass": true,
+  "candidate_field_consumed": false,
+  "candidate_support_or_force_field_admitted": false,
+  "method": {
+    "CAD_rebuilt": false,
+    "candidate_geometry_query": false,
+    "energy_quadrature_prepared": false,
+    "K_assembled": false,
+    "global_response_evaluated": false,
+    "solve_run": false,
+    "frozen_sources_edited": false
+  },
+  "limits": [
+    "Method receipt validates only the new admission/delegation wrapper; the new gate/proof must be independently issued before actual consumption.",
+    "The reused generic head/withdrawal/mean-ring-pressure scenarios do not qualify delivered Hillman42605 geometry, stiffness or axial/lateral/combined capacity.",
+    "Intact finite APA proxy samples are not qualified ply-laminate, hole/seat/hold/net-section/edge/punching/contact capacity or refinement bounds.",
+    "CD1 and conditional wind/earthquake1.6 remain distinct; permanent duration and creep acceptance remain separate."
+  ],
+  "complete_panel_resistance_established": false,
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

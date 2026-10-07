@@ -1,0 +1,114 @@
+{
+  "schema": "thin_bolted_panel_method_validation/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "status": "PASS_CONDITIONAL_METHOD_COUPONS_AND_SAVED_ARITHMETIC",
+  "producer_sha256": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+  "test_source_sha256": "5725e067a8a17d50a70cc5981684542cff2c030fdad96ccef51bdd08ff796862",
+  "assessment_sha256": "a61cadf7b120b58c00326e83c68999f7a726fba77ec5e12882cf843355951dec",
+  "geometry_manifest_sha256": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+  "environment": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1",
+    "cadquery": "2.8.0",
+    "pytest": "9.1.1",
+    "ruff": "0.16.6",
+    "uv_lock_sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3",
+    "BLAS_threads": 1
+  },
+  "checked_coupon_tests": 7,
+  "coupon_topics": [
+    "polynomial energy and six rigid modes",
+    "Euler-Bernoulli cantilever",
+    "separate unilateral tension and compression ports",
+    "polar aperture and clipped support area/centroid",
+    "six original signed climber forces",
+    "world port rotation and 100mm hold lever work",
+    "net full-bore equilibrium cut"
+  ],
+  "style": "targeted Ruff passed",
+  "coverage": {
+    "100": {
+      "response_rows": 42,
+      "peak": 906.3599560110497
+    },
+    "1000": {
+      "response_rows": 42,
+      "peak": 1257.0280639752302
+    },
+    "10000": {
+      "response_rows": 42,
+      "peak": 2053.2785395922415
+    }
+  },
+  "screws_per_case": 66,
+  "fixed_receiver_case_count": 7,
+  "fixed_receiver_screw_action_rows": 462,
+  "numerical_limits": {
+    "maximum_force_residual_norm_N": 7.905643835101571e-07,
+    "maximum_moment_residual_norm_Nmm": 0.0963203383739775,
+    "ka_kl_1000_same_cell35_12_interval_peak_N": 1257.0280639752302,
+    "ka_kl_1000_same_cell35_16_interval_peak_N": 1255.2797902891743,
+    "ka_kl_1000_relative_peak_change": 0.0013907992479715483,
+    "ka_kl_10000_same_cell35_12_interval_peak_N": 2053.2785395922415,
+    "ka_kl_10000_same_cell35_16_interval_peak_N": 1899.3982944452598,
+    "ka_kl_10000_relative_peak_change": 0.07494367772311135,
+    "ka_kl_10000_convergence_claimed": false,
+    "actual_stiffness_bounds_validated": false,
+    "local_hole_and_hold_stress_convergence_claimed": false
+  },
+  "retained_raw_sha256": {
+    "fea/generated/thin-bolted-panel/mechanics-final-intervals12-cell35.json": "a61cadf7b120b58c00326e83c68999f7a726fba77ec5e12882cf843355951dec",
+    "fea/generated/thin-bolted-panel/mechanics-final-intervals16-cell35-high.json": "dc2cb9fe0c5415bef619898adef2ab86065523a3423eebe3f3d8e3cb8256fa98",
+    "fea/generated/thin-bolted-panel/mechanics-intervals12-cell35.json": "b5632759a63cd0b3b716ead6a79021b231afdb2db1447ae7a0c1c69299486b27",
+    "fea/generated/thin-bolted-panel/mechanics-intervals16-cell35.json": "ad9221ed9c92b04f796d790bf28380a3777569a667db00754d3211c159f55514",
+    "fea/generated/thin-bolted-panel/mechanics-intervals6.json": "26d8ac1df49ea2aed4f95cee292f7593b4c1b97bdd6ed1176906cd20cabd6801",
+    "fea/generated/thin-bolted-panel/mechanics-intervals8.json": "e6d4d95e970871b89993a2d25ba51443d9fe31c422f31503306fa5db48a40d38",
+    "fea/generated/thin-bolted-panel/producer-before-edges.py.snapshot": "ff5185604ab3ef63f4f644c936831c23be6536927ce1033c663ae189ff06b630",
+    "fea/generated/thin-bolted-panel/producer-final.py.snapshot": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "fea/generated/thin-bolted-panel/producer-initial-controls.py.snapshot": "86cd659e5e0793694d3df822072b25aee08f3d49c3438408ada6725088367d78",
+    "fea/generated/thin-bolted-panel/operators-final-intervals12-cell35.npz": "bdeec8cf9f6e6c588e4ac2c9d6ea76db4d6c3606c0fb25dd07100929f169bd18",
+    "fea/generated/thin-bolted-panel/operators-intervals12-cell35.npz": "bdeec8cf9f6e6c588e4ac2c9d6ea76db4d6c3606c0fb25dd07100929f169bd18",
+    "fea/generated/thin-bolted-panel/operators-intervals6.npz": "926a3ff51c8747bd9ba5d7ca55f6ece2cd9937975e71f32bdac9c23cab4cf266",
+    "fea/generated/thin-bolted-panel/operators-intervals8.npz": "2b97d8c1741a0fbef119eb00b3f43bdf5f76e802b4851962a62fc555f1813468",
+    "fea/generated/thin-bolted-panel/operators-final-intervals12-cell35.json": "a63136cd133abed35eabdcac38a37acc5f10c110d65d16f6eac1c18ca54c70a2",
+    "fea/generated/thin-bolted-panel/operators-intervals12-cell35.json": "a63136cd133abed35eabdcac38a37acc5f10c110d65d16f6eac1c18ca54c70a2",
+    "fea/generated/thin-bolted-panel/operators-intervals6.json": "307a1b8d7bcffc95b3818333234e4e3871d0c90c3cbc8c3825095f5f6e00d376",
+    "fea/generated/thin-bolted-panel/operators-intervals8.json": "aeeb9b6ccd2c521896b32012ccbf9712fd67cdb7d0744e06d88afa4fd3f441d4"
+  },
+  "raw_report_executed_producer_snapshots": {
+    "fea/generated/thin-bolted-panel/mechanics-final-intervals12-cell35.json": "fea/generated/thin-bolted-panel/producer-final.py.snapshot",
+    "fea/generated/thin-bolted-panel/mechanics-final-intervals16-cell35-high.json": "fea/generated/thin-bolted-panel/producer-final.py.snapshot",
+    "fea/generated/thin-bolted-panel/mechanics-intervals12-cell35.json": "fea/generated/thin-bolted-panel/producer-before-edges.py.snapshot",
+    "fea/generated/thin-bolted-panel/mechanics-intervals16-cell35.json": "fea/generated/thin-bolted-panel/producer-before-edges.py.snapshot",
+    "fea/generated/thin-bolted-panel/mechanics-intervals6.json": "fea/generated/thin-bolted-panel/producer-initial-controls.py.snapshot",
+    "fea/generated/thin-bolted-panel/mechanics-intervals8.json": "fea/generated/thin-bolted-panel/producer-initial-controls.py.snapshot"
+  },
+  "reproduction": [
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline pytest -q tests/test_thin_bolted_panel_mechanics.py",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache uv run --offline ruff check scripts/thin_bolted_panel_mechanics.py tests/test_thin_bolted_panel_mechanics.py",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m scripts.thin_bolted_panel_mechanics --intervals 12 --contact-edge 35 --output fea/generated/thin-bolted-panel/mechanics-final-intervals12-cell35.json --export-operators fea/generated/thin-bolted-panel/operators-final-intervals12-cell35.npz"
+  ],
+  "retention": {
+    "active": [
+      "current method producer/tests",
+      "source-bound final assessment/validation",
+      "exact geometry cache shared with coupled frame and access methods",
+      "current Ritz operators for coupled response"
+    ],
+    "closed_recoverable": [
+      "initial six/eight interval fixed controls",
+      "pre-edge-diagnostic twelve/sixteen interval fixed controls"
+    ],
+    "pruned": false,
+    "archive": "Parent records any external archive in maintained summary before separate prune; no raw runs removed."
+  },
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

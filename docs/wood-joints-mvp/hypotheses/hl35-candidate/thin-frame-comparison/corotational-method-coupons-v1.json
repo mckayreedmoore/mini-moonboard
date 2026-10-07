@@ -1,0 +1,143 @@
+{
+  "schema": "thin-finite-motion-method-coupons-v1",
+  "candidate": "standalone_method_only",
+  "source_sha256": {
+    "scripts/thin_bolted_corotational_methods.py": "7638a09c145135a19dcccb7cd84a01b8a01d2a4465b02ebfc33372e672e5ebc8",
+    "scripts/thin_bolted_corotational_coupons.py": "4c20f38adeefe5ccd5092c52e8a82f1cdec5d7c68b226395ae6378b39b01e9bf",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "tests/test_thin_bolted_corotational_methods.py": "cd1a413a5c793c814e34402f6e663d3f3c6e0a0b0104456a1936d9b570443e74",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "beam_stiffness_function_source": "def beam_stiffness(length: float, area: float, inertia_y: float, inertia_z: float,\n                   torsion_j: float, elastic_modulus: float, shear_modulus: float,\n                   shear_factor: float = 5. / 6.) -> np.ndarray:\n    \"\"\"Local two-node 3D Timoshenko elastic energy, ordinary unscaled rotations.\n\n    Local order=(u,v,w,theta_x,theta_y,theta_z) per node. Uniform rectangular\n    section/constant moduli are explicit surrogates. Axial/bending/shear/torsion\n    units are N/mm/Nmm. No joint spring or resistance is inferred.\n    \"\"\"\n    if min(length, area, inertia_y, inertia_z, torsion_j, elastic_modulus, shear_modulus, shear_factor) <= 0:\n        raise ValueError(\"positive finite beam properties required\")\n    if not np.isfinite([length, area, inertia_y, inertia_z, torsion_j, elastic_modulus, shear_modulus, shear_factor]).all():\n        raise ValueError(\"finite beam properties required\")\n    k = np.zeros((12, 12))\n    for indices, stiffness in (((0, 6), elastic_modulus * area / length),\n                               ((3, 9), shear_modulus * torsion_j / length)):\n        k[np.ix_(indices, indices)] += stiffness * np.array([[1., -1.], [-1., 1.]])\n    for inertia, indices, signs in ((inertia_z, (1, 5, 7, 11), (1., 1., 1., 1.)),\n                                    (inertia_y, (2, 4, 8, 10), (1., -1., 1., -1.))):\n        phi = 12. * elastic_modulus * inertia / (shear_factor * shear_modulus * area * length ** 2)\n        base = np.array([[12., 6. * length, -12., 6. * length],\n                         [6. * length, (4. + phi) * length ** 2, -6. * length, (2. - phi) * length ** 2],\n                         [-12., -6. * length, 12., -6. * length],\n                         [6. * length, (2. - phi) * length ** 2, -6. * length, (4. + phi) * length ** 2]])\n        sign = np.asarray(signs)\n        base *= sign[:, None] * sign[None, :]\n        k[np.ix_(indices, indices)] += elastic_modulus * inertia / length ** 3 / (1. + phi) * base\n    return k\n",
+  "runtime": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "coordinate_contract": "node world q=(u_mm,1000*theta_rad), node1 thennode2; basisCOLUMNS[g,u,v]=oldR.T",
+  "inputs": {
+    "length_mm": 800.0,
+    "area_mm2": 3000.0,
+    "Iy_mm4": 2000000.0,
+    "Iz_mm4": 3000000.0,
+    "J_mm4": 1000000.0,
+    "E_mpa": 11000.0,
+    "G_mpa": 700.0,
+    "basis_columns_world": [
+      [
+        0.9657956141102674,
+        -0.1804867231405197,
+        -0.18618102624963936
+      ],
+      [
+        0.1546720922803441,
+        0.9772632674346915,
+        -0.1450277559382731
+      ],
+      [
+        0.20812346248078858,
+        0.11127016173650504,
+        0.9717528366164617
+      ]
+    ],
+    "positions_world_mm": [
+      [
+        32.0,
+        -81.0,
+        47.0
+      ],
+      [
+        804.6364912882138,
+        42.73767382427528,
+        213.49876998463085
+      ]
+    ],
+    "deformed_state_q": [
+      0.2,
+      -0.4,
+      0.1,
+      11.0,
+      -8.0,
+      6.0,
+      0.7,
+      0.9,
+      -0.3,
+      -4.0,
+      7.0,
+      15.0
+    ]
+  },
+  "rigid_motion": [
+    {
+      "angle_rad": 0.0,
+      "energy_nmm": 1.8962625634495613e-25,
+      "residual_norm_n_equivalent": 2.125496940071804e-11,
+      "local_rotation_norm_rad": 4.992445926546457e-17
+    },
+    {
+      "angle_rad": 0.12,
+      "energy_nmm": 5.143254439151301e-25,
+      "residual_norm_n_equivalent": 3.438333513270028e-11,
+      "local_rotation_norm_rad": 8.2197789178108e-17
+    },
+    {
+      "angle_rad": 0.3490658503988659,
+      "energy_nmm": 1.2894631064662102e-24,
+      "residual_norm_n_equivalent": 5.0840854727176083e-11,
+      "local_rotation_norm_rad": 1.4223825889331084e-16
+    },
+    {
+      "angle_rad": 1.3962634015954636,
+      "energy_nmm": 1.101676105250975e-23,
+      "residual_norm_n_equivalent": 1.6996154713512494e-10,
+      "local_rotation_norm_rad": 3.4852746442275693e-16
+    }
+  ],
+  "undeformed_tangent_relative_error_to_existing_linear_beam": 2.559105689698507e-11,
+  "deformed_twenty_degree_energy_relative_objectivity_error": 2.2079048403938086e-15,
+  "finite_state_tangent_relative_asymmetry": 4.65316801499884e-11,
+  "finite_state_tangent_relative_step_halving_error": 1.6551935089445427e-10,
+  "port_0p12rad_100mm_arm": {
+    "exact_xyz_mm": [
+      0.0,
+      -11.971220728891936,
+      99.28086358538663
+    ],
+    "old_linear_xyz_mm": [
+      0.0,
+      -12.0,
+      100.0
+    ],
+    "exact_minus_linear_mm": [
+      0.0,
+      0.02877927110806411,
+      -0.7191364146133736
+    ],
+    "error_norm_mm": 0.7197120460771026,
+    "analytic_jacobian_max_difference_to_central_fd": 4.774847184307873e-12
+  },
+  "known_answer_test_command": ".venv/bin/python -m pytest tests/test_thin_bolted_corotational_methods.py -q",
+  "known_answer_test_result": "18 passed; SO3 independent SciPy rotations, port Jacobian and spatial wrench work, 0/.12rad/20deg/80deg common rigid motion, deformed objectivity/force covariance, oldK tangent, axial/torsion/common twist, both Timoshenko cantilever planes, energy/residual/tangent derivatives, and branch rejection",
+  "sources": [
+    {
+      "url": "https://kth.diva-portal.org/smash/get/diva2:526302/FULLTEXT02.pdf",
+      "locator": "Thanh Nam Le (2012), chapter 3.1-3.3: moving chord/director frame, local rotations and work-conjugate transformations",
+      "use": "Corotational kinematic construction; this utility uses the existing local Timoshenko matrix, not the thesis's complete dynamic/warping element."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1812.01537",
+      "locator": "Sola, Deray and Atchuthan, A micro Lie theory, Appendix B, SO(3) exp/log and Jacobians, equations 143-146",
+      "use": "SO(3) left exponential-map Jacobian, inverse and adjoint conventions."
+    }
+  ],
+  "provenance_limit": "Primary research text was read through browser; original PDF bytes/SHA are not retained or claimed authenticated.",
+  "limits": [
+    "Small local elastic deformation Timoshenko surrogate; this is not a geometrically exact continuum beam or joint resistance.",
+    "Tangent is a central derivative of analytic residual, not an analytic Hessian; default step1e-3mm in q (rotation1e-6rad). No hidden symmetrization.",
+    "SO3 rotation-vector/log charts nearpi, collapsed chords, canceled/projected directors and local rotations at/beyond90deg are explicitly rejected.",
+    "Common twist is a free rigid mode. Numerical gauge fixing does not create physical common torque resistance; actual torsion couples remain distinct.",
+    "Reference-fixed versus rotating floor/flange normals, contact support/contact-gap laws, interpolation along flexible beams, continuation/assembly validation are not selected by this method.",
+    "No whole load case, assembly, native solve, CAD rebuild or current model change."
+  ],
+  "reproduce": ".venv/bin/python -m scripts.thin_bolted_corotational_coupons"
+}

@@ -1,0 +1,5581 @@
+{
+  "schema": "thin-b104-near-hole-proposal-v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "scope": "unadopted additional-hole feasibility; existing cache only",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "scripts/thin_bolted_near_hole_proposal.py": "3d398da5f8c9bcced9dc9435b7df38c562a6d7e204b100a418e558f066c878fa",
+    "scripts/thin_bolted_occupied.py": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+  },
+  "counts": {
+    "new_flange_attachments": 48,
+    "new_physical_axes": 46,
+    "shared_new_axes": 2
+  },
+  "rows": [
+    {
+      "axis_id": "proposal_near_001",
+      "receiver": "base_rail_top",
+      "point_xyz_mm": [
+        -1093.7875,
+        1457.586095203,
+        2172.205368329
+      ],
+      "direction_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_top",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -1093.7875,
+            1457.586095203,
+            2172.205368329
+          ],
+          "axis_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_top",
+            0.0,
+            0.642788,
+            0.766044,
+            -1046.1625,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_single_top_left_1_reference",
+          "duty_id": "clip_single_top_left_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        36.512500000000045,
+        2220.9125
+      ],
+      "finished_first_grain_boundaries_mm": [
+        36.512500000000045,
+        2220.9125
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_single_top_left_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_top",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_single_top_left_1_reference",
+              "annulus_backed_fraction": 0.8454106430411034
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_top",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_002",
+      "receiver": "base_side_left",
+      "point_xyz_mm": [
+        -1130.3,
+        1444.320565922,
+        2156.396126129
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -1130.3,
+            1444.320565922,
+            2156.396126129
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_left",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1413.707806,
+            2119.91326
+          ],
+          "angle_id": "B104ZN_clip_single_top_left_1_reference",
+          "duty_id": "clip_single_top_left_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        2453.37740324341,
+        58.73749999507572
+      ],
+      "finished_first_grain_boundaries_mm": [
+        2453.37740324341,
+        58.73749999507572
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_single_top_left_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_single_top_left_1_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_single_top_left_1_reference",
+              "annulus_backed_fraction": 0.8454106280200344
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_003",
+      "receiver": "base_rail_top",
+      "point_xyz_mm": [
+        1090.6125,
+        1457.586095203,
+        2172.205368329
+      ],
+      "direction_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_top",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            1090.6125,
+            1457.586095203,
+            2172.205368329
+          ],
+          "axis_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_top",
+            0.0,
+            0.642788,
+            0.766044,
+            1042.9875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_single_top_right_2_reference",
+          "duty_id": "clip_single_top_right_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        2220.9125,
+        36.512500000000045
+      ],
+      "finished_first_grain_boundaries_mm": [
+        2220.9125,
+        36.512500000000045
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_single_top_right_2_reference",
+              "annulus_backed_fraction": 0.9999999978161059
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_top",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_single_top_right_2_reference",
+              "annulus_backed_fraction": 0.8454106194422428
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_top",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_004",
+      "receiver": "base_side_right",
+      "point_xyz_mm": [
+        1127.125,
+        1444.320565922,
+        2156.396126129
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            1127.125,
+            1444.320565922,
+            2156.396126129
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_right",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            1413.707806,
+            2119.91326
+          ],
+          "angle_id": "B104ZN_clip_single_top_right_2_reference",
+          "duty_id": "clip_single_top_right_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        2453.37740324341,
+        58.73749999507572
+      ],
+      "finished_first_grain_boundaries_mm": [
+        2453.37740324341,
+        58.73749999507572
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_single_top_right_2_reference",
+              "annulus_backed_fraction": 0.9999999999999881
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_single_top_right_2_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_single_top_right_2_reference",
+              "annulus_backed_fraction": 0.8454106280200336
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_005",
+      "receiver": "base_header",
+      "point_xyz_mm": [
+        -1144.5875,
+        -87.85,
+        238.9
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_header",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -1144.5875,
+            -87.85,
+            238.9
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.0,
+            1.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 51.85,
+          "conditional_two_edge_4d_reserve_mm": 1.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_header",
+            -0.0,
+            -0.0,
+            1.0,
+            -1096.9625,
+            -87.85,
+            0.0
+          ],
+          "angle_id": "B104ZN_clip_timber_header_outer_left_reference",
+          "duty_id": "clip_timber_header_outer_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        74.61249999999995,
+        2360.6125
+      ],
+      "finished_first_grain_boundaries_mm": [
+        74.61249999999995,
+        2360.6125
+      ],
+      "width_edge_distance_mm": 51.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_timber_header_outer_left_reference",
+              "annulus_backed_fraction": 0.9999999999999998
+            },
+            {
+              "side": "nut",
+              "support": "base_header",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "shaft",
+              "obstacle": "base_side_left",
+              "kind": "timber",
+              "intersection_mm3": 3697.818172
+            },
+            {
+              "role": "nut_washer",
+              "obstacle": "base_side_left",
+              "kind": "timber",
+              "intersection_mm3": 2547.925715
+            },
+            {
+              "role": "nut",
+              "obstacle": "base_side_left",
+              "kind": "timber",
+              "intersection_mm3": 3472.129239
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_timber_header_outer_left_reference",
+              "annulus_backed_fraction": 0.8454106280192947
+            },
+            {
+              "side": "nut",
+              "support": "base_header",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "shaft",
+              "obstacle": "base_side_left",
+              "kind": "timber",
+              "intersection_mm3": 1269.189414
+            },
+            {
+              "role": "nut_washer",
+              "obstacle": "base_side_left",
+              "kind": "timber",
+              "intersection_mm3": 832.552057
+            },
+            {
+              "role": "nut",
+              "obstacle": "base_side_left",
+              "kind": "timber",
+              "intersection_mm3": 903.301372
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_006",
+      "receiver": "base_post_outer_left",
+      "point_xyz_mm": [
+        -1181.1,
+        -87.85,
+        218.2625
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_post_outer_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -1181.1,
+            -87.85,
+            218.2625
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 51.85,
+          "conditional_two_edge_4d_reserve_mm": 1.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_post_outer_left",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            -87.85,
+            170.6375
+          ],
+          "angle_id": "B104ZN_clip_timber_header_outer_left_reference",
+          "duty_id": "clip_timber_header_outer_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        218.2625,
+        20.637500000000017
+      ],
+      "finished_first_grain_boundaries_mm": [
+        218.2625,
+        20.637500000000017
+      ],
+      "width_edge_distance_mm": 51.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_timber_header_outer_left_reference",
+              "annulus_backed_fraction": 0.9999999999997956
+            },
+            {
+              "side": "nut",
+              "support": "base_post_outer_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_timber_header_outer_left_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_timber_header_outer_left_reference",
+              "annulus_backed_fraction": 0.8454106280188473
+            },
+            {
+              "side": "nut",
+              "support": "base_post_outer_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_007",
+      "receiver": "base_header",
+      "point_xyz_mm": [
+        1141.4125,
+        -123.85,
+        238.9
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_header",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            1141.4125,
+            -123.85,
+            238.9
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.0,
+            1.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 51.85,
+          "conditional_two_edge_4d_reserve_mm": 1.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_header",
+            -0.0,
+            -0.0,
+            1.0,
+            1093.7875,
+            -123.85,
+            0.0
+          ],
+          "angle_id": "B104ZN_clip_timber_header_outer_right_reference",
+          "duty_id": "clip_timber_header_outer_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        2360.6125,
+        74.61250000000018
+      ],
+      "finished_first_grain_boundaries_mm": [
+        2360.6125,
+        74.61250000000018
+      ],
+      "width_edge_distance_mm": 51.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_timber_header_outer_right_reference",
+              "annulus_backed_fraction": 0.9999999999999841
+            },
+            {
+              "side": "nut",
+              "support": "base_header",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "shaft",
+              "obstacle": "base_side_right",
+              "kind": "timber",
+              "intersection_mm3": 3697.818172
+            },
+            {
+              "role": "nut_washer",
+              "obstacle": "base_side_right",
+              "kind": "timber",
+              "intersection_mm3": 2547.925715
+            },
+            {
+              "role": "nut",
+              "obstacle": "base_side_right",
+              "kind": "timber",
+              "intersection_mm3": 3472.129239
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_timber_header_outer_right_reference",
+              "annulus_backed_fraction": 0.8454106280192943
+            },
+            {
+              "side": "nut",
+              "support": "base_header",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "shaft",
+              "obstacle": "base_side_right",
+              "kind": "timber",
+              "intersection_mm3": 1269.189414
+            },
+            {
+              "role": "nut_washer",
+              "obstacle": "base_side_right",
+              "kind": "timber",
+              "intersection_mm3": 832.552057
+            },
+            {
+              "role": "nut",
+              "obstacle": "base_side_right",
+              "kind": "timber",
+              "intersection_mm3": 903.301372
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_008",
+      "receiver": "base_post_outer_right",
+      "point_xyz_mm": [
+        1177.925,
+        -123.85,
+        218.2625
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.100000000000136,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_post_outer_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            1177.925,
+            -123.85,
+            218.2625
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 51.85,
+          "conditional_two_edge_4d_reserve_mm": 1.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_post_outer_right",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            -123.85,
+            170.6375
+          ],
+          "angle_id": "B104ZN_clip_timber_header_outer_right_reference",
+          "duty_id": "clip_timber_header_outer_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        218.2625,
+        20.637500000000017
+      ],
+      "finished_first_grain_boundaries_mm": [
+        218.2625,
+        20.637500000000017
+      ],
+      "width_edge_distance_mm": 51.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_timber_header_outer_right_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_post_outer_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_timber_header_outer_right_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_timber_header_outer_right_reference",
+              "annulus_backed_fraction": 0.8454106280188469
+            },
+            {
+              "side": "nut",
+              "support": "base_post_outer_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_009",
+      "receiver": "base_rail_top",
+      "point_xyz_mm": [
+        -125.5625,
+        1457.586095203,
+        2172.205368329
+      ],
+      "direction_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_top",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -125.5625,
+            1457.586095203,
+            2172.205368329
+          ],
+          "axis_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_top",
+            0.0,
+            0.642788,
+            0.766044,
+            -173.1875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_split_top_center_left_reference",
+          "duty_id": "clip_split_top_center_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1004.7375,
+        1252.6875
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1004.7375,
+        1252.6875
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_top_center_left_reference",
+              "annulus_backed_fraction": 0.999999997816106
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_top",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_top_center_left_reference",
+              "annulus_backed_fraction": 0.8454106194422426
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_top",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_010",
+      "receiver": "base_principal_center_left",
+      "point_xyz_mm": [
+        -89.05,
+        1444.320565922,
+        2156.396126129
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -89.05,
+            1444.320565922,
+            2156.396126129
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_left",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            1413.707806,
+            2119.91326
+          ],
+          "angle_id": "B104ZN_clip_split_top_center_left_reference",
+          "duty_id": "clip_split_top_center_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        2453.37740324341,
+        20.637499995075814
+      ],
+      "finished_first_grain_boundaries_mm": [
+        2453.37740324341,
+        20.637499995075814
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_top_center_left_reference",
+              "annulus_backed_fraction": 0.9999999999999976
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_split_top_center_left_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_top_center_left_reference",
+              "annulus_backed_fraction": 0.8454106280193662
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_011",
+      "receiver": "base_header",
+      "point_xyz_mm": [
+        -125.5625,
+        -105.85,
+        277.0
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_header",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -125.5625,
+            -105.85,
+            277.0
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_header",
+            0.0,
+            0.0,
+            1.0,
+            -173.1875,
+            -105.85,
+            0.0
+          ],
+          "angle_id": "B104ZN_clip_split_base_center_left_reference",
+          "duty_id": "clip_split_base_center_left"
+        },
+        {
+          "flange": "beam",
+          "receiver": "base_header",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -125.5625,
+            -105.85,
+            238.9
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.0,
+            1.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_header",
+            -0.0,
+            -0.0,
+            1.0,
+            -173.1875,
+            -105.85,
+            0.0
+          ],
+          "angle_id": "B104ZN_clip_split_header_center_left_reference",
+          "duty_id": "clip_split_header_center_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1093.6375,
+        1341.5875
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1093.6375,
+        1341.5875
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_base_center_left_reference",
+              "annulus_backed_fraction": 0.9999999999999989
+            },
+            {
+              "side": "nut",
+              "support": "B104ZN_clip_split_header_center_left_reference",
+              "annulus_backed_fraction": 0.9999999999999845
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_base_center_left_reference",
+              "annulus_backed_fraction": 0.8454106280191439
+            },
+            {
+              "side": "nut",
+              "support": "B104ZN_clip_split_header_center_left_reference",
+              "annulus_backed_fraction": 0.8454106280192922
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_012",
+      "receiver": "base_principal_center_left",
+      "point_xyz_mm": [
+        -89.05,
+        -105.85,
+        297.6375
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -89.05,
+            -105.85,
+            297.6375
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 76.85,
+          "conditional_two_edge_4d_reserve_mm": 26.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_left",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            -105.85,
+            345.2625
+          ],
+          "angle_id": "B104ZN_clip_split_base_center_left_reference",
+          "duty_id": "clip_split_base_center_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        26.940342940751883,
+        2440.959649316095
+      ],
+      "finished_first_grain_boundaries_mm": [
+        26.940342940751883,
+        2440.959649316095
+      ],
+      "width_edge_distance_mm": 76.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_base_center_left_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_split_base_center_left_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_base_center_left_reference",
+              "annulus_backed_fraction": 0.8454106280193663
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_013",
+      "receiver": "base_post_center_left",
+      "point_xyz_mm": [
+        -89.05,
+        -105.85,
+        218.2625
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_post_center_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -89.05,
+            -105.85,
+            218.2625
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_post_center_left",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            -105.85,
+            170.6375
+          ],
+          "angle_id": "B104ZN_clip_split_header_center_left_reference",
+          "duty_id": "clip_split_header_center_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        218.2625,
+        20.637500000000017
+      ],
+      "finished_first_grain_boundaries_mm": [
+        218.2625,
+        20.637500000000017
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_header_center_left_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_post_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_split_header_center_left_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_header_center_left_reference",
+              "annulus_backed_fraction": 0.8454106280193662
+            },
+            {
+              "side": "nut",
+              "support": "base_post_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_014",
+      "receiver": "base_rail_top",
+      "point_xyz_mm": [
+        125.5625,
+        1457.586095203,
+        2172.205368329
+      ],
+      "direction_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_top",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            125.5625,
+            1457.586095203,
+            2172.205368329
+          ],
+          "axis_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_top",
+            0.0,
+            0.642788,
+            0.766044,
+            173.1875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_split_top_center_right_reference",
+          "duty_id": "clip_split_top_center_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1255.8625,
+        1001.5625
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1255.8625,
+        1001.5625
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_top_center_right_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_top",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_top_center_right_reference",
+              "annulus_backed_fraction": 0.8454106430411029
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_top",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_015",
+      "receiver": "base_principal_center_right",
+      "point_xyz_mm": [
+        89.05,
+        1444.320565922,
+        2156.396126129
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            89.05,
+            1444.320565922,
+            2156.396126129
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_right",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1413.707806,
+            2119.91326
+          ],
+          "angle_id": "B104ZN_clip_split_top_center_right_reference",
+          "duty_id": "clip_split_top_center_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        2453.37740324341,
+        20.637499995075814
+      ],
+      "finished_first_grain_boundaries_mm": [
+        2453.37740324341,
+        20.637499995075814
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_top_center_right_reference",
+              "annulus_backed_fraction": 0.9999999999997653
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_split_top_center_right_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_top_center_right_reference",
+              "annulus_backed_fraction": 0.8454106280188478
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_016",
+      "receiver": "base_header",
+      "point_xyz_mm": [
+        125.5625,
+        -105.85,
+        277.0
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_header",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            125.5625,
+            -105.85,
+            277.0
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_header",
+            0.0,
+            0.0,
+            1.0,
+            173.1875,
+            -105.85,
+            0.0
+          ],
+          "angle_id": "B104ZN_clip_split_base_center_right_reference",
+          "duty_id": "clip_split_base_center_right"
+        },
+        {
+          "flange": "beam",
+          "receiver": "base_header",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            125.5625,
+            -105.85,
+            238.9
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.0,
+            1.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_header",
+            -0.0,
+            -0.0,
+            1.0,
+            173.1875,
+            -105.85,
+            0.0
+          ],
+          "angle_id": "B104ZN_clip_split_header_center_right_reference",
+          "duty_id": "clip_split_header_center_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1344.7625,
+        1090.4625
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1344.7625,
+        1090.4625
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_base_center_right_reference",
+              "annulus_backed_fraction": 0.9999999999999097
+            },
+            {
+              "side": "nut",
+              "support": "B104ZN_clip_split_header_center_right_reference",
+              "annulus_backed_fraction": 0.9999999999999998
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_base_center_right_reference",
+              "annulus_backed_fraction": 0.8454106280191441
+            },
+            {
+              "side": "nut",
+              "support": "B104ZN_clip_split_header_center_right_reference",
+              "annulus_backed_fraction": 0.8454106280192926
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_017",
+      "receiver": "base_principal_center_right",
+      "point_xyz_mm": [
+        89.05,
+        -105.85,
+        297.6375
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            89.05,
+            -105.85,
+            297.6375
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 76.85,
+          "conditional_two_edge_4d_reserve_mm": 26.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_right",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            -105.85,
+            345.2625
+          ],
+          "angle_id": "B104ZN_clip_split_base_center_right_reference",
+          "duty_id": "clip_split_base_center_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        26.940342940751883,
+        2440.959649316095
+      ],
+      "finished_first_grain_boundaries_mm": [
+        26.940342940751883,
+        2440.959649316095
+      ],
+      "width_edge_distance_mm": 76.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_base_center_right_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_split_base_center_right_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_base_center_right_reference",
+              "annulus_backed_fraction": 0.8454106280188474
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_018",
+      "receiver": "base_post_center_right",
+      "point_xyz_mm": [
+        89.05,
+        -105.85,
+        218.2625
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_post_center_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            89.05,
+            -105.85,
+            218.2625
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_post_center_right",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            -105.85,
+            170.6375
+          ],
+          "angle_id": "B104ZN_clip_split_header_center_right_reference",
+          "duty_id": "clip_split_header_center_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        218.2625,
+        20.637500000000017
+      ],
+      "finished_first_grain_boundaries_mm": [
+        218.2625,
+        20.637500000000017
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_header_center_right_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_post_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_split_header_center_right_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_split_header_center_right_reference",
+              "annulus_backed_fraction": 0.8454106280193662
+            },
+            {
+              "side": "nut",
+              "support": "base_post_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_019",
+      "receiver": "base_header",
+      "point_xyz_mm": [
+        -1093.7875,
+        -123.85,
+        277.0
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_header",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -1093.7875,
+            -123.85,
+            277.0
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 51.85,
+          "conditional_two_edge_4d_reserve_mm": 1.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_header",
+            0.0,
+            0.0,
+            1.0,
+            -1046.1625,
+            -123.85,
+            0.0
+          ],
+          "angle_id": "B104ZN_clip_angle_base_left_reference",
+          "duty_id": "clip_angle_base_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        125.41250000000014,
+        2309.8125
+      ],
+      "finished_first_grain_boundaries_mm": [
+        125.41250000000014,
+        2309.8125
+      ],
+      "width_edge_distance_mm": 51.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_angle_base_left_reference",
+              "annulus_backed_fraction": 0.99999999999991
+            },
+            {
+              "side": "nut",
+              "support": "base_header",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B104ZN_clip_timber_header_outer_left_reference",
+              "kind": "bracket",
+              "intersection_mm3": 82.64726
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_angle_base_left_reference",
+              "annulus_backed_fraction": 0.845410628019146
+            },
+            {
+              "side": "nut",
+              "support": "base_header",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_020",
+      "receiver": "base_side_left",
+      "point_xyz_mm": [
+        -1130.3,
+        -123.85,
+        297.6375
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -1130.3,
+            -123.85,
+            297.6375
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 51.85,
+          "conditional_two_edge_4d_reserve_mm": 1.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_left",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            -123.85,
+            345.2625
+          ],
+          "angle_id": "B104ZN_clip_angle_base_left_reference",
+          "duty_id": "clip_angle_base_left"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        26.940342940751883,
+        2490.6298262904525
+      ],
+      "finished_first_grain_boundaries_mm": [
+        26.940342940751883,
+        2490.6298262904525
+      ],
+      "width_edge_distance_mm": 51.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_angle_base_left_reference",
+              "annulus_backed_fraction": 0.9999999999999967
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_angle_base_left_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_angle_base_left_reference",
+              "annulus_backed_fraction": 0.8454106280200335
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_021",
+      "receiver": "base_header",
+      "point_xyz_mm": [
+        1090.6125,
+        -87.85,
+        277.0
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_header",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            1090.6125,
+            -87.85,
+            277.0
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 51.85,
+          "conditional_two_edge_4d_reserve_mm": 1.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_header",
+            0.0,
+            0.0,
+            1.0,
+            1042.9875,
+            -87.85,
+            0.0
+          ],
+          "angle_id": "B104ZN_clip_angle_base_right_reference",
+          "duty_id": "clip_angle_base_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        2309.8125,
+        125.41250000000014
+      ],
+      "finished_first_grain_boundaries_mm": [
+        2309.8125,
+        125.41250000000014
+      ],
+      "width_edge_distance_mm": 51.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_angle_base_right_reference",
+              "annulus_backed_fraction": 0.9999999999999991
+            },
+            {
+              "side": "nut",
+              "support": "base_header",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B104ZN_clip_timber_header_outer_right_reference",
+              "kind": "bracket",
+              "intersection_mm3": 82.64726
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_angle_base_right_reference",
+              "annulus_backed_fraction": 0.8454106280191465
+            },
+            {
+              "side": "nut",
+              "support": "base_header",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_022",
+      "receiver": "base_side_right",
+      "point_xyz_mm": [
+        1127.125,
+        -87.85,
+        297.6375
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            1127.125,
+            -87.85,
+            297.6375
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 87.85,
+          "conditional_two_edge_4d_reserve_mm": 37.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_right",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            -87.85,
+            345.2625
+          ],
+          "angle_id": "B104ZN_clip_angle_base_right_reference",
+          "duty_id": "clip_angle_base_right"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        26.940342940751883,
+        2467.489472341737
+      ],
+      "finished_first_grain_boundaries_mm": [
+        26.940342940751883,
+        2467.489472341737
+      ],
+      "width_edge_distance_mm": 87.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_angle_base_right_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_angle_base_right_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_angle_base_right_reference",
+              "annulus_backed_fraction": 0.8454106280200335
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_023",
+      "receiver": "base_rail_bottom_left",
+      "point_xyz_mm": [
+        -1093.7875,
+        -2.441681439,
+        432.212020229
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_bottom_left",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -1093.7875,
+            -2.441681439,
+            432.212020229
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_bottom_left",
+            0.0,
+            0.642788,
+            0.766044,
+            -1046.1625,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_bottom_left_1_reference",
+          "duty_id": "clip_horizontal_bottom_left_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        36.512500000000045,
+        1004.7375
+      ],
+      "finished_first_grain_boundaries_mm": [
+        36.512500000000045,
+        1004.7375
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_left_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_bottom_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_bottom_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_bottom_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309125
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_left_1_reference",
+              "annulus_backed_fraction": 0.8454106430160699
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_bottom_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_bottom_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848357
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_bottom_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_024",
+      "receiver": "base_side_left",
+      "point_xyz_mm": [
+        -1130.3,
+        10.823847841,
+        448.021262429
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -1130.3,
+            10.823847841,
+            448.021262429
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_left",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            41.436608,
+            484.504129
+          ],
+          "angle_id": "B104ZN_clip_horizontal_bottom_left_1_reference",
+          "duty_id": "clip_horizontal_bottom_left_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        223.25240266493458,
+        2288.862500005387
+      ],
+      "finished_first_grain_boundaries_mm": [
+        223.25240266493458,
+        2288.862500005387
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_left_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_bottom_left_1_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_left_1_reference",
+              "annulus_backed_fraction": 0.8454106280200332
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_025",
+      "receiver": "base_rail_bottom_left",
+      "point_xyz_mm": [
+        -125.5625,
+        -2.441681439,
+        432.212020229
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_bottom_left",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -125.5625,
+            -2.441681439,
+            432.212020229
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_bottom_left",
+            0.0,
+            0.642788,
+            0.766044,
+            -173.1875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_bottom_left_2_reference",
+          "duty_id": "clip_horizontal_bottom_left_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1004.7375,
+        36.512500000000045
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1004.7375,
+        36.512500000000045
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_left_2_reference",
+              "annulus_backed_fraction": 0.9999999978095373
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_bottom_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_bottom_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_bottom_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309124
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_left_2_reference",
+              "annulus_backed_fraction": 0.8454106194157671
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_bottom_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_bottom_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848358
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_bottom_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_026",
+      "receiver": "base_principal_center_left",
+      "point_xyz_mm": [
+        -89.05,
+        10.823847841,
+        448.021262429
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -89.05,
+            10.823847841,
+            448.021262429
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_left",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            41.436608,
+            484.504129
+          ],
+          "angle_id": "B104ZN_clip_horizontal_bottom_left_2_reference",
+          "duty_id": "clip_horizontal_bottom_left_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        223.25240266493458,
+        2250.762500005387
+      ],
+      "finished_first_grain_boundaries_mm": [
+        223.25240266493458,
+        2250.762500005387
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_left_2_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_bottom_left_2_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_left_2_reference",
+              "annulus_backed_fraction": 0.8454106280193661
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_027",
+      "receiver": "base_rail_service_lower_left",
+      "point_xyz_mm": [
+        -1093.7875,
+        631.507598614,
+        1187.723352255
+      ],
+      "direction_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "raw_grip_mm": 38.100000000000136,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_service_lower_left",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -1093.7875,
+            631.507598614,
+            1187.723352255
+          ],
+          "axis_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_service_lower_left",
+            0.0,
+            0.642788,
+            0.766044,
+            -1046.1625,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_lower_left_1_reference",
+          "duty_id": "clip_horizontal_lower_left_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        36.512500000000045,
+        1004.7375
+      ],
+      "finished_first_grain_boundaries_mm": [
+        36.512500000000045,
+        1004.7375
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_left_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_lower_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_lower_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_lower_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309125
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_left_1_reference",
+              "annulus_backed_fraction": 0.845410643015938
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_lower_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_lower_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848357
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_lower_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_028",
+      "receiver": "base_side_left",
+      "point_xyz_mm": [
+        -1130.3,
+        618.242069334,
+        1171.914110055
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -1130.3,
+            618.242069334,
+            1171.914110055
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_left",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            587.629309,
+            1135.431243
+          ],
+          "angle_id": "B104ZN_clip_horizontal_lower_left_1_reference",
+          "duty_id": "clip_horizontal_lower_left_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1168.2274029024586,
+        1343.8874999943823
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1168.2274029024586,
+        1343.8874999943823
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_left_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_lower_left_1_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_left_1_reference",
+              "annulus_backed_fraction": 0.8454106280200357
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_029",
+      "receiver": "base_rail_service_lower_left",
+      "point_xyz_mm": [
+        -125.5625,
+        631.507598614,
+        1187.723352255
+      ],
+      "direction_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "raw_grip_mm": 38.100000000000136,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_service_lower_left",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -125.5625,
+            631.507598614,
+            1187.723352255
+          ],
+          "axis_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_service_lower_left",
+            0.0,
+            0.642788,
+            0.766044,
+            -173.1875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_lower_left_2_reference",
+          "duty_id": "clip_horizontal_lower_left_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1004.7375,
+        36.512500000000045
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1004.7375,
+        36.512500000000045
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_left_2_reference",
+              "annulus_backed_fraction": 0.9999999978094597
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_lower_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_lower_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_lower_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309124
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_left_2_reference",
+              "annulus_backed_fraction": 0.8454106194168114
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_lower_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_lower_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848358
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_lower_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_030",
+      "receiver": "base_principal_center_left",
+      "point_xyz_mm": [
+        -89.05,
+        618.242069334,
+        1171.914110055
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -89.05,
+            618.242069334,
+            1171.914110055
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_left",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            587.629309,
+            1135.431243
+          ],
+          "angle_id": "B104ZN_clip_horizontal_lower_left_2_reference",
+          "duty_id": "clip_horizontal_lower_left_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1168.2274029024586,
+        1305.7874999943824
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1168.2274029024586,
+        1305.7874999943824
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_left_2_reference",
+              "annulus_backed_fraction": 0.9999999999999991
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_lower_left_2_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_left_2_reference",
+              "annulus_backed_fraction": 0.8454106280193682
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_031",
+      "receiver": "base_rail_service_upper_left",
+      "point_xyz_mm": [
+        -1093.7875,
+        748.591361718,
+        1327.258347569
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_service_upper_left",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -1093.7875,
+            748.591361718,
+            1327.258347569
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_service_upper_left",
+            0.0,
+            0.642788,
+            0.766044,
+            -1046.1625,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_upper_left_1_reference",
+          "duty_id": "clip_horizontal_upper_left_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        36.512500000000045,
+        1004.7375
+      ],
+      "finished_first_grain_boundaries_mm": [
+        36.512500000000045,
+        1004.7375
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_left_1_reference",
+              "annulus_backed_fraction": 0.9999999999999988
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_upper_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_upper_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_upper_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309125
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_left_1_reference",
+              "annulus_backed_fraction": 0.8454106430248346
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_upper_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_upper_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848357
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_upper_left_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_032",
+      "receiver": "base_side_left",
+      "point_xyz_mm": [
+        -1130.3,
+        761.856890999,
+        1343.06758977
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -1130.3,
+            761.856890999,
+            1343.06758977
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_left",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            792.469651,
+            1379.550456
+          ],
+          "angle_id": "B104ZN_clip_horizontal_upper_left_1_reference",
+          "duty_id": "clip_horizontal_upper_left_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1391.652402976359,
+        1120.4625000046258
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1391.652402976359,
+        1120.4625000046258
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_left_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_upper_left_1_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_left_1_reference",
+              "annulus_backed_fraction": 0.8454106280200364
+            },
+            {
+              "side": "nut",
+              "support": "base_side_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_033",
+      "receiver": "base_rail_service_upper_left",
+      "point_xyz_mm": [
+        -125.5625,
+        748.591361718,
+        1327.258347569
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_service_upper_left",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            -125.5625,
+            748.591361718,
+            1327.258347569
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_service_upper_left",
+            0.0,
+            0.642788,
+            0.766044,
+            -173.1875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_upper_left_2_reference",
+          "duty_id": "clip_horizontal_upper_left_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1004.7375,
+        36.512500000000045
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1004.7375,
+        36.512500000000045
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_left_2_reference",
+              "annulus_backed_fraction": 0.999999997811877
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_upper_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_upper_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_upper_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309124
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_left_2_reference",
+              "annulus_backed_fraction": 0.8454106194243859
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_upper_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_upper_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848358
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_upper_left_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_034",
+      "receiver": "base_principal_center_left",
+      "point_xyz_mm": [
+        -89.05,
+        761.856890999,
+        1343.06758977
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_left",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            -89.05,
+            761.856890999,
+            1343.06758977
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_left",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            792.469651,
+            1379.550456
+          ],
+          "angle_id": "B104ZN_clip_horizontal_upper_left_2_reference",
+          "duty_id": "clip_horizontal_upper_left_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1391.652402976359,
+        1082.3625000046259
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1391.652402976359,
+        1082.3625000046259
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_left_2_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_upper_left_2_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_left_2_reference",
+              "annulus_backed_fraction": 0.8454106280193681
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_left",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_035",
+      "receiver": "base_rail_bottom_right",
+      "point_xyz_mm": [
+        125.5625,
+        -2.441681439,
+        432.212020229
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_bottom_right",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            125.5625,
+            -2.441681439,
+            432.212020229
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_bottom_right",
+            0.0,
+            0.642788,
+            0.766044,
+            173.1875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_bottom_right_1_reference",
+          "duty_id": "clip_horizontal_bottom_right_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        36.512500000000045,
+        1001.5625
+      ],
+      "finished_first_grain_boundaries_mm": [
+        36.512500000000045,
+        1001.5625
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_right_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_bottom_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_bottom_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_bottom_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309125
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_right_1_reference",
+              "annulus_backed_fraction": 0.8454106430160703
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_bottom_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_bottom_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848357
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_bottom_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004397
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_036",
+      "receiver": "base_principal_center_right",
+      "point_xyz_mm": [
+        89.05,
+        10.823847841,
+        448.021262429
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            89.05,
+            10.823847841,
+            448.021262429
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_right",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            41.436608,
+            484.504129
+          ],
+          "angle_id": "B104ZN_clip_horizontal_bottom_right_1_reference",
+          "duty_id": "clip_horizontal_bottom_right_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        223.25240266493458,
+        2250.762500005387
+      ],
+      "finished_first_grain_boundaries_mm": [
+        223.25240266493458,
+        2250.762500005387
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_right_1_reference",
+              "annulus_backed_fraction": 0.9999999999999779
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_bottom_right_1_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_right_1_reference",
+              "annulus_backed_fraction": 0.845410628018847
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_037",
+      "receiver": "base_rail_bottom_right",
+      "point_xyz_mm": [
+        1090.6125,
+        -2.441681439,
+        432.212020229
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_bottom_right",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            1090.6125,
+            -2.441681439,
+            432.212020229
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_bottom_right",
+            0.0,
+            0.642788,
+            0.766044,
+            1042.9875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_bottom_right_2_reference",
+          "duty_id": "clip_horizontal_bottom_right_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1001.5625,
+        36.512500000000045
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1001.5625,
+        36.512500000000045
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_right_2_reference",
+              "annulus_backed_fraction": 0.9999999978095371
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_bottom_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_bottom_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_bottom_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309124
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_right_2_reference",
+              "annulus_backed_fraction": 0.8454106194157676
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_bottom_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_bottom_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848358
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_bottom_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_038",
+      "receiver": "base_side_right",
+      "point_xyz_mm": [
+        1127.125,
+        10.823847841,
+        448.021262429
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            1127.125,
+            10.823847841,
+            448.021262429
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_right",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            41.436608,
+            484.504129
+          ],
+          "angle_id": "B104ZN_clip_horizontal_bottom_right_2_reference",
+          "duty_id": "clip_horizontal_bottom_right_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        223.25240266493458,
+        2288.862500005387
+      ],
+      "finished_first_grain_boundaries_mm": [
+        223.25240266493458,
+        2288.862500005387
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_right_2_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_bottom_right_2_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_bottom_right_2_reference",
+              "annulus_backed_fraction": 0.8454106280200334
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_039",
+      "receiver": "base_rail_service_lower_right",
+      "point_xyz_mm": [
+        125.5625,
+        631.507598614,
+        1187.723352255
+      ],
+      "direction_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "raw_grip_mm": 38.100000000000136,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_service_lower_right",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            125.5625,
+            631.507598614,
+            1187.723352255
+          ],
+          "axis_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_service_lower_right",
+            0.0,
+            0.642788,
+            0.766044,
+            173.1875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_lower_right_1_reference",
+          "duty_id": "clip_horizontal_lower_right_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        36.512500000000045,
+        1001.5625
+      ],
+      "finished_first_grain_boundaries_mm": [
+        36.512500000000045,
+        1001.5625
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_right_1_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_lower_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_lower_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_lower_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309125
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_right_1_reference",
+              "annulus_backed_fraction": 0.8454106430159373
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_lower_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_lower_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848357
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_lower_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_040",
+      "receiver": "base_principal_center_right",
+      "point_xyz_mm": [
+        89.05,
+        618.242069334,
+        1171.914110055
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            89.05,
+            618.242069334,
+            1171.914110055
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_right",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            587.629309,
+            1135.431243
+          ],
+          "angle_id": "B104ZN_clip_horizontal_lower_right_1_reference",
+          "duty_id": "clip_horizontal_lower_right_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1168.2274029024586,
+        1305.7874999943824
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1168.2274029024586,
+        1305.7874999943824
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_right_1_reference",
+              "annulus_backed_fraction": 0.9999999999997654
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_lower_right_1_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_right_1_reference",
+              "annulus_backed_fraction": 0.8454106280188498
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_041",
+      "receiver": "base_rail_service_lower_right",
+      "point_xyz_mm": [
+        1090.6125,
+        631.507598614,
+        1187.723352255
+      ],
+      "direction_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "raw_grip_mm": 38.100000000000136,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_service_lower_right",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            1090.6125,
+            631.507598614,
+            1187.723352255
+          ],
+          "axis_xyz": [
+            0.0,
+            0.64278761,
+            0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_service_lower_right",
+            0.0,
+            0.642788,
+            0.766044,
+            1042.9875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_lower_right_2_reference",
+          "duty_id": "clip_horizontal_lower_right_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1001.5625,
+        36.512500000000045
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1001.5625,
+        36.512500000000045
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_right_2_reference",
+              "annulus_backed_fraction": 0.9999999978094594
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_lower_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_lower_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_lower_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309124
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_right_2_reference",
+              "annulus_backed_fraction": 0.8454106194168117
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_lower_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_lower_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848358
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_lower_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_042",
+      "receiver": "base_side_right",
+      "point_xyz_mm": [
+        1127.125,
+        618.242069334,
+        1171.914110055
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            1127.125,
+            618.242069334,
+            1171.914110055
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_right",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            587.629309,
+            1135.431243
+          ],
+          "angle_id": "B104ZN_clip_horizontal_lower_right_2_reference",
+          "duty_id": "clip_horizontal_lower_right_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1168.2274029024586,
+        1343.8874999943823
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1168.2274029024586,
+        1343.8874999943823
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_right_2_reference",
+              "annulus_backed_fraction": 0.9999999999999898
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_lower_right_2_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_lower_right_2_reference",
+              "annulus_backed_fraction": 0.8454106280200353
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_043",
+      "receiver": "base_rail_service_upper_right",
+      "point_xyz_mm": [
+        125.5625,
+        748.591361718,
+        1327.258347569
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_service_upper_right",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            125.5625,
+            748.591361718,
+            1327.258347569
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_service_upper_right",
+            0.0,
+            0.642788,
+            0.766044,
+            173.1875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_upper_right_1_reference",
+          "duty_id": "clip_horizontal_upper_right_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        36.512500000000045,
+        1001.5625
+      ],
+      "finished_first_grain_boundaries_mm": [
+        36.512500000000045,
+        1001.5625
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_right_1_reference",
+              "annulus_backed_fraction": 0.9999999999999989
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_upper_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_upper_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_upper_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309125
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_right_1_reference",
+              "annulus_backed_fraction": 0.8454106430248337
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_upper_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_upper_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848357
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_upper_right_1_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_044",
+      "receiver": "base_principal_center_right",
+      "point_xyz_mm": [
+        89.05,
+        761.856890999,
+        1343.06758977
+      ],
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 38.099999999999994,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_principal_center_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            89.05,
+            761.856890999,
+            1343.06758977
+          ],
+          "axis_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_principal_center_right",
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            792.469651,
+            1379.550456
+          ],
+          "angle_id": "B104ZN_clip_horizontal_upper_right_1_reference",
+          "duty_id": "clip_horizontal_upper_right_1"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1391.652402976359,
+        1082.3625000046259
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1391.652402976359,
+        1082.3625000046259
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_right_1_reference",
+              "annulus_backed_fraction": 0.9999999999999782
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_upper_right_1_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_right_1_reference",
+              "annulus_backed_fraction": 0.8454106280188497
+            },
+            {
+              "side": "nut",
+              "support": "base_principal_center_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_045",
+      "receiver": "base_rail_service_upper_right",
+      "point_xyz_mm": [
+        1090.6125,
+        748.591361718,
+        1327.258347569
+      ],
+      "direction_xyz": [
+        -0.0,
+        -0.64278761,
+        -0.766044443
+      ],
+      "raw_grip_mm": 38.09999999999991,
+      "attachments": [
+        {
+          "flange": "beam",
+          "receiver": "base_rail_service_upper_right",
+          "offset_from_assumed_outer_corner_mm": 36.5125,
+          "entry_xyz_mm": [
+            1090.6125,
+            748.591361718,
+            1327.258347569
+          ],
+          "axis_xyz": [
+            -0.0,
+            -0.64278761,
+            -0.766044443
+          ],
+          "projected_raw_thickness_mm": 38.1,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_rail_service_upper_right",
+            0.0,
+            0.642788,
+            0.766044,
+            1042.9875,
+            -214.255712,
+            179.781889
+          ],
+          "angle_id": "B104ZN_clip_horizontal_upper_right_2_reference",
+          "duty_id": "clip_horizontal_upper_right_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1001.5625,
+        36.512500000000045
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1001.5625,
+        36.512500000000045
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 76.2,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_right_2_reference",
+              "annulus_backed_fraction": 0.9999999978118769
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_upper_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_upper_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 2697.824853
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_upper_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 589.309124
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 63.5,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_right_2_reference",
+              "annulus_backed_fraction": 0.8454106194243864
+            },
+            {
+              "side": "nut",
+              "support": "base_rail_service_upper_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "nut_washer",
+              "obstacle": "B103ZN_clip_horizontal_upper_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 703.848358
+            },
+            {
+              "role": "nut",
+              "obstacle": "B103ZN_clip_horizontal_upper_right_2_opposite",
+              "kind": "bracket",
+              "intersection_mm3": 58.004407
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "proposal_near_046",
+      "receiver": "base_side_right",
+      "point_xyz_mm": [
+        1127.125,
+        761.856890999,
+        1343.06758977
+      ],
+      "direction_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "raw_grip_mm": 88.90000000000009,
+      "attachments": [
+        {
+          "flange": "post",
+          "receiver": "base_side_right",
+          "offset_from_assumed_outer_corner_mm": 20.637500000000003,
+          "entry_xyz_mm": [
+            1127.125,
+            761.856890999,
+            1343.06758977
+          ],
+          "axis_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "projected_raw_thickness_mm": 88.9,
+          "raw_full_bore_fraction": 1.0,
+          "width_edge_distance_mm": 69.85,
+          "conditional_two_edge_4d_reserve_mm": 19.05,
+          "intersecting_legacy_occupied_axes": [],
+          "key": [
+            "base_side_right",
+            1.0,
+            -0.0,
+            -0.0,
+            0.0,
+            792.469651,
+            1379.550456
+          ],
+          "angle_id": "B104ZN_clip_horizontal_upper_right_2_reference",
+          "duty_id": "clip_horizontal_upper_right_2"
+        }
+      ],
+      "parallel_grain_near_far_pitch_mm": 47.625,
+      "raw_grain_end_ray_mm": [
+        1391.652402976359,
+        1120.4625000046258
+      ],
+      "finished_first_grain_boundaries_mm": [
+        1391.652402976359,
+        1120.4625000046258
+      ],
+      "width_edge_distance_mm": 69.85,
+      "formal_end_category_and_load_direction": null,
+      "scenarios": [
+        {
+          "label": "half_large_washers",
+          "diameter_mm": 12.7,
+          "wood_bore_mm": 14.2875,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 127.0,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_right_2_reference",
+              "annulus_backed_fraction": 1.0
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [
+            {
+              "role": "head_washer",
+              "obstacle": "B104ZN_clip_horizontal_upper_right_2_reference",
+              "kind": "bracket",
+              "intersection_mm3": 99.026641
+            }
+          ],
+          "delivered_thread_window_qualified": false
+        },
+        {
+          "label": "three_eighth_reference_washers",
+          "diameter_mm": 9.525,
+          "wood_bore_mm": 11.1125,
+          "steel_existing_bore_mm": 14.2875,
+          "nominal_length_mm": 114.3,
+          "finished_receiver_bore_fraction": 1.0,
+          "raw_receiver_bore_fraction": 1.0,
+          "washer_seats": [
+            {
+              "side": "head",
+              "support": "B104ZN_clip_horizontal_upper_right_2_reference",
+              "annulus_backed_fraction": 0.8454106280200352
+            },
+            {
+              "side": "nut",
+              "support": "base_side_right",
+              "annulus_backed_fraction": 1.0
+            }
+          ],
+          "occupied_hits": [],
+          "delivered_thread_window_qualified": false
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "No current holes, hardware, wood or panel/screw counts changed.",
+    "47.625mm fails the half-inch 4D=50.8mm parallel-grain spacing criterion.",
+    "Three-eighth mixed-diameter spacing and oversized steel-hole stiffness are unqualified.",
+    "Initial nominal occupancy and sampled/ray boundaries do not establish installation/tool/removal access.",
+    "No force-couple demand, resistance or full-joint rotational restraint accepted.",
+    "B103 short post flange still has only one factory hole."
+  ],
+  "reproduce": ".venv/bin/python -m scripts.thin_bolted_near_hole_proposal"
+}

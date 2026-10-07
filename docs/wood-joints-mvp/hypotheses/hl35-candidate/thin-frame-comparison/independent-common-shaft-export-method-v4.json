@@ -1,0 +1,58 @@
+{
+  "schema": "thin-bolted-independent-common-shaft-export-method/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "scripts/thin_bolted_common_shaft_export_audit.py": "26feb3bb369490729c6f8e48365d816cbda458b2fdeea89a97b8286842d1be58",
+    "tests/test_thin_bolted_common_shaft_export_audit.py": "4888645ac0f352224bf690b6bd1b1790446da88cb95814506db7f3efea679e05",
+    "scripts/thin_bolted_common_shaft_audit.py": "a236900e59a3d5984598df56d4243408ce12801d4ab6fcc7f765f6a420de01ba",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/independent-common-shaft-method-v4.json": "24ea774fc3765730d1a2734d10adab30f791b4367653d7445ed33341a858ee12"
+  },
+  "API": {
+    "helper": "scripts.thin_bolted_common_shaft_export_audit.audit_common_shaft_state",
+    "acceptance_key": "independent_common_shaft_support_load_and_equilibrium_checks_pass",
+    "field_schema": "thin_bolted_common_shaft_frame/v1"
+  },
+  "supersedes_prior_method_runtime_entrypoint": true,
+  "prior_method_bytes_preserved": true,
+  "correction": {
+    "observed_issue": "The frozen common-shaft compatible_actions writer exports the complete end geometry dictionary; the earlier audit fixture and end check expected its head/nut string label.",
+    "actual_producer_export_exercised": true,
+    "method": "Authenticate all 140 full end dictionaries against frozen own-washer/support geometry, then adapt only the checked label on an independent deep copy for the existing unchanged 132-body arithmetic audit.",
+    "physical_actions_forces_datums_and_state_identity_changed": false,
+    "additional_datum_check": "All 66 panel screw common midplane points and zero point-law free couples are source authenticated."
+  },
+  "validation": {
+    "fixtures_passed": 11,
+    "actual_frozen_compatible_actions_called_without_stiffness_assembly_or_solve": true,
+    "actual_zero_force_export_is_a_serialization_coupon_not_a_candidate_case": true,
+    "ruff_passed": true,
+    "commands": [
+      "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m pytest tests/test_thin_bolted_common_shaft_export_audit.py -q",
+      ".venv/bin/ruff check scripts/thin_bolted_common_shaft_export_audit.py tests/test_thin_bolted_common_shaft_export_audit.py"
+    ]
+  },
+  "coverage_reused": {
+    "host_bodies": 62,
+    "physical_shaft_bodies": 70,
+    "body_wrench_balances": 132,
+    "radial_quadrature_actions": 308,
+    "complete_end_geometry_and_axial_capture_actions": 140,
+    "flange_contact_ports": 288,
+    "panel_screw_axes": 66,
+    "finished_floor_hosts": 8
+  },
+  "limits": [
+    "No solved common-shaft field is accepted by this method receipt. Each future saved field must pass exact source/load/finished support/action/132-body equilibrium checks.",
+    "Component consumers independently reconstruct aggregate steel/wood wrenches and shaft cuts; this entry point does not accept their exported aliases.",
+    "Full-frame refinement, physical stiffness bounds, objective finite-motion applicability and actual material/hardware/contact resistance remain unresolved."
+  ],
+  "release": {
+    "numerical_MVP_complete": false,
+    "physical_demand_bounds_established": false,
+    "structural_acceptance": false,
+    "fabrication_release": false,
+    "climbing_release": false
+  }
+}

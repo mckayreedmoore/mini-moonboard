@@ -1,0 +1,87 @@
+{
+  "schema": "thin_bolted_timber_contact_steel_method/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "source_sha256": {
+    "scripts/thin_bolted_timber_contact_steel_checks.py": "dae2678892a47950b1311dc136d2844cd4419227c7facb53da46437ab6f53938",
+    "tests/test_thin_bolted_timber_contact_steel_checks.py": "7020d8b1ab02c6f908bb1fc34617955bf939d085f377dad9d49b34cee58aa80d",
+    "scripts/thin_bolted_finite_steel_consumer.py": "1c4573b3c11baaed56c333d3d88653ca816b56e4982176eaf51358dcf6107a28",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-steel-consumer-method-v4.json": "0bb1211e5240965b8c038710033af6c8c0916b49f55eaf8ace08398a26f97330",
+    "scripts/thin_bolted_finite_steel_recovery.py": "c8f71a3eebb68e308ff814c5a8995d64c9e571f42556dfacff63280af7a7755a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-steel-recovery-method-v4.json": "fcac5af8927859bdc05dc360c787c418a1a801a02751b894f27fb1213b31f5d0",
+    "tests/test_thin_bolted_finite_steel_consumer.py": "d7d4fe59414c72fae8dd5ac7603eff7bcdaefa7e2309c9a308768be905353e05",
+    "tests/test_thin_bolted_finite_steel_recovery.py": "fd533318b903aea25fe11730bb566c1a7f758214dfb760f79e4d4218b5f3525e"
+  },
+  "architecture": "Distinct115-line admission adapter. Frozen consumer hash/pin/geometry/census functions and frozen CURRENT recovery are reused; no mechanics or controller class is copied.",
+  "public_api": {
+    "consume": "field_path,mandatory_keyword_admission_sha256,optional_caller_sections_path -> admitted current steel/shaft components with direct timber contacts excluded",
+    "CLI": "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m scripts.thin_bolted_timber_contact_steel_checks --demands ACCEPTED_NEW_FIELD --admission-sha256 REVIEWED_TIMBER_CONTACT_GATE_SHA --out DISTINCT_NEW_REPORT"
+  },
+  "admission_contract": {
+    "fixed_module": "scripts.thin_bolted_timber_contact_admission",
+    "fixed_source_path": "scripts/thin_bolted_timber_contact_admission.py",
+    "function": "audit_timber_contact_state",
+    "receipt_schema": "thin_bolted_independent_timber_contact_admission/v1",
+    "required_success_key": "independent_finite_timber_contact_support_load_and_equilibrium_checks_pass",
+    "field_schema": "thin_bolted_finite_frame_response/v1",
+    "runtime_reviewed_digest_required": true,
+    "original_immutable_bytes_passed_to_gate": true,
+    "raw_and_canonical_hash_state_case_accessory_and_loaded_gate_source_bound": true,
+    "new_source_params_proof_and_direct_contact_census_authenticated_by_new_gate": true,
+    "old_gate_can_admit_new_field": false
+  },
+  "component_contract": {
+    "physical_shafts": 70,
+    "steel_ports": 72,
+    "flange_section_tables": 72,
+    "same_cut_circle_summaries": 70,
+    "own_captures": 140,
+    "own_metal_role_gravity_count": 350,
+    "direct_timber_face_contact_kind": "timber_face_contact",
+    "direct_contacts_enter_whole132body_admission": true,
+    "direct_contacts_enter_steel_or_shaft_reductions": false,
+    "same_state_current_points_directors_and_spatial_couples_retained": true,
+    "own_washer_face_pressure_feasibility": null,
+    "host_director_couple_interpreted_as_actual_washer_pressure": false
+  },
+  "validation": {
+    "new_fixtures_passed": 8,
+    "test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_timber_contact_steel_checks.py",
+    "test_result": "8 passed",
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_timber_contact_steel_checks.py tests/test_thin_bolted_timber_contact_steel_checks.py",
+    "lint_result": "All checks passed",
+    "known_answer_scope": [
+      "new gate receives originalimmutablebytes and exact source q remains unchanged",
+      "old receipt and wrong new digest/state/bytes/source binding prevent recovery",
+      "large direct-wood force/free couple enters none of the actual frozen shaft, steel-port, flange-section or own-capture reducers",
+      "direct field mutation during recovery prevents issuance",
+      "synthetic admitted controller preserves complete source census and null pressure feasibility"
+    ],
+    "independent_review": [
+      {
+        "reviewer": "thin_access_cost",
+        "outcome": "Bounded source review, eightfixtures and Ruff pass; no confirmed finding"
+      },
+      {
+        "reviewer": "thin_independent_mvp_review",
+        "outcome": "No concrete blocker in source/fixtures; access worker rerun reused without duplicate execution"
+      }
+    ],
+    "candidate_field_consumed": false
+  },
+  "reuse": {
+    "unchanged_unit_methods_or_old_tests_rerun": false,
+    "existing_owned_test_fixtures_reused": true,
+    "old_forces_or_passes_transferred": false,
+    "CAD_geometry_queries_global_K_or_response_solve": false
+  },
+  "limits": [
+    "Only a source-bound field admitted by the new complete timber-contact gate can be consumed; the reviewed gate digest is supplied at runtime after issue.",
+    "Direct timber contacts change the admitted field and compatible forces; no historical force or acceptance is transferred.",
+    "No current own washer pressure patch/normal/face wrench is solved; pressure feasibility stays null and the capture director couple is separate.",
+    "Actual heel/hole/warping/root geometry, delivered hardware/material, physical demand bounds, continuous extrema and complete joints remain unqualified."
+  ],
+  "structural_acceptance": false,
+  "complete_joint_acceptance": false,
+  "fabrication_release": false,
+  "climbing_release": false
+}

@@ -1,0 +1,75 @@
+{
+  "schema": "thin_bolted_finite_connector_method/v1",
+  "source_sha256": {
+    "scripts/check_thin_bolted_finite_connectors.py": "1541be509cec1b6bb5980cc7366640517449ff5dbe8dc6459b743cd5a589e37b",
+    "scripts/thin_bolted_finite_connectors.py": "6bf2c5ca9006e474d8b10642e8e4dbbfc657070c0d221b98abfbc1d2d6e03060",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "tests/test_thin_bolted_finite_connectors.py": "09692ef8419a741a335c7674568f6e64c84d1ee4ead89c0ccdf528e3bee079bc"
+  },
+  "command": ".venv/bin/python -m scripts.check_thin_bolted_finite_connectors",
+  "known_answer_rigid_coupons": [
+    {
+      "common_rigid_rotation_deg": 0.0,
+      "energy_nmm": 81.76271586070122,
+      "reference_energy_nmm": 81.76271586070122,
+      "energy_error_nmm": 0.0,
+      "rigid_work_gradient_max_n": 0.0,
+      "rigid_tangent_max_n_mm": 0.0,
+      "spatial_moment_residual_norm_nmm": 0.0
+    },
+    {
+      "common_rigid_rotation_deg": 20.0,
+      "energy_nmm": 81.76271586070123,
+      "reference_energy_nmm": 81.76271586070122,
+      "energy_error_nmm": 1.4210854715202004e-14,
+      "rigid_work_gradient_max_n": 1.385816358356092e-15,
+      "rigid_tangent_max_n_mm": 2.2149261918182076e-33,
+      "spatial_moment_residual_norm_nmm": 2.3832327871173822e-14
+    },
+    {
+      "common_rigid_rotation_deg": 73.0,
+      "energy_nmm": 81.7627158607012,
+      "reference_energy_nmm": 81.76271586070122,
+      "energy_error_nmm": 1.4210854715202004e-14,
+      "rigid_work_gradient_max_n": 6.509287190512576e-16,
+      "rigid_tangent_max_n_mm": 1.0981643812683263e-15,
+      "spatial_moment_residual_norm_nmm": 2.9417348844303596e-14
+    }
+  ],
+  "finite_derivative_coupon": {
+    "energy_gradient_max_abs_error": 1.5306866885111958e-10,
+    "gradient_tangent_max_abs_error": 5.284128690163925e-10,
+    "director_spatial_couple_xyz_nmm": [
+      -3.7033166893150673,
+      2.1376286598487817,
+      -1.2806461174030357
+    ],
+    "pair_spatial_moment_residual_nmm": [
+      8.881784197001252e-16,
+      -1.3322676295501878e-15,
+      0.0
+    ]
+  },
+  "reference_axial_radial_contact_laws_reused": true,
+  "distinct_pressure_and_support_datums_do_not_create_rigid_compression": true,
+  "validation": {
+    "test_fixture_count": 8,
+    "test_command": ".venv/bin/python -m pytest -q tests/test_thin_bolted_finite_connectors.py",
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_finite_connectors.py scripts/check_thin_bolted_finite_connectors.py tests/test_thin_bolted_finite_connectors.py"
+  },
+  "limits": [
+    "Caller must authenticate actual position/director jets and declare the director owner.",
+    "Spatial director couples must enter current-point body/global wrench recovery; they are not rotation-coordinate work duals.",
+    "Physical stiffness, local bearing pressure, own washer prying and component resistance are not qualified.",
+    "These isolated method coupons do not establish an integrated finite frame state or candidate acceptance."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "integrated_frame_or_candidate_acceptance_established": false
+}

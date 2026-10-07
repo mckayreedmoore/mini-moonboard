@@ -1,0 +1,67 @@
+{
+  "schema": "thin_bolted_development_candidate/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "revision": "thin-offset-header-rows-shallow-wires-v4-review-model",
+  "status": "REVISE_UNQUALIFIED_PROPOSAL",
+  "selected": false,
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "load_basis": {
+    "climber_weight_lb": 250,
+    "downward_multiplier": 2,
+    "horizontal_force_N": 300,
+    "hold_lever_mm": 100,
+    "floor_no_slip_assumed": true,
+    "floor_no_slip_verified": false
+  },
+  "viewer": {
+    "query": "thin-bolted-development",
+    "scene": "site/thin-bolted-scene.json",
+    "sha256": "ec9bac9be2091aa76c24f4df305c020c69f890a11aa3de93e920e18b209c6c70",
+    "counts": {
+      "timber": 20,
+      "panel": 6,
+      "bracket": 36,
+      "bolt": 350,
+      "screw": 66,
+      "wire": 131,
+      "physical_bolt_axes": 70,
+      "new_bolt_axes": 58,
+      "retained_starting_bolt_axes": 12,
+      "lights": 132,
+      "tnuts": 142,
+      "total_visible_parts": 883
+    },
+    "transport": {
+      "path": "site/thin-bolted-scene.json.gz",
+      "encoding": "gzip",
+      "sha256": "2ec1dd37dcd867e1748abe4eeb7567e1f62347802964d14bfcb09dd1329e17dc",
+      "decoded_sha256": "ec9bac9be2091aa76c24f4df305c020c69f890a11aa3de93e920e18b209c6c70",
+      "encoded_bytes": 6976383,
+      "decoded_bytes": 15164519
+    },
+    "transport_report": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/viewer-transport-v4.json",
+      "sha256": "c08604e8f956ebc4e899b7452d6ac675bb6f9937789f5632786e52a996c2a7e7"
+    }
+  },
+  "evidence": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json",
+    "sha256": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e"
+  },
+  "preserved_authorities_sha256": {
+    "current-candidate.json": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+    "wood-joints-candidate.json": "2d1c43eae6f1515ad9fbb052d208b14648f4bf4f9003f49a7268d2ecb8ec545d"
+  },
+  "remaining": [
+    "Nominal geometry review only; catalog discrepancies and tolerances remain unresolved.",
+    "Tool corridors, disassembly, lower panel-edge transfer, complete joint behavior and resistance remain open.",
+    "No native solve, inherited capacity, actual inspection or physical release."
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "hl35_final_hardware_coverage/v1",
+  "candidate": "compact-floor-flush-hl35-development",
+  "revision": "hl35-center-foot-wire-clearance-v7",
+  "question": "Do any conditional metal roles intersect ideal angles, or shafts intersect unrelated raw timber/panels?",
+  "counts": {
+    "angle_bodies": 30,
+    "structural_axes": 112,
+    "metal_roles": 560,
+    "metal_angle_intersections": 8,
+    "shaft_unrelated_raw_timber_intersections": 4
+  },
+  "metal_angle_intersections": [
+    {
+      "axis_id": "hl35_bolt_002",
+      "role": "shaft",
+      "angle_id": "angle_hl35_kicker_header_outer_left_left",
+      "intersection_mm3": 16.35881
+    },
+    {
+      "axis_id": "hl35_bolt_005",
+      "role": "shaft",
+      "angle_id": "angle_hl35_kicker_header_outer_left_right",
+      "intersection_mm3": 16.35881
+    },
+    {
+      "axis_id": "hl35_bolt_014",
+      "role": "shaft",
+      "angle_id": "angle_hl35_kicker_header_outer_right_left",
+      "intersection_mm3": 16.35881
+    },
+    {
+      "axis_id": "hl35_bolt_017",
+      "role": "shaft",
+      "angle_id": "angle_hl35_kicker_header_outer_right_right",
+      "intersection_mm3": 16.35881
+    },
+    {
+      "axis_id": "hl35_bolt_019",
+      "role": "shaft",
+      "angle_id": "angle_hl35_principal_header_outer_left_left",
+      "intersection_mm3": 77.85613
+    },
+    {
+      "axis_id": "hl35_bolt_024",
+      "role": "shaft",
+      "angle_id": "angle_hl35_principal_header_outer_left_right",
+      "intersection_mm3": 77.85613
+    },
+    {
+      "axis_id": "hl35_bolt_031",
+      "role": "shaft",
+      "angle_id": "angle_hl35_principal_header_outer_right_left",
+      "intersection_mm3": 77.85613
+    },
+    {
+      "axis_id": "hl35_bolt_036",
+      "role": "shaft",
+      "angle_id": "angle_hl35_principal_header_outer_right_right",
+      "intersection_mm3": 77.85613
+    }
+  ],
+  "shaft_unrelated_raw_timber_intersections": [
+    {
+      "axis_id": "hl35_bolt_008",
+      "member": "base_post_center_left",
+      "intersection_mm3": 16.35881
+    },
+    {
+      "axis_id": "hl35_bolt_011",
+      "member": "base_post_center_right",
+      "intersection_mm3": 16.35881
+    },
+    {
+      "axis_id": "hl35_bolt_030",
+      "member": "hl35_center_principal",
+      "intersection_mm3": 77.85613
+    },
+    {
+      "axis_id": "hl35_bolt_037",
+      "member": "hl35_center_principal",
+      "intersection_mm3": 77.85613
+    }
+  ],
+  "conditional_coverage_passed": false,
+  "limits": "Exact conditional occupied solids only. Intended receiver bores are excluded; actual products, access and strength are unqualified.",
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

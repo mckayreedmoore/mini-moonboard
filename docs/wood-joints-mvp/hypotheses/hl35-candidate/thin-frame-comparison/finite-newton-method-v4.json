@@ -1,0 +1,390 @@
+{
+  "schema": "thin_bolted_generic_finite_potential_newton_method/v1",
+  "scope": "source-bound small generic conservative systems only; no candidate assembly or execution",
+  "source_sha256": {
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_isotropic_shaft.py": "be8e5277999aa2ce01b4a8d81c0e9124dad9dc6023712c13e91595600c1c027a",
+    "scripts/thin_bolted_finite_frame.py": "68f711549da9e6b52c60db4e4df78235ba8105084ded0d81c9a3430cf5973588",
+    "scripts/thin_bolted_finite_newton.py": "039282fa1c06d90b5e899c1c69c2920c003b42db1a8600e390a7a2d9aca75afe",
+    "scripts/check_thin_bolted_finite_newton.py": "c61b372bcc71a3bbbd698d3d48186d56700e247326d23127b98cb585d0b43cad",
+    "tests/test_thin_bolted_finite_newton.py": "84e32a0c4cdaaf73b88ad9d89bb23ca46e9aff56425c4d3a7c21949e99127963",
+    "tests/test_thin_bolted_isotropic_shaft.py": "39c560fc1fcd5a09e5d4e859016b83a052fd3aab50ee6f5e7597940b88653800",
+    "tests/test_thin_bolted_finite_mechanics.py": "c2a11abac34b792d65bea3a56a599483c2fde1c2e59f671d76340501eb5d1527",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/isotropic-shaft-method-v4.json": "06943e846c80f506af080c8e5e029b9f6b6b928d23e36abb3539ea46b92e1c85",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-frame-method-v4.json": "790b1925f042cc3f48fae596f5f8097ec64f8dc9605a00d9e200b4cd7bf28e9f"
+  },
+  "observed_coupons": {
+    "convex_known_answer": {
+      "converged": true,
+      "termination": "full physical equilibrium and fixed corner-support pattern converged",
+      "gradient_inf_n": 4.999993477028397e-06,
+      "potential_energy_nmm": -0.2749999999994837,
+      "accepted_numerical_steps": 1,
+      "rejected_numerical_trials": 0,
+      "gradient_work_evaluations": 0,
+      "maximum_transient_scaled_step_regularization": 1e-06,
+      "generalized_residual_tolerance_n": 1e-05,
+      "disabled_floor_support_ids": [],
+      "physical_twist_supports_added": 0,
+      "force_field_exported": true,
+      "accepted_q_exported": true,
+      "q": [
+        0.049999923913154554,
+        -0.09999986956539228
+      ],
+      "known_q": [
+        0.05,
+        -0.09999999999999999
+      ],
+      "maximum_q_error_mm": 1.3043460771189341e-07,
+      "force_criterion_q_error_bound_mm": 2.608695652173913e-07
+    },
+    "unloaded_null_mode": {
+      "converged": true,
+      "termination": "full physical equilibrium and fixed corner-support pattern converged",
+      "gradient_inf_n": 1.999997999435621e-06,
+      "potential_energy_nmm": -0.01999999999998,
+      "accepted_numerical_steps": 1,
+      "rejected_numerical_trials": 0,
+      "gradient_work_evaluations": 0,
+      "maximum_transient_scaled_step_regularization": 1e-06,
+      "generalized_residual_tolerance_n": 1e-05,
+      "disabled_floor_support_ids": [],
+      "physical_twist_supports_added": 0,
+      "force_field_exported": true,
+      "accepted_q_exported": true,
+      "q": [
+        0.019999980000020005,
+        7.0
+      ]
+    },
+    "nonconvex_double_well": {
+      "converged": true,
+      "termination": "full physical equilibrium and fixed corner-support pattern converged",
+      "gradient_inf_n": 1.2207838586622984e-06,
+      "potential_energy_nmm": 9.314454842081468e-14,
+      "accepted_numerical_steps": 9,
+      "rejected_numerical_trials": 9,
+      "gradient_work_evaluations": 0,
+      "maximum_transient_scaled_step_regularization": 10.0,
+      "generalized_residual_tolerance_n": 1e-05,
+      "disabled_floor_support_ids": [],
+      "physical_twist_supports_added": 0,
+      "force_field_exported": true,
+      "accepted_q_exported": true,
+      "q": [
+        1.0000001525979474
+      ],
+      "known_positive_minimum_q": [
+        1.0
+      ],
+      "physical_energy_history_nmm": [
+        0.9801,
+        0.9753603936939238,
+        0.9309390758338038,
+        0.9004612283209833,
+        0.2945391573662341,
+        0.003985718000276318,
+        0.00038025279749197163,
+        3.916847308759918e-06,
+        2.500191838238848e-09,
+        9.314454842081468e-14
+      ]
+    },
+    "published_energy_cancellation": {
+      "converged": true,
+      "termination": "full physical equilibrium and fixed corner-support pattern converged",
+      "gradient_inf_n": 1.9999979450346927e-09,
+      "potential_energy_nmm": 1e+20,
+      "accepted_numerical_steps": 1,
+      "rejected_numerical_trials": 0,
+      "gradient_work_evaluations": 21,
+      "maximum_transient_scaled_step_regularization": 1e-06,
+      "generalized_residual_tolerance_n": 1e-05,
+      "disabled_floor_support_ids": [],
+      "physical_twist_supports_added": 0,
+      "force_field_exported": true,
+      "accepted_q_exported": true,
+      "q": [
+        1.000000000999999
+      ],
+      "comparison": {
+        "difference_nmm": -9.99999999998769e-07,
+        "estimated_absolute_error_nmm": 1.11022302462379e-20,
+        "method": "fixed-pattern-physical-gradient-work-QUADPACK",
+        "resolved": true,
+        "absolute_error_budget_nmm": 1.9999980000015598e-16,
+        "relative_error_budget": 1e-08,
+        "gradient_evaluations": 21,
+        "integration_message": null
+      }
+    },
+    "gradient_work_unilateral_transitions": [
+      {
+        "difference_nmm": 0.7500000000000002,
+        "estimated_absolute_error_nmm": 8.31279489688086e-15,
+        "method": "fixed-pattern-physical-gradient-work-QUADPACK",
+        "resolved": true,
+        "absolute_error_budget_nmm": 1e-30,
+        "relative_error_budget": 1e-08,
+        "gradient_evaluations": 147,
+        "integration_message": null,
+        "value_mm": -0.3,
+        "delta_mm": 0.8,
+        "known_difference_nmm": 0.75
+      },
+      {
+        "difference_nmm": -0.4800000000000001,
+        "estimated_absolute_error_nmm": 5.329070518200751e-15,
+        "method": "fixed-pattern-physical-gradient-work-QUADPACK",
+        "resolved": true,
+        "absolute_error_budget_nmm": 1.9200000000000003e-10,
+        "relative_error_budget": 1e-08,
+        "gradient_evaluations": 63,
+        "integration_message": null,
+        "value_mm": 0.4,
+        "delta_mm": -0.8,
+        "known_difference_nmm": -0.4800000000000001
+      },
+      {
+        "difference_nmm": 0.27,
+        "estimated_absolute_error_nmm": 2.9976021664879227e-15,
+        "method": "fixed-pattern-physical-gradient-work-QUADPACK",
+        "resolved": true,
+        "absolute_error_budget_nmm": 2.4000000000000004e-11,
+        "relative_error_budget": 1e-08,
+        "gradient_evaluations": 21,
+        "integration_message": null,
+        "value_mm": 0.4,
+        "delta_mm": 0.1,
+        "known_difference_nmm": 0.2699999999999999
+      }
+    ],
+    "individual_corner_support_feedback": {
+      "converged": true,
+      "termination": "full physical equilibrium and fixed corner-support pattern converged",
+      "gradient_inf_n": 3.1249980469993943e-07,
+      "potential_energy_nmm": -4.045454545454496,
+      "accepted_numerical_steps": 4,
+      "rejected_numerical_trials": 3,
+      "gradient_work_evaluations": 0,
+      "maximum_transient_scaled_step_regularization": 9.999999999999999e-06,
+      "generalized_residual_tolerance_n": 1e-05,
+      "disabled_floor_support_ids": [
+        "same-body/corner-A"
+      ],
+      "physical_twist_supports_added": 0,
+      "force_field_exported": true,
+      "accepted_q_exported": true,
+      "q": [
+        0.9999996875001953,
+        1.0,
+        -1.0,
+        0.9090909090909091
+      ],
+      "known_q": [
+        1.0,
+        1.0,
+        -1.0,
+        0.9090909090909091
+      ],
+      "support_history": [
+        {
+          "disabled_floor_support_ids": [],
+          "next_disabled_floor_support_ids": [
+            "same-body/corner-A"
+          ],
+          "gradient_inf_n": 9.374723219934822e-11
+        },
+        {
+          "disabled_floor_support_ids": [
+            "same-body/corner-A"
+          ],
+          "next_disabled_floor_support_ids": [
+            "same-body/corner-A"
+          ],
+          "gradient_inf_n": 3.1249980469993943e-07
+        }
+      ],
+      "action_recovery_calls": 1,
+      "floor_xy_enabled_support_ids": [
+        "same-body/corner-B"
+      ]
+    },
+    "support_pattern_cycle_failure": {
+      "converged": false,
+      "termination": "repeated fixed corner-support activation pattern",
+      "gradient_inf_n": 3.1249980469993943e-07,
+      "potential_energy_nmm": -4.045454545454496,
+      "accepted_numerical_steps": 4,
+      "rejected_numerical_trials": 3,
+      "gradient_work_evaluations": 0,
+      "maximum_transient_scaled_step_regularization": 9.999999999999999e-06,
+      "generalized_residual_tolerance_n": 1e-05,
+      "disabled_floor_support_ids": [
+        "same-body/corner-A"
+      ],
+      "physical_twist_supports_added": 0,
+      "force_field_exported": false,
+      "accepted_q_exported": false,
+      "diagnostic_last_q": [
+        0.9999996875001953,
+        1.0,
+        -1.0,
+        0.9090909090909091
+      ],
+      "action_recovery_calls": 0
+    },
+    "iteration_cutoff_failure": {
+      "converged": false,
+      "termination": "finite Newton iteration limit",
+      "gradient_inf_n": 3000.0,
+      "potential_energy_nmm": -350000.0,
+      "accepted_numerical_steps": 1,
+      "rejected_numerical_trials": 0,
+      "gradient_work_evaluations": 0,
+      "maximum_transient_scaled_step_regularization": 1e-06,
+      "generalized_residual_tolerance_n": 1e-05,
+      "disabled_floor_support_ids": [],
+      "physical_twist_supports_added": 0,
+      "force_field_exported": false,
+      "accepted_q_exported": false,
+      "diagnostic_last_q": [
+        100.0
+      ]
+    },
+    "circular_quotient_axial_known_answer": {
+      "converged": true,
+      "termination": "full physical equilibrium and fixed corner-support pattern converged",
+      "gradient_inf_n": 2.0000912148709915e-06,
+      "potential_energy_nmm": -1.9894367888427095e-05,
+      "accepted_numerical_steps": 1,
+      "rejected_numerical_trials": 0,
+      "gradient_work_evaluations": 0,
+      "maximum_transient_scaled_step_regularization": 1e-06,
+      "generalized_residual_tolerance_n": 1e-05,
+      "disabled_floor_support_ids": [],
+      "physical_twist_supports_added": 0,
+      "force_field_exported": true,
+      "accepted_q_exported": true,
+      "q": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -9.947173995971624e-06,
+        -9.148839303972246e-15,
+        3.3343945777670796e-14,
+        6.471541832145116e-13,
+        1.6850868828977364e-13,
+        1.2424530764300885e-16,
+        -1.153096460555689e-16,
+        8.595805832544475e-16,
+        -1.221204433106335e-18,
+        6.471562644853058e-13,
+        1.685090048512133e-13,
+        9.947173996220115e-06,
+        9.37945859512392e-15,
+        -3.50631069448484e-14,
+        -1.6165861106549794e-18,
+        6.471583457561003e-13,
+        1.6850933239788566e-13,
+        0.0
+      ],
+      "known_extension_mm": 1.989436788648692e-05,
+      "actual_extension_mm": 1.989434799219174e-05,
+      "full_ndof": 48,
+      "reduced_ndof": 47,
+      "local_first_theta_x": 0.0,
+      "maximum_material_roll_work_nmm_per_rad": 8.751036035483371e-16
+    },
+    "bent_quotient_hessian_and_world_wrench_fixture_pass": true,
+    "off_axis_gauge_violation_fixture_explicitly_fails": true,
+    "unsupported_initial_chart_fixture_explicitly_fails": true,
+    "method_coupon_checks_pass": true
+  },
+  "pytest_tests_passed": 19,
+  "ruff": "pass",
+  "options": {
+    "max_iterations": 300,
+    "max_support_patterns": 10,
+    "max_regularization_trials": 20,
+    "max_backtracks": 30,
+    "max_step_inf_mm": 100.0,
+    "initial_damping": 1e-06,
+    "maximum_damping": 100000000.0,
+    "minimum_damping": 1e-12,
+    "armijo_fraction": 0.0001,
+    "work_relative_tolerance": 1e-08,
+    "work_absolute_slope_fraction": 1e-10,
+    "work_minimum_absolute_tolerance_nmm": 1e-30,
+    "work_subinterval_limit": 50
+  },
+  "generalized_residual_tolerance_n": 1e-05,
+  "floor_bearing_threshold_n": 1e-07,
+  "independent_review_required_before_candidate_execution": true,
+  "tool_versions": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "primary_sources": [
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html",
+      "locator": "quad parameters epsabs/epsrel, full_output and estimated absolute error; QUADPACK qagse",
+      "use": "Adaptive integral of the unchanged physical gradient along a fixed-pattern coordinate segment; unresolved integrals reject a trial."
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.linalg.spsolve.html",
+      "locator": "spsolve sparse linear-system interface",
+      "use": "Reuse frozen numerical_step.numerical_solve for numerical steps only."
+    }
+  ],
+  "commands": [
+    "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_finite_newton.py",
+    ".venv/bin/ruff check scripts/thin_bolted_finite_newton.py scripts/check_thin_bolted_finite_newton.py tests/test_thin_bolted_finite_newton.py",
+    "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m scripts.check_thin_bolted_finite_newton --out NEW_UNUSED_PATH.json"
+  ],
+  "limits": [
+    "Step-only regularization is absent from published physical forces, potential and residual; a converged equilibrium is not a stability or strength result.",
+    "Gradient-work error is QUADPACK's estimate, not a rigorous bound. Integrals with warnings or unmet budgets reject the trial. Conservative gradient/potential consistency remains a caller contract.",
+    "The circular quotient requires the previously verified gauge-invariant physical port/load/director scope. Local material-roll work is monitored; it is not a complete proof for a new physical potential.",
+    "Support feedback is a fixed own-corner XY-branch rule under assumed no slip; cycles fail. No floor behavior is qualified.",
+    "No full candidate, load-case continuation, geometry reconstruction, native solve or resistance check is executed here."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

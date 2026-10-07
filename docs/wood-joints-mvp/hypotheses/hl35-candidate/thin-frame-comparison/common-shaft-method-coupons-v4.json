@@ -1,0 +1,137 @@
+{
+  "schema": "thin_bolted_common_shaft_method_coupons/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json": "5e78ac49a2db2050caf7ee7d2002d0ebf4f9a92496e857a0e2d652629bd0d848",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c"
+  },
+  "method_sources": {
+    "steel_E_analogy": {
+      "url": "https://www.aisc.org/globalassets/aisc/publications/standards/a360-16-spec-and-commentary_june-2018.pdf",
+      "locator": "ANSI/AISC360-16 symbolsE:200000MPa; generic structural-steel elastic analogy only, not bolt product/strength qualification"
+    },
+    "steel_nu_analogy": {
+      "url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=101043",
+      "locator": "NISTNCSTAR1-6C Fig3-3(b),ambient steelPoisson ratio near0.3; declared scenario,not measuredbolt property"
+    },
+    "circular_shear_scenario": {
+      "coefficient": 0.9,
+      "basis": "Declared approximate circular-section Timoshenko shear factor; analytic coupon uses same assumption,not an independently measured correction"
+    }
+  },
+  "circular_known_answers": [
+    {
+      "dof": 0,
+      "unit_force_n": 1.0,
+      "expected_tip_translation_mm": 3.94705048277997e-05,
+      "observed_tip_translation_mm": 3.94705048277997e-05,
+      "relative_error": 0.0
+    },
+    {
+      "dof": 1,
+      "unit_force_n": 1.0,
+      "expected_tip_translation_mm": 1.3052746625300193,
+      "observed_tip_translation_mm": 1.3052746625300187,
+      "relative_error": 5.551115123125783e-16
+    },
+    {
+      "dof": 2,
+      "unit_force_n": 1.0,
+      "expected_tip_translation_mm": 1.3052746625300193,
+      "observed_tip_translation_mm": 1.3052746625300187,
+      "relative_error": 5.551115123125783e-16
+    }
+  ],
+  "unequal_opposed_load_coupon": {
+    "applied_shear_resultant_n": 1.0,
+    "middle_span_shear_n": 2.999999999999993,
+    "root_bending_moment_nmm": 200.0000000000025,
+    "all_element_actions_n_nmm": [
+      [
+        0.0,
+        -1.000000000000012,
+        0.0,
+        0.0,
+        0.0,
+        200.0000000000025,
+        0.0,
+        1.000000000000012,
+        0.0,
+        0.0,
+        0.0,
+        -300.0000000000035
+      ],
+      [
+        0.0,
+        2.999999999999993,
+        0.0,
+        0.0,
+        0.0,
+        299.99999999999955,
+        0.0,
+        -2.999999999999993,
+        0.0,
+        0.0,
+        0.0,
+        -9.094947017729282e-13
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    ]
+  },
+  "geometry_census": {
+    "physical_shafts": 70,
+    "wood_bore_spans": 82,
+    "steel_bore_spans": 72,
+    "radial_gauss_ports": 308,
+    "own_axial_captures": 140,
+    "physical_metal_roles": 350
+  },
+  "validation": {
+    "tests_path": "tests/test_thin_bolted_common_shaft.py",
+    "tests_sha256": "6637eca5153630d578541a0776d727aba2d208dd0ca379a34e65d110215a20d5",
+    "test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_common_shaft.py",
+    "expected_test_count": 17,
+    "lint_command": ".venv/bin/ruff check scripts/thin_bolted_common_shaft.py tests/test_thin_bolted_common_shaft.py",
+    "gravity_fixture_input_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json",
+    "gravity_fixture_input_sha256": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "coverage": [
+      "circular axial/two-bending/shear known answers",
+      "unequal opposed shaft loads and internal span shear",
+      "two separate bore gaps and host compliances",
+      "unloaded twist gauge",
+      "common rigid-body port invariance",
+      "actual82wood/72steel spans and each own washer",
+      "350metal-role gravity conservation with274screw/Tnut shares retained",
+      "distinct capture datums and transported steel-hole wrenches",
+      "complete external-force section cut recovery",
+      "nonfinite scenario inputs and negative own radial gap rejection",
+      "elastic diameter independent of nominal bearing gap"
+    ]
+  },
+  "limits": [
+    "Two Gauss points per bearing span and linear beam/port interpolation are explicit discretization scenarios; local pressure and stiffness bounds are not established.",
+    "Elastic diameter scaling does not alter nominal major-diameter bore clearance or adopt delivered body/root exposure.",
+    "Own axial captures do not solve washer pressure, bending, prying, actual seating or rotational friction.",
+    "These small coupons validate method algebra only; no coupled candidate state, geometric nonlinear applicability, strength acceptance or physical release is implied."
+  ],
+  "release_flags": {
+    "structural_acceptance": false,
+    "fabrication_release": false,
+    "climbing_release": false
+  }
+}

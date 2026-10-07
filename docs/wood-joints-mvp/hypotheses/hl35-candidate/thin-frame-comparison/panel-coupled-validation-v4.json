@@ -1,0 +1,192 @@
+{
+  "schema": "thin_bolted_coupled_panel_consumer_validation/v1",
+  "state_id": "thin-v4-84ad844f63afddc032cf922c",
+  "field_sha256": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+  "report_sha256": "de4d0a14d7fe0c0b9bb9d80469aab297c38c39e19b9eabba0125c37cdcac05ce",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-coupled-a12-rear-finished-floor-v4.json": "de4d0a14d7fe0c0b9bb9d80469aab297c38c39e19b9eabba0125c37cdcac05ce",
+    "fea/generated/thin-bolted-panel/coupled-a12-rear-finished-floor-samples81.json": "2afbdad89f8af579f32d36a5bcf9ecb0c8f6675bf56c8861760d8a575dbe1ac9",
+    "scripts/thin_bolted_panel_coupled.py": "abd6da1911ec79ec25b57fc2a5cc20b9e687057a15b6df2f5e8fb292a42c6bd0",
+    "tests/test_thin_bolted_panel_coupled.py": "2f6b4b0d5902e93ae07c59e883f7966c3cd4cf79d2d294c83769bee0173d24b6",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-coupled-a12-rear-finished-floor-v4.md": "e8b42bbc4cc0850d763f953c8e6c09d81a2ab238e3f770e0c8459fca278615e2",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-mechanics-validation-v4.json": "0b9af40f1d9b5969d99d6401df04336701e94899f20a9bc1bc7c00a7c1914691",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-method-correction.py": "7c8aadbc15fe3fca1932c9bf32ee1029bed7e4ac10ccca74368f95c2bf80bde8",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/source-cache/apa-D510C-2012.pdf": "6141e0fe02ad0db8ddec20becf2ec25c85accd21c9796e51411d19448e5762ca",
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a"
+  },
+  "independent_finished_support_and_equilibrium_checks_pass": true,
+  "commands": [
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m pytest tests/test_thin_bolted_panel_coupled.py -q",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache uv run --offline ruff check scripts/thin_bolted_panel_coupled.py tests/test_thin_bolted_panel_coupled.py",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m scripts.thin_bolted_panel_coupled --field docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json --out NEW_UNUSED_PATH.json --samples 41",
+    "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m scripts.thin_bolted_panel_coupled --field docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json --out NEW_UNUSED_PATH.json --samples 81"
+  ],
+  "new_tests_passed": 7,
+  "reused_panel_method_tests": 7,
+  "ruff": "pass",
+  "method_topics": [
+    "independent signed polynomial fields and APA units",
+    "actual displacement and derivative convex-hull bounds",
+    "rigid affine motion gives zero warp/bending",
+    "saved coefficient/global-q slice and order guard",
+    "finished support/state/action identity and raw-floor rejection",
+    "same-axis tension/lateral and generic scalar reference",
+    "signed net-resultant integration"
+  ],
+  "saved_field_sampling_comparison": {
+    "sample_count_per_axis": [
+      41,
+      81
+    ],
+    "same_saved_coefficients_and_screw_actions": true,
+    "relative_changes": [
+      {
+        "panel": "main_lower_left",
+        "deformation_relative_change": {
+          "maximum_sampled_abs_outward_w_mm": 0.0,
+          "maximum_sampled_slope_norm": 0.0,
+          "maximum_sampled_affine_removed_warp_mm": 0.002653760163962991
+        },
+        "section_relative_change": {
+          "bending_x": 0.009707924845094196,
+          "bending_y": 0.0,
+          "rolling_x": 0.01204323995230494,
+          "rolling_y": 0.0
+        },
+        "net_cut_relative_change": {
+          "mean_net_bending_ratio_CD1": 0.0,
+          "mean_net_rolling_shear_ratio_CD1": 0.0,
+          "mean_net_axial_ratio_CD1": 5.711091613047614e-05
+        }
+      },
+      {
+        "panel": "main_lower_right",
+        "deformation_relative_change": {
+          "maximum_sampled_abs_outward_w_mm": 0.0,
+          "maximum_sampled_slope_norm": 0.00011935887753872599,
+          "maximum_sampled_affine_removed_warp_mm": 0.0011700422933597942
+        },
+        "section_relative_change": {
+          "bending_x": 0.011266701508601873,
+          "bending_y": 0.0,
+          "rolling_x": 0.0,
+          "rolling_y": 0.0
+        },
+        "net_cut_relative_change": {
+          "mean_net_bending_ratio_CD1": 0.0,
+          "mean_net_rolling_shear_ratio_CD1": 0.0,
+          "mean_net_axial_ratio_CD1": 0.002737132982562729
+        }
+      },
+      {
+        "panel": "main_upper_left",
+        "deformation_relative_change": {
+          "maximum_sampled_abs_outward_w_mm": 0.0009792834093052772,
+          "maximum_sampled_slope_norm": 0.0,
+          "maximum_sampled_affine_removed_warp_mm": 0.00254378892340014
+        },
+        "section_relative_change": {
+          "bending_x": 0.0016674126957321178,
+          "bending_y": 0.0,
+          "rolling_x": 0.0014935928800428044,
+          "rolling_y": 0.0
+        },
+        "net_cut_relative_change": {
+          "mean_net_bending_ratio_CD1": 0.0,
+          "mean_net_rolling_shear_ratio_CD1": 0.00032019924129933486,
+          "mean_net_axial_ratio_CD1": 0.0
+        }
+      },
+      {
+        "panel": "main_upper_right",
+        "deformation_relative_change": {
+          "maximum_sampled_abs_outward_w_mm": 0.0,
+          "maximum_sampled_slope_norm": 0.0,
+          "maximum_sampled_affine_removed_warp_mm": 0.0030964054687310605
+        },
+        "section_relative_change": {
+          "bending_x": 0.0,
+          "bending_y": 0.0,
+          "rolling_x": 0.0021704328549392304,
+          "rolling_y": 0.0010965418411175154
+        },
+        "net_cut_relative_change": {
+          "mean_net_bending_ratio_CD1": 0.0,
+          "mean_net_rolling_shear_ratio_CD1": 0.004356175544986796,
+          "mean_net_axial_ratio_CD1": 0.00042353468117029003
+        }
+      },
+      {
+        "panel": "kicker_left",
+        "deformation_relative_change": {
+          "maximum_sampled_abs_outward_w_mm": 0.0,
+          "maximum_sampled_slope_norm": 0.00021777019807867352,
+          "maximum_sampled_affine_removed_warp_mm": 0.007330745356947696
+        },
+        "section_relative_change": {
+          "bending_x": 0.019686096309093015,
+          "bending_y": 0.0,
+          "rolling_x": 0.026584768390870872,
+          "rolling_y": 0.01626800536968087
+        },
+        "net_cut_relative_change": {
+          "mean_net_bending_ratio_CD1": 0.0,
+          "mean_net_rolling_shear_ratio_CD1": 0.0,
+          "mean_net_axial_ratio_CD1": 0.0
+        }
+      },
+      {
+        "panel": "kicker_right",
+        "deformation_relative_change": {
+          "maximum_sampled_abs_outward_w_mm": 0.0,
+          "maximum_sampled_slope_norm": 0.0,
+          "maximum_sampled_affine_removed_warp_mm": 0.00780489348242066
+        },
+        "section_relative_change": {
+          "bending_x": 0.013549378727074401,
+          "bending_y": 0.0,
+          "rolling_x": 0.007365524116052624,
+          "rolling_y": 0.0
+        },
+        "net_cut_relative_change": {
+          "mean_net_bending_ratio_CD1": 0.0,
+          "mean_net_rolling_shear_ratio_CD1": 0.0,
+          "mean_net_axial_ratio_CD1": 0.0
+        }
+      }
+    ],
+    "is_beam_spline_or_contact_quadrature_convergence": false
+  },
+  "references_checked_before_receipt": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-method-correction.py": "7c8aadbc15fe3fca1932c9bf32ee1029bed7e4ac10ccca74368f95c2bf80bde8",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/source-cache/apa-D510C-2012.pdf": "6141e0fe02ad0db8ddec20becf2ec25c85accd21c9796e51411d19448e5762ca",
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "scripts/clear_space_batch.py": "7248e60ae59e15973a1b0482fafa686b3ffaabd0e3d404ff016b8e82c47d393a"
+  },
+  "retention": {
+    "active": "new consumer/result/note/receipt, source field and frozen datum metadata",
+    "ignored_raw_control": "fea/generated/thin-bolted-panel/coupled-a12-rear-finished-floor-samples81.json",
+    "pruning_performed": false
+  },
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "complete_panel_resistance_established": false
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "thin_bolted_independent_support_disposition/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "state_id": "thin-v4-4cf87215a48be73ba64c5c5a",
+  "status": "RAW_FOOTPRINT_FIELD_INVALID_FOR_CANDIDATE_SUPPORT_DEMANDS",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-v4.json": "e2946cd24aabf48cc452ad9413ba6457c9bd10911c0b588c706df6f13cfe11dd",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/independent-compatible-a12-rear-v4.json": "52a2c03600d14b92e5d78250c37550619205df93ad7c6855defd0d60817316a9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448"
+  },
+  "arithmetic_receipt_preserved": true,
+  "arithmetic_closure_pass_is_not_support_geometry_pass": true,
+  "candidate_demand_eligibility_superseded": true,
+  "confirmed_exported_reactions_at_reported_absent_timber": [
+    {
+      "id": "lumber_leg_left/floor-2",
+      "first": "lumber_leg_left",
+      "point_xyz_mm": [
+        -1219.2,
+        1496.07154658054,
+        0.0
+      ],
+      "compression_n": 2057.7281927489616
+    },
+    {
+      "id": "lumber_leg_right/floor-0",
+      "first": "lumber_leg_right",
+      "point_xyz_mm": [
+        1216.025,
+        1496.07154658054,
+        0.0
+      ],
+      "compression_n": 501.1568722587595
+    }
+  ],
+  "sum_reported_ghost_corner_reactions_n": 2558.885065007721,
+  "finished_leg_floor_x_extents_reported_by_frame_worker_mm": {
+    "lumber_leg_left": [
+      -1308.1,
+      -1257.3
+    ],
+    "lumber_leg_right": [
+      1254.125,
+      1304.925
+    ]
+  },
+  "geometry_finding_provenance": "Frame worker queried the shared exact finished BREP cache; this JSON-only review independently verified the cited exported corner coordinates/reactions, not a repeated BREP query.",
+  "required_correction": "Preserve the raw-floor state, producer and arithmetic receipt as failed geometry-method evidence. Derive all eight floor support footprints from actual finished timber faces and issue a separately source-bound state before candidate-demand acceptance.",
+  "next_independent_check": "Reuse the JSON-only force/moment/load/export audit on the corrected state, together with an authenticated finished-floor footprint gate.",
+  "numerical_MVP_acceptance_established": false,
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

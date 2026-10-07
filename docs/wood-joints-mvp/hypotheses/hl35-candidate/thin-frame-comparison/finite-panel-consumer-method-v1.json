@@ -1,0 +1,139 @@
+{
+  "schema": "thin_bolted_finite_panel_consumer_method/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_finite_plate.py": "2b0de347d0ef35d08ab7a8d4078fa2e26a50cee6e7c2f708560dd1f0979b9180",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_panel_load_diagnostics.py": "ff5e0e7b3944e64379181a6b3a1c442b921c197b87d25da3bd20a2d69ec63ebd",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "scripts/thin_bolted_finite_frame.py": "68f711549da9e6b52c60db4e4df78235ba8105084ded0d81c9a3430cf5973588",
+    "scripts/thin_bolted_finite_panel_adapter.py": "c0e2534158d10ca49e6e1ee20db7b8a7e72b746b49618a18bf5ab08a9526064b",
+    "scripts/thin_bolted_panel_coupled.py": "abd6da1911ec79ec25b57fc2a5cc20b9e687057a15b6df2f5e8fb292a42c6bd0",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/source-cache/apa-D510C-2012.pdf": "6141e0fe02ad0db8ddec20becf2ec25c85accd21c9796e51411d19448e5762ca",
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-method-correction.py": "7c8aadbc15fe3fca1932c9bf32ee1029bed7e4ac10ccca74368f95c2bf80bde8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-mechanics-v4.json": "a61cadf7b120b58c00326e83c68999f7a726fba77ec5e12882cf843355951dec",
+    "fea/generated/thin-bolted-panel/operators-intervals8.json": "aeeb9b6ccd2c521896b32012ccbf9712fd67cdb7d0744e06d88afa4fd3f441d4",
+    "scripts/thin_bolted_finite_panel_consumer.py": "e41c1efefddfdce5e7bceee594f7fb2608b45edae69d368a1ae728a3b552210b",
+    "tests/test_thin_bolted_finite_panel_consumer.py": "15d1f1adbb1680364fefa79e98f73c5fb9bc24edf986c24bc3fab103feb80ce9",
+    "scripts/check_thin_bolted_finite_panel_adapter.py": "b320fa1e348166103011413a07a461fda78016190e71f4222e62cd8fabfe5a1e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-panel-consumer-v1.md": "e9e78ef1d73c1dd72731178ecc1fc552855944c8fb2f0601bf8afa3f9dbeb56a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/finite-panel-adapter-method-v1.json": "80c8f13fbdf9d352e10be44f9c4db500f904e8965d619c48fc3647c40026e7b9"
+  },
+  "scope": "Saved finite coefficients/actions only; method readiness without an admitted candidate field.",
+  "API": {
+    "consumer": "scripts.thin_bolted_finite_panel_consumer.evaluate(field_path, samples=41, *, admission_sha256)",
+    "admission_module": "scripts.thin_bolted_finite_state_audit",
+    "admission_path": "scripts/thin_bolted_finite_state_audit.py",
+    "admission_acceptance_key": "independent_finite_current_support_load_and_equilibrium_checks_pass",
+    "field_schema": "thin_bolted_finite_frame_response/v1",
+    "admission_sha256_is_mandatory_runtime_pin": true,
+    "immutable_field_payload_passed_to_gate": true,
+    "old_gate_fallback": false,
+    "output_schema": "thin_bolted_admitted_finite_panel_diagnostics/v1",
+    "optional_gate_utility": "reconstruct_load_corrections: retained mass measure and both generalized vectors; no energy/K/CAD"
+  },
+  "analytic_coupons": {
+    "uniaxial_stretch": {
+      "engineering_stretch": 0.025,
+      "expected_green_x": 0.0253125,
+      "maximum_green_strain_difference": 4.163336342344337e-17,
+      "maximum_reference_axial_resultant_difference_n_per_mm": 2.9558577807620168e-12,
+      "maximum_variational_x_force_difference_n_per_mm": 2.9558577807620168e-12
+    },
+    "twenty_degree_common_rigid_motion": {
+      "maximum_abs_green_strain": 2.220446049250313e-16,
+      "maximum_abs_covariant_curvature_per_mm": 2.791476339130926e-19,
+      "maximum_abs_variational_transverse_n_per_mm": 2.6327784003527546e-15
+    },
+    "known_linear_transverse_limit": {
+      "cubic_displacement_scale": 0.0001,
+      "expected_Qx_n_per_mm": -1.7095042300975223e-06,
+      "expected_Qy_n_per_mm": -7.277535996668972e-07,
+      "maximum_abs_difference_n_per_mm": 1.130788984584491e-19
+    },
+    "independent_spatial_gradient_differences": {
+      "central_step_mm": 0.05,
+      "maximum_variational_force_difference_n_per_mm": 1.7548289210633783e-13
+    },
+    "superposed_rotation_of_nonzero_warp": {
+      "maximum_green_strain_difference": 1.1102230246251565e-16,
+      "maximum_covariant_curvature_difference_per_mm": 2.0191147880174384e-19,
+      "maximum_variational_transverse_difference_n_per_mm": 2.4338170367954604e-15
+    },
+    "simultaneous_rotated_screw": {
+      "signed_current_tension_n": 1234.0,
+      "simultaneous_lateral_n": 80.7093550959243,
+      "expected_lateral_n": 80.7093550959243,
+      "current_local_force_n": [
+        1234.0,
+        44.999999999999964,
+        -67.00000000000003
+      ],
+      "Hillman_product_capacity_qualified": false
+    },
+    "saved_mass_alignment_fixture": {
+      "source_case": "a12-rear",
+      "source_accessory": "original_top",
+      "reference_only": true,
+      "expected_reference_alignment_inf_n": 4.02364321416826e-07,
+      "expected_retained_rigid_generalized_norm_n": 1.5662083167572513e-05,
+      "fixture_passed": true
+    }
+  },
+  "unit_tests": {
+    "command": "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache OPENBLAS_NUM_THREADS=1 uv run --offline python -m pytest tests/test_thin_bolted_finite_panel_consumer.py -q",
+    "passed": 24,
+    "observed_seconds": 1.73,
+    "guard_fixtures": [
+      "missing/malformed runtime admission hash",
+      "failed NEW gate",
+      "wrong gate-source/state/field receipt",
+      "old reference field",
+      "one immutable payload despite same-state path replacement"
+    ],
+    "correction_fixtures": [
+      "two exact generalized potentials/current rigid wrenches",
+      "missing term/bad wrench rejected"
+    ]
+  },
+  "lint": {
+    "command": "UV_CACHE_DIR=/tmp/mini-moonboard-uv-cache uv run --offline ruff check scripts/thin_bolted_finite_panel_consumer.py tests/test_thin_bolted_finite_panel_consumer.py",
+    "passed": true
+  },
+  "independent_review": {
+    "readonly_review": "thin_independent_mvp_review",
+    "confirmed_one_immutable_payload_guard": true,
+    "consumer_24_fixtures_independently_passed": true,
+    "remaining_integration_blocker_found": false
+  },
+  "method": {
+    "CAD_rebuilt": false,
+    "global_assembly_built": false,
+    "energy_quadrature_prepared_by_consumer": false,
+    "K_assembled": false,
+    "response_solved": false,
+    "candidate_field_consumed": false,
+    "current_director_force_projection_retained": true,
+    "director_couple_assigned_fastener_capacity": false,
+    "two_generalized_correction_terms_explicit": true
+  },
+  "limits": [
+    "Admission authenticates one current finite field; it does not qualify response/contact/material/resistance or local-hole convergence.",
+    "Generic APA Group1 head and NDS ESG0.50 nominal-thread withdrawal references do not qualify Hillman42605.",
+    "Current Green/covariant resultants belong to the conditional APA zero-Poisson reference-area energy proxy, not a finite ply-laminate law.",
+    "Linear APA target indices and variational transverse force per reference width are diagnostics, not finite local strength or rolling-stress acceptance.",
+    "Bores, conditional9mm seats and kicker bevel are excluded from intact full-section comparisons; hold/edge/net-section/contact capacities remain separate.",
+    "CD1 is the reference basis; conditional1.6 is wind/earthquake only; permanent duration and creep remain separate."
+  ],
+  "complete_panel_resistance_established": false,
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

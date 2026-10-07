@@ -1,0 +1,179 @@
+{
+  "schema": "thin_bolted_objective_finite_mechanics_method/v1",
+  "source_sha256": {
+    "scripts/thin_bolted_corotational_methods.py": "7638a09c145135a19dcccb7cd84a01b8a01d2a4465b02ebfc33372e672e5ebc8",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/check_thin_bolted_finite_mechanics.py": "3f513620893d612572d498574366254b31c011c26c3516d04afcc1ecafeb362d",
+    "scripts/thin_bolted_finite_mechanics.py": "8c2bf2f27538fc1d599db9ddee2efbbb6344687393781bd689de09a4998772a2",
+    "tests/test_thin_bolted_finite_mechanics.py": "c2a11abac34b792d65bea3a56a599483c2fde1c2e59f671d76340501eb5d1527"
+  },
+  "scope": "standalone mechanical adapter and synthetic small known-answer coupons; no candidate response",
+  "state": "existing world timber/fitting and local-basis shaft (u_mm,1000theta_rotation_vector); append omitted first shaft twists",
+  "tangent_method": "analytic residual/J with local central derivatives; q-step1e-3mm gives rotation step1e-6rad; no hidden symmetrization",
+  "observed_coupons": {
+    "synthetic_fixture": {
+      "timbers": 1,
+      "fittings": 1,
+      "physical_shafts": 1,
+      "old_ndof": 47,
+      "full_ndof": 48,
+      "candidate_assembly_executed": false
+    },
+    "reference_matrix_relative_Frobenius_error": 2.577878603916502e-10,
+    "rigid_motion": [
+      {
+        "rotation_deg": 20.0,
+        "energy_nmm": 2.1079031583755874e-23,
+        "gradient_L2_n": 2.5281922803296103e-09,
+        "maximum_port_position_error_mm": 6.355287432313019e-14
+      },
+      {
+        "rotation_deg": 73.0,
+        "energy_nmm": 1.1998956083052395e-22,
+        "gradient_L2_n": 1.0812305279677862e-08,
+        "maximum_port_position_error_mm": 7.140866117879973e-14
+      }
+    ],
+    "deformed_mechanical_work": {
+      "energy_nmm": 29489.07377530098,
+      "central_difference_step_mm": 0.0001,
+      "gradient_directional_relative_error": 4.5517180696886436e-10,
+      "tangent_directional_relative_L2_error": 2.7747993144380985e-10,
+      "superposed_rotation_energy_relative_error": 3.241851231905457e-14,
+      "world_internal_force_balance_L2_n": 2.2791871899501835e-11,
+      "world_internal_moment_balance_L2_nmm": 5.2786357927856196e-09
+    },
+    "point_and_director_jets": [
+      {
+        "body": "timber",
+        "flange": null,
+        "jet_kind": "point",
+        "J_directional_relative_L2_error": 3.177063189513878e-12,
+        "H_directional_relative_Frobenius_error": 3.8480464114097735e-09
+      },
+      {
+        "body": "timber",
+        "flange": null,
+        "jet_kind": "director",
+        "J_directional_relative_L2_error": 7.96308215829011e-11,
+        "H_directional_relative_Frobenius_error": 3.2550777706116786e-09
+      },
+      {
+        "body": "shaft/test",
+        "flange": null,
+        "jet_kind": "point",
+        "J_directional_relative_L2_error": 2.9323127432076137e-12,
+        "H_directional_relative_Frobenius_error": 2.8914798600575873e-09
+      },
+      {
+        "body": "shaft/test",
+        "flange": null,
+        "jet_kind": "director",
+        "J_directional_relative_L2_error": 5.31489726937767e-11,
+        "H_directional_relative_Frobenius_error": 4.578807623963623e-09
+      },
+      {
+        "body": "fitting",
+        "flange": "post",
+        "jet_kind": "point",
+        "J_directional_relative_L2_error": 8.04426656066611e-12,
+        "H_directional_relative_Frobenius_error": 1.5472836976648358e-09
+      },
+      {
+        "body": "fitting",
+        "flange": "post",
+        "jet_kind": "director",
+        "J_directional_relative_L2_error": 6.324723817589424e-11,
+        "H_directional_relative_Frobenius_error": 2.322611710627259e-09
+      }
+    ],
+    "failed_finite_material_roll_gauge": {
+      "initial_energy_nmm": 2068966.5174449128,
+      "common_material_roll_virtual_work_nmm_per_rad": -166.64283647952834,
+      "finite_material_roll_gauge_established": false,
+      "constraints_added": 0,
+      "rolls": [
+        {
+          "material_roll_deg": 20.0,
+          "energy_nmm": 2068928.875030442,
+          "relative_energy_change": -1.8193824865464002e-05
+        },
+        {
+          "material_roll_deg": 70.0,
+          "energy_nmm": 2069046.0730365757,
+          "relative_energy_change": 3.845185071488149e-05
+        }
+      ]
+    },
+    "chord_refinement": {
+      "physical_zero_axial_strain_arc_length_mm": 120.0,
+      "radius_mm": 1000.0,
+      "expected_pure_bending_energy_nmm": 4800.0,
+      "records": [
+        {
+          "elements": 1,
+          "segment_reference_length_mm": 120.0,
+          "local_director_turn_rad": 0.12,
+          "total_energy_nmm": 5015.922253662012,
+          "spurious_axial_energy_nmm": 215.92225366201174,
+          "exact_chord_shortening_axial_energy_nmm": 215.922253662097,
+          "bending_energy_nmm": 4800.0
+        },
+        {
+          "elements": 2,
+          "segment_reference_length_mm": 60.0,
+          "local_director_turn_rad": 0.06,
+          "total_energy_nmm": 4813.49878505337,
+          "spurious_axial_energy_nmm": 13.498785053370582,
+          "exact_chord_shortening_axial_energy_nmm": 13.49878505338124,
+          "bending_energy_nmm": 4799.999999999999
+        },
+        {
+          "elements": 4,
+          "segment_reference_length_mm": 30.0,
+          "local_director_turn_rad": 0.03,
+          "total_energy_nmm": 4800.843731015834,
+          "spurious_axial_energy_nmm": 0.8437310158326972,
+          "exact_chord_shortening_axial_energy_nmm": 0.8437310158393584,
+          "bending_energy_nmm": 4800.000000000002
+        }
+      ],
+      "candidate_refinement_established": false
+    },
+    "coupon_checks_pass_with_gauge_failure_retained": true
+  },
+  "pytest_tests_passed": 27,
+  "ruff": "pass",
+  "tool_versions": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "commands": [
+    "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_finite_mechanics.py",
+    ".venv/bin/ruff check scripts/thin_bolted_finite_mechanics.py scripts/check_thin_bolted_finite_mechanics.py tests/test_thin_bolted_finite_mechanics.py",
+    "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m scripts.check_thin_bolted_finite_mechanics --out NEW_UNUSED_PATH.json"
+  ],
+  "primary_sources": [
+    "https://arxiv.org/pdf/1812.01537",
+    "https://kth.diva-portal.org/smash/get/diva2:526302/FULLTEXT02.pdf",
+    "https://arxiv.org/pdf/1611.06436"
+  ],
+  "limits": [
+    "No exact finite common material-roll gauge is supplied by the frozen circular proxy; all shaft coordinates remain free and no torque constraint is added.",
+    "Straight segment chords introduce axial shortening for a curved zero-strain centerline; candidate local-turn and beam/shaft refinement gates remain open.",
+    "Objective condensed fitting energy remains the frozen conditional strip stiffness, not an authenticated connector, heel or hole-contact model.",
+    "Contact laws, normal ownership, load/contact integration, numerical continuation and candidate equilibrium are parent-owned and unexecuted here.",
+    "Near-pi global charts and 90-degree neighboring/fitting local director turns are rejected, not clamped."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

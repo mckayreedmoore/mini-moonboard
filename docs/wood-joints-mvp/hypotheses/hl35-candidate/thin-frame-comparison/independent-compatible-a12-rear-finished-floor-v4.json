@@ -1,0 +1,109 @@
+{
+  "schema": "thin-bolted-independent-finished-support-audit/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "case_id": "a12-rear",
+  "accessory_placement": "retained-original-top-hold",
+  "state_id": "thin-v4-84ad844f63afddc032cf922c",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "scripts/thin_bolted_finished_support_audit.py": "0a37e67ed20e3fd1eed8b8b4d0d12889df6fd9a6fb33d6f8f68a0c6768f5ada0",
+    "tests/test_thin_bolted_finished_support_audit.py": "7b1a214cf783b87f8044e02af89a7b779492f31649c3ec159804a02496ee5b0a",
+    "scripts/thin_bolted_equilibrium_audit.py": "748f637b918bf9b7faca673cb2e723c8dbb8f98bc4a2d3fd5b12987c20980b84",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-geometry-v4.json": "e6c7ac4548b943bef4580b7c58efd67c11e29ed3335ae4036998a70c346986fc",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9"
+  },
+  "authenticated_dependency_count": 129,
+  "checks": {
+    "independent_finished_support_and_equilibrium_checks_pass": true,
+    "support": {
+      "finished_support_geometry_checks_pass": true,
+      "finished_host_count": 8,
+      "normal_port_count": 32,
+      "tangent_port_count": 12,
+      "bearing_hosts": [
+        "base_floor_left",
+        "base_post_center_left",
+        "base_post_center_right",
+        "base_post_outer_right",
+        "lumber_leg_left",
+        "lumber_leg_right"
+      ],
+      "point_tolerance_mm": 1e-05,
+      "floor_support_basis": "authenticated-finished-timber-horizontal-faces",
+      "floor_contact_geometry_sha256": "e6c7ac4548b943bef4580b7c58efd67c11e29ed3335ae4036998a70c346986fc"
+    },
+    "equilibrium": {
+      "independent_equilibrium_and_contact_checks_pass": true,
+      "body_count": 62,
+      "load_count": 771,
+      "flange_contacts": 288,
+      "maximum_body_or_global_force_norm_n": 2.0090015571022405e-06,
+      "maximum_body_or_global_moment_norm_nmm": 0.0011276673042333917,
+      "body_moment_reference_xyz_mm": [
+        0.0,
+        750.0,
+        1100.0
+      ],
+      "global_moment_reference_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "force_tolerance_n": 0.0001,
+      "moment_tolerance_nmm": 0.1,
+      "source_sha256": {
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.json": "0c5a09879c9b191c39b96ce670d71ad110661bff7dfeab68133f711b32de476c"
+      },
+      "native_or_CAD_execution": false,
+      "strength_or_physical_stiffness_acceptance": false
+    },
+    "native_or_CAD_execution": false,
+    "actual_floor_or_physical_stiffness_verified": false,
+    "strength_or_structural_acceptance": false
+  },
+  "validation": {
+    "new_support_fixtures_passed": 25,
+    "preserved_equilibrium_fixtures_passed": 6,
+    "ruff_passed": true,
+    "commands": [
+      [
+        ".venv/bin/python",
+        "-m",
+        "pytest",
+        "tests/test_thin_bolted_finished_support_audit.py",
+        "tests/test_thin_bolted_equilibrium_audit.py",
+        "-q"
+      ],
+      [
+        ".venv/bin/ruff",
+        "check",
+        "scripts/thin_bolted_finished_support_audit.py",
+        "tests/test_thin_bolted_finished_support_audit.py"
+      ]
+    ]
+  },
+  "reuse": {
+    "frozen_equilibrium_API": "scripts.thin_bolted_equilibrium_audit.audit_state",
+    "support_API": "scripts.thin_bolted_finished_support_audit.audit_finished_state",
+    "contact_and_BREP_records_reused": true,
+    "native_or_CAD_execution": false
+  },
+  "disposition": {
+    "accepted_for_conditional_component_consumption": true,
+    "raw_floor_state_supersession_preserved": "independent-support-disposition-v4.json",
+    "physical_demand_bounds_established": false,
+    "numerical_MVP_complete": false,
+    "structural_acceptance": false,
+    "fabrication_release": false
+  },
+  "limits": [
+    "This receipt authenticates the corrected conditional support geometry and independent wrench arithmetic; it does not qualify physical stiffness or resistance.",
+    "First-order geometry applicability, discretization and conditional connector/contact/floor-stiffness sensitivity remain unresolved.",
+    "The shared physical shafts remain independent flange-port springs in this model; common shaft beam actions, bearing distributions and physical prying are unresolved.",
+    "One A12-rear case with retained original top accessories is covered; no other case or parameter scenario inherits its demands or pass.",
+    "Actual no-slip floor behavior remains an analytical assumption; no friction or anchor capacity is established."
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "schema": "thin_bolted_independent_method_audit/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "revision": "thin-offset-header-rows-shallow-wires-v4",
+  "question": "Are the frozen source identities and local hinge arithmetic sound, and what coverage is required for numerical MVP acceptance?",
+  "command": ".venv/bin/python -m scripts.check_thin_bolted_numerical_mvp",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "scripts/check_thin_bolted_numerical_mvp.py": "fd614228d0d1bff95cf37b6d35ac6e2c81e770736688b004254b586791295c7a",
+    "scripts/thin_bolted_joint_kinematics.py": "ea8ee1f83cd976deb12ad0c02d42aa67fa91f5c2d4d2221a3231f61b42415f94",
+    "mini_moonboard/bolted_joint_mechanics.py": "433322ea6daacfd95df118f7de1fb534637291d79ab694b8240c0784eef2eede",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3",
+    "thin-bolted-candidate.json": "dfed203ff30a033e812d62fcd52fb61186cb0b6256718676c9433179c7945327",
+    "current-candidate.json": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+    "wood-joints-candidate.json": "2d1c43eae6f1515ad9fbb052d208b14648f4bf4f9003f49a7268d2ecb8ec545d"
+  },
+  "numpy_version": "2.5.2",
+  "frozen_inventory_verified": {
+    "duties": 24,
+    "fittings": 36,
+    "flange_attachments": 72,
+    "physical_shafts": 70,
+    "new_shafts": 58,
+    "retained_shafts": 12,
+    "hillman_axes": 66
+  },
+  "independent_local_method_verification": {
+    "samples": 100,
+    "seed": 42605,
+    "max_direct_point_velocity_error": 2.842170943040401e-14,
+    "max_virtual_work_error": 5.684341886080802e-14,
+    "max_intrinsic_shaft_torque_n_mm": 3.631233113136374e-13,
+    "isolated_free_motion_census": {
+      "1": 12,
+      "2": 12
+    },
+    "result": "VERIFIED_LOCAL_ARITHMETIC_ONLY",
+    "rotation_scale_range_mm": [
+      10,
+      1000
+    ],
+    "contact_and_floor_included": false,
+    "inference": "All 24 isolated duties retain local motions; this does not establish assembled frame instability."
+  },
+  "coverage_gates": [
+    {
+      "id": "applied_loads",
+      "required_evidence": "Freeze the six original signed hold cases at current datums; reconstruct F and M=(p_hold-reference) cross F, including the 100 mm outward-normal lever exactly once.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "gravity",
+      "required_evidence": "Include all current timber, panels, fittings, bolt stacks and remaining hardware once; preserve per-body mass and first moments. Name the retained 25 kg placement and any alternative scenario separately; the 2x factor applies only to climber force.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "assembled_load_path",
+      "required_evidence": "Account for all 24 angle duties, 70 physical bolt shafts, 66 panel/kicker screws, member contacts and compression-only no-slip floor support; recover force and moment equilibrium for every body.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "compatible_or_bounded_demands",
+      "required_evidence": "Obtain a compatible physical response with validated properties, or justified conservative bounds. A min-max LP feasible allocation is only a static witness; it is not an actual demand or upper bound.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "contact_and_kinematics",
+      "required_evidence": "Establish the assembled mechanisms and loaded contact branches under the actual model's constraints. Three translation pin rows and five revolute rows are distinct. Do not credit unspecified clamp friction or shaft torque.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "shared_shafts",
+      "required_evidence": "Retain per-attachment signed actions and ordered occupied stations on each shared shaft. Check internal shear/bending on relevant spans; total vector sums can conceal opposite internal actions.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "frame_members",
+      "required_evidence": "Check all twenty original-size finished members, including oblique ends, bolt/service holes, rear recesses and 8 mm shallow channels, using actual weakest sections and same-state combined actions.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "timber_connections",
+      "required_evidence": "Check both sides of every shaft with applicable signed loaded-end/edge/spacing, bearing/yield, group/net-section and splitting rules. Midshaft grain rays and full CAD bore support alone are not NDS classifications.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "steel_angles",
+      "required_evidence": "Use exact SKU-specific geometry and material assumptions, actual eccentricities and same-state flange/heel actions; check plate bending, shear, net section, bearing and tear-out. Eaton strut assembly ratings are not wood-joint resistance.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "bolt_strength_and_stack",
+      "required_evidence": "Check combined shaft axial/shear/bending and threads where present for all 58 new and 12 retained shafts. Keep nominal length, minimum nut engagement and delivered unthreaded shank distinct.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "washers",
+      "required_evidence": "Check all 140 ends including 14 SAE replacements: use minimum published thickness for resistance, maximum dimensions for occupied fit, actual metal/wood seats and hole bridging. OD support is not capacity.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "panels_and_screws",
+      "required_evidence": "Use all six current perforated panels and all 66 Hillman axes. Check compatible or bounded normal/lateral transfer, bending/shear/net/hold load introduction, screw withdrawal/lateral/head pull-through and complete backing routes.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "lower_edges_and_kickers",
+      "required_evidence": "Recheck the two bottom rails shifted 50.8 mm, four moved bottom screws, panel seam/free-edge response and kerf-right kicker support with actual current receivers.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "materials_and_adjustments",
+      "required_evidence": "Keep matching NDS/APA edition, DF-L No. 2, actual grain/ply orientation, Group 1 A-C, moisture/duration/temperature factors and product scenarios explicit. Unmeasured Hillman/hardware properties remain conditional inputs.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "method_validation",
+      "required_evidence": "Require known-answer mechanics/units/sign checks, residuals, appropriate discretization and contact/parameter sensitivity. Arbitrary spring-ratio sweeps do not establish physical bounds.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "numerical_disposition",
+      "required_evidence": "For each duty/member/fastener, retain same-state signed witnesses and an applicable pass/failure or exact unavailable input/method. Keep conditional reference exceedances separate from adopted failures and numerical sensitivity.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "access_transport",
+      "required_evidence": "Verify installation, counterhold, tightening, bolt stroke and reverse disassembly for the integrated layout and front-open channels; retain individual-member transport and full tool paths.",
+      "completion_assessed_here": false
+    },
+    {
+      "id": "installed_takeoff",
+      "required_evidence": "Reconcile complete installed timber, machining, 36 fittings, 70 bolts/nuts, 140 washers, 66 purchased Hillman screws, panels, services and freight; give scenario mass/cost limits rather than an observed or configured quote.",
+      "completion_assessed_here": false
+    }
+  ],
+  "numeric_strength_acceptance_established": false,
+  "native_execution": false,
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "limits": [
+    "This is a frozen-input and local-method audit; no demand allocation or resistance is computed.",
+    "Conditional desktop review completion, numerical method validity and structural acceptance are separate claims.",
+    "A failed applicable criterion or absent load path remains open; arbitrary stiffness and plausible equilibrium cannot close it.",
+    "Actual cuts, wood, holes, hardware, floor, wires and assembly have not been inspected."
+  ]
+}
