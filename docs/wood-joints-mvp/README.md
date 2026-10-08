@@ -95,7 +95,7 @@ reference; steel yield and wood allowable-strength bases differ.
 | --- | ---: | --- |
 | B104 / B103 sampled nominal flange yield | **0.797272 / 0.008422** | Includes the original operator's own fitting gravity interpolation. Physical leg-weight distribution, hole/heel effects and actual product resistance remain unqualified. |
 | Same-cut flange torsion scenarios | Gross **0.801668**; two-ligament proxy **0.848322** | Includes the same gravity interpolation. Conditional ideal-section references; restrained warping, prying and the actual formed heel remain unresolved. |
-| Seventy shaft same-cut circular yield scenarios | Maximum **0.265473** | Assumed Grade 5 and 12.7-mm elastic circle; actual root/thread placement and complete bolt/joint resistance remain unqualified. |
+| Seventy shaft same-cut circular yield scenarios | Half-inch maximum **0.265473**; three-eighth-inch **0.0448845** | Assumed Grade 5, each shaft's own nominal diameter: 62 half-inch and eight three-eighth-inch circles. Actual root/thread placement and complete bolt/joint resistance remain unqualified. |
 | Sixty-six panel/kicker screw axes | Generic head index **3.342699**, two exceeding axes | Governing upper-left screw: **1939.743 N** withdrawal and simultaneous **669.664 N** lateral. Actual Hillman resistance remains unavailable. |
 | Generic withdrawal comparison | Required effective thread **81.819 mm** at CD1 | Nominal screw length after the panel is **45.244 mm**; effective threaded engagement remains unmeasured. Conditional CD1.6 still requires 51.137 mm. |
 | Six-panel spatial section diagnostics | Bending **5.501986**; rolling shear **2.777902** at CD1 | Sampled spline resultants retain local-hole, head-seat and derivative-jump limits. Mean net-cut indices **0.621706 / 0.270134** do not clear those spatial findings. |
@@ -113,11 +113,15 @@ flange points to opening. This leaves current contact overlap and first-order
 physical applicability **UNQUALIFIED**. The replay supplies diagnostic geometry,
 without a new equilibrated force field or physical movement prediction.
 Bracket body-weight bookkeeping now matches all thirty-six fittings' original
-applied-vector entries exactly. Five already measured net timber sections
-also have same-cut linear stress enclosures: the left leg ranges from
-**−2.446 to +1.522 MPa** over its saved containing box. These bounded reductions
-reuse the admitted field; exact occupied-material extrema and complete timber
-resistance remain unresolved. The next engineering decision is how to revise
+applied-vector entries exactly. All **802 scoped net-section normal bounds**
+are now below the conditional CD1 fully braced reference, maximum **0.940811**.
+The refinement reused five exact sections, preserved 751 sufficient bounds
+and measured only the 46 inconclusive sections on five cached timbers; those
+46 refined comparisons peak at **0.605572**. The original loose 9.804 bound
+remains preserved. These results reuse the admitted field; local stress
+concentrations, partial ends, contact-loaded tips, shear, torsion, fracture and
+actual restraint remain separate. Complete timber resistance is unresolved.
+The next engineering decision is how to revise
 panel load transfer and establish current contact and washer behavior before
 using these model actions as complete-joint strength demands. Exact fitting
 geometry/material, bolt root/shank/thread placement, washer seating and

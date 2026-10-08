@@ -1980,6 +1980,16 @@ layout. Parent owns readiness, frozen input identities, serialized heavy
 execution and final integration. No new native solve, candidate selection,
 physical work or blanket external sign-off prerequisite is inferred.
 
+The shaft-diameter reuse audit verifies that the existing stiffness and
+same-cut yield reducers already use all sixty-two half-inch and eight
+three-eighth-inch own diameters at diameter scale 1.0. The half-inch maximum
+remains **0.265472572**; the three-eighth-inch maximum is **0.044884494**.
+All 4,244 retained cuts and seventy shaft identities agree with the layout,
+shop join and declared circular-section basis. The README's earlier singular
+12.7-mm description was too narrow; it is corrected without changing inputs
+or repeating the force reduction. Actual roots, delivered shanks, material
+grade and complete joint resistance remain unqualified.
+
 The first reuse audit identifies two specific method boundaries. Broad panel
 bearing is already present: 530 compression ports, including 118 on the upper
 left panel, accompany tension-only Hillman axial springs and bilateral lateral
@@ -2027,11 +2037,22 @@ conditional total dead mass stays **216.746714–218.270785 kg** plus unknown pa
 | New bounded result | Verified number | Remaining limit and next action |
 | --- | --- | --- |
 | [Existing twelve-screw upper-left static allocation](../../fea/generated/thin-bolted-panel-transfer-remedy-v1/result.json) | Necessary peak **299.882611 N**, generic head index **0.516778**; primal/dual gap −5.68e-14 N | Uses the actual load/wrench and 118 existing compression stations, free compression sharing and fixed lateral actions. It does not replace the admitted **1939.742640-N** spring response or prove a compatible remedy. Preserve 66 screws; assess the current finite panel/backing response. |
-| [Same-state timber member comparisons](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/member-strength.json) | 226 intact rectangles: fully braced normal **0.667979**; sufficient shear/torsion bound **0.701151**; necessary net average shear **0.177715** | 802 net cuts and eighteen partial end cuts remain outside the rectangle strength comparison. Thirty-three compressed rectangle traces exceed the conditional full-length column slenderness domain. No actual restraint or wood R/T orientation is credited. Reuse five exact net properties and prepare conservative bounds for remaining net cuts. |
+| [Same-state timber member comparisons](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/member-strength.json) and [net-section refinement](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/net-enclosure-v1/final-normal-dispositions.json) | 226 intact rectangles: fully braced normal **0.667979**; sufficient shear/torsion bound **0.701151**. All **802 scoped net normal bounds ≤1**, maximum **0.940811**; forty-six refined findings peak at **0.605572** | Five prior exact findings and 751 sufficient conservative bounds are preserved; only forty-six sections on five cached timbers were measured. Net average shear **0.177715** is necessary, not a maximum-stress bound. Eighteen partial ends, four tips, stress concentrations, fracture and net shear/torsion remain separate. Thirty-three compressed rectangle traces exceed the conditional full-length column slenderness domain; actual restraint and wood R/T orientation are uncredited. |
 | [Own washer statics](../../fea/generated/thin-bolted-v4-geometry/current-own-seat-admissibility-v1/final-result.json) | Axis-019 nut/header: N **1256.060189 N**, peak-pressure lower bound **1.561005 MPa**; positive full-annulus affine-pressure kern **6.417794 N·m**; any nonnegative OD-contained pressure requires M ≤**22.013711 N·m** | Force alone gives no finite peak-pressure upper bound. These necessary moment limits are not actual washer moments or capacities. Pressure, prying, bending and complete axial resistance remain NULL. |
 | [Four cached terminal sections](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/terminal-geometry.json) and [gravity-only reduction](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/terminal-gravity.json) | Principal/side areas **1453.845042 / 3969.189470 mm²**; lower selfweights **0.066972 / 0.213936 N**; normal-stress enclosures **7.05764e-5 / 8.25783e-5 MPa** | Independent oblique-wedge coupon, four cached queries and same-source arithmetic pass. Uniform-density selfweight differs from the old affine beam gravity law. Nonzero potential header-contact footprints below these planes prevent treating gravity as the complete tip demand. Actual pressure/complete tip wrench and resistance remain NULL. |
 | [Finite eight-centroid floor coupon](../../fea/generated/thin-bolted-current-contact-v1/finite-centroid-floor-v1/method-result.json) | Forty ports; scaled gradient/tangent finite-difference errors **9.04e-11 / 1.07e-9** | Twenty-seven fixtures and independent method review pass, including exact zero disabled-XY actions. Same physical no-slip assumptions, new finite point law; fixed-mask conservation does not establish global uniqueness or a candidate pass. |
 | [Closest-normal method coupon](../../fea/generated/thin-bolted-current-contact-v1/closest-normal-v1/method-result.json) and [composition review](../../fea/generated/thin-bolted-current-contact-v1/composition-v1/independent-review.json) | Curved contact gradient/tangent errors **1.45e-8 / 2.29e-9**; composition known-answer energy/tangent errors zero, gradient **2.91e-11 N** | Twenty-eight closest-contact and twenty composition fixtures pass independently. Current inverse-transpose normals, implicit projection derivatives, current duals and each component once are checked. Production 8,088/8,018 coordinates, seventy shaft-spin quotients and 132 bodies require separate current-state/source admission. Dynamic domains are not qualified by these synthetic coupons. |
+
+The net refinement is bound to the exact current field, actual admission and
+same-cut signed forces. The [final result](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/net-enclosure-v1/final-normal-dispositions.json)
+is SHA `2b58f158f8fd8dcc0906060c918b591ce3e71b72056ae91e670f3b1a505ed913`
+(444,927 bytes). The [independent production review](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/net-enclosure-v1/independent-final-normal-review.json),
+SHA `cd33f5b2b46bfdba508892983b214e73fe6b30964b0269bc2684376ca61746a5`,
+rechecks all 387 dependencies, all forty-six centroid transports and coupled
+inertias, every preserved finding and the 802-row census. Stress arithmetic
+agrees within 1.78e-15 MPa. No geometry change, new global response or native
+solve occurs; a containing-box enclosure does not claim occupied corner
+extrema or complete member acceptance.
 
 Current contact now has a quantified trim failure. The once-issued
 [mapped marker diagnostic](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/current-contact-v1/surface-markers.json),
@@ -2090,7 +2111,27 @@ with a new destination. The prior complete-atlas archive supplies earlier
 generated geometry/response inputs. The final construction join, table
 manifest and source helpers stay active; the preliminary coordinate join is
 preserved in the archive. No pruning is commissioned. New moving-contact and
-member reductions stay active pending their own frozen recovery packets.
+contact reductions stay active pending their own frozen recovery packets.
+
+The completed member reductions are separately recoverable in
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-member-completion-v4.tar.gz`,
+SHA `9299117febbb905919e6865bda1b4db708d851b2290e7930fd21aff15b7bff32`
+(796,174 bytes). Its companion `.manifest.json` is
+`18bb29d1d852604ea0dfcf873250b27eb7b32349c14fa58f16f79d1371b25f13`
+(16,583 bytes), covering all fifty-four files in the member-strength packet,
+including frozen failed invocations, terminal sections, conservative bounds
+and the forty-six exact refinements. Creation verifies every archive member,
+restored file and unchanged source; separate `verify` and fresh `restore`
+also pass. Recovery uses
+`uv run python scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-member-completion-v4.tar.gz.manifest.json --destination /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-member-completion-v4-recovery-fresh`,
+with a new destination. Six compact refinement files remain permanent:
+the source helper and fixture, frozen plan, final result and independent
+review/reproducer, totaling 491,638 bytes. The 444,927-byte result keeps the
+complete 802-cut disposition and forty-six new detailed calculations
+reviewable without checking bulk geometry or repeated conservative output
+into Git. Original member, geometry and conservative packets stay active
+and recoverable; no pruning is commissioned. Partial-end and finite-contact
+mechanics remain active work and this build goal is not closed.
 
 Active parallel workers own panel transfer, current contact formulation,
 washer response, practical hardware/construction reuse and independent gap
