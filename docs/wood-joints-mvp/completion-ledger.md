@@ -2,6 +2,16 @@
 
 ## Current conditional packet and qualification status
 
+The owner has now authorized a **new build-package completion goal**, with
+reuse of previous work and continued progress past reference exceedances.
+The [active sequence](#build-package-completion) covers panel load transfer,
+current contact/washer behavior, complete connection/member/panel findings,
+and practical coordinated construction/hardware instructions. It continues
+from the completed conditional thin-v4 A12 assessment below. Reference
+exceedances do not suspend the whole goal; failed adopted criteria, missing
+load paths or incompatible parts still govern the affected operation. The
+selected baseline and all actual-inspection/release boundaries remain distinct.
+
 The current development is the reviewed thin, through-bolted v4 successor
 in the [HL35 replacement lane](#hl35-replacement-candidate). The owner now
 prioritizes joint mechanics and reusing previous floor work. The one bounded
@@ -1928,15 +1938,166 @@ No revised candidate case is launched from these method results.
 
 ### Compact bracket-and-joint MVP
 
-The owner now explicitly requests another goal focused on whether the B103/B104
-brackets and complete bolted joints work. The goal service records the compact
-joint objective as **active**. Publish the available conditional joint findings
+The owner explicitly requested a compact goal focused on whether the B103/B104
+brackets and complete bolted joints work. That conditional objective is now
+complete under the recorded lean criterion and the current receipt below.
+The original sequence was to publish the available conditional joint findings
 now, reuse prepared steel/bolt/wood/washer methods on representative single,
 paired and shared-shaft duties, and state the exact gaps. Floor work is a bounded
 parallel dependency rather than the main deliverable. All four authenticated
 failed fields, the third invocation's invalid export and the three separate
 cold diagnostics remain unchanged; another floor cycle is not a substitute for these
 joint findings. The reviewed geometry, load basis and release boundaries remain.
+
+#### Build-package completion
+
+The owner now requests completion toward a candidate that can be built,
+directs reuse and explicitly says to continue when loads exceed references.
+The new goal is **active**, after completion of the distinct compact A12
+conditional assessment. It owns a coordinated practical build-planning packet
+and the remaining mechanical work; another summary of unresolved capacities
+alone is not its completion criterion. Calculated exceedances are retained as
+outcomes while other work proceeds. An adopted failed criterion or missing
+load path is not converted into a pass or a physical release.
+
+| Work | Applicable prior evidence | Required result |
+| --- | --- | --- |
+| Panel attachment and load transfer | Current exact A12 screw/plate actions and six saved operators; earlier placement, load-sharing and extra-screw studies | A source-bound applicable remedy or method disposition, simultaneous own screw loads, supported receivers and local/spatial panel checks. Preserve 66 Hillman axes unless a change is explicitly reported and authorized; earlier extra-screw proposals are separate options. |
+| Current contact applicability | Thirty-interface atlas, 584 reference cells, exact current field/pose and previous finite kinematic/contact coupons | A verified current-contact response/overlap formulation or explicit quantified applicability failure. Retain the eight centroid support assumptions in a distinctly verified finite point-kinematics method; the old finite corner-floor production is a different scenario. |
+| Washer seating and complete joints | Own capture wrenches, pressure/plate methods, reviewed annular dispatch and already consumed native fixture | Own force and moment transfer, applicable pressure/washer bending, fitting/bolt/wood checks and single/paired/shared joint dispositions. Actual missing annular moments are not replaced with zero. |
+| Members and remaining resistance | 1,046 cut replay, five containing-box normal-stress enclosures, NDS component methods and source-bound material/geometry | Complete scoped cut/shear/fracture/stability findings; exact excluded terminal-section and unequal shared-shaft dispositions. Existing enclosures remain usable without another identical CAD query. |
+| Construction, hardware, cost and mass | Reviewed v4 geometry, access/takeoff, stock nesting, panel outlines, mechanical hardware datums and existing shop packets | Coordinated candidate-specific stock/cut/hole/bolt-thread/hardware tables, assembly/disassembly sequence, usable dimensions, purchase quantities and cost/mass limits. Selected-baseline instructions are reference inputs, not silently adopted successor instructions. |
+| Integration and publication | Current admitted A12 receipt and independent reviews | Authenticated same-state reductions, distinct changed-input receipts, independent final checks, compact maintained documentation and owned commits/pushes on master. |
+
+The starting layout remains 20 timbers, six panels, 36 fittings, 70 physical
+bolts and 66 Hillman screws. The load envelope remains 250 lb ×2 downward,
+300 N horizontal and 100-mm arm; no new full 145-lb evaluation is planned.
+Current demands are admitted within their first-order declared law but are
+not established physical bounds. The existing material/property scenarios,
+floor assumptions and geometry limitations remain explicit until replaced
+by applicable evidence. Report proposed changes before altering the reviewed
+layout. Parent owns readiness, frozen input identities, serialized heavy
+execution and final integration. No new native solve, candidate selection,
+physical work or blanket external sign-off prerequisite is inferred.
+
+The first reuse audit identifies two specific method boundaries. Broad panel
+bearing is already present: 530 compression ports, including 118 on the upper
+left panel, accompany tension-only Hillman axial springs and bilateral lateral
+springs. Repeating that contact inventory cannot explain away the current
+head peak. The existing finite production instead uses corner floor XY ports;
+its producer, state audit and passes do not qualify the current eight-centroid
+support scenario. Reuse the verified pure finite port/connector primitives.
+The parent selects a separate finite-kinematics support method with the same
+32 reference normal points, eight centroid XY groups, original-reference
+zero, kn=25,000 N/mm, kt=100,000 N/mm and whole-foot normal threshold 1e-7 N.
+It must update own point kinematics and recover complete current force/moment
+duals. This is a distinct method/source/state requiring its own known-answer
+coupon and eventual candidate admission, not the old linear Bq operator or a
+transferred floor pass. Floor geometry, no-slip assumption and hardware are
+unchanged. No finite candidate case is launched from this choice alone.
+
+The [coordinated construction packet](hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md)
+is now available. Its [manifest](hypotheses/hl35-candidate/thin-frame-comparison/build-planning-v4/manifest.json),
+SHA `13a24c62ed4e51f63961096858b0e61b727d01c24ce90e0a7ef2c29cf985777a`,
+binds fifteen CSVs, 1,248 rows and 190,094 total bytes. The source join is
+`fea/generated/thin-bolted-build-planning-v4/joined-shop-data-final.json`,
+SHA `7982d8612014d6d55279f7847798ea3bf87e6c2eca2fa585ef4457daf3787074`;
+the exporter is `620b9670e6a150d8c937f867b35794fa945b152f2fd210387783c8730759b8a6`.
+Independent review checks all 11,566 source scalar cells, 8,658 numeric values,
+282 dependencies and 2,496 blank Actual/Disposition cells. End-plane residuals
+are at most 9.10e-13 mm and nominal tip replay is exact. World and proper local
+member coordinates remain distinct. The packet covers twenty members,
+forty-four cut planes, two rear recesses, seventy bolts, eighty-two wood and
+seventy-two steel bearing intervals, thirty-six fittings/all twenty-four duties,
+sixty-six Hillman axes and 140 own washer roles. It supplies nominal coordinates
+and stack windows, without drilling, purchase, inspection or release claims.
+
+The existing stock, access and mass studies are reused unchanged. Four starting
+half-inch ×8-inch comparison bolts miss the two-thread target by **0.808892 mm**
+at shortest catalog length and maximum comparison nut height, before washer
+tolerances. The twelve B103 head-side windows now use each own **3.0734-mm**
+washer. Kerf-right panel widths, CAT 23/32 thickness and the tight **2.649-mm**
+stock nesting remainder need delivered dimensions. October 7 local-time
+[primary price observations](../../fea/generated/thin-bolted-build-planning-v4/price-observations.json)
+give **$177.00** for thirty-six angles, **$314.17** known partial hardware and
+**$289.21** for the fifty-eight new-axis hardware plus angles. The frozen
+October 6 comparison remains intact. Complete installed cost is unquoted;
+conditional total dead mass stays **216.746714–218.270785 kg** plus unknown pads.
+
+| New bounded result | Verified number | Remaining limit and next action |
+| --- | --- | --- |
+| [Existing twelve-screw upper-left static allocation](../../fea/generated/thin-bolted-panel-transfer-remedy-v1/result.json) | Necessary peak **299.882611 N**, generic head index **0.516778**; primal/dual gap −5.68e-14 N | Uses the actual load/wrench and 118 existing compression stations, free compression sharing and fixed lateral actions. It does not replace the admitted **1939.742640-N** spring response or prove a compatible remedy. Preserve 66 screws; assess the current finite panel/backing response. |
+| [Same-state timber member comparisons](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/member-strength.json) | 226 intact rectangles: fully braced normal **0.667979**; sufficient shear/torsion bound **0.701151**; necessary net average shear **0.177715** | 802 net cuts and eighteen partial end cuts remain outside the rectangle strength comparison. Thirty-three compressed rectangle traces exceed the conditional full-length column slenderness domain. No actual restraint or wood R/T orientation is credited. Reuse five exact net properties and prepare conservative bounds for remaining net cuts. |
+| [Own washer statics](../../fea/generated/thin-bolted-v4-geometry/current-own-seat-admissibility-v1/final-result.json) | Axis-019 nut/header: N **1256.060189 N**, peak-pressure lower bound **1.561005 MPa**; positive full-annulus affine-pressure kern **6.417794 N·m**; any nonnegative OD-contained pressure requires M ≤**22.013711 N·m** | Force alone gives no finite peak-pressure upper bound. These necessary moment limits are not actual washer moments or capacities. Pressure, prying, bending and complete axial resistance remain NULL. |
+| [Four cached terminal sections](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/terminal-geometry.json) and [gravity-only reduction](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/terminal-gravity.json) | Principal/side areas **1453.845042 / 3969.189470 mm²**; lower selfweights **0.066972 / 0.213936 N**; normal-stress enclosures **7.05764e-5 / 8.25783e-5 MPa** | Independent oblique-wedge coupon, four cached queries and same-source arithmetic pass. Uniform-density selfweight differs from the old affine beam gravity law. Nonzero potential header-contact footprints below these planes prevent treating gravity as the complete tip demand. Actual pressure/complete tip wrench and resistance remain NULL. |
+| [Finite eight-centroid floor coupon](../../fea/generated/thin-bolted-current-contact-v1/finite-centroid-floor-v1/method-result.json) | Forty ports; scaled gradient/tangent finite-difference errors **9.04e-11 / 1.07e-9** | Twenty-seven fixtures and independent method review pass, including exact zero disabled-XY actions. Same physical no-slip assumptions, new finite point law; fixed-mask conservation does not establish global uniqueness or a candidate pass. |
+| [Closest-normal method coupon](../../fea/generated/thin-bolted-current-contact-v1/closest-normal-v1/method-result.json) and [composition review](../../fea/generated/thin-bolted-current-contact-v1/composition-v1/independent-review.json) | Curved contact gradient/tangent errors **1.45e-8 / 2.29e-9**; composition known-answer energy/tangent errors zero, gradient **2.91e-11 N** | Twenty-eight closest-contact and twenty composition fixtures pass independently. Current inverse-transpose normals, implicit projection derivatives, current duals and each component once are checked. Production 8,088/8,018 coordinates, seventy shaft-spin quotients and 132 bodies require separate current-state/source admission. Dynamic domains are not qualified by these synthetic coupons. |
+
+Current contact now has a quantified trim failure. The once-issued
+[mapped marker diagnostic](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/current-contact-v1/surface-markers.json),
+SHA `607d0ae4ab8080aca03f3e18a86acdb4aa0f67274f1024b3fceb05d5256d3fd8`,
+maps all 584 cells using the authenticated original q, geodesic member motion
+and true inverse-transpose surface normals. A separate saved-domain classifier
+reuses forty-three own faces and thirty reference trims; fourteen known-answer
+fixtures and independent boundary-area/centroid integrals pass. The actual
+[eligibility readout](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/current-contact-v1/saved-face-domain-v1/eligibility.json),
+SHA `6d1832abd859e3a727670be509b3b3dfc31a25ba6b6bdd5eae461c768c617f64`,
+has **571 interior / thirteen exterior** master footpoints and all 584 slave
+points inside their own source face. Ten exterior master points carry a
+conditional old compression census of **736.145817 N**. The two additional
+points beyond the earlier bounding-box screen lie in bores, with zero old
+force; no force is discarded or reassigned. Several old loaded end-face pairs
+entirely lose valid smooth-face master support at that diagnostic pose.
+These are geometry/application findings at the linear field, without a new
+physical displacement, overlap area or equilibrated force prediction.
+
+The panel backing source audit reuses 530 ports, twenty-two panel/receiver
+groups and sixteen receiving planes. Four independent known-answer tests
+qualify the cached face query and mapped geometry composition before execution.
+The parent then imports those sixteen frozen finished BREPs once, yielding
+[fifty-seven coplanar frontfaces](../../fea/generated/thin-bolted-current-contact-v1/panel-backing-frontfaces-v1/frontfaces.json),
+SHA `124f6ee5420c314a1e1a556126d089df4725f99f067389ed72fc2b5ea087ff5a`.
+The [independent receipt](../../fea/generated/thin-bolted-current-contact-v1/panel-backing-frontfaces-v1/independent-frontface-review.json)
+checks all source/canonical joins and forty-seven LINE/CIRCLE faces' area and
+centroid within **1.51e-9 mm² / 2.80e-11 mm**. Ten bottom-rail faces retain
+unsupported BSPLINE trim parameterization; source plane offsets up to
+4.50e-7 mm remain unsnapped. Actual 530-point mapping is a separate prepared
+diagnostic, not already executed by this geometry query.
+
+The next contact question is a continuous, objective finite sliding law with
+actual occupied boundaries, new overlap and unambiguous master ownership.
+Simply deleting out-of-face springs can jump stored compression energy and
+omit new contact. Primary [GetFEM large-sliding documentation](https://getfem.org/userdoc/model_contact_friction_large_sliding.html)
+supports current transformed normals, inside-face tests and nearest-master
+selection, while recording edge-normal-cone limitations. The
+[surface-potential formulation](https://arxiv.org/abs/1808.10420) provides a
+variational reference; neither source qualifies this candidate's implementation.
+A bounded moving-rectangle/holed-plate coupon compares fixed-point exclusion,
+moving-area boundary work and closed-surface signed distance before parent
+selection. Original response forces and the 584-cell atlas remain preserved.
+
+Construction evidence is separately recoverable in
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-planning-v4.tar.gz`,
+SHA `9f7b3039bdaa3987942ece44c17e8065b1cd71aed8727dbbc939d63c22260083`
+(219,980 bytes). Its companion `.manifest.json` is
+`0c9a5c1f12dfe8b2cab832b689d1c0018a978d10d2fcb401315d22bc9057d31a`
+(7,927 bytes), covering twenty-seven files / 862,265 source bytes in the
+construction helper and CSV directories. `scripts/evidence_archive.py create`
+verified every archive member, restored every file and rechecked unchanged
+sources; separate `verify` and fresh `restore` also pass. Recovery uses
+`uv run python scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-planning-v4.tar.gz.manifest.json --destination /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-planning-v4-recovery-fresh`,
+with a new destination. The prior complete-atlas archive supplies earlier
+generated geometry/response inputs. The final construction join, table
+manifest and source helpers stay active; the preliminary coordinate join is
+preserved in the archive. No pruning is commissioned. New moving-contact and
+member reductions stay active pending their own frozen recovery packets.
+
+Active parallel workers own panel transfer, current contact formulation,
+washer response, practical hardware/construction reuse and independent gap
+review. They preserve frozen sources and other agents' untracked helpers.
+The earlier conditional receipt and verified external archive remain current
+inputs. No repeated floor-mask sweep or broad historical export is justified
+by this new goal alone.
 
 The earlier corrected A12-rear field is
 [compatible-frame-a12-rear-finished-floor-v4.json](hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json),

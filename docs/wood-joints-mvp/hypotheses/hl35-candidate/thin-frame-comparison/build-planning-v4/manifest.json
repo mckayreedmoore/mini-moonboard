@@ -1,0 +1,382 @@
+{
+  "CAD_geometry_or_native_solve_executed": false,
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "datum_convention": "The authenticated source vertex minimizing lexicographic global grain/U/V projections; signed proper L/U/V coordinates. Each member has its own explicit world datum. U/V are reference directions, not observed radial/tangential growth-ring axes.",
+  "drill_bits_or_purchased_bolt_lengths_selected": false,
+  "end_cut_plane_equation": "outward_normal_luv dot point_luv_mm = plane_offset_from_datum_mm",
+  "execution": {
+    "dependencies": "stdlib only",
+    "python_executable": "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "python_version": "3.12.3",
+    "sys_argv": [
+      "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-build-planning-v4/export_shop_csv.py",
+      "--out-dir",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/build-planning-v4"
+    ],
+    "sys_orig_argv": [
+      ".venv/bin/python",
+      "-m",
+      "fea.generated.thin-bolted-build-planning-v4.export_shop_csv",
+      "--out-dir",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/build-planning-v4"
+    ]
+  },
+  "files": {
+    "Hillman-receiver-axes.csv": {
+      "bytes": 14079,
+      "columns": [
+        "axis_id",
+        "panel",
+        "receiver_member",
+        "origin_x_mm",
+        "origin_y_mm",
+        "origin_z_mm",
+        "direction_x_unitless",
+        "direction_y_unitless",
+        "direction_z_unitless",
+        "origin_receiver_l_mm",
+        "origin_receiver_u_mm",
+        "origin_receiver_v_mm",
+        "direction_receiver_l_unitless",
+        "direction_receiver_u_unitless",
+        "direction_receiver_v_unitless",
+        "nominal_raw_receiver_fraction_unitless",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 1188,
+      "row_count": 66,
+      "sha256": "e5da938ec1c7aaed24ea1588d8ae9d9f513d1050d1941a2f1a0986cbdbb518e0"
+    },
+    "bolt-axes-and-stacks.csv": {
+      "bytes": 33382,
+      "columns": [
+        "axis_id",
+        "axis_source",
+        "axis_point_x_mm",
+        "axis_point_y_mm",
+        "axis_point_z_mm",
+        "axis_direction_x_unitless",
+        "axis_direction_y_unitless",
+        "axis_direction_z_unitless",
+        "own_underhead_x_mm",
+        "own_underhead_y_mm",
+        "own_underhead_z_mm",
+        "nominal_shaft_diameter_mm",
+        "modeled_underhead_length_mm",
+        "occupied_bore_envelope_diameter_mm",
+        "near_steel_thickness_mm",
+        "far_steel_thickness_mm",
+        "wood_grip_mm",
+        "collision_head_height_mm",
+        "collision_nut_height_mm",
+        "collision_across_flats_mm",
+        "head_washer_OD_mm",
+        "head_washer_ID_mm",
+        "head_washer_thickness_mm",
+        "nut_washer_OD_mm",
+        "nut_washer_ID_mm",
+        "nut_washer_thickness_mm",
+        "conditional_ASME_Lbmin_mm",
+        "conditional_ASME_Lgmax_mm",
+        "conditional_full_smooth_body_to_cover_every_bearing_mm",
+        "smooth_body_full_thread_nut_reach_gap_mm",
+        "modeled_nut_near_underhead_mm",
+        "modeled_tip_beyond_nut_mm",
+        "declared_thread_pitch_mm",
+        "conditional_two_tip_threads_minimum_underhead_mm",
+        "comparison_product_id_unitless",
+        "comparison_shortest_underhead_mm",
+        "comparison_shortest_tip_thread_count_frozen_stack_unitless",
+        "comparison_shortest_tip_thread_count_frozen_washers_nut_max_unitless",
+        "comparison_two_tip_margin_frozen_washers_nut_max_mm",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 2870,
+      "row_count": 70,
+      "sha256": "18ca5b0324ec16a805c9bad83dc8e52ea42d54696d212920a0e29eef0fd99cc1"
+    },
+    "fitting-hole-ownership.csv": {
+      "bytes": 10176,
+      "columns": [
+        "axis_id",
+        "fitting_id",
+        "former_angle_duty_id",
+        "flange",
+        "receiver_member",
+        "assumed_outer_corner_hole_offset_mm",
+        "nominal_width_edge_mm",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 648,
+      "row_count": 72,
+      "sha256": "5008fc58970bafc74814c453ae8c1251f14650a89a90e8d57ccf5d16d1e5560a"
+    },
+    "fittings-and-duties.csv": {
+      "bytes": 8271,
+      "columns": [
+        "fitting_id",
+        "former_angle_duty_id",
+        "beam_member",
+        "post_member",
+        "origin_x_mm",
+        "origin_y_mm",
+        "origin_z_mm",
+        "fitting_basis_u_x_unitless",
+        "fitting_basis_u_y_unitless",
+        "fitting_basis_u_z_unitless",
+        "fitting_basis_v_x_unitless",
+        "fitting_basis_v_y_unitless",
+        "fitting_basis_v_z_unitless",
+        "fitting_basis_w_x_unitless",
+        "fitting_basis_w_y_unitless",
+        "fitting_basis_w_z_unitless",
+        "used_holes",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 684,
+      "row_count": 36,
+      "sha256": "92cc88e0d0619f12837128a8cd6442cd3e80340049b53787c31ce337b6d9a248"
+    },
+    "member-datums.csv": {
+      "bytes": 3799,
+      "columns": [
+        "member",
+        "nominal_blank_length_mm",
+        "nominal_blank_depth_mm",
+        "nominal_blank_thickness_mm",
+        "datum_x_mm",
+        "datum_y_mm",
+        "datum_z_mm",
+        "datum_source_vertex_index_unitless",
+        "basis_l_x_unitless",
+        "basis_l_y_unitless",
+        "basis_l_z_unitless",
+        "basis_u_x_unitless",
+        "basis_u_y_unitless",
+        "basis_u_z_unitless",
+        "basis_v_x_unitless",
+        "basis_v_y_unitless",
+        "basis_v_z_unitless",
+        "raw_source_translation_x_mm",
+        "raw_source_translation_y_mm",
+        "raw_source_translation_z_mm",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 440,
+      "row_count": 20,
+      "sha256": "3cbce3aef464f90fb88fc8ad8702a73a05ede959eb07875001d6d5312fdf245d"
+    },
+    "member-end-cut-plane-vertices.csv": {
+      "bytes": 5299,
+      "columns": [
+        "member",
+        "end_cut_plane_index_unitless",
+        "vertex_order_on_plane_unitless",
+        "source_vertex_index_unitless",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 1056,
+      "row_count": 176,
+      "sha256": "898633b6f3afaf40b2c1831187c4789d55d7ab712cff35468871b63cf2c245d7"
+    },
+    "member-end-cut-planes.csv": {
+      "bytes": 3093,
+      "columns": [
+        "member",
+        "end_cut_plane_index_unitless",
+        "outward_normal_l_unitless",
+        "outward_normal_u_unitless",
+        "outward_normal_v_unitless",
+        "plane_offset_from_datum_mm",
+        "normal_to_nominal_grain_deg",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 396,
+      "row_count": 44,
+      "sha256": "9851f6c7cd7e183691634670f72754b438f95d85ac5c7df08eed3af3b4589310"
+    },
+    "member-raw-vertices.csv": {
+      "bytes": 10219,
+      "columns": [
+        "member",
+        "source_vertex_index_unitless",
+        "raw_vertex_l_mm",
+        "raw_vertex_u_mm",
+        "raw_vertex_v_mm",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 1176,
+      "row_count": 168,
+      "sha256": "0aab4e8b792ae80710e2895781c55a39169c56ae1471f4811c1b4372db009e05"
+    },
+    "recess-parameters.csv": {
+      "bytes": 707,
+      "columns": [
+        "member",
+        "grain_x_unitless",
+        "grain_y_unitless",
+        "grain_z_unitless",
+        "normal_x_unitless",
+        "normal_y_unitless",
+        "normal_z_unitless",
+        "taper_run_mm",
+        "maximum_depth_mm",
+        "top_world_z_mm",
+        "bottom_world_z_mm",
+        "nominal_transverse_clearance_mm",
+        "nominal_vertical_clearance_mm",
+        "right_cutter_translation_x_mm",
+        "right_cutter_translation_y_mm",
+        "right_cutter_translation_z_mm",
+        "recorded_removed_volume_mm3",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 38,
+      "row_count": 2,
+      "sha256": "5a67de3f6fb30dd992fc95ea3559aab6ea5a889696ac0e50b3a82036692711ce"
+    },
+    "recess-profile-vertices.csv": {
+      "bytes": 482,
+      "columns": [
+        "member",
+        "profile_vertex_index_unitless",
+        "world_x_mm",
+        "global_grain_projection_s_mm",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 48,
+      "row_count": 8,
+      "sha256": "fab125c6890a826851edf934b9ba39b48bcb49ae81ddd38dca443bca6933decb"
+    },
+    "reference-tables.csv": {
+      "bytes": 2136,
+      "columns": [
+        "topic",
+        "source_path",
+        "source_key_path",
+        "source_sha256",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 60,
+      "row_count": 10,
+      "sha256": "6efc4b42f0ba8db330f57c273e6d29871f733d8fc40e5841e65b95357b54ef5a"
+    },
+    "source-sha256.csv": {
+      "bytes": 31671,
+      "columns": [
+        "source_path",
+        "sha256",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 1128,
+      "row_count": 282,
+      "sha256": "add374b24a38300c509837a12505886692d0b76c93861ce2f95b994fdc17248b"
+    },
+    "steel-bearing-thread-windows.csv": {
+      "bytes": 7239,
+      "columns": [
+        "axis_id",
+        "own_steel_side",
+        "own_underhead_entry_mm",
+        "own_underhead_exit_mm",
+        "bearing_length_mm",
+        "thread_overlap_min_mm",
+        "thread_overlap_max_mm",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 648,
+      "row_count": 72,
+      "sha256": "95d4c318c3fe597a7fba9e504fe62d1309934190c54ba819a166ee10dd163ca6"
+    },
+    "washer-receiving-planes.csv": {
+      "bytes": 21095,
+      "columns": [
+        "axis_id",
+        "washer_role",
+        "receiving_material",
+        "receiving_body",
+        "receiving_flange",
+        "modeled_pressure_datum_x_mm",
+        "modeled_pressure_datum_y_mm",
+        "modeled_pressure_datum_z_mm",
+        "inward_toward_receiver_x_unitless",
+        "inward_toward_receiver_y_unitless",
+        "inward_toward_receiver_z_unitless",
+        "modeled_support_opening_envelope_diameter_mm",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 1960,
+      "row_count": 140,
+      "sha256": "e200116e4d43213907d275171f56c8c252ba2fb5f138d2f3d72e32f06c2949ae"
+    },
+    "wood-receiver-bearing.csv": {
+      "bytes": 24840,
+      "columns": [
+        "axis_id",
+        "member",
+        "finished_receiver_source_index_unitless",
+        "own_underhead_entry_mm",
+        "own_underhead_exit_mm",
+        "entry_l_mm",
+        "entry_u_mm",
+        "entry_v_mm",
+        "exit_l_mm",
+        "exit_u_mm",
+        "exit_v_mm",
+        "shaft_to_nominal_grain_deg",
+        "bearing_length_mm",
+        "thread_overlap_min_mm",
+        "thread_overlap_max_mm",
+        "five_probe_min_grain_negative_boundary_mm",
+        "five_probe_min_grain_positive_boundary_mm",
+        "five_probe_min_crossgrain_negative_boundary_mm",
+        "five_probe_min_crossgrain_positive_boundary_mm",
+        "Actual",
+        "Disposition"
+      ],
+      "roundtrip_verified_cell_count": 1722,
+      "row_count": 82,
+      "sha256": "df932119b46c35df377da5e32f32154d0a2a811177477a384fbc88a467b8dba0"
+    }
+  },
+  "geometry_authority_or_fabrication_release_changed": false,
+  "helper": {
+    "path": "fea/generated/thin-bolted-build-planning-v4/export_shop_csv.py",
+    "sha256": "620b9670e6a150d8c937f867b35794fa945b152f2fd210387783c8730759b8a6"
+  },
+  "limits": [
+    "CAD occupied bore/screw/head diameters are not drill-bit or countersink instructions.",
+    "Five finished-boundary probes and raw end planes are coordinates; they do not prove continuous NDS end/edge minima or signed/group duty classification.",
+    "Saved ASME windows remain a conforming-standard hypothesis; twelve small-head own offsets are explicitly corrected, and no old 70-axis thread classification is adopted. The full smooth-body length is a dimensional target conditional on choosing smooth body throughout every bearing interval, not a blanket NDS requirement.",
+    "No current/old q, force, history or resistance vector is consumed; the old 62-body packet supplies only member/reference frames and explicit dimensional-standard tables.",
+    "Washer planes describe own receiving geometry. The ideal circular head and solid nut remain collision envelopes; they supply no actual pressure footprint, nut bore, preload or friction.",
+    "No geometry, source, authority, load/material or view changed; no CAD/native/K/global solve or physical operation performed."
+  ],
+  "loads_or_capacities_consumed": false,
+  "observed_parts_cuts_holes_or_floor": false,
+  "purchased_Hillman_policy_source": "reference-tables.csv: Hillman_policy",
+  "schema": "thin_bolted_shop_csv_export/v1",
+  "scope": "Coordinate and conditional dimensional-envelope export of the reviewed join; every Actual and Disposition cell is blank.",
+  "source": {
+    "path": "fea/generated/thin-bolted-build-planning-v4/joined-shop-data-final.json",
+    "sha256": "7982d8612014d6d55279f7847798ea3bf87e6c2eca2fa585ef4457daf3787074"
+  },
+  "source_pin_count": 282,
+  "source_pins_before_after_unchanged": true,
+  "stock_access_cost_and_nominal_disassembly": "Referenced existing tables; no stock, routes, quantities or costs remodelled.",
+  "units": "Coordinate/length headers use mm, volume uses mm3, angle uses deg, and directions/counts/indices/fractions use unitless."
+}

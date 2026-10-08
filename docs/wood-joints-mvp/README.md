@@ -7,6 +7,41 @@ engineering record. The selected screw-and-bracket baseline remains a separate
 
 ## Current disposition
 
+**A new build-package completion goal is active.** The owner requests a
+coordinated candidate that can be built, using previous work wherever it
+applies, and directs continued work when loads exceed references. The sequence
+addresses panel load transfer, current contact and washer behavior, complete
+joint/member/panel dispositions, and coordinated cut/hole/hardware and assembly
+instructions. Parallel workers reuse the reviewed layout, saved operators,
+current A12 field, material methods, access routes and takeoff. Reference
+exceedances remain recorded while independent work continues. Build readiness
+must retain any affected failed criterion, missing load path or incompatible
+part; conditional comparisons do not establish physical strength. See the
+[active completion sequence](completion-ledger.md#build-package-completion).
+
+The [construction coordinates and takeoff](hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md)
+now include fifteen independently checked tables: twenty timber datums and
+profiles, seventy physical bolt stacks, thirty-six fittings, sixty-six Hillman
+stations and 140 washer sides. The nominal packet retains blank actual
+measurements. Updated known partial hardware is **$314.17**; conditional dead
+mass remains **216.75–218.27 kg**. Four nominal 8-inch bolts require a delivered
+length check; current panel dimensions also need reconciliation with the
+already cut panels. No purchase or physical work is released by these tables.
+
+New same-state timber comparisons give **0.667979** for fully braced normal
+interaction and **0.701151** for a sufficient shear/torsion bound on 226
+intact rectangular cuts. These do not clear net cuts, cut effects or actual
+bracing. An independently checked fixed-load allocation can reduce the
+upper-left panel's necessary peak screw tension to **299.883 N**, against
+the **580.292-N** generic head reference. It proves possible static sharing,
+without producing compatible forces or changing the current **1939.743-N**
+peak. Exact saved-face classification finds thirteen old master footprints
+outside occupied wood, ten with a conditional **736.146-N** compression
+census. Current overlap and edge behavior therefore remain active mechanics
+work. The finite eight-centroid floor and closest-normal contact methods
+pass their bounded known-answer checks; a fresh candidate response has not
+been admitted from those method results.
+
 **The compact conditional A12 joint assessment is complete.** The
 [current numerical receipt](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/assessment.json)
 covers all twenty-four duties in the reviewed B103/B104 layout, including

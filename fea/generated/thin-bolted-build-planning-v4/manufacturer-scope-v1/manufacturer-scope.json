@@ -1,0 +1,288 @@
+{
+  "schema": "thin_bolted_eaton_manufacturer_scope/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "revision": "thin-offset-header-rows-shallow-wires-v4",
+  "question": "Applicable manufacturer load/material/geometry basis for36 B103ZN/B104ZN fittings with one factory bolt per leg across24 wood duties.",
+  "scope": "Manufacturer-source applicability and purchase-validation proposal only; no field/action/response/geometry evaluation.",
+  "source_sha256": {
+    "thin-bolted-candidate.json": "dfed203ff30a033e812d62fcd52fb61186cb0b6256718676c9433179c7945327",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/steel-resistance-methods-v4.json": "d00ff10eb875c0d093f6c0e811a7b1e2ef850f6d3ec846b6b910eb2c4cdabf19",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/steel-resistance-methods-v4.md": "12ecf07160fd599e69df86ca6faaba403c87a99ff3b1e804769b00eabff25d25",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/source-pins.json": "bf51c0c51d857172ec7097bf7e1e4c5a2ad5480ddee10a6821be6fff95ce81c0"
+  },
+  "sources_unchanged_before_after": true,
+  "source_observations": [
+    {
+      "id": "eaton_fittings_catalog",
+      "url": "https://www.eaton.com/content/dam/eaton/products/support-systems/strut-systems-%26-accessories/strut-fittings-and-accessories/strut-fittings-catalog-section.pdf",
+      "locator": "Printed pp106,111; PDF indices0,5,48-page section",
+      "access": "Official browser PDF text; original PDF byte acquisition timed out; screenshot returned a text reference without an accessible image",
+      "original_document_bytes_sha256": null,
+      "facts": {
+        "base_material": "ASTM A1018, hot-rolled pickled/oiled plate or strip, unless noted",
+        "minimum_yield_psi": 33000,
+        "nominal_thickness_in": 0.21875,
+        "nominal_width_in": 1.625,
+        "nominal_hole_diameter_in": 0.5625,
+        "nominal_hole_pitch_in": 1.875,
+        "nominal_end_offset_in": 0.8125,
+        "zn_finish": "ASTM B633 SC3 Type III or ASTM A653",
+        "B103_factory_holes": 3,
+        "B104_factory_holes": 4,
+        "B103_weight_per_100_lb": 56,
+        "B104_weight_per_100_lb": 78,
+        "rated_channel_gauge": 12,
+        "rated_channel_thickness_mm": 2.6,
+        "rated_capscrew": "1/2-13 x7/8in hex-head cap screw",
+        "rated_channel_nut": "N225 or TN225,1/2-13",
+        "ultimate_to_design_load_factor": 2.5,
+        "typical_connection_table_cross_reference_printed_page": 277,
+        "recommended_channel_bolt_torque_half_in_ftlb": 50
+      },
+      "observation_canonical_sha256": "74998ba0f04b090a3c4a63639ddefaa8dcf6e7a086494231159a30573d220cb4"
+    },
+    {
+      "id": "eaton_fittings_current_landing",
+      "url": "https://www.eaton.com/us/en-us/catalog/support-systems/strut-fittings-and-accessories.html",
+      "locator": "Materials and finishes; Hardware; Load data",
+      "access": "Official current HTML browser text",
+      "original_document_bytes_sha256": null,
+      "facts": {
+        "minimum_yield_psi": 33000,
+        "rated_channel_gauge": 12,
+        "ultimate_to_design_load_factor": 2.5,
+        "hardware_included_unless_otherwise_noted": false,
+        "preassembled_designation": "PA"
+      },
+      "observation_canonical_sha256": "ff0b4fe79a030343b3e3ca9168f60d69ab43100a47b09918d863947faff8d596"
+    },
+    {
+      "id": "eaton_b103_current",
+      "url": "https://www.eaton.com/us/en-us/skuPage.B103ZN.pdf",
+      "html_url": "https://www.eaton.com/us/en-us/skuPage.B103ZN.html",
+      "locator": "PDF indices0,1,2-page Eaton specification sheet; HTML general/model/material specifications",
+      "access": "Official current PDF and HTML browser text",
+      "original_document_bytes_sha256": null,
+      "facts": {
+        "catalog_number": "B103ZN",
+        "upc": "781011500337",
+        "type": "Three-hole90-degree corner angle",
+        "finish": "Electro-plated",
+        "material": "Steel",
+        "listed_height_in": 4.12,
+        "listed_length_depth_in": 4.12,
+        "listed_width_in": 1.62,
+        "listed_gauge_in": 0.25,
+        "listed_weight_lb": 0.56,
+        "photo_representative": true,
+        "special_features_field": "Pre-assembled fitting",
+        "certifications_field": "Not Applicable"
+      },
+      "observation_canonical_sha256": "77e43876e79c0cc59a74b6af61c2bf0fc80cf9eb20c28e06a91aabafd0d69168"
+    },
+    {
+      "id": "eaton_b104_current",
+      "url": "https://www.eaton.com/us/en-us/skuPage.B104ZN.pdf",
+      "html_url": "https://www.eaton.com/us/en-us/skuPage.B104ZN.html",
+      "locator": "PDF indices0,1,2-page Eaton specification sheet; HTML general/model/material specifications",
+      "access": "Official current PDF and HTML browser text",
+      "original_document_bytes_sha256": null,
+      "facts": {
+        "catalog_number": "B104ZN",
+        "upc": "781011500436",
+        "type": "Four-hole90-degree corner angle",
+        "finish": "Electro-plated",
+        "material": "Steel",
+        "description_height_length_width_in": [
+          4.12,
+          4.12,
+          1.62
+        ],
+        "specification_height_in": 4.125,
+        "specification_length_depth_in": 1.625,
+        "specification_width_in": 3.5,
+        "listed_weight_lb": 0.64,
+        "thickness_or_gauge_in": null,
+        "photo_representative": true,
+        "special_features_field": "Pre-assembled fitting",
+        "certifications_field": "Not Applicable"
+      },
+      "observation_canonical_sha256": "669d7f10a6feb12215d26ea94c98a76fc49037b0b7caf653e21fd577e2f718ea"
+    },
+    {
+      "id": "eaton_typical_pairs_primary_index",
+      "url": "https://www.eaton.com/content/dam/eaton/products/support-systems/cable-management/metric-cable-ladder-system/metric-cable-ladder/cable-ladder-support-system-me-catalog-css-19.pdf",
+      "locator": "Indexed Strut Systems-Technical Data section; original page/diagram not acquired",
+      "access": "Official indexed primary-document extract; direct open exceeds tool size limit",
+      "original_document_bytes_sha256": null,
+      "facts": {
+        "connection_scope": "Typical channel-fitting connections used in pairs",
+        "channel_thickness_mm": 2.6,
+        "ultimate_to_design_factor": 2.5,
+        "exact_orientation_bolt_count_load_arm_diagram_authentication": false,
+        "numeric_table_values_adopted": false
+      },
+      "observation_canonical_sha256": "ea7f34e1e51547f1e6c58ff01261c4c288126e627833c7ccc3fe89ffcf2f781f"
+    },
+    {
+      "id": "eaton_channel_design_scope",
+      "url": "https://www.eaton.com/us/en-us/catalog/support-systems/back-to-back-channel-and-welded-configurations.html",
+      "locator": "Design load",
+      "access": "Official current HTML browser text",
+      "original_document_bytes_sha256": null,
+      "facts": {
+        "scope": "Strut-channel simple-beam loads",
+        "allowable_stress_psi": 25000,
+        "reported_yield_basis_psi": 42000,
+        "reported_safety_factor": 1.68,
+        "factor_basis": "33ksi virgin steel cold-worked during rolling to42ksi average yield",
+        "applicability_to_hot_rolled_B103_B104_fitting_plate": false
+      },
+      "observation_canonical_sha256": "49714cfd18a1d61c8625a434ae201155f423fd35dbafa1dafcabfbd8ebc4a360"
+    }
+  ],
+  "external_source_hash_boundary": "Observation canonical hashes bind the saved manual browser transcription, not the inaccessible original PDF/HTML bytes. External original-document byte hashes are null; no visual drawing authentication is claimed.",
+  "current_geometry_census": {
+    "B104ZN": 24,
+    "B103ZN": 12,
+    "fittings": 36,
+    "duties": 24,
+    "single_fitting_duties": 12,
+    "unequal_two_fitting_duties": 12,
+    "used_factory_holes_per_leg": 1,
+    "flange_attachments": 72,
+    "new_physical_shafts": 58,
+    "retained_physical_shafts": 12,
+    "total_physical_shafts": 70,
+    "shared_new_shafts": 14
+  },
+  "catalogue_rating_disposition": {
+    "adopted_eaton_component_or_joint_allowable_n": null,
+    "current_pattern_rating_established": false,
+    "reviewed_sources_supply_matching_wood_connection_rating": false,
+    "scope_inference": "Published fitting loads require channel support and specified short cap screws/channel nuts; these conditions fail for this wood-supported through-bolt pattern regardless of unacquired diagram details.",
+    "support_mismatch": "20 timber members; no12-gauge strut channel/channel nut interface.",
+    "fastener_mismatch": "Long through bolts, metal nuts and washers; not1/2-13x7/8 cap screws with N225/TN225 channel nuts.",
+    "pattern_and_action_mismatch": "One used hole per leg with other factory holes empty,12 single-fitting duties and12 unequal B104/B103 opposed duties,14 shared physical shafts. No equal sharing, paired-table summation, orientation/load-arm equivalence or independent couple rating established.",
+    "typical_table_orientation_load_arm_exact_bolt_pattern": "Unresolved: original p277 assembly diagrams were not acquired; no value from the indexed regional paired table is used.",
+    "first_yield_to_allowable_factor": null,
+    "factor_2p5_scope": "Ultimate-to-design load ratio for published strut-assembly loads; not an ASD divisor of computed elastic first yield.",
+    "factor_1p68_scope": "25ksi simple-beam channel allowance versus42ksi average cold-worked channel yield; not a fitting-plate allowance.",
+    "catalogue_torque_to_wood_transferred": false
+  },
+  "usable_material_reference": {
+    "minimum_catalogue_fy_psi": 33000,
+    "minimum_catalogue_fy_mpa": 227.52699067455592,
+    "status": "Conditional specified-material scenario for a conforming ordinary steel fitting; actual product/lot conformance remains unverified.",
+    "catalogue_fu_mpa": null,
+    "complete_angle_or_joint_capacity_n": null,
+    "nominal_flat_leg_first_yield_helpers_reused_unchanged": true,
+    "elastic_yield_heel_hole_contact_torsion_stability_and_joint_acceptance_distinct": true
+  },
+  "purchase_identity_proposal": [
+    {
+      "sku": "B104ZN",
+      "upc": "781011500436",
+      "quantity": 24,
+      "hardware_inclusion_verified": false
+    },
+    {
+      "sku": "B103ZN",
+      "upc": "781011500337",
+      "quantity": 12,
+      "hardware_inclusion_verified": false
+    }
+  ],
+  "nominal_model_targets_not_manufacturer_minimums": {
+    "width_mm": 41.275,
+    "thickness_mm": 5.55625,
+    "hole_diameter_mm": 14.2875,
+    "hole_pitch_mm": 47.625,
+    "end_offset_mm": 20.6375,
+    "fittings": {
+      "B104ZN": {
+        "beam_length_mm": 104.775,
+        "post_length_mm": 88.9,
+        "beam_holes_mm": [
+          36.5125,
+          84.1375
+        ],
+        "post_holes_mm": [
+          20.6375,
+          68.2625
+        ]
+      },
+      "B103ZN": {
+        "beam_length_mm": 104.775,
+        "post_length_mm": 41.275,
+        "beam_holes_mm": [
+          36.5125,
+          84.1375
+        ],
+        "post_holes_mm": [
+          20.6375
+        ]
+      }
+    },
+    "used_hole_offsets_from_assumed_outer_corner_mm": {
+      "B104ZN": {
+        "beam": 84.1375,
+        "post": 68.2625
+      },
+      "B103ZN": {
+        "beam": 84.1375,
+        "post": 20.6375
+      }
+    },
+    "drawing_dimension_datum_visually_authenticated": false
+  },
+  "unresolved_product_geometry": {
+    "minimum_actual_steel_thickness_mm": null,
+    "steel_thickness_tolerance_mm": null,
+    "hole_diameter_and_position_tolerances_mm": null,
+    "inside_and_outside_bend_radius_mm": null,
+    "flat_leg_start_relative_to_outer_corner_mm": null,
+    "angle_and_leg_tolerances": null,
+    "coating_thickness_and_actual_material_conformance": null
+  },
+  "documented_conflicts": [
+    "B103 current sheet gives4.12/4.12in and1/4in gauge; the frozen catalogue-based scenario uses4.125/1.625in legs and general7/32in thickness. Current text cannot reconcile the short-leg/heel datums.",
+    "B104 current description says4.12/4.12/1.62in while specifications give1.625 depth/4.125 height/3.5 width. Current sheet0.64lb differs from catalogue0.78lb; weight is not a thickness certificate.",
+    "SKU special-feature text says pre-assembled; catalogue limits supplied hardware to explicitly marked products. B103ZN/B104ZN alone do not authenticate delivered bolts/nuts."
+  ],
+  "receiving_validation_inputs_proposal": [
+    "Record actual manufacturer,SKU/finish and count against24 B104ZN+12 B103ZN. Keep bolt/nut/washer purchases separate unless the delivered contents are known.",
+    "Record actual steel thickness, both leg extents, width, every factory hole diameter/center/empty-hole edge ligament, angle,inside/outside heel and start of flat legs against the frozen nominal targets. The catalogue gives no guaranteed dimensional minima/tolerances for these checks.",
+    "Use actual minimum thickness/heel/hole datums in the unchanged component methods before promoting any nominal first-yield result; do not treat a quarter-inch SKU field as a verified section or an automatic strength correction.",
+    "An incompatible delivered fitting requires a reported layout/material-input correction before modifying wood holes or reviewed geometry. The current catalogue and SKU conflicts are unresolved inputs, not proof that any delivered fitting fails.",
+    "Retain own-member bearing/thread intervals, actual body/root sections,Fu,Fyb,washer material/bearing footprints,contact/heel/hole behavior and complete failure modes as separate joint inputs. No Eaton channel rating closes them."
+  ],
+  "reproduction": {
+    "local_inputs": "Read the seven source paths and verify each recorded SHA256. JSON-only census from raw_fittings and installed_axes; AST literal read of FITTINGS in the frozen steel helper. No helper execution or response imports.",
+    "primary_checks": "Reopen listed official sources at recorded locators; external observations are manual transcriptions and original byte hashes remain null.",
+    "activities_performed": [
+      "Local source reads",
+      "Official browser text/indexed primary-reference verification",
+      "JSON/AST geometry-input census and unchanged-source check"
+    ],
+    "activities_not_performed": [
+      "Current or historical force-field consumption",
+      "Geometry rebuild or cached-solid query",
+      "CAD/native/global/K/response solve",
+      "Component method rerun",
+      "Tests",
+      "Hardware purchase or inspection"
+    ]
+  },
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  }
+}

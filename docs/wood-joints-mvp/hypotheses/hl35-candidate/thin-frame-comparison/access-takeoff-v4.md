@@ -1,4 +1,72 @@
-# Thin v4 access, takeoff and conditional weight
+# Thin v4 construction coordinates, access and takeoff
+
+The candidate-specific [construction manifest](build-planning-v4/manifest.json)
+now coordinates the twenty timber datums, raw profiles and end-cut planes,
+seventy bolt stacks, thirty-six fittings, sixty-six Hillman axes and their
+receiving members. Fifteen CSVs contain 1,248 source-bound rows. Independent
+readback checks every source scalar, all 282 dependencies and all 2,496 blank
+Actual/Disposition cells. This is a nominal build-planning packet for the
+reviewed thin B103/B104 candidate. Joint resistance, current contact response
+and physical fit remain open in the [completion sequence](../../../completion-ledger.md#build-package-completion).
+The selected ML24Z/SDS candidate and its shop packet remain separate.
+
+## Reading the construction coordinates
+
+All linear coordinates below are millimetres. For each member, the datum and
+three proper local unit vectors are in [member-datums.csv](build-planning-v4/member-datums.csv).
+The local L direction follows nominal grain; U/V define geometry and do not
+identify actual radial/tangential wood directions. A local point maps to world
+coordinates as `datum + L*l + U*u + V*v`. Use the member's own raw vertices and
+plane equation, rather than a neighbouring member's datum.
+
+| Operation or identification | Coordinated table | Meaning and limit |
+| --- | --- | --- |
+| Lay out the twenty nominal blanks and profiles | [Raw vertices](build-planning-v4/member-raw-vertices.csv), [end planes](build-planning-v4/member-end-cut-planes.csv), [plane/vertex links](build-planning-v4/member-end-cut-plane-vertices.csv) | A plane is `normal · local_point = offset`; its normal points outward. The reported normal-to-grain angle is not automatically a saw setting. The stock nesting below includes kerf and end allowances. |
+| Identify the retained tapered rear recess | [Recess parameters](build-planning-v4/recess-parameters.csv), [profile vertices](build-planning-v4/recess-profile-vertices.csv) | Keep the recorded 1:12 cut and the right cutter's −3.175-mm translation. A stale unshifted right cutter does not describe this candidate. |
+| Locate each physical structural bolt | [Bolt axes and stacks](build-planning-v4/bolt-axes-and-stacks.csv), [wood receivers](build-planning-v4/wood-receiver-bearing.csv) | Entry/exit L/U/V values belong to each finished receiver. Occupied bore diameters and modeled bolt lengths are analysis envelopes; they are not bit selections or delivered lengths. |
+| Match fittings and shared shafts | [Fittings and duties](build-planning-v4/fittings-and-duties.csv), [hole ownership](build-planning-v4/fitting-hole-ownership.csv), [steel intervals](build-planning-v4/steel-bearing-thread-windows.csv) | Thirty-six fittings cover all twenty-four former angle duties. Seventy-two steel bearing intervals include fourteen shafts shared by multiple fittings. Do not count a shared shaft twice when purchasing. |
+| Locate the sixty-six purchased screws | [Hillman receiver axes](build-planning-v4/Hillman-receiver-axes.csv) | These are this candidate's panel/kicker stations, with their own receiver coordinates. Do not substitute baseline stations, SDS screws or SPAX resistance. |
+| Identify each washer's support side | [Washer receiving planes](build-planning-v4/washer-receiving-planes.csv) | All 140 head/nut roles retain their own material, body and flange. A pressure datum is not a measured contact area or recovered washer moment. |
+| Trace reusable stock, access, price and mass evidence | [Reference tables](build-planning-v4/reference-tables.csv), [source hashes](build-planning-v4/source-sha256.csv) | Frozen source paths and JSON pointers preserve the original comparison's date and scope. Updated merchant observations below are a separate receipt. |
+
+Keep Actual and Disposition blank until the corresponding part, dimension or
+operation is observed. The current layout assumes CAT 23/32 panel thickness
+18.25625 mm and kerf-right main-panel widths 1217.6125 mm. The owner's nominal
+3/4-inch description does not establish delivered thickness. A true 1219.2-mm
+square is 1.5875 mm wider than this model's main-panel blank. Resolve actual
+thickness and widths before transferring panel coordinates; neither the
+existing panels nor the model have been recut or silently changed.
+
+The owner's existing Hillman pilot policy remains a 1/8-inch lead hole plus
+a 3/8-inch face countersink using the recorded #10 insert, with a #2 Phillips
+driver and flush head. The [baseline checklist](../../../../floor-flush-shop-checklist.md)
+records that policy and the offcut trial. These are owner-selected bit sizes,
+not Hillman-published strength or pilot qualifications. Bolted fitting holes
+need compatible delivered hardware and a separately checked installation
+choice; the maximum CAD bore envelope is not a drill instruction.
+
+The four starting half-inch ×8-inch comparison bolts require an underhead
+length at least **199.436892 mm** to expose two threads with the frozen
+washers and comparison nut's maximum height. The comparison's shortest
+allowed length is **198.628 mm**, leaving a **0.808892-mm** shortfall. Washer
+tolerances, smooth-shank reach and thread runout remain separate checks.
+The table's separate frozen CAD nut envelope requires **199.589292 mm**;
+it uses a different nut height from the catalog comparison.
+Measure delivered stacks or qualify a replacement before that operation;
+a longer nominal bolt has not been inserted into the reviewed access model.
+The twelve restricted B103 head washers use their own modeled **3.0734-mm**
+thickness, rather than the earlier generic 3.3528-mm washer window.
+
+Eaton's [fitting catalog, page 106](https://www.eaton.com/content/dam/eaton/products/support-systems/strut-systems-%26-accessories/strut-fittings-and-accessories/strut-fittings-catalog-section.pdf)
+describes 33-ksi minimum-yield steel and a factor of 2.5 for specified channel
+assemblies. That factor relates ultimate load to design load with channel
+nuts and short cap screws. It does not rate these wood-supported through-bolt
+joints or convert the calculated flange first-yield indices into allowable
+loads. The [source-bound manufacturer scope](../../../../../fea/generated/thin-bolted-build-planning-v4/manufacturer-scope-v1/manufacturer-scope.json)
+records purchase targets and the unresolved catalog/SKU dimensional conflicts.
+Match the actual hole centers, plate thickness, leg lengths and formed heel
+before applying the nominal coordinate packet. The manufacturer's channel
+bolt torque is not an adopted wood-joint tightening instruction.
 
 The [source-bound access/takeoff report](access-takeoff-v4.json) checks the
 reviewed v4 solids from the [shared cache](native-geometry-v4.json). The
@@ -66,12 +134,15 @@ its numerical `washer_envelopes` are correct. The starting three-eighth
 envelope is OD 25.4 / ID 11.1125 / t 2.032 mm. Compatible delivered products
 for those 24 starting washers remain unqualified.
 
-October 6 primary listings give the 36 angles **$174.84**, using
-[B104ZN at $5.52](https://www.platt.com/p/0151375/eaton-b-line/four-hole-corner-angle-steel-zinc-plated/781011500436/blib104zn)
-and [B103ZN at $3.53](https://www.platt.com/p/0151547/eaton-b-line/three-hole-corner-angle-zinc-plated/781011500337/blib103zn).
-The cheapest listed pack/single combinations in the report give **$312.01**
-for the known partial hardware comparison, or **$287.05** for the 58 new-axis
-hardware and angles. The 42 three-inch bolts use one 50-pack at
+October 7 local-time primary listings give the 36 angles **$177.00**, using
+[B104ZN at $5.59](https://www.platt.com/p/0151375/eaton-b-line/four-hole-corner-angle-steel-zinc-plated/781011500436/blib104zn)
+and [B103ZN at $3.57](https://www.platt.com/p/0151547/eaton-b-line/three-hole-corner-angle-zinc-plated/781011500337/blib103zn).
+The same pack/single comparison now gives **$314.17** for known partial
+hardware, or **$289.21** for the 58 new-axis hardware and angles. The separate
+[price observations](../../../../../fea/generated/thin-bolted-build-planning-v4/price-observations.json)
+retain the verified product pages and calculations. The frozen October 6
+takeoff retains its original **$174.84 / $312.01 / $287.05** figures. The
+42 three-inch bolts use one 50-pack at
 [$43.98](https://boltdepot.com/Product-Details?product=397), including eight
 spares; the 16 five-inch bolts use
 [individuals at $1.89](https://boltdepot.com/Product-Details?product=401).
