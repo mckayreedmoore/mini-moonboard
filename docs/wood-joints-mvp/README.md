@@ -7,17 +7,68 @@ engineering record. The selected screw-and-bracket baseline remains a separate
 
 ## Current disposition
 
-**A new build-package completion goal is active.** The owner requests a
-coordinated candidate that can be built, using previous work wherever it
-applies, and directs continued work when loads exceed references. The sequence
-addresses panel load transfer, current contact and washer behavior, complete
-joint/member/panel dispositions, and coordinated cut/hole/hardware and assembly
-instructions. Parallel workers reuse the reviewed layout, saved operators,
-current A12 field, material methods, access routes and takeoff. Reference
-exceedances remain recorded while independent work continues. Build readiness
-must retain any affected failed criterion, missing load path or incompatible
-part; conditional comparisons do not establish physical strength. See the
-[active completion sequence](completion-ledger.md#build-package-completion).
+**A reset lean numerical MVP goal now develops the owner-directed eoere
+successor.** The owner requests useful MVP completion like the previous
+conditional assessment, with as much applicable prior work reused as reasonable.
+Use eoere B0C7V7VS89 angles with the far transverse pair on each
+flange: four 3/8-inch through bolts per angle. Sixteen main angles sit inside
+the four panel boxes. The owner's later clarification makes the lower corner
+purpose clear: matching upper/lower holes. A 2×6 block is 12.7 mm thinner
+than the required 50.8-mm offset. Following the owner's suggestion to forgo
+the lower bracket, the parent now develops two exterior 2×6 cleats above the
+runners and retains the upper inside angles. Two lower outside angles become
+cleat connections: **22 angles plus two cleats** account for the 24 starting
+duties. Two additional 3/8-inch bolts attach each cleat to its outer post;
+the retained angle's side bolts also cross the cleat. This is a development
+proposal requiring its own complete corner checks. Preserve the climbing surface, panel
+outlines and 66 Hillman screws, and recheck the twelve starting frame bolts
+and every changed receiver. See the [active sequence](completion-ledger.md#build-package-completion).
+
+Previous geometry helpers, material methods, panel coordinates and assembly
+methods are reused within their limits. The B103/B104 geometry, forces,
+takeoff and viewer below remain preserved predecessor evidence; their passes
+do not transfer. No unexecuted predecessor contact preparation, profile or
+response is being run. The new four-port fitting layout needs its own
+geometry and mechanics. Published hole pitches are available; absolute heel
+offsets, bend geometry, tolerances and actual steel resistance remain missing.
+Reference exceedances stay recorded while independent work continues. A
+failed criterion, missing load path or incompatible part still governs the
+affected operation; conditional comparisons do not release physical work.
+Correct geometry and the updated 3D viewer come first. The MVP deliverable is
+a coherent review layout, a bounded admitted A12 field,
+joint/component findings and practical cost, hardware and assembly implications.
+Complete structural qualification and fabrication release are separate.
+
+The [eoere cleat-corner model](../../site/index.html?model=eoere-bolted-development&view=rear)
+is now published under its separate [development contract](../../eoere-bolted-candidate.json).
+The [complete occupied-geometry result](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-geometry-v2.json)
+has **22 angles, two added cleats and 100 physical bolt stacks**. All five
+intersection lists are empty. All 120 receiver bore bodies and 132 screw
+penetration checks, covering CAT 23/32 and nominal 3/4-inch plywood, retain
+full modeled backing. All 66 Hillman axes and existing stock sections stay
+unchanged. The four new cleat/post bolts are at Z200 mm; their minimum nominal
+bore/screw gap is only **0.340625 mm**. The short post's 38.9-mm top end
+retains the named compression reference, but complete tension geometry and
+delivered tolerances remain unresolved. The failed first layout is preserved.
+
+Genuine Three.js checks verify 1,021 parts, all 176 factory holes and 100
+complete stacks; 477 unchanged panel, screw and service parts are shared.
+Front/rear browser checks and bolt inspection pass without page errors or
+failed requests. These are nominal geometry and display checks. Washer seats,
+tools, removal, actual hardware and complete joint resistance remain open.
+
+The independently checked [inventory](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/inventory-v2.json)
+gives a conditional **218.90 kg** planning total, including the existing
+25-kg accessory allowance and excluding pads. Both cleats nominally fit
+runner offcuts. The current partial cost is **six four-pack prices, plus
+$61.93 and unpriced items**. The angle price, 68 new bolts, 24 legacy washers,
+wood and other receipts remain unpriced. Nominal SKU matches do not establish
+delivered fit. Four 8-inch bolt comparisons still require a delivered-length
+check. The new field has not run: current work binds fresh contact/backing
+domains, four owned fitting ports, complete gravity and a guarded first-order
+A12 spring model. The prior response and physical qualification do not transfer.
+
+## Preserved thin B103/B104 predecessor
 
 The [construction coordinates and takeoff](hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md)
 now include fifteen independently checked tables: twenty timber datums and
@@ -64,7 +115,7 @@ as a geometry reference; its ML24Z/SDS attachments are not a bolted proposal.
 A single 2×6 does not meet the HL35 catalog's minimum 3½-inch wood thickness
 for table loads. Other through-bolt details need their own wood, steel,
 hole-placement and complete-joint checks. The mixed B104/B103 fitting proposal
-below is the current thinner-frame development model. See the
+below was the thinner-frame development model before the eoere scope change. See the
 [recorded direction](../../hl35-candidate.json).
 
 The owner has started a **lean numerical MVP goal, with joint validation first
@@ -124,6 +175,19 @@ section replaces the loose 2.205688 bound with **0.0150304** while preserving
 the other seventeen findings. These results reuse the admitted field; local stress
 concentrations, contact-loaded tips, shear, torsion, fracture and
 actual restraint remain separate. Complete timber resistance is unresolved.
+The necessary combined shear/torque check on 52 already measured sections
+peaks at **0.256048**; a lower bound below the reference establishes no shear
+pass. All twenty saved timber maps meet the computed sufficient injectivity
+criterion on their source-bound boxes, maximum L **0.318528**. This supports
+inverse-map development without qualifying contact or a fresh response.
+The twenty finished timber solids also pass the closed-topology census;
+ten bottom-rail torus faces retain unsupported ordinary distance jets. A
+distinct grouped rule reduces the reference bedding from 10,502 to 1,504
+points while conserving area and first moments. All 644 new centroids now pass
+their own native face and inward-occupancy checks, with an independent saved
+result review. Candidate response remains pending. The sparse inverse-map bedding
+method passes its independent work/gradient/tangent checks; those synthetic
+results do not supply candidate forces.
 The corrected panel pose diagnostic finds **496 geometrically interior,
 eight exterior and twenty-six unresolved** backing stations. Only **479**
 have certified opposed smooth projections. Three exterior stations retain

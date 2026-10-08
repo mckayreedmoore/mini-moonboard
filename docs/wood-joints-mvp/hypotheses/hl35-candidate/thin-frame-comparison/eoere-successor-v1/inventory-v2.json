@@ -1,0 +1,869 @@
+{
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "cost": {
+    "C4_usd": null,
+    "angle_cost_formula": "6*C4 plus shipping/tax",
+    "conditional_hardware_formula": "6*C4 + 61.93 + U; shipping/tax excluded",
+    "conditional_priced_subset_usd": 61.93,
+    "conditional_reused_nominal_SKU_comparison_lines": [
+      {
+        "comparison_only_no_SKU_selection_or_delivered_fit": true,
+        "cost_usd": 16.12,
+        "pack_quantity": 25,
+        "packs": 0,
+        "purchased": 4,
+        "required": 4,
+        "requirement": "1/2 x8in Grade5 bolt comparison",
+        "singles": 4,
+        "sku": 407,
+        "source_snapshot": "2026-10-07",
+        "spares": 0,
+        "url": "https://boltdepot.com/Product-Details?product=407"
+      },
+      {
+        "comparison_only_no_SKU_selection_or_delivered_fit": true,
+        "cost_usd": 6.48,
+        "pack_quantity": 50,
+        "packs": 0,
+        "purchased": 8,
+        "required": 8,
+        "requirement": "3/8 x4in Grade5 bolt comparison",
+        "singles": 8,
+        "sku": 367,
+        "source_snapshot": "2026-10-07",
+        "spares": 0,
+        "url": "https://boltdepot.com/Product-Details?product=367"
+      },
+      {
+        "comparison_only_no_SKU_selection_or_delivered_fit": true,
+        "cost_usd": 18.8,
+        "pack_quantity": 50,
+        "packs": 0,
+        "purchased": 20,
+        "required": 20,
+        "requirement": "3/8 x4.5in Grade5 bolt comparison",
+        "singles": 20,
+        "sku": 368,
+        "source_snapshot": "2026-10-07",
+        "spares": 0,
+        "url": "https://boltdepot.com/Product-Details?product=368"
+      },
+      {
+        "comparison_only_no_SKU_selection_or_delivered_fit": true,
+        "cost_usd": 0.96,
+        "pack_quantity": 50,
+        "packs": 0,
+        "purchased": 4,
+        "required": 4,
+        "requirement": "1/2 coarse Grade8 nut comparison",
+        "singles": 4,
+        "sku": 2586,
+        "source_snapshot": "2026-10-07",
+        "spares": 0,
+        "url": "https://boltdepot.com/Product-Details?product=2586"
+      },
+      {
+        "comparison_only_no_SKU_selection_or_delivered_fit": true,
+        "cost_usd": 7.53,
+        "pack_quantity": 100,
+        "packs": 1,
+        "purchased": 100,
+        "required": 96,
+        "requirement": "3/8 coarse Grade5 nut comparison",
+        "singles": 0,
+        "sku": 2571,
+        "source_snapshot": "2026-10-07",
+        "spares": 4,
+        "url": "https://boltdepot.com/Product-Details?product=2571"
+      },
+      {
+        "comparison_only_no_SKU_selection_or_delivered_fit": true,
+        "cost_usd": 12.04,
+        "pack_quantity": 100,
+        "packs": 2,
+        "purchased": 200,
+        "required": 176,
+        "requirement": "176 new3/8 USS washer comparisons; modeled OD/thickness are published maxima",
+        "singles": 0,
+        "sku": 2996,
+        "spares": 24,
+        "url": "https://boltdepot.com/Product-Details?product=2996&qty=100"
+      }
+    ],
+    "currency": "USD",
+    "exact_unchanged12_legacy_bolt_SKU_comparison_subtotal_usd": 23.12,
+    "exact_unchanged12_legacy_bolts_plus_legacy_nut_comparison_usd": 24.96,
+    "limits": "Oct7 frozen price observations are comparison offers, not a current configured quote or product selection. New4in/4.5in stacks match existing nominal bolt product descriptions but have different grips; their fit is unqualified. Grade5/Grade8 nut and washer offers are nonselected scenarios. Old177USD angles and314.17USD partial hardware are not transferred. Complete installed cost remains unknown.",
+    "unpriced_U": [
+      "60 new3/8x2.5in bolts",
+      "4 new3/8x3in bolts",
+      "4 new3/8x6in bolts",
+      "8 retained1/2 washers",
+      "16 retained3/8 washers",
+      "wood/plywood/screw receipts or actual additional stock",
+      "holds/electrical/pads/tools/machining/shipping/tax"
+    ]
+  },
+  "counts": {
+    "Hillman_42605": 66,
+    "added_cleats": 2,
+    "angles_installed": 22,
+    "angles_purchased": 24,
+    "existing_timbers": 20,
+    "factory_holes": 176,
+    "four_packs": 6,
+    "heads": 100,
+    "installed_factory_holes": 88,
+    "modeled_bolt_roles": 500,
+    "nuts": 100,
+    "panels": 6,
+    "physical_shafts": 100,
+    "shared_angle_shafts": 4,
+    "spare_angles": 2,
+    "total_timbers": 22,
+    "unused_factory_holes": 88,
+    "washers": 200
+  },
+  "execution": {
+    "PYTHONPATH": ".",
+    "dependencies": "stdlib only; two pinned pure arithmetic AST functions",
+    "executable": "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "python": "3.12.3",
+    "sys_argv": [
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory.py",
+      "--geometry",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json",
+      "--expected-sha256",
+      "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory-v2.json"
+    ],
+    "sys_orig_argv": [
+      ".venv/bin/python",
+      "-B",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory.py",
+      "--geometry",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json",
+      "--expected-sha256",
+      "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory-v2.json"
+    ]
+  },
+  "geometry_revision": "eoere-far-pairs-cleat-corners-v1",
+  "geometry_source": {
+    "collision_counts_preserved": {
+      "metal_metal": 0,
+      "metal_screws": 0,
+      "metal_wood": 0,
+      "service_metal": 0,
+      "timber_panel": 0
+    },
+    "geometry_or_strength_PASS_transferred": false,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json",
+    "sha256": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd",
+    "status": "REVISE_UNQUALIFIED_PROPOSAL"
+  },
+  "mass": {
+    "analytic_old70_recipe_mass_error_kg": -2.3092638912203256e-14,
+    "bolt_envelope_density_kg_m3": 7850,
+    "complete_observed_mass_or_response_load_vector": null,
+    "conditional_same_basis_total_kg": 218.8970709297281,
+    "finished_timber_kg": 108.29364371952548,
+    "finished_timber_volume_mm3": 216587287.43905097,
+    "installed_angles_drawing_kg": 14.5693869244,
+    "limits": "Cylinder shafts omit threads; hex heads/nuts omit delivered chamfers/details, nut bore is ideal, washers use scenario dimensions. Densities, drawing weight and25kg allowance are not measured. Pads and accessories outside the original allowance remain excluded. This inventory total supplies no adopted gravity ownership or new mechanics field.",
+    "modeled_bolt_role_volumes_mm3": {
+      "head": 117227.4784681372,
+      "head_washer": 119208.14890581423,
+      "nut": 100605.44864898814,
+      "nut_washer": 119208.14890581423,
+      "shaft": 660410.8590382342
+    },
+    "modeled_bolt_roles_kg": 8.765781659140856,
+    "original_accessory_allowance_kg": 25,
+    "predecessor_conditional_total_range_kg": [
+      216.7467143213922,
+      218.2707846845922
+    ],
+    "purchased_angles_drawing_kg_excluding_packaging": 15.8938766448,
+    "same_basis_difference_from_predecessor_range_kg": [
+      0.6262862451359013,
+      2.1503566083358976
+    ],
+    "unchanged_panels_kg": 60.061257546543,
+    "unchanged_screw_and_Tnut_CAD_kg": 2.2070010801187716,
+    "wood_density_kg_m3": 500
+  },
+  "release": {
+    "capacity": false,
+    "climbing": false,
+    "fabrication": false,
+    "mechanics_ready": false,
+    "purchase": false
+  },
+  "schema": "eoere_successor_nominal_inventory_cost_mass/v1",
+  "scope": {
+    "CAD_import_or_query": false,
+    "native_or_response_solve": false,
+    "old_force_or_PASS_transfer": false,
+    "q_K_or_actions_consumed": false
+  },
+  "shaft_groups": [
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_002",
+        "eoere_bolt_003",
+        "eoere_bolt_004",
+        "eoere_bolt_005",
+        "eoere_bolt_007",
+        "eoere_bolt_008",
+        "eoere_bolt_011",
+        "eoere_bolt_012",
+        "eoere_bolt_014",
+        "eoere_bolt_015",
+        "eoere_bolt_016",
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "eoere_bolt_019",
+        "eoere_bolt_020",
+        "eoere_bolt_021",
+        "eoere_bolt_022",
+        "eoere_bolt_023",
+        "eoere_bolt_024",
+        "eoere_bolt_025",
+        "eoere_bolt_026",
+        "eoere_bolt_027",
+        "eoere_bolt_028",
+        "eoere_bolt_029",
+        "eoere_bolt_030",
+        "eoere_bolt_031",
+        "eoere_bolt_033",
+        "eoere_bolt_034",
+        "eoere_bolt_037",
+        "eoere_bolt_038",
+        "eoere_bolt_040",
+        "eoere_bolt_041",
+        "eoere_bolt_042",
+        "eoere_bolt_044",
+        "eoere_bolt_045",
+        "eoere_bolt_048",
+        "eoere_bolt_049",
+        "eoere_bolt_052",
+        "eoere_bolt_053",
+        "eoere_bolt_056",
+        "eoere_bolt_057",
+        "eoere_bolt_059",
+        "eoere_bolt_060",
+        "eoere_bolt_061",
+        "eoere_bolt_062",
+        "eoere_bolt_063",
+        "eoere_bolt_064",
+        "eoere_bolt_068",
+        "eoere_bolt_069",
+        "eoere_bolt_072",
+        "eoere_bolt_073",
+        "eoere_bolt_075",
+        "eoere_bolt_076",
+        "eoere_bolt_077",
+        "eoere_bolt_078",
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "eoere_bolt_083",
+        "eoere_bolt_084"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 47.09159999999991,
+      "hardware_scenario": {
+        "available_nominal_lengths_mm": [
+          63.5,
+          76.2,
+          101.6,
+          114.3,
+          127.0,
+          152.4,
+          165.1
+        ],
+        "head_height_mm": 6.0,
+        "hex_across_flats_mm": 14.2875,
+        "minimum_tip_threads": 2,
+        "nut_height_mm": 8.5598,
+        "threads_per_inch": 16,
+        "washer_id_mm": 11.1125,
+        "washer_od_mm": 26.162,
+        "washer_thickness_mm": 2.6416
+      },
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 61.467999999999904,
+      "near_steel_mm": 6.35,
+      "nominal_length_in": 2.5,
+      "nominal_length_mm": 63.5,
+      "quantity": 60,
+      "source": "eoere_far_pair",
+      "thread_fit": {
+        "delivered_transition_and_engagement_verified": false,
+        "maximum_smooth_shank_for_nut_to_reach_seat_mm": 49.733199999999904,
+        "minimum_thread_length_to_reach_nut_near_face_mm": 13.766800000000096,
+        "nominal_head_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "nominal_length_mm": 63.5,
+        "nominal_nut_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "note": "Published minimum full-thread length is a nominal nut-reach comparison; actual length, runout, seated nut height and each bearing/shear-plane thread position remain delivered-part inputs.",
+        "nut_near_face_from_under_head_mm": 49.733199999999904,
+        "tip_projection_beyond_nut_mm": 5.207000000000097,
+        "tip_threads": 3.280000000000061,
+        "two_tip_threads_nominally_clear": true
+      },
+      "wood_grip_mm": 38.1
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "eoere_bolt_065",
+        "eoere_bolt_066",
+        "eoere_bolt_079",
+        "eoere_bolt_080"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 6.35,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 53.441599999999994,
+      "hardware_scenario": {
+        "available_nominal_lengths_mm": [
+          63.5,
+          76.2,
+          101.6,
+          114.3,
+          127.0,
+          152.4,
+          165.1
+        ],
+        "head_height_mm": 6.0,
+        "hex_across_flats_mm": 14.2875,
+        "minimum_tip_threads": 2,
+        "nut_height_mm": 8.5598,
+        "threads_per_inch": 16,
+        "washer_id_mm": 11.1125,
+        "washer_od_mm": 26.162,
+        "washer_thickness_mm": 2.6416
+      },
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 67.81799999999998,
+      "near_steel_mm": 6.35,
+      "nominal_length_in": 3.0000000000000004,
+      "nominal_length_mm": 76.2,
+      "quantity": 4,
+      "source": "eoere_far_pair",
+      "thread_fit": {
+        "delivered_transition_and_engagement_verified": false,
+        "maximum_smooth_shank_for_nut_to_reach_seat_mm": 56.08319999999999,
+        "minimum_thread_length_to_reach_nut_near_face_mm": 20.116800000000012,
+        "nominal_head_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "nominal_length_mm": 76.2,
+        "nominal_nut_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "note": "Published minimum full-thread length is a nominal nut-reach comparison; actual length, runout, seated nut height and each bearing/shear-plane thread position remain delivered-part inputs.",
+        "nut_near_face_from_under_head_mm": 56.08319999999999,
+        "tip_projection_beyond_nut_mm": 11.557000000000013,
+        "tip_threads": 7.280000000000008,
+        "two_tip_threads_nominally_clear": true
+      },
+      "wood_grip_mm": 38.1
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 78.84159999999981,
+      "hardware_scenario": {
+        "available_nominal_lengths_mm": [
+          63.5,
+          76.2,
+          101.6,
+          114.3,
+          127.0,
+          152.4,
+          165.1
+        ],
+        "head_height_mm": 6.0,
+        "hex_across_flats_mm": 14.2875,
+        "minimum_tip_threads": 2,
+        "nut_height_mm": 8.5598,
+        "threads_per_inch": 16,
+        "washer_id_mm": 11.1125,
+        "washer_od_mm": 26.162,
+        "washer_thickness_mm": 2.6416
+      },
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 93.2179999999998,
+      "near_steel_mm": 0.0,
+      "nominal_length_in": 4.0,
+      "nominal_length_mm": 101.6,
+      "quantity": 4,
+      "source": "cleat_post_through_bolt",
+      "thread_fit": {
+        "delivered_transition_and_engagement_verified": false,
+        "maximum_smooth_shank_for_nut_to_reach_seat_mm": 81.48319999999981,
+        "minimum_thread_length_to_reach_nut_near_face_mm": 20.116800000000183,
+        "nominal_head_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "nominal_length_mm": 101.6,
+        "nominal_nut_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "note": "Published minimum full-thread length is a nominal nut-reach comparison; actual length, runout, seated nut height and each bearing/shear-plane thread position remain delivered-part inputs.",
+        "nut_near_face_from_under_head_mm": 81.48319999999981,
+        "tip_projection_beyond_nut_mm": 11.557000000000183,
+        "tip_threads": 7.280000000000116,
+        "two_tip_threads_nominally_clear": true
+      },
+      "wood_grip_mm": 76.2
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 78.232,
+      "hardware_scenario": {
+        "available_nominal_lengths_mm": [
+          101.6
+        ],
+        "head_height_mm": 6.0,
+        "hex_across_flats_mm": 14.2875,
+        "minimum_tip_threads": 2,
+        "nut_height_mm": 8.5598,
+        "threads_per_inch": 16,
+        "washer_id_mm": 11.1125,
+        "washer_od_mm": 25.4,
+        "washer_thickness_mm": 2.032
+      },
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 91.99879999999999,
+      "near_steel_mm": 0.0,
+      "nominal_length_in": 4.0,
+      "nominal_length_mm": 101.6,
+      "quantity": 4,
+      "source": "original_starting_frame_axis",
+      "thread_fit": {
+        "delivered_transition_and_engagement_verified": false,
+        "maximum_smooth_shank_for_nut_to_reach_seat_mm": 80.264,
+        "minimum_thread_length_to_reach_nut_near_face_mm": 21.336,
+        "nominal_head_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "nominal_length_mm": 101.6,
+        "nominal_nut_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "note": "Published minimum full-thread length is a nominal nut-reach comparison; actual length, runout, seated nut height and each bearing/shear-plane thread position remain delivered-part inputs.",
+        "nut_near_face_from_under_head_mm": 80.264,
+        "tip_projection_beyond_nut_mm": 12.7762,
+        "tip_threads": 8.048,
+        "two_tip_threads_nominally_clear": true
+      },
+      "wood_grip_mm": 76.2
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "rail_rear_bolt_left_1",
+        "rail_rear_bolt_left_2",
+        "rail_rear_bolt_right_1",
+        "rail_rear_bolt_right_2"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 90.932,
+      "hardware_scenario": {
+        "available_nominal_lengths_mm": [
+          114.3
+        ],
+        "head_height_mm": 6.0,
+        "hex_across_flats_mm": 14.2875,
+        "minimum_tip_threads": 2,
+        "nut_height_mm": 8.5598,
+        "threads_per_inch": 16,
+        "washer_id_mm": 11.1125,
+        "washer_od_mm": 25.4,
+        "washer_thickness_mm": 2.032
+      },
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 104.69879999999999,
+      "near_steel_mm": 0.0,
+      "nominal_length_in": 4.5,
+      "nominal_length_mm": 114.3,
+      "quantity": 4,
+      "source": "original_starting_frame_axis",
+      "thread_fit": {
+        "delivered_transition_and_engagement_verified": false,
+        "maximum_smooth_shank_for_nut_to_reach_seat_mm": 92.964,
+        "minimum_thread_length_to_reach_nut_near_face_mm": 21.336,
+        "nominal_head_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "nominal_length_mm": 114.3,
+        "nominal_nut_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "note": "Published minimum full-thread length is a nominal nut-reach comparison; actual length, runout, seated nut height and each bearing/shear-plane thread position remain delivered-part inputs.",
+        "nut_near_face_from_under_head_mm": 92.964,
+        "tip_projection_beyond_nut_mm": 12.7762,
+        "tip_threads": 8.048,
+        "two_tip_threads_nominally_clear": true
+      },
+      "wood_grip_mm": 88.9
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "eoere_bolt_006",
+        "eoere_bolt_009",
+        "eoere_bolt_010",
+        "eoere_bolt_013",
+        "eoere_bolt_032",
+        "eoere_bolt_035",
+        "eoere_bolt_036",
+        "eoere_bolt_039",
+        "eoere_bolt_043",
+        "eoere_bolt_046",
+        "eoere_bolt_047",
+        "eoere_bolt_050",
+        "eoere_bolt_051",
+        "eoere_bolt_054",
+        "eoere_bolt_055",
+        "eoere_bolt_058"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 97.8916000000001,
+      "hardware_scenario": {
+        "available_nominal_lengths_mm": [
+          63.5,
+          76.2,
+          101.6,
+          114.3,
+          127.0,
+          152.4,
+          165.1
+        ],
+        "head_height_mm": 6.0,
+        "hex_across_flats_mm": 14.2875,
+        "minimum_tip_threads": 2,
+        "nut_height_mm": 8.5598,
+        "threads_per_inch": 16,
+        "washer_id_mm": 11.1125,
+        "washer_od_mm": 26.162,
+        "washer_thickness_mm": 2.6416
+      },
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 112.26800000000009,
+      "near_steel_mm": 6.35,
+      "nominal_length_in": 4.5,
+      "nominal_length_mm": 114.3,
+      "quantity": 16,
+      "source": "eoere_far_pair",
+      "thread_fit": {
+        "delivered_transition_and_engagement_verified": false,
+        "maximum_smooth_shank_for_nut_to_reach_seat_mm": 100.5332000000001,
+        "minimum_thread_length_to_reach_nut_near_face_mm": 13.766799999999904,
+        "nominal_head_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "nominal_length_mm": 114.3,
+        "nominal_nut_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "note": "Published minimum full-thread length is a nominal nut-reach comparison; actual length, runout, seated nut height and each bearing/shear-plane thread position remain delivered-part inputs.",
+        "nut_near_face_from_under_head_mm": 100.5332000000001,
+        "tip_projection_beyond_nut_mm": 5.206999999999905,
+        "tip_threads": 3.2799999999999403,
+        "two_tip_threads_nominally_clear": true
+      },
+      "wood_grip_mm": 88.9
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "eoere_bolt_067",
+        "eoere_bolt_070",
+        "eoere_bolt_071",
+        "eoere_bolt_074"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 135.9916,
+      "hardware_scenario": {
+        "available_nominal_lengths_mm": [
+          63.5,
+          76.2,
+          101.6,
+          114.3,
+          127.0,
+          152.4,
+          165.1
+        ],
+        "head_height_mm": 6.0,
+        "hex_across_flats_mm": 14.2875,
+        "minimum_tip_threads": 2,
+        "nut_height_mm": 8.5598,
+        "threads_per_inch": 16,
+        "washer_id_mm": 11.1125,
+        "washer_od_mm": 26.162,
+        "washer_thickness_mm": 2.6416
+      },
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 150.36800000000002,
+      "near_steel_mm": 6.35,
+      "nominal_length_in": 6.000000000000001,
+      "nominal_length_mm": 152.4,
+      "quantity": 4,
+      "source": "eoere_far_pair",
+      "thread_fit": {
+        "delivered_transition_and_engagement_verified": false,
+        "maximum_smooth_shank_for_nut_to_reach_seat_mm": 138.63320000000002,
+        "minimum_thread_length_to_reach_nut_near_face_mm": 13.76679999999999,
+        "nominal_head_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "nominal_length_mm": 152.4,
+        "nominal_nut_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "note": "Published minimum full-thread length is a nominal nut-reach comparison; actual length, runout, seated nut height and each bearing/shear-plane thread position remain delivered-part inputs.",
+        "nut_near_face_from_under_head_mm": 138.63320000000002,
+        "tip_projection_beyond_nut_mm": 5.20699999999999,
+        "tip_threads": 3.279999999999994,
+        "two_tip_threads_nominally_clear": true
+      },
+      "wood_grip_mm": 127.0
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "diameter_mm": 12.7,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 180.97500000000002,
+      "hardware_scenario": {
+        "available_nominal_lengths_mm": [
+          203.2
+        ],
+        "head_height_mm": 9.0,
+        "hex_across_flats_mm": 22.225,
+        "minimum_tip_threads": 2,
+        "nut_height_mm": 11.5316,
+        "threads_per_inch": 13,
+        "washer_id_mm": 14.2875,
+        "washer_od_mm": 34.925,
+        "washer_thickness_mm": 3.175
+      },
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 199.58929230769235,
+      "near_steel_mm": 0.0,
+      "nominal_length_in": 8.0,
+      "nominal_length_mm": 203.2,
+      "quantity": 4,
+      "source": "original_starting_frame_axis",
+      "thread_fit": {
+        "delivered_transition_and_engagement_verified": false,
+        "maximum_smooth_shank_for_nut_to_reach_seat_mm": 184.15000000000003,
+        "minimum_thread_length_to_reach_nut_near_face_mm": 19.049999999999955,
+        "nominal_head_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "nominal_length_mm": 203.2,
+        "nominal_nut_washer_radial_shaft_clearance_mm": 0.7937500000000002,
+        "note": "Published minimum full-thread length is a nominal nut-reach comparison; actual length, runout, seated nut height and each bearing/shear-plane thread position remain delivered-part inputs.",
+        "nut_near_face_from_under_head_mm": 184.15000000000003,
+        "tip_projection_beyond_nut_mm": 7.518399999999955,
+        "tip_threads": 3.847999999999977,
+        "two_tip_threads_nominally_clear": true
+      },
+      "wood_grip_mm": 177.8
+    }
+  ],
+  "source_binding": {
+    "all_before_after_pins_unchanged": true,
+    "direct_source_sha256": {
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.json": "0c5a09879c9b191c39b96ce670d71ad110661bff7dfeab68133f711b32de476c",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-inputs-final.json": "dd662e681871576d0a76666e9370d4359f7e96e0a2ad5f9710553895f53a5309",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+      "fea/generated/thin-bolted-build-planning-v4/joined-shop-data-final.json": "7982d8612014d6d55279f7847798ea3bf87e6c2eca2fa585ef4457daf3787074",
+      "fea/generated/thin-bolted-build-planning-v4/price-observations.json": "fa2cbf1008c2454154f5cd7bb9a2885d8f602b3320a85b951fd92902fa6209aa",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory.py": "851c2a68b81bab39bd11f24622b77639e66f13820c1fb36dc6beaa72cf36c8a5",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/test_inventory.py": "3821ba0c9a93c1ab19110d9778f4eb61fb3dadaae0bc8e8dda971ba43bdaf2b9",
+      "scripts/thin_bolted_access_takeoff.py": "8f6313a4609f935c173b151843527b0911d6b89a34dacc9b2eee2642523cb897",
+      "scripts/thin_bolted_occupied.py": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+    },
+    "expanded_referenced_pin_count": 325,
+    "expanded_source_map_canonical_sha256": "befe80a42abe7bb0cd7045b07b5c4f2157c7ce523d023d69f47970d38fe8cecf",
+    "finished22_BREP_hashes_checked_without_import": true,
+    "source_maps_reused": [
+      "geometry.source_sha256",
+      "joined.source_sha256",
+      "old_access.source_sha256",
+      "old_layout.source_sha256",
+      "raw_stock.source_sha256",
+      "product.source_sha256"
+    ]
+  },
+  "thread_and_shank_obligations": {
+    "four_8inch_comparisons": [
+      {
+        "axis_id": "lumber_leg_bolt_left_1",
+        "current_modeled_nut_two_tip_minimum_underhead_mm": 199.58929230769235,
+        "delivered_fit": null,
+        "separate_saved_product_tolerance_stack_margin_mm": -0.8088923076923549,
+        "shortest_comparison_margin_against_current_modeled_stack_mm": -0.9612923076923607,
+        "source_shortest_comparison_underhead_mm": 198.628
+      },
+      {
+        "axis_id": "lumber_leg_bolt_left_2",
+        "current_modeled_nut_two_tip_minimum_underhead_mm": 199.58929230769235,
+        "delivered_fit": null,
+        "separate_saved_product_tolerance_stack_margin_mm": -0.8088923076923549,
+        "shortest_comparison_margin_against_current_modeled_stack_mm": -0.9612923076923607,
+        "source_shortest_comparison_underhead_mm": 198.628
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_1",
+        "current_modeled_nut_two_tip_minimum_underhead_mm": 199.58929230769235,
+        "delivered_fit": null,
+        "separate_saved_product_tolerance_stack_margin_mm": -0.8088923076923549,
+        "shortest_comparison_margin_against_current_modeled_stack_mm": -0.9612923076923607,
+        "source_shortest_comparison_underhead_mm": 198.628
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_2",
+        "current_modeled_nut_two_tip_minimum_underhead_mm": 199.58929230769235,
+        "delivered_fit": null,
+        "separate_saved_product_tolerance_stack_margin_mm": -0.8088923076923549,
+        "shortest_comparison_margin_against_current_modeled_stack_mm": -0.9612923076923607,
+        "source_shortest_comparison_underhead_mm": 198.628
+      }
+    ],
+    "requirements": [
+      "Bind each delivered underhead length, shank, root and runout to all own wood/steel bearing and shear intervals.",
+      "Nut must reach its seat with full metal-nut engagement and the declared two-tip-thread target; nominal length is insufficient.",
+      "Full-smooth-body targets are conditional geometric coverage targets, not a blanket resistance requirement; classify actual threaded bearing before selecting strength inputs.",
+      "Verify actual head/nut/washer dimensions and contact/unused-hole/heel/tool support. No preload, torque or friction is supplied."
+    ]
+  },
+  "washer_groups": [
+    {
+      "Actual": "",
+      "Disposition": "",
+      "ID_mm": 11.1125,
+      "OD_mm": 25.4,
+      "quantity": 16,
+      "thickness_mm": 2.032
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "ID_mm": 11.1125,
+      "OD_mm": 26.162,
+      "quantity": 176,
+      "thickness_mm": 2.6416
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "ID_mm": 14.2875,
+      "OD_mm": 34.925,
+      "quantity": 8,
+      "thickness_mm": 3.175
+    }
+  ],
+  "wood_and_panels": {
+    "added_cleat_dimensions_mm": [
+      38.1,
+      139.7,
+      289.7
+    ],
+    "added_cleat_quantity": 2,
+    "added_cleat_total_raw_mass_kg_at_500": 1.541948529,
+    "added_cleat_total_raw_volume_mm3": 3083897.0579999997,
+    "conditional_offcut_allocations": [
+      {
+        "additional_piece_plus_kerf_mm": 292.875,
+        "cleat_grain_length_mm": 289.7,
+        "delivered_usable_offcut_or_grade_verified": false,
+        "existing_stick_members": [
+          "base_floor_left"
+        ],
+        "nominal_remaining_mm": 301.3035169583068
+      },
+      {
+        "additional_piece_plus_kerf_mm": 292.875,
+        "cleat_grain_length_mm": 289.7,
+        "delivered_usable_offcut_or_grade_verified": false,
+        "existing_stick_members": [
+          "base_floor_right"
+        ],
+        "nominal_remaining_mm": 301.3035169583068
+      }
+    ],
+    "existing_nominal_board_feet": 150,
+    "existing_stock_purchase_scenario": [
+      {
+        "length_ft": 8,
+        "quantity": 6,
+        "section": "2x6"
+      },
+      {
+        "length_ft": 10,
+        "quantity": 3,
+        "section": "2x6"
+      },
+      {
+        "length_ft": 8,
+        "quantity": 2,
+        "section": "4x6"
+      },
+      {
+        "length_ft": 10,
+        "quantity": 2,
+        "section": "4x6"
+      }
+    ],
+    "limits": "Original13-stick nesting can nominally fit both new cleats in runner offcuts, with existing per-stick end allowance already charged. Actual stock, grain/grade and usable offcuts need inspection. Existing cut-panel size/thickness reconciliation remains open; no added plywood/screw purchase is inferred.",
+    "new_purchased_stock_required": null,
+    "old_nominal_4x8_sheet_scenario": 3,
+    "six_panel_blank_envelopes": [
+      {
+        "depth_mm": 1219.2,
+        "length_mm": 1217.6125,
+        "name": "main_lower_left",
+        "thickness_mm": 18.256249999999998
+      },
+      {
+        "depth_mm": 1219.2,
+        "length_mm": 1217.6125,
+        "name": "main_lower_right",
+        "thickness_mm": 18.256249999999998
+      },
+      {
+        "depth_mm": 1219.2,
+        "length_mm": 1217.6125,
+        "name": "main_upper_left",
+        "thickness_mm": 18.256249999999998
+      },
+      {
+        "depth_mm": 1219.2,
+        "length_mm": 1217.6125,
+        "name": "main_upper_right",
+        "thickness_mm": 18.256249999999998
+      },
+      {
+        "depth_mm": 277.0,
+        "length_mm": 1217.6125,
+        "name": "kicker_left",
+        "thickness_mm": 18.256249999999998
+      },
+      {
+        "depth_mm": 277.0,
+        "length_mm": 1217.6125,
+        "name": "kicker_right",
+        "thickness_mm": 18.256249999999998
+      }
+    ]
+  }
+}

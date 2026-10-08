@@ -1,0 +1,90 @@
+{
+  "schema": "eoere_bolted_development_candidate/v1",
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "revision": "eoere-far-pairs-cleat-corners-v1",
+  "status": "REVISE_UNQUALIFIED_PROPOSAL",
+  "selected": false,
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "geometry_scope": {
+    "main_panel_box_angles": 16,
+    "remaining_base_header_angles": 6,
+    "exterior_single2x6_cleats": 2,
+    "lower_underside_angles_removed": 2,
+    "inside_alignment_blocks": 0,
+    "existing_stock_sections_changed": false,
+    "Hillman_axes_moved": [],
+    "lower_cleat_post_bolt_height_mm": 200.0,
+    "all_factory_holes_per_angle": 8,
+    "installed_far_pair_bolts_per_angle": 4,
+    "nominal_new_bolt_diameter_mm": 9.525
+  },
+  "load_basis": {
+    "status": "PLANNED_FRESH_A12_NO_SUCCESSOR_RESPONSE_YET",
+    "climber_weight_lb": 250,
+    "downward_multiplier": 2,
+    "horizontal_force_N": 300,
+    "hold_lever_mm": 100,
+    "floor_no_slip_assumed": true,
+    "floor_no_slip_verified": false
+  },
+  "viewer": {
+    "query": "eoere-bolted-development",
+    "transport": {
+      "path": "site/eoere-review-scene.json.gz",
+      "encoding": "gzip",
+      "sha256": "c19ed06fc8cf4e2d4387e6ec17edd51ae1f3ffc6c67bd421022dd9e9185cb844",
+      "decoded_sha256": "8599fca392ccf2ec366ab4c39e4c1d74be89da50167edc7c760e5cb73c524c4a",
+      "encoded_bytes": 632963,
+      "decoded_bytes": 1924195
+    },
+    "counts": {
+      "timber": 22,
+      "panel": 6,
+      "bracket": 22,
+      "bolt": 500,
+      "screw": 66,
+      "wire": 131,
+      "physical_bolt_axes": 100,
+      "new_bolt_axes": 88,
+      "retained_starting_bolt_axes": 12,
+      "lights": 132,
+      "tnuts": 142,
+      "total_visible_parts": 1021,
+      "owned_scene_solids": 544,
+      "angle_stacks": 84,
+      "cleat_post_stacks": 4,
+      "factory_holes": 176,
+      "installed_factory_holes": 88,
+      "starting_duties_accounted": 24
+    },
+    "shared_scene": {
+      "url": "thin-bolted-scene.json.gz",
+      "sha256": "2ec1dd37dcd867e1748abe4eeb7567e1f62347802964d14bfcb09dd1329e17dc",
+      "decoded_sha256": "ec9bac9be2091aa76c24f4df305c020c69f890a11aa3de93e920e18b209c6c70"
+    },
+    "shared_parts_reused": 477
+  },
+  "evidence": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-geometry-v2.json",
+    "sha256": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd"
+  },
+  "preserved_authorities_sha256": {
+    "current-candidate.json": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+    "wood-joints-candidate.json": "2d1c43eae6f1515ad9fbb052d208b14648f4bf4f9003f49a7268d2ecb8ec545d",
+    "thin-bolted-candidate.json": "dfed203ff30a033e812d62fcd52fb61186cb0b6256718676c9433179c7945327"
+  },
+  "remaining": [
+    "The lower bolt bore and screw have a nominal 0.340625 mm gap, and the short post has a 38.9 mm end distance. Delivered tolerances and complete tension geometry remain unresolved.",
+    "Absolute product hole/heel/bend datums, metric/inch conflicts and actual material/fastener properties remain unqualified.",
+    "Four-port first-order methods need fresh candidate gravity, physical owner, contact and response admission bindings.",
+    "Washer seats, tool corridors, disassembly, complete joint resistance and cost/stock observations remain open.",
+    "No old forces, capacity, field passes, actual inspection or physical release transfer."
+  ]
+}

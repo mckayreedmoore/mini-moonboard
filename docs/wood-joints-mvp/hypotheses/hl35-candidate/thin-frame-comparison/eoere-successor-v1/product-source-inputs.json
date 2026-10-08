@@ -1,0 +1,108 @@
+{
+  "schema": "eoere_successor_primary_product_source_inputs/v1",
+  "observed_utc": "2026-10-08 04:14:25 UTC",
+  "scope": "Owner-directed successor product and mechanical interface inputs; no geometry, force or acceptance transfer from B103/B104.",
+  "primary_sources": {
+    "listing": {
+      "url": "https://www.amazon.com/dp/B0C7V7VS89",
+      "identity": "Brand/manufacturer eoere; model and manufacturer part ZX128-B-T4; ASIN B0C7V7VS89; four-piece pack.",
+      "verified_locations": ["product information item details", "product description", "about this item", "item measurements", "primary listing colorImages PT01"],
+      "observation_is_listing_transcription_not_received_part_measurement": true,
+      "actual_offer_price_usd_per_four": null,
+      "offer_observation": "No featured offer or numerical USD price was exposed by the primary product page and its th=1/psc=1 variant; offer-listing endpoint did not return readable content. No third-party price substituted."
+    },
+    "drawing": {
+      "url": "https://m.media-amazon.com/images/I/61D4fLDkfiL._AC_SL1500_.jpg",
+      "listing_association": "The ASIN listing's primary image table identifies this image as PT01.",
+      "local_path": "source-drawing.jpg",
+      "raw_sha256": "8148969aa88db8a69b43065bda94f6c8a607f79eec3214debbeb6b577c026b45",
+      "bytes": 79096,
+      "current_direct_HTTP_bytes_equal_existing_peer_image": true
+    },
+    "washer_comparison": {
+      "url": "https://boltdepot.com/Product-Details?product=2996&qty=100",
+      "sku": "Bolt Depot 2996, 3/8-inch USS zinc-plated low-carbon-steel flat washer",
+      "purpose": "Seller-published dimensional comparison only; not selected or qualified for this joint.",
+      "dimensional_standard_claim": "ASME B18.21.1",
+      "outer_diameter_inches": {"nominal": 1.0, "minimum": 0.993, "maximum": 1.030},
+      "inner_diameter_inches": {"nominal": 0.4375, "minimum": 0.433, "maximum": 0.453},
+      "thickness_inches": {"minimum": 0.064, "maximum": 0.104},
+      "displayed_comparison_prices_usd": {"each": 0.09, "bag_100": 6.02, "bulk_1000": 51.20},
+      "shipping_tax_availability_and_current_checkout_price_verified": false
+    }
+  },
+  "catalog_claims": {
+    "material_generic": "low carbon steel",
+    "material_grade_in_description": "Q235B",
+    "finish": "black powder coating",
+    "angle_degrees_nominal": 90,
+    "pack_piece_count": 4,
+    "drawing_dimensions_inches": {"arm_A": 3.5, "arm_B": 3.5, "width": 3.5, "thickness": 0.25, "transverse_hole_pitch": 2.0, "axial_hole_row_pitch": 1.625},
+    "description_metric_dimensions_mm": {"size": 90.0, "thickness": 6.0, "hole_diameter": 10.0},
+    "item_dimension_each_axis_inches": 3.54,
+    "literal_hole_diameter_inches_in_description": 0.375,
+    "bolt_nominal_diameter_inches": 0.375,
+    "all_hole_count": 8,
+    "weight_claims": [
+      {"source": "drawing net per piece", "pounds": 1.46, "pieces": 1},
+      {"source": "description per piece metric", "kilograms": 0.66, "pieces": 1},
+      {"source": "description per piece imperial", "pounds": 1.47, "pieces": 1},
+      {"source": "description four-piece metric", "kilograms": 2.7, "pieces": 4},
+      {"source": "description four-piece imperial", "pounds": 5.96, "pieces": 4},
+      {"source": "item weight field, four-count listing; packaging basis unresolved", "pounds": 5.8, "pieces": 4}
+    ],
+    "seller_scalar_load_claim_lbf": 300,
+    "seller_load_claim_is_not_a_qualified_limit_for_this_frame": true,
+    "grade_certificate_measured_weight_dimensions_or_test_rating_verified": false
+  },
+  "owner_installation_policy": {
+    "main_back_angle_count": 16,
+    "other_structural_angles": "Same eoere product on revised block/cleat joints; final quantity and poses parent-owned and unresolved.",
+    "installed_bolts_per_angle": 4,
+    "installed_bolt_nominal_inches": 0.375,
+    "active_holes": "Far transverse pair on each flange: two per flange, four total.",
+    "unused_holes": "Near-heel transverse pair on each flange remains void: four unused holes total, retained in geometry/net sections/contact.",
+    "assembly": "Through bolts with metal nuts and washers; no wood-thread attachment or welded/fabricated custom connector.",
+    "bolt_grade_length_thread_occupancy_head_nut_washer_SKUs_selected_here": false,
+    "additional_block_bolt_count_or_final_total_angle_count": null
+  },
+  "complete_hole_coordinate_contract": {
+    "coordinate_basis": "Each planar flange uses transverse b across its breadth and longitudinal a outward from a specified heel datum. That heel datum is not dimensioned by the seller.",
+    "hole_ids": ["A-near-left", "A-near-right", "A-far-left", "A-far-right", "B-near-left", "B-near-right", "B-far-left", "B-far-right"],
+    "published_constraints": ["b_right-b_left=2 inches on the drawn flange", "a_far-a_near=1-5/8 inches on the drawn flange", "Four circular through holes are visible on each flange; eight total."],
+    "same_pattern_on_second_flange_is_visual_inference_not_separately_dimensioned": true,
+    "unknown_exact_inputs": ["b_left_A", "b_left_B", "a_near_A", "a_near_B", "heel inside/outside/tangent datum", "both hole rows' diameter and position tolerances"],
+    "pattern_centering_is_not_dimensioned": true,
+    "unknown_coordinates_defaulted_or_scaled_from_pixels": false
+  },
+  "missing_product_inputs": [
+    "Delivered minimum and maximum thickness, arm length, breadth, included-angle and flatness tolerances; reconcile 6mm/1/4in and 90mm/3.5in/3.54in.",
+    "Absolute hole coordinates from an unambiguous heel/edge datum, actual hole diameters and positional tolerances on both flanges; reconcile 10mm with literal3/8in.",
+    "Inside/outside formed bend radii, bend tangent/heel profile, corner radii/chamfers, coating thickness and any bend thinning or residual stress.",
+    "Traceable finished-part material grade/condition and minimum Fy/Fu with applicable thickness/temperature; elastic E, Poisson ratio and density for an adopted response scenario.",
+    "Meaning and measurement basis of inconsistent net/item/pack mass claims; delivered part weight if adopted gravity needs verified mass.",
+    "A current primary four-pack price, available quantity, seller/fulfiller, shipping and tax.",
+    "Product-specific load/rotation/limit-state test configuration or qualified design capacities; the seller's300lb scalar lacks the fasteners, timber, lever arm, load direction and safety-factor basis required here."
+  ],
+  "replacement_requirements": [
+    "Retain all eight actual product holes, including the four unused ones, in every geometry/net-section/heel/contact calculation.",
+    "Any alternative part must bind exact dimensional datums, arm/breadth/thickness minima and maxima, both four-hole patterns, included angle and formed heel; a larger gross envelope is not a minimum-strength guarantee.",
+    "Use the installed far pair per flange and3/8-inch through bolts only after the actual factory hole/bolt tolerance stack and all receiver edge/end/grain/cut distances are joined to the new geometry.",
+    "Washer ID must clear the delivered shank/thread envelope; OD and thickness must retain full receiving-seat support, hole-wall clearance, neighboring unused-hole and heel clearance, and installation access on each own head/nut side.",
+    "Each bolt length/shank/thread scenario must cover its new actual grip, every shear/bearing plane, both washers and full metal-nut engagement. Nominal purchased length is not delivered unthreaded shank.",
+    "Bind actual bolt/head/nut/washer geometry and material/strength sources. Circular collision envelopes and solid-nut envelopes cannot be used as mechanical pressure footprints.",
+    "New blocks/cleats, all changed axes and original frame-bolt arrangements need their own geometry/mechanics/source state. No old count, fit, force, shop pass or capacity transfers.",
+    "A compatible geometry is not equivalent joint stiffness or resistance. Heel/holes, prying/warping, bolt bending/bearing/shear/tension, timber splitting/bearing/net section, contact and whole-joint load paths remain unresolved.",
+    "No preload, tightening torque, friction or annular pressure couple is supplied by this product-source record."
+  ],
+  "context_source_pins": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9"
+  },
+  "peer_read_only_context": {
+    "fit_script": {"path": "/tmp/mini-moonboard-eoere-fixed-pose-fit.py", "sha256": "29cb2af4cf86bec7c381952fb83adb0638697f2c6aebca07aeae522427b4e6fb"},
+    "fit_result": {"path": "/tmp/mini-moonboard-eoere-fixed-pose-fit.json", "sha256": "35398db26492c5f7b56d33dc2d158cf6a92f724f75e4cbc8aa4eb7aae9a0537d"},
+    "role": "Historical gross fixed-pose screen only. Not a numerical dependency of these tables and no source-fit or pass transfers."
+  },
+  "release": {"product_conformance_verified": false, "new_geometry_admitted": false, "joint_response_admitted": false, "capacity": false, "purchase": false, "fabrication": false, "climbing": false}
+}
