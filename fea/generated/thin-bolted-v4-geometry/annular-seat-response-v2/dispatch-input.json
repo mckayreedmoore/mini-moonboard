@@ -1,0 +1,18 @@
+{
+  "bedding_n_mm3": 1.0,
+  "inner_rim_normal_offsets_mm": [
+    -0.0001,
+    0.0,
+    0.0001
+  ],
+  "integration_dispatch": "positive outer-only cap iff0<h<=b-a; no physical activation threshold",
+  "nominal_radii_mm": [
+    7.14375,
+    17.526
+  ],
+  "physical_pressure_law_unchanged": "p=k*max(delta+sx*x+sy*y,0)",
+  "precision_digits": 100,
+  "preserved_first_result_sha256": "3b5ffc254964af530aea1c39ea97c45969177c767caeda5de3a026f03dd56465",
+  "recheck_digits": 140,
+  "schema": "thin_bolted_annular_outer_cap_dispatch_inputs/v2"
+}

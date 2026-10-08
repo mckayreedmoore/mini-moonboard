@@ -7,6 +7,16 @@ engineering record. The selected screw-and-bracket baseline remains a separate
 
 ## Current disposition
 
+**The compact conditional A12 joint assessment is complete.** The
+[current numerical receipt](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/assessment.json)
+covers all twenty-four duties in the reviewed B103/B104 layout, including
+single, paired and shared-shaft families. The corrected current-common-shaft
+field, component reductions and motion diagnostics are independently reviewed.
+Complete joint resistance and physical contact applicability remain
+**UNQUALIFIED**; the current actions are not established physical demand
+bounds. This closes the bounded conditional assessment, with exceedances and
+missing inputs recorded. Broader candidate acceptance remains open.
+
 **The owner now requests a thinner frame closer to the earlier screw-and-angle
 layout, while retaining through-bolted structural joints.** The comparison
 basis is the selected frame's solid 4×6 legs/rims, single 2×6 receiving members
@@ -22,27 +32,121 @@ hole-placement and complete-joint checks. The mixed B104/B103 fitting proposal
 below is the current thinner-frame development model. See the
 [recorded direction](../../hl35-candidate.json).
 
-The owner has started a **new lean numerical MVP goal, with joint validation
-first and a separate floor-contact worker**. Reuse the reviewed geometry,
-access/takeoff, material references and passing method checks. The smallest
-adequate route retains the existing first-order common shafts, restores the
-six required timber compression interfaces and uses the declared centroid
-no-slip floor approximation with whole-foot release. Allow one narrow
-readiness repair and one A12-rear attempt capped at thirty minutes, without
-automatic retries or another solver framework. A fresh independently admitted
-field and quantitative joint/panel/member dispositions are required; explicit
-reference exceedances and unqualified capacities remain valid findings, not
-structural acceptance. The previous broader goal and its six-hour finite
-attempt remain blocked historical work, with their inputs and failures frozen.
-A geometry-only study will not complete the new goal. Joint-method readiness
-passed independent review. The single lean case has now ended with a floor
-activation cycle: all five fixed support patterns reached the residual
-tolerance, but their activation did not settle. It exports no admitted q or
-joint forces. The new goal is **blocked** on a compatible admitted field:
-its one-attempt allowance is used, and no automatic retry is queued.
-The revised nominal occupied
-layout clears the enumerated interference and support checks. The review model
-is exported and its file-backed viewer loader is validated. The
+The owner has started a **lean numerical MVP goal, with joint validation first
+and a separate floor-contact worker**, and later authorized further bounded
+cycles, online research and reuse. The reviewed geometry, access/takeoff,
+material references and passing method checks remain the starting point. The
+failed response model has seventy common shafts, six timber compression
+interfaces and centroid no-slip floor springs with whole-foot release. A new
+cached-solid audit proves **30** positive-area timber interfaces: the six
+retained interfaces plus **24 omitted end/rail bearing paths**. The complete
+contact extension retains the declared normal bedding. Its first bounded A12
+case stops at export because the floor monitor sorts eight sparse rows in
+place while reading them. A separately reviewed copied-row observer adapter
+preserves the original operators in a distinct, same-physics execution.
+That current field now passes the complete independent gate: **5.38e-7 N**
+generalized residual, all **132 bodies**, global equilibrium and the unchanged
+same-q floor activation law. The largest body residual is **7.84e-7 N /
+0.000938 N·mm**. The reviewed geometry remains unchanged. Current component
+and motion reductions use those exact admitted bytes. Component exceedances and unqualified
+capacities are useful findings; neither is structural acceptance. The previous
+broader goal and interrupted six-hour finite attempt remain historical evidence.
+
+The current A12 comparisons below use the retained **250 lb ×2 / 300 N /
+100 mm arm** envelope. Ratios compare demand with the named conditional
+reference; steel yield and wood allowable-strength bases differ.
+
+| Current conditional check | Result | Disposition |
+| --- | ---: | --- |
+| B104 / B103 sampled nominal flange yield | **0.797272 / 0.008422** | Includes the original operator's own fitting gravity interpolation. Physical leg-weight distribution, hole/heel effects and actual product resistance remain unqualified. |
+| Same-cut flange torsion scenarios | Gross **0.801668**; two-ligament proxy **0.848322** | Includes the same gravity interpolation. Conditional ideal-section references; restrained warping, prying and the actual formed heel remain unresolved. |
+| Seventy shaft same-cut circular yield scenarios | Maximum **0.265473** | Assumed Grade 5 and 12.7-mm elastic circle; actual root/thread placement and complete bolt/joint resistance remain unqualified. |
+| Sixty-six panel/kicker screw axes | Generic head index **3.342699**, two exceeding axes | Governing upper-left screw: **1939.743 N** withdrawal and simultaneous **669.664 N** lateral. Actual Hillman resistance remains unavailable. |
+| Generic withdrawal comparison | Required effective thread **81.819 mm** at CD1 | Nominal screw length after the panel is **45.244 mm**; effective threaded engagement remains unmeasured. Conditional CD1.6 still requires 51.137 mm. |
+| Six-panel spatial section diagnostics | Bending **5.501986**; rolling shear **2.777902** at CD1 | Sampled spline resultants retain local-hole, head-seat and derivative-jump limits. Mean net-cut indices **0.621706 / 0.270134** do not clear those spatial findings. |
+| Own wood-side washer captures | Ideal full-annulus index **0.362247** | Own axis-019 nut/header force is **1256.060 N**. Actual pressure, prying moments, washer bending and seating remain unresolved; no duration increase is applied. |
+| Twenty timber axial-average diagnostics | Tension **0.028431**; compression **0.049667** at CD1 | These averages omit bending/shear/fracture/stability acceptance. Four terminal planes are outside the reference-span cut replay. |
+| Fourteen shared shafts / complete joints | **Resistance unavailable** | Unequal shared-shaft actions cannot use summed single-shear ratings. All twenty-four angle duties remain unqualified as complete joints. |
+
+The admitted coordinate replay gives **27.507 mm** maximum timber-face
+tangential motion and **0.230788 rad** maximum relative rotation among the
+representative fitting/receiver markers. The base-left B104's internal
+two-flange marker is **0.024070 rad**; it does not recover heel curvature.
+Updating point arms and normals at the fixed q changes the contact-side
+markers of eleven loaded timber cells and thirteen loaded representative
+flange points to opening. This leaves current contact overlap and first-order
+physical applicability **UNQUALIFIED**. The replay supplies diagnostic geometry,
+without a new equilibrated force field or physical movement prediction.
+Bracket body-weight bookkeeping now matches all thirty-six fittings' original
+applied-vector entries exactly. Five already measured net timber sections
+also have same-cut linear stress enclosures: the left leg ranges from
+**−2.446 to +1.522 MPa** over its saved containing box. These bounded reductions
+reuse the admitted field; exact occupied-material extrema and complete timber
+resistance remain unresolved. The next engineering decision is how to revise
+panel load transfer and establish current contact and washer behavior before
+using these model actions as complete-joint strength demands. Exact fitting
+geometry/material, bolt root/shank/thread placement, washer seating and
+unequal shared-shaft/group resistance remain required inputs. The reviewed
+geometry has not changed. The ledger records the
+[conditional closure and verified evidence recovery](completion-ledger.md#compact-current-a12-assessment-and-recovery).
+
+**The six-interface model's unchanged-law support search is closed.** Four authenticated failed
+fields contain **256 unique ended masks / 241 resolved**. Reviewed normal-force
+statics separately excludes 113 masks, including twelve of the fifteen
+unresolved. Three fresh cold-start diagnostics resolve the other three, but
+all conflict with their prescribed activation. All 143 statically undecided
+masks now have an observed resolved activation conflict. Independent production
+review passes for that six-interface model. These results close the
+coverage and inherited-initialization questions within the recorded numerical
+checks. They do not prove exact nonexistence or physical frame instability.
+The cold diagnostics have **160–188 mm** reference node translations,
+**0.477–0.554 rad** rotations and **51–59 mm** relative timber-face tangential
+motion. Those are unaccepted linear coordinates, not physical movement
+predictions. Source geometry, tolerances and failed evidence remain unchanged.
+
+The small contact-law counterexample now proves that original-reference
+activation can lack a fixed point even when both fixed branches are strictly
+convex. A separate proposed recontact-reference convention passes prescribed
+history checks; it remains a changed, unadopted scenario requiring its own
+admission. The saved-coordinate joint review confirms genuine relative motion:
+the base-left B104/receiver marker reaches **0.747 rad**, while its internal
+beam/post heel marker is **0.0142 rad**. Replaying finite point geometry changes
+contact sides; current trimmed-face overlap remains unestablished. The
+first-order actions cannot be cleared by residual convergence alone. These
+are diagnostic pose checks, not predicted physical rotations.
+
+The unequal three-member shaft response/recovery seam now matches an
+independent hand solution, including own member couples and shaft cuts.
+It establishes elastic-method readiness, without an asymmetric ASD resistance.
+The completed eccentric-annulus contact fixture now supplies verified own
+contact force and moment recovery. Its immutable native outputs replay exactly;
+whole-model residuals are **7.27e-7 N / 0.000715 N·mm**. This method pass does
+not qualify washer bending or a candidate joint. Local hardware, material
+frames and remote cut/neighbor inputs are now prepared. State-consistent
+response of the B104 holes, sharp modeled heel, timber backing and own washer
+sectors remains open. Product heel stresses need the actual bend geometry.
+No further identical mask sweep, threshold
+relaxation or floor rebuild is justified by a coverage gap. Parent-owned
+freezes, serialized heavy execution and final review remain required. Commands,
+frozen failures and exact missing inputs are in the existing
+[ledger](completion-ledger.md#compact-bracket-and-joint-mvp).
+
+The independently reviewed contact atlas covers all **190 pairs of twenty
+cached timbers**, reuses nine proved pairs and queries the remaining candidates.
+Its thirty positive interfaces supply **584 occupied reference cells**. This
+resolves a specific omitted compression path, without proving current overlap
+or contact pressure. The added faces include end-grain, cross-grain and 40°
+bearing; the previous six faces' strength classification does not transfer.
+The complete adapter, independent admission and minimal component bridge pass
+97 focused checks. The observer fix passes 34 additional focused checks and
+the real solve/recovery/export seam. The corrected field has distinct source,
+state, gradient, floor and body admission. All 1,570 saved pre-response operator
+arrays match the first attempt exactly; no floor-law or tolerance change was
+used to obtain that result. The reviewed frame dimensions remain unchanged.
+
+The revised nominal occupied layout clears the enumerated interference and
+support checks. The review model is exported and its file-backed viewer loader
+is validated. The
 [access/takeoff packet](hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md)
 now records conditional initial removal paths for all six panels, seventy bolt
 stacks, thirty-six fittings and twenty individual timber members. Complete-joint
@@ -67,22 +171,50 @@ reactions do not transfer to the changed joint model. No floor rebuild or
 corner refinement is required for joint method and resistance work. Existing
 bolt-yield curves, fitting/washer coefficients, exact timber sections and
 contact/force-recovery fixtures provide the joint starting point. They still
-need admitted current demands and their recorded material/applicability
-conditions before a strength disposition. The failed iterate's large
-rotation and tangential motion also warrant a small-motion applicability
-check; those unaccepted diagnostics are not physical movement predictions.
-Reuse the pure component calculations only after the new linear-face gate
-admits the same immutable field bytes. The older common-shaft wrappers do
+need their recorded material/applicability conditions before a strength
+disposition. The admitted current field now supplies fresh demands. Its
+joint motions are being checked separately from the earlier failed iterate's
+large-motion diagnostics. Reuse the pure component calculations through the
+new linear-face gate on the same immutable field bytes. The older common-shaft wrappers do
 not authenticate this added face law, and the older panel/finite wrappers
 require their different field contracts. The detailed reuse mapping and
 current gaps are in the existing ledger.
+
+The earlier independently gated, 62-body A12-rear spring model supplies these
+usable comparisons. They retain its original state and stiffness assumptions;
+none is a demand bound or an acceptance result for the changed 132-body
+common-shaft model. Ratios below are component demand divided by the stated
+reference, with 1.0 as the comparison threshold. Steel first-yield and timber
+allowable-strength references use different bases; these ratios are not a
+common joint safety factor.
+
+| Existing conditional joint evidence | Result | Meaning and remaining gap |
+| --- | ---: | --- |
+| B104 nominal sampled flange steel, 48 ports | **0.538894**, 122.613 MPa at assumed Fy=227.527 MPa | Below the nominal yield reference; actual heel/hole effects, restrained warping, prying and product conformance are not qualified. |
+| B103 nominal sampled flange steel, 24 ports | **0.005347**, 1.217 MPa at the same Fy | Small in this old force allocation; this is not the paired joint's reserve or a strut load rating. |
+| New B104 same-cut torsion references | Gross **0.553946**; two-ligament proxy **0.871991** | Reuses all saved signed cuts; actual heel, hole concentrations and restrained warping remain unqualified. |
+| New B103 same-cut torsion references | Gross **0.004585**; two-ligament proxy **0.005636** | Same old force scope and explicit ideal-section limits. |
+| Isolated wood/steel bolt component, 44 shafts | **0.251391** at CD1; **0.309218** for explicit 0.8D sensitivity | Conditional bolt/wood/material/thread assumptions and edge/group/splitting resistance remain. |
+| Retained wood/wood bolt component, 12 shafts | **1.018150** at CD1; **1.286932** for 0.8D sensitivity | Above these unadjusted references; conditional CD1.6 gives 0.636343 / 0.804333, without adopting that duration factor. |
+| Shared shafts and complete joints | **Resistance unavailable** | Fourteen unequal shared shafts cannot use summed single-shear ratings. Own shaft/washer actions and complete joint behavior still need evidence. |
+
+The [compact joint evidence and next checks](completion-ledger.md#compact-bracket-and-joint-mvp)
+record representative single, paired and shared-shaft duties, reusable unit
+coefficients, provenance and exact missing inputs. Nominal bracket steel
+does not currently identify a redesign requirement by itself. Complete-joint
+adequacy remains unestablished, so the steel ratios cannot clear the joint.
 
 The [isolated-joint kinematics](hypotheses/hl35-candidate/thin-frame-comparison/isolated-joint-kinematics-v4.json)
 uses friction-free revolute bolt connectors: three point translations and two
 rotations are constrained, while shaft rotation is free. All twelve single
 fitting duties retain two local free motions; all twelve paired duties retain
-one. These exclude other joints, panel transfer and compression contact, so
-they are not an assembled-frame instability result. The
+one. A representative saved-state virtual-work check adds all local
+flange-normal contacts and still finds two / one free motions. The old external
+wrenches do essentially zero work along them. Current-geometry point projections
+show potential coupling through other shafts and panel attachments, with
+neighbors held fixed; they do not establish assembled restraint. Current
+interbody response and contact activation remain needed. These are local
+diagnostics rather than an assembled-frame instability result. The
 [independent method audit](hypotheses/hl35-candidate/thin-frame-comparison/independent-method-audit-v4.json)
 checks the underlying transformations and source census. Static equilibrium
 witnesses, compatible stiffness results and resistance checks remain separate
@@ -180,8 +312,10 @@ timber-face method paths, their off-axis force recovery and independent
 admission. The floor worker independently authenticated the new failed
 support cycle `2→3→4→2`. The current blocker is finding a self-consistent
 support state under the declared centroid law; this failure does not prove
-the absence of one or physical frame instability. Its one allowed case is
+the absence of one or physical frame instability. Its first lean case is
 closed, with the failed field and transcript preserved in ignored output.
+The new branch search tests each pattern against its own normal resultants;
+it does not relax the residual tolerance or credit historical reactions.
 The previous conditional findings and exact hardware/resistance gaps remain
 in scope; old reactions do not supply the changed model's joint demands.
 Existing panel/timber/steel calculations remain gated on the new admitted

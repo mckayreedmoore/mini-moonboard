@@ -6,8 +6,21 @@ The current development is the reviewed thin, through-bolted v4 successor
 in the [HL35 replacement lane](#hl35-replacement-candidate). The owner now
 prioritizes joint mechanics and reusing previous floor work. The one bounded
 lean A12 attempt ended with a floor-activation cycle and no admitted joint
-forces; the numerical goal is **blocked** on an admitted compatible field,
-with its one-attempt allowance used and no automatic retry.
+forces. The owner has now reopened that blocker and explicitly allowed more
+cycles, parallel work, online research and reuse of previous solutions. MVP
+work has resumed. The owner has since requested a new **compact bracket-and-joint
+MVP goal**, centered on actual B103/B104 and complete bolted-joint findings,
+with floor work as a bounded parallel dependency. That bounded conditional
+assessment is now complete for the current thin v4 A12 field: all twenty-four
+duties have quantitative component findings and an explicit **UNQUALIFIED**
+complete-joint disposition. The thirty-interface current-common-shaft field
+is independently admitted; its component, fitting-gravity, five-section and
+motion reductions are independently reviewed. The
+[compact current receipt and recovery](#compact-current-a12-assessment-and-recovery)
+record the exact scope. Physical contact applicability and complete resistance
+remain unestablished; the actions are not demonstrated physical demand bounds.
+This conditional closure does not complete or waive broader changed-model
+acceptance, select a candidate or change any release flag.
 The earlier enlarged 24-duty HL35 fit experiment remains **REVISE** history.
 The selected baseline and reviewed wood-joint authority remain unchanged.
 
@@ -1050,7 +1063,7 @@ self-consistent. No anchor, floor capacity, physical reseating law or new
 corner-distributed restraint is inferred. Partial bearing retains full
 centroid XY stiffness; that approximation stays explicit.
 
-The parent owns readiness and the single serialized A12-rear attempt under
+The original parent allowance was readiness and a single serialized A12-rear attempt under
 the retained 250 lb ×2 downward, 300 N horizontal and 100 mm arm, with a
 thirty-minute wall cap and no automatic retry. Admission retains original-law
 residual at most 1e-5 N, independent body/global closure at most 1e-4 N and
@@ -1160,7 +1173,8 @@ admission. Converged/usable/MVP and all six release flags remain false.
 The joint-method fixtures pass, but joint strength cannot be validated from
 this failure. The new goal remains unachieved because it requires admitted
 forces and governing numerical dispositions. Its one candidate attempt is
-used and no automatic retry, another case or new solver framework is queued.
+used under that original allowance. The owner subsequently allowed additional
+cycles; the following bounded audit preserves the earlier closure decision.
 The specific remaining method question is whether the same declared binary
 centroid/whole-foot law has a self-consistent pattern and whether a
 law-preserving support method can find or certify it. The five visited
@@ -1182,6 +1196,1913 @@ blocked, not complete: another candidate run needs an expanded allowance
 beyond the objective's single attempt. The existing geometry, operators,
 joint methods, resistance inputs and recovery mappings remain active for
 that future work. No new experiment or bulky artifact was added.
+
+**Owner-expanded support-search continuation:** after the bounded closure,
+the owner explicitly directed a subagent to keep working on the blocked issue,
+allowed more cycles, requested online research and previous solutions, and
+directed continued MVP completion. This supersedes the original single-attempt
+execution ceiling. The same reviewed geometry, load case, material scenarios,
+conditional floor law, residual and independent body/global closure gates stay
+in scope. It does not reopen the interrupted finite attempt or transfer an
+older field's forces. The previous goal service's blocked record describes
+the exhausted earlier allowance, not a new requirement for owner approval.
+
+The concrete method question is whether a different ordering of the existing
+eight host bits finds a self-consistent centroid support state. The floor
+worker is preparing `scripts/thin_bolted_support_state_search.py`; the parent
+adds `scripts/run_thin_bolted_support_search_frame.py`, retaining the frozen
+lean preparation, six saved panel operators, common shafts, six timber-face
+interfaces and original fixed-pattern incremental solver. Each exact branch
+uses its selected original XY stiffness rows and the same normal law. The
+search recomputes the original residual and normal resultants before accepting
+that branch; enabled XY must match its own positive bearing above 1e-7 N.
+Within-run coefficients may initialize another branch, but no historical q
+or accepted force is imported. A first bounded search may test up to 64 distinct
+patterns within thirty minutes. A repeated update, mask budget or unresolved
+branch is not proof that all 256 patterns are incompatible.
+
+The primary [Hungerländer–Rendl active-set paper](https://optimization-online.org/wp-content/uploads/2016/09/5644.pdf)
+gives explicit cycling examples and combinatorial safeguards in Sections 2–4.
+[PETSc's reduced-space documentation](https://petsc.org/release/manualpages/SNES/SNESVINEWTONRSLS/)
+describes active-set Newton steps and line searches.
+[GetFEM's small-contact documentation](https://getfem.org/userdoc/model_contact_friction.html)
+states its reference-configuration and small-motion contact approximations.
+These are method background, not a convergence theorem or physical qualification
+of this custom binary centroid law; no PETSc or GetFEM framework is introduced.
+The prior five-branch trace supplies the observed cycle and existing fixtures
+supply the unchanged force/energy checks. A separate fresh admission worker
+binds the actual new command, loaded producers, coefficient map, own support
+law and unchanged 132-body closure. The component worker prepares pure
+timber/steel/panel reductions behind that receipt, on identical immutable
+bytes. Readiness, frozen hashes, the new bounded result and governing
+dispositions are recorded below as they become available.
+
+The new [support-search method receipt](hypotheses/hl35-candidate/thin-frame-comparison/support-state-search-method-v4.json)
+is frozen at SHA
+`3cbff2407511cfbf31a47d04819d1c851df9c0822c21d8fad64af912e307fda9`,
+8,417 bytes and 36 source pins. Its helper is
+`c162d296306a263be4e6769c4249abf6491512e8f7d9af323ab2e9b10b1018e8`;
+its runner is
+`8c4dc80937a4c6d1e45ae8451835f5ec589c6ce871d531a4678e9ec52e688634`.
+Eleven branch-control fixtures, thirteen runner fixtures and one independently
+written world-point recovery coupon pass. The latter's q error is
+2.9989523659e-7 within its residual-derived 1e-6 bound; independently recovered
+force/moment residual is 2.9989523660e-6 N within 1e-5 N. Independent review
+cleared helper, runner and fresh gate. The JSON-only gate is frozen at
+`c7a70cebfe3640b82a151e358d32d0826d2c14b4d881059ed6c48a1c1a1cba84`
+with 48 passing fixtures. Its original-gradient record is authenticated;
+independent global K/gradient reassembly is explicitly not performed.
+The post-admission reducer has 27 passing fixtures and retains all unavailable
+complete resistances as null. Ruff passes on these new paths. These method
+checks supply no candidate result or strength acceptance.
+
+Parent preflight passed all 50 merged method/admission input hashes and wrote
+`fea/generated/thin-bolted-support-search-v4/attempt01-input-freeze.json`,
+SHA `b3d9326e41d21cd1a2951e75654dc070d348d176fc44c36994a12ee6e3c74fd6`.
+Python 3.12.3, NumPy 2.5.2 and SciPy 1.18.1 match the recorded environment.
+The serialized case uses no historical initialization or reactions and writes
+distinct ignored output. Parent command:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout --signal=TERM --kill-after=1s 1799s \
+  .venv/bin/python -m scripts.run_thin_bolted_support_search_frame \
+  --support-mask-budget 64 \
+  --support-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/support-state-search-method-v4.json \
+  --support-method-sha256 3cbff2407511cfbf31a47d04819d1c851df9c0822c21d8fad64af912e307fda9 \
+  --cases a12-rear --intervals 8 --beam-size 150 --contact-edge 70 --shaft-segment 25 \
+  --wood-bearing-foundation 26.2467191601 --steel-bearing-foundation 1799.77502812 \
+  --end-capture-stiffness 1000 --wood-bedding 1 --newton-limit 300 --wall-seconds 1770 \
+  --out fea/generated/thin-bolted-support-search-v4/attempt01-common-shaft-a12-rear-v4.json \
+  > fea/generated/thin-bolted-support-search-v4/attempt01-case.log 2>&1
+```
+
+The first search terminated normally at its 64-mask budget. All 64 fixed
+branches resolved under their original law, with residuals
+8.9406967163e-8–9.5259468225e-6 N, but **none was self-consistent**. It reproduced
+all five original cycle masks before visiting new ones. Its terminal failed
+field is `fea/generated/thin-bolted-support-search-v4/attempt01-common-shaft-a12-rear-v4.json`,
+819,264 bytes, raw SHA
+`b7ea0054f09a85bf8784412d49dc505609063eae8fca04e8249d8370fce5115e`,
+canonical SHA
+`6452727d3e3c319f126e83fa8bfec488c54b86ede8c41bdf914745387511d1e8`,
+state `thin-v4-388243734d6dfff0ebadc8fd`. All 170 recorded source hashes
+remained unchanged. Fresh admission rejects it because it has no accepted q.
+The diagnostic iterate is not usable joint-force evidence, and all release
+flags remain false. Fifty masks retained both leg restraints; fourteen
+released the left leg while its own normal force remained
+2,584.624–2,886.572 N. Every outer-left-enabled branch had zero own outer-left
+bearing. These are specific computed mask conflicts rather than a
+near-threshold-only disagreement. Only 64 of 256 masks were visited; neither
+nonexistence nor physical instability follows.
+
+The next method question is whether globally untested masks yield a fixed
+point without repeating that completed cohort. The
+[priority method receipt](hypotheses/hl35-candidate/thin-frame-comparison/support-priority-method-v4.json)
+is frozen at SHA
+`8635e718a4131523a3cc7cc46a7ec54f3a5d678aba42540a1b4671cb7d922141`,
+9,407 bytes and 49 source pins. The scheduling controller is
+`f4fdc453532698255c2e40aae3c78bb1f5d5c0d04d403b358039591f9b4db5c9`,
+runner `5c6b7fc690f113107b3f5dcab5dabc86fb7ccf62e364c4b7f9f8a1b3370e6fd5`
+and gate `a9d746c8a1711477fb053532f0a17c21e84168ae5e9eac165f6c3469f750700c`.
+Fourteen controller, twenty-two gate, nineteen runner and twenty-two
+reduction-adapter fixtures pass; the frozen reducer's twenty-seven fixtures
+were independently rechecked. Ruff and independent readiness review pass.
+The controller and independent gate authenticate the same exact prior mask
+IDs, physical fingerprint and raw/canonical/state/source provenance. Only
+those IDs affect ordering. The first all-on branch remains fresh, and no
+historical q, normals or accepted actions initialize or qualify the new case.
+The frozen pure reducer receives the actual new receipt and unchanged bytes
+through a separately tested contract adapter; no old receipt is fabricated.
+
+Parent preflight verified 195 merged hashes and froze
+`fea/generated/thin-bolted-support-search-v4/attempt02-input-freeze.json`,
+SHA `5592ed987d60a9abf4ca3ed9c5e4987a85c49d8515f69f00322973a70126ed7d`.
+The exact physical-input fingerprint is
+`5afaf3da6079640ea9b8138aba318d7409e34deff7b7d80278b93da40b5a383d`.
+The second serialized case used the same thirty-minute ceiling:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout --signal=TERM --kill-after=1s 1799s \
+  .venv/bin/python -m scripts.run_thin_bolted_support_priority_frame \
+  --support-prior-failure fea/generated/thin-bolted-support-search-v4/attempt01-common-shaft-a12-rear-v4.json \
+  --support-prior-sha256 b7ea0054f09a85bf8784412d49dc505609063eae8fca04e8249d8370fce5115e \
+  --support-priority-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/support-priority-method-v4.json \
+  --support-priority-method-sha256 8635e718a4131523a3cc7cc46a7ec54f3a5d678aba42540a1b4671cb7d922141 \
+  --support-mask-budget 64 \
+  --support-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/support-state-search-method-v4.json \
+  --support-method-sha256 3cbff2407511cfbf31a47d04819d1c851df9c0822c21d8fad64af912e307fda9 \
+  --cases a12-rear --intervals 8 --beam-size 150 --contact-edge 70 --shaft-segment 25 \
+  --wood-bearing-foundation 26.2467191601 --steel-bearing-foundation 1799.77502812 \
+  --end-capture-stiffness 1000 --wood-bedding 1 --newton-limit 300 --wall-seconds 1770 \
+  --out fea/generated/thin-bolted-support-search-v4/attempt02-common-shaft-a12-rear-v4.json \
+  > fea/generated/thin-bolted-support-search-v4/attempt02-case.log 2>&1
+```
+
+Each branch's own activation decides admissibility. Only a terminal field
+passing its fresh gate may enter joint reductions. The first priority gate
+intentionally accepts the original core predecessor; further priority
+predecessors require an explicit authenticated chain, retaining every local
+history and the exact union of scheduling IDs. Such a union is scheduling
+evidence rather than an exclusion or nonexistence proof.
+
+Attempt02 terminated normally at its mask budget: **64 tested, 62 resolved,
+zero self-consistent**. Its fresh all-on start overlaps attempt01, giving
+**127 unique attempted / 125 unique resolved** patterns across the two cases.
+The sixty-two resolved residuals range from 8.9406967163e-8 to
+9.0514106357e-6 N. Pattern 51, `centroid-mask-00000001`, stopped at the Newton
+limit with residual 1,415.688605 N; pattern 52, `centroid-mask-10000001`, stopped
+with 159.067556 N. These unresolved branches are not counted as incompatible
+equilibria. No q or recovered actions are accepted.
+The failed field is 890,294 bytes, raw SHA
+`d572feed4b989899dc95f39265808579b03f0669942925b2cea11df2208a954c`,
+canonical SHA
+`c5de48cea1a6a953dbd5e9cc113f62be859f6e6e1b1fd39d9be9453f087b78b3`,
+state `thin-v4-d45489c7fe47b43c7b2c3ce6`. All 184 field-source hashes remained
+unchanged, as did the exact physical fingerprint. Fresh priority admission
+rejects the missing accepted original-law coefficients; the separate ignored
+`attempt02-admission-rejection.json` retains that invocation and rejection.
+The serialized process has closed. All capacity/release flags remain false.
+
+A compact cumulative scheduler, runner, admission gate and reducer adapter are
+prepared in `scripts/thin_bolted_support_mask_chain.py`,
+`scripts/run_thin_bolted_support_chain_frame.py`,
+`scripts/thin_bolted_support_chain_admission.py` and
+`scripts/thin_bolted_chain_post_admission.py`. Their 18 + 12 + 27 + 21 focused
+fixtures pass with Ruff. Independent readiness review passes all 57
+controller/gate/runner fixtures and the separately reviewed 21-fixture adapter.
+Parent integration passes **267 focused fixtures** across the original search,
+priority, chain, reducers and saved torsion application; Ruff passes on all
+twenty-seven owned Python paths. Their pure lineage reader
+authenticates the actual original/priority failure pair and its 127-mask union,
+retains both local histories and transfers no old q or forces. Future full-field
+wall interruptions may contribute authenticated ended branches, with pending
+starts excluded; interruption-only sidecars remain ineligible. The known-answer
+tiny coupon finds a fresh equilibrium after two differently ordered failures.
+Current mask replay and mechanics admission remain separate checks.
+
+Parent issued the distinct
+[chain method receipt](hypotheses/hl35-candidate/thin-frame-comparison/support-chain-method-v4.json),
+12,262 bytes / 70 pins, SHA
+`6bed41e7248ac0f3e72275614236a51acad871c8f0a5f21a7d69b928b850b90a`.
+Its controller / runner / gate / adapter hashes are respectively
+`10e5589d4159d9cd4238c1766d2d5538787179f28c50ffb532c4e2c5aed27b4a`,
+`c84470fbcc7f0611aee22df0f1c12985103d7a7d99b02c7172810aad33126bbf`,
+`660ef5fc88458ce2586ecc4cfb9cec257aa971a7e35dbddf3871ea9701d1ec32` and
+`b4e3c3170f960d3058f0c977c2a8e2c853b24dce1692452588aa0e3013b94cc4`.
+Preflight authenticates 205 merged source/input pins, both immutable failed
+cohorts and the unchanged physical fingerprint. The parent freeze is
+`fea/generated/thin-bolted-support-search-v4/attempt03-input-freeze.json`, SHA
+`747fa2843116dc2ca5d32b935019170db84e3a5d452b3092e75035c6059c22ed`.
+One serialized third case used the following command:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout --signal=TERM --kill-after=1s 1799s \
+  .venv/bin/python -m scripts.run_thin_bolted_support_chain_frame \
+  --support-chain-prior-failure fea/generated/thin-bolted-support-search-v4/attempt02-common-shaft-a12-rear-v4.json \
+  --support-chain-prior-sha256 d572feed4b989899dc95f39265808579b03f0669942925b2cea11df2208a954c \
+  --support-chain-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/support-chain-method-v4.json \
+  --support-chain-method-sha256 6bed41e7248ac0f3e72275614236a51acad871c8f0a5f21a7d69b928b850b90a \
+  --support-mask-budget 64 \
+  --support-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/support-state-search-method-v4.json \
+  --support-method-sha256 3cbff2407511cfbf31a47d04819d1c851df9c0822c21d8fad64af912e307fda9 \
+  --cases a12-rear --intervals 8 --beam-size 150 --contact-edge 70 --shaft-segment 25 \
+  --wood-bearing-foundation 26.2467191601 --steel-bearing-foundation 1799.77502812 \
+  --end-capture-stiffness 1000 --wood-bedding 1 --newton-limit 300 --wall-seconds 1770 \
+  --out fea/generated/thin-bolted-support-search-v4/attempt03-common-shaft-a12-rear-v4.json \
+  > fea/generated/thin-bolted-support-search-v4/attempt03-case.log 2>&1
+```
+
+The actual launch reads and verifies that exclusive freeze, checks for another
+live candidate driver, sets the recorded thread environment and replaces itself
+with the bounded command. The field records the actual chain arguments and
+loaded hashes. Old ended IDs affect ordering only; pending starts, old q and
+forces supply no new equilibrium or joint evidence. Admission and same-byte
+reductions remain required after termination.
+
+Attempt03 closed with exit1 **before finished-field export**. Its diagnostic
+callback log reports 64 ended branches / 63 resolved / zero self-consistent;
+one fixed branch remained unresolved. The frozen finished-support binder's
+recursive identity replacement encountered the historical cohorts'
+`state_id` keys inside `response.support_mask_chain_schedule_v1` and rejected
+them as mixed current action identities. The authentic real-binder fixture now
+reproduces that exact collision. No field, accepted q or current actions were
+written. The callback log cannot substitute for an authenticated full failed
+field or enlarge the 127-mask scheduling union.
+
+The immutable `attempt03-case.log` is 200,459 bytes, SHA
+`905e41711a0bf8244e2b98f09b1e02f2f763c563e51cc2d2969c92a7b00598e3`.
+The 205 frozen input pins still match. Preserve the input freeze, source/method
+bytes, log and missing-output disposition. The failure is an export-method
+defect, not a new compatible response or physical instability result.
+
+A distinct `run_thin_bolted_support_identity_scope_frame.py` now excludes only
+that immutable history subtree during the unchanged finished-state binder,
+restores the same object with identical canonical bytes afterward, and checks
+all current state/case/accessory labels outside it. The old controller, chain
+runner, gate and method receipt remain unchanged. Fresh outer command/source
+and method parameters bind the new state before final identity replacement;
+the inner chain call remains truthfully recorded as reused implementation.
+The new `thin_bolted_support_identity_scope_admission.py` authenticates the
+actual outer invocation and any outer-scoped ancestor, then delegates the
+exact original bytes to the frozen chain gate without changing its receipt.
+The distinct pure reducer shim retains the actual new receipt and same bytes.
+Their **60 focused fixtures** pass with Ruff: 13 real-binder/alias coupons,
+eight runner seams, twenty-nine fresh admission checks and ten reducer checks.
+The helper also retains history if its digest or current binding fails.
+Independent readiness review passes with the same sixty fixtures and frozen
+dependencies. The runner / admission / reducer SHA256 values are
+`82ba23c413e850390f23282a563835ee357101930823f1287587245b3309b8b1`,
+`1587589e289717c4f116c94c8a195ee8390bf0985612212e4ad4f327cf2442ed` and
+`3c72f48e085d357886f880aad5052469b8afb4d681060bd434707f33a0b63449`.
+The real-binder coupon is
+`129d83a603468cda1d0c2dcca5f88217eed05958404e2f67be1a66bfd5eaf34b`.
+
+The issued [identity-scope method receipt](hypotheses/hl35-candidate/thin-frame-comparison/support-identity-scope-method-v4.json)
+is 12,808 bytes / 78 pins, SHA
+`2633bb6a56409b5b928a40adc256002ff2d018d932907490fb5b7ee5dbf30d33`.
+Parent authenticates the 127-mask union from the two valid failed fields;
+attempt03 callback IDs and static-certificate IDs are not inserted. The new
+input freeze is `fea/generated/thin-bolted-support-search-v4/attempt04-input-freeze.json`,
+SHA `0b9b96ec354c97a356156efe815482b632c321ed4f432e3052480a60e693f138`,
+213 pins. The fourth serialized A12 case allowed 130 patterns: the 129 globally
+untested IDs plus the required fresh all-on control, within the same
+1,770-second solve / 1,799-second process ceiling. Physical inputs and every
+force/moment tolerance remain unchanged. It used this exact command:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout --signal=TERM --kill-after=1s 1799s \
+  .venv/bin/python -m scripts.run_thin_bolted_support_identity_scope_frame \
+  --support-identity-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/support-identity-scope-method-v4.json \
+  --support-identity-method-sha256 2633bb6a56409b5b928a40adc256002ff2d018d932907490fb5b7ee5dbf30d33 \
+  --support-chain-prior-failure fea/generated/thin-bolted-support-search-v4/attempt02-common-shaft-a12-rear-v4.json \
+  --support-chain-prior-sha256 d572feed4b989899dc95f39265808579b03f0669942925b2cea11df2208a954c \
+  --support-chain-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/support-chain-method-v4.json \
+  --support-chain-method-sha256 6bed41e7248ac0f3e72275614236a51acad871c8f0a5f21a7d69b928b850b90a \
+  --support-mask-budget 130 \
+  --support-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/support-state-search-method-v4.json \
+  --support-method-sha256 3cbff2407511cfbf31a47d04819d1c851df9c0822c21d8fad64af912e307fda9 \
+  --cases a12-rear --intervals 8 --beam-size 150 --contact-edge 70 --shaft-segment 25 \
+  --wood-bearing-foundation 26.2467191601 --steel-bearing-foundation 1799.77502812 \
+  --end-capture-stiffness 1000 --wood-bedding 1 --newton-limit 300 --wall-seconds 1770 \
+  --out fea/generated/thin-bolted-support-search-v4/attempt04-common-shaft-a12-rear-v4.json \
+  > fea/generated/thin-bolted-support-search-v4/attempt04-case.log 2>&1
+```
+
+Attempt04 closed exit0 with an authenticated full field at the solve wall
+limit. The metadata-scope repair worked; historical IDs and all current labels
+remain correct. Its **86 ended branches / 81 resolved / five unresolved / zero
+self-consistent** include 85 globally new masks and the fresh all-on repeat.
+The pending `centroid-mask-00000000` start at index86 is not an ended branch and
+does not enter the history union. All 213 field/input pins remain unchanged.
+The field is 1,323,788 bytes, raw / canonical SHA256
+`94967216cbd1724982253560ac924e1c9cc3f679ecbad1ea02ec8b9645c090a9` /
+`bb2fc9d919cd7a231db9c0d4fd051689c5dfdb2ba4e9cf0a668d4776d112c621`,
+state `thin-v4-9998a3ade1f6b506d737cec7`. The resolved fixed branches have
+original-law residuals 1.099149e-7–9.071306e-6 N; the interrupted zero-mask
+iterate has 2,586.268 N residual and is diagnostic only.
+
+Fresh `audit_support_identity_scope_state` used the actual runner
+`82ba…9b8b1`, gate `1587…442ed`, receipt `2633…f0d33` and exact attempt02 prior
+bytes. It rejected the field because accepted fresh original-law coefficients
+and residual at most1e-5 are required. Its actual-call record is
+`attempt04-admission-rejection.json`, 1,765 bytes, SHA
+`e8e99832cfea84ef632e47292ea4f472a6d9aed05e72e51a12f7c3fb14bef9b4`.
+No component reductions, accepted q or current actions were produced.
+
+Independent failure-ancestor review passes: the frozen chain reader and new
+outer-scope verifier authenticate the exact full-field callbacks, policy,
+lineage, identities and 214 merged pins. Attempts01→02→04 now contain **212
+unique ended masks / 205 resolved**. The seven unresolved IDs remain
+`00000001`, `00000010`, `00001000`, `00100000`, `10000000`, `10000001` and
+`10001000`; prefixes are `centroid-mask-`. The first five listed singleton
+patterns have separate necessary statics exclusions; neither two-centroid
+pattern is excluded by that certificate. These exclusions are not resolved
+solver histories. The remaining 44 consist of 43 never-started masks and the
+real pending zero mask. Attempt03 callback-only IDs still supply no history.
+
+The next question is whether any of those remaining 44 patterns provides a
+resolved self-consistent activation under the unchanged 132-body A12 law.
+The same reviewed controller and method receipt are reused, with one parent
+serialized case capped at 1,770 solve / 1,799 process seconds and **45 masks**:
+44 remaining plus a fresh all-on control. The exclusive freeze
+`fea/generated/thin-bolted-support-search-v4/attempt05-input-freeze.json`, SHA
+`c3597e7d5d2606fb0884678d96d50a319e94aad0a19ccd74ed6b0427bc8eb738`,
+binds 214 source/input pins, the three valid cohorts and the same physical
+fingerprint. Its actual command is the attempt04 command above with
+`--support-chain-prior-failure` set to the attempt04 field,
+`--support-chain-prior-sha256` set to `9496…90a9`, `--support-mask-budget 45`,
+and `--out fea/generated/thin-bolted-support-search-v4/attempt05-common-shaft-a12-rear-v4.json`.
+The actual full argument list is retained in that immutable freeze.
+
+The first launcher resolved the virtual-environment interpreter symlink to
+system Python and stopped at import with `ModuleNotFoundError: numpy`, before
+any branch or field. Preserve `attempt05-case.log`, 892 bytes, SHA
+`b76b3049935f4a1a24b22f50db0c70249233bc10fa2cad307ef0484e7b91c397`.
+The corrected launcher keeps the current `.venv/bin/python` executable and
+the same freeze, verifying its digest, all pins and no other live candidate
+process before execution. The active analysis log is
+`attempt05-relaunch-case.log`; no startup log or frozen source was overwritten.
+The corrected attempt05 closed exit0 after **45 ended / 37 resolved / eight
+unresolved / zero consistent** branches, before its wall cap. It wrote
+826,295 bytes, raw / canonical SHA256
+`137c3f5a72d67145656bd2bd12c14a8cb2c6a1fb7fe15ea33eedab49f4bfb8f6` /
+`e98f27ce2e39b972ee25996bd53bd917a2bc1837eac2285d6bc562a34691a329`,
+state `thin-v4-d46a75c18a74bbe2b41169df`. Every 214 field/input pin is unchanged.
+Fresh identity-scope admission with the actual attempt04 prior rejected the
+missing accepted original-law coefficients/residual; no component reductions
+or accepted q/actions followed. The 1,765-byte actual-call rejection record is
+`attempt05-admission-rejection.json`, SHA
+`71eccda1b7beadd865a5e98ab3415b0c27122ed2752a1bb6d6520951f8d1e45e`.
+
+The genuine failed-chain and outer-scope verifiers authenticate all four valid
+cohorts and 215 merged pins. They cover **256 unique ended masks / 241 resolved
+/ fifteen unresolved / zero consistent**. The original local45-mask report
+remains a mask-budget failure, not a relabelled 256-mask enumeration. Separate
+normal-COP statics below excludes twelve of the fifteen unresolved, leaving
+exactly these three statically undecided numerical questions:
+
+| Mask, `centroid-mask-` prefix | Latest fixed-branch residual | Existing reason for a fresh diagnostic |
+| --- | ---: | --- |
+| `10000001` | **159.067556 N** | Follows an unresolved right-leg singleton with enormous inherited q. |
+| `11000000` | **1.187907369e9 N** | Both runner restraints, following the unresolved right-runner singleton. |
+| `11010000` | **4.962110269 N** | Both runners and center-right, following the previous unresolved pair. |
+
+Of the 143 statically undecided masks, 140 resolved under the fixed law but had
+activation conflicts. This is still not a nonexistence proof: unresolved
+branches, approximate residuals, force-error bounds, possible flat coordinates
+and physical small-motion applicability remain separate. No further global
+coverage search is justified by an unvisited-ID gap.
+
+Existing aggregate floor witnesses cannot eliminate leg or outer-foot bits.
+The saved normal-load resultant at x/y = −520.012731 / 1,311.222075 mm lies
+inside the two long runners' finished support hull, so aggregate normal
+statics permits the other feet to carry zero. Historical LPs either minimize
+zero or impose selected positive-bearing lower bounds; those choices are not
+proof that a foot must bear in a compatible response. No further LP, native
+solve or floor reconstruction was performed for this reuse finding.
+
+The immutable two-field mask review resolves a separate question: among 125
+resolved unique patterns, positive normal reactions are at least **1.059 N**;
+disabled-positive conflicts range **1.501–2,932.279 N**, versus the 1e-7-N
+activation threshold. The observed cycle therefore includes finite force
+redistribution. Exact-zero reactions still lack a certified error margin;
+the reference tolerance is not itself a normal-reaction error bound. All 64
+both-leg-enabled masks were resolved. Another 62 patterns enable only the
+right leg, with two unresolved; one releases both legs and none enables only
+the left leg. All 62 resolved outer-left-enabled masks give it zero bearing.
+Other disabled masks give it positive bearing, so that bit cannot be fixed
+globally from these samples.
+
+The separate pure
+`centroid-xy-yaw-compatibility-v2.result.json` proves a necessary static
+condition for zero/single centroid restraint masks. Both immutable fields'
+689 declared world-origin loads reproduce the same wrench. All 32 vertical
+normal operators have zero yaw projection; the only horizontal exterior
+actions are sixteen point-force XY components at eight finished centroids,
+without a free couple. With one centroid c, its net Fxy is fixed by force
+closure, so **D = Mapplied,z − cx Fapplied,y + cy Fapplied,x** must fit the
+moment tolerance plus `hypot(cx,cy) × force_tolerance`, a 1e-5-mm point allowance
+and the recorded arithmetic bound. All eight singleton mismatches are at
+least **54,285 N·mm**, against a maximum **0.305967 N·mm** allowance. The
+zero-centroid mask leaves **300 N** horizontal imbalance. Thus these nine
+masks cannot pass global equilibrium under the declared law. This proves
+neither positive bearing on a particular foot nor compatibility of any other
+pattern.
+
+The previously unresolved `centroid-mask-00000001` is separately excluded by
+its **689,617.5 N·mm** yaw mismatch. `centroid-mask-10000001` has two distinct
+centroids that can supply a force couple and remains unexcluded by this
+condition. Its Newton failure is still not an incompatibility proof. Static
+certificates are not inserted into solver histories or used to qualify q.
+Two requested hand-answer coupons, a zero-mask check, Ruff and independent
+review pass; all 188 source/input pins remain unchanged. No K, native, CAD,
+candidate solve, old response or action transfer was used.
+
+Ignored immutable certificate files live beside the existing searches. Reviewed
+script / input / result are `centroid-xy-yaw-compatibility-v2.py`,
+`centroid-xy-yaw-compatibility-v1.input.json` and
+`centroid-xy-yaw-compatibility-v2.result.json`, SHA256 respectively
+`8a61988e2c695d8d00a159ac4f7f6aa307d42232099621806c5f44ec846a7e90`,
+`b732b58c302eb9242aa1daebec5a31f604844b643f9e6f53e934a053040540fe` and
+`526f00524cf16e609208ae414dec469085bed6d32f0a4dcdcd1d5b663919b8b0`.
+The original v1 helper/result remain unchanged. Original invocation is
+`OPENBLAS_NUM_THREADS=1 .venv/bin/python fea/generated/thin-bolted-support-search-v4/centroid-xy-yaw-compatibility-v2.py`
+under Python 3.12.3 / NumPy 2.5.2; preserve existing outputs on replay.
+
+A second necessary statics question is now answered without a frame solve:
+can the enabled feet alone carry the required normal-force resultant, allowing
+at most1e-7 N total normal force on each disabled host? The new
+`centroid-normal-cop-subsets-v2.result.json` tests all 256 subsets of the exact
+32 analytical normal-contact points. The sixteen XY operators have exactly
+zero elevation and roll/pitch projection, so cancelling horizontal reactions
+cannot supply those moments. Each convex-hull exclusion retains the disabled
+normal leakage, original 1e-4-N / 0.1-N·mm closure caps, a 1e-5-mm allowance
+on normal-point coordinates and explicit arithmetic allowance.
+
+The certificate gives **113 necessary exclusions / 143 undecided**. In
+particular, `10001000` selects the left runner and outer-left post; its required
+resultant lies outside their normal-support hull. The governing separating
+inequality has **3,018,287.193844 N·mm** deficit against **0.267943994 N·mm**
+total allowance, an exclusion margin **3,018,286.925900 N·mm**. The previously
+unresolved `10000001` remains undecided. The weakest excluded facet still has
+548,171.710955 N·mm margin. This does not assert that any particular foot must
+bear, that a remaining subset is compatible, or that solver histories are
+complete.
+
+Independent review passes all five known-answer coupons and uses a separate
+60-digit Decimal monotone-chain hull to reproduce every classification and
+governing margin, within 2e-8 N·mm. All 191 bound paths, 689 loads and normal/XY
+operator projections agree. No unbounded XY coordinate-error term is assumed:
+their analytical elevation and roll/pitch projection are exactly zero. The
+point allowance applies only to vertical normals. The source result retains
+its original unreviewed scheduling flag; this later review permits using its
+necessary inequalities to identify unresolved diagnostic work, without
+inserting exclusions as solved or tested history IDs.
+
+Reviewed ignored helper / input / result in the existing search folder are
+`centroid-normal-cop-subsets-v2.py` / `centroid-normal-cop-subsets-v1.input.json` /
+`centroid-normal-cop-subsets-v2.result.json`, SHA256 respectively
+`3dd53983caad2688def98a4143c0c9979979b3b06531b14bfcaf00e7908c8697` /
+`3729831574c683e4da9fd0bebce1ee67e4b65165a48a0660a5e1335b7947e5e9` /
+`ce90228994c32ffaa4ba0cd4416da7d31640e6fdc43fa2c0298ce49a9cf5d8c6`.
+Their sizes are 11,453 / 627 / 237,909 bytes; the original cosmetic v1 attempt
+is preserved. Invocation is
+`OPENBLAS_NUM_THREADS=1 .venv/bin/python fea/generated/thin-bolted-support-search-v4/centroid-normal-cop-subsets-v2.py`.
+No candidate K, response, native, CAD, q or recovered actions were evaluated.
+
+The unresolved pair branches also expose a specific initialization concern.
+Both followed a statically impossible singleton and reused only that fresh
+but unresolved branch's numerical q. In attempt02, `10000001` followed
+`00000001` with initial residual **1.338718495e9 N**, potential energy
+3.9666e13 N·mm and repeated capped steps; it reached only 159.067556 N at the
+300-iteration limit. Attempt04's `10001000` similarly followed `00001000`.
+The latter pair is now separately excluded by normal statics, so another
+Newton attempt is unnecessary for that question. A bounded cold-start
+diagnostic is being prepared for unresolved, statically undecided masks after
+attempt05 closes. It will reuse the unchanged fixed-branch equations and
+fresh bilateral initialization, preserve a truthful distinct method/command,
+and export diagnostic q only. Old q/forces and synthetic search records remain
+excluded. Cold convergence would not establish uniqueness, a reaction-error
+bound or small-motion applicability; fresh complete admission remains needed
+before recovering and comparing any current joint actions.
+
+The distinct cold diagnostic is now issued and run. Its
+[runner](../../scripts/run_thin_bolted_cold_fixed_branch_diagnostic.py) delegates
+the genuine frozen lean preparation/writer and calls the unchanged fixed-branch
+engine with `warm_q=None`. The fresh original residual and normal law are
+recomputed; even a resolved branch exports `converged=false`, diagnostic q only,
+no recovered actions and false release flags. Forty focused fixtures, Ruff and
+independent review pass. The actual radial-gap initialization coupon has exact
+solution [2,0,1], residual1.136868e-13 N and both bilateral/gap-correction solves;
+the actual frozen parser chain and failure writer/finished binder are exercised
+without candidate preparation. The production scenario is separately checked
+at execution, not inferred from those synthetic coupons.
+
+Runner / test SHA256 are
+`f657fd4949583c92fbdd49cc6840e91e517f66588b492da4f4fbb09a15f864a0` /
+`65260dcad6a92ca656a6abf9eea11acefac2722fb1b9855e3c6f7159779fac5b`.
+The exclusive [cold method receipt](hypotheses/hl35-candidate/thin-frame-comparison/cold-fixed-branch-method-v4.json)
+is 10,652 bytes, SHA
+`bbfea93c0d0b477da1d73cef126545adfdfae2c10a76b51c44283eb4333694d3`;
+68 reuse pins / 69 including the receipt remain unchanged. Parent freezes
+232 merged source/input pins for each of the three chosen masks. Their
+`cold-mask-BITS-input-freeze.json` SHA256 values are:
+
+| BITS | Exclusive input-freeze SHA256 |
+| --- | --- |
+| `10000001` | `949e9f0327a392e627c040a8e6b3466c4bbc872fc96802d3dcc6ad060fc231b4` |
+| `11000000` | `a2d2256eeb106bda86ab1f6f3af7e045ae495b0da211acf91f9429868c01f8b8` |
+| `11010000` | `3194ff708df29a0363539251cb3f6c07da98e3c4dab24bc38184519d0463e6f9` |
+
+Each was a serialized, fresh, single A12-rear branch at 300 maximum iterations,
+600-second solve / 629-second process ceilings. The argument list and actual
+virtual-environment interpreter are frozen; the launcher verifies their digest,
+all pins and absence of another candidate driver. The command for each BITS is:
+
+```sh
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 timeout --signal=TERM --kill-after=1s 629s \
+  .venv/bin/python -m scripts.run_thin_bolted_cold_fixed_branch_diagnostic \
+  --cold-mask centroid-mask-BITS \
+  --cold-method-receipt docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/cold-fixed-branch-method-v4.json \
+  --cold-method-sha256 bbfea93c0d0b477da1d73cef126545adfdfae2c10a76b51c44283eb4333694d3 \
+  --cases a12-rear --intervals 8 --beam-size 150 --contact-edge 70 --shaft-segment 25 \
+  --wood-bearing-foundation 26.2467191601 --steel-bearing-foundation 1799.77502812 \
+  --end-capture-stiffness 1000 --wood-bedding 1 --newton-limit 300 --wall-seconds 600 \
+  --out fea/generated/thin-bolted-support-search-v4/cold-mask-BITS-v4.json \
+  > fea/generated/thin-bolted-support-search-v4/cold-mask-BITS-v4.log 2>&1
+```
+
+All three closed exit0 and resolved the fixed branch, but **none is
+self-consistent**:
+
+| BITS | Fresh residual, N | Disabled left-leg normal, N | Largest reference node translation / rotation | Largest timber-face tangential motion |
+| --- | ---: | ---: | ---: | ---: |
+| `10000001` | **3.576279e-7** | **2,675.652844** | **187.812020 mm / 0.553981 rad** | **59.177812 mm**, 2.367112 cells |
+| `11000000` | **4.922018e-7** | **2,738.809802** | **185.173056 mm / 0.552677 rad** | **59.137423 mm**, 2.365497 cells |
+| `11010000` | **3.476207e-7** | **2,719.170019** | **159.856519 mm / 0.477061 rad** | **50.994600 mm**, 2.039784 cells |
+
+The last two masks also enable the right-runner restraint while its normal
+reaction is zero; the third enables center-right with zero normal as well.
+Other disabled hosts carry positive normal force in every case. The original
+activation test therefore fails, independently of the former warm-start
+iteration-limit problem. These are unaccepted linear-reference motions, not
+physical displacement predictions. Motions exceeding two 25-mm face cells
+require contact-overlap and small-motion evidence before any use of that
+reference geometry in resistance calculations; no new deformation limit is
+adopted here.
+
+Each production field binds 187 source paths, the exact current 132-body
+preparation and unchanged physical fingerprint `5afa…a383d`. No prior numerical
+q/force is imported and all source pins match afterward. Full fields stay
+ignored in the existing search folder:
+
+| BITS / bytes / state | Raw SHA256 / canonical SHA256 / diagnostic-q SHA256 |
+| --- | --- |
+| `10000001` / 499,155 / `thin-v4-69f54f8d954c9de59043f1aa` | `e9600bfeef565c18a502b008abad2aa7cbc958ba2b1ac49e55beeaa0ea8d0e29` / `a7223999b7fc0420afd2ab9d94b364bd0933670fb0d6cbbdc61082b7230f7b58` / `0498c269b6548bfce9d7a2466bbfb3c601c05a1b8bdcc55fb8d49ea0f5db506d` |
+| `11000000` / 498,871 / `thin-v4-c8fd102620f72cbae4fc52ba` | `5037a530f4581dca31ff374922e425f851172a80d342cf8e1fee93e88e4b7bb8` / `4036c6b61129eb8a56d93b2c96281bc71076beae4c16fd9c7f635b4b3e28dbf2` / `bb71c46227735ee6d67a5503532852700d28b837c23612f1d60e855504772d55` |
+| `11010000` / 500,790 / `thin-v4-18ef1bf5adc0c3dd8f0b440a` | `1d938658293d55a8e3749a7065ac2a405ab5fee2ceb6013dd6a99db424c1482d` / `a1492b82c9f8eae8613d5a8fdf93b91405897901acad320a41367a313e5edd86` / `b96a997134a0f1d6fa3c29b38bfed4a62d19912f87453d952571e1b2af72eeca` |
+
+The original failed-search histories still record 241 resolved of 256 ended.
+These three distinct diagnostic resolutions are not inserted as search-gate
+passes or fabricated old branches. All 143 statically undecided masks now have
+an observed resolved activation conflict; the other 113 have separate
+necessary static exclusions. This closes the unvisited-mask and inherited-q
+convergence questions within the recorded numerical checks, without proving
+exact nonexistence, physical instability or a force-error bound. No current
+joint field is admitted and no strength disposition follows. The next task is
+the floor-law/applicability question and complete-joint resistance gaps, not
+more identical warm-mask searches. Independent K-free post-run review passes
+the three exact production fields, commands, state/q hashes, 8018 coordinates,
+132-body census and all 232 freeze pins. An independently written timber-point
+projection reproduces all 32 normal laws within 1.43e-10 N and all 272 face
+motions within 3.38e-14 mm. Reconstructing only declared external loads, normal
+reactions and enabled centroid XY reactions gives force/moment residual norms
+no greater than 4.78e-6 N / 0.001897 N·mm. This checks the diagnostic point laws
+and external wrench; it is not independent candidate-K reconstruction, complete
+body/joint-force admission or acceptance.
+
+Three independent read-only audits of the method, joint gates and source graph
+found no arithmetic, sign, ownership or provenance blocker. The 215-pin valid
+search lineage and unchanged geometry/viewer authority authenticate. The
+following bounded continuation is adopted:
+
+1. Close identical support-mask enumeration. Keep the four valid failed fields,
+   third invocation's export defect and three separate cold diagnostics frozen.
+2. Inspect **relative** joint rotations, face overlap and load-path geometry
+   using the saved diagnostic q before another global case. Gross timber beam
+   stiffness is not a bound for the existing recess; the queried leg's weak
+   inertia is 17.2% of gross. Residual convergence alone does not authenticate
+   point-contact geometry or small-motion applicability.
+3. Validate a two-coordinate example of activation without tangential history,
+   and specify the conditional opening/recontact reference before preparing a
+   revised-law case. Changing mask order or moving tangential ports alone does
+   not answer that method question. Gravity then climber staging is a possible
+   method step only after the contact history is defined and checked.
+4. Reuse the unequal-shaft force-recovery coupon and determine whether a new
+   three-member bearing-response coupon adds a missing check. It supplies
+   elastic response only; asymmetric TR12 resistance remains unqualified.
+5. Prepare one governing B104/shared-joint diagnostic with its actual **modeled**
+   holes and heel, unilateral timber backing, own washer seating and explicit
+   neighbor response. Saved old-model wrenches or unit loads are diagnostic
+   inputs, not current demand bounds; fixed neighbors cannot be credited as
+   demonstrated frame restraint.
+
+The audited formulation concern is specific: the original enabled XY force
+uses `-kt Bq` at the original centroid reference, with no elastic-slip or
+recontact-reference state. Switching it on adds `0.5 kt (Bq)^2` abruptly. A
+two-coordinate system with positive-definite fixed-branch matrices can demand
+ON from its OFF solution and OFF from its ON solution. Its verification and
+application limits remain distinct from a claim about this physical frame.
+[Abaqus2025 rough-friction documentation](https://docs.software.vt.edu/abaqusv2025/English/SIMACAEITNRefMap/simaitn-c-friction.htm)
+also cautions that opening after rough contact can cause convergence difficulty;
+it does not validate this custom whole-foot implementation. Its
+[submodeling guidance](https://docs.software.vt.edu/abaqusv2025/English/SIMACAEANLRefMap/simaanl-c-submodeloverview.htm)
+requires credible global boundary response and attention to stiffness feedback.
+These are method references, not new project approval gates or an adopted
+native solver for the thin candidate.
+
+No floor tolerance is relaxed: a 5-N activation threshold would erase a
+4.326-N real bearing reaction in one resolved branch. Five original branches
+have enabled-zero-only conflicts; their gap/error bounds remain insufficient
+for an exact nonexistence certificate. The new cold conflicts also include
+strictly separated enabled feet. No floor-friction test, anchor, geometry
+change or broad sensitivity sweep is added.
+
+Some frozen method receipts use the umbrella wood-joints candidate label while
+their fields and geometry use the thin-bolted model label. Their exact bound
+inputs govern applicability. This wording clarification changes no frozen
+bytes and transfers no block-model or selected-baseline acceptance.
+
+#### Contact-law method diagnostics
+
+The two-coordinate counterexample is now independently verified, including
+the genuine frozen field helper and a tiny replay of the incremental solver.
+Use `q=(u,w)`, with positive `w` as normal closure,
+`K=[[1,-1/2],[-1/2,1]]`, external `f=[1,-1/4]`, normal stiffness 1 and tangent
+stiffness 3. For a fixed tangent bit `m`, the potential is
+`0.5 q^T K q - f^T q + 0.5 max(w,0)^2 + 1.5 m u^2`.
+
+| Fixed tangent bit | Unique normal-consistent branch solution `(u,w)` | Branch determinant | Demanded bit |
+| --- | --- | ---: | ---: |
+| OFF | `(15/14,1/7)` | `7/4` | ON |
+| ON | `(7/30,-2/15)` | `15/4` | OFF |
+
+All four normal/tangent regions were checked with exact Fraction arithmetic;
+both valid fixed branches are strictly convex. At `w=0`, the released tangent
+balance gives `u=1` and normal gradient `-1/4`, so the boundary supplies no
+missing solution. The original 1e-7 activation boundary also fails equilibrium.
+Attaching the original-reference spring at `u=1,w=0` changes its energy by
+`3/2`. The frozen helper reproduces gradient, energy and Hessian, and the
+tiny frozen incremental replay stops at a repeated bearing pattern. This
+**proves possible mathematical incompatibility of that activation law**, not
+exact nonexistence or physical instability of the frame.
+
+Exclusive ignored `whole-foot-original-datum-counterexample-v1.py` /
+`.input.json` / `.result.json` in the existing search folder have SHA256
+`cf50ae1c1d5362f3c9961925e724319a28e9d02cacbb07dc08ada60af21b308b` /
+`e8cac2f6c0f8d08026febaacf0baf23c47395d4ceab33dd78f7a59e78ccb27a9` /
+`3381d1a4876d82e49896a66cb91e7acdcea618bdfa278d4ac37295bce445dfe5`.
+Independent exact algebra, source checks and Ruff pass. Reproduce with
+`.venv/bin/python SOURCE --input INPUT --output NEW_SIBLING_OUTPUT`;
+the saved result records the actual command. Existing output bytes stay frozen.
+
+A **separate, unadopted** history-law trace passes thirteen prescribed events:
+new contact captures its tangent reference at the event position with zero
+new shear/energy; continuous bearing holds that reference; opening removes
+tangent force and the stored elastic shear state. Open translation contributes
+no tangent force. Two rejected trials leave the committed episode/reference
+unchanged. Accepted release removes 3 units of penalty energy; the rejected
+trial's 6-unit release does not enter the accepted total. This is accounting for
+the proposed penalty law, not measured physical dissipation. Contact events
+must belong to a stated physical load history; references are never reset at
+arbitrary Newton iterations or every still-bearing load increment.
+
+Exclusive `whole-foot-recontact-constitutive-trace-v1.py` / `.input.json` /
+`.result.json` use the same reproduction pattern, SHA256
+`8aa6adf252daab7427b7ad9c0209435cc21c5fa2a88e342773443ccb93472e98` /
+`2b7a4c11f859bd2066ea8066a257a8de217bdb8e963028b43607c0ebb1cd8bb3` /
+`73271206045a747f6ddbd28edfaea2651d25992deabac017f94abc88c2135222`.
+Independent event-by-event replay, unchanged source pins and Ruff pass. It
+verifies prescribed constitutive history only, without contact-event
+localization, coupled equilibrium or a guarantee of a quasistatic path.
+
+**Frozen wording qualification:** the proposed convention in the original
+counterexample says an accepted state needs the original-law gradient. With a
+changed tangent reference, that must mean the **new declared history-law
+gradient**, plus unchanged joint/normal laws, authenticated same-state
+episodes/activation and fresh body/global closure. Original zero-reference
+admission cannot qualify a history-law field. The separate proposed scenario
+has not been adopted for a current case. It adds no no-separation constraint,
+anchor, floor capacity, hysteresis or threshold relaxation. Its background
+[incremental-contact reference](https://getfem.org/userdoc/model_contact_friction.html)
+and [elastic-slip theory](https://docs.software.vt.edu/abaqusv2025/English/SIMACAETHERefMap/simathe-c-coulombfric.htm)
+do not validate this custom controller. All candidate source bytes remain
+unchanged.
+
+A third small coupon now closes **coupled equilibrium during one specified
+continuous-bearing episode**, with committed tangent reference `r=1/2`.
+Its physical load path is `f(s)=(3/8+5s/8,1/4-s/2)`, `0<=s<=1`. Exact
+equations give `q(s)=(1/2+4s/31,1/4-27s/124)`, so normal force stays at least
+`1/31`, above the unchanged activation threshold throughout the entire path.
+The final solution is **`q=(39/62,1/31)`**, body tangent **`-12/31`**, and
+potential **`-101/248`**. The reference stays fixed through five accepted
+states and three rejected guesses, including a guess that appears open.
+
+The frozen field helper receives the **actual physical external load**.
+The separate affine reference-force term `kt*r=3/2` and energy constant `3/8`
+are constitutive contributions, never extra external body loads. New-law
+gradient and generalized body balance are zero. The original zero-reference
+gradient is `(3/2,0)` and correctly fails. Independent Fraction inversion
+checks the entire path coefficients, not merely the five samples; genuine
+replay, six source pins and Ruff pass.
+
+Ignored `whole-foot-committed-reference-coupled-toy-v1.py` / `.input.json` /
+`.result.json` retain the same exclusive-output reproduction pattern, SHA256
+`46827e1b419458705b56f8a649cc48043cb0a3d8ceebf129c09a6f916e3d10e9` /
+`e7aa5c04353a2b55f27bd9ec5c2050a7d1d8b6cfe4f0e3485ff5b827da3c8a25` /
+`e7033d4037068d00f1030c3a9a9e0a9261d63be6dcdf03eb3176e7113fc77b7c`.
+It reuses the two preceding toy functions. This proves only that declared
+bearing episode: opening-event localization, arbitrary-path existence,
+current 132-body response and a history-law global admission remain unproved.
+No revised candidate case is launched from these method results.
+
+### Compact bracket-and-joint MVP
+
+The owner now explicitly requests another goal focused on whether the B103/B104
+brackets and complete bolted joints work. The goal service records the compact
+joint objective as **active**. Publish the available conditional joint findings
+now, reuse prepared steel/bolt/wood/washer methods on representative single,
+paired and shared-shaft duties, and state the exact gaps. Floor work is a bounded
+parallel dependency rather than the main deliverable. All four authenticated
+failed fields, the third invocation's invalid export and the three separate
+cold diagnostics remain unchanged; another floor cycle is not a substitute for these
+joint findings. The reviewed geometry, load basis and release boundaries remain.
+
+The earlier corrected A12-rear field is
+[compatible-frame-a12-rear-finished-floor-v4.json](hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json),
+raw SHA `8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d`,
+state `thin-v4-84ad844f63afddc032cf922c`. Its 62-body model uses independent
+wood/fitting interface springs, not the later physical shared shafts or added
+timber-face law. Its independent finished-support/body/global audit passes;
+the original-law residual is 6.9209171727e-9 N. This preserves useful
+conditional component results but supplies no force allocation or pass for
+the changed 132-body model.
+
+| Frozen conditional comparison | Available number | Disposition |
+| --- | ---: | --- |
+| [B104 nominal flange steel](hypotheses/hl35-candidate/thin-frame-comparison/steel-demands-a12-rear-finished-floor-v4.json), 48 ports | Maximum **0.538893506**, **122.612818 MPa** at Fy=227.526991 MPa; `B104ZN_clip_angle_base_left_reference`, beam flange | No sampled nominal first-yield exceedance in this case. Not a complete angle or joint capacity. |
+| B103 nominal flange steel, 24 ports in the same packet | Maximum **0.005346971**, **1.216580 MPa**; `B103ZN_clip_horizontal_lower_left_2_opposite`, beam flange | Small under the old allocation, without a paired-joint reserve claim. |
+| Fitting bearing/tearout component | Required Fu maximum **7.796513 MPa** for B104 and **0.194445 MPa** for B103 | Required properties, not authenticated product Fu or a complete block-shear path. |
+| Fourteen small-washer opening references | Maximum **186.860 N**, no closing component; worst assumed-circle required Fy **30.8963 MPa** | Separate axial plate diagnostic. Actual washer Fy, head/nut bearing faces, own-end moments, seating and prying remain missing. |
+| [Isolated wood/steel bolt references](hypotheses/hl35-candidate/thin-frame-comparison/timber-demand-a12-rear-finished-floor-v4.json), 44 shafts | Body/root CD1 maxima **0.251391 / 0.309218**; conditional CD1.6 **0.157119 / 0.193261** | References use DF-L No.2 and generic Fyb/metal scenarios; no group/edge/splitting qualification. |
+| Twelve retained wood/wood shafts | Body/root CD1 maxima **1.018150 / 1.286932**; conditional CD1.6 **0.636343 / 0.804333** | Unadjusted maxima exceed; CD1.6 remains an unadopted duration hypothesis. |
+| Fourteen shared shafts | Complete lateral resistance **unavailable** | Unequal lateral/axial side actions lie outside the maintained symmetric method; two single-shear ratings are not summed. |
+| Ideal direct-wood axial annulus | One-port comparison maximum **0.346269** | This older interface component is not a recovered physical washer tension or complete axial joint capacity. |
+
+The retained front-left second shaft has **1,143.307 N** lateral demand against
+the **1,122.926 N** CD1 body Mode-II reference. That reference is also its
+Fyb-independent ceiling: increasing bolt bending yield strength alone cannot
+remove this particular comparison. Different root and mode witnesses remain
+separate; no independent maximum is added to a different joint state.
+
+The shared-shaft resistance review confirms the maintained refusal is
+necessary. The pinned NDS2024 §§12.3.1 / 12.3.8 cover single or symmetric double
+shear and a separate detailed-analysis provision for four or more members;
+the latter is not an automatic reference for one wood plus two unequal steel
+members. [TR12 §§1.3 and 2.2.2](https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf)
+also assumes symmetry for its double-shear yield equations and omits Modes II
+and IIIm on that basis. Choosing the smaller side thickness or adding two
+single-shear values would not qualify these unequal vectors and couples.
+
+Actual coupled reductions remain reusable after fresh admission: same-cut
+shaft N/V/T/M and conditional stress references; signed wood-bearing wrench,
+grain angle and pressure/Fe parameters; and own fitting/washer coefficients.
+These are distinct from a coupled ASD Z or complete resistance. The existing
+unequal-load recovery coupon gives a **1-N resultant** from **4 N / −3 N** while
+retaining **3-N internal shear and 200-N·mm root moment**, so cancellation of
+side resultants is not used as a shaft demand shortcut.
+
+Shared023's saved scenario contains one **38.1-mm wood span**, two **5.55625-mm
+steel spans**, nominal D=12.7 mm and modeled bore14.2875 mm. Its possible
+thread/transition exposure in wood is **12.46505 mm**, above the 9.525-mm
+quarter-length threshold; the far steel span is fully threaded in that scenario.
+Actual root, runout and Fyb remain unverified. An ideal bearing/hinge extension
+could use q=Fe·Db and Md=Fyb·Dm³/6, but no maintained helper solves the unequal
+three-member mechanisms or supplies their appropriate ASD reductions. A
+separate asymmetric plastic known-answer coupon would be needed before such
+a resistance-method application. The elastic response coupon below does not
+supply that resistance.
+
+The distinct **unequal three-member elastic response/recovery seam** is now
+verified. Previous coupons separately covered unequal prescribed shaft loads,
+two-host gap compliance, free twist, capture ownership and steel/wood
+reductions; none supplied an independent complete three-bearing response.
+The new synthetic coupon reuses unchanged `CommonShaftSystem`, its own-host
+action/recovery APIs and steel aggregation. One wood 40-mm span and unequal
+steel 10/20-mm spans produce six Gauss springs; prescribed host motions are
+1-mm transverse wood motion and0.2-mm far-host axial separation. Clearance is
+zero for this elastic-method coupon, all shaft bending rotations stay free,
+and the unloaded twist gauge supplies no torque restraint.
+
+An independent eight-equation Timoshenko Green/spring solution uses the
+producer's declared piecewise-linear translational ports rather than claiming
+continuous bearing response. It gives near/far steel transverse actions
+**75.121331 / 67.861725 N**, wood action **−142.983056 N** with its own
+**−99.090338 N·mm** couple, and **99.752333 N** at each own axial capture.
+All 56 physical Gauss-datum shaft cuts agree within 1.206e-9 N/N·mm.
+Four-body/global force and moment closure are within 3.042e-11 N /
+3.420e-8 N·mm. Independent 70-digit Decimal equations reproduce all six
+bearing forces within 5.69e-14 N and own wrenches within 7.82e-11 N/N·mm;
+five source pins and Ruff pass. The zero-force export sentinel provides no
+spring, load or restraint.
+
+Ignored `fea/generated/thin-bolted-v4-geometry/shared023-three-bearing-elastic-coupon.py`
+is SHA `c1fb1155efa0d137eeaf8c7f5bdf784a99f02afbdf6be317cb12b99b31993adc`;
+its 8,682-byte `.json` result is
+`1ec5101dd0d2db752a806543f15c1f3198ea6e725b60965261d844bd9afa7051`.
+Reproduce assertions without overwriting:
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 .venv/bin/python -c 'import runpy; runpy.run_path("fea/generated/thin-bolted-v4-geometry/shared023-three-bearing-elastic-coupon.py")["coupon"]()'
+```
+
+This closes the bounded **elastic response and own-wrench recovery** question.
+It establishes no candidate actions, stiffness bound, washer pressure/prying,
+plastic strength, Rd or asymmetric ASD Z. An eventual plastic extension must
+retain finite bearing spans and a rigid-dowel pivot before checking hinge
+activation; double-shear symmetry cannot remove that mechanism. That extension
+remains unimplemented and is not substituted for a current joint capacity.
+
+The new [saved same-cut torsion receipt](hypotheses/hl35-candidate/thin-frame-comparison/saved-flange-torsion-a12-rear-v4.json)
+refines the bracket question without another frame solve. Its
+[producer](../../scripts/thin_bolted_saved_flange_torsion.py) reuses the frozen
+signed point-load cutter and issued ideal rectangular torsion function;
+it reconstructs all 72 flange action lists directly from the old field and
+exactly reproduces every original nominal count, maximum and same-cut witness.
+It does not call an incompatible current common-shaft admission or fabricate
+one. It replays **18,474 cuts** in the original scope:
+
+| Fitting | Filled-gross / unperforated-gross maximum | Two-ligament equal-twist proxy maximum | Cut count |
+| --- | ---: | ---: | ---: |
+| B104 | **0.553945942**, **126.037653 MPa** | **0.871991027**, **198.401494 MPa** | 12,856 |
+| B103 | **0.004585262**, **1.043271 MPa** | **0.005635606**, **1.282252 MPa** | 5,618 |
+
+There are no sampled exceedances against the assumed Fy=227.526991 MPa in
+these scenarios. The B104 gross witness is the base-left post flange at
+5.55625 mm; the holed proxy witness is its beam flange at 84.3607421875 mm.
+The gross case fills any opening and cannot qualify a holed plate. The separate
+two-ligament case assumes equal twist and ideal prismatic, freely warping
+rectangles; actual hole concentrations, formed heel, short-leg restrained
+warping, local load introduction and prying are still outside the calculation.
+The change from the old normal/shear-only index to these simultaneous N/V/M/T
+references does not supply a physical complete-angle rating.
+
+Twelve new source/input/replay guard fixtures and Ruff pass; the existing
+18-fixture torsion method is reused. Independent review recovered all six
+governing point-load/couple and ideal-section witnesses with maximum stress
+difference 2.84e-14 MPa, then verified **419 bindings / 148 unique paths**,
+old raw/canonical/state identity and the original 62-body/eight-foot gate.
+The 22,981-byte receipt and 17,073-byte producer are the necessary compact
+permanent artifacts for this distinct method application; full sampled cuts
+were not exported. The earlier ignored pilot source/result remain unchanged.
+All current-model, complete-joint and release flags remain false.
+
+The producer / guard test / compact receipt hashes are respectively
+`d9af5ed32c8472e5394d846bc754a480426e2da5b5378e06f80c3b157b663d37`,
+`598441817d882805a6f0b545ca45b0bead0aee4211965e97f57945f55517cf58` and
+`bc346f963d04bb7f2b49251f59a8eb6a3deb315321d05c45a5a5073536c9ca32`.
+The receipt retains actual argv separately from its reproduction recipe.
+Reproduce to a **new** output path, preserving the issued receipt:
+
+```sh
+OPENBLAS_NUM_THREADS=1 .venv/bin/python -m scripts.thin_bolted_saved_flange_torsion \
+  --out fea/generated/thin-bolted-saved-steel-torsion/NEW-replay.json
+```
+
+The [unit timber packet](hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json)
+already provides body-diameter isolated wood/steel references **1.113–3.174 kN**,
+retained two-member references **1.058–2.581 kN**, and ideal full-contact
+direct-wood annulus references **1.766–3.467 kN**. These ranges are conditional
+unadjusted components, not a common joint load rating. The
+[steel method packet](hypotheses/hl35-candidate/thin-frame-comparison/steel-resistance-methods-v4.json)
+provides ideal unsupported gross-leg normal-force first-yield markers
+**614.625 N** for the long beam arm, **770.020 N** for the B104 post arm and
+**3,164.009 N** for the B103 short post arm. Backing/contact, load direction,
+heel and hole effects prevent interpreting those markers as allowable joint
+loads. Its small-washer coefficient at minimum 1.8796-mm thickness is
+**0.1934005321 MPa/N** for the separate head-only 17.145-mm circle hypothesis;
+it is not a nut bearing-face dimension or an adopted washer material strength.
+
+Representative work is bounded to the following existing duties before adding
+more cases:
+
+| Duty / reusable evidence | What it already answers | Exact next check |
+| --- | --- | --- |
+| Single B104: `clip_single_top_left_1`; governing steel witness separately at `clip_angle_base_left` | Two local free motions remain after local flange-normal contacts; old external work along both is essentially zero. Other shafts and panel attachments show potential geometric coupling. | Admit current shaft/end/contact actions and solve the neighboring response; fixed-neighbor point projections do not prove assembled restraint or complete resistance. |
+| Paired B104/B103: `clip_horizontal_bottom_left_1`; B103 stress witness separately at `clip_horizontal_lower_left_2` | One local free motion remains with normal contact. Shared023 retains one rod, one wood / two steel spans and two own captures. Far shared026 and panel attachments show potential coupling. | Resolve current paired/shared bearing, bending, contacts and own-end actions; do not add isolated ratings or fix neighboring bodies as a stability proof. |
+| Shared-shaft families: fourteen physical shafts | The prepared common-shaft method distinguishes 82 wood / 72 steel bearing spans and 140 own captures; known-answer shaft/gap/rigid-motion/recovery checks already pass. | Admit current simultaneous N/V/T/M, verify each delivered shank/root/thread window, compare wood/steel/washer references and retain unavailable asymmetric complete resistance. |
+
+The representative virtual-work check uses only the admitted old 62-body
+field. It transports every external wrench to the same duty reference, includes
+moving-member gravity, excludes unrelated grounded-post loads and counts each
+interface once. For the single duty, the old external work on the beam-axis /
+post-axis motions is **−4.13638e-8 / −3.67430e-6 N·mm/rad**; for the pair's
+beam-axis motion it is **1.15245e-7 N·mm/rad**. The wrenches therefore lie in
+the supported local force space within the old arithmetic tolerance. This
+does not establish capacity or current-model load allocation.
+
+Adding all local flange-normal contact rows, or only the old active rows,
+retains ranks **10/12** for the single duty and **17/18** for the pair. The
+released rotations are about the shaft/flange-normal axes, and their local
+normal derivatives remain at most 7.11e-15 mm/rad. Normal compression does
+essentially zero virtual work on these motions. Tangential derivatives reach
+81.246 mm/rad; friction or bolt clamp resistance is not credited. The ranks
+remain unchanged at rotational length scales of 10 / 100 / 1,000 mm. This
+answers the local contact question without declaring an assembled mechanism.
+
+A separate pure current-geometry projection identifies possible surrounding
+restraints while holding every body outside each trial moving set fixed:
+
+| Trial motion | Other attachment motion | Panel and direct timber implications |
+| --- | --- | --- |
+| Single beam-axis rotation | Shafts003 / 009 / 014 receiver/fitting radial derivatives **2,089.150 / 872.975 / 1,219.350 mm/rad**, approximately zero axial derivative | Four top Hillman interfaces and 68 current panel-contact points have normal motion. |
+| Single post-axis rotation | The same three other ports move radially **68.2625 mm/rad**; their flange-normal derivatives include **±20.6375 mm/rad** | The same four Hillman interfaces have −87.3125-mm/rad normal and 78.9781-mm/rad lateral derivatives. Negative normal projection is closing, not tension-branch engagement. |
+| Paired beam-axis rotation | Far shared026 receiver/fitting radial derivative **872.975 mm/rad**, approximately zero axial derivative | Two bottom Hillman interfaces and 16 panel-contact points have normal motion. Local shared023 bore/end points remain motion-free. |
+
+All twelve retained frame shafts and all six required timber compression pairs
+/ 272 cells have zero direct motion for these particular moving sets. Each
+projection is an infinitesimal derivative, not a displacement prediction.
+Neighboring shafts, panels and members may move with the tested bodies;
+held-fixed shaft projections and receiver/fitting geometric mismatches are
+separately labeled. Only an admitted assembled response can determine actual
+relative motion, gap/capture engagement and contact pressure. Shared023 is
+one physical rod with one wood span, two steel spans, six bearing points and
+two own captures; no older two-port force or summed capacity is transferred.
+
+Independent review verifies all **152 bound paths**, v2 force ownership,
+gravity, transport and rank arithmetic. Maximum work discrepancy is
+3.11e-10 N·mm/rad. Independent recovery of all **482 v3 projections** differs
+by at most 2.27e-13 mm/rad; all 66 Hillman identities, 530 saved panel ports,
+70 shafts / 82 wood / 72 steel intervals and own-end signs agree. Existing
+36 kinematics/equilibrium/support fixtures and the two known-answer projection
+fixtures pass. No current q/forces, global K, native or CAD execution was used.
+
+Frozen ignored evidence stays in
+`fea/generated/thin-bolted-joint-wrench-review/`:
+
+| Application | Input / helper / result SHA256 |
+| --- | --- |
+| Saved virtual work v2 | `32cab2ed069a6aec7252eb028f579fdf89d58bc7af2f52791401824c32e43923` / `4ae90d7494a4aa64fb55ba4d79f0c69e61979babfe4f5f0a6ac031b5b271aafc` / `9118c3344fc88ac417994c256baeb73f5a87bbd85d320f4fe20ac579f1817165` |
+| Current reference-point geometry v3 | `7d6e546fa7635371f1cbd2e1ef0d17d3340ba13ab6d5520082c29e22f6f6c94f` / `275dd0561e2ecb19fda1387b3521283f513b33813ed2889bda37a05c179000f4` / `3aecd52bfda3f143a54da960a732dc73ee998a1a3e9d68f84c1b91d48e4eded9` |
+
+The input/helper/result filenames are `input-v2.json`, `review-v2.py`,
+`result-v2.json`, and the analogous v3 names. Original invocations are
+`OPENBLAS_NUM_THREADS=1 .venv/bin/python fea/generated/thin-bolted-joint-wrench-review/review-v2.py`
+and the v3 helper under Python 3.12.3 / NumPy 2.5.2. Outputs refuse overwrite;
+reuse frozen evidence, or reproduce in a fresh sibling output directory with
+the same depth and byte-identical input/helper. Full 129,575 / 738,941-byte
+results remain ignored rather than being duplicated in the permanent packet.
+
+#### Saved current joint-pose applicability
+
+The new K-free v4 diagnostic consumes only the three authenticated cold q
+vectors, current geometry and recorded coordinate maps. It reconstructs the
+8018 saved coordinates; 70 added zero-twist coordinates are a pose facade,
+not new response coefficients or restraints. Shaft DOFs start at 3960.
+Independent Rodrigues/geodesic and Ritz/Kirchhoff projections reproduce all
+380 selected relative rows per field: 32 flange, 8 fitting-hole, 30 bearing,
+14 own capture, 24 representative Hillman and 272 timber-cell points. Maximum
+point/projection disagreement is 2.30e-13 mm; all 816 saved linear timber-cell
+markers agree within 3.47e-13 mm. This is 24 selected screw points, not a
+complete new 66-screw evaluation. Sources, raw/canonical/q/state identities and
+known-answer common-rigid heel checks pass, with errors below 4e-15.
+
+| Local diagnostic marker | `10000001` | `11000000` | `11010000` |
+| --- | ---: | ---: | ---: |
+| Outer-left-post/runner linear face slide, mm | **59.1778** | **59.1374** | **50.9946** |
+| Same-point finite replay slide, mm | **64.5335** | **64.4446** | **54.9092** |
+| Timber relative rotation, rad | **0.588930** | **0.588011** | **0.510497** |
+| Base-left B104/receiver relative rotation, rad | **0.746901** | **0.737817** | **0.588192** |
+| Same B104 beam/post port relative rotation, rad | **0.014189** | **0.013807** | **0.013257** |
+
+The first face's reference bounding overlap is 139.7×139.7 mm, with 25-mm
+cells. Its worst linear slide spans 2.367 cells and 42.36% of the smaller
+bounding extent; this is not a current overlap-area calculation. Top-left1
+and paired bottom-left1 selected local relative rotations reach 0.050093 /
+0.030110 rad. Internal beam/post port rotation is distinct from rigid joint
+spin and does not recover individual heel curvature.
+
+At cold `10000001`, the base-left B104 post flange has 51.187-mm linear
+tangential motion and 15.279-mm finite-versus-linear point difference. Axis019
+nut capture changes signed opening from −1.271 to +2.322 mm; shared023 nut
+capture changes −0.016886 to +0.023033 mm. These are **unsolved fixed-q
+side changes**, without new forces. Shared023's sampled lateral bearing motion
+is 0.805235 mm against modeled radial gap 0.79375 mm; its one continuous shaft
+is preserved. Kicker-left/header screw 5 has 11.382-mm point-lift discrepancy.
+The panel helper supplies surface-normal tilt, not full material rotation.
+
+**Finite shaft-gauge qualification:** v4 initially described shaft-axis tilt
+and `OD*sin(tilt)` as gauge independent. A preserved qualification explicitly
+supersedes that wording. Adding a synthetic common 0.3-rad omitted linear
+axial roll changes one finite axis tilt by 0.095886 rad with exactly zero
+capture centerline shift. Finite shaft/washer orientation is therefore a
+recorded-zero-linear-roll lift marker, not an objective recovered orientation.
+Timber/fitting rotations, saved centerline point motions and host-normal
+projections retain their diagnostic scope. The probe is not a finite gauge
+transformation or a re-equilibrated response.
+
+Ignored artifacts in `fea/generated/thin-bolted-joint-wrench-review/` are:
+
+| Artifact / bytes | SHA256 |
+| --- | --- |
+| `input-v4.json` /8,957 | `a7ef7b7d82072b7f8898e34551661185f9108b8cca09179875f0f4fa5a005d7d` |
+| `review-v4.py` /22,389 | `c86cb3e84c0d16648e6a3d115da686afc6e2c97272cd06c4cbe3bfb93a15be55` |
+| `result-v4.json` /2,802,172 | `7efdfb88b3c987f92d1c4ed3abed6dfaab22e8aecb738faf8710743e5817dc9d` |
+| `verify-v4.py` /7,211 | `a1ad8d4cb36bf74c8049742d8186d1a9bab3454513083f9869de89a6b56e0383` |
+| `verification-v4.json` /19,557 | `98d4061cba7869eee814fdf03469246b7ef8f34b0b3c4d4a9f46ec31a439eae1` |
+
+Independent source/production/projection review passes **with the gauge
+qualification**. Replay the helper in a fresh same-depth sibling with
+byte-identical helper/input, preserving existing outputs; the verification
+entry supplies a non-overwriting replay API. No candidate stiffness matrix,
+CAD rebuild, native/global solve, accepted force, capacity or stability result
+is produced. Deformed trimmed faces/holes/current overlap remain unresolved;
+same-cell ownership cannot be assumed valid through this motion. The floor
+law and small-motion questions are separate. The current first-order method
+has not established credible joint demands at the recorded full load.
+
+#### Governing local bracket and washer continuation
+
+The cached B104 is two fused rectangular legs 104.775/88.9×41.275×5.55625 mm
+with all four 14.2875-mm holes and a **sharp modeled heel**. It is not a formed
+radius model. Existing gross/net beam and torsion proxies are sensitivity
+models, without a proven upper/lower physical bound. A sharp-corner local peak
+cannot become a mesh-converged product yield ratio. A local diagnostic can
+report integrated compliance, complete port/contact wrenches, section
+resultants and stresses at stated locations away from that corner; actual
+heel stress needs authenticated bend geometry and minima.
+
+| Bounded local diagnostic | Mechanical bodies | Stations and dependencies |
+| --- | ---: | --- |
+| Governing outer base-left single fitting | **11**: 2 finished timbers, 1 B104, 2 continuous bolt/head solids, 2 hollow nuts, 4 annular washers | Axes 019/020; base header and left side receiver. |
+| Center-left shared fitting | **17**: 3 finished timbers, 2 B104, 3 continuous bolt/head solids, 3 hollow nuts, 6 annular washers | Shared 011 plus 012/013; both B104s and all three timber hosts. |
+
+Reuse the exact native cache, finished timber openings and all fitting holes.
+Collision-only cylindrical head and solid nut envelopes cannot be substituted
+for mechanical bearing faces. The source-bound B104 hardware preparation now
+defines both local body recipes, all five preserved axes, ten annular washers
+and twenty own support/pressure planes. It retains frozen occupancy as
+metadata and declares separate response-only head/nut shapes; old WJ04
+dimensions or product assumptions are not transferred.
+Contact at flange backing, each washer's receiving annulus and each own
+head/nut seat must be distributed, frictionless and compression-only, retaining
+holes and bore clearance. Own force **and moment** are required; axis-point
+captures supply no annular pressure couple. No preload, torque, geometry
+adjustment, washer-to-wood tie or frictional rotational clamp is credited.
+
+Remove only six whole-patch rigid motions with averaged gauges. Keep internal
+free modes, audit rank before loading and use balanced remote unit wrenches
+that annihilate those mechanisms. An incompatible loading needs neighboring
+geometry or an explicit neighboring-member response law; fully fixed members
+are not demonstrated restraint. The single/shared patches have six/twelve
+relative port coordinates, without an automatic finite stiffness in each.
+Old 62-body wrenches or unit loads remain labelled diagnostic patterns, not
+current demand bounds.
+
+The smallest seating-resultant method test is **complete and reusable** in the
+[finite-sector annular native fixture](hypotheses/washer-finite-sector-contact-native-2026-10-01-attempt02/README.md).
+The earlier preparation-only description missed this consumed run. Its deck,
+oracle and coordinates match the corrected preflight exactly. Two disjoint
+C3D10 annuli, eccentric quarter-sector pressure, retained holes and unilateral
+contact pass the frozen independent force-and-moment gates. Parent and worker
+offline replays reproduce the stored audit exactly; no native solve was run
+in this continuation. Whole-model residuals are **7.27248e-7 N /
+0.000714770 N·mm**, below the frozen 0.1 N / 0.1 N·mm limits. Own CFN force /
+moment errors are **4.0208e-6 N / 8.3776e-7 N·mm**, against limits
+0.0273474 N / 0.0773434 N·mm. CF matches CFN and all six CFS components are
+zero. The fixed receiver is isotropic diagnostic material; this pass does not
+qualify rocking stiffness, washer bending, wood pressure, partial seats or a
+candidate joint.
+
+Reuse the [final parent result](hypotheses/washer-finite-sector-contact-native-2026-10-01-attempt02/parent-result.json)
+and corrected restraint, quadrature and ownership checks. Its SHA256 is
+`8fa2c65a09395f177123ce77e7305a81f690f5e843bc69b1ff7b1e0cc9d1deea`;
+the input freeze is
+`87894949d0f9aa45ca479fa290fb2ae8c354884d290b9ac0e13e2a902522c8aa`.
+The original launch exited zero in 5.596 seconds, with ten complete increments;
+its one permitted launch is consumed and no retry is authorized. Frozen inputs,
+outputs and result reviews remain unchanged. Live-source verification detects
+the later AGENTS.md edits; historical snapshot verification and the exact
+output replay pass. This source drift does not make the consumed run ready for
+a new launch. A frozen verifier includes node 45's free-x RF in the gauge
+wrench, but its 1.02e-15 N value has no gate effect and the independent
+constrained-DOF-only check passes. A future verifier must mask the actual
+constrained DOFs in its own packet. No duplicate flat-contact test is needed.
+The pinned CalculiX 2.23 face-to-face LINEAR law has zero force at touch/open
+and compression for penetration; contact CF/CFN/CFS reports include origin
+moments. Existing flat/shared-edge/static-motion and explicit-touch fixtures
+remain applicable method evidence and need no replay. They do not qualify
+annular rocking stiffness or curved-bore onset.
+
+Mechanical hardware/contact ownership, remote cut ports and explicit timber
+material scenarios are now prepared. Mesh/contact-penalty comparison limits
+and a state-consistent local response remain dependencies of the diagnostic.
+Actual washer minima, bearing datums, material strength and product radius
+remain distinct strength inputs. No native run, CAD change or physical
+operation was performed in this continuation.
+
+The ignored hardware packet is
+`fea/generated/thin-bolted-b104-local-hardware-inputs/inputs.json`, SHA256
+`8cebc830001ed86114bce7363f7fc3a0105c258885cdaa80a869245bea73d731`.
+Its producer is `38a14864067ce864fce27c8d81d9aff5213fece77aaefaa1e874c28fce756d90`;
+the primary comparison-dimension input is
+`f95e3c171abc8e3eeed21654720c30a8ab5da5f5561b1a671c22ac32294a9aca`.
+Shaft lengths remain 76.2 mm on 011/012/013/019 and 127 mm on 020.
+Washers retain the frozen OD 35.052 / ID 14.2875 / thickness 3.3528 mm.
+The sourced response cap head is 8.2042 mm high with a 17.145-mm gaged-face
+idealization; the comparison nut uses AF 19.05 / height 11.3792 mm and a
+declared nominal-major 12.7-mm exclusion void. These are response scenarios,
+not selected or inspected hardware. Nut engagement constrains three relative
+translations and two tilts while leaving axial spin free; no external clamp
+or actual thread resistance is inferred. Five full-D/root-placement scenarios
+per shaft retain original shank/runout limits. In particular, the NBS table's
+½–12 row cannot supply a ½–13 root. Actual root geometry remains unset.
+Independent preparation review authenticates 147 source paths and 32 cached
+parts, all twenty planes, original axis/span records, wrench work and seven
+negative controls. Delivered tips, shank and thread engagement remain
+unqualified.
+
+The local cut/neighbor contract is
+`fea/generated/thin-bolted-local-joint-ports/contract.json`, SHA256
+`0f4f03c62206cc1987d89ae1da735c7c6f657e59bfae2093fabe07279ab2cc1f`.
+It binds six cut datums and nominal grain frames without fixing neighbors.
+It retains adjacent shaft005, crossing panel-contact/screw duties and the
+shared header's six self-balanced two-cut load patterns. Hardware-free cuts
+do not remove these distributed duties. Compliance remains the same-branch
+observable `Cij = Σ(Fi·uj + Mi·θj)`; no numerical Cij is supplied by geometry.
+
+The preserved v5 local work/rank packet has input/helper/result hashes
+`63229025850f42cdd7bb91dcbcab50c33e93574041c2b98f2354f444fec1bf60`,
+`bbfd6e00d5b98873e4f250536b0d307ed8a81edc03d2ad55b2797c7e14e8a2c4`,
+and `1efdefaaaa05ac39c53a5fbd2452a0434d795e379a1f6f8de2f054ac086d2733`.
+Its mandatory verification/qualification is
+`bf5ccd3f67d08c8b84a4d12886e350cc19a51172b453760580a32ba90ea04d4f`.
+At centered 0.79375-mm bore gaps, the smallest verified bidirectional rigid
+force/work families contain one/two balanced transverse couples. Adding
+direct timber normals gives three/six-dimensional lineality-annihilating
+spaces, but these do not admit every load sign through unilateral compression.
+Sixty-nine reaction certificates and nine opening-ray witnesses pass; maximum
+independent algebra residual is 5.78e-15. The qualification corrects a saved
+key that confuses the entire opening cone with its lineality, which is always
+the normal-row kernel. Six whole-patch motions, all aggregate shaft roll and
+the additional six/nine unobserved nut/washer spins remain free. These checks
+do not imply preload, stiffness, compliance or absence of a finite equilibrium:
+finite motion can subsequently close a bore gap.
+
+The material preparation reuses the unchanged
+[nine-constant elastic scenario](orthotropic-material-scenario.md)
+and `fea.wood_joint_patch_materials` for these four source grain frames.
+`fea/generated/thin-bolted-local-joint-materials/inputs.json` is SHA256
+`0e6a5299d5075f868186ee52db3b225345c2035154c45f97977d425d55cb1ffb`;
+its producer is
+`c9eb350de07dffb7e62c6f285ab6de58066bbad8f379ba67e3670619af60cc61`.
+Eight individual R/T assignments give sixteen named combined scenarios,
+without bounding every ring angle. Independent reciprocal-compliance and
+frame checks pass: minimum full compliance eigenvalue
+**8.83056882e-5 MPa⁻¹**, maximum tensor-energy rotation error
+**2.08e-17 MPa**. The unmeasured EL=11032 MPa scenario is explicitly distinct
+from the earlier scalar beam's 11031.612 MPa. The reused helper's 2.21 syntax
+reference is not 2.23 native readiness; no solver card is generated.
+Reproduce the preparation in a new output path with
+`.venv/bin/python fea/generated/thin-bolted-local-joint-materials/prepare.py --out DISTINCT_PATH`;
+lint with `.venv/bin/ruff check --no-cache --extend-select E402 fea/generated/thin-bolted-local-joint-materials/prepare.py`.
+
+#### Complete timber contact correction
+
+A bounded cached-solid audit now resolves reference compression-path
+completeness among all twenty timbers. The atlas at
+`fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json`
+is SHA256 `5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420`;
+its query source is
+`1645422ea2f9d6fe04f30d8c2b480b5baffecb2bdb7d078b1f53e197b05874ef`.
+All **190 unordered pairs** have a disposition: 158 disjoint source bounds,
+nine proved positive pairs reused, twenty-one additional positive pairs and
+two empty trimmed intersections. All 88 screened curved-face queries have
+zero positive area. The thirty positive pairs are exactly the six retained
+interfaces plus all twenty-four distinct angle beam/post duties. Their
+reference discretization totals **584 occupied cells**. This proof is limited
+to positive source area and recorded tolerances; it does not establish current
+overlap, absence of interpenetration, pressure, stiffness or resistance.
+
+The three newly checked local faces are header/side and header/principal at
+Z277 mm, areas **11,930.61725561 / 5,113.12168098 mm²**, and header/center-post
+at Z238.9 mm, area **5,322.57 mm²**. Their source supplement is
+`fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json`, SHA256
+`ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa`.
+The twenty-one additional patches add 264 occupied cells; the local three
+add 48 and the old six retain 272. Old patch cells/assets are referenced
+without copying their frozen bytes. The atlas is about 720 KB and stays in
+ignored active evidence; its rows are needed for provenance and the corrected
+operator rather than permanent viewer assets.
+
+**Required mechanics correction, reported before altering the model:** the
+existing six-pair response omits twenty-four actual end/rail compression
+paths. A distinct thirty-pair linear extension and independent admission are
+prepared with the same zero-preload, frictionless, declared 1 N/mm³
+bedding. The reviewed timber/panel/hardware geometry is unchanged. The prior
+256-mask search remains closed evidence for its six-pair physics; it cannot
+answer the corrected model's response. A new calculation requires a distinct
+operator, physical signature, state, source binding, gradient and complete
+floor/body/global gate. The independently admitted corrected field is recorded
+below; the original six-pair failures remain preserved.
+The floor remains the recorded original-reference centroid law and 1e-7-N
+activation threshold; the proposed history-law toys are not being adopted.
+
+Added-face material normals differ from the old six interfaces. Header/
+inclined-member normals are 90°/40° to their grains; header/post normals are
+90°/0°. Rail-end normals are rail 0° / inclined member 90°. These are nominal
+geometry classifications, without force or bearing-strength acceptance.
+Do not inherit the old six interfaces' perpendicular-grain comparison for
+both hosts. Current force/strength consumers require the new face/source
+contract before transfer.
+
+Independent atlas and contract review passes. All twenty-member/190-pair
+source identities and twenty-seven pins authenticate; all positive duties
+and curved-query dispositions agree. Cell area/centroid conservation errors
+are at most 1.052e-9 mm² / 2.424e-10 mm. The largest saved cell-versus-exact
+second-moment relative error is **3.57456%**: this is a quadrature limitation,
+without a proven response-stiffness bound. No candidate K, force, native solve
+or frozen-byte change is produced by that review.
+
+The complete first-order adapter is now independently ready in
+`fea/generated/thin-bolted-complete-timber-contact-v1/`. Its adapter/test/
+preparation hashes are
+`531d8e3393e309de172442b6a936c76b0d8db73f97a2bf63f831fa2a87d3b67f`,
+`0a6ffbedf2286503520e595cc64ea177b5f50c9f1d31a124676a9aedffceacb5`,
+and `59f6691d6c772938e5cb7a078294a65b99660645c8f2604b3a4a33dc1b302fe1`.
+Nineteen focused fixtures and default Ruff pass; all 160 source pins remain
+unchanged. Independent reconstruction of all 584 rows agrees within
+2.27e-16; contact force/gradient/Hessian/energy errors are at most
+1.34e-15 N / 7.11e-15 N / 3.64e-12 N/mm / 3.34e-16 N·mm. The twenty own-body
+force-dual error is at most 4.37e-11 N/N·mm. Old six-pair ownership/order and
+all zero rows remain represented; the new basis and per-host grain metadata
+are distinct. Its 240-coordinate coupon operator hashes must not be used for
+the future 8018-coordinate runtime chart. The imported finite-floor basis
+label in the preparation records a dependency only; this adapter neither
+creates nor changes floor rows. The intended case retains the actual original
+centroid datum and threshold.
+
+The one-case wrapper and independent admission are ready in
+`fea/generated/thin-bolted-direct-contact-a12-v1/`. The parent ran all
+**97 focused fixtures** (adapter nineteen, admission forty, wrapper twenty-three,
+component bridge fifteen) in 8.10 seconds; default Ruff passes for all eight
+producer/test paths. Independent review additionally verifies bit-identical
+signed gradient and energy for genuine 584-face, 32-normal-floor,
+16-centroid-tangent coupons with eight/four/zero bearing hosts. These checks
+establish method readiness, without a candidate response or strength result.
+
+The wrapper/test SHA256 values are
+`ea3b310657b66869b59c35b5cb126280df5b042b8c50e9848d463b3a9b5eef01` /
+`65d183868bfa41506340567aff596e9a20f757c154f3805452756b3f227baeb5`;
+admission/test values are
+`6797388b8a99e1f2d510d69c22ce932283b8128607842337e9cea300ae3fb5be` /
+`1133fe49e257b4c5e4c54c49f1298acf49c9853df9da21ce80c2585e04126241`.
+The minimal component bridge is
+`3175e0bf079609998f9b1b434ed3fec4c4910bb99f83a42ed96fd1e7fcf5e7bc`;
+its 15 fixtures use explicit stub admission and do not establish production
+body/field acceptance. The real new immutable-payload validator contract is
+independently reviewed. All sources are settled before execution.
+
+The exclusive parent freeze, `method-input.json`, is 25,297 bytes, SHA256
+`6257c7e9a300ed46ffdea26f416cbd1d3f155b0630413957b5128a6d2eeea1a9`.
+Its 189 source pins have canonical map SHA256
+`ee1ef4886cbe71eb3c17bde6e7c65f7f5844a87917aadd8c87c51663e0228bab`.
+No mutable development summary or ledger enters that numerical source map.
+The one authorized bounded Python case ran under the shared heavy execution
+lock; no native or CAD work was involved. Before response the wrapper captured
+the actual material K, applied RHS, connector groups, all 1574 normal rows and
+sixteen floor-tangent rows in exclusive source-bound inputs.
+Admission independently replays the final and demanded floor branch at the
+same q, new 584 paired action laws, all 1402 contact actions and 132 bodies.
+The unmodified limits remain g∞≤1e-5 N, body/global force≤1e-4 N and
+moment≤0.1 N·mm. Claimed convergence alone does not meet this contract.
+The bound is one A12-rear Python case, 600 seconds and at most 300 iterations
+per pattern; no old initial q is used. The same frozen options and exclusive
+output can be reproduced from the recorded command:
+
+```sh
+flock -n docs/wood-joints-mvp/luna-max-native-run-ledger.lock env OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 .venv/bin/python /home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-direct-contact-a12-v1/runner.py \
+  --method-input /home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-direct-contact-a12-v1/method-input.json \
+  --method-input-sha256 6257c7e9a300ed46ffdea26f416cbd1d3f155b0630413957b5128a6d2eeea1a9 \
+  --out /home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-direct-contact-a12-v1/a12-rear.json \
+  --cases a12-rear --wall-seconds 600 --newton-limit 300 --wood-bedding 1 --intervals 8 --contact-edge 70
+```
+
+The wrapper refuses existing output or operator files. **This execution failed
+at export and supplies no admitted field.** Its console records three converged
+branch residuals, **7.64035425e-6 / 2.43351665e-6 / 5.38309886e-7 N**. The
+last is below the unchanged limit, but the final operator-integrity guard
+stopped before q, actions or a final signed-gradient capture were saved.
+The 3,062-byte `execution-failure.json` is SHA256
+`1cd8b751fcff5cce892f7552cfef27587bb8aec600b1461146999ca48a3638f1`.
+All 189 frozen numerical source pins still authenticate after exit code one.
+The preserved pre-response `operator-inputs.json` / `operators.npz` hashes are
+`16ef6d3228cd0cd8cc5a7b5d602a6ecf8d41a90b436089552bef3ac5eab945f3` /
+`a45f9a1fe27349523f3617c99ad145d341d722a775184a6b650aadc1e73d5ffa`;
+their 1,904,391 / 1,301,514 bytes remain ignored active raw evidence.
+
+The diagnosed observer side effect is concrete: frozen
+`enabled_floor_hosts` calls `tangent['B'].power(2)`. The installed SciPy 1.18.1
+implementation calls `sum_duplicates` through that operation; the
+[official documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.sum_duplicates.html)
+states that canonicalization acts in place, and the
+[version-specific source](https://raw.githubusercontent.com/scipy/scipy/v1.18.1/scipy/sparse/_data.py)
+shows that call path. A genuine saved sixteen-row probe finds **eight**
+originally unsorted floor operators reordered by the observer, with no duplicate
+columns and exactly equal coefficient maps. This explains a raw-operator
+integrity stop; the unavailable final run artifacts do not prove that no other
+mutation occurred. Earlier fixtures covered branch replay but missed this real
+solve-to-observer-to-export interaction.
+
+The copied-row observer adapter and its distinct reviewed execution freeze
+are now consumed successfully in
+`fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/`.
+They preserve the actual raw operators, recorded law, all tolerances and
+truthful source/invocation ownership. Both incremental observation and final
+capture use copied sparse rows; the strict raw-operator guard remains intact.
+No physics, geometry or capacity change is made by this fix. Every v1 source,
+input and failed result remains unchanged.
+
+The v2 runner/admission/component bridge SHA256 values are
+`6960f18badca4ab7867b46566b058121afa8a49c105b059a3e7d14717d6342d4`,
+`4b78722ab407a39d6e00fc9e16be0d370d0c837dea5880e45e7a2e277dd6efb6`
+and `3f2682226fd6836360785a68e158a15a65a06292444547e08a1e77d9e0d9a98d`.
+Their tests are respectively
+`5b111ec7f028481e2b51ea500f3b0cb6b0e6a19bf88ccc2e04ec6b4a2d617799`,
+`91b14dfbb3699a00ffe72b3a9ea1773a90e9aa5942b54ebf0fb6c1c4c8aaf736`
+and `63394590957d1b78623babb123f04b334499d618631d000ac6f23a26150d5e4e`.
+The parent runs all **34** changed fixtures with Ruff; independent review
+includes a genuine converged observer/capture/export seam and exact frozen
+option binding. This adds to the unchanged 97-fixture preparation, rather
+than repeating unrelated methods. The 27,351-byte `method-input.json` is
+SHA256 `3389a72eb790a5b924911373718058e09c5a393b2897dd1dcc9e40ca04a74484`,
+with 196 source pins and canonical map
+`b1e7b5ba6daa7339d8bad69ead85553989af7dc21b009c40ee3f2ed27d0a3f11`.
+
+The actual v2 invocation retains the preceding command's exact case/options,
+substituting `observer-isolation-v2/runner.py`, that directory's distinct
+`method-input.json` and output paths, and its stated input SHA. It runs under
+the same shared lock and exits zero. No source changes after freezing. The
+parent independently compares all **1,570 numeric operator arrays**, dtypes
+and physical group/contact/floor metadata with v1: all match exactly. The
+pre-response bundle is byte-identical, SHA256
+`a45f9a1fe27349523f3617c99ad145d341d722a775184a6b650aadc1e73d5ffa`.
+
+**Current A12 result: independently admitted conditional actions.** Raw
+`a12-rear.json` is 7,391,317 bytes, SHA256
+`29b25f11794a171a1364268ed676a24cee2882e47c3018b3648267d2707a0ddf`,
+state `thin-v4-5ee18d49cbad255344fa4574`.
+The parent executes the actual full v2 admission against those exact bytes,
+the frozen runner SHA and method-input SHA. All 30 faces/584 cells, 1,402
+contact actions, 1,574 normal rows, the current coordinate map, source pins,
+original signed gradient, all 132 bodies, global equilibrium and same-q
+original floor activation pass. The 52,412-byte `admission.json` is SHA256
+`e5bbf8c0ad2947f42f71819d61b03fcd260a0926b5f5429481e5523ff8e122a5`.
+Independent peer review also authenticates the exact field and all 204
+result source pins without another solve.
+
+The generalized residual is **5.383098858e-7 N**. Maximum body residuals are
+**7.843370949e-7 N / 0.000938117904 N·mm**, below the unchanged limits. Final
+q and original signed-gradient canonical hashes are
+`2c13826c3c6061fd327470f7ed7e7f80dfd7c50283a732cef0b353d72107e342` /
+`2a43ddc4f32871767e29f90da4e11cf1851395559e6d43d897c3cc680a984678`.
+The final-branch input/bundle SHA values are
+`b3f3cd701aefe298a1ee183da58e5b21635ec77bb9b7141f6b71cb3bb931e7ac` /
+`d88ae0beb87cc30e3b8f44d7944d5fc6722730d8512fe8a400aba7266d9c2aa7`.
+The floor resultant is approximately **(0, −300, 4364.616) N**; maximum
+centroid XY penalty motion is **0.00599048 mm** and component action
+**599.048 N**. Whole-foot activation is consistent and normals nonnegative.
+This does not establish exact distributed no-slip behavior, friction or an
+anchor capacity. All release flags remain false.
+
+Current component and motion reductions now use this admitted field without
+another response solve. The first component
+consumption reveals a separate export-schema seam: all 205 member-element
+rows carry the exact current state but omit case/placement labels; all 82
+wood, 72 steel and 70 shaft-cut aliases plus their nested cuts retain full
+identity. The old pure alias validator expects all three labels on every
+member row and rejects consumption before any result is written. A distinct
+strict schema-aware adapter now passes independent review and fifteen
+fixtures. It authenticates the enclosing admitted case, rejects any foreign
+optional label, preserves raw bytes and restores the old validator after use.
+Its source/test SHA256 values are
+`5d3da02c9879e7a364b73f9164120dc8d9129d8b7954c66ff0c76dabfd1f5b40` /
+`34fe7e56ba3aecaf3eba418ff5e5bd3850125e1c87c6c00656eee4ccc02abcdc`
+in `observer-isolation-v2/member-schema-v1/`. The parent runs those fifteen
+fixtures plus the six pose-route fixtures: **21 pass in 4.65 seconds**, with
+Ruff passing on all four changed source/test paths. No field or receipt label
+is changed.
+
+The parent consumes the exact field through that new adapter and the actual
+new admission. `observer-isolation-v2/component-reductions.json` is
+3,380,997 bytes, SHA256
+`650c0cf1225326506c91ff74b97205832f1ba73e3b67cfe8d73450d42237285e`;
+the pure reduction takes 4.73 seconds. All 259 result source pins authenticate.
+The current census is 82 own wood bearing wrenches, 164 body/0.8D material
+parameter scenarios, 68 own wood-side capture references, 20 timber cut
+inventories, 72 steel flange actions, 70 own shaft-cut inventories, 140 own
+washer captures, six panel coefficient blocks, 66 screw axes and 30 timber
+face pairs. Every source and input remains unchanged. All complete-resistance
+and release fields remain null/false.
+
+Independent arithmetic review verifies all 82 own wood wrenches, 164 radial
+points plus 68 own captures, 100 published complete simultaneous timber-cut
+witnesses, 72 steel port wrenches/360 supplied flange loads, 4,244 shaft cuts,
+18,474 existing flange/torsion cuts and all 140 washer references. Each of
+584 timber contact rows enters each own host once; the alias is not appended.
+Selected timber force/moment reconstruction errors are at most
+7.77e-16 N / 2.33e-10 N·mm. The six saved 41-point panel grids and 631
+integrated net cuts reproduce their recorded values; no added resolution or
+case solve is used. The tiny screw world/local difference, at most 6.14e-7 N,
+is within the existing 1e-6-N rounded-datum limit.
+
+Current B104/B103 sampled nominal first-yield indices are
+**0.798939676 / 0.009587536**. The maximum same-cut gross/two-ligament torsion
+scenario indices are **0.802659276 / 0.849896306**, at the base-left B104
+post flange. The nominal cuts include supplied hole/capture and backing-point
+loads but omit the fitting's separately applied body gravity. That known
+bookkeeping gap is being reduced using the original operator's own port
+interpolation; physical distributed flat-leg gravity remains a different
+input. Hole/heel concentration, restrained warping, prying and actual product
+strength remain unqualified. The 70 shafts' maximum circular Grade-5 yield
+scenario is **0.265472572**, retained left bolt 2 at station
+107.686780435 mm. Its 12.7-mm elastic circle is declared; no actual root
+placement is selected by this default calculation.
+
+The governing current screw is `round_panel_upper_left_rim_4`:
+**1939.742640 N withdrawal / 669.663629 N simultaneous lateral**. Its generic
+9-mm-head index is **3.342698637 at CD1 / 2.089186648 at conditional CD1.6**;
+two of 66 axes exceed each reference. Generic withdrawal needs effective
+thread **81.818769 mm / 51.136731 mm**, respectively, versus only
+**45.243750 mm** nominal overall screw length beyond the recorded panel.
+These are generic comparison deficits, without actual Hillman qualification
+or a measured effective thread length.
+
+Spatial panel diagnostics must remain separate from the mean net cuts.
+Upper-left bending-x/y indices are **5.501986090 / 2.067628619** at CD1;
+rolling-x/y are **2.777901959 / 1.049732709**. Upper-right bending-x is
+**1.101785422**. The mean net-cut bending/rolling/axial maxima are only
+**0.621705574 / 0.270133532 / 0.027578800**. Those averages do not remove the
+spatial findings. Third derivatives jump between spline spans; local hold,
+head-seat, opening-boundary and pointwise capacity remain unresolved.
+Upper-left affine-removed warp is **12.059800 mm** and sampled slope
+**0.122960587**; the largest sampled slope is the left kicker's **0.158933486**.
+All linear-plate applicability flags remain false.
+
+Current timber axial-average CD1 maxima are **0.028431108** tension in
+`base_side_left`, and **0.049667375** compression in the left leg. Their own
+complete cut vectors and actual areas remain attached; bending and local
+resistance are not cleared by these averages. The replay covers **1046 of
+1050** saved planes. Four oblique lower terminal planes, two principal and
+two side planes, lie outside the reference centerline spans and are excluded
+by the existing filter. Their section/stress disposition remains unresolved.
+The 68 own wood capture references peak at **0.362247458**, axis 019's
+nut/header force **1256.060189 N**, with full ideal-annulus Fc-perpendicular
+reference **3467.409252 N** and no duration increase. Actual washer pressure,
+moment, bending and spreading are unavailable. Bore-pressure/Fe parameter
+indices peak at **0.158555569 for D / 0.179870140 for 0.8D**, retained left
+bolt 2 into the left side. They are material-parameter diagnostics, with
+adjusted joint resistance null. The thirty reference faces peak at
+**0.646556524 MPa N/Aref**, top rail/left side, respective grain angles
+**0° / 90°**; both actual allowable-pressure fields remain null. All fourteen
+unequal shared-shaft ASD resistances and complete joints remain unqualified.
+
+The independently ready pose route has source/test SHA256 values
+`a31ab842ccbd6f6f66e1ca009b29c1e0ad67753e93477cda3f9c013e9878712a` /
+`16de057252c1c549f1587d8752cafc6faf43516f6d7dd5c7ec3dea3960784552`.
+Its six fixtures and independent synthetic 8018-coordinate map replay retain
+all 20 timbers, 30 patches and 584 reference markers. It loads the actual new
+immutable-payload gate before q access and uses the frozen v4 pure pose API,
+without loading K or calling an older field's admission. Seventy added
+zero-linear-roll coordinates are a finite pose lift only; every shaft-bearing
+and capture witness explicitly denies objective shaft/washer orientation.
+The parent consumes the real q in 2.54 seconds.
+`observer-isolation-v2/pose-applicability.json` is 110,285 bytes, SHA256
+`9918d4b93c8201f71d0621aff2b3fa2d2391b2eb148da8d4fbe389f712f3d077`.
+
+Independent production review authenticates all 208 pose pins and exactly
+replays its same-q geometry. Maximum timber linear tangential motion is
+**27.507263844 mm**, header/left-side cell 20; the finite-arm marker reaches
+**27.912909918 mm**. Maximum timber material relative rotation among all
+584 markers is **0.173255220 rad**, outer-left post/floor cell 30; normal
+tilt maximum is **0.098225068 rad**. Among 32 representative flange markers,
+the full material relative rotation maximum is **0.230787714 rad**, base-left
+B104 post/contact-2. Its internal two-flange marker is **0.024069650 rad /
+2.733007102 mm**; it does not recover actual heel curvature or bend strain.
+Updating the second normal at the same q changes **13 timber contact-side
+markers**: eleven of 104 loaded cells become opening, and two unloaded
+cells become closing. Thirteen of fifteen loaded representative flange
+markers become opening. Independent Rodrigues and arm arithmetic confirms
+cell 17's saved **7.240233762 N**, linear opening **−0.013355565 mm**, and
+updated-normal opening **+0.081290734 mm**. This is fixed-q diagnostic geometry,
+without a recomputed force law, branch, physical movement prediction or current
+trimmed overlap. The first-order field's declared-law equilibrium remains
+valid; physical current-contact applicability and complete strength remain
+unverified.
+
+The two small reductions are now complete and independently reviewed.
+They reuse current own actions and saved centroid/inertia/U-V bounds at each
+matching cut, without a new geometry query, floor rebuild or response solve.
+
+**Own fitting gravity in nominal cuts.** The frozen source's flange-unspecified
+fitting port is half the beam port plus half the post port. Therefore a
+body-centroid force F supplies **F/2** at each own hole plus the free couple
+**(centroid − own hole) × F/2**. This exactly represents the recorded
+generalized load operator; it does not establish physical mass distribution
+along either formed flat leg. A separate source-preserving diagnostic adds
+these known own loads once to the existing nominal/torsion cut APIs. The
+source/test SHA256 values in `observer-isolation-v2/fitting-gravity-v1/` are
+`5b72022e4f27881dff233f71cbcea3d433975c43e903dcc453893b6c15d5276d` /
+`0779cf43f704c279b803ec62a9359ccb59738f3de63995bb110b423ffbe18fcb`.
+Eight focused fixtures and Ruff pass after an independently reviewed atomic
+exclusive-output correction. Genuine twelve-coordinate source-port fixtures
+verify force, moment and work; no K constructor is called.
+
+The parent executes the diagnostic's CLI with `PYTHONPATH=.` and the exact
+current field, admission and `component-reductions.json`. Its 543,198-byte
+`gravity-diagnostic.json` has SHA256
+`4d0b9b9615a8b7574fecf2d42834ef2567dade841f8f61d578f638d5041a84f4`.
+All thirty-six fitting loads / seventy-two own half-port wrenches reproduce
+the actual saved original RHS entries 1350–1781 exactly; only that dense
+applied vector is read from the NPZ. Maximum virtual-work/global-wrench errors
+are **1.42109e-14 N·mm / 4.54747e-13 N/N·mm**. Independent production review
+authenticates all 262 source pins and replays all seventy-two nominal and
+torsion rows, with zero selected cut-wrench error. Earlier raw field and
+component output bytes remain unchanged.
+
+The resulting **gravity-inclusive current operator-scenario** maxima are
+B104 **0.797271931**, B103 **0.008421857**, gross torsion **0.801668421** and
+two-ligament proxy **0.848321503**. All governing B104 values remain on the
+base-left post flange. The signed gravity contribution slightly reduces these
+witnesses; no reserve or physical formed-part rating is inferred. Use these
+new values for that complete model-load scope and retain the preceding
+port-only values as their original narrower comparison. Product heel/hole,
+warping, prying, contact applicability and complete resistance remain open.
+Reproduce with a distinct output path:
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 .venv/bin/python fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/fitting-gravity-v1/diagnostic.py \
+  --field fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/a12-rear.json \
+  --admission fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/admission.json \
+  --components fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/component-reductions.json \
+  --out DISTINCT_GRAVITY_OUTPUT.json
+```
+
+**Five same-cut net-section stress bounds.** The saved exact section
+properties give actual net area, centroid, coupled U/V inertia and a containing
+box, but do not retain the directional support function for each new stress
+gradient. A narrow new helper recovers current own cut wrenches at exactly
+those five saved stations, including all 584 timber faces once and unchanged
+affine selfweight. It transports each complete wrench to the net centroid,
+reuses the pure `centroid_components` algebra in the explicit first-order
+reference frame, and evaluates the linear Bernoulli field at four containing
+box corners. Their extrema enclose that declared linear field over the saved
+section; corner material occupancy and exact trimmed-boundary extrema remain
+unproved. No adjusted NDS, shear, fracture or stability resistance is assigned.
+
+`observer-isolation-v2/section-box-v1/normal_stress.py` and its test are SHA256
+`6bd487b6bf328e765e84889b6fdcd094191ec6fcf4b634a87174ed3996f7a5bf` /
+`2e4f337401fe3007e4b0c52faf0f52c17d851ffb9697e1c762e4c83330b573b7`.
+Thirteen focused fixtures and Ruff pass; independent unsymmetric, rotation
+and unit-scale checks preserve the manufactured **[−6, 15] MPa** enclosure.
+The parent consumes the exact current field through the actual new gate in
+0.583 seconds. The 95,952-byte `normal-stress.json` is SHA256
+`e810ab40d10ffbb9e4488b8f13e7f9bd3710a2a03fb365e538869e3b8d622a46`.
+
+| Existing exact net section | Global grain station, mm | Signed linear stress box enclosure, MPa |
+| --- | ---: | ---: |
+| Left leg | −303.9267207 | **−2.446419 to +1.521776** |
+| Right leg | −303.9267207 | **−0.857374 to +0.581647** |
+| Bottom rail, right | 173.1875 | **−0.178196 to +0.174377** |
+| Lower service rail, left | −989.2 | **−0.084241 to +0.084301** |
+| Center principal, left | 2419.8241337 | **−0.091274 to +0.079004** |
+
+The independent scalar production verifier reconstructs each own force/couple,
+centroid transport, cross-inertia solution and corner stress. Cut/corner
+positions match exactly; maximum force/moment/beta/stress errors are
+**4.441e-14 N / 2.192e-10 N·mm / 3.622e-16 N/mm³ / 4.719e-15 MPa**.
+All 222 result pins and three external review bindings remain unchanged.
+Its 16,928-byte `independent-normal-stress-validation.json`, SHA256
+`c5d33e39d12e5b64911751503d14a506fda55e08e8e0b717c19dd47bbed854db`,
+embeds the small scalar reproducer and execution/tool-version records. These
+five results quantify the existing sections, without clearing the remaining
+timber cuts or joint failure modes.
+
+The 4,409-byte current pose review,
+`observer-isolation-v2/pose-applicability-review.json`, is SHA256
+`deddc0dd5f392220858c0f8aa85ad72f6af1c5229dc629b851fac942996be46e`;
+its 11,721-byte reproducer, `review_pose_applicability.py`, is
+`e5ae4dd8799ded0f744fd5a4fd8276516db2cdc8c808ecd85bc54b636b229e60`.
+It preserves the exact current output replay, full marker-side counts and
+independent Rodrigues/arm witnesses. Reproduction accepts a distinct `--out`
+path. No force or equilibrium recomputation is performed.
+
+#### Compact current A12 assessment and recovery
+
+The bounded lean criterion above allows failed, reference-exceeding and
+unqualified governing findings to complete a conditional assessment. It now
+has an actual independently admitted current field and reviewed quantitative
+dispositions, rather than a timeout or geometry-only packet. The
+[current compact assessment](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/assessment.json)
+is **696,552 bytes**, SHA256
+`fac5de9e745ed85331e9f7a5decd80d52935eb8f00872a343657ce628cfabe7b`.
+It authenticates the exact `29b25f…` raw field through the actual new admission
+gate before projecting any results. Its source helper is **9,840 bytes**,
+SHA256 `956627b95bdd7ca9548e54b2b98b70b78c4a66e48690ccb21b9a69c2f894ac23`.
+Independent readiness review verifies eight fixed raw input hashes and their
+same-field/state/release bindings. The assessment retains 275 transitive
+source bindings, original gradient/body/global/floor gates, all **24 duties /
+36 fittings / 72 flanges**, all **six panel spatial and mean diagnostics /
+66 own screw axes**, all **20 existing cut witness sets**, and **five net-section
+stress enclosures**. Its per-duty witnesses use the gravity-inclusive current
+operator scenario; the earlier port-only flange summary is not substituted.
+No new response solve, native run or geometry query is needed for this curation.
+Independent production review verifies the assessment's actual output bytes,
+all 275 pins, all eight raw input hashes and exact own-duty/component joins.
+It reproduces the current maxima and confirms spatial exceedances remain
+separate from mean diagnostics. The helper, output, inputs and selected
+authority remain unchanged before and after review.
+
+Focused validation is recorded by seam: 97 initial complete-contact readiness
+fixtures, 34 observer/admission/bridge fixtures, 15 member-schema fixtures,
+six pose fixtures, thirteen section-bound fixtures and eight fitting-gravity
+fixtures pass. Current production admission, timber/shaft/flange/panel/washer
+reductions, pose arithmetic, fitting gravity and section enclosures also pass
+independent numerical review within their declared scopes. Prior 367 focused
+fixtures are reused; no full historical suite is rerun for this publication.
+The earlier full-suite failures remain recorded below, and no whole-repository
+green result is claimed.
+
+The frozen raw field still records producer-time
+`complete_contact_admission_pending=true` and
+`compatible_numerical_mvp_complete=false`. Those bytes remain unchanged. The
+separate subsequent `admission.json` establishes declared-law arithmetic
+admission; this assessment establishes conditional finding coverage. Neither
+changes the raw producer flags or establishes physical joint acceptance.
+All twenty-four complete-joint resistances remain null, and all structural,
+fabrication and climbing release flags remain false.
+
+Current geometry/contact applicability is explicitly **UNQUALIFIED**. The
+27.507-mm timber-face slide and updated opening markers prevent treating the
+first-order actions as established physical demand bounds. Conditional bracket
+references peak at **0.848322**, including operator gravity. Current generic
+head and spatial panel bending/rolling references reach **3.342699 /
+5.501986 / 2.777902** at CD1; favorable mean net-cut values do not clear them.
+Those exceedances identify panel load transfer as an active design decision,
+without proving actual Hillman or plywood failure. The single, paired and
+fourteen shared-shaft families remain unqualified complete connections.
+
+Next work uses the current evidence to decide a panel attachment/load-sharing
+remedy and a validated current-contact/washer response method. Exact fitting
+minimum geometry, formed heel/hole geometry and material strength; delivered
+bolt root/shank/runout/thread windows and Fyb; own washer seating, pressure
+couples, bending and material; Hillman head/withdrawal/local-panel resistance;
+and applicable unequal shared-shaft, receiver group, tearout/splitting and
+member shear/stability resistance remain missing inputs. Additional global
+cases cannot erase these deficiencies. Required geometry changes must be
+reported before altering the reviewed layout. No physical operation or new
+external sign-off prerequisite is introduced.
+
+The owned publication set is **106 new paths / 3,418,932 bytes**, plus updates
+to the existing README, this ledger and the lint configuration. The narrow
+annular-review style exception preserves its already issued source hash;
+it covers equivalent import ordering and dictionary syntax only. The
+publication retains the immutable 720,002-byte
+contact atlas because the corrected method consumes its exact rows/hash, and
+the 696,552-byte assessment because it includes every duty, spatial/mean panel
+finding, cut witness set and same-state provenance. The 7.39-MB raw field,
+3.38-MB full component output, operator bundles and full gravity output remain
+ignored evidence. They are recoverable through the external archive below;
+no bulky raw field, dependency installation, manual or CAD cache is added to
+Git. The explicit owned-path inventory is SHA256
+`8550603dbdd3ce600d85f1e43b1934d6a1e00e567d42cdb710e3484834ffecd5`.
+Other agents' fourteen untracked upper-corner repair helpers are excluded.
+Final owned-file lint passes for all 73 Python paths; 495 local document
+targets and the four selected/development authority hashes pass. Staged
+whitespace review finds only the issued annular review's preserved extra
+blank line at EOF; its frozen source hash is retained. All other owned paths
+pass the standard whitespace check. Independent final documentation review confirms the conditional scope,
+current gravity-inclusive references, spatial deficits and recovery record.
+Publication proceeds on `master` after the October 7 Denver quiet-hours
+window ends; the selected authority and historical frozen bytes are preserved.
+
+Before publication, ownership, current consumers and running-process use were
+checked. No physics process was using the five selected ignored trees, and
+workers had stopped writing them. The repository archive tool created and
+verified an external archive, restored every file into a fresh temporary tree,
+and rechecked the unchanged source inventory. It preserves **1,020 files /
+54,215,121 source bytes**, including the current and failed-export packets,
+finished geometry cache, saved panel operators, complete-contact adapter and
+local contact/port inputs. Archive:
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-current-a12-complete-atlas.tar.gz`
+(13,486,986 bytes), SHA256
+`a68dc75c0bdd6ae3b6ab7b9de201902fa73b80b6d8fc5ecec6f08001952b1a78`.
+Its companion `.manifest.json` is 228,820 bytes, SHA256
+`f1d3fa150cccd61e31bef30e5d9ce83010b71de664fa459a8c5104682b156ddc`.
+Archive and restored-tree verification completed at 23:59 UTC on October 7,
+2026. Recover into a fresh external directory with:
+
+```sh
+.venv/bin/python scripts/evidence_archive.py restore \
+  --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-current-a12-complete-atlas.tar.gz.manifest.json \
+  --destination /tmp/mini-moonboard-thin-current-a12-recovery
+```
+
+Keep the original trees active for current consumers; no pruning was performed.
+Failed six-interface searches, invalid export and earlier annular experiments
+remain recoverable historical evidence. The atlas, admitted current A12
+field/operator bundles, local hardware/material/port preparation and annular
+method remain active for the next panel/contact/complete-joint decisions.
+Closed bulky raw runs may be archived later through the same workflow, after
+another consumer/ownership/process check; this archive supplies no deletion
+authority. Conditional assessment completion is separate from candidate
+selection, complete joint strength and fabrication release.
+
+#### Own annular-seat response method
+
+The earlier pressure helper establishes full-contact admissibility, without
+recovering partial rocking. A pure rigid-ring, uniform-bedding method now
+integrates `p = k max(δ + sx x + sy y, 0)` over the annulus. For the frozen
+large washer radii 7.14375 / 17.526 mm, area is **804.648309885 mm²** and
+second moment **72,055.0170044 mm⁴**. A positive normal force keeps full
+contact only when `|Mxy|/N ≤ 5.109463655 mm` in this scenario. That limit is
+a contact-state condition, not moment strength. With +z traction on the
+washer, `Mx = ∫p y` and `My = −∫p x`; the receiver gets opposing force and
+moment. Horizontal translation and yaw remain free.
+
+The preserved v1 source/input/result hashes in
+`fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/` are
+`5b55dcaaf663dd6954ba2f6a7a61aeb48c0ec4014edcf1d7f814defaacb97428`,
+`27996bab1096fc1d24f2097e06cf782805116da18f3d88ad92336e218a31151d`,
+and `04e7939dc3bde3bef9878cf5a6cc8f8fe8a1e1bacb79368a98db7598136631f5`.
+Its qualified independent review is
+`68c4dd7a78202527871e4981cde6774051ce77fd372f2187d025ba7056027901`.
+Eight moderate/full/open scenarios, independent cap integrals, derivative,
+rank and reciprocity checks pass. At declared k=1 N/mm³,
+`q=(0,0.003,0.004)` gives N=**16.7290994727 N** and
+Mxy=(144.110034009,−108.082525507) N·mm. The partial-cap
+`q=(−0.02,0.003,0.004)` gives N=**9.52252259913 N** and
+Mxy=(91.4809598067,−68.6107198550) N·mm. These are unit-method scenarios,
+not current forces or proven physical contact areas. At whole touch, zero
+tangent is a selected all-open generalized derivative; the classical Hessian
+is not unique there.
+
+Independent review found cancellation near vanishing caps: v1 can produce
+negative force/energy or an indefinite rounded tangent. The first v2 tiny-cap
+fix preserves positive high-precision Gram data and rejects unsafe rounded
+float tangents, but its narrow numeric dispatch still fails an intermediate
+cap seam. Both issued attempts remain recoverable and unqualified for general
+near-opening use. The separate minimal final dispatch now passes independent
+numerical review. It uses centered positive integrals for every outer-only
+cap and the well-conditioned inner-rim handover, without force clamping,
+diagonal shifts or a physical activation threshold. In the existing v2 packet,
+`outer_cap_dispatch_final.py`, `dispatch-input.json` and
+`dispatch-result-final.json` are respectively SHA256
+`f1e5a02537fdb6dcaf6521862457ddbab195708221f02bd5f6fd4964cccebf12`,
+`910fbac9d936da2786170c5a76b201e3f70ce7a4c96a2fffdb3ad26e3764631c`,
+and `33d05dbc2e0887ab44a2ba971147a20a21b6948b150b16d66a492f800730a061`.
+All fifteen source pins remain unchanged and default Ruff passes. Independent
+120-digit angular/radial pressure integration checks six tiny caps, three
+inner-rim states and eight reused states: maximum relative error is 3.78e-86
+for precise cap results, 1.30e-14 at the inner-rim fallback and 5.34e-16 for
+moderate states. Independent energy/gradient/tangent derivative error is at
+most 8.52e-9; positive Gram reconstruction error is 9.52e-100.
+The same packet preserves the 20,671-byte independent review at
+`independent-pressure-numerical-review.json`, SHA256
+`d44a8e68f3446bf4bdd835d689877e036da4ab90e205b76914bf14bcc05b5dbc`,
+and its 10,018-byte reproducer, SHA256
+`cbde187d3661c1128dd592a64a76d77131e0f5558f4a5f35df5969fdd045780d`.
+The receipt binds exact raw/canonical artifacts, seventeen integration states,
+eight derivative states, five rejected dense tangents and the recovery command.
+
+Four tiny-cap matrices and the binary grazing matrix correctly return no
+dense float tangent when exact binary checks find it indefinite. Their
+positive Gram/high-precision results require a suitable consumer before
+integration. The nominal grazing input actually has a positive binary cap
+width 2.538108612e-16 mm and retains its tiny positive force/energy; exact
+representable opening gives zero. This qualifies the declared rigid annular
+bedding method only. Actual washer bending, pressure footprint, wood strength,
+candidate integration and joint acceptance remain unestablished. All first
+and provisional outputs are preserved in the same ignored method packet.
+
+The timber worker reused the existing signed demand and finished-boundary
+probes rather than repeating geometry queries. Representative old-state
+grain/load and placement comparisons are:
+
+| Shaft / member | Signed grain / cross-grain force, N; angle | Loaded grain boundary / sampled loaded edge, mm | Existing CD1 body / explicit 0.8D comparison |
+| --- | --- | --- | --- |
+| 001 / top rail | **+472.771 / +159.287; 18.620°** | Positive outer end 2,173.288; first boundary **865.831 at another bore** / **69.850** | **0.251391 / 0.309218** |
+| 002 / left rim | **−65.940 / −161.517; 67.792°** | Negative outer end 2,405.752; first boundary **424.481 at another bore** / **69.850** | **0.081391 / 0.115659** |
+| Shared023 / bottom rail, B104 side | **+0.571 / +2.230; 75.648°** | Positive outer end 957.113; first boundary **865.831 at another bore** / **69.850** | **Unavailable asymmetric shared-shaft resistance** |
+| 024 / left rim | Zero lateral action | No signed loaded end/edge | No lateral ratio |
+| 025 / left rim, B103 side | **−1.020 / −1.601; 57.512°** | Negative **143.877 at oblique z=277 end** / **69.850** | **0.000838 / 0.001198** |
+| Retained front-left second / post | **−763.905 / −850.647; 48.075°** | Negative square end **98.103** / **41.597** toward +Y | Shaft **1.018150 / 1.229309** |
+| Same retained shaft / runner | **−850.647 / +763.905; 41.925°** | Negative square end **98.103** / **41.597** toward +Z | Same shaft comparison |
+
+The half-inch sampled loaded edges exceed 4D by 19.05 mm. For 001 / 023 the
+near square end is 84.1375 mm away, but the signed grain force acts away from
+it; a nearest-end tension reduction would misclassify that component. The
+retained shaft's two square loaded ends exceed **7D=66.675 mm** and its edges
+exceed **4D=38.1 mm by 3.497 mm**. Their saved square-end component diagnostics
+therefore remain 1.0 and do not worsen or remedy the retained Mode-II comparison.
+These are sampled component placement findings, not formal CΔ=1.
+
+The pinned NDS Chapter 12 §12.1.2.2 defines distance from a square-cut member
+end; another bore and the oblique z=277 face cannot be approved as such ends.
+Tables 12.5.1A–D do not supply an authenticated intermediate-angle interpolation
+for these oblique actions. Five depth probes do not prove a continuous minimum.
+Bottom-post axes024 / 025 have 127-mm grain spacing, above the separate
+parallel 4D benchmark by 76.2 mm, but the oblique resultant fails the maintained
+row-alignment method. Actual Cg, finished connected fracture areas and
+splitting resistance remain null. Shared023 requires its own root/thread
+window and unequal-side response; the retained two-bolt group also remains
+unqualified. Demand/unit hashes and all fourteen demand-source pins are
+unchanged. The directly read Chapter 12 cache is SHA
+`5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a`.
+No new timber calculation artifact or solve was needed.
+
+For a complete-joint conclusion, the current missing inputs remain: credible
+motion/contact/stiffness applicability for the admitted model actions; exact fitting
+minimum geometry/material and Fu; physical root/shank/runout and own-end washer
+seating/material; applicable end/edge/group and connected tearout/splitting
+resistance; and same-state combined/local steel and member behavior. The pure
+post-admission reductions have been consumed and independently reviewed; they do not fill those
+unknowns with a scalar safety factor. All complete-joint/capacity/fabrication
+and climbing release flags stay false. Numerical component exceedances and
+unqualified comparisons remain valid outcomes of this bounded development.
+
+**Reference-basis interpretation:** a 1.0 cutoff is local to each named
+comparison, not a common safety factor. Steel VM/Fy marks ideal nominal first
+yield. [AWC TR12 §1.3](https://web-media.awc.org/wp-content/uploads/2021/12/17210714/AWC-TR12-1510.pdf)
+defines the bolt ASD reference through the minimum reduced yield mode;
+service, geometry and connection adjustments remain separately applicable.
+The preserved [AISC360-16 J4/H3.3 source](https://www.aisc.org/globalassets/aisc/publications/standards/a360-16-spec-and-commentary.pdf)
+uses limit-state-specific factors: tensile yielding, shear yielding and
+rupture do not share one factor. Its non-HSS torsion provisions distinguish
+normal/shear yielding and buckling. This interpretation does not adopt that
+edition or qualify our short, formed, perforated angle as a code member.
+
+For scale only, the unadopted uniform **Fy/1.67 = 136.243707 MPa** hypothesis
+would put the saved B104 gross / ligament-proxy indices at **0.925090 /
+1.456225**. That arithmetic is not an AISC-qualified allowable check or a
+new joint-failure finding. Actual local geometry, stresses, load basis,
+combined limit states and complete paths remain unqualified. Likewise,
+[Eaton's catalog p.106](https://www.eaton.com/content/dam/eaton/products/support-systems/strut-systems-%26-accessories/strut-fittings-and-accessories/strut-fittings-catalog-section.pdf)
+defines its 2.5 ultimate/design-load factor for a specified strut/channel-nut
+assembly; it cannot be applied as a Fy divisor or timber-joint rating here.
+No existing factor, material, load, frozen result or criterion changed.
+
+The earlier compact continuation contained **42 new files / 505,465 bytes** before
+Git compression: 36 focused Python producer/gate/adapter/test paths and six
+compact method/application receipts. The two existing summary/ledger documents
+carry the current disposition; no routine checkpoint or duplicate raw sampled
+export was added. All **367 focused fixtures**, owned lint and local document
+targets pass. No full historical suite, CAD rebuild or mesh export was required.
+Historical passes and the selected baseline are unchanged.
+
+Active evidence includes the reviewed geometry/operator/material caches,
+all four authenticated failed-field ancestors, the invalid-export freeze/log,
+three closed cold diagnostics, compact torsion application and ignored
+representative joint/statics, unequal-bearing and small contact-history
+evidence. These remain available for their current consumers and ongoing
+law/applicability checks. The existing annular-contact native fixture remains
+completed integrated-resultant method evidence for the next joint seam;
+its consumed run needs no retry.
+Closed raw records may be considered for a later external archive only after
+the prescribed ownership/consumer/process and verified restore checks; no
+archive or pruning had occurred at that checkpoint. The later current-A12
+archive and publication scope are recorded above. Other agents' tracked/untracked files remain
+untouched. This is still a conditional development packet, not a complete
+fresh-clone analysis environment or physical release. Changes remain on
+`master`; work was left uncommitted during the local quiet-hours window.
+
+Fresh online verification of
+[Eaton's catalog](https://www-dev.eaton.com/content/dam/eaton/products/support-systems/strut-systems-%26-accessories/strut-fittings-and-accessories/strut-fittings-catalog-section.pdf)
+still supports the general ASTM A1018, 33-ksi minimum-yield and nominal
+7/32-inch assumptions. Its
+[B103 SKU](https://www.eaton.com/us/en-us/skuPage.B103ZN.html) still describes
+two 4.12-inch dimensions and quarter-inch gauge;
+the [B104 SKU](https://www.eaton.com/us/en-us/skuPage.B104ZN.html) retains its
+description/specification dimension discrepancy. These sources do not settle
+delivered geometry or qualify the wood connection. No strut assembly load or
+recommended torque is transferred.
+
+The older accepted floor integer **237**, `centroid-mask-10110111`, was already
+tested as **pattern 2** in attempt01 with fresh changed-model forces. Its
+residual was **2.2305392586e-7 N**, but `base_post_center_left` had **0 N** own
+bearing while its XY remained enabled. It was therefore not self-consistent.
+That exact history is reused for scheduling; it does not justify repeating
+the mask or importing the older reactions/pass.
 
 **Joint-first continuation and floor reuse:** the owner again prioritizes
 joint mechanics, asks to reuse previous floor work, and authorizes committing
@@ -1213,7 +3134,8 @@ than repeating footprints, material references or method coupons. The eight
 binary host-activation bits permit 256 patterns; five visited branches
 and a cycle do not prove that none is self-consistent. No reviewed alternative
 branch selector or further candidate attempt is authorized by this reuse
-instruction. No floor-friction test or physical anchor is added.
+instruction alone. The later explicit allowance below permits further
+law-preserving candidate work. No floor-friction test or physical anchor is added.
 
 Joint work can meanwhile reuse the
 [isolated freedoms](hypotheses/hl35-candidate/thin-frame-comparison/isolated-joint-kinematics-v4.json),
@@ -3396,7 +5318,7 @@ shaft's reported **0.770466 Nmm** gauge moment. A separate virtual-work audit
 passes. Numerical isotropic elasticity and this coupon's prescribed pressure
 are **method inputs**, not the 145 lb joint or DF-L strength.
 
-The pinned CalculiX2.23 C3D10 deck has 1600 nodes and 768 elements, with
+The pinned CalculiX 2.23 C3D10 deck has 1600 nodes and 768 elements, with
 authenticated manual/source members and a parent-only one-CPU/1GiB/60s route.
 It remains **unexecuted** because Docker access is denied; no alternate binary
 or image is substituted. The manual confirms this deck's nodal `COPEN` output

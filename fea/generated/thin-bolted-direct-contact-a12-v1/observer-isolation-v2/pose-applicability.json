@@ -1,0 +1,2033 @@
+{
+  "accessory_placement": "retained-original-top-hold",
+  "actual_gate_sha256": "4b78722ab407a39d6e00fc9e16be0d370d0c837dea5880e45e7a2e277dd6efb6",
+  "admission_receipt_canonical_sha256": "7ec87b7faec38bd08f9091e102c7a03f340a02b08a89ceb7b17487ee2e70a253",
+  "case_id": "a12-rear",
+  "field_canonical_sha256": "33d7dbf5033ac5e3715277e7af51e2747a082c657df2081e4e38a5d6d10155a9",
+  "field_sha256": "29b25f11794a171a1364268ed676a24cee2882e47c3018b3648267d2707a0ddf",
+  "finite_response_equilibrium_contact_area_strain_acceptance_or_capacity_established": false,
+  "limits": [
+    "Fixed admitted first-order q is replayed through finite rigid arms/geodesic interpolation; no force, equilibrium or branch is recomputed.",
+    "Seventy zero first-shaft-roll coordinates are a pose lift only. Every finite shaft director/material rotation and OD*sin(tilt) marker depends on that lift; objective shaft/washer orientation is not recovered.",
+    "Panel markers provide Ritz surface-normal tilt, not a complete panel material rotation.",
+    "All thirty reference patches/584 points are retained; current trimmed overlap, holes, pressure, seating and surviving cell ownership are unresolved.",
+    "No new motion, strain, overlap or strength criterion, resistance, complete-joint acceptance or release is established."
+  ],
+  "markers": {
+    "admitted_timber_map_sha256": "576597b45d1d22327f9fb89112925562e87c2b3302f3284efe90db4e518351b5",
+    "all30_reference_pair_summaries": [
+      {
+        "cell_count": 56,
+        "first": "base_side_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.054350887748243815,
+            "id": "timber-face/base_side_left/lumber_leg_left/1-11-0/cell-50"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 12.109984494762434,
+            "id": "timber-face/base_side_left/lumber_leg_left/1-11-0/cell-54"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_side_left/lumber_leg_left/1-11-0/cell-54",
+            "linear_tangent_motion_norm_mm": 12.06192292138676
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_side_left/lumber_leg_left/1-11-0/cell-1",
+            "own_director_relative_angle_rad": 0.005107513137009544
+          }
+        },
+        "patch_id": "timber-face/base_side_left/lumber_leg_left/1-11-0",
+        "reference_overlap_area_mm2": 23852.78375686938,
+        "second": "lumber_leg_left"
+      },
+      {
+        "cell_count": 56,
+        "first": "base_side_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.0054512478347395095,
+            "id": "timber-face/base_side_right/lumber_leg_right/17-9-0/cell-0"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 5.825357989891308,
+            "id": "timber-face/base_side_right/lumber_leg_right/17-9-0/cell-0"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_side_right/lumber_leg_right/17-9-0/cell-0",
+            "linear_tangent_motion_norm_mm": 5.819817304248443
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_side_right/lumber_leg_right/17-9-0/cell-47",
+            "own_director_relative_angle_rad": 0.0029619490633367644
+          }
+        },
+        "patch_id": "timber-face/base_side_right/lumber_leg_right/17-9-0",
+        "reference_overlap_area_mm2": 23852.78375686937,
+        "second": "lumber_leg_right"
+      },
+      {
+        "cell_count": 36,
+        "first": "base_post_outer_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.7530656979799425,
+            "id": "timber-face/base_post_outer_left/base_floor_left/1-5-0/cell-0"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 17.279476255940594,
+            "id": "timber-face/base_post_outer_left/base_floor_left/1-5-0/cell-5"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_post_outer_left/base_floor_left/1-5-0/cell-5",
+            "linear_tangent_motion_norm_mm": 16.864608237454878
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_post_outer_left/base_floor_left/1-5-0/cell-30",
+            "own_director_relative_angle_rad": 0.00323341215499742
+          }
+        },
+        "patch_id": "timber-face/base_post_outer_left/base_floor_left/1-5-0",
+        "reference_overlap_area_mm2": 19322.116043157646,
+        "second": "base_floor_left"
+      },
+      {
+        "cell_count": 36,
+        "first": "base_post_outer_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.053839384217793246,
+            "id": "timber-face/base_post_outer_right/base_floor_right/9-4-0/cell-35"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 6.218005510158398,
+            "id": "timber-face/base_post_outer_right/base_floor_right/9-4-0/cell-5"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_post_outer_right/base_floor_right/9-4-0/cell-5",
+            "linear_tangent_motion_norm_mm": 6.265852216061191
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_post_outer_right/base_floor_right/9-4-0/cell-35",
+            "own_director_relative_angle_rad": 0.00136473732623016
+          }
+        },
+        "patch_id": "timber-face/base_post_outer_right/base_floor_right/9-4-0",
+        "reference_overlap_area_mm2": 19322.116043157643,
+        "second": "base_floor_right"
+      },
+      {
+        "cell_count": 44,
+        "first": "base_floor_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.008518579184661947,
+            "id": "timber-face/base_floor_left/lumber_leg_left/4-4-0/cell-40"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 3.728434947509978,
+            "id": "timber-face/base_floor_left/lumber_leg_left/4-4-0/cell-0"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_floor_left/lumber_leg_left/4-4-0/cell-0",
+            "linear_tangent_motion_norm_mm": 3.7341126486846323
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_floor_left/lumber_leg_left/4-4-0/cell-0",
+            "own_director_relative_angle_rad": 0.002489335722784301
+          }
+        },
+        "patch_id": "timber-face/base_floor_left/lumber_leg_left/4-4-0",
+        "reference_overlap_area_mm2": 19905.354666781594,
+        "second": "lumber_leg_left"
+      },
+      {
+        "cell_count": 44,
+        "first": "base_floor_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.002017536903999495,
+            "id": "timber-face/base_floor_right/lumber_leg_right/5-2-0/cell-3"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 1.5153487071777014,
+            "id": "timber-face/base_floor_right/lumber_leg_right/5-2-0/cell-39"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_floor_right/lumber_leg_right/5-2-0/cell-39",
+            "linear_tangent_motion_norm_mm": 1.513926340444225
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_floor_right/lumber_leg_right/5-2-0/cell-40",
+            "own_director_relative_angle_rad": 0.0022672244916570657
+          }
+        },
+        "patch_id": "timber-face/base_floor_right/lumber_leg_right/5-2-0",
+        "reference_overlap_area_mm2": 19905.35466678159,
+        "second": "lumber_leg_right"
+      },
+      {
+        "cell_count": 24,
+        "first": "base_header",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.10584955921623765,
+            "id": "timber-face/base_header/base_side_left/3-2-0/cell-3"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 27.91290991791958,
+            "id": "timber-face/base_header/base_side_left/3-2-0/cell-0"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_header/base_side_left/3-2-0/cell-20",
+            "linear_tangent_motion_norm_mm": 27.507263843851163
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_header/base_side_left/3-2-0/cell-23",
+            "own_director_relative_angle_rad": 0.09546437708505451
+          }
+        },
+        "patch_id": "timber-face/base_header/base_side_left/3-2-0",
+        "reference_overlap_area_mm2": 11930.617255610585,
+        "second": "base_side_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_header",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.07635183446154388,
+            "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-1"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 15.446560610172472,
+            "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-11"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-1",
+            "linear_tangent_motion_norm_mm": 15.199855860431313
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-1",
+            "own_director_relative_angle_rad": 0.08112449325283877
+          }
+        },
+        "patch_id": "timber-face/base_header/base_principal_center_left/3-2-0",
+        "reference_overlap_area_mm2": 5113.121680975948,
+        "second": "base_principal_center_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_header",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.20209558569763314,
+            "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-11"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 4.525303461141699,
+            "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-11"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-11",
+            "linear_tangent_motion_norm_mm": 4.509600925513173
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-1",
+            "own_director_relative_angle_rad": 0.03501798026934615
+          }
+        },
+        "patch_id": "timber-face/base_header/base_post_center_left/5-3-0",
+        "reference_overlap_area_mm2": 5322.569999999999,
+        "second": "base_post_center_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_header",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.10445710930948726,
+            "id": "timber-face/base_header/base_post_center_right/5-3-0/cell-11"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 2.2190222447184795,
+            "id": "timber-face/base_header/base_post_center_right/5-3-0/cell-10"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_header/base_post_center_right/5-3-0/cell-10",
+            "linear_tangent_motion_norm_mm": 2.4013751619704076
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_header/base_post_center_right/5-3-0/cell-0",
+            "own_director_relative_angle_rad": 0.02716631880894656
+          }
+        },
+        "patch_id": "timber-face/base_header/base_post_center_right/5-3-0",
+        "reference_overlap_area_mm2": 5322.569999999999,
+        "second": "base_post_center_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_header",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.6353239615851533,
+            "id": "timber-face/base_header/base_post_outer_left/5-3-0/cell-0"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 4.039567116408809,
+            "id": "timber-face/base_header/base_post_outer_left/5-3-0/cell-10"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_header/base_post_outer_left/5-3-0/cell-10",
+            "linear_tangent_motion_norm_mm": 5.402432268610106
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_header/base_post_outer_left/5-3-0/cell-0",
+            "own_director_relative_angle_rad": 0.09822506787387582
+          }
+        },
+        "patch_id": "timber-face/base_header/base_post_outer_left/5-3-0",
+        "reference_overlap_area_mm2": 5322.569999999987,
+        "second": "base_post_outer_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_header",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.02844596930323982,
+            "id": "timber-face/base_header/base_post_outer_right/5-3-0/cell-1"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 1.930975553141998,
+            "id": "timber-face/base_header/base_post_outer_right/5-3-0/cell-10"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_header/base_post_outer_right/5-3-0/cell-10",
+            "linear_tangent_motion_norm_mm": 1.9376451857984567
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_header/base_post_outer_right/5-3-0/cell-0",
+            "own_director_relative_angle_rad": 0.006478461936677052
+          }
+        },
+        "patch_id": "timber-face/base_header/base_post_outer_right/5-3-0",
+        "reference_overlap_area_mm2": 5322.570000000051,
+        "second": "base_post_outer_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_header",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.07867628503831653,
+            "id": "timber-face/base_header/base_principal_center_right/3-2-0/cell-11"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 10.87507466071902,
+            "id": "timber-face/base_header/base_principal_center_right/3-2-0/cell-10"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_header/base_principal_center_right/3-2-0/cell-0",
+            "linear_tangent_motion_norm_mm": 10.786413904471237
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_header/base_principal_center_right/3-2-0/cell-1",
+            "own_director_relative_angle_rad": 0.07639901924836723
+          }
+        },
+        "patch_id": "timber-face/base_header/base_principal_center_right/3-2-0",
+        "reference_overlap_area_mm2": 5113.121680976009,
+        "second": "base_principal_center_right"
+      },
+      {
+        "cell_count": 24,
+        "first": "base_header",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.06987921100681205,
+            "id": "timber-face/base_header/base_side_right/3-2-0/cell-23"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 15.534460377079132,
+            "id": "timber-face/base_header/base_side_right/3-2-0/cell-20"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_header/base_side_right/3-2-0/cell-0",
+            "linear_tangent_motion_norm_mm": 15.522364970182258
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_header/base_side_right/3-2-0/cell-3",
+            "own_director_relative_angle_rad": 0.05772992254838599
+          }
+        },
+        "patch_id": "timber-face/base_header/base_side_right/3-2-0",
+        "reference_overlap_area_mm2": 11930.617255610508,
+        "second": "base_side_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_principal_center_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.02257784397928718,
+            "id": "timber-face/base_principal_center_left/base_rail_bottom_left/1-3-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 3.1472504576789073,
+            "id": "timber-face/base_principal_center_left/base_rail_bottom_left/1-3-0/cell-10"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_principal_center_left/base_rail_bottom_left/1-3-0/cell-11",
+            "linear_tangent_motion_norm_mm": 3.1409984275791687
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_principal_center_left/base_rail_bottom_left/1-3-0/cell-9",
+            "own_director_relative_angle_rad": 0.0016076162147829571
+          }
+        },
+        "patch_id": "timber-face/base_principal_center_left/base_rail_bottom_left/1-3-0",
+        "reference_overlap_area_mm2": 5322.569999999997,
+        "second": "base_rail_bottom_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_principal_center_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.015268334374648347,
+            "id": "timber-face/base_principal_center_left/base_rail_service_lower_left/1-3-0/cell-0"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 0.2919213142087787,
+            "id": "timber-face/base_principal_center_left/base_rail_service_lower_left/1-3-0/cell-11"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_principal_center_left/base_rail_service_lower_left/1-3-0/cell-11",
+            "linear_tangent_motion_norm_mm": 0.2870060984356553
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_principal_center_left/base_rail_service_lower_left/1-3-0/cell-0",
+            "own_director_relative_angle_rad": 0.004869345195815563
+          }
+        },
+        "patch_id": "timber-face/base_principal_center_left/base_rail_service_lower_left/1-3-0",
+        "reference_overlap_area_mm2": 5322.570000000012,
+        "second": "base_rail_service_lower_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_principal_center_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.02695778196976526,
+            "id": "timber-face/base_principal_center_left/base_rail_service_upper_left/1-3-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 2.019663584641071,
+            "id": "timber-face/base_principal_center_left/base_rail_service_upper_left/1-3-0/cell-11"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_principal_center_left/base_rail_service_upper_left/1-3-0/cell-11",
+            "linear_tangent_motion_norm_mm": 2.0135167345096097
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_principal_center_left/base_rail_service_upper_left/1-3-0/cell-0",
+            "own_director_relative_angle_rad": 0.00638797174007203
+          }
+        },
+        "patch_id": "timber-face/base_principal_center_left/base_rail_service_upper_left/1-3-0",
+        "reference_overlap_area_mm2": 5322.569999999991,
+        "second": "base_rail_service_upper_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_principal_center_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.03317239005026206,
+            "id": "timber-face/base_principal_center_left/base_rail_top/8-2-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 10.719981461770095,
+            "id": "timber-face/base_principal_center_left/base_rail_top/8-2-0/cell-10"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_principal_center_left/base_rail_top/8-2-0/cell-10",
+            "linear_tangent_motion_norm_mm": 10.589198094512888
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_principal_center_left/base_rail_top/8-2-0/cell-1",
+            "own_director_relative_angle_rad": 0.017632488147837036
+          }
+        },
+        "patch_id": "timber-face/base_principal_center_left/base_rail_top/8-2-0",
+        "reference_overlap_area_mm2": 5322.569999999999,
+        "second": "base_rail_top"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_principal_center_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.014389483152530502,
+            "id": "timber-face/base_principal_center_right/base_rail_bottom_right/19-1-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 4.2341040005978625,
+            "id": "timber-face/base_principal_center_right/base_rail_bottom_right/19-1-0/cell-1"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_principal_center_right/base_rail_bottom_right/19-1-0/cell-1",
+            "linear_tangent_motion_norm_mm": 4.236727812143967
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_principal_center_right/base_rail_bottom_right/19-1-0/cell-10",
+            "own_director_relative_angle_rad": 0.006112172589336756
+          }
+        },
+        "patch_id": "timber-face/base_principal_center_right/base_rail_bottom_right/19-1-0",
+        "reference_overlap_area_mm2": 5322.569999999997,
+        "second": "base_rail_bottom_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_principal_center_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.013077104256088688,
+            "id": "timber-face/base_principal_center_right/base_rail_service_lower_right/19-1-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 1.784741793409676,
+            "id": "timber-face/base_principal_center_right/base_rail_service_lower_right/19-1-0/cell-0"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_principal_center_right/base_rail_service_lower_right/19-1-0/cell-0",
+            "linear_tangent_motion_norm_mm": 1.7806469381556016
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_principal_center_right/base_rail_service_lower_right/19-1-0/cell-4",
+            "own_director_relative_angle_rad": 0.0003202029784511037
+          }
+        },
+        "patch_id": "timber-face/base_principal_center_right/base_rail_service_lower_right/19-1-0",
+        "reference_overlap_area_mm2": 5322.570000000012,
+        "second": "base_rail_service_lower_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_principal_center_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.015274740812933282,
+            "id": "timber-face/base_principal_center_right/base_rail_service_upper_right/19-1-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 3.9477160894721868,
+            "id": "timber-face/base_principal_center_right/base_rail_service_upper_right/19-1-0/cell-0"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_principal_center_right/base_rail_service_upper_right/19-1-0/cell-0",
+            "linear_tangent_motion_norm_mm": 3.9444906301034974
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_principal_center_right/base_rail_service_upper_right/19-1-0/cell-1",
+            "own_director_relative_angle_rad": 0.0008406872856864528
+          }
+        },
+        "patch_id": "timber-face/base_principal_center_right/base_rail_service_upper_right/19-1-0",
+        "reference_overlap_area_mm2": 5322.569999999991,
+        "second": "base_rail_service_upper_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_principal_center_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.044221413960983336,
+            "id": "timber-face/base_principal_center_right/base_rail_top/8-2-0/cell-1"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 6.062511133199834,
+            "id": "timber-face/base_principal_center_right/base_rail_top/8-2-0/cell-11"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_principal_center_right/base_rail_top/8-2-0/cell-11",
+            "linear_tangent_motion_norm_mm": 6.0147033693311105
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_principal_center_right/base_rail_top/8-2-0/cell-7",
+            "own_director_relative_angle_rad": 0.020142316244578344
+          }
+        },
+        "patch_id": "timber-face/base_principal_center_right/base_rail_top/8-2-0",
+        "reference_overlap_area_mm2": 5322.569999999999,
+        "second": "base_rail_top"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_rail_bottom_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.02862760322800623,
+            "id": "timber-face/base_rail_bottom_left/base_side_left/5-17-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 3.9672640233180103,
+            "id": "timber-face/base_rail_bottom_left/base_side_left/5-17-0/cell-0"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_rail_bottom_left/base_side_left/5-17-0/cell-0",
+            "linear_tangent_motion_norm_mm": 3.992492835847227
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_rail_bottom_left/base_side_left/5-17-0/cell-11",
+            "own_director_relative_angle_rad": 0.00961984317893581
+          }
+        },
+        "patch_id": "timber-face/base_rail_bottom_left/base_side_left/5-17-0",
+        "reference_overlap_area_mm2": 5322.570000000003,
+        "second": "base_side_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_rail_bottom_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.0010079578562539107,
+            "id": "timber-face/base_rail_bottom_right/base_side_right/6-1-0/cell-11"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 2.7681780804969915,
+            "id": "timber-face/base_rail_bottom_right/base_side_right/6-1-0/cell-10"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_rail_bottom_right/base_side_right/6-1-0/cell-10",
+            "linear_tangent_motion_norm_mm": 2.7681692401532483
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_rail_bottom_right/base_side_right/6-1-0/cell-1",
+            "own_director_relative_angle_rad": 0.0020686342364884796
+          }
+        },
+        "patch_id": "timber-face/base_rail_bottom_right/base_side_right/6-1-0",
+        "reference_overlap_area_mm2": 5322.5700000000015,
+        "second": "base_side_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_rail_service_lower_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.01805054324687694,
+            "id": "timber-face/base_rail_service_lower_left/base_side_left/5-17-0/cell-1"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 1.4701899088573027,
+            "id": "timber-face/base_rail_service_lower_left/base_side_left/5-17-0/cell-11"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_rail_service_lower_left/base_side_left/5-17-0/cell-11",
+            "linear_tangent_motion_norm_mm": 1.4916675958341292
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_rail_service_lower_left/base_side_left/5-17-0/cell-0",
+            "own_director_relative_angle_rad": 0.00814273869573765
+          }
+        },
+        "patch_id": "timber-face/base_rail_service_lower_left/base_side_left/5-17-0",
+        "reference_overlap_area_mm2": 5322.570000000023,
+        "second": "base_side_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_rail_service_lower_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.002504959043531882,
+            "id": "timber-face/base_rail_service_lower_right/base_side_right/6-1-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 0.7763305156547564,
+            "id": "timber-face/base_rail_service_lower_right/base_side_right/6-1-0/cell-0"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_rail_service_lower_right/base_side_right/6-1-0/cell-10",
+            "linear_tangent_motion_norm_mm": 0.7774452596753235
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_rail_service_lower_right/base_side_right/6-1-0/cell-1",
+            "own_director_relative_angle_rad": 0.009207485798654838
+          }
+        },
+        "patch_id": "timber-face/base_rail_service_lower_right/base_side_right/6-1-0",
+        "reference_overlap_area_mm2": 5322.570000000023,
+        "second": "base_side_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_rail_service_upper_left",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.029330393541672654,
+            "id": "timber-face/base_rail_service_upper_left/base_side_left/5-17-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 3.506433792691591,
+            "id": "timber-face/base_rail_service_upper_left/base_side_left/5-17-0/cell-0"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_rail_service_upper_left/base_side_left/5-17-0/cell-0",
+            "linear_tangent_motion_norm_mm": 3.5245035498398085
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_rail_service_upper_left/base_side_left/5-17-0/cell-11",
+            "own_director_relative_angle_rad": 0.007580199304856925
+          }
+        },
+        "patch_id": "timber-face/base_rail_service_upper_left/base_side_left/5-17-0",
+        "reference_overlap_area_mm2": 5322.570000000014,
+        "second": "base_side_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_rail_service_upper_right",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.0008160242881556448,
+            "id": "timber-face/base_rail_service_upper_right/base_side_right/6-1-0/cell-1"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 2.5172971799178123,
+            "id": "timber-face/base_rail_service_upper_right/base_side_right/6-1-0/cell-10"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_rail_service_upper_right/base_side_right/6-1-0/cell-10",
+            "linear_tangent_motion_norm_mm": 2.5161827552634812
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_rail_service_upper_right/base_side_right/6-1-0/cell-10",
+            "own_director_relative_angle_rad": 0.010824515171636738
+          }
+        },
+        "patch_id": "timber-face/base_rail_service_upper_right/base_side_right/6-1-0",
+        "reference_overlap_area_mm2": 5322.570000000014,
+        "second": "base_side_right"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_rail_top",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.050538178864800776,
+            "id": "timber-face/base_rail_top/base_side_left/5-17-0/cell-10"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 10.906786130562582,
+            "id": "timber-face/base_rail_top/base_side_left/5-17-0/cell-1"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_rail_top/base_side_left/5-17-0/cell-1",
+            "linear_tangent_motion_norm_mm": 10.860238177059168
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_rail_top/base_side_left/5-17-0/cell-0",
+            "own_director_relative_angle_rad": 0.01240288479991714
+          }
+        },
+        "patch_id": "timber-face/base_rail_top/base_side_left/5-17-0",
+        "reference_overlap_area_mm2": 5322.569999999979,
+        "second": "base_side_left"
+      },
+      {
+        "cell_count": 12,
+        "first": "base_rail_top",
+        "governing_markers": {
+          "exact_minus_linear_relative_point_shift_norm_mm": {
+            "exact_minus_linear_relative_point_shift_norm_mm": 0.05354984148620135,
+            "id": "timber-face/base_rail_top/base_side_right/3-1-0/cell-1"
+          },
+          "finite_arm_tangent_motion_norm_mm": {
+            "finite_arm_tangent_motion_norm_mm": 5.78932226460067,
+            "id": "timber-face/base_rail_top/base_side_right/3-1-0/cell-11"
+          },
+          "linear_tangent_motion_norm_mm": {
+            "id": "timber-face/base_rail_top/base_side_right/3-1-0/cell-11",
+            "linear_tangent_motion_norm_mm": 5.757665431943833
+          },
+          "own_director_relative_angle_rad": {
+            "id": "timber-face/base_rail_top/base_side_right/3-1-0/cell-1",
+            "own_director_relative_angle_rad": 0.016552029418085628
+          }
+        },
+        "patch_id": "timber-face/base_rail_top/base_side_right/3-1-0",
+        "reference_overlap_area_mm2": 5322.569999999979,
+        "second": "base_side_right"
+      }
+    ],
+    "all584_governing_markers": {
+      "exact_minus_linear_relative_point_shift_norm_mm": {
+        "cell_area_mm2": 542.1136111111113,
+        "exact_minus_linear_relative_point_shift_norm_mm": 0.7530656979799425,
+        "finite_arm_fixed_reference_normal_projection_mm": 0.06667292968904803,
+        "finite_arm_is_new_equilibrated_or_physical_response": false,
+        "finite_arm_tangent_motion_norm_mm": 11.830208502648478,
+        "finite_arm_tangent_motion_xyz_mm": [
+          0.1315783170237507,
+          9.654659470027642,
+          6.835500777589826
+        ],
+        "finite_arm_updated_second_normal_projection_opening_positive_mm": -0.06491117557520497,
+        "finite_tangent_motion_in_25mm_cells": 0.47320834010593915,
+        "first": "base_post_outer_left",
+        "first_flange": null,
+        "first_reference_point_xyz_mm": [
+          -1219.2,
+          -47.641666666666644,
+          11.641666666666666
+        ],
+        "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+        "fixed_reference_normal_exact_minus_linear_projection_mm": 0.07410452301110126,
+        "id": "timber-face/base_post_outer_left/base_floor_left/1-5-0/cell-0",
+        "kind": "timber_face_contact",
+        "linear_signed_projection_opening_positive_mm": -0.0074315933220532315,
+        "linear_tangent_motion_in_25mm_cells": 0.49893449781652743,
+        "linear_tangent_motion_norm_mm": 12.473362445413185,
+        "linear_tangent_motion_xyz_mm": [
+          0.0,
+          10.402984680198763,
+          6.882054957510427
+        ],
+        "own_director_relative_angle_rad": 0.0030493563758111995,
+        "patch_id": "timber-face/base_post_outer_left/base_floor_left/1-5-0",
+        "relative_material_rotation_norm_rad": 0.1732397590479685,
+        "relative_material_rotation_vector_rad": [
+          0.17321285245971207,
+          0.003052317436911354,
+          7.222210552931607e-05
+        ],
+        "second": "base_floor_left",
+        "second_flange": null,
+        "second_reference_point_xyz_mm": [
+          -1219.2,
+          -47.641666666666644,
+          11.641666666666666
+        ],
+        "shaft_full_material_roll_is_recorded_gauge_dependent": false
+      },
+      "finite_arm_tangent_motion_norm_mm": {
+        "cell_area_mm2": 497.1090523171104,
+        "exact_minus_linear_relative_point_shift_norm_mm": 0.09942893352252793,
+        "finite_arm_fixed_reference_normal_projection_mm": 10.362987007313222,
+        "finite_arm_is_new_equilibrated_or_physical_response": false,
+        "finite_arm_tangent_motion_norm_mm": 27.91290991791958,
+        "finite_arm_tangent_motion_xyz_mm": [
+          1.4402477336897797,
+          27.858125628664013,
+          -0.9904862488031121
+        ],
+        "finite_arm_updated_second_normal_projection_opening_positive_mm": 9.378906399503167,
+        "finite_tangent_motion_in_25mm_cells": 1.1165163967167833,
+        "first": "base_header",
+        "first_flange": null,
+        "first_reference_point_xyz_mm": [
+          -1208.0875,
+          -164.51644426733168,
+          277.0
+        ],
+        "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+        "fixed_reference_normal_exact_minus_linear_projection_mm": 0.04315410088082672,
+        "id": "timber-face/base_header/base_side_left/3-2-0/cell-0",
+        "kind": "timber_face_contact",
+        "linear_signed_projection_opening_positive_mm": 10.319832906432396,
+        "linear_tangent_motion_in_25mm_cells": 1.0993819238239764,
+        "linear_tangent_motion_norm_mm": 27.484548095599408,
+        "linear_tangent_motion_xyz_mm": [
+          1.3663059249947764,
+          27.45056633548097,
+          0.0
+        ],
+        "own_director_relative_angle_rad": 0.09493975623819925,
+        "patch_id": "timber-face/base_header/base_side_left/3-2-0",
+        "relative_material_rotation_norm_rad": 0.09499781698363134,
+        "relative_material_rotation_vector_rad": [
+          0.09478093910518053,
+          0.005489916352288976,
+          -0.0033195831726957883
+        ],
+        "second": "base_side_left",
+        "second_flange": null,
+        "second_reference_point_xyz_mm": [
+          -1208.0875,
+          -164.51644426733168,
+          277.0
+        ],
+        "shaft_full_material_roll_is_recorded_gauge_dependent": false
+      },
+      "linear_tangent_motion_norm_mm": {
+        "cell_area_mm2": 497.10905231711007,
+        "exact_minus_linear_relative_point_shift_norm_mm": 0.10426578938025244,
+        "finite_arm_fixed_reference_normal_projection_mm": -0.20416763332713117,
+        "finite_arm_is_new_equilibrated_or_physical_response": false,
+        "finite_arm_tangent_motion_norm_mm": 27.416795190405864,
+        "finite_arm_tangent_motion_xyz_mm": [
+          1.8218079728695853,
+          27.338750201192894,
+          -0.9769399466837161
+        ],
+        "finite_arm_updated_second_normal_projection_opening_positive_mm": -1.1819135356506436,
+        "finite_tangent_motion_in_25mm_cells": 1.0966718076162345,
+        "first": "base_header",
+        "first_flange": null,
+        "first_reference_point_xyz_mm": [
+          -1208.0875,
+          -52.680886940648364,
+          277.0
+        ],
+        "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+        "fixed_reference_normal_exact_minus_linear_projection_mm": 0.0728921418034929,
+        "id": "timber-face/base_header/base_side_left/3-2-0/cell-20",
+        "kind": "timber_face_contact",
+        "linear_signed_projection_opening_positive_mm": -0.2770597751306241,
+        "linear_tangent_motion_in_25mm_cells": 1.1002905537540466,
+        "linear_tangent_motion_norm_mm": 27.507263843851163,
+        "linear_tangent_motion_xyz_mm": [
+          1.8053467893469133,
+          27.447955973905167,
+          0.0
+        ],
+        "own_director_relative_angle_rad": 0.09495248719590314,
+        "patch_id": "timber-face/base_header/base_side_left/3-2-0",
+        "relative_material_rotation_norm_rad": 0.09500672694241694,
+        "relative_material_rotation_vector_rad": [
+          0.0947872241336686,
+          0.005600420351205983,
+          -0.003208675308354861
+        ],
+        "second": "base_side_left",
+        "second_flange": null,
+        "second_reference_point_xyz_mm": [
+          -1208.0875,
+          -52.680886940648364,
+          277.0
+        ],
+        "shaft_full_material_roll_is_recorded_gauge_dependent": false
+      },
+      "own_director_relative_angle_rad": {
+        "cell_area_mm2": 443.5474999999989,
+        "exact_minus_linear_relative_point_shift_norm_mm": 0.6353239615851533,
+        "finite_arm_fixed_reference_normal_projection_mm": 1.6538588067050455,
+        "finite_arm_is_new_equilibrated_or_physical_response": false,
+        "finite_arm_tangent_motion_norm_mm": 3.884117063185145,
+        "finite_arm_tangent_motion_xyz_mm": [
+          0.6534841638639868,
+          -3.7795889863223957,
+          -0.6115806590920161
+        ],
+        "finite_arm_updated_second_normal_projection_opening_positive_mm": 2.294238241650112,
+        "finite_tangent_motion_in_25mm_cells": 0.1553646825274058,
+        "first": "base_header",
+        "first_flange": null,
+        "first_reference_point_xyz_mm": [
+          -1209.6750000000002,
+          -47.64166666666666,
+          238.9
+        ],
+        "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+        "fixed_reference_normal_exact_minus_linear_projection_mm": 0.07575524921037413,
+        "id": "timber-face/base_header/base_post_outer_left/5-3-0/cell-0",
+        "kind": "timber_face_contact",
+        "linear_signed_projection_opening_positive_mm": 1.5781035574946713,
+        "linear_tangent_motion_in_25mm_cells": 0.19300126221898076,
+        "linear_tangent_motion_norm_mm": 4.825031555474519,
+        "linear_tangent_motion_xyz_mm": [
+          0.7270554730132517,
+          -4.769939187294355,
+          0.0
+        ],
+        "own_director_relative_angle_rad": 0.09822506787387582,
+        "patch_id": "timber-face/base_header/base_post_outer_left/5-3-0",
+        "relative_material_rotation_norm_rad": 0.09929324452141694,
+        "relative_material_rotation_vector_rad": [
+          -0.09814382683758656,
+          0.004015330117808027,
+          0.01451946229406397
+        ],
+        "second": "base_post_outer_left",
+        "second_flange": null,
+        "second_reference_point_xyz_mm": [
+          -1209.6750000000002,
+          -47.64166666666666,
+          238.9
+        ],
+        "shaft_full_material_roll_is_recorded_gauge_dependent": false
+      }
+    },
+    "all584_marker_sha256": "3db8271d978819ac1410d88b28882b4378f667ae3807dbf0e4a8a1c7923255d4",
+    "physical_q_dofs": 8018,
+    "pose_map_sha256": "b3b0b331d4c5883bdf2f0fd3396e1ae53a260b1a9ba827c10b8fc92cb7bfb36a",
+    "pose_only_added_zero_roll_coordinates": 70,
+    "representative_governing_markers": {
+      "bearings": {
+        "exact_minus_linear_relative_point_shift_norm_mm": {
+          "axis_id": "thin_factory_bolt_019",
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.0782059491156542,
+          "finite_arm_fixed_reference_normal_projection_mm": 1.191557955284054,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 0.587012815841546,
+          "finite_arm_tangent_motion_xyz_mm": [
+            0.04574198750675217,
+            0.5772249249319535,
+            0.09645259238845516
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": 1.3078424401131332,
+          "finite_shaft_orientation_is_recorded_zero_linear_roll_lift_marker": true,
+          "first": "shaft/thin_factory_bolt_019",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            281.38207621659245
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": -0.06644903203061858,
+          "id": "thin_factory_bolt_019/bearing-1-0",
+          "kind": "common_shaft_bearing",
+          "linear_signed_projection_opening_positive_mm": 1.2580069873146726,
+          "linear_tangent_motion_norm_mm": 0.8107176672522349,
+          "linear_tangent_motion_xyz_mm": [
+            0.02814315916589294,
+            0.8102290408193653,
+            0.0
+          ],
+          "objective_shaft_or_washer_orientation_recovered": false,
+          "own_director_relative_angle_rad": 0.03507040414712715,
+          "radial_gap_mm": 0.7937500000000002,
+          "relative_material_rotation_norm_rad": 0.11032299880481769,
+          "relative_material_rotation_vector_rad": [
+            0.0013375577718569079,
+            -0.03506089329025171,
+            -0.10459497486105311
+          ],
+          "second": "B104ZN_clip_angle_base_left_reference",
+          "second_flange": "beam",
+          "second_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            281.38207621659245
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": true
+        },
+        "finite_arm_tangent_motion_norm_mm": {
+          "axis_id": "thin_factory_bolt_020",
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.028058820919292106,
+          "finite_arm_fixed_reference_normal_projection_mm": -0.8986570718789153,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 1.4749253019250592,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.023112368176134712,
+            0.5393428775144091,
+            -1.3725814093052897
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": -0.9218988232899474,
+          "finite_shaft_orientation_is_recorded_zero_linear_roll_lift_marker": true,
+          "first": "shaft/thin_factory_bolt_020",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1149.086780534521,
+            -123.85,
+            345.2625
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": -0.002466598866476488,
+          "id": "thin_factory_bolt_020/bearing-0-0",
+          "kind": "common_shaft_bearing",
+          "linear_signed_projection_opening_positive_mm": -0.8961904730124388,
+          "linear_tangent_motion_norm_mm": 1.516652873800586,
+          "linear_tangent_motion_xyz_mm": [
+            0.0,
+            0.5647660135163903,
+            -1.407577809424538
+          ],
+          "objective_shaft_or_washer_orientation_recovered": false,
+          "own_director_relative_angle_rad": 0.04974773502616347,
+          "radial_gap_mm": 0.7937500000000002,
+          "relative_material_rotation_norm_rad": 0.06081824548521298,
+          "relative_material_rotation_vector_rad": [
+            0.03498241529552033,
+            0.04565591733988058,
+            0.019764281313656873
+          ],
+          "second": "base_side_left",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1149.086780534521,
+            -123.85,
+            345.2625
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": true
+        },
+        "linear_tangent_motion_norm_mm": {
+          "axis_id": "thin_factory_bolt_020",
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.028058820919292106,
+          "finite_arm_fixed_reference_normal_projection_mm": -0.8986570718789153,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 1.4749253019250592,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.023112368176134712,
+            0.5393428775144091,
+            -1.3725814093052897
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": -0.9218988232899474,
+          "finite_shaft_orientation_is_recorded_zero_linear_roll_lift_marker": true,
+          "first": "shaft/thin_factory_bolt_020",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1149.086780534521,
+            -123.85,
+            345.2625
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": -0.002466598866476488,
+          "id": "thin_factory_bolt_020/bearing-0-0",
+          "kind": "common_shaft_bearing",
+          "linear_signed_projection_opening_positive_mm": -0.8961904730124388,
+          "linear_tangent_motion_norm_mm": 1.516652873800586,
+          "linear_tangent_motion_xyz_mm": [
+            0.0,
+            0.5647660135163903,
+            -1.407577809424538
+          ],
+          "objective_shaft_or_washer_orientation_recovered": false,
+          "own_director_relative_angle_rad": 0.04974773502616347,
+          "radial_gap_mm": 0.7937500000000002,
+          "relative_material_rotation_norm_rad": 0.06081824548521298,
+          "relative_material_rotation_vector_rad": [
+            0.03498241529552033,
+            0.04565591733988058,
+            0.019764281313656873
+          ],
+          "second": "base_side_left",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1149.086780534521,
+            -123.85,
+            345.2625
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": true
+        },
+        "own_director_relative_angle_rad": {
+          "axis_id": "thin_factory_bolt_019",
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.042730197963643336,
+          "finite_arm_fixed_reference_normal_projection_mm": -1.2806098494755815,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 1.4059010559229432,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.15557588352390225,
+            -1.3948547752074878,
+            -0.08206143791009723
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": -1.3654476974607086,
+          "finite_shaft_orientation_is_recorded_zero_linear_roll_lift_marker": true,
+          "first": "shaft/thin_factory_bolt_019",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            268.9485226280624
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": -0.02289247990063359,
+          "id": "thin_factory_bolt_019/bearing-0-0",
+          "kind": "common_shaft_bearing",
+          "linear_signed_projection_opening_positive_mm": -1.257717369574948,
+          "linear_tangent_motion_norm_mm": 1.4492862482510316,
+          "linear_tangent_motion_xyz_mm": [
+            -0.1376085572296688,
+            -1.442738546773711,
+            0.0
+          ],
+          "objective_shaft_or_washer_orientation_recovered": false,
+          "own_director_relative_angle_rad": 0.11168300463450939,
+          "radial_gap_mm": 0.7937500000000002,
+          "relative_material_rotation_norm_rad": 0.11185508264610895,
+          "relative_material_rotation_vector_rad": [
+            0.11114326467179259,
+            -0.010968510982335474,
+            -0.006198870759591131
+          ],
+          "second": "base_header",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            268.9485226280624
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": true
+        }
+      },
+      "captures": {
+        "exact_minus_linear_relative_point_shift_norm_mm": {
+          "actual_washer_rotation_contact_pressure_or_seating_resolved": false,
+          "axis_id": "thin_factory_bolt_019",
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.09916117002454476,
+          "finite_arm_fixed_reference_normal_projection_mm": -1.173528324152585,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 0.5898216399068281,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.11490905212904111,
+            0.5694238112034967,
+            0.10218610412218432
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": -1.2437329062888942,
+          "finite_shaft_orientation_is_recorded_zero_linear_roll_lift_marker": true,
+          "first": "shaft/thin_factory_bolt_019",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            285.90905
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": 0.08425399650104737,
+          "id": "thin_factory_bolt_019/head-capture",
+          "kind": "own_washer_capture",
+          "linear_signed_projection_opening_positive_mm": -1.2577823206536323,
+          "linear_tangent_motion_norm_mm": 0.23341027957227367,
+          "linear_tangent_motion_xyz_mm": [
+            0.02592431663106254,
+            0.23196613635877839,
+            0.0
+          ],
+          "objective_shaft_or_washer_orientation_recovered": false,
+          "occupied_diameter_times_sin_relative_axis_tilt_mm": 1.2290371946868086,
+          "occupied_washer_outer_diameter_mm": 35.052000000000135,
+          "occupied_washer_thickness_mm": 3.3527999999999576,
+          "own_director_relative_angle_rad": 0.03507044306611235,
+          "relative_material_rotation_norm_rad": 0.1103230038751531,
+          "relative_material_rotation_vector_rad": [
+            0.0013378694624174559,
+            -0.035060920360720386,
+            -0.10459496714850959
+          ],
+          "second": "B104ZN_clip_angle_base_left_reference",
+          "second_flange": "beam",
+          "second_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            282.55625
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": true
+        },
+        "finite_arm_tangent_motion_norm_mm": {
+          "actual_washer_rotation_contact_pressure_or_seating_resolved": false,
+          "axis_id": "thin_factory_bolt_019",
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.051784913241924205,
+          "finite_arm_fixed_reference_normal_projection_mm": -1.2178540112865903,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 2.314254027802745,
+          "finite_arm_tangent_motion_xyz_mm": [
+            0.20341454823847196,
+            2.301258095214141,
+            0.13640163480527168
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": -1.0768245601589164,
+          "finite_shaft_orientation_is_recorded_zero_linear_roll_lift_marker": true,
+          "first": "shaft/thin_factory_bolt_019",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            235.5472
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": 0.0382061774257636,
+          "id": "thin_factory_bolt_019/nut-capture",
+          "kind": "own_washer_capture",
+          "linear_signed_projection_opening_positive_mm": -1.256060188712354,
+          "linear_tangent_motion_norm_mm": 2.4757769263463754,
+          "linear_tangent_motion_xyz_mm": [
+            0.14556283315005203,
+            2.471494052316217,
+            0.0
+          ],
+          "objective_shaft_or_washer_orientation_recovered": false,
+          "occupied_diameter_times_sin_relative_axis_tilt_mm": 3.9038016073381763,
+          "occupied_washer_outer_diameter_mm": 35.052000000000135,
+          "occupied_washer_thickness_mm": 3.352800000000002,
+          "own_director_relative_angle_rad": 0.11160325306048154,
+          "relative_material_rotation_norm_rad": 0.11177550778278647,
+          "relative_material_rotation_vector_rad": [
+            0.11106383035325697,
+            -0.010961369770152702,
+            -0.006199846782356563
+          ],
+          "second": "base_header",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            238.9
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": true
+        },
+        "linear_tangent_motion_norm_mm": {
+          "actual_washer_rotation_contact_pressure_or_seating_resolved": false,
+          "axis_id": "thin_factory_bolt_019",
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.051784913241924205,
+          "finite_arm_fixed_reference_normal_projection_mm": -1.2178540112865903,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 2.314254027802745,
+          "finite_arm_tangent_motion_xyz_mm": [
+            0.20341454823847196,
+            2.301258095214141,
+            0.13640163480527168
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": -1.0768245601589164,
+          "finite_shaft_orientation_is_recorded_zero_linear_roll_lift_marker": true,
+          "first": "shaft/thin_factory_bolt_019",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            235.5472
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": 0.0382061774257636,
+          "id": "thin_factory_bolt_019/nut-capture",
+          "kind": "own_washer_capture",
+          "linear_signed_projection_opening_positive_mm": -1.256060188712354,
+          "linear_tangent_motion_norm_mm": 2.4757769263463754,
+          "linear_tangent_motion_xyz_mm": [
+            0.14556283315005203,
+            2.471494052316217,
+            0.0
+          ],
+          "objective_shaft_or_washer_orientation_recovered": false,
+          "occupied_diameter_times_sin_relative_axis_tilt_mm": 3.9038016073381763,
+          "occupied_washer_outer_diameter_mm": 35.052000000000135,
+          "occupied_washer_thickness_mm": 3.352800000000002,
+          "own_director_relative_angle_rad": 0.11160325306048154,
+          "relative_material_rotation_norm_rad": 0.11177550778278647,
+          "relative_material_rotation_vector_rad": [
+            0.11106383035325697,
+            -0.010961369770152702,
+            -0.006199846782356563
+          ],
+          "second": "base_header",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            238.9
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": true
+        },
+        "own_director_relative_angle_rad": {
+          "actual_washer_rotation_contact_pressure_or_seating_resolved": false,
+          "axis_id": "thin_factory_bolt_019",
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.051784913241924205,
+          "finite_arm_fixed_reference_normal_projection_mm": -1.2178540112865903,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 2.314254027802745,
+          "finite_arm_tangent_motion_xyz_mm": [
+            0.20341454823847196,
+            2.301258095214141,
+            0.13640163480527168
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": -1.0768245601589164,
+          "finite_shaft_orientation_is_recorded_zero_linear_roll_lift_marker": true,
+          "first": "shaft/thin_factory_bolt_019",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            235.5472
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": 0.0382061774257636,
+          "id": "thin_factory_bolt_019/nut-capture",
+          "kind": "own_washer_capture",
+          "linear_signed_projection_opening_positive_mm": -1.256060188712354,
+          "linear_tangent_motion_norm_mm": 2.4757769263463754,
+          "linear_tangent_motion_xyz_mm": [
+            0.14556283315005203,
+            2.471494052316217,
+            0.0
+          ],
+          "objective_shaft_or_washer_orientation_recovered": false,
+          "occupied_diameter_times_sin_relative_axis_tilt_mm": 3.9038016073381763,
+          "occupied_washer_outer_diameter_mm": 35.052000000000135,
+          "occupied_washer_thickness_mm": 3.352800000000002,
+          "own_director_relative_angle_rad": 0.11160325306048154,
+          "relative_material_rotation_norm_rad": 0.11177550778278647,
+          "relative_material_rotation_vector_rad": [
+            0.11106383035325697,
+            -0.010961369770152702,
+            -0.006199846782356563
+          ],
+          "second": "base_header",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            238.9
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": true
+        }
+      },
+      "flanges": {
+        "exact_minus_linear_relative_point_shift_norm_mm": {
+          "duty_id": "clip_angle_base_left",
+          "exact_minus_linear_relative_point_shift_norm_mm": 1.2257910232249851,
+          "finite_arm_fixed_reference_normal_projection_mm": -0.5646642331350904,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 14.083474053719282,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.13001254265296064,
+            13.909722311635146,
+            2.201582016127616
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": -0.43471347148994627,
+          "first": "B104ZN_clip_angle_base_left_reference",
+          "first_flange": "post",
+          "first_reference_point_xyz_mm": [
+            -1130.3,
+            -103.21249999999999,
+            282.55625
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": -0.507843198550745,
+          "id": "B104ZN_clip_angle_base_left_reference/post/contact-0",
+          "kind": "flange_contact",
+          "linear_signed_projection_opening_positive_mm": -0.0568210345843454,
+          "linear_tangent_motion_norm_mm": 14.483166693092906,
+          "linear_tangent_motion_xyz_mm": [
+            0.0,
+            14.431397643040782,
+            1.2234702809437863
+          ],
+          "own_director_relative_angle_rad": 0.08985835000719124,
+          "relative_material_rotation_norm_rad": 0.23072515042675948,
+          "relative_material_rotation_vector_rad": [
+            0.212436136977006,
+            -0.002494312808153899,
+            0.08999311723322301
+          ],
+          "second": "base_side_left",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1130.3,
+            -103.21249999999999,
+            282.55625
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": false
+        },
+        "finite_arm_tangent_motion_norm_mm": {
+          "duty_id": "clip_angle_base_left",
+          "exact_minus_linear_relative_point_shift_norm_mm": 1.219555893225241,
+          "finite_arm_fixed_reference_normal_projection_mm": 3.015433461370776,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 16.080945035080624,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.24882664472103455,
+            14.70539971911246,
+            -6.502776147407215
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": 3.2647279713928454,
+          "first": "B104ZN_clip_angle_base_left_reference",
+          "first_flange": "post",
+          "first_reference_point_xyz_mm": [
+            -1130.3,
+            -144.48749999999998,
+            282.55625
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": -0.584495110803573,
+          "id": "B104ZN_clip_angle_base_left_reference/post/contact-1",
+          "kind": "flange_contact",
+          "linear_signed_projection_opening_positive_mm": 3.599928572174349,
+          "linear_tangent_motion_norm_mm": 16.292514263332883,
+          "linear_tangent_motion_xyz_mm": [
+            0.0,
+            14.428656565730535,
+            -7.567026544760267
+          ],
+          "own_director_relative_angle_rad": 0.08981285766102771,
+          "relative_material_rotation_norm_rad": 0.23070245455730934,
+          "relative_material_rotation_vector_rad": [
+            0.2124308024936838,
+            -0.002546921924786229,
+            0.08994603870858313
+          ],
+          "second": "base_side_left",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1130.3,
+            -144.48749999999998,
+            282.55625
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": false
+        },
+        "linear_tangent_motion_norm_mm": {
+          "duty_id": "clip_angle_base_left",
+          "exact_minus_linear_relative_point_shift_norm_mm": 1.219555893225241,
+          "finite_arm_fixed_reference_normal_projection_mm": 3.015433461370776,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 16.080945035080624,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.24882664472103455,
+            14.70539971911246,
+            -6.502776147407215
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": 3.2647279713928454,
+          "first": "B104ZN_clip_angle_base_left_reference",
+          "first_flange": "post",
+          "first_reference_point_xyz_mm": [
+            -1130.3,
+            -144.48749999999998,
+            282.55625
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": -0.584495110803573,
+          "id": "B104ZN_clip_angle_base_left_reference/post/contact-1",
+          "kind": "flange_contact",
+          "linear_signed_projection_opening_positive_mm": 3.599928572174349,
+          "linear_tangent_motion_norm_mm": 16.292514263332883,
+          "linear_tangent_motion_xyz_mm": [
+            0.0,
+            14.428656565730535,
+            -7.567026544760267
+          ],
+          "own_director_relative_angle_rad": 0.08981285766102771,
+          "relative_material_rotation_norm_rad": 0.23070245455730934,
+          "relative_material_rotation_vector_rad": [
+            0.2124308024936838,
+            -0.002546921924786229,
+            0.08994603870858313
+          ],
+          "second": "base_side_left",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1130.3,
+            -144.48749999999998,
+            282.55625
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": false
+        },
+        "own_director_relative_angle_rad": {
+          "duty_id": "clip_angle_base_left",
+          "exact_minus_linear_relative_point_shift_norm_mm": 1.0674165516342664,
+          "finite_arm_fixed_reference_normal_projection_mm": 5.3447703107067355,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 11.415752241925333,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -1.9615482392202657,
+            -11.227586577962757,
+            -0.6426720692434547
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": 5.99945319233397,
+          "first": "B104ZN_clip_angle_base_left_reference",
+          "first_flange": "beam",
+          "first_reference_point_xyz_mm": [
+            -1124.7437499999999,
+            -103.21249999999999,
+            277.0
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": -0.6863763687399569,
+          "id": "B104ZN_clip_angle_base_left_reference/beam/contact-0",
+          "kind": "flange_contact",
+          "linear_signed_projection_opening_positive_mm": 6.031146679446692,
+          "linear_tangent_motion_norm_mm": 11.264355270164538,
+          "linear_tangent_motion_xyz_mm": [
+            -2.4169935748500393,
+            -11.00199262459384,
+            0.0
+          ],
+          "own_director_relative_angle_rad": 0.11119903624856703,
+          "relative_material_rotation_norm_rad": 0.14972756199638754,
+          "relative_material_rotation_vector_rad": [
+            0.10969689862706816,
+            0.018498176387849622,
+            0.10021352565052688
+          ],
+          "second": "base_header",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1124.7437499999999,
+            -103.21249999999999,
+            277.0
+          ],
+          "shaft_full_material_roll_is_recorded_gauge_dependent": false
+        }
+      },
+      "panels": {
+        "exact_minus_linear_relative_point_shift_norm_mm": {
+          "current_actions_or_actual_Hillman_response_inferred": false,
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.15641367630867758,
+          "finite_arm_fixed_reference_normal_projection_mm": 0.4748165918634015,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 0.034758180299724356,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.02268256318084986,
+            -0.001767200087320342,
+            0.02627754610206736
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": 0.47748705709752365,
+          "first": "kicker_left",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1000.0,
+            -26.871874999999996,
+            257.95
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": 0.14940339557242055,
+          "id": "kicker_header_left_5",
+          "kind": "Hillman_panel_point",
+          "linear_signed_projection_opening_positive_mm": 0.325413196290981,
+          "linear_tangent_motion_norm_mm": 0.061239542881363115,
+          "linear_tangent_motion_xyz_mm": [
+            0.020215732825249688,
+            0.0,
+            0.05780662383028812
+          ],
+          "own_director_relative_angle_rad": 0.09092531849368879,
+          "panel_rotation_scope": "own surface-normal tilt; no finite rigid panel/material-frame rotation assigned",
+          "relative_material_rotation_norm_rad": null,
+          "second": "base_header",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1000.0,
+            -26.871874999999996,
+            257.95
+          ]
+        },
+        "finite_arm_tangent_motion_norm_mm": {
+          "current_actions_or_actual_Hillman_response_inferred": false,
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.062165879886255916,
+          "finite_arm_fixed_reference_normal_projection_mm": 2.0007410409207673,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 0.6532843182965951,
+          "finite_arm_tangent_motion_xyz_mm": [
+            0.6346622119539745,
+            -0.10260316963103211,
+            -0.11600373628293603
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": 2.0063519368429086,
+          "first": "main_upper_left",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1200.15,
+            1487.9401100945122,
+            2085.511723762884
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": 0.06211637609095133,
+          "id": "round_panel_upper_left_rim_4",
+          "kind": "Hillman_panel_point",
+          "linear_signed_projection_opening_positive_mm": 1.938624664829816,
+          "linear_tangent_motion_norm_mm": 0.6696636289018865,
+          "linear_tangent_motion_xyz_mm": [
+            0.6283264889548263,
+            -0.1488926989985513,
+            -0.1774434088284793
+          ],
+          "own_director_relative_angle_rad": 0.06590692438688386,
+          "panel_rotation_scope": "own surface-normal tilt; no finite rigid panel/material-frame rotation assigned",
+          "relative_material_rotation_norm_rad": null,
+          "second": "base_side_left",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1200.15,
+            1487.9401100945122,
+            2085.511723762884
+          ]
+        },
+        "linear_tangent_motion_norm_mm": {
+          "current_actions_or_actual_Hillman_response_inferred": false,
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.062165879886255916,
+          "finite_arm_fixed_reference_normal_projection_mm": 2.0007410409207673,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 0.6532843182965951,
+          "finite_arm_tangent_motion_xyz_mm": [
+            0.6346622119539745,
+            -0.10260316963103211,
+            -0.11600373628293603
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": 2.0063519368429086,
+          "first": "main_upper_left",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1200.15,
+            1487.9401100945122,
+            2085.511723762884
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": 0.06211637609095133,
+          "id": "round_panel_upper_left_rim_4",
+          "kind": "Hillman_panel_point",
+          "linear_signed_projection_opening_positive_mm": 1.938624664829816,
+          "linear_tangent_motion_norm_mm": 0.6696636289018865,
+          "linear_tangent_motion_xyz_mm": [
+            0.6283264889548263,
+            -0.1488926989985513,
+            -0.1774434088284793
+          ],
+          "own_director_relative_angle_rad": 0.06590692438688386,
+          "panel_rotation_scope": "own surface-normal tilt; no finite rigid panel/material-frame rotation assigned",
+          "relative_material_rotation_norm_rad": null,
+          "second": "base_side_left",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1200.15,
+            1487.9401100945122,
+            2085.511723762884
+          ]
+        },
+        "own_director_relative_angle_rad": {
+          "current_actions_or_actual_Hillman_response_inferred": false,
+          "exact_minus_linear_relative_point_shift_norm_mm": 0.15641367630867758,
+          "finite_arm_fixed_reference_normal_projection_mm": 0.4748165918634015,
+          "finite_arm_is_new_equilibrated_or_physical_response": false,
+          "finite_arm_tangent_motion_norm_mm": 0.034758180299724356,
+          "finite_arm_tangent_motion_xyz_mm": [
+            -0.02268256318084986,
+            -0.001767200087320342,
+            0.02627754610206736
+          ],
+          "finite_arm_updated_second_normal_projection_opening_positive_mm": 0.47748705709752365,
+          "first": "kicker_left",
+          "first_flange": null,
+          "first_reference_point_xyz_mm": [
+            -1000.0,
+            -26.871874999999996,
+            257.95
+          ],
+          "fixed_q_normal_side_changes_in_updated_normal_diagnostic": false,
+          "fixed_reference_normal_exact_minus_linear_projection_mm": 0.14940339557242055,
+          "id": "kicker_header_left_5",
+          "kind": "Hillman_panel_point",
+          "linear_signed_projection_opening_positive_mm": 0.325413196290981,
+          "linear_tangent_motion_norm_mm": 0.061239542881363115,
+          "linear_tangent_motion_xyz_mm": [
+            0.020215732825249688,
+            0.0,
+            0.05780662383028812
+          ],
+          "own_director_relative_angle_rad": 0.09092531849368879,
+          "panel_rotation_scope": "own surface-normal tilt; no finite rigid panel/material-frame rotation assigned",
+          "relative_material_rotation_norm_rad": null,
+          "second": "base_header",
+          "second_flange": null,
+          "second_reference_point_xyz_mm": [
+            -1000.0,
+            -26.871874999999996,
+            257.95
+          ]
+        }
+      }
+    },
+    "representative_internal_fitting_pose": [
+      {
+        "beam_to_post_relative_rotation_norm_rad": 0.0002896390970059234,
+        "beam_to_post_relative_rotation_vector_rad": [
+          -3.130145653532584e-05,
+          0.00020355576303582773,
+          -0.0002036567619011845
+        ],
+        "duty_id": "clip_horizontal_bottom_left_1",
+        "id": "B103ZN_clip_horizontal_bottom_left_1_opposite/two-flange-port-pose",
+        "individual_flat_leg_heel_curvature_or_actual_bend_radius_recovered": false,
+        "kind": "internal_fitting_relative_pose",
+        "objective_relative_port_translation_in_beam_pose_mm": [
+          -0.018864291801563127,
+          0.008864140977756563,
+          0.011607200574916376
+        ],
+        "objective_relative_port_translation_norm_mm": 0.02385710807357849
+      },
+      {
+        "beam_to_post_relative_rotation_norm_rad": 0.02406965033684583,
+        "beam_to_post_relative_rotation_vector_rad": [
+          0.00606870435694227,
+          -0.022711354296040074,
+          -0.005168489218891208
+        ],
+        "duty_id": "clip_angle_base_left",
+        "id": "B104ZN_clip_angle_base_left_reference/two-flange-port-pose",
+        "individual_flat_leg_heel_curvature_or_actual_bend_radius_recovered": false,
+        "kind": "internal_fitting_relative_pose",
+        "objective_relative_port_translation_in_beam_pose_mm": [
+          -2.120897289662011,
+          0.05258681766424371,
+          1.7228920836560775
+        ],
+        "objective_relative_port_translation_norm_mm": 2.7330071018225506
+      },
+      {
+        "beam_to_post_relative_rotation_norm_rad": 0.00046125400692717007,
+        "beam_to_post_relative_rotation_vector_rad": [
+          6.180220165592827e-05,
+          -0.0003607318258238651,
+          0.0002807281542963414
+        ],
+        "duty_id": "clip_horizontal_bottom_left_1",
+        "id": "B104ZN_clip_horizontal_bottom_left_1_reference/two-flange-port-pose",
+        "individual_flat_leg_heel_curvature_or_actual_bend_radius_recovered": false,
+        "kind": "internal_fitting_relative_pose",
+        "objective_relative_port_translation_in_beam_pose_mm": [
+          -0.02790352711866717,
+          -0.008245931860763278,
+          -0.0005863381853785654
+        ],
+        "objective_relative_port_translation_norm_mm": 0.0291023368543177
+      },
+      {
+        "beam_to_post_relative_rotation_norm_rad": 0.003006818985740907,
+        "beam_to_post_relative_rotation_vector_rad": [
+          -0.001911593013248888,
+          -0.00223941066028191,
+          -0.0006097642653728994
+        ],
+        "duty_id": "clip_single_top_left_1",
+        "id": "B104ZN_clip_single_top_left_1_reference/two-flange-port-pose",
+        "individual_flat_leg_heel_curvature_or_actual_bend_radius_recovered": false,
+        "kind": "internal_fitting_relative_pose",
+        "objective_relative_port_translation_in_beam_pose_mm": [
+          -0.02615569454368938,
+          -0.28820713723553126,
+          -0.18004273627078504
+        ],
+        "objective_relative_port_translation_norm_mm": 0.34082673192464613
+      }
+    ],
+    "shaft_dof_start": 3960
+  },
+  "material_K_loaded_assembled_or_evaluated": false,
+  "old_main_or_old_field_admission_called": false,
+  "q_canonical_sha256": "2c13826c3c6061fd327470f7ed7e7f80dfd7c50283a732cef0b353d72107e342",
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "schema": "thin_bolted_admitted_current_q_pose_applicability/v1",
+  "source_sha256": {
+    "current-candidate.json": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+    "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+    "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/geometry-snapshot.json": "0b92357af648604ee8ce42d2f8906e0a4e5498e9e4b835a07938b81dc151d187",
+    "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.json": "0c5a09879c9b191c39b96ce670d71ad110661bff7dfeab68133f711b32de476c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-common-shaft-a12-rear-continuation-v4.json": "b892159b631b1a125c959d5e08cd86a0603b9eaf122a1fc87b9b44a3598af1ab",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-v4.json": "e2946cd24aabf48cc452ad9413ba6457c9bd10911c0b588c706df6f13cfe11dd",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/floor-corner-stick-method-coupons-v4.json": "e7569ddc3ea2addb6171b3a3bcccadaa1b004b8c14da94b0eb61320b3982355e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-audit-v4.py": "197396502e2387b4c6e9cb8e84702f576d2ea392d8f929fc30a12a50bfadd235",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-geometry-v4.json": "e6c7ac4548b943bef4580b7c58efd67c11e29ed3335ae4036998a70c346986fc",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/incremental-step-method-coupons-v4.json": "91fb76f9dfba34a81836d24a664b54e9a70055d4e6a24b89b4527bd5e614201e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/incremental-step-method-coupons-v4.py": "525f2d6288d47b4739b9209617cabed230767c96f61416d48d12c05bc4f0b1dd",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/linear-timber-face-method-v4.json": "fd1cba29d11f2a69e0248a18fa6c7cbf97c23abd5177524c60a30dc8f6bdb11c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-far-hole-raw-v2.json": "199ddc9b4eba9acc447f61f488bede7cb44b5dff4d89d60138b176f2e268e835",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-mechanics-v4.json": "a61cadf7b120b58c00326e83c68999f7a726fba77ec5e12882cf843355951dec",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json": "5e78ac49a2db2050caf7ee7d2002d0ebf4f9a92496e857a0e2d652629bd0d848",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "fea/current_response_model.py": "faae5b14c47c3c485f41d56eb77ec9e9a6c1801e5a143276a91afc3a294a9894",
+    "fea/generated/thin-bolted-complete-timber-contact-v1/adapter.py": "531d8e3393e309de172442b6a936c76b0d8db73f97a2bf63f831fa2a87d3b67f",
+    "fea/generated/thin-bolted-complete-timber-contact-v1/preparation.json": "59f6691d6c772938e5cb7a078294a65b99660645c8f2604b3a4a33dc1b302fe1",
+    "fea/generated/thin-bolted-complete-timber-contact-v1/test_adapter.py": "0a6ffbedf2286503520e595cc64ea177b5f50c9f1d31a124676a9aedffceacb5",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/admission.py": "6797388b8a99e1f2d510d69c22ce932283b8128607842337e9cea300ae3fb5be",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/method-input.json": "6257c7e9a300ed46ffdea26f416cbd1d3f155b0630413957b5128a6d2eeea1a9",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/admission.py": "4b78722ab407a39d6e00fc9e16be0d370d0c837dea5880e45e7a2e277dd6efb6",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/final-branch-inputs.json": "b3f3cd701aefe298a1ee183da58e5b21635ec77bb9b7141f6b71cb3bb931e7ac",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/final-branch-operators.npz": "d88ae0beb87cc30e3b8f44d7944d5fc6722730d8512fe8a400aba7266d9c2aa7",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/method-input.json": "3389a72eb790a5b924911373718058e09c5a393b2897dd1dcc9e40ca04a74484",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/operator-inputs.json": "30bbef64baf3185efb685cdfdbfdf0899feb15b1e78fa042674b4588b14f7052",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/operators.npz": "a45f9a1fe27349523f3617c99ad145d341d722a775184a6b650aadc1e73d5ffa",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/pose_applicability.py": "a31ab842ccbd6f6f66e1ca009b29c1e0ad67753e93477cda3f9c013e9878712a",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/runner.py": "6960f18badca4ab7867b46566b058121afa8a49c105b059a3e7d14717d6342d4",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/test_admission.py": "91b14dfbb3699a00ffe72b3a9ea1773a90e9aa5942b54ebf0fb6c1c4c8aaf736",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/test_pose_applicability.py": "16de057252c1c549f1587d8752cafc6faf43516f6d7dd5c7ec3dea3960784552",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/test_runner.py": "5b111ec7f028481e2b51ea500f3b0cb6b0e6a19bf88ccc2e04ec6b4a2d617799",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/operator-inputs.json": "16ef6d3228cd0cd8cc5a7b5d602a6ecf8d41a90b436089552bef3ac5eab945f3",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/operators.npz": "a45f9a1fe27349523f3617c99ad145d341d722a775184a6b650aadc1e73d5ffa",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/runner.py": "ea3b310657b66869b59c35b5cb126280df5b042b8c50e9848d463b3a9b5eef01",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/test_admission.py": "1133fe49e257b4c5e4c54c49f1298acf49c9853df9da21ce80c2585e04126241",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/test_runner.py": "65d183868bfa41506340567aff596e9a20f757c154f3805452756b3f227baeb5",
+    "fea/generated/thin-bolted-joint-wrench-review/input-v4.json": "a7ef7b7d82072b7f8898e34551661185f9108b8cca09179875f0f4fa5a005d7d",
+    "fea/generated/thin-bolted-joint-wrench-review/review-v4.py": "c86cb3e84c0d16648e6a3d115da686afc6e2c97272cd06c4cbe3bfb93a15be55",
+    "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+    "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json": "ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa",
+    "fea/generated/thin-bolted-local-joint-ports/query-all-timber-pairs.py": "1645422ea2f9d6fe04f30d8c2b480b5baffecb2bdb7d078b1f53e197b05874ef",
+    "fea/generated/thin-bolted-local-joint-ports/query-touching-planes.py": "25e7e7c51665bd38e1c2dbd0d505e2586b530e80114ffd771450175be16eee2c",
+    "fea/generated/thin-bolted-panel/operators-intervals8.json": "aeeb9b6ccd2c521896b32012ccbf9712fd67cdb7d0744e06d88afa4fd3f441d4",
+    "fea/generated/thin-bolted-panel/operators-intervals8.npz": "2b97d8c1741a0fbef119eb00b3f43bdf5f76e802b4851962a62fc555f1813468",
+    "fea/generated/thin-bolted-v4-geometry/base_floor_left.brep": "38e035abff60755d838aec29cad4ee7867a03c1b085e51be9720d59f7a61cfa6",
+    "fea/generated/thin-bolted-v4-geometry/base_floor_right.brep": "aafcdcebe7a8b5716558be219202d6d161663edb40a81bdb592246f9907c6654",
+    "fea/generated/thin-bolted-v4-geometry/base_header.brep": "f4778c5b94f2c5825882690c737ed0511fe52ecac82c0c6821fabc12c1aa43f8",
+    "fea/generated/thin-bolted-v4-geometry/base_post_center_left.brep": "62ec32e841ab88580c861d0f6b5ed8a800d5bed75b93a409f30e3df084bec0ba",
+    "fea/generated/thin-bolted-v4-geometry/base_post_center_right.brep": "ee34822758192f63091105f534b788b62ebf7b913585db8245783b78e78432d0",
+    "fea/generated/thin-bolted-v4-geometry/base_post_outer_left.brep": "1c32a30f16101639f98c7deae18702ad94d43a17860fa0758e48ed36603bf3c3",
+    "fea/generated/thin-bolted-v4-geometry/base_post_outer_right.brep": "d771ca8f339fc0abe9538829c58fcfd3f7ec54de3bcb20d608dd5468c9da74af",
+    "fea/generated/thin-bolted-v4-geometry/base_principal_center_left.brep": "a97b764b85c17d2b44e37c15c46c622afbcf4f49f4dc31e3254cc9dc2610da3c",
+    "fea/generated/thin-bolted-v4-geometry/base_principal_center_right.brep": "391313cfd7c31ad8dbf25dc42cd5f6e7f546497bcda3ebea9019435dd5b5d513",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_bottom_left.brep": "5fbf140118ce8037dead90fe60713d546d413a69f95e41fba148fe21c3abfe2e",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_bottom_right.brep": "f65f8a4ff3d82b22ac155a3560c428ddd79a7afd94e08cb07a1ec764a3704d65",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_service_lower_left.brep": "c907b43ac72d35f7bf1ccf939820cf2ea6e4cbcf0cb3ab0d5d948ec755302460",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_service_lower_right.brep": "afe38a3c3dc79ee0c1c0bd00fd44f01e3d1e966a27fff6e72741dc06e9e8aeba",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_service_upper_left.brep": "d836e4b586665c567dfef7b78d46403d104598d602230abe50fe30eed30a4a63",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_service_upper_right.brep": "cf2608c37f9d5bf4d90ba6487f364e3ba876ec6397729a956ecca2b7f103526a",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_top.brep": "e384f9bc1d3f6101e4b13038eca3ac8af8b0c2366f28a4141c8e78ebf6ab7775",
+    "fea/generated/thin-bolted-v4-geometry/base_side_left.brep": "521e70bf01bc9cbb12fc6dd22af97601c381f43dbc3bf74522d78f85bc66128d",
+    "fea/generated/thin-bolted-v4-geometry/base_side_right.brep": "d80413a9e6e2bf6dbee2002bfaec2685fc2738830dbfc1113051ba78f56c32bd",
+    "fea/generated/thin-bolted-v4-geometry/lumber_leg_left.brep": "6e924d87107b2ce57d663fbd58434532c70477a6be9733c131009eae708fddc0",
+    "fea/generated/thin-bolted-v4-geometry/lumber_leg_right.brep": "ba1a7f403b75bd6f5383b86d4c9049964aac20b97f4bfa9bccb2c99cd6eee6c3",
+    "fea/wood_joint_reduced_contacts.py": "4e088d485cee8953bfdca411f646f18abfb49271c9d8f3b46044588a6a7c1ce7",
+    "mini_moonboard/__init__.py": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12",
+    "mini_moonboard/angle_base_frame.py": "b5b7fd39c60c17bbf75ca255e954eab8732049f35016de0285214204b345d288",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+    "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+    "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+    "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+    "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+    "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+    "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+    "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+    "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+    "mini_moonboard/compact_knee_frame.py": "775fa8614fc7a9b0d8ab9f2a2151a1325016930dbc42cc672be7ea3a4aec68c8",
+    "mini_moonboard/compact_knee_two_frame.py": "0c7cc4f1612bc561b05f04e1762d2e68d271a8571fb9edf374c681afabf28681",
+    "mini_moonboard/compact_rail_frame.py": "2e6875e85abfa722d7f5c8fc797753cca8c24c557c4fe985075a0bcd96995917",
+    "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+    "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+    "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+    "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+    "mini_moonboard/compact_thick_frame.py": "2cc0693053645a2d6c3bccab7c69a66f06a8347ba0440c6b95dc04866d4bb362",
+    "mini_moonboard/compact_three_leg_225_refined.py": "3f165f649339cee6ab62932db19bb2ca35211cb58f27b19e5bbff7136c7381f5",
+    "mini_moonboard/compact_three_leg_options.py": "5cda1980c0a42d492e53c3059f22c86a0851763b7c4aa16a2422d5a0d395bf59",
+    "mini_moonboard/compact_two_frame.py": "4f2c23c4345173796d9c29b2bafcdbff6fb5170ecd8dd4bb3c206681fa13321e",
+    "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+    "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+    "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+    "mini_moonboard/horizontal_service_frame.py": "d253b9b74df4fb0fca83f690eec3474a5bd43c54c6b295f20b7d63f98c25f2b6",
+    "mini_moonboard/horizontal_service_wiring.py": "5e5893d86032a312c6b2c0985856710e2a9e21ba8dfd589a541d98a56d1be994",
+    "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+    "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+    "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+    "mini_moonboard/infill_panel_frame.py": "c051299e7746839767829505ac7c5644d729725d578983d39c1698067bb44794",
+    "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+    "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+    "mini_moonboard/kicker_header_reinforcement.py": "7131264344d3f2529a2b46392b542fbe3e23dfc8bb6e2ca64eb8d49be900c2c4",
+    "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+    "mini_moonboard/lumber_leg_frame.py": "d98b0e205097798dede58dbebc7bb276e9ac8bcd6ca031b808d0f7eeb61b50cb",
+    "mini_moonboard/lumber_leg_spread_frame.py": "d94e6152be10eadc213e7d05c835fc507c18caed5d19bedf37c9da2a12433937",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+    "mini_moonboard/paired_rail_frame.py": "775decb22f1609cdc472a74490a79fb501d192d4719be188d443e09bedf6413c",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+    "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+    "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+    "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+    "mini_moonboard/round_insert_frame.py": "a28786d88b92a478d1658a8c29a6cdf8465f1ffbad87fa7fff8cf95e9ad7ca8a",
+    "mini_moonboard/round_insert_hardware.py": "019d94a75ea796d868a148c42fd8350984e815d9de4d5be99398741991a7b9e5",
+    "mini_moonboard/round_panel_hardware.py": "475d098b00ba4c54a7ecefa66521f001e9a91d227f4ffd16889173e7987674ec",
+    "mini_moonboard/round_panel_layout.py": "2f92d5438faac6dc8aef3aba90857a128b6f1e97a9d5aebf6793cb4d47f4b916",
+    "mini_moonboard/round_service_frame.py": "477d5b068153093a84c6537f77fbce22db6e2879d401c78c6a7ca82433d4dcf8",
+    "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+    "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+    "mini_moonboard/round_structural_wiring.py": "b802d10f1d73d2865e3a67613db0935ec2eec28d6222abc3b8c8c10dd3bbb5b2",
+    "mini_moonboard/screw_mvp_frame.py": "67ea2dcb2cc0100a64a003589ca3f26c0005a865659ce6f37dab5d03def65993",
+    "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+    "mini_moonboard/selective_2x6_frame.py": "1dcd39b898bcafe1fba04d92ddd39bd2d12a6fafdeac8f968c7c66635e56c678",
+    "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+    "mini_moonboard/single_2x6_frame.py": "f9e37eb873584625b8f03096373944a7355742600af5e96446c0e4eab6939daa",
+    "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+    "mini_moonboard/split_center_frame.py": "f4e1f7f7c5d15b33a80202e5f783152a3f8436081ef6d3b25ff811cd1d5cb30d",
+    "mini_moonboard/split_center_hardware.py": "cdbc6410b181fada08e25f7ca000e5dce01de59da7c6dd0ba1d5f80c1f40f49f",
+    "mini_moonboard/square_2x6_base_revision.py": "e26d11d1b460b8203f6c5ab9c28fdb8e585b035fecf4fc9035759fc195a8b20d",
+    "mini_moonboard/square_2x6_frame.py": "4b460c413489a7c0ab3dda88f9271296b26f72928f6f5445dd5b2b036dd8c365",
+    "mini_moonboard/square_2x6_revised_frame.py": "5a6e6288db55f8b225f19a060073543fda8ee64130c541ef195fc6432e3c590c",
+    "mini_moonboard/thick_leg_frame.py": "b09493de2b1c909ee1e24408122d51dc70da9b501fd49ebfa2b8a3a67d845606",
+    "mini_moonboard/timber_connections.py": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83",
+    "mini_moonboard/timber_frame.py": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667",
+    "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+    "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+    "mini_moonboard/vertical_principal_frame.py": "06233aefdf3bb3141a87fdbbf8ebaa501c9000036e1cb5ab171745a0d019f9a1",
+    "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+    "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+    "scripts/export_wood_joint_wj24_scene.py": "271d3c267035e7d9087eb25144ca24cb8301b36dffce3215a62aae0d45cc1db2",
+    "scripts/hl35_candidate.py": "4fd07e925e0c252035361194f6854106099f839fee4132cb7b37a7b4aeef022d",
+    "scripts/hl35_candidate_finish.py": "d28455e4d91727d60069f81ab38dd1916513d73a008b45672e63a94e1bf008bd",
+    "scripts/hl35_fit_revision.py": "2b59b72c08a24e27654aa2a338ae4929ea8384dd78d273e0d0df91eec2103acc",
+    "scripts/hl35_full_fit_candidate.py": "e42f08e87362028b9cb6e63b26986520cbfe40d61ccf7386ca12fbe171adf2fa",
+    "scripts/hl35_nominal_service_candidate.py": "efabfbef901cf3cf2077af13b9691bd959f4724cac326b5f434b157861e6ba21",
+    "scripts/hl35_revised_candidate.py": "1e86735d86d0c3f2dae3d8846e49b5c9c1c73f1c6c5158ac895eff623b01b5dc",
+    "scripts/hl35_service_clearance.py": "1d9ebcb0ed9e68c266367290584c53131a45d52a241b526cc99218878f282620",
+    "scripts/run_thin_bolted_common_shaft_continuation.py": "716b87b48709fab850e4b3bda31281b28364bef5f90d9aa8d9a1069bfb257c99",
+    "scripts/run_thin_bolted_common_shaft_frame.py": "d2f62c4cc7f98c48dcde5cd9f05b94cd3515eb9314497051a6322a64f2d2a7e8",
+    "scripts/run_thin_bolted_common_shaft_incremental.py": "342ca53532d08bab670bac13f923c00665bd4660722541ff936e4380131b1588",
+    "scripts/run_thin_bolted_finished_floor.py": "626f7f1561b097ab3b73eaa5f7fe6c70e7f24b50c6db7ef76f0fe63c86be2140",
+    "scripts/run_thin_bolted_finite_frame.py": "5cf423d80e57b6f4386eb6c7aae39961ba083a7b4a457c7d37694cb80101361e",
+    "scripts/run_thin_bolted_linear_timber_frame.py": "4d1e1d86c70186f4cd2a1dfcc1da7714cbd761660c54de6a11f26a0738f37669",
+    "scripts/run_thin_bolted_mechanics.py": "b37ec3806852d84b51f1b2d6daa41b8608f175934e0806869b25a6c9e3f33413",
+    "scripts/thin_bolted_candidate.py": "1b88a0570370a966f99e4cdc83cf521b4262d40b4622bb57e92fab76278dbbc0",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_common_shaft_audit.py": "a236900e59a3d5984598df56d4243408ce12801d4ab6fcc7f765f6a420de01ba",
+    "scripts/thin_bolted_common_shaft_export_audit.py": "26feb3bb369490729c6f8e48365d816cbda458b2fdeea89a97b8286842d1be58",
+    "scripts/thin_bolted_corotational_methods.py": "7638a09c145135a19dcccb7cd84a01b8a01d2a4465b02ebfc33372e672e5ebc8",
+    "scripts/thin_bolted_equilibrium_audit.py": "748f637b918bf9b7faca673cb2e723c8dbb8f98bc4a2d3fd5b12987c20980b84",
+    "scripts/thin_bolted_finished_support_audit.py": "0a37e67ed20e3fd1eed8b8b4d0d12889df6fd9a6fb33d6f8f68a0c6768f5ada0",
+    "scripts/thin_bolted_finite_connectors.py": "6bf2c5ca9006e474d8b10642e8e4dbbfc657070c0d221b98abfbc1d2d6e03060",
+    "scripts/thin_bolted_finite_frame.py": "68f711549da9e6b52c60db4e4df78235ba8105084ded0d81c9a3430cf5973588",
+    "scripts/thin_bolted_finite_mechanics.py": "8c2bf2f27538fc1d599db9ddee2efbbb6344687393781bd689de09a4998772a2",
+    "scripts/thin_bolted_finite_panel_adapter.py": "c0e2534158d10ca49e6e1ee20db7b8a7e72b746b49618a18bf5ab08a9526064b",
+    "scripts/thin_bolted_finite_plate.py": "2b0de347d0ef35d08ab7a8d4078fa2e26a50cee6e7c2f708560dd1f0979b9180",
+    "scripts/thin_bolted_finite_state_audit.py": "532c093c5426e3d4f78384ea0e4aff63353dce8b63ea8bdfe6eb17321bd196b1",
+    "scripts/thin_bolted_fitting_screen.py": "bd9586de4a5ca7b23c6e8f949a9b1c46a85fe88894b1779671bee91505e79642",
+    "scripts/thin_bolted_floor_contact.py": "0852ced82484414621106314531e883f713f5943358541539e8750af243c2e1f",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_isotropic_shaft.py": "be8e5277999aa2ce01b4a8d81c0e9124dad9dc6023712c13e91595600c1c027a",
+    "scripts/thin_bolted_layout_revision.py": "af84ec13d64ab4b4b0686003ad95b5ea905eb159393789266816ad48add7e32e",
+    "scripts/thin_bolted_linear_timber_admission.py": "e6dcb38947bea00ca583cd9a9e8d37a0cf0720d1f3ca97f7013ba9f2def0c676",
+    "scripts/thin_bolted_linear_timber_faces.py": "6283d85ec2bfacd6d72f0713c662e273201935e09445a6455b86a841de587208",
+    "scripts/thin_bolted_model.py": "1d4b06d3624e1c08f34f01e0e7002968843449d20d71e5fb5f987ebed72188a1",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_occupied.py": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77",
+    "scripts/thin_bolted_panel_coupled.py": "abd6da1911ec79ec25b57fc2a5cc20b9e687057a15b6df2f5e8fb292a42c6bd0",
+    "scripts/thin_bolted_panel_load_diagnostics.py": "ff5e0e7b3944e64379181a6b3a1c442b921c197b87d25da3bd20a2d69ec63ebd",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/thin_bolted_support_search_admission.py": "c7a70cebfe3640b82a151e358d32d0826d2c14b4d881059ed6c48a1c1a1cba84",
+    "scripts/thin_bolted_timber_common_shaft_checks.py": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7",
+    "scripts/thin_bolted_timber_contact_admission.py": "75011f4cfa042a46d8e45eb5716ae01df2edff3418b1439553afb04b14b14632",
+    "scripts/thin_bolted_timber_demand_checks.py": "1be05e74563d2cc7a7ea5437aa4ff7217e62f8314f9fe011ff273d201f755e20",
+    "scripts/thin_bolted_timber_face_contact.py": "9558a036f9f8b06fb6a1a1a711419aaa961f655e8f7fb02deb7808e8ade4ed8c",
+    "scripts/thin_bolted_timber_face_geometry.py": "4397c90479ba0ce2d54b82e2427f63bace50e0d217910d2dea43d1872c6cb183",
+    "scripts/thin_bolted_timber_resistance.py": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d",
+    "scripts/wood_joint_current_face_pair_atlas_attempt01.py": "016dbce14bff6408de418fc6cce35fa0590a72ceef43565164aa10f4b4bea3bb",
+    "site/hybrid/compact-floor-flush-kerf-right/parts.json": "42f2a6591de4e3213271b712e4c9f23cec86413285f4aee2d493f5c2bda9fe1c",
+    "site/owner-wood-joints-wj24-scene.json": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf",
+    "tests/test_thin_bolted_floor_contact.py": "e9ab6a5c3893c0e2f360c92b44d98e900bd267801398f6a7e584193cc7f6c022",
+    "tests/test_thin_bolted_incremental_step.py": "42cb2ef16d37a4cdc3e09de70c598f60e967b2bdb6b8a9863c99e071c2a042a2",
+    "tests/test_thin_bolted_numerical_step.py": "7f07205b46d322518b2c248806fd6ed8a774c8f0c135b5f27d76a92e88b32b94",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3",
+    "wood-joints-candidate.json": "2d1c43eae6f1515ad9fbb052d208b14648f4bf4f9003f49a7268d2ecb8ec545d"
+  },
+  "state_id": "thin-v4-5ee18d49cbad255344fa4574"
+}

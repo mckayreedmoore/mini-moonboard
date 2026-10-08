@@ -1,0 +1,511 @@
+{
+  "applicability": [
+    "Pure rigid, frictionless, compression-only annular uniform-bedding response coupon; k=1 N/mm^3 remains an unmeasured scenario.",
+    "Centered Decimal integration covers outer-only caps 0<h<=b-a; the preserved v1 fallback was independently checked on the stated moderate and inner-rim states.",
+    "Positive Gram factors/highprecision matrix are authoritative for narrow caps. When rounded dense tangent is None, a suitable factor/highprecision consumer is required; no candidate solver integration is supplied.",
+    "Whole-annulus zero-pressure touch is nonsmooth: zero tangent is the recorded inactive generalized branch, while positive approach has the full annulus derivative.",
+    "No actual pressure footprint, washer bending, timber strength, product capacity, candidate equilibrium, global/native model or structural release is qualified."
+  ],
+  "candidate_K_global_native_CAD_solved": false,
+  "candidate_mechanics_integrated": false,
+  "capacity_established": false,
+  "case_counts": {
+    "independent_derivative_states": 8,
+    "inner_rim_dispatch_states": 3,
+    "reused_moderate_open_touch_grazing_states": 8,
+    "tiny_caps": 6,
+    "total_integral_states": 17
+  },
+  "derivative_method": "Central differences of the independent pressure integrals, with actual binary-input spans and exact midpoint checks. Tiny/former-switch steps are 1e-4 of effective cap closure scale; component steps are quantized to source ULPs. Inner-rim steps are [1e-5,1e-7,1e-7].",
+  "disposition": "PASS_PURE_NUMERICAL_METHOD_REVIEW",
+  "frozen_source_pin_count": 15,
+  "frozen_source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-method-v4.json": "529841caf86c039d6e2672908a878f1be40f72078d0d2710779bace9a0b86c42",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "fea/generated/thin-bolted-b104-local-hardware-inputs/inputs.json": "8cebc830001ed86114bce7363f7fc3a0105c258885cdaa80a869245bea73d731",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/input.json": "27996bab1096fc1d24f2097e06cf782805116da18f3d88ad92336e218a31151d",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/result.json": "04e7939dc3bde3bef9878cf5a6cc8f8fe8a1e1bacb79368a98db7598136631f5",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/rigid_annular_seat.py": "5b55dcaaf663dd6954ba2f6a7a61aeb48c0ec4014edcf1d7f814defaacb97428",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/dispatch-input.json": "910fbac9d936da2786170c5a76b201e3f70ce7a4c96a2fffdb3ad26e3764631c",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/input.json": "b90d321bcdfbf02c736679bf7397baa91adc07d0e203fe9c35fc3268c80b4318",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/outer_cap_dispatch_final.py": "f1e5a02537fdb6dcaf6521862457ddbab195708221f02bd5f6fd4964cccebf12",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/result.json": "3b5ffc254964af530aea1c39ea97c45969177c767caeda5de3a026f03dd56465",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/stable_annular_opening.py": "198f4d2ea05575dab99b33808b7e6bae7c8768bf5fe7ddef35043958c5feabe2",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "tests/test_thin_bolted_steel_resistance.py": "87d34e080da1e453b097226d7f83d0db50a91b83f9389bbf199435dd93d0fca5"
+  },
+  "independent_derivative_observations": [
+    {
+      "id": "tiny-0",
+      "maximum_relative_energy_to_gradient_and_gradient_to_tangent_error": "6.250156095482657e-9"
+    },
+    {
+      "id": "tiny-1",
+      "maximum_relative_energy_to_gradient_and_gradient_to_tangent_error": "6.251615468280893e-9"
+    },
+    {
+      "id": "tiny-2",
+      "maximum_relative_energy_to_gradient_and_gradient_to_tangent_error": "8.518908426974671e-9"
+    },
+    {
+      "id": "tiny-3",
+      "maximum_relative_energy_to_gradient_and_gradient_to_tangent_error": "6.250070375072343e-9"
+    },
+    {
+      "id": "tiny-4",
+      "maximum_relative_energy_to_gradient_and_gradient_to_tangent_error": "6.240011669168875e-9"
+    },
+    {
+      "id": "tiny-5",
+      "maximum_relative_energy_to_gradient_and_gradient_to_tangent_error": "7.704021518529998e-9"
+    },
+    {
+      "id": "inner-rim",
+      "maximum_relative_energy_to_gradient_and_gradient_to_tangent_error": "1.331923470417125e-10"
+    },
+    {
+      "id": "former-switch",
+      "maximum_relative_energy_to_gradient_and_gradient_to_tangent_error": "6.249910605068575e-9"
+    }
+  ],
+  "independent_integrator": {
+    "Gauss_Legendre_points": 96,
+    "error_metric": "Relative component errors for precise nonzero components; exact zero components use absolute error. For float fallback components whose independent magnitude is <=1e-12, absolute error replaces an ill-conditioned relative-zero comparison.",
+    "independence": "No beta-series primitive or first-v2 z=h*v^2 pressure oracle is used by the independent integrator.",
+    "parameterization": "angular/radial: u=tan(theta/2), u_max=sqrt((radius-cutoff)/(radius+cutoff)); r0=cutoff/cos(theta); integrate positive radial-depth polynomials for pressure energy/resultants",
+    "precision_decimal_digits": 120,
+    "scalar_errors_are_concisely_rounded": true
+  },
+  "independent_method_path": "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/independent-pressure-numerical-review.py",
+  "independent_method_sha256": "cbde187d3661c1128dd592a64a76d77131e0f5558f4a5f35df5969fdd045780d",
+  "integration_case_observations": [
+    {
+      "effective_cap_width_from_binary_inputs_mm": "0.000001000000001027956386678852140903472900390625",
+      "energy_nmm": 9.021673062446727e-22,
+      "id": "tiny-0",
+      "independent_E_R_H_relative_max_error": "9.793014296142666e-87",
+      "normal_n": 3.1575855643208327e-15,
+      "q_delta_sx_sy": [
+        -17.525999,
+        1.0,
+        0.0
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "effective_cap_width_from_binary_inputs_mm": "1.0000000827403709990903735160827636718750E-8",
+      "energy_nmm": 9.021675685054065e-29,
+      "id": "tiny-1",
+      "independent_E_R_H_relative_max_error": "1.951251129726345e-89",
+      "normal_n": 3.15758622846617e-20,
+      "q_delta_sx_sy": [
+        -17.52599999,
+        1.0,
+        0.0
+      ],
+      "rounded_dense_tangent_usable": false
+    },
+    {
+      "effective_cap_width_from_binary_inputs_mm": "9.9998231917197699658572673797607421875E-11",
+      "energy_nmm": 9.021114797943785e-36,
+      "id": "tiny-2",
+      "independent_E_R_H_relative_max_error": "9.070754957004452e-96",
+      "normal_n": 3.1574460055397115e-25,
+      "q_delta_sx_sy": [
+        -17.5259999999,
+        1.0,
+        0.0
+      ],
+      "rounded_dense_tangent_usable": false
+    },
+    {
+      "effective_cap_width_from_binary_inputs_mm": "9.99999999727454992604069873718263845511393541575396173155770679864897402621459479613778787818339785211260970949763734792866459390936E-7",
+      "energy_nmm": 2.255418255345571e-26,
+      "id": "tiny-3",
+      "independent_E_R_H_relative_max_error": "9.793014156048861e-87",
+      "normal_n": 1.578792777027361e-17,
+      "q_delta_sx_sy": [
+        -0.087629995,
+        0.003,
+        0.004
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "effective_cap_width_from_binary_inputs_mm": "1.0000001081214570999855490992388941120720478116573547657058613007670079742162945308987525943550140291020565451102075131122768105558E-8",
+      "energy_nmm": 2.2554191216209426e-33,
+      "id": "tiny-4",
+      "independent_E_R_H_relative_max_error": "1.951251575469698e-89",
+      "normal_n": 1.5787932144117885e-22,
+      "q_delta_sx_sy": [
+        -0.08762999995,
+        0.003,
+        0.004
+      ],
+      "rounded_dense_tangent_usable": false
+    },
+    {
+      "effective_cap_width_from_binary_inputs_mm": "9.9998041638849064632924555831269605839715935725931067855705386569811740866158269254204536701827134552350503194630112639349556303E-11",
+      "energy_nmm": 2.255263679681375e-40,
+      "id": "tiny-5",
+      "independent_E_R_H_relative_max_error": "9.070783644540412e-96",
+      "normal_n": 1.5787154927276414e-27,
+      "q_delta_sx_sy": [
+        -0.08762999999950001,
+        0.003,
+        0.004
+      ],
+      "rounded_dense_tangent_usable": false
+    },
+    {
+      "effective_cap_width_from_binary_inputs_mm": "10.38215000000000021174173525650985538959503173828125",
+      "energy_nmm": 3086.583503290996,
+      "id": "inner-0",
+      "independent_E_R_H_relative_max_error": "3.768164373145601e-86",
+      "normal_n": 1023.8841608487752,
+      "q_delta_sx_sy": [
+        -7.14385,
+        1.0,
+        0.0
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "effective_cap_width_from_binary_inputs_mm": "10.38224999999999997868371792719699442386627197265625",
+      "energy_nmm": 3086.6858929030795,
+      "id": "inner-1",
+      "independent_E_R_H_relative_max_error": "3.773667796541706e-86",
+      "normal_n": 1023.9080808851422,
+      "q_delta_sx_sy": [
+        -7.14375,
+        1.0,
+        0.0
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "energy_nmm": 3086.788284907223,
+      "id": "inner-2",
+      "independent_E_R_H_relative_max_error": "1.295286131252871e-14",
+      "normal_n": 1023.9320012413793,
+      "q_delta_sx_sy": [
+        -7.14365,
+        1.0,
+        0.0
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "energy_nmm": 4.2033790919363705,
+      "id": "full",
+      "independent_E_R_H_relative_max_error": "3.565240223232799e-16",
+      "normal_n": 80.4648309885082,
+      "q_delta_sx_sy": [
+        0.1,
+        0.001,
+        0.002
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "energy_nmm": 0.45034385627740314,
+      "id": "half-annulus",
+      "independent_E_R_H_relative_max_error": "1.859968809928460e-16",
+      "normal_n": 16.729099472681717,
+      "q_delta_sx_sy": [
+        0.0,
+        0.003,
+        0.004
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "energy_nmm": 0.1906527734046605,
+      "id": "general-cap",
+      "independent_E_R_H_relative_max_error": "5.334414530406453e-16",
+      "normal_n": 9.522522599130665,
+      "q_delta_sx_sy": [
+        -0.02,
+        0.003,
+        0.004
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "energy_nmm": 0.1906527734046605,
+      "id": "reverse-cap",
+      "independent_E_R_H_relative_max_error": "5.334414530406453e-16",
+      "normal_n": 9.522522599130665,
+      "q_delta_sx_sy": [
+        -0.02,
+        -0.003,
+        -0.004
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "energy_nmm": 3.990141697636797,
+      "id": "full-contact-limit",
+      "independent_E_R_H_relative_max_error": "1.216555113212061e-16",
+      "normal_n": 70.51133139522973,
+      "q_delta_sx_sy": [
+        0.08763,
+        0.003,
+        0.004
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "energy_nmm": 0.0,
+      "id": "open",
+      "independent_E_R_H_relative_max_error": "0",
+      "normal_n": 0.0,
+      "q_delta_sx_sy": [
+        -0.1,
+        0.001,
+        0.002
+      ],
+      "rounded_dense_tangent_usable": true
+    },
+    {
+      "effective_cap_width_from_binary_inputs_mm": "2.53810861217118590172577829376377398996348693680244500224210117406604259922065279371417164068520668547188827396651716594944E-16",
+      "energy_nmm": 5.875066724074362e-60,
+      "id": "point-grazing",
+      "independent_E_R_H_relative_max_error": "1.256096413728010e-88",
+      "normal_n": 1.6203194327976526e-41,
+      "q_delta_sx_sy": [
+        -0.08763,
+        0.003,
+        0.004
+      ],
+      "rounded_dense_tangent_usable": false
+    },
+    {
+      "energy_nmm": 0.0,
+      "id": "zero-pressure",
+      "independent_E_R_H_relative_max_error": "0",
+      "normal_n": 0.0,
+      "q_delta_sx_sy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rounded_dense_tangent_usable": true
+    }
+  ],
+  "physical_and_touch_semantics": {
+    "exact_binary_point_grazing_energy_and_force_zero": true,
+    "exact_binary_point_grazing_q": [
+      -17.526,
+      1.0,
+      0.0
+    ],
+    "force_on_washer": "[0,0,N]",
+    "horizontal_translation_and_yaw_columns_zero": true,
+    "moment_on_washer_at_own_annulus_center": "[Gy,-Gx,0]",
+    "no_force_clamping_diagonal_shift_or_extra_activation_threshold": true,
+    "nominal_point_grazing_binary_positive_cap_is_retained": true,
+    "receiving_body_has_exact_opposite_wrench": true,
+    "uniform_positive_side_normal_derivative_n_mm": 804.648309885082,
+    "whole_touch_inactive_tangent_zero_is_generalized_branch_choice": true,
+    "whole_zero_pressure_touch_energy_and_force_zero": true
+  },
+  "readiness_scalars": {
+    "former_numeric_switch_max_relative_derivative_error": "6.249910605068575e-9",
+    "inner_rim_float_fallback_max_relative_error": "1.295286131252871e-14",
+    "inner_rim_max_relative_derivative_error": "1.331923470417125e-10",
+    "minimum_positive_Gram_weight_as_stored": "1.410016013777846828059062786882034853128852834147205500208614906653285593149933113949588346040849907e-55",
+    "moderate_float_max_relative_error": "5.334414530406453e-16",
+    "positive_Gram_relative_max_reconstruction_error": "9.512016361064777e-100",
+    "precise_cap_max_relative_E_R_H_error": "3.773667796541706e-86",
+    "tiny_cap_max_relative_derivative_error": "8.518908426974671e-9"
+  },
+  "recording_provenance": "Independent numerical observations were obtained in two successful inline Python executions. This receipt and reproducer preserve those observations afterward; no numerical experiment was repeated while recording them. The reproducer was compilation checked only after preservation.",
+  "released": false,
+  "reproduction_command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/independent-pressure-numerical-review.py",
+  "reviewed_artifacts_and_source_pins_unchanged_before_and_after": true,
+  "reviewed_artifacts_sha256": {
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/dispatch-input.json": "910fbac9d936da2786170c5a76b201e3f70ce7a4c96a2fffdb3ad26e3764631c",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/dispatch-result-final.json": "33d05dbc2e0887ab44a2ba971147a20a21b6948b150b16d66a492f800730a061",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/outer_cap_dispatch_final.py": "f1e5a02537fdb6dcaf6521862457ddbab195708221f02bd5f6fd4964cccebf12"
+  },
+  "reviewed_json_canonical_sha256": {
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/dispatch-input.json": "e1db68b9587594dd966822727a5d0abe8ec23421f5b49cffcd8a6af9c3654cc0",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/dispatch-result-final.json": "e487f36cfcbcc89c4349565016bc3f5d31c3d92e5a589a57f8df960bd0f01998"
+  },
+  "schema": "thin_bolted_annular_independent_pressure_numerical_review/v1",
+  "tool_versions": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "unsafe_rounded_dense_cases": [
+    {
+      "exact_binary_principal_minor_PSD": false,
+      "id": "tiny-1",
+      "positive_Gram_weights": [
+        "7.893964917822804184968761271674637986047846903650704965723889099698826619986876542986056133620533309E-12",
+        "5.41300541089516956112817364084980149132768403215323335511245757966887674429284293436854957331723780E-29",
+        "5.533985622656558103104039123402050438397522525446245379976920457701612471120457988887180607035024303E-19"
+      ],
+      "q_delta_sx_sy": [
+        -17.52599999,
+        1.0,
+        0.0
+      ],
+      "returned_dense_tangent": null,
+      "returned_six_dof_tangent": null,
+      "rounded_dense_tangent_diagnostic": [
+        [
+          7.893964917822804e-12,
+          1.3834962910239868e-10,
+          0.0
+        ],
+        [
+          1.3834962910239868e-10,
+          2.4247155988185414e-09,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          5.533985622656558e-19
+        ]
+      ]
+    },
+    {
+      "exact_binary_principal_minor_PSD": false,
+      "id": "tiny-2",
+      "positive_Gram_weights": [
+        "7.893754581964567758429892054011213139615510053867460553618165083697092789120032567109853423916693607E-15",
+        "5.41266887876489791297475814096789341722324194714551814617929165416917219233555306826064781418426560E-36",
+        "5.533739869295366447771287599250945079371896261262702299499138199055969662225450102315195759212551337E-24"
+      ],
+      "q_delta_sx_sy": [
+        -17.5259999999,
+        1.0,
+        0.0
+      ],
+      "returned_dense_tangent": null,
+      "returned_six_dof_tangent": null,
+      "rounded_dense_tangent_diagnostic": [
+        [
+          7.893754581964567e-15,
+          1.383459428030374e-13,
+          0.0
+        ],
+        [
+          1.383459428030374e-13,
+          2.4246509935577328e-12,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          5.5337398692953666e-24
+        ]
+      ]
+    },
+    {
+      "exact_binary_principal_minor_PSD": false,
+      "id": "tiny-4",
+      "positive_Gram_weights": [
+        "7.893965218358886093396604916834836712534294607097677873313379799039545148739101606268698770136133109E-12",
+        "5.41300589175299241552004092634533652321918385566230712559826108290663317604178865802547835969519485E-29",
+        "5.533985973802949614950342809668016374713013044566128982080751962386938588506472547868884926260593886E-19"
+      ],
+      "q_delta_sx_sy": [
+        -0.08762999995,
+        0.003,
+        0.004
+      ],
+      "returned_dense_tangent": null,
+      "returned_six_dof_tangent": null,
+      "rounded_dense_tangent_diagnostic": [
+        [
+          7.893965218358885e-12,
+          8.300978062175643e-11,
+          1.1067970749567523e-10
+        ],
+        [
+          8.300978062175643e-11,
+          8.728976491614817e-10,
+          1.1638635314774442e-09
+        ],
+        [
+          1.1067970749567523e-10,
+          1.1638635314774442e-09,
+          1.551818042523324e-09
+        ]
+      ]
+    },
+    {
+      "exact_binary_principal_minor_PSD": false,
+      "id": "tiny-5",
+      "positive_Gram_weights": [
+        "7.893732051418130955116017114395888681126475748058909913093294810989624273304771897634893515047628549E-15",
+        "5.41263283123392757009723080445371825692338607607344718936527992967547376871245926260310139854317548E-36",
+        "5.533713545095397175774315135195738973186821304050879922126013323212835169735612971126441797993806690E-24"
+      ],
+      "q_delta_sx_sy": [
+        -0.08762999999950001,
+        0.003,
+        0.004
+      ],
+      "returned_dense_tangent": null,
+      "returned_six_dof_tangent": null,
+      "rounded_dense_tangent_diagnostic": [
+        [
+          7.89373205141813e-15,
+          8.300732875960833e-14,
+          1.1067643834614444e-13
+        ],
+        [
+          8.300732875960833e-14,
+          8.728718663050907e-13,
+          1.163829155066076e-12
+        ],
+        [
+          1.1067643834614444e-13,
+          1.163829155066076e-12,
+          1.5517722067603016e-12
+        ]
+      ]
+    },
+    {
+      "exact_binary_principal_minor_PSD": false,
+      "id": "point-grazing",
+      "positive_Gram_weights": [
+        "3.191982062996853675525688256212873596823581539243745279097195474271740769165098713905504018448431690E-23",
+        "1.410016013777846828059062786882034853128852834147205500208614906653285593149933113949588346040849907E-55",
+        "5.679543675842331916850375273478122716279073557192709283462161774278752681606507555372387618595453375E-38"
+      ],
+      "q_delta_sx_sy": [
+        -0.08763,
+        0.003,
+        0.004
+      ],
+      "returned_dense_tangent": null,
+      "returned_six_dof_tangent": null,
+      "rounded_dense_tangent_diagnostic": [
+        [
+          3.1919820629968535e-23,
+          3.3565606581649715e-22,
+          4.475414210886628e-22
+        ],
+        [
+          3.3565606581649715e-22,
+          3.5296249256999574e-21,
+          4.706166567599943e-21
+        ],
+        [
+          4.475414210886628e-22,
+          4.706166567599943e-21,
+          6.274888756799924e-21
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "actual_pure_replay_command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/rigid_annular_seat.py",
+    "--input",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/input.json",
+    "--output",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/.independent-review-s9ib4_34/result.json"
+  ],
+  "capacity_established": false,
+  "ephemeral_replay_raw_sha256": "e6210ba9035080a89ec552b14693511a2ebf631aa45ac0ed4ce2b3f7baadda95",
+  "full_area_mm2": 804.6483098850819,
+  "full_kernel_radius_mm": 5.109463654891305,
+  "full_second_moment_mm4": 72055.0170043845,
+  "independent_oracle": "96-by-96 polar Gauss-Legendre direct pressure/energy/moment/tangent integration; no cap formula or Cartesian-strip oracle reused",
+  "limits": [
+    "Full-kernel inequality is a contact-state condition, not strength.",
+    "Normal +z washer traction: M=[Gy,-Gx,0] at center; another datum d uses M_new=M_center-d cross F. Receiving body gets opposing wrench.",
+    "Horizontal translations and yaw remain free.",
+    "Rigid nominal envelope and uniform bedding1 are scenarios, not actual seat area, wood law, washer bending or joint strength."
+  ],
+  "native_or_candidate_execution": false,
+  "near_opening_counterexamples": [
+    {
+      "area_mm2": 7.893959907301351e-06,
+      "cap_width_mm": 0.0001,
+      "energy_nmm": 1.3078361488620784e-14,
+      "force_n": 1.3400062761287808e-12,
+      "q_delta_sx_sy": [
+        -0.0876295,
+        0.003,
+        0.004
+      ],
+      "tangent_min_eigenvalue": 3.395200336156058e-12
+    },
+    {
+      "area_mm2": 7.876937949125029e-09,
+      "cap_width_mm": 1e-06,
+      "energy_nmm": -8.171396527669024e-14,
+      "force_n": 1.4919978666298186e-12,
+      "q_delta_sx_sy": [
+        -0.087629995,
+        0.003,
+        0.004
+      ],
+      "tangent_min_eigenvalue": -1.3073666593752634e-09
+    },
+    {
+      "area_mm2": 6.372655927261439e-10,
+      "cap_width_mm": 1e-08,
+      "energy_nmm": 3.0205971076961682e-12,
+      "force_n": -5.5151835807572546e-11,
+      "q_delta_sx_sy": [
+        -0.08762999995,
+        0.003,
+        0.004
+      ],
+      "tangent_min_eigenvalue": 6.368836770599204e-10
+    },
+    {
+      "area_mm2": -4.158773259576795e-09,
+      "cap_width_mm": 1e-10,
+      "energy_nmm": -1.9959594224551467e-11,
+      "force_n": 3.6443399246367194e-10,
+      "q_delta_sx_sy": [
+        -0.08762999999950001,
+        0.003,
+        0.004
+      ],
+      "tangent_min_eigenvalue": -3.1935350758294245e-07
+    }
+  ],
+  "released": false,
+  "replay_matches_saved_report_except_truthful_actual_command": true,
+  "review_disposition": "PASS for eight declared moderate/full/open coupons and scoped analytic mechanics; not a robust production response arbitrarily near opening. Preserve v1; parent owns distinct numerical correction.",
+  "rows": [
+    {
+      "id": "full",
+      "independent_polar_N_Gx_Gy": [
+        80.46483098850828,
+        72.05501700438579,
+        144.11003400877158
+      ],
+      "independent_polar_area_mm2": 804.6483098850816,
+      "independent_polar_energy_nmm": 4.203379091936379,
+      "max_tangent_error": 2.6193447411060333e-10,
+      "physical_wrench_and_datum_transform_checked": true,
+      "rank": 3
+    },
+    {
+      "id": "half-annulus",
+      "independent_polar_N_Gx_Gy": [
+        16.72909947268177,
+        108.08252550657699,
+        144.1100340087693
+      ],
+      "independent_polar_area_mm2": 402.3241549425408,
+      "independent_polar_energy_nmm": 0.4503438562774041,
+      "max_tangent_error": 1.2042473854431771e-10,
+      "physical_wrench_and_datum_transform_checked": true,
+      "rank": 3
+    },
+    {
+      "id": "general-cap",
+      "independent_polar_N_Gx_Gy": [
+        9.522522599130692,
+        68.61071985503224,
+        91.48095980670963
+      ],
+      "independent_polar_area_mm2": 317.34769139997235,
+      "independent_polar_energy_nmm": 0.19065277340466072,
+      "max_tangent_error": 9.913492249324918e-11,
+      "physical_wrench_and_datum_transform_checked": true,
+      "rank": 3
+    },
+    {
+      "id": "reverse-cap",
+      "independent_polar_N_Gx_Gy": [
+        9.522522599130692,
+        -68.61071985503224,
+        -91.48095980670963
+      ],
+      "independent_polar_area_mm2": 317.34769139997235,
+      "independent_polar_energy_nmm": 0.19065277340466072,
+      "max_tangent_error": 9.913492249324918e-11,
+      "physical_wrench_and_datum_transform_checked": true,
+      "rank": 3
+    },
+    {
+      "id": "full-contact-limit",
+      "independent_polar_N_Gx_Gy": [
+        70.51133139522989,
+        216.1650510131543,
+        288.2200680175391
+      ],
+      "independent_polar_area_mm2": 804.6483098850816,
+      "independent_polar_energy_nmm": 3.990141697636808,
+      "max_tangent_error": 2.621701771352653e-10,
+      "physical_wrench_and_datum_transform_checked": true,
+      "rank": 3
+    },
+    {
+      "id": "open",
+      "independent_polar_N_Gx_Gy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "independent_polar_area_mm2": 0.0,
+      "independent_polar_energy_nmm": 0.0,
+      "max_tangent_error": 0.0,
+      "physical_wrench_and_datum_transform_checked": true,
+      "rank": 0
+    },
+    {
+      "id": "point-grazing",
+      "independent_polar_N_Gx_Gy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "independent_polar_area_mm2": 0.0,
+      "independent_polar_energy_nmm": 0.0,
+      "max_tangent_error": 0.0,
+      "physical_wrench_and_datum_transform_checked": true,
+      "rank": 0
+    },
+    {
+      "id": "zero-pressure",
+      "independent_polar_N_Gx_Gy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "independent_polar_area_mm2": 0.0,
+      "independent_polar_energy_nmm": 0.0,
+      "max_tangent_error": 0.0,
+      "physical_wrench_and_datum_transform_checked": true,
+      "rank": 0
+    }
+  ],
+  "schema": "rigid_annular_seat_independent_review/v1",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-method-v4.json": "529841caf86c039d6e2672908a878f1be40f72078d0d2710779bace9a0b86c42",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "fea/generated/thin-bolted-b104-local-hardware-inputs/inputs.json": "8cebc830001ed86114bce7363f7fc3a0105c258885cdaa80a869245bea73d731",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/input.json": "27996bab1096fc1d24f2097e06cf782805116da18f3d88ad92336e218a31151d",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/result.json": "04e7939dc3bde3bef9878cf5a6cc8f8fe8a1e1bacb79368a98db7598136631f5",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/rigid_annular_seat.py": "5b55dcaaf663dd6954ba2f6a7a61aeb48c0ec4014edcf1d7f814defaacb97428",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "tests/test_thin_bolted_steel_resistance.py": "87d34e080da1e453b097226d7f83d0db50a91b83f9389bbf199435dd93d0fca5"
+  },
+  "subject_input_path": "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/input.json",
+  "subject_result_path": "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/result.json",
+  "subject_source_path": "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/rigid_annular_seat.py",
+  "unchanged_before_after": true,
+  "zero_whole_annulus_touch": "C1 energy; gradient derivative depends on direction. Stored zero tangent is selected all-open generalized derivative, not unique classical Hessian. FD coupons exclude this state."
+}

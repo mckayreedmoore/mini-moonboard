@@ -1,0 +1,2546 @@
+{
+  "schema": "thin_bolted_complete_timber_contact_preparation/v1",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "mathematical_preparation_only": true,
+  "metadata": {
+    "method": "source-bound-linear-complete-atlas-wood-compression-v1",
+    "contact_pair_count": 30,
+    "contact_cell_count": 584,
+    "parameters": {
+      "linear_timber_face_contact_basis": "source-bound-linear-complete-atlas-wood-compression-v1",
+      "linear_timber_face_contact_geometry_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "linear_timber_face_contact_bedding_n_mm3": 1.0,
+      "linear_timber_face_contact_scenario_id": "complete-atlas-wood-bedding-declared-v1",
+      "linear_timber_face_contact_cell_mm": 25.0,
+      "linear_timber_face_contact_producer_sha256": "531d8e3393e309de172442b6a936c76b0d8db73f97a2bf63f831fa2a87d3b67f",
+      "complete_timber_face_contact_descriptor_sha256": "fb16e9da6051957b03f3fcf86fd4c4c848635956f1dca06dea5481e90cacd93e",
+      "complete_timber_face_contact_physical_signature_sha256": "78ae6bfeb907c7868cf890b3c055bc14fdfda947363ea76c10dcf9f42df0fb80"
+    },
+    "signature_inputs": {
+      "basis": "source-bound-linear-complete-atlas-wood-compression-v1",
+      "scenario_id": "complete-atlas-wood-bedding-declared-v1",
+      "bedding_n_mm3": 1.0,
+      "descriptor_sha256": "fb16e9da6051957b03f3fcf86fd4c4c848635956f1dca06dea5481e90cacd93e",
+      "grain_geometry_sha256": "2acf4752f4b5cd55aa2786299550c99722b0ff545dc9d4d142ba28d8435dce31",
+      "layout_sha256": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+      "geometry_cache_sha256": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+      "geometry_proof_sha256": {
+        "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+        "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json": "ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a"
+      },
+      "adapter_sha256": "531d8e3393e309de172442b6a936c76b0d8db73f97a2bf63f831fa2a87d3b67f"
+    },
+    "limits": [
+      "All 30 positive-area reference interfaces at the atlas tolerances are represented; future overlap after slip, near gaps, line/point contacts and interpenetration are not resolved.",
+      "Fixed reference normals/points and first-order rigid arms are a declared linear response approximation, not a finite-motion contact operator.",
+      "Uniform 1 N/mm^3 bedding is an unmeasured scenario; host grain angles are nominal geometry classifications, not Fc(theta), bearing resistance or joint capacity.",
+      "Area and first moments are conserved; centroid cell quadrature does not exactly reproduce the source second moments or bound rocking response.",
+      "Compression only, zero reference gap/preload, no tangential friction, axial tie, free point couple or external rotational clamp.",
+      "L/u/v are proper geometric grain frames; actual radial/tangential growth-ring orientation is unknown and no orthotropic R/T assignment is adopted.",
+      "The geometry-only 240-coordinate coupon reads saved endpoints/frames only: no saved q, loads, forces or acceptance is transferred.",
+      "A future complete field requires a new physical signature/state and independent admission; no previous six-interface field pass is inherited."
+    ],
+    "contact_operator_sha256": "ecc29d3d55fd914f10bc05d2db9eca8ad9d71a568f31a434bc60e6947cfc7193",
+    "coordinate_map_sha256": "f21380a5b9973edfa0eccd9eee77ba5e43bca37663df14b590617efea20cb05e",
+    "candidate_flags": {
+      "candidate_accepted": false,
+      "complete_joint_acceptance": false,
+      "capacity_established": false,
+      "fabrication_released": false,
+      "structural_released": false,
+      "climbing_released": false
+    },
+    "future_new_state_and_admission_required": true
+  },
+  "source_sha256": {
+    "scripts/thin_bolted_corotational_methods.py": "7638a09c145135a19dcccb7cd84a01b8a01d2a4465b02ebfc33372e672e5ebc8",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/thin_bolted_finite_plate.py": "2b0de347d0ef35d08ab7a8d4078fa2e26a50cee6e7c2f708560dd1f0979b9180",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_panel_load_diagnostics.py": "ff5e0e7b3944e64379181a6b3a1c442b921c197b87d25da3bd20a2d69ec63ebd",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_floor_contact.py": "0852ced82484414621106314531e883f713f5943358541539e8750af243c2e1f",
+    "tests/test_thin_bolted_floor_contact.py": "e9ab6a5c3893c0e2f360c92b44d98e900bd267801398f6a7e584193cc7f6c022",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-geometry-v4.json": "e6c7ac4548b943bef4580b7c58efd67c11e29ed3335ae4036998a70c346986fc",
+    "scripts/thin_bolted_finite_connectors.py": "6bf2c5ca9006e474d8b10642e8e4dbbfc657070c0d221b98abfbc1d2d6e03060",
+    "scripts/thin_bolted_finite_mechanics.py": "8c2bf2f27538fc1d599db9ddee2efbbb6344687393781bd689de09a4998772a2",
+    "scripts/thin_bolted_finite_panel_adapter.py": "c0e2534158d10ca49e6e1ee20db7b8a7e72b746b49618a18bf5ab08a9526064b",
+    "scripts/thin_bolted_isotropic_shaft.py": "be8e5277999aa2ce01b4a8d81c0e9124dad9dc6023712c13e91595600c1c027a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/floor-corner-stick-method-coupons-v4.json": "e7569ddc3ea2addb6171b3a3bcccadaa1b004b8c14da94b0eb61320b3982355e",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "scripts/thin_bolted_finite_frame.py": "68f711549da9e6b52c60db4e4df78235ba8105084ded0d81c9a3430cf5973588",
+    "scripts/thin_bolted_timber_face_contact.py": "9558a036f9f8b06fb6a1a1a711419aaa961f655e8f7fb02deb7808e8ade4ed8c",
+    "scripts/thin_bolted_linear_timber_faces.py": "6283d85ec2bfacd6d72f0713c662e273201935e09445a6455b86a841de587208",
+    "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+    "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json": "ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "fea/generated/thin-bolted-complete-timber-contact-v1/adapter.py": "531d8e3393e309de172442b6a936c76b0d8db73f97a2bf63f831fa2a87d3b67f",
+    "fea/generated/thin-bolted-complete-timber-contact-v1/test_adapter.py": "0a6ffbedf2286503520e595cc64ea177b5f50c9f1d31a124676a9aedffceacb5",
+    "fea/generated/thin-bolted-local-joint-ports/query-all-timber-pairs.py": "1645422ea2f9d6fe04f30d8c2b480b5baffecb2bdb7d078b1f53e197b05874ef",
+    "scripts/thin_bolted_timber_face_geometry.py": "4397c90479ba0ce2d54b82e2427f63bace50e0d217910d2dea43d1872c6cb183",
+    "scripts/wood_joint_current_face_pair_atlas_attempt01.py": "016dbce14bff6408de418fc6cce35fa0590a72ceef43565164aa10f4b4bea3bb",
+    "fea/wood_joint_reduced_contacts.py": "4e088d485cee8953bfdca411f646f18abfb49271c9d8f3b46044588a6a7c1ce7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "fea/generated/thin-bolted-v4-geometry/base_floor_left.brep": "38e035abff60755d838aec29cad4ee7867a03c1b085e51be9720d59f7a61cfa6",
+    "fea/generated/thin-bolted-v4-geometry/base_floor_right.brep": "aafcdcebe7a8b5716558be219202d6d161663edb40a81bdb592246f9907c6654",
+    "fea/generated/thin-bolted-v4-geometry/base_header.brep": "f4778c5b94f2c5825882690c737ed0511fe52ecac82c0c6821fabc12c1aa43f8",
+    "fea/generated/thin-bolted-v4-geometry/base_post_center_left.brep": "62ec32e841ab88580c861d0f6b5ed8a800d5bed75b93a409f30e3df084bec0ba",
+    "fea/generated/thin-bolted-v4-geometry/base_post_center_right.brep": "ee34822758192f63091105f534b788b62ebf7b913585db8245783b78e78432d0",
+    "fea/generated/thin-bolted-v4-geometry/base_post_outer_left.brep": "1c32a30f16101639f98c7deae18702ad94d43a17860fa0758e48ed36603bf3c3",
+    "fea/generated/thin-bolted-v4-geometry/base_post_outer_right.brep": "d771ca8f339fc0abe9538829c58fcfd3f7ec54de3bcb20d608dd5468c9da74af",
+    "fea/generated/thin-bolted-v4-geometry/base_principal_center_left.brep": "a97b764b85c17d2b44e37c15c46c622afbcf4f49f4dc31e3254cc9dc2610da3c",
+    "fea/generated/thin-bolted-v4-geometry/base_principal_center_right.brep": "391313cfd7c31ad8dbf25dc42cd5f6e7f546497bcda3ebea9019435dd5b5d513",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_bottom_left.brep": "5fbf140118ce8037dead90fe60713d546d413a69f95e41fba148fe21c3abfe2e",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_bottom_right.brep": "f65f8a4ff3d82b22ac155a3560c428ddd79a7afd94e08cb07a1ec764a3704d65",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_service_lower_left.brep": "c907b43ac72d35f7bf1ccf939820cf2ea6e4cbcf0cb3ab0d5d948ec755302460",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_service_lower_right.brep": "afe38a3c3dc79ee0c1c0bd00fd44f01e3d1e966a27fff6e72741dc06e9e8aeba",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_service_upper_left.brep": "d836e4b586665c567dfef7b78d46403d104598d602230abe50fe30eed30a4a63",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_service_upper_right.brep": "cf2608c37f9d5bf4d90ba6487f364e3ba876ec6397729a956ecca2b7f103526a",
+    "fea/generated/thin-bolted-v4-geometry/base_rail_top.brep": "e384f9bc1d3f6101e4b13038eca3ac8af8b0c2366f28a4141c8e78ebf6ab7775",
+    "fea/generated/thin-bolted-v4-geometry/base_side_left.brep": "521e70bf01bc9cbb12fc6dd22af97601c381f43dbc3bf74522d78f85bc66128d",
+    "fea/generated/thin-bolted-v4-geometry/base_side_right.brep": "d80413a9e6e2bf6dbee2002bfaec2685fc2738830dbfc1113051ba78f56c32bd",
+    "fea/generated/thin-bolted-v4-geometry/lumber_leg_left.brep": "6e924d87107b2ce57d663fbd58434532c70477a6be9733c131009eae708fddc0",
+    "fea/generated/thin-bolted-v4-geometry/lumber_leg_right.brep": "ba1a7f403b75bd6f5383b86d4c9049964aac20b97f4bfa9bccb2c99cd6eee6c3",
+    "fea/generated/thin-bolted-local-joint-ports/query-touching-planes.py": "25e7e7c51665bd38e1c2dbd0d505e2586b530e80114ffd771450175be16eee2c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "current-candidate.json": "f4505746a0a33eac1771708fbc376686b801e2c2af3053d9447fbbc6e22491a4",
+    "wood-joints-candidate.json": "2d1c43eae6f1515ad9fbb052d208b14648f4bf4f9003f49a7268d2ecb8ec545d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.json": "0c5a09879c9b191c39b96ce670d71ad110661bff7dfeab68133f711b32de476c",
+    "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/geometry-snapshot.json": "0b92357af648604ee8ce42d2f8906e0a4e5498e9e4b835a07938b81dc151d187",
+    "docs/wood-joints-mvp/source-inventory.json": "07af4c3eb642cf3887595fe4415eb65404cdcf74d66c5c7bb182847ef21c2d78",
+    "site/owner-wood-joints-wj24-scene.json": "74845b2e97165488d020d6a26202d2372f09f299cb47c9f28a3ba4642fe628bf",
+    "docs/floor-flush-construction-kerf-right/connection-axes.csv": "174033945a2136b094bf99360cb2c6dfa409accef423ab12538ef289b5d36a58",
+    "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a",
+    "scripts/thin_bolted_fitting_screen.py": "bd9586de4a5ca7b23c6e8f949a9b1c46a85fe88894b1779671bee91505e79642",
+    "scripts/thin_bolted_candidate.py": "1b88a0570370a966f99e4cdc83cf521b4262d40b4622bb57e92fab76278dbbc0",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-far-hole-raw-v2.json": "199ddc9b4eba9acc447f61f488bede7cb44b5dff4d89d60138b176f2e268e835",
+    "scripts/thin_bolted_occupied.py": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77",
+    "scripts/hl35_candidate.py": "4fd07e925e0c252035361194f6854106099f839fee4132cb7b37a7b4aeef022d",
+    "scripts/hl35_full_fit_candidate.py": "e42f08e87362028b9cb6e63b26986520cbfe40d61ccf7386ca12fbe171adf2fa",
+    "scripts/hl35_nominal_service_candidate.py": "efabfbef901cf3cf2077af13b9691bd959f4724cac326b5f434b157861e6ba21",
+    "scripts/hl35_service_clearance.py": "1d9ebcb0ed9e68c266367290584c53131a45d52a241b526cc99218878f282620",
+    "mini_moonboard/no_shoes_frame.py": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470",
+    "mini_moonboard/round_structural_wiring.py": "b802d10f1d73d2865e3a67613db0935ec2eec28d6222abc3b8c8c10dd3bbb5b2",
+    "scripts/thin_bolted_layout_revision.py": "af84ec13d64ab4b4b0686003ad95b5ea905eb159393789266816ad48add7e32e",
+    "mini_moonboard/__init__.py": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12",
+    "mini_moonboard/angle_base_frame.py": "b5b7fd39c60c17bbf75ca255e954eab8732049f35016de0285214204b345d288",
+    "mini_moonboard/base_frame.py": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16",
+    "mini_moonboard/bearing_frame.py": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e",
+    "mini_moonboard/bolted_frame.py": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35",
+    "mini_moonboard/box_exports.py": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6",
+    "mini_moonboard/box_frame.py": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5",
+    "mini_moonboard/bracket_mvp.py": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f",
+    "mini_moonboard/clip_frame.py": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a",
+    "mini_moonboard/compact_base_finish.py": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "mini_moonboard/compact_floor_recess_frame.py": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0",
+    "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+    "mini_moonboard/compact_knee_frame.py": "775fa8614fc7a9b0d8ab9f2a2151a1325016930dbc42cc672be7ea3a4aec68c8",
+    "mini_moonboard/compact_knee_two_frame.py": "0c7cc4f1612bc561b05f04e1762d2e68d271a8571fb9edf374c681afabf28681",
+    "mini_moonboard/compact_rail_frame.py": "2e6875e85abfa722d7f5c8fc797753cca8c24c557c4fe985075a0bcd96995917",
+    "mini_moonboard/compact_spliced_installation.py": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818",
+    "mini_moonboard/compact_spliced_kicker.py": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412",
+    "mini_moonboard/compact_spliced_knee_frame.py": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be",
+    "mini_moonboard/compact_spliced_trimmed.py": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0",
+    "mini_moonboard/compact_thick_frame.py": "2cc0693053645a2d6c3bccab7c69a66f06a8347ba0440c6b95dc04866d4bb362",
+    "mini_moonboard/compact_three_leg_225_refined.py": "3f165f649339cee6ab62932db19bb2ca35211cb58f27b19e5bbff7136c7381f5",
+    "mini_moonboard/compact_three_leg_options.py": "5cda1980c0a42d492e53c3059f22c86a0851763b7c4aa16a2422d5a0d395bf59",
+    "mini_moonboard/compact_two_frame.py": "4f2c23c4345173796d9c29b2bafcdbff6fb5170ecd8dd4bb3c206681fa13321e",
+    "mini_moonboard/continuous_frame.py": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488",
+    "mini_moonboard/easy_frame.py": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "mini_moonboard/footprint_frame.py": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022",
+    "mini_moonboard/hold_tnut_reinforcement.py": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390",
+    "mini_moonboard/horizontal_service_frame.py": "d253b9b74df4fb0fca83f690eec3474a5bd43c54c6b295f20b7d63f98c25f2b6",
+    "mini_moonboard/horizontal_service_wiring.py": "5e5893d86032a312c6b2c0985856710e2a9e21ba8dfd589a541d98a56d1be994",
+    "mini_moonboard/hybrid.py": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec",
+    "mini_moonboard/hybrid_frame.py": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5",
+    "mini_moonboard/independent_leg_frame.py": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b",
+    "mini_moonboard/infill_panel_frame.py": "c051299e7746839767829505ac7c5644d729725d578983d39c1698067bb44794",
+    "mini_moonboard/insert_frame.py": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05",
+    "mini_moonboard/joint_frame.py": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5",
+    "mini_moonboard/kicker_header_reinforcement.py": "7131264344d3f2529a2b46392b542fbe3e23dfc8bb6e2ca64eb8d49be900c2c4",
+    "mini_moonboard/lean_frame.py": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce",
+    "mini_moonboard/lumber_leg_frame.py": "d98b0e205097798dede58dbebc7bb276e9ac8bcd6ca031b808d0f7eeb61b50cb",
+    "mini_moonboard/lumber_leg_spread_frame.py": "d94e6152be10eadc213e7d05c835fc507c18caed5d19bedf37c9da2a12433937",
+    "mini_moonboard/model.py": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef",
+    "mini_moonboard/paired_rail_frame.py": "775decb22f1609cdc472a74490a79fb501d192d4719be188d443e09bedf6413c",
+    "mini_moonboard/panel_grid.py": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873",
+    "mini_moonboard/panel_grid_v2.py": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8",
+    "mini_moonboard/product_connections.py": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f",
+    "mini_moonboard/product_frame.py": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30",
+    "mini_moonboard/raster.py": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292",
+    "mini_moonboard/round_insert_frame.py": "a28786d88b92a478d1658a8c29a6cdf8465f1ffbad87fa7fff8cf95e9ad7ca8a",
+    "mini_moonboard/round_insert_hardware.py": "019d94a75ea796d868a148c42fd8350984e815d9de4d5be99398741991a7b9e5",
+    "mini_moonboard/round_panel_hardware.py": "475d098b00ba4c54a7ecefa66521f001e9a91d227f4ffd16889173e7987674ec",
+    "mini_moonboard/round_panel_layout.py": "2f92d5438faac6dc8aef3aba90857a128b6f1e97a9d5aebf6793cb4d47f4b916",
+    "mini_moonboard/round_service_frame.py": "477d5b068153093a84c6537f77fbce22db6e2879d401c78c6a7ca82433d4dcf8",
+    "mini_moonboard/round_service_wiring.py": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2",
+    "mini_moonboard/round_structural_frame.py": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810",
+    "mini_moonboard/screw_mvp_frame.py": "67ea2dcb2cc0100a64a003589ca3f26c0005a865659ce6f37dab5d03def65993",
+    "mini_moonboard/selected_hardware.py": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654",
+    "mini_moonboard/selective_2x6_frame.py": "1dcd39b898bcafe1fba04d92ddd39bd2d12a6fafdeac8f968c7c66635e56c678",
+    "mini_moonboard/shallow_frame.py": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5",
+    "mini_moonboard/single_2x6_frame.py": "f9e37eb873584625b8f03096373944a7355742600af5e96446c0e4eab6939daa",
+    "mini_moonboard/spacing_frame.py": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632",
+    "mini_moonboard/split_center_frame.py": "f4e1f7f7c5d15b33a80202e5f783152a3f8436081ef6d3b25ff811cd1d5cb30d",
+    "mini_moonboard/split_center_hardware.py": "cdbc6410b181fada08e25f7ca000e5dce01de59da7c6dd0ba1d5f80c1f40f49f",
+    "mini_moonboard/square_2x6_base_revision.py": "e26d11d1b460b8203f6c5ab9c28fdb8e585b035fecf4fc9035759fc195a8b20d",
+    "mini_moonboard/square_2x6_frame.py": "4b460c413489a7c0ab3dda88f9271296b26f72928f6f5445dd5b2b036dd8c365",
+    "mini_moonboard/square_2x6_revised_frame.py": "5a6e6288db55f8b225f19a060073543fda8ee64130c541ef195fc6432e3c590c",
+    "mini_moonboard/thick_leg_frame.py": "b09493de2b1c909ee1e24408122d51dc70da9b501fd49ebfa2b8a3a67d845606",
+    "mini_moonboard/timber_connections.py": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83",
+    "mini_moonboard/timber_frame.py": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667",
+    "mini_moonboard/top_joint_frame.py": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898",
+    "mini_moonboard/transition_frame.py": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b",
+    "mini_moonboard/vertical_principal_frame.py": "06233aefdf3bb3141a87fdbbf8ebaa501c9000036e1cb5ab171745a0d019f9a1",
+    "mini_moonboard/wide_frame.py": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c",
+    "mini_moonboard/wood_mvp.py": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9",
+    "scripts/export_wood_joint_wj24_scene.py": "271d3c267035e7d9087eb25144ca24cb8301b36dffce3215a62aae0d45cc1db2",
+    "scripts/hl35_candidate_finish.py": "d28455e4d91727d60069f81ab38dd1916513d73a008b45672e63a94e1bf008bd",
+    "scripts/hl35_fit_revision.py": "2b59b72c08a24e27654aa2a338ae4929ea8384dd78d273e0d0df91eec2103acc",
+    "scripts/hl35_revised_candidate.py": "1e86735d86d0c3f2dae3d8846e49b5c9c1c73f1c6c5158ac895eff623b01b5dc",
+    "scripts/thin_bolted_model.py": "1d4b06d3624e1c08f34f01e0e7002968843449d20d71e5fb5f987ebed72188a1",
+    "site/hybrid/compact-floor-flush-kerf-right/parts.json": "42f2a6591de4e3213271b712e4c9f23cec86413285f4aee2d493f5c2bda9fe1c",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/frame-contact-audit-v4.py": "197396502e2387b4c6e9cb8e84702f576d2ea392d8f929fc30a12a50bfadd235",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-v4.json": "e2946cd24aabf48cc452ad9413ba6457c9bd10911c0b588c706df6f13cfe11dd",
+    "fea/current_response_model.py": "faae5b14c47c3c485f41d56eb77ec9e9a6c1801e5a143276a91afc3a294a9894",
+    "scripts/run_thin_bolted_finished_floor.py": "626f7f1561b097ab3b73eaa5f7fe6c70e7f24b50c6db7ef76f0fe63c86be2140",
+    "scripts/run_thin_bolted_mechanics.py": "b37ec3806852d84b51f1b2d6daa41b8608f175934e0806869b25a6c9e3f33413"
+  },
+  "source_verification_before_and_after": true,
+  "raw_input_sha256": {
+    "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+    "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json": "ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d"
+  },
+  "canonical_input_sha256": {
+    "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json": "6e83f0a0dd0419cf9ce8c99849e2417b6fa0a2186aff89ad19ec7152a71d8fb9",
+    "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json": "ec9d9997e3afaa95c21c891e3ce8efc7cd9c3dd82975cc5ad73d5a35ff81a410",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json": "7b8e8c3f3671e80c9778a0515286e9bb6ac7b782e501288e268f585a7f1ed07a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "e34fd323d40af3635991d5db3e2b2008eddea80fba33d4970496bb5745663f7f"
+  },
+  "geometry_only_saved_source_keys": [
+    "member",
+    "element",
+    "start_xyz_mm",
+    "end_xyz_mm",
+    "basis_grain_u_v_xyz"
+  ],
+  "grain_geometry": {
+    "base_floor_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "start_xyz_mm": [
+        -1238.25,
+        -175.7,
+        69.85000000000024
+      ],
+      "end_xyz_mm": [
+        -1238.25,
+        1639.9464830416932,
+        69.85000000000024
+      ],
+      "length_mm": 1815.6464830416933,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_floor_left.brep",
+      "cached_finished_part_sha256": "38e035abff60755d838aec29cad4ee7867a03c1b085e51be9720d59f7a61cfa6"
+    },
+    "base_floor_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "start_xyz_mm": [
+        1235.075,
+        -175.7,
+        69.85000000000024
+      ],
+      "end_xyz_mm": [
+        1235.075,
+        1639.9464830416932,
+        69.85000000000024
+      ],
+      "length_mm": 1815.6464830416933,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_floor_right.brep",
+      "cached_finished_part_sha256": "aafcdcebe7a8b5716558be219202d6d161663edb40a81bdb592246f9907c6654"
+    },
+    "base_header": {
+      "basis_grain_u_v_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "start_xyz_mm": [
+        -1219.2,
+        -105.85,
+        257.95
+      ],
+      "end_xyz_mm": [
+        1216.0250000000003,
+        -105.85,
+        257.95
+      ],
+      "length_mm": 2435.2250000000004,
+      "cached_nominal_grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_header.brep",
+      "cached_finished_part_sha256": "f4778c5b94f2c5825882690c737ed0511fe52ecac82c0c6821fabc12c1aa43f8"
+    },
+    "base_post_center_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "start_xyz_mm": [
+        -70.0,
+        -105.85,
+        0.0
+      ],
+      "end_xyz_mm": [
+        -70.0,
+        -105.85,
+        238.9
+      ],
+      "length_mm": 238.9,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_post_center_left.brep",
+      "cached_finished_part_sha256": "62ec32e841ab88580c861d0f6b5ed8a800d5bed75b93a409f30e3df084bec0ba"
+    },
+    "base_post_center_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "start_xyz_mm": [
+        70.0,
+        -105.85,
+        0.0
+      ],
+      "end_xyz_mm": [
+        70.0,
+        -105.85,
+        238.9
+      ],
+      "length_mm": 238.9,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_post_center_right.brep",
+      "cached_finished_part_sha256": "ee34822758192f63091105f534b788b62ebf7b913585db8245783b78e78432d0"
+    },
+    "base_post_outer_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "start_xyz_mm": [
+        -1200.15,
+        -105.85,
+        0.0
+      ],
+      "end_xyz_mm": [
+        -1200.15,
+        -105.85,
+        238.9
+      ],
+      "length_mm": 238.9,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_post_outer_left.brep",
+      "cached_finished_part_sha256": "1c32a30f16101639f98c7deae18702ad94d43a17860fa0758e48ed36603bf3c3"
+    },
+    "base_post_outer_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "start_xyz_mm": [
+        1196.9750000000004,
+        -105.85,
+        0.0
+      ],
+      "end_xyz_mm": [
+        1196.9750000000004,
+        -105.85,
+        238.9
+      ],
+      "length_mm": 238.9,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_post_outer_right.brep",
+      "cached_finished_part_sha256": "d771ca8f339fc0abe9538829c58fcfd3f7ec54de3bcb20d608dd5468c9da74af"
+    },
+    "base_principal_center_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ]
+      ],
+      "start_xyz_mm": [
+        -70.00000000000003,
+        -132.68003089120128,
+        277.0
+      ],
+      "end_xyz_mm": [
+        -70.00000000000003,
+        1457.5860955097205,
+        2172.205368100611
+      ],
+      "length_mm": 2474.014902957451,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_principal_center_left.brep",
+      "cached_finished_part_sha256": "a97b764b85c17d2b44e37c15c46c622afbcf4f49f4dc31e3254cc9dc2610da3c"
+    },
+    "base_principal_center_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ]
+      ],
+      "start_xyz_mm": [
+        69.99999999999996,
+        -132.68003089120128,
+        277.0
+      ],
+      "end_xyz_mm": [
+        69.99999999999996,
+        1457.5860955097205,
+        2172.205368100611
+      ],
+      "length_mm": 2474.014902957451,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_principal_center_right.brep",
+      "cached_finished_part_sha256": "391313cfd7c31ad8dbf25dc42cd5f6e7f546497bcda3ebea9019435dd5b5d513"
+    },
+    "base_rail_bottom_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.6427876096865394,
+          0.7660444431189781
+        ],
+        [
+          0.0,
+          -0.7660444431189781,
+          0.6427876096865394
+        ]
+      ],
+      "start_xyz_mm": [
+        -1130.3,
+        -14.686785403935772,
+        417.61887358758224
+      ],
+      "end_xyz_mm": [
+        -89.04999999999995,
+        -14.686785403935772,
+        417.61887358758224
+      ],
+      "length_mm": 1041.25,
+      "cached_nominal_grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_rail_bottom_left.brep",
+      "cached_finished_part_sha256": "5fbf140118ce8037dead90fe60713d546d413a69f95e41fba148fe21c3abfe2e"
+    },
+    "base_rail_bottom_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.6427876096865394,
+          0.7660444431189781
+        ],
+        [
+          0.0,
+          -0.7660444431189781,
+          0.6427876096865394
+        ]
+      ],
+      "start_xyz_mm": [
+        89.04999999999995,
+        -14.686785403935772,
+        417.61887358758224
+      ],
+      "end_xyz_mm": [
+        1127.125,
+        -14.686785403935772,
+        417.61887358758224
+      ],
+      "length_mm": 1038.075,
+      "cached_nominal_grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_rail_bottom_right.brep",
+      "cached_finished_part_sha256": "f65f8a4ff3d82b22ac155a3560c428ddd79a7afd94e08cb07a1ec764a3704d65"
+    },
+    "base_rail_service_lower_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.6427876096865394,
+          0.7660444431189781
+        ],
+        [
+          0.0,
+          -0.7660444431189781,
+          0.6427876096865394
+        ]
+      ],
+      "start_xyz_mm": [
+        -1130.3,
+        643.7527025784706,
+        1202.3164988965073
+      ],
+      "end_xyz_mm": [
+        -89.04999999999995,
+        643.7527025784706,
+        1202.3164988965073
+      ],
+      "length_mm": 1041.25,
+      "cached_nominal_grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_rail_service_lower_left.brep",
+      "cached_finished_part_sha256": "c907b43ac72d35f7bf1ccf939820cf2ea6e4cbcf0cb3ab0d5d948ec755302460"
+    },
+    "base_rail_service_lower_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.6427876096865394,
+          0.7660444431189781
+        ],
+        [
+          0.0,
+          -0.7660444431189781,
+          0.6427876096865394
+        ]
+      ],
+      "start_xyz_mm": [
+        89.04999999999995,
+        643.7527025784706,
+        1202.3164988965073
+      ],
+      "end_xyz_mm": [
+        1127.125,
+        643.7527025784706,
+        1202.3164988965073
+      ],
+      "length_mm": 1038.075,
+      "cached_nominal_grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_rail_service_lower_right.brep",
+      "cached_finished_part_sha256": "afe38a3c3dc79ee0c1c0bd00fd44f01e3d1e966a27fff6e72741dc06e9e8aeba"
+    },
+    "base_rail_service_upper_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.6427876096865394,
+          0.7660444431189781
+        ],
+        [
+          0.0,
+          -0.7660444431189781,
+          0.6427876096865394
+        ]
+      ],
+      "start_xyz_mm": [
+        -1130.3,
+        736.3462577538166,
+        1312.6652009277961
+      ],
+      "end_xyz_mm": [
+        -89.04999999999995,
+        736.3462577538166,
+        1312.6652009277961
+      ],
+      "length_mm": 1041.25,
+      "cached_nominal_grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_rail_service_upper_left.brep",
+      "cached_finished_part_sha256": "d836e4b586665c567dfef7b78d46403d104598d602230abe50fe30eed30a4a63"
+    },
+    "base_rail_service_upper_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.6427876096865394,
+          0.7660444431189781
+        ],
+        [
+          0.0,
+          -0.7660444431189781,
+          0.6427876096865394
+        ]
+      ],
+      "start_xyz_mm": [
+        89.04999999999995,
+        736.3462577538166,
+        1312.6652009277961
+      ],
+      "end_xyz_mm": [
+        1127.125,
+        736.3462577538166,
+        1312.6652009277961
+      ],
+      "length_mm": 1038.075,
+      "cached_nominal_grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_rail_service_upper_right.brep",
+      "cached_finished_part_sha256": "cf2608c37f9d5bf4d90ba6487f364e3ba876ec6397729a956ecca2b7f103526a"
+    },
+    "base_rail_top": {
+      "basis_grain_u_v_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.6427876096865394,
+          0.7660444431189781
+        ],
+        [
+          0.0,
+          -0.7660444431189781,
+          0.6427876096865394
+        ]
+      ],
+      "start_xyz_mm": [
+        -1130.3,
+        1469.8311991671267,
+        2186.7985149708625
+      ],
+      "end_xyz_mm": [
+        1127.1250000000002,
+        1469.8311991671267,
+        2186.7985149708625
+      ],
+      "length_mm": 2257.425,
+      "cached_nominal_grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_rail_top.brep",
+      "cached_finished_part_sha256": "e384f9bc1d3f6101e4b13038eca3ac8af8b0c2366f28a4141c8e78ebf6ab7775"
+    },
+    "base_side_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ]
+      ],
+      "start_xyz_mm": [
+        -1174.75,
+        -132.68003089907444,
+        277.0
+      ],
+      "end_xyz_mm": [
+        -1174.75,
+        1482.076303443398,
+        2201.3916613795673
+      ],
+      "length_mm": 2512.1149029625117,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_side_left.brep",
+      "cached_finished_part_sha256": "521e70bf01bc9cbb12fc6dd22af97601c381f43dbc3bf74522d78f85bc66128d"
+    },
+    "base_side_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ]
+      ],
+      "start_xyz_mm": [
+        1171.575,
+        -132.68003089907444,
+        277.0
+      ],
+      "end_xyz_mm": [
+        1171.575,
+        1482.076303443398,
+        2201.3916613795673
+      ],
+      "length_mm": 2512.1149029625117,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/base_side_right.brep",
+      "cached_finished_part_sha256": "d80413a9e6e2bf6dbee2002bfaec2685fc2738830dbfc1113051ba78f56c32bd"
+    },
+    "lumber_leg_left": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          -0.23915183195284334,
+          0.970982183808539
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          0.9709821838085387,
+          0.23915183195284329
+        ]
+      ],
+      "start_xyz_mm": [
+        -1263.65,
+        1568.0090148008987,
+        -3.183231456205249e-12
+      ],
+      "end_xyz_mm": [
+        -1263.65,
+        1096.4441455372094,
+        1914.6041359002882
+      ],
+      "length_mm": 1971.82210737434,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        -0.239151832,
+        0.970982184
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/lumber_leg_left.brep",
+      "cached_finished_part_sha256": "6e924d87107b2ce57d663fbd58434532c70477a6be9733c131009eae708fddc0"
+    },
+    "lumber_leg_right": {
+      "basis_grain_u_v_xyz": [
+        [
+          0.0,
+          -0.23915183195284334,
+          0.970982183808539
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.0,
+          0.9709821838085387,
+          0.23915183195284329
+        ]
+      ],
+      "start_xyz_mm": [
+        1260.4750000000004,
+        1568.0090148008987,
+        -3.183231456205249e-12
+      ],
+      "end_xyz_mm": [
+        1260.4750000000004,
+        1096.4441455372094,
+        1914.6041359002882
+      ],
+      "length_mm": 1971.82210737434,
+      "cached_nominal_grain_axis_xyz": [
+        0.0,
+        -0.239151832,
+        0.970982184
+      ],
+      "cached_grain_to_geometric_L_sign": 1.0,
+      "cached_finished_part_path": "fea/generated/thin-bolted-v4-geometry/lumber_leg_right.brep",
+      "cached_finished_part_sha256": "ba1a7f403b75bd6f5383b86d4c9049964aac20b97f4bfa9bccb2c99cd6eee6c3"
+    }
+  },
+  "patches": [
+    {
+      "patch_id": "timber-face/base_side_left/lumber_leg_left/1-11-0",
+      "first": "base_side_left",
+      "second": "lumber_leg_left",
+      "geometry_proof_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json",
+      "geometry_proof_sha256": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+      "area_mm2": 23852.78375686938,
+      "cell_count": 56,
+      "centroid_xyz_mm": [
+        -1219.2,
+        1129.2791128693855,
+        1781.2853679846173
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_side_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "lumber_leg_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "a8e590bb5ae13a5f48f448198cfa5e54f83b404bfc08f5816cc8b44e9fdfdf3a",
+        "second": "2c15fead8791b1b650c3330cac90499a5108892bd5e382089dbe88cdfb5ebb95"
+      },
+      "trimmed_region_signature_sha256": "7372b7abfb7e379c862d579988281427c2038ab9e206a19ce67df1247bc75acf",
+      "second_moment_relative_frobenius_error": 0.01457518758780425
+    },
+    {
+      "patch_id": "timber-face/base_side_right/lumber_leg_right/17-9-0",
+      "first": "base_side_right",
+      "second": "lumber_leg_right",
+      "geometry_proof_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json",
+      "geometry_proof_sha256": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+      "area_mm2": 23852.78375686937,
+      "cell_count": 56,
+      "centroid_xyz_mm": [
+        1216.025,
+        1129.2791128693855,
+        1781.285367984617
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_side_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "lumber_leg_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "a300a76a6e4dd10f9a791b6abef5358c67178bcc79c36ebdc1c904c682cb4f7b",
+        "second": "c9b554bfa45b256b69d72686ff92779855b07bd1e2bf1794aaff29a9fec897f4"
+      },
+      "trimmed_region_signature_sha256": "7bc4b7ccef1d87323c8bad7ce4a12ddd44dd3d5d7c714fd1a8166f8a338d2dd6",
+      "second_moment_relative_frobenius_error": 0.014575187587917572
+    },
+    {
+      "patch_id": "timber-face/base_post_outer_left/base_floor_left/1-5-0",
+      "first": "base_post_outer_left",
+      "second": "base_floor_left",
+      "geometry_proof_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json",
+      "geometry_proof_sha256": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+      "area_mm2": 19322.116043157646,
+      "cell_count": 36,
+      "centroid_xyz_mm": [
+        -1219.2,
+        -105.99343164600424,
+        69.70656835399444
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_post_outer_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_floor_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "29c42f0811d3cd507011715efd1b3e1b9e4dbe1ff04b6379e690d9d893cf6659",
+        "second": "16d49d997688a5ce9e5e4db4b8bb023e2831654e7a9e6467bb42a9f03c25a657"
+      },
+      "trimmed_region_signature_sha256": "f46b9e78ba34aab505c418c6df5fe9b3d2a589471801d85219b0815d0a093bc1",
+      "second_moment_relative_frobenius_error": 0.027379534401350852
+    },
+    {
+      "patch_id": "timber-face/base_post_outer_right/base_floor_right/9-4-0",
+      "first": "base_post_outer_right",
+      "second": "base_floor_right",
+      "geometry_proof_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json",
+      "geometry_proof_sha256": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+      "area_mm2": 19322.116043157643,
+      "cell_count": 36,
+      "centroid_xyz_mm": [
+        1216.0250000000003,
+        -105.99343164600425,
+        69.70656835399446
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_post_outer_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_floor_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "d656847509ab9267890848fbc7d3cb3785ecab7270c1d770f839ec6dd6810aaf",
+        "second": "bfa4d0e047184e96473f7f3a387c36ea9bec3aba9b99762197e27693e661a158"
+      },
+      "trimmed_region_signature_sha256": "e0ed98b7daae37bef2f24f5a60c3718d97cabc45caddc6e671007704c1eb5332",
+      "second_moment_relative_frobenius_error": 0.027379534401350967
+    },
+    {
+      "patch_id": "timber-face/base_floor_left/lumber_leg_left/4-4-0",
+      "first": "base_floor_left",
+      "second": "lumber_leg_left",
+      "geometry_proof_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json",
+      "geometry_proof_sha256": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+      "area_mm2": 19905.354666781594,
+      "cell_count": 44,
+      "centroid_xyz_mm": [
+        -1257.3000000000002,
+        1550.9687994430808,
+        69.71941950720321
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_floor_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "lumber_leg_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "77ad4e47b4b289cdeba9775b93bbad58ae1006bdd1d28bd5f00d89cf6b8d6719",
+        "second": "f7026dd270dfee66356df7745a6e6250645796d011399b931ae52abd0bc10e9d"
+      },
+      "trimmed_region_signature_sha256": "22febe6e9a163a06f44dbd1607089a6b4baf3713c2323f007ee44f50fdf4163d",
+      "second_moment_relative_frobenius_error": 0.023203618410480756
+    },
+    {
+      "patch_id": "timber-face/base_floor_right/lumber_leg_right/5-2-0",
+      "first": "base_floor_right",
+      "second": "lumber_leg_right",
+      "geometry_proof_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json",
+      "geometry_proof_sha256": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+      "area_mm2": 19905.35466678159,
+      "cell_count": 44,
+      "centroid_xyz_mm": [
+        1254.1249999999998,
+        1550.9687994430808,
+        69.71941950720321
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_floor_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "lumber_leg_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "b038e1b4ee1569b3e847d8751f1495506846f9ab14ae61695689d676c470aefd",
+        "second": "19e05a093ad19105cc9960421cab9a10ff51c7407a0319ae410ea0f71c79616b"
+      },
+      "trimmed_region_signature_sha256": "b0e8f9beedffc8e19250b7834131cfaed961f23f5efa021e6a3fded169798238",
+      "second_moment_relative_frobenius_error": 0.02320361841048092
+    },
+    {
+      "patch_id": "timber-face/base_header/base_side_left/3-2-0",
+      "first": "base_header",
+      "second": "base_side_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json",
+      "geometry_proof_sha256": "ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa",
+      "area_mm2": 11930.617255610585,
+      "cell_count": 24,
+      "centroid_xyz_mm": [
+        -1174.75,
+        -108.59866560399003,
+        277.0
+      ],
+      "normal_from_second_to_first_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_header",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_left",
+          "absolute_normal_dot_nominal_grain": 0.7660444429154699,
+          "normal_to_nominal_grain_angle_deg": 40.000000018139986,
+          "normal_components_in_geometric_L_u_v": [
+            -0.7660444429154699,
+            0.0,
+            -0.6427876099290708
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "09fc4211f7190285ec2a49c433cb27ee5fceb35d852833d440385e8508438dc0",
+        "second": "3b0cc9ba1bdb24500c78909799af2654a6c105977a82df082966f04f64724cf3"
+      },
+      "trimmed_region_signature_sha256": "f6e38181531db2eff341ac1ae81277cb6eb16313f4bcd2d190e5743001091367",
+      "second_moment_relative_frobenius_error": 0.0357455663817485
+    },
+    {
+      "patch_id": "timber-face/base_header/base_principal_center_left/3-2-0",
+      "first": "base_header",
+      "second": "base_principal_center_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json",
+      "geometry_proof_sha256": "ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa",
+      "area_mm2": 5113.121680975948,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -70.0,
+        -108.59866560399003,
+        277.0
+      ],
+      "normal_from_second_to_first_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_header",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_principal_center_left",
+          "absolute_normal_dot_nominal_grain": 0.7660444429154699,
+          "normal_to_nominal_grain_angle_deg": 40.000000018139986,
+          "normal_components_in_geometric_L_u_v": [
+            -0.7660444429154699,
+            0.0,
+            -0.6427876099290708
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "09fc4211f7190285ec2a49c433cb27ee5fceb35d852833d440385e8508438dc0",
+        "second": "5758fc489f39dce9a28e18b12280ac8696983191eab638073fe9c24506158178"
+      },
+      "trimmed_region_signature_sha256": "9527fb01d940d3ac4b9740868c3f6fbcc8fe4177ec6c18b36cf30333cd6f84ff",
+      "second_moment_relative_frobenius_error": 0.03420545342017728
+    },
+    {
+      "patch_id": "timber-face/base_header/base_post_center_left/5-3-0",
+      "first": "base_header",
+      "second": "base_post_center_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json",
+      "geometry_proof_sha256": "ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa",
+      "area_mm2": 5322.569999999999,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -70.0,
+        -105.85,
+        238.9
+      ],
+      "normal_from_second_to_first_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_header",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_post_center_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "65ec93f4bf50543fb7c5420a6b1b6c4f80823da1a38cb4b4659f309d06320929",
+        "second": "45575bd03ff22623dc5320935b49b4ac57b5f2027d502d649c9bc26c0bd1a900"
+      },
+      "trimmed_region_signature_sha256": "85451561b4d11cb4187876f0f608946743a16ddb32a6d6c857a091e13b2430c4",
+      "second_moment_relative_frobenius_error": 0.03333515721033735
+    },
+    {
+      "patch_id": "timber-face/base_header/base_post_center_right/5-3-0",
+      "first": "base_header",
+      "second": "base_post_center_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999999,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        70.0,
+        -105.85,
+        238.9
+      ],
+      "normal_from_second_to_first_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_header",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_post_center_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "65ec93f4bf50543fb7c5420a6b1b6c4f80823da1a38cb4b4659f309d06320929",
+        "second": "0d6c15f7ff2fb2d9f0385e48f4967d0d473d9d862dce349cdd1762440549ce6b"
+      },
+      "trimmed_region_signature_sha256": "ea781bb7781f28880aee5d0e547d8f5f46c78ba2b30df1c9955a699bd8429cfc",
+      "second_moment_relative_frobenius_error": 0.033335157210337384
+    },
+    {
+      "patch_id": "timber-face/base_header/base_post_outer_left/5-3-0",
+      "first": "base_header",
+      "second": "base_post_outer_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999987,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -1200.15,
+        -105.85,
+        238.9
+      ],
+      "normal_from_second_to_first_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_header",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_post_outer_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "65ec93f4bf50543fb7c5420a6b1b6c4f80823da1a38cb4b4659f309d06320929",
+        "second": "b1a210e70293a897d09eb6dfc123b8e82749f8a841bbe8b270b51d1417eea646"
+      },
+      "trimmed_region_signature_sha256": "03f6a834eb354be04b6c16b9e2a00e14e5c71793ac911a39edda5c8deb44c163",
+      "second_moment_relative_frobenius_error": 0.033335157210302724
+    },
+    {
+      "patch_id": "timber-face/base_header/base_post_outer_right/5-3-0",
+      "first": "base_header",
+      "second": "base_post_outer_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.570000000051,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        1196.9750000000001,
+        -105.85,
+        238.9
+      ],
+      "normal_from_second_to_first_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_header",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_post_outer_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "65ec93f4bf50543fb7c5420a6b1b6c4f80823da1a38cb4b4659f309d06320929",
+        "second": "69a0d29610ae8f971ddae7c9303cfc4091b869e7346a2b94ded2c7fb6250340a"
+      },
+      "trimmed_region_signature_sha256": "3759e66c3813b4e99acde4f1505a7ebf74a2c61dd7c2470d85430a45e7c3690d",
+      "second_moment_relative_frobenius_error": 0.03333515721037144
+    },
+    {
+      "patch_id": "timber-face/base_header/base_principal_center_right/3-2-0",
+      "first": "base_header",
+      "second": "base_principal_center_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5113.121680976009,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        70.0,
+        -108.59866560399003,
+        277.0
+      ],
+      "normal_from_second_to_first_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_header",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_principal_center_right",
+          "absolute_normal_dot_nominal_grain": 0.7660444429154699,
+          "normal_to_nominal_grain_angle_deg": 40.000000018139986,
+          "normal_components_in_geometric_L_u_v": [
+            -0.7660444429154699,
+            0.0,
+            -0.6427876099290708
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "09fc4211f7190285ec2a49c433cb27ee5fceb35d852833d440385e8508438dc0",
+        "second": "0c73408eac28c7e310197c2b0e5b8d73f536a8af8ed757ea91573573107093de"
+      },
+      "trimmed_region_signature_sha256": "bd28f7af3cf28b631881108080bb6466ddedee71ed181395f23a2bdda9995c4d",
+      "second_moment_relative_frobenius_error": 0.03420545342017704
+    },
+    {
+      "patch_id": "timber-face/base_header/base_side_right/3-2-0",
+      "first": "base_header",
+      "second": "base_side_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 11930.617255610508,
+      "cell_count": 24,
+      "centroid_xyz_mm": [
+        1171.5750000000003,
+        -108.59866560399043,
+        277.0
+      ],
+      "normal_from_second_to_first_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_header",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_right",
+          "absolute_normal_dot_nominal_grain": 0.7660444429154699,
+          "normal_to_nominal_grain_angle_deg": 40.000000018139986,
+          "normal_components_in_geometric_L_u_v": [
+            -0.7660444429154699,
+            0.0,
+            -0.6427876099290708
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "09fc4211f7190285ec2a49c433cb27ee5fceb35d852833d440385e8508438dc0",
+        "second": "4ab3c805f614d9c888602be2e4916aa5b12a31f64ae96a91f5548e9f25d4ac11"
+      },
+      "trimmed_region_signature_sha256": "226278287373db513f85996182e60be26ae76a94e340f7d7518b200e111610fb",
+      "second_moment_relative_frobenius_error": 0.035745566381749985
+    },
+    {
+      "patch_id": "timber-face/base_principal_center_left/base_rail_bottom_left/1-3-0",
+      "first": "base_principal_center_left",
+      "second": "base_rail_bottom_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999997,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -89.04999999999995,
+        -14.68678540393588,
+        417.6188735875823
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_principal_center_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_rail_bottom_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "b50d4cf1950c5961b8df074ee1ddc3d5f0ad5f010d1575cc7b231f6dc59f9a62",
+        "second": "3c3b2bdf227b7da7ae58c50cdd754d8d4a05b3497c00647a93ec6b48f1709f6a"
+      },
+      "trimmed_region_signature_sha256": "785050e5550f9e9e325edc80aa570add065a7567965969c60bbc5e738d416c32",
+      "second_moment_relative_frobenius_error": 0.033335157210318114
+    },
+    {
+      "patch_id": "timber-face/base_principal_center_left/base_rail_service_lower_left/1-3-0",
+      "first": "base_principal_center_left",
+      "second": "base_rail_service_lower_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.570000000012,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -89.04999999999995,
+        643.7527025784706,
+        1202.3164988965073
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_principal_center_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_rail_service_lower_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "b50d4cf1950c5961b8df074ee1ddc3d5f0ad5f010d1575cc7b231f6dc59f9a62",
+        "second": "c74667baa4b22a4bb15274f7abd28928d08b2fb8ac4dd28b9026dfef6151f625"
+      },
+      "trimmed_region_signature_sha256": "487205b5e6736ce504c1ca237e6407f91439c986b537d0509a0d309fd93eb811",
+      "second_moment_relative_frobenius_error": 0.03333515721036088
+    },
+    {
+      "patch_id": "timber-face/base_principal_center_left/base_rail_service_upper_left/1-3-0",
+      "first": "base_principal_center_left",
+      "second": "base_rail_service_upper_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999991,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -89.04999999999995,
+        736.3462577538165,
+        1312.6652009277961
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_principal_center_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_rail_service_upper_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "b50d4cf1950c5961b8df074ee1ddc3d5f0ad5f010d1575cc7b231f6dc59f9a62",
+        "second": "460497d18e52560d9b95461d8a39dd6e4291cde4839737f4fe4567f10be58369"
+      },
+      "trimmed_region_signature_sha256": "2a87ad764fe09de4e6f6ac77dc2065f9df41cd015bc2dee7345b6f81d5178576",
+      "second_moment_relative_frobenius_error": 0.03333515721038347
+    },
+    {
+      "patch_id": "timber-face/base_principal_center_left/base_rail_top/8-2-0",
+      "first": "base_principal_center_left",
+      "second": "base_rail_top",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999999,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -70.0,
+        1457.5860952025978,
+        2172.2053683294453
+      ],
+      "normal_from_second_to_first_xyz": [
+        0.0,
+        -0.6427876096865394,
+        -0.7660444431189781
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_principal_center_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            -3.1660243832384565e-10
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_rail_top",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0000000000000002,
+            6.079862707463804e-18
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "93fe2c96901ec6124ac38388b459c51c1b8a438e1c896f8666b49349b98107a4",
+        "second": "759180fb63de7335d68844aacf1807ebf5eb144611d39e9f1a2f21f190172260"
+      },
+      "trimmed_region_signature_sha256": "f8ff1c39b0c564484f5089a07fd6247a237a13f1633aeb477e5f02b42f290592",
+      "second_moment_relative_frobenius_error": 0.033335157210461826
+    },
+    {
+      "patch_id": "timber-face/base_principal_center_right/base_rail_bottom_right/19-1-0",
+      "first": "base_principal_center_right",
+      "second": "base_rail_bottom_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999997,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        89.04999999999995,
+        -14.68678540393588,
+        417.6188735875823
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_principal_center_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_rail_bottom_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "ab9363d713a8704306d9834252718ac45689b2e6204fa5c338f6f8e030378773",
+        "second": "8c5384cf501d7c16ef1a98397f28b89fc0574d643030f54b5308c4d83272fb26"
+      },
+      "trimmed_region_signature_sha256": "241411cc8d595987693271c1c163e6d892d93ba3e5413ee6da5b6e29f8340b79",
+      "second_moment_relative_frobenius_error": 0.033335157210318156
+    },
+    {
+      "patch_id": "timber-face/base_principal_center_right/base_rail_service_lower_right/19-1-0",
+      "first": "base_principal_center_right",
+      "second": "base_rail_service_lower_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.570000000012,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        89.04999999999995,
+        643.7527025784706,
+        1202.3164988965073
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_principal_center_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_rail_service_lower_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "ab9363d713a8704306d9834252718ac45689b2e6204fa5c338f6f8e030378773",
+        "second": "4fe3c5dbc2c09b44328aa05eaaf84d863f6ef7b94341b9b0ac40f040d70dc9af"
+      },
+      "trimmed_region_signature_sha256": "db65052cc92e12fabe93c3b16b150dc14a8e6b3d0f0e083370fcd0a9c710fcb9",
+      "second_moment_relative_frobenius_error": 0.033335157210364647
+    },
+    {
+      "patch_id": "timber-face/base_principal_center_right/base_rail_service_upper_right/19-1-0",
+      "first": "base_principal_center_right",
+      "second": "base_rail_service_upper_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999991,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        89.04999999999995,
+        736.3462577538165,
+        1312.6652009277961
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_principal_center_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_rail_service_upper_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "ab9363d713a8704306d9834252718ac45689b2e6204fa5c338f6f8e030378773",
+        "second": "443331593136b2cf9f0f605f9f038aabcdbc5978b8fc9cd4c27b127323f293af"
+      },
+      "trimmed_region_signature_sha256": "8ab4affccf4cb9438c2d54122707b4aae09f980c6c109224e5dfd61e4b88f563",
+      "second_moment_relative_frobenius_error": 0.033335157210383416
+    },
+    {
+      "patch_id": "timber-face/base_principal_center_right/base_rail_top/8-2-0",
+      "first": "base_principal_center_right",
+      "second": "base_rail_top",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999999,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        70.0,
+        1457.5860952025978,
+        2172.2053683294453
+      ],
+      "normal_from_second_to_first_xyz": [
+        0.0,
+        -0.6427876096865394,
+        -0.7660444431189781
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_principal_center_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            -3.1660243832384565e-10
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_rail_top",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0000000000000002,
+            6.079862707463804e-18
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "33c38079762ccf06b2ef743a039dd567cf6e423fffa11eb4c6a8520fa4716033",
+        "second": "759180fb63de7335d68844aacf1807ebf5eb144611d39e9f1a2f21f190172260"
+      },
+      "trimmed_region_signature_sha256": "9c73faa5f8a48d43b16a66208152eb8005870a6da6fe35dfe903878304fbbac2",
+      "second_moment_relative_frobenius_error": 0.033335157210461826
+    },
+    {
+      "patch_id": "timber-face/base_rail_bottom_left/base_side_left/5-17-0",
+      "first": "base_rail_bottom_left",
+      "second": "base_side_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.570000000003,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -1130.3,
+        -14.686785403935847,
+        417.61887358758224
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_rail_bottom_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "6a8ecc9b9bd992a511f21720a246d02b1126625e43632880c00d67048cf8e42f",
+        "second": "0f1600d7fedc7a0b15ad0abd39fafcabff68265435d1eb170a746a65e4e3deee"
+      },
+      "trimmed_region_signature_sha256": "ac9b7627708f1df8898a5ba60aea0e67406c91e6247d0c048f0e7ef43022a2e2",
+      "second_moment_relative_frobenius_error": 0.03333515721032319
+    },
+    {
+      "patch_id": "timber-face/base_rail_bottom_right/base_side_right/6-1-0",
+      "first": "base_rail_bottom_right",
+      "second": "base_side_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.5700000000015,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        1127.125,
+        -14.686785403935842,
+        417.6188735875822
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_rail_bottom_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "9f89f4a5b202c1569d92603e615736ec439a6ea0358a01acf0405704bb495ea0",
+        "second": "abf505b201f7f2806b4d3540e7cb901003b056f77585b6aa977f5430f936f47e"
+      },
+      "trimmed_region_signature_sha256": "4b176fe8a251b8652e6d266465c10a6cb05c91a17ab8881eed9b2d22ac4bd92e",
+      "second_moment_relative_frobenius_error": 0.03333515721033326
+    },
+    {
+      "patch_id": "timber-face/base_rail_service_lower_left/base_side_left/5-17-0",
+      "first": "base_rail_service_lower_left",
+      "second": "base_side_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.570000000023,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -1130.3,
+        643.7527025784708,
+        1202.3164988965073
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_rail_service_lower_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "9094eae1451586c84fce106e9002d4eeacf715c2362fdaae60dc49c33d16fb59",
+        "second": "0f1600d7fedc7a0b15ad0abd39fafcabff68265435d1eb170a746a65e4e3deee"
+      },
+      "trimmed_region_signature_sha256": "ce8b804e32db8931db13ec968a9aac479a7769e58b19c76ba7049097dfd8ddb0",
+      "second_moment_relative_frobenius_error": 0.03333515721036143
+    },
+    {
+      "patch_id": "timber-face/base_rail_service_lower_right/base_side_right/6-1-0",
+      "first": "base_rail_service_lower_right",
+      "second": "base_side_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.570000000023,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        1127.125,
+        643.7527025784708,
+        1202.3164988965073
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_rail_service_lower_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "1c3c261599b96211df9961b58e134671ff262898dba9b10a341eac721adae86c",
+        "second": "abf505b201f7f2806b4d3540e7cb901003b056f77585b6aa977f5430f936f47e"
+      },
+      "trimmed_region_signature_sha256": "d463976ac8a9fe091edaa5ce29317572836d78f13c72f8ab2f7ae2539c7e938c",
+      "second_moment_relative_frobenius_error": 0.03333515721036215
+    },
+    {
+      "patch_id": "timber-face/base_rail_service_upper_left/base_side_left/5-17-0",
+      "first": "base_rail_service_upper_left",
+      "second": "base_side_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.570000000014,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -1130.3,
+        736.3462577538165,
+        1312.6652009277961
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_rail_service_upper_left",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "c88275d5e1c3ca2671b7ce3cd1445ca8d8c0540f6d5a41a343283e9abd6ac3e8",
+        "second": "0f1600d7fedc7a0b15ad0abd39fafcabff68265435d1eb170a746a65e4e3deee"
+      },
+      "trimmed_region_signature_sha256": "b57929e617b7a5412683c4932f2a91b52b123de8b391841750b526430ab9b974",
+      "second_moment_relative_frobenius_error": 0.033335157210374486
+    },
+    {
+      "patch_id": "timber-face/base_rail_service_upper_right/base_side_right/6-1-0",
+      "first": "base_rail_service_upper_right",
+      "second": "base_side_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.570000000014,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        1127.125,
+        736.3462577538165,
+        1312.6652009277961
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_rail_service_upper_right",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "1576b070f3b39118f26ecb9a6f0a937538ce89af95953356ba9cd6d53a5f22d1",
+        "second": "abf505b201f7f2806b4d3540e7cb901003b056f77585b6aa977f5430f936f47e"
+      },
+      "trimmed_region_signature_sha256": "acf3f072469d753ac912b823e3e8a3e37e70745d5c0f78e431702248886e8000",
+      "second_moment_relative_frobenius_error": 0.03333515721037514
+    },
+    {
+      "patch_id": "timber-face/base_rail_top/base_side_left/5-17-0",
+      "first": "base_rail_top",
+      "second": "base_side_left",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999979,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        -1130.3,
+        1469.8311991671264,
+        2186.7985149708625
+      ],
+      "normal_from_second_to_first_xyz": [
+        1.0,
+        0.0,
+        -0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_rail_top",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_left",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "7a4c68c0146d7ea059861a237e15bd2f3030fcb26ce20fae0f49a9a51d06fade",
+        "second": "0f1600d7fedc7a0b15ad0abd39fafcabff68265435d1eb170a746a65e4e3deee"
+      },
+      "trimmed_region_signature_sha256": "68ff74a1980522a70cedae73333113689dc0e1f94ec2db1a37092b5879caa1b8",
+      "second_moment_relative_frobenius_error": 0.033335157210134476
+    },
+    {
+      "patch_id": "timber-face/base_rail_top/base_side_right/3-1-0",
+      "first": "base_rail_top",
+      "second": "base_side_right",
+      "geometry_proof_path": "fea/generated/thin-bolted-local-joint-ports/all-timber-pair-contact-atlas.json",
+      "geometry_proof_sha256": "5331d559f5454afc8e35dd86bd5435bf8a7239283e29c5c1f3c193eb6671a420",
+      "area_mm2": 5322.569999999979,
+      "cell_count": 12,
+      "centroid_xyz_mm": [
+        1127.125,
+        1469.8311991671264,
+        2186.7985149708625
+      ],
+      "normal_from_second_to_first_xyz": [
+        -1.0,
+        -0.0,
+        0.0
+      ],
+      "host_nominal_grain": {
+        "first": {
+          "host": "base_rail_top",
+          "absolute_normal_dot_nominal_grain": 1.0,
+          "normal_to_nominal_grain_angle_deg": 0.0,
+          "normal_components_in_geometric_L_u_v": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        },
+        "second": {
+          "host": "base_side_right",
+          "absolute_normal_dot_nominal_grain": 0.0,
+          "normal_to_nominal_grain_angle_deg": 90.0,
+          "normal_components_in_geometric_L_u_v": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "material_capacity_or_growth_ring_orientation_established": false
+        }
+      },
+      "source_face_signature_sha256": {
+        "first": "a390966411f53f2937b849b3765b36c1c0fc6cee194963b33ab67f07dc16ec12",
+        "second": "abf505b201f7f2806b4d3540e7cb901003b056f77585b6aa977f5430f936f47e"
+      },
+      "trimmed_region_signature_sha256": "e83a346ac8f139515f098375ffba4db6b0615931e029e366f36084ad0b99af40",
+      "second_moment_relative_frobenius_error": 0.03333515721014043
+    }
+  ],
+  "counts": {
+    "timber_hosts": 20,
+    "source_unordered_pairs": 190,
+    "positive_interfaces": 30,
+    "old_interfaces": 6,
+    "direct_interfaces": 3,
+    "atlas_new_interfaces": 21,
+    "represented_cells": 584,
+    "old_cells": 272,
+    "new_cells": 312
+  },
+  "known_answers": {
+    "coupon_ndof": 240,
+    "source_host_count": 20,
+    "represented_patch_count": 30,
+    "represented_cell_count": 584,
+    "common_rigid_work_max_closure_mm": 6.821210263296962e-13,
+    "zero_preload_energy_nmm": 0.0,
+    "touch_inactive_tangent_nnz": 0,
+    "all30_uniform_compression_force_error_n": 1.1368683772161603e-13,
+    "all30_uniform_compression_energy_error_nmm": 8.881784197001252e-16,
+    "all30_opening_zero_force": true,
+    "all30_friction_free_slip_max_force_n": 9.848732940298428e-14,
+    "mixed_branch_active_cells": 348,
+    "mixed_branch_minimum_absolute_closure_mm": 0.0035910661769741167,
+    "gradient_energy_directional_derivative_error_nmm": 1.190670673167915e-09,
+    "hessian_gradient_directional_derivative_max_error_n_mm": 1.7635727544984547e-08,
+    "hessian_symmetry_max_error_n_mm": 1.8189894035458565e-12,
+    "all20_own_body_rigid_work_wrench_max_error_n_or_nmm": 6.111804395914078e-10,
+    "all584_pair_force_residual_n": 0.0,
+    "all584_pair_origin_moment_residual_nmm": 0.0,
+    "all584_actions_including_zeros_and_fresh_basis_stamped": true,
+    "reference_normals_material_motion_or_candidate_field_tested": false,
+    "K_prepared_or_global_field_solved": false
+  },
+  "floor_support_preservation": {
+    "adapter_supplies_floor_rows": false,
+    "floor_datums_or_operators_modified": false,
+    "existing_basis": "finished-corner-local-rough-elastic-stick-v1",
+    "original_normal_activation_threshold_n": 1e-07
+  },
+  "old_finite_contact_method_reused_within_scope": {
+    "source": "scripts/thin_bolted_timber_face_contact.py",
+    "finite_rotation_method_coupons_repeated": false,
+    "finite_motion_law_adopted_by_this_linear_adapter": false
+  },
+  "tool_versions": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "reproduction_command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python fea/generated/thin-bolted-complete-timber-contact-v1/adapter.py",
+  "tests_command": "PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m pytest -q fea/generated/thin-bolted-complete-timber-contact-v1/test_adapter.py",
+  "limits": [
+    "All 30 positive-area reference interfaces at the atlas tolerances are represented; future overlap after slip, near gaps, line/point contacts and interpenetration are not resolved.",
+    "Fixed reference normals/points and first-order rigid arms are a declared linear response approximation, not a finite-motion contact operator.",
+    "Uniform 1 N/mm^3 bedding is an unmeasured scenario; host grain angles are nominal geometry classifications, not Fc(theta), bearing resistance or joint capacity.",
+    "Area and first moments are conserved; centroid cell quadrature does not exactly reproduce the source second moments or bound rocking response.",
+    "Compression only, zero reference gap/preload, no tangential friction, axial tie, free point couple or external rotational clamp.",
+    "L/u/v are proper geometric grain frames; actual radial/tangential growth-ring orientation is unknown and no orthotropic R/T assignment is adopted.",
+    "The geometry-only 240-coordinate coupon reads saved endpoints/frames only: no saved q, loads, forces or acceptance is transferred.",
+    "A future complete field requires a new physical signature/state and independent admission; no previous six-interface field pass is inherited."
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "invocation_argv": [
+    "fea/generated/thin-bolted-complete-timber-contact-v1/adapter.py"
+  ]
+}

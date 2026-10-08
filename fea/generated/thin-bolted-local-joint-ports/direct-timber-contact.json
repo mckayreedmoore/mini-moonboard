@@ -1,0 +1,2996 @@
+{
+  "schema": "thin_bolted_local_direct_timber_contact_geometry/v1",
+  "source_sha256": {
+    "fea/generated/thin-bolted-local-joint-ports/query-touching-planes.py": "25e7e7c51665bd38e1c2dbd0d505e2586b530e80114ffd771450175be16eee2c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "scripts/thin_bolted_timber_face_geometry.py": "4397c90479ba0ce2d54b82e2427f63bace50e0d217910d2dea43d1872c6cb183",
+    "scripts/wood_joint_current_face_pair_atlas_attempt01.py": "016dbce14bff6408de418fc6cce35fa0590a72ceef43565164aa10f4b4bea3bb",
+    "fea/wood_joint_reduced_contacts.py": "4e088d485cee8953bfdca411f646f18abfb49271c9d8f3b46044588a6a7c1ce7",
+    "fea/generated/thin-bolted-v4-geometry/base_header.brep": "f4778c5b94f2c5825882690c737ed0511fe52ecac82c0c6821fabc12c1aa43f8",
+    "fea/generated/thin-bolted-v4-geometry/base_post_center_left.brep": "62ec32e841ab88580c861d0f6b5ed8a800d5bed75b93a409f30e3df084bec0ba",
+    "fea/generated/thin-bolted-v4-geometry/base_principal_center_left.brep": "a97b764b85c17d2b44e37c15c46c622afbcf4f49f4dc31e3254cc9dc2610da3c",
+    "fea/generated/thin-bolted-v4-geometry/base_side_left.brep": "521e70bf01bc9cbb12fc6dd22af97601c381f43dbc3bf74522d78f85bc66128d"
+  },
+  "source_cached_parts": [
+    {
+      "id": "base_header",
+      "kind": "timber",
+      "path": "fea/generated/thin-bolted-v4-geometry/base_header.brep",
+      "sha256": "f4778c5b94f2c5825882690c737ed0511fe52ecac82c0c6821fabc12c1aa43f8",
+      "bytes": 10481,
+      "volume_mm3": 12925005.138767753,
+      "center_of_mass_xyz_mm": [
+        -1.589000515,
+        -105.85,
+        257.95
+      ],
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          1216.0250000000003
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          238.9,
+          277.0
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 0.0,
+      "roundtrip_bounds_error_mm": 2.2737367544323206e-13,
+      "grain_axis_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "base_post_center_left",
+      "kind": "timber",
+      "path": "fea/generated/thin-bolted-v4-geometry/base_post_center_left.brep",
+      "sha256": "62ec32e841ab88580c861d0f6b5ed8a800d5bed75b93a409f30e3df084bec0ba",
+      "bytes": 4718,
+      "volume_mm3": 1265453.5747529573,
+      "center_of_mass_xyz_mm": [
+        -70.0,
+        -105.85,
+        119.20291576
+      ],
+      "bounds_xyz_mm": [
+        [
+          -89.05,
+          -50.95
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          0.0,
+          238.9
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 4.656612873077393e-10,
+      "roundtrip_bounds_error_mm": 7.105427357601002e-15,
+      "grain_axis_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "id": "base_principal_center_left",
+      "kind": "timber",
+      "path": "fea/generated/thin-bolted-v4-geometry/base_principal_center_left.brep",
+      "sha256": "a97b764b85c17d2b44e37c15c46c622afbcf4f49f4dc31e3254cc9dc2610da3c",
+      "bytes": 22808,
+      "volume_mm3": 13072857.776587585,
+      "center_of_mass_xyz_mm": [
+        -70.0,
+        664.53850095,
+        1227.724202014
+      ],
+      "bounds_xyz_mm": [
+        [
+          -89.05000000000001,
+          -50.94999999999982
+        ],
+        [
+          -182.70000000000005,
+          1511.0942995544592
+        ],
+        [
+          277.0,
+          2217.1040828660507
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 1.862645149230957e-09,
+      "roundtrip_bounds_error_mm": 1.8189894035458565e-12,
+      "grain_axis_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ]
+    },
+    {
+      "id": "base_side_left",
+      "kind": "timber",
+      "path": "fea/generated/thin-bolted-v4-geometry/base_side_left.brep",
+      "sha256": "521e70bf01bc9cbb12fc6dd22af97601c381f43dbc3bf74522d78f85bc66128d",
+      "bytes": 19851,
+      "volume_mm3": 30933374.902722783,
+      "center_of_mass_xyz_mm": [
+        -1174.75,
+        677.769397063,
+        1243.349493504
+      ],
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          -1130.3
+        ],
+        [
+          -175.70000000000005,
+          1535.584507483516
+        ],
+        [
+          277.0,
+          2246.2903761488833
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 1.862645149230957e-08,
+      "roundtrip_bounds_error_mm": 2.2737367544323206e-12,
+      "grain_axis_xyz": [
+        0.0,
+        0.64278761,
+        0.766044443
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "first": "base_header",
+      "second": "base_side_left",
+      "expected_plane_z_mm": 277.0,
+      "patch_ids": [
+        "timber-face/base_header/base_side_left/3-2-0"
+      ],
+      "patch_count": 1,
+      "trimmed_overlap_area_mm2": 11930.617255610585
+    },
+    {
+      "first": "base_header",
+      "second": "base_principal_center_left",
+      "expected_plane_z_mm": 277.0,
+      "patch_ids": [
+        "timber-face/base_header/base_principal_center_left/3-2-0"
+      ],
+      "patch_count": 1,
+      "trimmed_overlap_area_mm2": 5113.121680975948
+    },
+    {
+      "first": "base_header",
+      "second": "base_post_center_left",
+      "expected_plane_z_mm": 238.9,
+      "patch_ids": [
+        "timber-face/base_header/base_post_center_left/5-3-0"
+      ],
+      "patch_count": 1,
+      "trimmed_overlap_area_mm2": 5322.569999999999
+    }
+  ],
+  "patches": [
+    {
+      "id": "timber-face/base_header/base_side_left/3-2-0",
+      "first": "base_header",
+      "second": "base_side_left",
+      "source_first_face": {
+        "face_id": "base_header/step-face-0003-09fc4211f7190285",
+        "face_ordinal_1_based": 3,
+        "signature_sha256": "09fc4211f7190285ec2a49c433cb27ee5fceb35d852833d440385e8508438dc0",
+        "signature": {
+          "surface_type": "PLANE",
+          "area_mm2": 339238.980020151,
+          "center_xyz_mm": [
+            -1.589000515,
+            -105.85,
+            277.0
+          ],
+          "oriented_normal_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds_xyz_mm": [
+            -1219.2,
+            1216.025,
+            -175.7,
+            -36.0,
+            277.0,
+            277.0
+          ],
+          "vertex_xyz_mm": [
+            [
+              -1219.2,
+              -175.7,
+              277.0
+            ],
+            [
+              -1219.2,
+              -36.0,
+              277.0
+            ],
+            [
+              -1089.81875,
+              -87.85,
+              277.0
+            ],
+            [
+              -1053.30625,
+              -123.85,
+              277.0
+            ],
+            [
+              -180.33125,
+              -105.85,
+              277.0
+            ],
+            [
+              166.04375,
+              -105.85,
+              277.0
+            ],
+            [
+              1035.84375,
+              -87.85,
+              277.0
+            ],
+            [
+              1100.93125,
+              -123.85,
+              277.0
+            ],
+            [
+              1216.025,
+              -175.7,
+              277.0
+            ],
+            [
+              1216.025,
+              -36.0,
+              277.0
+            ]
+          ],
+          "edge_signatures": [
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -1046.1625,
+                -123.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1053.30625,
+                -1039.01875,
+                -130.99375,
+                -116.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1053.30625,
+                  -123.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -1096.9625,
+                -87.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1104.10625,
+                -1089.81875,
+                -94.99375,
+                -80.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1089.81875,
+                  -87.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 139.7,
+              "center_xyz_mm": [
+                -1219.2,
+                -105.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                -1219.2,
+                -175.7,
+                -36.0,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  -1219.2,
+                  -36.0,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 2435.225,
+              "center_xyz_mm": [
+                -1.5875,
+                -175.7,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                1216.025,
+                -175.7,
+                -175.7,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  1216.025,
+                  -175.7,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 2435.225,
+              "center_xyz_mm": [
+                -1.5875,
+                -36.0,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                1216.025,
+                -36.0,
+                -36.0,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -36.0,
+                  277.0
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -173.1875,
+                -105.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -180.33125,
+                -166.04375,
+                -112.99375,
+                -98.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -180.33125,
+                  -105.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                1042.9875,
+                -87.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                1035.84375,
+                1050.13125,
+                -94.99375,
+                -80.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1035.84375,
+                  -87.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                1093.7875,
+                -123.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                1086.64375,
+                1100.93125,
+                -130.99375,
+                -116.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1100.93125,
+                  -123.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 139.7,
+              "center_xyz_mm": [
+                1216.025,
+                -105.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                1216.025,
+                1216.025,
+                -175.7,
+                -36.0,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1216.025,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                173.1875,
+                -105.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                166.04375,
+                180.33125,
+                -112.99375,
+                -98.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  166.04375,
+                  -105.85,
+                  277.0
+                ]
+              ]
+            }
+          ],
+          "wire_count": 7
+        }
+      },
+      "source_second_face": {
+        "face_id": "base_side_left/step-face-0002-3b0cc9ba1bdb2450",
+        "face_ordinal_1_based": 2,
+        "signature_sha256": "3b0cc9ba1bdb24500c78909799af2654a6c105977a82df082966f04f64724cf3",
+        "signature": {
+          "surface_type": "PLANE",
+          "area_mm2": 11930.617255611,
+          "center_xyz_mm": [
+            -1174.75,
+            -108.598665604,
+            277.0
+          ],
+          "oriented_normal_xyz": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bounds_xyz_mm": [
+            -1219.2,
+            -1130.3,
+            -175.7,
+            -41.497331208,
+            277.0,
+            277.0
+          ],
+          "vertex_xyz_mm": [
+            [
+              -1219.2,
+              -175.7,
+              277.0
+            ],
+            [
+              -1219.2,
+              -41.497331208,
+              277.0
+            ],
+            [
+              -1130.3,
+              -175.7,
+              277.0
+            ],
+            [
+              -1130.3,
+              -41.497331208,
+              277.0
+            ]
+          ],
+          "edge_signatures": [
+            {
+              "curve_type": "LINE",
+              "length_mm": 134.202668792,
+              "center_xyz_mm": [
+                -1130.3,
+                -108.598665604,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1130.3,
+                -1130.3,
+                -175.7,
+                -41.497331208,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1130.3,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  -1130.3,
+                  -41.497331208,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 88.9,
+              "center_xyz_mm": [
+                -1174.75,
+                -175.7,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                -1130.3,
+                -175.7,
+                -175.7,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  -1130.3,
+                  -175.7,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 88.9,
+              "center_xyz_mm": [
+                -1174.75,
+                -41.497331208,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                -1130.3,
+                -41.497331208,
+                -41.497331208,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -41.497331208,
+                  277.0
+                ],
+                [
+                  -1130.3,
+                  -41.497331208,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 134.202668792,
+              "center_xyz_mm": [
+                -1219.2,
+                -108.598665604,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                -1219.2,
+                -175.7,
+                -41.497331208,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  -1219.2,
+                  -41.497331208,
+                  277.0
+                ]
+              ]
+            }
+          ],
+          "wire_count": 1
+        }
+      },
+      "first_outward_normal_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "normal_from_second_to_first_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "opposed_normal_dot": -1.0,
+      "coplanar_offset_mm": 0.0,
+      "trimmed_region_geometry": {
+        "surface_type": "PLANE",
+        "area_mm2": 11930.617255611,
+        "center_xyz_mm": [
+          -1174.75,
+          -108.598665604,
+          277.0
+        ],
+        "bounds_xyz_mm": [
+          -1219.2,
+          -1130.3,
+          -175.7,
+          -41.497331208,
+          277.0,
+          277.0
+        ],
+        "vertex_xyz_mm": [
+          [
+            -1219.2,
+            -175.7,
+            277.0
+          ],
+          [
+            -1219.2,
+            -41.497331208,
+            277.0
+          ],
+          [
+            -1130.3,
+            -175.7,
+            277.0
+          ],
+          [
+            -1130.3,
+            -41.497331208,
+            277.0
+          ]
+        ],
+        "edge_signatures": [
+          {
+            "curve_type": "LINE",
+            "length_mm": 134.202668792,
+            "center_xyz_mm": [
+              -1130.3,
+              -108.598665604,
+              277.0
+            ],
+            "bounds_xyz_mm": [
+              -1130.3,
+              -1130.3,
+              -175.7,
+              -41.497331208,
+              277.0,
+              277.0
+            ],
+            "vertex_xyz_mm": [
+              [
+                -1130.3,
+                -175.7,
+                277.0
+              ],
+              [
+                -1130.3,
+                -41.497331208,
+                277.0
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 88.9,
+            "center_xyz_mm": [
+              -1174.75,
+              -175.7,
+              277.0
+            ],
+            "bounds_xyz_mm": [
+              -1219.2,
+              -1130.3,
+              -175.7,
+              -175.7,
+              277.0,
+              277.0
+            ],
+            "vertex_xyz_mm": [
+              [
+                -1219.2,
+                -175.7,
+                277.0
+              ],
+              [
+                -1130.3,
+                -175.7,
+                277.0
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 88.9,
+            "center_xyz_mm": [
+              -1174.75,
+              -41.497331208,
+              277.0
+            ],
+            "bounds_xyz_mm": [
+              -1219.2,
+              -1130.3,
+              -41.497331208,
+              -41.497331208,
+              277.0,
+              277.0
+            ],
+            "vertex_xyz_mm": [
+              [
+                -1219.2,
+                -41.497331208,
+                277.0
+              ],
+              [
+                -1130.3,
+                -41.497331208,
+                277.0
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 134.202668792,
+            "center_xyz_mm": [
+              -1219.2,
+              -108.598665604,
+              277.0
+            ],
+            "bounds_xyz_mm": [
+              -1219.2,
+              -1219.2,
+              -175.7,
+              -41.497331208,
+              277.0,
+              277.0
+            ],
+            "vertex_xyz_mm": [
+              [
+                -1219.2,
+                -175.7,
+                277.0
+              ],
+              [
+                -1219.2,
+                -41.497331208,
+                277.0
+              ]
+            ]
+          }
+        ],
+        "wire_count": 1
+      },
+      "trimmed_region_signature_sha256": "f6e38181531db2eff341ac1ae81277cb6eb16313f4bcd2d190e5743001091367",
+      "area_mm2": 11930.617255610585,
+      "centroid_xyz_mm": [
+        -1174.75,
+        -108.59866560399003,
+        277.0
+      ],
+      "cells": [
+        {
+          "point_xyz_mm": [
+            -1208.0875,
+            -164.51644426733168,
+            277.0
+          ],
+          "area_mm2": 497.1090523171104,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-0"
+        },
+        {
+          "point_xyz_mm": [
+            -1185.8625,
+            -164.51644426733168,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-1"
+        },
+        {
+          "point_xyz_mm": [
+            -1163.6375,
+            -164.51644426733168,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-2"
+        },
+        {
+          "point_xyz_mm": [
+            -1141.4125,
+            -164.51644426733168,
+            277.0
+          ],
+          "area_mm2": 497.10905231710433,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-3"
+        },
+        {
+          "point_xyz_mm": [
+            -1208.0875,
+            -142.149332801995,
+            277.0
+          ],
+          "area_mm2": 497.109052317108,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-4"
+        },
+        {
+          "point_xyz_mm": [
+            -1185.8625,
+            -142.149332801995,
+            277.0
+          ],
+          "area_mm2": 497.109052317108,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-5"
+        },
+        {
+          "point_xyz_mm": [
+            -1163.6375,
+            -142.149332801995,
+            277.0
+          ],
+          "area_mm2": 497.109052317108,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-6"
+        },
+        {
+          "point_xyz_mm": [
+            -1141.4125,
+            -142.149332801995,
+            277.0
+          ],
+          "area_mm2": 497.109052317108,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-7"
+        },
+        {
+          "point_xyz_mm": [
+            -1208.0875,
+            -119.78222133665835,
+            277.0
+          ],
+          "area_mm2": 497.109052317108,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-8"
+        },
+        {
+          "point_xyz_mm": [
+            -1185.8625,
+            -119.78222133665835,
+            277.0
+          ],
+          "area_mm2": 497.109052317108,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-9"
+        },
+        {
+          "point_xyz_mm": [
+            -1163.6375,
+            -119.78222133665835,
+            277.0
+          ],
+          "area_mm2": 497.109052317108,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-10"
+        },
+        {
+          "point_xyz_mm": [
+            -1141.4125,
+            -119.78222133665835,
+            277.0
+          ],
+          "area_mm2": 497.109052317108,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-11"
+        },
+        {
+          "point_xyz_mm": [
+            -1208.0875,
+            -97.4151098713217,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-12"
+        },
+        {
+          "point_xyz_mm": [
+            -1185.8625,
+            -97.4151098713217,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-13"
+        },
+        {
+          "point_xyz_mm": [
+            -1163.6375,
+            -97.4151098713217,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-14"
+        },
+        {
+          "point_xyz_mm": [
+            -1141.4125,
+            -97.4151098713217,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-15"
+        },
+        {
+          "point_xyz_mm": [
+            -1208.0875,
+            -75.04799840598504,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-16"
+        },
+        {
+          "point_xyz_mm": [
+            -1185.8625,
+            -75.04799840598504,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-17"
+        },
+        {
+          "point_xyz_mm": [
+            -1163.6375,
+            -75.04799840598504,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-18"
+        },
+        {
+          "point_xyz_mm": [
+            -1141.4125,
+            -75.04799840598504,
+            277.0
+          ],
+          "area_mm2": 497.10905231710814,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-19"
+        },
+        {
+          "point_xyz_mm": [
+            -1208.0875,
+            -52.680886940648364,
+            277.0
+          ],
+          "area_mm2": 497.10905231711007,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-20"
+        },
+        {
+          "point_xyz_mm": [
+            -1185.8625,
+            -52.68088694064838,
+            277.0
+          ],
+          "area_mm2": 497.10905231710785,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-21"
+        },
+        {
+          "point_xyz_mm": [
+            -1163.6375,
+            -52.68088694064838,
+            277.0
+          ],
+          "area_mm2": 497.10905231710785,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-22"
+        },
+        {
+          "point_xyz_mm": [
+            -1141.4125,
+            -52.68088694064836,
+            277.0
+          ],
+          "area_mm2": 497.1090523171044,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_side_left/3-2-0/cell-23"
+        }
+      ],
+      "effective_cell_size_mm": 25.0,
+      "occupancy_refinement_levels": 0,
+      "cell_area_error_mm2": 5.4569682106375694e-12,
+      "cell_centroid_error_mm": 4.582862941503293e-13,
+      "exact_centroidal_second_moment_matrix_xyz_mm4": [
+        [
+          7857514.46672523,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          17906222.315211415,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -8.344650268554688e-07
+        ]
+      ],
+      "sampled_centroidal_second_moment_matrix_xyz_mm4": [
+        [
+          7366419.812555821,
+          8.149072527885437e-10,
+          0.0
+        ],
+        [
+          8.149072527885437e-10,
+          17408827.25089908,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "second_moment_relative_frobenius_error": 0.0357455663817485,
+      "cell_semantics": "area resultants; every centroid verified on trimmed patch and both inward material probes"
+    },
+    {
+      "id": "timber-face/base_header/base_principal_center_left/3-2-0",
+      "first": "base_header",
+      "second": "base_principal_center_left",
+      "source_first_face": {
+        "face_id": "base_header/step-face-0003-09fc4211f7190285",
+        "face_ordinal_1_based": 3,
+        "signature_sha256": "09fc4211f7190285ec2a49c433cb27ee5fceb35d852833d440385e8508438dc0",
+        "signature": {
+          "surface_type": "PLANE",
+          "area_mm2": 339238.980020151,
+          "center_xyz_mm": [
+            -1.589000515,
+            -105.85,
+            277.0
+          ],
+          "oriented_normal_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds_xyz_mm": [
+            -1219.2,
+            1216.025,
+            -175.7,
+            -36.0,
+            277.0,
+            277.0
+          ],
+          "vertex_xyz_mm": [
+            [
+              -1219.2,
+              -175.7,
+              277.0
+            ],
+            [
+              -1219.2,
+              -36.0,
+              277.0
+            ],
+            [
+              -1089.81875,
+              -87.85,
+              277.0
+            ],
+            [
+              -1053.30625,
+              -123.85,
+              277.0
+            ],
+            [
+              -180.33125,
+              -105.85,
+              277.0
+            ],
+            [
+              166.04375,
+              -105.85,
+              277.0
+            ],
+            [
+              1035.84375,
+              -87.85,
+              277.0
+            ],
+            [
+              1100.93125,
+              -123.85,
+              277.0
+            ],
+            [
+              1216.025,
+              -175.7,
+              277.0
+            ],
+            [
+              1216.025,
+              -36.0,
+              277.0
+            ]
+          ],
+          "edge_signatures": [
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -1046.1625,
+                -123.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1053.30625,
+                -1039.01875,
+                -130.99375,
+                -116.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1053.30625,
+                  -123.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -1096.9625,
+                -87.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1104.10625,
+                -1089.81875,
+                -94.99375,
+                -80.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1089.81875,
+                  -87.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 139.7,
+              "center_xyz_mm": [
+                -1219.2,
+                -105.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                -1219.2,
+                -175.7,
+                -36.0,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  -1219.2,
+                  -36.0,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 2435.225,
+              "center_xyz_mm": [
+                -1.5875,
+                -175.7,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                1216.025,
+                -175.7,
+                -175.7,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  1216.025,
+                  -175.7,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 2435.225,
+              "center_xyz_mm": [
+                -1.5875,
+                -36.0,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                1216.025,
+                -36.0,
+                -36.0,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -36.0,
+                  277.0
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -173.1875,
+                -105.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -180.33125,
+                -166.04375,
+                -112.99375,
+                -98.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -180.33125,
+                  -105.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                1042.9875,
+                -87.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                1035.84375,
+                1050.13125,
+                -94.99375,
+                -80.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1035.84375,
+                  -87.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                1093.7875,
+                -123.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                1086.64375,
+                1100.93125,
+                -130.99375,
+                -116.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1100.93125,
+                  -123.85,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 139.7,
+              "center_xyz_mm": [
+                1216.025,
+                -105.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                1216.025,
+                1216.025,
+                -175.7,
+                -36.0,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1216.025,
+                  -175.7,
+                  277.0
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                173.1875,
+                -105.85,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                166.04375,
+                180.33125,
+                -112.99375,
+                -98.70625,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  166.04375,
+                  -105.85,
+                  277.0
+                ]
+              ]
+            }
+          ],
+          "wire_count": 7
+        }
+      },
+      "source_second_face": {
+        "face_id": "base_principal_center_left/step-face-0002-5758fc489f39dce9",
+        "face_ordinal_1_based": 2,
+        "signature_sha256": "5758fc489f39dce9a28e18b12280ac8696983191eab638073fe9c24506158178",
+        "signature": {
+          "surface_type": "PLANE",
+          "area_mm2": 5379.821680976,
+          "center_xyz_mm": [
+            -70.0,
+            -112.098665604,
+            277.0
+          ],
+          "oriented_normal_xyz": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bounds_xyz_mm": [
+            -89.05,
+            -50.95,
+            -182.7,
+            -41.497331208,
+            277.0,
+            277.0
+          ],
+          "vertex_xyz_mm": [
+            [
+              -89.05,
+              -182.7,
+              277.0
+            ],
+            [
+              -89.05,
+              -41.497331208,
+              277.0
+            ],
+            [
+              -50.95,
+              -182.7,
+              277.0
+            ],
+            [
+              -50.95,
+              -41.497331208,
+              277.0
+            ]
+          ],
+          "edge_signatures": [
+            {
+              "curve_type": "LINE",
+              "length_mm": 141.202668792,
+              "center_xyz_mm": [
+                -50.95,
+                -112.098665604,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -50.95,
+                -50.95,
+                -182.7,
+                -41.497331208,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -50.95,
+                  -182.7,
+                  277.0
+                ],
+                [
+                  -50.95,
+                  -41.497331208,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 38.1,
+              "center_xyz_mm": [
+                -70.0,
+                -182.7,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -89.05,
+                -50.95,
+                -182.7,
+                -182.7,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -89.05,
+                  -182.7,
+                  277.0
+                ],
+                [
+                  -50.95,
+                  -182.7,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 38.1,
+              "center_xyz_mm": [
+                -70.0,
+                -41.497331208,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -89.05,
+                -50.95,
+                -41.497331208,
+                -41.497331208,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -89.05,
+                  -41.497331208,
+                  277.0
+                ],
+                [
+                  -50.95,
+                  -41.497331208,
+                  277.0
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 141.202668792,
+              "center_xyz_mm": [
+                -89.05,
+                -112.098665604,
+                277.0
+              ],
+              "bounds_xyz_mm": [
+                -89.05,
+                -89.05,
+                -182.7,
+                -41.497331208,
+                277.0,
+                277.0
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -89.05,
+                  -182.7,
+                  277.0
+                ],
+                [
+                  -89.05,
+                  -41.497331208,
+                  277.0
+                ]
+              ]
+            }
+          ],
+          "wire_count": 1
+        }
+      },
+      "first_outward_normal_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "normal_from_second_to_first_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "opposed_normal_dot": -1.0,
+      "coplanar_offset_mm": 0.0,
+      "trimmed_region_geometry": {
+        "surface_type": "PLANE",
+        "area_mm2": 5113.121680976,
+        "center_xyz_mm": [
+          -70.0,
+          -108.598665604,
+          277.0
+        ],
+        "bounds_xyz_mm": [
+          -89.05,
+          -50.95,
+          -175.7,
+          -41.497331208,
+          277.0,
+          277.0
+        ],
+        "vertex_xyz_mm": [
+          [
+            -89.05,
+            -175.7,
+            277.0
+          ],
+          [
+            -89.05,
+            -41.497331208,
+            277.0
+          ],
+          [
+            -50.95,
+            -175.7,
+            277.0
+          ],
+          [
+            -50.95,
+            -41.497331208,
+            277.0
+          ]
+        ],
+        "edge_signatures": [
+          {
+            "curve_type": "LINE",
+            "length_mm": 134.202668792,
+            "center_xyz_mm": [
+              -50.95,
+              -108.598665604,
+              277.0
+            ],
+            "bounds_xyz_mm": [
+              -50.95,
+              -50.95,
+              -175.7,
+              -41.497331208,
+              277.0,
+              277.0
+            ],
+            "vertex_xyz_mm": [
+              [
+                -50.95,
+                -175.7,
+                277.0
+              ],
+              [
+                -50.95,
+                -41.497331208,
+                277.0
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 38.1,
+            "center_xyz_mm": [
+              -70.0,
+              -175.7,
+              277.0
+            ],
+            "bounds_xyz_mm": [
+              -89.05,
+              -50.95,
+              -175.7,
+              -175.7,
+              277.0,
+              277.0
+            ],
+            "vertex_xyz_mm": [
+              [
+                -89.05,
+                -175.7,
+                277.0
+              ],
+              [
+                -50.95,
+                -175.7,
+                277.0
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 38.1,
+            "center_xyz_mm": [
+              -70.0,
+              -41.497331208,
+              277.0
+            ],
+            "bounds_xyz_mm": [
+              -89.05,
+              -50.95,
+              -41.497331208,
+              -41.497331208,
+              277.0,
+              277.0
+            ],
+            "vertex_xyz_mm": [
+              [
+                -89.05,
+                -41.497331208,
+                277.0
+              ],
+              [
+                -50.95,
+                -41.497331208,
+                277.0
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 134.202668792,
+            "center_xyz_mm": [
+              -89.05,
+              -108.598665604,
+              277.0
+            ],
+            "bounds_xyz_mm": [
+              -89.05,
+              -89.05,
+              -175.7,
+              -41.497331208,
+              277.0,
+              277.0
+            ],
+            "vertex_xyz_mm": [
+              [
+                -89.05,
+                -175.7,
+                277.0
+              ],
+              [
+                -89.05,
+                -41.497331208,
+                277.0
+              ]
+            ]
+          }
+        ],
+        "wire_count": 1
+      },
+      "trimmed_region_signature_sha256": "9527fb01d940d3ac4b9740868c3f6fbcc8fe4177ec6c18b36cf30333cd6f84ff",
+      "area_mm2": 5113.121680975948,
+      "centroid_xyz_mm": [
+        -70.0,
+        -108.59866560399003,
+        277.0
+      ],
+      "cells": [
+        {
+          "point_xyz_mm": [
+            -60.475000000000136,
+            -52.68088694064835,
+            277.0
+          ],
+          "area_mm2": 426.0934734146617,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-0"
+        },
+        {
+          "point_xyz_mm": [
+            -79.52499999999986,
+            -52.680886940648485,
+            277.0
+          ],
+          "area_mm2": 426.09347341466247,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-1"
+        },
+        {
+          "point_xyz_mm": [
+            -60.47500000000002,
+            -75.04799840598515,
+            277.0
+          ],
+          "area_mm2": 426.093473414664,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-2"
+        },
+        {
+          "point_xyz_mm": [
+            -79.52500000000006,
+            -75.04799840598515,
+            277.0
+          ],
+          "area_mm2": 426.093473414664,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-3"
+        },
+        {
+          "point_xyz_mm": [
+            -60.47500000000002,
+            -97.41510987132182,
+            277.0
+          ],
+          "area_mm2": 426.093473414664,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-4"
+        },
+        {
+          "point_xyz_mm": [
+            -79.52500000000005,
+            -97.41510987132182,
+            277.0
+          ],
+          "area_mm2": 426.093473414664,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-5"
+        },
+        {
+          "point_xyz_mm": [
+            -60.475000000000016,
+            -119.78222133665847,
+            277.0
+          ],
+          "area_mm2": 426.0934734146642,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-6"
+        },
+        {
+          "point_xyz_mm": [
+            -79.52500000000005,
+            -119.78222133665848,
+            277.0
+          ],
+          "area_mm2": 426.0934734146642,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-7"
+        },
+        {
+          "point_xyz_mm": [
+            -60.47500000000001,
+            -142.14933280199514,
+            277.0
+          ],
+          "area_mm2": 426.0934734146642,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-8"
+        },
+        {
+          "point_xyz_mm": [
+            -79.52500000000005,
+            -142.14933280199514,
+            277.0
+          ],
+          "area_mm2": 426.0934734146642,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-9"
+        },
+        {
+          "point_xyz_mm": [
+            -60.47500000000013,
+            -164.51644426733168,
+            277.0
+          ],
+          "area_mm2": 426.09347341466156,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-10"
+        },
+        {
+          "point_xyz_mm": [
+            -79.52499999999985,
+            -164.5164442673318,
+            277.0
+          ],
+          "area_mm2": 426.09347341466207,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0/cell-11"
+        }
+      ],
+      "effective_cell_size_mm": 25.0,
+      "occupancy_refinement_levels": 0,
+      "cell_area_error_mm2": 1.2732925824820995e-11,
+      "cell_centroid_error_mm": 7.974556323573666e-13,
+      "exact_centroidal_second_moment_matrix_xyz_mm4": [
+        [
+          618521.5469434485,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          7674095.277947329,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -2.2351741790771484e-08
+        ]
+      ],
+      "sampled_centroidal_second_moment_matrix_xyz_mm4": [
+        [
+          463891.1602075913,
+          2.9103830456733704e-11,
+          0.0
+        ],
+        [
+          2.9103830456733704e-11,
+          7460925.964671016,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "second_moment_relative_frobenius_error": 0.03420545342017728,
+      "cell_semantics": "area resultants; every centroid verified on trimmed patch and both inward material probes"
+    },
+    {
+      "id": "timber-face/base_header/base_post_center_left/5-3-0",
+      "first": "base_header",
+      "second": "base_post_center_left",
+      "source_first_face": {
+        "face_id": "base_header/step-face-0005-65ec93f4bf50543f",
+        "face_ordinal_1_based": 5,
+        "signature_sha256": "65ec93f4bf50543fb7c5420a6b1b6c4f80823da1a38cb4b4659f309d06320929",
+        "signature": {
+          "surface_type": "PLANE",
+          "area_mm2": 339238.980020151,
+          "center_xyz_mm": [
+            -1.589000515,
+            -105.85,
+            238.9
+          ],
+          "oriented_normal_xyz": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "bounds_xyz_mm": [
+            -1219.2,
+            1216.025,
+            -175.7,
+            -36.0,
+            238.9,
+            238.9
+          ],
+          "vertex_xyz_mm": [
+            [
+              -1219.2,
+              -175.7,
+              238.9
+            ],
+            [
+              -1219.2,
+              -36.0,
+              238.9
+            ],
+            [
+              -1089.81875,
+              -87.85,
+              238.9
+            ],
+            [
+              -1053.30625,
+              -123.85,
+              238.9
+            ],
+            [
+              -180.33125,
+              -105.85,
+              238.9
+            ],
+            [
+              166.04375,
+              -105.85,
+              238.9
+            ],
+            [
+              1035.84375,
+              -87.85,
+              238.9
+            ],
+            [
+              1100.93125,
+              -123.85,
+              238.9
+            ],
+            [
+              1216.025,
+              -175.7,
+              238.9
+            ],
+            [
+              1216.025,
+              -36.0,
+              238.9
+            ]
+          ],
+          "edge_signatures": [
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -1046.1625,
+                -123.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -1053.30625,
+                -1039.01875,
+                -130.99375,
+                -116.70625,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1053.30625,
+                  -123.85,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -1096.9625,
+                -87.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -1104.10625,
+                -1089.81875,
+                -94.99375,
+                -80.70625,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1089.81875,
+                  -87.85,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 139.7,
+              "center_xyz_mm": [
+                -1219.2,
+                -105.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                -1219.2,
+                -175.7,
+                -36.0,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  -1219.2,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 2435.225,
+              "center_xyz_mm": [
+                -1.5875,
+                -175.7,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                1216.025,
+                -175.7,
+                -175.7,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -175.7,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 2435.225,
+              "center_xyz_mm": [
+                -1.5875,
+                -36.0,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -1219.2,
+                1216.025,
+                -36.0,
+                -36.0,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -1219.2,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                -173.1875,
+                -105.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -180.33125,
+                -166.04375,
+                -112.99375,
+                -98.70625,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -180.33125,
+                  -105.85,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                1042.9875,
+                -87.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                1035.84375,
+                1050.13125,
+                -94.99375,
+                -80.70625,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1035.84375,
+                  -87.85,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                1093.7875,
+                -123.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                1086.64375,
+                1100.93125,
+                -130.99375,
+                -116.70625,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1100.93125,
+                  -123.85,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 139.7,
+              "center_xyz_mm": [
+                1216.025,
+                -105.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                1216.025,
+                1216.025,
+                -175.7,
+                -36.0,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  1216.025,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  1216.025,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "CIRCLE",
+              "length_mm": 44.885505038,
+              "center_xyz_mm": [
+                173.1875,
+                -105.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                166.04375,
+                180.33125,
+                -112.99375,
+                -98.70625,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  166.04375,
+                  -105.85,
+                  238.9
+                ]
+              ]
+            }
+          ],
+          "wire_count": 7
+        }
+      },
+      "source_second_face": {
+        "face_id": "base_post_center_left/step-face-0003-45575bd03ff22623",
+        "face_ordinal_1_based": 3,
+        "signature_sha256": "45575bd03ff22623dc5320935b49b4ac57b5f2027d502d649c9bc26c0bd1a900",
+        "signature": {
+          "surface_type": "PLANE",
+          "area_mm2": 5322.57,
+          "center_xyz_mm": [
+            -70.0,
+            -105.85,
+            238.9
+          ],
+          "oriented_normal_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "bounds_xyz_mm": [
+            -89.05,
+            -50.95,
+            -175.7,
+            -36.0,
+            238.9,
+            238.9
+          ],
+          "vertex_xyz_mm": [
+            [
+              -89.05,
+              -175.7,
+              238.9
+            ],
+            [
+              -89.05,
+              -36.0,
+              238.9
+            ],
+            [
+              -50.95,
+              -175.7,
+              238.9
+            ],
+            [
+              -50.95,
+              -36.0,
+              238.9
+            ]
+          ],
+          "edge_signatures": [
+            {
+              "curve_type": "LINE",
+              "length_mm": 139.7,
+              "center_xyz_mm": [
+                -50.95,
+                -105.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -50.95,
+                -50.95,
+                -175.7,
+                -36.0,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -50.95,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  -50.95,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 38.1,
+              "center_xyz_mm": [
+                -70.0,
+                -175.7,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -89.05,
+                -50.95,
+                -175.7,
+                -175.7,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -89.05,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  -50.95,
+                  -175.7,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 38.1,
+              "center_xyz_mm": [
+                -70.0,
+                -36.0,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -89.05,
+                -50.95,
+                -36.0,
+                -36.0,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -89.05,
+                  -36.0,
+                  238.9
+                ],
+                [
+                  -50.95,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            },
+            {
+              "curve_type": "LINE",
+              "length_mm": 139.7,
+              "center_xyz_mm": [
+                -89.05,
+                -105.85,
+                238.9
+              ],
+              "bounds_xyz_mm": [
+                -89.05,
+                -89.05,
+                -175.7,
+                -36.0,
+                238.9,
+                238.9
+              ],
+              "vertex_xyz_mm": [
+                [
+                  -89.05,
+                  -175.7,
+                  238.9
+                ],
+                [
+                  -89.05,
+                  -36.0,
+                  238.9
+                ]
+              ]
+            }
+          ],
+          "wire_count": 1
+        }
+      },
+      "first_outward_normal_xyz": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "normal_from_second_to_first_xyz": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "opposed_normal_dot": -1.0,
+      "coplanar_offset_mm": 2.842170943040401e-14,
+      "trimmed_region_geometry": {
+        "surface_type": "PLANE",
+        "area_mm2": 5322.57,
+        "center_xyz_mm": [
+          -70.0,
+          -105.85,
+          238.9
+        ],
+        "bounds_xyz_mm": [
+          -89.05,
+          -50.95,
+          -175.7,
+          -36.0,
+          238.9,
+          238.9
+        ],
+        "vertex_xyz_mm": [
+          [
+            -89.05,
+            -175.7,
+            238.9
+          ],
+          [
+            -89.05,
+            -36.0,
+            238.9
+          ],
+          [
+            -50.95,
+            -175.7,
+            238.9
+          ],
+          [
+            -50.95,
+            -36.0,
+            238.9
+          ]
+        ],
+        "edge_signatures": [
+          {
+            "curve_type": "LINE",
+            "length_mm": 139.7,
+            "center_xyz_mm": [
+              -50.95,
+              -105.85,
+              238.9
+            ],
+            "bounds_xyz_mm": [
+              -50.95,
+              -50.95,
+              -175.7,
+              -36.0,
+              238.9,
+              238.9
+            ],
+            "vertex_xyz_mm": [
+              [
+                -50.95,
+                -175.7,
+                238.9
+              ],
+              [
+                -50.95,
+                -36.0,
+                238.9
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 38.1,
+            "center_xyz_mm": [
+              -70.0,
+              -175.7,
+              238.9
+            ],
+            "bounds_xyz_mm": [
+              -89.05,
+              -50.95,
+              -175.7,
+              -175.7,
+              238.9,
+              238.9
+            ],
+            "vertex_xyz_mm": [
+              [
+                -89.05,
+                -175.7,
+                238.9
+              ],
+              [
+                -50.95,
+                -175.7,
+                238.9
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 38.1,
+            "center_xyz_mm": [
+              -70.0,
+              -36.0,
+              238.9
+            ],
+            "bounds_xyz_mm": [
+              -89.05,
+              -50.95,
+              -36.0,
+              -36.0,
+              238.9,
+              238.9
+            ],
+            "vertex_xyz_mm": [
+              [
+                -89.05,
+                -36.0,
+                238.9
+              ],
+              [
+                -50.95,
+                -36.0,
+                238.9
+              ]
+            ]
+          },
+          {
+            "curve_type": "LINE",
+            "length_mm": 139.7,
+            "center_xyz_mm": [
+              -89.05,
+              -105.85,
+              238.9
+            ],
+            "bounds_xyz_mm": [
+              -89.05,
+              -89.05,
+              -175.7,
+              -36.0,
+              238.9,
+              238.9
+            ],
+            "vertex_xyz_mm": [
+              [
+                -89.05,
+                -175.7,
+                238.9
+              ],
+              [
+                -89.05,
+                -36.0,
+                238.9
+              ]
+            ]
+          }
+        ],
+        "wire_count": 1
+      },
+      "trimmed_region_signature_sha256": "85451561b4d11cb4187876f0f608946743a16ddb32a6d6c857a091e13b2430c4",
+      "area_mm2": 5322.569999999999,
+      "centroid_xyz_mm": [
+        -70.0,
+        -105.85,
+        238.9
+      ],
+      "cells": [
+        {
+          "point_xyz_mm": [
+            -79.525,
+            -47.641666666666666,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-0"
+        },
+        {
+          "point_xyz_mm": [
+            -60.475,
+            -47.641666666666644,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-1"
+        },
+        {
+          "point_xyz_mm": [
+            -79.525,
+            -70.925,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-2"
+        },
+        {
+          "point_xyz_mm": [
+            -60.474999999999994,
+            -70.925,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-3"
+        },
+        {
+          "point_xyz_mm": [
+            -79.525,
+            -94.20833333333333,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-4"
+        },
+        {
+          "point_xyz_mm": [
+            -60.474999999999994,
+            -94.20833333333333,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-5"
+        },
+        {
+          "point_xyz_mm": [
+            -79.525,
+            -117.49166666666666,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-6"
+        },
+        {
+          "point_xyz_mm": [
+            -60.474999999999994,
+            -117.49166666666666,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-7"
+        },
+        {
+          "point_xyz_mm": [
+            -79.525,
+            -140.77499999999998,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-8"
+        },
+        {
+          "point_xyz_mm": [
+            -60.474999999999994,
+            -140.77499999999998,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-9"
+        },
+        {
+          "point_xyz_mm": [
+            -79.525,
+            -164.0583333333333,
+            238.9
+          ],
+          "area_mm2": 443.54749999999984,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-10"
+        },
+        {
+          "point_xyz_mm": [
+            -60.475,
+            -164.05833333333334,
+            238.9
+          ],
+          "area_mm2": 443.5474999999999,
+          "reference_centroid_on_trimmed_patch": true,
+          "both_inward_material_probes_occupied": true,
+          "reference_centroid_patch_distance_mm": 0.0,
+          "id": "timber-face/base_header/base_post_center_left/5-3-0/cell-11"
+        }
+      ],
+      "effective_cell_size_mm": 25.0,
+      "occupancy_refinement_levels": 0,
+      "cell_area_error_mm2": 0.0,
+      "cell_centroid_error_mm": 1.4210854715202004e-14,
+      "exact_centroidal_second_moment_matrix_xyz_mm4": [
+        [
+          643857.9864750057,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          8656312.929274991,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.4901161193847656e-08
+        ]
+      ],
+      "sampled_centroidal_second_moment_matrix_xyz_mm4": [
+        [
+          482893.48985625023,
+          -8.731149137020111e-11,
+          0.0
+        ],
+        [
+          -8.731149137020111e-11,
+          8415859.79235069,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "second_moment_relative_frobenius_error": 0.03333515721033735,
+      "cell_semantics": "area resultants; every centroid verified on trimmed patch and both inward material probes"
+    }
+  ],
+  "method": {
+    "functions": "unchanged atlas.source_face_records and timber_face_geometry.find_patches",
+    "enumeration": "all opposed coplanar positive-area finished face intersections for the three pairs",
+    "cell_size_mm": 25.0,
+    "material_probe_depth_mm": 0.05,
+    "planar_tolerance_mm": 1e-05,
+    "occupancy_tolerance_mm": 1e-07,
+    "cadquery_version": "2.8.0",
+    "cadquery_ocp_version": "7.9.3.1.1"
+  },
+  "required_model_change_before_response": "Direct paired wood contacts are absent from the existing six-pair production contact atlas; any added compression law requires a distinct reviewed source-bound model/operator. Geometry only is issued here.",
+  "limits": [
+    "No continuous pressure, bedding stiffness, preload, friction, force, capacity or physical contact acceptance.",
+    "Fixed reference overlap does not establish current overlap after slip or finite rotation.",
+    "Area-resultant cells are geometric witnesses; their sampled second moments are not a stiffness bound.",
+    "No CAD reconstruction, inventory sweep, native/global solve or current/historical force consumption."
+  ],
+  "release": {
+    "structural_acceptance": false,
+    "fabrication_release": false,
+    "climbing_release": false
+  },
+  "command": [
+    "PYTHONPATH=.",
+    "OPENBLAS_NUM_THREADS=1",
+    ".venv/bin/python",
+    "fea/generated/thin-bolted-local-joint-ports/query-touching-planes.py"
+  ]
+}

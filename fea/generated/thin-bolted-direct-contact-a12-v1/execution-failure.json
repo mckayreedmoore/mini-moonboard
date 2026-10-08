@@ -1,0 +1,76 @@
+{
+  "all_1402_actions_and_132_bodies_independently_admitted": false,
+  "all_frozen_sources_unchanged_after_exit": true,
+  "automatic_retries_performed": 0,
+  "candidate_source_or_geometry_modified": false,
+  "case_id": "a12-rear",
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-direct-contact-a12-v1/runner.py",
+    "--method-input",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-direct-contact-a12-v1/method-input.json",
+    "--method-input-sha256",
+    "6257c7e9a300ed46ffdea26f416cbd1d3f155b0630413957b5128a6d2eeea1a9",
+    "--out",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-direct-contact-a12-v1/a12-rear.json",
+    "--cases",
+    "a12-rear",
+    "--wall-seconds",
+    "600",
+    "--newton-limit",
+    "300",
+    "--wood-bedding",
+    "1",
+    "--intervals",
+    "8",
+    "--contact-edge",
+    "70"
+  ],
+  "component_forces_or_capacities_transferred": false,
+  "diagnostic_observer_mutation_confirmed_separately": "enabled_floor_hosts calls CSR.power(2); installed SciPy1.18.1 canonicalizes tangent rows in place. Saved sixteen-row probe finds eight reordered rows, no duplicate columns. This is a diagnosed observer behavior, not an assertion that every runtime input was unchanged.",
+  "disposition": "FAILED_EXPORT_NO_ADMITTED_FIELD",
+  "export_failure": {
+    "exception": "ValueError",
+    "function": "run_case.finish",
+    "line": 424,
+    "message": "pre-response material/port/load operators mutated",
+    "producer_path": "fea/generated/thin-bolted-direct-contact-a12-v1/runner.py"
+  },
+  "final_q_field_or_closed_branch_capture_exported": false,
+  "immutable_method_source_count": 189,
+  "method_input": {
+    "bytes": 25297,
+    "path": "fea/generated/thin-bolted-direct-contact-a12-v1/method-input.json",
+    "sha256": "6257c7e9a300ed46ffdea26f416cbd1d3f155b0630413957b5128a6d2eeea1a9"
+  },
+  "observed_converged_branch_gradient_inf_n": [
+    7.64035424793974e-06,
+    2.433516648636669e-06,
+    5.383098858474655e-07
+  ],
+  "observed_process_exit_code": 1,
+  "observed_process_session": 67558,
+  "pre_response_records": [
+    {
+      "bytes": 1904391,
+      "path": "fea/generated/thin-bolted-direct-contact-a12-v1/operator-inputs.json",
+      "sha256": "16ef6d3228cd0cd8cc5a7b5d602a6ecf8d41a90b436089552bef3ac5eab945f3"
+    },
+    {
+      "bytes": 1301514,
+      "path": "fea/generated/thin-bolted-direct-contact-a12-v1/operators.npz",
+      "sha256": "a45f9a1fe27349523f3617c99ad145d341d722a775184a6b650aadc1e73d5ffa"
+    }
+  ],
+  "process_elapsed_seconds_recorded": false,
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "residual_observation_source": "parent-captured console progress, not a saved or independently admitted final vector",
+  "schema": "thin_bolted_complete_timber_a12_export_failure/v1"
+}

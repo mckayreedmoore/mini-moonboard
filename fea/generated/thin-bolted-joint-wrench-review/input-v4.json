@@ -1,0 +1,82 @@
+{
+  "question": "At unaccepted cold q, which relative joint/face/shaft/panel motions limit the reference-linear contact and own-seat applicability?",
+  "command": "OPENBLAS_NUM_THREADS=1 PYTHONPATH=. .venv/bin/python fea/generated/thin-bolted-joint-wrench-review/review-v4.py",
+  "layout": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json",
+  "timber_unit_geometry": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json",
+  "geometry_cache": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json",
+  "panel_metadata": "fea/generated/thin-bolted-panel/operators-intervals8.json",
+  "panel_assessment": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-mechanics-v4.json",
+  "integrated_geometry": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json",
+  "timber_face_proof": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json",
+  "cold_diagnostic_sources": [
+    {
+      "path": "fea/generated/thin-bolted-support-search-v4/cold-mask-10000001-v4.json",
+      "mask": "10000001",
+      "state_id": "thin-v4-69f54f8d954c9de59043f1aa",
+      "raw_sha256": "e9600bfeef565c18a502b008abad2aa7cbc958ba2b1ac49e55beeaa0ea8d0e29",
+      "canonical_field_sha256": "a7223999b7fc0420afd2ab9d94b364bd0933670fb0d6cbbdc61082b7230f7b58",
+      "q_sha256": "0498c269b6548bfce9d7a2466bbfb3c601c05a1b8bdcc55fb8d49ea0f5db506d"
+    },
+    {
+      "path": "fea/generated/thin-bolted-support-search-v4/cold-mask-11000000-v4.json",
+      "mask": "11000000",
+      "state_id": "thin-v4-c8fd102620f72cbae4fc52ba",
+      "raw_sha256": "5037a530f4581dca31ff374922e425f851172a80d342cf8e1fee93e88e4b7bb8",
+      "canonical_field_sha256": "4036c6b61129eb8a56d93b2c96281bc71076beae4c16fd9c7f635b4b3e28dbf2",
+      "q_sha256": "bb71c46227735ee6d67a5503532852700d28b837c23612f1d60e855504772d55"
+    },
+    {
+      "path": "fea/generated/thin-bolted-support-search-v4/cold-mask-11010000-v4.json",
+      "mask": "11010000",
+      "state_id": "thin-v4-18ef1bf5adc0c3dd8f0b440a",
+      "raw_sha256": "1d938658293d55a8e3749a7065ac2a405ab5fee2ceb6013dd6a99db424c1482d",
+      "canonical_field_sha256": "a1492b82c9f8eae8613d5a8fdf93b91405897901acad320a41367a313e5edd86",
+      "q_sha256": "b96a997134a0f1d6fa3c29b38bfed4a62d19912f87453d952571e1b2af72eeca"
+    }
+  ],
+  "duties": [
+    "clip_single_top_left_1",
+    "clip_horizontal_bottom_left_1",
+    "clip_angle_base_left"
+  ],
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-bolt-resistance-v4.json": "5e78ac49a2db2050caf7ee7d2002d0ebf4f9a92496e857a0e2d652629bd0d848",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "fea/generated/thin-bolted-panel/operators-intervals8.json": "aeeb9b6ccd2c521896b32012ccbf9712fd67cdb7d0744e06d88afa4fd3f441d4",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/panel-mechanics-v4.json": "a61cadf7b120b58c00326e83c68999f7a726fba77ec5e12882cf843355951dec",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/integrated-model-v4.json": "28bbd2d2fb6f1a93acb441af124c453f04f81e03be551906c633d5acad1d407e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+    "fea/generated/thin-bolted-support-search-v4/cold-mask-10000001-v4.json": "e9600bfeef565c18a502b008abad2aa7cbc958ba2b1ac49e55beeaa0ea8d0e29",
+    "fea/generated/thin-bolted-support-search-v4/cold-mask-11000000-v4.json": "5037a530f4581dca31ff374922e425f851172a80d342cf8e1fee93e88e4b7bb8",
+    "fea/generated/thin-bolted-support-search-v4/cold-mask-11010000-v4.json": "1d938658293d55a8e3749a7065ac2a405ab5fee2ceb6013dd6a99db424c1482d",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_linear_timber_admission.py": "e6dcb38947bea00ca583cd9a9e8d37a0cf0720d1f3ca97f7013ba9f2def0c676",
+    "scripts/thin_bolted_finite_frame.py": "68f711549da9e6b52c60db4e4df78235ba8105084ded0d81c9a3430cf5973588",
+    "scripts/thin_bolted_finite_mechanics.py": "8c2bf2f27538fc1d599db9ddee2efbbb6344687393781bd689de09a4998772a2",
+    "scripts/thin_bolted_corotational_methods.py": "7638a09c145135a19dcccb7cd84a01b8a01d2a4465b02ebfc33372e672e5ebc8",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "fea/generated/thin-bolted-joint-wrench-review/review-v4.py": "c86cb3e84c0d16648e6a3d115da686afc6e2c97272cd06c4cbe3bfb93a15be55",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "method": [
+    "Read only authenticated diagnostic_last_q, reference timber map and source geometry. Verify three raw/canonical/q/state identities against the existing ledger; all fields retain converged=false, usable actions=false and no response.q.",
+    "Reconstruct original fitting/panel/shaft indices from frozen production ordering and pure geometry events; exact20/36/6/70 body and8018 coordinate census is mandatory. No K is read, assembled or solved.",
+    "Reuse reviewed point_displacement for each linear timber point and current_pose_from_map for finite rigid-arm/geodesic mechanical point/director replay. Append70 zero first-twist gauges only in a pose facade; these are not new response coordinates, torque restraints or accepted finite-shaft gauges.",
+    "Retain signed relative point motions and relative material rotations, separating fitting beam-vs-post pose deformation from joint body rotations. Shaft-axis director tilt is the gauge-independent shaft/host comparison; full shaft material-roll comparison remains gauge-dependent.",
+    "Finite panel points and surface normals come from the existing saved Ritz surface helper. A rigid panel rotation or finite material in-plane frame is not assigned; only local panel/receiver normal tilt is compared.",
+    "For normal contacts positive projection is opening. Compare reference-linear signed motion to exact-arm motion under fixed source normals and updated second-body material normals. Fixed-q side changes are unsolved applicability markers, never modified contact forces or admitted branches.",
+    "For each own capture compare its actual pressure/support datums, shaft-axis/host-face relative tilt and finite/linear normal/tangential compatibility. The frozen model provides point-only axial capture with no annular pressure couple, preload or friction.",
+    "Evaluate all272 cells in six source timber overlap patches; compare local tangential motion to25-mm cell width and recorded tangential bounding extents. Source overlap geometry is retained, but current trimmed footprint overlap/pressure is not computed."
+  ],
+  "limits": [
+    "Every cold q remains unaccepted and its floor mask is inconsistent. Reported motions are diagnostic numerical markers, not physical deflections, contact forces, strength or global stability.",
+    "Exact finite rigid-arm rotation at fixed diagnostic q is a kinematic applicability comparison. It does not update equilibrium, load locations, beam constitutive law, contact activation or candidate demands.",
+    "Geodesic interpolation of donor nodal rotations and straight centerline interpolation does not prove a curved timber/shaft solution or mesh refinement. Formed heel radius/hole effects remain unqualified; sharp modeled B104 solids are ideal geometry.",
+    "The fitting beam-vs-post rotation/translation is a two-port heel-flexibility marker, not local formed-metal heel curvature or resistance.",
+    "Washer body rotation, seating contact area, annular pressure moments, delivered tolerances and joint preload are absent from the point-only end-capture model. Tilt/offset/occupied-diameter comparisons do not supply them.",
+    "Timber contact cell drift and changing own normals can invalidate fixed-cell correspondence even where local rotations are modest. Bounding extents are descriptive scales; no lost overlap or new deformation limit is inferred. Actual deformed trimmed-face projection, bore voids and contact area require a separate verified geometric/contact method.",
+    "No stiffness matrix, CAD rebuild, native solve, global solve, external/old force transfer, fabrication, redesign, capacity assignment or release occurs."
+  ]
+}

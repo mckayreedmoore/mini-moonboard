@@ -1,0 +1,194 @@
+{
+  "bedding_basis": "Uniform local normal linear foundation, unmeasured declared response stiffness. Existing paired-wood coupon also used1N/mm3; no interface calibration or strength transfers.",
+  "bedding_n_mm3": 1.0,
+  "bedding_scenario_id": "own-rigid-annulus-declared-winkler-1N-mm3-v1",
+  "geometry_basis": "Frozen large nominal/max occupied envelope; not actual minimum delivered washer, inspected seating or current pressure/contact area.",
+  "inner_radius_mm": 7.14375,
+  "material_basis": "Rigid washer kinematic idealization; no steel bending modulus/yield or wood bearing strength used. Bedding is not derived from material reference constants.",
+  "outer_radius_mm": 17.526,
+  "primary_background": [
+    {
+      "limit": "No Drake implementation, modulus estimation or physical foundation parameter transferred.",
+      "supports": "Bed of normal linear springs; pressure proportional to local penetration and resultant is pressure integral.",
+      "title": "Drake elastic foundation model",
+      "url": "https://drake.mit.edu/doxygen_cxx/group__hydro__params.html"
+    },
+    {
+      "limit": "Annular cap formulas here are independently derived; no soil/product/material calibration or published solver transferred.",
+      "supports": "Rigid plate/partial lift-off response under a tensionless Winkler scenario, with straight lift-off boundary.",
+      "title": "Celep and Guler2004 rigid circular plate on tensionless Winkler foundation",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022460X04000173"
+    }
+  ],
+  "schema": "thin_bolted_rigid_annular_seat_inputs/v1",
+  "selected_axis_profiles": [
+    {
+      "axis_id": "thin_factory_bolt_019",
+      "receiving_seats": [
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "head_washer",
+          "saved_occupancy_backed_fraction": 0.9999999999999122,
+          "support_material": "steel"
+        },
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "nut_washer",
+          "saved_occupancy_backed_fraction": 0.9999999999999845,
+          "support_material": "wood"
+        }
+      ],
+      "washer_id_mm": 14.2875,
+      "washer_od_mm": 35.052,
+      "washer_thickness_mm": 3.3528
+    },
+    {
+      "axis_id": "thin_factory_bolt_020",
+      "receiving_seats": [
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "head_washer",
+          "saved_occupancy_backed_fraction": 1.0,
+          "support_material": "steel"
+        },
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "nut_washer",
+          "saved_occupancy_backed_fraction": 1.0,
+          "support_material": "wood"
+        }
+      ],
+      "washer_id_mm": 14.2875,
+      "washer_od_mm": 35.052,
+      "washer_thickness_mm": 3.3528
+    },
+    {
+      "axis_id": "thin_factory_bolt_011",
+      "receiving_seats": [
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "head_washer",
+          "saved_occupancy_backed_fraction": 0.9999999999999988,
+          "support_material": "steel"
+        },
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "nut_washer",
+          "saved_occupancy_backed_fraction": 0.9999999999999865,
+          "support_material": "steel"
+        }
+      ],
+      "washer_id_mm": 14.2875,
+      "washer_od_mm": 35.052,
+      "washer_thickness_mm": 3.3528
+    },
+    {
+      "axis_id": "thin_factory_bolt_012",
+      "receiving_seats": [
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "head_washer",
+          "saved_occupancy_backed_fraction": 1.0,
+          "support_material": "steel"
+        },
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "nut_washer",
+          "saved_occupancy_backed_fraction": 1.0,
+          "support_material": "wood"
+        }
+      ],
+      "washer_id_mm": 14.2875,
+      "washer_od_mm": 35.052,
+      "washer_thickness_mm": 3.3528
+    },
+    {
+      "axis_id": "thin_factory_bolt_013",
+      "receiving_seats": [
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "head_washer",
+          "saved_occupancy_backed_fraction": 1.0,
+          "support_material": "steel"
+        },
+        {
+          "planned_support_opening_mm": 14.2875,
+          "role": "nut_washer",
+          "saved_occupancy_backed_fraction": 1.0,
+          "support_material": "wood"
+        }
+      ],
+      "washer_id_mm": 14.2875,
+      "washer_od_mm": 35.052,
+      "washer_thickness_mm": 3.3528
+    }
+  ],
+  "source_layout_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json",
+  "source_layout_sha256": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+  "states": [
+    {
+      "id": "full",
+      "q": [
+        0.1,
+        0.001,
+        0.002
+      ]
+    },
+    {
+      "id": "half-annulus",
+      "q": [
+        0.0,
+        0.003,
+        0.004
+      ]
+    },
+    {
+      "id": "general-cap",
+      "q": [
+        -0.02,
+        0.003,
+        0.004
+      ]
+    },
+    {
+      "id": "reverse-cap",
+      "q": [
+        -0.02,
+        -0.003,
+        -0.004
+      ]
+    },
+    {
+      "id": "full-contact-limit",
+      "q": [
+        0.08763,
+        0.003,
+        0.004
+      ]
+    },
+    {
+      "id": "open",
+      "q": [
+        -0.1,
+        0.001,
+        0.002
+      ]
+    },
+    {
+      "id": "point-grazing",
+      "q": [
+        -0.08763,
+        0.003,
+        0.004
+      ]
+    },
+    {
+      "id": "zero-pressure",
+      "q": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ]
+}

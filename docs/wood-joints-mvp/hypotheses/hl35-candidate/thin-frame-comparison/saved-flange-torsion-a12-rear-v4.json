@@ -1,0 +1,450 @@
+{
+  "schema": "thin_bolted_saved_scope_flange_torsion/v1",
+  "status": "OLD_62_BODY_SAVED_FIELD_IDEAL_SECTION_DIAGNOSTICS_ONLY",
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "state_id": "thin-v4-84ad844f63afddc032cf922c",
+  "case_id": "a12-rear",
+  "accessory_placement": "retained-original-top-hold",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/steel-demands-a12-rear-finished-floor-v4.json": "f19a645475b139db110679414fa95022560198bd7cba6672d3a08d9d83e02f5f",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/thin_bolted_flange_torsion.py": "48e3181f65772cb2d21be6687a011eaeba6a35491b6299cd179759f66ffc6871",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/flange-torsion-method-v4.json": "5cd68b0b712495deda57478b7c3d3c8f7838851453923c7e1374f65ce826635c",
+    "scripts/thin_bolted_saved_flange_torsion.py": "d9af5ed32c8472e5394d846bc754a480426e2da5b5378e06f80c3b157b663d37",
+    "tests/test_thin_bolted_saved_flange_torsion.py": "598441817d882805a6f0b545ca45b0bead0aee4211965e97f57945f55517cf58"
+  },
+  "input_proof": {
+    "old_report_raw_sha256": "f19a645475b139db110679414fa95022560198bd7cba6672d3a08d9d83e02f5f",
+    "old_report_canonical_sha256": "d36ac6ce6a9cb5a94180216588cc35d02102e6eefba2523410527cfec338926b",
+    "old_field_raw_sha256": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "old_field_canonical_sha256": "e34fd323d40af3635991d5db3e2b2008eddea80fba33d4970496bb5745663f7f",
+    "state_identity_canonical_sha256": "84ad844f63afddc032cf922c7b845d6189a58ea96884f87f63059eae33e45f9c",
+    "bound_pin_table_entries": 419,
+    "original_field_and_steel_report_bound_pin_entries": 415,
+    "original_unique_bound_paths": 142,
+    "verified_unique_paths_including_method_and_self": 148,
+    "all_bound_pins_verified_before_and_after": true,
+    "verified_pin_map_canonical_sha256": "029f1b78ebae488b63a4d5e0f333737981deda8c0df1ce17fd22853b46c3f580",
+    "saved_external_point_actions_exactly_reconstructed_from_field": true,
+    "saved_nominal_comparison_max_absolute_replay_error": 0.0,
+    "all72_nominal_counts_indices_and_same_cut_witnesses_replay_exactly": true,
+    "original_schema_and_state_retained": true
+  },
+  "existing_support_gate_replay": {
+    "independent_finished_support_and_equilibrium_checks_pass": true,
+    "body_count": 62,
+    "finished_host_count": 8,
+    "normal_port_count": 32,
+    "tangent_port_count": 12
+  },
+  "tools": {
+    "python": "3.12.3",
+    "numpy": "2.5.2",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python_executable": "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "uv_lock_sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "reproduction_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/python -m scripts.thin_bolted_saved_flange_torsion --out docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/saved-flange-torsion-a12-rear-v4.json",
+  "method": {
+    "cut_recovery_api": "scripts.thin_bolted_steel_resistance.flange_reference",
+    "section_bound_api": "scripts.thin_bolted_flange_torsion.simultaneous_section_bound",
+    "series_terms": 64,
+    "bound_formula": "VM <= hypot(sigma_N_M_envelope, sqrt(3)*(tau_V_envelope + abs(T)*t/J_lower))",
+    "unperforated_selection_removed_chord_tolerance_mm": 1e-08,
+    "specified_fy_mpa_scenario": 227.52699067455592,
+    "reused_method_receipt": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/flange-torsion-method-v4.json",
+    "reused_method_fixture_count": 18,
+    "unchanged_rectangle_method_fixtures_rerun": false,
+    "new_guard_test_command": "OPENBLAS_NUM_THREADS=1 .venv/bin/pytest -q tests/test_thin_bolted_saved_flange_torsion.py"
+  },
+  "counts": {
+    "flanges": 72,
+    "sampled_cut_stations": 18474
+  },
+  "sku_results": {
+    "B104ZN": {
+      "flange_count": 48,
+      "cut_count": 12856,
+      "original_nominal_governing_witness": {
+        "angle_id": "B104ZN_clip_angle_base_left_reference",
+        "flange": "beam",
+        "station_from_assumed_corner_mm": 84.1375,
+        "force_local_n": [
+          3.162597923262353,
+          -248.8659869280595,
+          377.4849478673566
+        ],
+        "moment_local_nmm": [
+          -16988.214432733614,
+          16988.21443273366,
+          0.0
+        ],
+        "area_mm2": 149.949296875,
+        "out_of_plane_section_modulus_mm3": 138.8592967936198,
+        "in_plane_section_modulus_mm3": 1512.1930013459032,
+        "nominal_normal_stress_envelope_mpa": 122.36230142688014,
+        "nominal_transverse_shear_envelope_mpa": 4.522913198972346,
+        "nominal_von_mises_envelope_mpa": 122.61281760851509,
+        "required_fy_mpa_at_nominal_first_yield": 122.61281760851509,
+        "specified_fy_mpa": 227.52699067455592,
+        "nominal_first_yield_index": 0.538893505535327,
+        "torsion_nmm": -16988.214432733614,
+        "torsion_method_complete": false,
+        "local_hole_and_bend_stress_concentrations_included": false,
+        "complete_joint_acceptance": false
+      },
+      "scenarios": {
+        "gross_filled_rectangle": {
+          "sample_count": 12856,
+          "flange_count": 48,
+          "sampled_reference_exceedances": 0,
+          "flanges_with_sampled_reference_exceedance": 0,
+          "governing_same_cut_witness": {
+            "angle_id": "B104ZN_clip_angle_base_left_reference",
+            "flange": "post",
+            "station_from_assumed_corner_mm": 5.55625,
+            "section_scenario": "gross_rectangle",
+            "removed_chord_mm": 0.0,
+            "same_section_force_N_V1_V2_n": [
+              380.9545607270685,
+              248.86598693032866,
+              -3.162597923560952
+            ],
+            "same_section_moment_T_M1_M2_nmm": [
+              -20938.961975236765,
+              14860.00247021638,
+              15605.452792949924
+            ],
+            "nominal_normal_stress_bound_mpa": 81.52407725903618,
+            "nominal_transverse_shear_norm_bound_mpa": 1.62788232833153,
+            "nominal_torsion_shear_norm_bound_mpa": 53.86780778730419,
+            "simultaneous_nominal_vm_bound_mpa": 126.03765325159503,
+            "specified_fy_mpa": 227.52699067455592,
+            "simultaneous_nominal_first_yield_bound_index": 0.5539459423162392,
+            "torsion_rectangle": {
+              "long_side_mm": 41.275,
+              "short_side_mm": 5.55625,
+              "series_terms": 64,
+              "odd_series_partial": 1.004523762183132,
+              "positive_series_tail_upper_bound": 4.793823374403508e-10,
+              "J_lower_mm4": 2159.7705986901015,
+              "J_upper_mm4": 2159.7705987856843,
+              "finite_arithmetic_relative_allowance": 7.105427357601002e-15,
+              "global_torsion_shear_bound_mpa_per_nmm": 0.002572611185359158,
+              "polar_second_moment_substituted_for_J": false
+            },
+            "nominal_field_pointwise_analytic_bound": true,
+            "component_stress_maxima_claimed_at_one_same_point": false,
+            "gross_rectangle_fills_removed_hole": false,
+            "two_separate_ligaments_equal_twist_and_rectangular_shear_allocation_assumed": false,
+            "actual_holed_plate_torsion_sharing_or_stress_concentrations_verified": false,
+            "restrained_warping_heel_bimoment_or_local_load_introduction_included": false,
+            "physical_fitting_strength_or_complete_joint_acceptance": false
+          }
+        },
+        "unperforated_gross_only": {
+          "sample_count": 6122,
+          "flange_count": 48,
+          "sampled_reference_exceedances": 0,
+          "flanges_with_sampled_reference_exceedance": 0,
+          "governing_same_cut_witness": {
+            "angle_id": "B104ZN_clip_angle_base_left_reference",
+            "flange": "post",
+            "station_from_assumed_corner_mm": 5.55625,
+            "section_scenario": "gross_rectangle",
+            "removed_chord_mm": 0.0,
+            "same_section_force_N_V1_V2_n": [
+              380.9545607270685,
+              248.86598693032866,
+              -3.162597923560952
+            ],
+            "same_section_moment_T_M1_M2_nmm": [
+              -20938.961975236765,
+              14860.00247021638,
+              15605.452792949924
+            ],
+            "nominal_normal_stress_bound_mpa": 81.52407725903618,
+            "nominal_transverse_shear_norm_bound_mpa": 1.62788232833153,
+            "nominal_torsion_shear_norm_bound_mpa": 53.86780778730419,
+            "simultaneous_nominal_vm_bound_mpa": 126.03765325159503,
+            "specified_fy_mpa": 227.52699067455592,
+            "simultaneous_nominal_first_yield_bound_index": 0.5539459423162392,
+            "torsion_rectangle": {
+              "long_side_mm": 41.275,
+              "short_side_mm": 5.55625,
+              "series_terms": 64,
+              "odd_series_partial": 1.004523762183132,
+              "positive_series_tail_upper_bound": 4.793823374403508e-10,
+              "J_lower_mm4": 2159.7705986901015,
+              "J_upper_mm4": 2159.7705987856843,
+              "finite_arithmetic_relative_allowance": 7.105427357601002e-15,
+              "global_torsion_shear_bound_mpa_per_nmm": 0.002572611185359158,
+              "polar_second_moment_substituted_for_J": false
+            },
+            "nominal_field_pointwise_analytic_bound": true,
+            "component_stress_maxima_claimed_at_one_same_point": false,
+            "gross_rectangle_fills_removed_hole": false,
+            "two_separate_ligaments_equal_twist_and_rectangular_shear_allocation_assumed": false,
+            "actual_holed_plate_torsion_sharing_or_stress_concentrations_verified": false,
+            "restrained_warping_heel_bimoment_or_local_load_introduction_included": false,
+            "physical_fitting_strength_or_complete_joint_acceptance": false
+          }
+        },
+        "two_ligament_equal_twist_proxy": {
+          "sample_count": 6734,
+          "flange_count": 48,
+          "sampled_reference_exceedances": 0,
+          "flanges_with_sampled_reference_exceedance": 0,
+          "governing_same_cut_witness": {
+            "angle_id": "B104ZN_clip_angle_base_left_reference",
+            "flange": "beam",
+            "station_from_assumed_corner_mm": 84.36074218750005,
+            "section_scenario": "two_ligament_equal_twist_proxy",
+            "removed_chord_mm": 14.280521977605744,
+            "same_section_force_N_V1_V2_n": [
+              0.0,
+              0.0,
+              -823.1721106109569
+            ],
+            "same_section_moment_T_M1_M2_nmm": [
+              -16988.214432733614,
+              16804.447690071804,
+              0.0
+            ],
+            "nominal_normal_stress_bound_mpa": 120.98652491771944,
+            "nominal_transverse_shear_norm_bound_mpa": 8.232375936078133,
+            "nominal_torsion_shear_norm_bound_mpa": 82.55200916406122,
+            "simultaneous_nominal_vm_bound_mpa": 198.40149431316578,
+            "specified_fy_mpa": 227.52699067455592,
+            "simultaneous_nominal_first_yield_bound_index": 0.871991027196198,
+            "torsion_rectangle": {
+              "long_side_mm": 13.497239011197127,
+              "short_side_mm": 5.55625,
+              "series_terms": 64,
+              "odd_series_partial": 1.0035544197882367,
+              "positive_series_tail_upper_bound": 4.793823374403508e-10,
+              "J_lower_mm4": 571.7048403648599,
+              "J_upper_mm4": 571.7048404604201,
+              "finite_arithmetic_relative_allowance": 7.105427357601002e-15,
+              "global_torsion_shear_bound_mpa_per_nmm": 0.009718738775158912,
+              "polar_second_moment_substituted_for_J": false
+            },
+            "nominal_field_pointwise_analytic_bound": true,
+            "component_stress_maxima_claimed_at_one_same_point": false,
+            "gross_rectangle_fills_removed_hole": false,
+            "two_separate_ligaments_equal_twist_and_rectangular_shear_allocation_assumed": true,
+            "actual_holed_plate_torsion_sharing_or_stress_concentrations_verified": false,
+            "restrained_warping_heel_bimoment_or_local_load_introduction_included": false,
+            "physical_fitting_strength_or_complete_joint_acceptance": false
+          }
+        }
+      }
+    },
+    "B103ZN": {
+      "flange_count": 24,
+      "cut_count": 5618,
+      "original_nominal_governing_witness": {
+        "angle_id": "B103ZN_clip_horizontal_lower_left_2_opposite",
+        "flange": "beam",
+        "station_from_assumed_corner_mm": 35.61953125,
+        "force_local_n": [
+          0.0,
+          -3.714594121141234e-17,
+          -1.6881388985037902
+        ],
+        "moment_local_nmm": [
+          20.297336428840055,
+          169.58631947731706,
+          7.567209494743549e-15
+        ],
+        "area_mm2": 150.571933326422,
+        "out_of_plane_section_modulus_mm3": 139.43588409082204,
+        "in_plane_section_modulus_mm3": 1513.720634991489,
+        "nominal_normal_stress_envelope_mpa": 1.2162315359714464,
+        "nominal_transverse_shear_envelope_mpa": 0.016817266616788135,
+        "nominal_von_mises_envelope_mpa": 1.2165802934705314,
+        "required_fy_mpa_at_nominal_first_yield": 1.2165802934705314,
+        "specified_fy_mpa": 227.52699067455592,
+        "nominal_first_yield_index": 0.005346971319155148,
+        "torsion_nmm": 20.297336428840055,
+        "torsion_method_complete": false,
+        "local_hole_and_bend_stress_concentrations_included": false,
+        "complete_joint_acceptance": false
+      },
+      "scenarios": {
+        "gross_filled_rectangle": {
+          "sample_count": 5618,
+          "flange_count": 24,
+          "sampled_reference_exceedances": 0,
+          "flanges_with_sampled_reference_exceedance": 0,
+          "governing_same_cut_witness": {
+            "angle_id": "B103ZN_clip_horizontal_lower_left_2_opposite",
+            "flange": "beam",
+            "station_from_assumed_corner_mm": 5.55625,
+            "section_scenario": "gross_rectangle",
+            "removed_chord_mm": 0.0,
+            "same_section_force_N_V1_V2_n": [
+              0.0,
+              -3.714594121141234e-17,
+              -1.6881388985037902
+            ],
+            "same_section_moment_T_M1_M2_nmm": [
+              20.297336428840055,
+              220.33731397210175,
+              1.8292925760459906e-15
+            ],
+            "nominal_normal_stress_bound_mpa": 1.0375013313193633,
+            "nominal_transverse_shear_norm_bound_mpa": 0.011041563537956262,
+            "nominal_torsion_shear_norm_bound_mpa": 0.05221715472983183,
+            "simultaneous_nominal_vm_bound_mpa": 1.0432708223659384,
+            "specified_fy_mpa": 227.52699067455592,
+            "simultaneous_nominal_first_yield_bound_index": 0.00458526181563305,
+            "torsion_rectangle": {
+              "long_side_mm": 41.275,
+              "short_side_mm": 5.55625,
+              "series_terms": 64,
+              "odd_series_partial": 1.004523762183132,
+              "positive_series_tail_upper_bound": 4.793823374403508e-10,
+              "J_lower_mm4": 2159.7705986901015,
+              "J_upper_mm4": 2159.7705987856843,
+              "finite_arithmetic_relative_allowance": 7.105427357601002e-15,
+              "global_torsion_shear_bound_mpa_per_nmm": 0.002572611185359158,
+              "polar_second_moment_substituted_for_J": false
+            },
+            "nominal_field_pointwise_analytic_bound": true,
+            "component_stress_maxima_claimed_at_one_same_point": false,
+            "gross_rectangle_fills_removed_hole": false,
+            "two_separate_ligaments_equal_twist_and_rectangular_shear_allocation_assumed": false,
+            "actual_holed_plate_torsion_sharing_or_stress_concentrations_verified": false,
+            "restrained_warping_heel_bimoment_or_local_load_introduction_included": false,
+            "physical_fitting_strength_or_complete_joint_acceptance": false
+          }
+        },
+        "unperforated_gross_only": {
+          "sample_count": 2912,
+          "flange_count": 24,
+          "sampled_reference_exceedances": 0,
+          "flanges_with_sampled_reference_exceedance": 0,
+          "governing_same_cut_witness": {
+            "angle_id": "B103ZN_clip_horizontal_lower_left_2_opposite",
+            "flange": "beam",
+            "station_from_assumed_corner_mm": 5.55625,
+            "section_scenario": "gross_rectangle",
+            "removed_chord_mm": 0.0,
+            "same_section_force_N_V1_V2_n": [
+              0.0,
+              -3.714594121141234e-17,
+              -1.6881388985037902
+            ],
+            "same_section_moment_T_M1_M2_nmm": [
+              20.297336428840055,
+              220.33731397210175,
+              1.8292925760459906e-15
+            ],
+            "nominal_normal_stress_bound_mpa": 1.0375013313193633,
+            "nominal_transverse_shear_norm_bound_mpa": 0.011041563537956262,
+            "nominal_torsion_shear_norm_bound_mpa": 0.05221715472983183,
+            "simultaneous_nominal_vm_bound_mpa": 1.0432708223659384,
+            "specified_fy_mpa": 227.52699067455592,
+            "simultaneous_nominal_first_yield_bound_index": 0.00458526181563305,
+            "torsion_rectangle": {
+              "long_side_mm": 41.275,
+              "short_side_mm": 5.55625,
+              "series_terms": 64,
+              "odd_series_partial": 1.004523762183132,
+              "positive_series_tail_upper_bound": 4.793823374403508e-10,
+              "J_lower_mm4": 2159.7705986901015,
+              "J_upper_mm4": 2159.7705987856843,
+              "finite_arithmetic_relative_allowance": 7.105427357601002e-15,
+              "global_torsion_shear_bound_mpa_per_nmm": 0.002572611185359158,
+              "polar_second_moment_substituted_for_J": false
+            },
+            "nominal_field_pointwise_analytic_bound": true,
+            "component_stress_maxima_claimed_at_one_same_point": false,
+            "gross_rectangle_fills_removed_hole": false,
+            "two_separate_ligaments_equal_twist_and_rectangular_shear_allocation_assumed": false,
+            "actual_holed_plate_torsion_sharing_or_stress_concentrations_verified": false,
+            "restrained_warping_heel_bimoment_or_local_load_introduction_included": false,
+            "physical_fitting_strength_or_complete_joint_acceptance": false
+          }
+        },
+        "two_ligament_equal_twist_proxy": {
+          "sample_count": 2706,
+          "flange_count": 24,
+          "sampled_reference_exceedances": 0,
+          "flanges_with_sampled_reference_exceedance": 0,
+          "governing_same_cut_witness": {
+            "angle_id": "B103ZN_clip_horizontal_lower_left_2_opposite",
+            "flange": "post",
+            "station_from_assumed_corner_mm": 20.860742189862687,
+            "section_scenario": "two_ligament_equal_twist_proxy",
+            "removed_chord_mm": 14.280521977458008,
+            "same_section_force_N_V1_V2_n": [
+              0.0,
+              0.0,
+              7.464748729484933
+            ],
+            "same_section_moment_T_M1_M2_nmm": [
+              63.489033587240115,
+              -152.38730505160035,
+              0.0
+            ],
+            "nominal_normal_stress_bound_mpa": 1.0971387349172605,
+            "nominal_transverse_shear_norm_bound_mpa": 0.07465342547081101,
+            "nominal_torsion_shear_norm_bound_mpa": 0.3085166662585636,
+            "simultaneous_nominal_vm_bound_mpa": 1.2822524561269277,
+            "specified_fy_mpa": 227.52699067455592,
+            "simultaneous_nominal_first_yield_bound_index": 0.005635605922292544,
+            "torsion_rectangle": {
+              "long_side_mm": 13.497239011270995,
+              "short_side_mm": 5.55625,
+              "series_terms": 64,
+              "odd_series_partial": 1.003554419788277,
+              "positive_series_tail_upper_bound": 4.793823374403508e-10,
+              "J_lower_mm4": 571.7048403690756,
+              "J_upper_mm4": 571.7048404646356,
+              "finite_arithmetic_relative_allowance": 7.105427357601002e-15,
+              "global_torsion_shear_bound_mpa_per_nmm": 0.009718738775087249,
+              "polar_second_moment_substituted_for_J": false
+            },
+            "nominal_field_pointwise_analytic_bound": true,
+            "component_stress_maxima_claimed_at_one_same_point": false,
+            "gross_rectangle_fills_removed_hole": false,
+            "two_separate_ligaments_equal_twist_and_rectangular_shear_allocation_assumed": true,
+            "actual_holed_plate_torsion_sharing_or_stress_concentrations_verified": false,
+            "restrained_warping_heel_bimoment_or_local_load_introduction_included": false,
+            "physical_fitting_strength_or_complete_joint_acceptance": false
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "Every witness retains simultaneous signed N,V1,V2,T,M1,M2 from one saved cut; component envelope maxima need not coincide spatially.",
+    "Filled-gross rectangles replace openings with steel; unperforated-gross selects zero-removed-chord cuts only; neither is an actual perforated-angle strength bound.",
+    "The two-ligament proxy assumes two freely warping prismatic rectangles at equal twist, with the frozen nominal transverse-shear allocation. Actual hole sharing and concentrations are unqualified.",
+    "Sampled station extrema are not continuous extrema. Actual flat-start/heel geometry, short-leg restrained warping, bimoment, bend and load-introduction effects remain open.",
+    "Original contact/prying, spring allocation, bolt own-end/shaft behavior, product dimensions/tolerances/thickness/material conformance and complete failure paths remain unqualified.",
+    "The old 62-body field, its floor allocation and these indices do not transfer to the changed 132-body model or establish complete fitting/joint capacity."
+  ],
+  "full_sample_export_written": false,
+  "native_or_CAD_execution": false,
+  "K_assembly_or_candidate_solve": false,
+  "geometry_changed": false,
+  "current_132_body_force_field_admitted": false,
+  "complete_joint_acceptance": false,
+  "fabrication_release": false,
+  "climbing_release": false,
+  "execution_command_argv": [
+    ".venv/bin/python",
+    "-m",
+    "scripts.thin_bolted_saved_flange_torsion",
+    "--out",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/saved-flange-torsion-a12-rear-v4.json"
+  ],
+  "execution_environment": {
+    "OPENBLAS_NUM_THREADS": "1"
+  }
+}

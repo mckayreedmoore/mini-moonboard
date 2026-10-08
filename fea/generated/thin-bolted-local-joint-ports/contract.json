@@ -1,0 +1,339 @@
+{
+  "schema": "thin_bolted_local_remote_neighbor_contract/v1",
+  "source_sha256": {
+    "fea/generated/thin-bolted-local-joint-ports/input.json": "90ec100d85d101796bc16a9966b7b4f001a35f4ebf74b06f6f533f8c5e7c0679",
+    "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json": "ead9fee6a06d1233ac4cfd006fb2c681241d6ea2e81ddc410b1e47d9550e7dfa",
+    "fea/generated/thin-bolted-b104-local-hardware-inputs/inputs.json": "8cebc830001ed86114bce7363f7fc3a0105c258885cdaa80a869245bea73d731",
+    "fea/generated/thin-bolted-local-joint-ports/assemble-contract.py": "e32e28dddf215dff80dac9bad6a207b37b5626ccc4d4a2598e60b1d1012706e8"
+  },
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "patches": [
+    {
+      "id": "outerbase-left",
+      "remote_input_patch_id": "outerbase-left",
+      "hardware_input_patch_id": "outer_base_left_single",
+      "timber_body_order": [
+        "base_header",
+        "base_side_left"
+      ],
+      "fitting_body_order": [
+        "B104ZN_clip_angle_base_left_reference"
+      ],
+      "selected_axis_ids": [
+        "thin_factory_bolt_019",
+        "thin_factory_bolt_020"
+      ],
+      "remote_port_count": 2,
+      "resolved_direct_timber_geometry": [
+        {
+          "id": "timber-face/base_header/base_side_left/3-2-0",
+          "first": "base_header",
+          "second": "base_side_left",
+          "source_first_face_id": "base_header/step-face-0003-09fc4211f7190285",
+          "source_second_face_id": "base_side_left/step-face-0002-3b0cc9ba1bdb2450",
+          "centroid_reference_xyz_mm": [
+            -1174.75,
+            -108.59866560399003,
+            277.0
+          ],
+          "area_reference_mm2": 11930.617255610585,
+          "first_outward_normal_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "second_outward_normal_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "cell_count": 24,
+          "exact_cells_and_face_signatures_in": "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json",
+          "physical_contact_law_or_stiffness_supplied": false
+        }
+      ],
+      "superseded_only_geometric_missing_atlas_statements": true,
+      "panel_and_adjacent_shaft_duties_remain_explicit_neighbor_inputs": true
+    },
+    {
+      "id": "sharedcenter-left",
+      "remote_input_patch_id": "sharedcenter-left",
+      "hardware_input_patch_id": "center_left_shared",
+      "timber_body_order": [
+        "base_header",
+        "base_principal_center_left",
+        "base_post_center_left"
+      ],
+      "fitting_body_order": [
+        "B104ZN_clip_split_base_center_left_reference",
+        "B104ZN_clip_split_header_center_left_reference"
+      ],
+      "selected_axis_ids": [
+        "thin_factory_bolt_011",
+        "thin_factory_bolt_012",
+        "thin_factory_bolt_013"
+      ],
+      "remote_port_count": 4,
+      "resolved_direct_timber_geometry": [
+        {
+          "id": "timber-face/base_header/base_principal_center_left/3-2-0",
+          "first": "base_header",
+          "second": "base_principal_center_left",
+          "source_first_face_id": "base_header/step-face-0003-09fc4211f7190285",
+          "source_second_face_id": "base_principal_center_left/step-face-0002-5758fc489f39dce9",
+          "centroid_reference_xyz_mm": [
+            -70.0,
+            -108.59866560399003,
+            277.0
+          ],
+          "area_reference_mm2": 5113.121680975948,
+          "first_outward_normal_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "second_outward_normal_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "cell_count": 12,
+          "exact_cells_and_face_signatures_in": "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json",
+          "physical_contact_law_or_stiffness_supplied": false
+        },
+        {
+          "id": "timber-face/base_header/base_post_center_left/5-3-0",
+          "first": "base_header",
+          "second": "base_post_center_left",
+          "source_first_face_id": "base_header/step-face-0005-65ec93f4bf50543f",
+          "source_second_face_id": "base_post_center_left/step-face-0003-45575bd03ff22623",
+          "centroid_reference_xyz_mm": [
+            -70.0,
+            -105.85,
+            238.9
+          ],
+          "area_reference_mm2": 5322.569999999999,
+          "first_outward_normal_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "second_outward_normal_xyz": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "cell_count": 12,
+          "exact_cells_and_face_signatures_in": "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json",
+          "physical_contact_law_or_stiffness_supplied": false
+        }
+      ],
+      "superseded_only_geometric_missing_atlas_statements": true,
+      "panel_and_adjacent_shaft_duties_remain_explicit_neighbor_inputs": true
+    }
+  ],
+  "remote_geometry_and_crossing_inventory": "fea/generated/thin-bolted-local-joint-ports/input.json",
+  "hardware_own_planes_and_axis_occupancy": "fea/generated/thin-bolted-b104-local-hardware-inputs/inputs.json",
+  "direct_contact_trimmed_geometry": "fea/generated/thin-bolted-local-joint-ports/direct-timber-contact.json",
+  "grain_frames": [
+    {
+      "member": "base_header",
+      "grain_frame_rows_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "member": "base_side_left",
+      "grain_frame_rows_xyz": [
+        [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ]
+      ]
+    },
+    {
+      "member": "base_principal_center_left",
+      "grain_frame_rows_xyz": [
+        [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ]
+      ]
+    },
+    {
+      "member": "base_post_center_left",
+      "grain_frame_rows_xyz": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "neighbor_contract": {
+    "outerbase_left": "Keep adjacent005/header outer-post fitting, kicker header screws4/5, kicker-left and main-lower-left surface duties explicit. Their external wrenches/compliance are not bounded by the isolated019/020 patch.",
+    "sharedcenter_left": "Keep kicker header screws1/2/3 and round-kicker-center-left screw2, kicker-left on header/post and main-lower-left on principal explicit. Two header cuts share one timber; their six self-balanced port-load modes can strain that timber despite zero rigid-body work.",
+    "no_hardware_free_plane_is_proved_contact_free": true,
+    "full_cut_cross_boundary_occupancy_or_neighbor_impedance": null
+  },
+  "unit_work_and_compliance_contract": {
+    "coordinate": "Each rigid body q=(u_world_mm,Ltheta_world_rad), positive explicit L; remote rows use grain frame.",
+    "work_conjugate_load": "Remote f=(F_grain_N,M_grain_Nmm/L); f.T*q_remote equals physical force/couple work.",
+    "mandatory_compatibility": "Retain six whole-patch free motions; every unit load annihilates them and each remaining internal free mode. Reject incompatible supplied loads.",
+    "observable": "Cij=f_i.T*q_remote_j; Maxwell Cij=Cji only for the same reciprocal elastic operator and fixed admitted active branch, with gauges removed but no physical clamp.",
+    "numeric_compliance_or_capacity": null
+  },
+  "direct_contact_response_correction": "Only trimmed reference geometry is resolved. Before response, explicitly add the three paired compression interfaces in a distinct source-bound model; preserve reviewed prior operators and do not silently assert bilateral ties, preload or active closure.",
+  "whole_frame_direct_contact_coverage": {
+    "existing_retained_axis_interface_proof_pairs": 6,
+    "additional_local_trimmed_pairs": 3,
+    "angle_duty_pair_candidates": 24,
+    "other_angle_duty_pairs_needing_trimmed_geometry": [
+      {
+        "first": "base_header",
+        "second": "base_post_center_right"
+      },
+      {
+        "first": "base_header",
+        "second": "base_post_outer_left"
+      },
+      {
+        "first": "base_header",
+        "second": "base_post_outer_right"
+      },
+      {
+        "first": "base_header",
+        "second": "base_principal_center_right"
+      },
+      {
+        "first": "base_header",
+        "second": "base_side_right"
+      },
+      {
+        "first": "base_rail_bottom_left",
+        "second": "base_principal_center_left"
+      },
+      {
+        "first": "base_rail_bottom_left",
+        "second": "base_side_left"
+      },
+      {
+        "first": "base_rail_bottom_right",
+        "second": "base_principal_center_right"
+      },
+      {
+        "first": "base_rail_bottom_right",
+        "second": "base_side_right"
+      },
+      {
+        "first": "base_rail_service_lower_left",
+        "second": "base_principal_center_left"
+      },
+      {
+        "first": "base_rail_service_lower_left",
+        "second": "base_side_left"
+      },
+      {
+        "first": "base_rail_service_lower_right",
+        "second": "base_principal_center_right"
+      },
+      {
+        "first": "base_rail_service_lower_right",
+        "second": "base_side_right"
+      },
+      {
+        "first": "base_rail_service_upper_left",
+        "second": "base_principal_center_left"
+      },
+      {
+        "first": "base_rail_service_upper_left",
+        "second": "base_side_left"
+      },
+      {
+        "first": "base_rail_service_upper_right",
+        "second": "base_principal_center_right"
+      },
+      {
+        "first": "base_rail_service_upper_right",
+        "second": "base_side_right"
+      },
+      {
+        "first": "base_rail_top",
+        "second": "base_principal_center_left"
+      },
+      {
+        "first": "base_rail_top",
+        "second": "base_principal_center_right"
+      },
+      {
+        "first": "base_rail_top",
+        "second": "base_side_left"
+      },
+      {
+        "first": "base_rail_top",
+        "second": "base_side_right"
+      }
+    ],
+    "complete_all_pair_contact_enumeration": false,
+    "unintended_non_duty_contacts_or_overlap_excluded": false
+  },
+  "limits": [
+    "No compliance value, force bound, physical bedding/preload/friction law or resistance is supplied.",
+    "Remote reference planes retain full saved section area but are not Saint-Venant or exact section-stiffness qualifications.",
+    "Global six modes and all remaining unilateral/internal free modes must be retained; incompatible loads are rejected instead of fixing neighbors.",
+    "Numerical reciprocity applies only to a symmetric elastic operator on one fixed admissible active branch.",
+    "All reference geometry reused from previous packets is independent of old forces, q, reactions or acceptance."
+  ],
+  "release": {
+    "structural_acceptance": false,
+    "fabrication_release": false,
+    "climbing_release": false
+  }
+}

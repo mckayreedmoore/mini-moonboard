@@ -1,0 +1,25 @@
+{
+  "base_input_path": "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/input.json",
+  "base_input_sha256": "27996bab1096fc1d24f2097e06cf782805116da18f3d88ad92336e218a31151d",
+  "closure_slope_scenarios": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      0.003,
+      0.004
+    ]
+  ],
+  "independent_oracle_digits": 120,
+  "numerical_algorithm_switch_h_over_b": "1e-4",
+  "physical_pressure_law_unchanged": "p=k*max(delta+sx*x+sy*y,0), no extra physical activation threshold",
+  "precision_digits": 100,
+  "requested_cap_widths_mm": [
+    "1e-6",
+    "1e-8",
+    "1e-10"
+  ],
+  "schema": "thin_bolted_annular_opening_seam_inputs/v2",
+  "v1_source_sha256": "5b55dcaaf663dd6954ba2f6a7a61aeb48c0ec4014edcf1d7f814defaacb97428"
+}

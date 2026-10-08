@@ -1,0 +1,119 @@
+{
+  "earlier_review_dispatch_notes": "First temporary launch lacked PYTHONPATH, then a temporary reviewer metadata check used the wrong census key. Both stopped before cut-vector arithmetic; corrected script uses actual paired_timber_interfaces/paired_timber_compression_cells. These were reviewer dispatch mistakes, not changed physics or producer failure.",
+  "independent_method": "Distinct scalar r\u00d7F sums plus stable local-coordinate affine selfweight integrals, scalar2\u00d72 cross-inertia inverse and all4 containing-box corners. Only actual cheap4b787 new payload gate reused; neither section producer nor frozen cut/stress calculation called.",
+  "independent_method_sha256": "cbde86a5ddf05c71cf6184f32f85e33ca47189e5217b04823cafd93ac35c16b8",
+  "issued_result_source_map_canonical_sha256": "c6e9d1e337568a681316d7bb9ff93191d4098c7b290fd67667d2788ed202c412",
+  "no_second_full_reduction_output": true,
+  "observations": {
+    "admission_sha256": "e5bbf8c0ad2947f42f71819d61b03fcd260a0926b5f5429481e5523ff8e122a5",
+    "all584_faces_collected_once_from_contact_actions": true,
+    "all_source_pins_unchanged_before_and_after": true,
+    "field_sha256": "29b25f11794a171a1364268ed676a24cee2882e47c3018b3648267d2707a0ddf",
+    "five_section_checks": [
+      {
+        "member": "lumber_leg_left",
+        "selected_own_lower_portion_action_counts": {
+          "contact_actions": 22,
+          "floor_actions": 6
+        },
+        "signed_box_bounds_mpa": [
+          -2.446418798174324,
+          1.5217758819117608
+        ],
+        "station_global_grain_projection_mm": -303.9267207
+      },
+      {
+        "member": "lumber_leg_right",
+        "selected_own_lower_portion_action_counts": {
+          "contact_actions": 22,
+          "floor_actions": 6
+        },
+        "signed_box_bounds_mpa": [
+          -0.85737375290678,
+          0.5816468417303184
+        ],
+        "station_global_grain_projection_mm": -303.9267207
+      },
+      {
+        "member": "base_rail_bottom_right",
+        "selected_own_lower_portion_action_counts": {
+          "contact_actions": 18
+        },
+        "signed_box_bounds_mpa": [
+          -0.17819589426785143,
+          0.17437721509248483
+        ],
+        "station_global_grain_projection_mm": 173.1875
+      },
+      {
+        "member": "base_rail_service_lower_left",
+        "selected_own_lower_portion_action_counts": {
+          "common_shaft_bearing_actions": 2,
+          "contact_actions": 24
+        },
+        "signed_box_bounds_mpa": [
+          -0.08424122012397882,
+          0.08430149316935158
+        ],
+        "station_global_grain_projection_mm": -989.2
+      },
+      {
+        "member": "base_principal_center_left",
+        "selected_own_lower_portion_action_counts": {
+          "body_applied_loads": 7,
+          "common_shaft_bearing_actions": 14,
+          "contact_actions": 108,
+          "panel_screw_actions": 7,
+          "shaft_end_capture_actions": 7
+        },
+        "signed_box_bounds_mpa": [
+          -0.09127429493403999,
+          0.0790038107255317
+        ],
+        "station_global_grain_projection_mm": 2419.8241337
+      }
+    ],
+    "independent_scalar_errors": {
+      "beta_n_mm3": 3.621235256101585e-16,
+      "box_mpa": 4.718447854656915e-15,
+      "corner_uv_mm": 0.0,
+      "corner_xyz_mm": 0.0,
+      "cut_datum_mm": 0.0,
+      "force_n": 4.440892098500626e-14,
+      "mean_mpa": 2.7755575615628914e-17,
+      "moment_centroid_nmm": 2.191882231272757e-10,
+      "moment_cut_nmm": 2.191882231272757e-10
+    },
+    "independent_verified_pin_count": 225,
+    "issued_normal_stress_sha256": "e810ab40d10ffbb9e4488b8f13e7f9bd3710a2a03fb365e538869e3b8d622a46",
+    "issued_result_source_pin_count": 222,
+    "limits": "Containing-box bound of reference linear Bernoulli stress only; no occupied-corner, trimmed-extrema, NDS or strength acceptance.",
+    "no_producer_consume_K_native_CAD_response_called": true,
+    "state_id": "thin-v4-5ee18d49cbad255344fa4574",
+    "status": "PASS"
+  },
+  "release_or_strength_acceptance_established": false,
+  "reproduction_command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=. .venv/bin/python - <<'PY'\nimport json\nfrom pathlib import Path\nrecord = json.loads(Path('fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/section-box-v1/independent-normal-stress-validation.json').read_bytes())\nexec(compile(record['reproduction_python'], '<embedded independent scalar section review>', 'exec'))\nPY",
+  "reproduction_python": "\"\"\"Independent scalar review of exact issued five-section result; no K/solve.\"\"\"\nfrom pathlib import Path\nfrom collections import defaultdict\nimport hashlib\nimport importlib.util\nimport json\nimport math\n\nROOT = Path('/home/mckay-linux/repos/mini-moonboard')\nPACKET = 'docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/'\nLEAF = 'fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/'\nFILES = {\n    LEAF+'a12-rear.json': '29b25f11794a171a1364268ed676a24cee2882e47c3018b3648267d2707a0ddf',\n    LEAF+'admission.json': 'e5bbf8c0ad2947f42f71819d61b03fcd260a0926b5f5429481e5523ff8e122a5',\n    LEAF+'admission.py': '4b78722ab407a39d6e00fc9e16be0d370d0c837dea5880e45e7a2e277dd6efb6',\n    LEAF+'section-box-v1/normal-stress.json': 'e810ab40d10ffbb9e4488b8f13e7f9bd3710a2a03fb365e538869e3b8d622a46',\n    LEAF+'section-box-v1/normal_stress.py': '6bd487b6bf328e765e84889b6fdcd094191ec6fcf4b634a87174ed3996f7a5bf',\n    LEAF+'section-box-v1/test_normal_stress.py': '2e4f337401fe3007e4b0c52faf0f52c17d851ffb9697e1c762e4c83330b573b7',\n    PACKET+'compatible-frame-a12-rear-finished-floor-v4.json': '8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d',\n    PACKET+'timber-leg-recess-sections-v4.json': '94fd730a72bdb93efc5d654913a162bb9a9715af342e91ebb11e873006969574',\n    PACKET+'timber-service-cut-sections-v4.json': '5bef4fd71aaa9a6f817ca35a424fdde82fd92dcce1741bbb1f3e9f0f74859ce4',\n}\nsha = lambda p: hashlib.sha256((ROOT/p).read_bytes()).hexdigest()\ncanonical = lambda v: hashlib.sha256(json.dumps(v,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()\nassert all(sha(p)==h for p,h in FILES.items())\nfield_bytes = (ROOT/ (LEAF+'a12-rear.json')).read_bytes()\nadmission = json.loads((ROOT/(LEAF+'admission.json')).read_bytes())\nresult = json.loads((ROOT/(LEAF+'section-box-v1/normal-stress.json')).read_bytes())\n# Actual cheap new validator before any vector use; it hashes bundles but\n# neither unpacks K arrays nor replays/assembles response operators.\nspec = importlib.util.spec_from_file_location('actual_gate_for_independent_scalar_section_review',ROOT/(LEAF+'admission.py'))\ngate = importlib.util.module_from_spec(spec);spec.loader.exec_module(gate)\nfield, verified = gate.require_admitted_payload(field_bytes,admission,admission_sha256=FILES[LEAF+'admission.py'])\nassert result['field_sha256']==FILES[LEAF+'a12-rear.json'] and result['field_canonical_sha256']==canonical(field)\nassert result['independent_new_admission']==admission\nassert all(result[k]==field[k]==admission[k] for k in ('state_id','case_id','accessory_placement'))\nassert result['state_id']=='thin-v4-5ee18d49cbad255344fa4574'\npins={**FILES,**result['source_sha256']}\nassert all(p not in FILES or FILES[p]==h for p,h in result['source_sha256'].items())\nassert all(sha(p)==h for p,h in pins.items())\nassert all(result['source_sha256'].get(p)==h for p,h in verified.items())\nassert field['counts']['paired_timber_interfaces']==30 and field['counts']['paired_timber_compression_cells']==584\nassert len(field['contact_actions'])==1402 and len(field['timber_face_contact_actions'])==584\nfaces=[r for r in field['contact_actions'] if r['kind']=='timber_face_contact']\nassert len(faces)==584 and len({(r['first'],r['second']) for r in faces})==30\nassert len({canonical(r) for r in faces})==584\nassert sorted(canonical(r) for r in faces)==sorted(canonical(r) for r in field['timber_face_contact_actions'])\n# Collect every actual own port once, preserving distinct host support datums\n# and explicit opposite free-moment rows. No old force field is inspected.\nactions=defaultdict(list);gravity={}\nneg=lambda a:[-x for x in a]\ndot=lambda a,b:math.fsum(x*y for x,y in zip(a,b,strict=True))\ncross=lambda a,b:[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]\nadd=lambda a,b:[x+y for x,y in zip(a,b,strict=True)]\nfor table in ('common_shaft_bearing_actions','shaft_end_capture_actions','panel_screw_actions','contact_actions'):\n    for row in field[table]:\n        F=row['force_on_first_xyz_n'];point=row['point_xyz_mm']\n        host=row.get('host_support_point_xyz_mm',point)\n        M=row.get('moment_on_first_at_point_xyz_nmm',row.get('moment_at_point_model_xyz_nmm',[0.,0.,0.]))\n        other=row.get('moment_on_second_at_point_xyz_nmm',neg(M))\n        actions[row['first']].append((point,F,M,table))\n        actions[row['second']].append((host,neg(F),other,table))\nfor row in field['floor_actions']:\n    actions[row['first']].append((row['point_xyz_mm'],row['force_on_first_xyz_n'],row.get('moment_at_point_model_xyz_nmm',[0.,0.,0.]),'floor_actions'))\nfor row in field['body_applied_loads']:\n    if row['id'].startswith('self-weight/'):\n        assert row['body'] not in gravity\n        gravity[row['body']]=(row['point_xyz_mm'],row['force_xyz_n'])\n    else:\n        actions[row['body']].append((row['point_xyz_mm'],row['force_xyz_n'],row.get('moment_xyz_nmm',[0.,0.,0.]),'body_applied_loads'))\n# Read only geometry keys from the old immutable span source.\nold=json.loads((ROOT/(PACKET+'compatible-frame-a12-rear-finished-floor-v4.json')).read_bytes())\nold_spans=defaultdict(list);new_spans=defaultdict(list)\nfor row in old['member_element_actions']:old_spans[row['member']].append({k:row[k] for k in ('start_xyz_mm','end_xyz_mm','basis_grain_u_v_xyz')})\nfor row in field['member_element_actions']:new_spans[row['member']].append({k:row[k] for k in ('start_xyz_mm','end_xyz_mm','basis_grain_u_v_xyz')})\nassert set(old_spans)==set(new_spans) and len(old_spans)==20\nproperties=[]\nfor name in ('timber-leg-recess-sections-v4.json','timber-service-cut-sections-v4.json'):\n    properties.extend(json.loads((ROOT/(PACKET+name)).read_bytes())['finished_sections'])\nassert len(properties)==5 and len(result['five_same_cut_section_box_bounds'])==5\nissued={(r['member'],r['station_global_grain_projection_mm']):r for r in result['five_same_cut_section_box_bounds']}\nerrors={k:0. for k in ('cut_datum_mm','force_n','moment_cut_nmm','moment_centroid_nmm','mean_mpa','beta_n_mm3','corner_uv_mm','corner_xyz_mm','box_mpa')}\nrows=[]\ndef err(key,a,b):\n    if isinstance(a,(list,tuple)):\n        for x,y in zip(a,b,strict=True):err(key,x,y)\n    else:errors[key]=max(errors[key],abs(float(a)-float(b)))\nfor prop in properties:\n    name=prop['member'];station=prop['station_global_grain_projection_mm'];out=issued[(name,station)]\n    u,v,g=prop['basis_u_v_grain_xyz'];oldrows=old_spans[name];basis=oldrows[0]['basis_grain_u_v_xyz']\n    assert max(abs(x-y) for x,y in zip(g,basis[0]))<1e-8\n    endpoints=[r[k] for r in oldrows for k in ('start_xyz_mm','end_xyz_mm')]\n    lowpoint=min(endpoints,key=lambda p:dot(g,p));highpoint=max(endpoints,key=lambda p:dot(g,p))\n    newend=[r[k] for r in new_spans[name] for k in ('start_xyz_mm','end_xyz_mm')]\n    assert min(newend,key=lambda p:dot(g,p))==lowpoint and max(newend,key=lambda p:dot(g,p))==highpoint\n    low=dot(g,lowpoint);high=dot(g,highpoint);cut=[lowpoint[i]+g[i]*(station-low) for i in range(3)]\n    center,W=gravity[name];L=high-low;h=station-low;b=12*(dot(g,center)-low-L/2)/L**2;alpha=1-b*L/2\n    assert min(alpha,alpha+b*L)>=-1e-10 and 0<=h<=L\n    fraction=(alpha*h+b*h*h/2)/L\n    rel_first=-(alpha*h*h/2+b*h*h*h/6)/L\n    transverse=[center[i]-g[i]*dot(g,center)+g[i]*station-cut[i] for i in range(3)]\n    arm=[transverse[i]*fraction+g[i]*rel_first for i in range(3)]\n    force_terms=[[w*fraction for w in W]];moment_terms=[cross(arm,W)];selected=defaultdict(int)\n    for point,F,M,table in actions[name]:\n        if dot(point,g)<station:\n            force_terms.append(F);moment_terms.append(add(cross([p-c for p,c in zip(point,cut)],F),M));selected[table]+=1\n    F=[-math.fsum(t[i] for t in force_terms) for i in range(3)];M=[-math.fsum(t[i] for t in moment_terms) for i in range(3)]\n    saved=out['signed_same_cut_wrench'];err('cut_datum_mm',cut,saved['cut_point_xyz_mm']);err('force_n',F,saved['force_on_lower_portion_xyz_n']);err('moment_cut_nmm',M,saved['moment_on_lower_portion_about_cut_xyz_nmm'])\n    centroid=prop['centroid_xyz_mm'];Mc=[m-x for m,x in zip(M,cross([c-o for c,o in zip(centroid,cut)],F))]\n    A=prop['finished_area_mm2'];C=prop['centroidal_area_moment_matrix_uv_mm4'];a,c,b=C[0][0],C[0][1],C[1][1];det=a*b-c*c\n    assert A>0 and a>0 and b>0 and det>0 and C[1][0]==c\n    rhs=[-dot(Mc,v),dot(Mc,u)];beta=[(b*rhs[0]-c*rhs[1])/det,(a*rhs[1]-c*rhs[0])/det];mean=dot(F,g)/A\n    err('moment_centroid_nmm',Mc,out['moment_about_reference_finished_centroid_xyz_nmm']);err('beta_n_mm3',beta,out['normal_stress_gradient_uv_n_mm3']);err('mean_mpa',mean,out['mean_axial_normal_stress_mpa'])\n    corners=[]\n    for U in prop['bounds_uv_mm']['u']:\n        for V in prop['bounds_uv_mm']['v']:\n            corners.append(([U,V],mean+dot(beta,[U-prop['centroid_uv_mm'][0],V-prop['centroid_uv_mm'][1]])))\n    for key,pick in [('minimum_signed_normal_stress_box_witness',min(corners,key=lambda x:x[1])),('maximum_signed_normal_stress_box_witness',max(corners,key=lambda x:x[1]))]:\n        r=out[key];err('corner_uv_mm',pick[0],r['box_corner_uv_mm']);err('box_mpa',pick[1],r['signed_linear_normal_stress_mpa'])\n        xyz=[prop['section_origin_xyz_mm'][i]+u[i]*pick[0][0]+v[i]*pick[0][1] for i in range(3)];err('corner_xyz_mm',xyz,r['reference_box_corner_xyz_mm'])\n        assert r['actual_material_occupancy_at_corner_verified'] is False\n    assert out['actual_trimmed_directional_stress_extrema'] is None and out['NDS_component_ratio_or_complete_member_resistance'] is None\n    assert out['finite_current_pose_or_occupied_corner_claimed'] is False and all(out[k]==field[k] for k in ('state_id','case_id','accessory_placement'))\n    rows.append({'member':name,'station_global_grain_projection_mm':station,'signed_box_bounds_mpa':[min(x[1] for x in corners),max(x[1] for x in corners)],'selected_own_lower_portion_action_counts':dict(selected)})\nassert errors['cut_datum_mm']<1e-8 and errors['force_n']<1e-8 and errors['moment_cut_nmm']<1e-6 and errors['moment_centroid_nmm']<1e-6\nassert errors['beta_n_mm3']<1e-10 and errors['box_mpa']<1e-8 and errors['corner_uv_mm']==0 and errors['corner_xyz_mm']<1e-8\nassert field_bytes==(ROOT/(LEAF+'a12-rear.json')).read_bytes() and all(sha(p)==h for p,h in pins.items())\nprint(json.dumps({'status':'PASS','state_id':field['state_id'],'field_sha256':FILES[LEAF+'a12-rear.json'],'admission_sha256':FILES[LEAF+'admission.json'],'issued_normal_stress_sha256':FILES[LEAF+'section-box-v1/normal-stress.json'],'issued_result_source_pin_count':len(result['source_sha256']),'independent_verified_pin_count':len(pins),'all_source_pins_unchanged_before_and_after':True,'all584_faces_collected_once_from_contact_actions':True,'independent_scalar_errors':errors,'five_section_checks':rows,'no_producer_consume_K_native_CAD_response_called':True,'limits':'Containing-box bound of reference linear Bernoulli stress only; no occupied-corner, trimmed-extrema, NDS or strength acceptance.'},sort_keys=True))\n",
+  "reviewed_inputs": {
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/a12-rear.json": {
+      "canonical_sha256": "33d7dbf5033ac5e3715277e7af51e2747a082c657df2081e4e38a5d6d10155a9",
+      "raw_sha256": "29b25f11794a171a1364268ed676a24cee2882e47c3018b3648267d2707a0ddf"
+    },
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/admission.json": {
+      "canonical_sha256": "7ec87b7faec38bd08f9091e102c7a03f340a02b08a89ceb7b17487ee2e70a253",
+      "raw_sha256": "e5bbf8c0ad2947f42f71819d61b03fcd260a0926b5f5429481e5523ff8e122a5"
+    },
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/section-box-v1/normal-stress.json": {
+      "canonical_sha256": "57d5c6202ef7ace8d2ba61c7b943e03211728a036e465bc4e69ec4972b5220ae",
+      "raw_sha256": "e810ab40d10ffbb9e4488b8f13e7f9bd3710a2a03fb365e538869e3b8d622a46"
+    }
+  },
+  "schema": "thin_bolted_five_section_independent_scalar_validation/v1",
+  "scope": "Read-only arithmetic/source review of exact issued first-order result. All30/584 contact rows authenticated and584 actual rows equal their aliases, collected once. Saved old field contributes geometry keys only; no old force/displacement/acceptance transfer. No field/operator/CAD/native/response solve or source edit.",
+  "tool_versions": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  }
+}

@@ -1,0 +1,3415 @@
+{
+  "schema": "thin_bolted_local_remote_port_geometry_contract/v1",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/compatible-frame-a12-rear-finished-floor-v4.json": "8d90941f9d1cb20d938ddc65992b2db7b0fe0c38420bf6bfc10fc0684281256d",
+    "fea/generated/thin-bolted-v4-geometry/timber-bolt-resistance-v4-full.json": "e79e78a769b0e2423e4ef828c973974e38be4518cba94593dc225fe922ae6631",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-geometry-v4.json": "be88aeb6754bc03e8afd523f5127f74b93b90bd00e8c3ceaa910e70aab3f125a",
+    "fea/generated/thin-bolted-local-joint-ports/prepare.py": "cea6d9711097def4944e3c14778d6335dd93004f06bf0bb3072701b9c4dd63ce"
+  },
+  "candidate": "compact-floor-flush-thin-bolted-development",
+  "members": [
+    {
+      "member": "base_header",
+      "grain_frame_rows_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "reference_centerline_start_xyz_mm": [
+        -1219.2,
+        -105.85,
+        257.95
+      ],
+      "reference_centerline_end_xyz_mm": [
+        1216.0250000000003,
+        -105.85,
+        257.95
+      ],
+      "finished_brep_path": "fea/generated/thin-bolted-v4-geometry/base_header.brep",
+      "finished_brep_sha256": "f4778c5b94f2c5825882690c737ed0511fe52ecac82c0c6821fabc12c1aa43f8"
+    },
+    {
+      "member": "base_side_left",
+      "grain_frame_rows_xyz": [
+        [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ]
+      ],
+      "reference_centerline_start_xyz_mm": [
+        -1174.75,
+        -132.68003089907444,
+        277.0
+      ],
+      "reference_centerline_end_xyz_mm": [
+        -1174.75,
+        1482.076303443398,
+        2201.3916613795673
+      ],
+      "finished_brep_path": "fea/generated/thin-bolted-v4-geometry/base_side_left.brep",
+      "finished_brep_sha256": "521e70bf01bc9cbb12fc6dd22af97601c381f43dbc3bf74522d78f85bc66128d"
+    },
+    {
+      "member": "base_principal_center_left",
+      "grain_frame_rows_xyz": [
+        [
+          0.0,
+          0.6427876099290708,
+          0.7660444429154699
+        ],
+        [
+          -1.0,
+          -0.0,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.7660444429154699,
+          0.6427876099290708
+        ]
+      ],
+      "reference_centerline_start_xyz_mm": [
+        -70.00000000000003,
+        -132.68003089120128,
+        277.0
+      ],
+      "reference_centerline_end_xyz_mm": [
+        -70.00000000000003,
+        1457.5860955097205,
+        2172.205368100611
+      ],
+      "finished_brep_path": "fea/generated/thin-bolted-v4-geometry/base_principal_center_left.brep",
+      "finished_brep_sha256": "a97b764b85c17d2b44e37c15c46c622afbcf4f49f4dc31e3254cc9dc2610da3c"
+    },
+    {
+      "member": "base_post_center_left",
+      "grain_frame_rows_xyz": [
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "reference_centerline_start_xyz_mm": [
+        -70.0,
+        -105.85,
+        0.0
+      ],
+      "reference_centerline_end_xyz_mm": [
+        -70.0,
+        -105.85,
+        238.9
+      ],
+      "finished_brep_path": "fea/generated/thin-bolted-v4-geometry/base_post_center_left.brep",
+      "finished_brep_sha256": "62ec32e841ab88580c861d0f6b5ed8a800d5bed75b93a409f30e3df084bec0ba"
+    }
+  ],
+  "patches": [
+    {
+      "id": "outerbase-left",
+      "timber_body_order": [
+        "base_header",
+        "base_side_left"
+      ],
+      "fitting_body_order": [
+        "B104ZN_clip_angle_base_left_reference"
+      ],
+      "selected_axis_ids": [
+        "thin_factory_bolt_019",
+        "thin_factory_bolt_020"
+      ],
+      "remote_ports": [
+        {
+          "member": "base_header",
+          "station_global_grain_projection_mm": -613.246875,
+          "datum_reference_xyz_mm": [
+            -613.246875,
+            -105.85,
+            257.95
+          ],
+          "retained_material_side": "negative-grain",
+          "grain_frame_rows_xyz": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "finished_area_mm2": 5322.57,
+          "raw_full_cross_section_plane": true,
+          "saved_finished_area_equals_raw_area": true,
+          "no_local_bolt_section_loss_at_saved_plane": true,
+          "actual_section_centroid_inertia_or_continuous_pressure_qualified": false,
+          "all_contact_duties_avoided": false,
+          "Saint_Venant_or_boundary_stiffness_qualified": false
+        },
+        {
+          "member": "base_side_left",
+          "station_global_grain_projection_mm": 225.417272,
+          "datum_reference_xyz_mm": [
+            -1174.75,
+            -69.36028249918505,
+            352.4615375892099
+          ],
+          "retained_material_side": "negative-grain",
+          "grain_frame_rows_xyz": [
+            [
+              0.0,
+              0.6427876099290708,
+              0.7660444429154699
+            ],
+            [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              -0.7660444429154699,
+              0.6427876099290708
+            ]
+          ],
+          "finished_area_mm2": 12419.33,
+          "raw_full_cross_section_plane": true,
+          "saved_finished_area_equals_raw_area": true,
+          "no_local_bolt_section_loss_at_saved_plane": true,
+          "actual_section_centroid_inertia_or_continuous_pressure_qualified": false,
+          "all_contact_duties_avoided": false,
+          "Saint_Venant_or_boundary_stiffness_qualified": false
+        }
+      ],
+      "retained_reference_centerline_grain_intervals_mm": {
+        "base_header": [
+          -1219.2,
+          -613.246875
+        ],
+        "base_side_left": [
+          126.90923074065385,
+          225.417272
+        ]
+      },
+      "surrounding_shaft_duties": [
+        {
+          "axis_id": "thin_factory_bolt_002",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            1413.707805996,
+            2119.913259531
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 2532.6616336807824,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_single_top_left_1_reference"
+          ],
+          "duty_ids": [
+            "clip_single_top_left_1"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_005",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            -1096.9625,
+            -87.85,
+            238.9
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            1.0
+          ],
+          "grain_station_mm": -1096.9625,
+          "axis_point_inside_retained_patch": true,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_timber_header_outer_left_reference"
+          ],
+          "duty_ids": [
+            "clip_timber_header_outer_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_007",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            1093.7875,
+            -123.85,
+            238.9
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            1.0
+          ],
+          "grain_station_mm": 1093.7875,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_timber_header_outer_right_reference"
+          ],
+          "duty_ids": [
+            "clip_timber_header_outer_right"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_011",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            -173.1875,
+            -105.85,
+            277.0
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "grain_station_mm": -173.1875,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_split_base_center_left_reference",
+            "B104ZN_clip_split_header_center_left_reference"
+          ],
+          "duty_ids": [
+            "clip_split_base_center_left",
+            "clip_split_header_center_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_016",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            173.1875,
+            -105.85,
+            277.0
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "grain_station_mm": 173.1875,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_split_base_center_right_reference",
+            "B104ZN_clip_split_header_center_right_reference"
+          ],
+          "duty_ids": [
+            "clip_split_base_center_right",
+            "clip_split_header_center_right"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_019",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            277.0
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "grain_station_mm": -1046.1625,
+          "axis_point_inside_retained_patch": true,
+          "selected_local_axis": true,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_angle_base_left_reference"
+          ],
+          "duty_ids": [
+            "clip_angle_base_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_020",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            -123.85,
+            345.2625
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 184.877173982387,
+          "axis_point_inside_retained_patch": true,
+          "selected_local_axis": true,
+          "receiver_ids": [
+            "base_side_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_angle_base_left_reference"
+          ],
+          "duty_ids": [
+            "clip_angle_base_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_021",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            1042.9875,
+            -87.85,
+            277.0
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "grain_station_mm": 1042.9875,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_angle_base_right_reference"
+          ],
+          "duty_ids": [
+            "clip_angle_base_right"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_024",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            41.436607767,
+            484.504129027
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 397.7866336808515,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_horizontal_bottom_left_1_reference"
+          ],
+          "duty_ids": [
+            "clip_horizontal_bottom_left_1"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_025",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            -40.197418663,
+            387.216484751
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 270.78663368105833,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left"
+          ],
+          "attached_fitting_ids": [
+            "B103ZN_clip_horizontal_bottom_left_1_opposite"
+          ],
+          "duty_ids": [
+            "clip_horizontal_bottom_left_1"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_030",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            587.629309408,
+            1135.431243457
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 1247.5116336814756,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_horizontal_lower_left_1_reference"
+          ],
+          "duty_ids": [
+            "clip_horizontal_lower_left_1"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_031",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            669.263335838,
+            1232.718887733
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 1374.5116336812687,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left"
+          ],
+          "attached_fitting_ids": [
+            "B103ZN_clip_horizontal_lower_left_1_opposite"
+          ],
+          "duty_ids": [
+            "clip_horizontal_lower_left_1"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_036",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            792.469650925,
+            1379.550456368
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 1566.1866336816126,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_horizontal_upper_left_1_reference"
+          ],
+          "duty_ids": [
+            "clip_horizontal_upper_left_1"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_037",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            710.835624494,
+            1282.262812092
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 1439.1866336811768,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left"
+          ],
+          "attached_fitting_ids": [
+            "B103ZN_clip_horizontal_upper_left_1_opposite"
+          ],
+          "duty_ids": [
+            "clip_horizontal_upper_left_1"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "lumber_leg_bolt_left_1",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            1125.245692062,
+            1734.987315516
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 2052.371380563377,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left",
+            "lumber_leg_left"
+          ],
+          "attached_fitting_ids": [],
+          "duty_ids": [],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "lumber_leg_bolt_left_2",
+          "member": "base_side_left",
+          "reference_axis_point_xyz_mm": [
+            -1130.3,
+            1143.254307938,
+            1788.012684484
+          ],
+          "reference_direction_xyz": [
+            -1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 2104.5668849519207,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_side_left",
+            "lumber_leg_left"
+          ],
+          "attached_fitting_ids": [],
+          "duty_ids": [],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        }
+      ],
+      "surrounding_panel_screw_duties": [
+        {
+          "axis_id": "round_panel_lower_left_rim_1",
+          "panel": "main_lower_left",
+          "receiver": "base_side_left",
+          "origin_xyz_mm": [
+            -1200.15,
+            20.152907241,
+            322.070210041
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 259.6741337090909,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_lower_left_rim_2",
+          "panel": "main_lower_left",
+          "receiver": "base_side_left",
+          "origin_xyz_mm": [
+            -1200.15,
+            250.517273425,
+            596.607771048
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 618.0574670423086,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_lower_left_rim_3",
+          "panel": "main_lower_left",
+          "receiver": "base_side_left",
+          "origin_xyz_mm": [
+            -1200.15,
+            480.88163961,
+            871.145332054
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 976.4408003754031,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_lower_left_rim_4",
+          "panel": "main_lower_left",
+          "receiver": "base_side_left",
+          "origin_xyz_mm": [
+            -1200.15,
+            711.246005795,
+            1145.682893061
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 1334.8241337092636,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_upper_left_rim_1",
+          "panel": "main_upper_left",
+          "receiver": "base_side_left",
+          "origin_xyz_mm": [
+            -1200.15,
+            803.83956097,
+            1256.031595092
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 1478.8741337088202,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_upper_left_rim_2",
+          "panel": "main_upper_left",
+          "receiver": "base_side_left",
+          "origin_xyz_mm": [
+            -1200.15,
+            1034.203927155,
+            1530.569156098
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 1837.2574670419147,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_upper_left_rim_3",
+          "panel": "main_upper_left",
+          "receiver": "base_side_left",
+          "origin_xyz_mm": [
+            -1200.15,
+            1264.56829334,
+            1805.106717105
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 2195.640800375775,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_upper_left_rim_4",
+          "panel": "main_upper_left",
+          "receiver": "base_side_left",
+          "origin_xyz_mm": [
+            -1200.15,
+            1494.932659525,
+            2079.644278111
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 2554.0241337088696,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_1",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -200.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -200.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_2",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -400.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -400.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_3",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -600.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -600.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_4",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -800.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -800.0,
+          "axis_origin_inside_retained_patch": true,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_5",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -1000.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -1000.0,
+          "axis_origin_inside_retained_patch": true,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_1",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            200.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 200.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_2",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            400.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 400.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_3",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            600.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 600.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_4",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            800.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 800.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_5",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            1000.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 1000.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        }
+      ],
+      "surrounding_nominal_contact_duties": [
+        {
+          "member": "base_side_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_single_top_left_1_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            2512.0241336711556,
+            2595.3678836803524
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_single_top_left_1_reference/post/contact-0",
+            "B104ZN_clip_single_top_left_1_reference/post/contact-1",
+            "B104ZN_clip_single_top_left_1_reference/post/contact-2",
+            "B104ZN_clip_single_top_left_1_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_timber_header_outer_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 4,
+          "source_grain_station_range_mm": [
+            -1175.5437499999998,
+            -1076.3249999999998
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_timber_header_outer_left_reference/beam/contact-0",
+            "B104ZN_clip_timber_header_outer_left_reference/beam/contact-1",
+            "B104ZN_clip_timber_header_outer_left_reference/beam/contact-2",
+            "B104ZN_clip_timber_header_outer_left_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_timber_header_outer_right_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1073.1499999999999,
+            1172.3687499999999
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_timber_header_outer_right_reference/beam/contact-0",
+            "B104ZN_clip_timber_header_outer_right_reference/beam/contact-1",
+            "B104ZN_clip_timber_header_outer_right_reference/beam/contact-2",
+            "B104ZN_clip_timber_header_outer_right_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_base_center_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            -193.825,
+            -94.60625
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_base_center_left_reference/beam/contact-0",
+            "B104ZN_clip_split_base_center_left_reference/beam/contact-1",
+            "B104ZN_clip_split_base_center_left_reference/beam/contact-2",
+            "B104ZN_clip_split_base_center_left_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_header_center_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            -193.825,
+            -94.60625
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_header_center_left_reference/beam/contact-0",
+            "B104ZN_clip_split_header_center_left_reference/beam/contact-1",
+            "B104ZN_clip_split_header_center_left_reference/beam/contact-2",
+            "B104ZN_clip_split_header_center_left_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_base_center_right_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            94.60625,
+            193.825
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_base_center_right_reference/beam/contact-0",
+            "B104ZN_clip_split_base_center_right_reference/beam/contact-1",
+            "B104ZN_clip_split_base_center_right_reference/beam/contact-2",
+            "B104ZN_clip_split_base_center_right_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_header_center_right_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            94.60625,
+            193.825
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_header_center_right_reference/beam/contact-0",
+            "B104ZN_clip_split_header_center_right_reference/beam/contact-1",
+            "B104ZN_clip_split_header_center_right_reference/beam/contact-2",
+            "B104ZN_clip_split_header_center_right_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_angle_base_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 4,
+          "source_grain_station_range_mm": [
+            -1124.7437499999999,
+            -1025.5249999999999
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_angle_base_left_reference/beam/contact-0",
+            "B104ZN_clip_angle_base_left_reference/beam/contact-1",
+            "B104ZN_clip_angle_base_left_reference/beam/contact-2",
+            "B104ZN_clip_angle_base_left_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_angle_base_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 3,
+          "source_grain_station_range_mm": [
+            123.57587033390762,
+            213.9519454729662
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_angle_base_left_reference/post/contact-0",
+            "B104ZN_clip_angle_base_left_reference/post/contact-1",
+            "B104ZN_clip_angle_base_left_reference/post/contact-2",
+            "B104ZN_clip_angle_base_left_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_angle_base_right_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1022.35,
+            1121.56875
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_angle_base_right_reference/beam/contact-0",
+            "B104ZN_clip_angle_base_right_reference/beam/contact-1",
+            "B104ZN_clip_angle_base_right_reference/beam/contact-2",
+            "B104ZN_clip_angle_base_right_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_horizontal_bottom_left_1_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            335.0803836819242,
+            418.4241336911209
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_horizontal_bottom_left_1_reference/post/contact-0",
+            "B104ZN_clip_horizontal_bottom_left_1_reference/post/contact-1",
+            "B104ZN_clip_horizontal_bottom_left_1_reference/post/contact-2",
+            "B104ZN_clip_horizontal_bottom_left_1_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "flange_contact",
+          "other_body": "B103ZN_clip_horizontal_bottom_left_1_opposite",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            250.14913367666546,
+            285.8678836806069
+          ],
+          "reference_source_point_ids": [
+            "B103ZN_clip_horizontal_bottom_left_1_opposite/post/contact-0",
+            "B103ZN_clip_horizontal_bottom_left_1_opposite/post/contact-1",
+            "B103ZN_clip_horizontal_bottom_left_1_opposite/post/contact-2",
+            "B103ZN_clip_horizontal_bottom_left_1_opposite/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_horizontal_lower_left_1_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1226.8741336712062,
+            1310.2178836804028
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_horizontal_lower_left_1_reference/post/contact-0",
+            "B104ZN_clip_horizontal_lower_left_1_reference/post/contact-1",
+            "B104ZN_clip_horizontal_lower_left_1_reference/post/contact-2",
+            "B104ZN_clip_horizontal_lower_left_1_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "flange_contact",
+          "other_body": "B103ZN_clip_horizontal_lower_left_1_opposite",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1359.43038368172,
+            1395.1491336856616
+          ],
+          "reference_source_point_ids": [
+            "B103ZN_clip_horizontal_lower_left_1_opposite/post/contact-0",
+            "B103ZN_clip_horizontal_lower_left_1_opposite/post/contact-1",
+            "B103ZN_clip_horizontal_lower_left_1_opposite/post/contact-2",
+            "B103ZN_clip_horizontal_lower_left_1_opposite/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_horizontal_upper_left_1_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1503.4803836812766,
+            1586.8241336904734
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_horizontal_upper_left_1_reference/post/contact-0",
+            "B104ZN_clip_horizontal_upper_left_1_reference/post/contact-1",
+            "B104ZN_clip_horizontal_upper_left_1_reference/post/contact-2",
+            "B104ZN_clip_horizontal_upper_left_1_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "flange_contact",
+          "other_body": "B103ZN_clip_horizontal_upper_left_1_opposite",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1418.5491336760176,
+            1454.2678836799591
+          ],
+          "reference_source_point_ids": [
+            "B103ZN_clip_horizontal_upper_left_1_opposite/post/contact-0",
+            "B103ZN_clip_horizontal_upper_left_1_opposite/post/contact-1",
+            "B103ZN_clip_horizontal_upper_left_1_opposite/post/contact-2",
+            "B103ZN_clip_horizontal_upper_left_1_opposite/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "panel_contact",
+          "other_body": "main_lower_left",
+          "source_point_count": 105,
+          "source_points_inside_retained_patch": 3,
+          "source_grain_station_range_mm": [
+            218.70399488071047,
+            1406.0049351697107
+          ],
+          "reference_source_point_ids": [
+            "main_lower_left/compression-193",
+            "main_lower_left/compression-194",
+            "main_lower_left/compression-195",
+            "main_lower_left/compression-196",
+            "main_lower_left/compression-197",
+            "main_lower_left/compression-198",
+            "main_lower_left/compression-199",
+            "main_lower_left/compression-200",
+            "main_lower_left/compression-201",
+            "main_lower_left/compression-202",
+            "main_lower_left/compression-203",
+            "main_lower_left/compression-204",
+            "main_lower_left/compression-205",
+            "main_lower_left/compression-206",
+            "main_lower_left/compression-207",
+            "main_lower_left/compression-208",
+            "main_lower_left/compression-209",
+            "main_lower_left/compression-210",
+            "main_lower_left/compression-211",
+            "main_lower_left/compression-212",
+            "main_lower_left/compression-213",
+            "main_lower_left/compression-214",
+            "main_lower_left/compression-215",
+            "main_lower_left/compression-216",
+            "main_lower_left/compression-217",
+            "main_lower_left/compression-218",
+            "main_lower_left/compression-219",
+            "main_lower_left/compression-220",
+            "main_lower_left/compression-221",
+            "main_lower_left/compression-222",
+            "main_lower_left/compression-223",
+            "main_lower_left/compression-224",
+            "main_lower_left/compression-225",
+            "main_lower_left/compression-226",
+            "main_lower_left/compression-227",
+            "main_lower_left/compression-228",
+            "main_lower_left/compression-229",
+            "main_lower_left/compression-230",
+            "main_lower_left/compression-231",
+            "main_lower_left/compression-232",
+            "main_lower_left/compression-233",
+            "main_lower_left/compression-234",
+            "main_lower_left/compression-235",
+            "main_lower_left/compression-236",
+            "main_lower_left/compression-237",
+            "main_lower_left/compression-238",
+            "main_lower_left/compression-239",
+            "main_lower_left/compression-240",
+            "main_lower_left/compression-241",
+            "main_lower_left/compression-242",
+            "main_lower_left/compression-243",
+            "main_lower_left/compression-244",
+            "main_lower_left/compression-245",
+            "main_lower_left/compression-246",
+            "main_lower_left/compression-247",
+            "main_lower_left/compression-248",
+            "main_lower_left/compression-249",
+            "main_lower_left/compression-250",
+            "main_lower_left/compression-251",
+            "main_lower_left/compression-252",
+            "main_lower_left/compression-253",
+            "main_lower_left/compression-254",
+            "main_lower_left/compression-255",
+            "main_lower_left/compression-256",
+            "main_lower_left/compression-257",
+            "main_lower_left/compression-258",
+            "main_lower_left/compression-259",
+            "main_lower_left/compression-260",
+            "main_lower_left/compression-261",
+            "main_lower_left/compression-262",
+            "main_lower_left/compression-263",
+            "main_lower_left/compression-264",
+            "main_lower_left/compression-265",
+            "main_lower_left/compression-266",
+            "main_lower_left/compression-267",
+            "main_lower_left/compression-268",
+            "main_lower_left/compression-269",
+            "main_lower_left/compression-270",
+            "main_lower_left/compression-271",
+            "main_lower_left/compression-272",
+            "main_lower_left/compression-273",
+            "main_lower_left/compression-274",
+            "main_lower_left/compression-275",
+            "main_lower_left/compression-276",
+            "main_lower_left/compression-277",
+            "main_lower_left/compression-278",
+            "main_lower_left/compression-279",
+            "main_lower_left/compression-280",
+            "main_lower_left/compression-281",
+            "main_lower_left/compression-282",
+            "main_lower_left/compression-283",
+            "main_lower_left/compression-284",
+            "main_lower_left/compression-285",
+            "main_lower_left/compression-286",
+            "main_lower_left/compression-287",
+            "main_lower_left/compression-288",
+            "main_lower_left/compression-289",
+            "main_lower_left/compression-290",
+            "main_lower_left/compression-291",
+            "main_lower_left/compression-292",
+            "main_lower_left/compression-293",
+            "main_lower_left/compression-294",
+            "main_lower_left/compression-295",
+            "main_lower_left/compression-296",
+            "main_lower_left/compression-297"
+          ],
+          "source_sample_range_crosses_remote_cut": true,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_side_left",
+          "kind": "panel_contact",
+          "other_body": "main_upper_left",
+          "source_point_count": 105,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1438.4258984745147,
+            2624.9748460965816
+          ],
+          "reference_source_point_ids": [
+            "main_upper_left/compression-196",
+            "main_upper_left/compression-197",
+            "main_upper_left/compression-198",
+            "main_upper_left/compression-199",
+            "main_upper_left/compression-200",
+            "main_upper_left/compression-201",
+            "main_upper_left/compression-202",
+            "main_upper_left/compression-203",
+            "main_upper_left/compression-204",
+            "main_upper_left/compression-205",
+            "main_upper_left/compression-206",
+            "main_upper_left/compression-207",
+            "main_upper_left/compression-208",
+            "main_upper_left/compression-209",
+            "main_upper_left/compression-210",
+            "main_upper_left/compression-211",
+            "main_upper_left/compression-212",
+            "main_upper_left/compression-213",
+            "main_upper_left/compression-214",
+            "main_upper_left/compression-215",
+            "main_upper_left/compression-216",
+            "main_upper_left/compression-217",
+            "main_upper_left/compression-218",
+            "main_upper_left/compression-219",
+            "main_upper_left/compression-220",
+            "main_upper_left/compression-221",
+            "main_upper_left/compression-222",
+            "main_upper_left/compression-223",
+            "main_upper_left/compression-224",
+            "main_upper_left/compression-225",
+            "main_upper_left/compression-226",
+            "main_upper_left/compression-227",
+            "main_upper_left/compression-228",
+            "main_upper_left/compression-229",
+            "main_upper_left/compression-230",
+            "main_upper_left/compression-231",
+            "main_upper_left/compression-232",
+            "main_upper_left/compression-233",
+            "main_upper_left/compression-234",
+            "main_upper_left/compression-235",
+            "main_upper_left/compression-236",
+            "main_upper_left/compression-237",
+            "main_upper_left/compression-238",
+            "main_upper_left/compression-239",
+            "main_upper_left/compression-240",
+            "main_upper_left/compression-241",
+            "main_upper_left/compression-242",
+            "main_upper_left/compression-243",
+            "main_upper_left/compression-244",
+            "main_upper_left/compression-245",
+            "main_upper_left/compression-246",
+            "main_upper_left/compression-247",
+            "main_upper_left/compression-248",
+            "main_upper_left/compression-249",
+            "main_upper_left/compression-250",
+            "main_upper_left/compression-251",
+            "main_upper_left/compression-252",
+            "main_upper_left/compression-253",
+            "main_upper_left/compression-254",
+            "main_upper_left/compression-255",
+            "main_upper_left/compression-256",
+            "main_upper_left/compression-257",
+            "main_upper_left/compression-258",
+            "main_upper_left/compression-259",
+            "main_upper_left/compression-260",
+            "main_upper_left/compression-261",
+            "main_upper_left/compression-262",
+            "main_upper_left/compression-263",
+            "main_upper_left/compression-264",
+            "main_upper_left/compression-265",
+            "main_upper_left/compression-266",
+            "main_upper_left/compression-267",
+            "main_upper_left/compression-268",
+            "main_upper_left/compression-269",
+            "main_upper_left/compression-270",
+            "main_upper_left/compression-271",
+            "main_upper_left/compression-272",
+            "main_upper_left/compression-273",
+            "main_upper_left/compression-274",
+            "main_upper_left/compression-275",
+            "main_upper_left/compression-276",
+            "main_upper_left/compression-277",
+            "main_upper_left/compression-278",
+            "main_upper_left/compression-279",
+            "main_upper_left/compression-280",
+            "main_upper_left/compression-281",
+            "main_upper_left/compression-282",
+            "main_upper_left/compression-283",
+            "main_upper_left/compression-284",
+            "main_upper_left/compression-285",
+            "main_upper_left/compression-286",
+            "main_upper_left/compression-287",
+            "main_upper_left/compression-288",
+            "main_upper_left/compression-289",
+            "main_upper_left/compression-290",
+            "main_upper_left/compression-291",
+            "main_upper_left/compression-292",
+            "main_upper_left/compression-293",
+            "main_upper_left/compression-294",
+            "main_upper_left/compression-295",
+            "main_upper_left/compression-296",
+            "main_upper_left/compression-297",
+            "main_upper_left/compression-298",
+            "main_upper_left/compression-299",
+            "main_upper_left/compression-300"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "panel_contact",
+          "other_body": "kicker_left",
+          "source_point_count": 70,
+          "source_points_inside_retained_patch": 34,
+          "source_grain_station_range_mm": [
+            -1200.2340732087227,
+            -14.618822246396121
+          ],
+          "reference_source_point_ids": [
+            "kicker_left/compression-0",
+            "kicker_left/compression-1",
+            "kicker_left/compression-2",
+            "kicker_left/compression-3",
+            "kicker_left/compression-4",
+            "kicker_left/compression-5",
+            "kicker_left/compression-6",
+            "kicker_left/compression-7",
+            "kicker_left/compression-8",
+            "kicker_left/compression-9",
+            "kicker_left/compression-10",
+            "kicker_left/compression-11",
+            "kicker_left/compression-12",
+            "kicker_left/compression-13",
+            "kicker_left/compression-14",
+            "kicker_left/compression-15",
+            "kicker_left/compression-16",
+            "kicker_left/compression-17",
+            "kicker_left/compression-18",
+            "kicker_left/compression-19",
+            "kicker_left/compression-20",
+            "kicker_left/compression-21",
+            "kicker_left/compression-22",
+            "kicker_left/compression-23",
+            "kicker_left/compression-24",
+            "kicker_left/compression-25",
+            "kicker_left/compression-26",
+            "kicker_left/compression-27",
+            "kicker_left/compression-28",
+            "kicker_left/compression-29",
+            "kicker_left/compression-30",
+            "kicker_left/compression-31",
+            "kicker_left/compression-32",
+            "kicker_left/compression-33",
+            "kicker_left/compression-34",
+            "kicker_left/compression-35",
+            "kicker_left/compression-36",
+            "kicker_left/compression-37",
+            "kicker_left/compression-38",
+            "kicker_left/compression-39",
+            "kicker_left/compression-40",
+            "kicker_left/compression-41",
+            "kicker_left/compression-42",
+            "kicker_left/compression-43",
+            "kicker_left/compression-44",
+            "kicker_left/compression-45",
+            "kicker_left/compression-46",
+            "kicker_left/compression-47",
+            "kicker_left/compression-48",
+            "kicker_left/compression-49",
+            "kicker_left/compression-50",
+            "kicker_left/compression-51",
+            "kicker_left/compression-52",
+            "kicker_left/compression-53",
+            "kicker_left/compression-54",
+            "kicker_left/compression-55",
+            "kicker_left/compression-56",
+            "kicker_left/compression-57",
+            "kicker_left/compression-58",
+            "kicker_left/compression-59",
+            "kicker_left/compression-60",
+            "kicker_left/compression-61",
+            "kicker_left/compression-62",
+            "kicker_left/compression-63",
+            "kicker_left/compression-64",
+            "kicker_left/compression-65",
+            "kicker_left/compression-66",
+            "kicker_left/compression-67",
+            "kicker_left/compression-68",
+            "kicker_left/compression-69"
+          ],
+          "source_sample_range_crosses_remote_cut": true,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "panel_contact",
+          "other_body": "kicker_right",
+          "source_point_count": 70,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            15.082194940476198,
+            1202.4550578237008
+          ],
+          "reference_source_point_ids": [
+            "kicker_right/compression-0",
+            "kicker_right/compression-1",
+            "kicker_right/compression-2",
+            "kicker_right/compression-3",
+            "kicker_right/compression-4",
+            "kicker_right/compression-5",
+            "kicker_right/compression-6",
+            "kicker_right/compression-7",
+            "kicker_right/compression-8",
+            "kicker_right/compression-9",
+            "kicker_right/compression-10",
+            "kicker_right/compression-11",
+            "kicker_right/compression-12",
+            "kicker_right/compression-13",
+            "kicker_right/compression-14",
+            "kicker_right/compression-15",
+            "kicker_right/compression-16",
+            "kicker_right/compression-17",
+            "kicker_right/compression-18",
+            "kicker_right/compression-19",
+            "kicker_right/compression-20",
+            "kicker_right/compression-21",
+            "kicker_right/compression-22",
+            "kicker_right/compression-23",
+            "kicker_right/compression-24",
+            "kicker_right/compression-25",
+            "kicker_right/compression-26",
+            "kicker_right/compression-27",
+            "kicker_right/compression-28",
+            "kicker_right/compression-29",
+            "kicker_right/compression-30",
+            "kicker_right/compression-31",
+            "kicker_right/compression-32",
+            "kicker_right/compression-33",
+            "kicker_right/compression-34",
+            "kicker_right/compression-35",
+            "kicker_right/compression-36",
+            "kicker_right/compression-37",
+            "kicker_right/compression-38",
+            "kicker_right/compression-39",
+            "kicker_right/compression-40",
+            "kicker_right/compression-41",
+            "kicker_right/compression-42",
+            "kicker_right/compression-43",
+            "kicker_right/compression-44",
+            "kicker_right/compression-45",
+            "kicker_right/compression-46",
+            "kicker_right/compression-47",
+            "kicker_right/compression-48",
+            "kicker_right/compression-49",
+            "kicker_right/compression-50",
+            "kicker_right/compression-51",
+            "kicker_right/compression-52",
+            "kicker_right/compression-53",
+            "kicker_right/compression-54",
+            "kicker_right/compression-55",
+            "kicker_right/compression-56",
+            "kicker_right/compression-57",
+            "kicker_right/compression-58",
+            "kicker_right/compression-59",
+            "kicker_right/compression-60",
+            "kicker_right/compression-61",
+            "kicker_right/compression-62",
+            "kicker_right/compression-63",
+            "kicker_right/compression-64",
+            "kicker_right/compression-65",
+            "kicker_right/compression-66",
+            "kicker_right/compression-67",
+            "kicker_right/compression-68",
+            "kicker_right/compression-69"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        }
+      ],
+      "authenticated_local_timber_timber_contact_pairs": [],
+      "missing_direct_timber_contact_atlas": [
+        "header-to-side at Z277"
+      ],
+      "neighbor_reactions_or_old_force_bounds_supplied": false
+    },
+    {
+      "id": "sharedcenter-left",
+      "timber_body_order": [
+        "base_header",
+        "base_principal_center_left",
+        "base_post_center_left"
+      ],
+      "fitting_body_order": [
+        "B104ZN_clip_split_base_center_left_reference",
+        "B104ZN_clip_split_header_center_left_reference"
+      ],
+      "selected_axis_ids": [
+        "thin_factory_bolt_011",
+        "thin_factory_bolt_012",
+        "thin_factory_bolt_013"
+      ],
+      "remote_ports": [
+        {
+          "member": "base_header",
+          "station_global_grain_projection_mm": -613.246875,
+          "datum_reference_xyz_mm": [
+            -613.246875,
+            -105.85,
+            257.95
+          ],
+          "retained_material_side": "positive-grain",
+          "grain_frame_rows_xyz": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "finished_area_mm2": 5322.57,
+          "raw_full_cross_section_plane": true,
+          "saved_finished_area_equals_raw_area": true,
+          "no_local_bolt_section_loss_at_saved_plane": true,
+          "actual_section_centroid_inertia_or_continuous_pressure_qualified": false,
+          "all_contact_duties_avoided": false,
+          "Saint_Venant_or_boundary_stiffness_qualified": false
+        },
+        {
+          "member": "base_header",
+          "station_global_grain_projection_mm": -3.571875,
+          "datum_reference_xyz_mm": [
+            -3.571875000000091,
+            -105.85,
+            257.95
+          ],
+          "retained_material_side": "negative-grain",
+          "grain_frame_rows_xyz": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "finished_area_mm2": 5322.57,
+          "raw_full_cross_section_plane": true,
+          "saved_finished_area_equals_raw_area": true,
+          "no_local_bolt_section_loss_at_saved_plane": true,
+          "actual_section_centroid_inertia_or_continuous_pressure_qualified": false,
+          "all_contact_duties_avoided": false,
+          "Saint_Venant_or_boundary_stiffness_qualified": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "station_global_grain_projection_mm": 236.3532073,
+          "datum_reference_xyz_mm": [
+            -70.00000000000003,
+            -62.33079878073892,
+            360.8389500499813
+          ],
+          "retained_material_side": "negative-grain",
+          "grain_frame_rows_xyz": [
+            [
+              0.0,
+              0.6427876099290708,
+              0.7660444429154699
+            ],
+            [
+              -1.0,
+              -0.0,
+              -0.0
+            ],
+            [
+              0.0,
+              -0.7660444429154699,
+              0.6427876099290708
+            ]
+          ],
+          "finished_area_mm2": 5322.57,
+          "raw_full_cross_section_plane": true,
+          "saved_finished_area_equals_raw_area": true,
+          "no_local_bolt_section_loss_at_saved_plane": true,
+          "actual_section_centroid_inertia_or_continuous_pressure_qualified": false,
+          "all_contact_duties_avoided": false,
+          "Saint_Venant_or_boundary_stiffness_qualified": false
+        },
+        {
+          "member": "base_post_center_left",
+          "station_global_grain_projection_mm": 85.31875,
+          "datum_reference_xyz_mm": [
+            -70.0,
+            -105.85,
+            85.31875
+          ],
+          "retained_material_side": "positive-grain",
+          "grain_frame_rows_xyz": [
+            [
+              0.0,
+              0.0,
+              1.0
+            ],
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ]
+          ],
+          "finished_area_mm2": 5322.57,
+          "raw_full_cross_section_plane": true,
+          "saved_finished_area_equals_raw_area": true,
+          "no_local_bolt_section_loss_at_saved_plane": true,
+          "actual_section_centroid_inertia_or_continuous_pressure_qualified": false,
+          "all_contact_duties_avoided": false,
+          "Saint_Venant_or_boundary_stiffness_qualified": false
+        }
+      ],
+      "retained_reference_centerline_grain_intervals_mm": {
+        "base_header": [
+          -613.246875,
+          -3.571875
+        ],
+        "base_principal_center_left": [
+          126.90923074571462,
+          236.3532073
+        ],
+        "base_post_center_left": [
+          85.31875,
+          238.9
+        ]
+      },
+      "surrounding_shaft_duties": [
+        {
+          "axis_id": "thin_factory_bolt_005",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            -1096.9625,
+            -87.85,
+            238.9
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            1.0
+          ],
+          "grain_station_mm": -1096.9625,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_timber_header_outer_left_reference"
+          ],
+          "duty_ids": [
+            "clip_timber_header_outer_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_007",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            1093.7875,
+            -123.85,
+            238.9
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            1.0
+          ],
+          "grain_station_mm": 1093.7875,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_timber_header_outer_right_reference"
+          ],
+          "duty_ids": [
+            "clip_timber_header_outer_right"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_010",
+          "member": "base_principal_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            1413.707805996,
+            2119.913259531
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 2532.6616336807824,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_principal_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_split_top_center_left_reference"
+          ],
+          "duty_ids": [
+            "clip_split_top_center_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_011",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            -173.1875,
+            -105.85,
+            277.0
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "grain_station_mm": -173.1875,
+          "axis_point_inside_retained_patch": true,
+          "selected_local_axis": true,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_split_base_center_left_reference",
+            "B104ZN_clip_split_header_center_left_reference"
+          ],
+          "duty_ids": [
+            "clip_split_base_center_left",
+            "clip_split_header_center_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_012",
+          "member": "base_principal_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            -105.85,
+            345.2625
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 196.4473509611103,
+          "axis_point_inside_retained_patch": true,
+          "selected_local_axis": true,
+          "receiver_ids": [
+            "base_principal_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_split_base_center_left_reference"
+          ],
+          "duty_ids": [
+            "clip_split_base_center_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_013",
+          "member": "base_post_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            -105.85,
+            170.6375
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 170.6375,
+          "axis_point_inside_retained_patch": true,
+          "selected_local_axis": true,
+          "receiver_ids": [
+            "base_post_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_split_header_center_left_reference"
+          ],
+          "duty_ids": [
+            "clip_split_header_center_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_016",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            173.1875,
+            -105.85,
+            277.0
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "grain_station_mm": 173.1875,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_split_base_center_right_reference",
+            "B104ZN_clip_split_header_center_right_reference"
+          ],
+          "duty_ids": [
+            "clip_split_base_center_right",
+            "clip_split_header_center_right"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_019",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            -1046.1625,
+            -123.85,
+            277.0
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "grain_station_mm": -1046.1625,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_angle_base_left_reference"
+          ],
+          "duty_ids": [
+            "clip_angle_base_left"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_021",
+          "member": "base_header",
+          "reference_axis_point_xyz_mm": [
+            1042.9875,
+            -87.85,
+            277.0
+          ],
+          "reference_direction_xyz": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "grain_station_mm": 1042.9875,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_header"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_angle_base_right_reference"
+          ],
+          "duty_ids": [
+            "clip_angle_base_right"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_027",
+          "member": "base_principal_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            41.436607767,
+            484.504129027
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 397.7866336808515,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_principal_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_horizontal_bottom_left_2_reference"
+          ],
+          "duty_ids": [
+            "clip_horizontal_bottom_left_2"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_028",
+          "member": "base_principal_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            -40.197418663,
+            387.216484751
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 270.78663368105833,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_principal_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B103ZN_clip_horizontal_bottom_left_2_opposite"
+          ],
+          "duty_ids": [
+            "clip_horizontal_bottom_left_2"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_033",
+          "member": "base_principal_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            587.629309408,
+            1135.431243457
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 1247.5116336814756,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_principal_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_horizontal_lower_left_2_reference"
+          ],
+          "duty_ids": [
+            "clip_horizontal_lower_left_2"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_034",
+          "member": "base_principal_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            669.263335838,
+            1232.718887733
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 1374.5116336812687,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_principal_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B103ZN_clip_horizontal_lower_left_2_opposite"
+          ],
+          "duty_ids": [
+            "clip_horizontal_lower_left_2"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_039",
+          "member": "base_principal_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            792.469650925,
+            1379.550456368
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 1566.1866336816126,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_principal_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B104ZN_clip_horizontal_upper_left_2_reference"
+          ],
+          "duty_ids": [
+            "clip_horizontal_upper_left_2"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        },
+        {
+          "axis_id": "thin_factory_bolt_040",
+          "member": "base_principal_center_left",
+          "reference_axis_point_xyz_mm": [
+            -89.05,
+            710.835624494,
+            1282.262812092
+          ],
+          "reference_direction_xyz": [
+            1.0,
+            -0.0,
+            -0.0
+          ],
+          "grain_station_mm": 1439.1866336811768,
+          "axis_point_inside_retained_patch": false,
+          "selected_local_axis": false,
+          "receiver_ids": [
+            "base_principal_center_left"
+          ],
+          "attached_fitting_ids": [
+            "B103ZN_clip_horizontal_upper_left_2_opposite"
+          ],
+          "duty_ids": [
+            "clip_horizontal_upper_left_2"
+          ],
+          "cross_boundary_occupancy_proved_from_point_only": false
+        }
+      ],
+      "surrounding_panel_screw_duties": [
+        {
+          "axis_id": "round_panel_lower_left_center_1",
+          "panel": "main_lower_left",
+          "receiver": "base_principal_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            20.152907241,
+            322.070210041
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 259.6741337090909,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_lower_left_center_2",
+          "panel": "main_lower_left",
+          "receiver": "base_principal_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            250.517273425,
+            596.607771048
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 618.0574670423086,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_lower_left_center_3",
+          "panel": "main_lower_left",
+          "receiver": "base_principal_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            480.88163961,
+            871.145332054
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 976.4408003754031,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_lower_left_center_4",
+          "panel": "main_lower_left",
+          "receiver": "base_principal_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            711.246005795,
+            1145.682893061
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 1334.8241337092636,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_upper_left_center_1",
+          "panel": "main_upper_left",
+          "receiver": "base_principal_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            803.83956097,
+            1256.031595092
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 1478.8741337088202,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_upper_left_center_2",
+          "panel": "main_upper_left",
+          "receiver": "base_principal_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            1034.203927155,
+            1530.569156098
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 1837.2574670419147,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_upper_left_center_3",
+          "panel": "main_upper_left",
+          "receiver": "base_principal_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            1264.56829334,
+            1805.106717105
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 2195.640800375775,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_panel_upper_left_center_4",
+          "panel": "main_upper_left",
+          "receiver": "base_principal_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            1494.932659525,
+            2079.644278111
+          ],
+          "direction_xyz": [
+            0.0,
+            -0.766044443,
+            0.64278761
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 2554.0241337088696,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_kicker_left_center_1",
+          "panel": "kicker_left",
+          "receiver": "base_post_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            -17.74375,
+            60.0
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 60.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "round_kicker_left_center_2",
+          "panel": "kicker_left",
+          "receiver": "base_post_center_left",
+          "origin_xyz_mm": [
+            -70.0,
+            -17.74375,
+            192.0
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 192.0,
+          "axis_origin_inside_retained_patch": true,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_1",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -200.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -200.0,
+          "axis_origin_inside_retained_patch": true,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_2",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -400.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -400.0,
+          "axis_origin_inside_retained_patch": true,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_3",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -600.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -600.0,
+          "axis_origin_inside_retained_patch": true,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_4",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -800.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -800.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_left_5",
+          "panel": "kicker_left",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            -1000.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": -1000.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_1",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            200.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 200.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_2",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            400.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 400.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_3",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            600.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 600.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_4",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            800.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 800.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        },
+        {
+          "axis_id": "kicker_header_right_5",
+          "panel": "kicker_right",
+          "receiver": "base_header",
+          "origin_xyz_mm": [
+            1000.0,
+            -17.74375,
+            257.95
+          ],
+          "direction_xyz": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "conditional_raw_wood_penetration_body_fraction": 1.0,
+          "grain_station_mm": 1000.0,
+          "axis_origin_inside_retained_patch": false,
+          "complete_panel_joint_included": false
+        }
+      ],
+      "surrounding_nominal_contact_duties": [
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_timber_header_outer_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            -1175.5437499999998,
+            -1076.3249999999998
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_timber_header_outer_left_reference/beam/contact-0",
+            "B104ZN_clip_timber_header_outer_left_reference/beam/contact-1",
+            "B104ZN_clip_timber_header_outer_left_reference/beam/contact-2",
+            "B104ZN_clip_timber_header_outer_left_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_timber_header_outer_right_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1073.1499999999999,
+            1172.3687499999999
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_timber_header_outer_right_reference/beam/contact-0",
+            "B104ZN_clip_timber_header_outer_right_reference/beam/contact-1",
+            "B104ZN_clip_timber_header_outer_right_reference/beam/contact-2",
+            "B104ZN_clip_timber_header_outer_right_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_top_center_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            2512.0241336711556,
+            2595.3678836803524
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_top_center_left_reference/post/contact-0",
+            "B104ZN_clip_split_top_center_left_reference/post/contact-1",
+            "B104ZN_clip_split_top_center_left_reference/post/contact-2",
+            "B104ZN_clip_split_top_center_left_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_base_center_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 4,
+          "source_grain_station_range_mm": [
+            -193.825,
+            -94.60625
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_base_center_left_reference/beam/contact-0",
+            "B104ZN_clip_split_base_center_left_reference/beam/contact-1",
+            "B104ZN_clip_split_base_center_left_reference/beam/contact-2",
+            "B104ZN_clip_split_base_center_left_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_base_center_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 4,
+          "source_grain_station_range_mm": [
+            135.14604731263088,
+            225.52212245168948
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_base_center_left_reference/post/contact-0",
+            "B104ZN_clip_split_base_center_left_reference/post/contact-1",
+            "B104ZN_clip_split_base_center_left_reference/post/contact-2",
+            "B104ZN_clip_split_base_center_left_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_header_center_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 4,
+          "source_grain_station_range_mm": [
+            -193.825,
+            -94.60625
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_header_center_left_reference/beam/contact-0",
+            "B104ZN_clip_split_header_center_left_reference/beam/contact-1",
+            "B104ZN_clip_split_header_center_left_reference/beam/contact-2",
+            "B104ZN_clip_split_header_center_left_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_post_center_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_header_center_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 4,
+          "source_grain_station_range_mm": [
+            150.0,
+            233.34375
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_header_center_left_reference/post/contact-0",
+            "B104ZN_clip_split_header_center_left_reference/post/contact-1",
+            "B104ZN_clip_split_header_center_left_reference/post/contact-2",
+            "B104ZN_clip_split_header_center_left_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_base_center_right_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            94.60625,
+            193.825
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_base_center_right_reference/beam/contact-0",
+            "B104ZN_clip_split_base_center_right_reference/beam/contact-1",
+            "B104ZN_clip_split_base_center_right_reference/beam/contact-2",
+            "B104ZN_clip_split_base_center_right_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_split_header_center_right_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            94.60625,
+            193.825
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_split_header_center_right_reference/beam/contact-0",
+            "B104ZN_clip_split_header_center_right_reference/beam/contact-1",
+            "B104ZN_clip_split_header_center_right_reference/beam/contact-2",
+            "B104ZN_clip_split_header_center_right_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_angle_base_left_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            -1124.7437499999999,
+            -1025.5249999999999
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_angle_base_left_reference/beam/contact-0",
+            "B104ZN_clip_angle_base_left_reference/beam/contact-1",
+            "B104ZN_clip_angle_base_left_reference/beam/contact-2",
+            "B104ZN_clip_angle_base_left_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_angle_base_right_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1022.35,
+            1121.56875
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_angle_base_right_reference/beam/contact-0",
+            "B104ZN_clip_angle_base_right_reference/beam/contact-1",
+            "B104ZN_clip_angle_base_right_reference/beam/contact-2",
+            "B104ZN_clip_angle_base_right_reference/beam/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_horizontal_bottom_left_2_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            335.0803836819242,
+            418.4241336911209
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_horizontal_bottom_left_2_reference/post/contact-0",
+            "B104ZN_clip_horizontal_bottom_left_2_reference/post/contact-1",
+            "B104ZN_clip_horizontal_bottom_left_2_reference/post/contact-2",
+            "B104ZN_clip_horizontal_bottom_left_2_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "flange_contact",
+          "other_body": "B103ZN_clip_horizontal_bottom_left_2_opposite",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            250.14913367666546,
+            285.8678836806069
+          ],
+          "reference_source_point_ids": [
+            "B103ZN_clip_horizontal_bottom_left_2_opposite/post/contact-0",
+            "B103ZN_clip_horizontal_bottom_left_2_opposite/post/contact-1",
+            "B103ZN_clip_horizontal_bottom_left_2_opposite/post/contact-2",
+            "B103ZN_clip_horizontal_bottom_left_2_opposite/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_horizontal_lower_left_2_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1226.8741336712062,
+            1310.2178836804028
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_horizontal_lower_left_2_reference/post/contact-0",
+            "B104ZN_clip_horizontal_lower_left_2_reference/post/contact-1",
+            "B104ZN_clip_horizontal_lower_left_2_reference/post/contact-2",
+            "B104ZN_clip_horizontal_lower_left_2_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "flange_contact",
+          "other_body": "B103ZN_clip_horizontal_lower_left_2_opposite",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1359.43038368172,
+            1395.1491336856616
+          ],
+          "reference_source_point_ids": [
+            "B103ZN_clip_horizontal_lower_left_2_opposite/post/contact-0",
+            "B103ZN_clip_horizontal_lower_left_2_opposite/post/contact-1",
+            "B103ZN_clip_horizontal_lower_left_2_opposite/post/contact-2",
+            "B103ZN_clip_horizontal_lower_left_2_opposite/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "flange_contact",
+          "other_body": "B104ZN_clip_horizontal_upper_left_2_reference",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1503.4803836812766,
+            1586.8241336904734
+          ],
+          "reference_source_point_ids": [
+            "B104ZN_clip_horizontal_upper_left_2_reference/post/contact-0",
+            "B104ZN_clip_horizontal_upper_left_2_reference/post/contact-1",
+            "B104ZN_clip_horizontal_upper_left_2_reference/post/contact-2",
+            "B104ZN_clip_horizontal_upper_left_2_reference/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "flange_contact",
+          "other_body": "B103ZN_clip_horizontal_upper_left_2_opposite",
+          "source_point_count": 4,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1418.5491336760176,
+            1454.2678836799591
+          ],
+          "reference_source_point_ids": [
+            "B103ZN_clip_horizontal_upper_left_2_opposite/post/contact-0",
+            "B103ZN_clip_horizontal_upper_left_2_opposite/post/contact-1",
+            "B103ZN_clip_horizontal_upper_left_2_opposite/post/contact-2",
+            "B103ZN_clip_horizontal_upper_left_2_opposite/post/contact-3"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "panel_contact",
+          "other_body": "main_lower_left",
+          "source_point_count": 70,
+          "source_points_inside_retained_patch": 2,
+          "source_grain_station_range_mm": [
+            219.38105684652248,
+            1406.1914395145811
+          ],
+          "reference_source_point_ids": [
+            "main_lower_left/compression-0",
+            "main_lower_left/compression-1",
+            "main_lower_left/compression-2",
+            "main_lower_left/compression-3",
+            "main_lower_left/compression-4",
+            "main_lower_left/compression-5",
+            "main_lower_left/compression-6",
+            "main_lower_left/compression-7",
+            "main_lower_left/compression-8",
+            "main_lower_left/compression-9",
+            "main_lower_left/compression-10",
+            "main_lower_left/compression-11",
+            "main_lower_left/compression-12",
+            "main_lower_left/compression-13",
+            "main_lower_left/compression-14",
+            "main_lower_left/compression-15",
+            "main_lower_left/compression-16",
+            "main_lower_left/compression-17",
+            "main_lower_left/compression-18",
+            "main_lower_left/compression-19",
+            "main_lower_left/compression-20",
+            "main_lower_left/compression-21",
+            "main_lower_left/compression-22",
+            "main_lower_left/compression-23",
+            "main_lower_left/compression-24",
+            "main_lower_left/compression-25",
+            "main_lower_left/compression-26",
+            "main_lower_left/compression-27",
+            "main_lower_left/compression-28",
+            "main_lower_left/compression-29",
+            "main_lower_left/compression-30",
+            "main_lower_left/compression-31",
+            "main_lower_left/compression-32",
+            "main_lower_left/compression-33",
+            "main_lower_left/compression-34",
+            "main_lower_left/compression-35",
+            "main_lower_left/compression-36",
+            "main_lower_left/compression-37",
+            "main_lower_left/compression-38",
+            "main_lower_left/compression-39",
+            "main_lower_left/compression-40",
+            "main_lower_left/compression-41",
+            "main_lower_left/compression-42",
+            "main_lower_left/compression-43",
+            "main_lower_left/compression-44",
+            "main_lower_left/compression-45",
+            "main_lower_left/compression-46",
+            "main_lower_left/compression-47",
+            "main_lower_left/compression-48",
+            "main_lower_left/compression-49",
+            "main_lower_left/compression-50",
+            "main_lower_left/compression-51",
+            "main_lower_left/compression-52",
+            "main_lower_left/compression-53",
+            "main_lower_left/compression-54",
+            "main_lower_left/compression-55",
+            "main_lower_left/compression-56",
+            "main_lower_left/compression-57",
+            "main_lower_left/compression-58",
+            "main_lower_left/compression-59",
+            "main_lower_left/compression-60",
+            "main_lower_left/compression-61",
+            "main_lower_left/compression-62",
+            "main_lower_left/compression-63",
+            "main_lower_left/compression-64",
+            "main_lower_left/compression-65",
+            "main_lower_left/compression-66",
+            "main_lower_left/compression-67",
+            "main_lower_left/compression-68",
+            "main_lower_left/compression-69"
+          ],
+          "source_sample_range_crosses_remote_cut": true,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_principal_center_left",
+          "kind": "panel_contact",
+          "other_body": "main_upper_left",
+          "source_point_count": 68,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            1434.1874099606612,
+            2586.8492076260004
+          ],
+          "reference_source_point_ids": [
+            "main_upper_left/compression-0",
+            "main_upper_left/compression-1",
+            "main_upper_left/compression-2",
+            "main_upper_left/compression-3",
+            "main_upper_left/compression-4",
+            "main_upper_left/compression-5",
+            "main_upper_left/compression-6",
+            "main_upper_left/compression-7",
+            "main_upper_left/compression-8",
+            "main_upper_left/compression-9",
+            "main_upper_left/compression-10",
+            "main_upper_left/compression-11",
+            "main_upper_left/compression-12",
+            "main_upper_left/compression-13",
+            "main_upper_left/compression-14",
+            "main_upper_left/compression-15",
+            "main_upper_left/compression-16",
+            "main_upper_left/compression-17",
+            "main_upper_left/compression-18",
+            "main_upper_left/compression-19",
+            "main_upper_left/compression-20",
+            "main_upper_left/compression-21",
+            "main_upper_left/compression-22",
+            "main_upper_left/compression-23",
+            "main_upper_left/compression-24",
+            "main_upper_left/compression-25",
+            "main_upper_left/compression-26",
+            "main_upper_left/compression-27",
+            "main_upper_left/compression-28",
+            "main_upper_left/compression-29",
+            "main_upper_left/compression-30",
+            "main_upper_left/compression-31",
+            "main_upper_left/compression-32",
+            "main_upper_left/compression-33",
+            "main_upper_left/compression-34",
+            "main_upper_left/compression-35",
+            "main_upper_left/compression-36",
+            "main_upper_left/compression-37",
+            "main_upper_left/compression-38",
+            "main_upper_left/compression-39",
+            "main_upper_left/compression-40",
+            "main_upper_left/compression-41",
+            "main_upper_left/compression-42",
+            "main_upper_left/compression-43",
+            "main_upper_left/compression-44",
+            "main_upper_left/compression-45",
+            "main_upper_left/compression-46",
+            "main_upper_left/compression-47",
+            "main_upper_left/compression-48",
+            "main_upper_left/compression-49",
+            "main_upper_left/compression-50",
+            "main_upper_left/compression-51",
+            "main_upper_left/compression-52",
+            "main_upper_left/compression-53",
+            "main_upper_left/compression-54",
+            "main_upper_left/compression-55",
+            "main_upper_left/compression-56",
+            "main_upper_left/compression-57",
+            "main_upper_left/compression-58",
+            "main_upper_left/compression-59",
+            "main_upper_left/compression-60",
+            "main_upper_left/compression-61",
+            "main_upper_left/compression-62",
+            "main_upper_left/compression-63",
+            "main_upper_left/compression-64",
+            "main_upper_left/compression-65",
+            "main_upper_left/compression-66",
+            "main_upper_left/compression-67"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "panel_contact",
+          "other_body": "kicker_left",
+          "source_point_count": 70,
+          "source_points_inside_retained_patch": 36,
+          "source_grain_station_range_mm": [
+            -1200.2340732087227,
+            -14.618822246396121
+          ],
+          "reference_source_point_ids": [
+            "kicker_left/compression-0",
+            "kicker_left/compression-1",
+            "kicker_left/compression-2",
+            "kicker_left/compression-3",
+            "kicker_left/compression-4",
+            "kicker_left/compression-5",
+            "kicker_left/compression-6",
+            "kicker_left/compression-7",
+            "kicker_left/compression-8",
+            "kicker_left/compression-9",
+            "kicker_left/compression-10",
+            "kicker_left/compression-11",
+            "kicker_left/compression-12",
+            "kicker_left/compression-13",
+            "kicker_left/compression-14",
+            "kicker_left/compression-15",
+            "kicker_left/compression-16",
+            "kicker_left/compression-17",
+            "kicker_left/compression-18",
+            "kicker_left/compression-19",
+            "kicker_left/compression-20",
+            "kicker_left/compression-21",
+            "kicker_left/compression-22",
+            "kicker_left/compression-23",
+            "kicker_left/compression-24",
+            "kicker_left/compression-25",
+            "kicker_left/compression-26",
+            "kicker_left/compression-27",
+            "kicker_left/compression-28",
+            "kicker_left/compression-29",
+            "kicker_left/compression-30",
+            "kicker_left/compression-31",
+            "kicker_left/compression-32",
+            "kicker_left/compression-33",
+            "kicker_left/compression-34",
+            "kicker_left/compression-35",
+            "kicker_left/compression-36",
+            "kicker_left/compression-37",
+            "kicker_left/compression-38",
+            "kicker_left/compression-39",
+            "kicker_left/compression-40",
+            "kicker_left/compression-41",
+            "kicker_left/compression-42",
+            "kicker_left/compression-43",
+            "kicker_left/compression-44",
+            "kicker_left/compression-45",
+            "kicker_left/compression-46",
+            "kicker_left/compression-47",
+            "kicker_left/compression-48",
+            "kicker_left/compression-49",
+            "kicker_left/compression-50",
+            "kicker_left/compression-51",
+            "kicker_left/compression-52",
+            "kicker_left/compression-53",
+            "kicker_left/compression-54",
+            "kicker_left/compression-55",
+            "kicker_left/compression-56",
+            "kicker_left/compression-57",
+            "kicker_left/compression-58",
+            "kicker_left/compression-59",
+            "kicker_left/compression-60",
+            "kicker_left/compression-61",
+            "kicker_left/compression-62",
+            "kicker_left/compression-63",
+            "kicker_left/compression-64",
+            "kicker_left/compression-65",
+            "kicker_left/compression-66",
+            "kicker_left/compression-67",
+            "kicker_left/compression-68",
+            "kicker_left/compression-69"
+          ],
+          "source_sample_range_crosses_remote_cut": true,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_post_center_left",
+          "kind": "panel_contact",
+          "other_body": "kicker_left",
+          "source_point_count": 14,
+          "source_points_inside_retained_patch": 10,
+          "source_grain_station_range_mm": [
+            19.422764227642272,
+            224.63236111111115
+          ],
+          "reference_source_point_ids": [
+            "kicker_left/compression-70",
+            "kicker_left/compression-71",
+            "kicker_left/compression-72",
+            "kicker_left/compression-73",
+            "kicker_left/compression-74",
+            "kicker_left/compression-75",
+            "kicker_left/compression-76",
+            "kicker_left/compression-77",
+            "kicker_left/compression-78",
+            "kicker_left/compression-79",
+            "kicker_left/compression-80",
+            "kicker_left/compression-81",
+            "kicker_left/compression-82",
+            "kicker_left/compression-83"
+          ],
+          "source_sample_range_crosses_remote_cut": true,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        },
+        {
+          "member": "base_header",
+          "kind": "panel_contact",
+          "other_body": "kicker_right",
+          "source_point_count": 70,
+          "source_points_inside_retained_patch": 0,
+          "source_grain_station_range_mm": [
+            15.082194940476198,
+            1202.4550578237008
+          ],
+          "reference_source_point_ids": [
+            "kicker_right/compression-0",
+            "kicker_right/compression-1",
+            "kicker_right/compression-2",
+            "kicker_right/compression-3",
+            "kicker_right/compression-4",
+            "kicker_right/compression-5",
+            "kicker_right/compression-6",
+            "kicker_right/compression-7",
+            "kicker_right/compression-8",
+            "kicker_right/compression-9",
+            "kicker_right/compression-10",
+            "kicker_right/compression-11",
+            "kicker_right/compression-12",
+            "kicker_right/compression-13",
+            "kicker_right/compression-14",
+            "kicker_right/compression-15",
+            "kicker_right/compression-16",
+            "kicker_right/compression-17",
+            "kicker_right/compression-18",
+            "kicker_right/compression-19",
+            "kicker_right/compression-20",
+            "kicker_right/compression-21",
+            "kicker_right/compression-22",
+            "kicker_right/compression-23",
+            "kicker_right/compression-24",
+            "kicker_right/compression-25",
+            "kicker_right/compression-26",
+            "kicker_right/compression-27",
+            "kicker_right/compression-28",
+            "kicker_right/compression-29",
+            "kicker_right/compression-30",
+            "kicker_right/compression-31",
+            "kicker_right/compression-32",
+            "kicker_right/compression-33",
+            "kicker_right/compression-34",
+            "kicker_right/compression-35",
+            "kicker_right/compression-36",
+            "kicker_right/compression-37",
+            "kicker_right/compression-38",
+            "kicker_right/compression-39",
+            "kicker_right/compression-40",
+            "kicker_right/compression-41",
+            "kicker_right/compression-42",
+            "kicker_right/compression-43",
+            "kicker_right/compression-44",
+            "kicker_right/compression-45",
+            "kicker_right/compression-46",
+            "kicker_right/compression-47",
+            "kicker_right/compression-48",
+            "kicker_right/compression-49",
+            "kicker_right/compression-50",
+            "kicker_right/compression-51",
+            "kicker_right/compression-52",
+            "kicker_right/compression-53",
+            "kicker_right/compression-54",
+            "kicker_right/compression-55",
+            "kicker_right/compression-56",
+            "kicker_right/compression-57",
+            "kicker_right/compression-58",
+            "kicker_right/compression-59",
+            "kicker_right/compression-60",
+            "kicker_right/compression-61",
+            "kicker_right/compression-62",
+            "kicker_right/compression-63",
+            "kicker_right/compression-64",
+            "kicker_right/compression-65",
+            "kicker_right/compression-66",
+            "kicker_right/compression-67",
+            "kicker_right/compression-68",
+            "kicker_right/compression-69"
+          ],
+          "source_sample_range_crosses_remote_cut": false,
+          "sample_span_is_trimmed_continuous_contact_footprint": false
+        }
+      ],
+      "authenticated_local_timber_timber_contact_pairs": [],
+      "missing_direct_timber_contact_atlas": [
+        "header-to-principal at Z277",
+        "header-to-centerpost at Z238.9"
+      ],
+      "neighbor_reactions_or_old_force_bounds_supplied": false
+    }
+  ],
+  "geometry_source_selection": "Only centerline/basis/contact-point geometry selected from old62-body packet; no q, forces, couples, reactions or acceptance selected.",
+  "work_contract": {
+    "coordinate": "Each rigid body q=(u_world_mm,Ltheta_world_rad), positive explicit L; remote rows use grain frame.",
+    "work_conjugate_load": "Remote f=(F_grain_N,M_grain_Nmm/L); f.T*q_remote equals physical force/couple work.",
+    "mandatory_compatibility": "Retain six whole-patch free motions; every unit load annihilates them and each remaining internal free mode. Reject incompatible supplied loads.",
+    "observable": "Cij=f_i.T*q_remote_j; Maxwell Cij=Cji only for the same reciprocal elastic operator and fixed admitted active branch, with gauges removed but no physical clamp.",
+    "numeric_compliance_or_capacity": null
+  },
+  "limits": [
+    "Reference cuts avoid saved bolt-section loss and selected flange corners; panel duties cross cuts and remain explicit neighbor ports.",
+    "Nearest hardware-clear planes are not proven remote/Saint-Venant boundaries or section-stiffness bounds.",
+    "Six-pair timberface proof supplies no direct header/timber contact within these local patches; bounds alone do not prove trimmed contact area.",
+    "Rigid-patch rank/work is a method diagnostic; finite timber/steel/shaft flexibility and unilateral active-branch response remain separate.",
+    "No CAD/BREP import/query, K/operator assembly, native/global solve or current/historical force consumption."
+  ],
+  "release": {
+    "structural_acceptance": false,
+    "fabrication_release": false,
+    "climbing_release": false
+  }
+}

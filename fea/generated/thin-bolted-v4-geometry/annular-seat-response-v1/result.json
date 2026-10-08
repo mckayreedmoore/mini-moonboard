@@ -1,0 +1,1229 @@
+{
+  "actual_product_qualified": false,
+  "candidate_global_floor_native_or_CAD_solved": false,
+  "capacity_established": false,
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/rigid_annular_seat.py",
+    "--input",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/input.json",
+    "--output",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/result.json"
+  ],
+  "complete_joint_acceptance": false,
+  "existing_full_annulus_fixture_replayed": {
+    "area_mm2": 235.61944901923448,
+    "compression_only_contact_solved": false,
+    "full_contact_admissible": false,
+    "moment_full_contact_limit_nmm": 312.5,
+    "pressure_max_mpa": 1.782535362629228,
+    "pressure_min_mpa": -0.9337089994724528,
+    "second_moment_mm4": 7363.107781851078
+  },
+  "full_annulus_area_mm2": 804.6483098850819,
+  "full_annulus_second_moment_mm4": 72055.0170043845,
+  "full_contact_condition": "For uniform linear bedding, N>0 and ||Mxy||<=N*I/(A*b)=N*(a^2+b^2)/(4*b); strict inequality gives positive pressure everywhere. N=0,M=0 is zero pressure, not proof of bearing contact.",
+  "full_contact_condition_is_moment_strength_or_capacity": false,
+  "full_contact_kernel_radius_mm": 5.109463654891305,
+  "general_cap_strip_oracle": {
+    "closed_form_A_Q_Jparallel_Jperp": [
+      317.34769139997223,
+      3173.895285426022,
+      35565.821093381455,
+      22870.239951677366
+    ],
+    "cutoff_mm": 4.0,
+    "independent_quadrature_A_Q_Jparallel_Jperp": [
+      317.3476913999722,
+      3173.895285426024,
+      35565.82109338144,
+      22870.239951677366
+    ],
+    "quadrature_error_estimates": [
+      3.3585081382625503e-09,
+      6.221569037734298e-09,
+      1.5538716979790479e-09,
+      3.105014911852777e-09
+    ]
+  },
+  "geometry_and_bedding_inputs": {
+    "bedding_basis": "Uniform local normal linear foundation, unmeasured declared response stiffness. Existing paired-wood coupon also used1N/mm3; no interface calibration or strength transfers.",
+    "bedding_n_mm3": 1.0,
+    "bedding_scenario_id": "own-rigid-annulus-declared-winkler-1N-mm3-v1",
+    "geometry_basis": "Frozen large nominal/max occupied envelope; not actual minimum delivered washer, inspected seating or current pressure/contact area.",
+    "inner_radius_mm": 7.14375,
+    "material_basis": "Rigid washer kinematic idealization; no steel bending modulus/yield or wood bearing strength used. Bedding is not derived from material reference constants.",
+    "outer_radius_mm": 17.526,
+    "primary_background": [
+      {
+        "limit": "No Drake implementation, modulus estimation or physical foundation parameter transferred.",
+        "supports": "Bed of normal linear springs; pressure proportional to local penetration and resultant is pressure integral.",
+        "title": "Drake elastic foundation model",
+        "url": "https://drake.mit.edu/doxygen_cxx/group__hydro__params.html"
+      },
+      {
+        "limit": "Annular cap formulas here are independently derived; no soil/product/material calibration or published solver transferred.",
+        "supports": "Rigid plate/partial lift-off response under a tensionless Winkler scenario, with straight lift-off boundary.",
+        "title": "Celep and Guler2004 rigid circular plate on tensionless Winkler foundation",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0022460X04000173"
+      }
+    ],
+    "schema": "thin_bolted_rigid_annular_seat_inputs/v1",
+    "selected_axis_profiles": [
+      {
+        "axis_id": "thin_factory_bolt_019",
+        "receiving_seats": [
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "head_washer",
+            "saved_occupancy_backed_fraction": 0.9999999999999122,
+            "support_material": "steel"
+          },
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "nut_washer",
+            "saved_occupancy_backed_fraction": 0.9999999999999845,
+            "support_material": "wood"
+          }
+        ],
+        "washer_id_mm": 14.2875,
+        "washer_od_mm": 35.052,
+        "washer_thickness_mm": 3.3528
+      },
+      {
+        "axis_id": "thin_factory_bolt_020",
+        "receiving_seats": [
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "head_washer",
+            "saved_occupancy_backed_fraction": 1.0,
+            "support_material": "steel"
+          },
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "nut_washer",
+            "saved_occupancy_backed_fraction": 1.0,
+            "support_material": "wood"
+          }
+        ],
+        "washer_id_mm": 14.2875,
+        "washer_od_mm": 35.052,
+        "washer_thickness_mm": 3.3528
+      },
+      {
+        "axis_id": "thin_factory_bolt_011",
+        "receiving_seats": [
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "head_washer",
+            "saved_occupancy_backed_fraction": 0.9999999999999988,
+            "support_material": "steel"
+          },
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "nut_washer",
+            "saved_occupancy_backed_fraction": 0.9999999999999865,
+            "support_material": "steel"
+          }
+        ],
+        "washer_id_mm": 14.2875,
+        "washer_od_mm": 35.052,
+        "washer_thickness_mm": 3.3528
+      },
+      {
+        "axis_id": "thin_factory_bolt_012",
+        "receiving_seats": [
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "head_washer",
+            "saved_occupancy_backed_fraction": 1.0,
+            "support_material": "steel"
+          },
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "nut_washer",
+            "saved_occupancy_backed_fraction": 1.0,
+            "support_material": "wood"
+          }
+        ],
+        "washer_id_mm": 14.2875,
+        "washer_od_mm": 35.052,
+        "washer_thickness_mm": 3.3528
+      },
+      {
+        "axis_id": "thin_factory_bolt_013",
+        "receiving_seats": [
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "head_washer",
+            "saved_occupancy_backed_fraction": 1.0,
+            "support_material": "steel"
+          },
+          {
+            "planned_support_opening_mm": 14.2875,
+            "role": "nut_washer",
+            "saved_occupancy_backed_fraction": 1.0,
+            "support_material": "wood"
+          }
+        ],
+        "washer_id_mm": 14.2875,
+        "washer_od_mm": 35.052,
+        "washer_thickness_mm": 3.3528
+      }
+    ],
+    "source_layout_path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json",
+    "source_layout_sha256": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "states": [
+      {
+        "id": "full",
+        "q": [
+          0.1,
+          0.001,
+          0.002
+        ]
+      },
+      {
+        "id": "half-annulus",
+        "q": [
+          0.0,
+          0.003,
+          0.004
+        ]
+      },
+      {
+        "id": "general-cap",
+        "q": [
+          -0.02,
+          0.003,
+          0.004
+        ]
+      },
+      {
+        "id": "reverse-cap",
+        "q": [
+          -0.02,
+          -0.003,
+          -0.004
+        ]
+      },
+      {
+        "id": "full-contact-limit",
+        "q": [
+          0.08763,
+          0.003,
+          0.004
+        ]
+      },
+      {
+        "id": "open",
+        "q": [
+          -0.1,
+          0.001,
+          0.002
+        ]
+      },
+      {
+        "id": "point-grazing",
+        "q": [
+          -0.08763,
+          0.003,
+          0.004
+        ]
+      },
+      {
+        "id": "zero-pressure",
+        "q": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ]
+  },
+  "law": "d(x,y)=delta+sx*x+sy*y; p=k*max(d,0); E=.5*k*integral(max(d,0)^2); R=integral(p*[1,x,y]); H=k*integral_active([1,x,y]^T*[1,x,y])",
+  "limits": [
+    "Uniform bedding1N/mm3 is a declared response scenario, not measured seat/wood/steel compliance or a strength bound.",
+    "Rigid full nominal/max-envelope annulus is an analytical domain, not actual delivered contact area or minimum washer dimensions.",
+    "Actual washer bending, head/nut pressure footprint, local wood strength/fracture and complete joint response remain separate.",
+    "No friction, preload, tensile contact, free yaw couple or external tilt clamp is added.",
+    "Closed-form double arithmetic near a vanishing cap or a numerically thin annulus is not independently bounded by these moderate-cap coupons."
+  ],
+  "new_geometry_or_current_forces": false,
+  "physical_wrench": "Traction on washer is +z: N=int(p), Mx=int(p*y)=Gy, My=-int(p*x)=-Gx, Mz=0; receiving body receives exactly opposing force/moment",
+  "released": false,
+  "reuse_gap": "Existing full-annulus pressure and prescribed-pressure washer bending have no rigid compression-only partial-annulus response/tangent.",
+  "rows": [
+    {
+      "active_area_mm2": 804.648309885082,
+      "contact_state": "full-contact-nonnegative-pressure",
+      "energy_nmm": 4.2033790919363705,
+      "existing_full_annulus_resultant_check": {
+        "area_mm2": 804.6483098850819,
+        "compression_only_contact_solved": false,
+        "full_contact_admissible": true,
+        "moment_full_contact_limit_nmm": 411.13212943275425,
+        "pressure_max_mpa": 0.13918932737366133,
+        "pressure_min_mpa": 0.060810672626338706,
+        "second_moment_mm4": 72055.0170043845
+      },
+      "finite_difference_energy_gradient_max_abs_error": 1.5294261856979574e-08,
+      "finite_difference_tangent_max_abs_error": 6.929476512596011e-07,
+      "force_on_receiving_body_local_xyz_n": [
+        -0.0,
+        -0.0,
+        -80.4648309885082
+      ],
+      "force_on_washer_local_xyz_n": [
+        0.0,
+        0.0,
+        80.4648309885082
+      ],
+      "full_contact_kernel_radius_mm": 5.109463654891305,
+      "id": "full",
+      "moment_on_receiving_body_at_annulus_center_local_xyz_nmm": [
+        -144.110034008769,
+        72.0550170043845,
+        -0.0
+      ],
+      "moment_on_washer_at_annulus_center_local_xyz_nmm": [
+        144.110034008769,
+        -72.0550170043845,
+        0.0
+      ],
+      "pressure_max_mpa": 0.13918932737366133,
+      "pressure_min_mpa": 0.060810672626338685,
+      "q_delta_sx_sy": [
+        0.1,
+        0.001,
+        0.002
+      ],
+      "reciprocity_exact": true,
+      "relative_six_dof_tangent": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          804.648309885082,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          72055.0170043845,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          72055.0170043845,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "resisting_gradient_N_Gx_Gy": [
+        80.4648309885082,
+        72.0550170043845,
+        144.110034008769
+      ],
+      "six_dof_horizontal_translation_and_yaw_columns_exact_zero": true,
+      "tangent_delta_sx_sy": [
+        [
+          804.648309885082,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          72055.0170043845,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          72055.0170043845
+        ]
+      ],
+      "tangent_rank": 3
+    },
+    {
+      "active_area_mm2": 402.324154942541,
+      "contact_state": "partial-contact",
+      "energy_nmm": 0.45034385627740314,
+      "existing_full_annulus_resultant_check": {
+        "area_mm2": 804.6483098850819,
+        "compression_only_contact_solved": false,
+        "full_contact_admissible": false,
+        "moment_full_contact_limit_nmm": 85.47672573472853,
+        "pressure_max_mpa": 0.06460557305802449,
+        "pressure_min_mpa": -0.023024426941975526,
+        "second_moment_mm4": 72055.0170043845
+      },
+      "finite_difference_energy_gradient_max_abs_error": 2.718167024795548e-09,
+      "finite_difference_tangent_max_abs_error": 1.4122924767434597e-06,
+      "force_on_receiving_body_local_xyz_n": [
+        -0.0,
+        -0.0,
+        -16.729099472681717
+      ],
+      "force_on_washer_local_xyz_n": [
+        0.0,
+        0.0,
+        16.729099472681717
+      ],
+      "full_contact_kernel_radius_mm": 5.109463654891305,
+      "id": "half-annulus",
+      "moment_on_receiving_body_at_annulus_center_local_xyz_nmm": [
+        -144.110034008769,
+        108.08252550657676,
+        -0.0
+      ],
+      "moment_on_washer_at_annulus_center_local_xyz_nmm": [
+        144.110034008769,
+        -108.08252550657676,
+        0.0
+      ],
+      "pressure_max_mpa": 0.08763,
+      "pressure_min_mpa": 0.0,
+      "q_delta_sx_sy": [
+        0.0,
+        0.003,
+        0.004
+      ],
+      "reciprocity_exact": true,
+      "relative_six_dof_tangent": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          402.324154942541,
+          2676.655915629075,
+          -2007.4919367218058,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          2676.655915629075,
+          36027.50850219225,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -2007.4919367218058,
+          0.0,
+          36027.50850219225,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "resisting_gradient_N_Gx_Gy": [
+        16.729099472681717,
+        108.08252550657676,
+        144.110034008769
+      ],
+      "six_dof_horizontal_translation_and_yaw_columns_exact_zero": true,
+      "tangent_delta_sx_sy": [
+        [
+          402.324154942541,
+          2007.4919367218058,
+          2676.655915629075
+        ],
+        [
+          2007.4919367218058,
+          36027.50850219225,
+          0.0
+        ],
+        [
+          2676.655915629075,
+          0.0,
+          36027.50850219225
+        ]
+      ],
+      "tangent_rank": 3
+    },
+    {
+      "active_area_mm2": 317.34769139997223,
+      "contact_state": "partial-contact",
+      "energy_nmm": 0.1906527734046605,
+      "existing_full_annulus_resultant_check": {
+        "area_mm2": 804.6483098850819,
+        "compression_only_contact_solved": false,
+        "full_contact_admissible": false,
+        "moment_full_contact_limit_nmm": 48.65498312313922,
+        "pressure_max_mpa": 0.0396481255567227,
+        "pressure_min_mpa": -0.0159793438488716,
+        "second_moment_mm4": 72055.0170043845
+      },
+      "finite_difference_energy_gradient_max_abs_error": 7.43979455819499e-09,
+      "finite_difference_tangent_max_abs_error": 6.338405000860803e-07,
+      "force_on_receiving_body_local_xyz_n": [
+        -0.0,
+        -0.0,
+        -9.522522599130665
+      ],
+      "force_on_washer_local_xyz_n": [
+        0.0,
+        0.0,
+        9.522522599130665
+      ],
+      "full_contact_kernel_radius_mm": 5.109463654891305,
+      "id": "general-cap",
+      "moment_on_receiving_body_at_annulus_center_local_xyz_nmm": [
+        -91.48095980670949,
+        68.61071985503212,
+        -0.0
+      ],
+      "moment_on_washer_at_annulus_center_local_xyz_nmm": [
+        91.48095980670949,
+        -68.61071985503212,
+        0.0
+      ],
+      "pressure_max_mpa": 0.06763,
+      "pressure_min_mpa": 0.0,
+      "q_delta_sx_sy": [
+        -0.02,
+        0.003,
+        0.004
+      ],
+      "reciprocity_exact": true,
+      "relative_six_dof_tangent": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          317.34769139997223,
+          2539.1162283408175,
+          -1904.3371712556132,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          2539.1162283408175,
+          30995.411882367986,
+          -6093.878948017964,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1904.3371712556132,
+          -6093.878948017964,
+          27440.64916269084,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "resisting_gradient_N_Gx_Gy": [
+        9.522522599130665,
+        68.61071985503212,
+        91.48095980670949
+      ],
+      "six_dof_horizontal_translation_and_yaw_columns_exact_zero": true,
+      "tangent_delta_sx_sy": [
+        [
+          317.34769139997223,
+          1904.3371712556132,
+          2539.1162283408175
+        ],
+        [
+          1904.3371712556132,
+          27440.64916269084,
+          6093.878948017964
+        ],
+        [
+          2539.1162283408175,
+          6093.878948017964,
+          30995.411882367986
+        ]
+      ],
+      "tangent_rank": 3
+    },
+    {
+      "active_area_mm2": 317.34769139997223,
+      "contact_state": "partial-contact",
+      "energy_nmm": 0.1906527734046605,
+      "existing_full_annulus_resultant_check": {
+        "area_mm2": 804.6483098850819,
+        "compression_only_contact_solved": false,
+        "full_contact_admissible": false,
+        "moment_full_contact_limit_nmm": 48.65498312313922,
+        "pressure_max_mpa": 0.0396481255567227,
+        "pressure_min_mpa": -0.0159793438488716,
+        "second_moment_mm4": 72055.0170043845
+      },
+      "finite_difference_energy_gradient_max_abs_error": 7.43979455819499e-09,
+      "finite_difference_tangent_max_abs_error": 6.338405000860803e-07,
+      "force_on_receiving_body_local_xyz_n": [
+        -0.0,
+        -0.0,
+        -9.522522599130665
+      ],
+      "force_on_washer_local_xyz_n": [
+        0.0,
+        0.0,
+        9.522522599130665
+      ],
+      "full_contact_kernel_radius_mm": 5.109463654891305,
+      "id": "reverse-cap",
+      "moment_on_receiving_body_at_annulus_center_local_xyz_nmm": [
+        91.48095980670949,
+        -68.61071985503212,
+        -0.0
+      ],
+      "moment_on_washer_at_annulus_center_local_xyz_nmm": [
+        -91.48095980670949,
+        68.61071985503212,
+        0.0
+      ],
+      "pressure_max_mpa": 0.06763,
+      "pressure_min_mpa": 0.0,
+      "q_delta_sx_sy": [
+        -0.02,
+        -0.003,
+        -0.004
+      ],
+      "reciprocity_exact": true,
+      "relative_six_dof_tangent": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          317.34769139997223,
+          -2539.1162283408175,
+          1904.3371712556132,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          -2539.1162283408175,
+          30995.411882367986,
+          -6093.878948017964,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1904.3371712556132,
+          -6093.878948017964,
+          27440.64916269084,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "resisting_gradient_N_Gx_Gy": [
+        9.522522599130665,
+        -68.61071985503212,
+        -91.48095980670949
+      ],
+      "six_dof_horizontal_translation_and_yaw_columns_exact_zero": true,
+      "tangent_delta_sx_sy": [
+        [
+          317.34769139997223,
+          -1904.3371712556132,
+          -2539.1162283408175
+        ],
+        [
+          -1904.3371712556132,
+          27440.64916269084,
+          6093.878948017964
+        ],
+        [
+          -2539.1162283408175,
+          6093.878948017964,
+          30995.411882367986
+        ]
+      ],
+      "tangent_rank": 3
+    },
+    {
+      "active_area_mm2": 804.648309885082,
+      "contact_state": "full-contact-nonnegative-pressure",
+      "energy_nmm": 3.990141697636797,
+      "existing_full_annulus_resultant_check": {
+        "area_mm2": 804.6483098850819,
+        "compression_only_contact_solved": false,
+        "full_contact_admissible": true,
+        "moment_full_contact_limit_nmm": 360.2750850219225,
+        "pressure_max_mpa": 0.17526000000000003,
+        "pressure_min_mpa": 0.0,
+        "second_moment_mm4": 72055.0170043845
+      },
+      "force_on_receiving_body_local_xyz_n": [
+        -0.0,
+        -0.0,
+        -70.51133139522973
+      ],
+      "force_on_washer_local_xyz_n": [
+        0.0,
+        0.0,
+        70.51133139522973
+      ],
+      "full_contact_kernel_radius_mm": 5.109463654891305,
+      "id": "full-contact-limit",
+      "moment_on_receiving_body_at_annulus_center_local_xyz_nmm": [
+        -288.220068017538,
+        216.16505101315352,
+        -0.0
+      ],
+      "moment_on_washer_at_annulus_center_local_xyz_nmm": [
+        288.220068017538,
+        -216.16505101315352,
+        0.0
+      ],
+      "pressure_max_mpa": 0.17526,
+      "pressure_min_mpa": 0.0,
+      "q_delta_sx_sy": [
+        0.08763,
+        0.003,
+        0.004
+      ],
+      "reciprocity_exact": true,
+      "relative_six_dof_tangent": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          804.648309885082,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          72055.0170043845,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          72055.0170043845,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "resisting_gradient_N_Gx_Gy": [
+        70.51133139522973,
+        216.16505101315352,
+        288.220068017538
+      ],
+      "six_dof_horizontal_translation_and_yaw_columns_exact_zero": true,
+      "tangent_delta_sx_sy": [
+        [
+          804.648309885082,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          72055.0170043845,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          72055.0170043845
+        ]
+      ],
+      "tangent_rank": 3
+    },
+    {
+      "active_area_mm2": 0.0,
+      "contact_state": "open-or-point-grazing",
+      "energy_nmm": 0.0,
+      "existing_full_annulus_resultant_check": {
+        "area_mm2": 804.6483098850819,
+        "compression_only_contact_solved": false,
+        "full_contact_admissible": true,
+        "moment_full_contact_limit_nmm": 0.0,
+        "pressure_max_mpa": 0.0,
+        "pressure_min_mpa": 0.0,
+        "second_moment_mm4": 72055.0170043845
+      },
+      "force_on_receiving_body_local_xyz_n": [
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "force_on_washer_local_xyz_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "full_contact_kernel_radius_mm": 5.109463654891305,
+      "id": "open",
+      "moment_on_receiving_body_at_annulus_center_local_xyz_nmm": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "moment_on_washer_at_annulus_center_local_xyz_nmm": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "pressure_max_mpa": 0.0,
+      "pressure_min_mpa": 0.0,
+      "q_delta_sx_sy": [
+        -0.1,
+        0.001,
+        0.002
+      ],
+      "reciprocity_exact": true,
+      "relative_six_dof_tangent": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "resisting_gradient_N_Gx_Gy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "six_dof_horizontal_translation_and_yaw_columns_exact_zero": true,
+      "tangent_delta_sx_sy": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "tangent_rank": 0
+    },
+    {
+      "active_area_mm2": 0.0,
+      "contact_state": "open-or-point-grazing",
+      "energy_nmm": 0.0,
+      "existing_full_annulus_resultant_check": {
+        "area_mm2": 804.6483098850819,
+        "compression_only_contact_solved": false,
+        "full_contact_admissible": true,
+        "moment_full_contact_limit_nmm": 0.0,
+        "pressure_max_mpa": 0.0,
+        "pressure_min_mpa": 0.0,
+        "second_moment_mm4": 72055.0170043845
+      },
+      "force_on_receiving_body_local_xyz_n": [
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "force_on_washer_local_xyz_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "full_contact_kernel_radius_mm": 5.109463654891305,
+      "id": "point-grazing",
+      "moment_on_receiving_body_at_annulus_center_local_xyz_nmm": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "moment_on_washer_at_annulus_center_local_xyz_nmm": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "pressure_max_mpa": 0.0,
+      "pressure_min_mpa": 0.0,
+      "q_delta_sx_sy": [
+        -0.08763,
+        0.003,
+        0.004
+      ],
+      "reciprocity_exact": true,
+      "relative_six_dof_tangent": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "resisting_gradient_N_Gx_Gy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "six_dof_horizontal_translation_and_yaw_columns_exact_zero": true,
+      "tangent_delta_sx_sy": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "tangent_rank": 0
+    },
+    {
+      "active_area_mm2": 0.0,
+      "contact_state": "zero-pressure-touching",
+      "energy_nmm": 0.0,
+      "existing_full_annulus_resultant_check": {
+        "area_mm2": 804.6483098850819,
+        "compression_only_contact_solved": false,
+        "full_contact_admissible": true,
+        "moment_full_contact_limit_nmm": 0.0,
+        "pressure_max_mpa": 0.0,
+        "pressure_min_mpa": 0.0,
+        "second_moment_mm4": 72055.0170043845
+      },
+      "force_on_receiving_body_local_xyz_n": [
+        -0.0,
+        -0.0,
+        -0.0
+      ],
+      "force_on_washer_local_xyz_n": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "full_contact_kernel_radius_mm": 5.109463654891305,
+      "id": "zero-pressure",
+      "moment_on_receiving_body_at_annulus_center_local_xyz_nmm": [
+        -0.0,
+        0.0,
+        -0.0
+      ],
+      "moment_on_washer_at_annulus_center_local_xyz_nmm": [
+        0.0,
+        -0.0,
+        0.0
+      ],
+      "pressure_max_mpa": 0.0,
+      "pressure_min_mpa": 0.0,
+      "q_delta_sx_sy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "reciprocity_exact": true,
+      "relative_six_dof_tangent": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "resisting_gradient_N_Gx_Gy": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "six_dof_horizontal_translation_and_yaw_columns_exact_zero": true,
+      "tangent_delta_sx_sy": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "tangent_rank": 0
+    }
+  ],
+  "schema": "thin_bolted_rigid_annular_seat_response_coupon/v1",
+  "slope_to_rotation": "sx=theta_y, sy=-theta_x; delta=-uz at local annulus center; horizontal translations and yaw are free",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/timber-face-contact-method-v4.json": "529841caf86c039d6e2672908a878f1be40f72078d0d2710779bace9a0b86c42",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "fea/generated/thin-bolted-b104-local-hardware-inputs/inputs.json": "8cebc830001ed86114bce7363f7fc3a0105c258885cdaa80a869245bea73d731",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/input.json": "27996bab1096fc1d24f2097e06cf782805116da18f3d88ad92336e218a31151d",
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v1/rigid_annular_seat.py": "5b55dcaaf663dd6954ba2f6a7a61aeb48c0ec4014edcf1d7f814defaacb97428",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "tests/test_thin_bolted_steel_resistance.py": "87d34e080da1e453b097226d7f83d0db50a91b83f9389bbf199435dd93d0fca5"
+  },
+  "stateless_input_and_trial_replay_unchanged": true,
+  "tool_versions": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "zero_closure_generalized_tangent": "Entire annulus at d=0 uses inactive zero generalized tangent, matching strict-positive normal activation; FD tests avoid that degenerate state and circle-edge tangencies."
+}
