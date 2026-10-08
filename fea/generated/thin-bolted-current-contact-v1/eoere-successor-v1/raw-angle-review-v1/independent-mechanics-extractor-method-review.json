@@ -1,0 +1,188 @@
+{
+  "actual_extracted_input": null,
+  "checked_source_contract": {
+    "body_census": {
+      "all_physical_owners": 150,
+      "base_bodies": 50,
+      "fitting": 22,
+      "panel": 6,
+      "shaft": 100,
+      "timber": 22
+    },
+    "consumer_required_keys_present": [
+      "base_bodies",
+      "case",
+      "direct_contacts",
+      "factory_holes",
+      "finished_receiver_wall_queries",
+      "fitting_port_bindings",
+      "fitting_poses",
+      "flange_domains",
+      "flange_shared_face_patches",
+      "floor_footprints",
+      "geometry",
+      "gravity",
+      "hillman_rows",
+      "panel_ids",
+      "parameters",
+      "physical_owner_gravity_rows",
+      "readiness",
+      "scenario",
+      "schema",
+      "shafts",
+      "source_sha256",
+      "timber_and_panel_shared_face_patches",
+      "timber_rows"
+    ],
+    "contact_priors": {
+      "actual_calibration": null,
+      "flange_cell_rule": "40000*clipped_cell_area/complete_nominal_holed_flat_flange_area",
+      "flange_nominal_total_n_mm": 40000.0,
+      "panel_n_mm3": 2.0,
+      "wood_n_mm3": 1.0
+    },
+    "contact_universe": {
+      "actual_contact_count_or_coverage_validated": false,
+      "all_nominal_holed_flange_half_domains": 88,
+      "area_centroids_not_exact_pressure_or_rocking_stiffness": true,
+      "coplanar_tolerance_mm": 1e-05,
+      "holes_and_unused_factory_holes_in_masks": true,
+      "opposed_normal_dot_tolerance": 1e-08,
+      "panel_timber_pairs": 132,
+      "reference_area_and_first_moments_conserved": true,
+      "timber_pairs": 231,
+      "total_pairs_before_source_AABB_screen": 363,
+      "trimmed_intersection_and_inward_material_probes_required": true
+    },
+    "full_wall_bearing_query_plan": {
+      "actual_wall_intervals_evaluated": false,
+      "fresh_matching_full_circumference_finished_wall_queries": true,
+      "partial_wall_never_promoted": true,
+      "retained_bores_keep_source_diameter": true,
+      "steel_factory_bores_mm": 10.0,
+      "steel_ports": 88,
+      "unique_axis_receiver_pairs": 120,
+      "wood_bores_mm": 10.31875
+    },
+    "gravity_route": {
+      "additional_metal_own_hosts_exist": true,
+      "base_selfweights_once": 50,
+      "fitting_loaded_centroid_route": "source-point-wrench-through-internal-rigid-heel-v1",
+      "gravity_force_or_q_evaluated_by_reviewer": false,
+      "no_duplicate_shaft_owner_selfweight": true,
+      "shaft_own_role_loads_once": 500,
+      "unchanged_additional_metal_source_roles": {
+        "screw": 132,
+        "tnut": 142
+      }
+    },
+    "gross_timber_rows": "20 exact unchanged source profiles plus2 new cleat raw profiles, declared gross stiffness only",
+    "input_schema": "eoere_first_order_mechanics_inputs/v1",
+    "loaded_four_port_datums": {
+      "governing_entry_witness": {
+        "angle_id": "eoere_clip_horizontal_upper_left_1",
+        "axis_id": "eoere_bolt_055",
+        "flange": "post",
+        "position_error_mm": 5.029831023774188e-10,
+        "source_transverse": 1
+      },
+      "maximum_entry_position_error_mm": 5.029831023774188e-10,
+      "maximum_external_stack_face_station_error_mm": 7.810470467775194e-09,
+      "ports": 88,
+      "source_transverse_reversal_matches_actual_u_minus_w_v_map": true
+    },
+    "protected_scope": {
+      "Hillman_unique_axes": 66,
+      "corner_xy_old_law_not_inherited": true,
+      "floor_hosts": 8,
+      "floor_normals": 32,
+      "source_plane_roundoff_unsnapped": true,
+      "unchanged_panels": 6,
+      "whole_host_centroid_xy_components": 16
+    }
+  },
+  "complete_reference_contact_inventory": false,
+  "disposition": "READY_DEFERRED_EXTRACTION_METHOD_ONLY",
+  "findings": [],
+  "limits": [
+    "Fresh geometry metadata method; no candidate BREP import/query/extraction/profile/q/K/force/response/native solve by reviewer.",
+    "Reference coplanar planar positive-area masks only; curved/noncoplanar/current-overlap contact completeness is not established.",
+    "Full-circumference wall intervals are a mechanical bearing geometry scenario, not directional contact pressure or bolt/NDS capacity.",
+    "Gross beam/four-strip stiffness, bedding and Hillman/floor priors are unmeasured conditional scenarios.",
+    "No delivered hardware geometry/material/root/thread properties, inspected timber or complete resistance/release."
+  ],
+  "release": {
+    "actual_inputs_reviewed": false,
+    "candidate_admitted": false,
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "physical_contact": false,
+    "structural": false
+  },
+  "remaining_production_requirements": [
+    "Parent-owned serialized28 cached BREP import/query extraction; verify actual120finished wall records and own capture host spans.",
+    "Independent review of immutable extracted source rows, full planar reference contact census and query dispositions, every masked cell/area/normal/owner, floor datums and source load IDs/conservation.",
+    "Consumer requires distinct eoere_first_order_mechanics_inputs_independent_review/v1 success independent_eoere_successor_source_input_checks_pass with complete_reference_contact_inventory=true and raw input path/SHA. This method receipt deliberately cannot satisfy that contract.",
+    "Actual prepared assembly/new scenario source closure and future same-state mechanical/admission checks remain separate; no old132-owner field or acceptance transfers."
+  ],
+  "schema": "eoere_successor_mechanics_extractor_independent_method_review/v1",
+  "source_binding": {
+    "all_before_after_source_bytes_unchanged": true,
+    "consumer_and_port_sources": {
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py": "4103015c05405e930e10c90edb5e147dd9d1ec2fb0575f17e3e4efc01a6cb66b",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_factory.py": "5ca9a2018cc8a45fbddcf929f446cdd22b9d5fcae6ba816959de2c897b464570",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/four_port.py": "8482d5f3f1d01eee9141db2bbeef5237f87cb7d78f00619749604c0a23f57567",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/guarded_assembly_interface.py": "a2b5ef4f45d05f3a29c428583238c3ead927ac7ae259a6c4a8d7c63ded3d0ad8"
+    },
+    "extractor": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/extract.py",
+      "sha256": "b02cb1318518dda0949ac6175b72a130d5379a8ca45d4776ee22e540bd6769a4"
+    },
+    "finished22_and_panel6_BREP_hashes_read_without_import": true,
+    "geometry_mirror": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-geometry-v2.json",
+      "sha256": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd"
+    },
+    "geometry_report": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json",
+      "sha256": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd"
+    },
+    "plan": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/plan.json",
+      "sha256": "d398c68c2942ec2848711da46b01f405b39721e0386dd4bf087acb5c2ae8abca"
+    },
+    "review_union_map_canonical_sha256": "d4f785200a46016cd2b58db316d36abadf2782f42bfa3611940d492d582f4641",
+    "review_union_pin_count": 333,
+    "scene": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/scene.json",
+      "sha256": "8599fca392ccf2ec366ab4c39e4c1d74be89da50167edc7c760e5cb73c524c4a"
+    },
+    "source_plan_map_canonical_sha256": "33ca1bd9b7fd52c2262dece6c9e533839fa68273749940311ad1a4ce99e5e006",
+    "source_plan_pin_count": 328,
+    "test": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/test_extract.py",
+      "sha256": "382f56682aab4757cbeac080ba16b8494de4e354034c1554fcdbc58bb7b22754"
+    }
+  },
+  "success": "independent_eoere_successor_deferred_extractor_method_checks_pass",
+  "verification": {
+    "executable": "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+    "pytest_command": "uv run pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/test_extract.py",
+    "pytest_result": "8 passed in1.79s",
+    "python": "3.12.3",
+    "ruff_command": "uv run ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/extract.py fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/test_extract.py",
+    "ruff_result": "All checks passed",
+    "source_only_check": "Authenticated read_sources; compared exact plan/map/owner and scene port datums without calling extract, import_cached, shafts, contact_bank, flange_bank or an assembly.",
+    "toy_only": [
+      "new cleat gross raw datum",
+      "strip sign ownership and rejection",
+      "own head/nut capture hosts and ambiguity rejection",
+      "serialized extraction guard before import",
+      "hex/cylinder/annulus own-role axial centroids",
+      "full-circumference toy bore wall",
+      "holed toy shared face area/centroid/inward occupancy",
+      "nominal holed flange half area/centroid stiffness weighting"
+    ]
+  }
+}

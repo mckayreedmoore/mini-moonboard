@@ -1,0 +1,101 @@
+{
+  "schema": "eoere_conditional_steel_shaft_comparison_preparation/v1",
+  "status": "PURE_METHOD_PREPARED_PENDING_INDEPENDENT_REVIEW",
+  "source_sha256": {
+    "scripts/thin_bolted_flange_torsion.py": "48e3181f65772cb2d21be6687a011eaeba6a35491b6299cd179759f66ffc6871",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "mini_moonboard/wood_joint_bolt_resistance.py": "488e58bbd58fbc2f22af5d4122e734732bae09de79dad71bbf2623eeca60b166",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/scene.json": "8599fca392ccf2ec366ab4c39e4c1d74be89da50167edc7c760e5cb73c524c4a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-inputs-final.json": "dd662e681871576d0a76666e9370d4359f7e96e0a2ad5f9710553895f53a5309",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/inputs.json": "a938b41e53f5708c74e30ec1f021e894513ab6be4b1c6df390bababcfeebbd8e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/guarded_assembly_interface.py": "a2b5ef4f45d05f3a29c428583238c3ead927ac7ae259a6c4a8d7c63ded3d0ad8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py": "4103015c05405e930e10c90edb5e147dd9d1ec2fb0575f17e3e4efc01a6cb66b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/four_port.py": "8482d5f3f1d01eee9141db2bbeef5237f87cb7d78f00619749604c0a23f57567",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-shaft-comparison-v1/comparison.py": "9d670f264d5b074abf4cbd48baaebde486b1c15e3ddb612302bd1f41a577a360",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-shaft-comparison-v1/test_comparison.py": "7e14df56a8265f8f9b705f09a74249d4f19fa8f878555b3ead0c127e28240afb"
+  },
+  "referenced_source_map_paths": [
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-inputs-final.json"
+  ],
+  "source_pin_union_count": 153,
+  "source_pin_union_canonical_sha256": "d773d32cfdd57e08c98596fcb01334e4ff41321264c2696ccfa37e6eacb90b5f",
+  "source_pins_before_after_unchanged": true,
+  "input_geometry_counts": {
+    "timber": 22,
+    "panel": 6,
+    "bracket": 22,
+    "bolt": 500,
+    "screw": 66,
+    "wire": 131,
+    "physical_bolt_axes": 100,
+    "new_bolt_axes": 88,
+    "retained_starting_bolt_axes": 12,
+    "lights": 132,
+    "tnuts": 142,
+    "total_visible_parts": 1021,
+    "owned_scene_solids": 544,
+    "angle_stacks": 84,
+    "cleat_post_stacks": 4,
+    "factory_holes": 176,
+    "installed_factory_holes": 88,
+    "starting_duties_accounted": 24
+  },
+  "shaft_diameter_count": {
+    "9.525_mm": 96,
+    "12.7_mm": 4
+  },
+  "fitting_ids_canonical_sha256": "368a8d7eb87303c770d7e2fa0071b90badb26f874822e719de6a184695d6d073",
+  "own_strip_scenario_input": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/inputs.json",
+  "comparison_geometry": {
+    "arm_length_mm": 88.9,
+    "fitting_width_mm": 88.9,
+    "thickness_mm": 6.35,
+    "half_strip_width_mm": 44.45,
+    "root_to_neutral_tip_mm": 65.0875,
+    "near_unused_hole_station_mm": 23.8125,
+    "far_used_hole_station_mm": 65.0875,
+    "hole_diameter_mm": 10.0,
+    "hole_to_half_strip_centroid_offset_mm": 3.175
+  },
+  "steel_elastic_analogy_mpa": 200000.0,
+  "product_steel_fy_mpa": null,
+  "product_steel_fu_mpa": null,
+  "bolt_grade_or_fy_adopted": null,
+  "optional_fy_contract": "Caller-only {fy_mpa, material_basis, scenario_id}; NULL by default; no blanket ASD factor or joint allowable",
+  "future_consumer_contract": [
+    "Actual distinct successor gate must return PASS on exact raw field bytes/state before any action vector is consumed; historical132/62-body gates are incompatible.",
+    "Bind actual input/geometry/source/map/operator hashes and top-state table canonical hashes; common recovery does not supply per-cut state labels.",
+    "Exactly22 source fitting descriptors plus22 loaded four-port responses: four unique own roots/tip ports each, loaded-heel recovery and same immutable operator/source snapshot.",
+    "Use each of88 independent half-strip root+neutral-tip fields; preserve both heel-transported flange wrenches without substituting their sum for strip stresses.",
+    "Exactly100 own shaft rows joined to actual physical axes:96 nominal9.525 and4 nominal12.7; fresh cuts retain station_from_axis_point_mm, point and all signed N/V/M/T at that same cut.",
+    "New independent gate must replay source external shaft loads, captures/bearings/gravity, cut census and local basis; this pure helper cannot authenticate those loads.",
+    "No old centered two-ligament proxy: each successor half-strip has an eccentric hole and multiple rows; actual holed stress field needs its own method."
+  ],
+  "limits": [
+    "Gross half-strip fields fill all near and far factory holes; no actual holed-plate stress bound.",
+    "Four strips have independent longitudinal response; summed flange wrenches cannot replace their own comparisons.",
+    "Actual formed heel radius, thinning, restrained warping, plate continuity, local load introduction, contact and prying are unresolved.",
+    "Collector gravity is the declared point-wrench interpolation, not actual distributed fitting weight.",
+    "Shaft nominal circles do not establish delivered shank, thread root/occupancy, notch, head, nut, stripping or seating resistance.",
+    "Product Fy/Fu and bolt grade are unverified; nominal first-yield markers are not code-qualified allowable joint strengths.",
+    "No complete joint, physical demand bound, pressure, floor, timber or fabrication acceptance."
+  ],
+  "candidate_field_q_force_CAD_K_native_or_solve_executed": false,
+  "production_consumer_or_candidate_readiness": false,
+  "physical_or_fabrication_acceptance": false,
+  "tools": {
+    "python": "3.12.3",
+    "numpy": "2.5.2"
+  },
+  "execution_orig_argv": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-shaft-comparison-v1/comparison.py",
+    "--out",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-shaft-comparison-v1/plan.json"
+  ],
+  "reproduction_command": "uv run python fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-shaft-comparison-v1/comparison.py --out /tmp/eoere-steel-shaft-plan-replay.json"
+}

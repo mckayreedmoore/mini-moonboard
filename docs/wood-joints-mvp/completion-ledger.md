@@ -1956,7 +1956,8 @@ joint findings. The reviewed geometry, load basis and release boundaries remain.
 
 **Goal reset after the eoere scope change.** The owner explicitly replaces
 the previous build-completion objective with useful numerical MVP completion
-like the previous conditional A12 assessment. The new goal is active. Its
+like the previous conditional A12 assessment. The conditional numerical
+deliverables are now complete in the current receipt below. The goal's
 deliverables are one coherent successor review layout, validated four-port
 mechanics, a bounded admitted original-envelope A12 field, complete scoped
 joint/component numerical dispositions and practical hardware/access,
@@ -2119,6 +2120,259 @@ The proposed body census is **150**, including 100 common shafts. Candidate
 input extraction, source-bound assembly, fresh A12 equilibrium/admission and
 joint/component reductions remain next; none has run from the method receipts.
 
+The geometry/viewer/inventory milestone is committed and pushed on `master`
+as `9f37b137`. It adds 20 owned files totaling 1,168,222 bytes; the scene and
+two source-bound receipts account for most permanent geometry bytes. Other
+agents' fourteen unrelated untracked files remain untouched.
+
+The independent deferred-extractor review is **METHOD READY**, receipt
+`raw-angle-review-v1/independent-mechanics-extractor-method-review.json`, SHA
+`7d698389bbfef00b87fb232097c7fb09f92917c7320e23dfb1bdd48e244b01b1`.
+Eight tiny fixtures and Ruff pass, all 333 review-union pins authenticate,
+and 88 owned port datums reproduce within 5.03e-10 mm. This method receipt
+deliberately does not satisfy the subsequent actual-input review contract.
+The parent then executes the reviewed extraction, without rebuilding the
+frame or assembling a mechanical model:
+`EOERE_PARENT_SERIALIZED_EXTRACTION=1 PYTHONDONTWRITEBYTECODE=1 uv run python fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/extract.py --geometry-sha256 05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd --mode extract --output fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/inputs.json`.
+The result is **12,001,423 bytes**, SHA
+`7a003cb7fe6d14a8644a3030b45caf96a7a4b59618d8c1703c3e3626f267d4b4`,
+with all 328 source pins unchanged. It imports 22 finished timber and six
+unchanged panel BREPs and queries finite bearing walls, centroids, floor faces
+and shared planar masks. It contains 120 receiver records, 88 flange domains,
+38 timber interfaces, 67 panel interfaces and **1,631 reference contact
+points**: 330 timber, 949 panel and 352 flange. All eight floor footprints
+are at Z0. The 150 physical owners have 827 point loads, including 500 separate
+shaft-role loads. Their total planning weight reproduces the inventory to
+reported precision.
+The A12 force sum is (0, 300, −4,370.757768) N, including dead load and the
+unchanged 25-kg allowance. Finished wood bores reduce nominal flange backing
+fractions to 0.998371–0.998552, so missing area does not receive stiffness.
+Gross raw-stock stiffness remains separate from the finished wall/contact
+geometry. The immutable result retains false/null review readiness until its
+distinct independent production review; no K, q, force field or native
+structural solve has run.
+
+The guarded four-port factory/runner method also passes its independent
+bounded review: 14 guard and 21 factory/runner fixtures, Ruff and 29 unchanged
+pins. Receipt `raw-angle-review-v1/independent-guarded-factory-method-review.json`
+is SHA `1c506aa23cb76ba13934462deedb016c03113a1d683bd805967531d120ca58ca`.
+Review found and corrected an unissued runner's energy/gradient tuple index
+before production; successful dispatch now requires the finite full-coordinate
+original gradient. Loaded strip/root recovery and source/operator immutability
+are checked separately from the frozen unloaded method. A distinct execution
+wrapper now adds a raw CSR operator bundle so independent field admission can
+replay the original law without a second candidate preparation. Its readiness,
+actual-input review and the fresh field gate remain required before execution.
+
+The distinct actual-input review now passes the declared planar reference
+census and all source joins. Issued receipt
+`raw-angle-review-v1/independent-mechanics-inputs-review-final.json`, SHA
+`5f5a10265fb7a8e0eecbd083cc999cdd7cea11f65ae76dcae0a7c33d07d4783b`,
+authenticates 332 unchanged review pins, all 363 timber/panel pair dispositions,
+120 full-wall receiver spans, 200 own capture hosts, 88 loaded ports/domains
+and 827 loads. Independent cell area/centroid differences are at most
+1.8555e-5 mm² / 2.0954e-8 mm. The parent separately replays the factory's
+read-only input/review contract and authenticates its 340-pin union without
+preparing a candidate. The original extraction readiness stays false/null;
+the outer receipt supplies the reviewed input contract. Reference-plane
+completeness does not qualify curved, noncoplanar or displaced contact.
+
+A separate old FaceDomain decoder rejects twelve valid two-hole flange
+signatures because of its circular ray parity at a seam ordinate. Native
+trimmed masks and direct rectangle-minus-circle arithmetic agree. The failed
+auxiliary record is
+`raw-angle-review-v1/auxiliary-saved-domain-decoder-flange-failure.json`, SHA
+`515c9d7fb192dad40b6f2975145cd887996d50b751afc17c7c0e6b3980de195f`.
+That decoder is excluded for these signatures; its failure does not rewrite
+the frozen geometry or invalidate the native masks. No new CAD query is
+commissioned to repair this unrelated method.
+
+The distinct `operator_bundle.py` / `run_first_order_v2.py` export seam is
+also independently **METHOD READY**, receipt
+`raw-angle-review-v1/independent-operator-v2-method-review.json`, SHA
+`56201ebf7d9d420bcf6f5271b5271c404643115b3441ac36cc87cd6e7e3106c5`.
+Fourteen tiny fixtures, Ruff and 34 unchanged pins pass. The exact original
+CSR arrays, RHS, rigid modes and coordinate chart are captured before the
+single search, with artifact hashes in its state identity. Independent
+unsorted/duplicate-column/int64 replay retains every raw byte and agrees
+within 2.22e-16. The 28ce core and 5ca9 factory remain unchanged. A source-bound
+independent field gate is the remaining execution-readiness check.
+
+Minimal component reducers reuse the existing signed member-cut, rectangle,
+torsion and circular-section arithmetic. Their independent method receipt
+`raw-angle-review-v1/independent-component-method-review.json`, SHA
+`b359b424b1aa1871cb3c65c09d402b4f9074d698b1da8200f9f323cc5014fd85`,
+checks 23 tiny fixtures, Ruff and 165 unchanged pins. A separate compact
+consumer receipt, SHA
+`f3d7c9d0624986a1f4d34f0a695e31c38961f806d3144d8936cece135f3d83b5`
+at `raw-angle-review-v1/independent-component-consumer-method-review.json`,
+checks nineteen fixtures and the source-only 359-pin preparation. Its narrow
+new-gate integration remains pending. No actual actions were consumed. The
+scope is 22 angle duties plus two cleat corners, 100 own shafts, 200 annulus
+mean diagnostics, 66 simultaneous screw references, six panel summaries and
+22 fresh gross-member witnesses. Changed net sections, washer pressure
+couples, actual steel/bolt/Hillman properties and complete joints remain
+explicitly unresolved.
+
+The first complete gate review identified two compatibility/ownership defects:
+an absent historical usability flag and insufficient verification of recovery
+source labels. The e61 gate and its failure review remain preserved, with
+blocker receipt `raw-angle-review-v1/independent-original-gate-blocker-review.json`,
+SHA `4ff9b4a8f2e817f56ab0ddef8f11e6c8d9dd84870c141aaef765387fefe846fc`.
+The distinct corrected gate at SHA
+`bfb984c47372d20387883d11d1d49f8a12d9debda1b0c78f1c024ace01bc2821`
+passes 27 focused fixtures and an independent bounded method review, receipt
+`raw-angle-review-v1/independent-corrected-gate-method-review.json`, SHA
+`cea3f3a21c3a0b5c34ac5c2aa44fc1cb429d694f6640e0eeae7b1b697047f7db`.
+The unchanged laws/operators and exact source metadata are retained; independent
+tiny gradient/energy errors are at most 7.11e-14 N / 2.84e-14 N·mm.
+The corrected consumer adapter also passes its exact-byte integration review,
+receipt `raw-angle-review-v1/independent-corrected-component-gate-api-review.json`,
+SHA `93c16ee5d072e1e4ba63d6f763eec864979630d5913e7c4d054fdb2a150d0ff5`.
+
+After authenticating five readiness receipts and 381 union pins, the parent
+freezes `a12-first-order-v2/execution-plan.json`, SHA
+`b7e64565bc67f02a6a93ee1342f2de429a42da390d0852af620670275e4ceb4a`,
+and executes one fresh original-envelope A12 calculation. It finishes in
+73.274 seconds after three support patterns, with a self-consistent final
+whole-foot mask and 3.6909e-6-N original generalized residual. The untouched
+22,921,780-byte pending field has SHA
+`dad00e84ae98333beeb89a0c2403d48d9f40e9189c4525fc3746b8b3118de598`.
+Its original raw operators are saved before the search, NPZ SHA
+`9212d17859e426cf0f7058699c4c25252326cc1df553f7e370346837c3255635`
+and manifest SHA
+`689176439d184fc36d60f77f1faadcf5b7ffbcbce4628fa57b635690fd097b53`.
+This is a pending numerical field, not admitted component demand. The parent
+full gate stops at a shaft-cut recovery source/guard metadata mismatch;
+`a12-first-order-v2/admission-failure.json` preserves the traceback and exact
+input identities. Its cause is under independent review. Do not change the
+field, relax force checks or rerun the load calculation to repair this gate.
+All release flags stay false.
+
+The saved-field stop is an ordering defect, not a force mismatch. JSON sorts
+the captured shaft-map dictionary while the producer recovers cuts in the
+authenticated input-list order. Independent review joins all **100 complete
+shaft records / 5,908 signed cuts** by owned axis and verifies exact agreement.
+The failure receipt SHA is
+`71d10f8c7c6b48a91661af76794dfd2000f9fbe5fbbf8eaa33ea80bffbe02071`.
+A distinct source-order recovery adapter at SHA
+`a32992a3a5f4fb8c16a0402ad522b938650d8744200ca4d8a28dfd38e07a0008`
+retains the e61/bfb gate bytes, numeric checks, tolerances and field tables.
+Its independently reviewed nine-fixture method receipt is
+`raw-angle-review-v1/independent-source-order-gate-method-review.json`, SHA
+`e3abe7cda2817972f31ed57c3c45cddd8529133488aa4ab69db3f1a2ab632fe0`.
+The revised consumer path also passes its narrow byte/provenance review,
+receipt SHA `1a8060734eea71e53eaed1089c5f18ae4f8a1da034b3ed8d02a796ef05c47c8f`.
+
+**Current eoere conditional numerical packet complete.** The parent full
+admission of the unchanged pending field now passes, receipt
+`a12-first-order-v2/admission-v3.json`, SHA
+`383772d00e6f6c9207a833f5a9a067b6eaa1ca01279eb367c6ef518e41f77ee0`.
+One independent saved-operator replay reproduces that receipt canonically,
+with 401 unchanged pins and no candidate preparation or new solve. Actual
+review `raw-angle-review-v1/independent-actual-admission-review.json` has SHA
+`d0ad37536e4bf10bd4734ade646f69c82145f65920d4d21947b691ff4620988e`.
+All **150 owners / 9,272 coordinates**, original floor law, 827 loads, 22
+loaded fitting recoveries, 208 own surfaces and signed shaft cuts are checked.
+Maximum body residual is **3.766e-6 N / 0.003079 N·mm**; global residual norms
+are **9.051e-7 N / 0.000967 N·mm**. Distributed panel RHS and material K remain
+exact source-authenticated captures, not independently regenerated operators.
+
+The parent same-state component consumer issues
+`a12-first-order-v2/components-v3.json`, SHA
+`03e04dc47bb7b7705463d1883be9b18e76d8401d2e91cea2733517c5ef423d21`
+(1,350,904 bytes). Independent actual component review SHA
+`4e3d643cff8cd869f4cf03af56e8e7a6efee269c910c590d3524fcfe6645722f`
+at `raw-angle-review-v1/independent-actual-component-review.json` verifies
+393 pins, all 24 duties, 88 own steel/120 wood surfaces, 200 captures,
+66 screws, six panels and 4,010 fresh gross-member stations. Independent
+affine-gravity cut replay differs by at most 2.956e-12 N / N·mm; screw,
+capture and panel arithmetic agrees exactly. Separate scalar steel review
+`a12-first-order-v2/independent-steel-shaft-review.json`, SHA
+`a2ca357b20d11bb52b76aa10fa449bf4252e1e90760c0b15f2c28cdb802c09fe`,
+checks all 176 gross-strip endpoints and 5,908 nominal-circle cuts, maximum
+arithmetic differences 1.421e-14 MPa / 1.776e-15 MPa. Actual steel strength,
+bolt grade, thread roots, holes, formed heels and complete resistance stay null.
+
+The [current compact assessment](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/assessment.json)
+is **424,757 bytes**, SHA
+`ca94da5882097c480052ab97bc64211683372ad2734f80c13a04175e734c3cfe`.
+Its 21,625-byte pure curator, SHA
+`0fedda2eb16bd688935eaa9896612d864eadf21a798e686693aef4fe510e577c`,
+checks genuine raw-byte admission before selecting stored witnesses; it
+does not rerun component algorithms. Four tiny fixtures and independent
+method review SHA `64377bc4ddd60e3f3c1ef1d8495cd05921638918c8b2354f4d35f582fb6616aa`
+pass. The assessment binds 394 source pins through the untouched raw
+component closure, all 24 duties, 100 governing shaft cuts, 66 simultaneous
+Hillman references, 200 nominal annuli, all six spatial panel fields and
+22 gross-member witness pairs. The raw pending flags and frozen geometry
+contract stay unchanged; these later receipts establish numerical closure.
+
+The independent actual-output review also passes, receipt
+`raw-angle-review-v1/independent-actual-assessment-review.json`, SHA
+`3b72c40e40c6915d73b068994b9e1f0f23879dc7db80015852e725e4305f9cde`.
+It authenticates 399 review pins and all 394 unchanged producer pins, checks
+every stored copy and own-action join, and retains the full spatial panel
+limitations, four weak-column sensitivity exclusions, motion diagnostics,
+null capacities and false release flags. This is a review of the actual
+issued assessment, without another solve or component/curation rerun.
+
+Current governing findings are **2.563273** generic head index, two exceeding
+axes, with **1487.448 N** withdrawal plus **644.659 N** simultaneous lateral;
+**62.741 mm** generic CD1 effective thread requirement versus **45.244 mm**
+nominal length after the panel; upper-left spatial bending/rolling indices
+**4.595869 / 2.438902** at CD1; and sampled fully braced gross normal/sufficient
+shear-torsion indices **0.486487 / 0.856880**. Four full-length K1 weak-column
+sensitivity domains are exceeded; actual bracing, continuous maxima and
+changed net/fracture resistance remain unresolved. Nominal gross steel stress
+envelopes peak at **93.809 MPa** for a fitting strip, **218.134 MPa** for a
+3/8-inch shaft and **162.442 MPa** for a 1/2-inch shaft. These have no adopted
+Fy/allowable utilization. The largest full-annulus capture mean is
+**0.886903 MPa**; actual pressure couples, washer bending and seats are not
+evaluated by that average. Numerical closure does not clear these mechanisms.
+
+The signed connection record
+`bolt-placement-v1/connection-signed-a12-v2.json`, SHA
+`0804764aa5df1499506ed6521c09341dd2475ccda24090db5c7ff557663a774b`,
+joins sixteen own-member resultants to exact admitted bearing/capture actions.
+Three post components act toward the 38.9-mm end, with **0.583427** end-only
+markers; all four cleat components act toward the 60.3-mm end, marker
+**0.904387**. The right first post component acts away. All sixteen resultants
+are oblique and some distributed bearing forces reverse direction, so a
+complete Cdelta/group resistance is not adopted. Both rim resultants act
+away from the 29.108-mm short edge; its bare 4D comparison is not a current
+signed rejection. The pinned geometry reference record, SHA
+`996c623c3904f75d14eafd0d25fd17660196dac778af6a5f9e75c73a47c36115`,
+keeps the general NDS 1/32–1/16-inch bolt-hole oversize rule: nominal wood
+10.31875 mm meets its lower bound, while steel 10.0 mm is 0.31875 mm below it.
+No installation exception, arbitrary oblique reduction or group/splitting
+capacity is inferred. Online [AWC Chapter 12](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20210928_AWCWebsite_Chapter12.pdf)
+and its [bolted-connection article](https://web-media.awc.org/wp-content/uploads/2021/12/17210649/StructureMag-NDS2015-PracticalSolutions-1611.pdf)
+corroborate the pinned end-reduction and hole provisions; the pinned 2024
+edition remains the adopted arithmetic source.
+
+Practical disposition `reuse-plan-v1/practical-disposition-v1.json`, SHA
+`bd6ed1b9814b62bae8473905b1905fca1d7015d84e069218ce7c0d17d3705b82`,
+retains the independently checked **218.897 kg** planning mass, 13-stock-stick
+takeoff, nominal cleat offcut yield and partial **6*C4 + $61.93 + U** cost.
+It reuses panel/harness planning and generic access methods, while explicitly
+withholding the predecessor's 140-side/70-shaft tool passes for the current
+200-side/100-shaft layout. The lower bore/screw gap remains **0.340625 mm**;
+four nominal 8-inch bolts retain separate model/catalog delivered-length
+comparisons. Actual holes, stock, thread/shank windows, seats, tools and costs
+remain blank observations. No drilling, purchasing or physical work is released.
+
+The current first-order markers reach **28.273 mm** at an owned interaction
+point and **0.071714 rad** relative timber/fitting-strip rotation. These include
+assembly motion, not measured physical deflections. Physical contact, stiffness,
+prestressed/finite stability and demand-bound applicability remain unqualified.
+Next work addresses panel load transfer and lower-hole clearance, actual
+product/material/hardware datums, changed net cuts and complete signed
+joint/group/fracture mechanisms. All 24 complete-joint resistances remain
+unqualified; structural, fabrication and climbing release flags remain false.
+No stock enlargement, extra load sweep, native solve or blanket external
+sign-off prerequisite is commissioned by this numerical closure.
+
 The completed geometry, inventory and viewer milestone is recoverable in
 `/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/eoere-geometry-and-inventory-v1.tar.gz`,
 SHA `2310af172edb56f3afe6667c804fa050e5818d302cd4de0fda54578124560dd2`
@@ -2134,6 +2388,70 @@ checks. The raw-angle audit file and active four-port/mechanics extraction
 work are outside this snapshot. Finished geometry and its dependencies remain
 active inputs; closed failed studies and display checks are recoverable history.
 No files are pruned, and the archive does not authorize pruning active inputs.
+
+The completed current numerical packet is additionally recoverable in
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/eoere-current-a12-complete-v1.tar.gz`,
+SHA `8aa1d919365ca52c313dbd8d352746cc0c53feb5a9c2457c2192409822b7b6be`
+(6,450,484 bytes). Its companion `.manifest.json` is SHA
+`6e6063c2dbf468ed87bc213c774bb92b56142982e648fb0c613d7b75599a15f7`
+(43,049 bytes), covering **148 files / 48,570,067 source bytes** in thirteen
+directories under eight explicit packet roots. Creation, separate verification
+and a fresh restore pass for every file; all 148 live sources remain unchanged.
+This includes the input extraction, exact operators and field, component and
+compact assessments, execution plans, current producers, independent reviewers,
+fixtures and preserved method failures. It complements the geometry archive
+above and the earlier shared-method archives; unchanged CAD libraries, reference
+manuals and dependencies are not copied into this packet. Recovery to a new
+destination uses:
+
+```sh
+uv run python scripts/evidence_archive.py restore \
+  --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/eoere-current-a12-complete-v1.tar.gz.manifest.json \
+  --destination /tmp/mini-moonboard-eoere-a12-recovery
+```
+
+Restored files retain their original repository-relative paths. Restore the
+ignored dependencies from these archives at those paths before using the
+recorded execution commands. The frozen execution plan contains the actual
+field invocation and bounded budgets; it is not an instruction to repeat the
+calculation during routine documentation work. The actual compact curation
+command was:
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 .venv/bin/python -B \
+  fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/compact_assessment.py \
+  --mode curate \
+  --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/assessment.json
+```
+
+Use a new output destination for reproduction; preserve every issued receipt.
+Geometry, inputs, operators and their source dependencies remain active.
+Closed failed geometry/method studies and review outputs remain recoverable
+history. No source, raw run or other agent's work is removed or pruned.
+
+The [owned numerical publication inventory](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/owned-publication.json),
+SHA `eca060a7a8a02351cb32f378d24632b3cc89f402834535f7c53843b0a1245717`,
+identifies **112 immutable added paths** plus its own 28,269-byte inventory:
+**113 new files / 2,152,270 bytes**, comprising 66 Python sources and 47 JSON
+records. These preserve the actual producers, independent reviewers, method
+fixtures, source bindings, failures and compact full-duty findings. The largest
+permanent file is the 424,757-byte assessment; its complete owned actions,
+spatial panel dictionaries and explicit missing capacities are needed to review
+the result without committing the 23-MB field or 12-MB input extraction.
+Raw operators, field, inputs, detailed components and duplicate/draft inventory
+records stay in the verified external archive and ignored working locations.
+The inventory itself was created after the archive and is retained in Git.
+Only the current README, this existing ledger and `ruff.toml` are mutable
+owned updates. Fourteen unrelated upper-corner helpers remain untouched.
+The narrow file-specific Ruff B023 exception preserves an issued reviewer's
+synchronous mutation lambdas; they are invoked immediately within each loop
+and do not escape. No frozen reviewer bytes or numerical tolerances change.
+Final publication checks pass for all 66 owned Python files, 543 local links
+in the two maintained documents, the 394-pin assessment source union and the
+113-file publication inventory. The four authority contracts and pinned
+`pyproject.toml` remain unchanged. Existing method fixtures, nominal occupied
+geometry, browser and mesh checks remain their scoped evidence; publication
+does not repeat native solves, CAD builds or historical exports.
 
 **Initial eoere scope, superseded at the lower corners above.** The owner's separate design
 discussion now replaces the B103/B104 proposal with eoere B0C7V7VS89 angles.

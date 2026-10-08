@@ -1,0 +1,277 @@
+{
+  "actual_component_pin_count": 386,
+  "all_source_pins_before_after_unchanged": true,
+  "complete_same_state_census": {
+    "admitted_signed_shaft_cuts": 5908,
+    "angle_duties": 22,
+    "current_panels": 6,
+    "fresh_gross_members": 22,
+    "own_ports": 88,
+    "own_washer_captures": 200,
+    "replacement_corner_duties": 2,
+    "shaft_owners": 100,
+    "simultaneous_Hillman_screws": 66,
+    "wood_paths": 120
+  },
+  "execution": {
+    "PYTHONPATH": ".",
+    "cwd": "/home/mckay-linux/repos/mini-moonboard",
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "sys_orig_argv": [
+      ".venv/bin/python",
+      "-B",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_actual_component_review.py",
+      "--steel-review",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/independent-steel-shaft-review.json",
+      "--steel-review-sha256",
+      "a2ca357b20d11bb52b76aa10fa449bf4252e1e90760c0b15f2c28cdb802c09fe",
+      "--output",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent-actual-component-review.json"
+    ]
+  },
+  "independent_actual_component_source_joins_and_scalar_checks_pass": true,
+  "independent_gross_member_findings": {
+    "K1_sensitivity_is_not_a_governing_bracing_or_stability_pass": true,
+    "finished_net_and_continuous_resistance_established": false,
+    "full_length_weak_column_domain_exceeding_members": [
+      "base_header",
+      "base_principal_center_left",
+      "base_principal_center_right",
+      "base_rail_top"
+    ],
+    "independent_fresh_sample_count": 4010,
+    "normal_governing": {
+      "full_length_over_weak_column_domain_limit": 1.184999999977175,
+      "gross_equal_moduli_shear_torsion_CD1": 0.8568795803272728,
+      "gross_fully_braced_normal_CD1": 0.4864867875746986,
+      "member": "base_rail_top",
+      "sample_count": 233
+    },
+    "shear_torsion_governing": {
+      "full_length_over_weak_column_domain_limit": 1.184999999977175,
+      "gross_equal_moduli_shear_torsion_CD1": 0.8568795803272728,
+      "gross_fully_braced_normal_CD1": 0.4864867875746986,
+      "member": "base_rail_top",
+      "sample_count": 233
+    }
+  },
+  "independent_panel_findings": {
+    "bending_governing": {
+      "component": "bending_x",
+      "panel": "main_upper_left",
+      "ratio_CD1": 4.59586861166998
+    },
+    "mean_net_cut_comparison_issued_in_this_component_output": false,
+    "rolling_governing": {
+      "component": "rolling_x",
+      "panel": "main_upper_left",
+      "ratio_CD1": 2.4389016522013973
+    },
+    "six_current_spatial_panels": [
+      {
+        "maximum_sampled_abs_outward_w_mm": 15.363391768838941,
+        "panel": "kicker_left",
+        "spatial_CD1_ratios": {
+          "bending_x": 0.6972413982060905,
+          "bending_y": 0.1488748850066686,
+          "rolling_x": 0.3650113620474149,
+          "rolling_y": 0.14276048317839496
+        }
+      },
+      {
+        "maximum_sampled_abs_outward_w_mm": 8.83790364561065,
+        "panel": "kicker_right",
+        "spatial_CD1_ratios": {
+          "bending_x": 0.4916990416231547,
+          "bending_y": 0.13292110556291703,
+          "rolling_x": 0.27604580102526266,
+          "rolling_y": 0.1348104737905808
+        }
+      },
+      {
+        "maximum_sampled_abs_outward_w_mm": 22.452532562299766,
+        "panel": "main_lower_left",
+        "spatial_CD1_ratios": {
+          "bending_x": 0.04268470609405588,
+          "bending_y": 0.03726452871348406,
+          "rolling_x": 0.018886268512342107,
+          "rolling_y": 0.013482661030053097
+        }
+      },
+      {
+        "maximum_sampled_abs_outward_w_mm": 10.275245807752714,
+        "panel": "main_lower_right",
+        "spatial_CD1_ratios": {
+          "bending_x": 0.0781867651192849,
+          "bending_y": 0.04092563088436323,
+          "rolling_x": 0.03352375614134987,
+          "rolling_y": 0.018408751259580806
+        }
+      },
+      {
+        "maximum_sampled_abs_outward_w_mm": 28.061394453320982,
+        "panel": "main_upper_left",
+        "spatial_CD1_ratios": {
+          "bending_x": 4.59586861166998,
+          "bending_y": 1.827048623257991,
+          "rolling_x": 2.4389016522013973,
+          "rolling_y": 0.8921072321933354
+        }
+      },
+      {
+        "maximum_sampled_abs_outward_w_mm": 22.410668765714423,
+        "panel": "main_upper_right",
+        "spatial_CD1_ratios": {
+          "bending_x": 0.8659060038375737,
+          "bending_y": 0.4609903485452268,
+          "rolling_x": 0.38613687924721957,
+          "rolling_y": 0.11198396199706705
+        }
+      }
+    ],
+    "spatial_diagnostics_are_not_mean_pressure_or_local_hole_head_seat_capacity": true
+  },
+  "limits": [
+    "The actual numerical field is source-bound and admitted; spring-model actions are not physical demand bounds.",
+    "The generic Hillman head/withdrawal references are not actual product steel/lateral/edge/punching resistance.",
+    "Six panel findings are sampled spatial spline diagnostics; no mean pressure or local hole/head-seat capacity pass follows.",
+    "All22 member results concern sampled gross rectangles with source affine gravity. Changed bores/net cuts, continuous extrema, fracture, actual bracing and complete stability remain unqualified.",
+    "N/A on the nominal full washer annulus is an average only; actual seat area, pressure couples/peaks, washer/nut/head resistance remain null.",
+    "Steel product Fy/Fu, delivered bolt root/shank and complete heel/hole/prying/group/corner/joint resistance remain unavailable."
+  ],
+  "maximum_arithmetic_differences": {
+    "capture pressure plane": 0.0,
+    "capture support plane": 0.0,
+    "fitting external force": 0.0,
+    "fitting external moment": 0.0,
+    "fitting force residual": 0.0,
+    "fitting moment residual": 0.0,
+    "fresh member basis": 0.0,
+    "fresh member dimensions": 0.0,
+    "fresh member span": 0.0,
+    "generic head index": 0.0,
+    "generic head reference": 0.0,
+    "generic required thread": 0.0,
+    "independent gross cut sixvector": 2.9558577807620168e-12,
+    "independent gross witness ratio": 6.938893903907228e-18,
+    "independent panel deformation": 0.0,
+    "independent sampled gross maximum": 6.938893903907228e-18,
+    "independent spatial panel ratio": 0.0,
+    "independent spatial panel resultant": 0.0,
+    "independent spatial panel witness": 0.0,
+    "own annulus area": 0.0,
+    "own annulus average": 0.0,
+    "own capture scalar": 0.0,
+    "own screw point": 0.0,
+    "panel reference": 0.0,
+    "same current panel q slice": 0.0,
+    "same screw lateral": 0.0,
+    "same screw withdrawal": 0.0,
+    "signed simultaneous screw": 0.0,
+    "steel port force": 0.0,
+    "steel port moment": 0.0
+  },
+  "new_consumer_force_reduction_CAD_query_profile_K_or_solve_executed": false,
+  "own_nominal_washer_average_peak": {
+    "axis_id": "eoere_bolt_005",
+    "compression_n": 390.75071194478994,
+    "end": "nut",
+    "host": "base_rail_top",
+    "id": "eoere_bolt_005/nut-capture",
+    "nominal_full_annulus_average_pressure_mpa": 0.886902744400578
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "same_axis_generic_Hillman_governing": {
+    "axis_id": "round_panel_upper_left_rim_4",
+    "generic_head_exceeding_axes": [
+      "round_panel_upper_left_rim_4",
+      "round_panel_upper_left_edge_2"
+    ],
+    "generic_head_ratio_CD1": 2.563273435443486,
+    "generic_withdrawal_required_effective_thread_mm_CD1": 62.74088725241666,
+    "gross_nominal_length_after_panel_mm": 45.243750000000006,
+    "lateral_n": 644.6591012841101,
+    "panel": "main_upper_left",
+    "receiver": "base_side_left",
+    "withdrawal_n": 1487.4481132690844
+  },
+  "saved_current_field_read_for_independent_arithmetic_only": true,
+  "schema": "eoere_same_state_actual_components_independent_saved_review/v1",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/admission-v3.json": "383772d00e6f6c9207a833f5a9a067b6eaa1ca01279eb367c6ef518e41f77ee0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/audit_steel_shafts.py": "052b7a59d172a7fc0603bcf6aa68e3a9ac10579dbd07b8ed4bae79ad8af75016",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/components-v3.json": "03e04dc47bb7b7705463d1883be9b18e76d8401d2e91cea2733517c5ef423d21",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/field.json": "dad00e84ae98333beeb89a0c2403d48d9f40e9189c4525fc3746b8b3118de598",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/independent-steel-shaft-review.json": "a2ca357b20d11bb52b76aa10fa449bf4252e1e90760c0b15f2c28cdb802c09fe",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/gross_members.py": "01aaf22c8b2cf93430e7bbce4768260efea39bed3d527b8f5486ba4e38e32258",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_admission_v3.py": "a32992a3a5f4fb8c16a0402ad522b938650d8744200ca4d8a28dfd38e07a0008",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent-ordered-component-gate-review.json": "1a8060734eea71e53eaed1089c5f18ae4f8a1da034b3ed8d02a796ef05c47c8f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_actual_component_review.py": "fd4d069b2a9a93841d147785a3c3a9de41e2dc7ed1da9f851f8d935e5329a203"
+  },
+  "state_id": "eoere-a12-2cc47f73f1c898d9663dd319",
+  "status": "PASS_SAVED_CONDITIONAL_COMPONENT_FINDINGS",
+  "steel_arithmetic_independent_peer_review": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/independent-steel-shaft-review.json",
+    "sha256": "a2ca357b20d11bb52b76aa10fa449bf4252e1e90760c0b15f2c28cdb802c09fe"
+  },
+  "steel_peer_governing_nominal_demands": {
+    "Fy_and_yield_indices": null,
+    "circle": {
+      "axis_id": "eoere_bolt_067",
+      "body": "shaft/eoere_bolt_067",
+      "diameter_mm": 9.525,
+      "point_xyz_mm": [
+        -1200.413219565479,
+        -131.25,
+        342.0875
+      ],
+      "same_cut_N_V1_V2_T_M1_M2_n_nmm": [
+        249.93849057795404,
+        515.4654813167406,
+        -89.87833908317842,
+        0.0,
+        3307.7009628420374,
+        17848.70363182341
+      ],
+      "sample_count": 66,
+      "station_from_axis_point_mm": 70.113219565479,
+      "vm_envelope_mpa": 218.13350697293473
+    },
+    "half_strip": {
+      "body": "eoere_clip_single_top_left_1",
+      "cut_id": "root",
+      "normal_stress_envelope_mpa": 93.33471859972283,
+      "point_xyz_mm": [
+        -1130.3,
+        1440.5607574592036,
+        2186.4913229596737
+      ],
+      "port_id": "arm-z/far-plus",
+      "same_cut_force_N_V1_V2_n": [
+        -220.09092765801333,
+        -260.7664608633659,
+        -384.15564037923536
+      ],
+      "same_cut_moment_T_M1_M2_nmm": [
+        -1615.3919633100359,
+        25323.417381121893,
+        -16273.84832606673
+      ],
+      "thickness_mm": 6.35,
+      "torsion_shear_envelope_mpa": 2.971361778735339,
+      "transverse_shear_envelope_mpa": 2.467429011816208,
+      "vm_envelope_mpa": 93.80890699650867,
+      "width_mm": 44.45
+    }
+  },
+  "verified_source_pin_count": 393,
+  "verified_source_pin_union_canonical_sha256": "7295cdbb2f5ab2d966f899b30581569f5d35f57eb05de37dcc83773abf7e5507"
+}

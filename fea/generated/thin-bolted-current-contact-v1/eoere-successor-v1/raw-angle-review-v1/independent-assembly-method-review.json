@@ -1,0 +1,112 @@
+{
+  "all_pinned_bytes_unchanged": true,
+  "confirmed_contract_gaps": [
+    "Live model.inputs is mutable. E200000->1 changes descriptor scenario/hash without changing cached operator or model.E200000. A production immutable snapshot/assertion must reject this mismatch.",
+    "Source pins are checked at construction/descriptor; response, point/load ports and load projection do not invoke the guard per call. Production before/after immutable source checks remain mandatory."
+  ],
+  "descriptor_export_deep_copy_pass": true,
+  "disposition": "NUMERICAL_SEAM_PASS_SOURCE_BOUND_FIELD_GUARDS_REQUIRED",
+  "execution": {
+    "cwd": "/home/mckay-linux/repos/mini-moonboard",
+    "environment": {
+      "OPENBLAS_NUM_THREADS": null,
+      "PYTHONPATH": "."
+    },
+    "sys_argv": [
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_assembly_method_review.py",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent-assembly-method-review.json"
+    ],
+    "sys_orig_argv": [
+      ".venv/bin/python",
+      "-B",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_assembly_method_review.py",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent-assembly-method-review.json"
+    ]
+  },
+  "focused_tests": {
+    "command": ".venv/bin/python -m pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_assembly_interface.py",
+    "result": "9 passed in 0.40s",
+    "ruff": "two frozen sources passed",
+    "saved_coupon_in_memory_replay_exact": true
+  },
+  "independent_loaded_condensation": {
+    "equations": "A=Khh,B=Khp,C=Kpp; qh=A^-1(f-BSq); Kc=S(C-B.T A^-1B)S; fc=-SB.T A^-1f; V=.5q.TKcq-q.Tfc-.5f.T A^-1f",
+    "metrics": {
+      "affine_gradient_difference_stored_units": 1.4654943925052066e-14,
+      "constant_difference_nmm": 0.0,
+      "independent_body_wrench_closure_n_nmm": 1.1368683772161603e-13,
+      "loaded_heel_difference_mm_rad": 6.098637220230962e-20,
+      "potential_difference_nmm": 0.0
+    },
+    "physical_wrench_n_nmm": [
+      0.0,
+      0.0,
+      -12.0,
+      -36.0,
+      216.0,
+      0.0
+    ],
+    "potential_constant_nmm": -0.000539563016514028,
+    "potential_nmm": 0.002144528290727501
+  },
+  "limits": [
+    "Synthetic 31-coordinate seam only; no candidate inputs, assembly, q, K, geometry, CAD or native/global solve evaluated.",
+    "Localized centroid point-wrench route is an explicit interpolation scenario, not product uniform self-weight deformation or a contact/surface point map.",
+    "Gross-strip first-order model limits remain: unknown actual plate/bend/hole/calibration/material/strength; no response accuracy or resistance bound.",
+    "Plan geometry is preserved pre-revision context and all anticipated successor censuses/source joins need genuine new production validation."
+  ],
+  "production_recovery_requirement": "Recover strip-root/flange resultants from the loaded heel and genuine beam factors. This response exports four loaded port wrenches and loaded heel/closure but not loaded strip-root/flange rows; frozen model.response(q) uses an unloaded heel and cannot substitute.",
+  "release": {
+    "candidate_field_admitted": false,
+    "capacity": false,
+    "climbing": false,
+    "fabrication": false,
+    "physical_product_accuracy": false,
+    "synthetic_numerical_consistency": true
+  },
+  "review_producer": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_assembly_method_review.py",
+    "sha256": "2baf7b57b143c1ca40966ba03e8c54816e15885508fc111e216be7a75b535f27"
+  },
+  "schema": "independent_eoere_four_port_assembly_method_review/v1",
+  "source_count": 20,
+  "source_manifest_before_after_sha256": [
+    "4b537f3c9243538b7c72b78e679047a49f4bb43bbea9f0474edd7871f453e449",
+    "4b537f3c9243538b7c72b78e679047a49f4bb43bbea9f0474edd7871f453e449"
+  ],
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly-method-result.json": "df1473a8d3430f163d434d50ecf2df31c95bb0da1091db717d8ba361112438ba",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly-plan.json": "943a287974b117e90730ddca3f67852b0e15003e608c75e6b537e6e0abe8dff2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py": "4103015c05405e930e10c90edb5e147dd9d1ec2fb0575f17e3e4efc01a6cb66b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/four_port.py": "8482d5f3f1d01eee9141db2bbeef5237f87cb7d78f00619749604c0a23f57567",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/inputs.json": "a938b41e53f5708c74e30ec1f021e894513ab6be4b1c6df390bababcfeebbd8e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/method-result.json": "b20b352e1c0c5bd8a4dc53299a6daf1591300dd98542c31c3bf5a1af81fadca3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_assembly_interface.py": "d10a66eec19d318892e3785aa4ee885ce81a0495eb889676a9c55d77476ae0e1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_four_port.py": "75dcf7ff98c056d319c20fc4c8783485f0415e5fd3a3fa906b1f0adec5dc93dd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v1/geometry.json": "552870d3ff7c7f2c678ef917b7cee037614c11cef180126d9cf06ab8d2cab3ec",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v1/scene.json": "3fec1c59da207dee2bb17dd92c48dcc03700b29219d388965ba8f3c921dbe539",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/audit.json": "c55d148f5b5b2e52481aaf19e49c6c3522c96bda9c0a4febc573c6fba99ce168",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/question.json": "8752be35e2117d6398fa8a1036957d9351747d3d5f4c84c4e48a91640cfe168f",
+    "fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/assessment.json": "fac5de9e745ed85331e9f7a5decd80d52935eb8f00872a343657ce628cfabe7b",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_common_shaft_audit.py": "a236900e59a3d5984598df56d4243408ce12801d4ab6fcc7f765f6a420de01ba",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_linear_timber_faces.py": "6283d85ec2bfacd6d72f0713c662e273201935e09445a6455b86a841de587208",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_support_state_search.py": "c162d296306a263be4e6769c4249abf6491512e8f7d9af323ab2e9b10b1018e8"
+  },
+  "tools": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "world_port_mapping": {
+    "nodes": "Source inner-entry datums; arbitrary point ports transport actual moment arms, including half-thickness offsets",
+    "proper_model_basis": "[u,-w,v]",
+    "rigid_heel": "Internal loaded coordinate only; no fifth physical owner, external heel restraint or added ground couple",
+    "source_transverse_sign_reversed": true
+  }
+}

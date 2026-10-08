@@ -7,8 +7,8 @@ engineering record. The selected screw-and-bracket baseline remains a separate
 
 ## Current disposition
 
-**A reset lean numerical MVP goal now develops the owner-directed eoere
-successor.** The owner requests useful MVP completion like the previous
+**The owner-directed eoere successor now has a complete conditional
+numerical A12 packet.** The owner requests useful MVP completion like the previous
 conditional assessment, with as much applicable prior work reused as reasonable.
 Use eoere B0C7V7VS89 angles with the far transverse pair on each
 flange: four 3/8-inch through bolts per angle. Sixteen main angles sit inside
@@ -64,9 +64,46 @@ runner offcuts. The current partial cost is **six four-pack prices, plus
 $61.93 and unpriced items**. The angle price, 68 new bolts, 24 legacy washers,
 wood and other receipts remain unpriced. Nominal SKU matches do not establish
 delivered fit. Four 8-inch bolt comparisons still require a delivered-length
-check. The new field has not run: current work binds fresh contact/backing
-domains, four owned fitting ports, complete gravity and a guarded first-order
-A12 spring model. The prior response and physical qualification do not transfer.
+check. Fresh extraction now binds 150 physical owners, 120 receiver-bearing
+records and 1,631 hole-clipped reference contact points. Its source inputs
+pass independent review. The new A12 calculation converges after three
+support patterns and now passes independent admission for all **150 bodies**.
+The same-byte component review also passes. Both gate compatibility failures
+are preserved; corrected flag, ownership and source-order checks reuse the
+unchanged field and physical laws. The scope retains **250 lb ×2, 300 N
+horizontal and a 100-mm hold arm**, with complete modeled gravity and an
+unverified no-slip floor assumption. The prior response does not transfer.
+
+| Eoere conditional A12 finding | Result | Limit |
+| --- | ---: | --- |
+| 66 Hillman axes, generic head comparison | **2.563273**, two exceeding axes | Governing upper-left screw has **1487.448 N** withdrawal and simultaneous **644.659 N** lateral. Actual Hillman resistance is unavailable. |
+| Generic withdrawal, CD1 | **62.741 mm** required effective thread | Nominal length after the panel is **45.244 mm**; delivered thread engagement is unknown. |
+| Six-panel spatial bending / rolling shear, CD1 | **4.595869 / 2.438902** | Both govern on the upper-left panel; sampled fields do not qualify local holes, head seats or punching. |
+| 22 gross-member fully braced normal / sufficient shear-torsion witnesses, CD1 | **0.486487 / 0.856880** | Net cuts, actual restraint, fracture and continuous maxima remain unresolved. Four full-length weak-column sensitivity domains are exceeded; actual bracing is unqualified. |
+| 88 nominal gross fitting half-strips | **93.809 MPa** peak stress envelope | Upper-left fitting root; actual steel strength, holes, formed heel, plate continuity and prying remain unqualified. |
+| 100 nominal shaft circles | **218.134 MPa** for 3/8 inch; **162.442 MPa** for 1/2 inch | Own same-cut markers; actual grade, roots, threads and complete bolt/joint resistance remain unavailable. |
+| 200 washer capture diagnostics | **0.886903 MPa** peak full-annulus mean | This does not evaluate pressure couples, peak pressure, washer bending or seat resistance. |
+
+The complete **22-angle plus two-cleat** resistance remains **UNQUALIFIED**.
+The cleat/post force components permit reduced end-distance markers, but all
+sixteen selected own-member resultants are oblique; no complete Cdelta or
+group resistance is adopted. Both rim resultants act away from their short
+edge in this case, so the bare 4D comparison is not a current signed failure.
+The nominal 10-mm steel holes are below the pinned NDS general bolt-hole
+oversize range for 3/8-inch bolts; installation applicability remains open.
+
+Current first-order motion diagnostics reach **28.273 mm** at an owned
+interaction point and **0.071714 rad** relative timber/fitting-strip rotation.
+They include assembly motion and are not physical movement predictions.
+No physical demand bound, complete joint acceptance or fabrication release
+follows. The [compact numerical receipt](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/a12-first-order-v2/assessment.json)
+contains every duty and the governing component findings. Its reproduction and
+recovery record is in the [existing ledger](completion-ledger.md#build-package-completion).
+The development contract and raw field retain their creation-time planned or
+pending flags; the subsequent receipts establish conditional numerical closure.
+Panel load transfer, lower-hole clearance, actual hardware/material datums,
+changed net sections and contact/stability applicability remain the next
+design and qualification questions. No structural stock increase is proposed.
 
 ## Preserved thin B103/B104 predecessor
 

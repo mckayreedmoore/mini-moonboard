@@ -1,0 +1,221 @@
+{
+  "checks": {
+    "100_unique_shafts": true,
+    "88_factory_attachments_on22_angles_four_each": true,
+    "all_eight_source_length_grip_groups_match": true,
+    "all_release_flags_false": true,
+    "maximum_stack_scalar_error_mm": 2.3447910280083306e-13,
+    "old12_full_geometry_and_stack_linkage_exact": true,
+    "old12_point_direction_max_error": 0.0,
+    "shared_angle_shafts": 4,
+    "source_counts": {
+      "cleat_post_through_bolt": 4,
+      "eoere_far_pair": 84,
+      "original_starting_frame_axis": 12
+    },
+    "washer_scenario_counts": [
+      {
+        "Actual": "",
+        "Disposition": "",
+        "ID_mm": 11.1125,
+        "OD_mm": 25.4,
+        "quantity": 16,
+        "thickness_mm": 2.032
+      },
+      {
+        "Actual": "",
+        "Disposition": "",
+        "ID_mm": 11.1125,
+        "OD_mm": 26.162,
+        "quantity": 176,
+        "thickness_mm": 2.6416
+      },
+      {
+        "Actual": "",
+        "Disposition": "",
+        "ID_mm": 14.2875,
+        "OD_mm": 34.925,
+        "quantity": 8,
+        "thickness_mm": 3.175
+      }
+    ]
+  },
+  "delivered_length_exclusions": [
+    {
+      "axis_id": "lumber_leg_bolt_left_1",
+      "comparison_margin_mm": -0.9612923076923323,
+      "modeled_two_tip_minimum_mm": 199.58929230769232,
+      "separate_saved_tolerance_margin_mm": -0.8088923076923549,
+      "shortest_underhead_comparison_mm": 198.628
+    },
+    {
+      "axis_id": "lumber_leg_bolt_left_2",
+      "comparison_margin_mm": -0.9612923076923323,
+      "modeled_two_tip_minimum_mm": 199.58929230769232,
+      "separate_saved_tolerance_margin_mm": -0.8088923076923549,
+      "shortest_underhead_comparison_mm": 198.628
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_1",
+      "comparison_margin_mm": -0.9612923076923323,
+      "modeled_two_tip_minimum_mm": 199.58929230769232,
+      "separate_saved_tolerance_margin_mm": -0.8088923076923549,
+      "shortest_underhead_comparison_mm": 198.628
+    },
+    {
+      "axis_id": "lumber_leg_bolt_right_2",
+      "comparison_margin_mm": -0.9612923076923323,
+      "modeled_two_tip_minimum_mm": 199.58929230769232,
+      "separate_saved_tolerance_margin_mm": -0.8088923076923549,
+      "shortest_underhead_comparison_mm": 198.628
+    }
+  ],
+  "disposition": "PASS_SCOPED_NOMINAL_ARITHMETIC_AND_SOURCE_JOINS",
+  "findings": [],
+  "independent_cost": {
+    "C4_usd": null,
+    "complete_cost": null,
+    "conditional_comparison_rows": [
+      {
+        "comparison_cost_usd": "16.12",
+        "packs": 0,
+        "required": 4,
+        "singles": 4,
+        "sku": 407
+      },
+      {
+        "comparison_cost_usd": "6.48",
+        "packs": 0,
+        "required": 8,
+        "singles": 8,
+        "sku": 367
+      },
+      {
+        "comparison_cost_usd": "18.80",
+        "packs": 0,
+        "required": 20,
+        "singles": 20,
+        "sku": 368
+      },
+      {
+        "comparison_cost_usd": "0.96",
+        "packs": 0,
+        "required": 4,
+        "singles": 4,
+        "sku": 2586
+      },
+      {
+        "comparison_cost_usd": "7.53",
+        "packs": 1,
+        "required": 96,
+        "singles": 0,
+        "sku": 2571
+      },
+      {
+        "comparison_cost_usd": "12.04",
+        "packs": 2,
+        "required": 176,
+        "singles": 0,
+        "sku": 2996
+      }
+    ],
+    "formula": "6*C4 + 61.93 + U; shipping/tax excluded",
+    "legacy12_bolt_and_nut_comparison_usd": "24.96",
+    "legacy12_bolt_subtotal_usd": "23.12",
+    "priced_subset_usd": "61.93",
+    "recipe": "Enumerate integer pack count 0..ceil(required/pack_size), complete deficit with singles, minimize exact Decimal cost; source price observations only.",
+    "unpriced_legacy_washer_count": 24,
+    "unpriced_new_bolt_count": 68
+  },
+  "independent_mass": {
+    "conditional_same_basis_total_kg": 218.8970709297281,
+    "finished_timber_kg": 108.29364371952548,
+    "installed22_angle_drawing_kg": 14.5693869244,
+    "maximum_mass_error_kg": 1.7763568394002505e-15,
+    "maximum_role_volume_error_mm3": 6.984919309616089e-10,
+    "nominal_bolt_roles_kg": 8.765781659140858,
+    "old70_own_washer_override_recipe_error_kg": 2.3092638912203256e-14,
+    "purchased24_angle_drawing_kg": 15.8938766448,
+    "recipe": "Regular six-vertex polygon area 3*(across_flats/sqrt(3))^2*sin(pi/3); circular shaft A*nominal under-head L; nut polygon minus own bore; each own annulus. Sum without inventory module import.",
+    "role_volumes_mm3": {
+      "head": 117227.47846813708,
+      "head_washer": 119208.14890581406,
+      "nut": 100605.44864898824,
+      "nut_washer": 119208.14890581406,
+      "shaft": 660410.8590382349
+    },
+    "unchanged_panels_kg": 60.061257546543,
+    "unchanged_screws_and_Tnuts_kg": 2.2070010801187716,
+    "unmeasured_original_accessory_allowance_kg": 25
+  },
+  "independent_stock": {
+    "added_two_cleat_raw_volume_mm3": 3083897.0579999997,
+    "conditional_runner_offcuts": [
+      {
+        "new_piece_and_kerf_mm": 292.875,
+        "remaining_mm": 301.3035169583068,
+        "source_remaining_mm": 594.1785169583068,
+        "stick_members": [
+          "base_floor_left"
+        ]
+      },
+      {
+        "new_piece_and_kerf_mm": 292.875,
+        "remaining_mm": 301.3035169583068,
+        "source_remaining_mm": 594.1785169583068,
+        "stick_members": [
+          "base_floor_right"
+        ]
+      }
+    ],
+    "existing13_stick_scenario": true,
+    "new_purchased_stock_or_actual_grade_qualification": null,
+    "nominal_board_feet": 150.0
+  },
+  "limits": [
+    "Nominal drawing/envelope/density mass only; no delivered mass or adopted gravity vector.",
+    "Offers are conditional frozen SKU comparisons; no selection or delivered fit. Four shortest8in comparisons remain negative; actual shank/root/runout/nut dimensions remain unverified.",
+    "Stock offcuts are nominal nesting only; usable length, grain/grade, end trim and plywood reconciliation require actual records.",
+    "No candidate CAD import/query, q/actions/K, native/response solve, stiffness or structural acceptance; old12 geometry linkage is not a force/PASS transfer."
+  ],
+  "release": {
+    "capacity": false,
+    "climbing": false,
+    "fabrication": false,
+    "mechanics_ready": false,
+    "purchase": false
+  },
+  "schema": "eoere_successor_independent_nominal_inventory_review/v1",
+  "source_binding": {
+    "all_source_bytes_unchanged_before_after": true,
+    "direct_source_sha256": {
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.json": "0c5a09879c9b191c39b96ce670d71ad110661bff7dfeab68133f711b32de476c",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-inputs-final.json": "dd662e681871576d0a76666e9370d4359f7e96e0a2ad5f9710553895f53a5309",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+      "fea/generated/thin-bolted-build-planning-v4/joined-shop-data-final.json": "7982d8612014d6d55279f7847798ea3bf87e6c2eca2fa585ef4457daf3787074",
+      "fea/generated/thin-bolted-build-planning-v4/price-observations.json": "fa2cbf1008c2454154f5cd7bb9a2885d8f602b3320a85b951fd92902fa6209aa",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory.py": "851c2a68b81bab39bd11f24622b77639e66f13820c1fb36dc6beaa72cf36c8a5",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/test_inventory.py": "3821ba0c9a93c1ab19110d9778f4eb61fb3dadaae0bc8e8dda971ba43bdaf2b9",
+      "scripts/thin_bolted_access_takeoff.py": "8f6313a4609f935c173b151843527b0911d6b89a34dacc9b2eee2642523cb897",
+      "scripts/thin_bolted_occupied.py": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+    },
+    "finished22_BREP_byte_hashes_checked_no_import": true,
+    "inventory_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory-v2.json",
+    "inventory_sha256": "14d74a158c4af7cf57d0b1282eda41e6f7e849024130be3cf869080a6ee03de3",
+    "producer_closure_canonical_sha256": "befe80a42abe7bb0cd7045b07b5c4f2157c7ce523d023d69f47970d38fe8cecf",
+    "producer_closure_count": 325,
+    "review_union_canonical_sha256": "921fbc1bfd9d4da090d896b531d9a763a29d8d78e6a858cece7f3bc8f37640de",
+    "review_union_count": 326
+  },
+  "verification": {
+    "executable": "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+    "independent_arithmetic": "stdlib scalar replay and exact source joins, no inventory evaluate call",
+    "pytest_command": "uv run pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/test_inventory.py",
+    "pytest_result": "4 passed in 0.08s",
+    "python": "3.12.3",
+    "ruff_command": "uv run ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory.py fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/test_inventory.py",
+    "ruff_result": "All checks passed"
+  }
+}

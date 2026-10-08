@@ -1,0 +1,177 @@
+{
+  "all_pinned_bytes_unchanged": true,
+  "confirmed_blockers": [
+    {
+      "consequence": "A genuine converged frozen producer output is rejected before independent checks.",
+      "name": "incompatible_historical_usability_flag",
+      "original_full_and_cheap_gate_require_true": true,
+      "producer_recovery_emits_flag": false
+    },
+    {
+      "consequence": "Forces and signed cuts can pass while own flange, receiver, grain or interval labels are false.",
+      "mutations": [
+        {
+          "forged": "foreign-port",
+          "incorrectly_accepted_by_original_gate": true,
+          "key": "flange",
+          "name": "foreign-flange",
+          "original": "arm-x/far-plus",
+          "table": "common_shaft_steel_port_actions"
+        },
+        {
+          "forged": "foreign-wood",
+          "incorrectly_accepted_by_original_gate": true,
+          "key": "receiver",
+          "name": "foreign-receiver",
+          "original": "wood-a",
+          "table": "common_shaft_steel_port_actions"
+        },
+        {
+          "forged": "foreign-angle",
+          "incorrectly_accepted_by_original_gate": true,
+          "key": "angle_id",
+          "name": "foreign-angle",
+          "original": "toy-fitting",
+          "table": "common_shaft_steel_port_actions"
+        },
+        {
+          "forged": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "incorrectly_accepted_by_original_gate": true,
+          "key": "grain_axis_xyz",
+          "name": "foreign-grain",
+          "original": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "table": "common_shaft_wood_bearing_actions"
+        },
+        {
+          "forged": "foreign-wood",
+          "incorrectly_accepted_by_original_gate": true,
+          "key": "member",
+          "name": "foreign-member",
+          "original": "wood-a",
+          "table": "common_shaft_wood_bearing_actions"
+        },
+        {
+          "forged": [
+            99.0,
+            100.0
+          ],
+          "incorrectly_accepted_by_original_gate": true,
+          "key": "surface_interval_mm",
+          "name": "foreign-interval",
+          "original": [
+            -6.35,
+            0.0
+          ],
+          "table": "common_shaft_steel_port_actions"
+        }
+      ],
+      "name": "unverified_source_alias_labels"
+    }
+  ],
+  "correction_scope": "Parent directs a distinct gate correction only; original gate/test and frozen producer/model bytes remain preserved.",
+  "disposition": "BLOCKED_ORIGINAL_GATE_METHOD_BEFORE_PRODUCTION",
+  "execution": {
+    "cwd": "/home/mckay-linux/repos/mini-moonboard",
+    "environment": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "/home/mckay-linux/repos/mini-moonboard"
+    },
+    "sys_argv": [
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_gate_v1_blocker_review.py",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent-original-gate-blocker-review.json"
+    ],
+    "sys_orig_argv": [
+      ".venv/bin/python",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_gate_v1_blocker_review.py",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent-original-gate-blocker-review.json"
+    ]
+  },
+  "focused_verification": {
+    "command": [
+      ".venv/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-p",
+      "no:cacheprovider",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_first_order_admission.py"
+    ],
+    "original_fixture_result": "34 passed in 2.87s",
+    "ruff": "original gate and test paths passed"
+  },
+  "known_answer_scope": {
+    "arbitrary_fixture_q_is_not_claimed_in_equilibrium": true,
+    "loaded_recovery_baseline": {
+      "captured_global_potential_omits_this_q_independent_constant": true,
+      "fitting_gravity_condensation_potential_constant_nmm": -7.931654144336307e-05,
+      "loaded_root_recoveries_replayed": 1,
+      "own_signed_external_action_shaft_cut_recoveries_replayed": 1,
+      "own_surface_aggregate_recoveries_replayed": 2
+    },
+    "numerical_step_taken": false,
+    "physical_owner_count": 5,
+    "synthetic_only": true
+  },
+  "limits": [
+    "Only the existing five-owner factory fixture and its component recovery ran. No candidate input, candidate assembly, candidate q, global solve, CAD or native execution consumed.",
+    "The observed mutation passes are component-gate defects; this receipt does not fabricate a full 150-owner field admission.",
+    "Distributed panel RHS is captured/source-authenticated rather than independently regenerated; that accepted method limit is unchanged.",
+    "No first-order physical applicability, pressure, resistance, fabrication or climbing release established."
+  ],
+  "release": {
+    "candidate_evaluated": false,
+    "capacity": false,
+    "climbing": false,
+    "fabrication": false,
+    "field_admitted": false,
+    "gate_method_ready": false
+  },
+  "review_producer": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_gate_v1_blocker_review.py",
+    "sha256": "4f101b6a562dcece15a79f6a81aa9c44e76c079e01d1096c15703245ae50fee9"
+  },
+  "schema": "independent_eoere_original_field_gate_blocker_review/v1",
+  "source_count": 20,
+  "source_manifest_before_after_sha256": [
+    "65cad430d150124b0fcdc7dd1190312e09f536c77b8823f339bba6b4c0232510",
+    "65cad430d150124b0fcdc7dd1190312e09f536c77b8823f339bba6b4c0232510"
+  ],
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py": "4103015c05405e930e10c90edb5e147dd9d1ec2fb0575f17e3e4efc01a6cb66b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_admission.py": "e61ee415f0a8cd83f3ea4b0606064bceb128413eed4e66f1192955b1610ff66b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_factory.py": "5ca9a2018cc8a45fbddcf929f446cdd22b9d5fcae6ba816959de2c897b464570",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/four_port.py": "8482d5f3f1d01eee9141db2bbeef5237f87cb7d78f00619749604c0a23f57567",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/guarded_assembly_interface.py": "a2b5ef4f45d05f3a29c428583238c3ead927ac7ae259a6c4a8d7c63ded3d0ad8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/inputs.json": "a938b41e53f5708c74e30ec1f021e894513ab6be4b1c6df390bababcfeebbd8e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/operator_bundle.py": "534356acc914bd9fb81f24e67311fe40123d70754224a6466fe0da1d7f1426a9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/run_first_order.py": "28ceafcb9eac9764358071b728da96fbb2e5cd46011ead031ade8a9d7a811a39",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/run_first_order_v2.py": "750dd24733c101c98c06d135e9c5c88a5b33a610d09e79736ee4500171685f32",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_first_order_admission.py": "2f39c367d3d3162b842156268206363064063a4cf5a7b8dcf3ad61b4e2d64bbe",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_first_order_factory.py": "98386e0d2225670414707850365e5d71e8fed34f83a6acc00c71224983057866",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_four_port.py": "75dcf7ff98c056d319c20fc4c8783485f0415e5fd3a3fa906b1f0adec5dc93dd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_gate_v1_blocker_review.py": "4f101b6a562dcece15a79f6a81aa9c44e76c079e01d1096c15703245ae50fee9",
+    "scripts/run_thin_bolted_finite_frame.py": "5cf423d80e57b6f4386eb6c7aae39961ba083a7b4a457c7d37694cb80101361e",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_support_state_search.py": "c162d296306a263be4e6769c4249abf6491512e8f7d9af323ab2e9b10b1018e8"
+  },
+  "tools": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  }
+}

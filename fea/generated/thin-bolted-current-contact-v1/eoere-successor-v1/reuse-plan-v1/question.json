@@ -1,0 +1,110 @@
+{
+  "schema": "eoere_successor_reuse_dependency_question/v1",
+  "question": "Which source geometry and methods can be reused for the owner-directed four-port eoere successor, and what minimum geometry, mechanics, cost and assembly joins remain?",
+  "owner_updates_after_station_handoff": {
+    "main_angle_count": 16,
+    "other_angle_count_final": null,
+    "illustrative_total_angle_counts": [22, 24],
+    "four_added_2x6_pieces": "One interior underside block and one exterior cleat on each side; dimensions and final attachment axes remain parent-owned.",
+    "transverse_pair_direction": "w = u cross v; the parent reports 139.7 mm receiver depth in this direction. The earlier conditional 50.8 mm pitch versus 38.1 mm X-width screen used another orientation and is not an actual geometry defect.",
+    "lower_geometry_revision": "Two underside angles may be replaced by through-bolted block connections to remove angle/block interference. Neither 22 nor 24 is a final angle count.",
+    "source": "Parent task messages; design constraints only, no successor geometry or collision result consumed."
+  },
+  "reuse_table": [
+    {
+      "topic": "Twenty original timber stock profiles, datums and end cuts",
+      "reuse": "Use the source raw vertices, member grain frames and end planes as coordinate inputs where the successor leaves them unchanged; add four separately defined solid 2x6 pieces.",
+      "recheck": "Rebuild changed bores and finished receiver topology, volume, net cuts and contact faces. Existing finished BREP, boundary witnesses and section properties bind predecessor holes.",
+      "shop_tables": ["member-datums.csv", "member-raw-vertices.csv", "member-end-cut-planes.csv", "member-end-cut-plane-vertices.csv"]
+    },
+    {
+      "topic": "Six panel outlines and 66 Hillman axes",
+      "reuse": "Retain the climbing surface, panel outlines, screw IDs and purchased Hillman 42605 policy; use saved nominal panel/receiver coordinates as inputs.",
+      "recheck": "Join every axis to the successor receiver and new hardware; recheck backing, edge support, tool entry and load transfer. Reconcile actual panel dimensions. Old screw forces, head/withdrawal comparisons and spatial panel results do not transfer.",
+      "shop_tables": ["Hillman-receiver-axes.csv"]
+    },
+    {
+      "topic": "Recess, wiring, LEDs, holds and T-nuts",
+      "reuse": "Use the unchanged source service cuts, wire endpoints, 1:12 recess parameters and panel-machining features; preserve the explicit right-cutter translation.",
+      "recheck": "New angles, bolts and blocks must clear the service routes and supported kicker edges. Existing power-off/disconnect/front-release procedures are useful ordering inputs; actual harness slack, bend and release strokes remain unverified.",
+      "shop_tables": ["recess-parameters.csv", "recess-profile-vertices.csv", "reference-tables.csv"]
+    },
+    {
+      "topic": "Twelve starting frame bolts and all structural stacks",
+      "reuse": "Preserve the twelve starting axis identities and layout intent, and reuse dimensional-standard and own-seat bookkeeping methods.",
+      "recheck": "Recheck even preserved axes against new grips, receivers and tool paths. Resolve active hole coincidences before counting shafts. Rebuild all bolt, bearing, washer and fitting rows for actual 3/8-inch products. Old B103 small-washer roles and beam-first removal dependencies do not transfer.",
+      "shop_tables": ["bolt-axes-and-stacks.csv", "wood-receiver-bearing.csv", "steel-bearing-thread-windows.csv", "fittings-and-duties.csv", "fitting-hole-ownership.csv", "washer-receiving-planes.csv"]
+    },
+    {
+      "topic": "Finite contact, floor and complete-body methods",
+      "reuse": "Reuse reviewed point/director jets, circular-shaft roll quotient, source-bound closed-solid guards, reference-bedding inverse/work methods, grouped-measure logic, and the eight-whole-foot centroid floor method.",
+      "recheck": "Bind successor bodies, dimensions, contact adjacency, full faces, quadrature, reference points, load ownership and fresh q/operator hashes. Retaining floor geometry permits method reuse, not an old floor or field PASS. Old 30 pairs, 1504 quadrature points, 132 bodies, 8018 chart and gate are predecessor-specific.",
+      "shop_tables": []
+    },
+    {
+      "topic": "Material arithmetic and component/cut methods",
+      "reuse": "Reuse the pure steel/shaft section, timber normal/shear, generic screw, annular-pressure, current-cut and force/couple transport arithmetic within each recorded basis.",
+      "recheck": "Use new same-state demands and successor hole/section geometry. New steel grade, Fy/Fu, heel/bend geometry, delivered bolt root/runout and washer contact are separate missing inputs; Eaton material or manufacturer angle resistance cannot be assigned to eoere. No single-port rating sum qualifies complete joints.",
+      "shop_tables": []
+    },
+    {
+      "topic": "Stock, mass, prices and assembly methods",
+      "reuse": "Reuse nesting/kerf/end-allowance and collision-route algorithms, source material density scenarios, pack arithmetic and source-price observation format.",
+      "recheck": "Nest four new pieces after dimensions are fixed; do not assume spare stock. Recalculate new finished-volume/body-gravity ownership, actual hardware SKUs/quantities, tool/removal DAG and total cost. Old partial takeoff and route successes are historical comparisons.",
+      "shop_tables": ["reference-tables.csv", "source-sha256.csv"]
+    }
+  ],
+  "minimum_closure_dependencies": [
+    {
+      "id": "G1",
+      "task": "Complete the successor station and receiver contract",
+      "depends_on": [],
+      "minimum_output": "Final angle count/poses, four block/cleat dimensions, all eight factory holes per angle, installed far pairs, unique physical shaft lines, twelve starting-axis joins and exact receiver/washer ownership.",
+      "limits": "Published pitches are available; absolute heel offsets, bend shape, tolerances and actual delivered part dimensions remain explicit model scenarios until sourced. Parent owns geometry."
+    },
+    {
+      "id": "G2",
+      "task": "Check only changed finished geometry and support joins",
+      "depends_on": ["G1"],
+      "minimum_output": "Current bore/interference/end-edge-grain and washer-seat joins, 66 screw backing checks, service/recess/kicker clearance, and full timber/contact adjacency including new pieces.",
+      "limits": "Unchanged raw profiles and panel outlines are reusable inputs; predecessor finished holes, contact atlas and net-section certificates are not successor evidence."
+    },
+    {
+      "id": "B1",
+      "task": "Resolve delivered hardware and assembly dependencies",
+      "depends_on": ["G1", "G2"],
+      "minimum_output": "Matched bolt/nut/washer SKUs; grip, shank/root/runout, nut engagement and tip clearance; own receiving-seat support; unloaded assembly/removal DAG with accessible nuts, shaft withdrawals, individual-member routes and separately supported sequence.",
+      "limits": "Four old nominal 8-inch bolt comparisons were short of the recorded two-thread target. Recheck rather than silently preserve fit. No preload, friction, tightening torque or actual tool fit is supplied."
+    },
+    {
+      "id": "M1",
+      "task": "Bind a lean successor mechanics scenario to reused methods",
+      "depends_on": ["G1", "G2"],
+      "minimum_output": "Source-bound new fitting/bolt/timber/panel map, material and gravity scenarios, complete contacts and reference measure, objective floor/body jets and free shaft-axis spin. Known-answer coupons only for changed response/recovery seams.",
+      "limits": "Do not execute or relabel the canceled predecessor preparation. Body/DOF/contact census and assembly-specific operators must be fresh; heel/grade unknowns stay conditional inputs."
+    },
+    {
+      "id": "M2",
+      "task": "Obtain and independently admit a bounded compatible successor A12 field",
+      "depends_on": ["M1"],
+      "minimum_output": "Parent-owned source freeze and serialized case, full fresh gradient, same-q support fixed point, source/map/measure hashes, all current bodies and global equilibrium, inverse/feature/contact applicability checks and a distinct independent admission receipt.",
+      "limits": "No old q, K, action field, census, convergence result or gate PASS transfers. The method packet alone supplies no successor demand."
+    },
+    {
+      "id": "M3",
+      "task": "Reduce the new admitted field to complete-joint and component findings",
+      "depends_on": ["B1", "M2"],
+      "minimum_output": "Coherent force/couple census per joint, unequal/shared-shaft groups, all factory holes and heel effects, own washer force/moment/pressure, new timber net cuts/splitting/bearing and all 66 screw plus six-panel spatial findings.",
+      "limits": "Yield scenarios, CD1 timber references and generic Hillman comparisons retain distinct bases. Missing physical demand bounds or resistance is recorded rather than replaced by summed ratings."
+    },
+    {
+      "id": "B2",
+      "task": "Close the numerical MVP and nominal build packet",
+      "depends_on": ["B1", "M3"],
+      "minimum_output": "Joint disposition with deficits and exact remaining inputs, new stock/cut/hole/hardware tables, variable-cost/mass takeoff, access sequence and source-bound review viewer. Actual/Disposition remains blank until observed.",
+      "limits": "No fabrication, climbing, purchase or complete structural release follows from a conditional comparison. Parent owns docs/Git and final scope."
+    }
+  ],
+  "inactive_or_archive_candidates": "Canceled unexecuted B103/B104 profile/contact/response preparations remain recoverable history. Preserve their immutable inputs and method evidence; do not delete bound raw assets or archive/prune without parent consumer checks.",
+  "release": {"fabrication": false, "climbing": false, "purchase": false, "successor_geometry_admitted": false, "successor_field_admitted": false, "capacity": false}
+}

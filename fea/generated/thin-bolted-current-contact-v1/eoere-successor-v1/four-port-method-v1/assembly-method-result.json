@@ -1,0 +1,654 @@
+{
+  "candidate_prepared_or_evaluated": false,
+  "execution": {
+    "numpy": "2.5.2",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "sys_argv": [
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py",
+      "--coupon-out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly-method-result.json"
+    ],
+    "sys_orig_argv": [
+      ".venv/bin/python",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py",
+      "--coupon-out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly-method-result.json"
+    ]
+  },
+  "expected_physical_gravity_wrench_about_heel_n_nmm": [
+    0.0,
+    0.0,
+    -12.0,
+    -36.0,
+    216.0,
+    0.0
+  ],
+  "metrics": {
+    "body_force_moment_closure_inf_n_nmm": 1.1368683772161603e-13,
+    "condensed_affine_gradient_difference_inf": 2.398081733190338e-14,
+    "full_gradient_difference_inf": 5.773159728050814e-15,
+    "loaded_heel_stationarity_inf_n_nmm": 2.2737367544323206e-13,
+    "source_wrench_vs_rigid_work_difference_inf": 2.842170943040401e-14
+  },
+  "old_field_or_pass_transferred": false,
+  "operator_descriptor": {
+    "all_factory_holes": [
+      {
+        "actual_heel_datum_qualified": false,
+        "diameter_mm": 10.0,
+        "flange": "arm-x",
+        "hole_removed_from_response_stiffness": false,
+        "id": "arm-x/near-minus",
+        "point_reference_xyz_mm": [
+          23.8125,
+          -25.4,
+          0.0
+        ],
+        "used_port": false
+      },
+      {
+        "actual_heel_datum_qualified": false,
+        "diameter_mm": 10.0,
+        "flange": "arm-x",
+        "hole_removed_from_response_stiffness": false,
+        "id": "arm-x/far-minus",
+        "point_reference_xyz_mm": [
+          65.0875,
+          -25.4,
+          0.0
+        ],
+        "used_port": true
+      },
+      {
+        "actual_heel_datum_qualified": false,
+        "diameter_mm": 10.0,
+        "flange": "arm-x",
+        "hole_removed_from_response_stiffness": false,
+        "id": "arm-x/near-plus",
+        "point_reference_xyz_mm": [
+          23.8125,
+          25.4,
+          0.0
+        ],
+        "used_port": false
+      },
+      {
+        "actual_heel_datum_qualified": false,
+        "diameter_mm": 10.0,
+        "flange": "arm-x",
+        "hole_removed_from_response_stiffness": false,
+        "id": "arm-x/far-plus",
+        "point_reference_xyz_mm": [
+          65.0875,
+          25.4,
+          0.0
+        ],
+        "used_port": true
+      },
+      {
+        "actual_heel_datum_qualified": false,
+        "diameter_mm": 10.0,
+        "flange": "arm-z",
+        "hole_removed_from_response_stiffness": false,
+        "id": "arm-z/near-minus",
+        "point_reference_xyz_mm": [
+          0.0,
+          -25.4,
+          23.8125
+        ],
+        "used_port": false
+      },
+      {
+        "actual_heel_datum_qualified": false,
+        "diameter_mm": 10.0,
+        "flange": "arm-z",
+        "hole_removed_from_response_stiffness": false,
+        "id": "arm-z/far-minus",
+        "point_reference_xyz_mm": [
+          0.0,
+          -25.4,
+          65.0875
+        ],
+        "used_port": true
+      },
+      {
+        "actual_heel_datum_qualified": false,
+        "diameter_mm": 10.0,
+        "flange": "arm-z",
+        "hole_removed_from_response_stiffness": false,
+        "id": "arm-z/near-plus",
+        "point_reference_xyz_mm": [
+          0.0,
+          25.4,
+          23.8125
+        ],
+        "used_port": false
+      },
+      {
+        "actual_heel_datum_qualified": false,
+        "diameter_mm": 10.0,
+        "flange": "arm-z",
+        "hole_removed_from_response_stiffness": false,
+        "id": "arm-z/far-plus",
+        "point_reference_xyz_mm": [
+          0.0,
+          25.4,
+          65.0875
+        ],
+        "used_port": true
+      }
+    ],
+    "body": "synthetic-fitting",
+    "centroid_load_port_is_not_a_contact_or_surface_kinematic_port": true,
+    "dof_indices": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26
+    ],
+    "elastic_block_little_endian_float64_sha256": "6c4d573cc6be2597a5b066f7ca4debf55fd420ffc2ace6423d8502c383e5a15e",
+    "field_admission_or_product_accuracy": false,
+    "gravity_route": "source-point-wrench-through-internal-rigid-heel-v1",
+    "internal_heel_is_physical_owner": false,
+    "ndof": 31,
+    "own_fitting_scenario": {
+      "arm_length_mm": 88.9,
+      "axial_pitch_mm": 41.275,
+      "collector": "One internal six-coordinate rigid heel collector; condensed with zero external heel load, never clamped to the world.",
+      "dimension_basis": "Owner-directed inch-centered response scenario. Absolute heel/bend/hole datums and delivered tolerances are unknown; this is not a measured product model.",
+      "elastic_material_basis": "Declared ordinary structural-steel elastic analogy only; actual product elastic properties and steel yield strength are not adopted.",
+      "elastic_modulus_mpa": 200000.0,
+      "factory_hole_diameter_mm": 10.0,
+      "far_station_mm": 65.0875,
+      "fitting_basis_columns_xyz": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "flange_axes_local": {
+        "arm-x": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "arm-z": [
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "free_tail": "The unloaded tail beyond the far port contributes zero elastic strain in this four-port-only scenario; no tail contact or distributed gravity load is included.",
+      "heel_reference_xyz_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "near_station_mm": 23.8125,
+      "poisson_ratio": 0.3,
+      "port_order": [
+        "arm-x/far-minus",
+        "arm-x/far-plus",
+        "arm-z/far-minus",
+        "arm-z/far-plus"
+      ],
+      "primary_method_documentation": [
+        {
+          "checked_date": "2026-10-07",
+          "locator": "3D E/G/A/J/Iy/Iz/shear-area parameters; solid rectangular shear area5/6 gross area",
+          "scope": "Beam-theory background only, not qualification of this four-strip fitting approximation.",
+          "url": "https://opensees.berkeley.edu/wiki/index.php?title=Elastic_Timoshenko_Beam_Column_Element"
+        }
+      ],
+      "product_reference": "eoere B0C7V7VS89",
+      "schema": "eoere_four_port_inch_centered_strip_scenario/v1",
+      "scope": "Infinitesimal linear elastic strip-network response. No finite objectivity, plate fidelity, response accuracy bound, resistance, complete joint or physical acceptance.",
+      "selected_holes": "Only the far transverse pair on each flange; all eight nominal factory holes retained in the manifest but holes do not reduce this gross response stiffness.",
+      "shear_factor": 0.8333333333333334,
+      "steel_fy_mpa": null,
+      "strip_partition": "Two independent half-width rectangular strips per arm, neutral lines at transverse +/-width/4. No longitudinal interstrip continuity is enforced.",
+      "thickness_mm": 6.35,
+      "transverse_half_pitch_mm": 25.4,
+      "width_mm": 88.9
+    },
+    "ports": [
+      {
+        "flange": "arm-x",
+        "hole_to_neutral_xyz_mm": [
+          0.0,
+          -3.174999999999997,
+          0.0
+        ],
+        "id": "arm-x/far-minus",
+        "point_reference_xyz_mm": [
+          65.0875,
+          -25.4,
+          0.0
+        ],
+        "port_index": 0,
+        "six_coordinate_order": [
+          "ux",
+          "uy",
+          "uz",
+          "rx",
+          "ry",
+          "rz"
+        ],
+        "strip_root_xyz_mm": [
+          0.0,
+          -22.225,
+          0.0
+        ],
+        "strip_tip_neutral_xyz_mm": [
+          65.0875,
+          -22.225,
+          0.0
+        ]
+      },
+      {
+        "flange": "arm-x",
+        "hole_to_neutral_xyz_mm": [
+          0.0,
+          3.174999999999997,
+          0.0
+        ],
+        "id": "arm-x/far-plus",
+        "point_reference_xyz_mm": [
+          65.0875,
+          25.4,
+          0.0
+        ],
+        "port_index": 1,
+        "six_coordinate_order": [
+          "ux",
+          "uy",
+          "uz",
+          "rx",
+          "ry",
+          "rz"
+        ],
+        "strip_root_xyz_mm": [
+          0.0,
+          22.225,
+          0.0
+        ],
+        "strip_tip_neutral_xyz_mm": [
+          65.0875,
+          22.225,
+          0.0
+        ]
+      },
+      {
+        "flange": "arm-z",
+        "hole_to_neutral_xyz_mm": [
+          0.0,
+          -3.174999999999997,
+          0.0
+        ],
+        "id": "arm-z/far-minus",
+        "point_reference_xyz_mm": [
+          0.0,
+          -25.4,
+          65.0875
+        ],
+        "port_index": 2,
+        "six_coordinate_order": [
+          "ux",
+          "uy",
+          "uz",
+          "rx",
+          "ry",
+          "rz"
+        ],
+        "strip_root_xyz_mm": [
+          0.0,
+          -22.225,
+          0.0
+        ],
+        "strip_tip_neutral_xyz_mm": [
+          0.0,
+          -22.225,
+          65.0875
+        ]
+      },
+      {
+        "flange": "arm-z",
+        "hole_to_neutral_xyz_mm": [
+          0.0,
+          3.174999999999997,
+          0.0
+        ],
+        "id": "arm-z/far-plus",
+        "point_reference_xyz_mm": [
+          0.0,
+          25.4,
+          65.0875
+        ],
+        "port_index": 3,
+        "six_coordinate_order": [
+          "ux",
+          "uy",
+          "uz",
+          "rx",
+          "ry",
+          "rz"
+        ],
+        "strip_root_xyz_mm": [
+          0.0,
+          22.225,
+          0.0
+        ],
+        "strip_tip_neutral_xyz_mm": [
+          0.0,
+          22.225,
+          65.0875
+        ]
+      }
+    ],
+    "rotation_scale": 1000.0,
+    "scenario_canonical_sha256": "648d666b58259d94a11d0e4408c6deaf021a05cb5be027f3d6656342934d27ab",
+    "schema": "eoere_first_order_four_port_assembly_descriptor/v1",
+    "source_sha256": {
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py": "4103015c05405e930e10c90edb5e147dd9d1ec2fb0575f17e3e4efc01a6cb66b",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/four_port.py": "8482d5f3f1d01eee9141db2bbeef5237f87cb7d78f00619749604c0a23f57567",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/inputs.json": "a938b41e53f5708c74e30ec1f021e894513ab6be4b1c6df390bababcfeebbd8e",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_four_port.py": "75dcf7ff98c056d319c20fc4c8783485f0415e5fd3a3fa906b1f0adec5dc93dd",
+      "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448"
+    }
+  },
+  "response": {
+    "body": "synthetic-fitting",
+    "candidate_field_or_capacity_admitted": false,
+    "elastic_energy_nmm": 0.0034414227356178865,
+    "external_body_resultant_about_heel_n_nmm": [
+      -3.574918139293004e-14,
+      2.4868995751603507e-14,
+      2.6645352591003757e-15,
+      1.1368683772161603e-13,
+      -4.263256414560601e-14,
+      1.0658141036401503e-13
+    ],
+    "gradient_stored_units": [
+      5.088201906876721,
+      -10.691971462224457,
+      0.7803380176782071,
+      0.010315743072700995,
+      0.014171426893907907,
+      0.441757740540564,
+      -2.8618267110042654,
+      -1.0817664708726396,
+      2.2215922705642424,
+      0.0012800795915053574,
+      0.06082365424710263,
+      0.11689530367096333,
+      -1.107320145544249,
+      22.47525534790797,
+      7.848208129631684,
+      0.9999424647030971,
+      0.02445717383796867,
+      0.006137977889295988,
+      -1.1190550503282424,
+      -10.701517414810851,
+      1.1498615821258689,
+      -0.07568497536350197,
+      0.024845078218352,
+      -0.000696647856056249
+    ],
+    "heel_net_residual_n_nmm": [
+      3.574918139293004e-14,
+      -2.4868995751603507e-14,
+      -1.7763568394002505e-15,
+      -4.547473508864641e-13,
+      0.0,
+      -2.1671553440683056e-13
+    ],
+    "load_projection": {
+      "body": "synthetic-fitting",
+      "external_heel_support": false,
+      "heel_load_shift_mm_rad": [
+        -1.3974000561634589e-06,
+        -5.0563787222111e-07,
+        -5.457124456553083e-06,
+        -2.7477435447969995e-08,
+        4.688200703117092e-06,
+        3.5969104538458396e-09
+      ],
+      "heel_wrench_n_nmm": [
+        0.0,
+        0.0,
+        -12.0,
+        -36.0,
+        216.0,
+        0.0
+      ],
+      "physical_load_rows": [
+        {
+          "body": "synthetic-fitting",
+          "force_xyz_n": [
+            0.0,
+            0.0,
+            -12.0
+          ],
+          "id": "synthetic-own-centroid-gravity",
+          "point_xyz_mm": [
+            18.0,
+            3.0,
+            21.0
+          ]
+        }
+      ],
+      "potential_constant_nmm": -0.000539563016514028,
+      "rhs_port_mm_rad_units": [
+        -1.1426544422043585,
+        -0.06402248696762285,
+        -1.2620468172855264,
+        -4.119110056998575,
+        -27.408603112887146,
+        6.22511263733673,
+        -1.2813234113162557,
+        -0.06402248696762285,
+        -1.2718387595423948,
+        3.9259766494300674,
+        -27.727269633709106,
+        -1.4710170475912125,
+        1.2126298297211,
+        0.06402248696762285,
+        -4.203398814984209,
+        -15.186145382147512,
+        -25.800389023837344,
+        -3.8354238597568076,
+        1.2113480237995147,
+        0.06402248696762285,
+        -5.2627156081878725,
+        14.86876791142382,
+        -25.758674252376753,
+        3.8607058251711366
+      ],
+      "rhs_stored_units": [
+        -1.1426544422043585,
+        -0.06402248696762285,
+        -1.2620468172855264,
+        -0.004119110056998575,
+        -0.027408603112887148,
+        0.006225112637336731,
+        -1.2813234113162557,
+        -0.06402248696762285,
+        -1.2718387595423948,
+        0.003925976649430067,
+        -0.02772726963370911,
+        -0.0014710170475912127,
+        1.2126298297211,
+        0.06402248696762285,
+        -4.203398814984209,
+        -0.015186145382147511,
+        -0.025800389023837345,
+        -0.0038354238597568075,
+        1.2113480237995147,
+        0.06402248696762285,
+        -5.2627156081878725,
+        0.01486876791142382,
+        -0.025758674252376754,
+        0.0038607058251711366
+      ],
+      "route": "source-point-wrench-through-internal-rigid-heel-v1",
+      "schema": "eoere_four_port_loaded_collector_projection/v1",
+      "uniform_physical_weight_distribution_inferred": false
+    },
+    "loaded_heel_q_mm_rad": [
+      -6.922562811915975e-05,
+      -4.319764405466387e-05,
+      -3.10716729501284e-05,
+      -1.879015986198877e-06,
+      3.964767564748542e-06,
+      -7.590076799504842e-07
+    ],
+    "port_actions": [
+      {
+        "body": "synthetic-fitting",
+        "external_couple_required_at_port_xyz_nmm": [
+          10.315743072700995,
+          14.171426893907906,
+          441.757740540564
+        ],
+        "external_force_required_at_port_xyz_n": [
+          5.088201906876721,
+          -10.691971462224457,
+          0.7803380176782071
+        ],
+        "point_xyz_mm": [
+          65.0875,
+          -25.4,
+          0.0
+        ],
+        "port_id": "arm-x/far-minus"
+      },
+      {
+        "body": "synthetic-fitting",
+        "external_couple_required_at_port_xyz_nmm": [
+          1.2800795915053573,
+          60.823654247102624,
+          116.89530367096333
+        ],
+        "external_force_required_at_port_xyz_n": [
+          -2.8618267110042654,
+          -1.0817664708726396,
+          2.2215922705642424
+        ],
+        "point_xyz_mm": [
+          65.0875,
+          25.4,
+          0.0
+        ],
+        "port_id": "arm-x/far-plus"
+      },
+      {
+        "body": "synthetic-fitting",
+        "external_couple_required_at_port_xyz_nmm": [
+          999.9424647030971,
+          24.457173837968668,
+          6.137977889295987
+        ],
+        "external_force_required_at_port_xyz_n": [
+          -1.107320145544249,
+          22.47525534790797,
+          7.848208129631684
+        ],
+        "point_xyz_mm": [
+          0.0,
+          -25.4,
+          65.0875
+        ],
+        "port_id": "arm-z/far-minus"
+      },
+      {
+        "body": "synthetic-fitting",
+        "external_couple_required_at_port_xyz_nmm": [
+          -75.68497536350196,
+          24.845078218352,
+          -0.696647856056249
+        ],
+        "external_force_required_at_port_xyz_n": [
+          -1.1190550503282424,
+          -10.701517414810851,
+          1.1498615821258689
+        ],
+        "point_xyz_mm": [
+          0.0,
+          25.4,
+          65.0875
+        ],
+        "port_id": "arm-z/far-plus"
+      }
+    ],
+    "potential_nmm": 0.002144528290727501,
+    "schema": "eoere_four_port_assembly_seam_response/v1"
+  },
+  "schema": "eoere_four_port_assembly_method_witness/v1",
+  "small_method_witness_pass": true,
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly-plan.json": "943a287974b117e90730ddca3f67852b0e15003e608c75e6b537e6e0abe8dff2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py": "4103015c05405e930e10c90edb5e147dd9d1ec2fb0575f17e3e4efc01a6cb66b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/four_port.py": "8482d5f3f1d01eee9141db2bbeef5237f87cb7d78f00619749604c0a23f57567",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/inputs.json": "a938b41e53f5708c74e30ec1f021e894513ab6be4b1c6df390bababcfeebbd8e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_assembly_interface.py": "d10a66eec19d318892e3785aa4ee885ce81a0495eb889676a9c55d77476ae0e1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_four_port.py": "75dcf7ff98c056d319c20fc4c8783485f0415e5fd3a3fa906b1f0adec5dc93dd",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448"
+  },
+  "toy_stored_q": [
+    -8.019314252534474e-05,
+    -0.0001324358995628145,
+    -2.4836162209524855e-05,
+    4.204452380655215e-05,
+    0.00011360465324896427,
+    1.0970639932180819e-05,
+    -5.5264732053623244e-05,
+    -7.847803553442783e-05,
+    7.487457707345912e-05,
+    0.00016347830429585777,
+    2.7276877584472178e-05,
+    -0.00012333286640307716,
+    -9.582652054360888e-05,
+    0.00016000190889991115,
+    2.0288244050860842e-05,
+    -0.00017321348424395849,
+    -8.369619281702581e-06,
+    -0.00011632259734447486,
+    -6.292880940615545e-05,
+    -4.880058232768575e-05,
+    -7.133133716322437e-05,
+    5.533784703532895e-05,
+    -6.308597192528916e-06,
+    -5.8943125803260477e-05
+  ]
+}

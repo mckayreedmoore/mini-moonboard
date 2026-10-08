@@ -1,0 +1,71 @@
+{
+  "anticipated_field_schema": "eoere_first_order_common_shaft_four_port_candidate/v2",
+  "anticipated_receipt_schema": "eoere_first_order_independent_field_admission/v1",
+  "candidate_field_q_force_CAD_K_native_or_solve_executed": false,
+  "cheap_gate_API": "require_admitted_payload(field_bytes,receipt,*,admission_sha256)->(field,pins)",
+  "complete_strength_or_physical_demand_bounds_established": false,
+  "execution": {
+    "PYTHONPATH": ".",
+    "cwd": "/home/mckay-linux/repos/mini-moonboard",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "sys_orig_argv": [
+      ".venv/bin/python",
+      "-B",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/prepare.py",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/preparation.json"
+    ]
+  },
+  "focus_checks": {
+    "Ruff_assessment_and_test_pass": true,
+    "independent_readiness_claimed": false,
+    "observed_pytest_duration_seconds": 2.04,
+    "pytest_command": "PYTHONPATH=. .venv/bin/python -B -m pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/test_assessment.py fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/test_gross_members.py",
+    "synthetic_fixture_count": 19
+  },
+  "fresh_source_census": {
+    "Hillman_axes": 66,
+    "angles": 22,
+    "end_captures": 200,
+    "fitting_ports": 88,
+    "panels": 6,
+    "physical_shafts": 100,
+    "steel_surfaces": 88,
+    "timbers": 22,
+    "wood_surfaces": 120
+  },
+  "future_parent_command": "PYTHONPATH=. .venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/assessment.py --field NEW_RAW_FIELD --receipt NEW_RAW_ADMISSION --expected-field-sha256 EXACT_RAW_SHA --admission-sha256 EXACT_NEW_GATE_SHA --steel-sha256 9d670f264d5b074abf4cbd48baaebde486b1c15e3ddb612302bd1f41a577a360 --out EXCLUSIVE_NEW_COMPONENT_JSON",
+  "joined_pin_count": 359,
+  "joined_pin_union_canonical_sha256": "b70e894a86a727eb3b5e3b305cdfb29a2ce4a640a05fe556fa1a770f08e9eb53",
+  "method": [
+    "Exact new raw field admission before actions; no old schema/state/gate projection.",
+    "Four loaded own roots/neutral tips per22 angle; actual external bearings/captures/flange compression joined separately.",
+    "All100 own same-cut shaft N/V/T/M; defaultFy/root unknown; no equal shared-shaft load or summed capacity.",
+    "All200 own capture N divided by own nominal annulus area; annular couples/pressure/washer resistance unavailable.",
+    "All66 simultaneous signed screw forces retain generic head/withdrawal only, with actual Hillman resistance unavailable.",
+    "Six exported source q slices use explicit key projection to unchanged pure panel functions; spatial resolved peaks and deformation retained.",
+    "All22 fresh spans/dimensions use own-host/couple cut replay plus source affine gravity and conditional gross CD1 kernels; no old/net cuts.",
+    "Both four-axis exterior cleat corners retain header/side/post/cleat neighboring contact census; complete corner/group/splitting strength unavailable."
+  ],
+  "referenced_source_map": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/inputs.json",
+  "schema": "eoere_component_consumer_preparation/v1",
+  "source_pins_before_after_unchanged": true,
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/panel-method-correction.py": "7c8aadbc15fe3fca1932c9bf32ee1029bed7e4ac10ccca74368f95c2bf80bde8",
+    "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/panel-local-net-completion/source-cache/apa-D510C-2012.pdf": "6141e0fe02ad0db8ddec20becf2ec25c85accd21c9796e51411d19448e5762ca",
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+    "fea/current_response_materials.py": "72af0456272d91282928014d8fde557d347e36df6b7bdf23bcc41ef923d0d135",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bolt-placement-v1/input-feasibility.json": "5d24d39ec3775fc448ca4c02589aa52cf91d5cf1587878abb585d9bd746204b6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower-bolt-z-v2.json": "a615cb247cf48426f139cc3149ff658d38a96861c3166d0fa27e5912d650c04b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/assessment.py": "f5ae45cb3b630a57895b2119958c24f1cc559d9cbf34d5b2373b5a1975c300b0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/gross_members.py": "01aaf22c8b2cf93430e7bbce4768260efea39bed3d527b8f5486ba4e38e32258",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/prepare.py": "8885a0c4ae5a30af14c9bcfcab99626ff58946b444dce4f56740c7f0fa45f78c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/test_assessment.py": "de8214861cbfdeb90e39e1c71d89a045db9e4b16a0938bf06df8ea29a649ff9c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/test_gross_members.py": "cbf76b357af6c80dfbece3d48520948b5c088c17628209dd0f77e6c53ef5cafe",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/inputs.json": "7a003cb7fe6d14a8644a3030b45caf96a7a4b59618d8c1703c3e3626f267d4b4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-shaft-comparison-v1/comparison.py": "9d670f264d5b074abf4cbd48baaebde486b1c15e3ddb612302bd1f41a577a360",
+    "scripts/thin_bolted_common_shaft_steel.py": "4b28f7a055c50dc127569b7df387f8e8d973f74080d2937ceb5db356a89d9952",
+    "scripts/thin_bolted_panel_coupled.py": "abd6da1911ec79ec25b57fc2a5cc20b9e687057a15b6df2f5e8fb292a42c6bd0",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa"
+  }
+}

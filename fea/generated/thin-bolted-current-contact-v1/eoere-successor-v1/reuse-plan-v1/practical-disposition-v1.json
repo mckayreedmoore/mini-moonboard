@@ -1,0 +1,592 @@
+{
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "changed_frame_steps": [
+    {
+      "limit": "Absolute heel offsets, bend and delivered hole locations remain model scenarios; avoid obsolete B103/B104 layout and doubled/opposite rails.",
+      "step": "Identify 16 main angles inside four panel boxes plus 6 base/header angles, all 176 factory holes and 88 installed far-pair attachments."
+    },
+    {
+      "joint_path": "Four upper-angle side shafts cross side+cleat; four separate cleat/post shafts tie the cleats to outer posts; header/post bearing remains.",
+      "side_cleat_axes": [
+        "eoere_bolt_067",
+        "eoere_bolt_070",
+        "eoere_bolt_071",
+        "eoere_bolt_074"
+      ],
+      "step": "Place two 38.1 x 139.7 x 289.7 mm exterior Z-grain cleats above runners; retain upper inside angles and remove the two lower outside angle duties."
+    },
+    {
+      "axes": [
+        {
+          "id": "cleat_post_bolt_left_1",
+          "point_xyz_mm": [
+            -1257.3,
+            -131.25,
+            200.0
+          ],
+          "receivers": [
+            "eoere_cleat_left",
+            "base_post_outer_left"
+          ]
+        },
+        {
+          "id": "cleat_post_bolt_left_2",
+          "point_xyz_mm": [
+            -1257.3,
+            -80.45,
+            200.0
+          ],
+          "receivers": [
+            "eoere_cleat_left",
+            "base_post_outer_left"
+          ]
+        },
+        {
+          "id": "cleat_post_bolt_right_1",
+          "point_xyz_mm": [
+            1254.125,
+            -131.25,
+            200.0
+          ],
+          "receivers": [
+            "eoere_cleat_right",
+            "base_post_outer_right"
+          ]
+        },
+        {
+          "id": "cleat_post_bolt_right_2",
+          "point_xyz_mm": [
+            1254.125,
+            -80.45,
+            200.0
+          ],
+          "receivers": [
+            "eoere_cleat_right",
+            "base_post_outer_right"
+          ]
+        }
+      ],
+      "limit": "Do not drill from the preserved Z189.3 failed scenario or move screws implicitly.",
+      "step": "Use all four final cleat/post stations at Z200 mm, keeping the 66 screw axes fixed."
+    },
+    {
+      "limit": "Four shared-angle shafts carry eight fitting holes; stage both owners before capture. This is an ownership dependency, not a verified installation/withdrawal order.",
+      "shared_angle_axes": [
+        "eoere_bolt_065",
+        "eoere_bolt_066",
+        "eoere_bolt_079",
+        "eoere_bolt_080"
+      ],
+      "step": "Count 88 fitting attachments minus 4 shared duplicates, plus 4 cleat/post shafts and 12 starting shafts: 100 unique shafts."
+    },
+    {
+      "limit": "The predecessor B103 beam-first dependency and free-angle release routes are obsolete for this frame. No actual tool fit or current removal DAG has been demonstrated.",
+      "step": "Expose both fastener ends before panels/harness obscure access; plan separately supported removal of shared shafts and both cleats."
+    }
+  ],
+  "cost": {
+    "C4_usd": null,
+    "angle_cost_formula": "6*C4 plus shipping/tax",
+    "conditional_hardware_formula": "6*C4 + 61.93 + U; shipping/tax excluded",
+    "conditional_priced_subset_usd": 61.93,
+    "limits": "Oct7 frozen price observations are comparison offers, not a current configured quote or product selection. New4in/4.5in stacks match existing nominal bolt product descriptions but have different grips; their fit is unqualified. Grade5/Grade8 nut and washer offers are nonselected scenarios. Old177USD angles and314.17USD partial hardware are not transferred. Complete installed cost remains unknown.",
+    "unpriced_U": [
+      "60 new3/8x2.5in bolts",
+      "4 new3/8x3in bolts",
+      "4 new3/8x6in bolts",
+      "8 retained1/2 washers",
+      "16 retained3/8 washers",
+      "wood/plywood/screw receipts or actual additional stock",
+      "holds/electrical/pads/tools/machining/shipping/tax"
+    ]
+  },
+  "cost_interpretation": "Six four-packs supply 24 angles: 22 installed and 2 spares. The frozen October 7 partial $61.93 covers comparison offers only; 68 new bolts, 24 legacy washers, C4, receipts and shipping/tax remain unpriced. It is not a current configured quotation or purchase selection.",
+  "counts": {
+    "Hillman_42605": 66,
+    "added_cleats": 2,
+    "angles_installed": 22,
+    "angles_purchased": 24,
+    "existing_timbers": 20,
+    "factory_holes": 176,
+    "four_packs": 6,
+    "heads": 100,
+    "installed_factory_holes": 88,
+    "modeled_bolt_roles": 500,
+    "nuts": 100,
+    "panels": 6,
+    "physical_shafts": 100,
+    "shared_angle_shafts": 4,
+    "spare_angles": 2,
+    "total_timbers": 22,
+    "unused_factory_holes": 88,
+    "washers": 200
+  },
+  "execution": {
+    "CAD_native_query_assembly_q_K_or_solve": false,
+    "command": [
+      ".venv/bin/python",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/practical_disposition.py",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/practical-disposition-v1.json"
+    ],
+    "dependency": "stdlib savedJSON arithmetic only",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "geometry_revision": "eoere-far-pairs-cleat-corners-v1",
+  "hardware_groups": [
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "eoere_bolt_001",
+        "eoere_bolt_002",
+        "eoere_bolt_003",
+        "eoere_bolt_004",
+        "eoere_bolt_005",
+        "eoere_bolt_007",
+        "eoere_bolt_008",
+        "eoere_bolt_011",
+        "eoere_bolt_012",
+        "eoere_bolt_014",
+        "eoere_bolt_015",
+        "eoere_bolt_016",
+        "eoere_bolt_017",
+        "eoere_bolt_018",
+        "eoere_bolt_019",
+        "eoere_bolt_020",
+        "eoere_bolt_021",
+        "eoere_bolt_022",
+        "eoere_bolt_023",
+        "eoere_bolt_024",
+        "eoere_bolt_025",
+        "eoere_bolt_026",
+        "eoere_bolt_027",
+        "eoere_bolt_028",
+        "eoere_bolt_029",
+        "eoere_bolt_030",
+        "eoere_bolt_031",
+        "eoere_bolt_033",
+        "eoere_bolt_034",
+        "eoere_bolt_037",
+        "eoere_bolt_038",
+        "eoere_bolt_040",
+        "eoere_bolt_041",
+        "eoere_bolt_042",
+        "eoere_bolt_044",
+        "eoere_bolt_045",
+        "eoere_bolt_048",
+        "eoere_bolt_049",
+        "eoere_bolt_052",
+        "eoere_bolt_053",
+        "eoere_bolt_056",
+        "eoere_bolt_057",
+        "eoere_bolt_059",
+        "eoere_bolt_060",
+        "eoere_bolt_061",
+        "eoere_bolt_062",
+        "eoere_bolt_063",
+        "eoere_bolt_064",
+        "eoere_bolt_068",
+        "eoere_bolt_069",
+        "eoere_bolt_072",
+        "eoere_bolt_073",
+        "eoere_bolt_075",
+        "eoere_bolt_076",
+        "eoere_bolt_077",
+        "eoere_bolt_078",
+        "eoere_bolt_081",
+        "eoere_bolt_082",
+        "eoere_bolt_083",
+        "eoere_bolt_084"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 47.09159999999991,
+      "maximum_smooth_shank_for_nut_to_reach_seat_mm": 49.733199999999904,
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 61.467999999999904,
+      "near_steel_mm": 6.35,
+      "nominal_length_in": 2.5,
+      "nominal_length_mm": 63.5,
+      "nominal_tip_threads": 3.280000000000061,
+      "quantity": 60,
+      "source": "eoere_far_pair",
+      "wood_grip_mm": 38.1
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "eoere_bolt_065",
+        "eoere_bolt_066",
+        "eoere_bolt_079",
+        "eoere_bolt_080"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 6.35,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 53.441599999999994,
+      "maximum_smooth_shank_for_nut_to_reach_seat_mm": 56.08319999999999,
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 67.81799999999998,
+      "near_steel_mm": 6.35,
+      "nominal_length_in": 3.0000000000000004,
+      "nominal_length_mm": 76.2,
+      "nominal_tip_threads": 7.280000000000008,
+      "quantity": 4,
+      "source": "eoere_far_pair",
+      "wood_grip_mm": 38.1
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "cleat_post_bolt_left_1",
+        "cleat_post_bolt_left_2",
+        "cleat_post_bolt_right_1",
+        "cleat_post_bolt_right_2"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 78.84159999999981,
+      "maximum_smooth_shank_for_nut_to_reach_seat_mm": 81.48319999999981,
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 93.2179999999998,
+      "near_steel_mm": 0.0,
+      "nominal_length_in": 4.0,
+      "nominal_length_mm": 101.6,
+      "nominal_tip_threads": 7.280000000000116,
+      "quantity": 4,
+      "source": "cleat_post_through_bolt",
+      "wood_grip_mm": 76.2
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "rail_front_bolt_left_1",
+        "rail_front_bolt_left_2",
+        "rail_front_bolt_right_1",
+        "rail_front_bolt_right_2"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 78.232,
+      "maximum_smooth_shank_for_nut_to_reach_seat_mm": 80.264,
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 91.99879999999999,
+      "near_steel_mm": 0.0,
+      "nominal_length_in": 4.0,
+      "nominal_length_mm": 101.6,
+      "nominal_tip_threads": 8.048,
+      "quantity": 4,
+      "source": "original_starting_frame_axis",
+      "wood_grip_mm": 76.2
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "rail_rear_bolt_left_1",
+        "rail_rear_bolt_left_2",
+        "rail_rear_bolt_right_1",
+        "rail_rear_bolt_right_2"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 90.932,
+      "maximum_smooth_shank_for_nut_to_reach_seat_mm": 92.964,
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 104.69879999999999,
+      "near_steel_mm": 0.0,
+      "nominal_length_in": 4.5,
+      "nominal_length_mm": 114.3,
+      "nominal_tip_threads": 8.048,
+      "quantity": 4,
+      "source": "original_starting_frame_axis",
+      "wood_grip_mm": 88.9
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "eoere_bolt_006",
+        "eoere_bolt_009",
+        "eoere_bolt_010",
+        "eoere_bolt_013",
+        "eoere_bolt_032",
+        "eoere_bolt_035",
+        "eoere_bolt_036",
+        "eoere_bolt_039",
+        "eoere_bolt_043",
+        "eoere_bolt_046",
+        "eoere_bolt_047",
+        "eoere_bolt_050",
+        "eoere_bolt_051",
+        "eoere_bolt_054",
+        "eoere_bolt_055",
+        "eoere_bolt_058"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 97.8916000000001,
+      "maximum_smooth_shank_for_nut_to_reach_seat_mm": 100.5332000000001,
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 112.26800000000009,
+      "near_steel_mm": 6.35,
+      "nominal_length_in": 4.5,
+      "nominal_length_mm": 114.3,
+      "nominal_tip_threads": 3.2799999999999403,
+      "quantity": 16,
+      "source": "eoere_far_pair",
+      "wood_grip_mm": 88.9
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "eoere_bolt_067",
+        "eoere_bolt_070",
+        "eoere_bolt_071",
+        "eoere_bolt_074"
+      ],
+      "diameter_mm": 9.525,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 135.9916,
+      "maximum_smooth_shank_for_nut_to_reach_seat_mm": 138.63320000000002,
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 150.36800000000002,
+      "near_steel_mm": 6.35,
+      "nominal_length_in": 6.000000000000001,
+      "nominal_length_mm": 152.4,
+      "nominal_tip_threads": 3.279999999999994,
+      "quantity": 4,
+      "source": "eoere_far_pair",
+      "wood_grip_mm": 127.0
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "diameter_mm": 12.7,
+      "far_steel_mm": 0.0,
+      "full_smooth_body_to_farthest_modeled_bearing_end_target_mm": 180.97500000000002,
+      "maximum_smooth_shank_for_nut_to_reach_seat_mm": 184.15000000000003,
+      "minimum_underhead_for_modeled_nut_and_two_tip_threads_mm": 199.58929230769235,
+      "near_steel_mm": 0.0,
+      "nominal_length_in": 8.0,
+      "nominal_length_mm": 203.2,
+      "nominal_tip_threads": 3.847999999999977,
+      "quantity": 4,
+      "source": "original_starting_frame_axis",
+      "wood_grip_mm": 177.8
+    }
+  ],
+  "limits": [
+    "Actual/Disposition cells remain blank; no parts, wood, floor, hardware or tools were inspected.",
+    "This practical disposition does not consume the live A12 run or transfer predecessor forces, path passes or joint acceptance.",
+    "A failed fit or criterion governs its affected physical operation; other bounded analysis work may continue.",
+    "No anchor, floor-friction test, external sign-off, physical capacity or fabrication/climbing release is added."
+  ],
+  "nominal_mass_kg": 218.8970709297281,
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "reusable_planning_steps": [
+    {
+      "limit": "Separate member support and unplugging/hands remain planning requirements, not observed access.",
+      "source": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md#checked-sequence-and-scope",
+      "step": "Support unloaded members separately; remove holds and disconnect power before panel/frame disassembly."
+    },
+    {
+      "limit": "Reuse the local seam/order, not predecessor corridor PASS against newly added cleats and fittings.",
+      "reason": "Six panel outlines, kicker seams and all 66 Hillman axes remain unchanged.",
+      "step": "Keep the front screw approach and upper-panel-first order; plan lower panels 0.5 mm upslope before outward removal, then kickers."
+    },
+    {
+      "limit": "Connector release, complete harness shape, slack and bend radius remain unmeasured.",
+      "step": "Lift the harness from front-open channels before exposing the structural fasteners."
+    },
+    {
+      "limit": "Existing owner policy is not a new bit choice or manufacturer qualification; CAD through-bore envelopes are not drill instructions.",
+      "step": "Retain the owner-selected Hillman lead-hole/countersink/driver policy and the member-local L/U/V datum method."
+    },
+    {
+      "limit": "Old 140-side tool, 70-stack withdrawal, 36-fitting and 20-member routes do not establish current 200-side/100-stack/22-fitting plus 2-cleat access.",
+      "step": "Reuse the pass-through-tool outline and continuous withdrawal/dependency methods when checking the successor."
+    }
+  ],
+  "schema": "eoere_successor_practical_hardware_and_assembly_disposition/v1",
+  "scope": "Saved nominal geometry, reviewed inventory and applicable predecessor planning steps only; no forces, live outputs or new paths evaluated.",
+  "source_pins_before_after_unchanged": true,
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.json": "0c5a09879c9b191c39b96ce670d71ad110661bff7dfeab68133f711b32de476c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md": "666c5b0b4ae45940827c82e8bd7de437c991fff729d8e9e56411c64b7c6a5b18",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-inputs-final.json": "dd662e681871576d0a76666e9370d4359f7e96e0a2ad5f9710553895f53a5309",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/free-fitting-release-v4.json": "3ba627fb17f960d98a3a5e5da622ce850c738a196b04393ed2884a7f9a5b0790",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower-bolt-z-v2.json": "a615cb247cf48426f139cc3149ff658d38a96861c3166d0fa27e5912d650c04b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent-inventory-v2-review.json": "03a5adae71469d59fcd7efa4970db380b4b529bf1079f061401a1115f72b6cfd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory-v2.json": "14d74a158c4af7cf57d0b1282eda41e6f7e849024130be3cf869080a6ee03de3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/practical_disposition.py": "339f1d6e2f7cae8b696506443847a639f5f773f3d6f03aa47d4894f7c7264c38"
+  },
+  "specific_remaining_measurements": {
+    "Actual": "",
+    "Disposition": "",
+    "delivered_hardware": {
+      "limit": "Smooth-body target windows are optional geometric coverage comparisons, not a blanket resistance requirement. A threaded plane needs its own appropriate resistance basis; no preload, torque, friction or actual washer couple is supplied.",
+      "needed": "Actual underhead lengths, thread start/root/runout, full nut engagement and tip/tool clearance for every own new grip and bearing/shear interval; actual washers/seats, hole tolerances and head/nut outlines.",
+      "requirements": [
+        "Bind each delivered underhead length, shank, root and runout to all own wood/steel bearing and shear intervals.",
+        "Nut must reach its seat with full metal-nut engagement and the declared two-tip-thread target; nominal length is insufficient.",
+        "Full-smooth-body targets are conditional geometric coverage targets, not a blanket resistance requirement; classify actual threaded bearing before selecting strength inputs.",
+        "Verify actual head/nut/washer dimensions and contact/unused-hole/heel/tool support. No preload, torque or friction is supplied."
+      ]
+    },
+    "four_8inch_comparisons": [
+      {
+        "axis_id": "lumber_leg_bolt_left_1",
+        "current_modeled_nut_two_tip_minimum_underhead_mm": 199.58929230769235,
+        "delivered_fit": null,
+        "separate_saved_product_tolerance_stack_margin_mm": -0.8088923076923549,
+        "shortest_comparison_margin_against_current_modeled_stack_mm": -0.9612923076923607,
+        "source_shortest_comparison_underhead_mm": 198.628
+      },
+      {
+        "axis_id": "lumber_leg_bolt_left_2",
+        "current_modeled_nut_two_tip_minimum_underhead_mm": 199.58929230769235,
+        "delivered_fit": null,
+        "separate_saved_product_tolerance_stack_margin_mm": -0.8088923076923549,
+        "shortest_comparison_margin_against_current_modeled_stack_mm": -0.9612923076923607,
+        "source_shortest_comparison_underhead_mm": 198.628
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_1",
+        "current_modeled_nut_two_tip_minimum_underhead_mm": 199.58929230769235,
+        "delivered_fit": null,
+        "separate_saved_product_tolerance_stack_margin_mm": -0.8088923076923549,
+        "shortest_comparison_margin_against_current_modeled_stack_mm": -0.9612923076923607,
+        "source_shortest_comparison_underhead_mm": 198.628
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_2",
+        "current_modeled_nut_two_tip_minimum_underhead_mm": 199.58929230769235,
+        "delivered_fit": null,
+        "separate_saved_product_tolerance_stack_margin_mm": -0.8088923076923549,
+        "shortest_comparison_margin_against_current_modeled_stack_mm": -0.9612923076923607,
+        "source_shortest_comparison_underhead_mm": 198.628
+      }
+    ],
+    "four_8inch_interpretation": "Nominal 3.848 tip threads do not cover the shortest 198.628 mm comparison. Its modeled-stack shortfall is 0.961292 mm; the separate catalog-nut/frozen-washer shortfall is 0.808892 mm. Delivered fit remains NULL. Saved 8.5-inch alternatives are unselected algebraic/access comparisons and are not inserted into current geometry.",
+    "lower_bore_screw_clearance": {
+      "actual_clearance_or_tolerance_budget": null,
+      "capsule_separation_lower_bound_mm": 0.3406250000000002,
+      "finite_axis_distance_mm": 8.0,
+      "first": "cleat_post_bolt_left_2",
+      "first_role": "wood_bore_cutter",
+      "needed": "Delivered bore/screw/head diameters, both axes and installation positioning/drill runout at the lower pair; the current 0.340625 mm value is a nominal bound, not a manufactured clearance.",
+      "second": "round_kicker_left_rim_2",
+      "second_role": "screw_body",
+      "source": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower-bolt-z-v2.json"
+    },
+    "post_top_end": {
+      "cleat_bottom_end_mm": 60.3,
+      "common_overlap_Z_mm": [
+        139.7,
+        238.9
+      ],
+      "complete_Cdelta_load_direction_group_splitting_or_strength": null,
+      "compression_full4D_mm": 38.1,
+      "compression_geometric_margin_at_post_top_mm": 0.8,
+      "diameter_mm": 9.525,
+      "minimum_end_over_full7D_diagnostic_only": 0.583427071616048,
+      "needed": "Actual post end/grain/holes and signed group action; 38.9 mm exceeds the named 4D compression reference by 0.8 mm, but is below full 7D tension at 66.675 mm. The minimum 3.5D tension reference is 33.3375 mm; complete load-direction/group/splitting behavior remains unresolved.",
+      "post_top_end_mm": 38.9,
+      "softwood_tension_full7D_mm": 66.675,
+      "softwood_tension_minimum3p5D_mm": 33.3375,
+      "tension_full_both_directions_possible": false
+    },
+    "stock_and_panels": "Actual usable runner offcuts and grade/grain; delivered stick lengths at old tight nesting; reconcile cut-panel thickness/width to CAT 18.25625 mm and modeled main width 1217.6125 mm (nominal 1219.2 differs by 1.5875 mm). No new plywood or screw purchase is inferred.",
+    "tools_and_service": "Actual ring/socket AF/outer diameter/depth, approach and handle/index stroke, nut reach and withdrawal; connectors/harness slack and bend radius. The new 200 sides and 100 shafts have no transferred access PASS."
+  },
+  "stock": {
+    "added_cleat_dimensions_mm": [
+      38.1,
+      139.7,
+      289.7
+    ],
+    "added_cleat_quantity": 2,
+    "conditional_offcut_allocations": [
+      {
+        "additional_piece_plus_kerf_mm": 292.875,
+        "cleat_grain_length_mm": 289.7,
+        "delivered_usable_offcut_or_grade_verified": false,
+        "existing_stick_members": [
+          "base_floor_left"
+        ],
+        "nominal_remaining_mm": 301.3035169583068
+      },
+      {
+        "additional_piece_plus_kerf_mm": 292.875,
+        "cleat_grain_length_mm": 289.7,
+        "delivered_usable_offcut_or_grade_verified": false,
+        "existing_stick_members": [
+          "base_floor_right"
+        ],
+        "nominal_remaining_mm": 301.3035169583068
+      }
+    ],
+    "existing_nominal_board_feet": 150,
+    "existing_stock_purchase_scenario": [
+      {
+        "length_ft": 8,
+        "quantity": 6,
+        "section": "2x6"
+      },
+      {
+        "length_ft": 10,
+        "quantity": 3,
+        "section": "2x6"
+      },
+      {
+        "length_ft": 8,
+        "quantity": 2,
+        "section": "4x6"
+      },
+      {
+        "length_ft": 10,
+        "quantity": 2,
+        "section": "4x6"
+      }
+    ],
+    "new_purchased_stock_required": null
+  },
+  "washer_groups": [
+    {
+      "Actual": "",
+      "Disposition": "",
+      "ID_mm": 11.1125,
+      "OD_mm": 25.4,
+      "quantity": 16,
+      "thickness_mm": 2.032
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "ID_mm": 11.1125,
+      "OD_mm": 26.162,
+      "quantity": 176,
+      "thickness_mm": 2.6416
+    },
+    {
+      "Actual": "",
+      "Disposition": "",
+      "ID_mm": 14.2875,
+      "OD_mm": 34.925,
+      "quantity": 8,
+      "thickness_mm": 3.175
+    }
+  ]
+}

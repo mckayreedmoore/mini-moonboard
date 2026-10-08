@@ -1,0 +1,89 @@
+{
+  "before_after_pin_map_sha256": [
+    "f54843df1ef9a41b7c03d77fa6e04ed67de5bdc89640caccca9749359ec2a8fd",
+    "f54843df1ef9a41b7c03d77fa6e04ed67de5bdc89640caccca9749359ec2a8fd"
+  ],
+  "check_pass": true,
+  "execution": {
+    "PYTHONPATH": ".",
+    "dependencies": "stdlib only; no inventory helper import",
+    "sys_argv": [
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/check_inventory_v2.py",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory-v2-arithmetic-review.json"
+    ],
+    "sys_orig_argv": [
+      ".venv/bin/python",
+      "-B",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/check_inventory_v2.py",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory-v2-arithmetic-review.json"
+    ]
+  },
+  "four_changed_axis_ids": [
+    "cleat_post_bolt_left_1",
+    "cleat_post_bolt_left_2",
+    "cleat_post_bolt_right_1",
+    "cleat_post_bolt_right_2"
+  ],
+  "geometry": {
+    "exact_tracked_mirror": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-geometry-v2.json",
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-geometry-v2-complete/geometry.json",
+    "sha256": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd"
+  },
+  "independent_author_review_or_admission": false,
+  "inventory": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/reuse-plan-v1/inventory-v2.json",
+    "sha256": "14d74a158c4af7cf57d0b1282eda41e6f7e849024130be3cf869080a6ee03de3"
+  },
+  "limits": "No actual CAD query, tolerance/grade/stock inspection, current load vector or force field. Same-author arithmetic is not independent source admission, geometry acceptance, purchase or capacity. Modeled nut11.5316mm and unselected catalog maximum11.3792mm remain separate bases; neither resolves delivered shank/root/runout/engagement.",
+  "other96_axis_fields_and_all_grip_length_hardware_fields_unchanged": true,
+  "reviewer_relation": "Same author as inventory.py; separately computed source/Decimal reconciliation only.",
+  "saved_geometry_census": {
+    "empty_collision_lists": 5,
+    "fully_backed_bore_records": 120,
+    "fully_backed_screw_records": 132
+  },
+  "schema": "eoere_inventory_same_author_arithmetic_reconciliation/v1",
+  "separate_60_digit_arithmetic": {
+    "four_8inch_length_checks": [
+      {
+        "axis_id": "lumber_leg_bolt_left_1",
+        "comparison_SKU2586_catalog_max_height_mm": "11.3792",
+        "minimum_modeled_underhead_mm": "199.589292307692307692307692307692307692307692307692307692308",
+        "modeled_nut_height_mm": 11.5316,
+        "separate_catalog_nut_margin_mm": "-0.80889230769230769230769230769230769230769230769230769230769",
+        "shortest_modeled_margin_mm": "-0.961292307692307692307692307692307692307692307692307692308"
+      },
+      {
+        "axis_id": "lumber_leg_bolt_left_2",
+        "comparison_SKU2586_catalog_max_height_mm": "11.3792",
+        "minimum_modeled_underhead_mm": "199.589292307692307692307692307692307692307692307692307692308",
+        "modeled_nut_height_mm": 11.5316,
+        "separate_catalog_nut_margin_mm": "-0.80889230769230769230769230769230769230769230769230769230769",
+        "shortest_modeled_margin_mm": "-0.961292307692307692307692307692307692307692307692307692308"
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_1",
+        "comparison_SKU2586_catalog_max_height_mm": "11.3792",
+        "minimum_modeled_underhead_mm": "199.589292307692307692307692307692307692307692307692307692308",
+        "modeled_nut_height_mm": 11.5316,
+        "separate_catalog_nut_margin_mm": "-0.80889230769230769230769230769230769230769230769230769230769",
+        "shortest_modeled_margin_mm": "-0.961292307692307692307692307692307692307692307692307692308"
+      },
+      {
+        "axis_id": "lumber_leg_bolt_right_2",
+        "comparison_SKU2586_catalog_max_height_mm": "11.3792",
+        "minimum_modeled_underhead_mm": "199.589292307692307692307692307692307692307692307692307692308",
+        "modeled_nut_height_mm": 11.5316,
+        "separate_catalog_nut_margin_mm": "-0.80889230769230769230769230769230769230769230769230769230769",
+        "shortest_modeled_margin_mm": "-0.961292307692307692307692307692307692307692307692307692308"
+      }
+    ],
+    "max_role_volume_error_mm3": 6.984919309616089e-10,
+    "priced_comparison_subset_usd": "61.93",
+    "total_mass_error_kg": 2.842170943040401e-14,
+    "total_mass_kg": "218.897070929728119158864195317504219939809535426781152868224"
+  },
+  "unchanged_source_pin_count": 328
+}
