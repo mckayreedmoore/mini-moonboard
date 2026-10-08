@@ -2034,10 +2034,23 @@ give **$177.00** for thirty-six angles, **$314.17** known partial hardware and
 October 6 comparison remains intact. Complete installed cost is unquoted;
 conditional total dead mass stays **216.746714–218.270785 kg** plus unknown pads.
 
+The delivered-length reuse screen separates nut engagement and blind socket
+clearance. For underhead length L, seated nut-near distance S, nut height H,
+pitch p and usable well W, the window is **S + H + 2p ≤ L ≤ S + W**. The
+nominal leg comparison gives **199.436892–232.15 mm**, with the existing
+48-mm well assumption. The previously researched 8½-inch Grade 5 product's
+**211.328–215.9-mm** range fits this algebra and the existing serial access
+envelope. With unselected USS washer thickness extrema, the worst window is
+**199.792492–230.1688 mm** and the necessary socket well is **33.7312 mm**.
+This identifies a feasible comparison, without changing the four reviewed
+8-inch axes, choosing a product or proving delivered threads, shank, tool fit
+or resistance. The [construction packet](hypotheses/hl35-candidate/thin-frame-comparison/access-takeoff-v4.md)
+records the primary sources and starting three-eighth-inch windows.
+
 | New bounded result | Verified number | Remaining limit and next action |
 | --- | --- | --- |
 | [Existing twelve-screw upper-left static allocation](../../fea/generated/thin-bolted-panel-transfer-remedy-v1/result.json) | Necessary peak **299.882611 N**, generic head index **0.516778**; primal/dual gap −5.68e-14 N | Uses the actual load/wrench and 118 existing compression stations, free compression sharing and fixed lateral actions. It does not replace the admitted **1939.742640-N** spring response or prove a compatible remedy. Preserve 66 screws; assess the current finite panel/backing response. |
-| [Same-state timber member comparisons](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/member-strength.json) and [net-section refinement](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/net-enclosure-v1/final-normal-dispositions.json) | 226 intact rectangles: fully braced normal **0.667979**; sufficient shear/torsion bound **0.701151**. All **802 scoped net normal bounds ≤1**, maximum **0.940811**; forty-six refined findings peak at **0.605572** | Five prior exact findings and 751 sufficient conservative bounds are preserved; only forty-six sections on five cached timbers were measured. Net average shear **0.177715** is necessary, not a maximum-stress bound. Eighteen partial ends, four tips, stress concentrations, fracture and net shear/torsion remain separate. Thirty-three compressed rectangle traces exceed the conditional full-length column slenderness domain; actual restraint and wood R/T orientation are uncredited. |
+| [Same-state timber member comparisons](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/member-strength.json), [net refinement](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/net-enclosure-v1/final-normal-dispositions.json) and [partial-end refinement](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/partial-end-development-v1/refinement-v1/final-partial-normal-dispositions.json) | 226 intact rectangles: fully braced normal **0.667979**; sufficient shear/torsion bound **0.701151**. All **802 scoped net normal bounds ≤1**, maximum **0.940811**; forty-six refined findings peak at **0.605572**. All **18 partial normal bounds ≤1**, maximum **0.620943** | Five prior exact findings and 751 sufficient conservative net bounds are preserved; only forty-six net cuts and one partial cut were newly measured. Net average shear **0.177715** is necessary, not a maximum-stress bound. Four tips, contact end tractions, stress concentrations, fracture and nonrectangular shear/torsion remain separate. Thirty-three compressed rectangle traces exceed the conditional full-length column slenderness domain; actual restraint and wood R/T orientation are uncredited. |
 | [Own washer statics](../../fea/generated/thin-bolted-v4-geometry/current-own-seat-admissibility-v1/final-result.json) | Axis-019 nut/header: N **1256.060189 N**, peak-pressure lower bound **1.561005 MPa**; positive full-annulus affine-pressure kern **6.417794 N·m**; any nonnegative OD-contained pressure requires M ≤**22.013711 N·m** | Force alone gives no finite peak-pressure upper bound. These necessary moment limits are not actual washer moments or capacities. Pressure, prying, bending and complete axial resistance remain NULL. |
 | [Four cached terminal sections](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/terminal-geometry.json) and [gravity-only reduction](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/member-strength-v1/terminal-gravity.json) | Principal/side areas **1453.845042 / 3969.189470 mm²**; lower selfweights **0.066972 / 0.213936 N**; normal-stress enclosures **7.05764e-5 / 8.25783e-5 MPa** | Independent oblique-wedge coupon, four cached queries and same-source arithmetic pass. Uniform-density selfweight differs from the old affine beam gravity law. Nonzero potential header-contact footprints below these planes prevent treating gravity as the complete tip demand. Actual pressure/complete tip wrench and resistance remain NULL. |
 | [Finite eight-centroid floor coupon](../../fea/generated/thin-bolted-current-contact-v1/finite-centroid-floor-v1/method-result.json) | Forty ports; scaled gradient/tangent finite-difference errors **9.04e-11 / 1.07e-9** | Twenty-seven fixtures and independent method review pass, including exact zero disabled-XY actions. Same physical no-slip assumptions, new finite point law; fixed-mask conservation does not establish global uniqueness or a candidate pass. |
@@ -2053,6 +2066,25 @@ inertias, every preserved finding and the 802-row census. Stress arithmetic
 agrees within 1.78e-15 MPa. No geometry change, new global response or native
 solve occurs; a containing-box enclosure does not claim occupied corner
 extrema or complete member acceptance.
+
+The eighteen partial-end cuts are separately bound to the same admitted field
+and unchanged affine reference-beam gravity. Seventeen sufficient normal
+bounds remain exact; only the inconclusive left-leg cut at **−374.9922284 mm**
+uses a new cached-solid section. Its exact area is **3548.380002 mm²** and the
+transported centroid/coupled-inertia stress enclosure is
+**−0.161497 to +0.080749 MPa**. The new normal ratio is **0.015030426**, replacing
+the preserved loose **2.205688** enclosure. All eighteen scoped partial
+normal bounds are below one, maximum **0.620943233** on the right-leg cut.
+The [final result](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/partial-end-development-v1/refinement-v1/final-partial-normal-dispositions.json)
+is SHA `888365f5c9e854780968eb5dcbf101c06579beb3e64e98c2cfcc89021be79a4d`
+(61,341 bytes). Its [independent review](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/partial-end-development-v1/refinement-v1/independent-final-partial-normal-review.json),
+SHA `75b33e91433fac1270ca6be9c1d52194931ea891590121c066f27fe8b78b92aa`,
+rechecks 394 dependencies, the one exact stress calculation and all seventeen
+preserved findings. Stress error is at most **2.78e-17 MPa**. Twelve possible
+header-bearing overlaps remain warnings; these normal comparisons do not
+recover the complete end-contact traction or clear concentrations, fracture,
+shear, torsion or stability. No prior 802-net, 226-rectangle or tip calculation
+is repeated.
 
 Current contact now has a quantified trim failure. The once-issued
 [mapped marker diagnostic](../../fea/generated/thin-bolted-direct-contact-a12-v1/observer-isolation-v2/current-contact-v1/surface-markers.json),
@@ -2082,8 +2114,35 @@ The [independent receipt](../../fea/generated/thin-bolted-current-contact-v1/pan
 checks all source/canonical joins and forty-seven LINE/CIRCLE faces' area and
 centroid within **1.51e-9 mm² / 2.80e-11 mm**. Ten bottom-rail faces retain
 unsupported BSPLINE trim parameterization; source plane offsets up to
-4.50e-7 mm remain unsnapped. Actual 530-point mapping is a separate prepared
-diagnostic, not already executed by this geometry query.
+4.50e-7 mm remain unsnapped. The later actual mapping is a distinct once-issued
+diagnostic, following two preserved reader failures. Version 2 stopped on a
+missing `force_on_second_xyz_n` key after authenticated q access; the original
+writer stores the force on the first body, and its body ledger assigns the
+opposed second-body force. The version-3 bridge copies that convention with
+provenance rather than mutating the admitted actions. Its actual output then
+exposed a handedness error: all six preserved panel bases have determinant
+−1, so an absolute positive-Jacobian test incorrectly rejected every panel.
+This is a reader failure, not physical panel inversion. The version-4 reader
+uses the source orientation and relative Jacobian, with known-answer fold
+checks; no axes, coordinates, tolerance, force or q is changed.
+
+The corrected [530-port diagnostic](../../fea/generated/thin-bolted-current-contact-v1/panel-backing-frontfaces-v1/current-mapped-markers-v4.json),
+SHA `8fbfb819e04978ccda2fcbbb934b145eb9447144854af78bc515cc143981b9d6`,
+contains **496 geometrically interior / eight exterior / twenty-six unknown**
+locations. Certified opposed smooth projections are a stricter result:
+**479 true / eight false / forty-three unresolved**. Among 124 old loaded
+ports, 115 certify, three are exterior and six remain unresolved. The three
+exterior ports retain **69.967320 N**, the five geometrically unknown ports
+retain **27.010559 N**, and one interior port retains **70.443768 N** but has
+a **1.05960e-7** stationarity residual above the unchanged **1e-7** tolerance.
+The minimum relative panel Jacobian is **0.996098**. The
+[independent saved-output review](../../fea/generated/thin-bolted-current-contact-v1/panel-backing-frontfaces-v1/independent-current-mapped-review-v4.json),
+SHA `7719ef1a109ec01786434fd153670bcde09279d2d8c13763a736eaaccc516df9`,
+checks all 242 dependencies, 530 original action records, 1,540 own face
+records and 4,620 transformed normals. It repeats no mapping, CAD query,
+operator assembly or force solution. Old forces remain intact; these
+observations do not establish compatible current pressures or a physical
+demand bound.
 
 The next contact question is a continuous, objective finite sliding law with
 actual occupied boundaries, new overlap and unambiguous master ownership.
@@ -2093,9 +2152,29 @@ supports current transformed normals, inside-face tests and nearest-master
 selection, while recording edge-normal-cone limitations. The
 [surface-potential formulation](https://arxiv.org/abs/1808.10420) provides a
 variational reference; neither source qualifies this candidate's implementation.
-A bounded moving-rectangle/holed-plate coupon compares fixed-point exclusion,
-moving-area boundary work and closed-surface signed distance before parent
-selection. Original response forces and the 584-cell atlas remain preserved.
+The moving-domain coupon now demonstrates the fixed-exclusion energy jump and
+the missing moving-area derivative. Closed-boundary signed-distance and
+implicit reference-solid inverse methods pass their separate synthetic work,
+objectivity and derivative checks. The inverse/reference-distance penalty is
+a declared reference-gap law, not current Euclidean surface pressure; moving
+its colocated interior reaction to the physical boundary changes generalized
+work. A pinned OCCT distance adapter and smooth-touch branch qualify bounded
+plane/cylinder queries while preserving edge, vertex, medial-axis and
+unsupported-surface guards. A geodesic-map box bound supplies a sufficient
+injectivity test when L <1; source containment, inverse existence and actual
+contact response remain separate. These reusable methods are ready within
+their recorded scope; none supplies a fresh candidate force field.
+
+The full-own-face geometry packet covers thirty source faces and contains
+**10,502** positive occupied quadrature points. Twenty-two unchanged faces
+reuse 288 old points, two end caps use 360 points, and six holed faces account
+for 9,854 points after preserved whole-grid refinement attempts. Independent
+saved-output area/centroid errors are at most **9.40e-9 mm² / 3.54e-11 mm**.
+This is reference geometry, not pressure convergence: second-moment errors
+remain as high as **3.57%** on reused cells. The least expensive future
+geometry refinement would subdivide only failed clipped tiles, with its own
+lineage and area/centroid checks. Original response forces and the 584-cell
+atlas remain preserved; no point is dropped to clear an exceedance.
 
 Construction evidence is separately recoverable in
 `/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-planning-v4.tar.gz`,
@@ -2130,8 +2209,29 @@ review/reproducer, totaling 491,638 bytes. The 444,927-byte result keeps the
 complete 802-cut disposition and forty-six new detailed calculations
 reviewable without checking bulk geometry or repeated conservative output
 into Git. Original member, geometry and conservative packets stay active
-and recoverable; no pruning is commissioned. Partial-end and finite-contact
+and recoverable; no pruning is commissioned. Remaining member and finite-contact
 mechanics remain active work and this build goal is not closed.
+
+The new contact, panel-transfer, washer-statics and partial-end packets are
+recoverable in
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-contact-and-partial-v4.tar.gz`,
+SHA `d07036da24a9aa281ad9a3e254054a8cd818521b99b79a5f5f923cff8925ad62`
+(5,262,210 bytes). Its companion `.manifest.json` is
+`dbcf8514960bd5d6b8d165ec7e0d380e2528d4ae1f22d933f0d45821014cc49c`
+(53,080 bytes), covering **181 files / 37,050,862 source bytes**. Creation,
+separate verification and fresh restoration check every file and unchanged
+source. Recovery uses
+`uv run python scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-contact-and-partial-v4.tar.gz.manifest.json --destination /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-contact-and-partial-v4-recovery-fresh`,
+with a new destination. Six partial-normal and ten compact panel-reader/review
+files remain permanent, totaling **302,358 bytes**. The 61,341-byte partial
+result preserves all eighteen findings; the 50,199-byte panel review preserves
+the important counts and loaded exception witnesses. The 18,870,688-byte
+530-port diagnostic, geometry, original reader failures and synthetic method
+packets remain in ignored output and the verified archive. Their frozen inputs
+and source helpers remain recoverable; no pruning is commissioned. New
+candidate injectivity and remaining-member work are active separate leaves,
+outside this completed archive inventory. Complete current-contact response
+and joint resistance still prevent closing the build goal.
 
 Active parallel workers own panel transfer, current contact formulation,
 washer response, practical hardware/construction reuse and independent gap

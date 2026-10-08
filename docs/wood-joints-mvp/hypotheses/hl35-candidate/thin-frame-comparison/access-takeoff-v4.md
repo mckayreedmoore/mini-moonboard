@@ -163,6 +163,37 @@ does not qualify delivered fit. Its ¾-inch hex flats also differ from the
 frozen ⅞-inch occupancy; bearing-face area, thread runout and smooth shank
 at loaded planes remain separate inputs.
 
+A delivered bolt's length can be screened at its seated stack. Let S be the
+underhead-to-nut-near distance, H the nut height, p the thread pitch and W the
+usable blind socket well. The recorded two-thread target requires
+**S + H + 2p ≤ L**; the assumed socket well requires **L ≤ S + W**. A
+pass-through ring has no blind-well limit from its 12-mm body thickness.
+With the frozen leg S=184.150 mm, comparison nut H=11.3792 mm and assumed
+48-mm well, the length window is **199.436892–232.150 mm**. Measured washers,
+wood grip, nut, complete threads and actual tools determine the delivered
+window; the shop Actual cells remain blank.
+
+The existing [8½-inch Grade 5 comparison](https://cdefasteners.com/order-online/coarse-thread-hex-cap-screw-grade-5-zinc/197474)
+has a **211.328–215.900-mm** length range under its
+[published tolerance sheet](https://cdefasteners.com/sites/default/files/product-specs/capscrewgr5-8.pdf).
+It fits that algebraic window and the earlier frozen-profile serial access
+supplement through 215.900 mm. It remains an unselected comparison. Using
+the unselected [USS washer thickness extrema](https://boltdepot.com/Product-Details?product=15025)
+at unchanged nominal wood grip narrows the worst-case window to
+**199.792492–230.168800 mm**; the 8½-inch comparison needs at most a
+**33.7312-mm** usable well. Its washer maximum OD differs from CAD, so
+this tolerance screen is separate from the reviewed geometry. A 9-inch
+comparison needs additional thread-seat and withdrawal evidence.
+
+The four starting [⅜-inch ×4-inch comparisons](https://boltdepot.com/Product-Details?product=367)
+and four [⅜-inch ×4½-inch comparisons](https://boltdepot.com/Product-Details?product=368)
+have minimum length margins **8.0772 / 7.0612 mm** against the frozen
+two-thread targets. Corresponding unselected USS thickness extrema retain
+**6.858 / 5.842 mm** margins. Length fit does not settle smooth-shank reach;
+the front stacks remain dependent on their delivered thread transition.
+These calculations change no part selection, shaft length, model mass or
+mechanical result.
+
 The stock plan places all 20 timbers once: two 4×6×10-foot, two 4×6×8-foot,
 three 2×6×10-foot and six 2×6×8-foot sticks, totaling 150 nominal board feet.
 With the stated 3.175 mm kerfs and 12.7 mm allowances at each end, the tightest

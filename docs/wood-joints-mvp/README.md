@@ -118,10 +118,19 @@ are now below the conditional CD1 fully braced reference, maximum **0.940811**.
 The refinement reused five exact sections, preserved 751 sufficient bounds
 and measured only the 46 inconclusive sections on five cached timbers; those
 46 refined comparisons peak at **0.605572**. The original loose 9.804 bound
-remains preserved. These results reuse the admitted field; local stress
-concentrations, partial ends, contact-loaded tips, shear, torsion, fracture and
+remains preserved. All **18 partial-end normal comparisons** are also below
+the same conditional reference, maximum **0.620943**. One additional exact
+section replaces the loose 2.205688 bound with **0.0150304** while preserving
+the other seventeen findings. These results reuse the admitted field; local stress
+concentrations, contact-loaded tips, shear, torsion, fracture and
 actual restraint remain separate. Complete timber resistance is unresolved.
-The next engineering decision is how to revise
+The corrected panel pose diagnostic finds **496 geometrically interior,
+eight exterior and twenty-six unresolved** backing stations. Only **479**
+have certified opposed smooth projections. Three exterior stations retain
+**69.967 N** of old compression; five unresolved locations retain **27.011 N**.
+Another interior station retains **70.444 N** but misses the unchanged
+stationarity tolerance. These are applicability findings at the saved pose;
+the spring forces are preserved. The next engineering decision is how to revise
 panel load transfer and establish current contact and washer behavior before
 using these model actions as complete-joint strength demands. Exact fitting
 geometry/material, bolt root/shank/thread placement, washer seating and
