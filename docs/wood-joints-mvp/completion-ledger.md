@@ -3565,6 +3565,93 @@ than publishing only a pass label. The twelve raw finished BREPs stay active
 ignored. Existing frame fields/operators, source caches, prior studies and
 historical viewer assets remain active; no archive or prune operation occurs.
 
+The separate [nut-side spacer comparison](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/spacer-window-result-v1.json),
+SHA `592c237e8f98456f936deaf3b8613f60c493008851e65f43a9fbde6300929896`,
+addresses the 4½-inch bolt's body/seating tradeoff without changing the four
+wood stacks. The [primary catalog part](https://boltdepot.com/Product-Details?product=13731)
+is Bolt Depot 13731, zinc-plated low-carbon steel, nominal 13/32-inch ID,
+¾-inch OD and ½-inch length. The direct product page lists $2.53 each on
+October 9, 2026; four cost $10.12. Including the frozen/reverified $0.52
+four-bolt increment gives **$10.64 before shipping/tax**, outside the unchanged
+current basket. No dimensional tolerance, numeric yield or compression capacity
+is published for that spacer. No part has been purchased or measured here.
+
+The unchanged 76.2-mm wood pair and two catalog USS washer/nut bounds give
+**9.4488 ≤ s ≤ 18.5420 mm**: the lower bound puts the nut-near face beyond
+maximum conservative gaged grip; the upper retains two thread pitches beyond
+the nut at the shortest bolt/largest stack. The exact nominal 12.7-mm scenario
+has these dimensional results for each of the four stations:
+
+| Comparison | Result |
+| --- | ---: |
+| Nut-near coordinate from underhead | 92.1512–94.1832 mm |
+| Minimum conservative gaged-grip seating reserve | 3.2512 mm |
+| Tip projection beyond nut | 9.0170–14.0208 mm |
+| Minimum reserve beyond two tip pitches | 5.8420 mm |
+| Minimum smooth-body reserve beyond far wood | 2.1844 mm |
+| Maximum required clear socket well before actual drive/seating allowance | 22.1488 mm |
+| Headward bolt withdrawal, retained model convention | 116.3 mm |
+
+The order is **wood → existing nut washer → one spacer → nut**. The spacer
+does not extend wood bearing length. Putting it under the head instead would
+consume the shank reserve and give −10.5156 mm at this box corner. Nut-only
+withdrawal decreases; bolt-tip position and headward withdrawal remain those
+of the bare 4½-inch bolt. The original nut washer still starts at the wood
+face, so its withdrawal does not decrease by the spacer length. Spacer removal
+requires its own continuous path after the nut is removed.
+
+Nominal diametral bolt clearance is 0.79375 mm. For coaxial nominal spacer
+diameters and the catalog washer extremes, the overlapping radial width is
+3.7719 mm and the washer outer-edge reserve is 3.0861 mm. Part of the spacer
+end lies over the washer opening; this is not full end-face backing or a washer
+bending/spacer compression pass. Actual ID, concentricity, end flatness,
+material resistance and seating remain open. Delivered comparisons must use
+actual `L ≥ S + w_head + w_nut + s + h + 2p`,
+`gaged_grip ≤ S + w_head + w_nut + s`, and
+`smooth_body ≥ w_head + S`; the nominal spacer listing supplies no tolerance
+guarantee. With delivered spacer bounds, the worst clear socket-well reference
+is 34.8488 mm minus `s_min`, before actual drive/seating allowance.
+
+The small helper reuses the frozen `bounds_for` and `measured_window` functions,
+replays all four original 4½-inch dimension windows exactly and authenticates
+34 inherited/direct/self source pins before/after. Independent Decimal
+arithmetic checks 128 endpoint combinations, with maximum shared-helper
+difference 1.954e−14 mm. Below/above-window and wrong-side spacer controls
+retain their failed conditions. The current 100 shafts, 66 screws, four Z200
+HOLD stations, unadopted Z180 preview, shop instructions and six-case forces
+remain unchanged. Actual cells stay blank and all release flags remain false.
+No force, capacity, geometry, CAD/native or physical evaluation is commissioned
+by this dimensional scenario.
+
+The parent CLI replay is byte-identical to the issued spacer result. Three
+independent bounded reviews report no substantial findings. They check the
+34-pin union, independent Decimal endpoints and source/claim/topology controls,
+exact replay, output preservation, original source reuse and recovery coverage:
+
+| `hardware-followup-v1/spacer-review-v1` receipt | SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `f4d4b56c89a4f42ff55e826e60c2d002be8ec3a124aaa343c1d7796cb8c5f376` |
+| `testing/receipt.json` | `594143f6a786309cb29ff20944359326c52cc30e4de279f290827d66cba43143` |
+| `structure/receipt.json` | `803306722b73a8b01f50b24c030c5e9cc77ca9c550090ae0ab13bc6bd9a0e077` |
+
+Reproduce with a fresh output in `hardware-followup-v1`:
+
+```sh
+uv run python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/spacer-window-v1.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/spacer-window-reproduction-01.json
+```
+
+This addition publishes **13 compact files / 162,585 bytes**, plus existing
+summary/ledger edits: three scenario files, six review records and four exact
+shared source dependencies. The latter total 51,020 bytes: the existing catalog
+input, `shop-window-v1/shop_windows.py`, F606 receipt and thread-root proposal
+result, at their original paths under `catalog-hardware-strength-v1`. They were
+already covered by exact external recovery records and are now tracked unchanged
+because current consumers need them. The review's earlier non-Git labels retain
+their issued meaning and frozen bytes. No source implementation, manual or
+installation is duplicated. Keep this scenario, its prior source consumers and
+review evidence active; parent/reviewer scratch replays stay active and ignored.
+Nothing is archived, pruned, adopted or physically released.
+
 The separate [Z180 viewer proposal](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-lower-cleat-z180-development&view=rear)
 now displays the four reported 20-mm lower-axis moves without changing the
 current `eoere-base-side-edge-cleats-v1` authority or its six-case responses.

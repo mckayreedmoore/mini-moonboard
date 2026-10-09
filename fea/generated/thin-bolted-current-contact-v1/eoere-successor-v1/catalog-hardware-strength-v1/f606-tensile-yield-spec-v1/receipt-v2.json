@@ -1,0 +1,155 @@
+{
+  "schema": "eoere_grade5_F606_tensile_yield_specification_receipt/v2",
+  "status": "QUALIFIED_CONDITIONAL_DESIGN_INPUT_SOURCE_CHAIN_RECORDED",
+  "qualified_inputs_recipe": {
+    "base_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/source-inputs.json",
+    "base_raw_sha256": "064e3351b597c472a1b7ffc1baa4d362a3a2310310f2df1e4fc2927e602f5ef4",
+    "overlay_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/edition-qualification-v2.json",
+    "overlay_raw_sha256": "411c2317d89cc9a08885e3353c05efd64af002dbe4eadb6a405e6419707e954c",
+    "normalization_API": "source_receipt_v2.qualified_inputs(base,overlay)",
+    "qualified_inputs_canonical_sha256": "f0d9a2bc6225bf34a20af982751dfb09a5b86b510e48f21280b217031da61191"
+  },
+  "conditional_NDS_input": {
+    "Fyb_psi": 92000,
+    "nominal_diameter_in": [
+      0.375,
+      0.5
+    ],
+    "scenario_id": "eoere-J429-201405-Grade5-F606-tensile-yield-spec-v2",
+    "frozen_basis_helper_record": {
+      "status": "specified_scenario_recorded",
+      "specified_scenario": {
+        "status": "recorded",
+        "scenario_id": "eoere-J429-201405-Grade5-F606-tensile-yield-spec-v2",
+        "fyb_psi": 92000,
+        "evidence_reference": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/edition-qualification-v2.json plus its exact base input: NDS12.3.6.2; J429_201405 Table1/5/6.7; manufacturer corroboration",
+        "missing": []
+      },
+      "nds_test_basis": {
+        "status": "recorded",
+        "basis": "ANSI/AWC NDS-2024 12.3.6.2 via ASTM F606",
+        "test_method": "ASTM F606",
+        "fyb_derivation_reference": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/edition-qualification-v2.json plus its exact base input: explicitly choose Fyb=specified minimum92000psi F606 tensile yield under NDS12.3.6.2; no Fu/proof/average conversion",
+        "missing": []
+      },
+      "delivered_fastener_conformance": {
+        "status": "not_assessed",
+        "evidence_reference": null
+      },
+      "limits": "Caller-supplied scenario and references are not independently authenticated. A specified estimate without the recognized test basis remains scenario-only; it is not test-derived NDS Fyb. Delivered conformance is a separate receiving record."
+    },
+    "helper_record_means_specified_route_not_observed_test": true,
+    "delivered_material_property_or_joint_acceptance": false,
+    "chosen_test_edition": "ASTM F606/F606M-21",
+    "NDS_bibliography_test_edition_verified": false
+  },
+  "edition_qualification": {
+    "chosen_edition": "ASTM F606/F606M-21",
+    "authenticated_NDS12_3_6_2_year": null,
+    "NDS2024_bibliography_edition_verified": false,
+    "later_or_earlier_edition_equivalence_claimed": false
+  },
+  "direct_source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf": "53f6ec05dfd1ceabeccd4d6e88c342111678d3da4631ee7b482b706f77c1780f",
+    "mini_moonboard/wood_joint_bolt_resistance.py": "488e58bbd58fbc2f22af5d4122e734732bae09de79dad71bbf2623eeca60b166",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/complete-result.json": "6d14fbd84ed32757afde7930f559aeeaf90e98259dbb634537ffa7a201b04c71",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/result.json": "23730fa128d8033abf671ca7bcbe2a0e7b1a94c7478d439b2ff8fa67718a4174",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/source-inputs.json": "064e3351b597c472a1b7ffc1baa4d362a3a2310310f2df1e4fc2927e602f5ef4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/source_receipt.py": "11ae8e19235fd284d978d18cc2c217b1961d76a5c2f73f036efdac308add6355",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/test_source_receipt.py": "772b2f84cd4b243c0c78b29ee199b101c2510fe49a814b53aa477e2f2fd99ed6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt.json": "2c1e6bbca536d818a50782fae3ec17e09727de0bcb540ddaf0a8d331d9612e1f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/edition-qualification-v2.json": "411c2317d89cc9a08885e3353c05efd64af002dbe4eadb6a405e6419707e954c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/source_receipt_v2.py": "c3dcebc38ccc660e24e68a3b9a5e9c7168f3fbdbc599a95020ce7bfa21175142",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/test_source_receipt_v2.py": "05c4aafa9508cc7fc6f83fa95e8f28ad1ce882446c115a1eed6ed3062ed0cfe2"
+  },
+  "verified_referenced_source_map": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/complete-result.json",
+    "raw_sha256": "6d14fbd84ed32757afde7930f559aeeaf90e98259dbb634537ffa7a201b04c71",
+    "source_map_key": "source_sha256",
+    "pin_count": 400,
+    "canonical_sha256": "9462a27a88e16d183bc09e8979f6168393045c6993d88a73867a1314f75b1fd4"
+  },
+  "complete_union_pin_count": 409,
+  "complete_union_canonical_sha256": "7a7ac18f4abb2b17b81a0d73db7cfcbbfb0f91d7f6e8a2f9a020eddbe0f5fa87",
+  "all_source_pins_verified_before_after": true,
+  "independent_reading_locations": [
+    {
+      "id": "NDS2024_normative_route",
+      "url": "https://awc.org/wp-content/uploads/2026/09/AWC_NDS2024_withCommentary_20260911_Website_Chapter-12-Dowel-Type-Fasteners.pdf",
+      "urls": null,
+      "locator": "Printed95/PDF16 zero-based,12.3.6.2;12.3.7.1-2 on same page",
+      "source_mode": "Authenticated existing primary PDF bytes; no copy added"
+    },
+    {
+      "id": "SAE_publisher_identity",
+      "url": "https://saemobilus.sae.org/standards/j429_201405-mechanical-material-requirements-externally-threaded-fasteners",
+      "urls": null,
+      "locator": "J429_201405 verifiedMay2014 public standard record",
+      "source_mode": "Primary publisher public record; no raw local byte digest asserted"
+    },
+    {
+      "id": "SAE_authored_Table1",
+      "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1558920/download-documents?artifactId=ZHExpVV_ozVHsAIemB5KwYPA-CXmai4D7AHCvEzwc1OJBAPRx5hBHD4",
+      "urls": null,
+      "locator": "Page4/Table1 Grade5 row1/4 through1in and footnote2; Petitioner'sEx1028-004",
+      "source_mode": "Official-host search-indexed primary text. Direct open and urllib retrieval returned403; no downloaded PDF bytes or raw PDF digest claimed."
+    },
+    {
+      "id": "SAE_authored_requirements_and_testing",
+      "url": "https://ptacts.uspto.gov/ptacts/public-informations/petitions/1558920/download-documents?artifactId=9kqV-0ADAWRgl8_zioUBBPYvunvabclP18pAjdBGqLgo1LPXRiN3RAc",
+      "urls": null,
+      "locator": "Page8 Section5;page10 Sections6.4-6.7;Ex1028-008/010. Table4 page9 available from precedingTable1URL",
+      "source_mode": "Official-host search-indexed primary text; direct PDF access403. No raw PDF digest or complete cached standard asserted."
+    },
+    {
+      "id": "manufacturer_Table1_and_F606_corroboration",
+      "url": "https://torqbolt.com/sae-j429-bolting-fasteners-stud-bolts-screws-suppliers-manufacturers",
+      "urls": null,
+      "locator": "MechanicalRequirementsandIdentification Table1-equivalent Grade5 row1/4-1in, yield footnote;MechanicalTestingRequirements Table4-equivalent, yield column/6.7;TestingStandards F606/F606M",
+      "source_mode": "Directly read manufacturer page and HTTP200 raw response. Frozen factual transcription here; HTML is not copied into packet."
+    },
+    {
+      "id": "Fastenal_Grade5_minimum_corroboration",
+      "url": "https://www.fastenal.com/content/merch_rules/images/fcom/content-library/Fastener%20Reference%20Guide.pdf",
+      "urls": null,
+      "locator": "One-pageFastenerReferenceGuide,MechanicalPropertiesofInchSeriesExternallyThreadedFasteners,SAEJ429Grade5 row1/4-1in",
+      "source_mode": "Direct primary PDF text available through web tool; local urllib request403. Existingcatalog-inputs.json retains same primary-source values. No raw PDF digest or duplicate manual claimed."
+    },
+    {
+      "id": "ASTM_procedure_scope",
+      "url": "https://store.astm.org/f0606_f0606m-21.html",
+      "urls": null,
+      "locator": "F606/F606M-21 public abstract; Scope1.2; Scope1.3 procedure table,3.6 machined-specimen tension; DOI10.1520/F0606_F0606M-21",
+      "source_mode": "Official-publisher search-indexed public abstract/scope read on2026-10-08. Direct web open returned an internal retrieval error. No full ASTM standard bytes or local PDF digest claimed."
+    }
+  ],
+  "preserved_provenance_limited_v1_receipt": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt.json",
+    "sha256": "2c1e6bbca536d818a50782fae3ec17e09727de0bcb540ddaf0a8d331d9612e1f",
+    "limitation": "The issued v1 source-inputs and receipt contain an unsupported NDS-bibliography21 attribution. Their bytes are preserved as provenance-limited evidence. Use their material/testing facts only through this qualified v2 normalization."
+  },
+  "preserved_prior_NULL_material_receipts": [
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/complete-result.json",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/result.json"
+  ],
+  "external_source_reproduction_boundary": "Offline replay authenticates frozen factual transcription and existing primary NDS PDF bytes. USPTO evidence remains searchable primary text with403 direct PDF access; no SAE PDF bytes/hash are claimed. Manufacturer and Fastenal facts require independent reading at recorded URLs/locators; no live network fetch or corpus substitution occurs during receipt regeneration.",
+  "new_lot_yield_coupon_or_manufacturer_signoff_prerequisite": false,
+  "candidate_specific_NDS_group_work_input_only": true,
+  "release": {
+    "actual_test_or_received_conformance_claim": false,
+    "field_forces_q_or_stresses_consumed": false,
+    "CAD_native_K_or_global_run": false,
+    "candidate_group_strength_or_build_acceptance": false
+  },
+  "execution": {
+    "argv": [
+      "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+      "-m",
+      "fea.generated.thin-bolted-current-contact-v1.eoere-successor-v1.catalog-hardware-strength-v1.f606-tensile-yield-spec-v1.source_receipt_v2",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json"
+    ],
+    "python_version": "3.12.3"
+  },
+  "reproduction_command": "uv run python -m fea.generated.thin-bolted-current-contact-v1.eoere-successor-v1.catalog-hardware-strength-v1.f606-tensile-yield-spec-v1.source_receipt_v2 --out /tmp/eoere-F606-spec-v2-replay.json"
+}

@@ -73,7 +73,14 @@ retains 4-inch bolts as the first dimensional proposal. Their catalog body
 minimum does not guarantee smooth shank through both timbers. The 4½-inch
 comparison improves body coverage but cannot guarantee that the nut seats
 against this short stack, so it is not an automatic substitute. A proposed
-flush 19.05-mm guide and 6.35-mm backer give the earlier 101.6-mm reach
+single [nut-side catalog spacer](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/spacer-window-result-v1.json)
+has a feasible length interval of 9.4488–18.542 mm in the same dimension box.
+The nominal 12.7-mm comparison gives positive seating/projection margins;
+four spacers and the longer-bolt increment total $10.64 before shipping/tax.
+Spacer tolerances, contact resistance and installed tool/removal clearance
+remain unqualified. This is an unadopted hardware scenario.
+
+A proposed flush 19.05-mm guide and 6.35-mm backer give the earlier 101.6-mm reach
 comparison. The separate [paired-bench fixture](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.svg)
 now dimensions supports, stops, guide retention and four clamp lanes for the
 unadopted Z180 holes. Its generic flange/cap arrangement needs **113.825 mm**

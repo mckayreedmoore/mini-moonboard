@@ -1,0 +1,229 @@
+{
+  "schema": "eoere_thread_root_design_metadata_receipt/v1",
+  "status": "REFERENCE_PROFILE_AND_CONDITIONAL_PURCHASE_INPUT_ONLY",
+  "input_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/input.json",
+  "input_sha256": "67c75fe12eecf47ed868f39d71b09938c8951a3587ca40ebd76eb28bc1eee84d",
+  "profile_scenarios": [
+    {
+      "size": "3/8-16",
+      "nominal_diameter_in": 0.375,
+      "threads_per_inch": 16,
+      "class": "2A",
+      "minimum_pitch_diameter_in": 0.3287,
+      "proposed_root_floor_in": 0.2881,
+      "full_body_minimum_in": 0.369,
+      "formula_reference_in": "0.288105059375",
+      "downward_4dp_design_floor_in": 0.2881,
+      "downward_4dp_design_floor_mm": 7.31774,
+      "external_minor_product_acceptance_minimum_in": null,
+      "actual_delivered_root_diameter_mm": null,
+      "basis": "B1.1-2003 8.3.1(f) reference; separately declared conditional root-floor purchase hypothesis",
+      "UNRC_root_profile_and_transition_floor_verified_for_catalog_item": false
+    },
+    {
+      "size": "1/2-13",
+      "nominal_diameter_in": 0.5,
+      "threads_per_inch": 13,
+      "class": "2A",
+      "minimum_pitch_diameter_in": 0.4435,
+      "proposed_root_floor_in": 0.3935,
+      "full_body_minimum_in": 0.493,
+      "formula_reference_in": "0.39353699615384615384615384615384615384615384615385",
+      "downward_4dp_design_floor_in": 0.3935,
+      "downward_4dp_design_floor_mm": 9.9949,
+      "external_minor_product_acceptance_minimum_in": null,
+      "actual_delivered_root_diameter_mm": null,
+      "basis": "B1.1-2003 8.3.1(f) reference; separately declared conditional root-floor purchase hypothesis",
+      "UNRC_root_profile_and_transition_floor_verified_for_catalog_item": false
+    }
+  ],
+  "complete_union_pin_count": 420,
+  "complete_union_canonical_sha256": "212f87603a45d4ce8178a95f6ef8d2c79d317bfb52af0aad35b7a60e2833a0d3",
+  "all_source_pins_verified_before_after": true,
+  "direct_source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/complete-result.json": "6d14fbd84ed32757afde7930f559aeeaf90e98259dbb634537ffa7a201b04c71",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/result.json": "23730fa128d8033abf671ca7bcbe2a0e7b1a94c7478d439b2ff8fa67718a4174",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json": "3378a3a4de466f5deaabf17e15a0621bef65daeaf5f01856ace509a41cb25fe6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/independent-review-v1/result.json": "cf00de7202db7b9fef8bb82cd38e2c5fb10022e6553979aa2e8d8f83f86742dd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/input.json": "67c75fe12eecf47ed868f39d71b09938c8951a3587ca40ebd76eb28bc1eee84d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/thread_design.py": "c04fd71f1b4879fca12ad337afd443b152b7371198e6b558341a877f1d012f11",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/test_thread_design.py": "eea2864775fae7eec2afdbc620ea03888be288ccc5c0978e360575495d99c2f1"
+  },
+  "referenced_source_maps": [
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/complete-result.json",
+      "raw_sha256": "6d14fbd84ed32757afde7930f559aeeaf90e98259dbb634537ffa7a201b04c71",
+      "key": "source_sha256",
+      "count": 400,
+      "canonical_sha256": "9462a27a88e16d183bc09e8979f6168393045c6993d88a73867a1314f75b1fd4"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/independent-review-v1/result.json",
+      "raw_sha256": "cf00de7202db7b9fef8bb82cd38e2c5fb10022e6553979aa2e8d8f83f86742dd",
+      "key": "source_sha256",
+      "count": 411,
+      "canonical_sha256": "6ecbbafb0e841297d8025d8c5b15b0307ad891c86b10ab9bce16201870513974"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/result.json",
+      "raw_sha256": "23730fa128d8033abf671ca7bcbe2a0e7b1a94c7478d439b2ff8fa67718a4174",
+      "key": "direct_source_sha256",
+      "canonical_sha256": "1677c3e5d5ffc39376aeed8ca4559bb021ebd0cdda5a6bbfeb1a0c212dfa7b3e"
+    }
+  ],
+  "reused_prior_geometry_metadata_only": {
+    "wood_bearing_rows": 120,
+    "over_quarter_rows": 76,
+    "over_quarter_axis_member_canonical_sha256": "030af5a19ce9044a5009cdb8fe75c0259bf24a0b5521b86ee891865bc1252695",
+    "over_quarter_is_automatic_bolt_rejection": false,
+    "changed_raised_rail_intervals_rejoined_here": false
+  },
+  "shop_window_reuse": [
+    {
+      "quantity": 16,
+      "axis_ids": [
+        "eoere_bolt_006",
+        "eoere_bolt_009",
+        "eoere_bolt_010",
+        "eoere_bolt_013",
+        "eoere_bolt_032",
+        "eoere_bolt_035",
+        "eoere_bolt_036",
+        "eoere_bolt_039",
+        "eoere_bolt_043",
+        "eoere_bolt_046",
+        "eoere_bolt_047",
+        "eoere_bolt_050",
+        "eoere_bolt_051",
+        "eoere_bolt_054",
+        "eoere_bolt_055",
+        "eoere_bolt_058"
+      ],
+      "source_shop_group_canonical_sha256": "ab939920bd1872d7dc6086f3f00621a8fc398a5d7fa0c205fe9b1c598d4212b9",
+      "existing_length_max_stack_intake_minimum_mm": 112.26799999999999,
+      "existing_length_nut_near_minus_Lg_max_bounds_mm": [
+        9.601200000000006,
+        11.633200000000002
+      ],
+      "next_length_worst_grip_excess_mm": 1.0668000000000006,
+      "next_nominal_outward_tip_increment_mm": 12.7
+    },
+    {
+      "quantity": 4,
+      "axis_ids": [
+        "eoere_bolt_067",
+        "eoere_bolt_070",
+        "eoere_bolt_071",
+        "eoere_bolt_074"
+      ],
+      "source_shop_group_canonical_sha256": "b37a73b81f80221cb4f796522125015d84d73794d20d3a41187b1c70d0ec7a5f",
+      "existing_length_max_stack_intake_minimum_mm": 150.368,
+      "existing_length_nut_near_minus_Lg_max_bounds_mm": [
+        9.601200000000006,
+        11.633199999999988
+      ],
+      "next_length_worst_grip_excess_mm": 7.416799999999995,
+      "next_nominal_outward_tip_increment_mm": 25.4
+    },
+    {
+      "quantity": 4,
+      "axis_ids": [
+        "lumber_leg_bolt_left_1",
+        "lumber_leg_bolt_left_2",
+        "lumber_leg_bolt_right_1",
+        "lumber_leg_bolt_right_2"
+      ],
+      "source_shop_group_canonical_sha256": "132e2d00158a4eb7944a5f2279764353be4b51c91866a70eb17baf4a28ad3897",
+      "existing_length_max_stack_intake_minimum_mm": 199.79249230769233,
+      "existing_length_nut_near_minus_Lg_max_bounds_mm": [
+        17.06880000000001,
+        19.40560000000002
+      ],
+      "next_length_worst_grip_excess_mm": 5.994399999999985,
+      "next_nominal_outward_tip_increment_mm": 25.4
+    }
+  ],
+  "primary_reading": [
+    {
+      "id": "ASME_current_publisher_record",
+      "url": "https://www.asme.org/codes-standards/find-codes-standards/b1-1-unified-inch-screw-threads-un-unr-thread-form",
+      "locator": "B1.1-2024 public standard record/scope",
+      "fact": "Authenticates the current edition identity and UN/UNR external-thread scope. Public record does not expose the numeric root provisions used below; no2003-to2024 equivalence is claimed."
+    },
+    {
+      "id": "ASME_authored_2003_reference_and_acceptance",
+      "url": "https://chinastudbolt.com/wp-content/uploads/2024/12/ASME-B1.1-Unified-Inch-Screw-Threads-UN-UNR-and-UNJ-Thread-Forms.pdf",
+      "publisher_identity_url": "https://www.asme.org/getmedia/1be86e38-2dde-4566-a95b-29bea694d385/13872.pdf",
+      "locator": "B1.1-2003 Section5.4 printed54;Section8.3.1(f);Table2 own3/8-16 and1/2-13 Class2A rows;Section2.3.1(a) printed2",
+      "fact": "Section5.4 does not specify external minor minimum as a product dimension and labels its tolerance reference-only. Section8.3.1(f) supplies the separate minimum-minor design calculation d2_min-0.64951905P. Table2 own minimum pitch diameters are0.3287 and0.4435in. UNR requires a smooth continuous nonreversing root, curvature radius at least0.10825318P, tangent blends; genericUNC/Class2A alone does not select that profile.",
+      "source_mode": "Primary-authored standard on fastener manufacturer host, official publisher preview confirms identity/contents. Manufacturer-host text read through search index; direct web fetch502 and local network DNS retrieval failed. No complete raw PDF bytes/hash or2024 numeric qualification asserted.",
+      "reproduction_searches": [
+        "site:chinastudbolt.com ASME B1.1 minimum minor diameter",
+        "site:chinastudbolt.com 0.64951905P",
+        "site:chinastudbolt.com 0.3331 0.3287",
+        "site:chinastudbolt.com 0.4485 0.4435"
+      ]
+    },
+    {
+      "id": "manufacturer_reference_formula_corroboration",
+      "url": "https://cw-mfg.com/resources/unified-thread-calculator",
+      "locator": "ASME B1.1-2003 formula table8.3.1(e/f), external minor(reference); worked1/4 example; scope/exclusions",
+      "fact": "Manufacturer's own calculation note corroborates the reference formula and explicitly labels external minor results reference values. It excludes coating rules and nonstandard engagement lengths; it does not supply this bolt product's root minimum."
+    },
+    {
+      "id": "Fastenal_UNR_profile",
+      "url": "https://blueprint.fastenal.com/screw-thread-design.html",
+      "locator": "Fastenal Engineering Team,ScrewThreadDesign,UNRthreads and threadfit/coating sections",
+      "fact": "Explains mandatory rounded-root radius0.108-0.144P forUNR and ordinary2A/2B fit. Rolled production is typical, not proof a genericlisting or delivered bolt has the specified profile. Plating/thread-gage fit does not establish steel-core root diameter."
+    },
+    {
+      "id": "ordinary_Grade5_UNR_family_exists",
+      "url": "https://www.lawsonproducts.com/products/hex-cap-screw-grade-5-3-8-16-x-1-3-4-fa65035",
+      "locator": "FalconGripFA65035 primaryproduct page,properties/technicalspecification",
+      "fact": "An ordinary3/8-16 Grade5 partially threaded hex cap screw explicitly listsUNR, SAEJ429 material/mechanical properties andANSI B18.2.1 dimensions. This1.75in example is a profile-family witness only, not a compatible substitute for a current bolt. Exact current lengths, price, availability and a numerical root/runout floor are not established by this page."
+    },
+    {
+      "id": "existing_ASME_body_and_thread_interval_source",
+      "url": "https://www.wanhong-fastener.com/wp-content/uploads/2025/04/ASME-B18.2.1-2012.pdf",
+      "locator": "Sections1.3/2.5.1-5/4.6-7,Table6/10/12/13; existingcatalog transcription",
+      "fact": "Table6 full-body minima0.369/0.493in are separate from thread root. Class2A applies before coating with stated coating/gaging provisions. Lb is last-scratch/extrusion coordinate; Lg is stopped specialGO-gage face, not first fully formed thread or guaranteed nut-travel coordinate. Incomplete major diameter has an upper limit; no new lower runout-root bound is established here."
+    }
+  ],
+  "practical_proposal": {
+    "bolt": "Specify ordinary full-body partially-threaded SAEJ429_201405Grade5 hex cap screws, coarse3/8-16 or1/2-13 and an explicitUNRC-2A rounded-root form; retain catalog lengths as first proposal. Retain the qualified F60692ksi material hypothesis. Do not substitute a reduced body, full-thread rod, carriage head, cut bolt or unknown grade.",
+    "root_floor": "If these proposed Dr values are adopted for design, specify the steel-core root/no-undercut floor over the actual threaded AND transition wood-bearing intervals as an explicit dimensional purchase hypothesis. UNR/class gaging alone is not evidence of that numeric floor. This ordinary performance specification requires no custom machined hardware or blanket new manufacturer approval; catalog/delivered conformance to it remains unobserved.",
+    "wood_method": "Keep nominal placement diameter D distinct from yield-equation Dr. NDS12.3.7 permits Dr when thread bearing exceedsonequarter, or detailed threaded bearing/moment analysis as described in AppendixI. The76 prior intervals are not automatic bolt rejection. No new reference resistance or adopted group pass is calculated.",
+    "nut_washer": "Retain matching SAEJ995Grade5 coarse nuts and two own USS flat washers from the reviewedcatalog proposal. Select existing-length stack assignments within the published washer/nut windows and free nut seating/fillet fit. Do not add washer packing or blindly thin washers: washer bending, support area, seating couple and material remain separate.",
+    "length_window": "Reuse measured/purchase inequality L>=S+w_head+w_nut+h_nut+2pitch and sound free nut seating at own pressure plane. Existing-length maximum-stack intake minima are112.268mm for16\u00d73/8\u00d74.5,150.368mm for4\u00d73/8\u00d76,199.79249230769233mm for4\u00d71/2\u00d78. Next5/7/9in stock has1.0668/7.4168/5.9944mm worst grip-gage excess and12.7/25.4/25.4mm additional outward nominal tip; it is not a blanket fix.",
+    "changed_geometry": "The metadata joins refer to frozen prior05ba shop geometry only. Raised-railecfb keeps the families but sixteen moved finished intervals require their new source-bound rejoin; no old station/fit proof transfers.",
+    "new_coupon_or_manufacturer_signoff_prerequisite": false,
+    "actual_body_root_runout_coating_and_nut_seating_conformance": null,
+    "actual_tool_tip_and_removal_clearance": null,
+    "candidate_specific_NDS_resistance": null,
+    "physical_acceptance": false
+  },
+  "qualified_Fyb_material_input_reference": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json",
+    "sha256": "3378a3a4de466f5deaabf17e15a0621bef65daeaf5f01856ace509a41cb25fe6",
+    "conditional_specified_Fyb_psi": 92000
+  },
+  "release": {
+    "actual_root_or_grade_or_thread_interval_conformance": null,
+    "reference_floor_guaranteed_by_UNC_2A_catalog_gaging": false,
+    "whole_thread_and_runout_floor_guaranteed_by_UNR_label": false,
+    "new_field_stress_q_gate_or_response_consumed": false,
+    "CAD_native_K_global_run": false,
+    "candidate_resistance_or_build_acceptance": false
+  },
+  "execution": {
+    "argv": [
+      "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+      "-m",
+      "fea.generated.thin-bolted-current-contact-v1.eoere-successor-v1.catalog-hardware-strength-v1.thread-root-design-v1.thread_design",
+      "--out",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/result.json"
+    ],
+    "python_version": "3.12.3"
+  },
+  "reproduction_command": "uv run python -m fea.generated.thin-bolted-current-contact-v1.eoere-successor-v1.catalog-hardware-strength-v1.thread-root-design-v1.thread_design --out /tmp/eoere-thread-root-design-replay.json"
+}
