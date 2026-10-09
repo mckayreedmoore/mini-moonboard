@@ -161,14 +161,38 @@ locations and the current keep/archive/delete dispositions.
 
 ## Current development and input recovery
 
-The [Eoere development entry](docs/wood-joints-mvp/README.md) is the maintained
+The [compact bolted-frame entry](docs/bolted-frame-development/README.md) is the maintained
 model/shop/response revision map. `current-candidate.json` continues to select
 the preserved screw-and-bracket baseline. The original Eoere proposal contract
 also retains its own revision; neither file selects a later development scene.
+The active name is **Compact bolted frame**, `compact-bolted-frame-development`.
+Its [checked index](docs/bolted-frame-development/development-revisions.json)
+maps that name to the original evidence candidate and keeps geometry, optional
+preview, shop overrides and response separate. Frozen Eoere/wood-joint IDs and
+paths retain their meanings; the former entry remains a compatibility pointer.
+
+Run the fast Git-only checks without CAD, a browser or recovered raw inputs:
+
+```sh
+node --test tests/test_bolted_development.mjs
+uv run pytest --import-mode=importlib -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/test_descriptor.py
+```
+
+The first checks revision/scene identities, incoming descriptions and rejection
+controls. The second reuses synthetic moment, source and output guards from the
+separate proposal packet; it does not evaluate candidate strength. CI aggregates
+this gate with its existing separately scoped checks. Keep the main entry within
+150 lines and link detailed results from the existing ledger.
+
+Pages now follows successful `CI` completion on `master` and checks out that
+run's exact commit. It publishes the verified committed assets without rebuilding
+them. To request publication manually, run **CI** on `master`; there is no
+independent Pages dispatch that bypasses validation. See GitHub's
+[workflow-run event documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_run).
 
 The latest geometry and scoped studies depend on ignored cached solids, fields,
 operators, manuals and source banks. A Git clone supplies only part of those
-inputs. Follow the [active-input recovery record](docs/repository-cleanup-evaluation-2026-09-28.md#navigation-implementation-and-active-input-recovery)
+inputs. Follow the [latest recovery update](docs/repository-cleanup-evaluation-2026-09-28.md#maintenance-changes-following-this-evaluation)
 for the exact snapshot, companion manifests, external paths and recovery command.
 Restore into a fresh external directory; compare required hashes before placing
 missing inputs at their original identities. Preserve newer files and other
@@ -186,7 +210,7 @@ inputs, not a new extended-cleat response or complete-joint resistance. CI's
 baseline and earlier wood-joint checks retain their separate scopes; full Eoere
 replays require the documented local inputs and explicit affected-check commands.
 
-Keep the current development summary in `docs/wood-joints-mvp/README.md`.
+Keep the current development summary in `docs/bolted-frame-development/README.md`.
 Update that page for routine continuation; link immutable experiments instead
 of adding another dated status document. Preserve distinct frozen input states
 and failed results when bundling completed experiments.

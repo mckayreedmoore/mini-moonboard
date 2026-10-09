@@ -1,0 +1,134 @@
+{
+  "generic_tools": {
+    "backer_travel_mm": 6.35,
+    "guide_depth_mm": 19.05,
+    "saw_maximum_recess_depth_required_mm": 38.1,
+    "socket_axial_envelope_mm": 50.8,
+    "socket_wall_allowance_mm": 1.5
+  },
+  "optional_grid": false,
+  "owner_tool_policy": "Assume generic drill, circular saw, pull saw and bolt/nut wrenches/sockets; no bolts or angles purchased. Select reasonable hardware. No actual equipment conformance inferred.",
+  "primary_method_sources": [
+    {
+      "locator": "PDF page13 / printed248, C12.1.5.7 and corrected table; sub-1/4-in placement recommendations, not Hillman resistance.",
+      "url": "https://web-media.awc.org/wp-content/uploads/2021/12/17210141/AWC-2015NDS-Updates-Errata_20240109.pdf"
+    },
+    {
+      "locator": "Page1, 3/8-16 and1/2-13 columns. Corroborates saved ASME2012 table bounds; not finished-product inspection.",
+      "url": "https://www.nickel-systems.com/wp-content/uploads/2025/04/Hex-Head-Cap-Screws-Min-Body-and-Max-Grip-Gaging-Lengths-table-1.pdf"
+    }
+  ],
+  "revision": "eoere-raised-kicker-screws-v1",
+  "schema": "eoere_current_shop_followup_inputs/v1",
+  "selection_scope": "Conditional shop and dimensional purchase specification, preserving all axes. Selected shaft lengths and eight spacers are separately declared analysis envelopes; current viewer hardware is preserved. No order, fabrication or structural acceptance.",
+  "shared_header_product": {
+    "Lb_min_in": 2.19,
+    "Lg_max_in": 2.5,
+    "diameter_in": 0.375,
+    "dimensional_standard": "ASME B18.2.1 full-body 2012 comparison; applicable edition and finished conformance required",
+    "length_tolerance_minus_in": 0.06,
+    "material_standard": "SAE J429 Grade5",
+    "nominal_length_in": 3.5,
+    "observed_date": "2026-10-09",
+    "partially_threaded": true,
+    "sku": 366,
+    "unit_price_usd": 0.72,
+    "url": "https://boltdepot.com/Product-Details?product=366"
+  },
+  "sources": {
+    "aligned_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json",
+      "sha256": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5"
+    },
+    "bounds_helper": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/revision.py",
+      "sha256": "3d26790b93aa3754c50ed5b427e7b4b1db05e517e7e759ef6d009d427216ec08"
+    },
+    "catalog": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json",
+      "sha256": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d"
+    },
+    "channels": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-uniform-channels-v1.json",
+      "sha256": "5726cad4203df4533b599c869e6a0e2e0599e27e874e6252cc34f34d5b36e6d4"
+    },
+    "extension": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+      "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+    },
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+      "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+    },
+    "guide_sources": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json",
+      "sha256": "0b7ff9a2905fb5ea2b5b26cfb33a3df30c13456ddd6e5018d67dff5b3499d38c"
+    },
+    "intermediate_inputs": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/inputs.json",
+      "sha256": "82552d51ed132add7c8f7d966486c93989824de2c6e133892bde979e48d5fb70"
+    },
+    "intermediate_result": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/result.json",
+      "sha256": "c3b1e839f0204862f5455d8b4b29bec024f2102fc42e573ba7528b4204d302d8"
+    },
+    "mechanics_observations": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json",
+      "sha256": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7"
+    },
+    "native": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json",
+      "sha256": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9"
+    },
+    "numerical_summary": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/summary.json",
+      "sha256": "0bd6001b81b2823bbc4e36145614f5b9cc857d47d59eec2b93a2d5e29bbdfd9f"
+    },
+    "old_export": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/export.py",
+      "sha256": "d54ebcd98f10824cbf34e3c0efbef7cebdac97b02c4e3baae59262c7a46cbb42"
+    },
+    "old_inputs": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/inputs.json",
+      "sha256": "bf46d6f436b95e654bea949766314c4b029f11a1bfa5cc090bc6755f7df002ff"
+    },
+    "old_result": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/result.json",
+      "sha256": "0f00a7ba22a08975adac6bf660db370866510c40b5d56e5829bfab9b2ad3f92e"
+    },
+    "spacer_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/spacer-window-result-v1.json",
+      "sha256": "592c237e8f98456f936deaf3b8613f60c493008851e65f43a9fbde6300929896"
+    },
+    "window_helper": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/shop_windows.py",
+      "sha256": "96bb6ec5bdad68f449d41c56ee71ae149c0b380fadd039b050425dd44b70e1d5"
+    }
+  },
+  "tool_product_observations": [
+    {
+      "article": "1212-17/32",
+      "diameter_in": 0.53125,
+      "flute_in": 9,
+      "observed_date": "2026-10-09",
+      "overall_in": 12,
+      "physical_fit_observed": false,
+      "shank_in": 0.5,
+      "url": "https://www.championcuttingtool.com/item/1212/12-In-1-2-In-Shank-Longboy-Drills/",
+      "wood_use_explicit": true
+    },
+    {
+      "article": "1200-13/32",
+      "diameter_in": 0.40625,
+      "flute_in": 9,
+      "method_locator": "Page1: general 118-degree point wood applications and handheld/rigidity discussion; page2 deep-hole chip clearing. Dimensional lead, guided operation remains conditional.",
+      "method_url": "https://www.championcuttingtool.com/wcm/connect/www.championcuttingtool.com-23970/492482fc-5b42-4bf7-9f71-8929c1f4ed1e/Twist%2BDrill%2BOperating%2BGuidelines.pdf?MOD=AJPERES",
+      "observed_date": "2026-10-09",
+      "overall_in": 12,
+      "physical_fit_observed": false,
+      "shank_in": 0.40625,
+      "url": "https://www.championcuttingtool.com/item/1200/12-In-Longboy-Drills/",
+      "wood_use_explicit_on_product_page": false
+    }
+  ]
+}

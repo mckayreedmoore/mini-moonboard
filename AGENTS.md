@@ -2,8 +2,8 @@
 
 ## Active working lane
 
-Start ongoing work at [wood-joint development](docs/wood-joints-mvp/README.md)
-and its maintained joint disposition. This is the primary development reading
+Start ongoing work at [compact bolted-frame development](docs/bolted-frame-development/README.md)
+and its maintained revision index. This is the primary development reading
 path; the selected screw-and-bracket baseline below retains its own authority.
 Keep reviewed geometry, unadopted proposals, conditional packet completion and
 structural acceptance distinct. Earlier work orders and checkpoints belong in
@@ -88,7 +88,7 @@ Builder docs start at [docs/README.md](docs/README.md). Older studies are in
 
 ## Keep the repository compact
 
-- Use `docs/wood-joints-mvp/README.md` for the current development summary and
+- Use `docs/bolted-frame-development/README.md` for the current development summary and
   update existing task and evidence ledgers. State usable results, exact missing
   inputs and next actions; link the detailed evidence. Do not add another dated
   checkpoint, handoff or status report for routine continuation. Preserve

@@ -1,11 +1,15 @@
 # Selected baseline reference packet
 
-For ongoing Eoere engineering and builder-support work, start at the
-**[main development summary and revision map](wood-joints-mvp/README.md)**.
-Its [active builder reading path](wood-joints-mvp/README.md#active-builder-reading-path)
-identifies current extended-cleat geometry, matching nominal shop records,
-held stations and source-bound current numerical evidence. Historical results
-retain their own revision limits.
+For ongoing compact bolted-frame engineering and builder-support work, start at the
+**[main development summary and revision map](bolted-frame-development/README.md)**.
+Its [active builder reading path](bolted-frame-development/README.md#active-builder-reading-path)
+identifies the geometry, source-bound shop records, overrides and remaining holds.
+The current geometry is **`eoere-raised-kicker-screws-v1`**:
+[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-kicker-clearance-frame-development&view=rear).
+The [checked revision index](bolted-frame-development/development-revisions.json) keeps
+the matching shop plan separate from the preceding six-case numerical evidence.
+The plan includes the current channel/screw changes and selected hardware
+overrides. Historical results retain their own revision limits.
 
 The instructions below belong to the selected screw-and-bracket baseline,
 `compact-floor-flush-development`, governed by
@@ -48,5 +52,5 @@ Supporting baseline references: [orientation](orientation.md) (left is A, right 
 
 For baseline shop records, use the matching **4×4** or **4×8** folder, the
 **checklist** and the **assembly guide** together. Read their recorded conditions.
-For the active development lane, return to the [eoere summary](wood-joints-mvp/README.md).
+For the active development lane, return to the [compact bolted-frame summary](bolted-frame-development/README.md).
 For earlier ideas and the writeup, use [history/](history/).

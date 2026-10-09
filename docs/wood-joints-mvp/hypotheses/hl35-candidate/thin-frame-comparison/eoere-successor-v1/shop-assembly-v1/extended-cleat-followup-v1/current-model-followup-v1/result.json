@@ -1,0 +1,217 @@
+{
+  "added_hardware_nominal_angle_refinements": 12,
+  "added_hardware_nominal_clearance_envelopes": 48,
+  "cost_scope": "Prior $109.93 basket less 24 superseded bolts plus $55.94 intermediate packs; +$0.52 corner bolts, +$0.48 header bolts, +$18.04 ten-spacer pack. Angles/wood/services/tools unpriced. Not a live quote.",
+  "counts": {
+    "Hillman_screws": 66,
+    "access_sides": 200,
+    "angles": 22,
+    "base_wire_channel_occurrences": 32,
+    "bolts": 100,
+    "changed_bolt_lengths_from_viewer": 32,
+    "machining_envelopes": 340,
+    "nuts": 100,
+    "panels": 6,
+    "receiver_occurrences": 120,
+    "selected_spacers": 8,
+    "timbers": 22,
+    "washers": 200
+  },
+  "current_screw_datums": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/kicker-clearance-v1/run-v1/panel-screw-datums.csv",
+    "sha256": "58a27f062d09b598795d8f2dcd9ab6f37b5fea5b760881c782a4d009b2318c04"
+  },
+  "dated_hardware_comparison_usd_before_shipping_tax": 148.51,
+  "files": {
+    "access-requirements.csv": {
+      "bytes": 60035,
+      "sha256": "1fceda013afb8df7d3a759c9d6a2ebc7152e790a7d8ea82b2c8e30f20882aa82"
+    },
+    "current-channels.svg": {
+      "bytes": 7404,
+      "sha256": "5b2d71d4613ab71ec355dfb4099a36e5fa5f315e686f88efcabe7d96581c9395"
+    },
+    "current_profiles.json": {
+      "bytes": 79030,
+      "sha256": "cc5664b8c9a311d334b4e9dcb394f6ef333857a1f2331a10a4393fb16d9c93bf"
+    },
+    "drilling-requirements.csv": {
+      "bytes": 11473,
+      "sha256": "c5ff3bcb6ea553b3b1f81d7cf90efd304209f89c61afb83132ee314e009de816"
+    },
+    "extended-cleats.svg": {
+      "bytes": 6415,
+      "sha256": "d49f6ff039f96b461044aa70e339b59a401c0c4f109859378a96fd32c30ab9bb"
+    },
+    "hardware-envelope-review.json": {
+      "bytes": 27299,
+      "sha256": "037b2947be55b1d32d589287b04691f91dc2733af852785d77bd154305fb56e2"
+    },
+    "hardware-selection.csv": {
+      "bytes": 57042,
+      "sha256": "6644c0a9432362d7d8310956cf3d1290ec11589899ff6c498c0380a5e0d8a767"
+    },
+    "hardware-stacks.svg": {
+      "bytes": 8410,
+      "sha256": "ce10edda4aaaa772fb542884e7814cf7eb8d29855eb4fddb97bf2b6adaca0079"
+    },
+    "mechanical-change-review.json": {
+      "bytes": 7785,
+      "sha256": "85d2ba8609402a758a79e16b661698c060b07a2937f9eb93130abc8834afef25"
+    },
+    "members.csv": {
+      "bytes": 11954,
+      "sha256": "5dbc40cbd01a1633533dfea7c02fa1fdd1bd851d9a81b0492dc7ca94cc0cb4a5"
+    },
+    "panel-layout-1.svg": {
+      "bytes": 16509,
+      "sha256": "8e2bb3da5f4e4fd1ca6e1ad121df67bca6cd3d20e2445e778b9d9144604c58a1"
+    },
+    "panel-machining.csv": {
+      "bytes": 66309,
+      "sha256": "4c3d406c47e24a2a7d2cd1eabb082af70f04e7eb873e45b558341b019c9a0514"
+    },
+    "service-channel-datums.csv": {
+      "bytes": 36564,
+      "sha256": "4f4636f1cd6745d797bd71694de92622b4b134c829a2709befc9ead5cf24e7da"
+    }
+  },
+  "inputs_sha256": "8ce489dad7c7f3c9e7d3f80ebdd7dd6e674df240dc1a89fcde4acb125497e320",
+  "maximum_nominal_bit_projection_mm": 203.20000000000002,
+  "minimum_body_to_nominated_interface_margin_mm": 2.1843999999999966,
+  "minimum_nut_seating_margin_mm": 3.251199999999997,
+  "minimum_two_pitch_margin_mm": 1.0159999999999991,
+  "nominal_mass_with_retained_viewer_hardware": {
+    "actual_total_kg": null,
+    "conditional_total_kg": 219.16461573395236,
+    "finished_panel_kg_at_500kg_m3": 60.061257546549804,
+    "finished_panel_volume_mm3": 120122515.09309961,
+    "finished_timber_kg_at_500kg_m3": 108.56118852374294,
+    "finished_timber_volume_mm3": 217122377.0474859,
+    "limits": "Saved BREP volumes, 500kg/m3 wood, unchanged nominal metal and service allowance; pads excluded. Not measured weight or a fresh gravity/load vector. Current principal restored; selected hardware increments below are a separate cylinder estimate.",
+    "optional_extra_grid_included": false,
+    "preserved_nominal_nonwood_and_25kg_allowance_kg": 50.54216966365963
+  },
+  "open_inputs": [
+    "Finished-part conformance, actual placement and continuous tool/removal access remain unobserved.",
+    "Spacer/washer/contact and threaded wood bearing resistance are unqualified.",
+    "Current-response rebinding, eight mixed stacks, complete joints, net sections/restraint and first-order applicability remain open.",
+    "Panel/screw strength remedies remain paused; the two authorized clearance moves do not resume them."
+  ],
+  "preceding_shop_replayed_byte_identical": true,
+  "producer_sha256": "015152bce3bc499e3beed0311e5074bab4ca0ff43a61c85079a6b1f5ad6c8cc1",
+  "reference_tool_obstruction_count": 1029,
+  "reference_tool_obstructions": "Current 1021 nominal parts, 32 shaft extensions, eight nut translations and eight spacers; other hardware dimensions retain the viewer scenario.",
+  "reference_tool_screen_counts": {
+    "NEEDS_FINER_TOOL_GEOMETRY": 160,
+    "POSITIVE_CONSERVATIVE_BOUND": 40
+  },
+  "release": {
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "hardware_model_changed": false,
+    "historical_response_pass_transferred": false,
+    "observed_parts": false
+  },
+  "reused_files": {
+    "access-sides.csv": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/access-sides.csv",
+      "sha256": "c6abcad239ba0afbe037522a917e0da31393c5c980f4df514358a3306039d693"
+    },
+    "bolt-stacks.csv": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/bolt-stacks.csv",
+      "sha256": "6c2084062e4c3421a2898be072070cff60eb324b6be15b77b17eb789923cedb0"
+    },
+    "member-end-datums.csv": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/member-end-datums.csv",
+      "sha256": "d178a211ecb8676aa63c8786268c1f1b763b219ad9a210eab8c8a94f249ff03f"
+    },
+    "member-projections-1.svg": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/member-projections-1.svg",
+      "sha256": "f86d6c5185b9d4d79f688290446f4368c88ef9678599b2b8c223201c149c0d1f"
+    },
+    "member-projections-2.svg": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/member-projections-2.svg",
+      "sha256": "342429369e0c194cfeddf3c6ddb4f4588e48fa57c5fe3de3c36cea5968469edc"
+    },
+    "member-projections-3.svg": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/member-projections-3.svg",
+      "sha256": "416c1518a6bcc8331745535b0871868fe526c4392e138ecade468740edd42203"
+    },
+    "member-projections-4.svg": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/member-projections-4.svg",
+      "sha256": "dfd216d4e541aa234e85e6c0135ff9feb68c6370368dfd236fd00ea0e24f433b"
+    },
+    "paired-drilling-fixture.svg": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/paired-drilling-fixture.svg",
+      "sha256": "c6e379bb015b49618385bbeb97e2ab8d9ce1294c7c8a76446dd2fb337dc23d4f"
+    },
+    "panel-layout-2.svg": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/panel-layout-2.svg",
+      "sha256": "b9da83002f55ad0a4de4455658015890e443a214bc3324f83d71385faf5276cb"
+    },
+    "rear-recess.svg": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/rear-recess.svg",
+      "sha256": "8b285e3ec3ae0cb9d8d2100dab24f35601efb039887896ca8113ecf23991cbfc"
+    },
+    "rear-recesses.json": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/rear-recesses.json",
+      "sha256": "6377ccf01c0b0379dc3c7098be91898a1fe5907dfbbe70a195a52d1cddf17b49"
+    },
+    "receiver-holes.csv": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/receiver-holes.csv",
+      "sha256": "42242079c1e123122b9bdd48fd51243023c087ea5c5a377cc8370d23df76b9cc"
+    },
+    "stock-nesting.json": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/stock-nesting.json",
+      "sha256": "e696389db60dbf516435cff64eaaf2e3eb2af5e765bb95b0e06065de97252358"
+    }
+  },
+  "revision": "eoere-raised-kicker-screws-v1",
+  "schema": "eoere_current_shop_followup/v1",
+  "selected_bolt_counts": [
+    {
+      "diameter_mm": 9.525,
+      "length_mm": 63.5,
+      "quantity": 60
+    },
+    {
+      "diameter_mm": 9.525,
+      "length_mm": 88.89999999999999,
+      "quantity": 4
+    },
+    {
+      "diameter_mm": 9.525,
+      "length_mm": 101.6,
+      "quantity": 4
+    },
+    {
+      "diameter_mm": 9.525,
+      "length_mm": 114.3,
+      "quantity": 8
+    },
+    {
+      "diameter_mm": 9.525,
+      "length_mm": 120.64999999999999,
+      "quantity": 16
+    },
+    {
+      "diameter_mm": 9.525,
+      "length_mm": 165.1,
+      "quantity": 4
+    },
+    {
+      "diameter_mm": 12.7,
+      "length_mm": 215.89999999999998,
+      "quantity": 4
+    }
+  ],
+  "selected_hardware_added_mass_cylinder_estimate_kg": 0.3532187570712452,
+  "selected_hardware_mass_estimate_limits": "7850kg/m3 steel, solid nominal extra shaft cylinders and eight nominal annular spacers; not measured or fresh model gravity.",
+  "source_map_canonical_sha256": "09cce7c6139e280d98b265006740d9eb8aa2679bfe0b3e1527186c9a928a6144",
+  "source_pin_count": 1217,
+  "source_pins_before_after_unchanged": true,
+  "status": "CONDITIONAL_CURRENT_COORDINATE_AND_HARDWARE_PLAN_WITH_OPEN_RESISTANCE_AND_FIT",
+  "tool_screen_known_answers": 5
+}

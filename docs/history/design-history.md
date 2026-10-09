@@ -3,11 +3,11 @@
 This catalog keeps the previous options explorable and provides starting
 material for a presentation or writeup. It is a reading order, not a claim that
 every design was built or tested physically. The selected baseline is governed
-by [current-candidate.json](../../current-candidate.json); the active Eoere
-candidate has a [separate entry point](../wood-joints-mvp/README.md).
+by [current-candidate.json](../../current-candidate.json); the active compact bolted-frame
+candidate has a [separate entry point](../bolted-frame-development/README.md).
 
 Open the [interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/)
-and use **Design** to compare options. All 70 existing menu choices are retained;
+and use **Design** to compare options. Historical menu choices are retained;
 the complete link list below preserves the viewer's descriptive labels. Labels
 such as “selected” or “current” in historical names are not today's authority.
 The [decision log](decision-log.md) records the sequence and changing constraints.
@@ -29,9 +29,11 @@ The [decision log](decision-log.md) records the sequence and changing constraint
 
 ## Eoere development sequence
 
-The main development geometry is now the extended-cleat frame. Use the
-[maintained revision map](../wood-joints-mvp/README.md#revision-map) for its
-current status. These milestones preserve the preceding questions, changes
+The current geometry is **`eoere-raised-kicker-screws-v1`**:
+[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-kicker-clearance-frame-development&view=rear).
+Use the [maintained revision map](../bolted-frame-development/README.md#revision-map) and
+[checked index](../bolted-frame-development/development-revisions.json) for the separate
+shop, response and proposal scopes. These milestones preserve preceding questions, changes
 and evidence boundaries; their design history can still supply active inputs.
 
 | Milestone | Change and useful result | Primary record / viewer |
@@ -42,7 +44,7 @@ and evidence boundaries; their design history can still supply active inputs.
 | Aligned wire passages | Aligned 30 rail routes to the original grid, preserving endpoints and bolt/screw axes. This introduced a distinct service-cut revision. | [Aligned-wire receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json) · [aligned-wire viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-aligned-wire-development&view=rear) |
 | Adjusted base v3 | Shifted the right principal 39.2 mm and coordinated three longer rails, 22 moved shafts and ten moved screws. Nominal backing/contact checks pass; no matching response is admitted. | [Base receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json) · [adjusted-base viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-adjusted-frame-development&view=rear) |
 | Optional 2026 midpoint grid | Added an unofficial preview of 120 T-nuts/lights and 119 cable links. Exact midpoints and actual hold availability remain provisional; this is a separate layer. | [Extra-grid receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json) · [pre-extension extra-grid viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-new-2026-adjustments&view=rear) |
-| Extended side cleats and matching shop records | Extended two full-thickness cleats to the sloping side edge and issued current profiles, datums and nesting. Four cleat/post stations remain held; earlier forces and component references remain separately scoped. | [Extension receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) · [current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear) · [current shop packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md) |
+| Extended side cleats and matching shop records | Extended two full-thickness cleats to the sloping side edge and issued profiles, datums and nesting. Four cleat/post stations remain held in that packet; later response and geometry revisions keep their own bindings. | [Extension receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) · [preserved viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear) · [preceding shop packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md) |
 | Fresh extended-cleat numerical packet | Completed six own-case equilibrium/recovery audits and twelve component reports. Exceedances, first-order/floor assumptions, four held cleat/post stations and unknown complete-joint resistance remain explicit. | [Current result and review bindings](../wood-joints-mvp/completion-ledger.md#current-extended-cleat-numerical-completion) |
 
 The [pre-compaction Eoere summary](eoere-development-summary-before-compaction.md)
@@ -58,7 +60,7 @@ task queue.
 ## Archive reading groups
 
 Use these groups to follow the decisions and methods behind the latest packet.
-For ongoing work, start at [Eoere development](../wood-joints-mvp/README.md)
+For ongoing work, start at [Eoere development](../bolted-frame-development/README.md)
 and follow its current disposition. Earlier documents retain their original
 titles, labels, force sources and work orders. A historical “current” label or
 unfinished next-step instruction describes that snapshot; it does not reopen

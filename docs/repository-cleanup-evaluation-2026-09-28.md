@@ -1,5 +1,231 @@
 # Repository cleanup evaluation
 
+## Current repository evaluation
+
+Reviewed October 9, 2026, at `352b50ac` on `master`, after eleven publication
+commits since the preceding review's `845e2e0c` checkpoint. This is an
+organization and workflow assessment; geometry, mechanics and other workers'
+files are unchanged. The integration owner confirmed no ownership conflict
+on this evaluation record.
+
+**Assessment:** evidence identity and the layered viewers remain strong, but
+the maintenance process has not kept navigation, automated checks and recovery
+coverage synchronized with new revisions. The historical browsing route is
+now available without changing the frozen summary. The next useful change is
+a small checked development-revision index and affected CI gates, followed by
+an updated recovery map. A general source relocation remains unjustified.
+
+### Ratings against the previous evaluation
+
+These are qualitative organization scores on the same 1–5 scale.
+
+| Criterion | Previous | Now | Evidence |
+| --- | ---: | ---: | --- |
+| Modularity | 3 | 3 | Separate producers, scene layers and evidence packets remain understandable within their recorded scope. |
+| Cohesion | 3 | 3 | The development entry is organized, but has grown from 110 to 282 lines with extensive unadopted-proposal detail. |
+| Separation of concerns | 4 | 3 | The main entry separates geometry/shop/response correctly; incoming entries again name a different “current” geometry. |
+| Abstraction | 3 | 3 | Existing validators, archives and mesh aliases are reused; repeated current-revision prose lacks one checked interface. |
+| Loose coupling | 2 | 2 | Frozen predecessor paths, cached solids, dynamic helper loading and external identities remain live dependencies. |
+| Testability | 3 | 3 | Useful synthetic and source-bound checks exist, but new packet tests are outside default CI discovery. |
+| Deployability | 2 | 2 | Actual Pages publication precedes CI completion; the implicit documentation publication tree remains. |
+| Reproducibility | 3 | 3 | Current hashes and local checks pass; the older verified recovery map does not cover every newer input. |
+| Recoverable history | 4 | 4 | Frozen payloads survive and the main/history entries now link the original summary at its exact commit. |
+
+### Ranked findings and next actions
+
+1. **Current-model navigation has drifted again.** The [root README](../README.md)
+   names `eoere-base-side-edge-cleats-v1` and opens the extended-cleat viewer;
+   [docs/README.md](README.md) also describes that geometry as current. The
+   [development entry](wood-joints-mvp/README.md) and [viewer header](../site/index.html)
+   instead select **`eoere-raised-kicker-screws-v1`**, after the smaller-channel
+   revision and two screw/hole moves. All checked links resolve, so existence
+   checks alone cannot catch this disagreement. The main entry correctly says
+   its latest complete shop drawings and numerical cases belong to the preceding
+   extended-cleat geometry; those distinctions must survive any navigation fix.
+   **Next action:** repair incoming descriptions and introduce a small separate
+   development-revision index checked against existing receipts and viewer keys.
+   Include geometry, optional layer, shop overrides and applicable response as
+   separate fields. Preserve `current-candidate.json` and the original Eoere
+   proposal contract; neither should be repinned to act as this index.
+
+2. **Automated validation does not cover the new working set or gate Pages.**
+   Since `845e2e0c`, thirty test modules were added: twenty-nine under
+   `fea/generated/` and one in the Z180 shop packet. None is under the configured
+   `tests/` root in [pyproject.toml](../pyproject.toml), and
+   [CI](../.github/workflows/ci.yml) invokes no explicit test path for them.
+   This is a continuing-regression gap, not an absence of recorded method tests
+   or independent reviews. Ruff's actual CI discovery also reaches only two of
+   237 added Python files; both maintained producer scripts pass lint. Explicitly
+   linting frozen paths is a different operation and does not establish a CI
+   lint failure.
+   At **20:25 UTC**, [Pages for `352b50ac`](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37984969942)
+   had succeeded while [its CI](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37984969927)
+   was still running. For `0d355e82`, [CI failed](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37929228539)
+   while [Pages succeeded](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37929228597).
+   These observations confirm the separate workflow boundary; this review does
+   not attribute the older CI failure to a particular test or new file.
+   **Next action:** add a small maintained suite for active revision identity,
+   existing scene validators and selected synthetic packet interfaces, then
+   publish only its validated commit. Keep frozen historical tests opt-in and
+   baseline/mechanics acceptance separately named. Avoid blanket replay of all
+   historical packets or editing evidence witnesses merely to satisfy lint.
+
+3. **Latest geometry has a measurable recovery gap.** All **616** direct source
+   hashes for the raised-screw receipt match: 114 index-listed inputs, 501
+   non-indexed inputs and one external manifest. The smaller-channel receipt's
+   609 hashes also match. Against the previously verified 1,197-input map,
+   **15 required non-Git files / 1,824,579 bytes** are additional. They are saved
+   member/bracket solids from the channel revision. No matching hash-and-size
+   entries were found in the inspected manifests across the five existing
+   sibling backup directories. The old kit remains valid for its old scope;
+   local presence of the new solids is not a demonstrated recovery route.
+   **Next action:** extend the existing verified archive/map workflow to these
+   exact inputs, then separately bound recovery of the completed newer numerical
+   packets. Keep their raw fields/operators and the owner's 67 retained omitted
+   raw/fixture files active. No deletion or pruning is justified by this review.
+
+4. **The compact entry is becoming a second ledger again.** Its 282 lines now
+   include hardware/spacer and fixture calculations, an unadopted Z180 comparison
+   table and extensive predecessor detail; the evidence ledger has 12,707 lines.
+   **Next action:** keep the main entry around the existing 100–150-line target
+   with current identity, revision map, usable results, holds and next actions.
+   Link the already documented proposal/fixture/evidence sections for details.
+   Check unique prose and frozen consumers before shortening it; another copied
+   checkpoint or mass movement of source-bound packets is unnecessary.
+
+The earlier publication-scope finding also remains open: `site/docs → ../docs`
+and the unchanged Pages upload arrangement include the documentation tree.
+Retain required historical URLs and the WJ24 source inventory when designing
+an explicit publication directory. This is separate from pruning source inputs.
+
+### Verification and retained scope
+
+Five maintained entry/contributor pages pass **154 local link occurrences**
+and **81 viewer-key checks**, with no missing local targets or non-Git file
+targets. The current saved scene passes its existing identity validator and
+retains 100 bolt axes, 66 screws and two recorded moves, with acceptance-transfer
+flags false. The no-query viewer still selects the preserved baseline. These
+checks do not rebuild CAD, load a rendered scene or execute native mechanics.
+
+The index lists **20,464 present paths / 5,590,262,965 logical bytes**, including
+intent-to-add paths and symlink-label bytes without traversing their targets.
+There are **714 added files / 15,871,516 bytes** since `845e2e0c`; this counts
+added files at their present sizes, not net growth, compressed clone size or
+reclaimable storage. The largest new artifact is the 1,905,715-byte shared
+uniform-channel scene patch. File count and discovery burden increased more
+than permanent byte volume; this does not justify deleting preserved evidence.
+
+Receipts and the pre-edit cleanup record are retained in ignored
+`fea/generated/repository-navigation-v1/current-repository-evaluation-v2/`.
+Only this existing evaluation record is edited. All earlier text, the frozen
+summary payload, current source inputs, other workers' files and shared staging
+remain preserved. No full recovery, historical export or numerical experiment
+is repeated for this review.
+
+## Maintenance changes following this evaluation
+
+The owner authorized addressing the four findings, then requested a neutral
+name and clearer home for the active development candidate. The active name
+is now **Compact bolted frame**, `compact-bolted-frame-development`, at
+[the new entry](bolted-frame-development/README.md). Its
+[checked revision index](bolted-frame-development/development-revisions.json)
+explicitly maps to the source-bound evidence candidate
+`compact-floor-flush-eoere-bolted-development`. This is a navigation/name change,
+not a different geometry, candidate selection or acceptance decision.
+
+The root/docs/history entries, contributor guide, working agreements and live
+viewer support link now lead to that entry. The old wood-joint README keeps
+its former section anchors and links onward. Frozen packets, geometry IDs,
+historical model URLs, original proposal contracts and `current-candidate.json`
+retain their existing bytes and authority.
+
+The active entry is **137 lines**, reduced from the 288-line handed-off version.
+Every detailed raw-evidence target from that version was already present in the
+ledger; rounded component maxima are retained there as a compact comparison
+index. The handed-off right-column study, links and frozen inputs remain intact.
+Its mutable summary now reflects the owner's later dedicated-upgrade-hold intent;
+exact future bundle counts and coordinates remain unresolved. Existing ledger
+anchors and previous evaluations are preserved.
+
+### Automated checks and publication
+
+The [fast identity checker](../scripts/check_bolted_development.mjs) binds the
+new index to current/smaller-channel scene validators, geometry receipts, shop
+overrides, preceding response, unadopted proposal and selected baseline. It
+checks incoming current descriptions and viewer bindings without loading CAD,
+Three.js geometry, ignored raw inputs or a browser. Its
+[regression tests](../tests/test_bolted_development.mjs) reject stale labels,
+wrong hashes, moved counts, missing overrides, proposal adoption and acceptance
+transfer. CI also explicitly runs the existing Z180 synthetic descriptor tests;
+frozen historical tests remain separately scoped.
+
+The [Pages workflow](../.github/workflows/static.yml) now follows successful
+master CI, excludes PR-origin runs, checks out the validated `head_sha` and
+rejects a superseded master head. It publishes the committed assets after the
+cheap identity and mesh checks; the previous deployment-time CAD/weight rebuild
+is removed. Manual publication starts through CI on master. GitHub documents
+this dependency and conclusion check in its
+[workflow-run event reference](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_run).
+
+All **14 Node checks and 22 existing synthetic tests** pass in a fresh 35-file
+Git-only validation tree, including this change's new maintained files. Shared
+mesh checks pass for 6,823 retained files and 13,618 alias URLs. YAML structure
+and the aggregate gate were checked locally. A broader local Ruff 0.16.6 run
+reports **151 diagnostics in 72 files**, all byte-identical to HEAD and outside
+this change. They are recorded, not treated as a new green CI result or fixed
+by changing frozen witnesses. Full CI and remote Pages execution are not claimed.
+
+### Recovery extension and storage limitation
+
+The v2 map covers **1,219 exact inputs: 431 Git-supplied and 788 restored**.
+It extends the preserved v1 scope with both latest geometry receipts and their
+direct source closures. The 15 missing member/bracket solids add **1,824,579
+uncompressed bytes** in a **509,639-byte** archive. Four inputs previously
+supplied by the old archives are now Git-supplied; the v1 kit is unchanged.
+All 15 provider archives were verified and restored into a fresh external tree;
+every required hash and all original sources were checked. Relocating the new
+kit and restoring again also passes, proving its own manifest is portable.
+
+The external kit is `/tmp/mini-moonboard-cleanup-backups-navigation-v2/`.
+Current filesystem permissions allow external writes only in `/tmp`; durable
+sibling-backup placement therefore remains open. A retained local kit copy is
+`fea/generated/repository-navigation-v1/current-repository-remediation-v1/recovery-kit-v2/`.
+It is ignored, about 1 MB, and can bootstrap a fresh external kit if temporary
+storage is cleared. It is not an independent durable external backup. The
+original solids, all newer numerical raw fields/operators and the owner's
+67 retained raw/fixture files remain active. Nothing is pruned.
+
+| Recovery item | SHA-256 |
+| --- | --- |
+| `eoere-current-geometry-gaps-v2.tar.gz` | `3fe6fe5a56ac32b2bb0c1d1d51cfb3302dd212d4ef791e4d153ee1495e707692` |
+| Companion `.manifest.json` | `800ba40579efb47a0b70ba0a71e85850168e298b198340c224b69fd6aebe7afb` |
+| `recovery-plan.json` | `85a6de64a86c344f331688dbd0677c9e5e98287c613f739fe3507990a867bacf` |
+| `restore_current_inputs.py` | `fe0ea599bfb52419fb6be17eb2b9931a46b811c83a67cf76cc38a23c66a67d6c` |
+
+Recover into a fresh external destination, retaining the old provider archives
+at their recorded locations:
+
+```sh
+python3 -B /tmp/mini-moonboard-cleanup-backups-navigation-v2/restore_current_inputs.py \
+  --repository /home/mckay-linux/repos/mini-moonboard \
+  --destination /tmp/mini-moonboard-recovered-NEW
+```
+
+If the temporary kit is absent, first copy the retained local `recovery-kit-v2`
+directory to a fresh external location and run its helper there. The runner
+refuses occupied destinations and never writes recovered inputs into a checkout.
+Newer numerical packet recovery remains separately bounded by its owners; this
+map supplies no complete newer mechanics replay claim. The earlier publication
+tree finding (`site/docs` exposing the documentation tree) remains a separate
+open task; this change preserves existing historical URLs.
+
+Validation receipts, original handed-off documentation, exact source hashes,
+recovery proofs and shared-file preservation checks are retained under ignored
+`fea/generated/repository-navigation-v1/current-repository-remediation-v1/`.
+No CAD rebuild, native solve, physical operation or pruning was performed.
+Frozen source files were not moved. Shared staging and other workers' evidence
+remain unchanged.
+
 ## Post-cleanup evaluation
 
 Reviewed the working tree after navigation compaction, on `master` at

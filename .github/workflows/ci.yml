@@ -31,6 +31,12 @@ jobs:
         run: |
           uv python install
           uv sync --locked
+      - name: Verify bolted development identity and synthetic geometry controls
+        id: bolted_development
+        continue-on-error: true
+        run: |
+          node --test tests/test_bolted_development.mjs
+          uv run pytest --import-mode=importlib -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/test_descriptor.py
       - name: Lint maintained entry points
         id: lint
         continue-on-error: true
@@ -91,6 +97,10 @@ jobs:
         if: always()
         run: |
           failed=0
+          if [[ "${{ steps.bolted_development.outcome }}" != "success" ]]; then
+            echo "Bolted development identity/synthetic gate: ${{ steps.bolted_development.outcome }}"
+            failed=1
+          fi
           if [[ "${{ steps.lint.outcome }}" != "success" ]]; then
             echo "Lint gate: ${{ steps.lint.outcome }}"
             failed=1

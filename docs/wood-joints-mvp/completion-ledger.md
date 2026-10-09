@@ -1,4 +1,9 @@
-# Eoere bolted-frame development and completion ledger
+# Compact bolted frame development and completion ledger
+
+The [active entry and revision map](../bolted-frame-development/README.md)
+now use `compact-bolted-frame-development`. The source-bound evidence candidate
+remains `compact-floor-flush-eoere-bolted-development`; frozen geometry IDs,
+receipts and paths are unchanged. The selected baseline keeps its own authority.
 
 ## Current model-completion scope and qualification status
 
@@ -8,17 +13,21 @@ fixed. It retains the smaller channels and restored right principal. The
 maximum-bore gap is 3.94375 mm; full modeled backing does not qualify screw
 end-distance strength. See the [clearance evidence](#raised-outer-kicker-screws)
 and preserved [channel evidence](#uniform-smaller-cable-channels-and-principal-arc-cuts).
-The following numerical and shop completion remains bound to the preceding
-extended-cleat geometry; no response or construction release transfers.
+The latest numerical completion remains bound to the preceding extended-cleat
+geometry. The [current shop and hardware selection](#current-shop-and-hardware-selection)
+now covers the raised screws and smaller channels, with an explicit purchase
+override. Neither record supplies construction or climbing release.
 
 **Latest extended-cleat numerical completion:** All six fresh
 `eoere-base-side-edge-cleats-v1` cases and twelve own-case component reports are
 complete, with the optional grid off. See the [current result and review
 bindings](#current-extended-cleat-numerical-completion). Reference exceedances,
 eight mixed-stack gaps and all 24 unknown complete-joint resistances remain
-reported. Four cleat/post stations remain HOLD; actual tool/access/tolerance
-observations stay blank. Earlier builder and mechanics entries below retain
-their explicitly named revision limits.
+reported. The current followup resolves the four cleat/post nominal stack
+choices and modeled screw clearance; end strength, actual fit/contact and
+continuous access remain open. Actual tool/access/tolerance observations stay
+blank. Earlier builder and mechanics entries below retain their explicitly
+named revision limits.
 
 **Owner-directed builder-support continuation:** The
 [drilling and fixture development guide](eoere-builder-drilling-guide.md)
@@ -2794,6 +2803,50 @@ names to reproduce the original commands; do not overwrite a differing file.
 This screen checks timber only, with provisional 50.8-mm rear projection;
 it does not qualify hardware/tools, adopt a future grid or authorize holes.
 
+### Hypothetical column right of K
+
+The owner's additional-column question is screened against cached
+`eoere-raised-kicker-screws-v1`, separately with the optional extra grid off/on.
+The [read-only helper](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/right-column-clearance.py)
+and [source-bound result](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/right-column-clearance-v1.json)
+place twelve hypothetical T-nuts and twelve LEDs at panel X2300 mm, 100 mm
+right of K and 138.4 mm from the right panel edge. All 36 flange, generic
+rear-bolt and LED/bore probes clear the 22 timbers, 500 bolt components,
+22 angles, 66 screws and existing T-nut/light/cable bodies in each variant.
+Ten bounding-box candidates per variant receive exact solid intersections;
+none exceed the existing 1e-4 mm³ threshold. Minimum right-4×6 distances are
+33.625 mm for the flange, 40.76875 mm for the 11.1125-mm-diameter / 50.8-mm-reach
+rear-bolt envelope, and 39.825 mm for the 13-mm LED/bore envelope.
+
+The owned four-set Mini 2025 bundle is Original School, School F, Wood B and
+Wood C: 128 main-face holds plus ten kicker footholds. The owner's latest
+clarification is to use a dedicated future upgrade set, with no duplicate
+existing sets or expected leftover upgrade holds; a few mounting sites may
+remain empty. The earlier doubled-main-face comparison (256 main + 10 kicker
+= 266) and literal-two-complete-bundles comparison (276 versus 274 positions)
+are conditional historical arithmetic, not the owner's purchasing intent.
+
+A [first-person reply by benmoon66, signed Ben](https://www.reddit.com/r/Moonboard/comments/1vw675m/comment/p6yr3fj/)
+describes additional T-nut sites within the existing standard/Mini layouts and
+planned holds shaped for Moon SprayWall; it says details are not locked in.
+The reply supplies no final count or coordinates. Therefore 128 existing main
+holds plus an assumed 120 new holds on 252 sites, or an assumed 132 new holds
+on 264 sites, each leaving four empty, are planning hypotheses only. The future
+bundle and actual hold packing govern whether another column is useful.
+The frozen clearance receipt/helper retain their bytes and scope; the optional
+grid and right column remain unofficial and unadopted.
+
+The final raw receipt and 780 consumed source hashes remain in ignored
+`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/right-column-clearance-v2/`;
+the preceding reporting/formatting attempt remains in `right-column-clearance-v1/`.
+The known-answer overlap/separation controls and both geometry variants pass;
+all consumed source bytes remain unchanged. The compact helper and receipt stay
+active with this packet; no raw output is archived or pruned. No model, mesh,
+axes, panel holes or candidate selection changes. Actual hold bodies, retention
+screws, installed bolt lengths, tolerances, tools and the twelve new LED cable
+routes remain unresolved. No resistance, native response or fabrication release
+follows from this nominal occupancy screen.
+
 ### Right principal midpoint relocation screen
 
 The owner directed investigating a leftward move after reviewing the optional
@@ -3213,6 +3266,28 @@ floor friction, local pressure or joint resistance. Its eight direct source
 pins are distinct from the full current-input admission.
 
 ### Current extended-cleat numerical completion
+
+The compact entry links here for the following rounded maximum comparisons.
+Each value selects one complete own-case witness; maxima do not combine cases.
+These remain reference comparisons, with actual material/joint resistance and
+first-order physical applicability unqualified.
+
+| Comparison | Extended-cleat Z200 | Unadopted Z180 |
+| --- | ---: | ---: |
+| Generic 9-mm screw head, CD=1 | 2.572553 | 2.572731 |
+| Panel bending / rolling shear, CD=1 | 4.613408 / 2.451803 | 4.613881 / 2.451843 |
+| Heel t6/Ri6 | 1.107192 | 1.110021 |
+| Nominal heel t6.35/Ri6.35 | 0.992649 (0.7351% margin) | 0.995184 (0.4816% margin) |
+| Unadjusted timber-bolt reference | 0.699372 | 0.699181 |
+| Gross timber normal / shear | 0.513049 / 0.973080 | 0.514427 / 0.974374 |
+| Shaft material first-yield scenario | 0.513451 | 0.512707 |
+| Axial-only washer required Fy, MPa | 156.014671 | 157.133109 |
+
+The [extended-cleat component summary](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/summary.json)
+and [Z180 summary](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt02/summary.json)
+retain exact witnesses and limits. Detailed motion, hardware and fixture
+comparisons below preserve the corresponding source precision. Neither column
+applies to the later channel or raised-kicker-screw geometry.
 
 The source-bound [six-case roster](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json)
 is SHA `99fa0df8393bf5de70a7296fe2beccf0ca2df8270eb3d4b9f8b7c5f424ab7b91`
@@ -4363,6 +4438,107 @@ the original and corrected reviews and every failed/superseded attempt active.
 The prior 17 issued files remain immutable dependencies/history; the five-file
 v3 wrapper does not replace their bytes or numerical method. No candidate,
 global, native, CAD or physical execution follows from this synthetic closure.
+
+### Current shop and hardware selection
+
+The owner directed completing the four followups: review the effects of the
+raised screws/restored principal, compose matching shop records, resolve the
+nominal bolt specification, and describe practical installation requirements.
+The owner supplied generic drill, circular saw, pull saw and wrench/socket
+assumptions and delegated hardware selection; no bolts or angles were bought.
+The resulting [current packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md)
+covers **`eoere-raised-kicker-screws-v1`**, extra grid off. These are completed
+conditional reporting deliverables, with physical observations and joint
+qualification still open. The preserved numerical packets keep their own
+geometry and hardware scope.
+
+The [frozen inputs](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/inputs.json)
+are SHA `8ce489dad7c7f3c9e7d3f80ebdd7dd6e674df240dc1a89fcde4acb125497e320`;
+the [result](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/result.json)
+is SHA `c316386f4e994ad97d0718404252d9f8195f10d6d547ffe3aae22f078ff44f07`.
+It binds 28 current profiles, 120 receiver occurrences, 66 screw axes,
+340 panel datums, 32 retained base channel occurrences, 100 selected stacks
+and 200 access sides. Only the two Z192 kicker rows move to Z212;
+`round_panel_lower_right_rim_1` stays fixed. The right principal retains its
+original transverse passage and bolt bores; eleven filled F-column arcs
+must not reappear in the current instructions. Stock nesting, raw cuts,
+recesses, receiver axes and unchanged drawings reuse the frozen predecessor.
+
+The selected fasteners are zinc-plated SAE J429 Grade 5, full-body,
+partially threaded hex cap screws, Grade 5 plain nuts and USS flat washers.
+The [exact per-axis assignments](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv)
+install 60 × 3/8-16 × 2½ in, four × 3½ in, four × 4 in, eight × 4½ in,
+sixteen × 4¾ in, four × 6½ in, and four × 1/2-13 × 8½ in. There are
+96 small/four large nuts and 192 small/eight large washers. Keep 22 Eoere
+angles from six four-packs and the 66 purchased Hillman 42605 policy.
+
+Twenty-four intermediate lengths repair the preceding catalog-extreme tip
+shortfalls. Four shared-header bolts grow from 3 to 3½ in and four cleat/post
+bolts from 4 to 4½ in to cover their nominated full interfaces with smooth
+body. Each of these eight receives one factory Bolt Depot 13731 spacer,
+½ in long × ¾ in OD × 13/32 in ID, after the nut washer and before the nut.
+One ten-pack supplies two spares. No extra washer packing or thread reworking
+is assumed. Catalog minimum margins are **1.016 mm** beyond the retained
+two-tip-pitch target, **3.2512 mm** for nut seating and **2.1844 mm** at the
+nominated smooth-body interfaces. The other 92 rows do not establish smooth
+body through all far wood; thread/runout wood bearing remains unqualified.
+Applicable standard edition, finish, body style and delivered dimensions must
+match the receiving specification. Nominal length is not delivered shank.
+
+All **48 added metal envelopes** clear current nominal parts: 32 shaft
+extensions, eight spacers and eight translated nuts. Thirty-six use positive
+bounding-box separation; twelve queries use source-bound poses of the
+existing ideal-angle template. The minimum refined gap is **2.6416 mm**.
+This resolves nominal added occupancy, not formed-product tolerances,
+spacer/washer resistance or continuous installation/removal. The viewer
+retains its preceding hardware; a future hardware response needs its own
+shaft, capture, contact, thread-bearing and gravity bindings.
+
+The bounded saved-solid review finds **97,352.067293 mm³** restored in the
+right principal, no removed old volume and unchanged exterior within 0.00001 mm.
+At 500 kg/m³ and g=9.80665, the increment is **0.048676 kg / 0.477349 N**.
+The preceding gross-stock Timoshenko stiffness operator does not resolve
+those cuts; this fact does not qualify the physical net section. The twelve
+saved screw-force translations use old actions and a fixed 20-mm lever change,
+not new demands. Generic small-screw end/edge comparisons remain guidance,
+not Hillman capacities. Current panel coupling, gravity, net sections,
+restraint and complete-joint resistance remain open; existing head/panel/heel
+reference exceedances and eight mixed-stack unknowns are retained.
+
+The generic method uses a ½-in-chuck drill, 13/32- and 17/32-in nominal wood
+bits, a guided/clamped paired setup, supported saw cuts and hand finishing.
+A chisel and flat/round rasp are additional ordinary tools, not reported
+possessions. With a ¾-in guide and ¼-in backer, the longest setup requires
+**203.2 mm / 8 in usable projection**; the long 17/32-in bit needs a reduced
+½-in shank. The packet records catalog leads, reach, deep-socket requirements,
+the 1:12 recess law and the whole-kerf depth allowance. Actual bit projection,
+guide/clamp geometry, machining errors and continuous access remain unobserved.
+Of 200 conservative approach screens, 40 have positive bounds and 160 need
+finer tool geometry; the latter are not observed clashes. All Actual/Disposition
+cells stay blank. No physical-test or blanket external sign-off gate is added.
+
+The dated fastener basket is **$148.51 before tax/shipping**, including pack
+spares; angles, wood, services and tools remain unpriced. The complete scenario
+is `$148.51 + 6*C4 + U`, with C4 the angle four-pack and U the remaining
+unpriced items. It is not a live quote. Current saved-volume mass with retained
+viewer hardware is 219.164616 kg; the separate nominal longer-shaft/spacer
+increment is 0.353219 kg, giving **219.517834 kg**, not measured weight or a
+new load vector. The 13-stick / 150-board-foot stock scenario is unchanged.
+
+The [verification receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/verification.json)
+records 21 focused Python checks, 20 development-identity Node checks and nine
+browser-rendered drawings with no errors or text overflow. Arithmetic and
+coordinate checks are independent of the producer calculations; no new
+independent-agent review is claimed. Full replay reproduces all 14 issued
+files byte for byte. The current producer checks 1,217 pins and the preserved
+helper checks 864; their audited union is **1,230 distinct unchanged inputs**,
+canonical SHA `b9da3dccb6c2cb42ab8d56aba97e2b3313d8dbea5c9b421114e29bfdcddbfae6`.
+No native solve or frame rebuild was run. The source-bound current helper,
+tests, compact tables/SVGs and receipts stay active; the 14 generated companions
+total **406,431 bytes**, needed for current purchasing, datums and fit limits.
+They do not copy CAD, meshes, dependencies or manuals. Raw `current-shop-followup-v1/run-v6/`
+and all failed/intermediate attempts remain active and recoverable; earlier
+packets retain their frozen bytes. No archive or pruning is authorized here.
 
 ### Raised outer kicker screws
 
