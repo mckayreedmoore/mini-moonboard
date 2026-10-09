@@ -1,0 +1,147 @@
+{
+  "evidence_supplement": {
+    "CAD_rebuild": false,
+    "historical_provenance": {
+      "command_source_output_bindings_verified": true,
+      "coupon_known_answers": "copied from producer in the historical checker; not independently queried there",
+      "historical_command_executed_by_supplement": false,
+      "original_call_id": "call_62ba25e2c4c14f40bb41c0ddf0c67707",
+      "original_call_timestamp_utc": "2026-10-09T03:23:09.816Z",
+      "original_source": {
+        "bytes": 2720,
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/checker-source-recovery-v1/original-stdin.py.txt",
+        "sha256": "221c8c19ce55435c9210248cce4c539e39bddda39b803863df6e966fb86ac579"
+      },
+      "recovery_record": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/checker-source-recovery-v1/source-recovery.json",
+        "sha256": "c93a39e5123d57c57686d2d49b35494d88447b794cc5006f542f3219c36ea77c"
+      },
+      "source_recovered_verbatim": true,
+      "source_retained_as_file_at_original_issue": false
+    },
+    "inputs_sha256": "55358f6f63816d9e31ca4c66b7e91512fa48f7fbe3ac5ecceebb5c3ac2e26613",
+    "intervals": {
+      "count": 12,
+      "maximum_interval_bbox_error_mm": 1.0001952155391791e-07,
+      "new_independent_BREP_read": false,
+      "proof_kind": "REUSED_SOURCE_BOUND_V3_SAVED_BREP_BOUND_RECEIPT"
+    },
+    "issued_audit_pin_count": 1120,
+    "issued_closure_canonical_sha256": "c00947b3cba84a8fb4b166d17f727316619ea840b4b5ea0360d3075ff29b7f98",
+    "native_solve": false,
+    "negative_controls_rejected": [
+      "altered_interval_bounds",
+      "partial_intersection",
+      "altered_expected_area",
+      "altered_header_station"
+    ],
+    "new_checker": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/check_evidence.py",
+      "sha256": "138d3fea6d79f04fa0d1a660c276fe28acefe7287802e872f7540f634d7b17c0"
+    },
+    "new_response": false,
+    "physical_observation_or_test": false,
+    "prior_interval_proof_reused": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/current-geometry-followups-v1/testing/v3-reuse-supplement-v1.json",
+      "sha256": "1b33f3861673c0dc179f95b5ea57be7a76c17cf64859b6c22d487356d4dcdffd"
+    },
+    "runtime": {
+      "python": "3.12.3"
+    },
+    "schema": "revised_base_evidence_verification_supplement/v1",
+    "source_pins_before_after_unchanged": true,
+    "stations": {
+      "members": [
+        {
+          "gap_difference_mm": 0.0,
+          "maximum_candidate_gap_mm": 400.0,
+          "member": "base_header",
+          "station_count": 10
+        },
+        {
+          "gap_difference_mm": 0.0,
+          "maximum_candidate_gap_mm": 870.1500000000001,
+          "member": "base_rail_top",
+          "station_count": 4
+        },
+        {
+          "gap_difference_mm": 0.0,
+          "maximum_candidate_gap_mm": 358.3833333338605,
+          "member": "base_principal_center_left",
+          "station_count": 8
+        },
+        {
+          "gap_difference_mm": 0.0,
+          "maximum_candidate_gap_mm": 358.3833333338605,
+          "member": "base_principal_center_right",
+          "station_count": 8
+        }
+      ],
+      "proof_kind": "INDEPENDENT_STDLIB_ARITHMETIC_FROM_FROZEN_GEOMETRY_AND_OLD_FIELD_DATUMS",
+      "restraint_or_Cp_adopted": false
+    },
+    "status": "VERIFIED_REPRODUCIBLE_SUPPLEMENT_WITH_REUSED_CAD_PROOFS",
+    "supplement_closure_canonical_sha256": "91b37fa86c01c340f92f26a6a12936b3320e45ffc4d85df581599746c1d4e77e",
+    "supplement_pin_count": 1147,
+    "washers": {
+      "independent_ring_volume_count": 36,
+      "issued_intersection_rows_reused": 36,
+      "maximum_recorded_probe_volume_deficit_mm3": 1.404742988597718e-11,
+      "maximum_ring_volume_arithmetic_error_mm3": 0.0,
+      "new_independent_CAD_intersections": false,
+      "proof_kind": "INDEPENDENT_RING_ARITHMETIC_WITH_AUTHENTICATED_ISSUED_INTERSECTIONS",
+      "total_seats": 112
+    }
+  },
+  "guard_controls": {
+    "both_issued_source_closures_verified_before_after": [
+      1120,
+      1126
+    ],
+    "checker": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/check_guard.py",
+      "sha256": "e09082e13782aaf20bb11903dc81602785546dcaae8ba07dd5b4623ddb6334f9"
+    },
+    "control_count": 14,
+    "fixture_scope": "Successful calculation fixtures use the common guarded runner with stdlib stubs. Real CLIs are exercised only on existing output paths, with -S, and must reject before importing an analysis.",
+    "inputs_sha256": "55358f6f63816d9e31ca4c66b7e91512fa48f7fbe3ac5ecceebb5c3ac2e26613",
+    "issued_packet_files_and_attempts_unchanged": true,
+    "native_solve_CAD_rebuild_or_new_response": false,
+    "passed_controls": [
+      "fresh_stdlib_stub_authenticates_before_and_after_and_writes_exclusively",
+      "existing_populated_directory_rejected_before_callbacks",
+      "existing_empty_directory_rejected",
+      "existing_file_rejected_unchanged",
+      "existing_directory_symlink_rejected",
+      "dangling_output_symlink_rejected_without_following",
+      "exclusive_file_creation_rejects_collision",
+      "changed_source_rejected_before_calculation",
+      "source_change_during_calculation_rejected_before_outputs",
+      "failed_attempt_kept_reserved_and_after_authentication_ran",
+      "fresh_exact_compare_fixture_passes",
+      "mismatched_compare_rejected_before_writing",
+      "real_audit_CLI_existing_attempt_rejected_with_site_packages_disabled",
+      "real_connected_CLI_existing_attempt_rejected_with_site_packages_disabled"
+    ],
+    "real_full_analysis_executed": false,
+    "schema": "frozen_analysis_output_guard_controls/v1",
+    "status": "PASS"
+  },
+  "independent_final_review": "parent-owned, pending",
+  "new_full_analysis_native_CAD_rebuild_or_response": false,
+  "original_packets_modified": false,
+  "raw_receipts": [
+    {
+      "bytes": 1739,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/guard-controls-attempt01/guard-controls.json",
+      "sha256": "bacb4bfd964b463aadb7403e89a8c68f44c3d131f2fb22c1796edf8e989372ad"
+    },
+    {
+      "bytes": 3988,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/evidence-attempt01/verification-supplement.json",
+      "sha256": "676f2d0a7879cdb396ec4a1dda59d7ca02ed4875dc86b1209d5ec335db87f248"
+    }
+  ],
+  "schema": "immutable_two_packet_reproduction_guard_result/v1",
+  "status": "READY_FOR_ROOT_REVIEW_GUARD_AND_PROVENANCE_SUPPLEMENT_NUMERICS_UNCHANGED"
+}

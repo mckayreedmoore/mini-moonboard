@@ -1,0 +1,14 @@
+uv run python - <<'PY'
+import cadquery as cq,json,math,hashlib
+from pathlib import Path
+root=Path.cwd();base=Path('docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1');out=Path('fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/attempt06');result=json.loads((out/'result.json').read_text());details=json.loads((out/'details.json').read_text());model=json.loads((base/'occupied-adjusted-base-v3.json').read_text());pins=details['complete_source_sha256'];assert all(hashlib.sha256((root/p).read_bytes()).hexdigest()==s for p,s in pins.items())
+principal=next(r for r in model['changed_finished_solids'] if r['id']=='base_principal_center_right');bb=cq.importers.importBrep(str(root/principal['path'])).val().BoundingBox();error=max(max(abs(a-b) for a,b in zip(r['canonical_interval_mm'],[bb.xmin,bb.xmax])) for r in model['canonical_interval_checks']);assert len(model['canonical_interval_checks'])==12 and error<1e-6
+probes=[r for r in details['washer_seat_rows'] if 'current_host_support_point_xyz_mm' in r];areaerror=max(abs(r['expected_probe_volume_mm3']-math.pi*(r['OD_mm']**2-r['support_inner_diameter_mm']**2)/40) for r in probes);assert areaerror<1e-8;assert all(abs(r['expected_probe_volume_mm3']-r['intersected_current_wood_volume_mm3'])<=1e-4 for r in probes)
+gap_errors=[]
+for r in result['candidate_member_restraint_paths']:
+ if r['member'] in ('base_header','base_rail_top'):grain=[1,0,0]
+ else:grain=[0,math.cos(math.radians(50)),math.sin(math.radians(50))]
+ coords=sorted(sum(a*b for a,b in zip(s['origin_xyz_mm'],grain)) for s in model['screw_axes'] if s['receiver']==r['member']);interior=max(b-a for a,b in zip(coords,coords[1:]));gap_errors.append(abs(interior-r['largest_candidate_gap_mm']));assert abs(interior-r['largest_candidate_gap_mm'])<1e-6
+recovery={'all_source_pins_verified':len(pins),'canonical_intervals_checked_against_actual_saved_principal_bounds':12,'maximum_interval_bbox_error_mm':error,'independent_washer_area_error_mm3':areaerror,'fresh_probe_count':len(probes),'washer_volume_tolerance_mm3':1e-4,'independent_interior_gap_max_error_mm':max(gap_errors),'full_gap_clipped_known_answer_fractions':result['known_answers']['full_gap_clipped_probe_fractions'],'old_bounded_result_sha256':hashlib.sha256((base/'bounded-strength-v1/result.json').read_bytes()).hexdigest(),'old_resistance_result_sha256':hashlib.sha256((base/'bounded-strength-v1/resistance-followup-v1/result.json').read_bytes()).hexdigest(),'source_closure_canonical_sha256':result['complete_source_canonical_sha256']}
+(out/'independent-checks.json').write_text(json.dumps(recovery,indent=2,sort_keys=True)+'\n');print(json.dumps(recovery,indent=2))
+PY

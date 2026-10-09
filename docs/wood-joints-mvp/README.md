@@ -60,6 +60,25 @@ resolved within that revision. The highest catalog mean-bearing comparison is
 Actual contact and complete joint resistance remain open. These results do not
 evaluate the separate adjusted base or optional extra grid.
 
+The separate [adjusted-base audit](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/README.md)
+checks the preceding v3 base with the extra grid off. All 112 wood washer seats
+have nominal support: 36 changed-host queries and 76 unchanged-seat proofs.
+It also records the coherent 22-shaft/ten-screw moves and the missing strength
+and stiffness of four members' possible restraint paths. This does not evaluate
+the subsequent cleat extension or establish new frame forces.
+
+The [connected-stack followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/README.md)
+reproduces all 48 old shaft/case combinations with 144 continuous member-bearing
+trials. The largest trial wood bearing parameter is 3.990 MPa. Its comparison
+with a dowel-bearing material input is not an allowable-pressure or joint-strength
+check. All eight complete joint resistances remain unknown; deformation,
+bolt-yield and interacting failure modes still need a compatible calculation.
+These statics trials use the original admitted actions and geometry.
+The [separate reproduction guide](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/README.md)
+provides the guarded future entrypoints and exact verification provenance for
+both followups. Three independent final reviews report no substantial findings
+within those bounded scopes; the original packet bytes remain frozen.
+
 **The latest geometry extends both full-thickness side cleats to the sloping
 side-member edge.** Their bottom seats, 38.1-mm thickness, 139.7-mm front/rear
 span, all bolt positions and both viewer modes' wiring stay unchanged. Maximum
@@ -70,6 +89,9 @@ stock-nesting inputs; the preceding shop sheets are not current cleat templates.
 It supplies no revised forces or joint resistance. See the
 [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json)
 and [existing ledger](completion-ledger.md#extended-side-cleats).
+The [live viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear)
+is published at `bca5f988`. Pages deployment and exact served-file checks pass;
+these confirm publication of the reviewed geometry, not matching mechanical results.
 
 **The adjusted base moves the right principal 39.2 mm left toward the seam**, viewed
 from the climbing side. Three right split rails extend inward to restore their

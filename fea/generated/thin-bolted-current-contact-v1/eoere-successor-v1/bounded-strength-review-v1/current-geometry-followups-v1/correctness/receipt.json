@@ -1,0 +1,108 @@
+{
+  "applicability": [
+    "Audit geometry is base-v3 extra OFF, with preceding trimmed cleats; it does not evaluate the latest two-cleat extension.",
+    "Six source fields remain the old untrimmed raised-rail revision; arithmetic does not admit a response for base-v3 or the extension.",
+    "Signed affine bearing is an equilibrium construction only; the directional bound is necessary, and compatibility/yield/contact are unresolved.",
+    "Fe90 is a dowel-bearing material parameter, not an ASD local pressure allowable or complete capacity.",
+    "The root-floor bearing screen is a declared component comparison and does not replace the partially threaded shaft basis.",
+    "Annulus support and screw outline distance are nominal geometry evidence; brace station gaps and return paths do not establish restraint strength or effective length."
+  ],
+  "checks": {
+    "all_eight_complete_joint_resistances_null": true,
+    "connected_stored_endpoint_integrals_and_datums": 144,
+    "fresh_changed_host_rows": 36,
+    "independent_connected_free_body_integrals": 48,
+    "known_answer_and_rejection_controls": {
+      "TR12_2015_example3p1_modeII_Z_lbf": 414.2135623730951,
+      "port_datum_invariance_and_affine_quadrature": true,
+      "rejection_controls": [
+        "shaft_torque",
+        "wrong_host",
+        "altered_force",
+        "foreign_state",
+        "invalid_length",
+        "invalid_length",
+        "invalid_length"
+      ],
+      "signed_step_equilibrium": true,
+      "uniform_force_and_pure_couple": true
+    },
+    "maximum_endpoint_integral_force_error_n": 1.1368683772161603e-13,
+    "maximum_endpoint_integral_moment_error_nmm": 1.8331451766013172e-12,
+    "maximum_endpoint_peak_error_n_mm": 0.0,
+    "old_field_bindings": 6,
+    "own_member_kernel_and_raw_action_replays": 144,
+    "owned_packet_files": 10,
+    "restraint_station_rows": 4,
+    "retained_old_exceedances_exact": true,
+    "revised_base_delta_replayed": true,
+    "saved_moved_screw_edge_arithmetic": 10,
+    "thread_window_kernel_replays": 48,
+    "unchanged_seat_rows": 76,
+    "washer_saved_row_arithmetic": 112
+  },
+  "command": [
+    ".venv/bin/python",
+    "-B",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/current-geometry-followups-v1/correctness/check.py"
+  ],
+  "limits": [
+    "No CAD/BRep import/query, browser, native/global solve, new geometry, install or full test suite.",
+    "Existing frozen saved-solid support results are reused; their actual shape intersections are not rerun.",
+    "Only selected source-only functions are AST-extracted, so their CAD/native module imports and run methods are never executed.",
+    "Parent owns source-closure verification, final integration and publication; no engineering/physical acceptance."
+  ],
+  "mechanics_acceptance": false,
+  "physical_release": false,
+  "primary_source_check": {
+    "NDS2024_live_PDF_access": "Pinned Chapter 11/12 URLs returned web-tool errors; no alternative edition is adopted as a new capacity source.",
+    "TR12_2015_url": "https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf",
+    "verified_scope": "Example 3.1 zero-gap mode-II 414-lbf result and report distinction between bearing/yield inputs and adjusted reference values."
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "independent_current_geometry_followups_arithmetic_review/v1",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/README.md": "6b0ad50a6cafd2a1aeb6d3dde5a97eaf295f5fa8745fb4fbaee5b02aff166cb4",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/analyze.py": "56c84c7fbe06da68ddfe27fe147fff52344cf0cdd0ef72cda489d9163926e82b",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/inputs.json": "381fce8b7eb7dc559083927112d5d3b3753caf52275c783b474f1a93c6cafe07",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/verification.json": "57f81a98a5d158f997b54c0ed4094914339f38b0d9c5809643c227fd1f82a02e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/inputs.json": "ae2c65447ed9a0b628dd25b52573f4c04eca58bc6f2b2657ee0a6f88a69a6bd7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/result.json": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/README.md": "3715750bc73bd75be026f34a64d720ff240ca6ce3d35c713fe02d849becb652c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/analyze.py": "9ec29f1ba0dba1dbbec193366284abfd1604e09099822714335c28e226bd84ca",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/inputs.json": "8ddf4fbdecd58126c66e70178d484a31f42bce5830e557708c1bb1ee9ecdd966",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/result.json": "1205472ce4f96626318b42f2ad7578396485d167932f22fc0af387b156c4f875",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/verification.json": "82a493510d5a567037e8489026d887fef14f623048cbdb3183eac179762a04e8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json": "a3f396654354bc71ba4c224c48bd7788c60aff94a033d8591a62b15f10f5e468",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/nominal-scenario-result.json": "b15af3afd2dd3ae24ed78c83b27b0d2738d94744183db97d0f063700fee6a9de",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/aligned-wire-cutouts-v1/cad-v1/geometry.json": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/current-geometry-followups-v1/correctness/check.py": "d53a2f1a9f76bf7614e47ac117dccc85a3c64335f77c226c259f38748407db98",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/attempt02/details.json": "c0607ee1c3c2d69af7659ff021411a791c6f1ba307f55dd523c86fb6f0d5b3fd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt02/details.json": "ca4d7d007857045b66af03e3ce3c5b8c03fdba7ee11fa151e6dee6707891de03",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/attempt06/details.json": "837474fad3300ade9c3dc1e15c68827c7faeb2c76b0a17fae83c32d4511abf71",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/result.json": "e741022ce8265079a745b2e8acbfc77f11b9c80d82a20bd9177f61465056b247",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/a1-rear/manifest.json": "93be490eddda2b2dd882d0e350a6766dc6bbe5b82e6d2555de75b0dc43ef1d85",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/a12-forward/manifest.json": "b6ef3e3a638492d4bdc9f6d2c2190d36c506f555ef3ac2ff3c3a7bc423c51601",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/a12-left/manifest.json": "596b7d9a3de97670b296e8bc74bd1acfa6da6849700c9b170004981dbbb041ef",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/a12-rear/manifest.json": "d8c9086c373ce7e1b7e91c854b722c353efd4acd063fd1379fb97bd0f9a26029",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/k12-rear/manifest.json": "93ecd692bca67ba143859fd0897628bb5018bb9d452d538542fe4b886c00e8b2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/k12-right/manifest.json": "fbd1a710e432f83cd8987df63fc6ea1e7fc5983d69271534279ac0d5b5f7b178",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/a1-rear/field.json": "985bb860c30f2b8017ea1b22f68f44db6b0c708f68b18f8a368924f569053adb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/a12-forward/field.json": "d6833b240cb06a56212959411b38d6eb4a03a0074a6395d64ef7702d4cd5136e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/a12-left/field.json": "72658936f3fa75c3f2e54ad5f9461289589acc01da0f8a5b50af1d6cb9210a14",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/a12-rear/field.json": "7b335b70ceac3063d1cc446d96d2fecfce674fc89b0bcfe8ec8302f3ae946de9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/k12-rear/field.json": "d55b15a830a7741ae83445fb1895ff17f58baac94afd415401442e46497ff639",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/k12-right/field.json": "87723cf815a4cd1f2f0a88fc13dbdb2233b6eaea4ed7b1439857a7aad4fc30af",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/calculate_v2.py": "41385d35d8faf785ae14f88f8bb54ed69dbed56e271ff7524f1dc6b071f6310d",
+    "mini_moonboard/bolted_timber_checks.py": "a1414547d9eaa3d60e81482b4a2cac2d49e88f31aafa341dca5be9ec8ef4aa13",
+    "scripts/eoere_2026_adjustments.py": "136d7e63f1e337ef8a65421d22d4614b336697cb1b8556ff099995fe26a92821"
+  },
+  "status": "PASS_BOUNDED_SOURCE_ARITHMETIC_AND_APPLICABILITY_ONLY",
+  "substantial_findings": []
+}

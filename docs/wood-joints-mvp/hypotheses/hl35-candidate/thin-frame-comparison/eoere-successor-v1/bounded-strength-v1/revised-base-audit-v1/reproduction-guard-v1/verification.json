@@ -1,0 +1,56 @@
+{
+  "all_ten_issued_packet_files_unchanged": true,
+  "commands": [
+    "uv run python docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/check_guard.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/guard-controls-attempt01",
+    "uv run python docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/check_evidence.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/evidence-attempt01",
+    "uv run ruff check docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1",
+    "uv run ruff format --check docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1"
+  ],
+  "owned_artifacts": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/README.md": {
+      "bytes": 7602,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/README.md",
+      "sha256": "4413de945e305ed4ed2566c0446e093eed73a5d3a7993b7032a383eec1c0c7b1"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/check_evidence.py": {
+      "bytes": 12269,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/check_evidence.py",
+      "sha256": "138d3fea6d79f04fa0d1a660c276fe28acefe7287802e872f7540f634d7b17c0"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/check_guard.py": {
+      "bytes": 8858,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/check_guard.py",
+      "sha256": "e09082e13782aaf20bb11903dc81602785546dcaae8ba07dd5b4623ddb6334f9"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/inputs.json": {
+      "bytes": 7804,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/inputs.json",
+      "sha256": "55358f6f63816d9e31ca4c66b7e91512fa48f7fbe3ac5ecceebb5c3ac2e26613"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/result.json": {
+      "bytes": 6977,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/result.json",
+      "sha256": "b48c1ba300e161a729ffa9f9cbcabe75b44126488e376eea0154e7bf7b8d71a7"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/run_fresh.py": {
+      "bytes": 7596,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/run_fresh.py",
+      "sha256": "53fe84d33b19d184c79e07e3a007f29ca40c7b96d3eea9a80d487c0a48f53bb5"
+    }
+  },
+  "raw_receipts": [
+    {
+      "bytes": 1739,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/guard-controls-attempt01/guard-controls.json",
+      "sha256": "bacb4bfd964b463aadb7403e89a8c68f44c3d131f2fb22c1796edf8e989372ad"
+    },
+    {
+      "bytes": 3988,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/evidence-attempt01/verification-supplement.json",
+      "sha256": "676f2d0a7879cdb396ec4a1dda59d7ca02ed4875dc86b1209d5ec335db87f248"
+    }
+  ],
+  "schema": "immutable_two_packet_reproduction_guard_verification/v1",
+  "scope": "No real full analysis or new CAD/native run. Existing numerical results unchanged. Guard success fixtures are stdlib stubs; real CLI tests reject existing issued directories. New arithmetic supplements explicitly reuse the existing CAD proofs and authenticate recovered stdin history.",
+  "status": "VERIFIED_OWNED_SUPPLEMENT_SCOPE"
+}

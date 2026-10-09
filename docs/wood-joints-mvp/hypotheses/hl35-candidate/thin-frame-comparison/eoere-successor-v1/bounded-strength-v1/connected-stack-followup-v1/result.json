@@ -1,0 +1,1743 @@
+{
+  "case_count": 6,
+  "complete_source_canonical_sha256": "8f4a648d23ad5e88c1f31b16d76134af4fee8b348a98a4bc684cf7c9336caba8",
+  "execution": {
+    "geometry_rebuild": false,
+    "native_solve": false,
+    "physical_test": false,
+    "response_assembly": false
+  },
+  "fabrication_or_climbing_release": false,
+  "known_answers": {
+    "TR12_2015_example3p1_modeII_Z_lbf": 414.2135623730951,
+    "port_datum_invariance_and_affine_quadrature": true,
+    "rejection_controls": [
+      "shaft_torque",
+      "wrong_host",
+      "altered_force",
+      "foreign_state",
+      "invalid_length",
+      "invalid_length",
+      "invalid_length"
+    ],
+    "signed_step_equilibrium": true,
+    "uniform_force_and_pure_couple": true
+  },
+  "limits": [
+    "Six authenticated predecessor fields only. No old action is admitted as a base-v3 response; shafts 079 and 080 have moved.",
+    "Affine signed density is one continuous prescribed-action equilibrium trial over nominal full bearing intervals. Neither physical stiffness, contact distribution, bore-wall deformation nor compatibility among the three members is established.",
+    "Directional scalar lower bounds are necessary, not sufficient for the vector problem. Affine endpoint peaks are an equilibrated trial, not a minimum peak or an actual pressure prediction.",
+    "Fe90 is the existing NDS DF-L 5%-offset bearing material input. Comparing an affine density to it is not an ASD utilization, a dowel yield calculation or a complete adjusted joint capacity. No multi-member Rd, Cg or Cdelta is adopted.",
+    "The existing NDS component diameter route selects the catalog root-floor scenario after a member fails the quarter-thread exception. This constant bearing-screen diameter does not replace the partially threaded shaft model or transfer a full-thread-root sensitivity into the basis. Delivered shank, runout and root remain unobserved.",
+    "The supplier Q235B label supplies no adopted eoere hole-bearing resistance. Steel required bearing stress is reported without a product capacity.",
+    "Original source field same-cut shaft markers are reused with their original geometry, thread and material limits. No new nonlinear shaft yield, axial-seat, washer pressure, joint splitting or formed-heel acceptance.",
+    "Panel/screw remedies stay paused. No geometry change, member enlargement, new fastener, floor test, physical work, native solve or revised frame response.",
+    "Keep prior immutable studies and all peer work. Raw detailed member rows, case stacks and source pins stay in ignored output; no pruning or copied manuals."
+  ],
+  "maximum_connected_force_residual_n": 9.892021095687691e-06,
+  "maximum_connected_moment_residual_nmm": 0.00017077269892084928,
+  "maximum_raw_port_force_replay_error_n": 0.0,
+  "maximum_raw_port_moment_replay_error_nmm": 3.4224270219716276e-13,
+  "member_case_count": 144,
+  "peak_steel_required_affine_bearing": {
+    "affine_endpoint_line_density_vectors_n_mm": [
+      [
+        0.0,
+        -59.31076947363762,
+        119.22600769875068
+      ],
+      [
+        0.0,
+        -18.55015454095854,
+        102.63499103958812
+      ]
+    ],
+    "affine_trial_peak_line_density_n_mm": 133.16384001423788,
+    "affine_trial_peak_projected_bearing_mpa": 18.19739974558236,
+    "axis_id": "eoere_bolt_067",
+    "bearing_screen_D_mm": 7.317740000000001,
+    "case_id": "a12-forward",
+    "center_xyz_mm": [
+      -1127.125,
+      -131.25,
+      342.0875
+    ],
+    "centered_moment_magnitude_nmm": 147.87549474220236,
+    "deformation_compatibility_or_yield_capacity_established": false,
+    "eoere_product_bearing_resistance_mpa": null,
+    "force_only_mean_line_density_n_mm": 117.56341506776235,
+    "host": "eoere_clip_angle_base_left",
+    "interval_from_axis_point_mm": [
+      -6.35,
+      0.0
+    ],
+    "kind": "steel",
+    "lateral_first_moment_xyz_nmm": [
+      -0.0,
+      136.96415796857934,
+      -55.74927243659022
+    ],
+    "lateral_force_on_host_xyz_n": [
+      0.0,
+      -247.2084337463428,
+      704.4086709942256
+    ],
+    "lateral_n": 746.5276856802909,
+    "moment_on_host_about_interval_center_xyz_nmm": [
+      0.0,
+      -55.74927243659022,
+      -136.96415796857934
+    ],
+    "necessary_directional_peak_line_density_bound_n_mm": 122.52254281545753,
+    "original_port_moment_magnitude_nmm": 2470.668847035976,
+    "raw_force_replay_error_n": 0.0,
+    "raw_moment_replay_error_nmm": 5.684341886080802e-14,
+    "surface_index": 2
+  },
+  "peak_wood_affine_parameter_comparison": {
+    "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+    "affine_endpoint_line_density_vectors_n_mm": [
+      [
+        0.0,
+        -6.31720155428739,
+        28.50771305795648
+      ],
+      [
+        0.0,
+        -3.340112829153601,
+        9.302089405489104
+      ]
+    ],
+    "affine_peak_over_Fe90_parameter": 0.1394529735594925,
+    "affine_trial_peak_line_density_n_mm": 29.1992592247179,
+    "affine_trial_peak_projected_bearing_mpa": 3.9902017869885915,
+    "axis_id": "eoere_bolt_067",
+    "bearing_screen_D_mm": 7.317740000000001,
+    "case_id": "a12-forward",
+    "center_xyz_mm": [
+      -1238.25,
+      -131.25,
+      342.0875
+    ],
+    "centered_moment_magnitude_nmm": 2351.002777914539,
+    "deformation_compatibility_or_yield_capacity_established": false,
+    "force_only_mean_line_density_n_mm": 19.51182259186332,
+    "host": "eoere_cleat_left",
+    "interval_from_axis_point_mm": [
+      88.90000000000009,
+      127.0
+    ],
+    "kind": "wood",
+    "lateral_first_moment_xyz_nmm": [
+      -0.0,
+      360.13098035761993,
+      -2323.2562791798364
+    ],
+    "lateral_force_on_host_xyz_n": [
+      0.0,
+      -183.97183900455042,
+      720.2767369286366
+    ],
+    "lateral_n": 743.4004407499908,
+    "moment_on_host_about_interval_center_xyz_nmm": [
+      0.0,
+      -2323.2562791798364,
+      -360.13098035761993
+    ],
+    "necessary_directional_peak_line_density_bound_n_mm": 23.000574205893813,
+    "original_port_moment_magnitude_nmm": 2351.002777914539,
+    "raw_force_replay_error_n": 0.0,
+    "raw_moment_replay_error_nmm": 0.0,
+    "surface_index": 1
+  },
+  "question": "Can continuous full-interval bearing reproduce all eight stacks' own forces and moments without assuming symmetric loading or summing capacities?",
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_connected_stack_bearing_statics/v1",
+  "source_geometry_revision": "eoere-bottom-rail-tnut-clearance-v1",
+  "source_observations": {
+    "AWC_TR12_2015_url": "https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf",
+    "AWC_TR12_2015_use": "Example 3.1 is a scalar mode-II known answer only; its reduction term and scope are not adopted for the actual eight stacks.",
+    "AWC_TR12_2026_access": "Web open failed; direct public request returned HTTP 404. Exact-URL official indexed contents mention two-ply single-shear additions, but no complete PDF was retrieved or method adopted. The earlier source-access limitation remains.",
+    "AWC_TR12_2026_url": "https://awc.org/wp-content/uploads/2026/06/TR-12_2026_formatted.V3.pdf",
+    "observed_utc": "2026-10-09 03:51:04 UTC",
+    "supplier_observation": "The live listing still states Q235B and 1/4 inch (6 mm), with a 300-lb statement. No minimum thickness or bend radius is established by that text. No seller contact or part measurement.",
+    "supplier_url": "https://www.amazon.com/dp/B0C7V7VS89"
+  },
+  "source_pin_count": 1126,
+  "stack_case_count": 48,
+  "stacks": [
+    {
+      "adjusted_complete_joint_resistance_n": null,
+      "axis_id": "eoere_bolt_065",
+      "moved_in_base_v3": false,
+      "peak_old_shaft_first_yield_marker": {
+        "axis_id": "eoere_bolt_065",
+        "case_id": "k12-rear",
+        "cut_count": 64,
+        "governing": {
+          "diameter_scenario_mm": 9.372599999999998,
+          "region": "catalog_minimum_body_circle",
+          "same_cut_n_nmm": [
+            74.52469415065318,
+            8.204749449099214,
+            1.7967077476576738,
+            0.0,
+            16.87717689028839,
+            -77.07041280000473
+          ],
+          "same_cut_vm_envelope_mpa": 2.075360753652716,
+          "specified_material_first_yield_index": 0.003271800311781,
+          "station_from_axis_point_mm": 8.051477271937609,
+          "underhead_distance_mm": 17.04307727193761,
+          "underhead_fillet_region": false
+        },
+        "material_specification_Fy_mpa": 634.3176709714892,
+        "ordinary_UNC_guarantees_this_root_floor": false,
+        "reference_root_floor_mm": 7.31774,
+        "root_notch_or_ASD_or_complete_bolt_acceptance": false,
+        "source_field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/k12-rear/field.json",
+          "sha256": "d55b15a830a7741ae83445fb1895ff17f58baac94afd415401442e46497ff639"
+        }
+      },
+      "peak_steel_required_affine_bearing": {
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            -0.8309994027067094,
+            -0.8562015489411838,
+            0.0
+          ],
+          [
+            3.1013319919607856,
+            3.195387682167624,
+            0.0
+          ]
+        ],
+        "affine_trial_peak_line_density_n_mm": 4.4529498721306116,
+        "affine_trial_peak_projected_bearing_mpa": 0.6085143599158499,
+        "axis_id": "eoere_bolt_065",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-forward",
+        "center_xyz_mm": [
+          -154.1375,
+          -131.25,
+          280.175
+        ],
+        "centered_moment_magnitude_nmm": 18.97211996665292,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "eoere_product_bearing_resistance_mpa": null,
+        "force_only_mean_line_density_n_mm": 1.6298927749784635,
+        "host": "eoere_clip_split_base_center_left",
+        "interval_from_axis_point_mm": [
+          -6.35,
+          0.0
+        ],
+        "kind": "steel",
+        "lateral_first_moment_xyz_nmm": [
+          13.213452721790006,
+          13.614183897615407,
+          -0.0
+        ],
+        "lateral_force_on_host_xyz_n": [
+          7.208305970881693,
+          7.426915972993946,
+          0.0
+        ],
+        "lateral_n": 10.349819121113242,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          13.614183897615407,
+          -13.213452721790006,
+          0.0
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 2.823057097152137,
+        "original_port_moment_magnitude_nmm": 13.88855574288174,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 1
+      },
+      "peak_wood_affine_parameter_comparison": {
+        "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            -0.6360831063868924,
+            -0.805874490082811,
+            0.0
+          ],
+          [
+            0.142459765272482,
+            0.4052177423530228,
+            0.0
+          ]
+        ],
+        "affine_peak_over_Fe90_parameter": 0.004903244461633621,
+        "affine_trial_peak_line_density_n_mm": 1.026662267738047,
+        "affine_trial_peak_projected_bearing_mpa": 0.14029772412494115,
+        "axis_id": "eoere_bolt_065",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-forward",
+        "center_xyz_mm": [
+          -154.1375,
+          -131.25,
+          257.95
+        ],
+        "centered_moment_magnitude_nmm": 174.16267816989497,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "force_only_mean_line_density_n_mm": 0.3178796283164292,
+        "host": "base_header",
+        "interval_from_axis_point_mm": [
+          0.0,
+          38.099999999999994
+        ],
+        "kind": "wood",
+        "lateral_first_moment_xyz_nmm": [
+          94.17838482745535,
+          146.50279962718167,
+          -0.0
+        ],
+        "lateral_force_on_host_xyz_n": [
+          -9.403524648229515,
+          -7.632511044252462,
+          0.0
+        ],
+        "lateral_n": 12.11121383885595,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          146.50279962718167,
+          -94.17838482745535,
+          0.0
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 0.6256644046743864,
+        "original_port_moment_magnitude_nmm": 174.16267816989497,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 0
+      },
+      "thread_window": {
+        "catalog_Lb_min_mm": 42.925999999999995,
+        "catalog_min_body_in": 0.369,
+        "delivered_observation": false,
+        "effective_D_in": 0.2881,
+        "nominal_diameter_in": 0.375,
+        "ordinary_UNC_guarantee": false,
+        "purchase_design_root_floor_in": 0.2881,
+        "surfaces": [
+          {
+            "bearing_length_mm": 38.099999999999994,
+            "full_body_quarter_exception_component": true,
+            "host": "base_header",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 4.165599999999998,
+            "possible_thread_fraction": 0.1093333333333333,
+            "surface_index": 0,
+            "underhead_interval_mm": [
+              8.9916,
+              47.09159999999999
+            ]
+          },
+          {
+            "bearing_length_mm": 6.35,
+            "full_body_quarter_exception_component": true,
+            "host": "eoere_clip_split_base_center_left",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 1,
+            "underhead_interval_mm": [
+              2.6416000000000004,
+              8.9916
+            ]
+          },
+          {
+            "bearing_length_mm": 6.350000000000001,
+            "full_body_quarter_exception_component": false,
+            "host": "eoere_clip_split_header_center_left",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 6.350000000000001,
+            "possible_thread_fraction": 1.0,
+            "surface_index": 2,
+            "underhead_interval_mm": [
+              47.09159999999999,
+              53.441599999999994
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "adjusted_complete_joint_resistance_n": null,
+      "axis_id": "eoere_bolt_066",
+      "moved_in_base_v3": false,
+      "peak_old_shaft_first_yield_marker": {
+        "axis_id": "eoere_bolt_066",
+        "case_id": "a12-left",
+        "cut_count": 64,
+        "governing": {
+          "diameter_scenario_mm": 9.372599999999998,
+          "region": "catalog_minimum_body_circle",
+          "same_cut_n_nmm": [
+            10.646189149670427,
+            -11.349700370954789,
+            -52.647715113702894,
+            0.0,
+            -494.54052947778985,
+            106.6121638658798
+          ],
+          "same_cut_vm_envelope_mpa": 6.661595940370347,
+          "specified_material_first_yield_index": 0.010501987009391967,
+          "station_from_axis_point_mm": 8.051477271937609,
+          "underhead_distance_mm": 17.04307727193761,
+          "underhead_fillet_region": false
+        },
+        "material_specification_Fy_mpa": 634.3176709714892,
+        "ordinary_UNC_guarantees_this_root_floor": false,
+        "reference_root_floor_mm": 7.31774,
+        "root_notch_or_ASD_or_complete_bolt_acceptance": false,
+        "source_field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/a12-left/field.json",
+          "sha256": "72658936f3fa75c3f2e54ad5f9461289589acc01da0f8a5b50af1d6cb9210a14"
+        }
+      },
+      "peak_steel_required_affine_bearing": {
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            -6.069417695376874,
+            -1.3084342239720312,
+            0.0
+          ],
+          [
+            22.65137521150377,
+            4.883143002225508,
+            0.0
+          ]
+        ],
+        "affine_trial_peak_line_density_n_mm": 23.17174755068144,
+        "affine_trial_peak_projected_bearing_mpa": 3.1665169233508488,
+        "axis_id": "eoere_bolt_066",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-left",
+        "center_xyz_mm": [
+          -154.1375,
+          -80.45,
+          280.175
+        ],
+        "centered_moment_magnitude_nmm": 98.72493223423143,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "eoere_product_bearing_resistance_mpa": null,
+        "force_only_mean_line_density_n_mm": 8.481448253629207,
+        "host": "eoere_clip_split_base_center_left",
+        "interval_from_axis_point_mm": [
+          -6.35,
+          0.0
+        ],
+        "kind": "steel",
+        "lateral_first_moment_xyz_nmm": [
+          96.50784766564121,
+          20.804989391945856,
+          -0.0
+        ],
+        "lateral_force_on_host_xyz_n": [
+          52.647715113702894,
+          11.349700370954789,
+          0.0
+        ],
+        "lateral_n": 53.85719641054546,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          20.804989391945856,
+          -96.50784766564121,
+          0.0
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 14.690299297052174,
+        "original_port_moment_magnitude_nmm": 72.27166636925104,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 1
+      },
+      "peak_wood_affine_parameter_comparison": {
+        "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            -4.7593067047650806,
+            -1.2061723640245436,
+            0.0
+          ],
+          [
+            1.2354097914078102,
+            0.5757121053182852,
+            0.0
+          ]
+        ],
+        "affine_peak_over_Fe90_parameter": 0.023448614626502072,
+        "affine_trial_peak_line_density_n_mm": 4.9097710824190575,
+        "affine_trial_peak_projected_bearing_mpa": 0.6709409028496581,
+        "axis_id": "eoere_bolt_066",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-left",
+        "center_xyz_mm": [
+          -154.1375,
+          -80.45,
+          257.95
+        ],
+        "centered_moment_magnitude_nmm": 756.5232220333504,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "force_only_mean_line_density_n_mm": 1.7899252494012747,
+        "host": "base_header",
+        "interval_from_axis_point_mm": [
+          0.0,
+          38.099999999999994
+        ],
+        "kind": "wood",
+        "lateral_first_moment_xyz_nmm": [
+          725.165867750794,
+          215.55010954522862,
+          -0.0
+        ],
+        "lateral_force_on_host_xyz_n": [
+          -67.130236199456,
+          -12.010267928354223,
+          0.0
+        ],
+        "lateral_n": 68.19615200218855,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          215.55010954522862,
+          -725.165867750794,
+          0.0
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 3.103955336420653,
+        "original_port_moment_magnitude_nmm": 756.5232220333504,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 0
+      },
+      "thread_window": {
+        "catalog_Lb_min_mm": 42.925999999999995,
+        "catalog_min_body_in": 0.369,
+        "delivered_observation": false,
+        "effective_D_in": 0.2881,
+        "nominal_diameter_in": 0.375,
+        "ordinary_UNC_guarantee": false,
+        "purchase_design_root_floor_in": 0.2881,
+        "surfaces": [
+          {
+            "bearing_length_mm": 38.099999999999994,
+            "full_body_quarter_exception_component": true,
+            "host": "base_header",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 4.165599999999998,
+            "possible_thread_fraction": 0.1093333333333333,
+            "surface_index": 0,
+            "underhead_interval_mm": [
+              8.9916,
+              47.09159999999999
+            ]
+          },
+          {
+            "bearing_length_mm": 6.35,
+            "full_body_quarter_exception_component": true,
+            "host": "eoere_clip_split_base_center_left",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 1,
+            "underhead_interval_mm": [
+              2.6416000000000004,
+              8.9916
+            ]
+          },
+          {
+            "bearing_length_mm": 6.350000000000001,
+            "full_body_quarter_exception_component": false,
+            "host": "eoere_clip_split_header_center_left",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 6.350000000000001,
+            "possible_thread_fraction": 1.0,
+            "surface_index": 2,
+            "underhead_interval_mm": [
+              47.09159999999999,
+              53.441599999999994
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "adjusted_complete_joint_resistance_n": null,
+      "axis_id": "eoere_bolt_067",
+      "moved_in_base_v3": false,
+      "peak_old_shaft_first_yield_marker": {
+        "axis_id": "eoere_bolt_067",
+        "case_id": "a12-forward",
+        "cut_count": 66,
+        "governing": {
+          "diameter_scenario_mm": 9.372599999999998,
+          "region": "catalog_minimum_body_circle",
+          "same_cut_n_nmm": [
+            415.97781459890723,
+            720.4358695213562,
+            -183.9718389827095,
+            0.0,
+            6600.771098320901,
+            24939.34865340246
+          ],
+          "same_cut_vm_envelope_mpa": 326.13945292165675,
+          "specified_material_first_yield_index": 0.5141579177861432,
+          "station_from_axis_point_mm": 70.113219565479,
+          "underhead_distance_mm": 79.104819565479,
+          "underhead_fillet_region": false
+        },
+        "material_specification_Fy_mpa": 634.3176709714892,
+        "ordinary_UNC_guarantees_this_root_floor": false,
+        "reference_root_floor_mm": 7.31774,
+        "root_notch_or_ASD_or_complete_bolt_acceptance": false,
+        "source_field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/a12-forward/field.json",
+          "sha256": "d6833b240cb06a56212959411b38d6eb4a03a0074a6395d64ef7702d4cd5136e"
+        }
+      },
+      "peak_steel_required_affine_bearing": {
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            0.0,
+            -59.31076947363762,
+            119.22600769875068
+          ],
+          [
+            0.0,
+            -18.55015454095854,
+            102.63499103958812
+          ]
+        ],
+        "affine_trial_peak_line_density_n_mm": 133.16384001423788,
+        "affine_trial_peak_projected_bearing_mpa": 18.19739974558236,
+        "axis_id": "eoere_bolt_067",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-forward",
+        "center_xyz_mm": [
+          -1127.125,
+          -131.25,
+          342.0875
+        ],
+        "centered_moment_magnitude_nmm": 147.87549474220236,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "eoere_product_bearing_resistance_mpa": null,
+        "force_only_mean_line_density_n_mm": 117.56341506776235,
+        "host": "eoere_clip_angle_base_left",
+        "interval_from_axis_point_mm": [
+          -6.35,
+          0.0
+        ],
+        "kind": "steel",
+        "lateral_first_moment_xyz_nmm": [
+          -0.0,
+          136.96415796857934,
+          -55.74927243659022
+        ],
+        "lateral_force_on_host_xyz_n": [
+          0.0,
+          -247.2084337463428,
+          704.4086709942256
+        ],
+        "lateral_n": 746.5276856802909,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          0.0,
+          -55.74927243659022,
+          -136.96415796857934
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 122.52254281545753,
+        "original_port_moment_magnitude_nmm": 2470.668847035976,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 5.684341886080802e-14,
+        "surface_index": 2
+      },
+      "peak_wood_affine_parameter_comparison": {
+        "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            0.0,
+            -6.31720155428739,
+            28.50771305795648
+          ],
+          [
+            0.0,
+            -3.340112829153601,
+            9.302089405489104
+          ]
+        ],
+        "affine_peak_over_Fe90_parameter": 0.1394529735594925,
+        "affine_trial_peak_line_density_n_mm": 29.1992592247179,
+        "affine_trial_peak_projected_bearing_mpa": 3.9902017869885915,
+        "axis_id": "eoere_bolt_067",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-forward",
+        "center_xyz_mm": [
+          -1238.25,
+          -131.25,
+          342.0875
+        ],
+        "centered_moment_magnitude_nmm": 2351.002777914539,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "force_only_mean_line_density_n_mm": 19.51182259186332,
+        "host": "eoere_cleat_left",
+        "interval_from_axis_point_mm": [
+          88.90000000000009,
+          127.0
+        ],
+        "kind": "wood",
+        "lateral_first_moment_xyz_nmm": [
+          -0.0,
+          360.13098035761993,
+          -2323.2562791798364
+        ],
+        "lateral_force_on_host_xyz_n": [
+          0.0,
+          -183.97183900455042,
+          720.2767369286366
+        ],
+        "lateral_n": 743.4004407499908,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          0.0,
+          -2323.2562791798364,
+          -360.13098035761993
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 23.000574205893813,
+        "original_port_moment_magnitude_nmm": 2351.002777914539,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 1
+      },
+      "thread_window": {
+        "catalog_Lb_min_mm": 119.126,
+        "catalog_min_body_in": 0.369,
+        "delivered_observation": false,
+        "effective_D_in": 0.2881,
+        "nominal_diameter_in": 0.375,
+        "ordinary_UNC_guarantee": false,
+        "purchase_design_root_floor_in": 0.2881,
+        "surfaces": [
+          {
+            "bearing_length_mm": 88.90000000000009,
+            "full_body_quarter_exception_component": true,
+            "host": "base_side_left",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 0,
+            "underhead_interval_mm": [
+              8.9916,
+              97.8916000000001
+            ]
+          },
+          {
+            "bearing_length_mm": 38.09999999999991,
+            "full_body_quarter_exception_component": false,
+            "host": "eoere_cleat_left",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 16.8656,
+            "possible_thread_fraction": 0.44266666666666776,
+            "surface_index": 1,
+            "underhead_interval_mm": [
+              97.8916000000001,
+              135.9916
+            ]
+          },
+          {
+            "bearing_length_mm": 6.35,
+            "full_body_quarter_exception_component": true,
+            "host": "eoere_clip_angle_base_left",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 2,
+            "underhead_interval_mm": [
+              2.6416000000000004,
+              8.9916
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "adjusted_complete_joint_resistance_n": null,
+      "axis_id": "eoere_bolt_070",
+      "moved_in_base_v3": false,
+      "peak_old_shaft_first_yield_marker": {
+        "axis_id": "eoere_bolt_070",
+        "case_id": "k12-right",
+        "cut_count": 66,
+        "governing": {
+          "diameter_scenario_mm": 9.372599999999998,
+          "region": "catalog_minimum_body_circle",
+          "same_cut_n_nmm": [
+            416.3201771465168,
+            -578.3592112290271,
+            -138.72236789713742,
+            0.0,
+            5409.843221182134,
+            -19803.74558555596
+          ],
+          "same_cut_vm_envelope_mpa": 260.7727608757095,
+          "specified_material_first_yield_index": 0.4111075141203665,
+          "station_from_axis_point_mm": 70.113219565479,
+          "underhead_distance_mm": 79.104819565479,
+          "underhead_fillet_region": false
+        },
+        "material_specification_Fy_mpa": 634.3176709714892,
+        "ordinary_UNC_guarantees_this_root_floor": false,
+        "reference_root_floor_mm": 7.31774,
+        "root_notch_or_ASD_or_complete_bolt_acceptance": false,
+        "source_field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/k12-right/field.json",
+          "sha256": "87723cf815a4cd1f2f0a88fc13dbdb2233b6eaea4ed7b1439857a7aad4fc30af"
+        }
+      },
+      "peak_steel_required_affine_bearing": {
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            0.0,
+            -36.805028261868266,
+            118.61663873147958
+          ],
+          [
+            0.0,
+            -5.316006229368975,
+            14.603748965651242
+          ]
+        ],
+        "affine_trial_peak_line_density_n_mm": 124.19547934329681,
+        "affine_trial_peak_projected_bearing_mpa": 16.97183547697743,
+        "axis_id": "eoere_bolt_070",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "k12-rear",
+        "center_xyz_mm": [
+          1123.95,
+          -131.25,
+          342.0875
+        ],
+        "centered_moment_magnitude_nmm": 365.1703951372579,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "eoere_product_bearing_resistance_mpa": null,
+        "force_only_mean_line_density_n_mm": 69.86031284782842,
+        "host": "eoere_clip_angle_base_right",
+        "interval_from_axis_point_mm": [
+          -6.35,
+          0.0
+        ],
+        "kind": "steel",
+        "lateral_first_moment_xyz_nmm": [
+          -0.0,
+          105.80967424212105,
+          -349.5049789652178
+        ],
+        "lateral_force_on_host_xyz_n": [
+          0.0,
+          -133.73428450967822,
+          422.97473093839034
+        ],
+        "lateral_n": 443.61298658371044,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          0.0,
+          349.5049789652178,
+          105.80967424212105
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 90.28090023444008,
+        "original_port_moment_magnitude_nmm": 1773.6198345570474,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 1.7112135109858138e-13,
+        "surface_index": 2
+      },
+      "peak_wood_affine_parameter_comparison": {
+        "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            0.0,
+            -2.975392521498436,
+            23.786167862014864
+          ],
+          [
+            0.0,
+            -4.3066215411788065,
+            6.565542302859045
+          ]
+        ],
+        "affine_peak_over_Fe90_parameter": 0.11448586910001876,
+        "affine_trial_peak_line_density_n_mm": 23.971540255414077,
+        "affine_trial_peak_projected_bearing_mpa": 3.2758119659094302,
+        "axis_id": "eoere_bolt_070",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "k12-right",
+        "center_xyz_mm": [
+          1235.075,
+          -131.25,
+          342.0875
+        ],
+        "centered_moment_magnitude_nmm": 2089.3511199716086,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "force_only_mean_line_density_n_mm": 15.606521383235432,
+        "host": "eoere_cleat_right",
+        "interval_from_axis_point_mm": [
+          88.90000000000009,
+          127.0
+        ],
+        "kind": "wood",
+        "lateral_first_moment_xyz_nmm": [
+          -0.0,
+          -161.03544643818452,
+          -2083.1360223271713
+        ],
+        "lateral_force_on_host_xyz_n": [
+          0.0,
+          -138.72236789400114,
+          578.2000786408465
+        ],
+        "lateral_n": 594.6084647012685,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          0.0,
+          2083.1360223271713,
+          -161.03544643818452
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 18.584215142755145,
+        "original_port_moment_magnitude_nmm": 2089.3511199716086,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 1
+      },
+      "thread_window": {
+        "catalog_Lb_min_mm": 119.126,
+        "catalog_min_body_in": 0.369,
+        "delivered_observation": false,
+        "effective_D_in": 0.2881,
+        "nominal_diameter_in": 0.375,
+        "ordinary_UNC_guarantee": false,
+        "purchase_design_root_floor_in": 0.2881,
+        "surfaces": [
+          {
+            "bearing_length_mm": 88.90000000000009,
+            "full_body_quarter_exception_component": true,
+            "host": "base_side_right",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 0,
+            "underhead_interval_mm": [
+              8.9916,
+              97.8916000000001
+            ]
+          },
+          {
+            "bearing_length_mm": 38.09999999999991,
+            "full_body_quarter_exception_component": false,
+            "host": "eoere_cleat_right",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 16.8656,
+            "possible_thread_fraction": 0.44266666666666776,
+            "surface_index": 1,
+            "underhead_interval_mm": [
+              97.8916000000001,
+              135.9916
+            ]
+          },
+          {
+            "bearing_length_mm": 6.35,
+            "full_body_quarter_exception_component": true,
+            "host": "eoere_clip_angle_base_right",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 2,
+            "underhead_interval_mm": [
+              2.6416000000000004,
+              8.9916
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "adjusted_complete_joint_resistance_n": null,
+      "axis_id": "eoere_bolt_071",
+      "moved_in_base_v3": false,
+      "peak_old_shaft_first_yield_marker": {
+        "axis_id": "eoere_bolt_071",
+        "case_id": "a12-forward",
+        "cut_count": 66,
+        "governing": {
+          "diameter_scenario_mm": 9.372599999999998,
+          "region": "catalog_minimum_body_circle",
+          "same_cut_n_nmm": [
+            64.0431966934738,
+            -532.2459936830556,
+            -163.24183980400892,
+            0.0,
+            5792.572148580337,
+            -18008.695437700007
+          ],
+          "same_cut_vm_envelope_mpa": 235.7009741475594,
+          "specified_material_first_yield_index": 0.3715819138170494,
+          "station_from_axis_point_mm": 70.113219565479,
+          "underhead_distance_mm": 79.104819565479,
+          "underhead_fillet_region": false
+        },
+        "material_specification_Fy_mpa": 634.3176709714892,
+        "ordinary_UNC_guarantees_this_root_floor": false,
+        "reference_root_floor_mm": 7.31774,
+        "root_notch_or_ASD_or_complete_bolt_acceptance": false,
+        "source_field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/a12-forward/field.json",
+          "sha256": "d6833b240cb06a56212959411b38d6eb4a03a0074a6395d64ef7702d4cd5136e"
+        }
+      },
+      "peak_steel_required_affine_bearing": {
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            0.0,
+            -53.31787203403072,
+            -96.74494630208534
+          ],
+          [
+            0.0,
+            -2.2453106382771395,
+            -21.91314556396712
+          ]
+        ],
+        "affine_trial_peak_line_density_n_mm": 110.46438391278272,
+        "affine_trial_peak_projected_bearing_mpa": 15.095423438490943,
+        "axis_id": "eoere_bolt_071",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-forward",
+        "center_xyz_mm": [
+          -1127.125,
+          -80.45,
+          342.0875
+        ],
+        "centered_moment_magnitude_nmm": 304.43199932369544,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "eoere_product_bearing_resistance_mpa": null,
+        "force_only_mean_line_density_n_mm": 65.51146852645115,
+        "host": "eoere_clip_angle_base_left",
+        "interval_from_axis_point_mm": [
+          -6.35,
+          0.0
+        ],
+        "kind": "steel",
+        "lateral_first_moment_xyz_nmm": [
+          -0.0,
+          171.61444640668947,
+          251.45044043856433
+        ],
+        "lateral_force_on_host_xyz_n": [
+          0.0,
+          -176.41310498457744,
+          -376.73944167471655
+        ],
+        "lateral_n": 415.99782514296476,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          0.0,
+          251.45044043856433,
+          -171.61444640668947
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 82.0902945904668,
+        "original_port_moment_magnitude_nmm": 1622.0244987251497,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 2.5579538487363607e-13,
+        "surface_index": 2
+      },
+      "peak_wood_affine_parameter_comparison": {
+        "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            0.0,
+            -5.871656376779062,
+            -22.761984805111716
+          ],
+          [
+            0.0,
+            -2.697469072335145,
+            -5.185790852371474
+          ]
+        ],
+        "affine_peak_over_Fe90_parameter": 0.112267801121753,
+        "affine_trial_peak_line_density_n_mm": 23.507111708483176,
+        "affine_trial_peak_projected_bearing_mpa": 3.2123458483743854,
+        "axis_id": "eoere_bolt_071",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-forward",
+        "center_xyz_mm": [
+          -1238.25,
+          -80.45,
+          342.0875
+        ],
+        "centered_moment_magnitude_nmm": 2160.542061076547,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "force_only_mean_line_density_n_mm": 14.615985043469244,
+        "host": "eoere_cleat_left",
+        "interval_from_axis_point_mm": [
+          88.90000000000009,
+          127.0
+        ],
+        "kind": "wood",
+        "lateral_first_moment_xyz_nmm": [
+          -0.0,
+          383.9735027503177,
+          2126.148241978095
+        ],
+        "lateral_force_on_host_xyz_n": [
+          0.0,
+          -163.24183980562526,
+          -532.4051262750535
+        ],
+        "lateral_n": 556.8690301561769,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          0.0,
+          2126.148241978095,
+          -383.9735027503177
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 17.867614854665334,
+        "original_port_moment_magnitude_nmm": 2160.542061076547,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 1
+      },
+      "thread_window": {
+        "catalog_Lb_min_mm": 119.126,
+        "catalog_min_body_in": 0.369,
+        "delivered_observation": false,
+        "effective_D_in": 0.2881,
+        "nominal_diameter_in": 0.375,
+        "ordinary_UNC_guarantee": false,
+        "purchase_design_root_floor_in": 0.2881,
+        "surfaces": [
+          {
+            "bearing_length_mm": 88.90000000000009,
+            "full_body_quarter_exception_component": true,
+            "host": "base_side_left",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 0,
+            "underhead_interval_mm": [
+              8.9916,
+              97.8916000000001
+            ]
+          },
+          {
+            "bearing_length_mm": 38.09999999999991,
+            "full_body_quarter_exception_component": false,
+            "host": "eoere_cleat_left",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 16.8656,
+            "possible_thread_fraction": 0.44266666666666776,
+            "surface_index": 1,
+            "underhead_interval_mm": [
+              97.8916000000001,
+              135.9916
+            ]
+          },
+          {
+            "bearing_length_mm": 6.35,
+            "full_body_quarter_exception_component": true,
+            "host": "eoere_clip_angle_base_left",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 2,
+            "underhead_interval_mm": [
+              2.6416000000000004,
+              8.9916
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "adjusted_complete_joint_resistance_n": null,
+      "axis_id": "eoere_bolt_074",
+      "moved_in_base_v3": false,
+      "peak_old_shaft_first_yield_marker": {
+        "axis_id": "eoere_bolt_074",
+        "case_id": "k12-right",
+        "cut_count": 66,
+        "governing": {
+          "diameter_scenario_mm": 9.372599999999998,
+          "region": "catalog_minimum_body_circle",
+          "same_cut_n_nmm": [
+            109.39158667222415,
+            377.1675906525091,
+            -112.35808820417583,
+            0.0,
+            4409.2285733316185,
+            13035.091413773434
+          ],
+          "same_cut_vm_envelope_mpa": 172.32838863321018,
+          "specified_material_first_yield_index": 0.2716752134136207,
+          "station_from_axis_point_mm": 70.113219565479,
+          "underhead_distance_mm": 79.104819565479,
+          "underhead_fillet_region": false
+        },
+        "material_specification_Fy_mpa": 634.3176709714892,
+        "ordinary_UNC_guarantees_this_root_floor": false,
+        "reference_root_floor_mm": 7.31774,
+        "root_notch_or_ASD_or_complete_bolt_acceptance": false,
+        "source_field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/k12-right/field.json",
+          "sha256": "87723cf815a4cd1f2f0a88fc13dbdb2233b6eaea4ed7b1439857a7aad4fc30af"
+        }
+      },
+      "peak_steel_required_affine_bearing": {
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            0.0,
+            -38.09044796985209,
+            -72.84523569281116
+          ],
+          [
+            0.0,
+            0.9243012240156929,
+            -0.5367130209086781
+          ]
+        ],
+        "affine_trial_peak_line_density_n_mm": 82.20286241783323,
+        "affine_trial_peak_projected_bearing_mpa": 11.233367462882423,
+        "axis_id": "eoere_bolt_074",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "k12-right",
+        "center_xyz_mm": [
+          1123.95,
+          -80.45,
+          342.0875
+        ],
+        "centered_moment_magnitude_nmm": 276.0830496950709,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "eoere_product_bearing_resistance_mpa": null,
+        "force_only_mean_line_density_n_mm": 41.1285571742921,
+        "host": "eoere_clip_angle_base_right",
+        "interval_from_axis_point_mm": [
+          -6.35,
+          0.0
+        ],
+        "kind": "steel",
+        "lateral_first_moment_xyz_nmm": [
+          0.0,
+          131.09768536414447,
+          242.97170045314897
+        ],
+        "lateral_force_on_host_xyz_n": [
+          0.0,
+          -118.00251591803055,
+          -232.98768716606048
+        ],
+        "lateral_n": 261.1663380567548,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          0.0,
+          -242.97170045314897,
+          131.09768536414447
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 57.03598779454501,
+        "original_port_moment_magnitude_nmm": 1105.2162876285993,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 2.842170943040401e-14,
+        "surface_index": 2
+      },
+      "peak_wood_affine_parameter_comparison": {
+        "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            0.0,
+            1.4207732778186566,
+            -1.776588371893041
+          ],
+          [
+            0.0,
+            3.7616925067079157,
+            15.48070646900035
+          ]
+        ],
+        "affine_peak_over_Fe90_parameter": 0.07608586488342436,
+        "affine_trial_peak_line_density_n_mm": 15.931183361394462,
+        "affine_trial_peak_projected_bearing_mpa": 2.1770633230197385,
+        "axis_id": "eoere_bolt_074",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "k12-right",
+        "center_xyz_mm": [
+          1171.575,
+          -80.45,
+          342.0875
+        ],
+        "centered_moment_magnitude_nmm": 11469.758585409685,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "force_only_mean_line_density_n_mm": 7.325653630005527,
+        "host": "base_side_right",
+        "interval_from_axis_point_mm": [
+          0.0,
+          88.90000000000009
+        ],
+        "kind": "wood",
+        "lateral_first_moment_xyz_nmm": [
+          0.0,
+          1541.7313549124933,
+          11365.668763291444
+        ],
+        "lateral_force_on_host_xyz_n": [
+          0.0,
+          230.36060412220638,
+          609.1480494164205
+        ],
+        "lateral_n": 651.250607707492,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          0.0,
+          -11365.668763291444,
+          1541.7313549124933
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 10.680942401538166,
+        "original_port_moment_magnitude_nmm": 11469.758585409685,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 0
+      },
+      "thread_window": {
+        "catalog_Lb_min_mm": 119.126,
+        "catalog_min_body_in": 0.369,
+        "delivered_observation": false,
+        "effective_D_in": 0.2881,
+        "nominal_diameter_in": 0.375,
+        "ordinary_UNC_guarantee": false,
+        "purchase_design_root_floor_in": 0.2881,
+        "surfaces": [
+          {
+            "bearing_length_mm": 88.90000000000009,
+            "full_body_quarter_exception_component": true,
+            "host": "base_side_right",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 0,
+            "underhead_interval_mm": [
+              8.9916,
+              97.8916000000001
+            ]
+          },
+          {
+            "bearing_length_mm": 38.09999999999991,
+            "full_body_quarter_exception_component": false,
+            "host": "eoere_cleat_right",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 16.8656,
+            "possible_thread_fraction": 0.44266666666666776,
+            "surface_index": 1,
+            "underhead_interval_mm": [
+              97.8916000000001,
+              135.9916
+            ]
+          },
+          {
+            "bearing_length_mm": 6.35,
+            "full_body_quarter_exception_component": true,
+            "host": "eoere_clip_angle_base_right",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 2,
+            "underhead_interval_mm": [
+              2.6416000000000004,
+              8.9916
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "adjusted_complete_joint_resistance_n": null,
+      "axis_id": "eoere_bolt_079",
+      "moved_in_base_v3": true,
+      "peak_old_shaft_first_yield_marker": {
+        "axis_id": "eoere_bolt_079",
+        "case_id": "k12-right",
+        "cut_count": 64,
+        "governing": {
+          "diameter_scenario_mm": 9.372599999999998,
+          "region": "catalog_minimum_body_circle",
+          "same_cut_n_nmm": [
+            15.157121162236676,
+            -14.602490003961428,
+            57.092154309718765,
+            0.0,
+            536.2888809206326,
+            137.1668860207313
+          ],
+          "same_cut_vm_envelope_mpa": 7.338016126296601,
+          "specified_material_first_yield_index": 0.011568361504194047,
+          "station_from_axis_point_mm": 8.051477271937609,
+          "underhead_distance_mm": 17.04307727193761,
+          "underhead_fillet_region": false
+        },
+        "material_specification_Fy_mpa": 634.3176709714892,
+        "ordinary_UNC_guarantees_this_root_floor": false,
+        "reference_root_floor_mm": 7.31774,
+        "root_notch_or_ASD_or_complete_bolt_acceptance": false,
+        "source_field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/k12-right/field.json",
+          "sha256": "87723cf815a4cd1f2f0a88fc13dbdb2233b6eaea4ed7b1439857a7aad4fc30af"
+        }
+      },
+      "peak_steel_required_affine_bearing": {
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            6.581788609177542,
+            -1.6834274960498616,
+            0.0
+          ],
+          [
+            -24.563569494128338,
+            6.282636946116454,
+            0.0
+          ]
+        ],
+        "affine_trial_peak_line_density_n_mm": 25.35429891141894,
+        "affine_trial_peak_projected_bearing_mpa": 3.464771761694039,
+        "axis_id": "eoere_bolt_079",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "k12-right",
+        "center_xyz_mm": [
+          154.1375,
+          -80.45,
+          280.175
+        ],
+        "centered_moment_magnitude_nmm": 108.02385259900998,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "eoere_product_bearing_resistance_mpa": null,
+        "force_only_mean_line_density_n_mm": 9.280317496723423,
+        "host": "eoere_clip_split_base_center_right",
+        "interval_from_axis_point_mm": [
+          -6.35,
+          0.0
+        ],
+        "kind": "steel",
+        "lateral_first_moment_xyz_nmm": [
+          -104.65489184337926,
+          26.767636122437604,
+          -0.0
+        ],
+        "lateral_force_on_host_xyz_n": [
+          -57.092154309718765,
+          14.602490003961428,
+          0.0
+        ],
+        "lateral_n": 58.93001610419373,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          26.767636122437604,
+          104.65489184337926,
+          0.0
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 16.07398141469545,
+        "original_port_moment_magnitude_nmm": 79.07894853180576,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 3.552713678800501e-15,
+        "surface_index": 1
+      },
+      "peak_wood_affine_parameter_comparison": {
+        "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            5.160135487540536,
+            -1.5495790049318805,
+            0.0
+          ],
+          [
+            -1.338079178534287,
+            0.7367965032018915,
+            0.0
+          ]
+        ],
+        "affine_peak_over_Fe90_parameter": 0.02573155007508417,
+        "affine_trial_peak_line_density_n_mm": 5.387781857341747,
+        "affine_trial_peak_projected_bearing_mpa": 0.7362630890605224,
+        "axis_id": "eoere_bolt_079",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "k12-right",
+        "center_xyz_mm": [
+          154.1375,
+          -80.45,
+          257.95
+        ],
+        "centered_moment_magnitude_nmm": 833.3098631447397,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "force_only_mean_line_density_n_mm": 1.9537611051720811,
+        "host": "base_header",
+        "interval_from_axis_point_mm": [
+          0.0,
+          38.099999999999994
+        ],
+        "kind": "wood",
+        "lateral_first_moment_xyz_nmm": [
+          -786.072782618406,
+          276.57712928017196,
+          -0.0
+        ],
+        "lateral_force_on_host_xyz_n": [
+          72.81017268656903,
+          -15.483506657956285,
+          0.0
+        ],
+        "lateral_n": 74.43829810705628,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          276.57712928017196,
+          786.072782618406,
+          0.0
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 3.4003163935412344,
+        "original_port_moment_magnitude_nmm": 833.3098631447397,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 0
+      },
+      "thread_window": {
+        "catalog_Lb_min_mm": 42.925999999999995,
+        "catalog_min_body_in": 0.369,
+        "delivered_observation": false,
+        "effective_D_in": 0.2881,
+        "nominal_diameter_in": 0.375,
+        "ordinary_UNC_guarantee": false,
+        "purchase_design_root_floor_in": 0.2881,
+        "surfaces": [
+          {
+            "bearing_length_mm": 38.099999999999994,
+            "full_body_quarter_exception_component": true,
+            "host": "base_header",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 4.165599999999998,
+            "possible_thread_fraction": 0.1093333333333333,
+            "surface_index": 0,
+            "underhead_interval_mm": [
+              8.9916,
+              47.09159999999999
+            ]
+          },
+          {
+            "bearing_length_mm": 6.35,
+            "full_body_quarter_exception_component": true,
+            "host": "eoere_clip_split_base_center_right",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 1,
+            "underhead_interval_mm": [
+              2.6416000000000004,
+              8.9916
+            ]
+          },
+          {
+            "bearing_length_mm": 6.350000000000001,
+            "full_body_quarter_exception_component": false,
+            "host": "eoere_clip_split_header_center_right",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 6.350000000000001,
+            "possible_thread_fraction": 1.0,
+            "surface_index": 2,
+            "underhead_interval_mm": [
+              47.09159999999999,
+              53.441599999999994
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "adjusted_complete_joint_resistance_n": null,
+      "axis_id": "eoere_bolt_080",
+      "moved_in_base_v3": true,
+      "peak_old_shaft_first_yield_marker": {
+        "axis_id": "eoere_bolt_080",
+        "case_id": "a12-rear",
+        "cut_count": 64,
+        "governing": {
+          "diameter_scenario_mm": 9.372599999999998,
+          "region": "catalog_minimum_body_circle",
+          "same_cut_n_nmm": [
+            76.4883178209336,
+            10.372757151361048,
+            -2.5127630834875467,
+            0.0,
+            -23.603364041087147,
+            -97.43535503297612
+          ],
+          "same_cut_vm_envelope_mpa": 2.3759166557342177,
+          "specified_material_first_yield_index": 0.003745625834600166,
+          "station_from_axis_point_mm": 8.051477271937609,
+          "underhead_distance_mm": 17.04307727193761,
+          "underhead_fillet_region": false
+        },
+        "material_specification_Fy_mpa": 634.3176709714892,
+        "ordinary_UNC_guarantees_this_root_floor": false,
+        "reference_root_floor_mm": 7.31774,
+        "root_notch_or_ASD_or_complete_bolt_acceptance": false,
+        "source_field": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/cases-v1/a12-rear/field.json",
+          "sha256": "7b335b70ceac3063d1cc446d96d2fecfce674fc89b0bcfe8ec8302f3ae946de9"
+        }
+      },
+      "peak_steel_required_affine_bearing": {
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            -0.2896803534639931,
+            1.1958087006881655,
+            0.0
+          ],
+          [
+            1.0811017970821182,
+            -4.462818827101094,
+            0.0
+          ]
+        ],
+        "affine_trial_peak_line_density_n_mm": 4.591898624663024,
+        "affine_trial_peak_projected_bearing_mpa": 0.6275022923283724,
+        "axis_id": "eoere_bolt_080",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-rear",
+        "center_xyz_mm": [
+          154.1375,
+          -131.25,
+          280.175
+        ],
+        "centered_moment_magnitude_nmm": 19.564121331581905,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "eoere_product_bearing_resistance_mpa": null,
+        "force_only_mean_line_density_n_mm": 1.6807515482294832,
+        "host": "eoere_clip_split_base_center_right",
+        "interval_from_axis_point_mm": [
+          -6.35,
+          0.0
+        ],
+        "kind": "steel",
+        "lateral_first_moment_xyz_nmm": [
+          4.6061136054496306,
+          -19.014167374106865,
+          -0.0
+        ],
+        "lateral_force_on_host_xyz_n": [
+          2.5127630834875467,
+          -10.372757151361048,
+          0.0
+        ],
+        "lateral_n": 10.672772331257217,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          -19.014167374106865,
+          -4.6061136054496306,
+          0.0
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 2.9111470764335285,
+        "original_port_moment_magnitude_nmm": 14.32193082015988,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 1
+      },
+      "peak_wood_affine_parameter_comparison": {
+        "DFL_Fe90_material_parameter_mpa": 28.6132427666472,
+        "affine_endpoint_line_density_vectors_n_mm": [
+          [
+            -0.2777443994200678,
+            1.1465367481704805,
+            0.0
+          ],
+          [
+            0.14584082538593707,
+            -0.6020350602291122,
+            0.0
+          ]
+        ],
+        "affine_peak_over_Fe90_parameter": 0.005634131245008573,
+        "affine_trial_peak_line_density_n_mm": 1.179698464148595,
+        "affine_trial_peak_projected_bearing_mpa": 0.16121076509258253,
+        "axis_id": "eoere_bolt_080",
+        "bearing_screen_D_mm": 7.317740000000001,
+        "case_id": "a12-rear",
+        "center_xyz_mm": [
+          154.1375,
+          -131.25,
+          257.95
+        ],
+        "centered_moment_magnitude_nmm": 217.63824359331753,
+        "deformation_compatibility_or_yield_capacity_established": false,
+        "force_only_mean_line_density_n_mm": 0.28012525814980366,
+        "host": "base_header",
+        "interval_from_axis_point_mm": [
+          0.0,
+          38.099999999999994
+        ],
+        "kind": "wood",
+        "lateral_first_moment_xyz_nmm": [
+          51.24004568172038,
+          -211.52036023257767,
+          -0.0
+        ],
+        "lateral_force_on_host_xyz_n": [
+          -2.5127630853501906,
+          10.372757155283065,
+          0.0
+        ],
+        "lateral_n": 10.672772335507519,
+        "moment_on_host_about_interval_center_xyz_nmm": [
+          -211.52036023257767,
+          -51.24004568172038,
+          0.0
+        ],
+        "necessary_directional_peak_line_density_bound_n_mm": 0.7102049318537399,
+        "original_port_moment_magnitude_nmm": 217.63824359331753,
+        "raw_force_replay_error_n": 0.0,
+        "raw_moment_replay_error_nmm": 0.0,
+        "surface_index": 0
+      },
+      "thread_window": {
+        "catalog_Lb_min_mm": 42.925999999999995,
+        "catalog_min_body_in": 0.369,
+        "delivered_observation": false,
+        "effective_D_in": 0.2881,
+        "nominal_diameter_in": 0.375,
+        "ordinary_UNC_guarantee": false,
+        "purchase_design_root_floor_in": 0.2881,
+        "surfaces": [
+          {
+            "bearing_length_mm": 38.099999999999994,
+            "full_body_quarter_exception_component": true,
+            "host": "base_header",
+            "kind": "wood",
+            "possible_thread_and_transition_mm": 4.165599999999998,
+            "possible_thread_fraction": 0.1093333333333333,
+            "surface_index": 0,
+            "underhead_interval_mm": [
+              8.9916,
+              47.09159999999999
+            ]
+          },
+          {
+            "bearing_length_mm": 6.35,
+            "full_body_quarter_exception_component": true,
+            "host": "eoere_clip_split_base_center_right",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 0.0,
+            "possible_thread_fraction": 0.0,
+            "surface_index": 1,
+            "underhead_interval_mm": [
+              2.6416000000000004,
+              8.9916
+            ]
+          },
+          {
+            "bearing_length_mm": 6.350000000000001,
+            "full_body_quarter_exception_component": false,
+            "host": "eoere_clip_split_header_center_right",
+            "kind": "steel",
+            "possible_thread_and_transition_mm": 6.350000000000001,
+            "possible_thread_fraction": 1.0,
+            "surface_index": 2,
+            "underhead_interval_mm": [
+              47.09159999999999,
+              53.441599999999994
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "status": "COMPLETE_PRESCRIBED_OLD_ACTION_STATICS_RESISTANCE_UNRESOLVED",
+  "target_geometry_revision_not_evaluated": "eoere-midpoint-ready-frame-v3"
+}

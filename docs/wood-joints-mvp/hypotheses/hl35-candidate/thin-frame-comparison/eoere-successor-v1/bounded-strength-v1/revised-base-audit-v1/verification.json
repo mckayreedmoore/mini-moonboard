@@ -1,0 +1,78 @@
+{
+  "checks": {
+    "all_source_pins_verified": 1120,
+    "canonical_intervals_checked_against_actual_saved_principal_bounds": 12,
+    "fresh_probe_count": 36,
+    "full_gap_clipped_known_answer_fractions": [
+      1.0000000000000002,
+      0.0,
+      0.49999999999999994
+    ],
+    "independent_interior_gap_max_error_mm": 4.547473508864641e-13,
+    "independent_washer_area_error_mm3": 7.105427357601002e-15,
+    "maximum_interval_bbox_error_mm": 1.0001951089577688e-07,
+    "old_bounded_result_sha256": "ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda",
+    "old_resistance_result_sha256": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b",
+    "source_closure_canonical_sha256": "c00947b3cba84a8fb4b166d17f727316619ea840b4b5ea0360d3075ff29b7f98",
+    "washer_volume_tolerance_mm3": 0.0001
+  },
+  "commands": [
+    "uv run python docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/analyze.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/attempt06",
+    "uv run ruff check docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/analyze.py",
+    "uv run ruff format --check docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/analyze.py"
+  ],
+  "frame_changed": false,
+  "independent_check_scope": "Same-agent independent arithmetic and saved-solid queries; not an independent-agent engineering review.",
+  "inputs_sha256": "8ddf4fbdecd58126c66e70178d484a31f42bce5830e557708c1bb1ee9ecdd966",
+  "native_solve": false,
+  "new_response": false,
+  "owned_artifacts": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/README.md": {
+      "bytes": 13757,
+      "sha256": "3715750bc73bd75be026f34a64d720ff240ca6ce3d35c713fe02d849becb652c"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/analyze.py": {
+      "bytes": 27161,
+      "sha256": "9ec29f1ba0dba1dbbec193366284abfd1604e09099822714335c28e226bd84ca"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/inputs.json": {
+      "bytes": 6563,
+      "sha256": "8ddf4fbdecd58126c66e70178d484a31f42bce5830e557708c1bb1ee9ecdd966"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/result.json": {
+      "bytes": 42837,
+      "sha256": "1205472ce4f96626318b42f2ad7578396485d167932f22fc0af387b156c4f875"
+    }
+  },
+  "physical_observation": false,
+  "preserved_packets": [
+    {
+      "four_bound_owned_files_identical": true,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/verification.json",
+      "sha256": "8abeea98cab6801ec3135f4633783b7b1d63a38f807384756dcf8cbcf7ea5ecc"
+    },
+    {
+      "four_bound_owned_files_identical": true,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/verification.json",
+      "sha256": "9e4b44ee39bc191908b43f36a1d698031a93a2f81b8f4632d86453c90bed8628"
+    }
+  ],
+  "raw_details": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/attempt06/details.json",
+    "sha256": "837474fad3300ade9c3dc1e15c68827c7faeb2c76b0a17fae83c32d4511abf71"
+  },
+  "raw_result_identical": true,
+  "result": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/result.json",
+    "sha256": "1205472ce4f96626318b42f2ad7578396485d167932f22fc0af387b156c4f875"
+  },
+  "retention": "Five compact permanent files; raw pins and detailed rows in ignored output; no pruning.",
+  "runtime": {
+    "cadquery": "2.8.0",
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_revised_base_bounded_audit_verification/v1",
+  "script_sha256": "9ec29f1ba0dba1dbbec193366284abfd1604e09099822714335c28e226bd84ca",
+  "status": "VERIFIED_READ_ONLY_SCOPE"
+}

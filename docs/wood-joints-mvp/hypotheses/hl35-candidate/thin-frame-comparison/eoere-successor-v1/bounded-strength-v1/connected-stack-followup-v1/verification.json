@@ -1,0 +1,94 @@
+{
+  "checks": {
+    "all_eight_complete_joint_resistances_remain_null": true,
+    "all_source_pins_verified": 1126,
+    "both_raw_JSON_outputs_byte_reproduced": true,
+    "independent_endpoint_integrals": 144,
+    "known_answers_and_seven_rejections": {
+      "TR12_2015_example3p1_modeII_Z_lbf": 414.2135623730951,
+      "port_datum_invariance_and_affine_quadrature": true,
+      "rejection_controls": [
+        "shaft_torque",
+        "wrong_host",
+        "altered_force",
+        "foreign_state",
+        "invalid_length",
+        "invalid_length",
+        "invalid_length"
+      ],
+      "signed_step_equilibrium": true,
+      "uniform_force_and_pure_couple": true
+    },
+    "local_destinations": [
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/README.md",
+      "docs/wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/current-steel-direct-screen-attempt06-tr12-2026/README.md"
+    ],
+    "maximum_independent_force_error_n": 1.1368683772161603e-13,
+    "maximum_independent_moment_error_nmm": 1.8331451766013172e-12,
+    "maximum_independent_peak_density_error_n_mm": 0.0
+  },
+  "commands": [
+    "uv run python docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/analyze.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/replay --compare fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/attempt02",
+    "uv run python fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/attempt02/verify.py",
+    "uv run ruff check docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/analyze.py",
+    "uv run ruff format --check docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/analyze.py"
+  ],
+  "geometry_changed": false,
+  "independent_check_scope": "Same-agent independent endpoint/source-port arithmetic, not an independent engineering review.",
+  "independent_checker": {
+    "bytes": 5903,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/attempt02/verify.py",
+    "sha256": "3e28a936dda97ba514d3de78e593807125012065e7801dd7f7e7d8a85786c72b"
+  },
+  "native_solve": false,
+  "new_response": false,
+  "owned_artifacts": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/README.md": {
+      "bytes": 10112,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/README.md",
+      "sha256": "6b0ad50a6cafd2a1aeb6d3dde5a97eaf295f5fa8745fb4fbaee5b02aff166cb4"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/analyze.py": {
+      "bytes": 21253,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/analyze.py",
+      "sha256": "56c84c7fbe06da68ddfe27fe147fff52344cf0cdd0ef72cda489d9163926e82b"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/inputs.json": {
+      "bytes": 5391,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/inputs.json",
+      "sha256": "381fce8b7eb7dc559083927112d5d3b3753caf52275c783b474f1a93c6cafe07"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json": {
+      "bytes": 62017,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json",
+      "sha256": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1"
+    }
+  },
+  "physical_observation": false,
+  "preserved_packets": [
+    {
+      "bytes": 3228,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/verification.json",
+      "sha256": "8abeea98cab6801ec3135f4633783b7b1d63a38f807384756dcf8cbcf7ea5ecc"
+    },
+    {
+      "bytes": 3766,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/verification.json",
+      "sha256": "9e4b44ee39bc191908b43f36a1d698031a93a2f81b8f4632d86453c90bed8628"
+    },
+    {
+      "bytes": 4436,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/verification.json",
+      "sha256": "82a493510d5a567037e8489026d887fef14f623048cbdb3183eac179762a04e8"
+    }
+  ],
+  "raw_details": {
+    "bytes": 560410,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/attempt02/details.json",
+    "sha256": "c0607ee1c3c2d69af7659ff021411a791c6f1ba307f55dd523c86fb6f0d5b3fd"
+  },
+  "retention": "Five compact permanent files; detailed trials and checker in ignored attempt02. No archive or prune.",
+  "schema": "eoere_connected_stack_bearing_statics_verification/v1",
+  "status": "VERIFIED_PRESCRIBED_ACTION_STATICS_ONLY"
+}

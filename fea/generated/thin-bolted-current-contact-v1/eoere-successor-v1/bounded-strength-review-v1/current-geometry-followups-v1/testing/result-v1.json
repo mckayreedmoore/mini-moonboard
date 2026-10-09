@@ -1,0 +1,86 @@
+{
+  "checks": {
+    "all_eight_complete_joint_resistances_null": true,
+    "brace_station_paths": 4,
+    "changed_host_ring_arithmetic_rows": 36,
+    "independent_saved_endpoint_integrals": 144,
+    "independent_scalar_bound_fixtures": 36,
+    "maximum_directional_lower_bound_error_n_mm": 1.4210854715202004e-14,
+    "maximum_endpoint_density_error_n_mm": 1.4210854715202004e-14,
+    "maximum_endpoint_force_error_n": 1.1368683772161603e-13,
+    "maximum_endpoint_moment_error_nmm": 3.6450773090749405e-12,
+    "maximum_ring_volume_error_mm3": 0.0,
+    "maximum_scalar_bound_identity_error": 4.547473508864641e-13,
+    "maximum_station_gap_error_mm": 0.0,
+    "producer_known_answer_fixture_rejections": [
+      "shaft_torque",
+      "wrong_host",
+      "altered_force",
+      "foreign_state",
+      "invalid_length",
+      "invalid_length",
+      "invalid_length"
+    ],
+    "saved_connected_outputs_byte_equal_to_replay": true
+  },
+  "command": [
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/current-geometry-followups-v1/testing/check-testing.py",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/current-geometry-followups-v1/testing/result-v1.json"
+  ],
+  "findings": [
+    {
+      "category": "testing/provenance",
+      "description": "Independent saved-solid interval and arithmetic checks are recorded without a retained source-bound checker or reproduction command. The retained analyze.py checks interval translation using the same canonical_interval_shift helper as the geometry producer and does not perform the claimed independent twelve-interval saved-BREP bounds check.",
+      "file": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/verification.json",
+      "fix": "Retain the small checker in the ignored raw packet and record its hash and exact command in supplemental verification evidence, or narrow claims to checks whose implementation is retained. Preserve frozen packet bytes.",
+      "impact": "The independent 0.000000101-mm interval comparison and arithmetic verification metrics cannot be reproduced or reviewed from the retained implementation; rerunning the documented producer does not recreate that verification layer.",
+      "line": 4,
+      "severity": "medium",
+      "supporting_lines": [
+        11,
+        12,
+        13,
+        19
+      ]
+    }
+  ],
+  "limits": [
+    "Old six-case fields only; no extended-cleat geometry or current/revised force response evaluated.",
+    "No CAD/BRep/native/global/browser runs, producer rerun, dependency install or full suite.",
+    "Scalar replay does not establish compatibility, yield, NDS/ASD capacity or physical release; panel remedies remain paused."
+  ],
+  "pin_maps": [
+    {
+      "canonical_sha256": "c00947b3cba84a8fb4b166d17f727316619ea840b4b5ea0360d3075ff29b7f98",
+      "packet": "revised-base-audit-v1",
+      "pins": 1120
+    },
+    {
+      "canonical_sha256": "8f4a648d23ad5e88c1f31b16d76134af4fee8b348a98a4bc684cf7c9336caba8",
+      "packet": "connected-stack-followup-v1",
+      "pins": 1126
+    }
+  ],
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_current_geometry_strength_followup_testing_review/v1",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/README.md": "6b0ad50a6cafd2a1aeb6d3dde5a97eaf295f5fa8745fb4fbaee5b02aff166cb4",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/analyze.py": "56c84c7fbe06da68ddfe27fe147fff52344cf0cdd0ef72cda489d9163926e82b",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/inputs.json": "381fce8b7eb7dc559083927112d5d3b3753caf52275c783b474f1a93c6cafe07",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/verification.json": "57f81a98a5d158f997b54c0ed4094914339f38b0d9c5809643c227fd1f82a02e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/README.md": "3715750bc73bd75be026f34a64d720ff240ca6ce3d35c713fe02d849becb652c",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/analyze.py": "9ec29f1ba0dba1dbbec193366284abfd1604e09099822714335c28e226bd84ca",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/inputs.json": "8ddf4fbdecd58126c66e70178d484a31f42bce5830e557708c1bb1ee9ecdd966",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/result.json": "1205472ce4f96626318b42f2ad7578396485d167932f22fc0af387b156c4f875",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/verification.json": "82a493510d5a567037e8489026d887fef14f623048cbdb3183eac179762a04e8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/current-geometry-followups-v1/testing/check-testing.py": "dd91081b8fa9265bced59a88721bd9019aff85bc151470c42c66c6655ec9799b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/attempt02/details.json": "c0607ee1c3c2d69af7659ff021411a791c6f1ba307f55dd523c86fb6f0d5b3fd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/attempt06/details.json": "837474fad3300ade9c3dc1e15c68827c7faeb2c76b0a17fae83c32d4511abf71"
+  },
+  "status": "PASS_CHEAP_SCALAR_AND_BINDING_CHECKS_WITH_PROVENANCE_FINDING",
+  "unique_source_files_verified_before_and_after": 1126
+}

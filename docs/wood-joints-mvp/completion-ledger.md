@@ -188,7 +188,84 @@ paths. The separate resistance followup above preserves these frozen results.
 No archive or prune is performed; earlier
 verified recovery entries remain applicable to their original source sets.
 
-Parent publication validation covers 25 new compact files totaling 489,844
+The separate [revised-base audit](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/README.md)
+addresses the preceding adjusted v3 base with the optional grid off. Its result
+SHA is `1205472ce4f96626318b42f2ad7578396485d167932f22fc0af387b156c4f875`;
+its five files total 94,754 bytes. All 112 wood washer seats have nominal support:
+36 changed-host annulus queries and 76 unchanged-seat proofs. The minimum
+support fraction is 0.999999999999734. The coherent 22 moved shafts and ten
+moved screws preserve the twelve starting arrangements and all 100/66
+identities. Four possible restraint paths have maximum screw-station gaps
+of 400.000, 870.150, 358.383 and 358.383 mm; their stiffness/strength and
+effective lengths remain unqualified. The audit does not evaluate the later
+cleat extension, supply revised case actions or qualify the seller's heel.
+
+The [connected-stack followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/README.md)
+uses the six original admitted raised-rail fields. Its result SHA is
+`d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1`;
+its five files total 104,710 bytes. Continuous affine bearing trials reproduce
+48 shaft/case combinations and 144 own member wrenches. Maximum full-shaft
+force/moment residuals are 9.893e-6 N and 1.708e-4 Nmm. The largest wood trial
+bearing parameter is 3.990 MPa; the corresponding 28.613-MPa dowel-bearing
+material input is not an ASD allowable local pressure. The largest required
+steel bearing parameter is 18.197 MPa with product resistance unassigned.
+All eight complete joint resistances remain null. These are prescribed-action
+equilibrium trials; compatible deformation, bolt yield, group/axial effects,
+splitting and a current-geometry response remain separate calculations.
+
+Future reproduction of either packet uses the separate
+[guard and provenance supplement](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/README.md).
+The ten issued files and original attempts stay frozen. The new seven-file
+supplement totals 56,124 bytes; its result is SHA
+`b48c1ba300e161a729ffa9f9cbcabe75b44126488e376eea0154e7bf7b8d71a7`,
+and verification receipt is SHA
+`010fb293bc0b7dead3821e66f9923c0a7a942438e09545cec0dd36e7c8044ae5`.
+Its standard-library entrypoint reserves a fresh output directory before
+imports/calculation and creates every output exclusively. Fourteen guard
+controls and four corrupted-evidence controls pass. The supplement retains
+the exact recovered historical stdin source and call/output identity; it does
+not execute that fixed-output command. It independently recomputes ring-volume
+and station-gap arithmetic, explicitly reusing the issued 36 CAD intersections
+and the source-bound v3 interval proof. Coupon values in the historical checker
+were copied from the producer, not independently queried. Both original
+1,120/1,126-pin closures and the 1,147-pin supplement closure verify. No full
+analysis, CAD/native/global solve, physical test, archive or pruning was needed.
+These compact files, source maps, retained checkers, original fields/details,
+recovery records and existing v3 proofs stay active for their consumers.
+
+The first three followup reviews preserve two evidence-handling findings:
+overwrite-capable legacy CLIs and an unretained historical extra checker.
+No arithmetic defect was found. The separate supplement closes their future
+reproduction and provenance scope without changing either issued analysis.
+Three fresh independent final reviews report no substantial findings:
+
+| Receipt under `bounded-strength-review-v1/current-geometry-followups-v1/final-v1` | SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `c5c9790b5eabb5909e58beb90946b836ca9585bd40a1005d5d1e36df003025a6` |
+| `testing/receipt.json` | `aa8f56d40e45ae4d62d24f3199ac8f03cf94d577a63502b75981a6a85712f2c7` |
+| `structure/receipt.json` | `ebb568ac91afd6b6d20340ccf2136c3eb4455c526cdb49c830f465d947656b26` |
+
+The final correctness review checks 1,156 source pins, 144 endpoint integrals,
+36 ring rows and four station gaps; it authenticates the prior full numeric
+receipt at its unchanged hashes. The testing review independently reruns the
+14 guard/four corruption controls and ten additional stub controls, including
+a same-output race. Structure exactly reproduces the saved evidence supplement
+and retains the original pending-review metadata as historical bytes. Failed
+review receipts, recovered source, issued attempts and corrected forward
+entrypoints remain active. No prior review or old field is relabeled.
+
+The owned followup publication contains **38 new files / 605,550 bytes**,
+plus this ledger and the maintained summary. It retains the 17 issued study/
+supplement files, the original and final independent review sources/receipts,
+the original connected-stack checker, recovered historical provenance and the
+final viewer publication observation. The largest new record is the 177,993-byte
+final correctness receipt, which preserves its exact 1,156-source closure.
+Detailed trial rows, source caches, existing fields and current mechanics/shop
+work remain active ignored inputs; neither raw fields nor duplicate reference
+installations are added. Current source-intake/panel/force methods and synthetic
+limit-analysis development are separate, unpublished work.
+
+The preceding publication validation covers 25 new compact files totaling 489,844
 bytes and four maintained documentation entrypoints. The saved results, source
 maps and review helpers are retained to reproduce the comparisons and rejection
 controls; no raw fields, meshes, detailed runs or dependencies are added. All
@@ -199,13 +276,14 @@ midpoint/viewer work is preserved outside this publication. These checks do not
 replace the recorded repository-wide failures or establish physical acceptance.
 
 The **raised-rail conditional numerical MVP and nominal shop/assembly packet
-are published at `2cab2be5`**. The owner's latest geometry direction trims both
+are published at `2cab2be5`**. The subsequent geometry direction trims both
 exterior cleats along the sloping side rear edges, retaining full thickness and
 all bolt positions. Its separate geometry/display checks pass; no six-case
 mechanics pass transfers to the trim. The subsequent wire-cutout revision
 aligns 30 passages on six rails while retaining the two center-upright passages,
 132 LED endpoints and all bolt/screw axes. Its geometric/display checks pass;
-shifting the center principal remains unadopted. The preceding
+the right principal stays fixed in that revision. The later adjusted-base
+and cleat-extension revisions below have their own geometry evidence. The preceding
 reporting scope was finishing and publishing the conditional numerical MVP
 and remaining nominal shop/assembly documentation. All six
 loaded cases are complete. Reuse frozen evidence, retain exceedances and
@@ -2971,6 +3049,20 @@ the v3 index at SHA
 The subsequent extension below retains both v3 scene choices and their frozen
 source banks; later navigation changes do not reissue that browser proof.
 
+The current mechanics intake is frozen separately under
+`adjusted-base-mechanics-v1/parent-authority-v1` in the existing raw successor
+packet. `adjusted-base-manifest.json` is SHA
+`27220ec69ebe96e0c637d02d74aea1a7732f68d111b9918c973fa8ee954b48c2`;
+`extended-cleat-manifest.json` is SHA
+`458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6`.
+Together their 3,779 bytes bind the exact parent and extension geometry plus
+the relevant independent geometry reviews. Parent approval here covers
+cached-solid descriptor intake with the optional grid off. Actual extraction
+requires the separately reviewed method and a serial slot. Frame assembly,
+current-field admission, complete joint resistance and physical release
+remain false; no old response is selected by these manifests. Retain these
+frozen inputs active for the current descriptor, panel and force-bridge work.
+
 ### Extended side cleats
 
 The owner subsequently directed extending both exterior cleats up to the
@@ -3080,6 +3172,21 @@ producer/checks and independent review/browser records, including failed and
 stopped helper snapshots. Raw BReps, scenes and screenshots remain active ignored
 inputs. Shared viewer compaction and all 13,618 mesh-alias URLs pass. Separate
 strength and repository-structure work stays outside this owned commit.
+
+The extension and preceding v3 publication are pushed on master at
+`bca5f988f04d089537c037a33cd693c5b96ef093`. The [Pages deployment](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37882883404)
+completed successfully for that exact commit. The [live extended-cleat viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear)
+and optional-grid choice serve the reviewed bytes. The retained
+[publication observation](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/publication-v1/receipt.json),
+SHA `37b0eba69829f7b6dc2bb7eb6033ba23f6cc95c09c90cbdc6981d5f0b4558274`,
+checks HTTP 200 and exact hashes for the index, both loaders and all three
+scene patches; every compressed patch also passes decoded SHA and JSON checks.
+Its [observer](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/publication-v1/observe.py)
+is SHA `c76d3cfaa0317d29c7d70994d700afbb28c655593fb270919c1a59acd9a6f53e`.
+These two small records stay active with the existing consumers and frozen
+review/raw inputs. No browser, CAD or mechanics run, archive or pruning was
+needed for this publication observation. Geometry publication is complete;
+current-geometry mechanics and construction work retain their separate scopes.
 
 The panel load-functional diagnostic preserves the same complete applied
 wrench and uses only the already recorded flange envelope. Bending changes
