@@ -3188,6 +3188,72 @@ review/raw inputs. No browser, CAD or mechanics run, archive or pruning was
 needed for this publication observation. Geometry publication is complete;
 current-geometry mechanics and construction work retain their separate scopes.
 
+The matching [extended-cleat shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md)
+now provides the current nominal construction records with the optional grid
+off. Its 26 frozen files total **615,144 bytes**; result SHA is
+`0f00a7ba22a08975adac6bf660db370866510c40b5d56e5829bfab9b2ad3f92e`
+and verification SHA is
+`38aaa554039e3dd5c5bbcf7545c3dc6b6339b7dd9dc93af6ac9cecc327e9f721`.
+They cover all 28 wood/panel profiles, 120 receiver occurrences for 100 shafts,
+66 Hillman axes, 340 panel-machining datums, 100 hardware sets, 200 access sides
+and nine drawings. The 22 moved shaft and ten moved screw identities match
+the reviewed v3 base; both extended cleats use the current sloping profile.
+The preceding 14 shop files and all nine heel-study files stay frozen.
+
+The same **13-stick / 150-board-foot** nominal timber purchase scenario fits
+the new blanks. Reallocating the four posts to the header and split-rail sticks
+increases minimum remaining length from 2.649 to **46.05 mm**, after 3.175-mm
+kerfs and 12.7-mm trim at each stick end. Each runner/cleat stick retains
+229.817 mm. Saved-volume bookkeeping gives **219.1159397003 kg**, extra grid
+off, including the existing 25-kg allowance and excluding pads. This is not
+measured carried weight or a new gravity/load field. Prices remain the dated
+`$109.93 + 6*C4 + U` basket with unobserved angle and other costs; no live quote
+or extra timber purchase is implied.
+
+The two rear recesses retain the 38.1-mm maximum removal and 1:12 return.
+Independent analytic volumes agree with saved metadata within 0.000005 mm³;
+Z141.7 is the clearance reference, not a horizontal cutter clip. The supported
+relief-kerf/hand-finishing method and matched drilling fixture are proposals;
+actual tool dimensions, finishing tools, supported reach and cut/hole/seat
+tolerances remain missing. All **200** tool/removal sides remain **UNVERIFIED**,
+and all **4,628 Actual/Disposition cells** remain blank. No part was inspected,
+cut, drilled or physically qualified.
+
+The four dedicated cleat/post stations remain **HOLD**. Their recorded nominal
+0.340625-mm bolt-bore/Hillman-envelope gap becomes **−0.05625 mm** at the
+11.1125-mm maximum wood-hole scenario, before marking or drilling error.
+The separate Z180 proposal's saved 3.94375-mm gap does not adopt that move;
+current bore/seat/tool geometry, signed end/edge treatment and joint actions
+must follow a reported and reviewed geometry revision. No screw move, smaller
+installation hole or forced shaft fit is authorized by this packet.
+
+Three independent final reviews find no substantial issues in this nominal,
+saved-metadata scope. Receipts are under
+`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/independent-review-v1`:
+
+| Receipt | SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `203fad86d98306e03a4b362deeb2eb9c7e3be426b2a99b20fa28e9122b310ccb` |
+| `testing/receipt.json` | `1089dc8e871aeea60892d48dd787876706a03bf8e576426088f9158567179bae` |
+| `structure/receipt.json` | `31c6ca26119ad4ac31dc29eb14df8f347db86006dfe0ce1ebde957af1750f39b` |
+
+They reauthenticate the 864-source closure and preserved shop bytes, reproduce
+the issued outputs in fresh directories, and check five rejection controls,
+independent coordinate/stock/hardware/mass/recess arithmetic, 25 links and
+nine saved SVG/browser bindings. Reviewers perform no CAD, native mechanics
+or browser execution. The original producer's pending-review field stays
+frozen; these separate receipts supply the subsequent independent disposition.
+
+Retain the 26 current packet files and six review helpers/receipts: **32 new
+files / 691,960 bytes**, plus this ledger and the maintained summary. Permanent
+tables and nine SVGs are needed for current cutting/layout and reproducible
+checks; no raw CAD, meshes, screenshots, dependency installation or manuals
+are added. Current descriptors, detailed preparation, browser captures,
+previous packets and failed attempts stay active in their existing ignored
+locations. No archive or prune occurs. Matching frame actions and complete
+joint resistance remain separate unfinished work; these nominal construction
+records do not transfer the old six-case passes or release fabrication.
+
 The panel load-functional diagnostic preserves the same complete applied
 wrench and uses only the already recorded flange envelope. Bending changes
 from **4.595869 to 4.589014**, rolling shear from **2.438902 to 2.430172**,

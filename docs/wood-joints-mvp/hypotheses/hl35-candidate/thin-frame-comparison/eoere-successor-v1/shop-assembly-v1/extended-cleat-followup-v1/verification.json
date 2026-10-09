@@ -1,0 +1,177 @@
+{
+  "controls": {
+    "checks": 5,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/current-shop-followup-v1/controls01/result.json",
+    "sha256": "44e74c91ca49542c5a8560805696440f340aefae2b46ca888009810c31025b65"
+  },
+  "counts": {
+    "Hillman_screws": 66,
+    "head_nut_sides": 200,
+    "nominal_board_feet": 150.0,
+    "panel_machining_features": 340,
+    "panels": 6,
+    "physical_bolts": 100,
+    "receiver_occurrences": 120,
+    "stock_sticks": 13,
+    "timbers": 22,
+    "translated_bolts_from_raised_packet": 22,
+    "translated_screws_from_raised_packet": 10
+  },
+  "drawings": {
+    "drawings": 9,
+    "errors": [],
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/current-shop-followup-v1/browser03/result.json",
+    "producer_visual_inspection": true,
+    "sha256": "2dead5a7c8ce732ae81365d724c77d530f4eb3f1272f903160e3104bd3565991",
+    "text_overflows": []
+  },
+  "geometry_revision": "eoere-base-side-edge-cleats-v1",
+  "independent_agent_review": false,
+  "limitations": [
+    "Four cleat/post stations: 0.340625-mm nominal bolt-bore/screw gap; no practical tolerance acceptance.",
+    "Actual drilling/cutting tools, bits, guide bushings, clamps and fixture travel/retention.",
+    "24 worst-case catalog length flags; delivered shank/thread/washer/nut fit for all stacks.",
+    "200 current head/nut tool and removal sides remain unverified.",
+    "Supplier minimum angle heel dimensions/material and complete joint mechanics.",
+    "Current-revision load response; historical response passes do not transfer."
+  ],
+  "local_links_checked": 25,
+  "optional_extra_grid": false,
+  "owned_artifact_bytes": 606168,
+  "owned_artifacts": {
+    "README.md": {
+      "bytes": 24096,
+      "sha256": "53514b9a457274d664f73259cf043f4b0f04f04a4f259c067f7545c79b65902f"
+    },
+    "access-sides.csv": {
+      "bytes": 68232,
+      "sha256": "c6abcad239ba0afbe037522a917e0da31393c5c980f4df514358a3306039d693"
+    },
+    "bolt-stacks.csv": {
+      "bytes": 51415,
+      "sha256": "6c2084062e4c3421a2898be072070cff60eb324b6be15b77b17eb789923cedb0"
+    },
+    "check-drawings.cjs": {
+      "bytes": 3859,
+      "sha256": "91fa0c9c24e8bf53982efcba01f6327e8ef57c2d0aae182c007097db5f45b547"
+    },
+    "check_packet.py": {
+      "bytes": 4206,
+      "sha256": "059e1061c1df17199f68ce097aa724b8a9bc0b2c8e5f8ce5bdbe7970bda553e2"
+    },
+    "current_profiles.json": {
+      "bytes": 78714,
+      "sha256": "1ec82f4c83abda73f993455c21fa56371d6ed9046e208694c4d24226e26a2a27"
+    },
+    "export.py": {
+      "bytes": 35411,
+      "sha256": "d54ebcd98f10824cbf34e3c0efbef7cebdac97b02c4e3baae59262c7a46cbb42"
+    },
+    "extended-cleats.svg": {
+      "bytes": 6419,
+      "sha256": "6ba49e343c8fc956911009c6544d000678130dd98d75d120644fa80939ee6e6c"
+    },
+    "inputs.json": {
+      "bytes": 5479,
+      "sha256": "bf46d6f436b95e654bea949766314c4b029f11a1bfa5cc090bc6755f7df002ff"
+    },
+    "member-end-datums.csv": {
+      "bytes": 40899,
+      "sha256": "d178a211ecb8676aa63c8786268c1f1b763b219ad9a210eab8c8a94f249ff03f"
+    },
+    "member-projections-1.svg": {
+      "bytes": 16696,
+      "sha256": "f86d6c5185b9d4d79f688290446f4368c88ef9678599b2b8c223201c149c0d1f"
+    },
+    "member-projections-2.svg": {
+      "bytes": 21703,
+      "sha256": "342429369e0c194cfeddf3c6ddb4f4588e48fa57c5fe3de3c36cea5968469edc"
+    },
+    "member-projections-3.svg": {
+      "bytes": 23457,
+      "sha256": "416c1518a6bcc8331745535b0871868fe526c4392e138ecade468740edd42203"
+    },
+    "member-projections-4.svg": {
+      "bytes": 9219,
+      "sha256": "dfd216d4e541aa234e85e6c0135ff9feb68c6370368dfd236fd00ea0e24f433b"
+    },
+    "members.csv": {
+      "bytes": 11886,
+      "sha256": "a3949542155809023922038ab73607de6c3b720feedb56af350417ca1dacea35"
+    },
+    "paired-drilling-fixture.svg": {
+      "bytes": 6496,
+      "sha256": "c6e379bb015b49618385bbeb97e2ab8d9ce1294c7c8a76446dd2fb337dc23d4f"
+    },
+    "panel-layout-1.svg": {
+      "bytes": 16204,
+      "sha256": "12da03d4e63e1ac2b14d1f4b613e4cb9ff7b54b99e185d3cb8513397a5d2132c"
+    },
+    "panel-layout-2.svg": {
+      "bytes": 27263,
+      "sha256": "b9da83002f55ad0a4de4455658015890e443a214bc3324f83d71385faf5276cb"
+    },
+    "panel-machining.csv": {
+      "bytes": 66311,
+      "sha256": "55771e24d63fc43e04df2228f8160d79d315766879a00d14283f6061411475d0"
+    },
+    "panel-screw-datums.csv": {
+      "bytes": 18447,
+      "sha256": "4c3d709b0756f028c04bca7e5b86faa7dd5b3cc14565eb023a90e87aeb741c2a"
+    },
+    "rear-recess.svg": {
+      "bytes": 4036,
+      "sha256": "8b285e3ec3ae0cb9d8d2100dab24f35601efb039887896ca8113ecf23991cbfc"
+    },
+    "rear-recesses.json": {
+      "bytes": 2358,
+      "sha256": "6377ccf01c0b0379dc3c7098be91898a1fe5907dfbbe70a195a52d1cddf17b49"
+    },
+    "receiver-holes.csv": {
+      "bytes": 47707,
+      "sha256": "42242079c1e123122b9bdd48fd51243023c087ea5c5a377cc8370d23df76b9cc"
+    },
+    "result.json": {
+      "bytes": 9459,
+      "sha256": "0f00a7ba22a08975adac6bf660db370866510c40b5d56e5829bfab9b2ad3f92e"
+    },
+    "stock-nesting.json": {
+      "bytes": 6196,
+      "sha256": "e696389db60dbf516435cff64eaaf2e3eb2af5e765bb95b0e06065de97252358"
+    }
+  },
+  "permanent_volume_reason": "Current28part profiles/end tables,120receiver rows,66screw rows,340panel features,100stack/200side rows,nineSVG drawings; no copiedCAD/meshes/manuals/dependencies.",
+  "preserved_original_14_shop_artifact_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/access-sides.csv": "1593cb17a0f46e5490131a5653f36a9b5faee61e99f09770b9481581ce0cbda8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-stacks.csv": "632728ed64920a53538e8c6067b933ee7b9f338dfae33d3c22516c5cf3b1f352",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums-inputs.json": "e8aace81ef3c0069839428c1007ffe0ae2dd69e63e8b23dbe5f5a68b02ee90b0",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums-result.json": "d8ce1edd41cc423f9f584bf15ee066919ca0fbb1bd0e046be910393772aa54a4",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.md": "54e0025255a7de1780e352835904a4f29ff7dfa903473be9ecc63774601cf6d0",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware-inputs.json": "e79af8082845b4255ba9b3d246b3c39b6afa9100c177b9cdb0052fa18c916041",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware-result.json": "173250f8c30a97be4db74534df431eed825f067529f7ea550c95b7369fc88d68",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.md": "fe20169f9241599e8098b1960a180b5fbc194961fed62385c9836f1762ea972a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/member-end-datums.csv": "c38a8dff38aef1dc74c9eb54c0f9843f672b88a886582a3085e46104310ce5be",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/members.csv": "98dd8cf3bf74adf95a6a3a36fe7675f31cc61fd4d3018bf80ae11fbfb58a9f1d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/panel-screw-datums.csv": "5b19816c6623cc5f151e684e89d2623907f3b8551eee9b88b9056da74b184347",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/receiver-holes.csv": "0d3574fee9b56fcb2089ae6fa01c51ca1523d8ed793c22d8efd532759fc2b9e7"
+  },
+  "release": {
+    "climbing": false,
+    "fabrication": false,
+    "geometry_changed": false,
+    "panel_screw_remedy_adopted": false,
+    "physical_observations": false
+  },
+  "retention": "Keep current packet active; ignored attempts01\u201303/browser01\u201303/controls01 remain recoverable. No pruning or shared staging performed.",
+  "schema": "eoere_current_shop_followup_verification/v1",
+  "source_pins_checked_before_after": 864,
+  "status": "PASS_PRODUCER_SAVED_COORDINATES_NESTING_REPLAY_AND_BROWSER_CHECKS",
+  "verification": {
+    "axis_grip_sum_mm": 1.8292141135134443e-09,
+    "coordinate_roundtrip_mm": 9.094947017729282e-13,
+    "end_plane_vertex_residual_mm": 9.094947017729282e-13,
+    "panel_axis_depth_mm": 8.445830701475643e-10
+  }
+}

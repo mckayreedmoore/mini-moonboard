@@ -1,0 +1,116 @@
+{
+  "architecture_assessment": [
+    {
+      "assessment": "Saved-data composition has one owner, merges inherited hash contracts, imports two pinned stdlib helpers, and authenticates sources again before returning. The new revision overrides current profiles and translates preserved recipes; no duplicate CAD model or dependency installation.",
+      "evidence": "export.py:53-99,335-372; inputs.json"
+    },
+    {
+      "assessment": "Physical shaft and receiver-occurrence ownership remain distinct. Latest OFF geometry supplies 100/66 axes, base panel datums and current coordinates; optional grid and unadopted Z180/screw remedies are excluded. Old scalar intervals are reused under explicit unchanged-recipe gates, with no fresh bearing/tool claim.",
+      "evidence": "export.py:183-275; README.md:3-57,213-234"
+    },
+    {
+      "assessment": "Issued artifacts remain read-only during replay. Separate output requires a fresh/empty directory before generation; occupied failures preserve output. Original fourteen records and producer attempts/captures remain recoverable. Permanent volume contains current tables/SVGs, with shared helpers and external bulky captures referenced.",
+      "evidence": "export.py:523-538; check_packet.py:31-80; README.md:342-368"
+    },
+    {
+      "assessment": "Leaf navigation, local datum conventions, raw-versus-finished outlines and assembly/removal dependencies are explicit. Tools, fixture travel/retention, tolerances, hardware seating and all 200 tool/removal sides remain missing practical inputs. Four incompatible stations are held, observations stay blank, and the packet adds no physical test or blanket signoff requirement.",
+      "evidence": "README.md:35-49,108-234,238-340; access-sides.csv; bolt-stacks.csv"
+    }
+  ],
+  "checks": {
+    "XML_SVGs": 9,
+    "all_current_access_sides_unverified": 200,
+    "blank_observation_cells": 4628,
+    "catalog_short_stack_flags_retained": 24,
+    "conditional_mass_kg": 219.11593970030574,
+    "fresh_owned_output_byte_replay": "PASS",
+    "local_link_occurrences": 25,
+    "minimum_nominal_stock_spare_mm": 46.04999999999973,
+    "occupied_failed_output_immutable": "PASS",
+    "producer_evidence_hashes": {
+      "controls": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/current-shop-followup-v1/controls01/result.json",
+        "sha256": "44e74c91ca49542c5a8560805696440f340aefae2b46ca888009810c31025b65"
+      },
+      "drawings": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/current-shop-followup-v1/browser03/result.json",
+        "sha256": "2dead5a7c8ce732ae81365d724c77d530f4eb3f1272f903160e3104bd3565991"
+      }
+    },
+    "source_table_profile_and_stock_ownership": "PASS",
+    "stdlib_issued_byte_replay": "PASS",
+    "table_rows": {
+      "access-sides.csv": 200,
+      "bolt-stacks.csv": 100,
+      "member-end-datums.csv": 260,
+      "members.csv": 28,
+      "panel-machining.csv": 340,
+      "panel-screw-datums.csv": 66,
+      "receiver-holes.csv": 120
+    }
+  },
+  "commands": [
+    "python3 -B <packet>/export.py --check",
+    "python3 -B <packet>/export.py --out <owned-temporary-fresh-directory>",
+    "python3 -B <packet>/export.py --out <same-occupied-directory> (expected rejection)",
+    "python3 -B <exclusive-structure>/review.py"
+  ],
+  "current_context": {
+    "AGENTS.md": {
+      "bytes": 12480,
+      "sha256": "e72c0ca31382df1e3f26dfba213973f7ffc8be4ce2a984fd634d75fe917ffc87"
+    },
+    "docs/wood-joints-mvp/README.md": {
+      "bytes": 95177,
+      "sha256": "69a102906f3d0057d378a4057c5e6fc4c030f6faa78e22a31a2ec0cc803e94d7"
+    },
+    "docs/wood-joints-mvp/completion-ledger.md": {
+      "bytes": 829931,
+      "sha256": "8c057dc321f13cce094b065df32009c929f6d36f43aa8c41fb320a75f07a7348"
+    }
+  },
+  "findings": [],
+  "limits": [
+    "Source/ownership/retention review of these frozen 26 files only; no CAD/BREP queries, geometry changes, native/whole-frame mechanics, browser rerun or dependency installation.",
+    "SVG XML and source/evidence bindings checked independently; producer browser/visual records reused, without independent visual or physical fit qualification.",
+    "Current force response, elastic/yield/complete joint resistance, fabrication and climbing remain unqualified; historical results do not transfer. Parent owns final publication/validation."
+  ],
+  "review_helper": {
+    "bytes": 17197,
+    "sha256": "3e958b1a1462d63e1fcf1faa9d0641f8a3c8e2c815b31f421a91fd3bb6d60318"
+  },
+  "schema": "eoere_extended_cleat_shop_architecture_review/v1",
+  "shared_edits_staging_commits": false,
+  "source_and_target_unchanged": true,
+  "source_closure": {
+    "authenticated_before_after": true,
+    "base_geometry_sha256": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "canonical_sha256": "b4d22a283e807d95eea17693ce4b1ce0c11825ff740ffb073eeb487168889e3d",
+    "current_geometry_sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "files": 864,
+    "original_14_hash_map_canonical_sha256": "3598082eec44c40c0cf8d531a88e1a46079242ef0380374a62a757d209c1f413",
+    "original_14_unchanged": true,
+    "shared_helper_hashes": {
+      "datum_helper": {
+        "bytes": 20484,
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py",
+        "sha256": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839"
+      },
+      "drawing_helper": {
+        "bytes": 17275,
+        "path": "docs/wood-joints-mvp/eoere-builder-drawings/leg-corner.py",
+        "sha256": "320a03a002d125705b18730f4d06d56fe2a8c6bd660823cd8f447d83ece2b4a9"
+      }
+    }
+  },
+  "status": "NO_SUBSTANTIAL_CONFIRMED_ARCHITECTURE_SOURCE_OR_RETENTION_FINDINGS",
+  "target": {
+    "all_26_records_canonical_sha256": "827226488329815314c911fca34a9991c1027d40d6bb8cc2a9df65a008958c74",
+    "bytes": 615144,
+    "files": 26,
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1",
+    "result_sha256": "0f00a7ba22a08975adac6bf660db370866510c40b5d56e5829bfab9b2ad3f92e",
+    "verification_sha256": "38aaa554039e3dd5c5bbcf7545c3dc6b6339b7dd9dc93af6ac9cecc327e9f721"
+  },
+  "temporary_fresh_outputs_removed": true
+}

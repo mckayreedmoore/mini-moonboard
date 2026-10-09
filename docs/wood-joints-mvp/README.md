@@ -13,8 +13,8 @@ the current engineering record. The selected screw-and-bracket baseline remains 
 | --- | --- |
 | Latest frame and service geometry | [Extended-cleat viewer](../../site/index.html?model=eoere-extended-cleat-frame-development&view=rear) and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json): both full-thickness cleats reach the sloping side edge. The [preceding adjusted base](../../site/index.html?model=eoere-adjusted-frame-development&view=rear) and [aligned-wire model](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear) remain available. Geometry evidence only. |
 | Optional extra hold/light grid | [Extended-cleat 2026 preview](../../site/index.html?model=eoere-extended-cleat-2026-development&view=rear): **unofficial, provisional** positions. Exact midpoints are assumed for the preview; they are not fully greenlit and may differ by hold. The checkbox switches the extra holes, hardware, lights and service cuts together while retaining the extended cleats. |
-| Drilling setups, fixtures and templates | [Builder-support guide](eoere-builder-drilling-guide.md): proposed methods and unresolved tool access/tolerances. Existing station drawings precede the new principal/connection move; use the adjusted-base receipt for changed stations, not the old coordinates as templates. |
-| Assembly dependencies and nominal hardware | [Preserved raised-rail shop guide](eoere-shop-assembly-guide.md): unchanged shaft identities/recipes are useful; its untrimmed profiles and old wire cuts are not current templates. |
+| Drilling setups, fixtures and templates | [Current shop datums and drawings](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md) and [builder-support guide](eoere-builder-drilling-guide.md): proposed methods and unresolved tool access/tolerances. Use the current tables for moved stations; the earlier leg-corner sheets cover only their unchanged members and axes. |
+| Assembly dependencies and nominal hardware | [Extended-cleat shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md): current profiles, hole datums, stock nesting, hardware, assembly/removal dependencies and four held cleat stations. The [raised-rail guide](eoere-shop-assembly-guide.md) remains preserved evidence. |
 | Numerical findings | [Six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json): preserved untrimmed raised-rail geometry, reference exceedances and null complete joint resistance. |
 | Local strength followups | [Four bounded studies](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md) and [component resistance followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md): old admitted actions with preserved aligned-wire local geometry; complete joint resistance remains unresolved. |
 | Documentation gaps and evidence recovery | [Completion ledger](completion-ledger.md#build-package-completion): current builder work, frozen reporting scope and separate subsequent revisions. |
@@ -22,7 +22,8 @@ the current engineering record. The selected screw-and-bracket baseline remains 
 ## Current disposition
 
 Owner-directed builder-support work now starts with the
-[drilling and fixture development guide](eoere-builder-drilling-guide.md).
+[extended-cleat shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md)
+and [drilling and fixture development guide](eoere-builder-drilling-guide.md).
 The current 100-axis census has 80 single-timber and 20 two-timber shafts;
 the latter include both two-bolt leg connection families. Matched-part drilling
 and fixture methods are proposals with tool access and tolerances unresolved.
@@ -31,8 +32,20 @@ assert structural qualification. The first [leg/runner/side overview](eoere-buil
 and three 190 × 260-mm printable nominal layout sheets now use the owner's
 pull-saw/handheld-drill/clamp policy. Eight source hashes bind the three unchanged
 members and four bolt axes. Lower timber grip is 88.9 mm; upper grip is 177.8 mm.
-Next: complete the tapered-recess operation, identify actual tool/bit envelopes
-and dimension the supported drilling fixture/tolerances, then repeated families.
+The current packet adds the tapered-recess definition and proposed supported
+hand-tool method, 28 member/panel profiles, 120 receiver-hole occurrences,
+66 screw datums, 100 bolt stacks and 200 unverified access sides. Nine drawings
+and all tables pass three independent reviews. Its revised nesting fits the
+same **13 sticks / 150 nominal board feet**, with at least **46.05 mm** remaining
+after the recorded blanks, kerfs and end trims. Nominal mass is **219.115940 kg**,
+including the retained 25-kg accessory allowance and excluding pads; actual
+weight is unmeasured.
+
+**Four dedicated cleat/post stations remain held.** Their 0.340625-mm nominal
+bore/screw gap becomes **−0.05625 mm** with the maximum wood-hole scenario.
+The existing Z180 bolt-move study is unadopted. Next: report and review an
+affected geometry change, identify actual tool/bit envelopes, and dimension
+the supported fixture and interface tolerances. No panel/screw remedy is resumed.
 
 The separate [bolt-window followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/result.json)
 screens unadopted 4¾/6½/8½-inch partially threaded Grade 5 proposals for the 24
@@ -86,7 +99,8 @@ nominal blank length increases from 289.7 to **361.186 mm**. Saved-solid and
 mesh reviews verify the two changed bodies, all eight cleat bore/washer lands
 and nominal clearance of the added volume. This changes the cleat cutting and
 stock-nesting inputs; the preceding shop sheets are not current cleat templates.
-It supplies no revised forces or joint resistance. See the
+The matching shop packet now supplies the revised cutting and nesting datums;
+it supplies no revised forces or joint resistance. See the
 [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json)
 and [existing ledger](completion-ledger.md#extended-side-cleats).
 The [live viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear)

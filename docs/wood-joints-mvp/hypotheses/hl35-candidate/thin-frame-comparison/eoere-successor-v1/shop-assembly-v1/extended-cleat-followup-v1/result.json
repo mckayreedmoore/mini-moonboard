@@ -1,0 +1,197 @@
+{
+  "counts": {
+    "Hillman_screws": 66,
+    "head_nut_sides": 200,
+    "nominal_board_feet": 150.0,
+    "panel_machining_features": 340,
+    "panels": 6,
+    "physical_bolts": 100,
+    "receiver_occurrences": 120,
+    "stock_sticks": 13,
+    "timbers": 22,
+    "translated_bolts_from_raised_packet": 22,
+    "translated_screws_from_raised_packet": 10
+  },
+  "execution": {
+    "CAD_or_native_execution": false,
+    "dependencies": "Python stdlib; two pinned existing drawing/datum helpers",
+    "mechanics": false
+  },
+  "files": {
+    "access-sides.csv": {
+      "bytes": 68232,
+      "sha256": "c6abcad239ba0afbe037522a917e0da31393c5c980f4df514358a3306039d693"
+    },
+    "bolt-stacks.csv": {
+      "bytes": 51415,
+      "sha256": "6c2084062e4c3421a2898be072070cff60eb324b6be15b77b17eb789923cedb0"
+    },
+    "current_profiles.json": {
+      "bytes": 78714,
+      "sha256": "1ec82f4c83abda73f993455c21fa56371d6ed9046e208694c4d24226e26a2a27"
+    },
+    "extended-cleats.svg": {
+      "bytes": 6419,
+      "sha256": "6ba49e343c8fc956911009c6544d000678130dd98d75d120644fa80939ee6e6c"
+    },
+    "member-end-datums.csv": {
+      "bytes": 40899,
+      "sha256": "d178a211ecb8676aa63c8786268c1f1b763b219ad9a210eab8c8a94f249ff03f"
+    },
+    "member-projections-1.svg": {
+      "bytes": 16696,
+      "sha256": "f86d6c5185b9d4d79f688290446f4368c88ef9678599b2b8c223201c149c0d1f"
+    },
+    "member-projections-2.svg": {
+      "bytes": 21703,
+      "sha256": "342429369e0c194cfeddf3c6ddb4f4588e48fa57c5fe3de3c36cea5968469edc"
+    },
+    "member-projections-3.svg": {
+      "bytes": 23457,
+      "sha256": "416c1518a6bcc8331745535b0871868fe526c4392e138ecade468740edd42203"
+    },
+    "member-projections-4.svg": {
+      "bytes": 9219,
+      "sha256": "dfd216d4e541aa234e85e6c0135ff9feb68c6370368dfd236fd00ea0e24f433b"
+    },
+    "members.csv": {
+      "bytes": 11886,
+      "sha256": "a3949542155809023922038ab73607de6c3b720feedb56af350417ca1dacea35"
+    },
+    "paired-drilling-fixture.svg": {
+      "bytes": 6496,
+      "sha256": "c6e379bb015b49618385bbeb97e2ab8d9ce1294c7c8a76446dd2fb337dc23d4f"
+    },
+    "panel-layout-1.svg": {
+      "bytes": 16204,
+      "sha256": "12da03d4e63e1ac2b14d1f4b613e4cb9ff7b54b99e185d3cb8513397a5d2132c"
+    },
+    "panel-layout-2.svg": {
+      "bytes": 27263,
+      "sha256": "b9da83002f55ad0a4de4455658015890e443a214bc3324f83d71385faf5276cb"
+    },
+    "panel-machining.csv": {
+      "bytes": 66311,
+      "sha256": "55771e24d63fc43e04df2228f8160d79d315766879a00d14283f6061411475d0"
+    },
+    "panel-screw-datums.csv": {
+      "bytes": 18447,
+      "sha256": "4c3d709b0756f028c04bca7e5b86faa7dd5b3cc14565eb023a90e87aeb741c2a"
+    },
+    "rear-recess.svg": {
+      "bytes": 4036,
+      "sha256": "8b285e3ec3ae0cb9d8d2100dab24f35601efb039887896ca8113ecf23991cbfc"
+    },
+    "rear-recesses.json": {
+      "bytes": 2358,
+      "sha256": "6377ccf01c0b0379dc3c7098be91898a1fe5907dfbbe70a195a52d1cddf17b49"
+    },
+    "receiver-holes.csv": {
+      "bytes": 47707,
+      "sha256": "42242079c1e123122b9bdd48fd51243023c087ea5c5a377cc8370d23df76b9cc"
+    },
+    "stock-nesting.json": {
+      "bytes": 6196,
+      "sha256": "e696389db60dbf516435cff64eaaf2e3eb2af5e765bb95b0e06065de97252358"
+    }
+  },
+  "frozen_cost_reference": {
+    "C4_usd": null,
+    "U": "wood/plywood/Hillman and service/accessory receipts, tools/machining and other unpriced items",
+    "complete_actual_cost": null,
+    "complete_same_family_catalog_basket_reference_usd": "109.93",
+    "currency": "USD",
+    "formula": "6*C4 + 109.93 + U; shipping/tax excluded",
+    "original_inventory_partial_formula_preserved": "6*C4 + 61.93 + U; shipping/tax excluded",
+    "scope": "Frozen catalog comparison basket, including200proposed washers and matching nuts; not latest price, product purchase/selection or modeled mass replacement. Quantities unchanged, so prior catalog pack optimization transfers algebraically.",
+    "source_observed_utc": "2026-10-08T16:28:06Z"
+  },
+  "helper_sha256": "d54ebcd98f10824cbf34e3c0efbef7cebdac97b02c4e3baae59262c7a46cbb42",
+  "inputs_sha256": "bf46d6f436b95e654bea949766314c4b029f11a1bfa5cc090bc6755f7df002ff",
+  "nominal_mass": {
+    "actual_total_kg": null,
+    "conditional_total_kg": 219.11593970030574,
+    "finished_panel_kg_at_500kg_m3": 60.061257546549804,
+    "finished_panel_volume_mm3": 120122515.09309961,
+    "finished_timber_kg_at_500kg_m3": 108.51251249009633,
+    "finished_timber_volume_mm3": 217025024.98019266,
+    "limits": "Saved BREP volumes, 500kg/m3 wood, unchanged nominal metal and service allowance; pads excluded. Not measured weight or a fresh gravity/load vector.",
+    "optional_extra_grid_included": false,
+    "preserved_nominal_nonwood_and_25kg_allowance_kg": 50.54216966365963
+  },
+  "open_gates": [
+    "Four cleat/post stations: 0.340625-mm nominal bolt-bore/screw gap; no practical tolerance acceptance.",
+    "Actual drilling/cutting tools, bits, guide bushings, clamps and fixture travel/retention.",
+    "24 worst-case catalog length flags; delivered shank/thread/washer/nut fit for all stacks.",
+    "200 current head/nut tool and removal sides remain unverified.",
+    "Supplier minimum angle heel dimensions/material and complete joint mechanics.",
+    "Current-revision load response; historical response passes do not transfer."
+  ],
+  "receiver_interval_basis": "Preserved saved full-wall scalar intervals + authenticated unchanged receiver/grip/direction recipes; translated onto current axes and current raw-profile datums. No fresh BREP wall query or swept tool check.",
+  "receiving_requirements": {
+    "conditional_next_length_route": "Only consider next listed length for a specific stack if existing-length assignment cannot satisfy the dimensional window. Longer stock needs a shorter actual gaged grip/thread-start that allows this nut seat, and its enlarged outward tip/tool/removal envelope needs its own check; neither is inherited from frozen nominal CAD.",
+    "criteria": [
+      "L >= S + w_head + w_nut + h_nut + 2*pitch, with sound full-seat contact and the actual threaded end extending through the nut",
+      "The matching nut runs fully to the required washer seat without stopping on body/runout; applicable full-body cap-screw Lgmax <= S+w_head+w_nut is a conservative purchase-window comparison, not a substitute for delivered threading/fillet/washer-fit inspection",
+      "Keep two own washers, matching nut, thread pitch and individual bolt identity; no extra washer packing, cut bolt, full-thread substitution, thinner selection or external preload/friction assumed",
+      "Record Actual/Disposition at receipt and dry assembly, including bolt length, washer/nut stack, free nut seating, tip protrusion and tool/removal clearance. No actual values filled by this arithmetic"
+    ],
+    "preferred_purchase_route": "Retain existing lengths and matching Grade5 nuts/USS washers as proposed. Allocate24 flagged stacks individually using measured underhead L, seated receiver/plate thickness S, two washer thicknesses and nut height. Prefer qualifying existing-length bolts at catalog maximum stack before selecting thinner washers. An alternative within-range washer pair must also retain its separate bending/seat/material qualification; the stack inequality alone is dimensional.",
+    "tool_scope": "Reference wrench sizes9/16 and3/4in from merchant bolt pages. Actual socket wall/depth, open-wrench swing and withdrawal swept clearance are not supplied. The computed protrusion is the minimum axial free length inside a closed socket beyond the nut's outboard face, plus unquantified tool allowance.",
+    "two_tip_threads": "Reuse existing geometry scenario's minimum2UNC pitches; this is the project scenario, not a newly asserted universal standard or a preload instruction."
+  },
+  "release": {
+    "climbing": false,
+    "fabrication": false,
+    "geometry_changed": false,
+    "panel_screw_remedy_adopted": false,
+    "physical_observations": false
+  },
+  "revision": "eoere-base-side-edge-cleats-v1",
+  "schema": "eoere_extended_cleat_shop_followup/v1",
+  "source_map_canonical_sha256": "b4d22a283e807d95eea17693ce4b1ce0c11825ff740ffb073eeb487168889e3d",
+  "source_pin_count": 864,
+  "status": "PASS_SAVED_COORDINATE_NESTING_AND_INVENTORY_COMPOSITION_WITH_OPEN_FIT_GATES",
+  "translated_bolt_ids": [
+    "eoere_bolt_008",
+    "eoere_bolt_012",
+    "eoere_bolt_024",
+    "eoere_bolt_025",
+    "eoere_bolt_026",
+    "eoere_bolt_027",
+    "eoere_bolt_028",
+    "eoere_bolt_034",
+    "eoere_bolt_038",
+    "eoere_bolt_045",
+    "eoere_bolt_049",
+    "eoere_bolt_053",
+    "eoere_bolt_057",
+    "eoere_bolt_059",
+    "eoere_bolt_060",
+    "eoere_bolt_061",
+    "eoere_bolt_069",
+    "eoere_bolt_073",
+    "eoere_bolt_076",
+    "eoere_bolt_078",
+    "eoere_bolt_079",
+    "eoere_bolt_080"
+  ],
+  "translated_screw_ids": [
+    "round_panel_lower_right_center_1",
+    "round_panel_lower_right_center_2",
+    "round_panel_lower_right_center_3",
+    "round_panel_lower_right_center_4",
+    "round_panel_upper_right_center_1",
+    "round_panel_upper_right_center_2",
+    "round_panel_upper_right_center_3",
+    "round_panel_upper_right_center_4",
+    "round_kicker_right_center_1",
+    "round_kicker_right_center_2"
+  ],
+  "verification": {
+    "axis_grip_sum_mm": 1.8292141135134443e-09,
+    "coordinate_roundtrip_mm": 9.094947017729282e-13,
+    "end_plane_vertex_residual_mm": 9.094947017729282e-13,
+    "panel_axis_depth_mm": 8.445830701475643e-10
+  }
+}
