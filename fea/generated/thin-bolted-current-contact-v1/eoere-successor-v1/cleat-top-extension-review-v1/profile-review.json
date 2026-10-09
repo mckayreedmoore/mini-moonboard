@@ -1,0 +1,343 @@
+{
+  "schema": "eoere_cleat_top_extension_arithmetic/v1",
+  "status": "PROPOSED_NOMINAL_PROFILE_NO_CAD_OR_MECHANICS_RUN",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json": "4223b78f85418b37832861d8eedc936381188e4e091750bbc8c112646d7f1056",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/flush-cleat-review-v1/review.json": "7607bb2cd55d681707c3bdfec8dff48d645948360b2a9d31123e2ecd94e22023",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/member-end-datums.csv": "c38a8dff38aef1dc74c9eb54c0f9843f672b88a886582a3085e46104310ce5be",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_left.brep": "e9c12d0260fd9893ac2b1be2c2eedfde6880919830cb8ae5735fdd5d2df5b68c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_right.brep": "a7c40e0e7c5b7961e1c62a4c9c5c6fb983cfef2aa5240fda64daeb5ead827e22",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/cad-v2/eoere_cleat_left.brep": "90fc257db67838a4df9c259f8f67afebe5eeaa3b0b3d4187f704e143780c3047",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/cad-v2/eoere_cleat_right.brep": "6e251d645c90417e7f028140de65068a569441d7ed951c6c8a3a05a74ee2bdcf",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/profile-review.py": "221630bec2a047193fcfa22b83ed639259f94ffc28e5cb120ef4a609b3083f83"
+  },
+  "source_pin_count": 11,
+  "base_revision": "eoere-midpoint-ready-frame-v3",
+  "extra_revision": "eoere-2026-horizontal-midpoint-grid-v3",
+  "new_cleat_YZ_polygon_mm": [
+    [
+      -175.7,
+      139.7
+    ],
+    [
+      -36.0,
+      139.7
+    ],
+    [
+      -36.0,
+      500.8860828293809
+    ],
+    [
+      -175.7,
+      334.398105944
+    ]
+  ],
+  "base_side_rear_edge_YZ_mm": [
+    [
+      -175.7,
+      334.398105944
+    ],
+    [
+      1428.5680987799997,
+      2246.290376149
+    ]
+  ],
+  "top_slope_dZ_dY": 1.1917535925939935,
+  "front_height_addition_mm": 71.4860828293809,
+  "full_thickness_mm": 38.1,
+  "width_mm": 139.7,
+  "maximum_blank_length_mm": 361.1860828293809,
+  "added_cross_section_area_mm2_each": 2144.0086566745813,
+  "added_volume_mm3_each": 81686.72981930154,
+  "nominal_two_cleat_mass_delta_kg_at_500kg_m3": 0.08168672981930154,
+  "retained_side_and_cleat_body_bindings": [
+    {
+      "id": "base_side_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_left.brep",
+      "sha256": "e9c12d0260fd9893ac2b1be2c2eedfde6880919830cb8ae5735fdd5d2df5b68c",
+      "bytes": 22500,
+      "volume_mm3": 30973054.353887204,
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          -1130.3
+        ],
+        [
+          -175.70000000000005,
+          1535.5845074835179
+        ],
+        [
+          277.0,
+          2246.2903761488856
+        ]
+      ]
+    },
+    {
+      "id": "base_side_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_right.brep",
+      "sha256": "a7c40e0e7c5b7961e1c62a4c9c5c6fb983cfef2aa5240fda64daeb5ead827e22",
+      "bytes": 22212,
+      "volume_mm3": 30973054.35388719,
+      "bounds_xyz_mm": [
+        [
+          1127.125,
+          1216.025
+        ],
+        [
+          -175.70000000000005,
+          1535.5845074835179
+        ],
+        [
+          277.0,
+          2246.2903761488856
+        ]
+      ]
+    },
+    {
+      "id": "eoere_cleat_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/cad-v2/eoere_cleat_left.brep",
+      "sha256": "90fc257db67838a4df9c259f8f67afebe5eeaa3b0b3d4187f704e143780c3047",
+      "bytes": 11430,
+      "volume_mm3": 1384934.8407381151,
+      "removed_volume_mm3": 144269.00549953408,
+      "bounds_xyz_mm": [
+        [
+          -1257.3,
+          -1219.2
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          139.7,
+          429.4
+        ]
+      ],
+      "center_of_mass_xyz_mm": [
+        -1238.2499999999998,
+        -101.34172190139626,
+        272.88401940092183
+      ],
+      "old_void_volume_mm3": 12744.682762346929,
+      "new_void_volume_mm3": 12744.682762346696,
+      "runner_seat_area_mm2": 5322.569999999987,
+      "valid_single_solid": true
+    },
+    {
+      "id": "eoere_cleat_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/cad-v2/eoere_cleat_right.brep",
+      "sha256": "6e251d645c90417e7f028140de65068a569441d7ed951c6c8a3a05a74ee2bdcf",
+      "bytes": 11940,
+      "volume_mm3": 1384934.840738115,
+      "removed_volume_mm3": 144269.0054995343,
+      "bounds_xyz_mm": [
+        [
+          1216.025,
+          1254.125
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          139.7,
+          429.4
+        ]
+      ],
+      "center_of_mass_xyz_mm": [
+        1235.0749999999998,
+        -101.34172190139628,
+        272.8840194009217
+      ],
+      "old_void_volume_mm3": 12744.682762346929,
+      "new_void_volume_mm3": 12744.682762346929,
+      "runner_seat_area_mm2": 5322.569999999987,
+      "valid_single_solid": true
+    }
+  ],
+  "new_finished_cleat_expectations": [
+    {
+      "id": "eoere_cleat_left",
+      "parent_binding": {
+        "id": "eoere_cleat_left",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/cad-v2/eoere_cleat_left.brep",
+        "sha256": "90fc257db67838a4df9c259f8f67afebe5eeaa3b0b3d4187f704e143780c3047",
+        "bytes": 11430,
+        "volume_mm3": 1384934.8407381151,
+        "removed_volume_mm3": 144269.00549953408,
+        "bounds_xyz_mm": [
+          [
+            -1257.3,
+            -1219.2
+          ],
+          [
+            -175.7,
+            -36.0
+          ],
+          [
+            139.7,
+            429.4
+          ]
+        ],
+        "center_of_mass_xyz_mm": [
+          -1238.2499999999998,
+          -101.34172190139626,
+          272.88401940092183
+        ],
+        "old_void_volume_mm3": 12744.682762346929,
+        "new_void_volume_mm3": 12744.682762346696,
+        "runner_seat_area_mm2": 5322.569999999987,
+        "valid_single_solid": true
+      },
+      "expected_X_bounds_mm": [
+        -1257.3,
+        -1219.2
+      ],
+      "expected_finished_volume_mm3": 1466621.5705574166
+    },
+    {
+      "id": "eoere_cleat_right",
+      "parent_binding": {
+        "id": "eoere_cleat_right",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/cad-v2/eoere_cleat_right.brep",
+        "sha256": "6e251d645c90417e7f028140de65068a569441d7ed951c6c8a3a05a74ee2bdcf",
+        "bytes": 11940,
+        "volume_mm3": 1384934.840738115,
+        "removed_volume_mm3": 144269.0054995343,
+        "bounds_xyz_mm": [
+          [
+            1216.025,
+            1254.125
+          ],
+          [
+            -175.7,
+            -36.0
+          ],
+          [
+            139.7,
+            429.4
+          ]
+        ],
+        "center_of_mass_xyz_mm": [
+          1235.0749999999998,
+          -101.34172190139628,
+          272.8840194009217
+        ],
+        "old_void_volume_mm3": 12744.682762346929,
+        "new_void_volume_mm3": 12744.682762346929,
+        "runner_seat_area_mm2": 5322.569999999987,
+        "valid_single_solid": true
+      },
+      "expected_X_bounds_mm": [
+        1216.025,
+        1254.125
+      ],
+      "expected_finished_volume_mm3": 1466621.5705574164
+    }
+  ],
+  "nominal_bore_and_washer_circle_containment": [
+    {
+      "axis_id": "eoere_bolt_067",
+      "receiver": "eoere_cleat_left",
+      "center_yz_mm": [
+        -131.25,
+        342.0875
+      ],
+      "minimum_bore_ligament_to_polygon_mm": 23.94865327144138,
+      "minimum_washer_outer_edge_margin_mm": 16.02702827144138
+    },
+    {
+      "axis_id": "eoere_bolt_070",
+      "receiver": "eoere_cleat_right",
+      "center_yz_mm": [
+        -131.25,
+        342.0875
+      ],
+      "minimum_bore_ligament_to_polygon_mm": 23.94865327144138,
+      "minimum_washer_outer_edge_margin_mm": 16.02702827144138
+    },
+    {
+      "axis_id": "eoere_bolt_071",
+      "receiver": "eoere_cleat_left",
+      "center_yz_mm": [
+        -80.45,
+        342.0875
+      ],
+      "minimum_bore_ligament_to_polygon_mm": 39.290625000000006,
+      "minimum_washer_outer_edge_margin_mm": 31.369000000000003
+    },
+    {
+      "axis_id": "eoere_bolt_074",
+      "receiver": "eoere_cleat_right",
+      "center_yz_mm": [
+        -80.45,
+        342.0875
+      ],
+      "minimum_bore_ligament_to_polygon_mm": 39.290625000000006,
+      "minimum_washer_outer_edge_margin_mm": 31.369000000000003
+    },
+    {
+      "axis_id": "cleat_post_bolt_left_1",
+      "receiver": "eoere_cleat_left",
+      "center_yz_mm": [
+        -131.25,
+        200.0
+      ],
+      "minimum_bore_ligament_to_polygon_mm": 39.29062499999999,
+      "minimum_washer_outer_edge_margin_mm": 31.36899999999999
+    },
+    {
+      "axis_id": "cleat_post_bolt_left_2",
+      "receiver": "eoere_cleat_left",
+      "center_yz_mm": [
+        -80.45,
+        200.0
+      ],
+      "minimum_bore_ligament_to_polygon_mm": 39.290625000000006,
+      "minimum_washer_outer_edge_margin_mm": 31.369000000000003
+    },
+    {
+      "axis_id": "cleat_post_bolt_right_1",
+      "receiver": "eoere_cleat_right",
+      "center_yz_mm": [
+        -131.25,
+        200.0
+      ],
+      "minimum_bore_ligament_to_polygon_mm": 39.29062499999999,
+      "minimum_washer_outer_edge_margin_mm": 31.36899999999999
+    },
+    {
+      "axis_id": "cleat_post_bolt_right_2",
+      "receiver": "eoere_cleat_right",
+      "center_yz_mm": [
+        -80.45,
+        200.0
+      ],
+      "minimum_bore_ligament_to_polygon_mm": 39.290625000000006,
+      "minimum_washer_outer_edge_margin_mm": 31.369000000000003
+    }
+  ],
+  "base_100_axis_records_canonical_sha256": "009a8799bb28dfe989e7c75651a3d111c6bb9e003c8f9ab0adda99e3471b7926",
+  "base_66_screw_records_canonical_sha256": "addb41a1836eacea53e7411407ae8006f97cb56ed314ae29cded2c4ff1e2a88b",
+  "mechanics_ready": false,
+  "physical_release": false,
+  "required_geometry_checks": [
+    "Both saved successor cleats valid single solids; original trimmed bodies are subsets.",
+    "Entire top follows base_side rear edge at both X faces; no timber projects beyond that plane.",
+    "Full38.1-mm thickness, full runner seat, original eight bores and washer lands retained.",
+    "Only two cleat bodies change versus each frozen base/extra parent; axes, panels, harness and moved-principal layout retained.",
+    "Check added timber against nominal neighboring timbers, all hardware and services in both viewer layers.",
+    "Check finished CAD/mesh volumes, bounds and browser appearance; no historical mechanics pass transfers."
+  ],
+  "limits": [
+    "This standard-library receipt supplies arithmetic and source bindings, not an executed CAD or collision check.",
+    "Nominal blank extent changes from289.7 to361.1860828294mm; old offcut nesting and shop templates must not be inherited.",
+    "Physical tolerance, tooling, installation, strength, revised load response and release are not evaluated."
+  ],
+  "reproduction_command": ".venv/bin/python fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/profile-review.py",
+  "python_version": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+}

@@ -2961,6 +2961,126 @@ active for existing consumers. Nothing was archived, pruned or substituted.
 The final compaction check reports **6,823 retained files / 13,618 aliases**.
 Publication does not extend the old six-case numerical results to this geometry.
 
+The reviewed v3 geometry, provisional grid and separate replay safeguard are
+committed on master at `29404b05`. Parent staging verified exactly 41 owned
+paths, including the 38 new files above. All 573 preflight source pins remain
+unchanged; JSON, Python AST, gzip decoding, affected JavaScript syntax and
+625 local Markdown links / 48 fragments pass. The earlier browser proof binds
+the v3 index at SHA
+`1a1a8bbae255886214d6111769674bfafb8e80c72f3ebfa1acea319b2fa8b883`.
+The subsequent extension below retains both v3 scene choices and their frozen
+source banks; later navigation changes do not reissue that browser proof.
+
+### Extended side cleats
+
+The owner subsequently directed extending both exterior cleats up to the
+sloping `base_side` edge. The distinct `eoere-base-side-edge-cleats-v1` revision
+changes only `eoere_cleat_left` and `eoere_cleat_right`. Their full 38.1-mm
+thickness, Y interval **-175.7 to -36.0 mm** and bottom **Z139.7 mm** stay fixed.
+The new YZ polygon is **(-175.7,139.7), (-36,139.7), (-36,500.8860828294),
+(-175.7,334.398105944)**. Its top follows the side-member edge across the whole
+139.7-mm span. The maximum blank is **361.186083 mm**, versus the preceding
+289.7 mm, with up to **71.486083 mm** added height. Existing cleat cutting and
+stock-nesting tables retain their old scope and must not be used as templates
+for this profile.
+
+The [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json),
+SHA `01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d`,
+records 581 source pins, two valid saved solids and **81,686.729819 mm³** added
+volume per cleat. All 100 bolt and 66 screw records remain exactly the current
+v3 records. Eight full bore walls, their nominal washer lands and both runner
+seats remain contained. The added timber is screened against the authenticated
+1,021/1,380-body banks in both modes. Only the intended side member reaches
+its bounds; its exact solid overlap is zero. The nearest other body is the
+lower panel, separated by **4.2112 mm** on the checked axis. The nominal side
+contact area increases by **2,144.008657 mm²** per cleat. These are geometry
+results; pressure, preload, stiffness, joint resistance, tools and real fit
+remain unevaluated. No old force or resistance result transfers.
+
+The independent saved-output review is
+`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/actual-output-review.json`,
+SHA `c5d97796a59a8fa085abeacdc4a7672c81f9aa57ea9db0bd7872f9e7e5e1f109`;
+its helper is SHA
+`2abb74dd2e32e50ab06d0ed4a9521ba826c1990cd44e6464e9d709260b95d6d7`.
+It imports six saved bodies and independently verifies the full profile,
+preserved old volume, eight bores/lands, runner seats, nominal side contact,
+both scene inventories and actual quantized mesh topology/volume. The separate
+real Three.js proof is `cleat-top-extension-v1/actual-mesh-check-v1.json`, SHA
+`a866143834840ce7d6458dddbe000ab9cb39eb55486e6c7f7a68bb20826e09a6`.
+Its ten invalid-binding/census/release controls reject; **1,019/1,021** and
+**1,378/1,380** parts are reused unchanged in the two modes. Parent verification
+rehashes 590 unique source bindings without another CAD or mechanics run.
+
+One shared **22,720-byte** gzip patch supplies both new viewer choices. Its SHA
+is `ae6315463f0482597075a769ad3ee55630b4c8b430c2ae93137c5232cc6dbb54`;
+decoded SHA is
+`6c39b4a240f8033491bbd43c437d60dc888c524e90b350e53351eaf28ddc5db6`.
+The byte-identical [loader](../../site/eoere-cleat-extension-overlay.mjs), SHA
+`69f4887ac83af89169f56f8d1bcbae406856d6f00b6eb467fbc337cf52680bfd`,
+authenticates both frozen v3 parents and replaces exactly two cleat meshes.
+The new choices are `eoere-extended-cleat-frame-development` and
+`eoere-extended-cleat-2026-development`. Their checkbox switches between that
+pair, retaining the extended cleats. The original adjusted-base/grid pair and
+all historical viewer choices remain available. Optional positions retain
+their unofficial/provisional status. Every release flag remains false.
+
+The two existing raw roots, their inputs/helpers, saved solids, raw scene and
+review receipts remain active for consumers. The common patch, compact geometry
+receipt, loader and UI/browser integration are the permanent publication inputs.
+No evidence was overwritten, archived or pruned, and no global/native mechanics
+or physical work was performed. Reproduce the profile/CAD only in a fresh output
+directory using the retained producer command; the reviewed outputs are frozen.
+
+Three independent integration reviews report no substantial findings. Their
+receipts are under `cleat-top-extension-integration-review-v1` in the same raw
+root:
+
+| Receipt | SHA-256 |
+| --- | --- |
+| `correctness/receipt.json` | `37eaee22f138a7b4fd04fec2fcbc52b7d1855d6351d4505fda6444eea8a4a05a` |
+| `testing/result-v2.json` | `1fe7fe395c2a4d1740403da30227d1b78022c4270fdcb6d45533a3f344761cf0` |
+| `structure/receipt.json` | `a27fef5eddad323464a7c4960019284b37ac367097a8deb63a4c8e242e811b4e` |
+| `correctness/browser-scope-supplement-v1.json` | `9a16ac0a295219bc0b4ccd0192e5ffacd13fda2a9f715965cad6d5ce02c1335c` |
+| `testing/browser-supplement-v1.json` | `6d1c733e341057091c260c0b700e1baf299cbb4d9b6282ec42aa8d11320081d3` |
+| `structure/supplement-v1.json` | `6e764acea35938a72d1d253f8269009cd4d5172cbfaea06020d1948b2a6500d5` |
+
+The source-level checks execute twelve preserved loader routes and eight toggle
+transitions, retaining view/query/hash state, and reject forty invalid
+binding/census/release/HTTP/hash controls. The v3 browser proof stays attributed
+to its original index; it is not relabeled as an extension integration test.
+
+The focused [browser helper](../../scripts/check_eoere_cleat_extension_browser.cjs),
+SHA `7295c57ed3d06d3587e1de7a95da747a0bb8e3f0ae37b87bb95bc3b1a793c3ba`,
+uses the installed Gwen runner and Playwright, with no page-context evaluation
+or dependency installation. Its actual `cleat-top-extension-v1/browser-v3/result.json`,
+SHA `ccf38f8f5f698874351ffb9ec829dcd8924f5d0f27b1d12961abac9c0b1dcda4`,
+passes the new base → optional-grid → base sequence, both rear captures,
+current link, unofficial labels and preserved option presence. Page errors and
+failed requests/responses are empty. Parent visually inspected both captures.
+The independent final saved-browser observation is
+`testing/browser-supplement-final-v1.json`, SHA
+`bdd164435bea6b1ade3bf3e8af89a5690058ce1a05b2a0fe57e559646227e60e`;
+it authenticates all four browser source bindings, both screenshot hashes,
+runner hash and the actual three states without relaunching a browser.
+The integration index is SHA
+`6693f03e969b63f1c2446e3b2172d346fa379584a928f3dedbff325a4ca17bf6`.
+
+The first generic sweep timed out on an unchanged person-display control;
+the second broader sweep was stopped. Both retain their exact helper snapshots
+and failed/stopped dispositions. Their front captures are not passed complete
+browser receipts. The focused check covers the changed feature, while existing
+geometry proofs and isolated routing checks cover the retained behavior. No
+old proof is silently substituted. Reviewed summary/ledger snapshots precede
+this final receipt/retention addition.
+
+The owned extension publication set has **30 new files / 603,999 bytes**, plus
+the existing viewer index, summary and ledger. The only new compressed mesh
+payload is 22,720 bytes; the rest preserves the geometry receipt, reproducible
+producer/checks and independent review/browser records, including failed and
+stopped helper snapshots. Raw BReps, scenes and screenshots remain active ignored
+inputs. Shared viewer compaction and all 13,618 mesh-alias URLs pass. Separate
+strength and repository-structure work stays outside this owned commit.
+
 The panel load-functional diagnostic preserves the same complete applied
 wrench and uses only the already recorded flange envelope. Bending changes
 from **4.595869 to 4.589014**, rolling shear from **2.438902 to 2.430172**,

@@ -1,0 +1,33 @@
+{
+  "schema": "eoere_extended_cleats_architecture_supplement/v1",
+  "status": "NO_SUBSTANTIAL_ARCHITECTURE_FINDINGS",
+  "source_sha256": {
+    "site/index.html": "6693f03e969b63f1c2446e3b2172d346fa379584a928f3dedbff325a4ca17bf6",
+    "site/eoere-cleat-extension-overlay.mjs": "69f4887ac83af89169f56f8d1bcbae406856d6f00b6eb467fbc337cf52680bfd",
+    "site/eoere-cleat-extension-scene.json.gz": "ae6315463f0482597075a769ad3ee55630b4c8b430c2ae93137c5232cc6dbb54",
+    "docs/wood-joints-mvp/README.md": "252345c372c4961c2006e1762f3637e2ef7d470fd694b4bd15323d3024341a66",
+    "docs/wood-joints-mvp/completion-ledger.md": "2fb4c32ef7534097ffed48b15ba6ed5cb18c7caae867a98d2abd8df503a42053",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-integration-review-v1/structure/receipt.json": "a27fef5eddad323464a7c4960019284b37ac367097a8deb63a4c8e242e811b4e",
+    "scripts/check_eoere_cleat_extension_browser.cjs": "7295c57ed3d06d3587e1de7a95da747a0bb8e3f0ae37b87bb95bc3b1a793c3ba",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-integration-review-v1/structure/supplement-v1.py": "b94caf0442eece1762cdda7d13142b2627d1e6baee559230af88e79d423fe1e8"
+  },
+  "unchanged_prior_source_bindings_verified": 28,
+  "prior_architecture_assessment_remains_applicable": true,
+  "browser_helper_boundary": {
+    "source": "scripts/check_eoere_cleat_extension_browser.cjs:34",
+    "actual_declared_scope": "Load the new base model from the rear; check current navigation, provisional label, preserved option presence and display census; capture base and checkbox-enabled extra mode; return to base; check errors and failed requests.",
+    "claims_source": "scripts/check_eoere_cleat_extension_browser.cjs:57",
+    "assessment": "Result fields describe the new pair's off/on/off transition and preserved option presence. They do not claim a repeated historical toggle sweep, front capture or structural acceptance. Shared screenshot tooling remains the only runner operation."
+  },
+  "findings": [],
+  "limits": [
+    "Static review of the narrowed helper and source preservation only; this receipt does not assert browser-v3 success or reproduce screenshots.",
+    "Existing review helper and receipt remain frozen. Parent retains failed/stopped browser evidence and owns final browser validation and publication.",
+    "No browser/CAD/BRep/native/full-suite run, shared edit, staging, mechanics transfer or physical release."
+  ],
+  "reproduction_command": [
+    "/usr/bin/python3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-integration-review-v1/structure/supplement-v1.py"
+  ]
+}

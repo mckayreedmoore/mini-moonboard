@@ -1,0 +1,160 @@
+{
+  "schema": "eoere_cleat_extension_integration_testing_review/v1",
+  "status": "PASS_ISOLATED_BINDING_AND_ROUTING_CHECKS",
+  "findings": [],
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-integration-review-v1/testing/check-testing.mjs": "f47c9725a83fb9f641594a788b4e8012849feda9c3c8bac47120e0611d5281e3",
+    "site/index.html": "6693f03e969b63f1c2446e3b2172d346fa379584a928f3dedbff325a4ca17bf6",
+    "site/eoere-cleat-extension-overlay.mjs": "69f4887ac83af89169f56f8d1bcbae406856d6f00b6eb467fbc337cf52680bfd",
+    "site/eoere-cleat-extension-scene.json.gz": "ae6315463f0482597075a769ad3ee55630b4c8b430c2ae93137c5232cc6dbb54",
+    "site/eoere-2026-adjustments-overlay.mjs": "b57759996903d1a5696f9cf5dca85af7e392a3cac38eaf6c5e15f49e54a5110d",
+    "site/wood-joints-overlay.mjs": "08b357d20d97e2c4932f6f7d6cf58f46ad480651c9db17a614b53be15669b4f4",
+    "site/eoere-adjusted-base-v3-scene.json.gz": "d77b9923b7d0df6b3416b2938b2d249a5406a9174fe98fba5118c341bc3df947",
+    "site/eoere-2026-adjustments-v3-scene.json.gz": "8682bf9a81c0bf8e7ffb23c3f6725adc6d3c9bd4728b00e50edb696ca3305d1d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "scripts/check_eoere_cleat_extension_browser.cjs": "48a1e264164dacf410f9d475648045eb761897d1c9ee3f3e1d44c5eafdaedf75",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/eoere-cleat-extension-overlay.mjs": "69f4887ac83af89169f56f8d1bcbae406856d6f00b6eb467fbc337cf52680bfd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/cad-v1/geometry.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/cad-v1/scene.json.gz": "ae6315463f0482597075a769ad3ee55630b4c8b430c2ae93137c5232cc6dbb54",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/check-viewer.mjs": "8b0aafa02f265b5e873b86af98e328a55117debeb33144529c67d3946897c0a9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/actual-mesh-check-v1.json": "a866143834840ce7d6458dddbe000ab9cb39eb55486e6c7f7a68bb20826e09a6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/actual-output-review.json": "c5d97796a59a8fa085abeacdc4a7672c81f9aa57ea9db0bd7872f9e7e5e1f109"
+  },
+  "source_base_commit": "29404b05",
+  "site_copies_byte_identical_to_frozen_reviewed_inputs": true,
+  "loader_routes": [
+    {
+      "model": "eoere-extended-cleat-frame-development",
+      "loader": "loadExtendedCleatBaseScene",
+      "url": "eoere-cleat-extension-scene.json.gz"
+    },
+    {
+      "model": "eoere-extended-cleat-2026-development",
+      "loader": "loadExtendedCleat2026Scene",
+      "url": "eoere-cleat-extension-scene.json.gz"
+    }
+  ],
+  "all_12_historical_wood_joint_loader_routes_retained": true,
+  "toggle_routes": [
+    {
+      "from": "eoere-extended-cleat-frame-development",
+      "checked": false,
+      "to": "eoere-extended-cleat-frame-development"
+    },
+    {
+      "from": "eoere-extended-cleat-frame-development",
+      "checked": true,
+      "to": "eoere-extended-cleat-2026-development"
+    },
+    {
+      "from": "eoere-extended-cleat-2026-development",
+      "checked": false,
+      "to": "eoere-extended-cleat-frame-development"
+    },
+    {
+      "from": "eoere-extended-cleat-2026-development",
+      "checked": true,
+      "to": "eoere-extended-cleat-2026-development"
+    },
+    {
+      "from": "eoere-adjusted-frame-development",
+      "checked": false,
+      "to": "eoere-adjusted-frame-development"
+    },
+    {
+      "from": "eoere-adjusted-frame-development",
+      "checked": true,
+      "to": "eoere-new-2026-adjustments"
+    },
+    {
+      "from": "eoere-new-2026-adjustments",
+      "checked": false,
+      "to": "eoere-adjusted-frame-development"
+    },
+    {
+      "from": "eoere-new-2026-adjustments",
+      "checked": true,
+      "to": "eoere-new-2026-adjustments"
+    }
+  ],
+  "rejected_guards": [
+    "candidate",
+    "revision",
+    "status",
+    "layout path",
+    "layout hash",
+    "missing cleat",
+    "duplicate cleat",
+    "non-cleat owner",
+    "indirect mesh",
+    "template mesh",
+    "mechanics ready",
+    "analysis pass transfer",
+    "body restriction",
+    "retained harness",
+    "base parent url",
+    "base parent sha256",
+    "base parent decoded_sha256",
+    "base parent layout_sha256",
+    "base census physical_bolt_axes",
+    "base census screw",
+    "base census wire",
+    "base census total_visible_parts",
+    "extra parent url",
+    "extra parent sha256",
+    "extra parent decoded_sha256",
+    "extra parent layout_sha256",
+    "extra census physical_bolt_axes",
+    "extra census screw",
+    "extra census wire",
+    "extra census total_visible_parts",
+    "release candidate_accepted",
+    "release complete_joint_acceptance",
+    "release capacity_established",
+    "release fabrication_released",
+    "release structural_released",
+    "release climbing_released",
+    "failed HTTP response",
+    "compressed bytes mismatch",
+    "decoded bytes mismatch",
+    "supplied layout binding mismatch"
+  ],
+  "reused_proofs": {
+    "saved_solids": "PASS_NOMINAL_SAVED_GEOMETRY_ONLY",
+    "real_three": "PASS_DISPLAY_AND_FROZEN_PARENT_BINDINGS_ONLY",
+    "variants": [
+      {
+        "variant": "base",
+        "total": 1021,
+        "unchanged_parts": 1019,
+        "replacement_cleats": 2
+      },
+      {
+        "variant": "extra",
+        "total": 1380,
+        "unchanged_parts": 1378,
+        "replacement_cleats": 2
+      }
+    ],
+    "prior_guard_count": 10
+  },
+  "checks_not_rerun": [
+    "CAD/BRep",
+    "Three construction",
+    "browser captures",
+    "native/global mechanics",
+    "install",
+    "full suite"
+  ],
+  "limits": [
+    "Parent owns complete source-bank reauthentication and final browser/publication validation.",
+    "Isolated route assertions execute site source with stub loaders; mesh and geometry claims use the byte-bound existing proofs.",
+    "No capacity, fabrication, structural, climbing or physical release established."
+  ],
+  "node_version": "v24.18.0",
+  "command": [
+    "/home/mckay-linux/.nvm/versions/node/v24.18.0/bin/node",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-integration-review-v1/testing/check-testing.mjs",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-integration-review-v1/testing/result-v1.json"
+  ]
+}

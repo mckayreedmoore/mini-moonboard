@@ -11,8 +11,8 @@ the current engineering record. The selected screw-and-bracket baseline remains 
 
 | Need | Record and revision boundary |
 | --- | --- |
-| Latest frame and service geometry | [Adjusted base viewer](../../site/index.html?model=eoere-adjusted-frame-development&view=rear) and [base receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json): coordinated principal, kicker-post and connection moves; geometry evidence only. The [preceding aligned-wire model](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear) remains available. |
-| Optional extra hold/light grid | [New 2026 adjustments](../../site/index.html?model=eoere-new-2026-adjustments&view=rear): **unofficial, provisional** positions. Exact midpoints are assumed for the preview; they are not fully greenlit and may differ by hold. The checkbox switches the extra holes, hardware, lights and service cuts together. |
+| Latest frame and service geometry | [Extended-cleat viewer](../../site/index.html?model=eoere-extended-cleat-frame-development&view=rear) and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json): both full-thickness cleats reach the sloping side edge. The [preceding adjusted base](../../site/index.html?model=eoere-adjusted-frame-development&view=rear) and [aligned-wire model](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear) remain available. Geometry evidence only. |
+| Optional extra hold/light grid | [Extended-cleat 2026 preview](../../site/index.html?model=eoere-extended-cleat-2026-development&view=rear): **unofficial, provisional** positions. Exact midpoints are assumed for the preview; they are not fully greenlit and may differ by hold. The checkbox switches the extra holes, hardware, lights and service cuts together while retaining the extended cleats. |
 | Drilling setups, fixtures and templates | [Builder-support guide](eoere-builder-drilling-guide.md): proposed methods and unresolved tool access/tolerances. Existing station drawings precede the new principal/connection move; use the adjusted-base receipt for changed stations, not the old coordinates as templates. |
 | Assembly dependencies and nominal hardware | [Preserved raised-rail shop guide](eoere-shop-assembly-guide.md): unchanged shaft identities/recipes are useful; its untrimmed profiles and old wire cuts are not current templates. |
 | Numerical findings | [Six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json): preserved untrimmed raised-rail geometry, reference exceedances and null complete joint resistance. |
@@ -60,6 +60,17 @@ resolved within that revision. The highest catalog mean-bearing comparison is
 Actual contact and complete joint resistance remain open. These results do not
 evaluate the separate adjusted base or optional extra grid.
 
+**The latest geometry extends both full-thickness side cleats to the sloping
+side-member edge.** Their bottom seats, 38.1-mm thickness, 139.7-mm front/rear
+span, all bolt positions and both viewer modes' wiring stay unchanged. Maximum
+nominal blank length increases from 289.7 to **361.186 mm**. Saved-solid and
+mesh reviews verify the two changed bodies, all eight cleat bore/washer lands
+and nominal clearance of the added volume. This changes the cleat cutting and
+stock-nesting inputs; the preceding shop sheets are not current cleat templates.
+It supplies no revised forces or joint resistance. See the
+[geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json)
+and [existing ledger](completion-ledger.md#extended-side-cleats).
+
 **The adjusted base moves the right principal 39.2 mm left toward the seam**, viewed
 from the climbing side. Three right split rails extend inward to restore their
 end contacts; the right kicker post, six bracket arrangements, twenty-two
@@ -85,7 +96,9 @@ intersections; controller/strand selection, connectors, slack, actual feeding,
 machining and revised strength remain unqualified. The
 [extra-layer receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json)
 and [implementation/retention entry](completion-ledger.md#adjusted-base-and-unofficial-2026-toggle)
-bind the geometry and tests. Local viewer changes do not assert publication.
+bind the preceding v3 geometry and tests. Its frozen bytes are committed at
+`29404b05`; the extension replaces only its two cleat meshes in separate viewer
+choices. Deployment observations are recorded in the ledger.
 
 **The preserved preceding geometry aligns 30 wire passages on six rails to the original grid
 columns, retaining the two already-aligned center-upright passages.** The

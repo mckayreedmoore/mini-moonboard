@@ -1,0 +1,46 @@
+{
+  "schema": "eoere_extended_cleats_real_three_check/v1",
+  "status": "PASS_DISPLAY_AND_FROZEN_PARENT_BINDINGS_ONLY",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/eoere-cleat-extension-overlay.mjs": "69f4887ac83af89169f56f8d1bcbae406856d6f00b6eb467fbc337cf52680bfd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/cad-v1/geometry.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/cad-v1/scene.json.gz": "ae6315463f0482597075a769ad3ee55630b4c8b430c2ae93137c5232cc6dbb54",
+    ".venv/lib/python3.12/site-packages/ocp_vscode/static/js/three-cad-viewer.esm.js": "791d6437b2e40601703bb246cc6d7b6cf8966a63e98a5c24900f43fb5845e19a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/check-viewer.mjs": "8b0aafa02f265b5e873b86af98e328a55117debeb33144529c67d3946897c0a9"
+  },
+  "import_resolution": "Two draft-relative site imports resolved to the exact existing site modules; draft bytes preserved.",
+  "variants": [
+    {
+      "variant": "base",
+      "total": 1021,
+      "unchanged_parts": 1019,
+      "replacement_cleats": 2
+    },
+    {
+      "variant": "extra",
+      "total": 1380,
+      "unchanged_parts": 1378,
+      "replacement_cleats": 2
+    }
+  ],
+  "rejected_guards": [
+    "missing cleat",
+    "extra cleat",
+    "wrong cleat",
+    "wrong base parent",
+    "wrong extra parent",
+    "changed census",
+    "physical release",
+    "mechanics transfer",
+    "not geometry-only",
+    "missing body restriction"
+  ],
+  "mechanics_acceptance": false,
+  "physical_release": false,
+  "node_version": "v24.18.0",
+  "command": [
+    "/home/mckay-linux/.nvm/versions/node/v24.18.0/bin/node",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/check-viewer.mjs",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/actual-mesh-check-v1.json"
+  ]
+}
