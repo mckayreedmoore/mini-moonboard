@@ -1,0 +1,273 @@
+{
+  "authenticated_reused_toy_source_pins": 41,
+  "candidate_query_authorized": false,
+  "excluded": [
+    "native imports",
+    "candidate BREP import/query/reconstruction",
+    "native toy rerun",
+    "FEA/frame/global solve",
+    "mechanics/admission/reducer audit",
+    "model/shared evidence edits",
+    "V2 review"
+  ],
+  "findings": [
+    {
+      "evidence": {
+        "actual_error": "analytic source inventory differs",
+        "members_canonical_equal": true,
+        "members_direct_equal": false,
+        "proposed_axes_direct_equal": true,
+        "tuple_polygon_vertices": 16
+      },
+      "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py",
+      "fix": "Normalize the typed inventory to canonical JSON data before equality, preserving full member/proposal and exact four-host/axis guards; retain this as a source-only regression check.",
+      "impact": "The candidate path cannot proceed past source_inventory on unchanged inputs; passing native toys do not cover this source-only join.",
+      "line": 168,
+      "problem": "Exact current source inventory rejects its own frozen JSON observation: 16 in-memory YZ polygon vertices are tuples and the saved vertices are lists.",
+      "severity": "medium"
+    },
+    {
+      "evidence": "Mock CLI preserved the occupied symlink, created its resolved target and reached methods(); no native function was called.",
+      "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py",
+      "fix": "Reject any pre-existing requested entry with lstat/lexists, including dangling links; reserve the exact permitted directory without following its final component, retaining exclusive locking and mkdir.",
+      "impact": "The claimed fresh output entry guard permits an already occupied requested path and follows its alias into work.",
+      "line": 293,
+      "problem": "Resolving the requested output before its occupied-entry test accepts a dangling symlink pointing to an absent owned run directory.",
+      "severity": "medium"
+    }
+  ],
+  "input_source_pins": 38,
+  "native_import_attempts": [],
+  "output_controls": [
+    {
+      "name": "fresh_reservation_before_mock_boundary",
+      "outcome": "BoundaryReached"
+    },
+    {
+      "name": "existing_directory",
+      "outcome": "ValueError"
+    },
+    {
+      "name": "existing_file",
+      "outcome": "ValueError"
+    },
+    {
+      "name": "outside",
+      "outcome": "ValueError"
+    },
+    {
+      "name": "source_changed_before_methods",
+      "outcome": "ValueError"
+    },
+    {
+      "name": "concurrent_lock_contention",
+      "outcome": "BlockingIOError"
+    },
+    {
+      "name": "occupied_dangling_symlink_accepted",
+      "outcome": "BoundaryReached",
+      "resolved_target_created": true
+    },
+    {
+      "name": "exclusive_result_write",
+      "outcome": "FileExistsError"
+    }
+  ],
+  "preflight_controls": [
+    {
+      "name": "current_permit_blocks_candidate",
+      "rejection": "mode not authorized by parent"
+    },
+    {
+      "name": "permit_schema",
+      "rejection": "distinct geometry readiness required"
+    },
+    {
+      "name": "fixtures_authority",
+      "rejection": "mode not authorized by parent"
+    },
+    {
+      "name": "fixture_mode_mismatch",
+      "rejection": "mode not authorized by parent"
+    },
+    {
+      "name": "permit_release",
+      "rejection": "release must remain false"
+    },
+    {
+      "name": "query_hash",
+      "rejection": "query source differs from readiness"
+    },
+    {
+      "name": "query_path",
+      "rejection": "query source differs from readiness"
+    },
+    {
+      "name": "input_hash",
+      "rejection": "input source differs from readiness"
+    },
+    {
+      "name": "input_path",
+      "rejection": "input source differs from readiness"
+    },
+    {
+      "name": "input_schema",
+      "rejection": "input scope differs"
+    },
+    {
+      "name": "current_revision",
+      "rejection": "input scope differs"
+    },
+    {
+      "name": "optional_grid",
+      "rejection": "input release/scope differs"
+    },
+    {
+      "name": "input_release",
+      "rejection": "input release/scope differs"
+    },
+    {
+      "name": "scenario_missing",
+      "rejection": "exact three local scenarios required"
+    },
+    {
+      "name": "scenario_order",
+      "rejection": "exact three local scenarios required"
+    },
+    {
+      "name": "runtime_python",
+      "rejection": "pinned native query runtime required"
+    },
+    {
+      "name": "runtime_cadquery",
+      "rejection": "pinned native query runtime required"
+    },
+    {
+      "name": "source_hash",
+      "rejection": "source changed: docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json"
+    },
+    {
+      "name": "missing_fixtures",
+      "rejection": "candidate query requires method fixtures"
+    },
+    {
+      "name": "fixture_schema",
+      "rejection": "passing exact method fixtures required"
+    },
+    {
+      "name": "failed_fixtures",
+      "rejection": "passing exact method fixtures required"
+    },
+    {
+      "name": "fixture_query_binding",
+      "rejection": "fixture source binding differs"
+    },
+    {
+      "name": "fixture_input_binding",
+      "rejection": "fixture source binding differs"
+    },
+    {
+      "name": "conflicting_prerequisite_pin",
+      "rejection": "conflicting prerequisite pin"
+    },
+    {
+      "name": "loaded_native_module",
+      "rejection": "fresh pre-native process required"
+    },
+    {
+      "name": "nonfinite_json",
+      "rejection": "nonfinite JSON: NaN"
+    }
+  ],
+  "release": {
+    "capacity_established": false,
+    "climbing_released": false,
+    "fabrication_released": false,
+    "geometry_adopted": false,
+    "mechanics_ready": false,
+    "structural_released": false
+  },
+  "review_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v1/testing/review.py",
+    "sha256": "101650723fa1747406c5379df27fff198e2dadfc7c37f8454c9eb611de9ff284"
+  },
+  "scenario_checks": [
+    {
+      "axes": 12,
+      "canonical_sha256": "746f0f843289b3f8f2ab3c5d0a223e9f5d7e0514bfb390f76ad89acb49b98381",
+      "receiver_occurrences": 16,
+      "scenario": "current_Z200_modeled"
+    },
+    {
+      "axes": 12,
+      "canonical_sha256": "b7d6c096777b345c61195672c494df736ecedebcc942d4cbf26f922f586d3457",
+      "receiver_occurrences": 16,
+      "scenario": "proposed_Z180_modeled"
+    },
+    {
+      "axes": 12,
+      "canonical_sha256": "5e3e9feb98b0ffb2bcf041e48d3ed12a56a661e0bd75c9a7ca2e1c70930e6709",
+      "receiver_occurrences": 16,
+      "scenario": "proposed_Z180_all11p1125"
+    }
+  ],
+  "schema": "eoere_finished_receivers_frozen_v1_independent_testing_review/v1",
+  "scope": "Source/metadata hashes, stdlib source inventory, tiny tuple-vector scenario mapping, in-memory preflight mutations, CLI sentinels with reviewer-local lock/output only. Saved seven native toy observations authenticated and reused, not executed.",
+  "source_inventory_controls": [
+    {
+      "name": "axis_census",
+      "rejection": "current100/66 and four targets required"
+    },
+    {
+      "name": "screw_census",
+      "rejection": "current100/66 and four targets required"
+    },
+    {
+      "name": "placement_adoption",
+      "rejection": "current unadopted revision required"
+    },
+    {
+      "name": "placement_revision",
+      "rejection": "current unadopted revision required"
+    },
+    {
+      "name": "current_v3_axis",
+      "rejection": "unchanged current v3 axes required"
+    },
+    {
+      "name": "cache_axis_identity",
+      "rejection": "current cache source-axis identity differs"
+    },
+    {
+      "name": "proposal_extra_change",
+      "rejection": "only explicit Z180 source translation allowed"
+    },
+    {
+      "name": "existing_wall_length",
+      "rejection": "existing source full walls differ"
+    },
+    {
+      "name": "affected_service_cut",
+      "rejection": "affected recorded service cut requires a new method"
+    },
+    {
+      "name": "query_exact_receivers",
+      "rejection": "exact four-host/axis scope required"
+    },
+    {
+      "name": "query_exact_axis_ids",
+      "rejection": "exact four-host/axis scope required"
+    },
+    {
+      "name": "local_axis_census",
+      "rejection": "local12axis/16receiver census differs"
+    }
+  ],
+  "sources_unchanged_before_after": true,
+  "targets_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/inputs.json": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/parent-method-readiness-v1.json": "4c32ef7dd354049921f88511dbba969775701379634c9b8764030d7cc3208e09",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py": "b9a888032c19a7616619bb27355aa2aeb5a0ade862aa748ad08d80ababd0ebfb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/method01/result.json": "f833ad8f03a3cedaab27c9af4c91a0584a808cfce183958b75d3536499c7750a"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "boundary_assessment": {
+    "failed_or_historical_outputs_removed_or_replaced": false,
+    "four_hosts_12_axes_16_occurrences_only": true,
+    "fresh_owned_output_and_exclusive_result": true,
+    "geometry_adoption_and_physical_release": false,
+    "method_toys_are_not_candidate_or_mechanics_acceptance": true,
+    "native_functions_loaded_by_authenticated_AST": true,
+    "serial_nonblocking_lock_before_output_and_native_entry": true,
+    "source_inventory_reuses_existing_pure_helper": true,
+    "whole_CAD_module_imports": false
+  },
+  "context_sha256": {
+    "AGENTS.md": "e72c0ca31382df1e3f26dfba213973f7ffc8be4ce2a984fd634d75fe917ffc87",
+    "docs/wood-joints-mvp/README.md": "676ee85e0aa6373b4b2691d7704c73460b2c6042834db3064197f779f564f7d0"
+  },
+  "findings": [
+    {
+      "evidence": {
+        "canonical_members_equal": true,
+        "native_modules_loaded": 0,
+        "proposed_axes_equal": true,
+        "raw_members_equal": false,
+        "source_only_failure": "analytic source inventory differs"
+      },
+      "fix": "Preserve issued v1 bytes; use a separately pinned adapter that compares canonical JSON/schema-normalized inventory values before candidate queries.",
+      "impact": "V1 candidate orchestration cannot reach reconstruct/query_scenario even with a later candidate permit; its passing toys do not exercise this source join.",
+      "issue": "The live pure inventory uses tuple YZ vertices; frozen JSON uses list vertices. Direct equality rejects identical serialized inventories.",
+      "location": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py:168",
+      "parent_already_identified": true,
+      "severity": "P2"
+    }
+  ],
+  "limits": [
+    "Source-only architecture review; native toy result was read/hash-bound, not rerun.",
+    "No CAD/BREP/FEA/frame/browser/candidate query executed; source BREP files were hashed only.",
+    "Metadata was mocked for source preflight; this is not independent runtime qualification.",
+    "No geometry/model/shop/source edits, new force inputs, capacity/admission or release; all old packets remain active.",
+    "Existing complete source closures and numerical operators were not independently re-audited."
+  ],
+  "retained_prior_packets_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/analyze.py": "fc45c5e990b11c20a3e6e98e9723b25ec366d05a780b229d82cdb639c6dc4ad0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json": "4c66a7f194a747a14291e25c4277ec7288aa95a9bef9eab68233312288e9be9b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/inputs.json": "989a518a33f05c72c38613e9b8c53fc85458fc1aabc94948803ff5f9fe2bbb7f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/placement.json": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/prepare.py": "9d12bcaa8d375153f4e93e4bfbc36c283ee3167bd614049e698d92ed067395c4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/result.json": "26d27f9c8f5e3c1d91e48143341a8e808d0ece99f316eaf789e2fcbe22e4252a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/verification.json": "ba4ed094c618cc71385754f6c4d06a05787f3706273a4faa4c6987f650c48acb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/verify.py": "267ff85c8fa87930a56f960f9c12c5a01329c546e117f012d1f16eae34b3d0d4"
+  },
+  "review_helper_sha256": "65406ee05e8dc124d3f2507d319ec45b674424b5d8bfa712e485cad9e5d8a2c0",
+  "ruff": {
+    "command": ".venv/bin/ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v1/structure/review.py",
+    "exit_code": 0,
+    "output": "All checks passed!"
+  },
+  "schema": "eoere_finished_receiver_v1_architecture_method_review/v1",
+  "source_pins": {
+    "input_count": 38,
+    "input_map_canonical_sha256": "65a9f7156226bd5509ce4d38f276f7324c372f01ff00d169a2570da6df3d0e91",
+    "toy_union_count": 41,
+    "unchanged_before_after": true,
+    "verified_union_count_including_toy": 42
+  },
+  "standard_library_checks": {
+    "actual_fixture_preflight": "pass with metadata mocked to pinned versions",
+    "candidate_mode": "denied by unchanged false flag",
+    "inert_main": {
+      "busy_lock": {
+        "error": "BlockingIOError",
+        "events": [
+          "lock"
+        ],
+        "filesystem_writes": 0,
+        "native_execution": false
+      },
+      "changed_source": {
+        "error": "ValueError",
+        "events": [
+          "lock",
+          "mkdir",
+          "verify"
+        ],
+        "filesystem_writes": 0,
+        "native_execution": false
+      },
+      "existing_output": {
+        "error": "ValueError",
+        "events": [],
+        "filesystem_writes": 0,
+        "native_execution": false
+      },
+      "fresh_fixture": {
+        "error": null,
+        "events": [
+          "lock",
+          "mkdir",
+          "verify",
+          "methods_stub",
+          "fixtures_stub",
+          "verify",
+          "write_stub",
+          "verify"
+        ],
+        "filesystem_writes": 0,
+        "native_execution": false
+      }
+    },
+    "inventory_schema_join": "confirmed P2 without native imports"
+  },
+  "target_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/inputs.json": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/parent-method-readiness-v1.json": "4c32ef7dd354049921f88511dbba969775701379634c9b8764030d7cc3208e09",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py": "b9a888032c19a7616619bb27355aa2aeb5a0ade862aa748ad08d80ababd0ebfb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/method01/result.json": "f833ad8f03a3cedaab27c9af4c91a0584a808cfce183958b75d3536499c7750a"
+  }
+}

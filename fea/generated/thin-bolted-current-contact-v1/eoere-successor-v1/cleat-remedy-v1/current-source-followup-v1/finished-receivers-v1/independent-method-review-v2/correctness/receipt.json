@@ -1,0 +1,98 @@
+{
+  "checks": {
+    "arithmetic_mock_scenario_views": [
+      {
+        "axes": 12,
+        "receiver_occurrences": 16,
+        "scenario": "current_Z200_modeled",
+        "translated_axis_ids": []
+      },
+      {
+        "axes": 12,
+        "receiver_occurrences": 16,
+        "scenario": "proposed_Z180_modeled",
+        "translated_axis_ids": [
+          "cleat_post_bolt_left_1",
+          "cleat_post_bolt_left_2",
+          "cleat_post_bolt_right_1",
+          "cleat_post_bolt_right_2"
+        ]
+      },
+      {
+        "axes": 12,
+        "receiver_occurrences": 16,
+        "scenario": "proposed_Z180_all11p1125",
+        "translated_axis_ids": [
+          "cleat_post_bolt_left_1",
+          "cleat_post_bolt_left_2",
+          "cleat_post_bolt_right_1",
+          "cleat_post_bolt_right_2"
+        ]
+      }
+    ],
+    "canonical_source_inventory_passes": {
+      "axes": 100,
+      "hosts": 4,
+      "own_cut_occurrences": 16,
+      "proposed_axes": 4,
+      "screws": 66
+    },
+    "current_sources_not_mutated": true,
+    "native_toy_receipt_pins": 42,
+    "negative_source_and_gate_controls": {
+      "changed_axis_ids_scope": "exact four-host/axis scope required",
+      "changed_receivers_scope": "exact four-host/axis scope required",
+      "changed_saved_member": "analytic canonical source inventory differs",
+      "changed_saved_proposal": "analytic canonical source inventory differs",
+      "moved_current_screw": "unchanged current v3 axes required",
+      "moved_retained_current_axis": "unchanged current v3 axes required",
+      "nonpassing_fixture_rejected": "passing exact method fixtures required",
+      "old_fixture_cannot_authorize_v2": "fixture source binding differs",
+      "unissued_candidate_mode": "mode not authorized by parent"
+    },
+    "output_entry_controls": {
+      "dangling_symlink": "requested output entry already exists",
+      "existing_directory": "requested output entry already exists",
+      "existing_file": "requested output entry already exists",
+      "fresh_entry_defers_to_original_preflight": true,
+      "live_symlink": "requested output entry already exists",
+      "parent_traversal": "parent traversal output rejected"
+    },
+    "source_union_preflight_pins": 41,
+    "unchanged_original_native_facing_methods": [
+      "methods",
+      "method_fixtures",
+      "reconstruct",
+      "local_axes",
+      "query_scenario",
+      "bounds",
+      "close_bounds"
+    ]
+  },
+  "findings": [],
+  "limits": [
+    "Source-only correctness review and stdlib/synthetic controls. No CAD/OCP import, actual BREP import/query/reconstruction, native toy rerun, candidate geometry run, frame/global/native solve or physical work.",
+    "Authenticated seven native toy checks are reused supporting evidence. No actual current or proposed finished receiver has been independently queried by this review.",
+    "Existing v1 review remains frozen. Native method formulas, current Boolean-volume limitation, export/reimport and nominal one-host geometry boundaries retain that prior source-review scope; this v2 review concentrates on fix composition and guards.",
+    "No geometry adoption, new force assignment, load/capacity transfer, physical contact/fit qualification, fabrication or climbing release. Candidate query authorization remains false in the issued permit."
+  ],
+  "review_helper_sha256": "c2d555af18506afbc1aa333e01e967f64a443f0c7366375a03f802a9ce7c4cdd",
+  "reviewed_scope": [
+    "Canonical member/proposal join fixes v1 tuple/list failure and still rejects changed member values, changed proposals, current-axis/screw moves and host/axis scope changes.",
+    "Private module composition retains original HERE/ROOT and native-facing function code, changes OWN to the separately frozen wrapper, and rehashes the original adapter in the preflight/source union.",
+    "Exact three local scenario views preserve current100 axes/current66 screws and apply exactly four Z200-to-Z180 substitutions with twelve axes/sixteen own receiver occurrences; all11p1125 modifies the local hole scenario only.",
+    "Early requested-output checks reject existing files/directories, live/dangling symlinks and explicit parent traversal; a fresh entry defers once to the frozen original main/preflight. Original locked exclusive mkdir remains in force.",
+    "Fixture-only parent permit, wrapper/original/input/permit-bound seven-toy receipt, rejection of candidate mode and wrong/nonpassing fixture mocks, unchanged false release/adoption boundaries."
+  ],
+  "schema": "eoere_four_finished_receiver_v2_independent_correctness_method_review/v1",
+  "source_files_rehashed_before_after": 43,
+  "sources_unchanged_before_after": true,
+  "status": "NO_SUBSTANTIAL_FINDINGS_WITHIN_SOURCE_ONLY_METHOD_SCOPE",
+  "target_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/inputs.json": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/parent-method-readiness-v2.json": "b1d4e988f0af656f5d9b967af31a62e019e84625cdd4a4e70f5d27810efffe5a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query-v2.py": "88edea7a233963e32f6d56fc7fd0dd86322acc65f69bbefdd4f53cc01d919912",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py": "b9a888032c19a7616619bb27355aa2aeb5a0ade862aa748ad08d80ababd0ebfb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/method02/result.json": "e054fbd0fd9015f31a17c0c3887937e00a3793c2f40795c53e9ea535db50e2e7"
+  }
+}

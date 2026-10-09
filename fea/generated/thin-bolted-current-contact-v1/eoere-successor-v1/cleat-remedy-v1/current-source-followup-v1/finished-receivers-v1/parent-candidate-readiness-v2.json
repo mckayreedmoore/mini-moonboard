@@ -1,0 +1,55 @@
+{
+  "candidate_query_authorized": true,
+  "commands": [
+    [
+      ".venv/bin/python",
+      "-B",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query-v2.py",
+      "--permit",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/parent-candidate-readiness-v2.json",
+      "--outdir",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01"
+    ]
+  ],
+  "fixtures_authorized": true,
+  "independent_method_reviews_have_no_substantial_findings": true,
+  "inputs": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/inputs.json",
+    "sha256": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24"
+  },
+  "owner": "/root",
+  "prerequisite_results": [
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/method02/result.json",
+      "sha256": "e054fbd0fd9015f31a17c0c3887937e00a3793c2f40795c53e9ea535db50e2e7"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v2/correctness/receipt.json",
+      "sha256": "ea307e7f53957f4147ef02a0107faf0618c7af137c09fa7efb74e76f4e15e1e8"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v2/testing/receipt.json",
+      "sha256": "25ca95c2cb93797c78a48d2ef8ad498bc558a53b8a6aac6293d534ebb260902c"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v2/structure/receipt.json",
+      "sha256": "a68dd53dc51fc658a271a74f4d1180f9e5777068f574dd0c62e78b7538dd5a8b"
+    }
+  ],
+  "query": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query-v2.py",
+    "sha256": "88edea7a233963e32f6d56fc7fd0dd86322acc65f69bbefdd4f53cc01d919912"
+  },
+  "release": {
+    "capacity_established": false,
+    "climbing_released": false,
+    "fabrication_released": false,
+    "geometry_adopted": false,
+    "mechanics_ready": false,
+    "structural_released": false
+  },
+  "retention": "All input, v1failure, v1/v2toy and v1/v2review bytes remain active. New local finished BREPs stay active ignored for parent/independent result consumers; compact report is publishable.",
+  "schema": "eoere_four_receiver_geometry_query_parent_readiness/v1",
+  "scope": "One parent-owned local geometry query of four source-bound finished receivers: currentZ200 baseline, proposedZ180 recorded holes, proposedZ180 uniform11.1125 holes. No candidate geometry adoption, mesh/viewer, native FEA/frame/global solve, force transfer or physical work.",
+  "serialized_execution": "Exclusive /tmp/moonboard-four-receiver-native-geometry.lock; no peer CAD producer authorized."
+}

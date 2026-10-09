@@ -1,0 +1,30 @@
+{
+  "candidate_native_geometry_or_FEA_executed": false,
+  "diagnosis": {
+    "canonical_members_equality": true,
+    "direct_members_equality": false,
+    "live_polygon_vertices": "tuple",
+    "proposal_equality": true,
+    "saved_JSON_polygon_vertices": "list"
+  },
+  "failure": "ValueError: analytic source inventory differs",
+  "method_result": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/method01/result.json",
+    "sha256": "f833ad8f03a3cedaab27c9af4c91a0584a808cfce183958b75d3536499c7750a"
+  },
+  "query": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py",
+    "sha256": "b9a888032c19a7616619bb27355aa2aeb5a0ade862aa748ad08d80ababd0ebfb"
+  },
+  "release": {
+    "capacity_established": false,
+    "climbing_released": false,
+    "fabrication_released": false,
+    "geometry_adopted": false,
+    "mechanics_ready": false,
+    "structural_released": false
+  },
+  "retention": "Original query.py, inputs, method readiness and toy result remain frozen. Narrow v2 adapter canonicalizes inventory joins; no original bytes replaced.",
+  "schema": "eoere_four_receiver_pre_candidate_source_intake_failure/v1",
+  "stage": "source-only source_inventory before candidate BREP import/reconstruction"
+}

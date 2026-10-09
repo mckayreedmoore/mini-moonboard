@@ -1,0 +1,103 @@
+{
+  "checks": {
+    "candidate_permit_rejected": "mode not authorized by parent",
+    "canonical_member_join_equal": true,
+    "current100_and66_unchanged": true,
+    "exact_intake_failure": "analytic source inventory differs",
+    "four_hosts_four_own_bores_each": true,
+    "native_method_functions_read_as_source_only": {
+      "annulus": [
+        "annular_backing"
+      ],
+      "bore": [
+        "bore_wood"
+      ],
+      "brep": [
+        "brep_sha"
+      ],
+      "overlap": [
+        "overlaps"
+      ],
+      "pure_loader": [
+        "pinned_functions"
+      ],
+      "strict_solid": [
+        "strict_solid",
+        "wrapper_fixture"
+      ],
+      "wall": [
+        "finished_bore_wall_intervals"
+      ]
+    },
+    "raw_post_manifest_coordinates_already_current": true,
+    "saved_native_toy_checks_reused_without_rerun": 7,
+    "scenario_views": [
+      {
+        "axes": 12,
+        "external_own_nominal_seats": 16,
+        "receiver_occurrences": 16,
+        "scenario": "current_Z200_modeled",
+        "translated_axis_ids": []
+      },
+      {
+        "axes": 12,
+        "external_own_nominal_seats": 16,
+        "receiver_occurrences": 16,
+        "scenario": "proposed_Z180_modeled",
+        "translated_axis_ids": [
+          "cleat_post_bolt_left_1",
+          "cleat_post_bolt_left_2",
+          "cleat_post_bolt_right_1",
+          "cleat_post_bolt_right_2"
+        ]
+      },
+      {
+        "axes": 12,
+        "external_own_nominal_seats": 16,
+        "receiver_occurrences": 16,
+        "scenario": "proposed_Z180_all11p1125",
+        "translated_axis_ids": [
+          "cleat_post_bolt_left_1",
+          "cleat_post_bolt_left_2",
+          "cleat_post_bolt_right_1",
+          "cleat_post_bolt_right_2"
+        ]
+      }
+    ]
+  },
+  "findings": [
+    {
+      "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py",
+      "fix": "In a new frozen revision, compare canonical JSON representations (or normalize recomputed tuples to lists) for the exact member and proposed-axis joins; add a source-only inventory intake check before any candidate geometry execution.",
+      "impact": "The exact frozen source_inventory call always raises 'analytic source inventory differs': its four profile polygons contain tuples, whereas prior saved JSON contains lists. The seven native toy fixtures never exercise this source intake, so they cannot make the candidate path executable.",
+      "line": 168,
+      "severity": "P1",
+      "title": "Normalize the JSON inventory join before the candidate query"
+    }
+  ],
+  "limits": [
+    "Source-only method review. No CAD/OCP import, BREP query/reconstruction, actual native toy rerun, candidate geometry execution, mechanics/global solve, adoption or physical work.",
+    "Later method logic reviewed after a review-only in-memory bypass of the confirmed join failure; the frozen producer was not changed and remains blocked.",
+    "Saved native fixtures are authenticated supporting evidence, not an independent native audit. Baseline Boolean volume/bounds comparison is within numerical tolerance, not byte identity or general topology equivalence.",
+    "All11p1125 is a local four-host maximum wood-hole scenario: twelve viewed axes/sixteen bore occurrences; no full-frame sensitivity or delivered/catalog-corner washer/tolerance qualification.",
+    "Nominal annular geometry does not establish physical contact pressure, directional bearing, complete joint resistance, force transfer, fabrication or climbing release. Unmodeled screw pilots/countersinks remain excluded."
+  ],
+  "review_helper_sha256": "bb95eee6e6ea7c2d0d6403775a9feeda4218b56ebba2553d5e8e231767f2ee55",
+  "reviewed_scope": [
+    "Complete frozen query/inputs/fixture-only permit/result and all38 direct source pins; exact current and placement identity through reused stdlib inventory.",
+    "Four source-only Z200-to-Z180 substitutions, twelve local axes/sixteen own receiver occurrences, all four recorded own cuts per host, finite cutter coverage and disjoint full circles in each raw profile.",
+    "Raw post BREP manifest coordinate role checked as saved metadata only; no additional right-side translation; full current sloping cleat profiles.",
+    "Reused bore cutter, own cylindrical-face/radius/axis matching, merged full-wall interval logic, nominal annular inward skin with exactly one own host, strict transparent compound chain and location/orientation retention.",
+    "Producer source inspection of current Boolean missing/added-volume/bounds comparison, export/reimport before wall/annulus observations, volume identity, three scenarios, false release flags and active retention wording."
+  ],
+  "schema": "eoere_four_finished_receiver_v1_independent_correctness_method_review/v1",
+  "source_files_rehashed_before_after": 42,
+  "sources_unchanged_before_after": true,
+  "status": "CONFIRMED_SOURCE_INTAKE_BLOCKER",
+  "target_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/inputs.json": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/parent-method-readiness-v1.json": "4c32ef7dd354049921f88511dbba969775701379634c9b8764030d7cc3208e09",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py": "b9a888032c19a7616619bb27355aa2aeb5a0ade862aa748ad08d80ababd0ebfb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/method01/result.json": "f833ad8f03a3cedaab27c9af4c91a0584a808cfce183958b75d3536499c7750a"
+  }
+}

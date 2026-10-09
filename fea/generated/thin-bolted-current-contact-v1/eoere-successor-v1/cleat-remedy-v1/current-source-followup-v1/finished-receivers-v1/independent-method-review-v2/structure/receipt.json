@@ -1,0 +1,126 @@
+{
+  "assessment": {
+    "candidate_query_authorized": false,
+    "geometry_or_physical_acceptance": false,
+    "inherited_inert_orchestration": {
+      "busy_lock": {
+        "error": "BlockingIOError",
+        "events": [
+          "lock"
+        ],
+        "filesystem_writes": 0,
+        "native_execution": false
+      },
+      "changed_source": {
+        "error": "ValueError",
+        "events": [
+          "lock",
+          "mkdir",
+          "verify"
+        ],
+        "filesystem_writes": 0,
+        "native_execution": false
+      },
+      "existing_output": {
+        "error": "ValueError",
+        "events": [],
+        "filesystem_writes": 0,
+        "native_execution": false
+      },
+      "fresh_fixture": {
+        "error": null,
+        "events": [
+          "lock",
+          "mkdir",
+          "verify",
+          "methods_stub",
+          "fixtures_stub",
+          "verify",
+          "write_stub",
+          "verify"
+        ],
+        "filesystem_writes": 0,
+        "native_execution": false
+      }
+    },
+    "legacy_adapter_in_preflight_and_toy_source_union": true,
+    "native_methods_reused_unchanged_from_pinned_private_v1_module": true,
+    "private_overrides_do_not_mutate_v1_or_peer_module_state": true,
+    "raw_output_entry_guards": {
+      "dangling_symlink": {
+        "error": "requested output entry already exists",
+        "events": [],
+        "filesystem_writes": 0
+      },
+      "fresh": {
+        "error": null,
+        "events": [
+          "original_main_stub"
+        ],
+        "filesystem_writes": 0
+      },
+      "occupied": {
+        "error": "requested output entry already exists",
+        "events": [],
+        "filesystem_writes": 0
+      },
+      "parent_traversal": {
+        "error": "parent traversal output rejected",
+        "events": [],
+        "filesystem_writes": 0
+      }
+    },
+    "serial_lock_fresh_output_exclusive_result_inherited": true,
+    "toy_fixtures_independently_rerun_by_this_review": false,
+    "v1_tuple_list_blocker_resolved_by_canonical_join": true
+  },
+  "context_sha256": {
+    "AGENTS.md": "e72c0ca31382df1e3f26dfba213973f7ffc8be4ce2a984fd634d75fe917ffc87",
+    "docs/wood-joints-mvp/README.md": "676ee85e0aa6373b4b2691d7704c73460b2c6042834db3064197f779f564f7d0"
+  },
+  "findings": [],
+  "limits": [
+    "Standard-library reads, hashes, source intake and inert mocks only. No CAD/BREP/FEA/frame/browser/candidate query or native toy rerun.",
+    "Pinned runtime metadata was mocked for preflight; no independent runtime qualification.",
+    "Passing seven method fixtures are source-bound geometry-method evidence, not a candidate finished-solid observation or mechanics/physical release.",
+    "All original v1 source/readiness/toy/review bytes and prior source packets remain active and unchanged; no deletion, source/docs/model/shop changes or publication.",
+    "Existing complete source closures and numerical operators were not independently re-audited."
+  ],
+  "retained_v1_sha256": {
+    "independent-method-review-v1/structure/receipt.json": "5fde190f31a4953cc9b28cd0d4ff54bb4b96bc9f354d0340958f99b6f1fab117",
+    "independent-method-review-v1/structure/review.py": "65406ee05e8dc124d3f2507d319ec45b674424b5d8bfa712e485cad9e5d8a2c0",
+    "parent-method-readiness-v1.json": "4c32ef7dd354049921f88511dbba969775701379634c9b8764030d7cc3208e09",
+    "query.py": "b9a888032c19a7616619bb27355aa2aeb5a0ade862aa748ad08d80ababd0ebfb",
+    "runs-v1/method01/result.json": "f833ad8f03a3cedaab27c9af4c91a0584a808cfce183958b75d3536499c7750a"
+  },
+  "review_helper_sha256": "7eb15d9b5dedbb9801e8b935dd36be3e7ea40ad74c7d428b45f24a2326ed8cc2",
+  "ruff": {
+    "command": ".venv/bin/ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v2/structure/review.py",
+    "exit_code": 0,
+    "output": "All checks passed!"
+  },
+  "schema": "eoere_finished_receiver_v2_architecture_method_review/v1",
+  "source_integrity": {
+    "input_map_canonical_sha256": "65a9f7156226bd5509ce4d38f276f7324c372f01ff00d169a2570da6df3d0e91",
+    "input_pins": 38,
+    "preflight_before_readiness_pin": 41,
+    "prior_packets_checked_from_frozen_v1_receipt": 8,
+    "review_verified_union_including_retained_prior_packets": 53,
+    "toy_union_pins": 42,
+    "unchanged_before_after": true
+  },
+  "source_only_inventory_counts": {
+    "current_axes": 100,
+    "current_axis_map": 100,
+    "current_screws": 66,
+    "hosts": 4,
+    "own_cuts": 16,
+    "proposed_axes": 4
+  },
+  "target_sha256": {
+    "inputs.json": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24",
+    "parent-method-readiness-v2.json": "b1d4e988f0af656f5d9b967af31a62e019e84625cdd4a4e70f5d27810efffe5a",
+    "query-v2.py": "88edea7a233963e32f6d56fc7fd0dd86322acc65f69bbefdd4f53cc01d919912",
+    "runs-v1/method02/result.json": "e054fbd0fd9015f31a17c0c3887937e00a3793c2f40795c53e9ea535db50e2e7"
+  }
+}

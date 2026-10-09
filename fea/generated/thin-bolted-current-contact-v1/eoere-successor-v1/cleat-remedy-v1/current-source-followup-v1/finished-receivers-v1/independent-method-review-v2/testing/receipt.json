@@ -1,0 +1,254 @@
+{
+  "actual_stdlib_source_inventory": {
+    "current_axes": 100,
+    "current_screws": 66,
+    "members_canonical_sha256": "c40da4922e056a0dc815658fe255a66419b26f7405a76fea56c1a9ad6b531ea4",
+    "own_bore_occurrences": 16,
+    "passed": true,
+    "proposed_axes": [
+      "cleat_post_bolt_left_1",
+      "cleat_post_bolt_left_2",
+      "cleat_post_bolt_right_1",
+      "cleat_post_bolt_right_2"
+    ],
+    "proposed_axes_canonical_sha256": "82b4840afb75c444a626dd7ce7a6fc13314ee2b0bc8df684f907067778404555",
+    "receivers": [
+      "base_post_outer_left",
+      "base_post_outer_right",
+      "eoere_cleat_left",
+      "eoere_cleat_right"
+    ],
+    "tuple_vs_list_join_exercised": true
+  },
+  "authenticated_reused_toy_source_pins": 42,
+  "candidate_query_authorized": false,
+  "excluded": [
+    "native imports",
+    "candidate BREP import/query/reconstruction",
+    "native toy rerun",
+    "FEA/frame/global solve",
+    "mechanics/admission/reducer audit",
+    "model/shared evidence edits"
+  ],
+  "findings": [],
+  "input_source_pins": 38,
+  "native_import_attempts": [],
+  "output_controls": [
+    {
+      "name": "dangling_symlink",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError",
+      "preflight_calls": 0
+    },
+    {
+      "name": "existing_file",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError",
+      "preflight_calls": 0
+    },
+    {
+      "name": "existing_directory",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError",
+      "preflight_calls": 0
+    },
+    {
+      "name": "live_symlink",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError",
+      "preflight_calls": 0
+    },
+    {
+      "name": "outside_final_symlink",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError",
+      "preflight_calls": 0
+    },
+    {
+      "name": "parent_traversal",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError",
+      "preflight_calls": 0
+    },
+    {
+      "name": "outside_new_directory",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError"
+    },
+    {
+      "name": "fresh_owned_reservation",
+      "outcome": "BoundaryReached"
+    },
+    {
+      "name": "reserved_output_reuse",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError"
+    },
+    {
+      "name": "concurrent_lock_contention",
+      "native_boundary_calls": 0,
+      "outcome": "BlockingIOError"
+    },
+    {
+      "name": "source_changed_before_methods",
+      "native_boundary_calls": 0,
+      "outcome": "ValueError"
+    }
+  ],
+  "preflight_controls": [
+    {
+      "name": "frozen_candidate_flag_blocks",
+      "rejection": "mode not authorized by parent"
+    },
+    {
+      "name": "v1_readiness_cannot_authorize_v2",
+      "rejection": "query source differs from readiness"
+    },
+    {
+      "name": "wrapper_hash",
+      "rejection": "query source differs from readiness"
+    },
+    {
+      "name": "input_hash",
+      "rejection": "input source differs from readiness"
+    },
+    {
+      "name": "readiness_schema",
+      "rejection": "distinct geometry readiness required"
+    },
+    {
+      "name": "fixture_authority",
+      "rejection": "mode not authorized by parent"
+    },
+    {
+      "name": "release",
+      "rejection": "release must remain false"
+    },
+    {
+      "name": "current_revision",
+      "rejection": "input scope differs"
+    },
+    {
+      "name": "extra_grid",
+      "rejection": "input release/scope differs"
+    },
+    {
+      "name": "scenario_census",
+      "rejection": "exact three local scenarios required"
+    },
+    {
+      "name": "native_runtime",
+      "rejection": "pinned native query runtime required"
+    },
+    {
+      "name": "current_source_hash",
+      "rejection": "source changed: docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json"
+    },
+    {
+      "name": "missing_fixture_proof",
+      "rejection": "candidate query requires method fixtures"
+    },
+    {
+      "name": "failed_fixture_proof",
+      "rejection": "passing exact method fixtures required"
+    },
+    {
+      "name": "fixture_schema",
+      "rejection": "passing exact method fixtures required"
+    },
+    {
+      "name": "v1_fixture_cannot_authorize_v2",
+      "rejection": "fixture source binding differs"
+    },
+    {
+      "name": "fixture_input_binding",
+      "rejection": "fixture source binding differs"
+    },
+    {
+      "name": "legacy_tamper_before_adapter_import",
+      "rejection": "exact frozen v1 geometry adapter required"
+    },
+    {
+      "name": "fresh_process_gate",
+      "rejection": "fresh pre-native process required"
+    },
+    {
+      "name": "legacy_source_pin_tamper",
+      "rejection": "source changed: fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py"
+    }
+  ],
+  "release": {
+    "capacity_established": false,
+    "climbing_released": false,
+    "fabrication_released": false,
+    "geometry_adopted": false,
+    "mechanics_ready": false,
+    "structural_released": false
+  },
+  "review_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v2/testing/review.py",
+    "sha256": "8456f041aace1b3630e8d6013c3967308cf5e0d1e82916fdde8d2323fd76c364"
+  },
+  "schema": "eoere_finished_receivers_frozen_v2_independent_testing_review/v1",
+  "scope": "Actual stdlib source intake, source/metadata hashes, virtual readiness/input/fixture mutations, mock CLI reservation/contention with reviewer-local lock and output paths only. Saved v2 seven native toy observations authenticated and reused, not executed. V1 review utilities and unchanged-method scenario coverage explicitly reused.",
+  "source_inventory_controls": [
+    {
+      "name": "prior_member_volume",
+      "rejection": "analytic canonical source inventory differs"
+    },
+    {
+      "name": "prior_polygon_coordinate",
+      "rejection": "analytic canonical source inventory differs"
+    },
+    {
+      "name": "prior_proposed_coordinate",
+      "rejection": "analytic canonical source inventory differs"
+    },
+    {
+      "name": "prior_proposed_census",
+      "rejection": "analytic canonical source inventory differs"
+    },
+    {
+      "name": "current_axis_census",
+      "rejection": "current100/66 and four targets required"
+    },
+    {
+      "name": "current_screw_census",
+      "rejection": "current100/66 and four targets required"
+    },
+    {
+      "name": "unadopted_scope",
+      "rejection": "current unadopted revision required"
+    },
+    {
+      "name": "proposal_not_only_Z",
+      "rejection": "only explicit Z180 source translation allowed"
+    },
+    {
+      "name": "profile_source_hash",
+      "rejection": "current finished metadata binding differs"
+    },
+    {
+      "name": "exact_query_receivers",
+      "rejection": "exact four-host/axis scope required"
+    },
+    {
+      "name": "exact_query_axis_ids",
+      "rejection": "exact four-host/axis scope required"
+    }
+  ],
+  "sources_unchanged_before_after": true,
+  "targets_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v1/testing/receipt.json": "140ae567f99ca0fc4c4b21fc0a49d7a53a378a6be9bdb373ad9e44cca983896f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-method-review-v1/testing/review.py": "101650723fa1747406c5379df27fff198e2dadfc7c37f8454c9eb611de9ff284",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/inputs.json": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/parent-method-readiness-v2.json": "b1d4e988f0af656f5d9b967af31a62e019e84625cdd4a4e70f5d27810efffe5a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query-v2.py": "88edea7a233963e32f6d56fc7fd0dd86322acc65f69bbefdd4f53cc01d919912",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py": "b9a888032c19a7616619bb27355aa2aeb5a0ade862aa748ad08d80ababd0ebfb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/method02/result.json": "e054fbd0fd9015f31a17c0c3887937e00a3793c2f40795c53e9ea535db50e2e7"
+  },
+  "v1_findings_closed_in_v2": [
+    "Canonical member/proposal JSON join admits exact typed inventory and rejects changed data.",
+    "Raw requested output guard rejects occupied final symlinks and parent traversal before preflight/native loading."
+  ]
+}

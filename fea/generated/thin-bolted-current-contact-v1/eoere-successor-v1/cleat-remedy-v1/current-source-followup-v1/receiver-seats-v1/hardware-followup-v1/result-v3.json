@@ -1,0 +1,796 @@
+{
+  "schema": "eoere_four_cleat_post_hardware_build_spec_arithmetic/v1",
+  "question": "For the four current Z200 and separately unadopted Z180 cleat/post axes, determine whether the saved 4-inch bolt dimension box already suffices for projection/seating, what a 4.5-inch full-body comparison gains or loses, and the source-bound drilling/tool/removal requirements. No capacity, tool fit, model adoption or observations.",
+  "status": "UNADOPTED_SOURCE_BOUND_DIMENSION_COMPARISON",
+  "current_revision": "eoere-base-side-edge-cleats-v1",
+  "current_axes_stay_Z_mm": 200.0,
+  "proposed_Z_mm_unadopted": 180.0,
+  "source_pin_count": 31,
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/placement.json": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/bolt-stacks.csv": "6c2084062e4c3421a2898be072070cff60eb324b6be15b77b17eb789923cedb0",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/access-sides.csv": "c6abcad239ba0afbe037522a917e0da31393c5c980f4df514358a3306039d693",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/receiver-holes.csv": "42242079c1e123122b9bdd48fd51243023c087ea5c5a377cc8370d23df76b9cc",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md": "53514b9a457274d664f73259cf043f4b0f04f04a4f259c067f7545c79b65902f",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/shop_windows.py": "96bb6ec5bdad68f449d41c56ee71ae149c0b380fadd039b050425dd44b70e1d5",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/analyze.py": "303df010f8f3f7546a6554a4af43dca79f34aa5c029917419274f37c46ce13ca",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/result.json": "e741022ce8265079a745b2e8acbfc77f11b9c80d82a20bd9177f61465056b247",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json": "3378a3a4de466f5deaabf17e15a0621bef65daeaf5f01856ace509a41cb25fe6",
+    "scripts/thin_bolted_access_takeoff.py": "8f6313a4609f935c173b151843527b0911d6b89a34dacc9b2eee2642523cb897",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/controls01/frozen-packet.json": "aa35e9ef46476fe2d04b123463774c8aeae08949796595bd24af0dbe9ad18101",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/inputs.json": "6cba1fb87b9cfa337f2c5418afe6c0f7fa6def8d6ae463e9f355701df3d75e33",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate.py": "ed7a16cbdb97bf15ddc74e2af49bb3b512dc57c7541358392db55ea25d8dfc0e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/inputs.json": "e3fda210640db0bc395d808c90625d65e8049da315c0872da12077731e6f0e41",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/calculate.py": "5f6d088a836f1ac198c2cc7c8355b3a6ca8a20034a863ab813e4e33fa4a3fa03",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json": "a21c25d6693a86f2617655cec1e82aa51c182b153e19baf8f5d1431afa381443",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/verify.py": "1ab517d0e2b874fc43c9c4f78fce1cda80dd6dbda2a70f9e37ebdce2edffc51c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/verification-v1.json": "ae0c5dd215fd2bddaa6c2b0fcf46fa51038ac672d8611722ee34b4b4d6afded6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/attempt01-calculate.py.snapshot": "f3c6b8d94a4ed16cd28ee583eaf100c328c9c17a2d14205e178538d3ffb68a66",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/attempt01-result.json": "b050138716ee8ebf0b11066c460f4467d10fc76c71fc6201fe42628e6ddf1ada",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/attempt01-failure.json": "4e9854700ca16012d3adfe5bc7ed9757a1f6b2672ef77ee3cfa7fb0069527614",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/pre-lint-verify.py.snapshot": "9712bf838c3cab7b8e1785adc26d08f47f1ca9e88e14b12e8eaefbb2cd2f2a49",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/verification.json": "2defbdfff7ad3ef9561af0179e7d6c26e0f9cc70ca979d46ab5f8d94d593dcc3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result.json": "fbe6983488fc5c3017810654f43df0e0ef2188657387cc6a3b92b4e02fbb4c0a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate-v2.py": "cafd8b00756e7cf5177fb8722f6139883d4c40aa28a7a08bf9d988575aa770f0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result-v2.json": "2a70abd309932e497daeb0bebf152439077f776a28823d910d50c35c71c24f42",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate-v3.py": "352167060aa4baacfe2f460670d0a28a8638a173f312b9887e24cf5babb12f2c"
+  },
+  "source_pins_verified_before_after": true,
+  "prior_frozen_receiver_files_unchanged": 10,
+  "current_four_axes_exactly_match_raised_rail_metadata": true,
+  "current_100_axes_canonical_sha256": "009a8799bb28dfe989e7c75651a3d111c6bb9e003c8f9ab0adda99e3471b7926",
+  "current_66_screw_axes_canonical_sha256": "addb41a1836eacea53e7411407ae8006f97cb56ed314ae29cded2c4ff1e2a88b",
+  "actual_observation_cells_remain_blank": true,
+  "four_stations": [
+    {
+      "axis_id": "cleat_post_bolt_left_1",
+      "receivers": [
+        "eoere_cleat_left",
+        "base_post_outer_left"
+      ],
+      "current_point_xyz_mm": [
+        -1257.3,
+        -131.25,
+        200.0
+      ],
+      "unadopted_proposed_point_xyz_mm": [
+        -1257.3,
+        -131.25,
+        180.0
+      ],
+      "drill_entry_xyz_mm": [
+        -1257.3,
+        -131.25,
+        200.0
+      ],
+      "drill_inward_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "head_bolt_outward_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "nut_outward_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "matched_wood_travel_mm": 76.2,
+      "planning_usable_bit_reach_mm": 101.6,
+      "comparisons": [
+        {
+          "sku": 367,
+          "nominal_length_mm": 101.6,
+          "window": {
+            "underhead_length_bounds_mm": [
+              100.076,
+              101.6
+            ],
+            "washer_each_bounds_mm": [
+              1.6256,
+              2.6416
+            ],
+            "nut_height_bounds_mm": [
+              8.128,
+              8.5598
+            ],
+            "two_tip_pitches_mm": 3.175,
+            "required_length_at_max_catalog_stack_mm": 93.21799999999999,
+            "combined_washers_plus_nut_budget_at_shortest_length_mm": 20.70099999999999,
+            "equal_washer_ceiling_at_shortest_length_and_max_nut_mm": 6.070599999999995,
+            "tip_projection_bounds_mm": [
+              10.03299999999999,
+              14.02079999999999
+            ],
+            "nut_near_underhead_bounds_mm": [
+              79.4512,
+              81.4832
+            ],
+            "ASME_Lg_max_mm": 76.19999999999999,
+            "ASME_Lb_min_mm": 68.326,
+            "nut_near_minus_Lg_max_bounds_mm": [
+              3.2512000000000114,
+              5.283200000000008
+            ],
+            "catalog_min_length_max_stack_two_tip_margin_mm": 6.857999999999991
+          },
+          "independent_box_corners": {
+            "corner_count": 32,
+            "minimum_two_pitch_margin_mm": 6.857999999999991,
+            "minimum_nut_near_minus_gage_mm": 3.2512000000000256,
+            "scope": "Endpoint enumeration of the declared comparison box; no physical thread model."
+          },
+          "minimum_body_minus_model_farthest_bearing_mm": -10.515600000000006,
+          "possible_thread_or_runout_in_far_receiver_mm": 10.515600000000006,
+          "possible_thread_or_runout_far_receiver_fraction": 0.27600000000000013,
+          "nominal_tip_beyond_nut_mm": 11.556999999999992,
+          "blind_socket_required_clear_depth_model_mm": 20.11679999999999,
+          "blind_socket_required_clear_depth_catalog_max_mm": 22.14879999999999,
+          "conditional_36mm_well_minus_required_catalog_max_mm": 13.85120000000001,
+          "saved_method_bolt_headward_travel_mm": 103.6,
+          "saved_method_nut_nutward_travel_model_mm": 22.11679999999999,
+          "saved_method_nut_washer_nutward_travel_model_mm": 24.11679999999999,
+          "incremental_nominal_tip_and_withdrawal_mm": 0.0,
+          "four_bolt_individual_price_increment_usd": 0.0,
+          "actual_fit_or_access_or_thread_bearing_verified": false
+        },
+        {
+          "sku": 368,
+          "nominal_length_mm": 114.3,
+          "window": {
+            "underhead_length_bounds_mm": [
+              111.75999999999999,
+              114.3
+            ],
+            "washer_each_bounds_mm": [
+              1.6256,
+              2.6416
+            ],
+            "nut_height_bounds_mm": [
+              8.128,
+              8.5598
+            ],
+            "two_tip_pitches_mm": 3.175,
+            "required_length_at_max_catalog_stack_mm": 93.21799999999999,
+            "combined_washers_plus_nut_budget_at_shortest_length_mm": 32.38499999999999,
+            "equal_washer_ceiling_at_shortest_length_and_max_nut_mm": 11.912599999999996,
+            "tip_projection_bounds_mm": [
+              21.716999999999988,
+              26.720799999999997
+            ],
+            "nut_near_underhead_bounds_mm": [
+              79.4512,
+              81.4832
+            ],
+            "ASME_Lg_max_mm": 88.89999999999999,
+            "ASME_Lb_min_mm": 81.026,
+            "nut_near_minus_Lg_max_bounds_mm": [
+              -9.448799999999991,
+              -7.416799999999995
+            ],
+            "catalog_min_length_max_stack_two_tip_margin_mm": 18.541999999999987
+          },
+          "independent_box_corners": {
+            "corner_count": 32,
+            "minimum_two_pitch_margin_mm": 18.54199999999999,
+            "minimum_nut_near_minus_gage_mm": -9.448799999999977,
+            "scope": "Endpoint enumeration of the declared comparison box; no physical thread model."
+          },
+          "minimum_body_minus_model_farthest_bearing_mm": 2.1843999999999966,
+          "possible_thread_or_runout_in_far_receiver_mm": 0.0,
+          "possible_thread_or_runout_far_receiver_fraction": 0.0,
+          "nominal_tip_beyond_nut_mm": 24.256999999999994,
+          "blind_socket_required_clear_depth_model_mm": 32.81679999999999,
+          "blind_socket_required_clear_depth_catalog_max_mm": 34.8488,
+          "conditional_36mm_well_minus_required_catalog_max_mm": 1.1512000000000029,
+          "saved_method_bolt_headward_travel_mm": 116.3,
+          "saved_method_nut_nutward_travel_model_mm": 34.81679999999999,
+          "saved_method_nut_washer_nutward_travel_model_mm": 36.81679999999999,
+          "incremental_nominal_tip_and_withdrawal_mm": 12.700000000000003,
+          "four_bolt_individual_price_increment_usd": 0.52,
+          "actual_fit_or_access_or_thread_bearing_verified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "cleat_post_bolt_left_2",
+      "receivers": [
+        "eoere_cleat_left",
+        "base_post_outer_left"
+      ],
+      "current_point_xyz_mm": [
+        -1257.3,
+        -80.45,
+        200.0
+      ],
+      "unadopted_proposed_point_xyz_mm": [
+        -1257.3,
+        -80.45,
+        180.0
+      ],
+      "drill_entry_xyz_mm": [
+        -1257.3,
+        -80.45,
+        200.0
+      ],
+      "drill_inward_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "head_bolt_outward_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "nut_outward_xyz": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "matched_wood_travel_mm": 76.2,
+      "planning_usable_bit_reach_mm": 101.6,
+      "comparisons": [
+        {
+          "sku": 367,
+          "nominal_length_mm": 101.6,
+          "window": {
+            "underhead_length_bounds_mm": [
+              100.076,
+              101.6
+            ],
+            "washer_each_bounds_mm": [
+              1.6256,
+              2.6416
+            ],
+            "nut_height_bounds_mm": [
+              8.128,
+              8.5598
+            ],
+            "two_tip_pitches_mm": 3.175,
+            "required_length_at_max_catalog_stack_mm": 93.21799999999999,
+            "combined_washers_plus_nut_budget_at_shortest_length_mm": 20.70099999999999,
+            "equal_washer_ceiling_at_shortest_length_and_max_nut_mm": 6.070599999999995,
+            "tip_projection_bounds_mm": [
+              10.03299999999999,
+              14.02079999999999
+            ],
+            "nut_near_underhead_bounds_mm": [
+              79.4512,
+              81.4832
+            ],
+            "ASME_Lg_max_mm": 76.19999999999999,
+            "ASME_Lb_min_mm": 68.326,
+            "nut_near_minus_Lg_max_bounds_mm": [
+              3.2512000000000114,
+              5.283200000000008
+            ],
+            "catalog_min_length_max_stack_two_tip_margin_mm": 6.857999999999991
+          },
+          "independent_box_corners": {
+            "corner_count": 32,
+            "minimum_two_pitch_margin_mm": 6.857999999999991,
+            "minimum_nut_near_minus_gage_mm": 3.2512000000000256,
+            "scope": "Endpoint enumeration of the declared comparison box; no physical thread model."
+          },
+          "minimum_body_minus_model_farthest_bearing_mm": -10.515600000000006,
+          "possible_thread_or_runout_in_far_receiver_mm": 10.515600000000006,
+          "possible_thread_or_runout_far_receiver_fraction": 0.27600000000000013,
+          "nominal_tip_beyond_nut_mm": 11.556999999999992,
+          "blind_socket_required_clear_depth_model_mm": 20.11679999999999,
+          "blind_socket_required_clear_depth_catalog_max_mm": 22.14879999999999,
+          "conditional_36mm_well_minus_required_catalog_max_mm": 13.85120000000001,
+          "saved_method_bolt_headward_travel_mm": 103.6,
+          "saved_method_nut_nutward_travel_model_mm": 22.11679999999999,
+          "saved_method_nut_washer_nutward_travel_model_mm": 24.11679999999999,
+          "incremental_nominal_tip_and_withdrawal_mm": 0.0,
+          "four_bolt_individual_price_increment_usd": 0.0,
+          "actual_fit_or_access_or_thread_bearing_verified": false
+        },
+        {
+          "sku": 368,
+          "nominal_length_mm": 114.3,
+          "window": {
+            "underhead_length_bounds_mm": [
+              111.75999999999999,
+              114.3
+            ],
+            "washer_each_bounds_mm": [
+              1.6256,
+              2.6416
+            ],
+            "nut_height_bounds_mm": [
+              8.128,
+              8.5598
+            ],
+            "two_tip_pitches_mm": 3.175,
+            "required_length_at_max_catalog_stack_mm": 93.21799999999999,
+            "combined_washers_plus_nut_budget_at_shortest_length_mm": 32.38499999999999,
+            "equal_washer_ceiling_at_shortest_length_and_max_nut_mm": 11.912599999999996,
+            "tip_projection_bounds_mm": [
+              21.716999999999988,
+              26.720799999999997
+            ],
+            "nut_near_underhead_bounds_mm": [
+              79.4512,
+              81.4832
+            ],
+            "ASME_Lg_max_mm": 88.89999999999999,
+            "ASME_Lb_min_mm": 81.026,
+            "nut_near_minus_Lg_max_bounds_mm": [
+              -9.448799999999991,
+              -7.416799999999995
+            ],
+            "catalog_min_length_max_stack_two_tip_margin_mm": 18.541999999999987
+          },
+          "independent_box_corners": {
+            "corner_count": 32,
+            "minimum_two_pitch_margin_mm": 18.54199999999999,
+            "minimum_nut_near_minus_gage_mm": -9.448799999999977,
+            "scope": "Endpoint enumeration of the declared comparison box; no physical thread model."
+          },
+          "minimum_body_minus_model_farthest_bearing_mm": 2.1843999999999966,
+          "possible_thread_or_runout_in_far_receiver_mm": 0.0,
+          "possible_thread_or_runout_far_receiver_fraction": 0.0,
+          "nominal_tip_beyond_nut_mm": 24.256999999999994,
+          "blind_socket_required_clear_depth_model_mm": 32.81679999999999,
+          "blind_socket_required_clear_depth_catalog_max_mm": 34.8488,
+          "conditional_36mm_well_minus_required_catalog_max_mm": 1.1512000000000029,
+          "saved_method_bolt_headward_travel_mm": 116.3,
+          "saved_method_nut_nutward_travel_model_mm": 34.81679999999999,
+          "saved_method_nut_washer_nutward_travel_model_mm": 36.81679999999999,
+          "incremental_nominal_tip_and_withdrawal_mm": 12.700000000000003,
+          "four_bolt_individual_price_increment_usd": 0.52,
+          "actual_fit_or_access_or_thread_bearing_verified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "cleat_post_bolt_right_1",
+      "receivers": [
+        "eoere_cleat_right",
+        "base_post_outer_right"
+      ],
+      "current_point_xyz_mm": [
+        1254.125,
+        -131.25,
+        200.0
+      ],
+      "unadopted_proposed_point_xyz_mm": [
+        1254.125,
+        -131.25,
+        180.0
+      ],
+      "drill_entry_xyz_mm": [
+        1254.125,
+        -131.25,
+        200.0
+      ],
+      "drill_inward_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "head_bolt_outward_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "nut_outward_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "matched_wood_travel_mm": 76.2,
+      "planning_usable_bit_reach_mm": 101.6,
+      "comparisons": [
+        {
+          "sku": 367,
+          "nominal_length_mm": 101.6,
+          "window": {
+            "underhead_length_bounds_mm": [
+              100.076,
+              101.6
+            ],
+            "washer_each_bounds_mm": [
+              1.6256,
+              2.6416
+            ],
+            "nut_height_bounds_mm": [
+              8.128,
+              8.5598
+            ],
+            "two_tip_pitches_mm": 3.175,
+            "required_length_at_max_catalog_stack_mm": 93.21799999999999,
+            "combined_washers_plus_nut_budget_at_shortest_length_mm": 20.70099999999999,
+            "equal_washer_ceiling_at_shortest_length_and_max_nut_mm": 6.070599999999995,
+            "tip_projection_bounds_mm": [
+              10.03299999999999,
+              14.02079999999999
+            ],
+            "nut_near_underhead_bounds_mm": [
+              79.4512,
+              81.4832
+            ],
+            "ASME_Lg_max_mm": 76.19999999999999,
+            "ASME_Lb_min_mm": 68.326,
+            "nut_near_minus_Lg_max_bounds_mm": [
+              3.2512000000000114,
+              5.283200000000008
+            ],
+            "catalog_min_length_max_stack_two_tip_margin_mm": 6.857999999999991
+          },
+          "independent_box_corners": {
+            "corner_count": 32,
+            "minimum_two_pitch_margin_mm": 6.857999999999991,
+            "minimum_nut_near_minus_gage_mm": 3.2512000000000256,
+            "scope": "Endpoint enumeration of the declared comparison box; no physical thread model."
+          },
+          "minimum_body_minus_model_farthest_bearing_mm": -10.515600000000006,
+          "possible_thread_or_runout_in_far_receiver_mm": 10.515600000000006,
+          "possible_thread_or_runout_far_receiver_fraction": 0.27600000000000013,
+          "nominal_tip_beyond_nut_mm": 11.556999999999992,
+          "blind_socket_required_clear_depth_model_mm": 20.11679999999999,
+          "blind_socket_required_clear_depth_catalog_max_mm": 22.14879999999999,
+          "conditional_36mm_well_minus_required_catalog_max_mm": 13.85120000000001,
+          "saved_method_bolt_headward_travel_mm": 103.6,
+          "saved_method_nut_nutward_travel_model_mm": 22.11679999999999,
+          "saved_method_nut_washer_nutward_travel_model_mm": 24.11679999999999,
+          "incremental_nominal_tip_and_withdrawal_mm": 0.0,
+          "four_bolt_individual_price_increment_usd": 0.0,
+          "actual_fit_or_access_or_thread_bearing_verified": false
+        },
+        {
+          "sku": 368,
+          "nominal_length_mm": 114.3,
+          "window": {
+            "underhead_length_bounds_mm": [
+              111.75999999999999,
+              114.3
+            ],
+            "washer_each_bounds_mm": [
+              1.6256,
+              2.6416
+            ],
+            "nut_height_bounds_mm": [
+              8.128,
+              8.5598
+            ],
+            "two_tip_pitches_mm": 3.175,
+            "required_length_at_max_catalog_stack_mm": 93.21799999999999,
+            "combined_washers_plus_nut_budget_at_shortest_length_mm": 32.38499999999999,
+            "equal_washer_ceiling_at_shortest_length_and_max_nut_mm": 11.912599999999996,
+            "tip_projection_bounds_mm": [
+              21.716999999999988,
+              26.720799999999997
+            ],
+            "nut_near_underhead_bounds_mm": [
+              79.4512,
+              81.4832
+            ],
+            "ASME_Lg_max_mm": 88.89999999999999,
+            "ASME_Lb_min_mm": 81.026,
+            "nut_near_minus_Lg_max_bounds_mm": [
+              -9.448799999999991,
+              -7.416799999999995
+            ],
+            "catalog_min_length_max_stack_two_tip_margin_mm": 18.541999999999987
+          },
+          "independent_box_corners": {
+            "corner_count": 32,
+            "minimum_two_pitch_margin_mm": 18.54199999999999,
+            "minimum_nut_near_minus_gage_mm": -9.448799999999977,
+            "scope": "Endpoint enumeration of the declared comparison box; no physical thread model."
+          },
+          "minimum_body_minus_model_farthest_bearing_mm": 2.1843999999999966,
+          "possible_thread_or_runout_in_far_receiver_mm": 0.0,
+          "possible_thread_or_runout_far_receiver_fraction": 0.0,
+          "nominal_tip_beyond_nut_mm": 24.256999999999994,
+          "blind_socket_required_clear_depth_model_mm": 32.81679999999999,
+          "blind_socket_required_clear_depth_catalog_max_mm": 34.8488,
+          "conditional_36mm_well_minus_required_catalog_max_mm": 1.1512000000000029,
+          "saved_method_bolt_headward_travel_mm": 116.3,
+          "saved_method_nut_nutward_travel_model_mm": 34.81679999999999,
+          "saved_method_nut_washer_nutward_travel_model_mm": 36.81679999999999,
+          "incremental_nominal_tip_and_withdrawal_mm": 12.700000000000003,
+          "four_bolt_individual_price_increment_usd": 0.52,
+          "actual_fit_or_access_or_thread_bearing_verified": false
+        }
+      ]
+    },
+    {
+      "axis_id": "cleat_post_bolt_right_2",
+      "receivers": [
+        "eoere_cleat_right",
+        "base_post_outer_right"
+      ],
+      "current_point_xyz_mm": [
+        1254.125,
+        -80.45,
+        200.0
+      ],
+      "unadopted_proposed_point_xyz_mm": [
+        1254.125,
+        -80.45,
+        180.0
+      ],
+      "drill_entry_xyz_mm": [
+        1254.125,
+        -80.45,
+        200.0
+      ],
+      "drill_inward_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "head_bolt_outward_xyz": [
+        1.0,
+        -0.0,
+        -0.0
+      ],
+      "nut_outward_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "matched_wood_travel_mm": 76.2,
+      "planning_usable_bit_reach_mm": 101.6,
+      "comparisons": [
+        {
+          "sku": 367,
+          "nominal_length_mm": 101.6,
+          "window": {
+            "underhead_length_bounds_mm": [
+              100.076,
+              101.6
+            ],
+            "washer_each_bounds_mm": [
+              1.6256,
+              2.6416
+            ],
+            "nut_height_bounds_mm": [
+              8.128,
+              8.5598
+            ],
+            "two_tip_pitches_mm": 3.175,
+            "required_length_at_max_catalog_stack_mm": 93.21799999999999,
+            "combined_washers_plus_nut_budget_at_shortest_length_mm": 20.70099999999999,
+            "equal_washer_ceiling_at_shortest_length_and_max_nut_mm": 6.070599999999995,
+            "tip_projection_bounds_mm": [
+              10.03299999999999,
+              14.02079999999999
+            ],
+            "nut_near_underhead_bounds_mm": [
+              79.4512,
+              81.4832
+            ],
+            "ASME_Lg_max_mm": 76.19999999999999,
+            "ASME_Lb_min_mm": 68.326,
+            "nut_near_minus_Lg_max_bounds_mm": [
+              3.2512000000000114,
+              5.283200000000008
+            ],
+            "catalog_min_length_max_stack_two_tip_margin_mm": 6.857999999999991
+          },
+          "independent_box_corners": {
+            "corner_count": 32,
+            "minimum_two_pitch_margin_mm": 6.857999999999991,
+            "minimum_nut_near_minus_gage_mm": 3.2512000000000256,
+            "scope": "Endpoint enumeration of the declared comparison box; no physical thread model."
+          },
+          "minimum_body_minus_model_farthest_bearing_mm": -10.515600000000006,
+          "possible_thread_or_runout_in_far_receiver_mm": 10.515600000000006,
+          "possible_thread_or_runout_far_receiver_fraction": 0.27600000000000013,
+          "nominal_tip_beyond_nut_mm": 11.556999999999992,
+          "blind_socket_required_clear_depth_model_mm": 20.11679999999999,
+          "blind_socket_required_clear_depth_catalog_max_mm": 22.14879999999999,
+          "conditional_36mm_well_minus_required_catalog_max_mm": 13.85120000000001,
+          "saved_method_bolt_headward_travel_mm": 103.6,
+          "saved_method_nut_nutward_travel_model_mm": 22.11679999999999,
+          "saved_method_nut_washer_nutward_travel_model_mm": 24.11679999999999,
+          "incremental_nominal_tip_and_withdrawal_mm": 0.0,
+          "four_bolt_individual_price_increment_usd": 0.0,
+          "actual_fit_or_access_or_thread_bearing_verified": false
+        },
+        {
+          "sku": 368,
+          "nominal_length_mm": 114.3,
+          "window": {
+            "underhead_length_bounds_mm": [
+              111.75999999999999,
+              114.3
+            ],
+            "washer_each_bounds_mm": [
+              1.6256,
+              2.6416
+            ],
+            "nut_height_bounds_mm": [
+              8.128,
+              8.5598
+            ],
+            "two_tip_pitches_mm": 3.175,
+            "required_length_at_max_catalog_stack_mm": 93.21799999999999,
+            "combined_washers_plus_nut_budget_at_shortest_length_mm": 32.38499999999999,
+            "equal_washer_ceiling_at_shortest_length_and_max_nut_mm": 11.912599999999996,
+            "tip_projection_bounds_mm": [
+              21.716999999999988,
+              26.720799999999997
+            ],
+            "nut_near_underhead_bounds_mm": [
+              79.4512,
+              81.4832
+            ],
+            "ASME_Lg_max_mm": 88.89999999999999,
+            "ASME_Lb_min_mm": 81.026,
+            "nut_near_minus_Lg_max_bounds_mm": [
+              -9.448799999999991,
+              -7.416799999999995
+            ],
+            "catalog_min_length_max_stack_two_tip_margin_mm": 18.541999999999987
+          },
+          "independent_box_corners": {
+            "corner_count": 32,
+            "minimum_two_pitch_margin_mm": 18.54199999999999,
+            "minimum_nut_near_minus_gage_mm": -9.448799999999977,
+            "scope": "Endpoint enumeration of the declared comparison box; no physical thread model."
+          },
+          "minimum_body_minus_model_farthest_bearing_mm": 2.1843999999999966,
+          "possible_thread_or_runout_in_far_receiver_mm": 0.0,
+          "possible_thread_or_runout_far_receiver_fraction": 0.0,
+          "nominal_tip_beyond_nut_mm": 24.256999999999994,
+          "blind_socket_required_clear_depth_model_mm": 32.81679999999999,
+          "blind_socket_required_clear_depth_catalog_max_mm": 34.8488,
+          "conditional_36mm_well_minus_required_catalog_max_mm": 1.1512000000000029,
+          "saved_method_bolt_headward_travel_mm": 116.3,
+          "saved_method_nut_nutward_travel_model_mm": 34.81679999999999,
+          "saved_method_nut_washer_nutward_travel_model_mm": 36.81679999999999,
+          "incremental_nominal_tip_and_withdrawal_mm": 12.700000000000003,
+          "four_bolt_individual_price_increment_usd": 0.52,
+          "actual_fit_or_access_or_thread_bearing_verified": false
+        }
+      ]
+    }
+  ],
+  "washer_and_fillet_limits": {
+    "catalog_OD_bounds_mm": [
+      25.222199999999997,
+      26.162
+    ],
+    "catalog_ID_bounds_mm": [
+      10.998199999999999,
+      11.5062
+    ],
+    "catalog_thickness_bounds_mm": [
+      1.6256,
+      2.6416
+    ],
+    "fillet_max_diameter_mm": 10.795,
+    "fillet_max_length_mm": 2.2097999999999995,
+    "minimum_ID_minus_maximum_fillet_diameter_mm": 0.20320000000000016,
+    "model_washer_thickness_minus_maximum_fillet_length_mm": 0.4318000000000004,
+    "minimum_catalog_washer_thickness_minus_maximum_fillet_length_mm": -0.5841999999999996,
+    "minimum_catalog_ID_minus_maximum_reference_wood_hole_mm": -0.11430000000000184,
+    "full_nominal_annular_seat_proof_covers_all_catalog_corners": false,
+    "actual_washer_material_or_contact_or_fillet_seating_verified": false
+  },
+  "conditional_tool_outline_from_existing_method": {
+    "status": "conditional maximum envelopes; no measured or selected tools",
+    "half_inch": {
+      "socket_od_mm": 32.0,
+      "socket_length_mm": 80.0,
+      "minimum_well_mm": 48.0
+    },
+    "three_eighth_inch": {
+      "socket_od_mm": 22.0,
+      "socket_length_mm": 65.0,
+      "minimum_well_mm": 36.0
+    },
+    "approach_travel_mm": 100.0,
+    "extension_od_mm": 20.0,
+    "extension_length_mm": 150.0,
+    "remote_drive_head_od_mm": 50.0,
+    "remote_drive_head_thickness_mm": 20.0,
+    "handle_outer_radius_mm": 215.0,
+    "handle_thickness_mm": 12.0,
+    "handle_sector_deg": 40.0,
+    "indexed_working_stroke_deg": 20.0,
+    "socket_to_seat_axial_gap_mm": 0.2,
+    "note": "Remote sector contains a 20-degree stroke plus side-width allowance; torque, ratchet tooth pitch, grip and hand room are unqualified.",
+    "manufacturer_research": [
+      "https://www.tekton.com/1-2-inch-drive-x-7-8-inch-deep-6-point-socket-shd23022",
+      "https://images.tekton.com/assets/SHD23022_spec.jpg",
+      "https://www.tekton.com/3-8-inch-drive-x-9-16-inch-deep-6-point-socket-shd13014",
+      "https://images.tekton.com/assets/SHD13014_spec.jpg"
+    ],
+    "research_limit": "Manufacturer pages identify suitable drive sizes, but their dimensional graphics were not decoded. The numerical envelopes above are explicit conditions, not asserted TEKTON dimensions."
+  },
+  "primary_product_reading": {
+    "observed_UTC": "2026-10-09T06:32:50Z",
+    "bolt_4in": {
+      "url": "https://boltdepot.com/Product-Details?product=367",
+      "listing_identifies": "SAE J429 Grade 5, 3/8-16, partially threaded, ASME B18.2.1, 4in +0/-0.06in, minimum thread1in, 9/16in wrench",
+      "each_price_USD": 0.81
+    },
+    "bolt_4p5in": {
+      "url": "https://boltdepot.com/Product-Details?product=368",
+      "listing_identifies": "Same family, 4.5in +0/-0.10in, minimum thread1in",
+      "each_price_USD": 0.94
+    },
+    "nut": {
+      "url": "https://boltdepot.com/Product-Details?product=2571",
+      "listing_identifies": "SAE J995 Grade 5, ASME B18.2.2, 3/8-16; 0.320-0.337in high; flats0.551-0.563in"
+    },
+    "washer": {
+      "url": "https://boltdepot.com/Product-Details?product=15023",
+      "listing_identifies": "USS ASME B18.21.1, OD0.993-1.030in, ID0.433-0.453in, thickness0.064-0.104in; numeric yield not supplied"
+    },
+    "socket_example": {
+      "url": "https://www.tekton.com/3-8-inch-drive-x-9-16-inch-deep-6-point-socket-shd13014",
+      "drawing_url": "https://images.tekton.com/assets/SHD13014_spec.jpg",
+      "drawing_bytes": 140822,
+      "drawing_sha256": "e3e40b70941ff006def99dacf83db641dfd195d59375aa12af462dade984ea9f",
+      "visually_read_dimensions_mm": {
+        "external_OD": 19.812,
+        "overall_length": 63.5,
+        "hex_depth": 20.32
+      },
+      "scope": "Unselected product example. External dimensions lie inside the old conditional OD22/length65 envelope. Hex depth is not total bolt-well depth. Relief bore/depth, engaged drive intrusion, actual dimensions and current installed clearance are unknown."
+    },
+    "reading_scope": "Primary pages were read, and the original socket dimension graphic inspected in memory. No order, purchase, availability guarantee, retained raw external asset, or supplier/lot qualification. Frozen catalog dimensions govern the arithmetic; observed prices agree with that dated basket."
+  },
+  "missing_inputs_and_design_disposition": [
+    "Retain the existing partially threaded 4in family as the first dimensional proposal. Its projection and conservative grip-gaging comparisons are positive. Full smooth bearing is not guaranteed by the listed body minimum.",
+    "The 4.5in family can supply a larger minimum smooth body over the model bearing interval, but its upper grip-gaging bound cannot guarantee the nut reaches this short stack. It is a comparison only. Do not add washer packing, trim bolts, reverse the installation or substitute full-thread stock.",
+    "Per-stack dimensional acceptance inputs are delivered length L, sound seated receiver stack S, each own washer thickness, nut height/pitch and active threads, actual body/transition/root profile, gaged grip, free nut seating and washer/fillet seating. Actual worksheet cells remain blank.",
+    "The separate retained UNRC-2A/steel-core-root proposal is a conditional purchase hypothesis: for3/8-16 it proposes7.31774mm root/no-undercut floor over threaded AND transition bearing regions. A generic UNC listing or UNR gage does not establish this floor. No root or wood resistance is calculated here.",
+    "SAE J429 Grade5 with the existing92ksi minimum tensile-yield/F606 hypothesis is a design specification, not observed delivered conformance or a new bending coupon. Matching nut/washer standards do not establish washer numeric yield or combined resistance.",
+    "A guide19.05mm and backer travel6.35mm require101.6mm usable cutting reach/projection for the nominal76.2mm matched pair. Exact bushing ID/OD/length/fixation, datum registration/stops, independent member supports, clamps/backer footprint and drill/chuck/bit envelopes remain needed. Overall bit length alone is insufficient.",
+    "The installation reference for3/8in timber holes is13/32-7/16in; the current Z200 four-station maximum-hole conflict stays HOLD. Z180 is unadopted. Registration, guide clearance/tilt, bit runout/drift, receiver seating and hole size need an explicit error budget against the current geometry.",
+    "Specify a9/16in tool with clear tip well exceeding the required nut-plus-protrusion depth plus its actual seating/drive allowance, or an appropriate pass-through tool. External socket fit alone cannot qualify its internal well, drive intrusion, counterhold, hand space or handle sweep.",
+    "The recorded socket/extension/remote-handle envelopes and L+2mm bolt removal convention are reusable query inputs only. Current clearance needs source-bound continuous approaches/removals and supported assembly/disassembly order. No old swept-clear pass transfers.",
+    "Nominal washer-seat proof does not cover every catalog ID/thickness/fillet corner. A washer ID smaller than the maximum wood hole leaves an inner strip over the void; effective contact area needs its own disposition. Thin head washers may expose fillet beyond the washer. Do not silently claim full support or use bolt tightening to draw parts together."
+  ],
+  "limits": [
+    "Pure JSON/CSV and scalar dimension arithmetic. Source pin closure here authenticates direct scalar inputs and all ten retained receiver-seat files; no old force field or component resistance is consumed or transferred.",
+    "ASME B18.2.1-2012 Lb/Lg values are the retained uncoated full-body hex-cap-screw scenario. Vendor edition, finished coating and delivered dimensions remain separate; Lg is not an observed first full-form thread.",
+    "Possible thread/runout lengths measured from Lb minimum are conservative exposure diagnostics, not observed threaded lengths, an automatic quarter-bearing failure, or a strength pass.",
+    "Nominal stock/pair thicknesses are not actual measurements. New proposal changes only Z; all100current axes and66current screws remain authoritative and unchanged.",
+    "Guide/backer sizes, conditional tool outlines and removal travel are planning inputs. No CAD import/build/query, native method, frame solve, physical test or observed access is performed.",
+    "No model/viewer/source/evidence replacement, shared documentation edit, staging, commit, part purchase, torque/preload or physical operation is authorized by this receipt."
+  ],
+  "release": {
+    "geometry_adoption": false,
+    "hardware_adoption": false,
+    "delivered_part_conformance": false,
+    "actual_tool_fit": false,
+    "finished_geometry_or_access_check": false,
+    "thread_bearing_resistance": false,
+    "complete_joint_strength": false,
+    "fabrication": false,
+    "climbing": false
+  },
+  "execution": {
+    "python_version": "3.12.3",
+    "imports": "Standard library only; selected authenticated scalar functions and literal TOOL data. No CAD, geometry import/query or solver.",
+    "output_wrapper": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate-v3.py"
+  },
+  "reproduction_command": "uv run python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate-v3.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/reproduction-v3-01.json",
+  "output_guard_revision": {
+    "original_five_v1_v2_files_unchanged": true,
+    "original_numerical_and_hardware_findings_exact": true,
+    "requested_parent_resolved_and_validated_once": true,
+    "destination_bound_to_canonical_owned_directory": true,
+    "reject_existing_canonical_leaf_including_dangling_symlink": true,
+    "exclusive_creation_uses_canonical_owned_destination": true,
+    "requested_parent_alias_retarget_cannot_redirect_output": true,
+    "capacity_or_geometry_or_hardware_adoption_changed": false
+  }
+}

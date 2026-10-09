@@ -3415,6 +3415,156 @@ mirror preserve the recorded scenarios. The receipts under
 These reviews retain the analytic source-recipe boundary; they do not establish
 observed finished-solid, actual tool, pressure or resistance qualification.
 
+The subsequent [four-receiver finished-solid query](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/result.json)
+answers that local geometry question for the same unadopted proposal. Its result
+SHA is `6efea34ce52b3521da6d14b89853ef83ab9c1a1f7861c71f6410fc8db7738cb3`
+(249,921 bytes). The parent-owned
+`finished-receivers-v1/parent-candidate-readiness-v2.json`, SHA
+`fce668182fcce2c36b02971b2f4ec1354844de2beb704e636c5e004f75be8a51`,
+permits only this serialized four-host geometry query. It is not a force,
+native FEA, whole-frame, viewer or physical-work authorization.
+The immutable issued readiness records the completed run; it is not permission
+for future execution without new parent readiness.
+
+The two posts reuse authenticated raw BREPs already in current coordinates;
+no second kerf-right shift is applied. The two cleats use their current sloping
+YZ profiles and full 38.1-mm X extrusions. Each host receives all four recorded
+own bore cuts. The current Z200 reconstruction first matches all four frozen
+finished bodies by bounds and missing/added Boolean volume, with maximum volume
+difference **9.313226e-10 mm³** against 0.001 mm³. This is a numerical geometry
+comparison, not byte identity or a general topology-equivalence proof.
+
+Both Z180 branches replace the eight old Z200 receiver-void occurrences from raw
+material. One retains the recorded bore diameters; the other sets all affected
+wood bores to 11.1125 mm. Across the current baseline and two proposed branches,
+**48 own full-circumference walls and 48 external nominal annular seats** pass.
+Every wall is 38.1 mm within 1e-6 mm; all nominal annular backing fractions are
+1.0 within 1e-8. Each branch checks eight changed and eight retained receiver
+occurrences, on the exported and reimported finished bodies. The annular query
+uses one own host, the recorded washer ID/OD and a 0.05-mm inward skin. It does
+not cover delivered or all catalog-corner washers, actual contact pressure,
+wood screw pilots/countersinks, tool access, fit tolerances or resistance.
+All current 100 axes, 66 screws, viewer and drilling instructions remain
+unchanged. The current Z200 saved forces are not assigned to Z180.
+
+The native query methods are reused exactly from the existing occupied-bore,
+finished-wall, annular-backing, overlap and strict-solid helpers. The runtime
+is Python 3.12.3 / CadQuery 2.8.0 / cadquery-ocp 7.9.3.1.1. Seven small native
+known-answer/negative checks precede candidate work and are reused by its
+source-bound adapter. The original `query.py` and its toy receipt remain frozen:
+source-only intake found tuple/list comparison rejection, and review found an
+occupied dangling output alias could be followed. The narrow `query-v2.py`,
+SHA `88edea7a233963e32f6d56fc7fd0dd86322acc65f69bbefdd4f53cc01d919912`,
+fixes the canonical inventory join and raw requested-entry guard while privately
+reusing the original adapter and native methods. Its separate toy result,
+`runs-v1/method02/result.json`, is SHA
+`e054fbd0fd9015f31a17c0c3887937e00a3793c2f40795c53e9ea535db50e2e7`.
+Three independent method reviews report no remaining substantial findings:
+
+| `finished-receivers-v1/independent-method-review-v2` receipt | SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `ea307e7f53957f4147ef02a0107faf0618c7af137c09fa7efb74e76f4e15e1e8` |
+| `testing/receipt.json` | `25ca95c2cb93797c78a48d2ef8ad498bc558a53b8a6aac6293d534ebb260902c` |
+| `structure/receipt.json` | `a68dd53dc51fc658a271a74f4d1180f9e5777068f574dd0c62e78b7538dd5a8b` |
+
+The separate [saved-result review](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-result-review-v1/correctness/receipt.json),
+SHA `d15cfd92da7f257d1415fc1a97f348610a98ea2243e0a7c02d27f6081fe7cca9`,
+reports no substantial findings. It independently reconstructs the three local
+descriptor views from source metadata, replays all 48 cylinder areas/intervals
+and 48 nominal seat-ownership joins, audits four saved baseline comparisons,
+and verifies 59 source/result/export files. Twelve altered-consumer controls
+reject. Its reusable stdlib `evaluate()` reproduces the same audit for the
+parent; neither review nor parent verification regenerates native observations.
+
+The result authenticates 46 direct source/authority/review files before/after,
+not the full frame-observation closure. All twelve newly exported finished BREPs
+are separately SHA-bound and remain **active ignored inputs**, 98,158 bytes.
+The compact report retains the full 48/48 observations, strict-solid and
+export/reimport records, baseline comparisons and source pins for review and
+reproduction. Original failed pre-candidate intake, both toy receipts and both
+method-review batches remain recoverable at their source paths; no frozen file
+is overwritten, pruned or substituted.
+
+The distinct [four-station hardware followup](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result-v3.json)
+reuses the existing catalog/window/corner methods, current stack/access/hole
+tables and saved conditional tool outlines. It consumes no forces, CAD or native
+geometry. Its final wrapper is SHA
+`352167060aa4baacfe2f460670d0a28a8638a173f312b9887e24cf5babb12f2c`;
+the final result is SHA
+`16962d3d5bc897336c37ac5da945e08bd0268604c1f0fc640127786dd5d97781`
+(40,664 bytes). All four current stations exactly retain the prior scalar
+hardware geometry; current Z200 and proposed Z180 coordinates remain separate.
+The final result binds 31 source files, preserving the original ten receiver
+study files and each earlier hardware wrapper/result.
+
+For the 76.2-mm pair, the existing 4-inch SKU 367 comparison has catalog tip
+projection **10.033–14.0208 mm**, a **6.858-mm** margin beyond two required
+thread pitches at its shortest length/largest listed stack, and a positive
+conservative nut/grip-gaging comparison. Its **68.326-mm** minimum body leaves
+up to **10.5156 mm** of possible thread/transition exposure in the far 38.1-mm
+receiver. This is a conservative catalog diagnostic, not an observed threaded
+length or a complete bolt/wood strength pass.
+
+The 4½-inch SKU 368 comparison improves minimum body to **81.026 mm**, 2.1844 mm
+past the model's farthest bearing target, but its 88.9-mm grip-gaging maximum
+exceeds the nut-near position by **7.4168–9.4488 mm**. Nut seating is therefore
+not guaranteed for that substitute. It also adds 12.7 mm to nominal protrusion
+and the saved headward-removal travel. The comparison retains the catalog's
+dated $0.52 increment for four bolts, not a new purchase or adopted change.
+Do not infer that adding length solves both body coverage and seating.
+
+The current 4-inch comparison requires **22.1488 mm** of clear blind-socket depth
+at the listed catalog corner, before its actual drive/seating allowance; the
+4½-inch comparison requires 34.8488 mm. The saved 22-mm outside socket envelope
+and 36-mm well are conditional query inputs, not observed tools. The primary
+TEKTON drawing's external dimensions and hex depth do not establish usable
+bolt-tip well after drive insertion. The proposed 19.05-mm guide plus 6.35-mm
+backer and 76.2-mm matched timber pair require **101.6 mm usable bit reach**;
+overall bit length alone does not establish that reach. Bushing, registration,
+independent supports/clamps, finishing dimensions, drill/chuck runout/sweep,
+counterhold and continuous assembly/removal corridors still need disposition.
+
+Nominal washer support does not cover every catalog corner. Minimum listed
+washer ID is 0.1143 mm smaller than the maximum reference wood-hole diameter;
+minimum thickness is 0.5842 mm less than the maximum underhead-fillet length.
+Effective contact and fillet accommodation remain separate from the full
+nominal ring observation. All actual measurements and worksheet dispositions
+stay blank. The followup neither changes screw/bolt counts nor supplies actual
+material, root/runout, pressure, torque/preload or complete-joint resistance.
+
+The original hardware CLI followed an occupied dangling leaf alias. Its v2
+exclusive requested-leaf fix still allowed an accepted parent alias to redirect
+output during evaluation. Both issued versions and failed-review receipts remain
+frozen. The v3 wrapper reuses their exact scalar arithmetic, validates the parent
+once, and exclusively creates the canonical owned leaf. Its provenance and guard
+metadata are updated separately from the unchanged findings. The original
+256 endpoint-corner arithmetic proof is reused; output-only changes do not
+justify another CAD, mechanics or scalar design experiment.
+Three separate final reviews report no substantial findings. They verify the
+31-pin source union and exact unchanged arithmetic/findings, canonical parent
+ownership, occupied/dangling leaf rejection, late-entry races, truthful output
+identity, and preservation of both earlier versions and review sets. Genuine
+source-linked CLI reproduction is byte-identical. Two concurrent writers produce
+one successful output and one rejection. The receipts are:
+
+| `hardware-followup-v1/independent-review-v3` receipt | SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `09d41a7839af82645ae13ed1aae69d635c658b732ac16d5115dc62ee10441911` |
+| `testing/receipt.json` | `16887f3d48399038369fb5fb079dc1f275517d4502dcf6a13c442e46acf37136` |
+| `structure/receipt.json` | `e834911959edba4ec37e62090da0dbdca510aaae444068fab65034f9d3a35971` |
+
+All seven hardware source/result files and all three review batches remain
+active compact records. Actual worksheet cells remain blank; no longer hardware,
+root property, guide, tool, Z180 station or physical operation is adopted here.
+The local geometry and hardware followup adds **49 compact files / 814,760 bytes**:
+24 geometry-method/result/review records and 25 hardware records, including the
+failed versions needed to reproduce their review findings. The largest permanent
+artifact is the 249,921-byte geometry observation report described above; its
+complete source, strict-solid, 48-wall and 48-seat evidence is retained rather
+than publishing only a pass label. The twelve raw finished BREPs stay active
+ignored. Existing frame fields/operators, source caches, prior studies and
+historical viewer assets remain active; no archive or prune operation occurs.
+
 The separate [signed-end inventory and square-end markers](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
 reuse the six completed rich reports rather than regenerating their actions.
 The producer SHA is `fc45c5e990b11c20a3e6e98e9723b25ec366d05a780b229d82cdb639c6dc4ad0`;

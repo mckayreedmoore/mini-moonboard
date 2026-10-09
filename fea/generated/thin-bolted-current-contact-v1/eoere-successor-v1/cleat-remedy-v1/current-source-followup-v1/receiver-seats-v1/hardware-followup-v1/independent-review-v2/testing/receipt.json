@@ -1,0 +1,104 @@
+{
+  "all_v1_numerical_hardware_limits_and_release_findings_exact": true,
+  "confirmed_substantial_findings": [
+    {
+      "fix": "Preserve both frozen versions. In a new wrapper, validate requested.parent, then check/open canonical HERE / requested.name exclusively, preserving the requested leaf name and rejecting occupied leaf entries. Bind a directory descriptor instead if protection against replacement of HERE itself is required. Add this parent-alias regression.",
+      "impact": "An accepted symlink parent can be retargeted after line 67 validates its resolved ownership. Line 73 then creates the fresh output outside HERE, while the success receipt reports the absent HERE/name path. The leaf-entry fix works, but this regresses canonical-parent protection from the original CLI.",
+      "line": 73,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate-v2.py",
+      "priority": "P2",
+      "reproduction": "Private stdlib control invokes the frozen main() with only evaluate stubbed: parent-alias initially points at owned HERE; evaluate switches it to an outside directory; main succeeds and writes outside/redirected.json while reporting owned/redirected.json.",
+      "title": "Keep exclusive output creation inside the parent whose ownership was validated"
+    }
+  ],
+  "evaluate_matches_recorded_v2_result": true,
+  "exact_pin_expansion_and_v2_reproduction_command": true,
+  "execution": {
+    "CAD_native_global_field_or_bulk_execution": false,
+    "shared_documents_index_staging_or_commit_changes": false,
+    "stdlib_source_and_stub_only": true
+  },
+  "frozen_source_pin_count_before_after": 29,
+  "injected_after_guard_controls": {
+    "dangling_leaf": "exclusive open rejected injected entry; target/bytes preserved",
+    "parent_alias_retarget": {
+      "outside_owned_packet_created": true,
+      "reported_owned_path_does_not_exist": true,
+      "succeeded": true
+    },
+    "regular_leaf": "exclusive open rejected injected entry; target/bytes preserved"
+  },
+  "limits": [
+    "Pure JSON/CSV and scalar dimension arithmetic. Source pin closure here authenticates direct scalar inputs and all ten retained receiver-seat files; no old force field or component resistance is consumed or transferred.",
+    "ASME B18.2.1-2012 Lb/Lg values are the retained uncoated full-body hex-cap-screw scenario. Vendor edition, finished coating and delivered dimensions remain separate; Lg is not an observed first full-form thread.",
+    "Possible thread/runout lengths measured from Lb minimum are conservative exposure diagnostics, not observed threaded lengths, an automatic quarter-bearing failure, or a strength pass.",
+    "Nominal stock/pair thicknesses are not actual measurements. New proposal changes only Z; all100current axes and66current screws remain authoritative and unchanged.",
+    "Guide/backer sizes, conditional tool outlines and removal travel are planning inputs. No CAD import/build/query, native method, frame solve, physical test or observed access is performed.",
+    "No model/viewer/source/evidence replacement, shared documentation edit, staging, commit, part purchase, torque/preload or physical operation is authorized by this receipt."
+  ],
+  "old_v1_review_files_unchanged": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/correctness/receipt.json": "33b5a465b5ec7e5c3e113995f6762e719f8a5fbc27225bf4ea71f1078b6ca652",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/correctness/review.py": "de63a82747c218c372a5f1d1f6cd969148331cac7d8e929bcc5692f92819dd2c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/structure/receipt.json": "0b6e1ac25e8e9a59b7eb8682e10c0812b6ef8121ceda7c43a0ec2d58eadb14e6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/structure/review.py": "8fca4986fadcd090321fa3b103032342183232839adf6d5c815681d1939bd9c2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/testing/receipt.json": "444b375c4e9fbaf6e39ead0219c5d81b4340f41c2819b9ae26f132c7f10d3eee",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/testing/review.py": "0721033e0ba96c007820998333ca06ea26a9bfac8cc86eda8377ed93c74c7902"
+  },
+  "receiver_final_and_development_files_unchanged": 10,
+  "release": {
+    "actual_tool_fit": false,
+    "climbing": false,
+    "complete_joint_strength": false,
+    "delivered_part_conformance": false,
+    "fabrication": false,
+    "finished_geometry_or_access_check": false,
+    "geometry_adoption": false,
+    "hardware_adoption": false,
+    "thread_bearing_resistance": false
+  },
+  "retention": "Keep this compact review active; temporary mirrors and race controls were removed. All original packets, both hardware versions and v1 reviews remain frozen. No capacity, geometry, tool or hardware adoption follows.",
+  "reused_v1_independent_math_proof": {
+    "decimal_box_corners": 256,
+    "receipt_sha256": "444b375c4e9fbaf6e39ead0219c5d81b4340f41c2819b9ae26f132c7f10d3eee",
+    "rerun": false,
+    "semantic_corruptions": 12,
+    "station_comparisons": 8
+  },
+  "review_source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v2/testing/review.py": "774882ca2b07c60fcbecd8a8866f3609e7f9c86633cc70f97c6fecfee510fccf"
+  },
+  "schema": "eoere_four_cleat_post_hardware_independent_testing_review/v2",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate-v2.py": "cafd8b00756e7cf5177fb8722f6139883d4c40aa28a7a08bf9d988575aa770f0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate.py": "ed7a16cbdb97bf15ddc74e2af49bb3b512dc57c7541358392db55ea25d8dfc0e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/testing/receipt.json": "444b375c4e9fbaf6e39ead0219c5d81b4340f41c2819b9ae26f132c7f10d3eee",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/testing/review.py": "0721033e0ba96c007820998333ca06ea26a9bfac8cc86eda8377ed93c74c7902",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/inputs.json": "6cba1fb87b9cfa337f2c5418afe6c0f7fa6def8d6ae463e9f355701df3d75e33",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result-v2.json": "2a70abd309932e497daeb0bebf152439077f776a28823d910d50c35c71c24f42",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result.json": "fbe6983488fc5c3017810654f43df0e0ef2188657387cc6a3b92b4e02fbb4c0a"
+  },
+  "status": "LEAF_ENTRY_FIX_PASSES_PARENT_ALIAS_RACE_REVISION_REQUIRED",
+  "temporary_actual_CLI_checks": {
+    "full_frozen_v2_JSON_reproduced": true,
+    "negative_output_controls": {
+      "dangling_leaf_inside": "rejected; protected entries unchanged",
+      "dangling_leaf_outside": "rejected; protected entries unchanged",
+      "directory_leaf": "rejected; protected entries unchanged",
+      "existing_target_leaf": "rejected; protected entries unchanged",
+      "input_alias": "rejected; protected entries unchanged",
+      "occupied_regular": "rejected; protected entries unchanged",
+      "outside_parent": "rejected; protected entries unchanged",
+      "wrong_suffix": "rejected; protected entries unchanged"
+    },
+    "stable_parent_alias_reproduced": true,
+    "two_normal_writers_returncodes": [
+      0,
+      1
+    ]
+  },
+  "wrapper_corruption_controls": {
+    "changed_original_hash": "frozen original hardware packet changed",
+    "changed_original_result": "original arithmetic or recorded source pins changed",
+    "changed_pin_during_wrapper": "source changed during wrapper calculation"
+  }
+}

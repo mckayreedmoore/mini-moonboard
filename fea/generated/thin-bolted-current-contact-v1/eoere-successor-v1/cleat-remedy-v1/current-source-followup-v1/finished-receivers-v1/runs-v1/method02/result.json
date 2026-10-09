@@ -1,0 +1,222 @@
+{
+  "fixtures": {
+    "candidate_BREP_imports": 0,
+    "extra_face_sibling_rejected": true,
+    "full_annulus_fraction": 1.0,
+    "full_wall": {
+      "full_wall_intervals_mm": [
+        [
+          0.0,
+          10.0
+        ]
+      ],
+      "full_wall_length_mm": 10.0,
+      "matching_cylindrical_faces": [
+        {
+          "circumference_integral_fraction": 1.0,
+          "full_circumference_wall": true,
+          "full_cylinder_area_mm2": 94.24777960769379,
+          "interval_mm": [
+            0.0,
+            10.0
+          ],
+          "wall_area_mm2": 94.24777960769379
+        }
+      ],
+      "partial_wall_present": false,
+      "qualified_directional_bearing_length_mm": null
+    },
+    "half_annulus_fraction": 0.5,
+    "known_answer_or_negative_checks": 7,
+    "partial_wall": {
+      "full_wall_intervals_mm": [],
+      "full_wall_length_mm": 0,
+      "matching_cylindrical_faces": [
+        {
+          "circumference_integral_fraction": 0.8687664041994749,
+          "full_circumference_wall": false,
+          "full_cylinder_area_mm2": 1710.137741954055,
+          "interval_mm": [
+            0.0,
+            38.1
+          ],
+          "wall_area_mm2": 1485.7102167632338
+        }
+      ],
+      "partial_wall_present": true,
+      "qualified_directional_bearing_length_mm": null
+    },
+    "strict_nested_location_orientation": {
+      "canonical_solid_serialized_brep_sha256": "05c9f25d80521971c824240b696e8025998adb04938d5797796f136c75651129",
+      "canonical_solid_topology_counts": {
+        "edges": 12,
+        "faces": 6,
+        "shells": 1,
+        "solids": 1,
+        "vertices": 8
+      },
+      "compound_wrapper_count": 2,
+      "extra_geometry_dropped": false,
+      "iterator_cumLoc": true,
+      "iterator_cumOri": true,
+      "location_or_orientation_reset": false,
+      "nodes": [
+        {
+          "immediate_children": 1,
+          "location_3x4": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              10.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              20.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              30.0
+            ]
+          ],
+          "native_serialized_brep_sha256": "f0001de79eac3d4e87171d29ec1de5ae9f970f0e60c9d3288e9dd16127f67873",
+          "orientation": "TopAbs_Orientation.TopAbs_REVERSED",
+          "shape_type": "TopAbs_ShapeEnum.TopAbs_COMPOUND"
+        },
+        {
+          "immediate_children": 1,
+          "location_3x4": [
+            [
+              0.8660254037844387,
+              -0.49999999999999994,
+              0.0,
+              13.0
+            ],
+            [
+              0.49999999999999994,
+              0.8660254037844387,
+              0.0,
+              18.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              35.0
+            ]
+          ],
+          "native_serialized_brep_sha256": "dc799a0aa1941458a5dfb24819db275f1f6380c3d0c50c676a8023b8ccf54030",
+          "orientation": "TopAbs_Orientation.TopAbs_FORWARD",
+          "shape_type": "TopAbs_ShapeEnum.TopAbs_COMPOUND"
+        },
+        {
+          "immediate_children": 1,
+          "location_3x4": [
+            [
+              0.8660254037844387,
+              -0.49999999999999994,
+              0.0,
+              13.0
+            ],
+            [
+              0.49999999999999994,
+              0.8660254037844387,
+              0.0,
+              18.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              35.0
+            ]
+          ],
+          "native_serialized_brep_sha256": "05c9f25d80521971c824240b696e8025998adb04938d5797796f136c75651129",
+          "orientation": "TopAbs_Orientation.TopAbs_FORWARD",
+          "shape_type": "TopAbs_ShapeEnum.TopAbs_SOLID"
+        }
+      ],
+      "original_imported_serialized_brep_sha256": "f0001de79eac3d4e87171d29ec1de5ae9f970f0e60c9d3288e9dd16127f67873",
+      "original_imported_topology_counts": {
+        "edges": 12,
+        "faces": 6,
+        "shells": 1,
+        "solids": 1,
+        "vertices": 8
+      },
+      "original_wrapper_unchanged": true,
+      "schema": "thin_bolted_strict_single_child_solid_container/v2"
+    },
+    "wrong_radius_rejected": true
+  },
+  "inputs_sha256": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24",
+  "parent_readiness": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/parent-method-readiness-v2.json",
+    "sha256": "b1d4e988f0af656f5d9b967af31a62e019e84625cdd4a4e70f5d27810efffe5a"
+  },
+  "pass": true,
+  "query_sha256": "88edea7a233963e32f6d56fc7fd0dd86322acc65f69bbefdd4f53cc01d919912",
+  "release": {
+    "capacity_established": false,
+    "climbing_released": false,
+    "fabrication_released": false,
+    "geometry_adopted": false,
+    "mechanics_ready": false,
+    "structural_released": false
+  },
+  "runtime": {
+    "cadquery": "2.8.0",
+    "cadquery-ocp": "7.9.3.1.1",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_four_receiver_native_method_fixtures/v1",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current_profiles.json": "1ec82f4c83abda73f993455c21fa56371d6ed9046e208694c4d24226e26a2a27",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/result.json": "0f00a7ba22a08975adac6bf660db370866510c40b5d56e5829bfab9b2ad3f92e",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+    "fea/generated/thin-bolted-current-contact-v1/candidate-reference-solids-v2/bridge.py": "a215a91e1ef3f1f48c36e41065bea5078be5f3d3e1bfcb9fc5e6bd263bf91098",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bolt-group-method-v1/method.py": "70321b1690269644c6bee6e5d37806f5fcfc31f9677a2a0eae3fb50939b83f69",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower_bolt_z_v2.py": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/revision.py": "25ea28b46994c9fa9f91fbb7fecbc6215dcb92f228af516a253c446ffb921da0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/inputs.json": "1480f590f0b870a86acf489b780d4eb34c4ef7760a8dc88bc0c70c58b311bf24",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/parent-method-readiness-v2.json": "b1d4e988f0af656f5d9b967af31a62e019e84625cdd4a4e70f5d27810efffe5a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query-v2.py": "88edea7a233963e32f6d56fc7fd0dd86322acc65f69bbefdd4f53cc01d919912",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/query.py": "b9a888032c19a7616619bb27355aa2aeb5a0ade862aa748ad08d80ababd0ebfb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/placement.json": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/calculate.py": "5f6d088a836f1ac198c2cc7c8355b3a6ca8a20034a863ab813e4e33fa4a3fa03",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/inputs.json": "e3fda210640db0bc395d808c90625d65e8049da315c0872da12077731e6f0e41",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json": "a21c25d6693a86f2617655cec1e82aa51c182b153e19baf8f5d1431afa381443",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/result.json": "26d27f9c8f5e3c1d91e48143341a8e808d0ece99f316eaf789e2fcbe22e4252a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/cad-v1/eoere_cleat_left.brep": "4cdd478825e37121d64881feb1eaa6d860654289e571e34c468c075926ab3a26",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/cad-v1/eoere_cleat_right.brep": "733fe8837b8fd115a77873b93499fa7051dd192d1bb24aa71cb085ffcbddcb95",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/revision.py": "3d26790b93aa3754c50ed5b427e7b4b1db05e517e7e759ef6d009d427216ec08",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/test_extract.py": "382f56682aab4757cbeac080ba16b8494de4e354034c1554fcdbc58bb7b22754",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_post_outer_left.brep": "c7caabfcd9c32f35baa9a68a5535bd82d3d68bdb907d64a38aa16f1be7b8d88e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_post_outer_right.brep": "c5ba34b36bdc69ee184e8676c0ef2ce3a788b6ef6b9b300e1d0413e30464e7f6",
+    "fea/generated/thin-bolted-current-contact-v1/reference-solid-distance-v1/distance.py": "b0b94063be8fc595bb01ffcb08f876061e3aa9efca6cb4466e5c74fb183fdc8d",
+    "fea/generated/thin-bolted-v4-geometry/raw_base_post_outer_left.brep": "d80151e469f8b5ec930be7200d8723d52e8a71470764e249dadcb6c93d5ad92b",
+    "fea/generated/thin-bolted-v4-geometry/raw_base_post_outer_right.brep": "764811593bb5088b633083a408a4a363e3b13cab991e117a6765e1beb072f512",
+    "mini_moonboard/compact_floor_flush_frame.py": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a",
+    "mini_moonboard/compact_floor_taper_frame.py": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1",
+    "mini_moonboard/floor_flush_width.py": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5",
+    "pyproject.toml": "84e007ad5c9cfffa853f21627fecbaec0a85c602560d5d5e0b507326e9b02452",
+    "scripts/eoere_bolted_model.py": "9bbdaae74981710891fbd1a01a97088e29cd99fda47bff854e51473f66e1adaa",
+    "scripts/hl35_candidate.py": "4fd07e925e0c252035361194f6854106099f839fee4132cb7b37a7b4aeef022d",
+    "scripts/thin_bolted_layout_revision.py": "af84ec13d64ab4b4b0686003ad95b5ea905eb159393789266816ad48add7e32e",
+    "scripts/thin_bolted_occupied.py": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77",
+    "scripts/thin_bolted_timber_resistance.py": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d",
+    "tests/test_thin_bolted_timber_resistance.py": "798537cd90f35da4d9a432680171fbe73670756e80f7836e5397a373fd1a03ff",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "sources_unchanged_before_after": true
+}

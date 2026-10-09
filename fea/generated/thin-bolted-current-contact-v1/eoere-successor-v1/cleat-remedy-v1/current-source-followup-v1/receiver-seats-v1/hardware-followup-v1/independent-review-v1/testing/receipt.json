@@ -1,0 +1,98 @@
+{
+  "confirmed_substantial_findings": [
+    {
+      "fix": "Preserve the frozen packet. In a new CLI revision, retain the original requested Path for exclusive creation and use its resolved parent only for ownership checks; reject existing symlink entries. Add a dangling-symlink regression asserting no callback/target creation.",
+      "impact": "An existing dangling --out symlink to an absent .json target inside the owned subpacket is accepted. Path.resolve() replaces the requested directory entry before exists/open(x), so the genuine CLI creates the target and succeeds instead of rejecting the already occupied output entry. Ordinary files and competing regular writers remain protected.",
+      "line": 213,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate.py",
+      "priority": "P2",
+      "reproduction": "Byte-identical frozen producer and inputs replayed in a private source-linked /tmp mirror. Create already-existing-link.json -> redirected.json with the latter absent; the actual CLI returns 0 and creates redirected.json containing the complete frozen result.",
+      "title": "Preserve the requested output entry when checking and opening a fresh result"
+    }
+  ],
+  "execution": {
+    "CAD_native_global_field_or_bulk_execution": false,
+    "shared_documents_index_staging_or_commit_changes": false,
+    "stdlib_source_and_scalar_only": true
+  },
+  "full_source_evaluate_matches_result": true,
+  "in_memory_semantic_corruptions_rejected": {
+    "actual_observation": "actual observation cell is populated",
+    "axis_census": "axis census changed",
+    "body_target": "body target differs",
+    "full_thread": "full-thread substitution",
+    "missing_own_side": "own receiver/access coverage differs",
+    "nonfinite_length": "invalid catalog length",
+    "prior_axis_join": "prior four-station scalar reuse no longer applies",
+    "proposal_translation": "proposal changes more than Z",
+    "reversed_washer_bounds": "reversed catalog bounds",
+    "stack_length": "stack differs",
+    "wall_length": "receiver length differs",
+    "wrong_receiver": "own receiver/access coverage differs"
+  },
+  "independent_decimal_scalar_checks": {
+    "exact_decimal_box_corners": 256,
+    "four_inch_body_exposure_mm": 10.5156,
+    "four_p5_inch_body_margin_mm": 2.1844,
+    "guide_plus_pair_plus_backer_reach_mm": 101.6,
+    "longer_conditional_socket_well_margin_mm": 1.1512,
+    "longer_nut_near_minus_gage_range_mm": [
+      -9.4488,
+      -7.4168
+    ],
+    "station_comparisons": 8
+  },
+  "limits": [
+    "Pure JSON/CSV and scalar dimension arithmetic. Source pin closure here authenticates direct scalar inputs and all ten retained receiver-seat files; no old force field or component resistance is consumed or transferred.",
+    "ASME B18.2.1-2012 Lb/Lg values are the retained uncoated full-body hex-cap-screw scenario. Vendor edition, finished coating and delivered dimensions remain separate; Lg is not an observed first full-form thread.",
+    "Possible thread/runout lengths measured from Lb minimum are conservative exposure diagnostics, not observed threaded lengths, an automatic quarter-bearing failure, or a strength pass.",
+    "Nominal stock/pair thicknesses are not actual measurements. New proposal changes only Z; all100current axes and66current screws remain authoritative and unchanged.",
+    "Guide/backer sizes, conditional tool outlines and removal travel are planning inputs. No CAD import/build/query, native method, frame solve, physical test or observed access is performed.",
+    "No model/viewer/source/evidence replacement, shared documentation edit, staging, commit, part purchase, torque/preload or physical operation is authorized by this receipt."
+  ],
+  "release": {
+    "actual_tool_fit": false,
+    "climbing": false,
+    "complete_joint_strength": false,
+    "delivered_part_conformance": false,
+    "fabrication": false,
+    "finished_geometry_or_access_check": false,
+    "geometry_adoption": false,
+    "hardware_adoption": false,
+    "thread_bearing_resistance": false
+  },
+  "retained_receiver_final_and_development_files_unchanged": 10,
+  "retention": "Keep this compact review helper/receipt active. Source-linked temporary CLI outputs and in-memory corruptions were private; all old reviewed packets and original target files remain unchanged.",
+  "review_source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/independent-review-v1/testing/review.py": "0721033e0ba96c007820998333ca06ea26a9bfac8cc86eda8377ed93c74c7902"
+  },
+  "schema": "eoere_four_cleat_post_hardware_independent_testing_review/v1",
+  "scope": "Frozen scalar/tool-planning evidence only. Four-inch projection/seating and longer-body/nut-seating tradeoff are reproduced; no hardware adoption, delivered fit, actual tool access, root resistance or complete-joint acceptance follows.",
+  "source_pins_unchanged_before_after": 27,
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/calculate.py": "ed7a16cbdb97bf15ddc74e2af49bb3b512dc57c7541358392db55ea25d8dfc0e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/inputs.json": "6cba1fb87b9cfa337f2c5418afe6c0f7fa6def8d6ae463e9f355701df3d75e33",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result.json": "fbe6983488fc5c3017810654f43df0e0ef2188657387cc6a3b92b4e02fbb4c0a"
+  },
+  "status": "SCALAR_REPRODUCTION_PASSES_OUTPUT_ENTRY_GUARD_REVISION_REQUIRED",
+  "temporary_actual_CLI_checks": {
+    "all_outputs_in_private_tmp_root": true,
+    "byte_identical_producer_and_inputs_reproduced_full_result": true,
+    "confirmed_dangling_symlink_behavior": {
+      "previously_absent_target_created": true,
+      "requested_entry_preexisted_as_symlink": true,
+      "returncode": 0,
+      "target_is_complete_unadopted_result": true
+    },
+    "ordinary_negative_output_controls": {
+      "input_alias": "rejected without changing protected files",
+      "occupied": "rejected without changing protected files",
+      "outside_packet": "rejected without changing protected files",
+      "wrong_suffix": "rejected without changing protected files"
+    },
+    "ordinary_same_output_race_returncodes": [
+      0,
+      1
+    ]
+  }
+}

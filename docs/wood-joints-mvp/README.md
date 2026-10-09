@@ -48,8 +48,11 @@ The [current-source Z180 proposal](../../fea/generated/thin-bolted-current-conta
 would increase the analytic maximum-bore gap to 3.94375 mm, but remains
 unadopted. The separate [receiver and washer-seat study](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json)
 supports all eight proposed bore occurrences and nominal washer rings within
-the recorded profiles and cut inventory. Fresh finished-solid queries, actual
-tool access and installation tolerances remain open. The [signed-end inventory](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
+the recorded profiles and cut inventory. The subsequent [four-receiver finished-solid query](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/result.json)
+observes complete 38.1-mm own bore walls and full nominal washer-ring backing
+in both proposed hole-size scenarios, including the eight retained receiver
+occurrences. Actual tool access, placement tolerances and complete end/edge
+and joint resistance remain open. The [signed-end inventory](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
 reuses current bearing forces separately: many reverse through the holes, so
 net-force direction and square-end distance alone cannot establish joint strength.
 No cutting, drilling, complete-joint
@@ -57,6 +60,14 @@ acceptance or climbing release follows from the current geometry or shop packet.
 All actual observations remain blank; all 200 access sides remain unverified.
 The recorded **$109.93** hardware comparison retains its dated
 [purchase scope](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md).
+
+The [four-station hardware followup](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result-v3.json)
+retains 4-inch bolts as the first dimensional proposal. Their catalog body
+minimum does not guarantee smooth shank through both timbers. The 4½-inch
+comparison improves body coverage but cannot guarantee that the nut seats
+against this short stack, so it is not an automatic substitute. A proposed
+19.05-mm guide and 6.35-mm backer require 101.6 mm of usable bit reach;
+actual guides, clamps, drill/chuck and socket wells remain unverified.
 
 The current six-case calculation retains 250 lb ×2 downward, 300 N horizontal,
 the recorded 100-mm hold arm and gravity. All 32 floor points are compression-only;
@@ -90,8 +101,9 @@ for source/review bindings, retained sensitivity exceedances and exact gaps.
 
 ## Remaining work and next actions
 
-1. Report and review an affected geometry change for the four held cleat/post
-   stations before changing their axes or issuing revised drilling instructions.
+1. Review the geometrically checked Z180 proposal for the four held cleat/post
+   stations before adopting changed axes or revised drilling instructions. Current
+   saved loads belong to Z200 and cannot establish the proposed joint resistance.
 2. Use the completed current numerical packet within its declared scope. Complete
    joint resistance, finished net sections, restraint and first-order physical
    applicability remain open; no old response or capacity transfers by relabeling.

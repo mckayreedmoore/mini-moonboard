@@ -1,0 +1,147 @@
+{
+  "schema": "eoere_four_cleat_post_hardware_build_spec_inputs/v1",
+  "question": "For the four current Z200 and separately unadopted Z180 cleat/post axes, determine whether the saved 4-inch bolt dimension box already suffices for projection/seating, what a 4.5-inch full-body comparison gains or loses, and the source-bound drilling/tool/removal requirements. No capacity, tool fit, model adoption or observations.",
+  "current_revision": "eoere-base-side-edge-cleats-v1",
+  "current_Z_mm": 200.0,
+  "proposed_Z_mm": 180.0,
+  "axis_ids": [
+    "cleat_post_bolt_left_1",
+    "cleat_post_bolt_left_2",
+    "cleat_post_bolt_right_1",
+    "cleat_post_bolt_right_2"
+  ],
+  "comparison_skus": [
+    367,
+    368
+  ],
+  "guide_mm": 19.05,
+  "backer_travel_mm": 6.35,
+  "maximum_wood_hole_mm": 11.1125,
+  "sources": {
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+      "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+    },
+    "bottom": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json",
+      "sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b"
+    },
+    "placement": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/placement.json",
+      "sha256": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39"
+    },
+    "stacks": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/bolt-stacks.csv",
+      "sha256": "6c2084062e4c3421a2898be072070cff60eb324b6be15b77b17eb789923cedb0"
+    },
+    "access": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/access-sides.csv",
+      "sha256": "c6abcad239ba0afbe037522a917e0da31393c5c980f4df514358a3306039d693"
+    },
+    "holes": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/receiver-holes.csv",
+      "sha256": "42242079c1e123122b9bdd48fd51243023c087ea5c5a377cc8370d23df76b9cc"
+    },
+    "shop_guide": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md",
+      "sha256": "53514b9a457274d664f73259cf043f4b0f04f04a4f259c067f7545c79b65902f"
+    },
+    "hardware_method": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py",
+      "sha256": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef"
+    },
+    "window_method": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/shop_windows.py",
+      "sha256": "96bb6ec5bdad68f449d41c56ee71ae149c0b380fadd039b050425dd44b70e1d5"
+    },
+    "corner_method": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/analyze.py",
+      "sha256": "303df010f8f3f7546a6554a4af43dca79f34aa5c029917419274f37c46ce13ca"
+    },
+    "catalog": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json",
+      "sha256": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d"
+    },
+    "root_reference": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/result.json",
+      "sha256": "e741022ce8265079a745b2e8acbfc77f11b9c80d82a20bd9177f61465056b247"
+    },
+    "material_specification": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json",
+      "sha256": "3378a3a4de466f5deaabf17e15a0621bef65daeaf5f01856ace509a41cb25fe6"
+    },
+    "access_method": {
+      "path": "scripts/thin_bolted_access_takeoff.py",
+      "sha256": "8f6313a4609f935c173b151843527b0911d6b89a34dacc9b2eee2642523cb897"
+    },
+    "frozen_receiver_packet": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/controls01/frozen-packet.json",
+      "sha256": "aa35e9ef46476fe2d04b123463774c8aeae08949796595bd24af0dbe9ad18101"
+    }
+  },
+  "primary_product_reading": {
+    "observed_UTC": "2026-10-09T06:32:50Z",
+    "bolt_4in": {
+      "url": "https://boltdepot.com/Product-Details?product=367",
+      "listing_identifies": "SAE J429 Grade 5, 3/8-16, partially threaded, ASME B18.2.1, 4in +0/-0.06in, minimum thread1in, 9/16in wrench",
+      "each_price_USD": 0.81
+    },
+    "bolt_4p5in": {
+      "url": "https://boltdepot.com/Product-Details?product=368",
+      "listing_identifies": "Same family, 4.5in +0/-0.10in, minimum thread1in",
+      "each_price_USD": 0.94
+    },
+    "nut": {
+      "url": "https://boltdepot.com/Product-Details?product=2571",
+      "listing_identifies": "SAE J995 Grade 5, ASME B18.2.2, 3/8-16; 0.320-0.337in high; flats0.551-0.563in"
+    },
+    "washer": {
+      "url": "https://boltdepot.com/Product-Details?product=15023",
+      "listing_identifies": "USS ASME B18.21.1, OD0.993-1.030in, ID0.433-0.453in, thickness0.064-0.104in; numeric yield not supplied"
+    },
+    "socket_example": {
+      "url": "https://www.tekton.com/3-8-inch-drive-x-9-16-inch-deep-6-point-socket-shd13014",
+      "drawing_url": "https://images.tekton.com/assets/SHD13014_spec.jpg",
+      "drawing_bytes": 140822,
+      "drawing_sha256": "e3e40b70941ff006def99dacf83db641dfd195d59375aa12af462dade984ea9f",
+      "visually_read_dimensions_mm": {
+        "external_OD": 19.812,
+        "overall_length": 63.5,
+        "hex_depth": 20.32
+      },
+      "scope": "Unselected product example. External dimensions lie inside the old conditional OD22/length65 envelope. Hex depth is not total bolt-well depth. Relief bore/depth, engaged drive intrusion, actual dimensions and current installed clearance are unknown."
+    },
+    "reading_scope": "Primary pages were read, and the original socket dimension graphic inspected in memory. No order, purchase, availability guarantee, retained raw external asset, or supplier/lot qualification. Frozen catalog dimensions govern the arithmetic; observed prices agree with that dated basket."
+  },
+  "missing_inputs_and_design_disposition": [
+    "Retain the existing partially threaded 4in family as the first dimensional proposal. Its projection and conservative grip-gaging comparisons are positive. Full smooth bearing is not guaranteed by the listed body minimum.",
+    "The 4.5in family can supply a larger minimum smooth body over the model bearing interval, but its upper grip-gaging bound cannot guarantee the nut reaches this short stack. It is a comparison only. Do not add washer packing, trim bolts, reverse the installation or substitute full-thread stock.",
+    "Per-stack dimensional acceptance inputs are delivered length L, sound seated receiver stack S, each own washer thickness, nut height/pitch and active threads, actual body/transition/root profile, gaged grip, free nut seating and washer/fillet seating. Actual worksheet cells remain blank.",
+    "The separate retained UNRC-2A/steel-core-root proposal is a conditional purchase hypothesis: for3/8-16 it proposes7.31774mm root/no-undercut floor over threaded AND transition bearing regions. A generic UNC listing or UNR gage does not establish this floor. No root or wood resistance is calculated here.",
+    "SAE J429 Grade5 with the existing92ksi minimum tensile-yield/F606 hypothesis is a design specification, not observed delivered conformance or a new bending coupon. Matching nut/washer standards do not establish washer numeric yield or combined resistance.",
+    "A guide19.05mm and backer travel6.35mm require101.6mm usable cutting reach/projection for the nominal76.2mm matched pair. Exact bushing ID/OD/length/fixation, datum registration/stops, independent member supports, clamps/backer footprint and drill/chuck/bit envelopes remain needed. Overall bit length alone is insufficient.",
+    "The installation reference for3/8in timber holes is13/32-7/16in; the current Z200 four-station maximum-hole conflict stays HOLD. Z180 is unadopted. Registration, guide clearance/tilt, bit runout/drift, receiver seating and hole size need an explicit error budget against the current geometry.",
+    "Specify a9/16in tool with clear tip well exceeding the required nut-plus-protrusion depth plus its actual seating/drive allowance, or an appropriate pass-through tool. External socket fit alone cannot qualify its internal well, drive intrusion, counterhold, hand space or handle sweep.",
+    "The recorded socket/extension/remote-handle envelopes and L+2mm bolt removal convention are reusable query inputs only. Current clearance needs source-bound continuous approaches/removals and supported assembly/disassembly order. No old swept-clear pass transfers.",
+    "Nominal washer-seat proof does not cover every catalog ID/thickness/fillet corner. A washer ID smaller than the maximum wood hole leaves an inner strip over the void; effective contact area needs its own disposition. Thin head washers may expose fillet beyond the washer. Do not silently claim full support or use bolt tightening to draw parts together."
+  ],
+  "limits": [
+    "Pure JSON/CSV and scalar dimension arithmetic. Source pin closure here authenticates direct scalar inputs and all ten retained receiver-seat files; no old force field or component resistance is consumed or transferred.",
+    "ASME B18.2.1-2012 Lb/Lg values are the retained uncoated full-body hex-cap-screw scenario. Vendor edition, finished coating and delivered dimensions remain separate; Lg is not an observed first full-form thread.",
+    "Possible thread/runout lengths measured from Lb minimum are conservative exposure diagnostics, not observed threaded lengths, an automatic quarter-bearing failure, or a strength pass.",
+    "Nominal stock/pair thicknesses are not actual measurements. New proposal changes only Z; all100current axes and66current screws remain authoritative and unchanged.",
+    "Guide/backer sizes, conditional tool outlines and removal travel are planning inputs. No CAD import/build/query, native method, frame solve, physical test or observed access is performed.",
+    "No model/viewer/source/evidence replacement, shared documentation edit, staging, commit, part purchase, torque/preload or physical operation is authorized by this receipt."
+  ],
+  "release": {
+    "geometry_adoption": false,
+    "hardware_adoption": false,
+    "delivered_part_conformance": false,
+    "actual_tool_fit": false,
+    "finished_geometry_or_access_check": false,
+    "thread_bearing_resistance": false,
+    "complete_joint_strength": false,
+    "fabrication": false,
+    "climbing": false
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "audit": {
+    "annular_observations": 48,
+    "export_bytes": 98158,
+    "export_files": 12,
+    "export_sha256": {
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/current_Z200_modeled/base_post_outer_left.brep": "ad262455be479559c0f97df8c73ba983e08e5633b61c54b1cedc848e4263dbff",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/current_Z200_modeled/base_post_outer_right.brep": "05f900a87e2bcf7655082b374a199ba76ea0ec5d7aa9d8dd0cc72f9391119f31",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/current_Z200_modeled/eoere_cleat_left.brep": "2c8f14071b74e160e75e977613224f039a747960b1dd607388b759cc3b5d6f67",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/current_Z200_modeled/eoere_cleat_right.brep": "0a595126f07722da27f28050902ab9092fb0f0bba75eceee2136e2e976350bec",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/proposed_Z180_all11p1125/base_post_outer_left.brep": "a7d44b74346fd2788cba5f3e385cb82289d8474182a40b9e5fa274cb9a624c4b",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/proposed_Z180_all11p1125/base_post_outer_right.brep": "6406e9e4311f46c2352a6fc72a5ba7cb60225f4eb7e968db80b176ef37218c07",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/proposed_Z180_all11p1125/eoere_cleat_left.brep": "b51fdbbf37f1ea4b88aa8ea6ea297c2b155d5fc9b7255e439332fd599b86f1db",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/proposed_Z180_all11p1125/eoere_cleat_right.brep": "a15b9bbfb993160a2e25084465b53783ef671c3e82c8614f5f56c63b1860327c",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/proposed_Z180_modeled/base_post_outer_left.brep": "ab2adf7f43c0b55771412894c1a841207e76c5a9941ac7c16137eac2007b97d1",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/proposed_Z180_modeled/base_post_outer_right.brep": "3627e9fedef6b259a21d3f8b43f0a75954779225c410a4b1d38d9e8a7cd6c918",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/proposed_Z180_modeled/eoere_cleat_left.brep": "5f631e08d8c298fb5f392651d179ef4a48d1d15e6eb443e318011d5bf15e2aed",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/proposed_Z180_modeled/eoere_cleat_right.brep": "ad7496b4a34e6c1192b5c410e49b1f44a1ef2e15ea82865c55a12ca1a7bc420a"
+    },
+    "maximum_saved_baseline_boolean_gap_mm3": 9.313225746154785e-10,
+    "maximum_theoretical_area_error_mm2": 0.0,
+    "pass": true,
+    "scenarios": [
+      {
+        "axes": 12,
+        "bodies": 4,
+        "changed_seat_occurrences": 8,
+        "changed_wall_occurrences": 8,
+        "scenario": "current_Z200_modeled",
+        "seats": 16,
+        "walls": 16
+      },
+      {
+        "axes": 12,
+        "bodies": 4,
+        "changed_seat_occurrences": 8,
+        "changed_wall_occurrences": 8,
+        "scenario": "proposed_Z180_modeled",
+        "seats": 16,
+        "walls": 16
+      },
+      {
+        "axes": 12,
+        "bodies": 4,
+        "changed_seat_occurrences": 8,
+        "changed_wall_occurrences": 8,
+        "scenario": "proposed_Z180_all11p1125",
+        "seats": 16,
+        "walls": 16
+      }
+    ],
+    "source_files": 46,
+    "wall_observations": 48
+  },
+  "files_rehashed_before_after": 59,
+  "findings": [],
+  "limits": [
+    "Saved JSON/byte-hash arithmetic review only. No CAD/OCP/BREP import/query, geometry reconstruction, native toy/candidate rerun, FEA, frame/global solve, model edit or physical operation.",
+    "Source-bound method receipts and native observations are reused; their geometric measurements are not independently regenerated. Export/reimport/strict-container evidence is audited as saved metadata and raw byte bindings.",
+    "Current baseline is a numerical Boolean-volume-and-bounds comparison, not byte identity or a general topological-equivalence proof. Area matching retains the frozen method's1e-6 fractional/full-wall tolerance.",
+    "Uniform11.1125 holes apply to all twelve local axis views/sixteen four-host occurrences only; washer dimensions remain nominal. Catalog corners, delivered parts, machining/installation tolerances and unmodeled screw pilots/countersinks remain outside scope.",
+    "Full geometric walls/annuli do not qualify directional bearing, physical pressure/fit, complete joint capacity, changed-case forces, adoption, shop instructions, fabrication or climbing release."
+  ],
+  "negative_consumer_controls": [
+    {
+      "control": "current_axis_identity",
+      "rejection": "current100/66 identity differs"
+    },
+    {
+      "control": "duplicate_wall_owner",
+      "rejection": "own walls duplicate keys"
+    },
+    {
+      "control": "retained_axis_move",
+      "rejection": "local scenario axis view differs"
+    },
+    {
+      "control": "wrong_wall_interval",
+      "rejection": "reported full intervals differs"
+    },
+    {
+      "control": "wrong_cylinder_area",
+      "rejection": "full-cylinder theoretical area differs"
+    },
+    {
+      "control": "wrong_annular_owner",
+      "rejection": "('eoere_bolt_067', 'eoere_cleat_left', 'nut')"
+    },
+    {
+      "control": "multiple_host_annulus",
+      "rejection": "nominal one-host annular scenario differs"
+    },
+    {
+      "control": "false_backing",
+      "rejection": "nominal own annulus incompletely backed"
+    },
+    {
+      "control": "bad_export_bytes",
+      "rejection": "export byte hash/size differs"
+    },
+    {
+      "control": "bad_baseline_boolean",
+      "rejection": "baseline Boolean volume exceeds tolerance"
+    },
+    {
+      "control": "force_transfer",
+      "rejection": "release/force/capacity boundary differs"
+    },
+    {
+      "control": "adoption",
+      "rejection": "release/force/capacity boundary differs"
+    }
+  ],
+  "result": {
+    "bytes": 249921,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/result.json",
+    "sha256": "6efea34ce52b3521da6d14b89853ef83ab9c1a1f7861c71f6410fc8db7738cb3"
+  },
+  "review_helper_sha256": "94f939d46010dbae6952e5a651d58a8d81f9379408f75360d797bab4daeae99d",
+  "reviewed_scope": [
+    "46 exact direct pins include the immutable original/v2 query, inputs, candidate permit, toy result and three clean v2 method review receipts; all12 exported BREP byte hashes and byte counts checked without imports.",
+    "Current100/66 canonical identities and source-only current inventory; independent three local views contain twelve axes/sixteen receiver occurrences and exactly four Z200-to-Z180 changes; all other axes/screws retained.",
+    "Four raw profiles and twelve finished volume/bounds/strict-solid metadata records; all48 own cylindrical-face areas/fractions, merged full intervals, source points/directions/radii, full thickness and unqualified-bearing flags replayed.",
+    "All48 unique external one-host nominal washer seats checked against exact source endpoint/inward direction, actual owning host face, no external plate, nominal OD/ID and complete saved backing; eight targeted/eight retained occurrences per scenario.",
+    "Four current-only saved Boolean missing/added-volume/bounds comparisons remain below0.001mm3 tolerance; comparison wording explicitly excludes byte identity/general topology equivalence. False release/no force/capacity transfer and active-output retention remain exact."
+  ],
+  "schema": "eoere_four_finished_receiver_candidate01_independent_correctness_saved_result_review/v1",
+  "sources_unchanged_before_after": true,
+  "status": "NO_SUBSTANTIAL_FINDINGS_WITHIN_SAVED_RESULT_SCOPE"
+}
