@@ -45,6 +45,12 @@ purchase scenario. Its nominal mass is 219.115940 kg, including the retained
 
 **Four dedicated cleat/post stations remain HOLD.** The 0.340625-mm nominal
 bore/screw gap becomes **−0.05625 mm** in the maximum wood-hole scenario.
+The close pairs are `cleat_post_bolt_left_2` / `round_kicker_left_rim_2`
+and their right-side counterparts, inside the outer posts at the kicker
+attachments. Their axes are at Z200 and Z192 mm. This comparison concerns
+the drilled-hole envelope and modeled 5-mm screw body; the nominal bolt
+shaft itself retains a 0.7375-mm gap to that screw envelope. The four-station
+hold covers both paired cleat/post layouts.
 The [current-source Z180 proposal](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/result.json)
 would increase the analytic maximum-bore gap to 3.94375 mm, but remains
 unadopted. The separate [receiver and washer-seat study](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json)
@@ -73,9 +79,15 @@ The recorded **$109.93** hardware comparison retains its dated
 
 The [four-station hardware followup](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result-v3.json)
 retains 4-inch bolts as the first dimensional proposal. Their catalog body
-minimum does not guarantee smooth shank through both timbers. The 4½-inch
-comparison improves body coverage but cannot guarantee that the nut seats
-against this short stack, so it is not an automatic substitute. A proposed
+minimum does not guarantee smooth shank through both timbers. Published
+shank limits are available: the [full-body hex-cap-screw table](https://www.nickel-systems.com/wp-content/uploads/2025/04/Hex-Head-Cap-Screws-Min-Body-and-Max-Grip-Gaging-Lengths-table-1.pdf)
+confirms the saved ASME B18.2.1-2012 bounds of **68.326 mm** minimum body for
+3/8-16 × 4 inches and **81.026 mm** for 4½ inches. The latter exceeds the
+78.8416-mm far-wood target by **2.1844 mm** in the recorded nominal-timber /
+catalog-washer scenario. Its maximum grip-gaging length is 88.9 mm, while
+the nut face without a spacer is only 79.4512–81.4832 mm from the head.
+This is a known bolt-selection and stack-up issue; nut seating is not
+guaranteed for the longer bolt alone. A proposed
 single [nut-side catalog spacer](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/spacer-window-result-v1.json)
 has a feasible length interval of 9.4488–18.542 mm in the same dimension box.
 The nominal 12.7-mm comparison gives positive seating/projection margins;

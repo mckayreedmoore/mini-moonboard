@@ -3513,6 +3513,31 @@ and the saved headward-removal travel. The comparison retains the catalog's
 dated $0.52 increment for four bolts, not a new purchase or adopted change.
 Do not infer that adding length solves both body coverage and seating.
 
+The owner-requested online shank-length investigation confirms that the design
+limits are published. Fresh reads of the [4-inch SKU 367](https://boltdepot.com/Product-Details?product=367)
+and [4½-inch SKU 368](https://boltdepot.com/Product-Details?product=368) retain
+partially threaded Grade 5 / ASME B18.2.1 descriptions and a one-inch minimum
+thread length. The [ASME-authored standard, §4.7 and Table 12](https://www.wanhong-fastener.com/wp-content/uploads/2025/04/ASME-B18.2.1-2012.pdf)
+and the manufacturer's [body/grip table](https://www.nickel-systems.com/wp-content/uploads/2025/04/Hex-Head-Cap-Screws-Min-Body-and-Max-Grip-Gaging-Lengths-table-1.pdf)
+agree with the existing full-body cap-screw transcription: 4 inches gives
+LB,min / LG,max = 2.69 / 3.00 inches; 4½ inches gives 3.19 / 3.50 inches.
+Minimum thread length is not an exact shank-length specification; the body
+and grip limits include the separate transition allowance. These published
+bounds suffice for the recorded dimensional selection comparison. Specify
+that full-body cap-screw basis rather than inferring it from length alone;
+vendor edition, finished conformance and actual observations retain their
+existing receiving scope.
+
+An independent Decimal endpoint check of the same saved 76.2-mm timber stack,
+washer/nut bounds and bolt limits evaluates 48 corners across the 4-inch,
+4½-inch and 4½-inch-plus-12.7-mm-nut-side-spacer scenarios. It confirms the
+existing spacer interval **9.4488–18.542 mm**. The nominal spacer scenario
+retains **2.1844 mm** smooth-body reserve beyond the far wood, **3.2512 mm**
+nut/grip-gaging reserve and **5.842 mm** beyond the two-tip-pitch target.
+All four stations share this scalar stack at both Z revisions. Reuse the
+existing hardware and spacer packets as active evidence; this source recheck
+adds no hardware adoption, spacer strength or installed-access pass.
+
 The current 4-inch comparison requires **22.1488 mm** of clear blind-socket depth
 at the listed catalog corner, before its actual drive/seating allowance; the
 4½-inch comparison requires 34.8488 mm. The saved 22-mm outside socket envelope
