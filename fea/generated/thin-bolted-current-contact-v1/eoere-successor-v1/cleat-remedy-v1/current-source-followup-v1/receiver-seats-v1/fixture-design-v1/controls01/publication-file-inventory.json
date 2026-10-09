@@ -1,0 +1,87 @@
+{
+  "files": {
+    "inputs.json": {
+      "sha256": "b17a8f72f41ab2b8ce75ffaac15af075432a0ffe7111daead6597cb34eff86be",
+      "bytes": 14235
+    },
+    "design.py": {
+      "sha256": "4c84897e42d4d32b1692bec8801a3c002b1c5684f984a907bde8e2cc73e4a3db",
+      "bytes": 33114
+    },
+    "result.json": {
+      "sha256": "ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5",
+      "bytes": 34398
+    },
+    "result.svg": {
+      "sha256": "60b5b105d42d35350bfe5a263f1c997974f7b3f9b1a27eea0317f88a84bd37c7",
+      "bytes": 10318
+    },
+    "verify.py": {
+      "sha256": "b91887fa829c4bda60332dd1541ef26f3648d4613c5725e7f6a25d74e4cd3513",
+      "bytes": 10292
+    },
+    "verification-v1.json": {
+      "sha256": "28fe869385596b6b09b562ee009654da491c7fc4e10013de99ba6edc5977aab4",
+      "bytes": 2700
+    },
+    "design01.json": {
+      "sha256": "125acbe3921d3455e6b47ee93e01c6cd0b709536668c3a485963b5411f1bce07",
+      "bytes": 33751
+    },
+    "design01.svg": {
+      "sha256": "8ddd75b3dac22045c25110d8de760b903cf2d377d08bec87bd89df4e2bcf5a24",
+      "bytes": 9977
+    },
+    "design02.json": {
+      "sha256": "f903077fe2aa55a9b84ccdfd117ce874f1534c767ebf2029b35647abfb1e06ce",
+      "bytes": 34383
+    },
+    "design02.svg": {
+      "sha256": "aecffac8975bfbc6fda2132c9cb995a5fd3bb45ea7fe672e8cee5d9fdc9b8d7a",
+      "bytes": 9895
+    },
+    "development-v1/producer.py": {
+      "sha256": "51a9ca398b66642b9f130c8be29db88d7cb83f50ef33a007b7fc2586bfe965f5",
+      "bytes": 31300
+    },
+    "development-v1/record.json": {
+      "sha256": "7eab99793a69e59d9f014555f2816c85bdd94528332c58e7c8c0f38b2adcbeb9",
+      "bytes": 886
+    },
+    "development-v2/design.py": {
+      "sha256": "a275c38b7df2d25b68fd3cb1f02326ad3917d7c0483187cfe851bfc24af4a0d5",
+      "bytes": 32887
+    },
+    "development-v2/inputs.json": {
+      "sha256": "3a54fd80f86ff4ab55428b98bc54fcf2257e26510fb1e7fe3db2fc55fc0b31e0",
+      "bytes": 14227
+    },
+    "development-v2/record.json": {
+      "sha256": "0c4272c7220ae0684e6b62c4cb4485623d26752840fd00cb15a7d2daa33b3ef2",
+      "bytes": 651
+    }
+  },
+  "total_bytes": 273014,
+  "active_ignored_controls": "controls01: screenshots of design02/final and frozen manifests; no archive or prune authorized",
+  "active_ignored_catalog_adapter": "catalog-adapter-v1 pending, distinct input scope; parent owns hardware guide-bit sources/cache",
+  "final_files": [
+    "inputs.json",
+    "design.py",
+    "result.json",
+    "result.svg",
+    "verify.py",
+    "verification-v1.json"
+  ],
+  "retained_development_files": [
+    "design01.json",
+    "design01.svg",
+    "design02.json",
+    "design02.svg",
+    "development-v1/producer.py",
+    "development-v1/record.json",
+    "development-v2/design.py",
+    "development-v2/inputs.json",
+    "development-v2/record.json"
+  ],
+  "retention_reason": "Failed first Ruff and crowded thin-layer SVG labels have distinct snapshots and evidence. Final six files are immutable; older previews do not establish current source closure."
+}

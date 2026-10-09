@@ -1,0 +1,70 @@
+{
+  "before_after_frozen_packet_and_sources_unchanged": true,
+  "direct_source_pin_count": 17,
+  "frozen_four_file_sha256": {
+    "design.py": "4c84897e42d4d32b1692bec8801a3c002b1c5684f984a907bde8e2cc73e4a3db",
+    "inputs.json": "b17a8f72f41ab2b8ce75ffaac15af075432a0ffe7111daead6597cb34eff86be",
+    "result.json": "ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5",
+    "result.svg": "60b5b105d42d35350bfe5a263f1c997974f7b3f9b1a27eea0317f88a84bd37c7"
+  },
+  "independent_decimal_checks": {
+    "actual_tools_parts_or_tolerances_observed": false,
+    "full_path_terms_and_reach_checked": true,
+    "independent_insert_endpoint_cases": [
+      {
+        "entry_mm": "-0.05",
+        "exit_mm": "-0.05",
+        "far_mm": "-0.05"
+      },
+      {
+        "entry_mm": "-0.05",
+        "exit_mm": "0.05",
+        "far_mm": "0.4859580052493438320209973753280839895013123359580052493"
+      },
+      {
+        "entry_mm": "0.05",
+        "exit_mm": "-0.05",
+        "far_mm": "-0.4859580052493438320209973753280839895013123359580052493"
+      },
+      {
+        "entry_mm": "0.05",
+        "exit_mm": "0.05",
+        "far_mm": "0.05"
+      }
+    ],
+    "independent_insert_slop_mm": "0.4859580052493438320209973753280839895013123359580052493",
+    "independent_tilt_Decimal_mm": "0.1561372563492993231091470420901363835433003043358424010",
+    "nearest_nominal_axis_distance_mm": "12",
+    "nearest_nominal_screw": "round_kicker_left_rim_2"
+  },
+  "limits": [
+    "This verifier checks source arithmetic and output protection. It does not independently repeat the native queries or all capsule pairs.",
+    "No tool, fixture, workholding, tolerance achievement, product fit, Z180 adoption, force transfer or complete-joint strength pass."
+  ],
+  "output_guard_controls": [
+    "existing_result_rejected",
+    "non_JSON_name_rejected",
+    "nested_output_rejected",
+    "dangling_JSON_leaf_rejected",
+    "dangling_SVG_leaf_rejected",
+    "existing_SVG_leaf_rejected",
+    "parent_alias_retarget_inert_after_canonical_binding",
+    "late_canonical_leaf_rejected_by_exclusive_create"
+  ],
+  "passed": true,
+  "release": {
+    "actual_tool_fit": false,
+    "climbing": false,
+    "complete_joint_strength": false,
+    "fabrication": false,
+    "field_bit_selection": false,
+    "fresh_proposal_forces": false,
+    "geometry_adoption": false,
+    "machining_tolerance_achieved": false,
+    "physical_operation": false,
+    "workholding_qualified": false
+  },
+  "schema": "eoere_Z180_fixture_source_arithmetic_and_output_verification/v1",
+  "source_only_arithmetic_reproduction_exact": true,
+  "verification_method_sha256": "b91887fa829c4bda60332dd1541ef26f3648d4613c5725e7f6a25d74e4cd3513"
+}

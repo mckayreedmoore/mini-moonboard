@@ -1,0 +1,228 @@
+{
+  "actual_evaluate_and_drawing_replay_exact": true,
+  "additional_finite_segment_known_answers": 5,
+  "additional_rectangle_known_answers": 6,
+  "all10_release_fields_false": true,
+  "blank_actual_disposition_rows": 7,
+  "direct_source_pins": 17,
+  "excluded": [
+    "native/CAD/BREP imports, queries or reconstruction",
+    "browser or SVG rendering",
+    "tessellation",
+    "FEA/frame/global solve",
+    "actual tool/stock/workholding/tolerance evidence",
+    "catalog hardware selection",
+    "strength acceptance",
+    "shared/model/index edits or commits"
+  ],
+  "findings": [],
+  "fixture_constraint_controls": [
+    {
+      "name": "full_path_guide_angle",
+      "rejection": "full-path allocation exceeded"
+    },
+    {
+      "name": "full_path_insert_play",
+      "rejection": "full-path allocation exceeded"
+    },
+    {
+      "name": "effective_insert_length",
+      "rejection": "full-path allocation exceeded"
+    },
+    {
+      "name": "total_allocation",
+      "rejection": "full-path allocation exceeded"
+    },
+    {
+      "name": "capture_lip",
+      "rejection": "retainer capture or fastener/flange plan collision"
+    },
+    {
+      "name": "swept_cap_opening",
+      "rejection": "cap opening cannot contain specified swept bit and insert slop"
+    },
+    {
+      "name": "local_chuck_nose",
+      "rejection": "local nose access collision"
+    },
+    {
+      "name": "actual_contact_circle_crossing_rejected_by_footprints",
+      "rejection": "contact rectangle crosses profile or recorded bore"
+    }
+  ],
+  "generic_insert_catalog_or_actual_fit_qualified": false,
+  "independent_Decimal_API_replay_exact": true,
+  "independent_verifier_tamper_controls": [
+    {
+      "field": "pointwise_error_and_reach_budget.guide_tilt_max_mm",
+      "rejection": "guide tilt independent Decimal"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.insert_slop_max_mm",
+      "rejection": "insert line endpoint Decimal"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.allocated_sum_mm",
+      "rejection": "sum of full-path terms"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.unallocated_reserve_mm",
+      "rejection": "reserve"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.minimum_declared_body_clearance_after_budget_mm",
+      "rejection": "body residual"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.conditional_whole_screw9p525_clearance_after_budget_mm",
+      "rejection": "conditional whole-screw residual"
+    },
+    {
+      "field": "support_and_clamp_requirements.minimum_chuck_nose_to_clamp_lane_margin_mm",
+      "rejection": "nearest lane rectangle corner"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.full_chip_exit_path_reference",
+      "rejection": "independent reach: full_chip_exit_path_reference"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.increase_over_earlier_flush19p05_guide",
+      "rejection": "independent reach: increase_over_earlier_flush19p05_guide"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.nominal_free_projection_from_chuck",
+      "rejection": "independent reach: nominal_free_projection_from_chuck"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.nominal_guide_flange_cap_stack",
+      "rejection": "independent reach: nominal_guide_flange_cap_stack"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.nominal_guide_to_point_breakout",
+      "rejection": "independent reach: nominal_guide_to_point_breakout"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.nominal_wood_stack",
+      "rejection": "independent reach: nominal_wood_stack"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.worst_free_projection_from_chuck",
+      "rejection": "independent reach: worst_free_projection_from_chuck"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.worst_guide_to_point_breakout",
+      "rejection": "independent reach: worst_guide_to_point_breakout"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.reach_requirements_mm.worst_wood_exposed_flute_lower_bound",
+      "rejection": "independent reach: worst_wood_exposed_flute_lower_bound"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.geometric_tie_lower_bounds_mm.cleat_bottom",
+      "rejection": "distance-only lower bound"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.geometric_tie_lower_bounds_mm.nearest_crossgrain_raw_edge",
+      "rejection": "distance-only lower bound"
+    },
+    {
+      "field": "pointwise_error_and_reach_budget.geometric_tie_lower_bounds_mm.post_top",
+      "rejection": "distance-only lower bound"
+    },
+    {
+      "field": "support_and_clamp_requirements.bare_opening_mm.cleat_clamp",
+      "rejection": "bare clamp stack"
+    },
+    {
+      "field": "support_and_clamp_requirements.bare_opening_mm.guide_clamps",
+      "rejection": "bare clamp stack"
+    },
+    {
+      "field": "support_and_clamp_requirements.bare_opening_mm.post_clamp",
+      "rejection": "bare clamp stack"
+    }
+  ],
+  "mechanics_or_physical_release": false,
+  "native_or_numeric_library_import_attempts": [],
+  "owned_producer_CLI_replay": {
+    "json_sha256_before_path_normalization": "840a820546f84ffeb6cda9584295e98c60ee762a1c61c18c44e7fe35018348ae",
+    "sole_difference_from_frozen_result": "drawing.path points to own fresh temporary output",
+    "svg_sha256": "60b5b105d42d35350bfe5a263f1c997974f7b3f9b1a27eea0317f88a84bd37c7"
+  },
+  "owned_verifier_CLI_replay_sha256": "28fe869385596b6b09b562ee009654da491c7fc4e10013de99ba6edc5977aab4",
+  "review_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/independent-review-v1/testing/review.py",
+    "sha256": "58b9b76acb4f3047052eaba8d5049f957bc29a9932e87654dfe20cea648e0ff3"
+  },
+  "schema": "eoere_Z180_fixture_design_independent_testing_review/v1",
+  "scope": "Actual stdlib evaluate/drawing and independent Decimal/guard APIs; producer main with only the owned destination binder substituted; verifier main with only final receipt IO and guard temporary paths redirected into reviewer scratch. All scratch removed after hashes. Saved native/profile/capsule evidence reused within declared scalar scope; no independent native or all-pairs geometry audit.",
+  "six_file_sha256_before_after": {
+    "design.py": "4c84897e42d4d32b1692bec8801a3c002b1c5684f984a907bde8e2cc73e4a3db",
+    "inputs.json": "b17a8f72f41ab2b8ce75ffaac15af075432a0ffe7111daead6597cb34eff86be",
+    "result.json": "ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5",
+    "result.svg": "60b5b105d42d35350bfe5a263f1c997974f7b3f9b1a27eea0317f88a84bd37c7",
+    "verification-v1.json": "28fe869385596b6b09b562ee009654da491c7fc4e10013de99ba6edc5977aab4",
+    "verify.py": "b91887fa829c4bda60332dd1541ef26f3648d4613c5725e7f6a25d74e4cd3513"
+  },
+  "source_census_direction_controls": [
+    {
+      "name": "input_bytes",
+      "rejection": "exact fixture inputs required"
+    },
+    {
+      "name": "direct_source_hash",
+      "rejection": "changed source: docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json"
+    },
+    {
+      "name": "axis_census",
+      "rejection": "current100/66 census"
+    },
+    {
+      "name": "screw_census",
+      "rejection": "current100/66 census"
+    },
+    {
+      "name": "revision_join",
+      "rejection": "revision join"
+    },
+    {
+      "name": "proposal_adoption",
+      "rejection": "four unadopted axes required"
+    },
+    {
+      "name": "proposal_only_Z",
+      "rejection": "only proposed Z180 translation"
+    },
+    {
+      "name": "native_full_wall",
+      "rejection": "saved full walls/annuli required"
+    },
+    {
+      "name": "native_partial_wall",
+      "rejection": "saved full walls/annuli required"
+    },
+    {
+      "name": "native_annulus",
+      "rejection": "saved full walls/annuli required"
+    },
+    {
+      "name": "handed_drill_direction",
+      "rejection": "two member thickness and inward drilling join"
+    },
+    {
+      "name": "nonfinite_JSON",
+      "rejection": "nonfinite JSON"
+    }
+  ],
+  "sources_unchanged_before_after": true,
+  "verifier_output_guard_API_controls": [
+    "existing_result_rejected",
+    "non_JSON_name_rejected",
+    "nested_output_rejected",
+    "dangling_JSON_leaf_rejected",
+    "dangling_SVG_leaf_rejected",
+    "existing_SVG_leaf_rejected",
+    "parent_alias_retarget_inert_after_canonical_binding",
+    "late_canonical_leaf_rejected_by_exclusive_create"
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "schema": "eoere_Z180_four_station_paired_fixture_design_inputs/v1",
+  "question": "Produce a dimensioned matched-pair flat-bench fixture and pointwise bore/screw error budget for four unadopted Z180 stations, using passed current-source four-host evidence. Keep actual tools/parts, bit selection, workholding capacity, forces and physical operations unqualified.",
+  "current_revision": "eoere-base-side-edge-cleats-v1",
+  "current_Z_mm": 200.0,
+  "proposed_Z_mm": 180.0,
+  "sources": {
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+      "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+    },
+    "placement": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/placement.json",
+      "sha256": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39"
+    },
+    "placement_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/result.json",
+      "sha256": "26d27f9c8f5e3c1d91e48143341a8e808d0ece99f316eaf789e2fcbe22e4252a"
+    },
+    "profiles": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current_profiles.json",
+      "sha256": "1ec82f4c83abda73f993455c21fa56371d6ed9046e208694c4d24226e26a2a27"
+    },
+    "native_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/result.json",
+      "sha256": "6efea34ce52b3521da6d14b89853ef83ab9c1a1f7861c71f6410fc8db7738cb3"
+    },
+    "receiver_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json",
+      "sha256": "a21c25d6693a86f2617655cec1e82aa51c182b153e19baf8f5d1431afa381443"
+    },
+    "receiver_method": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/calculate.py",
+      "sha256": "5f6d088a836f1ac198c2cc7c8355b3a6ca8a20034a863ab813e4e33fa4a3fa03"
+    },
+    "datum_method": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py",
+      "sha256": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839"
+    },
+    "capsule_method": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower_bolt_z_v2.py",
+      "sha256": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095"
+    },
+    "hardware_method": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py",
+      "sha256": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef"
+    },
+    "hardware_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result-v3.json",
+      "sha256": "16962d3d5bc897336c37ac5da945e08bd0268604c1f0fc640127786dd5d97781"
+    },
+    "end_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json",
+      "sha256": "4c66a7f194a747a14291e25c4277ec7288aa95a9bef9eab68233312288e9be9b"
+    },
+    "shop_guide": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md",
+      "sha256": "53514b9a457274d664f73259cf043f4b0f04f04a4f259c067f7545c79b65902f"
+    },
+    "screw_recipe": {
+      "path": "scripts/thin_bolted_occupied.py",
+      "sha256": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+    },
+    "native_saved_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-result-review-v1/correctness/receipt.json",
+      "sha256": "d15cfd92da7f257d1415fc1a97f348610a98ea2243e0a7c02d27f6081fe7cca9"
+    }
+  },
+  "fixture_coordinates": {
+    "u": "Y minus the common rear edge Y=-175.7; u increases toward the front edge.",
+    "v": "World Z from the post bottom; v increases along nominal grain.",
+    "w": "Outward normal from the flat bench support plane; drilling proceeds toward negative w. Left world X decreases as w increases; right X increases. Fixture dimensions are the same in both hands.",
+    "rear_Y_mm": -175.7
+  },
+  "dimensions_mm": {
+    "member_width": 139.7,
+    "post_height": 238.9,
+    "cleat_bottom_v": 139.7,
+    "bore_v": 180.0,
+    "bore_u": [
+      44.45,
+      95.25
+    ],
+    "member_thickness": 38.1,
+    "baseboard_u": [
+      -69.85,
+      209.55
+    ],
+    "baseboard_v": [
+      -25.4,
+      558.8
+    ],
+    "baseboard_w": [
+      -19.05,
+      0.0
+    ],
+    "backer_u": [
+      0.0,
+      139.7
+    ],
+    "backer_v": [
+      0.0,
+      238.9
+    ],
+    "backer_w": [
+      0.0,
+      12.7
+    ],
+    "cleat_support_u": [
+      0.0,
+      139.7
+    ],
+    "cleat_support_v": [
+      263.525,
+      314.325
+    ],
+    "cleat_support_w": [
+      0.0,
+      50.8
+    ],
+    "rear_fence_u": [
+      -19.05,
+      0.0
+    ],
+    "rear_fence_v": [
+      0.0,
+      330.2
+    ],
+    "rear_fence_w": [
+      0.0,
+      114.3
+    ],
+    "post_bottom_stop_u": [
+      0.0,
+      139.7
+    ],
+    "post_bottom_stop_v": [
+      -19.05,
+      0.0
+    ],
+    "post_bottom_stop_w": [
+      12.7,
+      50.8
+    ],
+    "cleat_guide_bottom_stop_u": [
+      0.0,
+      139.7
+    ],
+    "cleat_guide_bottom_stop_v": [
+      120.65,
+      139.7
+    ],
+    "cleat_guide_bottom_stop_w": [
+      50.8,
+      107.95
+    ],
+    "guide_u": [
+      0.0,
+      139.7
+    ],
+    "guide_v": [
+      139.7,
+      241.3
+    ],
+    "guide_w": [
+      88.9,
+      107.95
+    ],
+    "bushing_body_OD": 15.875,
+    "bushing_effective_length_min": 19.05,
+    "bushing_flange_OD": 22.225,
+    "bushing_flange_height": 3.175,
+    "retainer_u": [
+      0.0,
+      139.7
+    ],
+    "retainer_v": [
+      165.7125,
+      194.2875
+    ],
+    "retainer_w": [
+      111.125,
+      117.475
+    ],
+    "retainer_clearance_hole_D": 12.7,
+    "retainer_fastener_centers_uv": [
+      [
+        12.7,
+        180.0
+      ],
+      [
+        69.85,
+        180.0
+      ],
+      [
+        127.0,
+        180.0
+      ]
+    ],
+    "retainer_fastener_head_OD_max": 12.7,
+    "retainer_spacer_height": 3.175,
+    "guide_clamp_centers_uv": [
+      [
+        12.7,
+        222.25
+      ],
+      [
+        127.0,
+        222.25
+      ]
+    ],
+    "post_clamp_center_uv": [
+      69.85,
+      38.1
+    ],
+    "cleat_clamp_center_uv": [
+      127.0,
+      288.925
+    ],
+    "clamp_pad_width": 25.4,
+    "chuck_nose_keepout_radius": 31.75,
+    "breakout_travel": 6.35,
+    "free_chuck_to_cap_axial_gap_min": 2.0,
+    "matched_stack_deviation_max": 0.5,
+    "guide_cap_stack_deviation_max": 0.2,
+    "square_end_datum_deviation_max": 0.25
+  },
+  "error_budget": {
+    "scope": "Pointwise worst-case sum of vector-magnitude bounds, including the full bore path; no root-sum-square cancellation or entry-point-only test. Proposed design requirements, all unobserved.",
+    "total_relative_bore_screw_bound_mm": 1.5,
+    "terms_mm": {
+      "member_registration_and_seating": 0.2,
+      "guide_axis_location": 0.15,
+      "guide_angle_full_path_allowance": 0.16,
+      "bushing_play_and_angular_slop_full_path": 0.5,
+      "additional_cutting_centerline_drift": 0.2,
+      "clamp_motion": 0.1,
+      "future_screw_axis_placement": 0.15
+    },
+    "guide_normal_angle_max_deg": 0.08,
+    "bushing_diametral_play_max_mm": 0.1,
+    "maximum_effective_cutting_diameter_mm": 11.1125,
+    "diameter_scope": "Maximum local swept cutter diameter includes bit diameter and rotational cutting-edge runout. Additional centerline drift is allocated once, separately. The declared diameter is a calculation envelope, not a selected field bit.",
+    "future_screw_scope": "The 0.15-mm term bounds the full future screw axis segment relative to its current nominal record; it is not an observed pilot or installed screw."
+  },
+  "primitive_scope": {
+    "current_body": {
+      "near_mm": 3.0,
+      "far_mm": 63.5,
+      "radius_mm": 2.5
+    },
+    "current_modeled_head": {
+      "near_mm": 0.0,
+      "far_mm": 3.0,
+      "radius_mm": 4.5
+    },
+    "owner_countersink_diameter_reference_mm": 9.525,
+    "extra_sensitivities": [
+      {
+        "name": "localized_9p525_head_reference",
+        "near_mm": 0.0,
+        "far_mm": 3.0,
+        "radius_mm": 4.7625
+      },
+      {
+        "name": "whole_screw_9p525_containing_capsule_reference",
+        "near_mm": 0.0,
+        "far_mm": 63.5,
+        "radius_mm": 4.7625
+      }
+    ],
+    "limits": "Modeled head capsules ARE included in the existing clearance result. Timber screw pilots/countersinks are absent from the finished-host cut inventory. Additional 9.525-mm envelopes are explicit conditional sensitivities, not observed Hillman dimensions, countersink depth, head seating or physical inspection."
+  },
+  "planned_sequence": [
+    "Label each left/right mating set and its reference faces. Lay the post on the full backer, outside face upward; register its rear edge and bottom against the independent fence and stop.",
+    "Support the cleat independently on the matched riser, with its lower mating portion against the post and its rear edge against the same fence. Register its bottom at v139.7. The riser height is adjusted to actual backer plus post thickness; nominal 50.8 does not force an incorrectly seated pair.",
+    "Apply the separate post and cleat holding clamps. Add the guide against the rear fence and shared bottom stop. Capture the flanged inserts with the cap and three flush, guide-only temporary fasteners; no fastener penetrates a frame member.",
+    "Apply both guide-stack clamps in their designated lanes. Keep the whole registered setup fixed between both holes; an installed first bolt does not replace these locators or clamps.",
+    "Before any affected physical operation, reconcile actual bit/guide/chuck/clamp and stock dimensions with the design requirements and current model disposition. This packet does not authorize drilling or select a bit.",
+    "The proposed drilling direction is inward through both 38.1-mm timbers, toward the sacrificial backer. The planned breakout travel is 6.35 mm. Chip clearing and point/guide compatibility remain actual-tool inputs; no speed/feed or unqualified opposite-face drilling is prescribed.",
+    "Remove the guide after both planned axes are completed, preserving mating labels and support. Bolt insertion, washer/nut seating, counterholding and removal use their own hardware/access disposition; the drill fixture supplies no such pass."
+  ],
+  "genuine_missing_inputs": [
+    "Actual handheld drill/chuck/handle outline, usable axial projection and runout; actual bit cutting diameter, flute geometry/length, point shape and permitted guided/chip-clearing use.",
+    "An actual interchangeable guide insert meeting body/flange/length/clearance envelopes and the chosen bit; finished ID/tolerances, capture/retention compatibility and cap fasteners that stay flush and within the guide.",
+    "Four simultaneous clamps or equivalent independently justified workholding meeting the stated opening, throat, jaw and lane bounds; actual pads, handle/body paths and suitable workholding force remain unobserved.",
+    "Actual stock and datum faces, backer/riser/guide thicknesses, surface seating, registration and attainable full-path error terms. Actual and Disposition cells remain blank.",
+    "Actual Hillman head/shank/profile and owner countersink depth/position, if claiming clearance beyond the declared source primitives; no new screw, insert or panel remedy is selected.",
+    "A reported current-model disposition for the four proposed axes and their applicable joint/end/edge/force conditions. Current Z200 geometry and its fields are preserved; this fixture adopts neither Z180 nor a capacity."
+  ],
+  "limits": [
+    "Temporary fixture design only: these pieces, guide fasteners and costs do not alter the frame 22 timbers/100 bolts/66 Hillman screws, purchased stock takeoff, permanent hardware, surface, viewer or source geometry.",
+    "The nominal full backer and upper riser support separate parts in a flat bench setup. Rectangle/profile and recorded-cut checks are source arithmetic, not a workholding-force, fixture stiffness, saw/drill-path or hand-room qualification.",
+    "Current native 48-wall/48-annulus evidence is authenticated as saved output only. No CAD/BREP import, build, query, tessellation, native mechanics, frame solve or physical test is performed.",
+    "Nominal 40.3 cleat-bottom/58.9 post-top ties and edge distances are geometry markers. Current Z200 signed forces reverse and cannot be assigned to this Z180 fixture; complete Cdelta, net section, splitting and joint resistance remain null.",
+    "The additional flange/cap increase reach beyond the earlier flush-guide 101.6-mm planning comparison. Overall bit length is not usable projection or flute length. Wood-exposure and full chip-exit path requirements remain distinct.",
+    "The guide is dimensioned for matched parts with no interchangeability claim. Neither paper scaling nor these nominal dimensions establish manufactured accuracy or actual tool fit.",
+    "No actual observations, fabricated jig, cut/hole/fastener installation, capacity, candidate selection or physical release is recorded."
+  ],
+  "release": {
+    "geometry_adoption": false,
+    "field_bit_selection": false,
+    "actual_tool_fit": false,
+    "workholding_qualified": false,
+    "machining_tolerance_achieved": false,
+    "fresh_proposal_forces": false,
+    "complete_joint_strength": false,
+    "physical_operation": false,
+    "fabrication": false,
+    "climbing": false
+  }
+}

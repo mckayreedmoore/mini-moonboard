@@ -73,8 +73,17 @@ retains 4-inch bolts as the first dimensional proposal. Their catalog body
 minimum does not guarantee smooth shank through both timbers. The 4½-inch
 comparison improves body coverage but cannot guarantee that the nut seats
 against this short stack, so it is not an automatic substitute. A proposed
-19.05-mm guide and 6.35-mm backer require 101.6 mm of usable bit reach;
-actual guides, clamps, drill/chuck and socket wells remain unverified.
+flush 19.05-mm guide and 6.35-mm backer give the earlier 101.6-mm reach
+comparison. The separate [paired-bench fixture](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.svg)
+now dimensions supports, stops, guide retention and four clamp lanes for the
+unadopted Z180 holes. Its generic flange/cap arrangement needs **113.825 mm**
+of usable bit projection at the declared tolerance corner. A 1.50-mm relative
+positioning budget leaves **2.44375 mm** to the modeled screw body if achieved.
+These are fixture requirements, with actual observations blank.
+The [catalog comparison](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json)
+identifies a wood bit with documented dimensions and a standard guide whose
+taller flange requires a separate mounting/reach adaptation. Actual guides,
+clamps, drill/chuck, chip clearing and socket wells remain unverified.
 
 The current six-case calculation retains 250 lb ×2 downward, 300 N horizontal,
 the recorded 100-mm hold arm and gravity. All 32 floor points are compression-only;

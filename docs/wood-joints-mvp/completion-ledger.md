@@ -3653,6 +3653,93 @@ JSON/Python and pass both mesh-alias checks. A broader Ruff scan reports 152
 existing diagnostics in 73 files byte-identical to `bedb85b8`, with none in this
 publication; that scan is not reported as a passing repository-wide check.
 
+The 35 owned preview publication paths were committed and pushed on master as
+`5e8fa1e224928d9c505af5f0fe95974a563c0a19`. Pages workflow **37899468840**
+completes successfully for that commit. The served index, new loader and gzip
+return HTTP 200 and match the reviewed local bytes. The compact
+[publication observation](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/publication-v1.json)
+is SHA `465159a6863b01f4a6d4772c6c03c63e77e267c55dad65f6b816d6929a088d97`.
+It records deployment only; the current Z200 geometry and six-case fields
+remain unchanged.
+
+The separate [four-station bench fixture](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.json)
+and its [dimensioned drawing](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.svg)
+reuse the passed four-host observations and current source profiles without
+new CAD, native mechanics or changed forces. The frozen result is SHA
+`ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5`;
+the drawing is SHA
+`60b5b105d42d35350bfe5a263f1c997974f7b3f9b1a27eea0317f88a84bd37c7`.
+Both hands share u = 44.45/95.25 mm from the common rear edge and v = 180 mm from
+the post bottom, retaining the 40.3/58.9-mm end ties. The two 38.1-mm members
+are supported and clamped separately in the same matched-pair setup.
+The base, full backer, upper riser, rear fence, stops, guide, cap and four
+clamp lanes have explicit intervals. Nominal bare clamp openings are
+127/107.95/69.85 mm for the guide/cleat/post; pad, jaw, handle and holding-force
+compatibility remain actual-tool questions. This does not alter the frame BOM.
+
+The generic effective guide length is at least 19.05 mm with at most 0.10-mm
+diametral play. Over the complete 111.825-mm worst guide-to-breakout path,
+the proposed 0.08-degree normality limit contributes 0.156137 mm; endpoint
+play contributes at most 0.485958 mm. Seven relative bore/screw allocations
+sum to 1.46 mm within the 1.50-mm budget. If achieved, the declared source-body
+clearance is at least 2.44375 mm; a distinct hypothetical 9.525-mm capsule over
+the entire screw leaves only 0.18125 mm. The modeled head is included separately;
+no actual Hillman head/countersink profile or cut is observed.
+The flange and cap increase nominal/worst usable bit projection to
+113.125/113.825 mm, including the 2-mm chuck gap. The 83.05-mm exposed-wood flute
+lower bound and 111.825-mm full chip-exit path reference are distinct; overall
+bit length alone establishes neither. These allocations are conditional fixture
+requirements, not measured accuracy or a complete joint factor.
+
+Three independent fixture reviews report no substantial findings within that
+generic requirement scope. They reproduce the scalar result and SVG, verify
+the frozen sources, exercise output/source guards and independently check
+finite-axis clearance, supported footprints, handed datums and error/reach
+arithmetic. The correctness review covers all 1,056 finite-segment pairs; the
+testing review includes 50 controls. Their receipts are under
+`receiver-seats-v1/fixture-design-v1/independent-review-v1`:
+
+| Review | Receipt SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `27651e2957fd8947fdff236de8bf4b652413fdc581e9d210438c0f595cf40bad` |
+| `testing/receipt.json` | `7035c549c3afaaf0f80688e2b41fe27ed2aee1cff15ffe22448bdf4b82fe4ff9` |
+| `structure/receipt.json` | `8d7155ebc75fe9404758531ae73a899f37379d55a870e514eecaa904fafe416b` |
+
+The [primary catalog facts](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json),
+SHA `0b7ff9a2905fb5ea2b5b26cfb33a3df30c13456ddd6e5018d67dff5b3499d38c`,
+identify [FISCH 013P1032150](https://www.fisch-tools.com/assets/documents/013P-Pen_Drill.pdf)
+as a wood-drilling catalog candidate: diameter 10.32 mm, NL 120 mm, GL 150 mm,
+shank 10 mm. The drawing's generic bushing is not that of the standard
+[Carr Lane H-40-12 family](https://www.carrlane.com/product/drill-bushings/press-fit-bushings/head-press-fit-bushings-h):
+the standard head is 20.240625 mm across and 5.55625 mm high, versus the generic
+22.225/3.175 mm. Current [installation guidance](https://www.carrlane.com/engineering-resources/technical-information/manual-workholding/drill-bushings/installation-and-technical-data)
+also assigns ±0.381-mm tolerance to unlisted ANSI dimensions and limits its
+recommended receiving holes to metal jig plates. A separate catalog adaptation
+must account for head/length tolerance, effective guiding length, receiving fit,
+retention, chip outlet and bit/chuck reach; this generic fixture does not select
+or qualify that product. General chip-gap guidance is retained as a reference,
+not a wood-specific mandatory rule or permission for a flush chip path.
+
+The six frozen fixture files total 105,057 bytes. Earlier draft outputs and
+source snapshots remain distinct, including the first unused-local lint finding
+and crowded-label drawing; they are not substituted for the final result.
+The two rendered drawing PNGs remain active ignored observations, and the
+87,148-byte one-page FISCH PDF remains an active ignored source under
+`hardware-followup-v1/catalog-cache-v1`. The source facts, source/result/drawing,
+verification and independent reviews remain compact active evidence. No raw run,
+current field, receiver solid or historical viewer asset is archived or pruned.
+All Actual/Disposition cells stay blank; Z180 adoption, drilling, actual tool
+fit, fixture capacity, complete joint resistance and physical release remain
+unqualified. Physical testing is not introduced as a numerical-completion gate.
+This addition publishes **24 compact files / 357,095 bytes**, including the
+fifteen final/development fixture records, six independent review records,
+the existing compact file inventory, primary catalog facts and deployment
+observation. The inventory preserves the verifier's `controls01` parent on a
+clean checkout. Two PNGs, two freeze manifests and the source PDF total
+**612,963 bytes**, active and ignored. The first lint/visual snapshots explain
+the retained source copies; no full manual, dependency or new geometry bank
+is added. The catalog-adapter draft remains a distinct unpublished input scope.
+
 The separate [signed-end inventory and square-end markers](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
 reuse the six completed rich reports rather than regenerating their actions.
 The producer SHA is `fc45c5e990b11c20a3e6e98e9723b25ec366d05a780b229d82cdb639c6dc4ad0`;

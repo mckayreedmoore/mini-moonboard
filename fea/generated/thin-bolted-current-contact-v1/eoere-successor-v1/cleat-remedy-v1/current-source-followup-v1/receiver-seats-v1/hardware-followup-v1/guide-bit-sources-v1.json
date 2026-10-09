@@ -1,0 +1,136 @@
+{
+  "schema": "eoere_Z180_fixture_catalog_source_facts/v1",
+  "question": "Identify ordinary catalog guide and wood-drill candidates for the separate Z180 matched-pair fixture, retaining nominal product dimensions as source facts rather than actual tool fit or qualification.",
+  "observed_date_utc": "2026-10-09",
+  "sources": {
+    "Acme_standard_H_dimensions": {
+      "url": "https://acmeindustrial.com/wp-content/uploads/2019/10/Acme-Bushings.pdf",
+      "locator": "Printed page12, ANSI/Acme TypeH, H-40-12 row; C column explicitly specifies length under head, unlike metric HM overall length.",
+      "facts": {
+        "family": "H-40-12",
+        "C_underhead_length_mm": 19.05,
+        "F_head_diameter_mm": 20.240625,
+        "G_head_height_mm": 5.55625,
+        "applicability": "Corroborates the ANSI dimensional convention. Does not substitute Acme product tolerances, retention or resistance for Carr Lane."
+      }
+    },
+    "Carr_Lane_H": {
+      "url": "https://www.carrlane.com/product/drill-bushings/press-fit-bushings/head-press-fit-bushings-h",
+      "locator": "5/8-inch OD table, H-40-12 row; ID Tolerance; OD Tolerance; No-Counterbore Option; part drawing",
+      "facts": {
+        "family": "H-40-12 with a configured 13/32-inch drill ID; exact four-decimal ordering suffix is not selected",
+        "body_OD_nominal_mm": 15.875,
+        "body_OD_additional_tolerance_mm": [
+          0.03556,
+          0.04318
+        ],
+        "underhead_length_nominal_mm": 19.05,
+        "head_OD_F_nominal_mm": 20.240625,
+        "head_height_G_nominal_mm": 5.55625,
+        "ID_additional_standard_tolerance_mm": [
+          0.00254,
+          0.0127
+        ],
+        "H_40_12_row_has_counterbore_asterisk": false,
+        "installation_type": "Permanent headed press fit; entrance radius and effective drill bearing length must be distinguished from catalog dimensions."
+      }
+    },
+    "Carr_Lane_installation": {
+      "url": "https://www.carrlane.com/engineering-resources/technical-information/manual-workholding/drill-bushings/installation-and-technical-data",
+      "locator": "Tolerances for Bushing Concentricity; Essential Steps for Preparing Holes; 5/8-inch OD table",
+      "facts": {
+        "unlisted_standard_ANSI_dimension_plus_minus_mm": 0.381,
+        "ID_to_OD_concentricity_TIR_mm": 0.00762,
+        "recommended_metal_jig_hole_mm": [
+          15.89278,
+          15.9004
+        ],
+        "recommended_metal_jig_hole_does_not_qualify_wood_plate": true,
+        "mount_hole_preparation": "Jig-bore or ream; an ordinary drilled receiving hole is not a catalog precision press-fit qualification."
+      }
+    },
+    "Carr_Lane_design": {
+      "url": "https://www.carrlane.com/engineering-resources/technical-information/design-standards-engineering-information/understanding-standard-drill-bushing-types",
+      "locator": "Measure Chip Clearance Requirements, Figure10-45; Prepare an Installation Hole",
+      "facts": {
+        "general_drilling_chip_gap_diameter_multipliers": [
+          0.5,
+          1.5
+        ],
+        "gap_scope": "General-purpose drilling guidance, not a wood-specific mandatory value or verified permission for zero-gap flush drilling. Any adopted gap changes reach and angular/play bounds."
+      }
+    },
+    "FISCH_pen_drill": {
+      "url": "https://www.fisch-tools.com/assets/documents/013P-Pen_Drill.pdf",
+      "locator": "Printed page85; PEN DRILL013P; 13/32-inch row and NL/GL/S diagram",
+      "raw_active_cache": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/catalog-cache-v1/FISCH-013P-Pen_Drill.pdf",
+        "sha256": "1eaf6221834c14ba7b15d82c72ec43d86b5c1d063d5492e14bb69f3fc97f4c52",
+        "bytes": 87148
+      },
+      "facts": {
+        "article": "013P1032150",
+        "EAN": "9002696322627",
+        "inch_size": "13/32",
+        "catalog_diameter_mm": 10.32,
+        "catalog_NL_mm": 120.0,
+        "catalog_GL_mm": 150.0,
+        "catalog_shank_S_mm": 10.0,
+        "catalog_material": "M2 HSS",
+        "manufacturer_declared_work_materials": [
+          "softwood",
+          "hardwood",
+          "acrylic",
+          "aluminium"
+        ],
+        "dimensional_tolerance_or_actual_point_geometry_supplied": false,
+        "guided_handheld_drilling_through_this_fixture_qualified": false
+      }
+    },
+    "Norseman_parabolic_comparison": {
+      "url": "https://www.norsemandrill.com/pdf/prd/norsemanType221-PT.pdf",
+      "locator": "Type221-P row35500; Type221-PT row34780",
+      "facts": {
+        "diameter_inch": "13/32",
+        "OAL_mm": 177.8,
+        "flute_length_mm": 142.875,
+        "black_oxide_part": "35500",
+        "TiN_part": "34780",
+        "drive": "Tang drive",
+        "wood_or_ordinary_handheld_chuck_use_established_by_this_sheet": false,
+        "disposition": "Long-flute dimensional alternative only. Do not select a tang-drive metal-drilling product solely because the flute and overall lengths are sufficient."
+      }
+    }
+  },
+  "direct_model_sources": {
+    "generic_fixture_inputs": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/inputs.json",
+      "sha256": "b17a8f72f41ab2b8ce75ffaac15af075432a0ffe7111daead6597cb34eff86be"
+    },
+    "generic_fixture_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.json",
+      "sha256": "ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5"
+    }
+  },
+  "disposition": {
+    "first_catalog_wood_bit_candidate": "FISCH013P1032150, subject to separately computed reach, actual chuck engagement, point/diameter/flute and guide compatibility. No purchase or physical use is adopted.",
+    "standard_H_bushing_interchangeable_with_generic_fixture": false,
+    "generic_fixture_head_OD_mm": 22.225,
+    "generic_fixture_head_height_mm": 3.175,
+    "catalog_adapter_required_before_claiming_standard_H_fit": true,
+    "catalog_guide_effective_length_and_fixture_retention_qualified": false,
+    "actual_observations": {
+      "guide": "",
+      "bit": "",
+      "drill_chuck": "",
+      "clamps": "",
+      "fixture": "",
+      "Disposition": ""
+    }
+  },
+  "retention": "The one-page primary FISCH PDF remains ACTIVE in the ignored catalog-cache-v1 for linked consumers; no archive or pruning is authorized. Source facts are compact; no full manuals or installations copied.",
+  "current_Z200_geometry_changed": false,
+  "Z180_proposal_adopted": false,
+  "new_CAD_native_FEA_global_or_physical_execution": false,
+  "capacity_or_physical_release": false
+}
