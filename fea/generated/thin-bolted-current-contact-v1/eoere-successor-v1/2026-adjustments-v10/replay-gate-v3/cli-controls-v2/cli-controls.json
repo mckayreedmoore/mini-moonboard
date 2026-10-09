@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "genuine_cli_subprocesses": true,
+  "inner_producer_subprocess_stubbed": true,
+  "cad_execution": false,
+  "native_solver": false,
+  "cases": [
+    {
+      "case": "equal",
+      "returncode": 1,
+      "producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "nested",
+      "returncode": 1,
+      "producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "canonical-nested",
+      "returncode": 1,
+      "producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "disjoint",
+      "returncode": 0,
+      "producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "exclusive-late",
+      "returncode": 1,
+      "producer_stub_invoked": true,
+      "passed": true
+    }
+  ],
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/replay-gate-v3/cli-controls-v2/cli-controls.py": "d30c233aa1d987aedef85ec4da178d12e089fbe285bde48df5f1940d55f02339",
+    "/home/mckay-linux/repos/mini-moonboard/scripts/check_eoere_2026_replay_inputs.py": "185b4a9aedf2e10c2b53943b3086bf12a6992cc8b5d20e50b9104c08dcf8e2c1",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/replay-gate-v3/cli-controls-v2/cli-work/fixture/sitecustomize.py": "aa855470a72c50e22a3e80a615fff219849442e946b290798ed72f49c357c4ee"
+  }
+}

@@ -1,0 +1,304 @@
+{
+  "schema": "eoere_v3_final_replay_independent_verification/v1",
+  "passed": true,
+  "substantial_findings": [],
+  "python_version": "3.12.3",
+  "target_sha256": "185b4a9aedf2e10c2b53943b3086bf12a6992cc8b5d20e50b9104c08dcf8e2c1",
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/scripts/check_eoere_2026_replay_inputs.py": "185b4a9aedf2e10c2b53943b3086bf12a6992cc8b5d20e50b9104c08dcf8e2c1",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/replay-gate-v3/result.json": "c1bb7fee5a04b759fee475402761640e407c31f5aa4355a73084e6eb2046b695",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/replay-gate-v3/cli-controls-v2/cli-controls.json": "fa45aaa7a5f1df86042dba95f64251254fb9d2470e7ec99d9129021aff274c2a",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-final-replay-review-v1/verification/check.py": "114175edaad2af2f3fa310af256a966520abaff23411d76f375784b0b3168022"
+  },
+  "complete_frozen_sources_verified": 570,
+  "all_unique_input_pins_verified": 573,
+  "separate_initializer_gate_verified": true,
+  "namespace_absence_gate_verified": true,
+  "genuine_recorded_rejection_controls_verified": 29,
+  "independent_changed_missing_input_controls": [
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "site/eoere-bottom-rail-scene.json.gz",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "site/eoere-bottom-rail-scene.json.gz",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "scripts/eoere_2026_adjustments.py",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "scripts/eoere_2026_adjustments.py",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "scripts/thin_bolted_occupied.py",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "scripts/thin_bolted_occupied.py",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/aligned-wire-cutouts-v1/cad-v1/base_rail_bottom_left.brep",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/aligned-wire-cutouts-v1/cad-v1/base_rail_bottom_left.brep",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    },
+    {
+      "path": "mini_moonboard/__init__.py",
+      "mode": "changed",
+      "exception": "ValueError"
+    },
+    {
+      "path": "mini_moonboard/__init__.py",
+      "mode": "missing",
+      "exception": "FileNotFoundError"
+    }
+  ],
+  "fresh_cli_subprocess_controls": [
+    {
+      "case": "default",
+      "returncode": 0,
+      "inner_producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "existing-receipt",
+      "returncode": 1,
+      "inner_producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "existing-replay",
+      "returncode": 1,
+      "inner_producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "equal",
+      "returncode": 1,
+      "inner_producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "nested",
+      "returncode": 1,
+      "inner_producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "canonical-nested",
+      "returncode": 1,
+      "inner_producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "symlink-nested",
+      "returncode": 1,
+      "inner_producer_stub_invoked": false,
+      "passed": true
+    },
+    {
+      "case": "disjoint",
+      "returncode": 0,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "exclusive-late",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "producer-failure",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "missing-base-binding",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "missing-extra-binding",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "changed-base-binding",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "changed-extra-binding",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "bad-generated-base",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "bad-generated-extra",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "missing-base-report",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "missing-extra-report",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "initializer-base-binding",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "initializer-extra-binding",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "unexpected-external-base",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "unexpected-external-extra",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "post-producer",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "post-initializer",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    },
+    {
+      "case": "post-namespace",
+      "returncode": 1,
+      "inner_producer_stub_invoked": true,
+      "passed": true
+    }
+  ],
+  "fixture_sha256": "87bad910f6c0e3559492a8f3740c6c45787514fbde02aa76dc582c19021c75e6",
+  "unchanged_geometry_mesh_browser_evidence_reused_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verification-result-v1.json": "bee7b40d7f2171f78b65bcd41e0296c92e79cb27883144702179eb459fd512fc",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verify_frozen_v3.py": "45daaa1926b0d96780bd048c3df32fc88617af7e92180a79f4baa3d44b8e0623",
+    "scripts/check_eoere_2026_adjustments.mjs": "9e9a03afbbc6ab544a8007b9a97b44e41fed2b47ac713da2043a09e554be2d4b",
+    "scripts/check_eoere_2026_browser.cjs": "f25584e578b2309bdcbe90c3405172845a1aba4b829eeb697134da489f6e7d21",
+    "scripts/eoere_2026_adjustments.py": "136d7e63f1e337ef8a65421d22d4614b336697cb1b8556ff099995fe26a92821",
+    "site/index.html": "1a1a8bbae255886214d6111769674bfafb8e80c72f3ebfa1acea319b2fa8b883",
+    "site/eoere-2026-adjustments-overlay.mjs": "b57759996903d1a5696f9cf5dca85af7e392a3cac38eaf6c5e15f49e54a5110d",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/independent-actual-mesh-check-v1.json": "3d280e0003e970b909b79ee916444fde2088ed72b11b0c89195762084ad55816",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/actual-mesh-check-v1.json": "3d280e0003e970b909b79ee916444fde2088ed72b11b0c89195762084ad55816",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/browser-v1/result.json": "a4e5c4444d67df32a9b9e372739e614b9214d8023327229a2e5da01ee79b8d98",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/browser-v1/2026-front.png": "cb3137b973cad0d85f3699bd16dbb5f19274485e2b9c54f61d38a3e602cc8b19",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/browser-v1/2026-rear.png": "9804b6980bd34f7e763a0870a3f6e9638fcd14e920cff54112d8f46d91cc68dc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/browser-v1/adjusted-base-2026-off.png": "3ea5b8fe943d6ffa57ee46eeea34b0c2bb189153488f25a260c128c8e140fbd2",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/base/geometry.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "site/eoere-adjusted-base-v3-scene.json.gz": "d77b9923b7d0df6b3416b2938b2d249a5406a9174fe98fba5118c341bc3df947",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/base/scene.json.gz": "d77b9923b7d0df6b3416b2938b2d249a5406a9174fe98fba5118c341bc3df947",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/geometry.json": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134",
+    "site/eoere-2026-adjustments-v3-scene.json.gz": "8682bf9a81c0bf8e7ffb23c3f6725adc6d3c9bd4728b00e50edb696ca3305d1d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/scene.json.gz": "8682bf9a81c0bf8e7ffb23c3f6725adc6d3c9bd4728b00e50edb696ca3305d1d"
+  },
+  "cad_execution": false,
+  "native_solver": false,
+  "actual_optional_CAD_replay_performed": false,
+  "mechanics_or_physical_release": false,
+  "limits": [
+    "Optional replay tests use synthetic reports and generated bytes from a stubbed inner producer; they verify gate dispatch, source validation and failure handling only.",
+    "Existing geometry, actual mesh and browser proofs are hash-reused; no CAD/BREP import, mesh materialization, browser or broad suite executed."
+  ]
+}

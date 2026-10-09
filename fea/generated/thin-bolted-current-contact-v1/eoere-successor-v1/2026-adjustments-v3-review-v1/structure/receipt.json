@@ -1,0 +1,112 @@
+{
+  "schema": "eoere_v3_structure_independent_review/v1",
+  "frozen_inputs": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134",
+    "scripts/eoere_2026_adjustments.py": "136d7e63f1e337ef8a65421d22d4614b336697cb1b8556ff099995fe26a92821",
+    "site/eoere-2026-adjustments-overlay.mjs": "b57759996903d1a5696f9cf5dca85af7e392a3cac38eaf6c5e15f49e54a5110d",
+    "site/index.html": "1a1a8bbae255886214d6111769674bfafb8e80c72f3ebfa1acea319b2fa8b883",
+    "site/eoere-adjusted-base-v3-scene.json.gz": "d77b9923b7d0df6b3416b2938b2d249a5406a9174fe98fba5118c341bc3df947",
+    "site/eoere-2026-adjustments-v3-scene.json.gz": "8682bf9a81c0bf8e7ffb23c3f6725adc6d3c9bd4728b00e50edb696ca3305d1d"
+  },
+  "review_helper_sha256": "a6c4fb77ce82589430f27579ad717d17522ff2f9cda6f35e0a2636d1f946c25f",
+  "python_version": "3.12.3",
+  "node_version": "v24.18.0",
+  "source_checks": [
+    {
+      "report": "base",
+      "matching_source_pins": 570,
+      "matching_saved_shape_hashes": 136
+    },
+    {
+      "report": "extra",
+      "matching_source_pins": 570,
+      "matching_saved_shape_hashes": 23
+    }
+  ],
+  "scene_ancestry": [
+    {
+      "scene": "eoere-adjusted-base-v3-scene.json.gz",
+      "authenticated_parent": "eoere-aligned-wire-scene.json.gz"
+    },
+    {
+      "scene": "eoere-2026-adjustments-v3-scene.json.gz",
+      "authenticated_parent": "eoere-adjusted-base-v3-scene.json.gz"
+    },
+    {
+      "scene": "eoere-aligned-wire-scene.json.gz",
+      "authenticated_parent": "eoere-cleat-trim-scene.json"
+    },
+    {
+      "scene": "eoere-cleat-trim-scene.json",
+      "authenticated_parent": "eoere-bottom-rail-scene.json.gz"
+    }
+  ],
+  "inventory": {
+    "screw": 66,
+    "tnut": 262,
+    "panel": 6,
+    "light": 252,
+    "wire": 250,
+    "timber": 22,
+    "bracket": 22,
+    "bolt": 500
+  },
+  "base_parts": 1021,
+  "extra_parts": 1380,
+  "base_replacements": 136,
+  "extra_replacements": 23,
+  "extra_additions": 359,
+  "viewer_validator_controls": {
+    "validators_passed": true,
+    "rejected_controls": [
+      "parent hash",
+      "official-grid claim",
+      "release flag",
+      "lost base move",
+      "duplicate replacement identity",
+      "template reference",
+      "dropped light"
+    ]
+  },
+  "source_authentication_controls": [
+    {
+      "altered_source": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json",
+      "trusted_ancestor_sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b",
+      "changed_cache_metadata_sha256": "82b9ff5f4f844d90384d7889dcdeeb090e33b0a092bbc601aa7cddd843598aa3",
+      "authentication_prefix_rejected": false,
+      "new_self_pin_recorded": true,
+      "scope": "authentication prefix only; no CAD or final build acceptance"
+    },
+    {
+      "altered_source": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/native-geometry-v4.json",
+      "trusted_ancestor_sha256": "cafdd983a41f2eee15647b28e60e5b2704354a4c5518d120e4c4342001994bb9",
+      "changed_cache_metadata_sha256": "e20a52275a5e0ce85955dd32b6872d61c9fdb4f8a99bf8c5f271ebd24bb5e1ec",
+      "authentication_prefix_rejected": false,
+      "new_self_pin_recorded": true,
+      "scope": "authentication prefix only; no CAD or final build acceptance"
+    }
+  ],
+  "findings": [
+    {
+      "priority": "P2",
+      "title": "Authenticate secondary cache metadata before reading/importing it",
+      "sources": [
+        "scripts/eoere_2026_adjustments.py:543",
+        "scripts/eoere_2026_adjustments.py:547",
+        "scripts/eoere_2026_adjustments.py:312",
+        "scripts/eoere_2026_adjustments.py:801"
+      ],
+      "observed": "Raised/native JSON and bottom-rail bracket scene are self-pinned at runtime, without comparison to the hashes already in the authenticated aligned-wire parent's source_sha256. Two AST-only controls accept changed raised/native cache metadata and record its new hash.",
+      "impact": "Replay may read changed cache authority before CAD, so its self-consistent BREP rows and bracket transforms are not necessarily the preserved parent inputs. All 570 current frozen pins match, so this finding does not establish an error in today's v3 geometry.",
+      "recommendation": "Before any secondary cache read or BREP import, compare raised/native/bracket hashes with the authenticated parent source_sha256; reject missing pins and mismatches. Keep the frozen v3 producer/source witness unchanged."
+    }
+  ],
+  "limitations": [
+    "No CAD import, native solve, actual mesh construction/decoding, browser run, materialization, broad tests, or Git commands.",
+    "Source-authentication negative controls execute only the generator prefix, not a complete CAD build.",
+    "Frozen evidence contains two absolute source witness locations; existing ledger records archive location and recovery. It is an environment-bound witness, not a standalone portable bundle.",
+    "README and completion-ledger v2-to-v3 edits belong to the parent and were not adjudicated here."
+  ],
+  "mechanics_or_physical_release": false
+}

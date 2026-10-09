@@ -1,0 +1,47 @@
+{
+  "schema": "eoere_replay_gate_independent_verification/v1",
+  "passed": true,
+  "substantial_findings": [],
+  "source_sha256": {
+    "scripts/check_eoere_2026_replay_inputs.py": "d714ccb706443b6ebf4420d8ba5937d4e49612e4290b20538fd4cacaea929c76",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/replay-gate-v2/result.json": "a8e9efcf59fe0e4435e012c5d64a032d62e8c8a6ba4bb74f124efbaeec133266",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/review.json": "2997304b9b6b431b01d3539d0c675da05bf60b218b8aa329e21032cc3fcc374d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/structure/receipt.json": "2b4837adc7b6e2a8b4dfd0ba98ea3c7b218bfa14cd4bd909d38f6a1bb255b34a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verification-result-v1.json": "bee7b40d7f2171f78b65bcd41e0296c92e79cb27883144702179eb459fd512fc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/independent-actual-mesh-check-v1.json": "3d280e0003e970b909b79ee916444fde2088ed72b11b0c89195762084ad55816",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-replay-review-v1/verification/review_gate.py": "bc3b1ca0af5b4b8d7af35519f978e15dd634d3c77e6dcfae0b84c7dc08cb747f"
+  },
+  "checks": [
+    "issued receipt exactly binds current 572 contract pins plus gate source",
+    "all 26 issued rejection controls independently reproduced",
+    "all 570 frozen sources and two report pins are read and authenticated",
+    "new output binding accepted with correct authenticated payload",
+    "each of 570 missing and 570 changed replay bindings rejected",
+    "conflicting normalized aliases rejected; equal aliases collapse",
+    "default CLI produces issued source-only receipt and never invokes producer",
+    "existing receipt/replay files and directories rejected before source reads",
+    "optional CLI invokes producer once and authenticates both fresh report bindings",
+    "six fake child/report/source failures stop without a success receipt",
+    "changed contract after fake child execution stops before receipt"
+  ],
+  "issued_rejected_control_count": 26,
+  "complete_frozen_source_count": 570,
+  "independent_missing_changed_replay_control_count": 1140,
+  "fake_subprocess_only": true,
+  "actual_cad_replay_performed": false,
+  "original_v3_execution_used_this_gate": false,
+  "reused_reviews": [
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/review.json",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/structure/receipt.json",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verification-result-v1.json",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/independent-actual-mesh-check-v1.json"
+  ],
+  "documented_replay_command": "PYTHONPATH=. .venv/bin/python -B scripts/check_eoere_2026_replay_inputs.py --out FRESH_GATE_RECEIPT.json --run-out FRESH_CAD_DIRECTORY",
+  "limits": [
+    "Source and CLI verification only; existing nominal geometry, mesh and browser evidence reused within frozen v3 inputs.",
+    "Optional real CAD replay remains unperformed; fake reports demonstrate orchestration and binding behavior only.",
+    "The documented replay command supplies PYTHONPATH=.; no native/global/browser/full-test or physical qualification work."
+  ]
+}

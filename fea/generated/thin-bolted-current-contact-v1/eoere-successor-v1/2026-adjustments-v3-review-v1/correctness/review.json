@@ -1,0 +1,70 @@
+{
+  "schema": "independent_correctness_review_summary/v1",
+  "reviewer": "/root/adjusted_geometry_correctness_v3",
+  "status": "NO_CONFIRMED_SUBSTANTIVE_FINDINGS",
+  "reviewed_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134"
+  },
+  "receipt_bindings": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/review.py": "2b09edf0202c05583da46bcdc1b2229d56bee23f7385f937993998dbb0caf925",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/receipt.json": "0907933e79a0b24f9f2a2c9e7744ed08d7f2badb94a633dba1ea70d3afab1d13",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/panel_bores.py": "3d5db80e997e234189fda8d181fa7d7e1630f197de12fc532d159b46e8d0f6ce",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/panel-bores.json": "65c2272230db9c20ba94dccfe378c6c218ab24780cf1548969ced8d9092f04d7"
+  },
+  "verified": {
+    "source_pins_per_receipt": 570,
+    "saved_outputs_roundtrip_valid_and_hashed": 159,
+    "shared_duties": 6,
+    "moved_bolt_stacks": 22,
+    "moved_Hillman_screws": 10,
+    "installed_factory_ports": 88,
+    "moved_port_intervals_checked_against_raw_timber": 24,
+    "saved_moved_angles_unchanged_except_rigid_translation": 6,
+    "saved_shaft_poses_and_raw_bore_crossings": 22,
+    "retained_starting_bolt_records_unchanged": 12,
+    "restored_contact_checks_OFF_ON": 12,
+    "finished_timber_screw_backing_checks_OFF_ON_at_two_thicknesses": 148,
+    "authenticated_retained_services": 405,
+    "changed_timbers_OFF": 7,
+    "changed_timbers_ON": 11,
+    "retained_service_or_changed_metal_intersections": 0,
+    "new_services_vs_changed_ON_timber_intersections": 0,
+    "new_rigid_Tnut_light_instances": 240,
+    "new_wire_scene_bounds_screened": 119,
+    "bounded_new_wire_probes": 31,
+    "changed_wood_vs_all_wood_intersections_OFF_ON": 0,
+    "moved_screw_panel_bores_checked": 10,
+    "new_panel_bores_individually_checked": 240,
+    "midpoints": 120,
+    "midpoint_world_poses": 240,
+    "links": 119,
+    "original_detour_endpoints_unchanged": 10,
+    "panel_outer_bounds_preserved": true,
+    "original_Tnut_light_part_poses_not_replaced": true,
+    "OFF_total_parts": 1021,
+    "OFF_replacements": 136,
+    "ON_total_parts": 1380,
+    "ON_replacements": 23,
+    "ON_additions": 359,
+    "original_axis_census_100_bolts_66_Hillman_retained": true,
+    "frozen_source_bytes_unchanged_at_closure": true,
+    "unofficial_midpoint_assumption_preserved": true,
+    "all_release_flags_false": true
+  },
+  "findings": [],
+  "limits": [
+    "Exact frozen v3 nominal geometry and machine records only; no strength, force, tool, tolerance or physical acceptance.",
+    "No producer run, full assembly rebuild, native/global solve, mesh materialization, source edits or Git mutation.",
+    "Retained services checked using authenticated cached BREP; new services use saved T-nut BREP transforms, exact light cylinders and bounded source-route probes after saved-scene bounds filtering.",
+    "Source producer complete collision registers were inspected; no wholesale historical global collision rerun.",
+    "New grid remains unofficial with exact midpoints assumed; all structural/physical release flags remain false."
+  ],
+  "reproduction_commands": [
+    "PYTHONPATH=. .venv/bin/python -B /home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/review.py",
+    "PYTHONPATH=. .venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/panel_bores.py"
+  ],
+  "cadquery_version": "2.8.0",
+  "python_version": "3.12.3",
+  "ownership": "Only assigned ignored correctness directory was written; no tracked sources or model geometry changed."
+}

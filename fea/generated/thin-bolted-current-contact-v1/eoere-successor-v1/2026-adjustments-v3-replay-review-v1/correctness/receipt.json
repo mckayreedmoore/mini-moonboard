@@ -1,0 +1,94 @@
+{
+  "schema": "eoere_v3_replay_gate_independent_correctness/v1",
+  "python_version": "3.12.3",
+  "source_sha256": {
+    "scripts/check_eoere_2026_replay_inputs.py": "d714ccb706443b6ebf4420d8ba5937d4e49612e4290b20538fd4cacaea929c76",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/replay-gate-v2/result.json": "a8e9efcf59fe0e4435e012c5d64a032d62e8c8a6ba4bb74f124efbaeec133266",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-replay-review-v1/correctness/reviewed-gate.py": "d714ccb706443b6ebf4420d8ba5937d4e49612e4290b20538fd4cacaea929c76",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-replay-review-v1/correctness/review.py": "f670251a5e7f99960ad276883e0080d4403cd85fbb1719cb36b040e06ebdcc59",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/receipt.json": "0907933e79a0b24f9f2a2c9e7744ed08d7f2badb94a633dba1ea70d3afab1d13",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/panel-bores.json": "65c2272230db9c20ba94dccfe378c6c218ab24780cf1548969ced8d9092f04d7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verification-result-v1.json": "bee7b40d7f2171f78b65bcd41e0296c92e79cb27883144702179eb459fd512fc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/independent-actual-mesh-check-v1.json": "3d280e0003e970b909b79ee916444fde2088ed72b11b0c89195762084ad55816",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/structure/receipt.json": "2b4837adc7b6e2a8b4dfd0ba98ea3c7b218bfa14cd4bd909d38f6a1bb255b34a",
+    "docs/wood-joints-mvp/README.md": "e8527f55997b74d49950d653a55e4ccb1e9a46a49692e1d81907979b406e2b7c",
+    "docs/wood-joints-mvp/completion-ledger.md": "b8929e16013caa80536780a238adbcc7fe0a402e62cd588f41b22b8abbf03c57"
+  },
+  "complete_frozen_input_count": 570,
+  "joined_authority_pins_excluding_gate": 572,
+  "issued_receipt_source_bindings_match": true,
+  "issued_26_rejection_controls_reproduced": true,
+  "source_only_rejection_controls": [
+    {
+      "mode": "missing_producer_replay_binding",
+      "rejection": "replayed frozen source differs or is missing: /home/mckay-linux/repos/mini-moonboard/scripts/eoere_2026_adjustments.py"
+    },
+    {
+      "mode": "changed_producer_replay_binding",
+      "rejection": "replayed frozen source differs or is missing: /home/mckay-linux/repos/mini-moonboard/scripts/eoere_2026_adjustments.py"
+    },
+    {
+      "mode": "relative_absolute_conflict",
+      "rejection": "conflicting source bindings: /home/mckay-linux/repos/mini-moonboard/scripts/eoere_2026_adjustments.py"
+    },
+    {
+      "mode": "generated_path_escapes_output",
+      "rejection": "unexpected nongenerated replay source: /home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-replay-review-v1/correctness/escape.brep"
+    }
+  ],
+  "main_orchestration_controls": [
+    {
+      "case": "outside_replay",
+      "producer_was_stubbed_no_CAD": true,
+      "gate_returned_passed": true,
+      "generated_geometry_reports_overwritten": 0,
+      "receipt_geometry_source_hashes_still_match": true,
+      "final_receipt_schema": "eoere_2026_replay_source_gate/v2"
+    },
+    {
+      "case": "top_report_collision",
+      "producer_was_stubbed_no_CAD": true,
+      "gate_returned_passed": true,
+      "generated_geometry_reports_overwritten": 1,
+      "receipt_geometry_source_hashes_still_match": false,
+      "final_receipt_schema": "eoere_2026_replay_source_gate/v2"
+    },
+    {
+      "case": "base_report_collision",
+      "producer_was_stubbed_no_CAD": true,
+      "gate_returned_passed": true,
+      "generated_geometry_reports_overwritten": 1,
+      "receipt_geometry_source_hashes_still_match": false,
+      "final_receipt_schema": "eoere_2026_replay_source_gate/v2"
+    }
+  ],
+  "default_no_CAD_control_passed": true,
+  "substantial_findings": [
+    {
+      "priority": "P2",
+      "title": "Reject receipt paths that collide with replay output files",
+      "source_lines": [
+        "scripts/check_eoere_2026_replay_inputs.py:172",
+        "scripts/check_eoere_2026_replay_inputs.py:210"
+      ],
+      "trigger": "--out FRESH_CAD_DIRECTORY/geometry.json --run-out FRESH_CAD_DIRECTORY (or the base/geometry.json report)",
+      "observed": "Both paths are initially new. main() verifies and pins the producer's geometry report, then replaces that report with a passed VERIFIED_REPLAY gate receipt. Its saved geometry-source hash no longer matches the overwritten file.",
+      "impact": "An allowed fresh-path invocation silently destroys a replay report and emits an internally stale receipt after a potentially expensive CAD run. This does not affect the issued source-only receipt or frozen v3 geometry.",
+      "recommendation": "Resolve both paths before execution and reject a receipt inside the replay directory, or at minimum reject every producer-owned output destination. Add a source-only orchestration control before authorizing CAD execution."
+    }
+  ],
+  "documentation_assessment": {
+    "adjusted_base_is_current_geometry_entrypoint": true,
+    "unofficial_grid_assumptions_and_revision_limits_are_explicit": true,
+    "original_v3_execution_not_attributed_to_gate": true,
+    "optional_CAD_replay_not_claimed_run": true,
+    "no_extra_substantial_documentation_findings": true
+  },
+  "limits": [
+    "Source bindings, arithmetic/control flow, path joins and documented entrypoint honesty only.",
+    "Geometry, real-mesh and browser proofs reused through source-bound existing review receipts; no BREP query, CAD run, browser, native/global solve or broad test run.",
+    "Optional replay orchestration uses a subprocess stub and synthetic source-bound reports, so it does not certify actual CAD execution.",
+    "The 570-source map binds inputs; separately bound changed_finished_solids are produced geometry and are not incorrectly treated as missing input pins.",
+    "No structural, fabrication, publication or physical release is established."
+  ]
+}

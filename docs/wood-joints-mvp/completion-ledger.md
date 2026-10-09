@@ -2698,6 +2698,269 @@ names to reproduce the original commands; do not overwrite a differing file.
 This screen checks timber only, with provisional 50.8-mm rear projection;
 it does not qualify hardware/tools, adopt a future grid or authorize holes.
 
+### Right principal midpoint relocation screen
+
+The owner directed investigating a leftward move after reviewing the optional
+horizontal-midpoint obstruction. The reproducible
+[read-only screen](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/principal-midpoint-relocation.py)
+and [result](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/principal-midpoint-relocation.json)
+bind the latest `eoere-grid-aligned-wire-cutouts-v1` receipt and its 22 finished
+timbers. No source geometry, viewer, frozen packet or force field changes.
+
+The proposed `base_principal_center_right` translation is **X = -39.2 mm**:
+left toward the seam when viewed from the climbing side. Its center changes
+from world X 70.0 to **30.8 mm**, or **1250.0 mm from the main panel's left
+datum**. Its 38.1 mm-wide section spans world X **11.75–49.85 mm**, centered
+between existing F at -19.2 mm and the hypothetical F–G line at 80.8 mm.
+The same 25.4 mm flange proxy has **18.25 mm nominal lateral clearance** on
+each side. Zero-clearance center limits are 12.55–49.05 mm; those limits are
+geometric bounds without tolerance or retention-screw allowance, not shop
+instructions. The centered pose maximizes the smaller of these two margins.
+
+The exact CAD check reproduces **108/120** timber-clear midpoint sites in the
+current geometry and obtains **120/120** with the principal alone translated
+in memory. No existing main hold flange/provisional rear-projection proxy
+intersects that moved principal at the 132 current stations. The 132 nominal
+13 mm × 50.8 mm LED rear corridors also clear it. Header and top-rail contact
+remain; there is no new intersection with the other 21 timber bodies.
+
+**A principal-only move is an incomplete load path.** Each right bottom,
+lower-service and upper-service rail loses its end contact and has a measured
+**39.2 mm gap**. Restore these three ends by extending them inward in a distinct
+coordinated revision, rather than transferring the old butt-contact evidence.
+The five affected duties are `clip_split_top_center_right`,
+`clip_horizontal_bottom_right_1`, `clip_horizontal_lower_right_1`,
+`clip_horizontal_upper_right_1` and `clip_split_base_center_right`. Their
+**20 bolt axes** comprise ten principal-side and ten partner-side attachments;
+the result lists every identity and proposed translated reference point.
+Translate/rebuild the five bracket arrangements coherently and recheck actual
+bores, end/edge distances, washer seats, complete hardware fit and access.
+The saved forces do not evaluate this revised load path.
+
+All **eight right-panel center screws** at world X 70.0 miss the moved receiver.
+The proposal moves their axes to world X **30.8 mm**, retains their longitudinal
+stations, the total **66 Hillman screws**, and the purchased hardware policy.
+The proposed centerlines are 19.05 mm from either receiver side; this is a
+nominal geometric distance, not a screw resistance or installation result.
+New panel holes, finished receiver backing, panel edge/span support and load
+transfer remain to be checked. Existing panel outlines and hold stations stay
+fixed. The `wire_072_F1_G1` passage must be reconciled with the unchanged harness;
+translating an old cut does not establish the coordinated route.
+
+This completes the bounded offset/contact investigation, **not model adoption**.
+The next action is a coordinated successor containing the three extended rails,
+five relocated bracket arrangements and eight recorded screw moves, followed
+by affected geometry/service/access and mechanics checks. Future midpoint
+hardware, retention screws and tool envelopes remain unspecified. The script
+contains executable census, clearance and source-preservation assertions;
+CadQuery version and source SHA-256 bindings are retained in the result.
+The maintained script and compact result remain active; its ignored raw result
+is reproducible at the output path in the script. No archive or pruning occurred.
+
+### Adjusted base and unofficial 2026 toggle
+
+The owner subsequently authorized the coordinated member adjustments and
+directed keeping them in the base while the extra 2026 grid remains toggleable.
+The owner also clarified that the new positions are **unofficial, not fully
+greenlit**, and may not be exact midpoints for every hold. The preview therefore
+uses explicit assumed midpoint positions, not a confirmed future MoonBoard grid.
+No additional kicker stations are included.
+
+The distinct `eoere-midpoint-ready-frame-v3` base has
+`base_principal_center_right` at world X **30.8 mm**, with X bounds
+**11.75–49.85 mm**, retaining the 38.1 mm stock width. Three right split rails
+extend their individual blanks **39.2 mm inward**; they are rebuilt from the
+authenticated raw stocks at their existing slope stations. The right center
+kicker post also moves 39.2 mm so the shared header shafts remain aligned with
+both factory angles and their supported receivers. All six bracket
+arrangements and their **22 complete bolt stacks** move coherently. The top rail
+and header receive the revised partner bores; old partner holes are not carried
+into those rebuilt timbers. The right-panel center screws move from X 70.0 to
+**30.8 mm** at their eight existing longitudinal stations. The two right kicker
+center screws move with the relocated kicker post, retaining all ten stations
+longitudinally. Their complete old
+panel openings, including modeled head cones, are filled from the preserved
+outlines and replaced at the new axes. Other existing panel cuts stay intact.
+The twelve starting frame-bolt arrangements, original hold/light stations,
+panel outlines and **66 purchased Hillman screws** remain in the scene.
+
+The [base receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json)
+binds the changed **136 displayed parts**: seven timbers, three panels, six
+brackets, 110 components in twenty-two bolt stacks and ten screws. It retains
+the complete **1,021-part** inventory. All six screened principal/header/rail/post
+interfaces have nominal distance below 0.00001 mm without solid overlap;
+affected modeled screw bodies have full receiver containment. The moved
+bracket/wood and hardware/wood intersection registers are empty. All 500
+modeled bolt components are also checked against all 22 angle solids, with
+zero solid intersections. Shared-shaft attachment duties are closed before
+any member or hardware move; the six-duty closure includes the lower header
+angle and its two post shafts. Those are
+geometry results, not complete joint resistance or physical installation passes.
+All 405 authenticated retained service bodies are checked against the seven
+changed finished timbers in the base and eleven affected timbers in the extra
+layer, with zero overlap. Eleven original F-column routes newly enter the moved
+principal; their cutters are discovered from all 131 retained routes, including
+links with no previous principal cut. The original cable bodies remain fixed.
+The twelve negative-X attachment intervals follow the original canonical-positive
+line convention and match the saved receiver bounds.
+Changed forces, contacts, member net sections, hardware engagement and access
+still require their own revised evidence before relying on the layout.
+
+The optional `eoere-2026-horizontal-midpoint-grid-v3` layer adds **120 T-nuts,
+120 lights and 119 modeled links**, taking the display to **1,380 parts**:
+262 T-nuts including ten existing kicker nuts, 252 lights and 250 wire links.
+All four main panels acquire thirty new 11.1125 mm modeled hold bores each;
+each lower panel has thirty-five new 13 mm LED holes, each upper panel twenty-five.
+This preserves the row-boundary exceptions in the existing grid helper.
+The exact removed volumes reproduce cylindrical-hole arithmetic within 0.01 mm³.
+These CAD diameters do not prescribe physical bits or qualify new holes.
+The [extra-layer receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json)
+records every assumed position, panel owner, wire route, cut and source binding.
+
+Ten existing horizontal joins otherwise cross new light bodies. When the extra
+layer is on, those links retain their existing endpoints and detour 20 mm along
+the slope toward the outside of their endpoint rows. The second cable route
+uses modeled **N14 mm**, versus the original **N8 mm**, with provisional 6 mm
+endpoint leads to N8 light bases. Cable bodies retain the recorded 4 mm diameter,
+8 mm rounded route corners and approximate 304.8 mm link budget. Additional
+front-open cutouts reuse the maintained sweep/cutter helpers; the deeper route
+is an explicit new cut hypothesis, not an accepted machining or section design.
+Nine timbers acquire additional cuts only in this optional layer. The parent
+base's original channels remain; unused old voids are not filled or qualified.
+Controller, purchased light strings, connector distribution, real bend radius,
+slack, endpoint leads, strain relief, feed/removal and electrical compatibility
+remain unspecified. This is a coherent nominal occupancy preview, not a sourced
+or installed lighting system.
+
+Exactly thirty changed original wire bodies are required and verified against
+the authenticated aligned-wire archive manifest
+`688acf55c2884086ff14352d6d5ac6377b8f6bcebeb29c0e8275e4ffcdf3a15c`;
+missing or changed dependencies stop generation. Unchanged wire bodies retain
+the authenticated native records. There is no silent old-wire fallback.
+
+The final CAD registers report **zero** intersections for new services with
+timber, metal and retained services; new cut voids with modeled metal; and the
+ten rerouted original links with timber, metal and unrelated retained services.
+Affected nominal screw backing remains full under both recorded panel thickness
+branches. Endpoint contact within the proposed lighting chain is intentional;
+this does not qualify every future hold body, hold bolt, retention screw or tool.
+No native mechanics, actual measurements, structural acceptance or build release
+are claimed. All release flags remain false.
+
+The issued [generator](../../scripts/eoere_2026_adjustments.py) ran with
+`PYTHONPATH=. .venv/bin/python -B scripts/eoere_2026_adjustments.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10`.
+That issued output is retained; reproductions must choose a **fresh output
+directory**. Future replay uses the separate
+[source gate](../../scripts/check_eoere_2026_replay_inputs.py):
+`PYTHONPATH=. .venv/bin/python -B scripts/check_eoere_2026_replay_inputs.py --out FRESH_GATE_RECEIPT.json --run-out FRESH_CAD_DIRECTORY`.
+Omitting `--run-out` checks existing inputs without CAD. Both paths must be new.
+The gate authenticates the parent first, joins all 570 frozen input hashes with
+relative/absolute conflict rejection and checks them before and after a replay.
+It separately authenticates the package initializer against the parent and
+requires the `scripts` namespace initializer to remain absent. The receipt must
+be outside the fresh CAD directory and is created exclusively; new output
+bindings must stay within the requested fresh directory. Its
+`2026-adjustments-v10/replay-gate-v3/result.json` records 29 rejection controls
+and a positive generated-binding control. Five isolated CLI checks cover
+canonical nested/equal output rejection, disjoint replay with a source-only
+producer stub and preservation of a receipt created during execution. These source-only checks pass; the
+optional CAD replay has not run. The original v3 production predates this gate.
+Its frozen source and current geometry are preserved rather than attributed
+retroactively to the added preflight. The preceding structure review's replay
+finding concerned secondary metadata self-pinning; current v3 bytes already
+match their authenticated parent's expected hashes.
+The superseded gate-v2 source and review receipts preserve its two confirmed
+replay-tool findings: nested receipt paths could overwrite a generated report,
+and the executable package initializer was omitted. The corrected gate leaves
+the issued model's source and scene bytes unchanged.
+
+The saved v3 geometry reviews remain under
+`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1`:
+
+| Evidence | SHA-256 |
+| --- | --- |
+| `correctness/receipt.json` | `0907933e79a0b24f9f2a2c9e7744ed08d7f2badb94a633dba1ea70d3afab1d13` |
+| `correctness/panel-bores.json` | `65c2272230db9c20ba94dccfe378c6c218ab24780cf1548969ced8d9092f04d7` |
+| `verification/verification-result-v1.json` | `bee7b40d7f2171f78b65bcd41e0296c92e79cb27883144702179eb459fd512fc` |
+| `structure/receipt.json` | `2b4837adc7b6e2a8b4dfd0ba98ea3c7b218bfa14cd4bd909d38f6a1bb255b34a` |
+
+The direct geometry review independently checked the 88 factory attachments,
+all 22 moved shafts and their receiver intervals, six restored interfaces,
+retained service clearance in both modes and all 240 new panel bores. The
+structure review's future-replay finding was resolved by the separate gate,
+without changing or rerunning the issued geometry. Three fresh source-only
+reviews of that corrected gate report no substantial findings:
+
+| Receipt under `2026-adjustments-v3-final-replay-review-v1` | SHA-256 |
+| --- | --- |
+| `correctness/receipt.json` | `55a9dc488aa8376c7e3138e931c5bd340d5cab09e84004ee2ff57bb831708a31` |
+| `verification/receipt.json` | `9b8fe1e7882e18c6f40309e94b10dcd9fc28dc0269d1a0caa108d0fa9385765b` |
+| `structure/receipt.json` | `ca6e89809a4910cfdf5171d671c7193a8a6c0cad3ad14b9bd9d75b48621cd14e` |
+
+These reviews authenticate the gate at SHA
+`185b4a9aedf2e10c2b53943b3086bf12a6992cc8b5d20e50b9104c08dcf8e2c1`
+and reuse the frozen geometry, mesh and browser proofs. The no-CAD gate receipt
+is SHA `c1bb7fee5a04b759fee475402761640e407c31f5aa4355a73084e6eb2046b695`;
+the five genuine CLI controls with a stubbed inner producer are SHA
+`fa45aaa7a5f1df86042dba95f64251254fb9d2470e7ec99d9129021aff274c2a`.
+The structure reviewer also records a minor invalid-argument case: using the
+receipt path as an ancestor of the output directory can fail after fresh output
+creation. It produces no passed receipt and overwrites no existing evidence;
+use separate receipt and CAD paths as documented. Reviewed documentation hashes
+describe the prepublication summary, before this receipt/retention addition.
+
+The [real Three.js check](../../scripts/check_eoere_2026_adjustments.mjs) validates
+both inventories, source hashes, actual mesh ancestry, the moved principal's
+bounds and negative guards for dropped parts, official-grid claims, missing
+relocation and release flags. Its saved result is
+`2026-adjustments-v10/actual-mesh-check-v1.json` under the same ignored output root.
+The [Bun/browser check](../../scripts/check_eoere_2026_browser.cjs) uses the shared
+Gwen runner without page-context evaluation or installing dependencies; its
+screenshots and receipt stay under `2026-adjustments-v10/browser-v1`. Its rear
+view, front capture and all subsequent toggle/navigation checks bind the same
+final index bytes. The current geometry link opens the adjusted base; the aligned
+model is labeled as preceding. The full ON/OFF/ON cycle and preserved option
+navigation pass with no page errors or failed requests.
+
+The two compressed viewer patches are necessary permanent artifacts:
+**1,703,426 bytes** for the adjusted base and **6,034,818 bytes** for the extra
+layer. They contain real changed panel/wood/hardware meshes; unchanged scene
+parts inherit the preserved parent, and 240 new T-nut/light instances share
+two mesh templates. Bulky BReps, uncompressed scenes and browser screenshots
+remain ignored. The generator, two compact receipts, viewer loaders/assets and
+checks remain active. Prior input/route failures remain recoverable in
+`2026-adjustments-v1` through `v5`: cached-service double translation, template
+topology input, omitted head cones, the 25-clash first cable layout and the
+aborted duplicate-input launch. Their source snapshots and dispositions are
+preserved locally. Revision v6 was independently rejected: moved shared header
+shafts 079/080 crossed the unmoved lower header angle by 105.39354 mm³ each.
+Its five-duty model and incomplete collision checks do not establish coherent
+connections. The v6 source, UI and asset bytes remain frozen under
+`2026-adjustments-v6/frozen-review-inputs/manifest.json`; the v1 receipts and
+original gzip assets remain preserved. Revision v7 stopped on an overbroad
+archive-dependency census; its source snapshot and failure record remain.
+The distinct v2/v8 revision closed six duties but was also rejected: eleven
+retained F-column cables overlapped the moved principal by 162–267 mm³ each in
+both viewer modes, and twelve attachment interval records shifted with the wrong
+sign by 78.4 mm. Its frozen inputs, source, scenes and receipt bytes remain under
+`2026-adjustments-v8/frozen-review-inputs/manifest.json`. The abandoned metadata-only
+v9 reissue is preserved with its source snapshot and failure record. The distinct
+v3/v10 revision discovers all retained service cuts and corrects canonical
+intervals; the nominal geometry passes independent direct checks. No archive,
+pruning, candidate selection or publication occurred as part of implementation.
+
+The owned publication set contains **38 new files / 8,856,115 bytes**, plus the
+existing summary, ledger and viewer index. The two required mesh patches account
+for **7,738,244 bytes**; the remaining **1,117,871 bytes** retain the two compact
+geometry receipts, preceding offset screen, producer/loaders/checks, source gate
+and independent review helpers/receipts. The rejected gate-v2 review and its
+reviewed source remain immutable; earlier geometry reports and scene files stay
+active locally with their frozen raw snapshots, outside this publication set.
+The current v10 BReps, raw scenes, browser captures and all failed attempts stay
+active for existing consumers. Nothing was archived, pruned or substituted.
+The final compaction check reports **6,823 retained files / 13,618 aliases**.
+Publication does not extend the old six-case numerical results to this geometry.
+
 The panel load-functional diagnostic preserves the same complete applied
 wrench and uses only the already recorded flange envelope. Bending changes
 from **4.595869 to 4.589014**, rolling shear from **2.438902 to 2.430172**,

@@ -1,0 +1,82 @@
+{
+  "schema": "eoere_frozen_v3_independent_verification/v1",
+  "passed": true,
+  "substantial_findings": [],
+  "raw_published_pairs": [
+    {
+      "report": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json",
+      "raw_report": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/base/geometry.json",
+      "layout_sha256": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+      "scene": "site/eoere-adjusted-base-v3-scene.json.gz",
+      "raw_scene": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/base/scene.json.gz",
+      "compressed_sha256": "d77b9923b7d0df6b3416b2938b2d249a5406a9174fe98fba5118c341bc3df947",
+      "decoded_sha256": "dfeccf743c1e18f8fc2cadd81dd975c94d3057a88923155f3b2a7166f5ae40b7",
+      "source_pins_verified": 570,
+      "saved_solids_verified": 136
+    },
+    {
+      "report": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json",
+      "raw_report": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/geometry.json",
+      "layout_sha256": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134",
+      "scene": "site/eoere-2026-adjustments-v3-scene.json.gz",
+      "raw_scene": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/scene.json.gz",
+      "compressed_sha256": "8682bf9a81c0bf8e7ffb23c3f6725adc6d3c9bd4728b00e50edb696ca3305d1d",
+      "decoded_sha256": "914dd1def234c0657b136f6d2aba0b78456f7ee4a7b8b8df449908f0f6b501d6",
+      "source_pins_verified": 570,
+      "saved_solids_verified": 23
+    }
+  ],
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verify_frozen_v3.py": "45daaa1926b0d96780bd048c3df32fc88617af7e92180a79f4baa3d44b8e0623",
+    "scripts/check_eoere_2026_adjustments.mjs": "9e9a03afbbc6ab544a8007b9a97b44e41fed2b47ac713da2043a09e554be2d4b",
+    "scripts/check_eoere_2026_browser.cjs": "f25584e578b2309bdcbe90c3405172845a1aba4b829eeb697134da489f6e7d21",
+    "scripts/eoere_2026_adjustments.py": "136d7e63f1e337ef8a65421d22d4614b336697cb1b8556ff099995fe26a92821",
+    "site/index.html": "1a1a8bbae255886214d6111769674bfafb8e80c72f3ebfa1acea319b2fa8b883",
+    "site/eoere-2026-adjustments-overlay.mjs": "b57759996903d1a5696f9cf5dca85af7e392a3cac38eaf6c5e15f49e54a5110d",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/independent-actual-mesh-check-v1.json": "3d280e0003e970b909b79ee916444fde2088ed72b11b0c89195762084ad55816",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/actual-mesh-check-v1.json": "3d280e0003e970b909b79ee916444fde2088ed72b11b0c89195762084ad55816",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/browser-v1/result.json": "a4e5c4444d67df32a9b9e372739e614b9214d8023327229a2e5da01ee79b8d98"
+  },
+  "base_replacements": 136,
+  "base_visible_parts": 1021,
+  "extra_visible_parts": 1380,
+  "affected_duties": 6,
+  "moved_bolt_stacks": 22,
+  "moved_Hillman_axes": 10,
+  "retained_bolt_axes": 100,
+  "retained_Hillman_axes": 66,
+  "coordinate_and_attachment_metadata_verified": true,
+  "optional_axes_preserved": true,
+  "browser_evidence_reused": true,
+  "screenshots": [
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/browser-v1/2026-front.png",
+      "sha256": "cb3137b973cad0d85f3699bd16dbb5f19274485e2b9c54f61d38a3e602cc8b19"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/browser-v1/2026-rear.png",
+      "sha256": "9804b6980bd34f7e763a0870a3f6e9638fcd14e920cff54112d8f46d91cc68dc"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/browser-v1/adjusted-base-2026-off.png",
+      "sha256": "3ea5b8fe943d6ffa57ee46eeea34b0c2bb189153488f25a260c128c8e140fbd2",
+      "binding": "independent audit of producer OFF screenshot"
+    }
+  ],
+  "actual_mesh_check_rejected_controls": [
+    "missing added light",
+    "changed parent",
+    "missing relocation",
+    "official grid claim",
+    "fabrication release",
+    "wrong report",
+    "wrong screw count"
+  ],
+  "base_missing_replacement_control_rejected": true,
+  "no_CAD_rebuild_native_solve_or_materialization": true,
+  "mechanics_or_physical_release": false,
+  "limits": [
+    "Hashes and receipts bind nominal geometry; no structural, tooling, tolerance or actual-build acceptance.",
+    "Front, rear and OFF screenshots are existing producer captures; no browser recapture performed."
+  ]
+}

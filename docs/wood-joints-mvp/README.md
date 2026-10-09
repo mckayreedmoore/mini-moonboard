@@ -11,8 +11,9 @@ the current engineering record. The selected screw-and-bracket baseline remains 
 
 | Need | Record and revision boundary |
 | --- | --- |
-| Latest frame and service geometry | [Aligned-wire viewer](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear) and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json): current trimmed cleats and revised passages; geometry evidence only. |
-| Drilling setups, fixtures and templates | [Builder-support guide](eoere-builder-drilling-guide.md): proposed methods, unresolved tool access/tolerances and next drawing target. |
+| Latest frame and service geometry | [Adjusted base viewer](../../site/index.html?model=eoere-adjusted-frame-development&view=rear) and [base receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json): coordinated principal, kicker-post and connection moves; geometry evidence only. The [preceding aligned-wire model](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear) remains available. |
+| Optional extra hold/light grid | [New 2026 adjustments](../../site/index.html?model=eoere-new-2026-adjustments&view=rear): **unofficial, provisional** positions. Exact midpoints are assumed for the preview; they are not fully greenlit and may differ by hold. The checkbox switches the extra holes, hardware, lights and service cuts together. |
+| Drilling setups, fixtures and templates | [Builder-support guide](eoere-builder-drilling-guide.md): proposed methods and unresolved tool access/tolerances. Existing station drawings precede the new principal/connection move; use the adjusted-base receipt for changed stations, not the old coordinates as templates. |
 | Assembly dependencies and nominal hardware | [Preserved raised-rail shop guide](eoere-shop-assembly-guide.md): unchanged shaft identities/recipes are useful; its untrimmed profiles and old wire cuts are not current templates. |
 | Numerical findings | [Six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json): preserved untrimmed raised-rail geometry, reference exceedances and null complete joint resistance. |
 | Local strength followups | [Four bounded studies](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md) and [component resistance followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md): old admitted actions with preserved aligned-wire local geometry; complete joint resistance remains unresolved. |
@@ -59,7 +60,34 @@ resolved within that revision. The highest catalog mean-bearing comparison is
 Actual contact and complete joint resistance remain open. These results do not
 evaluate the separate adjusted base or optional extra grid.
 
-**Current geometry aligns 30 wire passages on six rails to the original grid
+**The adjusted base moves the right principal 39.2 mm left toward the seam**, viewed
+from the climbing side. Three right split rails extend inward to restore their
+end contacts; the right kicker post, six bracket arrangements, twenty-two
+bolt stacks and ten panel/kicker center screws move coherently. Counts remain **100 bolt axes / 66 Hillman screws**.
+The [base geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json)
+records restored nominal contacts, full modeled screw-body backing and zero
+checked moved-bracket/hardware intersections with wood and all hardware
+components with all angles. All 405 retained service bodies clear the seven
+changed finished timbers; eleven retained F-column cable routes receive new
+cutouts in the moved principal. Revised forces,
+resistance, tolerances and operations remain unevaluated; no historical pass transfers.
+
+The **“Show unofficial 2026 holes, T-nuts and lights”** checkbox adds **120 main-panel
+T-nuts, 120 lights and 119 modeled cable links**, with 240 panel bores and their
+additional service cuts. Turning it off restores the adjusted base's original
+hold/light pattern and service geometry; the member/connection changes remain.
+These positions are **unofficial and not fully greenlit**. Exact horizontal
+midpoints are a preview assumption; actual new holds may not exist at every
+midpoint. Kicker positions stay unchanged. Ten original wire links detour around
+new lights only when the extra layer is enabled, and the second cable route uses
+a separate modeled depth. Nominal CAD and real mesh checks report no checked
+intersections; controller/strand selection, connectors, slack, actual feeding,
+machining and revised strength remain unqualified. The
+[extra-layer receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json)
+and [implementation/retention entry](completion-ledger.md#adjusted-base-and-unofficial-2026-toggle)
+bind the geometry and tests. Local viewer changes do not assert publication.
+
+**The preserved preceding geometry aligns 30 wire passages on six rails to the original grid
 columns, retaining the two already-aligned center-upright passages.** The
 [aligned-wire viewer](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear)
 and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json)
@@ -73,7 +101,11 @@ the cable center remains at N8 with the recorded 8-mm fillets. These are CAD
 envelopes, not routing-tool, delivered harness or installation instructions.
 The two upright links follow their LED rows, which differ from the corresponding
 T-nut rows. The center principal stays in its existing position.
-The latest geometry is published at `78685125`; deployment and served-file
+The earlier owner-requested [midpoint relocation screen](completion-ledger.md#right-principal-midpoint-relocation-screen)
+identified the **39.2 mm leftward shift** as an unadopted investigation pose.
+The adjusted base above now incorporates its coordinated geometry changes;
+the preceding published model and its frozen evidence remain unchanged.
+That preceding geometry is published at `78685125`; deployment and served-file
 verification pass, as recorded in the existing ledger.
 
 The preceding geometry step trims both exterior 2×6 cleats to the sloping sides'

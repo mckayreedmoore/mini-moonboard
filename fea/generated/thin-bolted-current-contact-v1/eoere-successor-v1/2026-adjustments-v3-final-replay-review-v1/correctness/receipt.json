@@ -1,0 +1,153 @@
+{
+  "schema": "eoere_final_replay_correctness_review/v1",
+  "status": "NO_CONFIRMED_SUBSTANTIVE_FINDINGS",
+  "findings": [],
+  "target_sha256": "185b4a9aedf2e10c2b53943b3086bf12a6992cc8b5d20e50b9104c08dcf8e2c1",
+  "authenticated_source_count": 761,
+  "frozen_source_count": 570,
+  "additional_initializer_authenticated": true,
+  "namespace_initializer_absent": true,
+  "issued_no_CAD_receipt_authenticated": true,
+  "source_only_CLI_proof_authenticated": true,
+  "reused_geometry_mesh_browser_evidence": [
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/receipt.json",
+      "sha256": "0907933e79a0b24f9f2a2c9e7744ed08d7f2badb94a633dba1ea70d3afab1d13"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/panel-bores.json",
+      "sha256": "65c2272230db9c20ba94dccfe378c6c218ab24780cf1548969ced8d9092f04d7"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/structure/receipt.json",
+      "sha256": "2b4837adc7b6e2a8b4dfd0ba98ea3c7b218bfa14cd4bd909d38f6a1bb255b34a"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verification-result-v1.json",
+      "sha256": "bee7b40d7f2171f78b65bcd41e0296c92e79cb27883144702179eb459fd512fc"
+    }
+  ],
+  "independent_negative_controls": [
+    {
+      "case": "parent rejected before other input reads",
+      "rejected": true
+    },
+    {
+      "case": "conflicting canonical aliases",
+      "rejected": true
+    },
+    {
+      "case": "post-replay initializer bytes changed",
+      "rejected": true
+    },
+    {
+      "case": "post-replay explicit initializer binding changed",
+      "rejected": true
+    },
+    {
+      "case": "preflight-failure",
+      "rejected": true
+    },
+    {
+      "case": "changed-after-run",
+      "rejected": true
+    },
+    {
+      "case": "missing-base-binding",
+      "rejected": true
+    },
+    {
+      "case": "missing-extra-binding",
+      "rejected": true
+    },
+    {
+      "case": "outside-generated-binding",
+      "rejected": true
+    }
+  ],
+  "isolated_main_control_flow": [
+    {
+      "case": "default",
+      "events": [
+        "verify",
+        "controls"
+      ],
+      "passed": true
+    },
+    {
+      "case": "normal",
+      "events": [
+        "verify",
+        "controls",
+        "producer",
+        "verify",
+        "binding",
+        "binding"
+      ],
+      "passed": true
+    },
+    {
+      "case": "preflight-failure",
+      "events": [
+        "verify"
+      ],
+      "passed": true
+    },
+    {
+      "case": "changed-after-run",
+      "events": [
+        "verify",
+        "controls",
+        "producer",
+        "verify"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-base-binding",
+      "events": [
+        "verify",
+        "controls",
+        "producer",
+        "verify",
+        "binding"
+      ],
+      "passed": true
+    },
+    {
+      "case": "missing-extra-binding",
+      "events": [
+        "verify",
+        "controls",
+        "producer",
+        "verify",
+        "binding",
+        "binding"
+      ],
+      "passed": true
+    },
+    {
+      "case": "outside-generated-binding",
+      "events": [
+        "verify",
+        "controls",
+        "producer",
+        "verify",
+        "binding"
+      ],
+      "passed": true
+    }
+  ],
+  "current_documentation_sha256": {
+    "docs/wood-joints-mvp/README.md": "e8527f55997b74d49950d653a55e4ccb1e9a46a49692e1d81907979b406e2b7c",
+    "docs/wood-joints-mvp/completion-ledger.md": "b0b97a3926f9c634aadf0ef773c71e8a4556daa6f4ccc83694e3da03f8b50a1f"
+  },
+  "review_helper_sha256": "ebcef8e4e404bff69b390dfc600deda6647fa00b602fbf52bd9dc438b20914f3",
+  "reproduction_command": ".venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-final-replay-review-v1/correctness/review.py",
+  "limits": [
+    "Byte hashes, JSON and source-only known-answer controls; no CAD/BRep geometry query, browser recapture, mesh/native/global execution or Git mutation.",
+    "Optional producer invocation was stubbed; a genuine CAD replay remains unperformed.",
+    "Gate applies to future replay and does not retroactively qualify original production or structural/physical acceptance.",
+    "Frozen absolute archive/source witnesses remain environment-bound; the gate is not a hermetic runtime/package certificate."
+  ]
+}
