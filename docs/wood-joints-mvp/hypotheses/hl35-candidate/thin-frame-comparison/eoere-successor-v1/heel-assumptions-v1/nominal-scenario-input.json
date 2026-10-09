@@ -1,0 +1,68 @@
+{
+  "actual_eoere_manufacturing_process_verified": false,
+  "actual_heel_resistance": null,
+  "actual_inside_radius_mm": null,
+  "actual_part_measurements": false,
+  "files": {
+    "original_helper": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/analyze.py",
+      "sha256": "f43a934f08425bebc7c9caf962a74ee74f155d1ecd6100eaa35f1800fe55e487"
+    },
+    "original_input": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/inputs.json",
+      "sha256": "18ebb448d2c23161a4ff0238ffe1f7aee1fd3f53a1695359cb6a349d70da68e5"
+    },
+    "original_result": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/result.json",
+      "sha256": "60a6ce313c98d3d53633115638a3bcd7f24ed151864d1365f9e2f6f1c993b6c0"
+    }
+  },
+  "inside_radius_equal_to_thickness_is_development_assumption_not_product_fact": true,
+  "inside_radius_mm": 6.35,
+  "minimum_metal_thickness_mm": null,
+  "observed_utc": "2026-10-08T22:42:55.992136+00:00",
+  "owner_direction": "Use 6.35mm as the working catalog thickness and test inside radius6.35mm, preserving the original frozen comparisons.",
+  "primary_practice_sources": {
+    "starrett_radius_gauge": {
+      "observation": "Radius/fillet gauge leaves include external and internal profiles to check convex and concave surfaces.",
+      "url": "https://www.starrett.com/products/precision-measuring-tools/precision-hand-tools/fixed-gage-standards/radius-gages/272MB"
+    },
+    "wila_air_bending": {
+      "location": "FAQs: V-opening and punch tip radius",
+      "observation": "Steel air-bending guidance suggests a die opening6-8 times thickness. Die opening influences the formed radius; punch tip and thickness alone do not specify it.",
+      "url": "https://www.wilatooling.com/applications/air-bending/"
+    },
+    "wila_chart": {
+      "derived_for_6_35mm_steel": {
+        "V_over_thickness": [
+          6.0,
+          8.0
+        ],
+        "approximate_inside_radius_mm": [
+          5.715,
+          7.62
+        ],
+        "approximate_inside_radius_over_thickness": [
+          0.9,
+          1.2
+        ]
+      },
+      "derived_range_is_inference_and_not_a_guaranteed_eoere_range": true,
+      "location": "90-degree mild-steel air-bending chart, inch columns",
+      "table_rows": [
+        {
+          "V_die_opening_inches": 1.5,
+          "inside_radius_inches": 0.225
+        },
+        {
+          "V_die_opening_inches": 2.0,
+          "inside_radius_inches": 0.3
+        }
+      ],
+      "url": "https://catalog.wilatooling.com/WILA-Catalog-GB/110/"
+    }
+  },
+  "schema": "eoere_heel_additional_nominal_scenario_input/v1",
+  "thickness_is_working_catalog_nominal_not_delivered_minimum": true,
+  "thickness_mm": 6.35
+}

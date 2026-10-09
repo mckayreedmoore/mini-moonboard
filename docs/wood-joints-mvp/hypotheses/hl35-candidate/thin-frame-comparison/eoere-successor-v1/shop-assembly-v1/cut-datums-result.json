@@ -1,0 +1,339 @@
+{
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "counts": {
+    "Hillman_axes": 66,
+    "blank_Actual_and_Disposition_cells": 948,
+    "moved_Hillman_axes": 4,
+    "panel_section_vertices": 28,
+    "panels": 6,
+    "physical_bolt_axes": 100,
+    "raw_end_planes": 48,
+    "raw_profile_vertices": 184,
+    "receiver_bore_occurrences": 120,
+    "recesses": 2,
+    "timbers": 22,
+    "translated_structural_stacks": 16,
+    "wire_routes": 131
+  },
+  "delivered_dimensions_and_tolerances": null,
+  "disposition": "PASS_SAVED_NOMINAL_DATUM_EXPORT_AND_COORDINATE_JOINS",
+  "execution": {
+    "CAD_import_or_rebuild": false,
+    "K_q_or_mechanics_evaluation": false,
+    "dependencies": "Python standard library only",
+    "physical_tests": false,
+    "python_version": "3.12.3",
+    "reproduction": ".venv/bin/python docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py --check"
+  },
+  "files": {
+    "member-end-datums.csv": {
+      "bytes": 41292,
+      "columns": [
+        "member",
+        "record_kind",
+        "source_index",
+        "point_l_mm",
+        "point_u_mm",
+        "point_v_mm",
+        "outward_normal_l_unitless",
+        "outward_normal_u_unitless",
+        "outward_normal_v_unitless",
+        "plane_offset_from_datum_mm",
+        "normal_to_L_deg",
+        "plane_source_vertex_indices",
+        "point_x_mm",
+        "point_y_mm",
+        "point_z_mm",
+        "source",
+        "Actual",
+        "Disposition"
+      ],
+      "rows": 260,
+      "sha256": "c38a8dff38aef1dc74c9eb54c0f9843f672b88a886582a3085e46104310ce5be"
+    },
+    "members.csv": {
+      "bytes": 11735,
+      "columns": [
+        "member",
+        "kind",
+        "L_role",
+        "nominal_blank_length_mm",
+        "nominal_blank_depth_mm",
+        "nominal_blank_thickness_mm",
+        "datum_x_mm",
+        "datum_y_mm",
+        "datum_z_mm",
+        "basis_l_x_unitless",
+        "basis_l_y_unitless",
+        "basis_l_z_unitless",
+        "basis_u_x_unitless",
+        "basis_u_y_unitless",
+        "basis_u_z_unitless",
+        "basis_v_x_unitless",
+        "basis_v_y_unitless",
+        "basis_v_z_unitless",
+        "additional_rail_translation_x_mm",
+        "additional_rail_translation_y_mm",
+        "additional_rail_translation_z_mm",
+        "current_finished_source_path",
+        "current_finished_source_sha256",
+        "profile_source",
+        "Actual",
+        "Disposition"
+      ],
+      "rows": 28,
+      "sha256": "98dd8cf3bf74adf95a6a3a36fe7675f31cc61fd4d3018bf80ae11fbfb58a9f1d"
+    },
+    "panel-screw-datums.csv": {
+      "bytes": 18695,
+      "columns": [
+        "axis_id",
+        "panel",
+        "receiver",
+        "moved_by_rail_revision",
+        "front_axis_origin_x_mm",
+        "front_axis_origin_y_mm",
+        "front_axis_origin_z_mm",
+        "axis_direction_x_unitless",
+        "axis_direction_y_unitless",
+        "axis_direction_z_unitless",
+        "origin_in_panel_l_mm",
+        "origin_in_panel_u_mm",
+        "origin_in_panel_v_mm",
+        "origin_in_receiver_l_mm",
+        "origin_in_receiver_u_mm",
+        "origin_in_receiver_v_mm",
+        "modeled_panel_thickness_mm",
+        "source",
+        "Actual",
+        "Disposition"
+      ],
+      "rows": 66,
+      "sha256": "5b19816c6623cc5f151e684e89d2623907f3b8551eee9b88b9056da74b184347"
+    },
+    "receiver-holes.csv": {
+      "bytes": 43437,
+      "columns": [
+        "axis_id",
+        "receiver",
+        "nominal_shaft_diameter_mm",
+        "modeled_bore_envelope_diameter_mm",
+        "modeled_underhead_length_mm",
+        "axis_point_x_mm",
+        "axis_point_y_mm",
+        "axis_point_z_mm",
+        "axis_direction_x_unitless",
+        "axis_direction_y_unitless",
+        "axis_direction_z_unitless",
+        "axis_point_in_receiver_l_mm",
+        "axis_point_in_receiver_u_mm",
+        "axis_point_in_receiver_v_mm",
+        "entry_in_receiver_l_mm",
+        "entry_in_receiver_u_mm",
+        "entry_in_receiver_v_mm",
+        "exit_in_receiver_l_mm",
+        "exit_in_receiver_u_mm",
+        "exit_in_receiver_v_mm",
+        "entry_from_axis_point_mm",
+        "exit_from_axis_point_mm",
+        "saved_full_wall_length_mm",
+        "source",
+        "Actual",
+        "Disposition"
+      ],
+      "rows": 120,
+      "sha256": "0d3574fee9b56fcb2089ae6fa01c51ca1523d8ed793c22d8efd532759fc2b9e7"
+    }
+  },
+  "geometry_revision": "eoere-bottom-rail-tnut-clearance-v1",
+  "helper": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py",
+    "sha256": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839"
+  },
+  "inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums-inputs.json",
+    "sha256": "e8aace81ef3c0069839428c1007ffe0ae2dd69e63e8b23dbe5f5a68b02ee90b0"
+  },
+  "nominal_discrepancies": [],
+  "panel_miter_definition": {
+    "definition": "Kicker bounding slab minus unchanged unperforated lower main-panel outline; saved side-section vertices identify the seam profile. Source vertex order is not a boundary traversal or saw setting.",
+    "source": "panel_seam_recipe#panel_outlines"
+  },
+  "recess_definitions": {
+    "definitions": [
+      {
+        "cut_profile_world_x_global_grain_s_mm": [
+          [
+            -1219.2,
+            -392.19620574109877
+          ],
+          [
+            -1257.3,
+            -392.19620574109877
+          ],
+          [
+            -1257.3,
+            -211.8535446235847
+          ],
+          [
+            -1219.2,
+            245.3464553764153
+          ]
+        ],
+        "grain_xyz": [
+          0.0,
+          -0.23915183196324324,
+          0.9709821838059775
+        ],
+        "member": "lumber_leg_left",
+        "nominal_transverse_clearance_mm": 0.0,
+        "nominal_vertical_clearance_mm": 2.0,
+        "normal_xyz": [
+          0.0,
+          0.9709821838059775,
+          0.23915183196324324
+        ],
+        "recorded_current_removed_volume_mm3": 2085056.566251304,
+        "right_cutter_translation_xyz_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "taper_run_maxdepth_mm": [
+          457.2,
+          38.1
+        ],
+        "top_bottom_world_z_mm": [
+          141.7,
+          0.0
+        ]
+      },
+      {
+        "cut_profile_world_x_global_grain_s_mm": [
+          [
+            1216.025,
+            -392.19620574109877
+          ],
+          [
+            1254.125,
+            -392.19620574109877
+          ],
+          [
+            1254.125,
+            -211.8535446235847
+          ],
+          [
+            1216.025,
+            245.3464553764153
+          ]
+        ],
+        "grain_xyz": [
+          0.0,
+          -0.23915183196324324,
+          0.9709821838059775
+        ],
+        "member": "lumber_leg_right",
+        "nominal_transverse_clearance_mm": 0.0,
+        "nominal_vertical_clearance_mm": 2.0,
+        "normal_xyz": [
+          0.0,
+          0.9709821838059775,
+          0.23915183196324324
+        ],
+        "recorded_current_removed_volume_mm3": 2085056.5662513115,
+        "right_cutter_translation_xyz_mm": [
+          -3.175,
+          0.0,
+          0.0
+        ],
+        "taper_run_maxdepth_mm": [
+          457.2,
+          38.1
+        ],
+        "top_bottom_world_z_mm": [
+          141.7,
+          0.0
+        ]
+      }
+    ],
+    "raw_end_planes_do_not_include_recesses_or_bores": true,
+    "source": "prior_shop_join#/recesses"
+  },
+  "release": {
+    "actual_parts_or_holes_observed": false,
+    "climbing": false,
+    "fabrication": false,
+    "old_access_or_acceptance_transferred": false,
+    "physical_capacity": false
+  },
+  "schema": "eoere_raised_rail_nominal_cut_datum_export/v1",
+  "sources": {
+    "current_geometry": {
+      "bytes": 652172,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json",
+      "sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b"
+    },
+    "current_inputs": {
+      "bytes": 13340562,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-mechanics-v1/inputs.json",
+      "sha256": "81e9ad126f806a412a8bcb73ae3d0057ef3568ed0fa45986503f97fb5fb62d9f"
+    },
+    "current_inputs_review": {
+      "bytes": 81712,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-mechanics-v1/independent-review-v1/inputs-review.json",
+      "sha256": "eb68a273f8a6a3d9bc59f1c00536a2cc8c0b2c3e53de6bc8c764c8bda42a3d2c"
+    },
+    "current_inventory": {
+      "bytes": 15773,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bottom-rail-raise-v1/raised-rail-inventory-v1/result.json",
+      "sha256": "4d575d55605a96ab8ac27207ff0efb55a3fad95e17f3651780b5973b539ec339"
+    },
+    "panel_profiles": {
+      "bytes": 63630,
+      "path": "docs/floor-flush-construction-kerf-right/stock-profiles.json",
+      "sha256": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8"
+    },
+    "panel_seam_recipe": {
+      "bytes": 21107,
+      "path": "scripts/thin_bolted_model.py",
+      "sha256": "1d4b06d3624e1c08f34f01e0e7002968843449d20d71e5fb5f987ebed72188a1"
+    },
+    "prior_shop_join": {
+      "bytes": 243177,
+      "path": "fea/generated/thin-bolted-build-planning-v4/joined-shop-data-final.json",
+      "sha256": "7982d8612014d6d55279f7847798ea3bf87e6c2eca2fa585ef4457daf3787074"
+    },
+    "prior_shop_manifest": {
+      "bytes": 13606,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/build-planning-v4/manifest.json",
+      "sha256": "13a24c62ed4e51f63961096858b0e61b727d01c24ce90e0a7ef2c29cf985777a"
+    },
+    "service_layout": {
+      "bytes": 726319,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json",
+      "sha256": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c"
+    },
+    "service_recipe": {
+      "bytes": 21049,
+      "path": "scripts/thin_bolted_layout_revision.py",
+      "sha256": "af84ec13d64ab4b4b0686003ad95b5ea905eb159393789266816ad48add7e32e"
+    }
+  },
+  "verification": {
+    "axis_grip_sum_error_mm": 1.8292141135134443e-09,
+    "coordinate_roundtrip_error_mm": 9.094947017729282e-13,
+    "end_plane_vertex_residual_mm": 9.094947017729282e-13,
+    "panel_front_axis_depth_error_mm": 8.445830701475643e-10,
+    "preserved_profile_translation_error_mm": 0.0
+  },
+  "wire_cut_definition": {
+    "actual_slack_bend_radius_or_feed_verified": false,
+    "connector_clearance_radius_mm": 9.35,
+    "definition": "Union of route sweep at recorded depth d with front-plane route sweep radius sqrt(d*d+r*r); retain recorded connector cutters and fixed world endpoints. Recut at fixed routes after rail translation; do not translate finished wire cuts.",
+    "route_count": 131,
+    "routes": "current_geometry#/wire_proposals",
+    "source": "service_recipe#front_open_cutter/routed_services",
+    "wire_depth_mm": 8.0,
+    "wire_sweep_radius_mm": 6.35
+  }
+}

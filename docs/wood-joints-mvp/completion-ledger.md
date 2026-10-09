@@ -1,19 +1,78 @@
-# Wood-joint MVP completion ledger
+# Eoere bolted-frame development and completion ledger
 
-## Current conditional packet and qualification status
+## Current model-completion scope and qualification status
 
-The owner has reset the work to a **useful lean numerical MVP goal**, like
-the previous conditional assessment, with as much applicable previous work
-reused as reasonable and continued progress past reference exceedances. Its active
-scope is now the owner-directed **eoere B0C7V7VS89 successor**, with sixteen
-main panel-box angles, four 3/8-inch through bolts per angle, coordinated
-base/header duties and two through-bolted exterior 2×6 cleats. The
-[active sequence](#build-package-completion) covers its geometry, joint
-mechanics, panel transfer and coordinated construction/hardware instructions.
+The owner now directs **finishing and publishing the completed conditional
+numerical MVP and remaining nominal shop/assembly documentation**. All six
+loaded cases are complete. Reuse frozen evidence, retain exceedances and
+unknown resistance, and stop panel/screw remedies. Complete hardware/receiving,
+100-bolt/200-side access dispositions, cut/hole datums and missing tolerances,
+assembly/removal instructions and BOM/cost/mass limits. Physical testing and
+engineer approval are excluded; Actual/Disposition cells stay blank.
+Completion means coherent reviewed reporting and documentation, not physical
+resistance qualification. Preserve all earlier packets. This supersedes the
+strength-resolution requirement of the earlier complete-build objective;
+it adds no fabrication or climbing release. The
+owner-directed **eoere B0C7V7VS89 successor** has 22 angles, two exterior
+2×6 cleats, 22 timbers, 100 through-bolt stacks and 66 Hillman screws. The
+latest geometry revision raises only the mirrored bottom rails and their
+dependent hardware above the first T-nut row, retaining existing wire cutouts.
+The
+[active sequence](#build-package-completion) covers its geometry, completed
+joint/component findings and coordinated shop/hardware instructions.
 The completed thin-v4 B103/B104 assessment is predecessor evidence. Reference
 exceedances do not suspend the whole goal; failed adopted criteria, missing
 load paths or incompatible parts still govern the affected operation. The
 selected baseline and all actual-inspection/release boundaries remain distinct.
+The retained folder and ledger paths do not revive the earlier block design.
+
+**Review of earlier angle-shopping advice, October 8:** Neither the initial
+1/4-inch suggestion nor the later 12-gauge suggestion established a required
+or adequate thickness. Similarity to ML24Z thickness does not transfer its
+SDS connection behavior to through-bolts. Keep those suggestions as research
+leads; retain the owner-directed Eoere layout and evaluate its declared steel
+scenario with candidate-specific actions and applicable resistance methods.
+The [existing A66 screen](../bolted-candidate-prototypes/rail-factory-bracket-shortlist.md)
+already records its 5-7/8-inch legs, missing published bolt-option capacities
+and unproved installed fit. The owner now excludes A66 from this approach
+because each narrow flange's bolts occupy one longitudinal row. Axial bolt
+forces on that row have no transverse lever arm for a couple about the row;
+other resistance through flange bending, timber contact or bolt bending is
+unqualified. This is not a claim of zero moment resistance in every direction.
+Retain the transverse bolt pairs in the current Eoere study; their complete
+joint behavior still needs its own assessment. Preserve the older A66 screen
+as history and do not develop it as a replacement from this shopping lead.
+
+The shopping arithmetic checks out, but the hypothetical 24/48-angle and
+uniform six-inch-bolt budgets are not a candidate takeoff or an Amazon quote.
+Use the [Eoere inventory](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/inventory-v2.json):
+22 installed angles, two cleats, six four-packs with two spare angles, 100
+unique shafts, 100 nuts and 200 washers. Four shared angle shafts make the
+88 installed angle-hole attachments distinct from 84 angle shafts; four
+cleat/post shafts and twelve starting shafts complete the count. The preserved
+partial comparison remains **6 × C4 + $61.93 + U**, before freight/tax, with
+the angle-pack price and listed unpriced items unresolved. The later
+[raised-rail summary](README.md#current-disposition) records **$109.93** for
+the complete bolt/nut/washer purchase comparison, plus six four-pack angle
+prices and unpriced wood and other items; keep that update distinct from the
+preserved partial recipe. Recheck the
+revised layout's quantities, actual grip/shank requirements and seller packs
+before a purchase list; do not transfer the earlier Unistrut totals.
+
+The [product-source worksheet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/prepare_product_inputs.py)
+keeps 6-mm and 6.35-mm descriptions separate and leaves actual steel strength,
+minimum thickness, absolute hole/heel datums and tolerances unqualified.
+Preserve those distinctions; a larger fit envelope is not a minimum strength
+section, and a CAD hole is not a drill instruction. Follow the existing
+centroid and backing-map corrections in any later numerical revision. The
+completed six-case packet uses fresh raised-rail demands; the old A12 field
+remains preserved. Conditional numerical evaluation is complete, while
+complete joint resistance remains unqualified and the other shopping leads
+remain unadopted. This review checked sources and
+arithmetic without changing geometry, running mechanics or transferring
+structural acceptance.
+
+## Preserved predecessor assessments
 
 The preserved predecessor development is the reviewed thin, through-bolted v4
 in the [HL35 replacement lane](#hl35-replacement-candidate). The owner now
@@ -1953,6 +2012,1020 @@ cold diagnostics remain unchanged; another floor cycle is not a substitute for t
 joint findings. The reviewed geometry, load basis and release boundaries remain.
 
 #### Build-package completion
+
+**Current reporting and shop-documentation objective:** finish and publish
+the existing raised-rail conditional numerical MVP and its nominal shop and
+assembly packet. The owner explicitly excludes physical testing and engineer
+approval. Reuse the completed six-case calculations; record unknown joint
+capacities/applicability and reference exceedances. Report nominal access and
+missing practical inputs without relabeling them as physical passes. This
+objective replaces the older strength-resolution/full-build scope preserved
+below. Its completion criterion is coherent independently reviewed reporting,
+instructions and publication, with actual observations blank.
+
+| Current workstream | Source-bound deliverable | Reporting completion criterion |
+| --- | --- | --- |
+| Six-case numerical evaluation | [Compact six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json), authenticated fields and component/joint reviews | Complete: all six own cases, retained exceedances, 24 null full joint resistances and explicit method/support limits. No additional strength-pass solve. |
+| Heel assumptions | Original 528-row study and separate owner-requested t6.35/Ri6.35 supplement | Complete: both frozen scenarios, narrow nominal margin, source/fixture reviews and unresolved physical applicability are recorded separately. |
+| Nominal cuts and holes | Current 22-member profiles/datums, 120 receiver occurrences, six panels and 66 screw axes | Complete nominal reporting: current identities/coordinates, four moved screws/sixteen moved stacks and missing manufacturing tolerances are reviewed; no baseline cut-sheet acceptance transfers. |
+| Hardware and access | 100 physical stacks, 200 head/nut sides, receiving equations and observed-price limits | Complete nominal reporting: every stack/side has a disposition; tools, threads, seats and continuous paths remain explicitly unverified. Actual observations stay blank. |
+| Assembly, removal and procurement | [Current shop/assembly guide](eoere-shop-assembly-guide.md), individual-part accounting and cost/mass scope | Complete nominal reporting: reviewed dependency order, receiving instructions and cost/mass limits; old B103/block routes supply no current acceptance. No physical test or external approval gate. |
+| Review and publication | Saved-source checks, independent reviews, shared repository checks and compact artifacts | Reporting, reviews and retention are complete; actual repository-wide failures are recorded. Normal owned master publication follows the owner's authorization after quiet hours. |
+
+**Latest owner scope takes precedence over the earlier full-build objective
+below:** “Don't attempt to resolve the screw panel problem. Just take the model
+to the end, allowing loads to exceed their references.” Panel/backer/cross-support
+development and trials are stopped. Keep the reviewed raised-rail geometry,
+22 angles, two cleats, 100 physical shafts and 66 screws with only the four
+owner-directed lower-axis moves. No proposed panel support or additional
+angle/bolt is adopted. Continue necessary modeling corrections, candidate-bound
+numerical evaluation, joint/component reporting, independent review and
+publication. Retain reference exceedances as outcomes; numerical convergence
+and unsupported capacities are not actual strength acceptance. The workstream
+table and full-build completion criteria below describe the earlier objective
+and remain preserved context, not a new requirement to redesign panels.
+
+**Earlier goal: complete the eoere build design and assembly packet.**
+After completion and publication of the conditional numerical MVP in
+`f981d1a9`, the owner explicitly requests another goal for the complete build.
+That goal's panel-remedy and strength-pass requirements are superseded by the
+owner's numerical-completion amendment above. Its starting point was the
+reviewed 22-angle/two-cleat layout and source-bound assessment below. That
+earlier objective required a coherent practical packet with satisfied
+applicable design and engineering gates. The current numerical scope retains
+exceedances and unqualified resistance instead of requiring those strength
+gates to pass.
+Keep the original 250 lb ×2, 300-N horizontal and 100-mm hold-arm basis and
+explicit no-slip floor assumption. A12 is one evaluated case; predecessor
+case passes do not satisfy the successor's required case coverage.
+
+| Workstream | Applicable evidence to reuse | Next result and completion criterion |
+| --- | --- | --- |
+| Panel and screw load transfer | Current six panel operators, 66 simultaneous own screw actions, spatial checks; earlier placement/load-sharing/remedy methods | Establish a compatible remedy for the 2.563273 generic head and 4.595869/2.438902 spatial panel comparisons. Preserve the purchased 66-screw policy, surface and outlines; record any required supported-receiver/axis changes and recheck local and spatial transfer. Static redistribution alone does not establish compatible forces or Hillman resistance. |
+| Lower-corner geometry | Reviewed occupied solids, placement search and current signed end/edge actions | Develop usable tolerance clearance beyond the present 0.340625-mm bore/screw gap and check the complete upper-angle/side/cleat/post path. Report required changes before revising the model; do not substitute a blanket 7D rejection for applicable signed geometry. |
+| Complete joint resistance | Current 24 duties, 88 fitting surfaces, 120 wood surfaces, 100 same-cut shafts and 200 capture diagnostics; reviewed member/steel/bolt/washer methods | Establish applicable fitting/bolt material properties, full bearing and capture couples, net cuts, formed heel/plate continuity, signed bolt groups and timber splitting/fracture. Own nominal stress markers and annulus means remain diagnostics until these mechanisms are qualified. |
+| Candidate response and case coverage | Authenticated current inputs/operators/admission; independently checked prior floor, panel, contact and mechanics methods | Bind reviewed remedies to fresh candidate inputs where changed; establish applicable restraint/contact/stability and required original-envelope case evidence. Serialize necessary heavy work after readiness; no old forces or passes transfer and no unauthorized native solve is commissioned. |
+| Practical build packet | Existing inventory, access methods and selected shop-document structure | Finish compatible hardware and delivered shank/thread/length limits, washer seats and tool/removal paths, cost/mass, stock cuts, hole datums/tolerances, assembly/dismantling sequence and explicit inspection criteria. Reconcile the actual cut-panel dimensions. Actual observations remain blank until supplied or observed. |
+| Integration and review | Current review model, genuine browser/mesh checks and compact evidence/archive workflow | Publish one consistent candidate-specific viewer, BOM, construction/shop instructions and independently reviewed evidence. Commit and push only owned work on master outside quiet hours; preserve selected authority and all frozen predecessor/current evidence. |
+
+The earlier sequence identified applicable answers already present in prior packets and
+the smallest changed inputs needed for panel transfer, lower-corner clearance
+and joint resistance. Missing product datums, material/fastener resistance and
+actual owner measurements remain explicit dependencies while independent work
+continues. Failures, missing load paths and incompatible delivered parts stop
+the affected operation; none is relabeled to achieve completion. No blanket
+stock enlargement, floor-friction test or external sign-off prerequisite is
+added. This goal authorizes design and documentation work; it does not claim
+an inspected build, verified floor, candidate selection, fabrication release
+or climber rating. The completed numerical packet below remains frozen evidence.
+
+Current numerical work continues in the existing successor packet,
+`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/`. No new
+field, hardware selection or physical release follows from the following
+bounded results. The separate raised-bottom-rail geometry receipt is described
+below; the original A12 geometry and forces remain frozen.
+
+| Model-completion question | Usable result | Next action |
+| --- | --- | --- |
+| Can perimeter screw movement clear the current panel findings? | Seven top-edge trials failed. Three subsequent rim clusters also failed; the best head comparison is **1.036619**, with bending **4.096350** and rolling shear **2.247589**. The first connected-backer stiff-tie screen also fails: **2.884227 / 4.406395 / 2.254047**, respectively. Same 66 screws, frozen panel operators and fixed receiver motions. | Preserve these unadopted studies and stop further panel/screw remedies. Retain the current 66-axis model, original force and hold-arm load; report its fresh candidate-specific comparisons with exceedances. Hold-specific measurements are not a prerequisite. |
+| Can the lower cleat holes gain practical clearance without new stock or screw moves? | Independent review supports the separate **Z180**, existing-pitch proposal: maximum-bore screw gap **3.94375 mm**, post/cleat end distances **58.9/40.3 mm**. It preserves the cleats' two grain rows; post groups remain distinct. | Keep this unadopted while checking the four new bore paths, eight seats/tools and removal corridors. The proposed 2-mm remaining clearance plus 1-mm combined uncertainty budget is an engineering allowance, not a universal code rule. Fresh own actions/group resistance are required. |
+| Do ordinary specified bolts and washers fit the nominal stacks? | A source-bound Grade 5 bolt/nut/USS purchase scenario costs **$109.93** before shipping/tax. Twenty 3/8-inch and four 1/2-inch stacks can be short at the catalog tolerance corners. The independently checked receiving window can retain the current lengths when each actual stack satisfies the two-thread projection and free-seating limits. | Record per-stack minimum delivered length, washers/nut dimensions, thread/fillet seating and tool checks; observations remain blank. NDS §12.3.6.2 expressly permits ASTM F606 tensile-yield input. A separate SAE J429 Grade 5 **92-ksi minimum** purchase specification is being source-bound through that route; it is not an observed bending coupon. Thread/root and washer-couple resistance remain unresolved. |
+| Do the omitted angle holes change the nominal normal comparison? | Off-center hole-chord bounds on all 88 saved half-strips give **118.839 MPa** at 6.35 mm and **132.524 MPa** at the 6-mm fixed-action sensitivity. A primary guide supports conditional plain Q235B minimum yield **235 MPa**. | This clears no complete fitting criterion: normal stress only, fixed gross-strip actions, no actual hole concentration, torsion, formed heel, prying or plate continuity. Retain those mechanisms and delivered dimensional limits. |
+| Can the floor and finite mechanics methods be reused? | Eight old/current footprints and 32 corners are identical; saved support-force replay differs by at most **1.74e−12 N**. Objective four-port and integration-router known-answer checks pass independent review. | Bind changed geometry to fresh owners/descriptors/gravity and complete wood-domain inputs. Reuse the unchanged floor method after footprint identity, then obtain fresh case-specific motion/contact/equilibrium admission. Current method receipts do not evaluate a finite candidate field. |
+
+The owner's latest geometry correction is **only to raise the mirrored
+`base_rail_bottom` members above the first T-nut row**. Retain the existing
+front-open wire cutouts; the suggested wire-hole conversion is withdrawn.
+Cached datums reproduce the current rail range S90.8–128.9 mm, T-nut row
+S99.2 mm and retained 15.875-mm service radius. A proposed **30.625-mm**
+board-tangent rise gives S121.425–159.525 mm and **6.35-mm** service clearance;
+world translation is [0, 19.685370547, 23.460111071] mm. Four dependent
+`lower_edge_1/2` Hillman axes, four angle poses and sixteen owned stacks move.
+Replace affected holes from raw wood and recut at fixed service endpoints;
+do not translate finished cuts or wire routes. Two lower panel machining
+outputs and four screw meshes also change. The parent has executed the
+independently reviewed preparation in `occupied-bottom-rail-v1/`, retaining
+the cleat bolts at Z200. Its report has all five collision lists empty, all
+120 full bore-body and 132 CAT/nominal panel screw-body backing values at 1.0,
+and no panel/service intersections. It retains 22 timbers, 22 angles, 100
+physical stacks, 66 screws and all fixed wire routes. The new scene owns 550
+solids and retains 471 old parts, for 1,021 visible parts. The report is
+652,172 bytes, SHA `ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b`,
+published as [occupied-bottom-rail-v1.json](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json).
+The old geometry and A12 force packet remain preserved; these nominal checks
+do not transfer the old mechanics. Independent actual-output review and
+genuine scene/browser validation now pass. The independent saved-output review
+is `bottom-rail-raise-v1/actual-review-v1/result.json`, SHA
+`27a433eba32763fb6d9828a3a70539ee09f2e0c6f18f1f06dc18c9228b17efec`;
+all 366 pins remain unchanged. It independently reconstructs all 176 holes,
+checks the intended moves and retains every qualification flag as false.
+
+The separate cleat Z180 clearance proposal remains unadopted. It was not
+combined with the owner's bottom-rail-only correction. The new panel holes
+are remachined from filled outlines, and unchanged service cutouts are recut
+at their fixed endpoints before new timber bores. No finished cut or wire
+route is translated with the raw rail. Six changed timber receivers, two
+lower panels and four screw meshes account for the changed geometry; all
+other physical owners remain retained within the recorded checks. Two lower
+service rails have different serialized BREP hashes but identical viewer
+meshes and geometry metadata. A separate four-import Boolean comparison
+finds valid solids, equal bounds/volumes and zero difference volume in both
+directions; it is recorded in `bottom-rail-raise-v1/service-rail-comparison-v2.json`,
+SHA `337326c2977354c13563e807eda17a1ab46bbb176bb39954c228fcc2dd0587fa`.
+Changed lower-panel records retain some inherited cache-roundtrip diagnostic
+fields. Those fields are not fresh roundtrip tests of the replacement panels;
+the new builder separately checks valid single-solid exports and occupied
+geometry. Do not transfer the cached diagnostics as new acceptance evidence.
+
+The distinct [raised-bottom-rail viewer](../../site/index.html?model=eoere-bolted-bottom-rail-development&view=rear)
+preserves every old model choice. Its compressed scene is 1,470,450 bytes,
+SHA `28269c01354dd901ad87604fe80475fcbb19cf71ad6cebec29194e7fe94cf536`;
+decoded SHA is `7e01f4d4cf96c7ab5f2a4ccfb8e0404a7b460a50e23b308138bdd1a0d38d1087`.
+The initial new-loader attempt rejected six inline meshes whose topology
+indices are embedded rather than separately table-listed. The corrected
+loader authenticates those exact index bytes and reuses the unchanged genuine
+mesh helper; no scene or old loader bytes changed. Actual Three.js evidence
+is `bottom-rail-raise-v1/loader-review-v2/actual-scene.json`, SHA
+`44aaad2af698a083a826c1a39c464aaf39a2a996d7955637d2cfc1e5fce2eb39`.
+It verifies all 1,021 parts, 100 full stacks, 66 screws and 176 holes.
+Front/rear browser and cleat-bolt inspection evidence is
+`bottom-rail-browser-v1/browser-check.json`, SHA
+`21f6a743c707e6a4f76b1f8c46eaf557f396116459b3c2f659bfdda6dd1512fa`.
+Subsequent current/preserved entry-link navigation is independently exercised
+in `bottom-rail-navigation-v1/receipt.json`, SHA
+`d67a77e3ca7347a85ae380f9800963a304179de61d5a2f2cc33c550fac4d2798`.
+Both browser checks have no page errors or failed requests/responses; neither
+uses page-context evaluation. The snapshots retain their exact served HTML.
+Mesh compaction and all 13,618 alias URLs pass their affected checks.
+The new compressed scene and report total 2,122,622 permanent bytes because
+two remachined lower panels and four screw meshes must replace their old
+shared assets. The 471 unchanged parts remain shared; raw exports stay ignored.
+
+The optional future horizontal-midpoint T-nut layout is a separate geometry
+screen. Against all 22 actual raised-rail timbers, **108 of 120** sites are
+timber-clear and **12 F–G sites** intersect the right principal, including
+their flanges. The obstruction is in the current frame but concerns future
+added midpoint nuts, not an existing F/G station. Shorter hold bolts do not
+clear those flange intersections. `panel-transfer-remedy-v1/future-midpoint-clearance-v1/current-result.json`
+preserves the exact issued all-120 report, SHA
+`e0e809c656ece0b725aafca888550909864dac63013cd46137168843e6c309ef`.
+The preceding report and both source scripts are retained byte-for-byte.
+Restore the scripts to their recorded `/tmp/mini-moonboard-eoere-*-midpoint-check.py`
+names to reproduce the original commands; do not overwrite a differing file.
+This screen checks timber only, with provisional 50.8-mm rear projection;
+it does not qualify hardware/tools, adopt a future grid or authorize holes.
+
+The panel load-functional diagnostic preserves the same complete applied
+wrench and uses only the already recorded flange envelope. Bending changes
+from **4.595869 to 4.589014**, rolling shear from **2.438902 to 2.430172**,
+and the head comparison from **2.563273 to 2.566681**. There are 209 bending
+and 157 rolling exceeding samples outside that flange radius. The findings
+cannot be removed by a tiny aperture exclusion or this load-spreading change.
+The source is `panel-transfer-remedy-v1/aperture-equivalent-wrench-diagnostic.json`,
+SHA `1d895fd09f6eb7b8000bc1be75b15f13f6464734c6010265bc7bbe5905679d3f`.
+This remains fixed-receiver, frozen-operator evidence, not a new whole-frame
+response or a physical failure rating. The subsequent connected cross-support
+proposal is preserved as an unadopted study. Its unfinished local-screen source
+and coupons remain recoverable, but no candidate matrix or response was built.
+Further support and screw-remedy work stops under the latest owner scope.
+
+The source-bound receiving windows remain a practical route for the existing
+bolt lengths. `catalog-hardware-strength-v1/shop-window-v1/result.json`, SHA
+`23730fa128d8033abf671ca7bcbe2a0e7b1a94c7478d439b2ff8fa67718a4174`,
+is independently reviewed at `shop-window-v1/independent-review-v1/result.json`,
+SHA `974df894664078da6ae97fd96a6bf5870d969ef952a8ad787b981da64ee72f93`.
+At maximum catalog nut/washer stacks, minimum lengths are **112.268 mm** for
+sixteen 3/8×4½-inch stacks, **150.368 mm** for four 3/8×6-inch stacks and
+**199.792492 mm** for four 1/2×8-inch stacks. Per-stack free seating, delivered
+thread/body intervals and two-thread projection still govern. The next listed
+lengths cost $8.80 more and can themselves obstruct seating or access.
+
+The explicit SAE J429 Grade 5 purchase hypothesis now supplies conditional
+**Fyb = 92,000 psi** through the NDS §12.3.6.2 ASTM F606 tensile-yield option.
+`catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json`, SHA
+`3378a3a4de466f5deaabf17e15a0621bef65daeaf5f01856ace509a41cb25fe6`,
+is independently reviewed at `f606-tensile-yield-spec-v1/independent-review-v1/result.json`,
+SHA `cf00de7202db7b9fef8bb82cd38e2c5fb10022e6553979aa2e8d8f83f86742dd`.
+The 2021 F606/F606M procedure edition is explicitly chosen; its NDS bibliography
+attribution is not authenticated. This is a specified minimum, not a measured
+bending/lot yield, ultimate/proof conversion or observed delivered conformance.
+No blanket coupon or manufacturer approval prerequisite is added. Earlier
+NULL receipts remain unchanged. Diameter/thread, washer couples and complete
+joint resistance still need their applicable checks.
+
+The owner's separate joint-evaluation task now owns representative-joint
+evaluation followed by reuse across the current joints. This build task retains
+panel remedies, geometry/viewer and coordinated build documentation. The
+recommended first duty is `clip_single_top_left_1`, the old A12 governing
+fitting normal-stress location. Old A12 actions support method development;
+the raised geometry needs refreshed actions for final conclusions. Completed
+four-port, steel, catalog, group and source-only wood-provider methods are
+handed over within their limits. No duplicate joint solve is commissioned.
+The source-only 22-owner provider contract is independently reviewed at
+`wood-provider-contract-v1/independent-review-v1/result.json`, SHA
+`74c84f43e527407ee5b7095ef9fde6b5c03f6a05df0bdd6107e8a2cfeac708c8`.
+It requires fresh topology, COM, full-own-face atlas and positive measure
+evidence before production use; historical twenty-owner measures do not
+transfer. Reused modules load CAD libraries, but this contract work performs
+no geometry import/build/query or candidate response.
+
+Fresh raised-rail floor reuse is recorded in
+`raised-rail-floor-reuse-v1/result.json`, SHA
+`9a1d9af6851486e23bbef727a5fc93422fa599d187df0a6d9cc7683b9dbcaed0`.
+All 409 joined source pins verify unchanged. Eight floor-host BREPs are
+byte-identical to the old geometry; all 32 corner IDs and eight centroid
+groups retain their source-bound coordinates. Only geometry and the existing
+callback method transfer. Fresh chart, activation, gradient and body/global
+equilibrium checks remain required; old reactions and support masks do not
+transfer. This avoids repeating the bulk of the unchanged floor development.
+
+The completed geometry/viewer and optional future-midpoint packet is now
+recoverable in external archive
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/eoere-bottom-rail-v1.tar.gz`
+(4,014,504 bytes, SHA
+`292e99b1d6b4065d881505107ec9566e9d04ec629420630e3481e2616ea42d63`).
+Its `.manifest.json` is 18,204 bytes, SHA
+`82811ce88ffe61969dc5bad048b28d3f56368016b5ceecb3e08c7b215bc797b7`.
+`scripts/evidence_archive.py create` verified all 59 archived/restored files,
+8,015,997 source bytes and nine directories across five explicit roots,
+then rechecked source identity. Nothing was pruned. Recover to a fresh
+external directory with:
+
+```sh
+uv run python scripts/evidence_archive.py restore \
+  --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/eoere-bottom-rail-v1.tar.gz.manifest.json \
+  --destination /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/eoere-bottom-rail-v1-restored
+```
+
+Panel-support development is stopped by the later owner instruction above;
+its failed results and unadopted proposals remain recoverable. Joint/component
+evaluation, model corrections, material/thread methods and practical
+documentation stay active. Frozen geometry/viewer raw exports are archived
+and remain available in place; historical A12 packets remain unchanged and
+recoverable from their earlier records below. Commit/push remains deferred
+under `.git/QUIET_HOURS.md`; all other task and selected-baseline changes are
+preserved. The active work follows the revised numerical-completion scope.
+
+Reproducible preserved receipts are `panel-transfer-remedy-v1/placement-sensitivity.json`
+(SHA `649acfaf09385ebc4e1ab9f73ac8c47681126ee777e8b6380a06104dfc2933a2`)
+and `panel-transfer-remedy-v1/rim-cluster-sensitivity.json` (SHA
+`8a687dc9402213f6d547f8cc1f5e42d5e4c8795d476180875a3b43ae520c4fd5`);
+the failed `panel-transfer-remedy-v1/connected-backer-stiff-limit.json` (SHA
+`c3f235406a4bcf248825d831a25d56cbf5e8ac7e6105cecbef9072dfe29db6e0`);
+`cleat-remedy-review-v1/independent-review-and-geometry-plan.json` (SHA
+`e2af40d95d23b31bdf90719791618f0aa664c0ce321827852d3531e3150bedea`);
+`catalog-hardware-strength-v1/complete-result.json` (SHA
+`6d14fbd84ed32757afde7930f559aeeaf90e98259dbb634537ffa7a201b04c71`),
+independently reviewed at `catalog-hardware-strength-v1/independent-review-v1/independent-review.json`
+(SHA `3a1aa017da5c1661cd8e9c4a3761990a2abad22561096a1719de495f329c203c`);
+`steel-net-sections-v1/result-v1.json` (SHA
+`f38dfeb90a0772dfa31233a30292bcc76032294c49282a089e30514150df7551`),
+independently reviewed at `steel-net-sections-v1/independent-review-v1/result.json`
+(SHA `df46672b719169ae1dc6437ac7d484949d8b1944640120049007f5549384c60e`);
+`floor-contact-readiness-v1/audit.json` (SHA
+`3429e69c90c72df17fb3c333d725e8173078a5ec996bff30ba060299720c9fb6`);
+`objective-four-port-v1/independent-review-v1/result.json` (SHA
+`bf66c8c2c9b9c28d7b1cc733012065d27f976a65c36175fac89d4426006a42cd`);
+and `finite-integration-v1/independent-review-v1/result.json` (SHA
+`617263f00c2fdafa085716d4496219d477948f03f0a7452b3eb03c65eb597906`).
+Each records its exact producer, command, source union and limits. The steel
+reference uses one shared ignored [primary guide](https://www.polyu.edu.hk/cnercsteel/-/media/Department/CNERCSteel/Publication/Professional-Guide/ChineseSteelGuideEN20230315final.pdf?hash=6562352B25BA83BC5949365604E24D8E&rev=cf3ee290f7714e1f8aea6da5002fec65),
+Table C.2, PDF page 95; it does not transfer GB 50017 design strengths or
+Q235GJ properties. These new method/remedy files remain active and unpruned;
+the prior frozen numerical/archive record below remains unchanged. Quiet hours
+currently defer commits and pushes, not this design work.
+
+The fresh raised-rail metadata inventory is
+`bottom-rail-raise-v1/raised-rail-inventory-v1/result.json`, SHA
+`4d575d55605a96ab8ac27207ff0efb55a3fad95e17f3651780b5973b539ec339`.
+All 441 pins authenticate before and after the calculation. Current CAT
+planning mass is **218.912854 kg**, including the 25-kg allowance and excluding
+pads, an increase of **0.015784 kg** from the earlier same-basis inventory.
+All 100 hardware recipes and 500 local hardware templates remain byte-identical;
+sixteen stack placements move, with eight recut grip values differing only
+by at most 1.14e-13 mm. The receiving-window equations remain applicable.
+The full catalog nut/washer tolerance box has **24** short comparisons:
+sixteen 4½-inch and four 6-inch stacks at **−0.508 mm**, and four 8-inch
+stacks at **−1.164492 mm**. These are conditional catalog corners, not
+observed delivered failures; actual stack, thread, fillet and tool cells remain
+blank. The recorded complete bolt/nut/washer basket gives the planning cost
+expression **6×C4 + $109.93 + U**, retaining unpriced wood and other items.
+It is not a refreshed live price. This receipt postdates the 59-file geometry
+archive snapshot above and is active for the next evidence archive.
+
+The representative upper-left joint calculation is now assembled in
+`joint-mvp-v1/first-disposition-v1.json`, SHA
+`55a76e3fca7b619d6db81ca69ca3f3472625659655e374677cd5da69f2135379`.
+It joins ten component findings to the **preserved old A12 field**. Conditional
+own wood/steel yield-mode markers span **0.136851–0.274721** before group and
+geometry factors. The specified smooth-circle bolt first-yield marker is
+**0.144851**. Straight steel cuts at 6 mm give **0.732389** against the
+declared 235/1.67-MPa reference; a separate assumed 6-mm inner-radius heel
+component plus gravity envelope gives **0.966234**. These are conditional
+component scenarios, not a coupled formed-heel or complete-joint capacity.
+Twelve cached receiver cuts retain at least **0.852273** of gross area;
+area loss does not establish fracture or splitting resistance. The existing
+axial-only washer calculation requires **128.226 MPa** yield strength, without
+qualifying actual pressure couples or washer material. No redesign is adopted.
+
+Reuse now covers all **100 physical shafts and 5,908 same-section cuts**,
+including the twelve starting frame bolts, in `joint-mvp-v1/all-shafts-v1.json`,
+SHA `6935d2ee9dea21f87d2ae6e0dab0364c62e311dba45e7875118cf53927a1a0bb`.
+The maximum specified first-yield marker is **0.360809**, with no exceeding
+smooth equivalent-circle markers. Catalog minimum bodies and an explicit
+thread-root floor remain conditional hypotheses; notch, thread stripping,
+fatigue, ASD joint resistance and actual delivered conformance are unqualified.
+The complete timber reuse census is recorded in
+`joint-mvp-v1/timber-reuse-v1/result-v1.json`, SHA
+`b1a0c75fa80bb06820cc85bb7fcbb2771e0f2f30fa9aa0ca4a3aa1cf61bc291a`.
+It covers all 120 own timber surfaces, 24 duties and twelve starting frame
+bolts in the preserved A12 field. Conditional unadjusted references are
+available for 76 wood/steel and sixteen two-wood shafts; four shared and four
+mixed stacks remain unsupported by this method. The maximum unadjusted marker
+is **0.684212** on a left leg bolt. The separate Cdelta=0.5, Cg=1 sensitivity
+exceeds on two left leg bolts at **1.368424 / 1.188861**. Actual geometry/group
+factors, splitting and complete joint resistance remain unassigned; this
+sensitivity is not an adopted geometry verdict.
+
+These receipts do not contain admitted raised-rail demands. Their exact scripts,
+source closure and component recovery commands are recorded in those receipts.
+
+The all-duty old-field disposition is now joined in
+`joint-mvp-v1/all-joint-disposition-v1.json`, SHA
+`e5f11bc58057000e4a955b8c856faaf2179a4581c1cbef5f68a78d90306b4021`.
+It checks the 453-source union, all 24 duties, twelve frame-bolt arrangements,
+22 angles, 120 timber surfaces, 100 shafts and 200 ends. Eight multi-plane
+references remain null; the two reduced-factor leg sensitivities above remain
+distinct from unadjusted references. Four source-bound joint reducers are
+ready to reuse through an exact admitted-field manifest. They do not transfer
+old force results or acceptance to the raised model.
+
+The inactive old-field joint snapshot is recoverable from
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-03/eoere-joint-mvp-preserved-a12-v1.tar.gz`,
+SHA `997a8628843c2bfc2a8f3bb148f613b1a2161b5e9ac67dcfde9d8f389e001e59`.
+Its companion manifest SHA is
+`82880a16e96d131ebaa70b9a630f6a0cc2c0e659a3e29e07864a0b07d0033ce7`.
+All 50 owned files were restored and verified; all 453 referenced live sources
+were rechecked unchanged. Shared manuals, geometry and raw fields retain
+their existing recovery records; they are not duplicated. Nothing was pruned.
+The live joint packet remains active for corrected-field reductions. Recover
+the snapshot to a fresh external destination with:
+
+```sh
+uv run python scripts/evidence_archive.py restore \
+  --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-03/eoere-joint-mvp-preserved-a12-v1.tar.gz.manifest.json \
+  --destination /tmp/eoere-joint-mvp-restored
+```
+
+The fitting source audit identifies a necessary operator correction.
+`objective-four-port-v1/strip-datum-audit.json`, SHA
+`e9be3c9068205a72cd2e5b66e1d9a5f35b9449216388d468db39ad144c5895aa`,
+checks all 22 fittings and 88 elastic half-strip datums. Their neutral roots
+and tips lie on the backing plane, omitting the **3.175-mm** nominal centroid
+offset. Actual bearing/capture point maps and nominal centroid gravity already
+retain eccentricity; adding either again would double count it. A separate
+operator shifts the neutral datums normal to each flange by half its thickness,
+retains the 65.0875-mm span and four original external entry ports, and
+recondenses the internal heel. The gross connected-heel analogy stays explicit;
+unknown formed radius and resistance are not invented. Source-only coupons,
+fresh current panel-hole/load/contact inputs, independent readiness review,
+parent-serialized reference-geometry cases and fresh equilibrium admission
+precede using that correction for new component findings. All old sources and
+fields remain frozen. This is a model correction, not a panel/screw remedy.
+
+The corrected first-order method and fresh raised-model inputs are now
+reviewed. The independent centroidal receipt is
+`centroidal-four-port-v1/independent-review-v1/result.json`, SHA
+`c435a8390a397e3532f0c986a428241c5b36edeb6941e4405918d83182808c51`;
+seven known-answer fixtures and independent work, condensation, port and
+gravity checks pass. Its separate loaded finite-objective toy misses the
+unchanged 1e-8-N heel residual threshold and remains **UNQUALIFIED**. That
+unused finite method does not qualify or invalidate the first-order method;
+no candidate finite run is commissioned. The panel-input method independently
+reuses four identical panel operators and updates only the two changed lower
+panel apertures. It retains the CAT 23/32 analysis thickness, the original
+Group 1 A-C references and horizontal sheet direction. This is an input
+correction, not an attempt to resolve the retained panel exceedances.
+
+Parent-serialized extraction produces `raised-rail-mechanics-v1/inputs.json`,
+13,340,562 bytes, SHA
+`81e9ad126f806a412a8bcb73ae3d0057ef3568ed0fa45986503f97fb5fb62d9f`.
+The distinct actual-input review,
+`raised-rail-mechanics-v1/independent-review-v1/inputs-review.json`, SHA
+`eb68a273f8a6a3d9bc59f1c00536a2cc8c0b2c3e53de6bc8c764c8bda42a3d2c`,
+checks 455 unchanged pins, 150 physical owners, 120 wall intervals, 88 fitting
+ports, 200 captures, all 827 own loads and **1,600 reference contact cells**:
+330 timber, 918 panel and 352 flange. It binds the six original loaded cases
+and a separate gravity-only diagnostic without transferring old actions.
+The complete declared planar census does not qualify displaced or curved
+contact. The earlier auxiliary circular ray-parity failure stays excluded
+from the native-mask arithmetic, with direct disjoint-circle checks retained.
+The reviewed method-input closure has 470 pins, SHA
+`7dee8aef4d5c2cbd8691944141c67691427634ca7074b0b55a17a3fb3bb5b7eb`.
+
+The preserved original-law raised-rail case is `raised-rail-cases-v1/a12-rear/field.json`, SHA
+`1172ff57a3affdd6f844e19973ca5abd76dab437a3b07c25b120a3f91972a738`.
+It converges after three support patterns. Genuine admission through
+`raised-rail-execution-v1/admission.py`, SHA
+`e498f9beb2b148fd39f079edd7d15a3837a26eb9377b48912f4333912aff5c0c`,
+produces `a12-rear/admission.json`, SHA
+`7272b79156c42fbe2bcbd0c234b54ca4ac28b1f4963e9778d83a022bdbf7ff00`.
+All 150 bodies close: maximum force **8.55e-7 N**, moment **8.37e-4 Nmm**;
+the original gradient is **6.57e-7 N**. Its exact admitted manifest is SHA
+`01b8b208ee580c0c11e428d7d1edfe093e4afb72bd595bed43bad0ebe55b4ba1`.
+Its preserved component receipt, SHA
+`cd798f5049c56518f6d65e2c0d258c71cbf6a9d2632f6026785f354b25720a59`,
+has generic head **2.559349**, spatial panel bending / rolling shear
+**4.591412 / 2.437017**, and sampled gross normal / shear-torsion
+**0.486363 / 0.858186**. Independent actual-component review checks all
+66 screws, six panels, 22 timbers, 88 strips, 100 shafts and 200 captures;
+receipt `independent-component-review-v1/a12-rear.json` is SHA
+`ad482bb26a052804c5e40eadf834921a27e9900ee972df7e42b0ce25f03f5677`.
+
+Its preserved joint join is
+`joint-mvp-v1/current-cases-v1/a12-rear/disposition-v1.json`, SHA
+`50beeba23aa72d62c5f7a86562fa8ce6ca84050dfc47b15625ea7ab151e254e0`.
+Its 564-source union covers all 24 duties and twelve starting frame bolts.
+The unadjusted wood lateral reference is **0.684356**; the separate assumed
+Cdelta=0.5/Cg=1 sensitivity still exceeds at two leg surfaces, maximum
+**1.368713**. Physical straight-steel and assumed Ri=6-mm heel reference
+markers are **0.734027 / 0.968277**. The specified smooth-circle shaft yield
+marker is **0.360947**. None establishes complete joint resistance; the
+shared and mixed bearing-plane references remain null. This is the preserved
+original-law raised-rail A12 result, not a field under the later support scenario.
+
+The original-law A12-forward search ends after **64 unique support patterns**
+in 1,163.176 seconds. All fixed branches meet the gradient tolerance, but each
+conflicts with its recovered whole-foot activation; none supplies accepted
+coefficients or actions. The failed field SHA is
+`767dbaec6c54f1b2a819458f893fe42fadcd1e1a3e0c924889a82e3961f1fb79`;
+independent failure review SHA is
+`671533d528b9498be8c1fb621849b16fda6c6f26e0f8ea7cfa8ebf584d70efcf`.
+This bounded search does not prove no fixed point among all 256 patterns.
+The owner then prioritizes evaluating a distinct practical support scenario.
+The parent stops the original queue and interrupts A12-left after 323.836
+seconds: **18 completed conflicting patterns**, with the nineteenth interrupted
+and excluded. This was an early owner-directed interruption, not expiry of
+the recorded 1,770-second wall limit. The three remaining loaded cases were
+not started. Terminal confirmation SHA is
+`b59645ad150e3fb1d097ccd51ab779eb73b0c4d43b2b5651eb3103632b2d9d40`;
+the independent interruption receipt SHA is
+`111911469760c5697e9ad7e9b7323d3a9eabb2303f8beed8f407daf46df7bfe5`.
+Failed and interrupted original-law evidence stays frozen.
+
+The peer-owned `floor-practical-resolution-v1` method is a **distinct analytical
+scenario**: retain all 32 compression-only normal contacts and the existing
+joint laws, with the original XY stiffness at only the two rear-leg centroids.
+The other six feet carry no XY reactions, including those with normal bearing.
+Both credited legs must carry more than 1e-7 N normal force in every admitted
+case; an unloaded credited leg rejects the field. This is an unverified no-slip
+assumption, not a floor anchor, friction capacity or bound on other reaction
+distributions. All six original loaded cases now have fresh fields and their
+own genuine admission under new scenario/schema identities. Gravity-only
+remains a separate diagnostic. No old field or receipt is relabeled.
+
+Source-only global statics, SHA
+`e3b18c5b7e9b07283990e0562cd7f98a33646d491d11de0305f1907a9e0e79b2`,
+reconciles the seven raw load wrenches and finds nonnegative vertical-reaction
+witnesses for compression, pitch and roll. The minimum support-polygon edge
+margin is **329.975184 mm**. Horizontal force and yaw demands are recorded,
+not qualified by this feasibility result. The source method has seven
+known-answer fixtures. Independent review of the corrected runner/gate passes;
+the six fresh production cases and their final consumers are complete. The
+parent serial slot is closed, with no further solves scheduled. Source review
+identified a missing saved-panel
+coefficient export and incomplete source/identity guards before any candidate
+run. Their failed revisions and review receipts remain recoverable.
+
+The final floor runner, gate and support dispatcher are respectively
+`02b35eb6eb148e1b178fcca069b761065eaec8f0641ec5adc91f211b3e9eceb4`,
+`ee47bca7795483c3d304030a26e368c9e2bf9b3bbff48ef10b5416e8aa344fa9`
+and `b4bc326d2060d6fc49d0f29218306533e4cea305db72dce2f0e09338c7e3ad2e`.
+The seven genuine small-kernel method fixtures and 22 gate/consumer contract
+fixtures pass. Independent source review result-v2 is SHA
+`848d1205b995393350e78e8b20c8ecd6a6ebfcf7bccab982491613d1cfbb943b`.
+The pre-correction bytes remain in
+`floor-practical-resolution-v1/source-snapshots/review-blocked-v1`; no candidate
+was run with the rejected method. The corrected consumer preserves every
+original recovery calculation and tolerance, binds authentic saved q/panel
+coefficients and requires both credited legs in bearing. Exactly twelve
+disabled XY force and energy rows are zero in every case.
+
+The six-case floor handoff is SHA
+`25b3babbfd9c5ca24d1c5a7c7056139169cd1d222fe9fcc747df0f9b14bad0f0`;
+the independent floor aggregate is SHA
+`58519d3d7748bfc0dfc630db83c0b1edc34764ee1657471330ea5da21c1610d2`.
+All six original load recipes, 827 physical loads, 2,330 paired actions,
+150 body/global closures, 100 shaft and 88 fitting-port recoveries and six
+owned panel coefficient blocks per case pass their scoped checks. Maximum
+full-coordinate residual is **9.93976489e-6 N**, within the unchanged
+inclusive **1e-5 N** threshold. Minimum credited rear-leg normal force is
+**592.856590 N**. The maximum individual leg horizontal/normal requirement
+is **0.324737118**, a saved reaction diagnostic, not measured friction or a
+floor rating. The source-only support-polygon feasibility and its
+**329.975184-mm** margin remain separate from compatible elastic reactions
+and physical sliding/yaw resistance.
+
+The parent component bridge changes only candidate/schema/gate binding and
+truthful support wording around the already reviewed raised-rail reducers.
+All physical component kernels are unchanged; no field/receipt is rewritten,
+and no historical force or pass transfers. Independent bridge review is SHA
+`79c1fdc6789d1f6bd9375f9de1c92c59ce626687d3965b998ea56b226a85f17a`.
+The independently checked same-case six-case maxima are SHA
+`d8c0a7f4dded9f6f26488efc9e4ec060b7fdd5dacbf36d0ba36de38446c93974`.
+Every case covers 66 Hillman axes, six panels, 22 gross members, 88 strips,
+100 nominal shafts, 200 captures, 340 panel aperture masks, 5,908 signed shaft
+cuts and 3,974 gross-member samples. Sixteen generic-head case-axis exceedances
+and 26 panel component exceedances remain recorded; these counts are not a
+claim of sixteen distinct screw axes. Four weak-column domains remain
+unqualified.
+
+| Fresh fixed-floor case | Full-coordinate residual N | Minimum credited leg N | Generic head, CD1 | Spatial bending / rolling shear, CD1 |
+| --- | ---: | ---: | ---: | ---: |
+| a12-rear | 9.93976489e-06 | 869.339226 | 2.571946 | 4.613058 / 2.444529 |
+| a12-forward | 1.7693442e-07 | 793.020441 | 2.393214 | 4.370258 / 2.451408 |
+| a12-left | 7.39047549e-07 | 714.367012 | 2.443736 | 4.474500 / 2.445713 |
+| k12-right | 1.48477596e-06 | 744.385983 | 2.384921 | 4.287310 / 2.249849 |
+| k12-rear | 4.9213189e-07 | 904.318334 | 2.511272 | 4.442019 / 2.235259 |
+| a1-rear | 3.35978834e-06 | 592.856590 | 1.830072 | 2.684011 / 1.376509 |
+
+The governing screw has **1492.481006 N** withdrawal and simultaneous
+**706.895329 N** lateral force. Generic effective thread required at CD1 is
+**62.953176 mm**, versus **45.243750 mm** nominal length after the panel;
+actual Hillman resistance and thread engagement remain unknown. Governing
+sampled gross normal / sufficient shear-torsion comparisons are
+**0.526047 / 0.977592** in K12-rear / K12-right. The nominal gross half-strip
+stress is **107.407460 MPa**; nominal 3/8- and 1/2-inch circle stresses reach
+**310.856685 / 227.718807 MPa** in separate own cases. Peak full-annulus mean
+pressure is **1.065458 MPa**. These retain their own gross-section, bracing,
+material, local-contact and complete-resistance limitations.
+
+All six cases have coherent own joint dispositions for **24 duties and twelve
+starting frame bolts**. Coverage-v3 is SHA
+`c3d169412f4d2953e36fc1dd885b5f3793538ba566af94e4c0e73d8d81b2f23c`;
+the same-case reference envelope is SHA
+`cd998adf55d27c5593e17c6e3ea689b0b922cc2edfb09a8a4bc128456a178684`.
+The finite independent saved-row/provenance review is SHA
+`48a3f96f89b56514d247d5bafb6d26b692fc29d03beb805540c1f4c22c93d8c7`,
+with no confirmed issues in its recorded scope. It verifies exact owned
+action/receiver/cut/end membership and reproduces the coverage/envelope; it
+does not independently qualify every formula or physical mechanism. Final
+execution validation is SHA
+`650932c341ac889739951849fd711ecf7cd0b807d3752b7bac0d7dd9df86d01c`.
+The unadjusted timber bolt-component maximum is **0.699104**; the separate
+Cdelta=0.5/Cg=1 sensitivity reaches **1.398208**, with ten exceeding rows
+across five cases. Actual Cdelta/Cg and complete group/splitting resistance
+remain null. Straight-steel and assumed Ri=6-mm heel comparisons reach
+**0.850480 / 1.113498**; seven heel-scenario rows exceed across three cases.
+The specified Grade 5 smooth/catalog-minimum-body first-yield marker is
+**0.514158**, using **326.139453 MPa** at the smaller declared body diameter,
+which differs from the nominal-circle comparison above. Ordinary UNC does not
+guarantee the declared root floor; actual shank, root, fillet, thread placement
+and complete bolt applicability remain unverified. Axial-only catalog washer
+required Fy reaches **156.175807 MPa**; actual Fy, pressure couples and combined
+strength remain unknown. Eight shared/mixed-stack lateral references and
+every complete joint resistance remain unqualified.
+
+**Conditional numerical MVP closure:** the
+[compact six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json)
+is **87,207 B**, SHA
+`a3f396654354bc71ba4c224c48bd7788c60aff94a033d8591a62b15f10f5e468`.
+Its full assessment is
+`fixed-floor-components-v1/assessment-v1.json`, SHA
+`3ffb8502bf3020f81e28b076b019f83f070e8ee297c03f3c8dba1d7055957592`;
+the curation index is SHA
+`345e44cc3faea40a6b87a48f0be1be580025136294dd1e0b84924f38114553f3`.
+The parent verifies all **689** frozen source pins and one common analysis/
+support contract. Independent curation/publication review is SHA
+`8ad6d74701f9be8a7ac387a4d6108fbd1b92536ac553931ba983b340961e6a30`:
+six exact saved baselines and nine bad source/state/old-law/support/duty/bolt/
+capacity/release joins reject or reproduce as required. The publisher copies
+saved values and verifies 691 source pins; it performs no physical reduction,
+candidate preparation, K/q solve or CAD/native execution. Its 24-duty catalog,
+all own case references, component/heel/shaft/washer witnesses and exact
+inventory are retained without duplicating the large raw source map.
+
+The analysis retains the original **250 lb ×2, 300-N horizontal, 100-mm hold
+arm** and 25-kg allowance. Saved panels use **CAT 23/32 = 18.25625 mm**;
+nominal 3/4-inch backing/penetration checks remain a separate reference,
+not a second adopted response. First-order motion markers reach
+**53.573029 mm** and **0.107818452 rad**, at separate own cases. They include
+assembly motion and do not establish physical movement, finite-contact or
+stability applicability. The planning total is **218.912854 kg**, excluding
+pads; cost is the recorded **$109.93 + 6*C4 + U** catalog comparison, excluding
+tax/shipping, not a current quote or complete actual cost. Actual observations
+remain blank. All physical release flags remain false. No further panel/screw
+remedy, stock enlargement, native solve or physical floor claim follows.
+
+A read-only price check at **2026-10-08 21:24:21 UTC** finds the
+[exact four-piece Eoere SKU](https://www.amazon.com/dp/B0C7V7VS89) showing
+“No featured offers available”; the matching variant exposes no USD offer.
+Current price, seller, six-pack availability, shipping and tax remain
+unverified, so C4 stays null in the frozen inventory and numerical publication.
+
+**Practical reuse boundary:** read-only review of the preserved v4 construction
+manifest, `reuse-plan-v1/practical-disposition-v1.json` and raised inventory
+confirms that the old 20-timber/70-shaft/36-fitting tables are predecessor shop
+coordinates. Reuse local L/U/V and end-plane conventions, the 1:12 recess
+method and the unloaded panel/harness ordering as planning methods. Current
+tables and routes require 22 timbers, 22 angles, two cleats, 100 shafts and
+200 tool sides, including four moved Hillman axes and sixteen moved stacks.
+The earlier 140-side/70-shaft access passes and B103 beam-first withdrawal
+dependencies do not cover this layout. Current panel/harness routes, seats,
+counterhold/stroke space and complete metal/fitting/timber removal remain
+unverified. The pre-raise disposition's “66 axes fixed” wording belongs to
+that revision; the current four-axis move remains recorded.
+
+The thirteen-stick, 150-board-foot stock scenario nominally accommodates the
+two 289.7-mm cleats in runner offcuts. Its earlier tight nesting margin is
+2.649 mm; delivered usable stock, grade, offcuts and panel dimensions remain
+unobserved. The current README now exposes the six nominal bolt families
+from raised inventory SHA
+`4d575d55605a96ab8ac27207ff0efb55a3fad95e17f3651780b5973b539ec339`:
+60/4/8/20/4 three-eighth-inch bolts at 2½/3/4/4½/6 inches, and four half-inch
+×8-inch bolts. They sum to 100; the same inventory records 100 nuts and 200
+washers. This is saved-data documentation, with no new geometry, access sweep,
+solve, product selection or physical observation. The reusable scalar
+receiving windows retain their explicit exclusions and 24 catalog short-stack
+comparisons. Practical packet gaps stay distinct from numerical completion;
+no panel-remedy work resumes.
+
+**Current nominal shop and assembly packet:** the
+[guide](eoere-shop-assembly-guide.md) and its functional
+`hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/`
+tables complete current nominal coordinate and receiving coverage. The
+eight-file cut/datum packet is **156,571 B**; `cut-datums-result.json` is SHA
+`d8ce1edd41cc423f9f584bf15ee066919ca0fbb1bd0e046be910393772aa54a4`,
+`cut-datums-inputs.json` is SHA
+`e8aace81ef3c0069839428c1007ffe0ae2dd69e63e8b23dbe5f5a68b02ee90b0`
+and `cut-datums.py` is SHA
+`66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839`.
+Ten frozen source bindings provide the current 22 timber/six panel frames,
+184 raw timber vertices, 48 end planes, 28 saved panel-section vertices,
+120 finished receiver-wall occurrences for 100 shafts and all 66 Hillman
+axes, including exactly four moved lower axes. Saved datum translations are
+exact; maximum receiver/grip join difference is 1.83e−9 mm and end-plane
+residual is 9.10e−13 mm. All 948 Actual/Disposition cells remain blank.
+The result pins all four CSVs; `cut-datums.md` is SHA
+`54e0025255a7de1780e352835904a4f29ff7dfa903473be9ecc63774601cf6d0`.
+
+The six-file hardware packet is **214,012 B**. `hardware-result.json` is SHA
+`173250f8c30a97be4db74534df431eed825f067529f7ea550c95b7369fc88d68`,
+`hardware-inputs.json` is SHA
+`e79af8082845b4255ba9b3d246b3c39b6afa9100c177b9cdb0052fa18c916041`
+and `hardware.py` is SHA
+`4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef`.
+Its 446-pin closure reconstructs the raised inventory's exact 441-pin union.
+All 100 physical stacks, 500 metal roles, 88 installed hole attachments,
+22 angle identities and 200 own head/nut sides are reconciled. Four shared
+angle shafts count once. All 3,000 Actual/Disposition cells stay blank;
+every access row is **NOMINAL_ONLY**, with tool and continuous-removal
+dispositions **UNVERIFIED**. Existing scalar receiving windows and all 24
+catalog short-stack comparisons remain distinct from observed fit. The
+1/2-inch model's 22.225-mm hex and catalog 3/4-inch wrench reference remain
+separate; no catalog envelope silently changes CAD. `bolt-stacks.csv` is SHA
+`632728ed64920a53538e8c6067b933ee7b9f338dfae33d3c22516c5cf3b1f352`,
+`access-sides.csv` is SHA
+`1593cb17a0f46e5490131a5653f36a9b5faee61e99f09770b9481581ce0cbda8`
+and `hardware.md` is SHA
+`fe20169f9241599e8098b1960a180b5fbc194961fed62385c9836f1762ea972a`.
+
+Both maintained shop helpers pass Ruff and saved-byte `--check` reproduction.
+The hardware author also verifies four rejecting source joins and independent
+CSV face/vector arithmetic within 5e−9 mm. The cut author independently
+replays CSV world entry/exit points within 6.83e−13 mm. Their methods read
+saved source coordinates and named scalar helpers; no CAD import/query,
+tool sweep, matrix/field preparation or native/global solve runs. These
+arithmetic tolerances are verification limits, not delivered machining
+tolerances. All fourteen compact shop files stay active for their current
+consumers; no raw asset, shared installation or manual is duplicated.
+
+The guide covers the unchanged thirteen-stick/150-board-foot stock scenario,
+cleats in runner offcuts, purchased cut-panel reconciliation, current hole
+datums and missing tolerance budgets, catalog versus delivered hardware,
+nominal assembly/removal dependencies and cost/mass limits. Cleats and side
+members must be staged before their four common upper-angle shafts; intact
+harness routing/staging precedes panel closure. Independent cross-review
+identified and corrected those two wording ambiguities, and distinguished
+raw profile/end-plane cuts from subsequent recesses, bores and service cuts.
+Current tool/harness paths, temporary support, actual thickness/material and
+complete resistance remain unresolved inputs. No old 140-side, B103
+beam-first or wood-block captured-nut pass transfers. Physical testing and
+engineer approval are outside the reporting scope. Actual observations stay
+blank and incompatible parts still stop their affected operation.
+
+The independent cut cross-review is
+`fixed-floor-components-v1/shop-assembly-review-v1/cut-review-v1/result-v1.json`,
+SHA `0527b57ff72ba26196a381a77ac1bc64a029854aa6c2028cf2beae24a91688ec`;
+its helper is SHA
+`ab504acbd077249653d69fefeee110bc7f3d7950d2c2e5ff48b372fa346715ab`.
+It independently checks 53 current source/body pins, all nominal coordinate
+censuses, both recesses and 131 fixed wire routes. Its offcut-label finding
+is resolved: **594.178517 mm** is available before the cleat/kerf allocation;
+**301.303517 mm** remains afterward. The independent hardware cross-review is
+`shop-assembly-review-v1/hardware-review-v1/review-v1.json`, SHA
+`356d5bf947237fd142a1c630754218cc18446ef43e33f526968ee2fc8d1d3991`;
+its helper is SHA
+`7b2480b28e7523ea8c6f059864d539339fe28a5ef8cd20ca9cd4458a7f1be970`.
+All 458 source pins, 100 stack recipes, 500 roles, 200 sides and 24 catalog
+short comparisons verify. The hardware review's guide-order findings are
+resolved. Both reviews bind the reviewed v1 **16,045-B** guide snapshot, SHA
+`74820a2cee066eb24971696cf785ebc39963474c1ca5178bf6d2d96f5629a7c9`;
+documentation snapshots remain separate from mechanical closure. No remaining
+finding, physical tool pass or additional solve is claimed. The fourteen
+functional shop companions total **370,583 B**; raw reviews stay active ignored
+evidence for archived recovery. Their maintained helpers and reviewer helpers
+pass their scoped Ruff checks.
+
+The independent documentation/navigation review is
+`shop-assembly-review-v1/documentation-review-v1/result-v1.json`, SHA
+`9b939c689dd55902523f6380356a36004fe5401ed1e809ae40f05c362f505b85`;
+its helper is SHA
+`e7a47e5889818a025b5098f2c05a972d52147f38419e484a4573a493e6a926ac`.
+It reuses both shop cross-reviews, verifies 30 frozen inputs, 636 local paths
+and 43 fragments, and confirms all **3,948** CSV observation cells and ten
+guide receiving rows are blank. Reporting-document hashes are observed
+snapshots; this subsequent review/archive addendum does not change mechanical
+pins or the fourteen shop/nine heel files.
+
+The guide's sole subsequent addition is a **299-B** paragraph stating the
+pinned solid DF-L No. 2, G=0.50, unadjusted CD1 timber bolt-reference scenario.
+Received species, grade and moisture remain unobserved. The updated guide is
+**16,344 B**, SHA
+`64a74cafa1e1cbd3b785785a99e7e1f5f1b0e14dca1fb7f742efd4fadf0a451e`.
+Independent `documentation-review-v1/material-note-v2/result-v2.json`, SHA
+`1206bbde49c7c85cfd6ffcaedf9e325a5876791046ac7bfc284995b6219b2725`,
+verifies 36 pins and proves removing that paragraph exactly restores the v1
+guide. Its helper is SHA
+`e32fb500ec78aaae972328c547cf21e0fb5d02364851cf5a97c3b144422718a0`;
+the material witness is `joint-mvp-v1/timber-reuse-v1/result-fixed-floor-a12-forward-v1.json`,
+SHA `6e130b2ee074e1038de181a9722e867b9a5ce8c9678614357d128474ea10bef0`.
+No findings remain in either documentation review's bounded scope. Original
+reviews, the old guide snapshot and every issued shop/heel byte remain frozen;
+the v2 equivalence receipt extends the earlier guide review without a new
+calculation, geometry change, physical observation or resistance claim.
+The final read-only navigation check after these reporting addenda reuses
+the unchanged documentation-review helper and resolves **638 local paths and
+44 Markdown fragments**, with no missing destination or fragment.
+
+**Heel provenance and fixed-action follow-up:** the separate
+[heel assumption packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/README.md)
+reproduces all **528** issued heel markers exactly, retains seven original
+exceeded rows and verifies **647** source pins before/after. The original
+representative t6/Ri6-mm reference remains **156.689841 MPa / 1.113498**;
+unchanged-action t6.35/Ri6 and t6.35/Ri8 sensitivities are
+**141.983371 MPa / 1.008988** and **135.008100 MPa / 0.959419**. Scalar
+equality boundaries are diagnostics, not receiving minima or adopted changed
+resistance. The reference retains plain Q235B 235 MPa and Goel's 1.67 factor;
+the ideal curved-beam coupon does not bound a real three-dimensional heel.
+Exact provenance, component-test practice and the 30-Nm flange-twisting
+witness stay in the study. The proposed physical test is unperformed and
+outside the owner's current completion scope.
+
+The owner then requests **6.35 mm as the working catalog thickness**, with
+an assumed **6.35-mm inside radius**. The source mechanics already uses
+6.35-mm steel; this is a separate reference scenario at the same saved
+actions, not a geometry or demand selection. Its
+[nominal supplement](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/nominal-scenario.md)
+verifies the original 647-pin union and **650** complete pins before/after.
+All **528** rows have zero screen exceedances; the same A12-left,
+`eoere_clip_single_top_left_1`, `arm-z/far-plus` witness gives
+**140.479341977 MPa** against **140.718562874 MPa**, ratio
+**0.998300004686**, only **0.169999531%** below the reference. WILA's
+mild-steel air-bending guidance supports radius near thickness as an inferred
+development assumption, not an observed Eoere process or dimensional bound.
+The supplement describes inside-radius gauges and separate thickness/outside
+radius observations. Actual minimum thickness, thinning, hole/heel datums,
+material and complete heel/joint resistance remain unqualified. All physical
+release flags remain false and all closed six-case results remain unchanged.
+
+The nine compact study files total **113,664 B** and stay active with their
+existing input consumers. The original five files remain byte-identical:
+
+| Original study file | SHA-256 |
+| --- | --- |
+| README.md | `e425ccc9b790bbc32b2cf9725d05ae441e86768cac47f1530f85579d254b2687` |
+| analyze.py | `f43a934f08425bebc7c9caf962a74ee74f155d1ecd6100eaa35f1800fe55e487` |
+| inputs.json | `18ebb448d2c23161a4ff0238ffe1f7aee1fd3f53a1695359cb6a349d70da68e5` |
+| result.json | `60a6ce313c98d3d53633115638a3bcd7f24ed151864d1365f9e2f6f1c993b6c0` |
+| sources.json | `2ee63d3ed93213d045fe21f357e62760b4165fd2bbcd6dc471d4c0608a73c278` |
+
+| Supplemental study file | SHA-256 |
+| --- | --- |
+| extend_scenario.py | `850650594ebe784e03753f6d56e4b894806f0663ada60c63d95bc7f0de02002a` |
+| nominal-scenario-input.json | `22fa726503ffc08c3889d23b72d5f62b80aa07f27d0702093bf3977502d386ed` |
+| nominal-scenario-result.json | `b15af3afd2dd3ae24ed78c83b27b0d2738d94744183db97d0f063700fee6a9de` |
+| nominal-scenario.md | `02b33e39dde7e487435f0bb3916cfe84340f422462f6df1922880f78842910f0` |
+
+The bounded independent original review is
+`raised-rail-cases-v1/independent-component-review-v1/fixed-floor-gate-review-v1/heel-assumptions-review-v1/result-v1.json`,
+SHA `4b68b92a3bc2e09cd2c89a6c6dd3ab7ffe24ed02f49358f019e5f7204f39e4b3`;
+its `review.py` is SHA
+`b697d92a7661b89b516eaacb63a3837a7037161a4b830d402d3471791f2c3bb1`.
+It verifies six exact steel/field/envelope joins, 16 scenario maxima and
+equality boundaries, with 48 signed/zero 128-point pure-bending coupons.
+The independent supplemental review at the adjacent
+`heel-nominal-review-v1/result-v1.json` is SHA
+`ee0d351e7d31287113fbf50c9594d4df9200a61f4aee2407f21d9efad6f23b7b`;
+its `review.py` is SHA
+`f9c45440b4e91ccacfa59b900b9322ab95b8900199783d15e83fa59df77a275c`.
+It verifies 656 review pins, all six own-case witnesses and three signed
+128-point coupons. Both independent scalar reproductions are byte-identical
+to their issued results; neither parses/reduces a candidate field, performs
+CAD/native/global work or qualifies product/physical resistance. No confirmed
+numerical issue was found.
+
+The source/result reproductions are the study's `analyze.py --out NEW_OUTPUT.json`
+and `extend_scenario.py --input nominal-scenario-input.json --out NEW_OUTPUT.json`,
+run from the checkout with `.venv/bin/python -B` and the full packet paths.
+The original helper reads sibling `inputs.json` internally; it has no `--input`
+option. Output paths must be new. Targeted Ruff on these frozen
+sources reports five findings: unused `math`, a `dict()` style choice, unused
+`radial`, a synchronous `brentq` loop-lambda binding warning and import order.
+The lambda is consumed before the next iteration; the independent boundary
+replay passes. Preserve these issued bytes and report the lint limitation
+rather than editing hash-bound evidence or adding lint exclusions. No shared
+manual, installation or bulky raw asset is duplicated; nothing is pruned.
+
+Full fields, operators, producers, compact reviews and failed method snapshots
+remain active ignored evidence for final consumers; nothing is pruned. The
+compact publication is the necessary permanent addition. The following
+external recovery records retain the complete methods/commands/sources without
+adding raw runs to Git. The geometry's previously verified archive and the
+preserved earlier A12 archives remain applicable within their original scope.
+
+Final independent floor integration is SHA
+`9452aa414358a119513a6fbc4abbb5b74071b57b08852ca454ede662d61fdaab`;
+the documentation review snapshot is SHA
+`4b4013694a88e8082d766cc830a27bc8356957f7a4deb206fa14fc9b860c5554`.
+All six floor joins, copied reaction/motion diagnostics and ordered table rows
+match the frozen result. Documentation hashes are observed snapshots, separate
+from immutable mechanical sources; this archive addendum is outside that
+snapshot. The one stale geometry/mechanics sentence was corrected before the
+review closed. No reviewer, producer or candidate writer remains active.
+
+The parent verified external archive is
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-raised-rail-six-case-numerical-mvp-v1.tar.gz`,
+SHA `b8e77af1e7836c11df99bd02152aea546cb362c6ef42dc48d2c01c899bc8b967`;
+its `.manifest.json` is SHA
+`8c6635a982211d5fa0b5f1b7b8762c3e48016d5bca24584d2c19c10a932beb82`.
+It contains 204 files / 300,751,193 raw bytes across nine explicit roots in a
+39,394,625-B archive. `scripts/evidence_archive.py create --pigz` verifies all
+archive members, every restored file and unchanged local source inventory.
+All 689 assessment and 644 final joint-validation sources verify again after
+archiving. It retains the raised inputs, corrected centroid and panel methods,
+original stopped searches, all fresh fixed-floor fields/operators/admissions,
+parent bridge/curation/publication sources, independent reviews and raised
+inventory. Shared manuals, installations, selected-baseline assets and the
+joint owner's separately archived folder are not duplicated.
+
+Current six-case fields/operators and their consumers stay active locally.
+The stopped original-law searches and rejected pre-review source revisions are
+closed historical results, preserved both locally and in this archive. No raw
+case, failed experiment or peer file is pruned. Recover into a new external
+directory:
+
+```sh
+uv run python -B scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-raised-rail-six-case-numerical-mvp-v1.tar.gz.manifest.json --destination /tmp/eoere-raised-rail-six-case-numerical-mvp-restored
+```
+
+The five scene/numerical permanent assets total **2,243,556 B**: the distinct
+compressed review scene, its overlay and scene checker, the compact reviewed
+geometry and the 87,207-B numerical publication. They preserve a selectable
+review model and inspectable candidate/evidence bindings; large raw runs stay
+ignored and externally recoverable. Earlier unchanged viewer meshes remain
+shared through the existing aliases. No new mesh/CAD work follows numerical
+closure. Documentation whitespace checks and the saved-result join/publication
+and new shop helpers' scoped Ruff checks pass;
+the new saved-result join/publication negative fixtures pass. Earlier genuine
+browser/scene/mesh checks remain applicable to unchanged viewer bytes.
+
+The additional guide, fourteen functional shop files and nine frozen heel
+study files bring the owned new permanent set to **29 files / 2,744,147 B**.
+The current guide and tables are needed for nominal receiving and assembly;
+the heel sources/results preserve both reviewed reference scenarios. These
+stay active in Git alongside the compact geometry/numerical publication.
+Together with five existing documentation/viewer edits, publication owns
+exactly 34 paths. Raw case fields, operators, reviews, source snapshots and
+their current consumers stay active ignored inputs; none is pruned or
+substituted. Necessary permanent viewer volume is accounted for above;
+unchanged meshes, manuals and shared installations are not duplicated.
+
+The separate review recovery archive is
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-heel-shop-and-repository-review-v1.tar.gz`,
+**331,890 B**, SHA
+`9a1f20bbe6488a0b79e97b3c5e93375e979216f223b452483ea2ee866ecfceea`;
+its **10,442-B** `.manifest.json` is SHA
+`854ecf225c2c4a360a1663b2828b7e4f2a5b5817c62791b3cad559ef71ebb7c1`.
+It retains **19 files / 1,865,811 raw bytes** across four explicit roots:
+both heel reviews, all original shop/documentation cross-reviews and the
+repository-check review. The latter includes six frozen log/cache snapshots
+and `inputs-retention.json`, SHA
+`13a5531e254f7eb51ec66ec865ef1d2dd6eafc6217b8631d6a8f13924db1f714`.
+That mapping preserves the executed historical logs, partial current tail
+and cumulative cache used by the failure classification. Restored cache
+snapshots are historical evidence; do not replace a later live cache with
+them or treat them as a fresh executed baseline.
+
+The later material-note equivalence helper, receipt and old-guide snapshot
+have a distinct, nonduplicating recovery archive:
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-shop-material-note-v2.tar.gz`,
+**11,958 B**, SHA
+`ffa7e5c3648fd44de2d9c127053740cfb99d254d7489cbf71bb4b3142eb8c026`;
+its **2,214-B** `.manifest.json` is SHA
+`d6cdd7007fff2b99395ad3b14b94cb537db18c52321eb2ea83202184fd501afc`.
+It holds **three files / 28,938 raw bytes**. Both archives verify every member,
+restore every file and recheck unchanged local source inventories using
+`scripts/evidence_archive.py`; all reviewed sources stay active and nothing
+is pruned. Restore into separate fresh external directories:
+
+```sh
+uv run python -B scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-heel-shop-and-repository-review-v1.tar.gz.manifest.json --destination /tmp/eoere-heel-shop-and-repository-review-restored
+uv run python -B scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-shop-material-note-v2.tar.gz.manifest.json --destination /tmp/eoere-shop-material-note-v2-restored
+```
+
+The final repository-wide pre-commit lint check reports **1,850 findings
+in 665 files**: **1,845** in 663 tracked files byte-identical to HEAD
+`f981d1a9`, plus the five findings in the newly issued frozen heel sources
+listed above. No finding is in a changed tracked source or the new maintained
+shop helpers. Preserve hash-bound producer bytes rather than formatting
+historical/issued evidence or adding exclusions to clear these findings.
+The required environment smoke check passes with CadQuery 2.8.0 and
+ocp_vscode 4.0.1 on its separate 10×20×3-mm box fixture. The default shared
+`uv run python -m scripts.compact_viewer_meshes --run -- uv run pytest -q`
+finishes with **5,115 passed, 91 failed, 62 setup errors, one skipped and
+16 deselected**, in **5,722.10 s**. This is a failed repository-wide check,
+not an all-green result or a candidate capacity evaluation. The independent
+failure classification is `fixed-floor-components-v1/repository-check-review-v1/result-v1.json`,
+SHA `e57c536bd0181c3d5ef13d89b1172bc16c47311ea45c549d8efda1a372180316`;
+its `review.py` is SHA
+`2b3ba2ec61a4094856be7775fd1b2583b0698952d12ab8a4c0cc6f9875664de3`.
+All 100 adverse IDs from the earlier 77-failure/23-error split logs overlap.
+The reconstructed 153 default adverse cache IDs match the retained October 4
+execution's 91-failure/62-error roster exactly. Its additional 53 IDs comprise
+14 failures and 39 errors already observed there: mainly PB03 rectangular-face
+cascades, plus CAD precision and legacy artifact mismatches. Five stale or
+nondefault cache entries are excluded. No new owned regression is confirmed.
+The current output tail is partial and the cache is cumulative; this is an
+explicit reconstruction, not a complete fresh traceback/collection receipt
+or an executed clean-HEAD comparison. All 45 affected test modules and a
+414-file static import/literal/trace closure are byte-identical to HEAD
+`f981d1a9`; static equality alone proves no runtime baseline.
+
+After the suite, mesh restoration checks pass for **6,823 retained files and
+13,618 aliases**, and the Node alias checker verifies all **13,618 URLs**.
+All **689** assessment and **644** final joint-validation source pins and
+the raised occupied-geometry/viewer hashes remain unchanged. The additional
+source-only selected-baseline configuration check reports a stale
+`mini_moonboard/compact_floor_flush_frame.py` geometry source pin and model
+revision; no selected-baseline artifact is rebuilt or relabeled to clear it.
+The source and geometry are both byte-identical to HEAD: recorded source
+`4cc03e086b381de2cd04685578bfccccfa72ee6e3545814d8e2469a3196de045`
+differs from the existing source
+`8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a`.
+This deterministic selected-baseline mismatch precedes the owned publication.
+
+Publication was held during the local quiet-hours window. The
+`.git/QUIET_HOURS.md` rule forbids creating/amending commits or pushing before
+18:00 MDT on this Thursday; no hook is bypassed. The owner subsequently asks
+for **18:20 MDT**, then explicitly authorizes commit/push immediately at
+**18:17 MDT**, superseding that additional hold. Normal master publication
+follows the final shared-ownership, selected-authority, generated-volume and
+exact 34-path staging checks. Fourteen unrelated untracked historical helpers
+remain untouched and outside the owned publication.
+
+The joint owner's verified external archive is
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-raised-rail-six-case-joint-mvp-v1.tar.gz`,
+SHA `59419450a62fcba5d919aa8bbec5a19312df10ca42b1e583a1cf31f723c363b0`;
+its `.manifest.json` is SHA
+`07040bb5654d4131a089bf504ba8ebdfd53939579e822cff16fc1df1abc23466`.
+It contains 129 files / 45,629,949 raw bytes in a 6,359,103-B archive. Every
+restored file is verified, all 644 final validation pins remain unchanged and
+no source is pruned. Shared field/reference/manual paths remain separate.
+Recover into a new external directory:
+
+```sh
+uv run python -B scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-raised-rail-six-case-joint-mvp-v1.tar.gz.manifest.json --destination /tmp/eoere-raised-rail-six-case-joint-mvp-restored
+```
+
+Reproduce the saved parent join and compact publication after restoring the
+recorded input locations; use new output paths to preserve frozen receipts:
+
+```sh
+wj_eoere_packet=fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1
+uv run python -B "$wj_eoere_packet/fixed-floor-components-v1/curate_assessment.py" --index "$wj_eoere_packet/fixed-floor-components-v1/curation-index-v1.json" --out /tmp/eoere-fixed-floor-assessment-reproduced.json
+uv run python -B "$wj_eoere_packet/fixed-floor-components-v1/publish.py" --assessment "$wj_eoere_packet/fixed-floor-components-v1/assessment-v1.json" --out /tmp/eoere-fixed-floor-publication-reproduced.json
+```
+
+The supporting [engineering practice description](https://www.quantumce.com/special-projects/climbing-walls)
+uses simplified 2D and detailed 3D analyses according to the climbing-wall
+question. [CSI SAFE's uplift method](https://docs.csiamerica.com/manuals/safe/SAFE%20Key%20Features%20and%20Terminology.pdf)
+uses nonlinear compression-only support gaps. These sources support the use
+of explicitly bounded idealizations; neither selects this frame's restraints
+or supplies its physical floor capacity. Ordinary Coulomb friction links the
+shear limit to normal pressure in the
+[Abaqus theory documentation](https://docs.software.vt.edu/abaqusv2025/English/SIMACAETHERefMap/simathe-c-coulombfric.htm).
+The new scenario deliberately leaves that physical relation unqualified.
 
 **Goal reset after the eoere scope change.** The owner explicitly replaces
 the previous build-completion objective with useful numerical MVP completion

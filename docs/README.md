@@ -1,15 +1,20 @@
 # Selected baseline reference packet
 
 For current engineering work, start at the
-[wood-joint development summary](wood-joints-mvp/README.md) and its linked
-engineering disposition. That separate lane has conditional working packets.
-All 47 formal criteria remain pending and all eight release flags remain false.
+[eoere bolted-frame development summary](wood-joints-mvp/README.md) and
+[build-completion sequence](wood-joints-mvp/completion-ledger.md#build-package-completion).
+That separate lane uses 22 angles and two cleats. Its conditional numerical
+packet now covers all six original loaded cases, retaining reference exceedances
+and null complete joint resistance. Its [current shop and assembly guide](wood-joints-mvp/eoere-shop-assembly-guide.md)
+records nominal datums, hardware and operation dispositions with unresolved
+physical inputs. The packet remains unreleased. Earlier WJ24 criteria and packets
+remain preserved history in the same documentation folder.
 
 The instructions below belong to the selected screw-and-bracket baseline,
 `compact-floor-flush-development`, governed by
 [current-candidate.json](../current-candidate.json). They preserve that baseline's
 conditional shop packet and evidence; they do not authorize building the
-wood-joint design. Earlier models and their results are indexed in the
+eoere design. Earlier models and their results are indexed in the
 [design-history catalog](history/design-history.md).
 
 ## 1. Baseline plywood variants
@@ -47,5 +52,5 @@ Supporting baseline references: [orientation](orientation.md) (left is A, right 
 
 For baseline shop records, use the matching **4×4** or **4×8** folder, the
 **checklist** and the **assembly guide** together. Read their recorded conditions.
-For the active development lane, return to the [wood-joint summary](wood-joints-mvp/README.md).
+For the active development lane, return to the [eoere summary](wood-joints-mvp/README.md).
 For earlier ideas and the writeup, use [history/](history/).

@@ -1,0 +1,1580 @@
+{
+  "additional_pure_bending_known_answers": {
+    "max_boundary_radial_error_mpa": 2.2737367544323206e-13,
+    "max_moment_error_nmm": 1.2623786460608244e-09,
+    "max_net_force_error_n": 4.4096168383411804e-11,
+    "section_count": 16
+  },
+  "baseline_replay": {
+    "comparison_count": 528,
+    "exceeded_owned_case_rows": [
+      {
+        "body": "eoere_clip_angle_base_left",
+        "case_id": "a12-forward",
+        "port_id": "arm-z/far-minus"
+      },
+      {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-x/far-minus"
+      },
+      {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      },
+      {
+        "body": "eoere_clip_angle_base_left",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-minus"
+      },
+      {
+        "body": "eoere_clip_single_top_right_2",
+        "case_id": "k12-right",
+        "port_id": "arm-x/far-plus"
+      },
+      {
+        "body": "eoere_clip_single_top_right_2",
+        "case_id": "k12-right",
+        "port_id": "arm-z/far-minus"
+      },
+      {
+        "body": "eoere_clip_angle_base_right",
+        "case_id": "k12-right",
+        "port_id": "arm-z/far-plus"
+      }
+    ],
+    "max_numeric_error": 0.0
+  },
+  "completed_case_ids": [
+    "a1-rear",
+    "a12-forward",
+    "a12-left",
+    "a12-rear",
+    "k12-rear",
+    "k12-right"
+  ],
+  "execution": {
+    "command": ".venv/bin/python -B docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/analyze.py --out NEW_OUTPUT.json",
+    "global_native_CAD_or_new_local_response_solve": false,
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "geometry_sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b",
+  "governing_issued_root": {
+    "body": "eoere_clip_single_top_left_1",
+    "case_id": "a12-left",
+    "force_N_V1_V2_n": [
+      -272.61691658226476,
+      -295.7794478983626,
+      -453.29264546553105
+    ],
+    "moment_T_M1_M2_nmm": [
+      -1021.9344036487314,
+      29075.42846240506,
+      -18385.986104916832
+    ],
+    "parameters": {
+      "bound_radius_mm": 142.30943617694507,
+      "factor": 1.67,
+      "fy": 235.0,
+      "weight_n": 6.494403558280331,
+      "width": 44.45
+    },
+    "port_id": "arm-z/far-plus"
+  },
+  "issued_known_answers_reused": {
+    "cantilever_root_normal_mpa": 3.749531308586427,
+    "curved_pure_bending": [
+      {
+        "moment_error_nmm": 1.0913936421275139e-11,
+        "net_force_error_n": 1.0230133407063138e-11,
+        "radial_boundary_error_mpa": 5.684341886080802e-14,
+        "ri_over_t": 1.0,
+        "straight_bending_amplification": 1.2925405947382447
+      },
+      {
+        "moment_error_nmm": -1.2005330063402653e-10,
+        "net_force_error_n": 5.699857252849939e-13,
+        "radial_boundary_error_mpa": 0.0,
+        "ri_over_t": 2.0,
+        "straight_bending_amplification": 1.155438072023615
+      },
+      {
+        "moment_error_nmm": 4.325556801632047e-09,
+        "net_force_error_n": 1.529449358828039e-10,
+        "radial_boundary_error_mpa": 9.094947017729282e-13,
+        "ri_over_t": 5.0,
+        "straight_bending_amplification": 1.0647528027596267
+      },
+      {
+        "moment_error_nmm": -9.111245162785053e-06,
+        "net_force_error_n": -3.1115604020443006e-08,
+        "radial_boundary_error_mpa": 1.1641532182693481e-10,
+        "ri_over_t": 50.0,
+        "straight_bending_amplification": 1.0066467553292833
+      }
+    ],
+    "left_right_physical_cut_event": true,
+    "net_centroid_torque_transfer": true,
+    "rectangle_J_dimension_swap": true,
+    "rectangle_series_tail_relative_enclosure": 4.957237197843462e-10,
+    "rectangle_square_J_mm4": 0.14057701467219832,
+    "same_point_force_and_free_couple_transport": true,
+    "status": "PASS_CHEAP_ANALYTICAL_KNOWN_ANSWERS"
+  },
+  "limits": [
+    "Every source root wrench, half-band assignment, neutral datum and source selfweight stays fixed.",
+    "The sampled geometry ranges are questions, not delivered tolerances or guaranteed product minima.",
+    "Reference-equal boundaries are mathematical sensitivities, not receiving, purchasing or cutting limits.",
+    "The pure-bending fixture verifies the ideal annular sector, not the formed angle under combined end forces.",
+    "Actual 3D heel/holes, transverse continuity, bend thinning, residual stress, stiffness and full timber-joint behavior remain unqualified.",
+    "No new compatible demand field or adopted resistance criterion is supplied; the closed six-case result is unchanged."
+  ],
+  "question": "Does the issued heel reference exceedance remain robust to the listing thickness discrepancy and the unmeasured bend radius, with every six-case root wrench held fixed?",
+  "reference": {
+    "comparison_mpa": 140.7185628742515,
+    "conditional_Fy_mpa": 235.0,
+    "factor": 1.67,
+    "factor_changed": false
+  },
+  "reference_equal_boundaries": [
+    {
+      "fixed_inside_radius_mm": 6.0,
+      "reference_equal_thickness_mm": 6.382859552614613,
+      "witness": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "fixed_thickness_mm": 6.0,
+      "reference_equal_inside_radius_mm": 12.459140599883057,
+      "witness": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "fixed_thickness_mm": 6.35,
+      "reference_equal_inside_radius_mm": 6.29192257275802,
+      "witness": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    }
+  ],
+  "release": {
+    "actual_heel_capacity": false,
+    "candidate_acceptance": false,
+    "climbing": false,
+    "fabrication": false,
+    "physical_test_performed": false,
+    "product_conformance": false
+  },
+  "scenarios": [
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8393566751552267,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.217966948305393,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.3012185240661416,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 2,
+          "max_reference_ratio": 1.1138432528403641,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 2,
+          "max_reference_ratio": 1.119863875546501,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.2872944493772318,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 10.327764589458598,
+        "bounding_source_gravity_equivalent_mpa": 183.1056006919421,
+        "component_equivalent_without_gravity_mpa": 177.13235730028217,
+        "conditional_base_metal_first_yield_index": 0.7791727689018813,
+        "conditional_combined_yield_reference_ratio": 1.3012185240661416,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 3.0,
+        "nominal_band_shear_mpa": 5.138226158749634,
+        "pure_bending_peak_mpa": 166.58087821405013,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 13,
+      "inside_radius_scenario_mm": 3.0,
+      "thickness_scenario_mm": 6.0,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7807033739433045,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.1343318092838885,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.2117140496486472,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 2,
+          "max_reference_ratio": 1.0366727388973693,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 2,
+          "max_reference_ratio": 1.0422915661990224,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.1987599938858624,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 10.327764589458598,
+        "bounding_source_gravity_equivalent_mpa": 170.51065968109708,
+        "component_equivalent_without_gravity_mpa": 164.91262687701308,
+        "conditional_base_metal_first_yield_index": 0.725577275238711,
+        "conditional_combined_yield_reference_ratio": 1.2117140496486472,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 4.0,
+        "nominal_band_shear_mpa": 5.138226158749634,
+        "pure_bending_peak_mpa": 154.3445475923455,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 11,
+      "inside_radius_scenario_mm": 4.0,
+      "thickness_scenario_mm": 6.0,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7163483758557202,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.042568790142405,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.1134980185187267,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9519918775132244,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9571696602275495,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.1016084097296581,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 10.327764589458598,
+        "bounding_source_gravity_equivalent_mpa": 156.6898409292819,
+        "component_equivalent_without_gravity_mpa": 151.5011676706535,
+        "conditional_base_metal_first_yield_index": 0.6667652805501357,
+        "conditional_combined_yield_reference_ratio": 1.1134980185187267,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 6.0,
+        "nominal_band_shear_mpa": 5.138226158749634,
+        "pure_bending_peak_mpa": 140.91177951655914,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 7,
+      "inside_radius_scenario_mm": 6.0,
+      "thickness_scenario_mm": 6.0,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.6815896254870433,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9930078357649762,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 2,
+          "max_reference_ratio": 1.0604447202088556,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9062502871285938,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9111897542653746,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 2,
+          "max_reference_ratio": 1.0491301005907765,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 10.327764589458598,
+        "bounding_source_gravity_equivalent_mpa": 149.2242570353779,
+        "component_equivalent_without_gravity_mpa": 144.25544081309093,
+        "conditional_base_metal_first_yield_index": 0.6349968384484166,
+        "conditional_combined_yield_reference_ratio": 1.0604447202088556,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 8.0,
+        "nominal_band_shear_mpa": 5.138226158749634,
+        "pure_bending_peak_mpa": 133.65288723572166,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 4,
+      "inside_radius_scenario_mm": 8.0,
+      "thickness_scenario_mm": 6.0,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.6695644532481394,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9758618780152775,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 2,
+          "max_reference_ratio": 1.042089215656841,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8904245893453421,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8952815887878591,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.0309735334588546,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 10.327764589458598,
+        "bounding_source_gravity_equivalent_mpa": 146.64129681398663,
+        "component_equivalent_without_gravity_mpa": 141.7483066790694,
+        "conditional_base_metal_first_yield_index": 0.6240055183573899,
+        "conditional_combined_yield_reference_ratio": 1.042089215656841,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 9.0,
+        "nominal_band_shear_mpa": 5.138226158749634,
+        "pure_bending_peak_mpa": 131.14088332310234,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 3,
+      "inside_radius_scenario_mm": 9.0,
+      "thickness_scenario_mm": 6.0,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.6597745432429633,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9619031228194159,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 2,
+          "max_reference_ratio": 1.027145198205,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8775402340236484,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8823300868309255,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.016191480164499,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 10.327764589458598,
+        "bounding_source_gravity_equivalent_mpa": 144.5383961545958,
+        "component_equivalent_without_gravity_mpa": 139.70704032542616,
+        "conditional_base_metal_first_yield_index": 0.6150570049131736,
+        "conditional_combined_yield_reference_ratio": 1.027145198205,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 10.0,
+        "nominal_band_shear_mpa": 5.138226158749634,
+        "pure_bending_peak_mpa": 129.09552260574003,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 3,
+      "inside_radius_scenario_mm": 10.0,
+      "thickness_scenario_mm": 6.0,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.6447930411366634,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9405421759293284,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.0042754978028132,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.857822622017622,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8625097052108127,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9935696438734319,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 10.327764589458598,
+        "bounding_source_gravity_equivalent_mpa": 141.3202047806354,
+        "component_equivalent_without_gravity_mpa": 136.58298979751257,
+        "conditional_base_metal_first_yield_index": 0.6013625735346187,
+        "conditional_combined_yield_reference_ratio": 1.0042754978028132,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 12.0,
+        "nominal_band_shear_mpa": 5.138226158749634,
+        "pure_bending_peak_mpa": 125.96496815096316,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 1,
+      "inside_radius_scenario_mm": 12.0,
+      "thickness_scenario_mm": 6.0,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.6189792815718111,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9037367740886626,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9648673646241644,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8238462516648504,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8283562119317803,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9545886227145195,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 10.327764589458598,
+        "bounding_source_gravity_equivalent_mpa": 135.77474891417884,
+        "component_equivalent_without_gravity_mpa": 131.19919651589066,
+        "conditional_base_metal_first_yield_index": 0.5777648889965057,
+        "conditional_combined_yield_reference_ratio": 0.9648673646241644,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 18.0,
+        "nominal_band_shear_mpa": 5.138226158749634,
+        "pure_bending_peak_mpa": 120.56923714182585,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 0,
+      "inside_radius_scenario_mm": 18.0,
+      "thickness_scenario_mm": 6.0,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7629495703675929,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.1078342419389515,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.1835614735674327,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.012839628966618,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.0183230137798445,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.170902597461865,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 166.54906963374054,
+        "component_equivalent_without_gravity_mpa": 161.1106618721973,
+        "conditional_base_metal_first_yield_index": 0.7087194452499598,
+        "conditional_combined_yield_reference_ratio": 1.1835614735674327,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 3.0,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 151.1413962981689,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 9,
+      "inside_radius_scenario_mm": 3.0,
+      "thickness_scenario_mm": 6.35,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7085000249663582,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.0301932167176253,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.1004724719094983,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9412003857966391,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9463107812529326,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 3,
+          "max_reference_ratio": 1.0887140857498707,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 154.8569047297797,
+        "component_equivalent_without_gravity_mpa": 149.76682178701472,
+        "conditional_base_metal_first_yield_index": 0.6589655520416158,
+        "conditional_combined_yield_reference_ratio": 1.1004724719094983,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 4.0,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 139.7815701173183,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 7,
+      "inside_radius_scenario_mm": 4.0,
+      "thickness_scenario_mm": 6.35,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.6485556715352453,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9447191294394444,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 1,
+          "max_reference_ratio": 1.0089882120198645,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8623234541880445,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8670230386039722,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9982213147825048,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 141.98337115249592,
+        "component_equivalent_without_gravity_mpa": 137.27454317864948,
+        "conditional_base_metal_first_yield_index": 0.6041845580957274,
+        "conditional_combined_yield_reference_ratio": 1.0089882120198645,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 6.0,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 127.26862253759447,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 1,
+      "inside_radius_scenario_mm": 6.0,
+      "thickness_scenario_mm": 6.35,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.6160797141623028,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8984130120308143,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9594192658869033,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8195859485660758,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8240628692010062,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9491895943166382,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 135.0081002894744,
+        "component_equivalent_without_gravity_mpa": 130.5046246415464,
+        "conditional_base_metal_first_yield_index": 0.5745025544232953,
+        "conditional_combined_yield_reference_ratio": 0.9594192658869033,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 8.0,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 120.48584498000332,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 0,
+      "inside_radius_scenario_mm": 8.0,
+      "thickness_scenario_mm": 6.35,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.604826402767557,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8823675672613616,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9422419263621714,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8047760204335375,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8091757661388773,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9321984231263278,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 132.59092975755107,
+        "component_equivalent_without_gravity_mpa": 128.15838142898758,
+        "conditional_base_metal_first_yield_index": 0.5642167223725577,
+        "conditional_combined_yield_reference_ratio": 0.9422419263621714,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 9.0,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 118.13482727029987,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 0,
+      "inside_radius_scenario_mm": 9.0,
+      "thickness_scenario_mm": 6.35,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.5956577098985151,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8692945317244833,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9282461420352898,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.792709195407951,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7970460544362906,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.9183543258582519,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 130.62146310077432,
+        "component_equivalent_without_gravity_mpa": 126.24660813693087,
+        "conditional_base_metal_first_yield_index": 0.5558360131947844,
+        "conditional_combined_yield_reference_ratio": 0.9282461420352898,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 10.0,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 116.2190319799314,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 0,
+      "inside_radius_scenario_mm": 10.0,
+      "thickness_scenario_mm": 6.35,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.581613934207339,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8492705652103597,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.906807812473511,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7742256556672065,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7784661757429414,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8971483469125555,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 127.60469217441623,
+        "component_equivalent_without_gravity_mpa": 123.31803163380776,
+        "conditional_base_metal_first_yield_index": 0.5429986901038989,
+        "conditional_combined_yield_reference_ratio": 0.906807812473511,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 12.0,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 113.28405169550501,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 0,
+      "inside_radius_scenario_mm": 12.0,
+      "thickness_scenario_mm": 6.35,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    },
+    {
+      "by_case": [
+        {
+          "case_id": "a1-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.5573772820962422,
+          "worst": {
+            "body": "eoere_clip_horizontal_bottom_left_1",
+            "case_id": "a1-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-forward",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8147137157157319,
+          "worst": {
+            "body": "eoere_clip_angle_base_left",
+            "case_id": "a12-forward",
+            "port_id": "arm-z/far-minus"
+          }
+        },
+        {
+          "case_id": "a12-left",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.8698070429163375,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-left",
+            "port_id": "arm-z/far-plus"
+          }
+        },
+        {
+          "case_id": "a12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7423248199264366,
+          "worst": {
+            "body": "eoere_clip_single_top_left_1",
+            "case_id": "a12-rear",
+            "port_id": "arm-x/far-minus"
+          }
+        },
+        {
+          "case_id": "k12-rear",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.7463990329023111,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-rear",
+            "port_id": "arm-x/far-plus"
+          }
+        },
+        {
+          "case_id": "k12-right",
+          "exceedance_count": 0,
+          "max_reference_ratio": 0.860548597641849,
+          "worst": {
+            "body": "eoere_clip_single_top_right_2",
+            "case_id": "k12-right",
+            "port_id": "arm-z/far-minus"
+          }
+        }
+      ],
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 122.3979970570894,
+        "component_equivalent_without_gravity_mpa": 118.26300204613109,
+        "conditional_base_metal_first_yield_index": 0.5208425406684655,
+        "conditional_combined_yield_reference_ratio": 0.8698070429163375,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 18.0,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 108.21721968104066,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "comparison_count": 528,
+      "exceedance_count": 0,
+      "inside_radius_scenario_mm": 18.0,
+      "thickness_scenario_mm": 6.35,
+      "worst": {
+        "body": "eoere_clip_single_top_left_1",
+        "case_id": "a12-left",
+        "port_id": "arm-z/far-plus"
+      }
+    }
+  ],
+  "schema": "eoere_heel_assumption_sensitivity_result/v1",
+  "source_binding": {
+    "all_source_pins_verified_before_after": true,
+    "direct_source_sha256": {
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/analyze.py": "f43a934f08425bebc7c9caf962a74ee74f155d1ecd6100eaa35f1800fe55e487",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/inputs.json": "18ebb448d2c23161a4ff0238ffe1f7aee1fd3f53a1695359cb6a349d70da68e5",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/sources.json": "2ee63d3ed93213d045fe21f357e62760b4165fd2bbcd6dc471d4c0608a73c278",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-source-inputs.json": "132c8838065e4d7ec7a321d807a940074b02079e611c926033e1362b48cee961",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/source-drawing.jpg": "8148969aa88db8a69b43065bda94f6c8a607f79eec3214debbeb6b577c026b45",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/reference-envelope-v1.json": "cd998adf55d27c5593e17c6e3ea689b0b922cc2edfb09a8a4bc128456a178684",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/representative-sources-v1/calculate.py": "7db694b36872d87703a16de02b1ef6f387bfcefdef10075b3bf7033e687a81ef",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/representative-sources-v1/strength_screen.py": "d4c21f43aed1fadde0f9d67eb5022acd3c1504cd6697b7805826f5f9e7535a12",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/core.py": "477ca831860a163e4baefcab3a93fd82002528f4735fe66ec98aec0d382797f1",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/inputs.json": "c5bb4cfcf7fb69050bbf54508259e50d6b85d4261ef5c4580da6c2413a33f93e",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/references.json": "698c4369d611adc39e02afe791c673bb9f18e60d2c88b520bacfb89d01c42af5",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/test_core.py": "5ae1573a706117a96dc2ddc3afc5e3c6bffbac4be502f354726cfe40186241e0",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-net-sections-v1/material-source.json": "37808016a6ff7e6d9d0b95f51e5acd43f9ec2e0d48713d2c084850301a7f8072",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-net-sections-v1/net_normal.py": "304f96e6c0df4e18c3a00f2c5c8a7d2206d3c6f024c4bf6ab1beb171924d78b0"
+    },
+    "inherited_and_direct_source_pin_count": 647,
+    "source_union_canonical_sha256": "b425a31f2f3d53b1e2b818bb9c3b329ed36284825466fec82ceef05543cd35ea"
+  },
+  "status": "COMPLETE_FIXED_ACTION_ASSUMPTION_SENSITIVITY_PHYSICAL_HEEL_UNQUALIFIED"
+}

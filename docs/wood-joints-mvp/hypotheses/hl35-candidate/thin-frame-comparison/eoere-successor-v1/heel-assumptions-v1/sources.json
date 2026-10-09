@@ -1,0 +1,78 @@
+{
+  "observed_utc": "2026-10-08T22:22:49.217170+00:00",
+  "physical_test_performed": false,
+  "primary_sources": {
+    "aisc": {
+      "location": "F1 and H3.3",
+      "observation": "ASD flexural and non-HSS torsional factors are1.67, applied to applicable nominal strengths and limit states. They do not supply this bracket a universal peak-stress allowable.",
+      "retrieval": "Official search-index excerpts; direct PDF fetch blocked. Corroboration only, not a claim of a new complete-code review.",
+      "title": "ANSI/AISC360-16, Specification for Structural Steel Buildings",
+      "url": "https://www.aisc.org/globalassets/aisc/publications/standards/a360-16w-rev-june-2019.pdf"
+    },
+    "eota": {
+      "limit": "Useful method analogy; no European approval, fastener scope or design value is transferred to the eoere through-bolted joint.",
+      "location": "2.2.1.2.2-2.2.1.2.3, pages11-12, Figure3",
+      "observation": "Validate the static model for its force positions and eccentricities. A component bend test clamps one flange and loads the other through a hole at known eccentricity.",
+      "title": "EAD130186-00-0603, Three-dimensional nailing plates",
+      "url": "https://www.eota.eu/download?file=/2016/16-13-0186/ead+for+ojeu/ead+130186-00-0603_ojeu2020.pdf"
+    },
+    "eota_example": {
+      "limit": "Different connector/material/fasteners. Its capacities, plastic reserve and factors are not adopted here.",
+      "location": "3.2.2-3.2.3 and4.2",
+      "observation": "The worked example uses net-section plastic bending strength for plane parts and tested capacities for its ribbed sections, with validated joint equilibrium.",
+      "title": "EOTA TR017, Worked example calculation of characteristic load-carrying capacities of90-degree angle bracket with a rib",
+      "url": "https://www.eota.eu/sites/default/files/uploads/Technical%20reports/eota-tr017-am.pdf"
+    },
+    "goel": {
+      "location": "Equation2 and discussion on page125",
+      "observation": "Equivalent stress times k1.67 is compared with Fy. This rational elastic-yield comparison motivates the recorded benchmark; it does not qualify this formed angle.",
+      "title": "Goel (1986), Combined Shear and Tension Stresses",
+      "url": "https://ej.aisc.org/index.php/engj/article/download/467/466/466"
+    },
+    "nptel": {
+      "location": "10.3.1, Equations10.34-10.45",
+      "observation": "Ideal unholed annular-sector pure bending. Current additions for axial force, shear, other bending and gravity remain screening hypotheses.",
+      "title": "NPTEL Curved Beams, Chapter10",
+      "url": "https://archive.nptel.ac.in/content/storage2/courses/105106049/lecnotes/mainch10.html"
+    },
+    "seller": {
+      "delivered_part_measurements": false,
+      "diagram_url": "https://m.media-amazon.com/images/I/61D4fLDkfiL._AC_SL1500_.jpg",
+      "observation": "Current primary listing confirms Q235B and1/4 inch (6 mm) description. Existing pinned PT01 diagram shows no radius or dimensional tolerances.",
+      "title": "eoere ZX128-B-T4, ASIN B0C7V7VS89",
+      "url": "https://www.amazon.com/dp/B0C7V7VS89"
+    },
+    "simpson": {
+      "limit": "Explains complete-connector rating practice. The ultimate-test factor3 does not replace an elastic-yield factor1.67.",
+      "observation": "Typical connector evaluation uses at least three wood-assembly static tests; allowable load is limited by ultimate/3, deflection or NDS fastener calculations.",
+      "title": "Simpson Strong-Tie, How We Determine Allowable Loads",
+      "url": "https://www.strongtie.com/products/connectors/wood-construction-connectors/technical-notes/allowable-loads"
+    }
+  },
+  "recorded_origin": [
+    {
+      "observation": "Seller diagram labels 1/4 inch; description states 1/4 inch (6 mm). Neither is a guaranteed delivered minimum; inside radius is absent.",
+      "source": "seller_source_record"
+    },
+    {
+      "observation": "Existing pinned primary guide gives plain Q235B minimum Fy235 MPa for 0<t<=16 mm, conditional on grade conformance.",
+      "source": "material_basis"
+    },
+    {
+      "locator": "lines109-120",
+      "observation": "Original representative calculation evaluates Ri=t and Ri=2t. These are analytical scenarios; no recorded product-specific bend-radius derivation is supplied.",
+      "source": "representative_curvature_origin"
+    },
+    {
+      "locator": "constants and output references",
+      "observation": "Strength screen selects t6, Ri6 and Goel Eq2 k1.67 with full source-gravity envelope. Its actual product and complete-joint acceptance flags remain false.",
+      "source": "representative_comparison_origin"
+    },
+    {
+      "observation": "The all-angle reusable packet freezes t6, Ri6 and k1.67. Its later six-case reports apply this unchanged method to each own admitted raised-rail field.",
+      "source": "issued_scenario_origin"
+    }
+  ],
+  "resolution": "Keep the benchmark and issued exceedances. Treat the numerical deficit as sensitive to unknown product geometry; obtain thickness/radius evidence before choosing a different geometry or criterion.",
+  "schema": "eoere_heel_comparison_provenance_and_primary_practice/v1"
+}

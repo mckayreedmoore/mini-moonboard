@@ -1,26 +1,51 @@
-# Wood-joint development
+# Eoere bolted-frame development
 
-This is the active development lane for the Mini MoonBoard project:
-`compact-floor-flush-wood-joints-development`. Start here for the current
-engineering record. The selected screw-and-bracket baseline remains a separate
+This is the active development summary for the Mini MoonBoard project's
+eoere through-bolted frame and numerical completion:
+`compact-floor-flush-eoere-bolted-development`. The retained `wood-joints-mvp`
+folder also preserves earlier wood-joint and bracket studies. Start here for
+the current engineering record. The selected screw-and-bracket baseline remains a separate
 [preserved reference](../../current-candidate.json); its passes do not transfer.
 
 ## Current disposition
 
-**The owner-directed eoere successor now has a complete conditional
-numerical A12 packet.** The owner requests useful MVP completion like the previous
-conditional assessment, with as much applicable prior work reused as reasonable.
+**The owner now directs finishing and publishing the existing conditional
+numerical MVP and its remaining nominal shop/assembly documentation.** The
+six-case evaluation is complete. Reuse its frozen evidence, retaining
+exceedances and unknown resistance; stop panel/screw remedies and preserve
+backer/cross-support proposals as unadopted studies. Complete the current
+hardware/receiving guidance, 100-bolt/200-side access dispositions, cut/hole
+datums and missing tolerances, assembly/removal order and BOM/cost/mass limits.
+Physical testing and engineer approval are outside this completion scope.
+Actual observations stay blank. Coherent reviewed reporting completes this
+scope; full physical resistance qualification is not its completion criterion.
+The earlier complete-build strength-pass objective is superseded. See the
+[active sequence](completion-ledger.md#build-package-completion).
+The [nominal shop/assembly packet](eoere-shop-assembly-guide.md) is now complete
+within that reporting scope. Its current cut/hole and 100-stack/200-side tables,
+receiving guidance, dependency order and cost/mass limits pass independent
+review. Tool paths, delivered parts, missing tolerances and complete joint
+resistance remain explicit unresolved inputs. Both heel scenarios and their
+reviews stay frozen; active retention and verified external recovery are in
+the [existing ledger](completion-ledger.md#build-package-completion).
+**The raised-rail conditional numerical MVP is now complete for all six
+original loaded cases.** Its [compact six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json)
+binds the fresh fields, independent floor/component reviews and final joint
+review. Exceedances remain recorded and every complete joint resistance
+remains null. The geometry and 66-screw policy are unchanged.
+
 Use eoere B0C7V7VS89 angles with the far transverse pair on each
 flange: four 3/8-inch through bolts per angle. Sixteen main angles sit inside
 the four panel boxes. The owner's later clarification makes the lower corner
 purpose clear: matching upper/lower holes. A 2×6 block is 12.7 mm thinner
 than the required 50.8-mm offset. Following the owner's suggestion to forgo
-the lower bracket, the parent now develops two exterior 2×6 cleats above the
+the lower bracket, the current layout uses two exterior 2×6 cleats above the
 runners and retains the upper inside angles. Two lower outside angles become
 cleat connections: **22 angles plus two cleats** account for the 24 starting
 duties. Two additional 3/8-inch bolts attach each cleat to its outer post;
-the retained angle's side bolts also cross the cleat. This is a development
-proposal requiring its own complete corner checks. Preserve the climbing surface, panel
+the retained angle's side bolts also cross the cleat. Current-case component
+dispositions cover both corners; complete physical resistance remains
+unqualified. Preserve the climbing surface, panel
 outlines and 66 Hillman screws, and recheck the twelve starting frame bolts
 and every changed receiver. See the [active sequence](completion-ledger.md#build-package-completion).
 
@@ -28,25 +53,170 @@ Previous geometry helpers, material methods, panel coordinates and assembly
 methods are reused within their limits. The B103/B104 geometry, forces,
 takeoff and viewer below remain preserved predecessor evidence; their passes
 do not transfer. No unexecuted predecessor contact preparation, profile or
-response is being run. The new four-port fitting layout needs its own
-geometry and mechanics. Published hole pitches are available; absolute heel
+response is being run. The nominal four-port fitting layout has its own
+reviewed geometry and six-case mechanics. Published hole pitches are available; absolute heel
 offsets, bend geometry, tolerances and actual steel resistance remain missing.
-Reference exceedances stay recorded while independent work continues. A
+Reference exceedances stay recorded; actual product qualification remains unresolved. A
 failed criterion, missing load path or incompatible part still governs the
 affected operation; conditional comparisons do not release physical work.
-Correct geometry and the updated 3D viewer come first. The MVP deliverable is
-a coherent review layout, a bounded admitted A12 field,
-joint/component findings and practical cost, hardware and assembly implications.
-Complete structural qualification and fabrication release are separate.
+The completed numerical MVP supplies a coherent review layout, six bounded
+admitted fields, joint/component findings and practical cost, hardware and
+assembly implications. The current scope completes the existing model's
+joint/component findings and applicable hardware inputs. Modeling errors,
+incompatible source joins and missing actions still require correction;
+reference exceedances are retained outcomes. Candidate-specific evidence and
+practical implications follow the existing raised-rail model without panel redesign.
+The selected baseline and frozen earlier eoere packet remain unchanged.
+Candidate selection and physical work remain separate.
 
-The [eoere cleat-corner model](../../site/index.html?model=eoere-bolted-development&view=rear)
-is now published under its separate [development contract](../../eoere-bolted-candidate.json).
+Preserved panel-remedy screens rule out moving perimeter screws alone as a
+complete panel remedy. The best screened cluster brings the generic head
+comparison to 1.036619, while bending and rolling shear remain above their
+references. The first connected rear-support screen also fails: its head
+comparison rises to 2.884227 and the spatial checks remain above their
+references. That backer is not adopted. A same-wrench flange-envelope
+diagnostic leaves the spatial and head comparisons effectively unchanged.
+The subsequent cross-support proposal and pending screening preparation are
+stopped under the owner's latest scope; no support or screw change is adopted.
+Independent geometry review supports a separate four-cleat-bolt
+Z180 proposal, with 3.94375 mm clearance at the larger bore sensitivity;
+the published Z200 model has not changed. The owner's latest model direction
+raises only the two bottom rails above the first T-nut row, retaining the
+existing wire cutouts and routes. The completed nominal rebuild uses a
+30.625-mm rise along the board, giving 6.35 mm above the service envelope.
+Four dependent Hillman axes and sixteen bottom-angle stacks move; all checked
+intersections are empty and the screw/bore bodies retain full modeled backing.
+Its [separate viewer](../../site/index.html?model=eoere-bolted-bottom-rail-development&view=rear)
+passes the actual scene, front/rear browser and connection-inspection checks.
+The old A12 field remains bound to the preserved earlier geometry.
+See the [active evidence and revision sequence](completion-ledger.md#build-package-completion).
+
+The raised-rail metadata inventory gives **218.912854 kg**, including the
+25-kg allowance and excluding pads. All 100 hardware recipes remain unchanged;
+the recorded complete bolt/nut/washer purchase comparison is **$109.93**,
+plus six four-pack angle prices and unpriced wood and other items. Catalog
+tolerance corners leave 24 short stack comparisons; the existing per-stack
+receiving windows remain applicable, with actual observations blank.
+
+The same source-bound inventory gives this nominal bolt count. These are
+model recipes and catalog comparisons; delivered fit remains unresolved.
+
+| Nominal bolt diameter × length | Quantity |
+| --- | ---: |
+| 3/8 × 2½ inch | 60 |
+| 3/8 × 3 inch | 4 |
+| 3/8 × 4 inch | 8 |
+| 3/8 × 4½ inch | 20 |
+| 3/8 × 6 inch | 4 |
+| 1/2 × 8 inch | 4 |
+| Total physical bolts | **100** |
+
+The inventory records 100 nuts, 200 washers and six four-packs of angles:
+22 installed and two spare. Each delivered stack must satisfy
+`L >= S + w_head + w_nut + h_nut + 2*pitch`, where S is the receiver-plus-plate
+stack. Full nut seating, smooth-shank reach, thread/runout and washer support
+remain separate checks; this length equation supplies no tool or removal pass.
+
+The [current shop and assembly guide](eoere-shop-assembly-guide.md) organizes
+the current 22 timbers, 22 angles, two cleats and 100 shafts, including the
+four moved lower screws and sixteen moved stacks. Each of the 200 head/nut
+sides has an explicit nominal disposition; actual tool and continuous-removal
+paths remain unverified. The preserved construction tables cover 20 timbers,
+70 shafts and 36 fittings, and their old 140 tool-side passes do not transfer.
+The thirteen-stick, 150-board-foot stock scenario nominally fits both
+289.7-mm cleats in runner offcuts; its tightest earlier nesting margin is
+2.649 mm. Actual stock, panel dimensions, factory datums, tool outlines and
+assembly/removal corridors remain unobserved or unverified. These practical
+gaps are recorded in the [existing completion sequence](completion-ledger.md#build-package-completion).
+
+The joint source review also identifies a modeling correction: all 88 elastic
+half-strip neutral datums lie on the backing plane, omitting the nominal
+3.175-mm steel centroid offset. Actual contact/seat point maps and centroid
+gravity already retain their eccentricity. The distinct corrected operator
+passes its independent first-order method review, and the fresh raised-rail
+A12-rear field passes the independent original-law check for all 150 bodies.
+The old field is preserved.
+The corrected gross strip/heel analogy still does not qualify the physical
+formed heel or complete fitting strength.
+
+The preserved original-law raised-rail A12-rear comparisons are **2.559349** for the generic screw-head
+reference, **4.591412 / 2.437017** for panel bending / rolling shear, and
+**0.486363 / 0.858186** for sampled gross-member normal / shear-torsion.
+All 24 joint duties and twelve starting frame bolts have current-case
+component dispositions. Full joint resistance remains unqualified. The forward
+case exhausted 64 distinct support patterns, each with a converged fixed branch
+but incompatible whole-foot activation. The owner-directed serial stop preserved
+the sideways case after 18 completed conflicting patterns and an interrupted
+nineteenth. The other three cases were not started. No actions from those failed
+or interrupted searches are admitted; the bounded search does not prove that
+every possible pattern is incompatible.
+
+The completed packet uses the owner's distinct simpler analytical floor scenario: retain
+all **32 compression-only normal contacts** and credit horizontal restraint
+only at the two rear-leg centroids. The other six feet are normal-only; both
+credited legs must have positive normal bearing in every admitted case.
+Geometry, loads and internal joint laws remain unchanged. Source-only global
+statics finds a feasible nonnegative vertical reaction distribution in all six
+loaded cases and the separate gravity diagnostic; the minimum support-polygon
+edge margin is **329.975 mm**. This does not establish compatible elastic
+reactions or physical sliding resistance. The corrected runner and admission
+gate pass independent method review. All six fresh fields pass the unchanged
+**1e-5 N** full-coordinate residual threshold, all 150-body/global closures,
+source identities and own force recovery. Maximum residual is
+**9.939765e-6 N**; minimum credited rear-leg bearing is **592.856590 N**.
+The largest individual leg horizontal/normal demand is **0.324737**; it is
+a reaction diagnostic, not measured friction or a sliding rating. All twelve
+disabled XY forces and energies are exactly zero in every case. No old-law
+field or receipt fills this roster. No-slip remains unverified.
+See the [current case evidence](completion-ledger.md#build-package-completion).
+
+| Six-case governing conditional comparison | Result | Scope |
+| --- | ---: | --- |
+| Generic Hillman head, CD1 | **2.571946**, A12-rear | Own screw actions are 1492.481 N withdrawal and 706.895 N lateral. Required generic effective thread is 62.953 mm versus 45.244 mm nominal length after the panel; actual product resistance/engagement is unknown. |
+| Spatial panel bending / rolling shear, CD1 | **4.613058 / 2.451408**, A12-rear / A12-forward | Exceedances are retained. Local holes, head seats, punching and edge-transfer resistance remain unqualified. |
+| Sampled gross-member normal / shear-torsion, CD1 | **0.526047 / 0.977592**, K12-rear / K12-right | Assumed bracing and intact rectangular cuts; actual restraint, net cuts and fracture remain unresolved. Four weak-column domains remain unqualified. |
+| Unadjusted timber bolt-component reference | **0.699104**, A12-rear | Separate Cdelta=0.5/Cg=1 sensitivity reaches **1.398208**; actual factors, group/splitting and complete joint resistance are unknown. |
+| Straight-steel / original representative t6/Ri6-mm heel reference | **0.850480 / 1.113498**, A12-left | Seven original heel-scenario rows exceed across three cases. Actual formed heel, continuity and complete fitting resistance remain unqualified. |
+| Owner-requested t6.35/Ri6.35-mm heel reference scenario | **0.998300**, A12-left | 140.479342 MPa against 140.718563 MPa; zero of 528 screen rows exceed, only **0.170000%** below the reference. Catalog thickness is the working nominal; inside radius equal to thickness is assumed. |
+| Specified smooth/catalog-minimum-body shaft first-yield marker | **0.514158**, A12-forward | Grade 5 reference and declared body/root regions; delivered shank, threads, fillet and complete bolt resistance remain unqualified. |
+| Axial-only catalog washer required Fy | **156.175807 MPa**, K12-right | Actual washer Fy, pressure couples, peak pressure and combined washer strength remain unknown. |
+
+Each case records all **24 joint duties and twelve starting frame bolts**.
+The independent reviews verify saved case joins and scoped calculations;
+the joint review does not independently qualify every formula or physical
+failure mode. First-order interaction-point motion markers reach
+**53.573 mm**, and relative rotation reaches **0.107818 rad**. They include
+assembly motion and do not establish physical movement or finite-contact
+applicability. Reference exceedances and null resistance do not trigger further
+panel-remedy work under the owner's numerical scope.
+
+The separate [heel assumption study](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/README.md)
+replays all 528 original comparisons exactly and verifies 647 source pins.
+Its unchanged-action t6.35/Ri6 and t6.35/Ri8 sensitivities are 1.008988 and
+0.959419. The [owner-requested nominal supplement](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/nominal-scenario.md)
+verifies 650 pins and records t6.35/Ri6.35 separately; it does not replace
+the closed results or change geometry, actions, stiffness or material
+acceptance. Radius near thickness is a manufacturing inference, not a product
+measurement. Minimum thickness, inside/outside radius, thinning and heel/hole
+datums remain useful receiving inputs; complete 3D heel and joint resistance
+remain unqualified. The earlier proposed component test is unperformed and
+outside the current scope.
+
+The compact receipt stays in the working documentation. Full case fields,
+operators, methods, reviews and failed revisions remain active ignored evidence
+with verified external recovery recorded in the existing ledger. Nothing is
+pruned; selected-baseline and historical viewer/evidence bytes stay unchanged.
+
+## Preserved earlier eoere A12 packet
+
+The preserved [eoere cleat-corner A12 model](../../site/index.html?model=eoere-bolted-development&view=rear)
+remains published under its separate [development contract](../../eoere-bolted-candidate.json).
 The [complete occupied-geometry result](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-geometry-v2.json)
 has **22 angles, two added cleats and 100 physical bolt stacks**. All five
 intersection lists are empty. All 120 receiver bore bodies and 132 screw
 penetration checks, covering CAT 23/32 and nominal 3/4-inch plywood, retain
 full modeled backing. All 66 Hillman axes and existing stock sections stay
-unchanged. The four new cleat/post bolts are at Z200 mm; their minimum nominal
+unchanged in that frozen revision. The four new cleat/post bolts are at Z200 mm; their minimum nominal
 bore/screw gap is only **0.340625 mm**. The short post's 38.9-mm top end
 retains the named compression reference, but complete tension geometry and
 delivered tolerances remain unresolved. The failed first layout is preserved.
@@ -74,7 +244,7 @@ unchanged field and physical laws. The scope retains **250 lb ×2, 300 N
 horizontal and a 100-mm hold arm**, with complete modeled gravity and an
 unverified no-slip floor assumption. The prior response does not transfer.
 
-| Eoere conditional A12 finding | Result | Limit |
+| Preserved earlier eoere conditional A12 finding | Result | Limit |
 | --- | ---: | --- |
 | 66 Hillman axes, generic head comparison | **2.563273**, two exceeding axes | Governing upper-left screw has **1487.448 N** withdrawal and simultaneous **644.659 N** lateral. Actual Hillman resistance is unavailable. |
 | Generic withdrawal, CD1 | **62.741 mm** required effective thread | Nominal length after the panel is **45.244 mm**; delivered thread engagement is unknown. |
@@ -92,7 +262,7 @@ edge in this case, so the bare 4D comparison is not a current signed failure.
 The nominal 10-mm steel holes are below the pinned NDS general bolt-hole
 oversize range for 3/8-inch bolts; installation applicability remains open.
 
-Current first-order motion diagnostics reach **28.273 mm** at an owned
+Preserved first-order motion diagnostics reach **28.273 mm** at an owned
 interaction point and **0.071714 rad** relative timber/fitting-strip rotation.
 They include assembly motion and are not physical movement predictions.
 No physical demand bound, complete joint acceptance or fabrication release

@@ -1,0 +1,80 @@
+{
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "delivered_dimensions_and_tolerances": null,
+  "execution_scope": "Python standard-library saved metadata and coordinate arithmetic only; no CAD imports, rebuild, K, q, mechanics evaluation or physical tests.",
+  "expected_counts": {
+    "Hillman_axes": 66,
+    "moved_Hillman_axes": 4,
+    "panels": 6,
+    "physical_bolt_axes": 100,
+    "receiver_bore_occurrences": 120,
+    "recesses": 2,
+    "timbers": 22,
+    "translated_structural_stacks": 16,
+    "wire_routes": 131
+  },
+  "geometry_revision": "eoere-bottom-rail-tnut-clearance-v1",
+  "observations": {
+    "Actual": "",
+    "Disposition": ""
+  },
+  "owner_recorded_sheet_direction_assumption": "Original 8-foot sheet direction horizontal across world X; separate from the geometric panel frame and not observed veneer grain.",
+  "panel_frame_convention": "L increases across world X; U increases upslope on main panels and upward world Z on kickers; V=L cross U points into backing. Datum is the saved lower-left backing-plane vertex. These are geometric axes, not observed plywood grain.",
+  "schema": "eoere_raised_rail_nominal_cut_datum_inputs/v1",
+  "sources": {
+    "current_geometry": {
+      "bytes": 652172,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json",
+      "sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b"
+    },
+    "current_inputs": {
+      "bytes": 13340562,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-mechanics-v1/inputs.json",
+      "sha256": "81e9ad126f806a412a8bcb73ae3d0057ef3568ed0fa45986503f97fb5fb62d9f"
+    },
+    "current_inputs_review": {
+      "bytes": 81712,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-mechanics-v1/independent-review-v1/inputs-review.json",
+      "sha256": "eb68a273f8a6a3d9bc59f1c00536a2cc8c0b2c3e53de6bc8c764c8bda42a3d2c"
+    },
+    "current_inventory": {
+      "bytes": 15773,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bottom-rail-raise-v1/raised-rail-inventory-v1/result.json",
+      "sha256": "4d575d55605a96ab8ac27207ff0efb55a3fad95e17f3651780b5973b539ec339"
+    },
+    "panel_profiles": {
+      "bytes": 63630,
+      "path": "docs/floor-flush-construction-kerf-right/stock-profiles.json",
+      "sha256": "65a4301c639a6eff14cb4365f321d4ab4712746dd3c916ffc14b00645841dfa8"
+    },
+    "panel_seam_recipe": {
+      "bytes": 21107,
+      "path": "scripts/thin_bolted_model.py",
+      "sha256": "1d4b06d3624e1c08f34f01e0e7002968843449d20d71e5fb5f987ebed72188a1"
+    },
+    "prior_shop_join": {
+      "bytes": 243177,
+      "path": "fea/generated/thin-bolted-build-planning-v4/joined-shop-data-final.json",
+      "sha256": "7982d8612014d6d55279f7847798ea3bf87e6c2eca2fa585ef4457daf3787074"
+    },
+    "prior_shop_manifest": {
+      "bytes": 13606,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/build-planning-v4/manifest.json",
+      "sha256": "13a24c62ed4e51f63961096858b0e61b727d01c24ce90e0a7ef2c29cf985777a"
+    },
+    "service_layout": {
+      "bytes": 726319,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/mixed-offset-rows-shallow-wires-v4.json",
+      "sha256": "8174841bf64914570397ee6d960c5602f74097e2e412e5910502811bc5b9405c"
+    },
+    "service_recipe": {
+      "bytes": 21049,
+      "path": "scripts/thin_bolted_layout_revision.py",
+      "sha256": "af84ec13d64ab4b4b0686003ad95b5ea905eb159393789266816ad48add7e32e"
+    }
+  },
+  "verification_arithmetic_limits_not_fabrication_tolerances": {
+    "coordinate_mm": 1e-06,
+    "unit_frame": 1e-09
+  }
+}

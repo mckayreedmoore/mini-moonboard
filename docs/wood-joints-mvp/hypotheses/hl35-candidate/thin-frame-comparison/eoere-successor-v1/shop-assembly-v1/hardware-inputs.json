@@ -1,0 +1,100 @@
+{
+  "access_basis": "Head is the negative axis side and nut the positive axis side in the current saved model. Inward approach and outward removal vectors name nominal axial directions only; all 200 current tool and removal dispositions are UNVERIFIED.",
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "execution_scope": "Saved JSON/gzip metadata, hashing and pure scalar arithmetic only. No CAD, swept-tool query, candidate field, operator or solve.",
+  "expected": {
+    "angle_shafts": 84,
+    "catalog_box_shortfall_stacks": 24,
+    "cleat_post_shafts": 4,
+    "current_scene_decoded_sha256": "7e01f4d4cf96c7ab5f2a4ccfb8e0404a7b460a50e23b308138bdd1a0d38d1087",
+    "factory_hole_installed_references": 88,
+    "head_nut_sides": 200,
+    "modeled_hardware_roles": 500,
+    "physical_stacks": 100,
+    "raised_inventory_source_union_canonical_sha256": "267ef1b4ae3ed65ec1ceb0850cc46fcecf758fbf338acdae768ba0fb1d8cf5c5",
+    "raised_inventory_source_union_count": 441,
+    "shared_angle_shafts": 4,
+    "starting_frame_shafts": 12,
+    "translated_stacks": 16
+  },
+  "geometry_revision": "eoere-bottom-rail-tnut-clearance-v1",
+  "receiving_basis": "Existing lengths and model washer/nut recipes remain nominal proposals. Matching Grade5 catalog dimensions are a comparison basket, not an adopted delivered replacement. Actual and Disposition cells remain blank.",
+  "release": {
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "delivered_part_acceptance": false,
+    "fabrication": false
+  },
+  "reuse_scope": "Only unchanged own local receiving thickness, direction and nominal recipe; current scene and member/fitting identities remain authoritative. Prior tools, access, removal, actions, contact and capacity do not transfer.",
+  "schema": "eoere_raised_rail_nominal_hardware_shop_inputs/v1",
+  "sources": {
+    "catalog": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json",
+      "sha256": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d"
+    },
+    "catalog_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/complete-result.json",
+      "sha256": "6d14fbd84ed32757afde7930f559aeeaf90e98259dbb634537ffa7a201b04c71"
+    },
+    "catalog_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/independent-review-v1/independent-review.json",
+      "sha256": "3a1aa017da5c1661cd8e9c4a3761990a2abad22561096a1719de495f329c203c"
+    },
+    "current_scene": {
+      "path": "site/eoere-bottom-rail-scene.json.gz",
+      "sha256": "28269c01354dd901ad87604fe80475fcbb19cf71ad6cebec29194e7fe94cf536"
+    },
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json",
+      "sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b"
+    },
+    "local_hardware_method": {
+      "path": "scripts/thin_bolted_occupied.py",
+      "sha256": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+    },
+    "old_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-geometry-v2.json",
+      "sha256": "05baab7ffdd329c3240a1770cf3539e321ab47d5cd2bc6354f8fceb6db8a0efd"
+    },
+    "old_inventory": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/inventory-v2.json",
+      "sha256": "14d74a158c4af7cf57d0b1282eda41e6f7e849024130be3cf869080a6ee03de3"
+    },
+    "product_inputs": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-inputs-final.json",
+      "sha256": "dd662e681871576d0a76666e9370d4359f7e96e0a2ad5f9710553895f53a5309"
+    },
+    "raised_inventory": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bottom-rail-raise-v1/raised-rail-inventory-v1/result.json",
+      "sha256": "4d575d55605a96ab8ac27207ff0efb55a3fad95e17f3651780b5973b539ec339"
+    },
+    "raised_inventory_method": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bottom-rail-raise-v1/raised-rail-inventory-v1/review.py",
+      "sha256": "19e18e0c1c0eba4d2d9f61c795b21efac3a0ff750ddbed6c747a4bd954332ba6"
+    },
+    "thread_method": {
+      "path": "scripts/thin_bolted_access_takeoff.py",
+      "sha256": "8f6313a4609f935c173b151843527b0911d6b89a34dacc9b2eee2642523cb897"
+    },
+    "window_inputs": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/input.json",
+      "sha256": "94d7c3aea8588ed2a2dafea9ef168e9596b941c1b6723f883ab4b6a655f6a008"
+    },
+    "window_method": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/shop_windows.py",
+      "sha256": "96bb6ec5bdad68f449d41c56ee71ae149c0b380fadd039b050425dd44b70e1d5"
+    },
+    "window_result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/result.json",
+      "sha256": "23730fa128d8033abf671ca7bcbe2a0e7b1a94c7478d439b2ff8fa67718a4174"
+    },
+    "window_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/independent-review-v1/result.json",
+      "sha256": "974df894664078da6ae97fd96a6bf5870d969ef952a8ad787b981da64ee72f93"
+    },
+    "window_review_method": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/independent-review-v1/review.py",
+      "sha256": "c68bea61f9307cfc947abe343f9cd4cda4e469cb84b317902134e2fea70f4c79"
+    }
+  }
+}
