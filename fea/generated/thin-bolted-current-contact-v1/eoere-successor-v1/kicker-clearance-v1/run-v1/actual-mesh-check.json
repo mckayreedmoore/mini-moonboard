@@ -1,0 +1,48 @@
+{
+  "schema": "eoere_kicker_screw_clearance_actual_mesh_check/v1",
+  "passed": true,
+  "variants": [
+    {
+      "variant": "base",
+      "count": 1021,
+      "unchanged": 1017,
+      "changed": 4,
+      "bolts": 100,
+      "screws": 66
+    },
+    {
+      "variant": "extra",
+      "count": 1380,
+      "unchanged": 1376,
+      "changed": 4,
+      "bolts": 100,
+      "screws": 66
+    }
+  ],
+  "moved_screw_axes": [
+    "round_kicker_left_rim_2",
+    "round_kicker_right_rim_2"
+  ],
+  "unchanged_bolt_axes": 100,
+  "full_source_records_checked": true,
+  "rejected_controls": [
+    "response transfer",
+    "release",
+    "missing panel",
+    "duplicate replacement",
+    "screw count",
+    "bolt count",
+    "wrong height",
+    "horizontal move"
+  ],
+  "rejected_hash_options": 3,
+  "source_sha256": {
+    "site/eoere-kicker-clearance-scene.json.gz": "0c0acfde3d6dbcaada4ffc9789898775348d4765b87525a83c20e724f8e8aa52",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-uniform-channels-v1.json": "5726cad4203df4533b599c869e6a0e2e0599e27e874e6252cc34f34d5b36e6d4",
+    "site/eoere-kicker-clearance-overlay.mjs": "8e44f6c70d60c6adf88138887c90d3be612caee72f80d19aa77428899485f9d7",
+    "scripts/check_eoere_kicker_clearance.mjs": "d805ad717bd63ef79029839810227a815783b56feaee5c29cdbc4330435cfa28",
+    ".venv/lib/python3.12/site-packages/ocp_vscode/static/js/three-cad-viewer.esm.js": "791d6437b2e40601703bb246cc6d7b6cf8966a63e98a5c24900f43fb5845e19a"
+  },
+  "mechanics_or_physical_release": false
+}

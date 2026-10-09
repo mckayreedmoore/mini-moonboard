@@ -2,10 +2,12 @@
 
 ## Current model-completion scope and qualification status
 
-**Latest local geometry:** `eoere-uniform-small-service-channels-v1` uses one
-smaller passage profile and removes eleven repeated cable-arc cuts on the right
-center principal. All 100 bolt and 66 screw axes remain fixed. See the
-[geometry, mesh and browser evidence](#uniform-smaller-cable-channels-and-principal-arc-cuts).
+**Latest geometry:** `eoere-raised-kicker-screws-v1` raises the two upper outer
+kicker screws and their panel holes from Z192 to Z212, keeping all 100 bolts
+fixed. It retains the smaller channels and restored right principal. The
+maximum-bore gap is 3.94375 mm; full modeled backing does not qualify screw
+end-distance strength. See the [clearance evidence](#raised-outer-kicker-screws)
+and preserved [channel evidence](#uniform-smaller-cable-channels-and-principal-arc-cuts).
 The following numerical and shop completion remains bound to the preceding
 extended-cleat geometry; no response or construction release transfers.
 
@@ -4361,6 +4363,99 @@ the original and corrected reviews and every failed/superseded attempt active.
 The prior 17 issued files remain immutable dependencies/history; the five-file
 v3 wrapper does not replace their bytes or numerical method. No candidate,
 global, native, CAD or physical execution follows from this synthetic closure.
+
+### Raised outer kicker screws
+
+The owner authorized raising the interfering kicker screw. The symmetric
+`eoere-raised-kicker-screws-v1` successor moves only
+`round_kicker_left_rim_2` and `round_kicker_right_rim_2` by **+20 mm in Z**, from
+192 to **212 mm**. Their X/Y coordinates, directions and receivers remain.
+`round_panel_lower_right_rim_1` is unchanged. All **100 bolt axes**, including
+the four Z200 cleat/post shafts, and the other **64 Hillman axes** are unchanged.
+There remain 66 purchased Hillman 42605 screws, 22 timbers, six panels and
+22 angles. The selected screw-and-bracket baseline and unadopted Z180 proposal
+are preserved. This owner-directed clearance move is the limited exception to
+the paused panel/screw strength remedies.
+
+The [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json),
+SHA `7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f`,
+binds the preceding smaller-channel receipt
+`5726cad4203df4533b599c869e6a0e2e0599e27e874e6252cc34f34d5b36e6d4`
+and verifies **616 source pins**. Both finished kicker panels lose their old
+Z192 modeled hole and receive the same modeled hole/head envelope at Z212.
+Panel outlines and volumes are preserved. This describes new CAD panels;
+it is not an instruction to plug holes in existing plywood. No timber or bolt
+body changes. The new screws retain their exact CAD volume and translate 20 mm;
+independent saved-BREP queries verify all four valid solids and their bounds.
+
+Using the existing four known-answer finite-axis fixtures, the 12-mm screw/bolt
+axis separation leaves **4.340625 mm** at the nominal 10.31875-mm bore and
+**3.94375 mm** at the maximum 11.1125-mm bore, for the retained 5-mm modeled screw
+body. All **4,790** unrelated-body AABB comparisons across the base/extra modes
+have positive separating gaps. Intended panel and post occupancy is excluded
+from that collision screen. Each screw retains **45.24375 mm** of modeled wood
+penetration with **1.0** finished-post body backing. Its axis is 19.05 mm from
+the post side, **26.9 mm below the post top** and **65 mm below the kicker top**;
+its spacing from the lower outer kicker screw grows from 132 to 152 mm.
+
+The smaller post-end distance is recorded without a strength pass. At the
+unmeasured 5-mm diameter scenario it is 5.38D. As a generic comparison only,
+[AWC's corrected commentary Table C12.1.5.7](https://awc.org/wp-content/uploads/2021/12/AWC-2015NDS-Updates-Errata_20240109.pdf)
+recommends 5D for prebored wood-side-member compression parallel to grain and
+10D for tension parallel to grain. The latter 50-mm reference is not met by
+26.9 mm. Actual Hillman properties, applicable signed loads and complete
+splitting/end-distance resistance remain unqualified. This reference is not
+adopted as a Hillman capacity or a new blanket prerequisite. Accumulated actual
+placement and size errors must also fit within the geometric clearance.
+
+Use the [complete successor screw datum table](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/kicker-clearance-v1/run-v1/panel-screw-datums.csv)
+for all 66 axes. Only the two Z coordinates and matching panel/receiver local
+coordinates change, plus their source pointers. The `kicker-clearance` alias
+means the new receipt's `screw_axes`; other source aliases retain their preceding
+meanings. The Z212 datums supersede the two old Z192 marks in panel machining
+and kicker drawings. The Hillman lead-pilot/face-countersink purchase and
+installation policy is unchanged; occupied CAD diameters are not bit sizes.
+All Actual/Disposition fields remain blank. The preceding full shop packet is
+source-bound; matching channel drawings, hardware fit, actual tool access and
+tolerances remain open.
+
+The 205,940-byte [shared scene patch](../../site/eoere-kicker-clearance-scene.json.gz)
+contains only the two new panel meshes and two screw meshes. SHA is
+`0c0acfde3d6dbcaada4ffc9789898775348d4765b87525a83c20e724f8e8aa52`;
+decoded SHA is
+`2827864558af2b5fe9decf559c1de618391a97fe493566996263ad8453ac4003`.
+The new loaders compose on both preserved uniform-channel loaders. The
+[actual Three.js check](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/kicker-clearance-v1/run-v1/actual-mesh-check.json)
+passes **1,017/1,021** unchanged base parts and **1,376/1,380** unchanged
+optional-grid parts, with exact untouched arrays and all 100/66 identities.
+Eight invalid scope/change/census controls and three invalid hashes reject.
+Node was v24.18.0; CADQuery version and command are captured in the receipt.
+The [browser check](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/kicker-clearance-v1/run-v1/browser-v1/result.json)
+passes both toggle directions and preserved model choices, with zero page
+errors or failed requests. Both rear-view captures were visually inspected.
+Result SHA is `bb870f75ea98bfe835e1528e740c3710c69f11344a5e22886380f6c6af270f14`;
+it binds the served index, scene, loader, shared runner and browser tool versions.
+No page-context evaluation is used. Scoped Ruff, JavaScript/inline-module
+syntax, 608 local link destinations and authored-code/prose whitespace checks
+pass; verbatim OCCT whitespace and CSV line endings are preserved. The compactor
+checks 6,823 retained files / 13,618 aliases; the independent alias URL check
+passes. The preceding channel entry records the unrelated whole-repository
+lint failures and interrupted pytest run; no whole-suite pass is claimed here.
+
+Reproduce into a fresh ignored `kicker-clearance-v1` subdirectory with
+`PYTHONPATH=. .venv/bin/python -B scripts/eoere_kicker_screw_clearance.py --out FRESH_OUTPUT`.
+Check with `node scripts/check_eoere_kicker_clearance.mjs FRESH_CHECK_JSON` and
+`bun scripts/check_eoere_kicker_clearance_browser.cjs FRESH_BROWSER_DIRECTORY`.
+Retain the producer, receipt, four small saved solids, full screw datum table,
+mesh patch and check receipts active; raw duplicate exports/screenshots stay
+ignored. The roughly 0.65-MB permanent packet is needed to bind the changed
+holes, actual meshes and unchanged source geometry; no unchanged mesh asset
+or dependency installation is copied. Prior geometry, numerical packets and
+failed channel attempts remain recoverable. No archive/prune or native solve
+was performed. The earlier Z200/Z180 numerical results retain their original
+sources; no response, joint resistance, physical applicability or release
+transfers to this screw layout. Four hardware stations remain held for their
+other unresolved fit/installation and strength conditions.
 
 ### Uniform smaller cable channels and principal arc cuts
 

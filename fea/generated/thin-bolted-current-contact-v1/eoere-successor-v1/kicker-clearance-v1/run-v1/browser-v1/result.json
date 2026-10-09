@@ -1,0 +1,39 @@
+{
+  "schema": "eoere_kicker_clearance_browser_check/v1",
+  "passed": true,
+  "captures": [
+    {
+      "model": "eoere-kicker-clearance-frame-development",
+      "url": "http://127.0.0.1:8767/index.html?model=eoere-kicker-clearance-frame-development&view=rear",
+      "status": "Kicker screw clearance · upper outer kicker screws raised 20 mm to Z212; bolts retained at Z200. Maximum modeled bore gap 3.944 mm. Smaller cable channels retained. 100 bolt axes / 66 Hillman screws. Extra grid off. Geometry checked; strength and installation unevaluated.",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/kicker-clearance-v1/run-v1/browser-v1/base-rear.png",
+      "sha256": "e047a2c5ff586ac148aa1e7e7eb979c53c602d658b015e5fb1317f8acf8d0687"
+    },
+    {
+      "model": "eoere-kicker-clearance-2026-development",
+      "url": "http://127.0.0.1:8767/index.html?model=eoere-kicker-clearance-2026-development&view=rear",
+      "status": "Kicker screw clearance · upper outer kicker screws raised 20 mm to Z212; bolts retained at Z200. Maximum modeled bore gap 3.944 mm. Smaller cable channels retained. 100 bolt axes / 66 Hillman screws. 120 added T-nuts and 120 lights; unofficial, provisional positions. Geometry checked; strength and installation unevaluated.",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/kicker-clearance-v1/run-v1/browser-v1/extra-rear.png",
+      "sha256": "8b3639f566f6908534f5106d72292fe172f35538077a08a02344063a3f073da9"
+    }
+  ],
+  "both_toggle_directions": true,
+  "prior_options_retained": true,
+  "page_errors": [],
+  "failed_requests": [],
+  "source_sha256": {
+    "site/index.html": "42ceaa9aa2c0a75e6b7e7f425a099cd987f3e457f22aa2f3f5d5d2a9d3c73f4c",
+    "site/eoere-kicker-clearance-overlay.mjs": "8e44f6c70d60c6adf88138887c90d3be612caee72f80d19aa77428899485f9d7",
+    "site/eoere-kicker-clearance-scene.json.gz": "0c0acfde3d6dbcaada4ffc9789898775348d4765b87525a83c20e724f8e8aa52",
+    "scripts/check_eoere_kicker_clearance_browser.cjs": "0711557fd4fec42c9c4b86ec7d16f7c2146c409fc374131db664c71edaaba167"
+  },
+  "shared_runner": {
+    "path": "/home/mckay-linux/repos/gwen/scripts/agent/browser.ts",
+    "sha256": "25701f5e97ade196e03eb250e87ea8feeb17eee1bea20f71833986a2c17ba140"
+  },
+  "chromium_version": "147.0.7727.15",
+  "playwright_version": "1.59.1",
+  "bun_version": "1.4.2",
+  "page_context_code_evaluation": false,
+  "mechanics_or_physical_release": false
+}
