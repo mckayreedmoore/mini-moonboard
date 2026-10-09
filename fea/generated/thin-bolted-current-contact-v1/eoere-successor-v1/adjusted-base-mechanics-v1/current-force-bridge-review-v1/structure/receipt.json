@@ -1,0 +1,76 @@
+{
+  "schema": "eoere_current_force_bridge_architecture_review/v1",
+  "status": "ONE_SUBSTANTIAL_SOURCE_INTEGRITY_FINDING",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v1/structure/review.py": "6e84608c13e44ec7e1264f693378325ae8a3b5b36a0529a849b1ff28d379d9de",
+    "AGENTS.md": "e72c0ca31382df1e3f26dfba213973f7ffc8be4ce2a984fd634d75fe917ffc87",
+    "docs/wood-joints-mvp/README.md": "69a102906f3d0057d378a4057c5e6fc4c030f6faa78e22a31a2ec0cc803e94d7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py": "ddc85386050d97145597dc720bef78634c9b326f0878aced8c02c8df4710c05b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/test_bridge.py": "72cdd692b40df93e2a6a194e31d9bd03fe7125baf6fb605a09b66954bbecacf6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/source-preflight.json": "4118719a61da4645085f4840b1888ac6df600df2307edc8c0d40ffb79d4eafe0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/verification.json": "7ca9a676dd1c7b1ae41a4408caeae6d0d22c0ee57da43095663b8587238d5fab",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/runner.py": "02b35eb6eb148e1b178fcca069b761065eaec8f0641ec5adc91f211b3e9eceb4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/admission.py": "ee47bca7795483c3d304030a26e368c9e2bf9b3bbff48ef10b5416e8aa344fa9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/support_law.py": "b4bc326d2060d6fc49d0f29218306533e4cea305db72dce2f0e09338c7e3ad2e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-execution-v1/driver.py": "4aaaa91dbad2674dc5bd42a43b38949675c94aa9619534c15d0f6f906e532692",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-cases-v1/cases.py": "1f7a1b332ee37627725ce8127df8ff3541ac4deec5fdc586a36e7f7953860978",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_admission.py": "e61ee415f0a8cd83f3ea4b0606064bceb128413eed4e66f1192955b1610ff66b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/operator_bundle.py": "534356acc914bd9fb81f24e67311fe40123d70754224a6466fe0da1d7f1426a9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/run_first_order.py": "28ceafcb9eac9764358071b728da96fbb2e5cd46011ead031ade8a9d7a811a39"
+  },
+  "findings": [
+    {
+      "id": "ARCH-SOURCE-01",
+      "severity": "P2",
+      "title": "Pin and reauthenticate the admission source before recompiling it",
+      "location": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py",
+        "line": 85
+      },
+      "related_location": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py",
+        "line": 436
+      },
+      "evidence": "source_pins delegates to old_runner.source_pins and adds the bridge/method records, but not the reused floor admission.py. The issued 25-pin preflight closure omits that file. Its REUSED digest is checked only on import; admission_functions later reparses old_gate.OWN through compile_function without hashing those just-read bytes. read_method does not require that dependency in its source closure.",
+      "impact": "A post-import admission-source change is outside the bridge's before/after source checks, while its changed body can be freshly compiled and used for current field admission. The frozen bridge identity and unchanged source map can therefore describe altered admission mathematics.",
+      "concrete_fix": "In a separately identified revision, merge every REUSED source and expected digest into source_pins, including floor admission.py. Also authenticate the exact bytes read by compile_function against the expected frozen source digest before AST parsing. Keep this issued bridge and review frozen; revalidate only source hooks and tiny fixtures before any future genuine input/run work."
+    }
+  ],
+  "owned_fixture": {
+    "standalone_import_from_sibling_directory": true,
+    "factory_hooks_restored_after_exception_and_nested_context_rejected": true,
+    "original_gate_rejects_1e_minus3_gradient": true,
+    "owned_admission_copy_with_1e_minus2_cutoff_compiles_and_accepts_same_tiny_field": true,
+    "bridge_source_pins_remain_identical_during_owned_source_copy_redirect": true,
+    "genuine_admission_source_changed": false,
+    "interpretation": "The owned path redirect models a changed reread dependency after bridge import. It demonstrates the missing binding without modifying the genuine frozen source or creating a candidate field, operator, response or admission."
+  },
+  "architecture_assessment": [
+    {
+      "source": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py:189",
+      "assessment": "The narrow factory context changes schema/read/review hooks, rejects nesting and restores originals on failure. Actual preparation remains deferred and parent-serialized."
+    },
+    {
+      "source": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py:231",
+      "assessment": "Latest OFF geometry, parent manifest, input review, method and panel-bank identities have separate contracts. Production mode additionally requires a parent marker and exact input/method slot authorization."
+    },
+    {
+      "source": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py:358",
+      "assessment": "Fields, operator companions and failed outputs are prechecked as a group and written exclusively. Failure receipts retain phase/events with null accepted q/actions; no evidence is pruned or relabeled."
+    },
+    {
+      "source": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py:473",
+      "assessment": "Source preflight compiles private hooks but does not prepare candidate operators. The frozen verification explicitly reports missing genuine current inputs/review/method/export and no production readiness, demands, solve or admission."
+    }
+  ],
+  "limits": [
+    "This is architecture/source/retention review, not method, current-input or panel qualification. Genuine current descriptors, cases, panel/frame K, q, actions, native solves and actual field admission were never run.",
+    "Only standalone import, source pin reads, context restoration and an owned tiny pending-field/source-copy fixture ran. The reported 17 tests/Ruff were inspected, not rerun.",
+    "The inherited 1e-5 force tolerance and unverified fixed-rear-leg floor assumption retain their recorded domain. No production or physical approval, acceptance transfer, new demands or blanket sign-off prerequisite."
+  ],
+  "retention": "Original four-file bridge, old methods and current source contracts remain unchanged and active. Only this exclusive review helper/receipt were retained; the owned temporary source copy was removed.",
+  "reproduction_command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v1/structure/review.py"
+  ]
+}

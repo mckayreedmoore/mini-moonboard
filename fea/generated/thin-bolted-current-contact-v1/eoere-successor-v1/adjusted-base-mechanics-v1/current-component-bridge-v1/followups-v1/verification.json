@@ -1,0 +1,276 @@
+{
+  "adapters": {
+    "shaft": {
+      "all100_own_same_cut_tables": true,
+      "circle_vm_equation_unchanged": true,
+      "delivered_root_or_full_bolt_resistance": null,
+      "frozen_function": "first_joint.bolt_components"
+    },
+    "steel": {
+      "fixed_actions_only": true,
+      "frozen_functions": [
+        "own_loads",
+        "reduce_angle",
+        "summary"
+      ],
+      "product_strength": null,
+      "scenarios": [
+        {
+          "id": "t6_r6",
+          "inside_radius_scenario_mm": 6.0,
+          "rupture_factor": 2.0,
+          "thickness_mm": 6.0,
+          "yield_factor": 1.67
+        },
+        {
+          "id": "t6p35_r6p35",
+          "inside_radius_scenario_mm": 6.35,
+          "rupture_factor": 2.0,
+          "thickness_mm": 6.35,
+          "yield_factor": 1.67
+        }
+      ]
+    },
+    "timber": {
+      "boundary": "scoped intake only; current raw field, own axes/grain/actions, static catalog/root/Fyb inputs; no old assessment",
+      "compatible_individual_two_member_only": true,
+      "frozen_function": "calculate_v2.produce",
+      "groups_splitting_finished_sections_restraint_complete_joint": null,
+      "mixed_stacks": 8
+    },
+    "washer": {
+      "all200_own_captures": true,
+      "distinct_composition": "current100 axes + exact parent v3 service_cuts + own current22 operator dimensional scenarios",
+      "frozen_function": "calculate",
+      "full_washer_strength_and_actual_pressure": null
+    }
+  },
+  "api": {
+    "cli": "python -B followups.py --field FIELD --field-sha256 SHA --receipt RECEIPT --receipt-sha256 SHA --gate-sha256 4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643 --out FRESH_OUTPUT",
+    "consume": "consume(field_path, receipt_path, *, expected_field_sha256, expected_receipt_sha256, admission_sha256=GATE_SHA)",
+    "output_reservation": "exclusive open(x) before frozen consumer/intake; STARTED fsync, FAILED retained; dangling links and races rejected",
+    "reserved": "consume_to_file(field_path, receipt_path, out, **same_kwargs)"
+  },
+  "complete_joint_resistance": null,
+  "current_refs": {
+    "descriptors": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json",
+      "sha256": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7"
+    },
+    "gate": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+      "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+    },
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+      "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+    },
+    "manifest": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json",
+      "sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+    },
+    "parent_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json",
+      "sha256": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7"
+    }
+  },
+  "execution": {
+    "CAD_query_rebuild": false,
+    "equations_or_tolerances_changed": false,
+    "frame_global_native_or_browser": false,
+    "genuine_force_field_consumed": false,
+    "genuine_reducer_callback": false,
+    "old_intake_or_force_transfer": false,
+    "operator_K_preparation": false,
+    "tiny_known_answer_algebra_only": true
+  },
+  "geometry_only_composition": {
+    "current_axes": 100,
+    "extension_does_not_contain_service_cuts_or_fitting_dimensions": true,
+    "fitting_dimensions_source": "own admitted current22 operator scenarios, cross-checked at runtime",
+    "nominal112_seat_geometry": {
+      "basis": [
+        {
+          "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/result.json",
+          "sha256": "1205472ce4f96626318b42f2ad7578396485d167932f22fc0af387b156c4f875"
+        },
+        {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/attempt06/details.json",
+          "sha256": "837474fad3300ade9c3dc1e15c68827c7faeb2c76b0a17fae83c32d4511abf71"
+        },
+        {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/actual-output-review.json",
+          "sha256": "c5d97796a59a8fa085abeacdc4a7672c81f9aa57ea9db0bd7872f9e7e5e1f109"
+        }
+      ],
+      "current_cleat_seats_carried_by_full_parent_volume": 8,
+      "fresh_v3_probes": 36,
+      "nominal_wood_seats": 112,
+      "old_actions_or_strength_transferred": false,
+      "scope": "nominal geometry only; current pressure, stiffness, contact and complete resistance unresolved",
+      "unchanged_v3_proofs": 76
+    },
+    "raw_stock_landing_diagnostics_are_separate_from_nominal_proof": true,
+    "service_cuts_canonical_sha256": "d2893beb0920245f99260c9b0cd67b24ba49d951dba5eb02e12a1047b08e8537",
+    "source_only_metadata_test_uses_synthetic_dimensional_rows_not_a_force_field": true,
+    "v3_service_cuts": 27
+  },
+  "known_answers": {
+    "steel": {
+      "cantilever_root_normal_mpa": 3.749531308586427,
+      "curved_pure_bending": [
+        {
+          "moment_error_nmm": 1.0913936421275139e-11,
+          "net_force_error_n": 1.0230133407063138e-11,
+          "radial_boundary_error_mpa": 5.684341886080802e-14,
+          "ri_over_t": 1.0,
+          "straight_bending_amplification": 1.2925405947382447
+        },
+        {
+          "moment_error_nmm": -1.2005330063402653e-10,
+          "net_force_error_n": 5.699857252849939e-13,
+          "radial_boundary_error_mpa": 0.0,
+          "ri_over_t": 2.0,
+          "straight_bending_amplification": 1.155438072023615
+        },
+        {
+          "moment_error_nmm": 4.325556801632047e-09,
+          "net_force_error_n": 1.529449358828039e-10,
+          "radial_boundary_error_mpa": 9.094947017729282e-13,
+          "ri_over_t": 5.0,
+          "straight_bending_amplification": 1.0647528027596267
+        },
+        {
+          "moment_error_nmm": -9.111245162785053e-06,
+          "net_force_error_n": -3.1115604020443006e-08,
+          "radial_boundary_error_mpa": 1.1641532182693481e-10,
+          "ri_over_t": 50.0,
+          "straight_bending_amplification": 1.0066467553292833
+        }
+      ],
+      "left_right_physical_cut_event": true,
+      "net_centroid_torque_transfer": true,
+      "rectangle_J_dimension_swap": true,
+      "rectangle_series_tail_relative_enclosure": 4.957237197843462e-10,
+      "rectangle_square_J_mm4": 0.14057701467219832,
+      "same_point_force_and_free_couple_transport": true,
+      "status": "PASS_CHEAP_ANALYTICAL_KNOWN_ANSWERS"
+    },
+    "washers": {
+      "convex_cuboid_exact_disk_fit_and_clip_known_answers": true,
+      "first_joint128_225565MPa_benchmark_reproduced": true,
+      "independent_affine_pressure_integral_max_error_N_Nmm": 2.842170943040401e-14,
+      "inverse_thickness_squared_plate_stress": true,
+      "opposing_identical_ring_tractions_zero_plate_stress": true
+    }
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "reused_source_closure": {
+    "all_bytes_verified": true,
+    "current_plus_followup_source_count": 1126,
+    "current_plus_followup_sources_canonical_sha256": "fdfa5382833e53d6327c4a006524025bd41defb8b28b6f53256d71342dd08a96",
+    "frozen_plan_source_count": 1099,
+    "frozen_plan_sources_canonical_sha256": "c526260b67d9603b20fe0e6416d9cc9dcdd0a99144767a9c6c118aab974fd2a5",
+    "historical_source_maps_remain_evidence_only": true,
+    "material_evidence": {
+      "delivered_hardware_inspected": false,
+      "material_receipts_are_purchase_scenarios": true,
+      "root_evidence_maps": [
+        {
+          "canonical_sha256": "9462a27a88e16d183bc09e8979f6168393045c6993d88a73867a1314f75b1fd4",
+          "computational_overlap_verified": 240,
+          "count": 400,
+          "historical_field_or_viewer_map_imported_as_current": false,
+          "key": "source_sha256",
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/complete-result.json",
+          "raw_sha256": "6d14fbd84ed32757afde7930f559aeeaf90e98259dbb634537ffa7a201b04c71"
+        },
+        {
+          "canonical_sha256": "6ecbbafb0e841297d8025d8c5b15b0307ad891c86b10ab9bce16201870513974",
+          "computational_overlap_verified": 244,
+          "count": 411,
+          "historical_field_or_viewer_map_imported_as_current": false,
+          "key": "source_sha256",
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/independent-review-v1/result.json",
+          "raw_sha256": "cf00de7202db7b9fef8bb82cd38e2c5fb10022e6553979aa2e8d8f83f86742dd"
+        },
+        {
+          "canonical_sha256": "1677c3e5d5ffc39376aeed8ca4559bb021ebd0cdda5a6bbfeb1a0c212dfa7b3e",
+          "computational_overlap_verified": 2,
+          "historical_field_or_viewer_map_imported_as_current": false,
+          "key": "direct_source_sha256",
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/result.json",
+          "raw_sha256": "23730fa128d8033abf671ca7bcbe2a0e7b1a94c7478d439b2ff8fa67718a4174"
+        }
+      ]
+    }
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_followup_source_and_tiny_controls/v1",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/component_plan.py": "caf5d1307d999843c3ea16f3536f5bdd25edb390ebbab6e624cf5f5a86dc727e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/consumer-v1/consume.py": "f11175782c7b29abbdfbcbf5fbad63f919596bc6a613b4c7a5b65acc1027bad9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1/followups.py": "a27bacf7260905f69c2a69bae60c0f2cf4ed1f4efd229100e3c8fb846b892798",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1/test_followups.py": "eec79c2a9f33305f9cccfbec14520806f69a4a46a34efb995e4dc7ab31df912f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bolt-group-method-v1/method.py": "70321b1690269644c6bee6e5d37806f5fcfc31f9677a2a0eae3fb50939b83f69",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/calculate.py": "2add5973386746fc7df8d1a72956d0b10e101f73234ee072a7c300cdc4968350",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/catalog-inputs.json": "b40aa4681143e0d5ca84c986cfad982549c58dc6127e2d58d7455ab7411efe6d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/f606-tensile-yield-spec-v1/receipt-v2.json": "3378a3a4de466f5deaabf17e15a0621bef65daeaf5f01856ace509a41cb25fe6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/thread-root-design-v1/result.json": "e741022ce8265079a745b2e8acbfc77f11b9c80d82a20bd9177f61465056b247",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/first_joint.py": "9a3decbff84ba24ab5ecb9d34489a3427d83144a0813e9dcf6a5b500904a279e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/calculate.py": "6acf9421d8fcbcafd1334edfa3a5a9e3bbb80ccea8594d9094d47cba4c4d7b18",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/core.py": "477ca831860a163e4baefcab3a93fd82002528f4735fe66ec98aec0d382797f1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/test_core.py": "5ae1573a706117a96dc2ddc3afc5e3c6bffbac4be502f354726cfe40186241e0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/calculate_v2.py": "41385d35d8faf785ae14f88f8bb54ed69dbed56e271ff7524f1dc6b071f6310d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/input-v2.json": "849e779f57b281aaa6c38dbb3b2944e4c550e654494a3cb9f6a8c213bc19a57a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/washer-reuse-v1/calculate.py": "96bb2ede4b65202bd9c74631cb39568aad3055294d931e1d352b9d3a8b4741e5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-net-sections-v1/material-source.json": "37808016a6ff7e6d9d0b95f51e5acd43f9ec2e0d48713d2c084850301a7f8072",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-net-sections-v1/net_normal.py": "304f96e6c0df4e18c3a00f2c5c8a7d2206d3c6f024c4bf6ab1beb171924d78b0",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602"
+  },
+  "status": "FROZEN_ADAPTER_SOURCE_READY_FOR_INDEPENDENT_REVIEW_GENUINE_CONSUMPTION_HELD",
+  "validation": {
+    "controls": [
+      "exact current frozen admission before metadata/reducer",
+      "raw field/receipt/gate SHA rejection",
+      "old schema/scene/report/release rejection",
+      "reducer cannot mutate admitted payload",
+      "100 current axes + exact v3 parent +27 service-cut composition",
+      "22 own fitting dimensional scenarios agree",
+      "76 wood/steel +16 two-wood +8 mixed source topology",
+      "tiny same-cut shaft body/root selection and datum rejection",
+      "tiny timber mode Im hand answer and signed grain",
+      "one synthetic steel owner retains28 physical point loads/free couples and4 own aggregates",
+      "source second-read AST race rejection and scoped restoration",
+      "44 fake current steel reductions use two separate scalar scenarios",
+      "scoped timber current intake restored on success/failure",
+      "actual CLI dangling link rejects before callback",
+      "actual CLI two competing processes call once",
+      "actual CLI FAILED/abrupt STARTED attempts retained and not reused",
+      "actual unpatched CLI missing input retains failure",
+      "isolated module import blocks numpy/scipy/CAD imports",
+      "all12 previous owned source/test/receipt files byte-identical"
+    ],
+    "pytest": {
+      "command": ".venv/bin/python -B -m pytest -q -p no:cacheprovider fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1/test_followups.py",
+      "exit_code": 0,
+      "result": "30 passed in 3.49s"
+    },
+    "ruff": {
+      "command": "uv run ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1",
+      "exit_code": 0,
+      "result": "All checks passed!"
+    }
+  }
+}

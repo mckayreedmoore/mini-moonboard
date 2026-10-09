@@ -31,13 +31,19 @@ sudo apt-get install ffmpeg
 
 ## Checks
 
-Run all checks before committing:
+Run checks affected by the change before committing. For code or model changes,
+the normal repository checks are:
 
 ```bash
 uv run ruff check .
 uv run pytest
 uv run scripts/smoke_test.py
 ```
+
+For navigation-only changes, check changed local links/fragments, viewer query
+identities and any preserved historical payload hashes. Archive-only work also
+needs verified restoration and unchanged-source checks. Those changes do not
+justify a CAD rebuild, native solve or complete historical export.
 
 Lint excludes immutable launch and search-controller snapshots under
 `fea/results/`; preserve those source witnesses rather than reformatting them.
@@ -80,7 +86,7 @@ caches. A local four-worker trial passed 299 current/shared tests in 23.4 second
 approximately the same as serial execution. Keep serial execution as the default;
 additional workers did not improve this reduced suite in that trial.
 
-Regenerate the current candidate after changes to its source or geometry inputs:
+Regenerate the selected baseline after changes to its source or geometry inputs:
 
 ```bash
 uv run python -m scripts.floor_flush_exports
@@ -152,6 +158,33 @@ before running a replay that needs them; retained result packets and manuals
 remain at their existing repository paths. See the
 [cleanup record](docs/repository-cleanup-evaluation-2026-09-28.md) for archive
 locations and the current keep/archive/delete dispositions.
+
+## Current development and input recovery
+
+The [Eoere development entry](docs/wood-joints-mvp/README.md) is the maintained
+model/shop/response revision map. `current-candidate.json` continues to select
+the preserved screw-and-bracket baseline. The original Eoere proposal contract
+also retains its own revision; neither file selects a later development scene.
+
+The latest geometry and scoped studies depend on ignored cached solids, fields,
+operators, manuals and source banks. A Git clone supplies only part of those
+inputs. Follow the [active-input recovery record](docs/repository-cleanup-evaluation-2026-09-28.md#navigation-implementation-and-active-input-recovery)
+for the exact snapshot, companion manifests, external paths and recovery command.
+Restore into a fresh external directory; compare required hashes before placing
+missing inputs at their original identities. Preserve newer files and other
+workers' tracked/untracked work. A recovery snapshot does not authorize pruning.
+
+After recovering inputs, the existing cheap v3 source gate can verify its frozen
+producer and rejection controls without executing CAD:
+
+```sh
+python3 -B scripts/check_eoere_2026_replay_inputs.py --out fea/generated/eoere-source-check-NEW.json
+```
+
+Choose a new receipt path for each call. This gate covers the preserved v3
+inputs, not a new extended-cleat response or complete-joint resistance. CI's
+baseline and earlier wood-joint checks retain their separate scopes; full Eoere
+replays require the documented local inputs and explicit affected-check commands.
 
 Keep the current development summary in `docs/wood-joints-mvp/README.md`.
 Update that page for routine continuation; link immutable experiments instead

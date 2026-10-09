@@ -1,0 +1,44 @@
+{
+  "authority_scope": "Parent review approves frozen nominal geometry for cached-solid metadata intake only; this is not owner physical approval, current frame admission, complete joint resistance or fabrication release.",
+  "geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+    "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+  },
+  "optional_2026_extra": false,
+  "parent_base_manifest": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/adjusted-base-manifest.json",
+    "sha256": "27220ec69ebe96e0c637d02d74aea1a7732f68d111b9918c973fa8ee954b48c2"
+  },
+  "parent_geometry_review_evidence": {
+    "extension_actual_mesh": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/actual-mesh-check-v1.json",
+      "sha256": "a866143834840ce7d6458dddbe000ab9cb39eb55486e6c7f7a68bb20826e09a6"
+    },
+    "extension_saved_output": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/actual-output-review.json",
+      "sha256": "c5d97796a59a8fa085abeacdc4a7672c81f9aa57ea9db0bd7872f9e7e5e1f109"
+    }
+  },
+  "parent_model_review_approved": true,
+  "preserved_axis_census": {
+    "screws": 66,
+    "shafts": 100
+  },
+  "published_geometry_commit": "bca5f988f04d089537c037a33cd693c5b96ef093",
+  "readiness": {
+    "actual_extraction_needs_separate_reviewed_method_and_serial_slot": true,
+    "cached_descriptor_source_intake": true,
+    "candidate_assembly_or_solve": false,
+    "independent_current_field_admission": false
+  },
+  "release": {
+    "candidate_admitted": false,
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "physical_contact": false,
+    "structural": false
+  },
+  "revision": "eoere-base-side-edge-cleats-v1",
+  "schema": "eoere_extended_cleat_mechanics_frozen_sources/v1"
+}

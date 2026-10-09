@@ -1,0 +1,234 @@
+{
+  "API": {
+    "load_panel_dependencies(data)": "Deferred production: returns panels,integrated,pins,proof after six current own observations; parent readiness required before use.",
+    "required_data": [
+      "panel_operator_source_inputs=source_inputs()",
+      "geometry exact current reference, directly or geometry.report",
+      "current_panel_machining_descriptors full340",
+      "hillman_rows ordered66 source_screw_descriptor rows",
+      "finished_body_observations own six source/volume_mm3/center_xyz_mm",
+      "source_sha256 without contradictory pins"
+    ],
+    "source_inputs()": "Exact OFF metadata contract; no K/q/CAD loading.",
+    "verify_panel_source_inputs(data,proof=None)": "Metadata-only check; returns passed/source_sha256/source_inputs."
+  },
+  "actual_current_BREPs_imported": false,
+  "actual_current_panel_or_frame_K_built": false,
+  "actual_q_loads_force_or_native_solve": false,
+  "checks": {
+    "actual_current_metadata_contract_checked": true,
+    "command": [
+      "uv",
+      "run",
+      "python",
+      "-m",
+      "pytest",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py",
+      "-q"
+    ],
+    "exact_three_unchanged_K_comparisons": true,
+    "failed": 0,
+    "own66_screw_rigid_work_and_net_mass_first_moment_known_answers": true,
+    "passed": 18,
+    "stale_projection_source_pins_and_existing_output_rejection": true,
+    "synthetic_six_panel_shapes_only_for_K": true,
+    "three_delta_vs_direct_comparisons": true
+  },
+  "development_correction": {
+    "candidate_run_or_geometry_change": false,
+    "cause": "Exact coordinate equality was tighter than the preserved frozen aperture-to-screw metadata tolerance.",
+    "correction": "Reuse the existing less-than-1e-7 mm datum tolerance; source hashes and axis identity remain exact.",
+    "initial_result": "17 passed / 1 metadata-contract failure"
+  },
+  "historical_forces_exceedances_and_unknown_actual_resistance_preserved": true,
+  "intake_seam": {
+    "manifest_sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+    "method_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py",
+    "method_sha256": "7b85a7717d3f2cb06a7a1e6e7f03e556106a46f80f45ce77f9f53d907b71706f",
+    "source_only_prepare_metadata_matches_6_panels_66_screws_340_apertures": true
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "remaining": [
+    "Parent-owned serialized current cached-solid descriptor extraction and independent source review.",
+    "Bind exact current input artifact and method readiness before calling load_panel_dependencies(data).",
+    "Build and verify real three-panel bank with frozen primitives; retain exact source-bound other three K blocks.",
+    "Construct fresh current contacts, physical case loads, frame response and independent field admission separately."
+  ],
+  "schema": "eoere_current_off_panel_source_method_receipt/v1",
+  "source_inputs": {
+    "aperture_updated_K_panels": [
+      "kicker_right",
+      "main_lower_right",
+      "main_upper_right"
+    ],
+    "base_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json",
+      "sha256": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7"
+    },
+    "changed_feature_ids": [
+      "round_kicker_right_center_1",
+      "round_kicker_right_center_2",
+      "round_panel_lower_right_center_1",
+      "round_panel_lower_right_center_2",
+      "round_panel_lower_right_center_3",
+      "round_panel_lower_right_center_4",
+      "round_panel_upper_right_center_1",
+      "round_panel_upper_right_center_2",
+      "round_panel_upper_right_center_3",
+      "round_panel_upper_right_center_4"
+    ],
+    "finished_panel_solids": [
+      {
+        "id": "main_lower_left",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/main_lower_left.brep",
+        "sha256": "3c0833f43a3ac721db0c7e7c476ac56e7b560b3a4fd9f0883ca38a7932b4ee0f",
+        "volume_mm3": 26931109.157457456
+      },
+      {
+        "id": "main_lower_right",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/base/main_lower_right.brep",
+        "sha256": "4bb66b1a059fd5fe61a6abde424eced9c8513ce60bc28c3052316c8a9e8cdb0c",
+        "volume_mm3": 26958695.22564219
+      },
+      {
+        "id": "main_upper_left",
+        "path": "fea/generated/thin-bolted-v4-geometry/main_upper_left.brep",
+        "sha256": "548d368bbe9389dbcbd7f101ce70d5f1249bae3dd39495346be6f000852958d5",
+        "volume_mm3": 26960187.483798306
+      },
+      {
+        "id": "main_upper_right",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/base/main_upper_right.brep",
+        "sha256": "af8937d332e480c9025ec68836817eefb796bcba6a32bcdc10048c87a58ce056",
+        "volume_mm3": 26982927.164258443
+      },
+      {
+        "id": "kicker_left",
+        "path": "fea/generated/thin-bolted-v4-geometry/kicker_left.brep",
+        "sha256": "561cbfa8fe8325f8d8841658efb07ad56f91116792ace903520a0e80873349be",
+        "volume_mm3": 6144798.030971613
+      },
+      {
+        "id": "kicker_right",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v10/base/kicker_right.brep",
+        "sha256": "ef35449594d25e6c8892331949a8b5e876c8483993057426554286363405d87b",
+        "volume_mm3": 6144798.030971608
+      }
+    ],
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+      "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+    },
+    "old_contact_domains_reused": false,
+    "old_response_or_acceptance_used": false,
+    "optional_2026_extra": false,
+    "panel_machining_canonical_sha256": "dd476365c462f1e574d847c28bea041d05f0e00c7126045eab1373eaa7b55909",
+    "reuse_basis": "frozen raised-rail panel bank; own finished-source identity for unchanged three",
+    "scenario": {
+      "APA_reference_family": "23/32 category; original zero-Poisson/membrane-bending-coupling and homogeneous countersink proxies",
+      "geometric_and_aperture_thickness_mm": 18.256249999999998,
+      "literal_19p05mm_sensitivity_adopted": false,
+      "panel_intervals": 8,
+      "twist_scale": 1.0
+    },
+    "schema": "eoere_current_off_panel_operator_source_inputs/v1",
+    "screw_axes_canonical_sha256": "addb41a1836eacea53e7411407ae8006f97cb56ed314ae29cded2c4ff1e2a88b",
+    "screw_axis_ids": [
+      "round_panel_lower_left_rim_1",
+      "round_panel_lower_left_rim_2",
+      "round_panel_lower_left_rim_3",
+      "round_panel_lower_left_rim_4",
+      "round_panel_lower_left_center_1",
+      "round_panel_lower_left_center_2",
+      "round_panel_lower_left_center_3",
+      "round_panel_lower_left_center_4",
+      "round_panel_lower_left_edge_1",
+      "round_panel_lower_left_edge_2",
+      "round_panel_lower_left_service_1",
+      "round_panel_lower_left_service_2",
+      "round_panel_upper_left_rim_1",
+      "round_panel_upper_left_rim_2",
+      "round_panel_upper_left_rim_3",
+      "round_panel_upper_left_rim_4",
+      "round_panel_upper_left_center_1",
+      "round_panel_upper_left_center_2",
+      "round_panel_upper_left_center_3",
+      "round_panel_upper_left_center_4",
+      "round_panel_upper_left_edge_1",
+      "round_panel_upper_left_edge_2",
+      "round_panel_upper_left_service_1",
+      "round_panel_upper_left_service_2",
+      "round_kicker_left_rim_1",
+      "round_kicker_left_rim_2",
+      "round_kicker_left_center_1",
+      "round_kicker_left_center_2",
+      "round_panel_lower_right_rim_1",
+      "round_panel_lower_right_rim_2",
+      "round_panel_lower_right_rim_3",
+      "round_panel_lower_right_rim_4",
+      "round_panel_lower_right_center_1",
+      "round_panel_lower_right_center_2",
+      "round_panel_lower_right_center_3",
+      "round_panel_lower_right_center_4",
+      "round_panel_lower_right_edge_1",
+      "round_panel_lower_right_edge_2",
+      "round_panel_lower_right_service_1",
+      "round_panel_lower_right_service_2",
+      "round_panel_upper_right_rim_1",
+      "round_panel_upper_right_rim_2",
+      "round_panel_upper_right_rim_3",
+      "round_panel_upper_right_rim_4",
+      "round_panel_upper_right_center_1",
+      "round_panel_upper_right_center_2",
+      "round_panel_upper_right_center_3",
+      "round_panel_upper_right_center_4",
+      "round_panel_upper_right_edge_1",
+      "round_panel_upper_right_edge_2",
+      "round_panel_upper_right_service_1",
+      "round_panel_upper_right_service_2",
+      "round_kicker_right_rim_1",
+      "round_kicker_right_rim_2",
+      "round_kicker_right_center_1",
+      "round_kicker_right_center_2",
+      "kicker_header_left_1",
+      "kicker_header_left_2",
+      "kicker_header_left_3",
+      "kicker_header_left_4",
+      "kicker_header_left_5",
+      "kicker_header_right_1",
+      "kicker_header_right_2",
+      "kicker_header_right_3",
+      "kicker_header_right_4",
+      "kicker_header_right_5"
+    ],
+    "unchanged_K_panels": [
+      "kicker_left",
+      "main_lower_left",
+      "main_upper_left"
+    ]
+  },
+  "source_pin_count": 840,
+  "source_pin_union_canonical_sha256": "508879cc0322c2a1e904e2d618d7147844c92286938b0d8a83df90a4aa7cfe31",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/adapter.py": "3eddbab497ae328608b4e5ff93fc2f8e7262ad0bba908afe2f474c1c6fbcca3d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py": "dd48189121a3aef78c60a5eb5677f789ac45a91c7fc42ebb7822442a0986c0c1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-panel-operators-v1/panel_operators.py": "dd99c14bbedb56d267aaa9990aa153d0794cb13cbcb9d32a205206f72bc65f20",
+    "scripts/thin_bolted_panel_load_diagnostics.py": "ff5e0e7b3944e64379181a6b3a1c442b921c197b87d25da3bd20a2d69ec63ebd",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa"
+  },
+  "status": "SOURCE_ONLY_METHOD_TESTED_REAL_CURRENT_BANK_NOT_PREPARED",
+  "tool_versions": {
+    "numpy": "2.5.2",
+    "pytest": "9.1.1",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  }
+}

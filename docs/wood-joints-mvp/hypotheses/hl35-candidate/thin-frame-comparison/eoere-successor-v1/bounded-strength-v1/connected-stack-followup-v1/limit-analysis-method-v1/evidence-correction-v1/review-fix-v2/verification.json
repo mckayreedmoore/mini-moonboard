@@ -1,0 +1,132 @@
+{
+  "candidate_actions_or_geometry_used": false,
+  "candidate_joint_capacity": null,
+  "guarded_source_count": 26,
+  "independent_checks": {
+    "bearing_bound_ratio": 0.9999999999980002,
+    "independently_integrated_fields": 45,
+    "member_force_residual_lbf": 9.094947017729282e-13,
+    "moment_bound_ratio": 0.9999999999980327,
+    "shaft_end_moment_lb_in": 3.3849034686284085e-12,
+    "shaft_force_residual_lbf": 1.5916157281026244e-12
+  },
+  "loaded_source_drifts_rejected": [
+    "launcher",
+    "body",
+    "v1_correction"
+  ],
+  "original_method_and_first_correction_unchanged": true,
+  "previous_compact_controls_rejected": [
+    "candidate_joint_capacity",
+    "invented_analytic_load",
+    "nonfinite_peak",
+    "duplicate_case"
+  ],
+  "raw_evidence": [
+    {
+      "bytes": 35183,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/attempt02/regressions.json",
+      "sha256": "bcf6863ff77d91adf2329827933fd46700a87ac308beefb31297895b576b6cd6"
+    },
+    {
+      "bytes": 7385,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/attempt02/clean-verification.json",
+      "sha256": "ce82e2a6403d4b4b46e4af960dac9d96d461acab6b7d7601487f750f9e5eaf09"
+    },
+    {
+      "bytes": 49445,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/attempt02/fresh-run/result.json",
+      "sha256": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63"
+    },
+    {
+      "bytes": 497851,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/attempt02/fresh-run/details.json",
+      "sha256": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3"
+    },
+    {
+      "bytes": 7299,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/attempt02/fresh-run/run-provenance.json",
+      "sha256": "fb86f8312d61c79bf3203c73ba4099261331e1158c0dda0b07512e2fccef6e32"
+    }
+  ],
+  "raw_load_scale_corruptions_rejected": [
+    {
+      "factor": 1000000.0,
+      "forged_raw_load_lbf": 1490000000.0,
+      "preserved_scaled_load_lbf": 1489.99999999702
+    },
+    {
+      "factor": 1.001,
+      "forged_raw_load_lbf": 1491.4899999999998,
+      "preserved_scaled_load_lbf": 1489.99999999702
+    }
+  ],
+  "receipt_time_path_replacements_rejected": [
+    "symlink",
+    "ordinary_directory_with_identical_bytes"
+  ],
+  "result_and_fields_match_original_issued_bytes": true,
+  "schema": "synthetic_limit_evidence_review_fix_verification/v2",
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/README.md": "4a362e561cea83922fe2c39c78c9ea52cd6337ce82aac55c058fd12fea6b3e48",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/analyze.py": "c258fb08193f3106d0280c636e91f1f0573ddcc442c54ad408c02777e5039881",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/README.md": "7cf33280fd63851ced5afc0912aaece212f555fba9e64fd63234add51bf6e519",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/check.py": "c495ef759fbfee4eb7b2a8dd24f5bdebec6ed745f2b00f4dff09b9bd7a675809",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py": "aca93df3baf397274c432ab9b6672331ed9f94ecb0665340e21dd1b86c3d66d8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/inputs.json": "fe3b1f8f2c52041262ad03f60ff39db43433c641df558ea878b57c20e420aa12",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/body.py": "f970786b787ac3a400c6f86c42edab4e31b20a612e6d249995dc5a03e8c2a6a3",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/check.py": "b4ef80e2e9d0ddc6b128da4f2ded2c85c71106071c669bc221404ab85d911226",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/inputs.json": "acdc2eff6b76b2fc084eb6eaef242f51547cf6130a4fd24f7e44e2b81a8466d8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/run.py": "679c9282d283f9c14547af77a4ab294b546ea9dfe4e6b8c886e6d66d0bc17f79",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/verification.json": "3263448bd49bb3c0fdd4f18704d8319164c0acdbd0fbbb33628fc8cc7b95fc63",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/inputs.json": "bab3f6c7d57c34e6b208c0d78462a7f5c18bf3f59111b67f659fe7f3084044a2",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verification.json": "d0d24644d7adaa0d22273a1e377da71fd9cde51b62e225d6e841249a924857ff",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verify.py": "6d7351cb61c1bbc550f70f01cf54d05be07badb05d7511989e12989c381764db",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/verification.json": "57f81a98a5d158f997b54c0ed4094914339f38b0d9c5809643c227fd1f82a02e",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/correctness/receipt.json": "9280e1abed6dfe2b2c6e89001dec11dcd69771dbe77a727718d224afdcadd1eb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/structure/receipt.json": "a14a3802bf4fcc3b3e65cf6d768d46da896b2a0d1eef9fa9a900f5975cca440b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/receipt.json": "30ad6e3944554e885164a54926da677f856ec249d8c6add552607d780d635c07",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/correctness/receipt.json": "c2df4f5e1a3d944c22f62073cd20c215dd26802a173c4b608e985ee34e8d7075",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/structure/receipt.json": "941d59bc668264938ebfa7da8303c6d9126aef27bf795a3f003d85204ad34f7a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/testing/receipt.json": "66e9fc7f71d4c4889c11624d100dd103ad066d70bf509a3803eb8729c9919fa9",
+    "tests/test_dowel_yield.py": "9a359170144a23bc85dc17e95aabf565c70adf3802e6017a7fdbdf4dec2fd3f2",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "sources": [
+    {
+      "bytes": 964,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/run.py",
+      "sha256": "679c9282d283f9c14547af77a4ab294b546ea9dfe4e6b8c886e6d66d0bc17f79"
+    },
+    {
+      "bytes": 9084,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/body.py",
+      "sha256": "f970786b787ac3a400c6f86c42edab4e31b20a612e6d249995dc5a03e8c2a6a3"
+    },
+    {
+      "bytes": 14042,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/check.py",
+      "sha256": "b4ef80e2e9d0ddc6b128da4f2ded2c85c71106071c669bc221404ab85d911226"
+    },
+    {
+      "bytes": 2807,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/inputs.json",
+      "sha256": "acdc2eff6b76b2fc084eb6eaef242f51547cf6130a4fd24f7e44e2b81a8466d8"
+    }
+  ],
+  "status": "ALL_TARGETED_REGRESSIONS_PASS",
+  "symlink_evidence_rejected": [
+    "directory",
+    "ancestor",
+    "file"
+  ],
+  "three_file_byte_identical_fresh_replay": true,
+  "validated_claims": {
+    "candidate_inputs_used": false,
+    "candidate_joint_capacity": null,
+    "capacity_or_pass_claim": false
+  }
+}

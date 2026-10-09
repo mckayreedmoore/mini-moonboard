@@ -1,0 +1,134 @@
+{
+  "controls_are_in_memory_repin_interpositions_not_live_source_edits": true,
+  "identity": {
+    "all_current_screws_unchanged": 66,
+    "cache_exact_100_axes_66_screws": true,
+    "current_fixed_axes_unchanged": 96,
+    "current_geometry_matches_current_v3_axes_and_screws": true,
+    "four_canonical_maps_checked": true,
+    "four_only_Z200_to180_changes": true
+  },
+  "independent_scalar_capsules": {
+    "all_comparisons": 40752,
+    "four_preserved_capsule_fixtures_rerun": true,
+    "maximum_summary_witness_gap_error_mm": 0.0,
+    "screens": [
+      {
+        "id": "current_Z200",
+        "maximum_screw_minimum_mm": -0.056250000000000355,
+        "maximum_screw_nonpositive_bounds": 2,
+        "nominal_screw_minimum_mm": 0.3406250000000002
+      },
+      {
+        "id": "proposed_Z180",
+        "maximum_screw_minimum_mm": 3.9437499999999996,
+        "maximum_screw_nonpositive_bounds": 0,
+        "nominal_screw_minimum_mm": 4.340625
+      }
+    ],
+    "six_scalar_distance_fixtures": true,
+    "tampered_summary_controls": 6
+  },
+  "limits": [
+    "A source-only four-axis placement proposal is preserved; no model adoption or finished solid reconstruction was performed.",
+    "Capsules contain declared nominal hardware/bore/screw envelopes; positive gaps prove their separation, negative bounds are inconclusive. Delivered dimensions and uncertainty are unverified.",
+    "New bore material, eight seats, changed cuts/screw backing, tool/removal paths, current loads/actions and full joint resistance remain open.",
+    "No recursive source closure, CAD/BREP/K/frame/native/browser work, genuine force-field consumption, model edits, shared writes, staging or commits occurred. Four current drilling holds remain."
+  ],
+  "occupied_output_rejected_before_reads": true,
+  "passed": true,
+  "producer_verification_reused_and_rerun": {
+    "exact_receipt_replay": true,
+    "general_3D_segment_comparisons": 40752,
+    "seven_controls": [
+      {
+        "name": "fresh_byte_replay",
+        "passed": true
+      },
+      {
+        "name": "occupied_output_preserved",
+        "passed": true
+      },
+      {
+        "name": "source_output_alias_rejected",
+        "passed": true
+      },
+      {
+        "name": "wrong_input_hash_rejected",
+        "passed": true
+      },
+      {
+        "name": "source_or_late_output_before",
+        "passed": true
+      },
+      {
+        "name": "source_or_late_output_during",
+        "passed": true
+      },
+      {
+        "name": "source_or_late_output_race",
+        "passed": true
+      }
+    ]
+  },
+  "release": {
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "geometry_adopted": false,
+    "mechanics_ready": false,
+    "structural": false
+  },
+  "reviewer_sha256": "71fa73b55e3f2f1bcc4f69ff13e4b3604151d781968245afd8cda34ddf227a5d",
+  "ruff_frozen_helpers_no_cache": true,
+  "schema": "eoere_current_Z180_independent_testing_review/v1",
+  "source_semantic_controls": [
+    {
+      "name": "wrong_revision",
+      "rejection": "current extended-cleat extra-off inputs required"
+    },
+    {
+      "name": "optional_extra",
+      "rejection": "current extended-cleat extra-off inputs required"
+    },
+    {
+      "name": "wrong_targets",
+      "rejection": "exact four target axes required"
+    },
+    {
+      "name": "wrong_proposal_z",
+      "rejection": "preserved Z180 proposal required"
+    },
+    {
+      "name": "duplicate_geometry_axis",
+      "rejection": "current geometry/descriptor 100-axis identity mismatch"
+    },
+    {
+      "name": "geometry_cache_axis_drift",
+      "rejection": "current geometry/descriptor 100-axis identity mismatch"
+    },
+    {
+      "name": "geometry_cache_screw_drift",
+      "rejection": "current geometry/descriptor 66-screw identity mismatch"
+    }
+  ],
+  "sources": {
+    "authenticated_before_and_after": true,
+    "producer_direct_pin_count": 13,
+    "recursive_581_or343_source_admission": false,
+    "verifier_bound_pin_count": 16
+  },
+  "substantial_findings": [],
+  "target": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1",
+    "sha256": {
+      "inputs.json": "989a518a33f05c72c38613e9b8c53fc85458fc1aabc94948803ff5f9fe2bbb7f",
+      "placement.json": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39",
+      "prepare.py": "9d12bcaa8d375153f4e93e4bfbc36c283ee3167bd614049e698d92ed067395c4",
+      "result.json": "26d27f9c8f5e3c1d91e48143341a8e808d0ece99f316eaf789e2fcbe22e4252a",
+      "verification.json": "ba4ed094c618cc71385754f6c4d06a05787f3706273a4faa4c6987f650c48acb",
+      "verify.py": "267ff85c8fa87930a56f960f9c12c5a01329c546e117f012d1f16eae34b3d0d4"
+    }
+  },
+  "target_and_all_verifier_bound_bytes_unchanged": true
+}

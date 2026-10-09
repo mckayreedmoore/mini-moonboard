@@ -1,0 +1,40 @@
+{
+  "byte_identical_replay": {
+    "details.json": true,
+    "result.json": true
+  },
+  "candidate_inputs_used": false,
+  "capacity_or_pass_claim": false,
+  "existing_output_rejected_before_write": true,
+  "independent_checks": {
+    "bearing_bound_ratio": 0.9999999999980002,
+    "independently_integrated_fields": 45,
+    "member_force_residual_lbf": 9.094947017729282e-13,
+    "moment_bound_ratio": 0.9999999999980327,
+    "shaft_end_moment_lb_in": 3.3849034686284085e-12,
+    "shaft_force_residual_lbf": 1.5916157281026244e-12
+  },
+  "rejected_corrupt_evidence": [
+    "bearing_impulse",
+    "missing_field",
+    "moment_bound",
+    "input_hash"
+  ],
+  "run_files": {
+    "details.json": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/details.json",
+      "sha256": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3"
+    },
+    "result.json": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/result.json",
+      "sha256": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63"
+    }
+  },
+  "schema": "synthetic_dowel_bearing_moment_limit_verification/v1",
+  "source_files": {
+    "analyze.py": "c258fb08193f3106d0280c636e91f1f0573ddcc442c54ad408c02777e5039881",
+    "inputs.json": "bab3f6c7d57c34e6b208c0d78462a7f5c18bf3f59111b67f659fe7f3084044a2"
+  },
+  "source_pins_matched": 5,
+  "verify_sha256": "6d7351cb61c1bbc550f70f01cf54d05be07badb05d7511989e12989c381764db"
+}

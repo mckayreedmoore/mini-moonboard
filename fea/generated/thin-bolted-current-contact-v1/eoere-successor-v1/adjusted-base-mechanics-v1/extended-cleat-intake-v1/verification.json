@@ -1,0 +1,249 @@
+{
+  "candidate_CAD_rebuild_import_query_mesh_K_assembly_factorization_q_forces_load_cases_native_solve_or_browser_executed": false,
+  "checks": {
+    "cadquery_imported": false,
+    "combined_checks_passed": 25,
+    "command": "PYTHONPATH=. .venv/bin/python -B -m pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-export-v1/test_export.py",
+    "fake_solid_fixture": {
+      "each_center_xyz_mm": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "each_volume_mm3": 24.0,
+      "genuine_importer_called_with_fake_objects_only": true,
+      "native_candidate_BREP_imports": 0,
+      "reused_source": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-export-v1/test_export.py",
+      "sha256": "d429db8cf233b5811286597c84069007aab99790d1cab6cd1edb795e01128e11",
+      "solid_count": 28
+    },
+    "focused_extension_checks_passed": 17,
+    "guard_examples": [
+      "All100 complete shaft records and66 complete screw records must equal exact OFF parent",
+      "Exact reviewed v3 parent manifest and current extension manifest required",
+      "Source bytes, descriptor-only readiness and false release flags required",
+      "Historical computational overlap must match current closure; old viewer runtime pins explicitly historical",
+      "Missing marker and same-geometry foreign-manifest slot stop before native exporter",
+      "Existing output stops before source/native intake",
+      "Changed declared grain or additional finished owner rejected"
+    ],
+    "observed_duration_seconds": 2.51,
+    "reused_exporter_checks_passed": 8,
+    "ruff_command": "uv run ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1",
+    "ruff_pass": true
+  },
+  "current_metadata_inventory": {
+    "Hillman_screws": 66,
+    "auxiliary_screw_Tnut_gravity_shares": 274,
+    "changed_finished_owner_ids": [
+      "base_header",
+      "base_post_center_right",
+      "base_principal_center_right",
+      "base_rail_bottom_left",
+      "base_rail_bottom_right",
+      "base_rail_service_lower_left",
+      "base_rail_service_lower_right",
+      "base_rail_service_upper_left",
+      "base_rail_service_upper_right",
+      "base_rail_top",
+      "eoere_cleat_left",
+      "eoere_cleat_right",
+      "kicker_right",
+      "main_lower_right",
+      "main_upper_right"
+    ],
+    "cleat_grain_scenario_xyz": [
+      0.0,
+      0.0,
+      1.0
+    ],
+    "extension_finished_owner_ids": [
+      "eoere_cleat_left",
+      "eoere_cleat_right"
+    ],
+    "factory_holes": 176,
+    "finished_cut_stiffness_or_resistance_qualified": false,
+    "finished_panel_sources": 6,
+    "finished_sloping_sources_separate_from_gross_blank_stiffness": true,
+    "finished_timber_sources": 22,
+    "fitting_ports": 88,
+    "floor_hosts": 8,
+    "fresh_cleat_wall_rows_required": 8,
+    "fresh_wall_rows_required": 60,
+    "grain_inspected": false,
+    "gross_raw_timber_profiles": 22,
+    "nominal_shaft_metal_roles": 500,
+    "normal_reference_points": 32,
+    "pending_own_COM_owner_ids": [
+      "base_header",
+      "base_post_center_right",
+      "base_principal_center_right",
+      "base_rail_bottom_right",
+      "base_rail_service_lower_right",
+      "base_rail_service_upper_right",
+      "base_rail_top",
+      "kicker_right",
+      "main_lower_right",
+      "main_upper_right"
+    ],
+    "physical_owners": 150,
+    "potential_byte_identical_wall_rows": 60,
+    "shafts": 100,
+    "two_cleat_gross_blank_dimensions_mm": [
+      38.1,
+      139.7,
+      361.1860828293809
+    ]
+  },
+  "geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+    "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+  },
+  "geometry_review_evidence": {
+    "current": {
+      "extension_actual_mesh": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/actual-mesh-check-v1.json",
+        "sha256": "a866143834840ce7d6458dddbe000ab9cb39eb55486e6c7f7a68bb20826e09a6"
+      },
+      "extension_saved_output": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/actual-output-review.json",
+        "sha256": "c5d97796a59a8fa085abeacdc4a7672c81f9aa57ea9db0bd7872f9e7e5e1f109"
+      }
+    },
+    "dependency_checks": [
+      {
+        "current_computational_overlap_canonical_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "current_computational_overlap_pins_verified": 0,
+        "evidence": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-v1/actual-mesh-check-v1.json",
+          "sha256": "a866143834840ce7d6458dddbe000ab9cb39eb55486e6c7f7a68bb20826e09a6"
+        },
+        "historical_viewer_hashes_not_used_as_current_runtime": {}
+      },
+      {
+        "current_computational_overlap_canonical_sha256": "1e207abeee7255b6d9286f2d280ce2fe7e394a4cc7079a2ed9303440c181bede",
+        "current_computational_overlap_pins_verified": 582,
+        "evidence": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/actual-output-review.json",
+          "sha256": "c5d97796a59a8fa085abeacdc4a7672c81f9aa57ea9db0bd7872f9e7e5e1f109"
+        },
+        "historical_viewer_hashes_not_used_as_current_runtime": {}
+      },
+      {
+        "current_computational_overlap_canonical_sha256": "03055cd83f6cf96c2bbffa8d783110e0a11b4f38a6bd3654273813ad7bb6139a",
+        "current_computational_overlap_pins_verified": 710,
+        "evidence": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/receipt.json",
+          "sha256": "0907933e79a0b24f9f2a2c9e7744ed08d7f2badb94a633dba1ea70d3afab1d13"
+        },
+        "historical_viewer_hashes_not_used_as_current_runtime": {}
+      },
+      {
+        "current_computational_overlap_canonical_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+        "current_computational_overlap_pins_verified": 0,
+        "evidence": {
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verification-result-v1.json",
+          "sha256": "bee7b40d7f2171f78b65bcd41e0296c92e79cb27883144702179eb459fd512fc"
+        },
+        "historical_viewer_hashes_not_used_as_current_runtime": {
+          "site/eoere-2026-adjustments-overlay.mjs": "b57759996903d1a5696f9cf5dca85af7e392a3cac38eaf6c5e15f49e54a5110d",
+          "site/index.html": "1a1a8bbae255886214d6111769674bfafb8e80c72f3ebfa1acea319b2fa8b883"
+        }
+      }
+    ],
+    "historical_review_execution_dependencies_used_as_current_inputs": false,
+    "parent_base": {
+      "base_geometry_correctness": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/correctness/receipt.json",
+        "sha256": "0907933e79a0b24f9f2a2c9e7744ed08d7f2badb94a633dba1ea70d3afab1d13"
+      },
+      "base_geometry_verification": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/2026-adjustments-v3-review-v1/verification/verification-result-v1.json",
+        "sha256": "bee7b40d7f2171f78b65bcd41e0296c92e79cb27883144702179eb459fd512fc"
+      }
+    }
+  },
+  "manifest": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json",
+    "sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+  },
+  "old_forces_capacities_passes_or_response_fields_transferred": false,
+  "optional_2026_extra": false,
+  "parent_base_geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json",
+    "sha256": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7"
+  },
+  "ready_API": {
+    "CLI": "PYTHONPATH=. EOERE_PARENT_SERIALIZED_EXTRACTION=1 .venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py --extract --manifest EXACT_MANIFEST --manifest-sha256 EXACT_SHA --slot EXACT_PARENT_SLOT --slot-sha256 EXACT_SLOT_SHA --out FRESH_EXCLUSIVE_JSON",
+    "actual_parent_slot_issued_in_this_work": false,
+    "manifest_schema": "eoere_extended_cleat_mechanics_frozen_sources/v1",
+    "native_export": "export_native(exact_manifest_path, exact_raw_manifest_sha256, exact_parent_slot_path, exact_raw_slot_sha256)",
+    "prepare": "prepare(exact_manifest_path, exact_raw_manifest_sha256) -> preflight, old_source_metadata, report, six_panel_sources, source_pins",
+    "slot_record": {
+      "approved_geometry_sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+      "approved_manifest_sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+      "cached_descriptor_extraction_authorized": true,
+      "status": "FREE_SLOT"
+    },
+    "source_plan": "source_plan(exact_manifest_path, exact_raw_manifest_sha256)"
+  },
+  "release": {
+    "candidate_admitted": false,
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "physical_contact": false,
+    "structural": false
+  },
+  "remaining": [
+    "Parent independent source/method review and same-manifest serialized extraction slot; this receipt does not authorize the slot",
+    "All28 genuine current cached-solid volume/bounds/COM/topology observations and source crosschecks",
+    "All120 source-bound bore walls:60 required fresh including8 cleat walls, up to60 byte-identical geometric reuse candidates; all200 current external seat joins",
+    "Complete current22timber/sixpanel face atlas and pair census, all88 fresh flange domains and all8 own floor-face observations",
+    "Current three-panel K/mass/screw-port refresh, fresh six original cases plus separate gravity-only, current factory input/method/readiness bridge and independent raw-field admission",
+    "Complete joint resistance, tools/tolerances, delivered hardware and physical acceptance remain separate unresolved duties"
+  ],
+  "reused_APIs": {
+    "frozen_adjusted_adapter": [
+      "preflight",
+      "gross_row through generic extract",
+      "complete shaft/port/screw and source ancestry closure"
+    ],
+    "frozen_cached_exporter": [
+      "source_plan",
+      "export_native",
+      "import_current",
+      "wall_cache",
+      "floor_observations",
+      "slot"
+    ],
+    "genuine_extract": [
+      "import_cached",
+      "shafts and end_seats",
+      "contact_bank",
+      "flange_bank",
+      "fitting_centroid"
+    ]
+  },
+  "schema": "eoere_extended_cleat_cached_source_export_preparation_verification/v1",
+  "source_closure": {
+    "all_before_after_unchanged": true,
+    "canonical_sha256": "82d29ecb17686079197662d2fa5802df78640158f9e2c0d2b1f6f7f5a2803f56",
+    "current_geometry_source_pins": 581,
+    "historical_review_receipts_are_exact_evidence_not_reexecuted_producers": true,
+    "verified_pins": 1076
+  },
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/adapter.py": "3eddbab497ae328608b4e5ff93fc2f8e7262ad0bba908afe2f474c1c6fbcca3d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-export-v1/export.py": "718fc48186bbb37ef297a599d371a0a8def020864c90426c8e5492dcd404fb2f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py": "786cdfb9e8560716ab603d26179ce3a0b5635965d3238e234f669811768fe63a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/adjusted-base-manifest.json": "27220ec69ebe96e0c637d02d74aea1a7732f68d111b9918c973fa8ee954b48c2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/mechanics-inputs-v1/extract.py": "b02cb1318518dda0949ac6175b72a130d5379a8ca45d4776ee22e540bd6769a4"
+  },
+  "staging_commit_push_peer_edit_archive_or_prune_performed": false,
+  "status": "PASS_CURRENT_SOURCE_METADATA_AND_FAKE_FIXTURES_NATIVE_EXTRACTION_PENDING_PARENT_REVIEW_AND_SLOT"
+}

@@ -1,0 +1,135 @@
+{
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "-B",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/method-review-v1/testing/review.py",
+    "--out",
+    "/tmp/eoere-method-review-receipt-4si6h9v9/receipt.json"
+  ],
+  "findings": [
+    {
+      "also_affected": [
+        {
+          "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py",
+          "line": 251
+        },
+        {
+          "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py",
+          "line": 183
+        },
+        {
+          "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py",
+          "line": 202
+        }
+      ],
+      "category": "testing/correctness",
+      "description": "Output tests cover an existing regular file but miss dangling symlinks and reservation races. Path.exists() accepts a dangling symlink, and exclusive file creation occurs only after source/extraction work. Two competing fresh calls can both finish the extraction callback before one receives FileExistsError.",
+      "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py",
+      "fix": "Reserve the output exclusively before source/authentication/extraction (using xb/x, keeping failed attempts reserved), then write through the reserved handle. Add dangling-output-link and competing same-output tests that assert source/native callbacks are never reached by the rejected call. Preserve the frozen reusable exporter.",
+      "impact": "A doomed output can still enter the separately gated native extraction route; duplicate invocations can spend the serialized extraction work twice for a single output. Exclusive writing preserves existing bytes, but the claimed stop-before-source/native boundary is not enforced for these cases.",
+      "line": 243,
+      "severity": "medium"
+    }
+  ],
+  "independent_output_controls": {
+    "actual_native_extraction_executed": false,
+    "competing_intake_calls": {
+      "native_export_stub_calls": 2,
+      "outcomes": [
+        "collision",
+        "success"
+      ],
+      "winner_output_preserved": true
+    },
+    "dangling_output": {
+      "intake_native_export_stub_calls_before_final_FileExistsError": 1,
+      "link_preserved": true,
+      "link_target_created": false,
+      "panel_source_stub_calls_before_final_output_creation": 1
+    }
+  },
+  "limits": [
+    "Only source metadata, supplied fake-solid fixtures and tiny 48-DOF panel charts were executed.",
+    "Intake fixtures block CAD module imports. Panel frozen imports load the CAD library but genuine BRep importing and the real saved panel-bank loader were replaced with failure sentinels during metadata/tests.",
+    "The output defect was demonstrated only with native/source stubs; no genuine BRep extraction, real panel/frame K, q, load cases, native solve, browser or current-force bridge ran.",
+    "All frozen target/source bytes remained unchanged. Temporary outputs belonged to this review and were removed by their TemporaryDirectory."
+  ],
+  "runtime": {
+    "python": "3.12.3"
+  },
+  "schema": "eoere_adjusted_method_independent_testing_review/v1",
+  "source_checks": {
+    "current_intake_panel_metadata_seam_matches": true,
+    "intake_inventory": {
+      "finished_timber_sources": 22,
+      "panels": 6,
+      "physical_owners": 150,
+      "ports": 88,
+      "screws": 66,
+      "shafts": 100
+    },
+    "intake_pins": 1076,
+    "missing_observations_reject_before_bank_loading": true,
+    "optional_extra_ON_source_inputs_rejected": true,
+    "panel_pins": 840
+  },
+  "source_closures_verified_before_after": {
+    "intake": 1076,
+    "panel": 840
+  },
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/method-receipt.json": "72f1d047ddf567fd2053911157be02288c1357477ee3ca429223bb85f9acc0e2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py": "dd48189121a3aef78c60a5eb5677f789ac45a91c7fc42ebb7822442a0986c0c1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py": "786cdfb9e8560716ab603d26179ce3a0b5635965d3238e234f669811768fe63a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/verification.json": "e5b8451c7b6d23822b8909378f2df98e6132e16384900ac20b5c3522b5193544",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/method-review-v1/testing/review.py": "63984af492dabcbcc864ed297e07cdb418d90cc3916889332e614d96a1c022d9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/adjusted-base-manifest.json": "27220ec69ebe96e0c637d02d74aea1a7732f68d111b9918c973fa8ee954b48c2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+  },
+  "status": "SUPPLIED_TESTS_PASS_WITH_ONE_CONFIRMED_OUTPUT_GUARD_FINDING",
+  "supplied_tests": {
+    "batches": [
+      {
+        "argv": [
+          "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+          "-B",
+          "-c",
+          "import builtins,sys,pytest\nfrom unittest.mock import patch\noriginal=builtins.__import__\ndef guarded(name,*args,**kwargs):\n    if name.split('.')[0] in {'cadquery','OCP'}: raise AssertionError('CAD import blocked in intake fixtures')\n    return original(name,*args,**kwargs)\nwith patch.object(builtins,'__import__',guarded):\n    code=pytest.main(sys.argv[1:])\nraise SystemExit(code)\n",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "--basetemp",
+          "/tmp/eoere-method-testing-e2y5pa_w/intake",
+          "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py",
+          "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-export-v1/test_export.py"
+        ],
+        "passed": 25,
+        "stderr": "",
+        "stdout": ".........................                                                [100%]\n25 passed in 2.44s\n"
+      },
+      {
+        "argv": [
+          "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+          "-B",
+          "-c",
+          "import sys,pytest,cadquery as cq\nfrom unittest.mock import patch\nfrom scripts import run_thin_bolted_finite_frame as saved\ndef forbidden(*args,**kwargs): raise AssertionError('genuine BRep/real saved bank blocked in panel fixtures')\nwith patch.object(saved,'reuse_panel_operators',forbidden), patch.object(cq.Shape,'importBrep',staticmethod(forbidden)):\n    code=pytest.main(sys.argv[1:])\nraise SystemExit(code)\n",
+          "-q",
+          "-p",
+          "no:cacheprovider",
+          "--basetemp",
+          "/tmp/eoere-method-testing-e2y5pa_w/panel",
+          "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py"
+        ],
+        "passed": 18,
+        "stderr": "",
+        "stdout": "..................                                                       [100%]\n18 passed in 1.12s\n"
+      }
+    ],
+    "intake_cadquery_or_OCP_import_blocked": true,
+    "panel_CAD_library_imported_without_BREP_import_or_query": true,
+    "passed": 43,
+    "real_saved_panel_bank_loader_blocked": true
+  }
+}

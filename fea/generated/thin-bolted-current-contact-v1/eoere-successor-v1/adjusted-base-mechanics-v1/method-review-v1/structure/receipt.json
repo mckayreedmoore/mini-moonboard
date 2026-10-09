@@ -1,0 +1,63 @@
+{
+  "actual_BREP_import_or_query": false,
+  "checks": {
+    "exploratory_all_groups_in_one_process": "41 passed, 2 false isolation failures: panel test collection loads the CAD library through frozen helper imports, violating intake tests' process-wide sys.modules assertions. No BREP was imported; the separately recorded commands both pass.",
+    "recorded_intake_and_exporter_group": "25 passed in separate process",
+    "recorded_synthetic_panel_group": "18 passed in separate process"
+  },
+  "command": "PYTHONPATH=. .venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/method-review-v1/structure/review.py",
+  "coupling_and_reuse": "Two-cleat wrapper composes exact frozen adapter/exporter with scoped context-managed overrides. Current panel module reuses frozen raised-bank aperture, ports and mass primitives; no copied math or previous contact/force acceptance is supplied.",
+  "current_force_bridge_reviewed": false,
+  "current_source_only_intake_panel_seam": {
+    "exact_current_intake_method_sha256": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+    "exact_extended_parent_manifest_sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+    "exact_panel_method_sha256": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b",
+    "full_340_aperture_descriptors_equal": true,
+    "ordered_66_screw_descriptors_equal": true,
+    "six_finished_panel_source_bindings_equal": true
+  },
+  "findings": [
+    {
+      "category": "architecture/provenance",
+      "concrete_fix": "Preserve the issued receipt and add a compact exact-source correction/supplement recording bdfa95b4..., the exact manifest and the three full metadata comparisons. Retain/identify the former source if the earlier comparison remains claimed as recoverable history. This independent review receipt already supplies the current-source metadata comparison evidence, but the parent must bind it explicitly as the corrected active seam evidence.",
+      "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/method-receipt.json",
+      "finding": "The panel method receipt binds its intake seam to exporter SHA 7b85a771... at extended-cleat-intake-v1/export.py, but that path is frozen at bdfa95b4.... The receipt does not label this as a historical producer or provide a recoverable source path for those former bytes.",
+      "impact": "The recorded seam comparison cannot be authenticated against the frozen review target, so it cannot serve as exact-source evidence for the parent method-readiness gate. This is a provenance defect; the current source-only comparison itself passes.",
+      "line": 47,
+      "observed_current_method_sha256": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+      "recorded_method_sha256": "7b85a7717d3f2cb06a7a1e6e7f03e556106a46f80f45ce77f9f53d907b71706f",
+      "severity": "medium"
+    }
+  ],
+  "frozen_target_bytes": 82368,
+  "frozen_target_count": 8,
+  "frozen_target_sha256": {
+    "current-panel-bank-v1/method-receipt.json": "72f1d047ddf567fd2053911157be02288c1357477ee3ca429223bb85f9acc0e2",
+    "current-panel-bank-v1/panel_operators.py": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b",
+    "current-panel-bank-v1/test_panel_operators.py": "dd48189121a3aef78c60a5eb5677f789ac45a91c7fc42ebb7822442a0986c0c1",
+    "extended-cleat-intake-v1/export.py": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+    "extended-cleat-intake-v1/test_extended_intake.py": "786cdfb9e8560716ab603d26179ce3a0b5635965d3238e234f669811768fe63a",
+    "extended-cleat-intake-v1/verification.json": "e5b8451c7b6d23822b8909378f2df98e6132e16384900ac20b5c3522b5193544",
+    "parent-authority-v1/adjusted-base-manifest.json": "27220ec69ebe96e0c637d02d74aea1a7732f68d111b9918c973fa8ee954b48c2",
+    "parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+  },
+  "physical_readiness_or_capacity_claimed": false,
+  "real_panel_or_global_K_or_q_native_or_browser_executed": false,
+  "retention": "All eight reviewed source/receipt/authority files stay in their existing ignored evidence paths; hashes, original review receipts, historical rendering maps and computation source closures remain separate. No raw geometry/manual/dependency copies, archive or prune were created.",
+  "review_script_sha256": "c16e61cf245e2227aab1a5d444f82d6e60836f6f5e6ac556a33325d2845d6860",
+  "schema": "independent_adjusted_base_method_structure_review/v1",
+  "source_closures_before_after": {
+    "intake_canonical_sha256": "82d29ecb17686079197662d2fa5802df78640158f9e2c0d2b1f6f7f5a2803f56",
+    "intake_count": 1076,
+    "panel_canonical_sha256": "508879cc0322c2a1e904e2d618d7147844c92286938b0d8a83df90a4aa7cfe31",
+    "panel_count": 840,
+    "verified": true
+  },
+  "source_override_restoration_on_exception": {
+    "native_wrapper_with_fake_dependencies_only": true,
+    "source_plan": true
+  },
+  "staging_or_commit": false,
+  "status": "ONE_CONFIRMED_PROVENANCE_FINDING_CURRENT_SOURCE_METADATA_SEAM_PASSES",
+  "target_files_unchanged": true
+}

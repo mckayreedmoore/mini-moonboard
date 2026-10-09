@@ -1,0 +1,178 @@
+{
+  "architecture_assessment": [
+    {
+      "assessment": "The current wrapper owns input validation and composition; the unchanged shared method owns the global compression calculation and seven fixtures. It compiles the captured METHOD_SHA bytes rather than rereading an import path, calls no legacy run(), and uses old input only for footprint/hull comparison. No duplicate mechanics implementation or copied dependency tree.",
+      "evidence": "check_current.py:83-228,253-301; global_statics.py:24-87"
+    },
+    {
+      "assessment": "Eight direct pins bind the current source-load descriptor, geometry report/cache/manifest, shared method, legacy footprint input, wrapper and lockfile. The 1,086 recursive pins are explicitly declared without admission. Source-only pending flags and false release values survive unchanged. New records supply no old-field relabeling, elastic reactions, friction/no-slip capacity, floor or joint resistance.",
+      "evidence": "check_current.py:240-267,302-355; result.json:source_bindings,input_readiness_preserved,limitations"
+    },
+    {
+      "assessment": "Producer output requires absence and exclusive creation, with source checks before/after writing. Only its newly created invalid output is removed on write-time failure. The verifier owns a fresh directory, retains command/stdout/stderr evidence before checking exits, and confines mutations to copied helpers. Existing/raced outputs are preserved. Frozen results are never overwritten.",
+      "evidence": "check_current.py:231-237,359-369; verify.py:179-215,219-304"
+    },
+    {
+      "assessment": "The rejected footprint-equality attempt and intermediate results retain their own source snapshots and identities. The four-file packet is 56,410 bytes; existing inputs, observations, method, dependencies and old response assets are referenced. Retained raw attempts/control records remain active, with no pruning authority inferred.",
+      "evidence": "controls01/frozen-packet.json; attempt01/failure.json; attempt02/result.json; attempt03/result.json"
+    }
+  ],
+  "checks": {
+    "captured_authenticated_legacy_source_reused": true,
+    "current_support_points": 32,
+    "identical_old_support_points": 28,
+    "inert_preflight_checks": [
+      "occupied_review_file",
+      "source_output_alias",
+      "wrong_input_hash_before_method_load"
+    ],
+    "legacy_method_calls": {
+      "ConvexHull": 1,
+      "assess": 1,
+      "fixtures": 1
+    },
+    "no_result_or_input_relabeling": true,
+    "old_input_fields_consumed": [
+      "floor_footprints"
+    ],
+    "preserved_known_answer_fixture_count_source_contract": 7,
+    "pure_source_validator": "PASS",
+    "saved_minimum_margin_mm": 330.28499147990897,
+    "saved_seven_controls_and_seven_decimal_checks_bound": true,
+    "source_mass_kg": 219.11593970030577,
+    "source_only_negative_gate_checks": 3,
+    "translated_right_post_points": 4
+  },
+  "current_context": {
+    "AGENTS.md": {
+      "bytes": 12480,
+      "sha256": "e72c0ca31382df1e3f26dfba213973f7ffc8be4ce2a984fd634d75fe917ffc87"
+    },
+    "docs/wood-joints-mvp/README.md": {
+      "bytes": 10513,
+      "sha256": "7457d9b239957ac2ad9174323839b25d7c0f899689fa802a17d97b0998eda8e8"
+    },
+    "docs/wood-joints-mvp/completion-ledger.md": {
+      "bytes": 840895,
+      "sha256": "7648696ef49a7ddd85bacb342efabdecbaa5a9afeb693efc8067bdee2beaf30c"
+    }
+  },
+  "direct_source_bindings_authenticated_before_after": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-v1/check_current.py": "c2c32d1fdadae374b5d7f7d192d979e52954011bc041171980cc6e63a0aeceaa",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/global_statics.py": "e8042b4a7f82e4d76e2a66abde4452a2d61959359bff4fe2edb261af7e1152d4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-mechanics-v1/inputs.json": "81e9ad126f806a412a8bcb73ae3d0057ef3568ed0fa45986503f97fb5fb62d9f",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "findings": [],
+  "limits": [
+    "Source-only architecture/ownership/retention review; the preserved global statics method, its LP/hull computation, frame/native/CAD/BREP and browser execution were not run.",
+    "Pure current-input validation and early output/hash rejections were exercised via AST-extracted definitions; all mathematical global-result claims are reused from frozen source-bound producer evidence, not independent mechanical qualification.",
+    "No recursive current-input admission, compatible elastic reactions, physical floor/no-slip/friction qualification, complete joint resistance, fabrication or climbing approval. Parent owns final validation/publication."
+  ],
+  "recursive_input_pins": {
+    "declared": 1086,
+    "independently_rehashed_here": false,
+    "source_or_method_admission": false
+  },
+  "reproduce_review": "python3 -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-review-v1/structure/review.py",
+  "retained_attempt_and_control_hashes": {
+    "attempt01/failure.json": {
+      "bytes": 8435,
+      "sha256": "4991cd9bb8404bedbd4d7aeab602bb3c373d333fc8f7b251a42f0989e7df6de9"
+    },
+    "attempt01/source-at-run.py": {
+      "bytes": 12719,
+      "sha256": "73f8700647629b122e7f82d83025fb15bc315ae8332e56607a1f74950e0faa51"
+    },
+    "attempt02/result.json": {
+      "bytes": 24763,
+      "sha256": "78bb9478da1f3ae77805d4d18f5c115862d2a026f2f549569e7502082eb2813e"
+    },
+    "attempt02/source-at-run.py": {
+      "bytes": 14948,
+      "sha256": "415c37e1ac9e91f577bd6c5aaf5816e0f8bfc96bc3bacb48caa444c40d22d02c"
+    },
+    "attempt03/result.json": {
+      "bytes": 24685,
+      "sha256": "561b333f9c974249f16c0af2182ca7777dd22541ea698f6e9c93ed4eb8359c31"
+    },
+    "attempt03/source-at-run.py": {
+      "bytes": 15047,
+      "sha256": "de90f2e1cdce2ef8a0d14136330eab06926e2d512373edd897e637878f241530"
+    },
+    "controls01/fresh_exact_replay.json": {
+      "bytes": 651,
+      "sha256": "c7952d41141fc021f79a232de19cf4444b6fa789ddc48205601b65f7242d1d83"
+    },
+    "controls01/frozen-packet.json": {
+      "bytes": 1534,
+      "sha256": "ac257a049e3296fd9a502bca399214de73a498889dd4a8a549cc797f3fb36b62"
+    },
+    "controls01/occupied_output_preserved.json": {
+      "bytes": 1312,
+      "sha256": "4aa35f9548ce6e0f1fdd9957eacecf5f8bb8519dfffdc42388d9f66730629dd8"
+    },
+    "controls01/receipt.json": {
+      "bytes": 4037,
+      "sha256": "2278f49ebd516bb3cc10fc1fffa53bdda989008c66429eeb4e55c2952404b203"
+    },
+    "controls01/replayed.json": {
+      "bytes": 24685,
+      "sha256": "f05f81d17a80b1fc1e2a0df106a60ac34f6253a1bb0b664a7241e63cc3702c24"
+    },
+    "controls01/source_drift_or_late_output_before.json": {
+      "bytes": 2294,
+      "sha256": "3283b9542406f143790b1851ed3a86cd1ef50632816d16e2da675eeba9702fe1"
+    },
+    "controls01/source_drift_or_late_output_during.json": {
+      "bytes": 2294,
+      "sha256": "fadbe44ca96af9fb08a6d28b28d83541c7da9aabfcc816c35173d74fbfa1e2e0"
+    },
+    "controls01/source_drift_or_late_output_race.json": {
+      "bytes": 2286,
+      "sha256": "d49def2c2a732aecb1c83e510ebc3ab6b84223a18b6482d9c010816d10d09417"
+    },
+    "controls01/source_output_alias_rejected.json": {
+      "bytes": 1273,
+      "sha256": "4ae10604614a336c002dc28b00c0e57a58c2cd770a0d742c74f4b2f1b93ad3f9"
+    },
+    "controls01/wrong_input_hash_rejected.json": {
+      "bytes": 1794,
+      "sha256": "2dfa2fc53bb86ddabebd682f7d349cddba6e7310d36b1ae9e671516b263e1b75"
+    }
+  },
+  "review_helper": {
+    "bytes": 17124,
+    "sha256": "f6a5c488222d992740807288f12c99b0435f975c2a9aa05ecdc1b9dd2142a9f0"
+  },
+  "schema": "eoere_current_global_statics_architecture_review/v1",
+  "shared_edits_staging_commits": false,
+  "source_and_target_unchanged": true,
+  "status": "NO_SUBSTANTIAL_CONFIRMED_ARCHITECTURE_SOURCE_OR_RETENTION_FINDINGS",
+  "target": {
+    "bytes": 56410,
+    "files": {
+      "check_current.py": {
+        "bytes": 15046,
+        "sha256": "c2c32d1fdadae374b5d7f7d192d979e52954011bc041171980cc6e63a0aeceaa"
+      },
+      "result.json": {
+        "bytes": 24685,
+        "sha256": "f05f81d17a80b1fc1e2a0df106a60ac34f6253a1bb0b664a7241e63cc3702c24"
+      },
+      "verification.json": {
+        "bytes": 4037,
+        "sha256": "2278f49ebd516bb3cc10fc1fffa53bdda989008c66429eeb4e55c2952404b203"
+      },
+      "verify.py": {
+        "bytes": 12642,
+        "sha256": "68e27a587cadc08b64923cbe76fdf5db36c35ca0cca6d8789ac3f3b44be7862d"
+      }
+    },
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-v1"
+  }
+}

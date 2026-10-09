@@ -1,0 +1,149 @@
+{
+  "actual_BREP_import_or_real_K_q_native_solve": false,
+  "confirmed_substantial_findings": [],
+  "coverage_and_limits": [
+    "18 original checks and seven corrected CLI checks reproduced in separate processes.",
+    "Original metadata-only admission, own-source observation/pin/aperture/screw rejection, synthetic delta/direct stiffness, exact unchanged K, screw work and mass first moments are exercised.",
+    "Additional six rotated/translated 48-DOF charts check local-XY routing and all 66 global screw virtual-work wrenches.",
+    "Malformed current observations reject before the real bank loader; finite COM is an input requirement, not an independently verified geometric COM.",
+    "Actual CLI source-only metadata succeeds from an external directory; additional serialization, interruption, exit and source-hash failures retain valid failure JSON.",
+    "Source seam check matches own six panel sources, 66 screw descriptors and 340 apertures against current frozen exporter bdfa95b4; original stale receipt remains frozen.",
+    "Library cadquery was imported under a guarded Shape.importBrep. No actual BREP import, actual panel/frame K, historical q load, native solve or browser work occurred.",
+    "The direct K comparisons reuse frozen numerical primitives; they check delta routing within that method and do not independently qualify the plate model or actual panel resistance.",
+    "The source-admission proof is metadata/projection evidence. It is not independent authentication of runtime panel K/mass/screw arrays or a current structural field.",
+    "Real current observed volume/COM extraction, parent-owned frozen inputs/readiness, real three-panel bank construction, fresh contacts/loads/response and independent admission remain deferred."
+  ],
+  "exact_current_source_seam": {
+    "actual_current_panel_or_frame_K_q_or_native_solve": false,
+    "cadquery_library_imported": true,
+    "current_exporter_replaces_only_stale_seam_binding_in_original_receipt": true,
+    "guarded_BREP_import_calls": 0,
+    "intake_module_absence_assertions_require_isolated_test_process": true,
+    "matching_aperture_descriptors": 340,
+    "matching_own_panel_sources": 6,
+    "matching_own_screw_descriptors": 66,
+    "original_receipt_and_original_code_test_hashes_preserved": true,
+    "passed": true,
+    "schema": "eoere_current_off_panel_source_seam_review_supplement/v2",
+    "source_sha256": {
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/method-receipt.json": "72f1d047ddf567fd2053911157be02288c1357477ee3ca429223bb85f9acc0e2",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py": "dd48189121a3aef78c60a5eb5677f789ac45a91c7fc42ebb7822442a0986c0c1",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+    }
+  },
+  "independent_CLI_checks": {
+    "BREP_and_real_bank_loader_guarded": true,
+    "failure_paths": {
+      "bank_digest_failure": {
+        "exception_type": "ValueError",
+        "reserved_failure_JSON_retained": true
+      },
+      "interrupt": {
+        "exception_type": "KeyboardInterrupt",
+        "reserved_failure_JSON_retained": true
+      },
+      "own_source_changed": {
+        "exception_type": "ValueError",
+        "reserved_failure_JSON_retained": true
+      },
+      "serialization_failure": {
+        "exception_type": "ValueError",
+        "reserved_failure_JSON_retained": true
+      },
+      "system_exit": {
+        "exception_type": "SystemExit",
+        "reserved_failure_JSON_retained": true
+      }
+    },
+    "real_metadata_CLI_with_external_CWD_passed": true,
+    "real_metadata_source_pin_count": 841
+  },
+  "independent_synthetic_checks": {
+    "delta_direct_max_relative_error": 1.94797416604288e-16,
+    "distinct_rotated_translated_owner_charts": 6,
+    "exact_unchanged_K_blocks": 3,
+    "guarded_BREP_import_calls": 0,
+    "malformed_inputs_rejected_before_real_bank_loader": [
+      "missing_observation",
+      "duplicate_observation",
+      "wrong_observed_source_path",
+      "wrong_observed_source_sha",
+      "negative_volume",
+      "infinite_volume",
+      "short_COM",
+      "infinite_COM",
+      "wrong_geometry",
+      "contradictory_pin",
+      "wrong_aperture",
+      "wrong_screw",
+      "duplicate_panel_owner"
+    ],
+    "net_mass_first_moment_max_component_error_mm3": 1.299213181482628e-09,
+    "real_bank_loader_calls": 0,
+    "screw_virtual_work_checks": 66,
+    "tiny_chart_DOFs": 48,
+    "virtual_work_max_wrench_component_error": 5.115907697472721e-13
+  },
+  "production_bank_prepared": false,
+  "published_tests_in_isolated_processes": [
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-m",
+        "pytest",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "..................                                                       [100%]\n18 passed in 2.49s"
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-m",
+        "pytest",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/review-fix-v2/test_cli.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": ".......                                                                  [100%]\n7 passed in 2.17s"
+    }
+  ],
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "retention": "Keep this compact review code/receipt active with the source-method packet; all temporary CLI outputs were removed with their private temporary directory. No archive/prune operation occurred.",
+  "review_source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-review-v2/testing/review.py": "4f7e9d24186c099e57d60faf530e54ba1152e929b330440c25e03ab8d1cea861"
+  },
+  "schema": "eoere_current_off_panel_independent_testing_review/v2",
+  "source_hashes_unchanged_before_after": true,
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/method-receipt.json": "72f1d047ddf567fd2053911157be02288c1357477ee3ca429223bb85f9acc0e2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/review-fix-v2/check_source_seam.py": "e9c3359e8b3ece581014e59027ee742144455f784635edefc65803df94e5ab74",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/review-fix-v2/cli.py": "6502e109fad6365ed30a31029a24fccdc0ae44826add029fc540f3d42c9f740e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/review-fix-v2/method-receipt.json": "4904adf8dde8bf87c46cfc189c791cd65c6cc91a1cb3329daa28eb738320509a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/review-fix-v2/test_cli.py": "f3881893d012428903af353be4ea9c4070edd8d8e16198366293848109c3f934",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py": "dd48189121a3aef78c60a5eb5677f789ac45a91c7fc42ebb7822442a0986c0c1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+  },
+  "status": "SOURCE_STUB_AND_SYNTHETIC_TESTING_REVIEW_PASSED_PRODUCTION_DEFERRED",
+  "tool_versions": {
+    "cadquery": "2.8.0",
+    "numpy": "2.5.2",
+    "pytest": "9.1.1",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  }
+}

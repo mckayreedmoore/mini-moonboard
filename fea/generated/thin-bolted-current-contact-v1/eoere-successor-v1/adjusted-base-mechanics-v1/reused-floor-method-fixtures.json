@@ -1,0 +1,41 @@
+{
+  "expected_q": [
+    0.25,
+    0.5,
+    1.0714285714285714,
+    0.14285714285714285
+  ],
+  "known_answer_and_negative_fixture_count": 7,
+  "maximum_new_law_gradient_n": 0.0,
+  "no_candidate_preparation_CAD_or_response": true,
+  "observed_q": [
+    0.25,
+    0.5,
+    1.0714285714285714,
+    0.14285714285714285
+  ],
+  "passed": true,
+  "schema": "eoere_fixed_floor_method_fixtures/v1",
+  "source_sha256": {
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/check_method.py": "4c2e10ae9aa11c64fb84b19917515b9d18759d988d8fef208c63eeda65e6ff64",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/runner.py": "02b35eb6eb148e1b178fcca069b761065eaec8f0641ec5adc91f211b3e9eceb4",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/support_law.py": "b4bc326d2060d6fc49d0f29218306533e4cea305db72dce2f0e09338c7e3ad2e"
+  },
+  "support_contract": {
+    "all_other_floor_hosts_normal_only": true,
+    "bounds_other_support_scenarios": false,
+    "enabled_centroid_xy_hosts": [
+      "lumber_leg_left",
+      "lumber_leg_right"
+    ],
+    "method": "fixed-rear-leg-centroid-XY-all-feet-compression-only",
+    "minimum_credited_leg_normal_n": 1e-07,
+    "no_slip_assumed_not_verified": true,
+    "no_vertical_tension_or_anchor": true,
+    "original_normal_and_joint_laws_retained": true,
+    "original_switching_law_preserved_as_history": true,
+    "physical_floor_capacity_established": false,
+    "schema": "eoere_fixed_rear_leg_floor_support/v1",
+    "support_mask_feedback_used": false
+  }
+}

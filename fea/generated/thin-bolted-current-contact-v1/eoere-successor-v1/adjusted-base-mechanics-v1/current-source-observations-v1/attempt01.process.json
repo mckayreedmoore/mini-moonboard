@@ -1,0 +1,40 @@
+{
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "-B",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/export.py",
+    "--manifest",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json",
+    "--manifest-sha256",
+    "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+    "--out",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json",
+    "--extract",
+    "--slot",
+    "/tmp/moonboard-current-source-parent-slot.json",
+    "--slot-sha256",
+    "292cbc1aa3f361450b676c3b15d835a82f2b210fee8707abc98e7601e9fa2c7b"
+  ],
+  "exit_code": 0,
+  "output_sha256": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7",
+  "schema": "eoere_parent_cached_source_process_observation/v1",
+  "slot_at_start": {
+    "approved_exporter_sha256": "93ed36c39b4237cd587498fbb9dd2b2b7e3d275afc2be89302dab178c25d5858",
+    "approved_geometry_sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "approved_manifest_sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+    "cached_descriptor_extraction_authorized": true,
+    "heavy_run_authorized_by_this_file": false,
+    "parent_thread": "01a10d52-a895-7fc1-87f7-b69d75e039cb",
+    "review_evidence_sha256": {
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/final-review-v2/correctness/receipt.json": "92b515d58db6a87fa655e9b2ce0621aff5917bfacf4d12d32fbc8e3a0269adeb",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/final-review-v2/structure/receipt.json": "f70374ad7d8b268cdf3e15ddc8075944280f3a427b201f142cfad066584dccb5",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/final-review-v2/testing/receipt.json": "6bf68356d74127f385241f9c75dfea98545352433d1d55f04413e0cb5c29a301"
+    },
+    "schema": "eoere_parent_serialized_cached_source_slot/v1",
+    "scope": "One parent-serialized cached-source descriptor extraction; no frame/panel K, case solve, native FEA, field admission or physical release.",
+    "status": "FREE_SLOT"
+  },
+  "slot_sha256": "292cbc1aa3f361450b676c3b15d835a82f2b210fee8707abc98e7601e9fa2c7b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stdout_sha256": "aaf2b6e820d20e89776f86f4e4aa7012a21b375594869cd96a119b874adf544e"
+}

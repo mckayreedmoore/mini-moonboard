@@ -1,0 +1,586 @@
+{
+  "current_drilling_holds": [
+    "cleat_post_bolt_left_1",
+    "cleat_post_bolt_left_2",
+    "cleat_post_bolt_right_1",
+    "cleat_post_bolt_right_2"
+  ],
+  "current_revision": "eoere-base-side-edge-cleats-v1",
+  "identity": {
+    "comparison_basis": "CURRENT extended-cleat records, including the reviewed v3 changes; not the historical raised-rail list.",
+    "current_geometry_descriptor_axes": 100,
+    "current_geometry_descriptor_screws": 66,
+    "only_proposed_Z_moves": 4,
+    "retained_starting_arrangements": 12,
+    "unchanged_current_axes": 96,
+    "unchanged_current_screws": 66
+  },
+  "limits": [
+    "Positive capsule bounds prove separation only of the declared nominal containing primitives; negative bounds are inconclusive.",
+    "Maximum wood-bore diameter is a preserved sensitivity, not a bit instruction or adopted fabrication tolerance.",
+    "No new coordinate search, solid query, CAD, frame/native solve, force recovery or physical work occurred.",
+    "No washer pressure, delivered dimensions, tooling, complete resistance, geometry adoption or fabrication/climbing release is established."
+  ],
+  "method": {
+    "known_answer_count": 4,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower_bolt_z_v2.py",
+    "reused_functions": [
+      "hardware",
+      "primitive",
+      "pair",
+      "known_answers"
+    ],
+    "sha256": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095"
+  },
+  "new_bore_wall_seat_tool_or_response_qualification": false,
+  "placement": {
+    "file": "placement.json",
+    "sha256": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39"
+  },
+  "release": {
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "geometry_adopted": false,
+    "mechanics_ready": false,
+    "structural": false
+  },
+  "reproduce": ".venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/prepare.py --out NEW_EMPTY_DIRECTORY",
+  "required_before_adoption": [
+    "Parent reviews this current placement input before model changes.",
+    "Reconstruct only the four changed receivers from CURRENT authenticated raw profiles and cuts; substitute eight Z180 bores for eight Z200 bores. Do not drill new holes into Z200 finished BREPs.",
+    "Check new finished bore material, eight own seats, all current panel/service/angle intersections and affected screw backing using the existing geometry adapter.",
+    "Check actual delivered hardware, uncertainty, eight tool sides and continuous removal paths.",
+    "After adoption, extract fresh own descriptors/gravity and compatible actions; complete signed end/edge/group/net/splitting checks without transferring old fields."
+  ],
+  "schema": "eoere_current_Z180_placement_identity_and_capsules/v1",
+  "screens": [
+    {
+      "id": "current_Z200",
+      "maximum_bore_vs_66_current_screws": {
+        "all_bounds_positive": false,
+        "count": 3168,
+        "minimum": {
+          "capsule_separation_lower_bound_mm": -0.056250000000000355,
+          "finite_axis_distance_mm": 8.0,
+          "first": "cleat_post_bolt_left_2",
+          "first_role": "wood_bore_cutter",
+          "second": "round_kicker_left_rim_2",
+          "second_role": "screw_body"
+        },
+        "minimum_by_lower_role": {
+          "head": {
+            "capsule_separation_lower_bound_mm": 49.57552622390952,
+            "finite_axis_distance_mm": 60.3244181949563,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "head_washer": {
+            "capsule_separation_lower_bound_mm": 42.126213587210955,
+            "finite_axis_distance_mm": 57.70721358721095,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head_washer",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "nut": {
+            "capsule_separation_lower_bound_mm": 12.370915782478875,
+            "finite_axis_distance_mm": 23.119807753525652,
+            "first": "cleat_post_bolt_right_2",
+            "first_role": "nut",
+            "second": "round_kicker_right_rim_2",
+            "second_role": "screw_body"
+          },
+          "nut_washer": {
+            "capsule_separation_lower_bound_mm": 5.0806190072314905,
+            "finite_axis_distance_mm": 20.66161900723149,
+            "first": "cleat_post_bolt_right_2",
+            "first_role": "nut_washer",
+            "second": "round_kicker_right_rim_2",
+            "second_role": "screw_body"
+          },
+          "shaft": {
+            "capsule_separation_lower_bound_mm": 0.7374999999999998,
+            "finite_axis_distance_mm": 8.0,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "shaft",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "wood_bore_cutter": {
+            "capsule_separation_lower_bound_mm": -0.056250000000000355,
+            "finite_axis_distance_mm": 8.0,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "wood_bore_cutter",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          }
+        },
+        "positive_bound_count": 3166
+      },
+      "maximum_bore_vs_96_current_fixed_bolts": {
+        "all_bounds_positive": true,
+        "count": 13824,
+        "minimum": {
+          "capsule_separation_lower_bound_mm": 76.15606961998729,
+          "finite_axis_distance_mm": 101.9370696199873,
+          "first": "cleat_post_bolt_left_2",
+          "first_role": "head_washer",
+          "second": "rail_front_bolt_left_2",
+          "second_role": "nut_washer"
+        },
+        "minimum_by_lower_role": {
+          "head": {
+            "capsule_separation_lower_bound_mm": 80.99000038545344,
+            "finite_axis_distance_mm": 101.93889235650022,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "nut_washer"
+          },
+          "head_washer": {
+            "capsule_separation_lower_bound_mm": 76.15606961998729,
+            "finite_axis_distance_mm": 101.9370696199873,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head_washer",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "nut_washer"
+          },
+          "nut": {
+            "capsule_separation_lower_bound_mm": 80.99000038545344,
+            "finite_axis_distance_mm": 101.93889235650022,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "nut",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "nut_washer": {
+            "capsule_separation_lower_bound_mm": 76.15606961998729,
+            "finite_axis_distance_mm": 101.9370696199873,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "nut_washer",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "shaft": {
+            "capsule_separation_lower_bound_mm": 82.09498526653772,
+            "finite_axis_distance_mm": 99.93848526653773,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "shaft",
+            "second": "eoere_bolt_082",
+            "second_role": "nut_washer"
+          },
+          "wood_bore_cutter": {
+            "capsule_separation_lower_bound_mm": 83.68081961998729,
+            "finite_axis_distance_mm": 101.9370696199873,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "wood_bore_cutter",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "head_washer"
+          }
+        },
+        "positive_bound_count": 13824
+      },
+      "maximum_bore_vs_other_lower_bolts": {
+        "all_bounds_positive": true,
+        "count": 216,
+        "minimum": {
+          "capsule_separation_lower_bound_mm": 24.637999999999995,
+          "finite_axis_distance_mm": 50.8,
+          "first": "cleat_post_bolt_left_1",
+          "first_role": "head_washer",
+          "second": "cleat_post_bolt_left_2",
+          "second_role": "head_washer"
+        },
+        "minimum_by_lower_role": {
+          "head": {
+            "capsule_separation_lower_bound_mm": 29.470108028953224,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "head",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "head_washer": {
+            "capsule_separation_lower_bound_mm": 24.637999999999995,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "head_washer",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "nut": {
+            "capsule_separation_lower_bound_mm": 29.470108028953224,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "nut",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "nut_washer"
+          },
+          "nut_washer": {
+            "capsule_separation_lower_bound_mm": 24.637999999999995,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "nut_washer",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "nut_washer"
+          },
+          "shaft": {
+            "capsule_separation_lower_bound_mm": 32.95649999999999,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "shaft",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "wood_bore_cutter": {
+            "capsule_separation_lower_bound_mm": 32.16275,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "wood_bore_cutter",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "head_washer"
+          }
+        },
+        "positive_bound_count": 216
+      },
+      "nominal_bore_vs_66_current_screws": {
+        "all_bounds_positive": true,
+        "count": 3168,
+        "minimum": {
+          "capsule_separation_lower_bound_mm": 0.3406250000000002,
+          "finite_axis_distance_mm": 8.0,
+          "first": "cleat_post_bolt_left_2",
+          "first_role": "wood_bore_cutter",
+          "second": "round_kicker_left_rim_2",
+          "second_role": "screw_body"
+        },
+        "minimum_by_lower_role": {
+          "head": {
+            "capsule_separation_lower_bound_mm": 49.57552622390952,
+            "finite_axis_distance_mm": 60.3244181949563,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "head_washer": {
+            "capsule_separation_lower_bound_mm": 42.126213587210955,
+            "finite_axis_distance_mm": 57.70721358721095,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head_washer",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "nut": {
+            "capsule_separation_lower_bound_mm": 12.370915782478875,
+            "finite_axis_distance_mm": 23.119807753525652,
+            "first": "cleat_post_bolt_right_2",
+            "first_role": "nut",
+            "second": "round_kicker_right_rim_2",
+            "second_role": "screw_body"
+          },
+          "nut_washer": {
+            "capsule_separation_lower_bound_mm": 5.0806190072314905,
+            "finite_axis_distance_mm": 20.66161900723149,
+            "first": "cleat_post_bolt_right_2",
+            "first_role": "nut_washer",
+            "second": "round_kicker_right_rim_2",
+            "second_role": "screw_body"
+          },
+          "shaft": {
+            "capsule_separation_lower_bound_mm": 0.7374999999999998,
+            "finite_axis_distance_mm": 8.0,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "shaft",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "wood_bore_cutter": {
+            "capsule_separation_lower_bound_mm": 0.3406250000000002,
+            "finite_axis_distance_mm": 8.0,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "wood_bore_cutter",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          }
+        },
+        "positive_bound_count": 3168
+      }
+    },
+    {
+      "id": "proposed_Z180",
+      "maximum_bore_vs_66_current_screws": {
+        "all_bounds_positive": true,
+        "count": 3168,
+        "minimum": {
+          "capsule_separation_lower_bound_mm": 3.9437499999999996,
+          "finite_axis_distance_mm": 12.0,
+          "first": "cleat_post_bolt_left_2",
+          "first_role": "wood_bore_cutter",
+          "second": "round_kicker_left_rim_2",
+          "second_role": "screw_body"
+        },
+        "minimum_by_lower_role": {
+          "head": {
+            "capsule_separation_lower_bound_mm": 50.23500287472356,
+            "finite_axis_distance_mm": 60.983894845770344,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "head_washer": {
+            "capsule_separation_lower_bound_mm": 42.815254160690685,
+            "finite_axis_distance_mm": 58.39625416069069,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head_washer",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "nut": {
+            "capsule_separation_lower_bound_mm": 14.040733087835918,
+            "finite_axis_distance_mm": 24.789625058882695,
+            "first": "cleat_post_bolt_right_2",
+            "first_role": "nut",
+            "second": "round_kicker_right_rim_2",
+            "second_role": "screw_body"
+          },
+          "nut_washer": {
+            "capsule_separation_lower_bound_mm": 6.933495330786112,
+            "finite_axis_distance_mm": 22.51449533078611,
+            "first": "cleat_post_bolt_right_2",
+            "first_role": "nut_washer",
+            "second": "round_kicker_right_rim_2",
+            "second_role": "screw_body"
+          },
+          "shaft": {
+            "capsule_separation_lower_bound_mm": 4.7375,
+            "finite_axis_distance_mm": 12.0,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "shaft",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "wood_bore_cutter": {
+            "capsule_separation_lower_bound_mm": 3.9437499999999996,
+            "finite_axis_distance_mm": 12.0,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "wood_bore_cutter",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          }
+        },
+        "positive_bound_count": 3168
+      },
+      "maximum_bore_vs_96_current_fixed_bolts": {
+        "all_bounds_positive": true,
+        "count": 13824,
+        "minimum": {
+          "capsule_separation_lower_bound_mm": 56.16581519028141,
+          "finite_axis_distance_mm": 81.94681519028141,
+          "first": "cleat_post_bolt_left_2",
+          "first_role": "head_washer",
+          "second": "rail_front_bolt_left_2",
+          "second_role": "nut_washer"
+        },
+        "minimum_by_lower_role": {
+          "head": {
+            "capsule_separation_lower_bound_mm": 61.00019058629573,
+            "finite_axis_distance_mm": 81.9490825573425,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "nut_washer"
+          },
+          "head_washer": {
+            "capsule_separation_lower_bound_mm": 56.16581519028141,
+            "finite_axis_distance_mm": 81.94681519028141,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head_washer",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "nut_washer"
+          },
+          "nut": {
+            "capsule_separation_lower_bound_mm": 61.00019058629573,
+            "finite_axis_distance_mm": 81.9490825573425,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "nut",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "nut_washer": {
+            "capsule_separation_lower_bound_mm": 56.16581519028141,
+            "finite_axis_distance_mm": 81.94681519028141,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "nut_washer",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "shaft": {
+            "capsule_separation_lower_bound_mm": 64.48431519028141,
+            "finite_axis_distance_mm": 81.94681519028141,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "shaft",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "wood_bore_cutter": {
+            "capsule_separation_lower_bound_mm": 63.690565190281404,
+            "finite_axis_distance_mm": 81.94681519028141,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "wood_bore_cutter",
+            "second": "rail_front_bolt_left_2",
+            "second_role": "head_washer"
+          }
+        },
+        "positive_bound_count": 13824
+      },
+      "maximum_bore_vs_other_lower_bolts": {
+        "all_bounds_positive": true,
+        "count": 216,
+        "minimum": {
+          "capsule_separation_lower_bound_mm": 24.637999999999995,
+          "finite_axis_distance_mm": 50.8,
+          "first": "cleat_post_bolt_left_1",
+          "first_role": "head_washer",
+          "second": "cleat_post_bolt_left_2",
+          "second_role": "head_washer"
+        },
+        "minimum_by_lower_role": {
+          "head": {
+            "capsule_separation_lower_bound_mm": 29.470108028953224,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "head",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "head_washer": {
+            "capsule_separation_lower_bound_mm": 24.637999999999995,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "head_washer",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "nut": {
+            "capsule_separation_lower_bound_mm": 29.470108028953224,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "nut",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "nut_washer"
+          },
+          "nut_washer": {
+            "capsule_separation_lower_bound_mm": 24.637999999999995,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "nut_washer",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "nut_washer"
+          },
+          "shaft": {
+            "capsule_separation_lower_bound_mm": 32.95649999999999,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "shaft",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "head_washer"
+          },
+          "wood_bore_cutter": {
+            "capsule_separation_lower_bound_mm": 32.16275,
+            "finite_axis_distance_mm": 50.8,
+            "first": "cleat_post_bolt_left_1",
+            "first_role": "wood_bore_cutter",
+            "second": "cleat_post_bolt_left_2",
+            "second_role": "head_washer"
+          }
+        },
+        "positive_bound_count": 216
+      },
+      "nominal_bore_vs_66_current_screws": {
+        "all_bounds_positive": true,
+        "count": 3168,
+        "minimum": {
+          "capsule_separation_lower_bound_mm": 4.340625,
+          "finite_axis_distance_mm": 12.0,
+          "first": "cleat_post_bolt_left_2",
+          "first_role": "wood_bore_cutter",
+          "second": "round_kicker_left_rim_2",
+          "second_role": "screw_body"
+        },
+        "minimum_by_lower_role": {
+          "head": {
+            "capsule_separation_lower_bound_mm": 50.23500287472356,
+            "finite_axis_distance_mm": 60.983894845770344,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "head_washer": {
+            "capsule_separation_lower_bound_mm": 42.815254160690685,
+            "finite_axis_distance_mm": 58.39625416069069,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "head_washer",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "nut": {
+            "capsule_separation_lower_bound_mm": 14.040733087835918,
+            "finite_axis_distance_mm": 24.789625058882695,
+            "first": "cleat_post_bolt_right_2",
+            "first_role": "nut",
+            "second": "round_kicker_right_rim_2",
+            "second_role": "screw_body"
+          },
+          "nut_washer": {
+            "capsule_separation_lower_bound_mm": 6.933495330786112,
+            "finite_axis_distance_mm": 22.51449533078611,
+            "first": "cleat_post_bolt_right_2",
+            "first_role": "nut_washer",
+            "second": "round_kicker_right_rim_2",
+            "second_role": "screw_body"
+          },
+          "shaft": {
+            "capsule_separation_lower_bound_mm": 4.7375,
+            "finite_axis_distance_mm": 12.0,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "shaft",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          },
+          "wood_bore_cutter": {
+            "capsule_separation_lower_bound_mm": 4.340625,
+            "finite_axis_distance_mm": 12.0,
+            "first": "cleat_post_bolt_left_2",
+            "first_role": "wood_bore_cutter",
+            "second": "round_kicker_left_rim_2",
+            "second_role": "screw_body"
+          }
+        },
+        "positive_bound_count": 3168
+      }
+    }
+  ],
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json": "5dfa03b785715c92717725400e73bf41b00a58160595ddf6b61b61c3b31f6134",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower_bolt_z_v2.py": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-review-v1/independent-review-and-geometry-plan.json": "e2af40d95d23b31bdf90719791618f0aa664c0ce321827852d3531e3150bedea",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-review-v1/review.py": "dd00603248046f0e879bd7b4bb783742b2625063073cf533e4123c9ad0ccd0d8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/inputs.json": "989a518a33f05c72c38613e9b8c53fc85458fc1aabc94948803ff5f9fe2bbb7f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/prepare.py": "9d12bcaa8d375153f4e93e4bfbc36c283ee3167bd614049e698d92ed067395c4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/lower-Z-extension.json": "792fa70b7c1de687bb1e6c5debd53d0cee8b8d3acdecb5c533636c20e47bc699",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/proposals-reviewed.json": "1701903c9957ea28d15d851ec8bc843cf95bf094cf2f263ccfe298d3a99bd051",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/remedy.py": "487aefa0130ae25ef5ecc438e54651f902598bde9e366aabd6f67a3c69e10a59",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/remedy_lower_z.py": "4d0aa4ad529b358d6347658711182d62d5d1be84dc881d8026f4e2d4af6aa80f"
+  },
+  "sources_unchanged_before_after": true,
+  "status": "UNADOPTED_PROPOSAL_CURRENT_HOLD4_RETAINED"
+}

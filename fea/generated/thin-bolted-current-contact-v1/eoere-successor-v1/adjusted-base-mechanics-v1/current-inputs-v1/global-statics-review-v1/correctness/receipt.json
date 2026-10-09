@@ -1,0 +1,73 @@
+{
+  "direct_source_pins_rehashed": 8,
+  "findings": [],
+  "independent_rational_checks": {
+    "cases": [
+      {
+        "case_id": "a12-rear",
+        "independent_edge_margin_mm": 330.2849914799092
+      },
+      {
+        "case_id": "a12-forward",
+        "independent_edge_margin_mm": 603.215758018119
+      },
+      {
+        "case_id": "a12-left",
+        "independent_edge_margin_mm": 466.7503747490141
+      },
+      {
+        "case_id": "k12-right",
+        "independent_edge_margin_mm": 466.7503747490141
+      },
+      {
+        "case_id": "k12-rear",
+        "independent_edge_margin_mm": 330.2849914799092
+      },
+      {
+        "case_id": "a1-rear",
+        "independent_edge_margin_mm": 642.9085097705661
+      },
+      {
+        "case_id": "gravity-only",
+        "independent_edge_margin_mm": 856.2997678025853
+      }
+    ],
+    "constructed_three_point_compression_witnesses": 7,
+    "current_floor_points": 32,
+    "maximum_edge_margin_error_mm": 2.2737367544323206e-13,
+    "maximum_force_error_n": 0.0,
+    "maximum_moment_error_nmm": 9.313225746154785e-10,
+    "maximum_saved_witness_moment_residual_nmm": 1.862645149230957e-09,
+    "old_identical_floor_points": 28,
+    "shifted_right_center_post_points": 4,
+    "source_load_wrenches": 5788,
+    "supporting_extreme_edges": 6
+  },
+  "known_answer_fixtures": 7,
+  "limits": [
+    "Necessary global compression/pitch/roll equilibrium only; no frame/global stiffness assembly, native solve, CAD/BRep query or browser.",
+    "Nonnegative reactions are equilibrium witnesses; elastic reactions, horizontal/yaw distribution, floor/friction and joint capacity remain unestablished.",
+    "Exact current input direct bytes authenticated; its1086 recursive sources and independent input/frame admission are outside this review.",
+    "Frozen pending-input status/readiness retained; no old forces/pass, physical observations, fabrication or climbing release.",
+    "Only exclusive review.py/receipt.json retained; temporary source/output controls used copied modules and left frozen sources unchanged."
+  ],
+  "producer_Decimal_numerical_checks": 7,
+  "producer_replay_guard_controls": 7,
+  "recursive_1086_input_pins_not_admitted_or_rehashed": true,
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "review_helper_sha256": "85896fd1c154c773629e0b1829a3be9ef054603bd1441002f6201991c8e90711",
+  "schema": "eoere_current_global_statics_independent_correctness_review/v1",
+  "target_source_sha256": {
+    "check_current.py": "c2c32d1fdadae374b5d7f7d192d979e52954011bc041171980cc6e63a0aeceaa",
+    "result.json": "f05f81d17a80b1fc1e2a0df106a60ac34f6253a1bb0b664a7241e63cc3702c24",
+    "verification.json": "2278f49ebd516bb3cc10fc1fffa53bdda989008c66429eeb4e55c2952404b203",
+    "verify.py": "68e27a587cadc08b64923cbe76fdf5db36c35ca0cca6d8789ac3f3b44be7862d"
+  }
+}

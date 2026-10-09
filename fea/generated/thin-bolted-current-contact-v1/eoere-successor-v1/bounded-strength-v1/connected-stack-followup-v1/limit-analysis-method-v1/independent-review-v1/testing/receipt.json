@@ -1,0 +1,172 @@
+{
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "-B",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/testing/review.py",
+    "--out",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/testing/receipt.json"
+  ],
+  "environment": {
+    "highs": "1.12.0",
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1",
+    "scipy_highs_wrapper_sha256": "32999bba42521a001d08bd9a1a02ca663b8b7eb93b6f799f37438e062484c89a"
+  },
+  "findings": [
+    {
+      "category": "testing/evidence-validation",
+      "description": "The checker validates saved field statics but leaves compact-result scope flags, analytic values/modes and other benchmark assertions unchecked. Its peak comparison also accepts NaN because abs(actual-NaN)>tolerance is false. A real verify.py call accepts two byte-identical corrupted result copies and issues a receipt with hardcoded false scope flags.",
+      "file": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verify.py",
+      "fix": "Validate the compact result's schema, exact synthetic-only/null-capacity flags, unique case/grid coverage and finite reported values before integration; check benchmark modes/values against the frozen analytic known answers, and explicitly reject nonfinite peak values. Add these result corruptions to the real CLI negative controls; derive receipt scope flags from checked input claims.",
+      "impact": "A successful verification receipt can accompany an invented governing mode/analytic benchmark, a nonfinite reported peak, or a non-null candidate capacity claim. Existing corruption controls can therefore pass while the compact reporting artifact contradicts the method's synthetic-only claim boundary.",
+      "line": 101,
+      "severity": "medium",
+      "supporting_lines": [
+        20,
+        104,
+        105,
+        191,
+        192
+      ]
+    }
+  ],
+  "independent_small_controls": [
+    "independent_exact_coupon_detects_violating_interior_peak_that_all_nodes_miss",
+    "producer_prefix_integrator_exact_force_and_moment_across_empty_gap",
+    "five_additional_invalid_cell_count_and_type_controls",
+    "three_additional_nonfinite_or_nonpositive_coupon_controls",
+    "nonoptimal_LP_status_is_rejected_before_field_publication",
+    "real_two_cell_synthetic_LP_certificate_and_exact_moment_cap"
+  ],
+  "issued_independent_field_metrics": {
+    "bearing_bound_ratio": 0.9999999999980002,
+    "independently_integrated_fields": 45,
+    "member_force_residual_lbf": 9.094947017729282e-13,
+    "moment_bound_ratio": 0.9999999999980327,
+    "shaft_end_moment_lb_in": 3.3849034686284085e-12,
+    "shaft_force_residual_lbf": 1.5916157281026244e-12
+  },
+  "limits": [
+    "Only scalar synthetic two-member coupons and their frozen helper/environment were used; no actual candidate actions, geometry, material or capacity was evaluated.",
+    "Two fresh synthetic LP wrappers reproduced all 45 fields byte-for-byte, and a separate real verifier call demonstrated corrupt-result acceptance in temporary copies.",
+    "No CAD/BRep/query, current panel bank, frame K, native solve, browser or global candidate case ran. Target/source bytes and issued attempts were preserved.",
+    "Temporary outputs belonged to this review and were removed by TemporaryDirectory. No shared document, staging, commit, archive or prune operation occurred."
+  ],
+  "schema": "synthetic_limit_method_independent_testing_review/v1",
+  "six_target_and_all_issued_attempt_files_before_after_unchanged": true,
+  "source_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/README.md": "4a362e561cea83922fe2c39c78c9ea52cd6337ce82aac55c058fd12fea6b3e48",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/analyze.py": "c258fb08193f3106d0280c636e91f1f0573ddcc442c54ad408c02777e5039881",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/inputs.json": "bab3f6c7d57c34e6b208c0d78462a7f5c18bf3f59111b67f659fe7f3084044a2",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verification.json": "d0d24644d7adaa0d22273a1e377da71fd9cde51b62e225d6e841249a924857ff",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verify.py": "6d7351cb61c1bbc550f70f01cf54d05be07badb05d7511989e12989c381764db",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/verification.json": "57f81a98a5d158f997b54c0ed4094914339f38b0d9c5809643c227fd1f82a02e",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/frozen-packet.json": "eb2b28728f53cc83964402bda7a6a602173e55ec60a654aac2729e328e563883",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/verification.json": "d0d24644d7adaa0d22273a1e377da71fd9cde51b62e225d6e841249a924857ff",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/testing/review.py": "ee1ef47f92a8068e9a1fd9c7e80a565379430b1b05f55139b30465f7cab3f401",
+    "tests/test_dowel_yield.py": "9a359170144a23bc85dc17e95aabf565c70adf3802e6017a7fdbdf4dec2fd3f2",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "status": "NUMERIC_AND_WRAPPER_CHECKS_PASS_WITH_ONE_CONFIRMED_RESULT_VALIDATION_GAP",
+  "wrapper_checks": {
+    "accepted_compact_result_corruptions": [
+      "candidate_capacity_claim",
+      "invented_raw_mode_and_analytic_load",
+      "nonfinite_compact_peak"
+    ],
+    "all_fresh_outputs_byte_identical_to_issued": {
+      "details.json": true,
+      "result.json": true
+    },
+    "existing_verifier_output_rejected": true,
+    "real_corrupt_result_verification": {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verify.py",
+        "--run",
+        "/tmp/limit-analysis-independent-testing-qlsn2xzx/corrupt-run",
+        "--replay",
+        "/tmp/limit-analysis-independent-testing-qlsn2xzx/corrupt-replay",
+        "--out",
+        "/tmp/limit-analysis-independent-testing-qlsn2xzx/corrupt-verification.json"
+      ],
+      "input_result_analytic_raw_yield_lbf": 1e+99,
+      "input_result_candidate_inputs_used": true,
+      "input_result_candidate_joint_capacity": 12345.0,
+      "input_result_capacity_or_pass_claim": true,
+      "input_result_compact_moment_peak": "NaN",
+      "input_result_raw_mode": "invented",
+      "output_receipt_candidate_inputs_used": false,
+      "output_receipt_capacity_or_pass_claim": false,
+      "output_receipt_sha256": "bab1cdfac8926f70a70d6d15e6c269ca1a29f07f056f6bd9c865cfab493e3e77",
+      "returncode": 0
+    },
+    "real_fresh_commands": [
+      {
+        "command": [
+          "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+          "-B",
+          "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/analyze.py",
+          "--out",
+          "/tmp/limit-analysis-independent-testing-qlsn2xzx/fresh-run"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"LP_benchmark_count\": 45, \"case_count\": 15, \"governing_modes_verified\": [\"II\", \"IIIm\", \"IIIs\", \"IV\", \"Im\", \"Is\"], \"maximum_128_cell_relative_shortfall\": 5.2082851955903564e-05, \"maximum_scaled_LP_certificate_residual\": 6.661338147750939e-16}\n"
+      },
+      {
+        "command": [
+          "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+          "-B",
+          "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/analyze.py",
+          "--out",
+          "/tmp/limit-analysis-independent-testing-qlsn2xzx/fresh-replay"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"LP_benchmark_count\": 45, \"case_count\": 15, \"governing_modes_verified\": [\"II\", \"IIIm\", \"IIIs\", \"IV\", \"Im\", \"Is\"], \"maximum_128_cell_relative_shortfall\": 5.2082851955903564e-05, \"maximum_scaled_LP_certificate_residual\": 6.661338147750939e-16}\n"
+      },
+      {
+        "command": [
+          "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+          "-B",
+          "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verify.py",
+          "--run",
+          "/tmp/limit-analysis-independent-testing-qlsn2xzx/fresh-run",
+          "--replay",
+          "/tmp/limit-analysis-independent-testing-qlsn2xzx/fresh-replay",
+          "--out",
+          "/tmp/limit-analysis-independent-testing-qlsn2xzx/fresh-verification.json"
+        ],
+        "returncode": 0,
+        "stderr": "",
+        "stdout": "{\"bearing_bound_ratio\": 0.9999999999980002, \"independently_integrated_fields\": 45, \"member_force_residual_lbf\": 9.094947017729282e-13, \"moment_bound_ratio\": 0.9999999999980327, \"shaft_end_moment_lb_in\": 3.3849034686284085e-12, \"shaft_force_residual_lbf\": 1.5916157281026244e-12}\n"
+      }
+    ],
+    "real_output_guard_controls": [
+      {
+        "returncode": 2,
+        "type": "directory"
+      },
+      {
+        "returncode": 2,
+        "type": "file"
+      },
+      {
+        "returncode": 2,
+        "type": "symlink"
+      },
+      {
+        "returncode": 2,
+        "type": "symlink"
+      }
+    ]
+  }
+}

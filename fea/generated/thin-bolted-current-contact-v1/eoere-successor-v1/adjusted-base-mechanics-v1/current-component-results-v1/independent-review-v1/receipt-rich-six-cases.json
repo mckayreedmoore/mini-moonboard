@@ -1,0 +1,991 @@
+{
+  "cases": [
+    {
+      "case_id": "a12-forward",
+      "maximum_absolute_arithmetic_errors_by_quantity_family": {
+        "rich-shaft": 8.526512829121202e-14,
+        "rich-steel": 4.440892098500626e-16,
+        "rich-timber": 0.0,
+        "rich-washer": 5.684341886080801e-13
+      },
+      "scalar_comparisons": 12283,
+      "shaft": {
+        "complete_bolt_resistance": null,
+        "first_yield_reference_exceedances": [],
+        "shafts": 100
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-9f7cba65e8dc3fbcffb5d39f",
+      "steel": [
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6_r6",
+            "inside_radius_scenario_mm": 6.0,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.0,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.14058974144161906
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6751773831624384
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7968087901494344
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 1,
+              "reference_ratio": 1.045342036852065
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7303402159818305
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.022250413594090614
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.029448013068478787
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.039927733021674065
+            }
+          }
+        },
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6p35_r6p35",
+            "inside_radius_scenario_mm": 6.35,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.35,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.12829843869877514
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6063248507814156
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7151314383146541
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.937218616341294
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6531316430587497
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02102401284481003
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02782489423793271
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.03772699183150307
+            }
+          }
+        }
+      ],
+      "timber": {
+        "Cdelta0p5_Cg1_sensitivity_exceedances": 2,
+        "duties": 24,
+        "mixed_shared_references_still_null": [
+          "eoere_bolt_065",
+          "eoere_bolt_066",
+          "eoere_bolt_067",
+          "eoere_bolt_070",
+          "eoere_bolt_071",
+          "eoere_bolt_074",
+          "eoere_bolt_079",
+          "eoere_bolt_080"
+        ],
+        "shaft_references": 100,
+        "supported_individual_references": 92,
+        "unadjusted_reference_exceedances": 0
+      },
+      "washers": {
+        "actual_product_strength_established": false,
+        "largest_catalog_axial_only_required_Fy_mpa": 136.913484019985,
+        "nominal_and_catalog_ring_scenarios": 1000,
+        "own_ends": 200,
+        "steel_ends": 88,
+        "wood_ends": 112
+      }
+    },
+    {
+      "case_id": "a12-rear",
+      "maximum_absolute_arithmetic_errors_by_quantity_family": {
+        "rich-shaft": 5.684341886080802e-14,
+        "rich-steel": 4.440892098500626e-16,
+        "rich-timber": 0.0,
+        "rich-washer": 7.958078640513122e-13
+      },
+      "scalar_comparisons": 12283,
+      "shaft": {
+        "complete_bolt_resistance": null,
+        "first_yield_reference_exceedances": [],
+        "shafts": 100
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-be9b7ec404800b5d5a8d93a4",
+      "steel": [
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6_r6",
+            "inside_radius_scenario_mm": 6.0,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.0,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.15391675889756376
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6013504183635915
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7221856878472229
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.953365964206412
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6336108109097506
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02320154915333558
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.01770046437627406
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.023999562019076204
+            }
+          }
+        },
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6p35_r6p35",
+            "inside_radius_scenario_mm": 6.35,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.35,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.14046031846735735
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.539274628552735
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6477367216143395
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.8543385779311682
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.5677541945549499
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.021922723609450943
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.016724848229550292
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02267675151408776
+            }
+          }
+        }
+      ],
+      "timber": {
+        "Cdelta0p5_Cg1_sensitivity_exceedances": 2,
+        "duties": 24,
+        "mixed_shared_references_still_null": [
+          "eoere_bolt_065",
+          "eoere_bolt_066",
+          "eoere_bolt_067",
+          "eoere_bolt_070",
+          "eoere_bolt_071",
+          "eoere_bolt_074",
+          "eoere_bolt_079",
+          "eoere_bolt_080"
+        ],
+        "shaft_references": 100,
+        "supported_individual_references": 92,
+        "unadjusted_reference_exceedances": 0
+      },
+      "washers": {
+        "actual_product_strength_established": false,
+        "largest_catalog_axial_only_required_Fy_mpa": 126.53272918519126,
+        "nominal_and_catalog_ring_scenarios": 1000,
+        "own_ends": 200,
+        "steel_ends": 88,
+        "wood_ends": 112
+      }
+    },
+    {
+      "case_id": "a12-left",
+      "maximum_absolute_arithmetic_errors_by_quantity_family": {
+        "rich-shaft": 5.684341886080802e-14,
+        "rich-steel": 4.440892098500626e-16,
+        "rich-timber": 0.0,
+        "rich-washer": 2.2737367544323206e-12
+      },
+      "scalar_comparisons": 12283,
+      "shaft": {
+        "complete_bolt_resistance": null,
+        "first_yield_reference_exceedances": [],
+        "shafts": 100
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-3eb8a3ecefeec591a5921b25",
+      "steel": [
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6_r6",
+            "inside_radius_scenario_mm": 6.0,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.0,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.14633601902835267
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7025654893353632
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.8455057750258426
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 3,
+              "reference_ratio": 1.107192342101066
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7760688834195119
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.026497360169324136
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.025260122846726515
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.03424949040783914
+            }
+          }
+        },
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6p35_r6p35",
+            "inside_radius_scenario_mm": 6.35,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.35,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.13354233797014428
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6305571392050278
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7588159212574115
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.9926490629884852
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6952064567213287
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02503687575054249
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.023867832611080168
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_left",
+              "exceedance_count": 0,
+              "reference_ratio": 0.032361723220005495
+            }
+          }
+        }
+      ],
+      "timber": {
+        "Cdelta0p5_Cg1_sensitivity_exceedances": 2,
+        "duties": 24,
+        "mixed_shared_references_still_null": [
+          "eoere_bolt_065",
+          "eoere_bolt_066",
+          "eoere_bolt_067",
+          "eoere_bolt_070",
+          "eoere_bolt_071",
+          "eoere_bolt_074",
+          "eoere_bolt_079",
+          "eoere_bolt_080"
+        ],
+        "shaft_references": 100,
+        "supported_individual_references": 92,
+        "unadjusted_reference_exceedances": 0
+      },
+      "washers": {
+        "actual_product_strength_established": false,
+        "largest_catalog_axial_only_required_Fy_mpa": 153.88502869792862,
+        "nominal_and_catalog_ring_scenarios": 1000,
+        "own_ends": 200,
+        "steel_ends": 88,
+        "wood_ends": 112
+      }
+    },
+    {
+      "case_id": "k12-right",
+      "maximum_absolute_arithmetic_errors_by_quantity_family": {
+        "rich-shaft": 5.684341886080802e-14,
+        "rich-steel": 4.440892098500626e-16,
+        "rich-timber": 0.0,
+        "rich-washer": 2.2737367544323206e-12
+      },
+      "scalar_comparisons": 12283,
+      "shaft": {
+        "complete_bolt_resistance": null,
+        "first_yield_reference_exceedances": [],
+        "shafts": 100
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-ae082d695e6d99c42d2d367f",
+      "steel": [
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6_r6",
+            "inside_radius_scenario_mm": 6.0,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.0,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.14162457961664196
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.693725940418624
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.8350686818464028
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 3,
+              "reference_ratio": 1.093929113697344
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7685101966031774
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02602557696268692
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_right",
+              "exceedance_count": 0,
+              "reference_ratio": 0.024925442033774867
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_right",
+              "exceedance_count": 0,
+              "reference_ratio": 0.033795706102733886
+            }
+          }
+        },
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6p35_r6p35",
+            "inside_radius_scenario_mm": 6.35,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.35,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.1292428043459405
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6226364408999572
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.7494587132936203
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.9807691344269834
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6884085208725319
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.0245910963426963
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_right",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02355159877207074
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_right",
+              "exceedance_count": 0,
+              "reference_ratio": 0.031932950648252495
+            }
+          }
+        }
+      ],
+      "timber": {
+        "Cdelta0p5_Cg1_sensitivity_exceedances": 2,
+        "duties": 24,
+        "mixed_shared_references_still_null": [
+          "eoere_bolt_065",
+          "eoere_bolt_066",
+          "eoere_bolt_067",
+          "eoere_bolt_070",
+          "eoere_bolt_071",
+          "eoere_bolt_074",
+          "eoere_bolt_079",
+          "eoere_bolt_080"
+        ],
+        "shaft_references": 100,
+        "supported_individual_references": 92,
+        "unadjusted_reference_exceedances": 0
+      },
+      "washers": {
+        "actual_product_strength_established": false,
+        "largest_catalog_axial_only_required_Fy_mpa": 156.014671352739,
+        "nominal_and_catalog_ring_scenarios": 1000,
+        "own_ends": 200,
+        "steel_ends": 88,
+        "wood_ends": 112
+      }
+    },
+    {
+      "case_id": "k12-rear",
+      "maximum_absolute_arithmetic_errors_by_quantity_family": {
+        "rich-shaft": 8.526512829121202e-14,
+        "rich-steel": 4.440892098500626e-16,
+        "rich-timber": 0.0,
+        "rich-washer": 6.821210263296962e-13
+      },
+      "scalar_comparisons": 12283,
+      "shaft": {
+        "complete_bolt_resistance": null,
+        "first_yield_reference_exceedances": [],
+        "shafts": 100
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-1ea06426aef48e6928f79844",
+      "steel": [
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6_r6",
+            "inside_radius_scenario_mm": 6.0,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.0,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.152781411937403
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6052303985264781
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.726868034372548
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.9592538091012677
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.64524150870247
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.023426986822173725
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_right",
+              "exceedance_count": 0,
+              "reference_ratio": 0.017468442153953895
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_right",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02368496961087698
+            }
+          }
+        },
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6p35_r6p35",
+            "inside_radius_scenario_mm": 6.35,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.35,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.13942423119045946
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.5427595695136619
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.651945874026736
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.8596238663511921
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.578147557753855
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_single_top_right_2",
+              "exceedance_count": 0,
+              "reference_ratio": 0.022135735580006668
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_angle_base_right",
+              "exceedance_count": 0,
+              "reference_ratio": 0.016505614633657222
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_angle_base_right",
+              "exceedance_count": 0,
+              "reference_ratio": 0.02237949884492314
+            }
+          }
+        }
+      ],
+      "timber": {
+        "Cdelta0p5_Cg1_sensitivity_exceedances": 2,
+        "duties": 24,
+        "mixed_shared_references_still_null": [
+          "eoere_bolt_065",
+          "eoere_bolt_066",
+          "eoere_bolt_067",
+          "eoere_bolt_070",
+          "eoere_bolt_071",
+          "eoere_bolt_074",
+          "eoere_bolt_079",
+          "eoere_bolt_080"
+        ],
+        "shaft_references": 100,
+        "supported_individual_references": 92,
+        "unadjusted_reference_exceedances": 0
+      },
+      "washers": {
+        "actual_product_strength_established": false,
+        "largest_catalog_axial_only_required_Fy_mpa": 127.30371968642586,
+        "nominal_and_catalog_ring_scenarios": 1000,
+        "own_ends": 200,
+        "steel_ends": 88,
+        "wood_ends": 112
+      }
+    },
+    {
+      "case_id": "a1-rear",
+      "maximum_absolute_arithmetic_errors_by_quantity_family": {
+        "rich-shaft": 1.4210854715202004e-14,
+        "rich-steel": 4.440892098500626e-16,
+        "rich-timber": 0.0,
+        "rich-washer": 4.547473508864641e-13
+      },
+      "scalar_comparisons": 12283,
+      "shaft": {
+        "complete_bolt_resistance": null,
+        "first_yield_reference_exceedances": [],
+        "shafts": 100
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-f697100f86d333327648ac47",
+      "steel": [
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6_r6",
+            "inside_radius_scenario_mm": 6.0,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.0,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.08332415681654588
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.44122902652194534
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.528297557502558
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.709663571583321
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.4661102976093404
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.013802676180257299
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.009884646209581564
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.013402313899824108
+            }
+          }
+        },
+        {
+          "angles": 22,
+          "bands": 88,
+          "own_point_actions": 616,
+          "scenario": {
+            "id": "t6p35_r6p35",
+            "inside_radius_scenario_mm": 6.35,
+            "rupture_factor": 2.0,
+            "thickness_mm": 6.35,
+            "yield_factor": 1.67
+          },
+          "separate_summary_peaks": {
+            "far_hole_nominal_combined": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.07603939743991889
+            },
+            "near_hole_nominal_combined": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.39538319772198743
+            },
+            "physical_cut_nominal_combined": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.473429791735229
+            },
+            "radius_conditioned_heel_component_with_gravity": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.6355631403849397
+            },
+            "separate_whole_flange_torsion_warping": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.41742557848020795
+            },
+            "unused_near_hole_net_shear": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.013041898752999022
+            },
+            "used_hole_bearing": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.009339823190155808
+            },
+            "used_hole_tearout": {
+              "body": "eoere_clip_horizontal_bottom_left_1",
+              "exceedance_count": 0,
+              "reference_ratio": 0.012663603684873178
+            }
+          }
+        }
+      ],
+      "timber": {
+        "Cdelta0p5_Cg1_sensitivity_exceedances": 0,
+        "duties": 24,
+        "mixed_shared_references_still_null": [
+          "eoere_bolt_065",
+          "eoere_bolt_066",
+          "eoere_bolt_067",
+          "eoere_bolt_070",
+          "eoere_bolt_071",
+          "eoere_bolt_074",
+          "eoere_bolt_079",
+          "eoere_bolt_080"
+        ],
+        "shaft_references": 100,
+        "supported_individual_references": 92,
+        "unadjusted_reference_exceedances": 0
+      },
+      "washers": {
+        "actual_product_strength_established": false,
+        "largest_catalog_axial_only_required_Fy_mpa": 93.72991564592148,
+        "nominal_and_catalog_ring_scenarios": 1000,
+        "own_ends": 200,
+        "steel_ends": 88,
+        "wood_ends": 112
+      }
+    }
+  ],
+  "command": [
+    "python3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/independent-review-v1/rich_review.py",
+    "--out",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/independent-review-v1/receipt-rich-six-cases.json"
+  ],
+  "complete_joint_resistance": null,
+  "execution": {
+    "CAD_native_global_or_panel_operator_execution": false,
+    "genuine_producer_reducer_or_admission_gate_import_or_call": false,
+    "saved_JSON_and_streaming_source_hash_reads_only": true,
+    "shared_document_or_source_writes_staging_or_commits": false,
+    "stdlib_only_and_own_frozen_review_utilities": true
+  },
+  "findings": [],
+  "limits": [
+    "Authenticates exact current source, field/admission and six-case coarse review bindings. Relies upon their completed numerical admissions; no gate or component reducer is rerun.",
+    "Checks census, source action selection, scalar scenario/reference ratios, current catalog-circle sample maxima, washer ring arithmetic, retained nulls and steel/timber summary selection. Does not reproduce rich steel event searches, curved heel fields, timber six-mode resistance derivations, signed placement rays, washer plate solutions or landing geometry.",
+    "Thickness/radius t6/r6 and t6.35/r6.35 are separate fixed-action scenarios at the unchanged6.35mm source geometry. Reference exceedances remain recorded; a source numerical pass is not a strength pass.",
+    "All eight mixed/shared stacks, current finished net sections, signed groups/splitting, actual restraint and complete joints remain unresolved. Actual delivered hardware and tool/product observations remain unknown.",
+    "Nominal support carry, ring mean pressure, conditional catalog roots/body windows and unadopted material markers are distinct from actual pressure bounds or product capacities. No fabrication, physical-work or climbing release follows."
+  ],
+  "negative_controls_rejected": [
+    "wrong_current_field_binding",
+    "changed_reference_scenario",
+    "omitted_heel_exceedances",
+    "changed_ring_pressure",
+    "invented_washer_product_strength"
+  ],
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "schema": "eoere_current_rich_component_actual_output_independent_review/v1",
+  "source_union": {
+    "canonical_sha256": "ee9e8495713b461d56d07b82b30173728664e3fa35faa6d4058e0b78a2d9db44",
+    "derivation": "union of six exact rich result source_sha256 maps and targets_and_direct_sources_sha256",
+    "every_source_file_hashed_before_and_after": true,
+    "paths": 1191
+  },
+  "status": "CLEAN_SAVED_SIX_CASE_IDENTITIES_CENSUS_SCENARIOS_AND_SUMMARIES",
+  "targets_and_direct_sources_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/admission.json": "e987e14378f98933a40bf73d0a9f6a89c7395fa1fa80658ab6015fb44622dc9c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/field.json": "d7d003370fb346cbf9b00116231a603bb90255e8541519f119686b2e209e69f5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/admission.json": "f15357cfc083a50446eec61550900fd44fdab0198a13e2c06a252bd25bfbd2b7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/field.json": "a6061668878537da052571075c3ede10ab4236f9734eea5be0176c647688f4bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/admission.json": "010719584f83ea389e6a41d82aafce168ce8f74cafeb0498c20de8e721eed77a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/field.json": "44e762a58d0077e6e6a812cf40a265bf1f52714bd6c8f8ebd773fde8d3a141d0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/admission.json": "93db5b0bfbd3587e48d77caeba62f50a3df5b98431a586fe2f346c387daa527b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/field.json": "9d0e12d3a3b953f037ce3570b9412e0cef786a699779cf596b791c6bc3ee7685",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/admission.json": "11f2c1afe61fbe1c1070e7003619fc70ecca50518233c448c8c127ea5b945e41",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/field.json": "f2f0bf7d2d4bffc23ff2f6cd211807a41809897d7f6f415418675065a81a8b5a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/admission.json": "903ca54d74b2182df6da5be9b9a69a873a21d8d8896f06d62696a8aebd323bbb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/field.json": "276ae8dde52d18aa01195ca1db290306126af2e0691ca6491efc9943d2f24b54",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/consumer-v1/consume.py": "f11175782c7b29abbdfbcbf5fbad63f919596bc6a613b4c7a5b65acc1027bad9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-followup-results-v1/a1-rear/attempt01/result.json": "bd2656d5909e4d9c63bfaa5e2f351e9c0ed865591d389dbd820f3d896b128434",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-followup-results-v1/a12-forward/attempt01/result.json": "235e0290ad55f43cad14ac55ca2873ae80ee53eba53fdc3d089f79bcb72dad02",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-followup-results-v1/a12-left/attempt01/result.json": "d3eae971965ae13eccfd46f96764adff72957c8e4cfc6ebe17501711c4c4d49c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-followup-results-v1/a12-rear/attempt01/result.json": "d232aaa933dcd21f0506509dd67ef8ba52843b8bcaa4ed4007a2111c3ad494ec",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-followup-results-v1/k12-rear/attempt01/result.json": "e2abd3a855c306ce53058507d914976523d68cc3cf86d1658dc4fbe952a720cb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-followup-results-v1/k12-right/attempt01/result.json": "687b3544a60accff933d3250c0b12ef907c62c8bc18924652f114f5a30cc471a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/a1-rear/attempt01/result.json": "6a1b10db973fc583f8d6e98ba330ec4977e405d0170ee4c5bd6b53a80712bdc6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/a12-forward/attempt01/result.json": "5b4e4e2a467a9593bcc8b25687d4d2547aad2b7cb99b2b80624df531d40a81a6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/a12-left/attempt01/result.json": "b6d40cb2b2253ae9c461c7f01070a7dd8b35011c0dd1d9972b8e800630e93728",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/a12-rear/attempt01/result.json": "e20c1fbfe688183bc748a991781bad5b0022435368061c8eb183906b5acd40b2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/independent-review-v1/receipt-first-three.json": "b3ae04e8a84ede0594f02d3b2a7d2a5436d22c39a267f1344d9d17b90958f9ea",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/independent-review-v1/receipt-six-cases.json": "5973bb5c128a76fde59c3a6183cfd06ec3d42460f6be9921e2e7e1be80e0fec9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/independent-review-v1/review.py": "64dbd260245bbc6d349d0866cc882e7b811d0a97436c4caffebc9912fdb575a3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/independent-review-v1/rich_review.py": "f2741b10d15d4a3cb720b017ea13fc9bdbdf5adb4dd9f9b16e8a73e42a6ff352",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/k12-rear/attempt01/result.json": "53fe0f30098e61db4aa2ea6c50b423d301ba419eafb2320d2d4bab5c503ec6a0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/k12-right/attempt02/result.json": "58a8d70564106d6bd2c3127b963f8edaf52ef56ff7a77b605f22f2fd81fa9629",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7"
+  }
+}

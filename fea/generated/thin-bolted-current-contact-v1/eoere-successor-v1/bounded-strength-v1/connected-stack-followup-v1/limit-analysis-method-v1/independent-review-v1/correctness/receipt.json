@@ -1,0 +1,93 @@
+{
+  "checks": {
+    "candidate_joint_capacity_remains_null": true,
+    "existing_outputs_rejected_before_run": [
+      "directory",
+      "file",
+      "dangling_symlink"
+    ],
+    "failed_LP_status_rejected": true,
+    "fresh_synthetic_replay_byte_identical": true,
+    "frozen_target_files": 6,
+    "genuine_CAD_imported": false,
+    "independent_actual_LP_KKT_certificates": 68,
+    "independently_integrated_fields": 45,
+    "maximum_end_moment_error_lb_in": 3.495037592671224e-12,
+    "maximum_independent_KKT_residual": 1.5543122344752192e-15,
+    "maximum_interior_peak_difference_lb_in": 6.821210263296962e-13,
+    "maximum_member_force_error_lbf": 9.094947017729282e-13,
+    "maximum_published_rounded_design_reference_error_lbf": 0.5,
+    "maximum_raw_mode_relative_error": 1.9656051724152007e-16,
+    "six_raw_modes_decimal_equation_checks": 90,
+    "source_change_failure_reproduction": {
+      "changed_input_sha256": "656485294a3e5735f3e2952142d5afe503bf0626a2385790bb8c37bf11dd21e4",
+      "changed_source_expected_Im_lbf": 3960.0,
+      "computed_Im_lbf": 3600.0,
+      "emitted_input_sha256": "656485294a3e5735f3e2952142d5afe503bf0626a2385790bb8c37bf11dd21e4",
+      "only_temp_fixture_modified": true,
+      "original_input_sha256": "bab3f6c7d57c34e6b208c0d78462a7f5c18bf3f59111b67f659fe7f3084044a2",
+      "published_without_source_change_error": true
+    },
+    "source_pins_before_after_unchanged": true,
+    "synthetic_cases": 15
+  },
+  "command": [
+    ".venv/bin/python",
+    "-B",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/correctness/review.py"
+  ],
+  "limits": [
+    "All computations are inexpensive synthetic scalar LPs and dimensional/decimal arithmetic; no actual candidate forces, materials or geometry were used.",
+    "No CAD/BRep query, current bank/frame/native/global case/browser/geometry operation.",
+    "The source-change reproduction mutates only a temporary input copy; all six frozen target files and issued attempts remain byte-identical.",
+    "Raw scalar statics benchmarks do not establish compatibility, an ASD design value, candidate joint resistance, or release."
+  ],
+  "mechanics_acceptance": false,
+  "physical_release": false,
+  "primary_source_checks": [
+    {
+      "url": "https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf",
+      "verified": "2012 edition/copyright2015, Table1-1 raw equations, Section1.3 minimum mode-specific P/Rd, Part2 ideal-plastic statics/end-fixity exclusion, Example3.1 rounded reference values"
+    },
+    {
+      "url": "https://github.com/scipy/scipy/blob/v1.18.1/scipy/optimize/_linprog_highs.py",
+      "verified": "Pinned v1.18.1 source exists; installed wrapper byte hash and environment match inputs"
+    },
+    {
+      "url": "https://docs.scipy.org/doc/scipy/reference/optimize.linprog-highs-ds.html",
+      "verified": "Live manual identifies1.18.0; signed bounds/status/marginal conventions agree for used features; no claim of1.18.1 web manual"
+    }
+  ],
+  "schema": "independent_synthetic_limit_analysis_correctness_review/v1",
+  "source_sha256": {
+    ".venv/lib/python3.12/site-packages/scipy/optimize/_linprog_highs.py": "32999bba42521a001d08bd9a1a02ca663b8b7eb93b6f799f37438e062484c89a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/README.md": "4a362e561cea83922fe2c39c78c9ea52cd6337ce82aac55c058fd12fea6b3e48",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/analyze.py": "c258fb08193f3106d0280c636e91f1f0573ddcc442c54ad408c02777e5039881",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/inputs.json": "bab3f6c7d57c34e6b208c0d78462a7f5c18bf3f59111b67f659fe7f3084044a2",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verification.json": "d0d24644d7adaa0d22273a1e377da71fd9cde51b62e225d6e841249a924857ff",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verify.py": "6d7351cb61c1bbc550f70f01cf54d05be07badb05d7511989e12989c381764db",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/verification.json": "57f81a98a5d158f997b54c0ed4094914339f38b0d9c5809643c227fd1f82a02e",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/frozen-packet.json": "eb2b28728f53cc83964402bda7a6a602173e55ec60a654aac2729e328e563883",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/attempt03/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/correctness/review.py": "9ef563b172775a9c72396689381b653d2115a3171a5af1c7ea53a7358c6e8e71",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/replay/details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/replay/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "tests/test_dowel_yield.py": "9a359170144a23bc85dc17e95aabf565c70adf3802e6017a7fdbdf4dec2fd3f2",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "status": "ONE_CONFIRMED_PROVENANCE_FINDING_NUMERICAL_REPLAY_PASSES",
+  "substantial_findings": [
+    {
+      "file": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/analyze.py",
+      "fix": "Capture the input bytes/digest and analyzer digest before computation, bind the output to that captured snapshot, and verify both own files after computation and before publishing. Include them with the external source closure; reject a changed-source attempt without successful result publication. Add an isolated temp-copy mutation control.",
+      "impact": "The result hashes inputs.json only after solving, while before/after check_pins authenticates only the five external references. A changing input file can therefore publish the old numeric results with the new input digest. A temp-copy real synthetic run emitted new-source SHA with Im3600lbf although that changed source requires3960lbf. The current issued frozen results remain unchanged and reproduce correctly.",
+      "line": 353,
+      "severity": "medium",
+      "title": "Bind the result to the input bytes actually read before solving"
+    }
+  ]
+}

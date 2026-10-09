@@ -1,0 +1,159 @@
+{
+  "additional_small_method_fixtures": [
+    "vertex",
+    "outside_corner",
+    "inside_edge",
+    "outside_edge",
+    "opposite_horizontal_signs",
+    "duplicate_and_interior_supports",
+    "zero_downward_resultant",
+    "nonfinite_force_rejected",
+    "off_plane_rejected",
+    "nonfinite_support_rejected"
+  ],
+  "direct_sources": {
+    "before_and_after": true,
+    "bindings": {
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-v1/check_current.py": "c2c32d1fdadae374b5d7f7d192d979e52954011bc041171980cc6e63a0aeceaa",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/global_statics.py": "e8042b4a7f82e4d76e2a66abde4452a2d61959359bff4fe2edb261af7e1152d4",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-mechanics-v1/inputs.json": "81e9ad126f806a412a8bcb73ae3d0057ef3568ed0fa45986503f97fb5fb62d9f",
+      "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    },
+    "count": 8
+  },
+  "early_occupied_output_rejection_and_bad_source_no_output": true,
+  "independent_scalar_checks": {
+    "cases": [
+      {
+        "case_id": "a12-rear",
+        "edge_margin_mm": 330.2849914799092,
+        "load_count": 827
+      },
+      {
+        "case_id": "a12-forward",
+        "edge_margin_mm": 603.2157580181188,
+        "load_count": 827
+      },
+      {
+        "case_id": "a12-left",
+        "edge_margin_mm": 466.7503747490141,
+        "load_count": 827
+      },
+      {
+        "case_id": "k12-right",
+        "edge_margin_mm": 466.7503747490141,
+        "load_count": 827
+      },
+      {
+        "case_id": "k12-rear",
+        "edge_margin_mm": 330.2849914799092,
+        "load_count": 827
+      },
+      {
+        "case_id": "a1-rear",
+        "edge_margin_mm": 642.9085097705661,
+        "load_count": 827
+      },
+      {
+        "case_id": "gravity-only",
+        "edge_margin_mm": 856.2997678025853,
+        "load_count": 826
+      }
+    ],
+    "four_right_center_post_x_shifts_mm": -39.2,
+    "hull_vertices": 6,
+    "mass_kg": 219.11593970030577,
+    "max_force_error_n": 0.0,
+    "max_moment_error_nmm": 9.313225746154785e-10,
+    "max_witness_residual_n_or_nmm": 1.862645149230957e-09,
+    "old_points_unchanged": 28,
+    "support_points": 32
+  },
+  "limits": [
+    "Eight direct source pins are authenticated; the declared1086 recursive input pins are not readmitted by this statics review.",
+    "Current source inputs and frame-method admission remain pending; both readiness flags stay false.",
+    "Nonnegative normal reactions prove only equilibrium possibility; no compatible elastic distribution, joint demands/capacity, friction/floor capacity, or actual weight is established.",
+    "No historical response was used, and no frame/native/CAD/BREP/browser execution, model edit, shared write, staging or commit was performed."
+  ],
+  "nonfinite_json_controls": 3,
+  "passed": true,
+  "preserved_method_fixtures_rerun": 7,
+  "producer_verification_rerun": {
+    "controls": [
+      "fresh_exact_replay",
+      "occupied_output_preserved",
+      "source_output_alias_rejected",
+      "wrong_input_hash_rejected",
+      "source_drift_or_late_output_before",
+      "source_drift_or_late_output_during",
+      "source_drift_or_late_output_race"
+    ],
+    "exact_receipt_replay": true
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "reviewer_sha256": "6fbded047274af3b538818e5faadf962bac129d26df353b9e83bcc54de243a32",
+  "ruff_two_frozen_helpers_no_cache": true,
+  "schema": "eoere_current_global_statics_testing_review/v1",
+  "semantic_rejection_controls": [
+    "wrong_schema",
+    "extra_grid",
+    "historical_q",
+    "old_field",
+    "release",
+    "missing_footprint",
+    "observation_mismatch",
+    "unconfirmed_floor_face",
+    "case_order",
+    "gravity_hold",
+    "gravity_load_census",
+    "duplicate_load_id",
+    "nonfinite_load_point",
+    "boolean_force",
+    "mismatched_climber",
+    "wrong_gravity",
+    "wrong_mass"
+  ],
+  "substantial_findings": [],
+  "tampered_report_numerical_rejections": [
+    "force",
+    "moment",
+    "cop",
+    "margin",
+    "feasibility",
+    "hull",
+    "negative_witness",
+    "nonclosing_witness",
+    "friction",
+    "yaw",
+    "elastic_claim",
+    "summary",
+    "governing_case",
+    "readiness",
+    "release",
+    "mass"
+  ],
+  "target": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-v1",
+    "sha256": {
+      "check_current.py": "c2c32d1fdadae374b5d7f7d192d979e52954011bc041171980cc6e63a0aeceaa",
+      "result.json": "f05f81d17a80b1fc1e2a0df106a60ac34f6253a1bb0b664a7241e63cc3702c24",
+      "verification.json": "2278f49ebd516bb3cc10fc1fffa53bdda989008c66429eeb4e55c2952404b203",
+      "verify.py": "68e27a587cadc08b64923cbe76fdf5db36c35ca0cca6d8789ac3f3b44be7862d"
+    }
+  },
+  "unchanged": {
+    "target_four_files": true,
+    "ten_verifier_bound_files": true
+  }
+}

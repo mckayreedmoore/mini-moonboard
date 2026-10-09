@@ -1,0 +1,58 @@
+{
+  "case_id": "a12-forward",
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+    "-B",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+    "--mode",
+    "run",
+    "--run",
+    "--case-id",
+    "a12-forward",
+    "--wall-seconds",
+    "900",
+    "--inputs",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json",
+    "--inputs-sha256",
+    "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+    "--input-review",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/independent-review-v1/receipt.json",
+    "--input-review-sha256",
+    "f7936b055d3a0ee9a475b09bff73d46fbbf25303c23c17c14e2d3e6c4c97eb2c",
+    "--method-input",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-readiness-v1/method-input.json",
+    "--method-input-sha256",
+    "941ca92e8230de9d480d17f6e2a082d05a3fae267329ef0b33c81d06d0ad46f5",
+    "--slot",
+    "/tmp/moonboard-extended-cleat-force-parent-slot-v1.json",
+    "--slot-sha256",
+    "6d40efb578db5f46f4bf5deffa762c0d3c0b7dc9f1ef36bdd4ac0e9d14895e88",
+    "--out",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/field.json"
+  ],
+  "controlled_environment": {
+    "EOERE_PARENT_SERIALIZED_FORCE_RUN": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "cwd": "/home/mckay-linux/repos/mini-moonboard",
+  "elapsed_seconds": 116.29582237700015,
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-09T05:22:59.946189+00:00",
+  "historical_state_or_actions_used": false,
+  "logs": {
+    "stderr.log": {
+      "bytes": 0,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout.log": {
+      "bytes": 1751,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/stdout.log",
+      "sha256": "2580e75db61cc242355f65c68ff8e467f5bc47ebd7df495045187bf20e4b3dfc"
+    }
+  },
+  "schema": "eoere_parent_current_case_process_capture/v1",
+  "started_at_utc": "2026-10-09T05:21:03.651772+00:00",
+  "status": "FINISHED"
+}

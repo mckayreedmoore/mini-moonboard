@@ -1,0 +1,2005 @@
+{
+  "all_current_admission_gates_pass": true,
+  "candidate_geometry_sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+  "capture_helper": {
+    "bytes": 6691,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/serial-capture-v1.py",
+    "sha256": "5dc4f8fd42c772aaaea7dfde8545804e70e7b28cbbcc561c6fc9ca7f041453f6"
+  },
+  "case_sequence": [
+    "a12-forward",
+    "a12-rear",
+    "a12-left",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "cases": [
+    {
+      "admission_elapsed_seconds": 61.17053102299997,
+      "admission_finished_at_utc": "2026-10-09T05:24:19.318697+00:00",
+      "admission_started_at_utc": "2026-10-09T05:23:18.149807+00:00",
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          0.0,
+          -300.0,
+          -4372.904137692261,
+          -1583845.9738590738,
+          -2274332.5736103742,
+          305760.0
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 827
+      },
+      "body_equilibrium": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 7.958880737884993e-07,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0007540502136674549,
+        "moment_tolerance_nmm": 0.1
+      },
+      "both_credited_legs_positive": true,
+      "case_id": "a12-forward",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9302,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "saved_panel_blocks": 6,
+        "saved_panel_screw_rows": 66,
+        "saved_shaft_section_cut_blocks": 100,
+        "saved_steel_port_rows": 88,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_extended_cleat_equilibrium_and_recovery_pass": true,
+      "current_panel_operator_preparation_sha256": "6fd80a883962214b51ba8c260f638e97c926549c9f02f7cde1f905f902212504",
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 269.1479089809545,
+        "maximum_centroid_xy_penalty_motion_mm": 0.0026914790898095453,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          -6.399876184559616e-08,
+          300.00000049988097
+        ],
+        "support_resultant_force_xyz_n": [
+          -6.399876184559616e-08,
+          300.00000049988097,
+          4372.90413683138
+        ]
+      },
+      "global_force_norm_n": 9.975437022010809e-07,
+      "global_moment_about_reference_norm_nmm": 0.0011400350681168246,
+      "global_residual_n_nmm": [
+        -6.399876184559616e-08,
+        4.998809686185268e-07,
+        -8.608813004684635e-07,
+        -0.0009069731459021568,
+        -0.000596189871430397,
+        -0.00034876540303230286
+      ],
+      "gradient_inf_n": 2.0828353818199774e-07,
+      "historical_q_or_forces_used": false,
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "logs": {
+        "admission": {
+          "admission.stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/admission.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "admission.stdout.log": {
+            "bytes": 353,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/admission.stdout.log",
+            "sha256": "a2c49828d2098397a4697091d4750a70ca73ddc6b12c08ecefcc45180566f8e5"
+          }
+        },
+        "producer": {
+          "stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout.log": {
+            "bytes": 1751,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/stdout.log",
+            "sha256": "2580e75db61cc242355f65c68ff8e467f5bc47ebd7df495045187bf20e4b3dfc"
+          }
+        }
+      },
+      "maximum_panel_screw_withdrawal_n": 1389.2081440902211,
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 49.74501980488275,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.10775539210016138
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 8.401752808497024,
+        "base_floor_right": 79.2915297933209,
+        "base_post_center_left": 149.36157480493623,
+        "base_post_center_right": 176.98124493240545,
+        "base_post_outer_left": 584.9292642297498,
+        "base_post_outer_right": 226.69050235517017,
+        "lumber_leg_left": 2354.538911982193,
+        "lumber_leg_right": 792.7093559251072
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9302,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "panel_generalized_coefficients_canonical_sha256": "91c4bdc083a644ed674cbd87f7258d4a7742959d7140aac031f1e03af725e7b5",
+      "physical_demand_bounds_established": false,
+      "positive_credited_leg_normals_n": {
+        "lumber_leg_left": 2354.538911982193,
+        "lumber_leg_right": 792.7093559251072
+      },
+      "producer_elapsed_seconds": 116.29582237700015,
+      "producer_finished_at_utc": "2026-10-09T05:22:59.946189+00:00",
+      "producer_started_at_utc": "2026-10-09T05:21:03.651772+00:00",
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.11563224998009637,
+        "lumber_leg_right": 0.06478132755998198
+      },
+      "references": {
+        "admission-process.json": {
+          "bytes": 1660,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/admission-process.json",
+          "sha256": "a4ad91de8cffd71458e2cacd3ca9d909e967718f76099859aa5e7d8bc927230b"
+        },
+        "admission.json": {
+          "bytes": 176794,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/admission.json",
+          "sha256": "f15357cfc083a50446eec61550900fd44fdab0198a13e2c06a252bd25bfbd2b7"
+        },
+        "field.json": {
+          "bytes": 25175297,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/field.json",
+          "sha256": "a6061668878537da052571075c3ede10ab4236f9734eea5be0176c647688f4bb"
+        },
+        "operator_arrays": {
+          "bytes": 2692905,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/field.json.operators.npz",
+          "sha256": "de7bf9e2d46b8e10afb2286ef0b2cab83861a4be9c69491f76448cd02f68c1c9"
+        },
+        "operator_manifest": {
+          "bytes": 6615165,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/field.json.operators.json",
+          "sha256": "643710e07f72cbda803ad52408fd390e599a7a96c0180ff483584c79204d4e6f"
+        },
+        "process.json": {
+          "bytes": 2574,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/process.json",
+          "sha256": "e2345671fe7bc9cab4e1201e651002ffb94660038121e27a5448a82306fdca38"
+        }
+      },
+      "release": {
+        "candidate_accepted": false,
+        "capacity_established": false,
+        "climbing_released": false,
+        "complete_joint_acceptance": false,
+        "fabrication_released": false,
+        "structural_released": false
+      },
+      "six_panel_blocks": [
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 9301.906835970518,
+          "hole_count": 90,
+          "mass_measure_sha256": "b535a0316e11177e26b6bb9955def8f9f2cd68cad70e6f8fd306d12cc8b49a0c",
+          "old_K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "panel": "main_lower_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "faa3b8b0c12333ab45a5b3e61ffe03e9446c876acf6405e31446fd32a1a59186",
+          "signed_net_mass_area_mm2": 1475211.2531640334
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "177ac66f004fc3b79dc07fdd9ade39c2b3ce6c8b5829aa785c51cb5e774e6034",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4"
+          ],
+          "hole_area_mm2": 7790.858938145304,
+          "hole_count": 77,
+          "mass_measure_sha256": "8f151559011eabd4028e839b3e56185de7c3baba6e7e371a6f1899744da5f28d",
+          "old_K_sha256": "241ca46dcb99db1c3f4600eec295a4448989fc8bb414e9d15f4904eb60e30683",
+          "panel": "main_lower_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "fdcaf638d6c49c17cca94051bb0de93a6040bd6aa93f70e4a31e9b4ebd0ef2e0",
+          "signed_net_mass_area_mm2": 1476722.301061859
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 7709.119360600493,
+          "hole_count": 78,
+          "mass_measure_sha256": "22170d3653c33f7ffa66fb55b86ec5f841114adc7ee442a5db4e4f6ef3f6b432",
+          "old_K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "panel": "main_upper_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "acdb426f82d233e941d159b889da27f58ea4ec485d8156e2dd0bdd89d487ec37",
+          "signed_net_mass_area_mm2": 1476804.0406393954
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "3c7bd4f9b52011937a3f94ca16fcce78b461562963be98b7e2fdea49052350df",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4"
+          ],
+          "hole_area_mm2": 6463.536042003617,
+          "hole_count": 67,
+          "mass_measure_sha256": "d26d20ae056fa67ad0122fbba17bc354e7870f3a7cba9a26bfc4d94a541da21d",
+          "old_K_sha256": "20f5fbfa361831dd64bf24899e1b409d8c662eba1bc5cb535640d9153f34f116",
+          "panel": "main_upper_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "f4b05d591519e4fb5c8baf9a506e73825b6d6eb730d67416fb11a6b7849f8db6",
+          "signed_net_mass_area_mm2": 1478049.6239579923
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "ca8d2a0c2d16e268561985ed9f199d1174d7e0155e574731ae642e84f7538c8f",
+          "old_K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "panel": "kicker_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "c980110d93da4d752b508eb167775b9829eb55aac704ec827984640d4891ddea",
+          "signed_net_mass_area_mm2": 336560.2312618126
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "7784575c1a8ee48cc32ec1ebec58387887fe281ef2feecbb632e14feec947acc",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_kicker_right_center_1",
+            "round_kicker_right_center_2"
+          ],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "606be1ac1b95aedb97945c691abd9bb190cf661905c0cdf7f449a249152cc939",
+          "old_K_sha256": "a47cc255f3222e2581542388e3422d192422fd26f1185df28a801f0f621f8d96",
+          "panel": "kicker_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "2c9f57f61b07afde0e6c2b9bbda921923daf11bfc6e6e30df2ef17d98312127c",
+          "signed_net_mass_area_mm2": 336560.2312618127
+        }
+      ],
+      "source_inventory_counts": {
+        "admission_declared_source_keys": 1105,
+        "common_key_hash_conflicts": 0,
+        "common_keys": 1105,
+        "field_admission_union_keys": 1105,
+        "field_declared_source_keys": 1105,
+        "inventory_counts_are_distinct": true,
+        "parent_slot_verified_current_source_pin_count": 1110
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-9f7cba65e8dc3fbcffb5d39f",
+      "support_contract": {
+        "all_other_floor_hosts_normal_only": true,
+        "bounds_other_support_scenarios": false,
+        "enabled_centroid_xy_hosts": [
+          "lumber_leg_left",
+          "lumber_leg_right"
+        ],
+        "method": "fixed-rear-leg-centroid-XY-all-feet-compression-only",
+        "minimum_credited_leg_normal_n": 1e-07,
+        "no_slip_assumed_not_verified": true,
+        "no_vertical_tension_or_anchor": true,
+        "original_normal_and_joint_laws_retained": true,
+        "original_switching_law_preserved_as_history": true,
+        "physical_floor_capacity_established": false,
+        "schema": "eoere_fixed_rear_leg_floor_support/v1",
+        "support_mask_feedback_used": false
+      },
+      "unchanged_generalized_residual_tolerance_n": 1e-05
+    },
+    {
+      "admission_elapsed_seconds": 52.22900851700069,
+      "admission_finished_at_utc": "2026-10-09T05:28:34.898568+00:00",
+      "admission_started_at_utc": "2026-10-09T05:27:42.668658+00:00",
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          0.0,
+          300.0,
+          -4372.904137692261,
+          -2117346.052157529,
+          -2274332.5736103742,
+          -305760.0
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 827
+      },
+      "body_equilibrium": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 1.4425689403703405e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0011941905713442052,
+        "moment_tolerance_nmm": 0.1
+      },
+      "both_credited_legs_positive": true,
+      "case_id": "a12-rear",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9302,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "saved_panel_blocks": 6,
+        "saved_panel_screw_rows": 66,
+        "saved_shaft_section_cut_blocks": 100,
+        "saved_steel_port_rows": 88,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_extended_cleat_equilibrium_and_recovery_pass": true,
+      "current_panel_operator_preparation_sha256": "6fd80a883962214b51ba8c260f638e97c926549c9f02f7cde1f905f902212504",
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 269.14790841262027,
+        "maximum_centroid_xy_penalty_motion_mm": 0.0026914790841262026,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          -4.282171062186535e-08,
+          -299.9999997560704
+        ],
+        "support_resultant_force_xyz_n": [
+          -4.282171062186535e-08,
+          -299.9999997560704,
+          4372.904136816139
+        ]
+      },
+      "global_force_norm_n": 9.104538339440907e-07,
+      "global_moment_about_reference_norm_nmm": 0.0010494334950308507,
+      "global_residual_n_nmm": [
+        -4.282171062186535e-08,
+        2.439296054035367e-07,
+        -8.761226126807742e-07,
+        -0.000704428181052208,
+        -0.0007777870632708073,
+        1.1784839443862438e-05
+      ],
+      "gradient_inf_n": 1.4392495553801268e-06,
+      "historical_q_or_forces_used": false,
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "logs": {
+        "admission": {
+          "admission.stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/admission.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "admission.stdout.log": {
+            "bytes": 350,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/admission.stdout.log",
+            "sha256": "72f9ba4fc9e329e96ea7d58622ba68f3a5b83100e3caa62deb4f9128f58ef04f"
+          }
+        },
+        "producer": {
+          "stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout.log": {
+            "bytes": 1736,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/stdout.log",
+            "sha256": "a89350663adfe96b3b4fcfddcb5a86262b8cfc42711eb1ed848eada7c6e0ca22"
+          }
+        }
+      },
+      "maximum_panel_screw_withdrawal_n": 1492.8330055167437,
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 37.26639191204958,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.07697952268984647
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 69.20817276329231,
+        "base_floor_right": 95.94127735247925,
+        "base_post_center_left": 88.0438985420895,
+        "base_post_center_right": 122.65282977704587,
+        "base_post_outer_left": 0.0,
+        "base_post_outer_right": 201.1905231157324,
+        "lumber_leg_left": 2927.6554438058206,
+        "lumber_leg_right": 868.2119914596789
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9302,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "panel_generalized_coefficients_canonical_sha256": "e396b573e5f27860e614c112cdaaf001753e1e58b5c90a23d46fa81b355575fe",
+      "physical_demand_bounds_established": false,
+      "positive_credited_leg_normals_n": {
+        "lumber_leg_left": 2927.6554438058206,
+        "lumber_leg_right": 868.2119914596789
+      },
+      "producer_elapsed_seconds": 94.82203704199947,
+      "producer_finished_at_utc": "2026-10-09T05:27:42.621254+00:00",
+      "producer_started_at_utc": "2026-10-09T05:26:07.801176+00:00",
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.09415520161925134,
+        "lumber_leg_right": 0.07723347011958656
+      },
+      "references": {
+        "admission-process.json": {
+          "bytes": 4807,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/admission-process.json",
+          "sha256": "57d74394fb5726329585d00951f88869cd65875b3a87d33c448d4428dd6a18df"
+        },
+        "admission.json": {
+          "bytes": 176767,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/admission.json",
+          "sha256": "93db5b0bfbd3587e48d77caeba62f50a3df5b98431a586fe2f346c387daa527b"
+        },
+        "field.json": {
+          "bytes": 25172881,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/field.json",
+          "sha256": "9d0e12d3a3b953f037ce3570b9412e0cef786a699779cf596b791c6bc3ee7685"
+        },
+        "operator_arrays": {
+          "bytes": 2692907,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/field.json.operators.npz",
+          "sha256": "365c89a0683b8b1e16eee3c99f31b62926b395cbc6a7d9ce4c5a96f3171f260d"
+        },
+        "operator_manifest": {
+          "bytes": 6615150,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/field.json.operators.json",
+          "sha256": "d3306c9bd3fb30368353b8657d7de777d345bb3d6318dc2d7f5827ccfbb0b1f7"
+        },
+        "process.json": {
+          "bytes": 5678,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-rear/attempt01/process.json",
+          "sha256": "d5e822d497b971814cd7bf6e5da37f275891b02c420078c0f757aba73a1c0bd0"
+        }
+      },
+      "release": {
+        "candidate_accepted": false,
+        "capacity_established": false,
+        "climbing_released": false,
+        "complete_joint_acceptance": false,
+        "fabrication_released": false,
+        "structural_released": false
+      },
+      "six_panel_blocks": [
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 9301.906835970518,
+          "hole_count": 90,
+          "mass_measure_sha256": "b535a0316e11177e26b6bb9955def8f9f2cd68cad70e6f8fd306d12cc8b49a0c",
+          "old_K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "panel": "main_lower_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "faa3b8b0c12333ab45a5b3e61ffe03e9446c876acf6405e31446fd32a1a59186",
+          "signed_net_mass_area_mm2": 1475211.2531640334
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "177ac66f004fc3b79dc07fdd9ade39c2b3ce6c8b5829aa785c51cb5e774e6034",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4"
+          ],
+          "hole_area_mm2": 7790.858938145304,
+          "hole_count": 77,
+          "mass_measure_sha256": "8f151559011eabd4028e839b3e56185de7c3baba6e7e371a6f1899744da5f28d",
+          "old_K_sha256": "241ca46dcb99db1c3f4600eec295a4448989fc8bb414e9d15f4904eb60e30683",
+          "panel": "main_lower_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "fdcaf638d6c49c17cca94051bb0de93a6040bd6aa93f70e4a31e9b4ebd0ef2e0",
+          "signed_net_mass_area_mm2": 1476722.301061859
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 7709.119360600493,
+          "hole_count": 78,
+          "mass_measure_sha256": "22170d3653c33f7ffa66fb55b86ec5f841114adc7ee442a5db4e4f6ef3f6b432",
+          "old_K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "panel": "main_upper_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "acdb426f82d233e941d159b889da27f58ea4ec485d8156e2dd0bdd89d487ec37",
+          "signed_net_mass_area_mm2": 1476804.0406393954
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "3c7bd4f9b52011937a3f94ca16fcce78b461562963be98b7e2fdea49052350df",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4"
+          ],
+          "hole_area_mm2": 6463.536042003617,
+          "hole_count": 67,
+          "mass_measure_sha256": "d26d20ae056fa67ad0122fbba17bc354e7870f3a7cba9a26bfc4d94a541da21d",
+          "old_K_sha256": "20f5fbfa361831dd64bf24899e1b409d8c662eba1bc5cb535640d9153f34f116",
+          "panel": "main_upper_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "f4b05d591519e4fb5c8baf9a506e73825b6d6eb730d67416fb11a6b7849f8db6",
+          "signed_net_mass_area_mm2": 1478049.6239579923
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "ca8d2a0c2d16e268561985ed9f199d1174d7e0155e574731ae642e84f7538c8f",
+          "old_K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "panel": "kicker_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "c980110d93da4d752b508eb167775b9829eb55aac704ec827984640d4891ddea",
+          "signed_net_mass_area_mm2": 336560.2312618126
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "7784575c1a8ee48cc32ec1ebec58387887fe281ef2feecbb632e14feec947acc",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_kicker_right_center_1",
+            "round_kicker_right_center_2"
+          ],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "606be1ac1b95aedb97945c691abd9bb190cf661905c0cdf7f449a249152cc939",
+          "old_K_sha256": "a47cc255f3222e2581542388e3422d192422fd26f1185df28a801f0f621f8d96",
+          "panel": "kicker_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "2c9f57f61b07afde0e6c2b9bbda921923daf11bfc6e6e30df2ef17d98312127c",
+          "signed_net_mass_area_mm2": 336560.2312618127
+        }
+      ],
+      "source_inventory_counts": {
+        "admission_declared_source_keys": 1105,
+        "common_key_hash_conflicts": 0,
+        "common_keys": 1105,
+        "field_admission_union_keys": 1105,
+        "field_declared_source_keys": 1105,
+        "inventory_counts_are_distinct": true,
+        "parent_slot_verified_current_source_pin_count": 1110
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-be9b7ec404800b5d5a8d93a4",
+      "support_contract": {
+        "all_other_floor_hosts_normal_only": true,
+        "bounds_other_support_scenarios": false,
+        "enabled_centroid_xy_hosts": [
+          "lumber_leg_left",
+          "lumber_leg_right"
+        ],
+        "method": "fixed-rear-leg-centroid-XY-all-feet-compression-only",
+        "minimum_credited_leg_normal_n": 1e-07,
+        "no_slip_assumed_not_verified": true,
+        "no_vertical_tension_or_anchor": true,
+        "original_normal_and_joint_laws_retained": true,
+        "original_switching_law_preserved_as_history": true,
+        "physical_floor_capacity_established": false,
+        "schema": "eoere_fixed_rear_leg_floor_support/v1",
+        "support_mask_feedback_used": false
+      },
+      "unchanged_generalized_residual_tolerance_n": 1e-05
+    },
+    {
+      "admission_elapsed_seconds": 62.38418390199968,
+      "admission_finished_at_utc": "2026-10-09T05:31:50.608295+00:00",
+      "admission_started_at_utc": "2026-10-09T05:30:48.223382+00:00",
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          -300.0,
+          0.0,
+          -4372.904137692261,
+          -1850596.0130083016,
+          -2541082.6127596023,
+          239866.13026966414
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 827
+      },
+      "body_equilibrium": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 6.078538734043154e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.007215330809338493,
+        "moment_tolerance_nmm": 0.1
+      },
+      "both_credited_legs_positive": true,
+      "case_id": "a12-left",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9302,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "saved_panel_blocks": 6,
+        "saved_panel_screw_rows": 66,
+        "saved_shaft_section_cut_blocks": 100,
+        "saved_steel_port_rows": 88,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_extended_cleat_equilibrium_and_recovery_pass": true,
+      "current_panel_operator_preparation_sha256": "6fd80a883962214b51ba8c260f638e97c926549c9f02f7cde1f905f902212504",
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 226.8073560860208,
+        "maximum_centroid_xy_penalty_motion_mm": 0.002268073560860208,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          300.0000000693435,
+          4.3042791553205006e-07
+        ],
+        "support_resultant_force_xyz_n": [
+          300.0000000693435,
+          4.3042791553205006e-07,
+          4372.904136818854
+        ]
+      },
+      "global_force_norm_n": 9.76175111260846e-07,
+      "global_moment_about_reference_norm_nmm": 0.0014354016599935383,
+      "global_residual_n_nmm": [
+        6.934351404197514e-08,
+        4.3042791553205006e-07,
+        -8.73407770995982e-07,
+        -0.0008450653403997421,
+        -0.001160276122391224,
+        1.3475073501467705e-06
+      ],
+      "gradient_inf_n": 4.150121631696375e-06,
+      "historical_q_or_forces_used": false,
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "logs": {
+        "admission": {
+          "admission.stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/admission.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "admission.stdout.log": {
+            "bytes": 350,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/admission.stdout.log",
+            "sha256": "ef3592f1f6880842c421f38818a952e5545e5c5e20cfe3f1f9ab3ea6f8905b0a"
+          }
+        },
+        "producer": {
+          "stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout.log": {
+            "bytes": 1739,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/stdout.log",
+            "sha256": "220f8e101f23a9da7d4d859330f8e784fdedaad5eb42f384ae6f44f4c18bed2b"
+          }
+        }
+      },
+      "maximum_panel_screw_withdrawal_n": 1420.5989240438614,
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 56.43209395912955,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.09137472391363384
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 0.0,
+        "base_floor_right": 51.120303615750665,
+        "base_post_center_left": 121.28493336046597,
+        "base_post_center_right": 198.1311591448938,
+        "base_post_outer_left": 354.21831425608286,
+        "base_post_outer_right": 168.52242874693113,
+        "lumber_leg_left": 2763.161781850515,
+        "lumber_leg_right": 716.4652158442142
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9302,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "panel_generalized_coefficients_canonical_sha256": "bd611a4d6b335169934034ee6eaf35093c36dc6a898ff8786bf7ed1acb29f3e8",
+      "physical_demand_bounds_established": false,
+      "positive_credited_leg_normals_n": {
+        "lumber_leg_left": 2763.161781850515,
+        "lumber_leg_right": 716.4652158442142
+      },
+      "producer_elapsed_seconds": 127.00662633600041,
+      "producer_finished_at_utc": "2026-10-09T05:30:48.155119+00:00",
+      "producer_started_at_utc": "2026-10-09T05:28:41.149502+00:00",
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.08208627188670585,
+        "lumber_leg_right": 0.10220249700497126
+      },
+      "references": {
+        "admission-process.json": {
+          "bytes": 4807,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/admission-process.json",
+          "sha256": "15f45bd5ccc6bb2aa949667cc1f5bb39aee184368c921e9525565421c42658d9"
+        },
+        "admission.json": {
+          "bytes": 176766,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/admission.json",
+          "sha256": "010719584f83ea389e6a41d82aafce168ce8f74cafeb0498c20de8e721eed77a"
+        },
+        "field.json": {
+          "bytes": 25170340,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/field.json",
+          "sha256": "44e762a58d0077e6e6a812cf40a265bf1f52714bd6c8f8ebd773fde8d3a141d0"
+        },
+        "operator_arrays": {
+          "bytes": 2693043,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/field.json.operators.npz",
+          "sha256": "d253ed903d47f6fcb944ec49c8fc77197022e82eab8865574c2f102c5b0ab555"
+        },
+        "operator_manifest": {
+          "bytes": 6615190,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/field.json.operators.json",
+          "sha256": "0fef95db86f822386ec387242c5889963a7e76e5f3322c8716b1cd34d3750377"
+        },
+        "process.json": {
+          "bytes": 5679,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-left/attempt01/process.json",
+          "sha256": "4507005d717a36650047c4f28a513661420d22458f427f6633e847242690e788"
+        }
+      },
+      "release": {
+        "candidate_accepted": false,
+        "capacity_established": false,
+        "climbing_released": false,
+        "complete_joint_acceptance": false,
+        "fabrication_released": false,
+        "structural_released": false
+      },
+      "six_panel_blocks": [
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 9301.906835970518,
+          "hole_count": 90,
+          "mass_measure_sha256": "b535a0316e11177e26b6bb9955def8f9f2cd68cad70e6f8fd306d12cc8b49a0c",
+          "old_K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "panel": "main_lower_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "faa3b8b0c12333ab45a5b3e61ffe03e9446c876acf6405e31446fd32a1a59186",
+          "signed_net_mass_area_mm2": 1475211.2531640334
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "177ac66f004fc3b79dc07fdd9ade39c2b3ce6c8b5829aa785c51cb5e774e6034",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4"
+          ],
+          "hole_area_mm2": 7790.858938145304,
+          "hole_count": 77,
+          "mass_measure_sha256": "8f151559011eabd4028e839b3e56185de7c3baba6e7e371a6f1899744da5f28d",
+          "old_K_sha256": "241ca46dcb99db1c3f4600eec295a4448989fc8bb414e9d15f4904eb60e30683",
+          "panel": "main_lower_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "fdcaf638d6c49c17cca94051bb0de93a6040bd6aa93f70e4a31e9b4ebd0ef2e0",
+          "signed_net_mass_area_mm2": 1476722.301061859
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 7709.119360600493,
+          "hole_count": 78,
+          "mass_measure_sha256": "22170d3653c33f7ffa66fb55b86ec5f841114adc7ee442a5db4e4f6ef3f6b432",
+          "old_K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "panel": "main_upper_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "acdb426f82d233e941d159b889da27f58ea4ec485d8156e2dd0bdd89d487ec37",
+          "signed_net_mass_area_mm2": 1476804.0406393954
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "3c7bd4f9b52011937a3f94ca16fcce78b461562963be98b7e2fdea49052350df",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4"
+          ],
+          "hole_area_mm2": 6463.536042003617,
+          "hole_count": 67,
+          "mass_measure_sha256": "d26d20ae056fa67ad0122fbba17bc354e7870f3a7cba9a26bfc4d94a541da21d",
+          "old_K_sha256": "20f5fbfa361831dd64bf24899e1b409d8c662eba1bc5cb535640d9153f34f116",
+          "panel": "main_upper_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "f4b05d591519e4fb5c8baf9a506e73825b6d6eb730d67416fb11a6b7849f8db6",
+          "signed_net_mass_area_mm2": 1478049.6239579923
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "ca8d2a0c2d16e268561985ed9f199d1174d7e0155e574731ae642e84f7538c8f",
+          "old_K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "panel": "kicker_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "c980110d93da4d752b508eb167775b9829eb55aac704ec827984640d4891ddea",
+          "signed_net_mass_area_mm2": 336560.2312618126
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "7784575c1a8ee48cc32ec1ebec58387887fe281ef2feecbb632e14feec947acc",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_kicker_right_center_1",
+            "round_kicker_right_center_2"
+          ],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "606be1ac1b95aedb97945c691abd9bb190cf661905c0cdf7f449a249152cc939",
+          "old_K_sha256": "a47cc255f3222e2581542388e3422d192422fd26f1185df28a801f0f621f8d96",
+          "panel": "kicker_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "2c9f57f61b07afde0e6c2b9bbda921923daf11bfc6e6e30df2ef17d98312127c",
+          "signed_net_mass_area_mm2": 336560.2312618127
+        }
+      ],
+      "source_inventory_counts": {
+        "admission_declared_source_keys": 1105,
+        "common_key_hash_conflicts": 0,
+        "common_keys": 1105,
+        "field_admission_union_keys": 1105,
+        "field_declared_source_keys": 1105,
+        "inventory_counts_are_distinct": true,
+        "parent_slot_verified_current_source_pin_count": 1110
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-3eb8a3ecefeec591a5921b25",
+      "support_contract": {
+        "all_other_floor_hosts_normal_only": true,
+        "bounds_other_support_scenarios": false,
+        "enabled_centroid_xy_hosts": [
+          "lumber_leg_left",
+          "lumber_leg_right"
+        ],
+        "method": "fixed-rear-leg-centroid-XY-all-feet-compression-only",
+        "minimum_credited_leg_normal_n": 1e-07,
+        "no_slip_assumed_not_verified": true,
+        "no_vertical_tension_or_anchor": true,
+        "original_normal_and_joint_laws_retained": true,
+        "original_switching_law_preserved_as_history": true,
+        "physical_floor_capacity_established": false,
+        "schema": "eoere_fixed_rear_leg_floor_support/v1",
+        "support_mask_feedback_used": false
+      },
+      "unchanged_generalized_residual_tolerance_n": 1e-05
+    },
+    {
+      "admission_elapsed_seconds": 55.0583310990005,
+      "admission_finished_at_utc": "2026-10-09T05:34:50.402419+00:00",
+      "admission_started_at_utc": "2026-10-09T05:33:55.343676+00:00",
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          300.0,
+          0.0,
+          -4372.904137692261,
+          -1850596.0130083016,
+          2440639.0807993533,
+          -239866.13026966414
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 827
+      },
+      "body_equilibrium": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 7.899528217777408e-07,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0007949189356257633,
+        "moment_tolerance_nmm": 0.1
+      },
+      "both_credited_legs_positive": true,
+      "case_id": "k12-right",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9302,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "saved_panel_blocks": 6,
+        "saved_panel_screw_rows": 66,
+        "saved_shaft_section_cut_blocks": 100,
+        "saved_steel_port_rows": 88,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_extended_cleat_equilibrium_and_recovery_pass": true,
+      "current_panel_operator_preparation_sha256": "6fd80a883962214b51ba8c260f638e97c926549c9f02f7cde1f905f902212504",
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 226.49927851990677,
+        "maximum_centroid_xy_penalty_motion_mm": 0.0022649927851990676,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          -300.00000003342547,
+          3.791245095641216e-07
+        ],
+        "support_resultant_force_xyz_n": [
+          -300.00000003342547,
+          3.791245095641216e-07,
+          4372.904136824751
+        ]
+      },
+      "global_force_norm_n": 9.473264006302682e-07,
+      "global_moment_about_reference_norm_nmm": 0.0012814152613348148,
+      "global_residual_n_nmm": [
+        -3.3425465062464355e-08,
+        3.791245095641216e-07,
+        -8.675106073496863e-07,
+        -0.0008117174729704857,
+        0.0009880089201033115,
+        8.353556040674448e-05
+      ],
+      "gradient_inf_n": 1.908369139280986e-07,
+      "historical_q_or_forces_used": false,
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "logs": {
+        "admission": {
+          "admission.stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/admission.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "admission.stdout.log": {
+            "bytes": 351,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/admission.stdout.log",
+            "sha256": "b1a891f5c182d92d5bc94c432c28d67defa2ed03e46b69c9a209371c9cb3e42d"
+          }
+        },
+        "producer": {
+          "stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout.log": {
+            "bytes": 1740,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/stdout.log",
+            "sha256": "baf83f5b525135c4d2ee8f8e0523ee7d43f78e4f68f3af96b2c61c65aca9e810"
+          }
+        }
+      },
+      "maximum_panel_screw_withdrawal_n": 1384.285155948505,
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 56.61818867142161,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.09021294262829126
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 45.88355602213478,
+        "base_floor_right": 0.0,
+        "base_post_center_left": 212.45394561099442,
+        "base_post_center_right": 117.92893838156876,
+        "base_post_outer_left": 165.59772452377774,
+        "base_post_outer_right": 351.46240099661605,
+        "lumber_leg_left": 748.0483526440026,
+        "lumber_leg_right": 2731.5292186456563
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9302,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "panel_generalized_coefficients_canonical_sha256": "316269ac3e2aa683bf07b1cff4956f9f91c424fa32f6edca45645914ce9ba9f2",
+      "physical_demand_bounds_established": false,
+      "positive_credited_leg_normals_n": {
+        "lumber_leg_left": 748.0483526440026,
+        "lumber_leg_right": 2731.5292186456563
+      },
+      "producer_elapsed_seconds": 118.51983554699927,
+      "producer_finished_at_utc": "2026-10-09T05:33:55.293098+00:00",
+      "producer_started_at_utc": "2026-10-09T05:31:56.771114+00:00",
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.09829909755864685,
+        "lumber_leg_right": 0.0829240940127007
+      },
+      "references": {
+        "admission-process.json": {
+          "bytes": 4811,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/admission-process.json",
+          "sha256": "744a3363d4a04cb8fafb3c3d7eb1a3c3a30ee6bfd6f7552af33491152fa66aac"
+        },
+        "admission.json": {
+          "bytes": 176770,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/admission.json",
+          "sha256": "903ca54d74b2182df6da5be9b9a69a873a21d8d8896f06d62696a8aebd323bbb"
+        },
+        "field.json": {
+          "bytes": 25172454,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/field.json",
+          "sha256": "276ae8dde52d18aa01195ca1db290306126af2e0691ca6491efc9943d2f24b54"
+        },
+        "operator_arrays": {
+          "bytes": 2693042,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/field.json.operators.npz",
+          "sha256": "18c88f8778dd73ad37df4889f2be29c9196334f0d02f30ed79e37e0e84b58c06"
+        },
+        "operator_manifest": {
+          "bytes": 6615187,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/field.json.operators.json",
+          "sha256": "4baa387be30efd7ef6c38dafda941b2bd938929137a1ae968ed9cfb429d53ade"
+        },
+        "process.json": {
+          "bytes": 5684,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-right/attempt01/process.json",
+          "sha256": "0247b29f9b286a778b8c61751824dec14ecaf196ea9b0113a4094be7ff06e7ef"
+        }
+      },
+      "release": {
+        "candidate_accepted": false,
+        "capacity_established": false,
+        "climbing_released": false,
+        "complete_joint_acceptance": false,
+        "fabrication_released": false,
+        "structural_released": false
+      },
+      "six_panel_blocks": [
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 9301.906835970518,
+          "hole_count": 90,
+          "mass_measure_sha256": "b535a0316e11177e26b6bb9955def8f9f2cd68cad70e6f8fd306d12cc8b49a0c",
+          "old_K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "panel": "main_lower_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "faa3b8b0c12333ab45a5b3e61ffe03e9446c876acf6405e31446fd32a1a59186",
+          "signed_net_mass_area_mm2": 1475211.2531640334
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "177ac66f004fc3b79dc07fdd9ade39c2b3ce6c8b5829aa785c51cb5e774e6034",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4"
+          ],
+          "hole_area_mm2": 7790.858938145304,
+          "hole_count": 77,
+          "mass_measure_sha256": "8f151559011eabd4028e839b3e56185de7c3baba6e7e371a6f1899744da5f28d",
+          "old_K_sha256": "241ca46dcb99db1c3f4600eec295a4448989fc8bb414e9d15f4904eb60e30683",
+          "panel": "main_lower_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "fdcaf638d6c49c17cca94051bb0de93a6040bd6aa93f70e4a31e9b4ebd0ef2e0",
+          "signed_net_mass_area_mm2": 1476722.301061859
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 7709.119360600493,
+          "hole_count": 78,
+          "mass_measure_sha256": "22170d3653c33f7ffa66fb55b86ec5f841114adc7ee442a5db4e4f6ef3f6b432",
+          "old_K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "panel": "main_upper_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "acdb426f82d233e941d159b889da27f58ea4ec485d8156e2dd0bdd89d487ec37",
+          "signed_net_mass_area_mm2": 1476804.0406393954
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "3c7bd4f9b52011937a3f94ca16fcce78b461562963be98b7e2fdea49052350df",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4"
+          ],
+          "hole_area_mm2": 6463.536042003617,
+          "hole_count": 67,
+          "mass_measure_sha256": "d26d20ae056fa67ad0122fbba17bc354e7870f3a7cba9a26bfc4d94a541da21d",
+          "old_K_sha256": "20f5fbfa361831dd64bf24899e1b409d8c662eba1bc5cb535640d9153f34f116",
+          "panel": "main_upper_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "f4b05d591519e4fb5c8baf9a506e73825b6d6eb730d67416fb11a6b7849f8db6",
+          "signed_net_mass_area_mm2": 1478049.6239579923
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "ca8d2a0c2d16e268561985ed9f199d1174d7e0155e574731ae642e84f7538c8f",
+          "old_K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "panel": "kicker_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "c980110d93da4d752b508eb167775b9829eb55aac704ec827984640d4891ddea",
+          "signed_net_mass_area_mm2": 336560.2312618126
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "7784575c1a8ee48cc32ec1ebec58387887fe281ef2feecbb632e14feec947acc",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_kicker_right_center_1",
+            "round_kicker_right_center_2"
+          ],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "606be1ac1b95aedb97945c691abd9bb190cf661905c0cdf7f449a249152cc939",
+          "old_K_sha256": "a47cc255f3222e2581542388e3422d192422fd26f1185df28a801f0f621f8d96",
+          "panel": "kicker_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "2c9f57f61b07afde0e6c2b9bbda921923daf11bfc6e6e30df2ef17d98312127c",
+          "signed_net_mass_area_mm2": 336560.2312618127
+        }
+      ],
+      "source_inventory_counts": {
+        "admission_declared_source_keys": 1105,
+        "common_key_hash_conflicts": 0,
+        "common_keys": 1105,
+        "field_admission_union_keys": 1105,
+        "field_declared_source_keys": 1105,
+        "inventory_counts_are_distinct": true,
+        "parent_slot_verified_current_source_pin_count": 1110
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-ae082d695e6d99c42d2d367f",
+      "support_contract": {
+        "all_other_floor_hosts_normal_only": true,
+        "bounds_other_support_scenarios": false,
+        "enabled_centroid_xy_hosts": [
+          "lumber_leg_left",
+          "lumber_leg_right"
+        ],
+        "method": "fixed-rear-leg-centroid-XY-all-feet-compression-only",
+        "minimum_credited_leg_normal_n": 1e-07,
+        "no_slip_assumed_not_verified": true,
+        "no_vertical_tension_or_anchor": true,
+        "original_normal_and_joint_laws_retained": true,
+        "original_switching_law_preserved_as_history": true,
+        "physical_floor_capacity_established": false,
+        "schema": "eoere_fixed_rear_leg_floor_support/v1",
+        "support_mask_feedback_used": false
+      },
+      "unchanged_generalized_residual_tolerance_n": 1e-05
+    },
+    {
+      "admission_elapsed_seconds": 61.3173796279998,
+      "admission_finished_at_utc": "2026-10-09T05:37:51.020116+00:00",
+      "admission_started_at_utc": "2026-10-09T05:36:49.701382+00:00",
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          0.0,
+          300.0,
+          -4372.904137692261,
+          -2117346.052157529,
+          2173889.0416501253,
+          294240.0
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 827
+      },
+      "body_equilibrium": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 9.53899113337016e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.011031085671811582,
+        "moment_tolerance_nmm": 0.1
+      },
+      "both_credited_legs_positive": true,
+      "case_id": "k12-rear",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9302,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "saved_panel_blocks": 6,
+        "saved_panel_screw_rows": 66,
+        "saved_shaft_section_cut_blocks": 100,
+        "saved_steel_port_rows": 88,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_extended_cleat_equilibrium_and_recovery_pass": true,
+      "current_panel_operator_preparation_sha256": "6fd80a883962214b51ba8c260f638e97c926549c9f02f7cde1f905f902212504",
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 265.0235633239434,
+        "maximum_centroid_xy_penalty_motion_mm": 0.002650235633239434,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          7.366578103074062e-08,
+          -299.9999997401248
+        ],
+        "support_resultant_force_xyz_n": [
+          7.366578103074062e-08,
+          -299.9999997401248,
+          4372.904136884433
+        ]
+      },
+      "global_force_norm_n": 8.517915868885128e-07,
+      "global_moment_about_reference_norm_nmm": 0.000987946931425672,
+      "global_residual_n_nmm": [
+        7.366578103074062e-08,
+        2.5987520757553284e-07,
+        -8.07828655524645e-07,
+        -0.0007265070453286171,
+        0.000669362023472786,
+        1.3458600733429193e-05
+      ],
+      "gradient_inf_n": 6.1286619845279315e-06,
+      "historical_q_or_forces_used": false,
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "logs": {
+        "admission": {
+          "admission.stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/admission.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "admission.stdout.log": {
+            "bytes": 350,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/admission.stdout.log",
+            "sha256": "dfc854ed150d96a893446fd8f187e3012509076449459790feb2f6c94d1a6405"
+          }
+        },
+        "producer": {
+          "stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout.log": {
+            "bytes": 1736,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/stdout.log",
+            "sha256": "d4b0915d696b59ee61d18693677731f1e85acaab8999a918b482f900f394bcfd"
+          }
+        }
+      },
+      "maximum_panel_screw_withdrawal_n": 1454.1890028171792,
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 36.63743800109358,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.07617997872273956
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 95.8291013805922,
+        "base_floor_right": 66.89839755871651,
+        "base_post_center_left": 140.81969698496178,
+        "base_post_center_right": 83.74010497343015,
+        "base_post_outer_left": 187.4614739368674,
+        "base_post_outer_right": 0.0,
+        "lumber_leg_left": 905.0662585916192,
+        "lumber_leg_right": 2893.0891034582455
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9302,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "panel_generalized_coefficients_canonical_sha256": "22ccbb088db3135f9bcd01ab32e13c76c1566491bcf991b150205f0305d7fb56",
+      "physical_demand_bounds_established": false,
+      "positive_credited_leg_normals_n": {
+        "lumber_leg_left": 905.0662585916192,
+        "lumber_leg_right": 2893.0891034582455
+      },
+      "producer_elapsed_seconds": 111.59896147800009,
+      "producer_finished_at_utc": "2026-10-09T05:36:49.652895+00:00",
+      "producer_started_at_utc": "2026-10-09T05:34:58.053726+00:00",
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.07681441162504297,
+        "lumber_leg_right": 0.09393035978738393
+      },
+      "references": {
+        "admission-process.json": {
+          "bytes": 4806,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/admission-process.json",
+          "sha256": "0b21d9e0b9c70179b8b47da77aaf40fea484b68481a93628264ad8c9c8b1a565"
+        },
+        "admission.json": {
+          "bytes": 176760,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/admission.json",
+          "sha256": "11f2c1afe61fbe1c1070e7003619fc70ecca50518233c448c8c127ea5b945e41"
+        },
+        "field.json": {
+          "bytes": 25172620,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/field.json",
+          "sha256": "f2f0bf7d2d4bffc23ff2f6cd211807a41809897d7f6f415418675065a81a8b5a"
+        },
+        "operator_arrays": {
+          "bytes": 2692904,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/field.json.operators.npz",
+          "sha256": "034f8cb0d3bca1032b20fdd6bbda2cd81d95dc0d2e978648a47d8e09219ef6cc"
+        },
+        "operator_manifest": {
+          "bytes": 6615142,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/field.json.operators.json",
+          "sha256": "e8bb1290b0b74eb0af79302be02ff1e326e45e8bd520a8b42333939e9859bad9"
+        },
+        "process.json": {
+          "bytes": 5679,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/k12-rear/attempt01/process.json",
+          "sha256": "bbd47008419d437bd1e7fdc635b6192b273eac078f553252bad910f830a7a101"
+        }
+      },
+      "release": {
+        "candidate_accepted": false,
+        "capacity_established": false,
+        "climbing_released": false,
+        "complete_joint_acceptance": false,
+        "fabrication_released": false,
+        "structural_released": false
+      },
+      "six_panel_blocks": [
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 9301.906835970518,
+          "hole_count": 90,
+          "mass_measure_sha256": "b535a0316e11177e26b6bb9955def8f9f2cd68cad70e6f8fd306d12cc8b49a0c",
+          "old_K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "panel": "main_lower_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "faa3b8b0c12333ab45a5b3e61ffe03e9446c876acf6405e31446fd32a1a59186",
+          "signed_net_mass_area_mm2": 1475211.2531640334
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "177ac66f004fc3b79dc07fdd9ade39c2b3ce6c8b5829aa785c51cb5e774e6034",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4"
+          ],
+          "hole_area_mm2": 7790.858938145304,
+          "hole_count": 77,
+          "mass_measure_sha256": "8f151559011eabd4028e839b3e56185de7c3baba6e7e371a6f1899744da5f28d",
+          "old_K_sha256": "241ca46dcb99db1c3f4600eec295a4448989fc8bb414e9d15f4904eb60e30683",
+          "panel": "main_lower_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "fdcaf638d6c49c17cca94051bb0de93a6040bd6aa93f70e4a31e9b4ebd0ef2e0",
+          "signed_net_mass_area_mm2": 1476722.301061859
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 7709.119360600493,
+          "hole_count": 78,
+          "mass_measure_sha256": "22170d3653c33f7ffa66fb55b86ec5f841114adc7ee442a5db4e4f6ef3f6b432",
+          "old_K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "panel": "main_upper_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "acdb426f82d233e941d159b889da27f58ea4ec485d8156e2dd0bdd89d487ec37",
+          "signed_net_mass_area_mm2": 1476804.0406393954
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "3c7bd4f9b52011937a3f94ca16fcce78b461562963be98b7e2fdea49052350df",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4"
+          ],
+          "hole_area_mm2": 6463.536042003617,
+          "hole_count": 67,
+          "mass_measure_sha256": "d26d20ae056fa67ad0122fbba17bc354e7870f3a7cba9a26bfc4d94a541da21d",
+          "old_K_sha256": "20f5fbfa361831dd64bf24899e1b409d8c662eba1bc5cb535640d9153f34f116",
+          "panel": "main_upper_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "f4b05d591519e4fb5c8baf9a506e73825b6d6eb730d67416fb11a6b7849f8db6",
+          "signed_net_mass_area_mm2": 1478049.6239579923
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "ca8d2a0c2d16e268561985ed9f199d1174d7e0155e574731ae642e84f7538c8f",
+          "old_K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "panel": "kicker_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "c980110d93da4d752b508eb167775b9829eb55aac704ec827984640d4891ddea",
+          "signed_net_mass_area_mm2": 336560.2312618126
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "7784575c1a8ee48cc32ec1ebec58387887fe281ef2feecbb632e14feec947acc",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_kicker_right_center_1",
+            "round_kicker_right_center_2"
+          ],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "606be1ac1b95aedb97945c691abd9bb190cf661905c0cdf7f449a249152cc939",
+          "old_K_sha256": "a47cc255f3222e2581542388e3422d192422fd26f1185df28a801f0f621f8d96",
+          "panel": "kicker_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "2c9f57f61b07afde0e6c2b9bbda921923daf11bfc6e6e30df2ef17d98312127c",
+          "signed_net_mass_area_mm2": 336560.2312618127
+        }
+      ],
+      "source_inventory_counts": {
+        "admission_declared_source_keys": 1105,
+        "common_key_hash_conflicts": 0,
+        "common_keys": 1105,
+        "field_admission_union_keys": 1105,
+        "field_declared_source_keys": 1105,
+        "inventory_counts_are_distinct": true,
+        "parent_slot_verified_current_source_pin_count": 1110
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-1ea06426aef48e6928f79844",
+      "support_contract": {
+        "all_other_floor_hosts_normal_only": true,
+        "bounds_other_support_scenarios": false,
+        "enabled_centroid_xy_hosts": [
+          "lumber_leg_left",
+          "lumber_leg_right"
+        ],
+        "method": "fixed-rear-leg-centroid-XY-all-feet-compression-only",
+        "minimum_credited_leg_normal_n": 1e-07,
+        "no_slip_assumed_not_verified": true,
+        "no_vertical_tension_or_anchor": true,
+        "original_normal_and_joint_laws_retained": true,
+        "original_switching_law_preserved_as_history": true,
+        "physical_floor_capacity_established": false,
+        "schema": "eoere_fixed_rear_leg_floor_support/v1",
+        "support_mask_feedback_used": false
+      },
+      "unchanged_generalized_residual_tolerance_n": 1e-05
+    },
+    {
+      "admission_elapsed_seconds": 57.10006897200037,
+      "admission_finished_at_utc": "2026-10-09T05:41:49.131121+00:00",
+      "admission_started_at_utc": "2026-10-09T05:40:52.029254+00:00",
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          0.0,
+          300.0,
+          -4372.904137692261,
+          1566620.0777284498,
+          -2274332.5736103742,
+          -305760.0
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 827
+      },
+      "body_equilibrium": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 2.2867664914809664e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0020242053909717817,
+        "moment_tolerance_nmm": 0.1
+      },
+      "both_credited_legs_positive": true,
+      "case_id": "a1-rear",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9302,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "saved_panel_blocks": 6,
+        "saved_panel_screw_rows": 66,
+        "saved_shaft_section_cut_blocks": 100,
+        "saved_steel_port_rows": 88,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_extended_cleat_equilibrium_and_recovery_pass": true,
+      "current_panel_operator_preparation_sha256": "6fd80a883962214b51ba8c260f638e97c926549c9f02f7cde1f905f902212504",
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 269.1479086127324,
+        "maximum_centroid_xy_penalty_motion_mm": 0.002691479086127324,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          9.73144622662403e-08,
+          -299.9999999521594
+        ],
+        "support_resultant_force_xyz_n": [
+          9.73144622662403e-08,
+          -299.9999999521594,
+          4372.9041368227445
+        ]
+      },
+      "global_force_norm_n": 8.762525663177262e-07,
+      "global_moment_about_reference_norm_nmm": 0.0006620169257129509,
+      "global_residual_n_nmm": [
+        9.73144622662403e-08,
+        4.78406150250521e-08,
+        -8.695169526617974e-07,
+        -2.501765266060829e-05,
+        -0.0006593461148440838,
+        5.3881609346717596e-05
+      ],
+      "gradient_inf_n": 2.112141364688045e-06,
+      "historical_q_or_forces_used": false,
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "logs": {
+        "admission": {
+          "admission.stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/admission.stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "admission.stdout.log": {
+            "bytes": 349,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/admission.stdout.log",
+            "sha256": "05f1069749a53c2635a4cafa80e5fddaa2c732a04f177ab663501a53ba8f945c"
+          }
+        },
+        "producer": {
+          "stderr.log": {
+            "bytes": 0,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/stderr.log",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stdout.log": {
+            "bytes": 1751,
+            "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/stdout.log",
+            "sha256": "ee380b99564674b1d8e3eb58c3f95189e7bde04c14a135034fbef9b3dbfd052b"
+          }
+        }
+      },
+      "maximum_panel_screw_withdrawal_n": 1066.3970580924554,
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 16.587281027831846,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.029202583208968794
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 68.66076785661666,
+        "base_floor_right": 86.80101521172388,
+        "base_post_center_left": 516.5833986818461,
+        "base_post_center_right": 335.4061807891946,
+        "base_post_outer_left": 1795.0167852301556,
+        "base_post_outer_right": 144.82697549097895,
+        "lumber_leg_left": 832.9796686350338,
+        "lumber_leg_right": 592.6293449271952
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9302,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "panel_generalized_coefficients_canonical_sha256": "2a3c6b43c0e988f7fb378137a8299d2c6e55d972e8dbd5bcb58aa8fc4da1b7b4",
+      "physical_demand_bounds_established": false,
+      "positive_credited_leg_normals_n": {
+        "lumber_leg_left": 832.9796686350338,
+        "lumber_leg_right": 592.6293449271952
+      },
+      "producer_elapsed_seconds": 166.61917926299975,
+      "producer_finished_at_utc": "2026-10-09T05:40:51.968739+00:00",
+      "producer_started_at_utc": "2026-10-09T05:38:05.335205+00:00",
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.3243618711671477,
+        "lumber_leg_right": 0.06561745449356012
+      },
+      "references": {
+        "admission-process.json": {
+          "bytes": 4802,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/admission-process.json",
+          "sha256": "f2d7dbbd22bbd20a8e1470c3990e1460d01bc05d96090863c468da6e28b8108c"
+        },
+        "admission.json": {
+          "bytes": 176766,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/admission.json",
+          "sha256": "e987e14378f98933a40bf73d0a9f6a89c7395fa1fa80658ab6015fb44622dc9c"
+        },
+        "field.json": {
+          "bytes": 25175482,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/field.json",
+          "sha256": "d7d003370fb346cbf9b00116231a603bb90255e8541519f119686b2e209e69f5"
+        },
+        "operator_arrays": {
+          "bytes": 2692904,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/field.json.operators.npz",
+          "sha256": "8d29e7256ca56690b25050b320134016da01b0cdc695175e01c38e9aa7eeb878"
+        },
+        "operator_manifest": {
+          "bytes": 6615140,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/field.json.operators.json",
+          "sha256": "1c7abf844658c9f6f7e2516ebdf3721256ef7f6b07d894ea8f74d91fe7b51434"
+        },
+        "process.json": {
+          "bytes": 5674,
+          "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a1-rear/attempt01/process.json",
+          "sha256": "dcc35db4623839bcbab336768802b2a2a93ccd05e47ac992de8e6ebdc0b5db08"
+        }
+      },
+      "release": {
+        "candidate_accepted": false,
+        "capacity_established": false,
+        "climbing_released": false,
+        "complete_joint_acceptance": false,
+        "fabrication_released": false,
+        "structural_released": false
+      },
+      "six_panel_blocks": [
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 9301.906835970518,
+          "hole_count": 90,
+          "mass_measure_sha256": "b535a0316e11177e26b6bb9955def8f9f2cd68cad70e6f8fd306d12cc8b49a0c",
+          "old_K_sha256": "a5fca77590a41c1cef36b551fb7e6f334aa78d2e4c0442297749cd9a8062e4b1",
+          "panel": "main_lower_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "faa3b8b0c12333ab45a5b3e61ffe03e9446c876acf6405e31446fd32a1a59186",
+          "signed_net_mass_area_mm2": 1475211.2531640334
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "177ac66f004fc3b79dc07fdd9ade39c2b3ce6c8b5829aa785c51cb5e774e6034",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_lower_right_center_1",
+            "round_panel_lower_right_center_2",
+            "round_panel_lower_right_center_3",
+            "round_panel_lower_right_center_4"
+          ],
+          "hole_area_mm2": 7790.858938145304,
+          "hole_count": 77,
+          "mass_measure_sha256": "8f151559011eabd4028e839b3e56185de7c3baba6e7e371a6f1899744da5f28d",
+          "old_K_sha256": "241ca46dcb99db1c3f4600eec295a4448989fc8bb414e9d15f4904eb60e30683",
+          "panel": "main_lower_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "fdcaf638d6c49c17cca94051bb0de93a6040bd6aa93f70e4a31e9b4ebd0ef2e0",
+          "signed_net_mass_area_mm2": 1476722.301061859
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 7709.119360600493,
+          "hole_count": 78,
+          "mass_measure_sha256": "22170d3653c33f7ffa66fb55b86ec5f841114adc7ee442a5db4e4f6ef3f6b432",
+          "old_K_sha256": "a063240b9253a08431589fe65b92fc2580cb405acfcc24ccfd2623d247deaacd",
+          "panel": "main_upper_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "acdb426f82d233e941d159b889da27f58ea4ec485d8156e2dd0bdd89d487ec37",
+          "signed_net_mass_area_mm2": 1476804.0406393954
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "3c7bd4f9b52011937a3f94ca16fcce78b461562963be98b7e2fdea49052350df",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_panel_upper_right_center_1",
+            "round_panel_upper_right_center_2",
+            "round_panel_upper_right_center_3",
+            "round_panel_upper_right_center_4"
+          ],
+          "hole_area_mm2": 6463.536042003617,
+          "hole_count": 67,
+          "mass_measure_sha256": "d26d20ae056fa67ad0122fbba17bc354e7870f3a7cba9a26bfc4d94a541da21d",
+          "old_K_sha256": "20f5fbfa361831dd64bf24899e1b409d8c662eba1bc5cb535640d9153f34f116",
+          "panel": "main_upper_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 12,
+          "screw_ports_sha256": "f4b05d591519e4fb5c8baf9a506e73825b6d6eb730d67416fb11a6b7849f8db6",
+          "signed_net_mass_area_mm2": 1478049.6239579923
+        },
+        {
+          "K_route": "exact_raised_K",
+          "K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "ca8d2a0c2d16e268561985ed9f199d1174d7e0155e574731ae642e84f7538c8f",
+          "old_K_sha256": "afc7496c11124739864a75d023a46f1266f3fdd62779e66d7cf5ea71bcd87172",
+          "panel": "kicker_left",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "c980110d93da4d752b508eb167775b9829eb55aac704ec827984640d4891ddea",
+          "signed_net_mass_area_mm2": 336560.2312618126
+        },
+        {
+          "K_route": "raised_K+old_apertures-new_apertures",
+          "K_sha256": "7784575c1a8ee48cc32ec1ebec58387887fe281ef2feecbb632e14feec947acc",
+          "K_symmetry_error": 0.0,
+          "changed_feature_ids": [
+            "round_kicker_right_center_1",
+            "round_kicker_right_center_2"
+          ],
+          "hole_area_mm2": 661.649478869453,
+          "hole_count": 14,
+          "mass_measure_sha256": "606be1ac1b95aedb97945c691abd9bb190cf661905c0cdf7f449a249152cc939",
+          "old_K_sha256": "a47cc255f3222e2581542388e3422d192422fd26f1185df28a801f0f621f8d96",
+          "panel": "kicker_right",
+          "saved_generalized_coefficient_count": 11,
+          "screw_count": 9,
+          "screw_ports_sha256": "2c9f57f61b07afde0e6c2b9bbda921923daf11bfc6e6e30df2ef17d98312127c",
+          "signed_net_mass_area_mm2": 336560.2312618127
+        }
+      ],
+      "source_inventory_counts": {
+        "admission_declared_source_keys": 1105,
+        "common_key_hash_conflicts": 0,
+        "common_keys": 1105,
+        "field_admission_union_keys": 1105,
+        "field_declared_source_keys": 1105,
+        "inventory_counts_are_distinct": true,
+        "parent_slot_verified_current_source_pin_count": 1110
+      },
+      "state_id": "eoere-extended-cleat-fixed-floor-f697100f86d333327648ac47",
+      "support_contract": {
+        "all_other_floor_hosts_normal_only": true,
+        "bounds_other_support_scenarios": false,
+        "enabled_centroid_xy_hosts": [
+          "lumber_leg_left",
+          "lumber_leg_right"
+        ],
+        "method": "fixed-rear-leg-centroid-XY-all-feet-compression-only",
+        "minimum_credited_leg_normal_n": 1e-07,
+        "no_slip_assumed_not_verified": true,
+        "no_vertical_tension_or_anchor": true,
+        "original_normal_and_joint_laws_retained": true,
+        "original_switching_law_preserved_as_history": true,
+        "physical_floor_capacity_established": false,
+        "schema": "eoere_fixed_rear_leg_floor_support/v1",
+        "support_mask_feedback_used": false
+      },
+      "unchanged_generalized_residual_tolerance_n": 1e-05
+    }
+  ],
+  "created_at_utc": "2026-10-09T05:42:47.304453+00:00",
+  "exact_pins_after": {
+    "/tmp/moonboard-extended-cleat-force-parent-slot-v1.json": "6d40efb578db5f46f4bf5deffa762c0d3c0b7dc9f1ef36bdd4ac0e9d14895e88",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/admission.json": "f15357cfc083a50446eec61550900fd44fdab0198a13e2c06a252bd25bfbd2b7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/field.json": "a6061668878537da052571075c3ede10ab4236f9734eea5be0176c647688f4bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/independent-review-v1/receipt.json": "f7936b055d3a0ee9a475b09bff73d46fbbf25303c23c17c14e2d3e6c4c97eb2c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-readiness-v1/method-input.json": "941ca92e8230de9d480d17f6e2a082d05a3fae267329ef0b33c81d06d0ad46f5"
+  },
+  "exact_pins_before": {
+    "/tmp/moonboard-extended-cleat-force-parent-slot-v1.json": "6d40efb578db5f46f4bf5deffa762c0d3c0b7dc9f1ef36bdd4ac0e9d14895e88",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/admission.json": "f15357cfc083a50446eec61550900fd44fdab0198a13e2c06a252bd25bfbd2b7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/a12-forward/attempt01/field.json": "a6061668878537da052571075c3ede10ab4236f9734eea5be0176c647688f4bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/independent-review-v1/receipt.json": "f7936b055d3a0ee9a475b09bff73d46fbbf25303c23c17c14e2d3e6c4c97eb2c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-readiness-v1/method-input.json": "941ca92e8230de9d480d17f6e2a082d05a3fae267329ef0b33c81d06d0ad46f5"
+  },
+  "execution_serialized": true,
+  "first_order_physical_applicability_established": false,
+  "maxima": {
+    "global_force_norm_n": 9.975437022010809e-07,
+    "global_moment_about_reference_norm_nmm": 0.0014354016599935383,
+    "gradient_inf_n": 6.1286619845279315e-06,
+    "maximum_body_force_norm_n": 9.53899113337016e-06,
+    "maximum_body_moment_about_reference_norm_nmm": 0.011031085671811582,
+    "owned_interaction_point_linear_displacement_norm_mm": 56.61818867142161,
+    "panel_screw_withdrawal_n": 1492.8330055167437,
+    "relative_timber_or_fitting_strip_rotation_norm_rad": 0.10775539210016138
+  },
+  "minimum_credited_leg_normal_n": 592.6293449271952,
+  "native_FEA_or_CAD_or_browser_executed_by_capture": false,
+  "no_retries_or_alternative_masks": true,
+  "optional_extra_grid": false,
+  "original_recorded_loads_retained": true,
+  "panel_load_proof_boundary": "Complete applied-load work is replayed; distributed panel RHS remains exact source-authenticated capture and is not independently regenerated.",
+  "parent_first_case_field_and_admission_unchanged": true,
+  "parent_full_validation_pending": true,
+  "physical_demand_bounds_established": false,
+  "process_observation": {
+    "checked_at_utc": "2026-10-09T05:42:47.304567+00:00",
+    "live_current_producer_or_admission_processes": [],
+    "live_native_solver_processes": []
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "retention": "All raw fields, operators, logs and process records stay ACTIVE in ignored output; no cleanup or pruning performed.",
+  "schema": "eoere_current_extended_cleat_six_case_serial_capture/v1",
+  "source_inventory_boundary": "Each field/admission declares its own inventory; the parent slot independently records 1110 verified current source pins. Counts are reported separately.",
+  "status": "SIX_CURRENT_CASES_GENUINELY_ADMITTED",
+  "support_assumption": "Fixed rear-leg centroid XY; all feet compression-only; no-slip assumed and unverified.",
+  "total_field_bytes": 151039074,
+  "total_operator_bytes": 55848679
+}

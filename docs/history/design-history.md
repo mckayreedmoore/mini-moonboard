@@ -3,7 +3,7 @@
 This catalog keeps the previous options explorable and provides starting
 material for a presentation or writeup. It is a reading order, not a claim that
 every design was built or tested physically. The selected baseline is governed
-by [current-candidate.json](../../current-candidate.json); the active wood-joint
+by [current-candidate.json](../../current-candidate.json); the active Eoere
 candidate has a [separate entry point](../wood-joints-mvp/README.md).
 
 Open the [interactive viewer](https://mckayreedmoore.github.io/mini-moonboard/)
@@ -27,10 +27,38 @@ The [decision log](decision-log.md) records the sequence and changing constraint
 | What did the detailed wood-joint simulation effort achieve and cost? | It produced useful method checks and exposed numerical problems, but did not establish a passing current joint. The September 29 direction uses whole-frame static demands and applicable connection checks, with detailed local work reserved for unresolved mechanisms. | [Reviewed WJ24 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-wj24-viewer.html), [solver assessment](../wood-joints-mvp/solver-reuse-assessment-2026-09-27.md), [analysis reassessment](../wood-joints-mvp/hypotheses/mvp-acceleration-2026-09-28/README.md) |
 | Could the simpler wood-joint route finish a coherent conditional model and shop packet? | The conditional packet is complete: six zero/nominal cases, joined joint/member actions, finite fit checks, assembly/removal, transport, BOM and cost terms. The reviewed authority remains 104 bolts / 208 washers; the unadopted knee proposal has 108 bolts / 216 washers. Both retain 50 bodies and 66 Hillman screws. Complete splitting resistance, the panel reference exception, actual hardware properties and compatibility remain unqualified; all 47 formal criteria remain pending and all eight release flags remain false. | [Goal disposition](../wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md), [bound proposal packet](../wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/knee-bridge-working-package.md), [reviewed authority](../../wood-joints-candidate.json), [conditional shop guide](../wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/assembly-package/shop-guide.md) |
 
+## Eoere development sequence
+
+The main development geometry is now the extended-cleat frame. Use the
+[maintained revision map](../wood-joints-mvp/README.md#revision-map) for its
+current status. These milestones preserve the preceding questions, changes
+and evidence boundaries; their design history can still supply active inputs.
+
+| Milestone | Change and useful result | Primary record / viewer |
+| --- | --- | --- |
+| Original Eoere proposal | Replaced earlier connector concepts with 22 angles and two exterior cleats; retained 100 through-bolt stacks and 66 Hillman screws. Original A12 evidence stays scoped to that geometry. | [Frozen proposal contract](../../eoere-bolted-candidate.json) · [original viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-development&view=rear) |
+| Raised lower rails | Moved the lower rails and dependent stations for T-nut clearance. Completed the conditional six-case response and nominal shop packet, retaining exceedances and unknown complete joint resistance. | [Six-case receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json) · [raised-rail viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-bottom-rail-development&view=rear) |
+| Trimmed cleats | Cut projecting rear corners while retaining thickness and axes. Geometric containment and display results do not transfer the raised-rail response. | [Trim receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json) · [trimmed-cleat viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-trimmed-cleats-development&view=rear) |
+| Aligned wire passages | Aligned 30 rail routes to the original grid, preserving endpoints and bolt/screw axes. This introduced a distinct service-cut revision. | [Aligned-wire receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json) · [aligned-wire viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-aligned-wire-development&view=rear) |
+| Adjusted base v3 | Shifted the right principal 39.2 mm and coordinated three longer rails, 22 moved shafts and ten moved screws. Nominal backing/contact checks pass; no matching response is admitted. | [Base receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json) · [adjusted-base viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-adjusted-frame-development&view=rear) |
+| Optional 2026 midpoint grid | Added an unofficial preview of 120 T-nuts/lights and 119 cable links. Exact midpoints and actual hold availability remain provisional; this is a separate layer. | [Extra-grid receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-2026-adjustments-v3.json) · [pre-extension extra-grid viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-new-2026-adjustments&view=rear) |
+| Extended side cleats and matching shop records | Extended two full-thickness cleats to the sloping side edge and issued current profiles, datums and nesting. Four cleat/post stations remain held; earlier forces and component references remain separately scoped. | [Extension receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) · [current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear) · [current shop packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md) |
+| Fresh extended-cleat numerical packet | Completed six own-case equilibrium/recovery audits and twelve component reports. Exceedances, first-order/floor assumptions, four held cleat/post stations and unknown complete-joint resistance remain explicit. | [Current result and review bindings](../wood-joints-mvp/completion-ledger.md#current-extended-cleat-numerical-completion) |
+
+The [pre-compaction Eoere summary](eoere-development-summary-before-compaction.md)
+preserves the full 1,270-line text from `845e2e0c`, including its thin-frame
+predecessors and old next actions. Its original payload SHA-256 is
+`179f917091aeb555c5c95e99916c94fa0dbdae1356e88bfd9f5482f1a571052f`.
+Relative links inside that payload use its original directory, as stated in
+the snapshot. [Browse the original summary at its frozen commit](https://github.com/mckayreedmoore/mini-moonboard/blob/845e2e0cf2bf1514398e115c382865579fd77141/docs/wood-joints-mvp/README.md)
+to follow those links in their original context. The [earlier wood-joint summary](wood-joint-development-summary-before-navigation-cleanup.md)
+retains the separate WJ24 working-model record. Neither snapshot is a current
+task queue.
+
 ## Archive reading groups
 
 Use these groups to follow the decisions and methods behind the latest packet.
-For ongoing work, start at [wood-joint development](../wood-joints-mvp/README.md)
+For ongoing work, start at [Eoere development](../wood-joints-mvp/README.md)
 and follow its current disposition. Earlier documents retain their original
 titles, labels, force sources and work orders. A historical “current” label or
 unfinished next-step instruction describes that snapshot; it does not reopen
@@ -38,6 +66,7 @@ a task or change today's authority.
 
 | Reading group | What to preserve and learn | Starting records |
 | --- | --- | --- |
+| Eoere and thin-frame predecessors | Preserve each geometry/response boundary and the old-action limits of bounded component studies. Keep inherited geometry, source banks and methods live wherever current work consumes them. | [Eoere sequence](#eoere-development-sequence), [full preserved summary](eoere-development-summary-before-compaction.md), [bounded studies](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md) |
 | Superseded coordination and publication snapshots | Earlier ownership, restart sequence and publication boundaries explain how the work progressed. Their task queues and next actions are historical instructions; preserve any still-applicable engineering requirements separately from old execution order. | [Orchestration handoff](../wood-joints-mvp/orchestration-handoff.md), [full MVP handoff](../wood-joints-mvp/luna-max-completion-handoff.md), [September 29 checkpoint](../wood-joints-mvp/hypotheses/mvp-acceleration-2026-09-28/LUNA-MAX-COORDINATOR-CURRENT-CHECKPOINT-2026-09-29.md), [source-only publication checkpoint](../wood-joints-mvp/code-summary-checkpoint-2026-09-30.md), [earlier parallel-owner handoff](../wood-joints-mvp/parallel-owner-handoff-2026-10-01.md) |
 | Earlier WJ layouts and integration trials | Preserve geometry, access conflicts, receiver changes and the distinction between a static diagnostic and an accepted joint. These predecessors also contain inherited sources used by later work. | [WJ-03 / WJ-04 / WJ-05 viewer](https://mckayreedmoore.github.io/mini-moonboard/wood-joints-outer-viewer.html), [WJ16 inputs](../wood-joints-mvp/hypotheses/wj16-full-stock-mechanics-inputs/README.md), [WJ18 diagnostic](../wood-joints-mvp/hypotheses/wj18-integrated-static/README.md), [WJ24 diagnostic](../wood-joints-mvp/hypotheses/wj24-integrated-static/README.md) |
 | Code_Aster and closed solver-method investigations | Keep passing primitive fixtures, numerical failures and output/source findings with their exact applicability limits. A passing method fixture is reusable evidence, not complete-joint acceptance or a standing instruction to repeat the experiment. | [Solver reuse decision](../wood-joints-mvp/solver-reuse-assessment-2026-09-27.md), [Code_Aster primitive results](../wood-joints-mvp/hypotheses/code-aster-stock-trial-2026-09-27/RESULTS.md), [shared-edge MORTAR failure](../wood-joints-mvp/hypotheses/evaluation-resume-2026-09-24/contact-mortar-shared-edge-known-answer-attempt02/README.md), [elastic matrix export method](../wood-joints-mvp/hypotheses/elastic-matrix-export-method-2026-09-30/README.md) |

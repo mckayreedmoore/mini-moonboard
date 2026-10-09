@@ -1,0 +1,109 @@
+{
+  "candidate_CAD_panel_K_global_K_q_actions_native_solve_or_admission_performed": false,
+  "geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+    "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+  },
+  "historical_q_forces_or_acceptance_transferred": false,
+  "missing_current_bindings": [
+    "inputs",
+    "input_review",
+    "method_input",
+    "source_export"
+  ],
+  "owned_paths": [
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/test_bridge.py",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/source-preflight.json"
+  ],
+  "parent_final_source_review_completed": false,
+  "private_hooks": {
+    "admission": "unchanged pinned floor audit and consumer gate;2current provenance-key literals with exact occurrence counts",
+    "factory": "temporary distinct input SCHEMA,current source-pointer reader,current outer input-review hook;_prepare and validate_rows equations unchanged",
+    "factory_context_error_restoration_tested": true,
+    "floor_execute": "unchanged pinned floor compile_execute; current FIELD_SCHEMA and STATE_PREFIX context only",
+    "source_case_verification": "unchanged pinned raised verify_selected_case; current geometry digest context only"
+  },
+  "production_readiness_claimed": false,
+  "pytest": {
+    "candidate_model_consumed": false,
+    "command": [
+      "uv",
+      "run",
+      "pytest",
+      "-q",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/test_bridge.py"
+    ],
+    "passed": 17,
+    "reused_tiny_floor_known_answer_and_negative_fixture_count": 7
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "retention": {
+    "active": "bridge/test/source-preflight/verification; reusable frozen floor, factory, operator, centroidal, panel and case helpers remain dependencies",
+    "archive_or_prune_performed": false,
+    "owned_permanent_artifact_bytes": 54339
+  },
+  "ruff": {
+    "command": [
+      "uv",
+      "run",
+      "ruff",
+      "check",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/test_bridge.py"
+    ],
+    "passed": true
+  },
+  "schema": "eoere_extended_cleat_force_bridge_verification/v1",
+  "source_contract": {
+    "current_method_requires": [
+      "exact input ref",
+      "exact independent input-review ref",
+      "exact parent458a source manifest",
+      "exact current014f panel-bank source",
+      "genuine centroidal and original six-case method sources",
+      "separate method_checks_pass and independent_readiness_pass",
+      "unchanged fixed-rear-leg analytical support contract"
+    ],
+    "generalized_residual_tolerance_n_inclusive": 1e-05,
+    "geometry_pointers": [
+      "report",
+      "source_manifest",
+      "cached_source_export"
+    ],
+    "saved_field_independent_replay": "own pre-solve raw CSR/RHS/interaction arrays and own case; full same-q signed gradient, owned ports, load work,150body/global closure and loaded fitting/alias recovery",
+    "scene_alias_created": false,
+    "unchanged_required_counts": {
+      "Hillman_screws": 66,
+      "enabled_rear_leg_XY_components": 4,
+      "factory_holes": 176,
+      "fitting": 22,
+      "floor_footprints": 8,
+      "floor_normals": 32,
+      "own_shaft_metal_role_loads": 500,
+      "panel": 6,
+      "physical_bodies": 150,
+      "retained_floor_tangent_rows": 16,
+      "shaft": 100,
+      "timber": 22,
+      "used_factory_ports": 88
+    }
+  },
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py": "ddc85386050d97145597dc720bef78634c9b326f0878aced8c02c8df4710c05b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/source-preflight.json": "4118719a61da4645085f4840b1888ac6df600df2307edc8c0d40ffb79d4eafe0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/test_bridge.py": "72cdd692b40df93e2a6a194e31d9bd03fe7125baf6fb605a09b66954bbecacf6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/test_panel_operators.py": "dd48189121a3aef78c60a5eb5677f789ac45a91c7fc42ebb7822442a0986c0c1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/check_method.py": "4c2e10ae9aa11c64fb84b19917515b9d18759d988d8fef208c63eeda65e6ff64"
+  },
+  "status": "SOURCE_ONLY_IMPLEMENTATION_AND_KNOWN_ANSWER_CHECKS_PASS_PRODUCTION_UNPERFORMED"
+}

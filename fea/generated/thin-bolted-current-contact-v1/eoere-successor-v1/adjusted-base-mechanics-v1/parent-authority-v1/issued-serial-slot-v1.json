@@ -1,0 +1,77 @@
+{
+  "approved_geometry_sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+  "approved_inputs_sha256": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+  "approved_method_sha256": "941ca92e8230de9d480d17f6e2a082d05a3fae267329ef0b33c81d06d0ad46f5",
+  "approved_serial_case_sequence": [
+    "a12-forward",
+    "a12-rear",
+    "a12-left",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "created_at_utc": "2026-10-09T05:20:51.419383+00:00",
+  "current_force_run_authorized": true,
+  "exact_references": {
+    "input_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/independent-review-v1/receipt.json",
+      "sha256": "f7936b055d3a0ee9a475b09bff73d46fbbf25303c23c17c14e2d3e6c4c97eb2c"
+    },
+    "inputs": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json",
+      "sha256": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa"
+    },
+    "method_input": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-readiness-v1/method-input.json",
+      "sha256": "941ca92e8230de9d480d17f6e2a082d05a3fae267329ef0b33c81d06d0ad46f5"
+    },
+    "preflight": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v3/all-bindings.json",
+      "sha256": "780b589d2381fa2d469ff075f500f744142207957de1d663b1f8c4c3f801624e"
+    },
+    "producer_and_admission": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+      "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+    }
+  },
+  "first_case_owned_by_parent": "a12-forward",
+  "later_case_execution_requires_previous_actual_admission": true,
+  "native_FEA_authorized_by_this_record": false,
+  "owner_thread": "01a10d52-a895-7fc1-87f7-b69d75e039cb",
+  "parent_direct_exact_method_input_and_review_bindings_pass": true,
+  "parent_direct_manifest_panel_geometry_bindings_pass": true,
+  "parent_verified_current_source_pin_count": 1110,
+  "physical_work_authorized_by_this_record": false,
+  "preflight_review_disposition": {
+    "actual_pair_matches_method_and_preflight": true,
+    "known_general_alias_pair_false_positive": "P2 accepted for parallel preflight-only correction; it cannot affect these exact original references.",
+    "producer_or_admission_changes_required": false,
+    "unchanged_producer_rechecks_exact_pair_before_any_panel_preparation": true
+  },
+  "preflight_reviews": {
+    "correctness": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/correctness/receipt.json",
+      "sha256": "786118273cf2f1004fde447f801a80834244629786a6491501a6726360afa62f"
+    },
+    "structure": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/structure/receipt.json",
+      "sha256": "a5261622c8c6280f748ce610055686f9d8128542145ee2fc1dd4f395897e2294"
+    },
+    "testing": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/testing/receipt.json",
+      "sha256": "bbfab7047ae927cece449f54599523d481f9a18f48728d4f3c99530e3e7c5da2"
+    }
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "schema": "eoere_parent_extended_cleat_serial_force_slot/v1",
+  "scope": "Fresh conditional first-order fields for reviewed extended-cleat OFF geometry using original recorded loads and fixed rear-leg XY floor assumption. No historical q or forces.",
+  "status": "FREE_SLOT",
+  "stop_on_genuine_failure_no_unreviewed_retry": true
+}

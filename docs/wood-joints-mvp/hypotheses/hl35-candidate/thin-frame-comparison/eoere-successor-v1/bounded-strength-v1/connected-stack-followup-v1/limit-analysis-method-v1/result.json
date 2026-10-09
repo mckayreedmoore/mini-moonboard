@@ -1,0 +1,1216 @@
+{
+  "analyze_sha256": "c258fb08193f3106d0280c636e91f1f0573ddcc442c54ad408c02777e5039881",
+  "candidate_inputs_used": false,
+  "candidate_joint_capacity": null,
+  "capacity_or_pass_claim": false,
+  "cases": [
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 1491.1688245431424,
+        "IIIm": 1759.7297173897482,
+        "IIIs": 1759.7297173897482,
+        "IV": 2121.3203435596424,
+        "Im": 3600.0,
+        "Is": 3600.0
+      },
+      "analytic_raw_yield_lbf": 1491.1688245431424,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -5.005761430365574e-13,
+          "end_shear_lbf": -1.249000902703301e-13,
+          "maximum_exact_moment_lb_in": 462.5208333324084,
+          "moment_constraint_locations": 65,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1490.0,
+          "relative_shortfall_from_raw_analytic": 0.0007838311309119605,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 3.469446951953614e-18,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 1489.99999999702
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -2.6097288392812334e-13,
+          "end_shear_lbf": -1.6237011735142914e-13,
+          "maximum_exact_moment_lb_in": 463.1009143663001,
+          "moment_constraint_locations": 129,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1490.934065934066,
+          "relative_shortfall_from_raw_analytic": 0.00015743261808742748,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 4.336808689942018e-19,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 1.6653345369377348e-16
+          },
+          "scaled_statics_load_lbf": 1490.9340659310842
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 1.4084192796401385e-13,
+          "end_shear_lbf": -8.118505867571457e-14,
+          "maximum_exact_moment_lb_in": 463.1985100176553,
+          "moment_constraint_locations": 257,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1491.0911602209944,
+          "relative_shortfall_from_raw_analytic": 5.2082851955903564e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 2.168404344971009e-19,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 5.551115123125783e-17
+          },
+          "scaled_statics_load_lbf": 1491.0911602180124
+        }
+      ],
+      "id": "TR12-3.1-4800-4800-gap0",
+      "published_reference_max_rounding_error_lbf": 0.21356237309510107,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 1124.857411642753,
+        "IIIm": 1520.3515353468288,
+        "IIIs": 1297.9071800234694,
+        "IV": 1767.0452681218544,
+        "Im": 3600.0,
+        "Is": 1912.5
+      },
+      "analytic_raw_yield_lbf": 1124.857411642753,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": 9.95297594341693e-15,
+          "end_shear_lbf": -3.715777685542321e-13,
+          "maximum_exact_moment_lb_in": 638.3116786994499,
+          "moment_constraint_locations": 65,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1124.5414402173915,
+          "relative_shortfall_from_raw_analytic": 0.00028089909382300604,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 1.3877787807814457e-17,
+            "equality_residual": 1.249000902703301e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 1124.5414402151425
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -9.480209586104626e-13,
+          "end_shear_lbf": 1.3270634591222574e-13,
+          "maximum_exact_moment_lb_in": 638.1822247460865,
+          "moment_constraint_locations": 129,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1124.8089334239123,
+          "relative_shortfall_from_raw_analytic": 4.309721444561987e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 1.734723475976807e-18,
+            "equality_residual": 1.249000902703301e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 4.440892098500626e-16
+          },
+          "scaled_statics_load_lbf": 1124.8089334216627
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": -1.491080208523149e-12,
+          "end_shear_lbf": -3.981190377366772e-14,
+          "maximum_exact_moment_lb_in": 638.1682847214342,
+          "moment_constraint_locations": 257,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1124.8384712837826,
+          "relative_shortfall_from_raw_analytic": 1.683801077723146e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 8.673617379884035e-19,
+            "equality_residual": 3.3306690738754696e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 6.661338147750939e-16
+          },
+          "scaled_statics_load_lbf": 1124.838471281533
+        }
+      ],
+      "id": "TR12-3.1-4800-2550-gap0",
+      "published_reference_max_rounding_error_lbf": 0.5,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 792.1834380385443,
+        "IIIm": 1156.7616865998116,
+        "IIIs": 1156.7616865998116,
+        "IV": 1546.164609606623,
+        "Im": 1912.5,
+        "Is": 1912.5
+      },
+      "analytic_raw_yield_lbf": 792.1834380385443,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -2.659310759881711e-13,
+          "end_shear_lbf": -6.635317295611287e-14,
+          "maximum_exact_moment_lb_in": 245.71419270784193,
+          "moment_constraint_locations": 65,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 791.5625,
+          "relative_shortfall_from_raw_analytic": 0.0007838311309118495,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 3.469446951953614e-18,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 791.5624999984169
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -1.3864184458681553e-13,
+          "end_shear_lbf": -8.625912484294673e-14,
+          "maximum_exact_moment_lb_in": 246.02236075709692,
+          "moment_constraint_locations": 129,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 792.0587225274726,
+          "relative_shortfall_from_raw_analytic": 0.00015743261808731646,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 4.336808689942018e-19,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 1.6653345369377348e-16
+          },
+          "scaled_statics_load_lbf": 792.0587225258885
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 7.482227423088236e-14,
+          "end_shear_lbf": -4.3129562421473366e-14,
+          "maximum_exact_moment_lb_in": 246.07420844687937,
+          "moment_constraint_locations": 257,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 792.1421788674033,
+          "relative_shortfall_from_raw_analytic": 5.208285195579254e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 2.168404344971009e-19,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 5.551115123125783e-17
+          },
+          "scaled_statics_load_lbf": 792.1421788658191
+        }
+      ],
+      "id": "TR12-3.1-2550-2550-gap0",
+      "published_reference_max_rounding_error_lbf": 0.5,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 1331.7266743757325,
+        "IIIm": 1543.2467291003422,
+        "IIIs": 1543.2467291003422,
+        "IV": 1842.4285285628548,
+        "Im": 3600.0,
+        "Is": 3600.0
+      },
+      "analytic_raw_yield_lbf": 1331.7266743757325,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": 3.6469850576981155e-14,
+          "end_shear_lbf": 1.8735013540549517e-13,
+          "maximum_exact_moment_lb_in": 535.7080112950048,
+          "moment_constraint_locations": 66,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1331.3793103448277,
+          "relative_shortfall_from_raw_analytic": 0.0002608373326534741,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 6.938893903907228e-18,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 1331.379310342165
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -2.078067942333159e-12,
+          "end_shear_lbf": -2.6229018956769323e-13,
+          "maximum_exact_moment_lb_in": 535.837615317686,
+          "moment_constraint_locations": 130,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1331.569965870306,
+          "relative_shortfall_from_raw_analytic": 0.00011767317656441456,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 2.168404344971009e-18,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 3.3306690738754696e-16
+          },
+          "scaled_statics_load_lbf": 1331.569965867643
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 3.602448234738074e-12,
+          "end_shear_lbf": 8.89913143176102e-13,
+          "maximum_exact_moment_lb_in": 535.9014327098356,
+          "moment_constraint_locations": 258,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1331.6638370118849,
+          "relative_shortfall_from_raw_analytic": 4.718488239363605e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 2.220446049250313e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 1.1102230246251565e-16
+          },
+          "scaled_statics_load_lbf": 1331.6638370092217
+        }
+      ],
+      "id": "TR12-3.1-4800-4800-gap0.25",
+      "published_reference_max_rounding_error_lbf": 0.26460284385694877,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 1007.2014047151624,
+        "IIIm": 1364.039107567831,
+        "IIIs": 1134.3295007617114,
+        "IV": 1571.1008872622206,
+        "Im": 3600.0,
+        "Is": 1912.5
+      },
+      "analytic_raw_yield_lbf": 1007.2014047151624,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -8.764061863925955e-13,
+          "end_shear_lbf": -2.3887142264200634e-13,
+          "maximum_exact_moment_lb_in": 699.4149809303407,
+          "moment_constraint_locations": 66,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1006.3534768211919,
+          "relative_shortfall_from_raw_analytic": 0.0008418652833621643,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 8.673617379884035e-19,
+            "equality_residual": 6.938893903907228e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 1.1102230246251565e-16
+          },
+          "scaled_statics_load_lbf": 1006.3534768191791
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": 1.6241818223602109e-12,
+          "end_shear_lbf": 4.777428452840127e-13,
+          "maximum_exact_moment_lb_in": 700.2455162204766,
+          "moment_constraint_locations": 130,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1007.1383779264216,
+          "relative_shortfall_from_raw_analytic": 6.257615454063892e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 6.938893903907228e-18,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 1.1102230246251565e-16
+          },
+          "scaled_statics_load_lbf": 1007.1383779244075
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 3.045562040170232e-12,
+          "end_shear_lbf": 1.0118858875807213e-12,
+          "maximum_exact_moment_lb_in": 700.2579039035929,
+          "moment_constraint_locations": 258,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1007.1739158693845,
+          "relative_shortfall_from_raw_analytic": 2.7292304859316552e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 8.673617379884035e-19,
+            "equality_residual": 4.440892098500626e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 1007.1739158673702
+        }
+      ],
+      "id": "TR12-3.1-4800-2550-gap0.25",
+      "published_reference_max_rounding_error_lbf": 0.5,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 707.4797957621079,
+        "IIIm": 1030.2842205368847,
+        "IIIs": 1030.2842205368847,
+        "IV": 1394.9819058054204,
+        "Im": 1912.5,
+        "Is": 1912.5
+      },
+      "analytic_raw_yield_lbf": 707.4797957621079,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": 1.937460811902124e-14,
+          "end_shear_lbf": 9.952975943416931e-14,
+          "maximum_exact_moment_lb_in": 284.5948810004713,
+          "moment_constraint_locations": 66,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 707.2952586206898,
+          "relative_shortfall_from_raw_analytic": 0.00026083733265336306,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 6.938893903907228e-18,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 707.2952586192752
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -1.1039735943644906e-12,
+          "end_shear_lbf": -1.3934166320783703e-13,
+          "maximum_exact_moment_lb_in": 284.66373313752064,
+          "moment_constraint_locations": 130,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 707.3965443686001,
+          "relative_shortfall_from_raw_analytic": 0.00011767317656452558,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 2.168404344971009e-18,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 3.3306690738754696e-16
+          },
+          "scaled_statics_load_lbf": 707.3965443671854
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 1.9138006247046017e-12,
+          "end_shear_lbf": 4.727663573123042e-13,
+          "maximum_exact_moment_lb_in": 284.69763612710017,
+          "moment_constraint_locations": 258,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 707.4464134125637,
+          "relative_shortfall_from_raw_analytic": 4.7184882393747074e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 2.220446049250313e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 1.1102230246251565e-16
+          },
+          "scaled_statics_load_lbf": 707.4464134111489
+        }
+      ],
+      "id": "TR12-3.1-2550-2550-gap0.25",
+      "published_reference_max_rounding_error_lbf": 0.5,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 1200.0,
+        "IIIm": 1364.5207682521443,
+        "IIIs": 1364.5207682521443,
+        "IV": 1604.5407685048604,
+        "Im": 3600.0,
+        "Is": 3600.0
+      },
+      "analytic_raw_yield_lbf": 1200.0,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -3.889954764552117e-13,
+          "end_shear_lbf": -1.3739009929736312e-13,
+          "maximum_exact_moment_lb_in": 599.3014230727571,
+          "moment_constraint_locations": 66,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1199.0683229813665,
+          "relative_shortfall_from_raw_analytic": 0.0007763975175263393,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 1199.0683229789684
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -1.7424538374666287e-12,
+          "end_shear_lbf": -6.744604874597826e-13,
+          "maximum_exact_moment_lb_in": 599.8236792263532,
+          "moment_constraint_locations": 130,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1199.7648902821318,
+          "relative_shortfall_from_raw_analytic": 0.00019592476688978788,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 1.734723475976807e-18,
+            "equality_residual": 2.6020852139652106e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 5.551115123125783e-17
+          },
+          "scaled_statics_load_lbf": 1199.7648902797323
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 1.4344848551194056e-12,
+          "end_shear_lbf": 2.435551760271437e-13,
+          "maximum_exact_moment_lb_in": 599.9561239567565,
+          "moment_constraint_locations": 258,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 1199.941497659907,
+          "relative_shortfall_from_raw_analytic": 4.8751952077319416e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 2.220446049250313e-16
+          },
+          "scaled_statics_load_lbf": 1199.9414976575072
+        }
+      ],
+      "id": "TR12-3.1-4800-4800-gap0.5",
+      "published_reference_max_rounding_error_lbf": 0.41899015776886017,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 909.4323215970941,
+        "IIIm": 1229.6406525329098,
+        "IIIs": 1000.1339250483018,
+        "IV": 1399.1009010642365,
+        "Im": 3600.0,
+        "Is": 1912.5
+      },
+      "analytic_raw_yield_lbf": 909.4323215970941,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -9.909950057828201e-13,
+          "end_shear_lbf": -3.981190377366772e-14,
+          "maximum_exact_moment_lb_in": 754.0665215199741,
+          "moment_constraint_locations": 66,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 909.0891768292682,
+          "relative_shortfall_from_raw_analytic": 0.00037731754358738545,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 5.551115123125783e-17
+          },
+          "scaled_statics_load_lbf": 909.08917682745
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": 1.7336062395193787e-13,
+          "end_shear_lbf": -2.056948361639499e-13,
+          "maximum_exact_moment_lb_in": 754.026310787021,
+          "moment_constraint_locations": 130,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 909.346417682927,
+          "relative_shortfall_from_raw_analytic": 9.445883321457238e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 2.220446049250313e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 909.3464176811084
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": -2.2159270649492403e-12,
+          "end_shear_lbf": -8.824972003163012e-13,
+          "maximum_exact_moment_lb_in": 754.0522794018851,
+          "moment_constraint_locations": 258,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 909.3974325229706,
+          "relative_shortfall_from_raw_analytic": 3.836357595143891e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 2.168404344971009e-19,
+            "equality_residual": 1.6653345369377348e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 3.3306690738754696e-16
+          },
+          "scaled_statics_load_lbf": 909.3974325211518
+        }
+      ],
+      "id": "TR12-3.1-4800-2550-gap0.5",
+      "published_reference_max_rounding_error_lbf": 0.5,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 637.5,
+        "IIIm": 922.9155736268415,
+        "IIIs": 922.9155736268415,
+        "IV": 1259.928739484383,
+        "Im": 1912.5,
+        "Is": 1912.5
+      },
+      "analytic_raw_yield_lbf": 637.5,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -2.0665384686683122e-13,
+          "end_shear_lbf": -7.298849025172416e-14,
+          "maximum_exact_moment_lb_in": 318.3788810074022,
+          "moment_constraint_locations": 66,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 637.0050465838509,
+          "relative_shortfall_from_raw_analytic": 0.0007763975175263393,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 637.0050465825769
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -9.256786011541465e-13,
+          "end_shear_lbf": -3.583071339630095e-13,
+          "maximum_exact_moment_lb_in": 318.65632958900017,
+          "moment_constraint_locations": 130,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 637.3750979623825,
+          "relative_shortfall_from_raw_analytic": 0.0001959247668898989,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 1.734723475976807e-18,
+            "equality_residual": 2.6020852139652106e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 5.551115123125783e-17
+          },
+          "scaled_statics_load_lbf": 637.3750979611077
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 7.620700792821842e-13,
+          "end_shear_lbf": 1.293886872644201e-13,
+          "maximum_exact_moment_lb_in": 318.7266908520269,
+          "moment_constraint_locations": 258,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 637.4689206318257,
+          "relative_shortfall_from_raw_analytic": 4.8751952077208394e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 2.220446049250313e-16
+          },
+          "scaled_statics_load_lbf": 637.4689206305508
+        }
+      ],
+      "id": "TR12-3.1-2550-2550-gap0.5",
+      "published_reference_max_rounding_error_lbf": 0.5,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 5.177669529663689,
+        "IIIm": 10.073339575529218,
+        "IIIs": 10.073339575529218,
+        "IV": 14.142135623730951,
+        "Im": 12.5,
+        "Is": 12.5
+      },
+      "analytic_raw_yield_lbf": 5.177669529663689,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -1.4484263398048536e-16,
+          "end_shear_lbf": -4.3368086899420177e-16,
+          "maximum_exact_moment_lb_in": 0.1338312596447941,
+          "moment_constraint_locations": 65,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 5.173611111111111,
+          "relative_shortfall_from_raw_analytic": 0.0007838311309120716,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 3.469446951953614e-18,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 5.173611111100763
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -7.551298724772088e-17,
+          "end_shear_lbf": -5.637851296924623e-16,
+          "maximum_exact_moment_lb_in": 0.1339991071661748,
+          "moment_constraint_locations": 129,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 5.176854395604396,
+          "relative_shortfall_from_raw_analytic": 0.00015743261808742748,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 4.336808689942018e-19,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 1.6653345369377348e-16
+          },
+          "scaled_statics_load_lbf": 5.1768543955940425
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 4.0752872674772525e-17,
+          "end_shear_lbf": -2.8189256484623115e-16,
+          "maximum_exact_moment_lb_in": 0.1340273466486271,
+          "moment_constraint_locations": 257,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 5.177399861878453,
+          "relative_shortfall_from_raw_analytic": 5.2082851955903564e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 2.168404344971009e-19,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 5.551115123125783e-17
+          },
+          "scaled_statics_load_lbf": 5.177399861868099
+        }
+      ],
+      "id": "synthetic-mode-II",
+      "published_reference_max_rounding_error_lbf": null,
+      "raw_governing_mode": "II"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 10.62973129272592,
+        "IIIm": 4.274587829337117,
+        "IIIs": 12.90300804218402,
+        "IV": 6.940307040146763,
+        "Im": 12.5,
+        "Is": 125.0
+      },
+      "analytic_raw_yield_lbf": 4.274587829337117,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -3.288181901241194e-16,
+          "end_shear_lbf": -6.071532165918825e-16,
+          "maximum_exact_moment_lb_in": 0.9999999999979997,
+          "moment_constraint_locations": 69,
+          "moment_cut_rounds": 3,
+          "numerical_feasibility_scale": 0.9999999999906783,
+          "raw_LP_load_lbf": 4.273463754004735,
+          "relative_shortfall_from_raw_analytic": 0.00026296696128291774,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 2.3592239273284576e-16,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 8.326672684688674e-17,
+            "primal_dual_objective_gap": 1.6653345369377348e-16
+          },
+          "scaled_statics_load_lbf": 4.273463753964899
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": 1.008540954472014e-15,
+          "end_shear_lbf": 2.5587171270657905e-15,
+          "maximum_exact_moment_lb_in": 0.999999999998,
+          "moment_constraint_locations": 136,
+          "moment_cut_rounds": 6,
+          "numerical_feasibility_scale": 0.9999999999777428,
+          "raw_LP_load_lbf": 4.274526981211826,
+          "relative_shortfall_from_raw_analytic": 1.423487429874637e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 1.9038590148845458e-16,
+            "dual_stationarity_residual": 1.8735013540549517e-16,
+            "equality_residual": 2.7755575615628914e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 4.996003610813204e-16
+          },
+          "scaled_statics_load_lbf": 4.274526981116687
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": -2.100318777879524e-15,
+          "end_shear_lbf": -1.4094628242311558e-15,
+          "maximum_exact_moment_lb_in": 0.9999999999980018,
+          "moment_constraint_locations": 261,
+          "moment_cut_rounds": 2,
+          "numerical_feasibility_scale": 0.9999999999777954,
+          "raw_LP_load_lbf": 4.274559287508775,
+          "relative_shortfall_from_raw_analytic": 6.677117045272851e-06,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 1.6775318113781967e-16,
+            "dual_stationarity_residual": 6.245004513516506e-17,
+            "equality_residual": 5.551115123125783e-17,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 3.885780586188048e-16
+          },
+          "scaled_statics_load_lbf": 4.27455928741386
+        }
+      ],
+      "id": "synthetic-mode-IIIm",
+      "published_reference_max_rounding_error_lbf": null,
+      "raw_governing_mode": "IIIm"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 22.86909692667927,
+        "IIIm": 49.34995119908771,
+        "IIIs": 45.85727415949748,
+        "IV": 60.30226891555273,
+        "Im": 12.5,
+        "Is": 125.0
+      },
+      "analytic_raw_yield_lbf": 12.5,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -5.4362574554781e-16,
+          "end_shear_lbf": -3.0357660829594124e-15,
+          "maximum_exact_moment_lb_in": 0.8715820312482568,
+          "moment_constraint_locations": 65,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 12.5,
+          "relative_shortfall_from_raw_analytic": 1.9998447342572945e-12,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 12.499999999975001
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -2.5482562701672e-15,
+          "end_shear_lbf": -2.164067536281067e-14,
+          "maximum_exact_moment_lb_in": 0.8593749999982812,
+          "moment_constraint_locations": 129,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 12.5,
+          "relative_shortfall_from_raw_analytic": 1.9998447342572945e-12,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 12.499999999975001
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 2.5599770885748312e-15,
+          "end_shear_lbf": 1.0690233420707074e-14,
+          "maximum_exact_moment_lb_in": 0.8593749999982806,
+          "moment_constraint_locations": 257,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 12.5,
+          "relative_shortfall_from_raw_analytic": 1.9998447342572945e-12,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 12.499999999975001
+        }
+      ],
+      "id": "synthetic-mode-Im",
+      "published_reference_max_rounding_error_lbf": null,
+      "raw_governing_mode": "Im"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 10.62973129272592,
+        "IIIm": 12.90300804218402,
+        "IIIs": 4.274587829337117,
+        "IV": 6.940307040146763,
+        "Im": 125.0,
+        "Is": 12.5
+      },
+      "analytic_raw_yield_lbf": 4.274587829337117,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": 8.131516293641283e-16,
+          "end_shear_lbf": 0.0,
+          "maximum_exact_moment_lb_in": 0.9999999999980004,
+          "moment_constraint_locations": 68,
+          "moment_cut_rounds": 2,
+          "numerical_feasibility_scale": 0.9999999999780919,
+          "raw_LP_load_lbf": 4.273463754041947,
+          "relative_shortfall_from_raw_analytic": 0.0002629669651607047,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 4.273463753948323
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": -1.5043305143236374e-16,
+          "end_shear_lbf": -2.7755575615628914e-15,
+          "maximum_exact_moment_lb_in": 0.9999999999979997,
+          "moment_constraint_locations": 136,
+          "moment_cut_rounds": 3,
+          "numerical_feasibility_scale": 0.9999999999860528,
+          "raw_LP_load_lbf": 4.274526981187186,
+          "relative_shortfall_from_raw_analytic": 1.4234871753004974e-05,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 4.274526981127569
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": 3.804871999066317e-16,
+          "end_shear_lbf": 2.0816681711721685e-15,
+          "maximum_exact_moment_lb_in": 0.9999999999980012,
+          "moment_constraint_locations": 259,
+          "moment_cut_rounds": 2,
+          "numerical_feasibility_scale": 0.9999999999777949,
+          "raw_LP_load_lbf": 4.274559287508778,
+          "relative_shortfall_from_raw_analytic": 6.677117045050807e-06,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 8.673617379884035e-19,
+            "equality_residual": 1.1102230246251565e-16,
+            "inequality_violation": 2.7755575615628914e-17,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 4.274559287413861
+        }
+      ],
+      "id": "synthetic-mode-IIIs",
+      "published_reference_max_rounding_error_lbf": null,
+      "raw_governing_mode": "IIIs"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 22.86909692667927,
+        "IIIm": 45.85727415949748,
+        "IIIs": 49.34995119908771,
+        "IV": 60.30226891555273,
+        "Im": 125.0,
+        "Is": 12.5
+      },
+      "analytic_raw_yield_lbf": 12.5,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": -5.55653613398821e-17,
+          "end_shear_lbf": -4.163336342344337e-15,
+          "maximum_exact_moment_lb_in": 0.9112548828106776,
+          "moment_constraint_locations": 65,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 12.5,
+          "relative_shortfall_from_raw_analytic": 1.9998447342572945e-12,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 12.499999999975001
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": 2.463510623794407e-15,
+          "end_shear_lbf": 2.42861286636753e-14,
+          "maximum_exact_moment_lb_in": 1.1654526649667492,
+          "moment_constraint_locations": 129,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 12.5,
+          "relative_shortfall_from_raw_analytic": 1.9998447342572945e-12,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 12.499999999975001
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": -4.886448369415333e-15,
+          "end_shear_lbf": -1.4224732503009818e-14,
+          "maximum_exact_moment_lb_in": 1.1040194837760011,
+          "moment_constraint_locations": 257,
+          "moment_cut_rounds": 1,
+          "numerical_feasibility_scale": 0.999999999998,
+          "raw_LP_load_lbf": 12.5,
+          "relative_shortfall_from_raw_analytic": 1.9998447342572945e-12,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 0.0,
+            "dual_stationarity_residual": 0.0,
+            "equality_residual": 0.0,
+            "inequality_violation": 0.0,
+            "primal_dual_objective_gap": 0.0
+          },
+          "scaled_statics_load_lbf": 12.499999999975001
+        }
+      ],
+      "id": "synthetic-mode-Is",
+      "published_reference_max_rounding_error_lbf": null,
+      "raw_governing_mode": "Is"
+    },
+    {
+      "analytic_all_raw_modes_lbf": {
+        "II": 20.284707521047416,
+        "IIIm": 15.14920389148977,
+        "IIIs": 15.14920389148977,
+        "IV": 7.759180473517537,
+        "Im": 125.0,
+        "Is": 125.0
+      },
+      "analytic_raw_yield_lbf": 7.759180473517537,
+      "grids": [
+        {
+          "cells_per_member": 32,
+          "end_moment_lb_in": 2.617331807015788e-16,
+          "end_shear_lbf": 2.6020852139652106e-15,
+          "maximum_exact_moment_lb_in": 0.999999999997999,
+          "moment_constraint_locations": 68,
+          "moment_cut_rounds": 2,
+          "numerical_feasibility_scale": 0.9999999999979313,
+          "raw_LP_load_lbf": 7.759180473518003,
+          "relative_shortfall_from_raw_analytic": 2.0086154961518332e-12,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 2.1510571102112408e-16,
+            "dual_stationarity_residual": 1.734723475976807e-17,
+            "equality_residual": 1.3877787807814457e-17,
+            "inequality_violation": 3.469446951953614e-18,
+            "primal_dual_objective_gap": 1.3877787807814457e-17
+          },
+          "scaled_statics_load_lbf": 7.759180473501952
+        },
+        {
+          "cells_per_member": 64,
+          "end_moment_lb_in": 1.3264535954002343e-15,
+          "end_shear_lbf": 5.204170427930421e-15,
+          "maximum_exact_moment_lb_in": 0.9999999999979997,
+          "moment_constraint_locations": 134,
+          "moment_cut_rounds": 3,
+          "numerical_feasibility_scale": 0.9999999513051341,
+          "raw_LP_load_lbf": 7.759180473517952,
+          "relative_shortfall_from_raw_analytic": 4.8694812404548315e-08,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 2.3765711620882257e-16,
+            "dual_stationarity_residual": 1.3877787807814457e-17,
+            "equality_residual": 0.0,
+            "inequality_violation": 3.469446951953614e-18,
+            "primal_dual_objective_gap": 2.0816681711721685e-17
+          },
+          "scaled_statics_load_lbf": 7.759180095685699
+        },
+        {
+          "cells_per_member": 128,
+          "end_moment_lb_in": -9.283481101907132e-16,
+          "end_shear_lbf": -8.673617379884035e-16,
+          "maximum_exact_moment_lb_in": 0.9999999999979968,
+          "moment_constraint_locations": 261,
+          "moment_cut_rounds": 3,
+          "numerical_feasibility_scale": 0.9999999999979066,
+          "raw_LP_load_lbf": 7.759180473518098,
+          "relative_shortfall_from_raw_analytic": 2.021049994027635e-12,
+          "scaled_LP_certificate": {
+            "bearing_bound_violation": 0.0,
+            "dual_sign_violation": 4.40619762898109e-16,
+            "dual_stationarity_residual": 8.673617379884035e-18,
+            "equality_residual": 6.938893903907228e-18,
+            "inequality_violation": 2.7755575615628914e-17,
+            "primal_dual_objective_gap": 4.85722573273506e-17
+          },
+          "scaled_statics_load_lbf": 7.759180473501855
+        }
+      ],
+      "id": "synthetic-mode-IV",
+      "published_reference_max_rounding_error_lbf": null,
+      "raw_governing_mode": "IV"
+    }
+  ],
+  "claim_limits": [
+    "One lateral dimension, two members, constant dowel moment cap and prescribed member force ratio only. Signed ideal-plastic bearing bounds with no actual stiffness or compatibility solution.",
+    "Raw P comparison precedes every mode-specific Rd. LP optimum is not an ASD reference or adjusted capacity; dividing its minimum by a common Rd is not permitted.",
+    "No candidate field, revised force, actual bearing material, delivered bolt/root/shank, actual bracket bearing, axial seat, washer contact, torsion, group action, splitting, restraint, connection resistance, floor behavior or physical acceptance is calculated.",
+    "The existing affine bearing trial stays frozen. A candidate extension needs own-member wrench constraints, matched current fields, material/thread profiles and a justified vector and ASD method; these synthetic results supply none of those inputs."
+  ],
+  "disposition": "verified_synthetic_known_answers_only",
+  "environment": {
+    "highs": "1.12.0",
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1",
+    "scipy_highs_wrapper_sha256": "32999bba42521a001d08bd9a1a02ca663b8b7eb93b6f799f37438e062484c89a"
+  },
+  "inputs_sha256": "bab3f6c7d57c34e6b208c0d78462a7f5c18bf3f59111b67f659fe7f3084044a2",
+  "schema": "synthetic_dowel_bearing_moment_limit_result/v1",
+  "solver_controls": {
+    "infeasible_status": 2,
+    "loose_bending_cap_load_ratio": 2.6118852600580973,
+    "rejected_invalid_inputs": [
+      "main_length_in",
+      "side_length_in",
+      "main_bearing_lb_in",
+      "yield_moment_lb_in",
+      "gap_in"
+    ],
+    "signed_bound_known_answer": -2.0,
+    "symmetric_32_cell_load_lbf": 5.173611111100763,
+    "symmetric_rigid_dowel_exact_II_lbf": 5.177669529663689,
+    "unbounded_status": 3,
+    "wrong_unsigned_bounds_allow_zero_load_only": -0.0
+  },
+  "source_pins": [
+    {
+      "path": "fea/dowel_yield.py",
+      "sha256": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45"
+    },
+    {
+      "path": "tests/test_dowel_yield.py",
+      "sha256": "9a359170144a23bc85dc17e95aabf565c70adf3802e6017a7fdbdf4dec2fd3f2"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json",
+      "sha256": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/verification.json",
+      "sha256": "57f81a98a5d158f997b54c0ed4094914339f38b0d9c5809643c227fd1f82a02e"
+    }
+  ],
+  "summary": {
+    "LP_benchmark_count": 45,
+    "case_count": 15,
+    "governing_modes_verified": [
+      "II",
+      "IIIm",
+      "IIIs",
+      "IV",
+      "Im",
+      "Is"
+    ],
+    "maximum_128_cell_relative_shortfall": 5.2082851955903564e-05,
+    "maximum_scaled_LP_certificate_residual": 6.661338147750939e-16
+  }
+}

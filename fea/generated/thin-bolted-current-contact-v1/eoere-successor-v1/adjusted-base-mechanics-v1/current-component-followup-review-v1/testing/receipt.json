@@ -1,0 +1,207 @@
+{
+  "additional_authentication_order_controls": {
+    "gate_payload_substitution": {
+      "events": [
+        "gate"
+      ],
+      "rejection": {
+        "message": "gate must return the identical raw field payload",
+        "type": "ValueError"
+      }
+    },
+    "gate_pin_conflict": {
+      "events": [
+        "gate"
+      ],
+      "rejection": {
+        "message": "source closure conflict: /tmp/followup-testing-review-iu8cyy_m/gate_pin_conflict/tiny.json",
+        "type": "ValueError"
+      }
+    },
+    "metadata_failure": {
+      "events": [
+        "gate",
+        "metadata"
+      ],
+      "rejection": {
+        "message": "synthetic metadata join failure",
+        "type": "ValueError"
+      }
+    },
+    "receipt_integer_success": {
+      "events": [],
+      "rejection": {
+        "message": "own current admission receipt required",
+        "type": "ValueError"
+      }
+    },
+    "receipt_schema": {
+      "events": [],
+      "rejection": {
+        "message": "own current admission receipt required",
+        "type": "ValueError"
+      }
+    }
+  },
+  "additional_private_AST_failure_restore_controls": {
+    "invalid_syntax": {
+      "message": "invalid syntax (invalid_syntax.py, line 1)",
+      "type": "SyntaxError"
+    },
+    "missing_function": {
+      "message": "pure function census differs",
+      "type": "ValueError"
+    }
+  },
+  "additional_reserved_output_controls": {
+    "existing_target_symlink": {
+      "callback_calls": 0,
+      "target_preserved": true
+    },
+    "exit": {
+      "failed_JSON_retained": true,
+      "retry_rejected_before_callback": true
+    },
+    "interrupt": {
+      "failed_JSON_retained": true,
+      "retry_rejected_before_callback": true
+    },
+    "serialization": {
+      "failed_JSON_retained": true,
+      "retry_rejected_before_callback": true
+    }
+  },
+  "additional_synthetic_adapter_controls": {
+    "duplicate_shaft": {
+      "current_intake_restored": true,
+      "downstream_events": [
+        "timber",
+        "shaft"
+      ],
+      "steel_calls": 44,
+      "synthetic_payload_unchanged": true
+    },
+    "mixed_count": {
+      "current_intake_restored": true,
+      "downstream_events": [
+        "timber"
+      ],
+      "steel_calls": 44,
+      "synthetic_payload_unchanged": true
+    },
+    "steel_census": {
+      "current_intake_restored": true,
+      "downstream_events": [],
+      "steel_calls": 22,
+      "synthetic_payload_unchanged": true
+    },
+    "success": {
+      "current_intake_restored": true,
+      "downstream_events": [
+        "timber",
+        "shaft",
+        "washer"
+      ],
+      "steel_calls": 44,
+      "synthetic_payload_unchanged": true
+    },
+    "timber_interrupt": {
+      "current_intake_restored": true,
+      "downstream_events": [
+        "timber"
+      ],
+      "steel_calls": 44,
+      "synthetic_payload_unchanged": true
+    },
+    "washer_failure": {
+      "current_intake_restored": true,
+      "downstream_events": [
+        "timber",
+        "shaft",
+        "washer"
+      ],
+      "steel_calls": 44,
+      "synthetic_payload_unchanged": true
+    }
+  },
+  "confirmed_substantial_findings": [],
+  "exact_targets_unchanged_before_after": true,
+  "execution": {
+    "actual_BREP_or_CAD": false,
+    "genuine_force_field_consumed": false,
+    "genuine_reducer_callback": false,
+    "panel_or_frame_K_q_native_or_browser": false,
+    "source_metadata_and_tiny_synthetic_callbacks_only": true
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "retention": "Keep this compact review pair active with the source followups. Private temporary synthetic/CLI files were removed; no archived evidence, shared source, staging or commits were changed.",
+  "review_source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-followup-review-v1/testing/review.py": "0036a2ed4c9bfa4c01a46cd37e31455d6c77aa52e2caba5da783e86abfd04ab8"
+  },
+  "schema": "eoere_current_followup_independent_testing_review/v1",
+  "source_closure_matches_frozen_verification": {
+    "canonical_sha256": "fdfa5382833e53d6327c4a006524025bd41defb8b28b6f53256d71342dd08a96",
+    "count": 1126
+  },
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/consumer-v1/consume.py": "f11175782c7b29abbdfbcbf5fbad63f919596bc6a613b4c7a5b65acc1027bad9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1/followups.py": "a27bacf7260905f69c2a69bae60c0f2cf4ed1f4efd229100e3c8fb846b892798",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1/test_followups.py": "eec79c2a9f33305f9cccfbec14520806f69a4a46a34efb995e4dc7ab31df912f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1/verification.json": "1390a83569c7885e0006645e1a8fb11814c1751900ebad6f0118daeea454173f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+  },
+  "status": "SOURCE_AND_SYNTHETIC_TESTING_PASSED_GENUINE_CONSUMPTION_REMAINS_HELD",
+  "supplied_checks": [
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1/test_followups.py"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "..............................                                           [100%]\n30 passed in 3.61s"
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-m",
+        "ruff",
+        "check",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/followups-v1"
+      ],
+      "exit_code": 0,
+      "stderr": "",
+      "stdout": "All checks passed!"
+    }
+  ],
+  "testing_assessment": [
+    "Thirty supplied tests and Ruff pass independently; known-answer functions use tiny algebra and declared scalar scenarios.",
+    "The supplied tests reject wrong raw hashes/gate, old aliases and release claims, verify 100/22/27 metadata composition, and test physical point/couple ownership, same-cut bolt roots and AST second-read authentication.",
+    "Supplied fake callback tests verify 44 steel calls over separate scenarios, current timber intake and restoration, 100 shaft references, unknown mixed stacks and retained exceedances.",
+    "Additional controls reject nonidentical gate payloads, contradictory gate pins, malformed receipt schema/success and metadata failure before any rich reducer callback.",
+    "Additional synthetic adapter controls stop downstream stages after steel/mixed/shaft census failures and restore timber intake through KeyboardInterrupt and subsequent washer failure.",
+    "The supplied real subprocess checks cover CLI races, dangling links, failed/abrupt attempts and import laziness. Additional serialization/interruption/exit failures keep valid FAILED records and reject retries; existing-target symlinks preserve their targets.",
+    "No complete real reduction is tested or claimed. Frozen numerical helper correctness is bounded by existing tiny known answers; current steel, timber, shaft and all200 washer outputs need genuine admitted-field execution after all required reviews.",
+    "The 112 nominal seat geometry proof remains separate from raw-stock washer diagnostics; group/splitting/net/restraint/actual pressure/product/complete-joint resistance remain unresolved."
+  ],
+  "tool_versions": {
+    "numpy": "2.5.2",
+    "pytest": "9.1.1",
+    "python": "3.12.3",
+    "ruff": "0.16.6",
+    "scipy": "1.18.1"
+  }
+}

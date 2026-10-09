@@ -1,0 +1,91 @@
+{
+  "branch": "master",
+  "elapsed_seconds": 7.637853708999955,
+  "frozen_target_bytes_unchanged": true,
+  "frozen_target_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/export.py": "93ed36c39b4237cd587498fbb9dd2b2b7e3d275afc2be89302dab178c25d5858",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/test_output_reservation.py": "3ceae6b82c0022493115a9ab0ce0b5a6c54a628337cb30cdb3fe6b1b3018daae",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/verification.json": "a046295fd38714893276dda6f495307821ab2c2545107298bb530d897e7e8ed3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py": "786cdfb9e8560716ab603d26179ce3a0b5635965d3238e234f669811768fe63a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/verification.json": "e5b8451c7b6d23822b8909378f2df98e6132e16384900ac20b5c3522b5193544",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/adjusted-base-manifest.json": "27220ec69ebe96e0c637d02d74aea1a7732f68d111b9918c973fa8ee954b48c2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+  },
+  "genuine_CAD_BREP_native_browser_K_q_force_load_or_candidate_execution_performed": false,
+  "independent_isolated_controls": {
+    "actual_CLI_foreign-manifest_slot_rejected_with_FAILED_receipt": true,
+    "actual_CLI_missing_slot_rejected_with_FAILED_receipt": true,
+    "actual_CLI_stale-sha_slot_rejected_with_FAILED_receipt": true,
+    "actual_source_CLI_stale_manifest_sha_rejected_with_FAILED_receipt": true,
+    "existing_directory_rejected_before_loader": true,
+    "existing_file_rejected_before_loader": true,
+    "existing_live-symlink_rejected_before_loader": true,
+    "in_process_controls_did_not_import_cadquery_or_OCP": true,
+    "isolated_wrapper_tamper_after_producer_rejected": true,
+    "isolated_wrapper_tamper_before_producer_rejected": true,
+    "keyboard_interrupt_retains_FAILED": true,
+    "nonfinite_producer_result_retains_FAILED": true,
+    "tampered_frozen_helper_rejected_before_module_execution": true
+  },
+  "parent_slot_created_or_authorized": false,
+  "remaining": "Parent owns final validation, exact same-manifest serial slot and authentic cached-solid extraction; no structural or physical readiness follows from these tests",
+  "review_helper_lint": {
+    "command": [
+      "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+      "-B",
+      "-m",
+      "ruff",
+      "check",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/final-review-v2/testing/review.py"
+    ],
+    "result": "All checks passed!"
+  },
+  "review_source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/final-review-v2/testing/review.py": "553f69f815d62546a1cca325c1c167dd83a4cc7a4a609ca0d988c8ada86c5982"
+  },
+  "reviewer": "/root/intake_final_testing",
+  "schema": "independent_cached_solid_intake_testing_review/v2",
+  "scope": "Current extended-cleat cached-solid intake and corrected output reservation only",
+  "separate_process_test_groups": [
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/test_output_reservation.py"
+      ],
+      "result": "......                                                                   [100%]\n6 passed in 1.73s",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py"
+      ],
+      "result": ".................                                                        [100%]\n17 passed in 2.43s",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+        "-B",
+        "-m",
+        "pytest",
+        "-q",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-export-v1/test_export.py"
+      ],
+      "result": "........                                                                 [100%]\n8 passed in 0.27s",
+      "stderr": ""
+    }
+  ],
+  "status": "PASS_NO_SUBSTANTIAL_TESTING_FINDINGS",
+  "substantial_findings": [],
+  "temporary_slot_fixtures": "deliberately invalid; removed after CLI rejection controls"
+}

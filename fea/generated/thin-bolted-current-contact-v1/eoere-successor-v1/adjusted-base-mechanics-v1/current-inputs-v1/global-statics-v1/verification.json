@@ -1,0 +1,88 @@
+{
+  "controls": [
+    {
+      "name": "fresh_exact_replay",
+      "passed": true
+    },
+    {
+      "name": "occupied_output_preserved",
+      "passed": true
+    },
+    {
+      "name": "source_output_alias_rejected",
+      "passed": true
+    },
+    {
+      "name": "wrong_input_hash_rejected",
+      "passed": true
+    },
+    {
+      "name": "source_drift_or_late_output_before",
+      "passed": true
+    },
+    {
+      "name": "source_drift_or_late_output_during",
+      "passed": true
+    },
+    {
+      "name": "source_drift_or_late_output_race",
+      "passed": true
+    }
+  ],
+  "controls_scope": "Four direct CLI runs plus three controlled copied-module source/output interpositions; live sources never mutated.",
+  "no_frame_or_native_or_CAD_execution": true,
+  "numerical_check": {
+    "case_count": 7,
+    "max_force_error_n": 0.0,
+    "max_margin_error_mm": 2.2737367544323206e-13,
+    "max_moment_error_nmm": 9.313225746154785e-10,
+    "max_normal_witness_moment_residual_nmm": 1.862645149230957e-09,
+    "polygon_vertex_count": 6,
+    "rows": [
+      {
+        "case_id": "a12-rear",
+        "independent_margin_mm": 330.2849914799092
+      },
+      {
+        "case_id": "a12-forward",
+        "independent_margin_mm": 603.2157580181188
+      },
+      {
+        "case_id": "a12-left",
+        "independent_margin_mm": 466.7503747490141
+      },
+      {
+        "case_id": "k12-right",
+        "independent_margin_mm": 466.7503747490141
+      },
+      {
+        "case_id": "k12-rear",
+        "independent_margin_mm": 330.2849914799092
+      },
+      {
+        "case_id": "a1-rear",
+        "independent_margin_mm": 642.9085097705661
+      },
+      {
+        "case_id": "gravity-only",
+        "independent_margin_mm": 856.2997678025853
+      }
+    ]
+  },
+  "passed": true,
+  "reproduce": ".venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-v1/verify.py --out NEW_EMPTY_DIRECTORY",
+  "schema": "eoere_current_global_statics_verification/v1",
+  "source_bindings": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-v1/check_current.py": "c2c32d1fdadae374b5d7f7d192d979e52954011bc041171980cc6e63a0aeceaa",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-v1/result.json": "f05f81d17a80b1fc1e2a0df106a60ac34f6253a1bb0b664a7241e63cc3702c24",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/global-statics-v1/verify.py": "68e27a587cadc08b64923cbe76fdf5db36c35ca0cca6d8789ac3f3b44be7862d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/global_statics.py": "e8042b4a7f82e4d76e2a66abde4452a2d61959359bff4fe2edb261af7e1152d4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-mechanics-v1/inputs.json": "81e9ad126f806a412a8bcb73ae3d0057ef3568ed0fa45986503f97fb5fb62d9f",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "source_bindings_unchanged_after": true
+}

@@ -1,0 +1,55 @@
+{
+  "byte_replay_and_source_output_guard_controls": 7,
+  "declared_cache_recursive_pin_count_not_rehashed": 1077,
+  "declared_current_geometry_recursive_pin_count_not_rehashed": 581,
+  "direct_source_pins_rehashed": 13,
+  "findings": [],
+  "independent_checks": {
+    "canonical_list_bindings": 4,
+    "capsule_comparisons": 40752,
+    "current_geometry_cache_and_v3_axes": 100,
+    "exact_proposed_Z_moves": 4,
+    "maximum_saved_minimum_error_mm": 0.0,
+    "scalar_segment_distance_and_reverse_controls": 12,
+    "screens": [
+      {
+        "id": "current_Z200",
+        "independent_maximum_bore_capsule_bound_mm": -0.056250000000000355
+      },
+      {
+        "id": "proposed_Z180",
+        "independent_maximum_bore_capsule_bound_mm": 3.9437499999999996
+      }
+    ],
+    "unchanged_current_axes": 96,
+    "unchanged_current_screws": 66
+  },
+  "limits": [
+    "Source-bound placement and finite nominal containing primitives only; no coordinate search, solid reconstruction/query, CAD, frame/K/native solve, browser or field consumption.",
+    "Positive capsule bounds prove only nominal declared-primitive separation; negative values remain inconclusive.",
+    "Allfour current drilling holds remain; Z180 remains unadopted. Bore walls/eight seats, current panel/service/angle intersections, screws, tools and mechanical resistance need their own disposition.",
+    "13direct source pins rehashed; larger historical/current recursive closures are not independently admitted or rehashed here.",
+    "Currentv3 moves,96other bolts and66screws retained; no old force/strength/clearance acceptance transferred.",
+    "Frozen six files unchanged. Only exclusive helper/receipt retained; no shared edits, staging or publication."
+  ],
+  "release": {
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "geometry_adopted": false,
+    "mechanics_ready": false,
+    "structural": false
+  },
+  "reused_general3D_comparisons": 40752,
+  "reused_producer_known_answer_fixtures": 4,
+  "review_helper_sha256": "5ecad609ac1a6155cc623e025967e0459f4fcaa033204579cf9132f9c25e668b",
+  "schema": "eoere_current_Z180_proposal_independent_correctness_review/v1",
+  "target_source_sha256": {
+    "inputs.json": "989a518a33f05c72c38613e9b8c53fc85458fc1aabc94948803ff5f9fe2bbb7f",
+    "placement.json": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39",
+    "prepare.py": "9d12bcaa8d375153f4e93e4bfbc36c283ee3167bd614049e698d92ed067395c4",
+    "result.json": "26d27f9c8f5e3c1d91e48143341a8e808d0ece99f316eaf789e2fcbe22e4252a",
+    "verification.json": "ba4ed094c618cc71385754f6c4d06a05787f3706273a4faa4c6987f650c48acb",
+    "verify.py": "267ff85c8fa87930a56f960f9c12c5a01329c546e117f012d1f16eae34b3d0d4"
+  }
+}

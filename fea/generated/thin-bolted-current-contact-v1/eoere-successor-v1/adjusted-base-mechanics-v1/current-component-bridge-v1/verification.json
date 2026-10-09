@@ -1,0 +1,230 @@
+{
+  "census": {
+    "direct_contacts": 1606,
+    "ends": 200,
+    "factory_holes": 176,
+    "finished_receiver_wall_queries": 120,
+    "fitting_ports": 88,
+    "fitting_poses": 22,
+    "flange_backing_cells": 352,
+    "flange_domains": 88,
+    "floor_observations": 8,
+    "panel_features": 340,
+    "panel_screws": 66,
+    "panels": 6,
+    "physical_owner_gravity_rows": 150,
+    "raw_timbers": 22,
+    "shafts": 100,
+    "wood_seats": 112
+  },
+  "changed_finished_source_ids": [
+    "base_header",
+    "base_post_center_right",
+    "base_principal_center_right",
+    "base_rail_bottom_left",
+    "base_rail_bottom_right",
+    "base_rail_service_lower_left",
+    "base_rail_service_lower_right",
+    "base_rail_service_upper_left",
+    "base_rail_service_upper_right",
+    "base_rail_top",
+    "eoere_cleat_left",
+    "eoere_cleat_right",
+    "kicker_right",
+    "main_lower_right",
+    "main_upper_right"
+  ],
+  "checks": {
+    "all_current_saved_source_pins_verified": 1077,
+    "complete_plan_source_union_canonical_sha256": "c526260b67d9603b20fe0e6416d9cc9dcdd0a99144767a9c6c118aab974fd2a5",
+    "complete_plan_source_union_pins_verified": 1099,
+    "frozen_method_files_parsed_never_imported": 16,
+    "isolated_plan_heavy_import_denial": "PASS",
+    "metadata_and_negative_tests_passed": 19,
+    "prior_six_intake_files_byte_unchanged": true,
+    "ruff": "PASS"
+  },
+  "commands": [
+    ".venv/bin/python -B -m pytest -q -p no:cacheprovider fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/test_component_plan.py",
+    "uv run ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1"
+  ],
+  "complete_joint_resistance": null,
+  "deferred_work": [
+    "No current raw field or admission consumed; parent retains fresh admission, case slots and final validation.",
+    "Implement the explicitly current source/schema/gate/panel callbacks around unchanged coarse reducers after fresh field admission.",
+    "Rebind rich steel intake to an exact current field manifest; current saved metadata supplies all 16 backing cells per fitting.",
+    "Use own signed current captures/actions for pressures and individual material/shaft references; nominal-seat geometry alone supplies none.",
+    "Complete finished-section, edge/end, ligament, mixed-stack, splitting, Cg/Cdelta, group and bracing resistance may remain null with the recorded limits. No new CAD is needed to force closure."
+  ],
+  "execution": {
+    "CAD_import_or_query": false,
+    "K_q_forces_or_native_solve": false,
+    "field_or_force_consumer": false,
+    "method_imports_or_execution": false,
+    "saved_JSON_and_source_byte_reads_only": true,
+    "viewer_or_browser": false
+  },
+  "future_admission": {
+    "api": "require_admitted_payload(field_bytes, receipt, *, admission_sha256=gate SOURCE SHA)",
+    "field_schema": "eoere_extended_cleat_fixed_floor_candidate/v1",
+    "gate": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+      "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+    },
+    "geometry_mapping": [
+      "report",
+      "source_manifest",
+      "cached_source_export"
+    ],
+    "manifest_api": "admitted_intake.load_admitted(manifest_path) -> (field, pins)",
+    "receipt_schema": "eoere_extended_cleat_fixed_floor_independent_field_admission/v1",
+    "scene_alias_allowed": false,
+    "success_key": "current_extended_cleat_equilibrium_and_recovery_pass"
+  },
+  "historical_evidence": {
+    "extension_review": {
+      "current_computational_overlap_pins": 577,
+      "old_dependency_map_used_as_current_runtime": false
+    },
+    "seat_details": {
+      "current_computational_overlap_pins": 911,
+      "old_dependency_map_used_as_current_runtime": false
+    }
+  },
+  "inputs": {
+    "descriptor_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/independent-review-v1/correctness/receipt.json",
+      "sha256": "14db73198c6705d866e42f43f41184e2235cfe66450418f6ba892aabbd98ee34"
+    },
+    "descriptors": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json",
+      "sha256": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7"
+    },
+    "extension_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/actual-output-review.json",
+      "sha256": "c5d97796a59a8fa085abeacdc4a7672c81f9aa57ea9db0bd7872f9e7e5e1f109"
+    },
+    "gate": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+      "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+    },
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+      "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+    },
+    "manifest": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json",
+      "sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+    },
+    "parent_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json",
+      "sha256": "5e0f05ea39347edcd89e088ab0cd478976b9a7ae9dabcc78c1b92e24d1f01aa7"
+    },
+    "parent_manifest": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/adjusted-base-manifest.json",
+      "sha256": "27220ec69ebe96e0c637d02d74aea1a7732f68d111b9918c973fa8ee954b48c2"
+    },
+    "preserved_metadata": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-mechanics-v1/inputs.json",
+      "sha256": "81e9ad126f806a412a8bcb73ae3d0057ef3568ed0fa45986503f97fb5fb62d9f"
+    },
+    "seat_audit": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/result.json",
+      "sha256": "1205472ce4f96626318b42f2ad7578396485d167932f22fc0af387b156c4f875"
+    },
+    "seat_details": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/attempt06/details.json",
+      "sha256": "837474fad3300ade9c3dc1e15c68827c7faeb2c76b0a17fae83c32d4511abf71"
+    }
+  },
+  "nominal_seat_geometry": {
+    "basis": [
+      {
+        "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/result.json",
+        "sha256": "1205472ce4f96626318b42f2ad7578396485d167932f22fc0af387b156c4f875"
+      },
+      {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/attempt06/details.json",
+        "sha256": "837474fad3300ade9c3dc1e15c68827c7faeb2c76b0a17fae83c32d4511abf71"
+      },
+      {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-top-extension-review-v1/actual-output-review.json",
+        "sha256": "c5d97796a59a8fa085abeacdc4a7672c81f9aa57ea9db0bd7872f9e7e5e1f109"
+      }
+    ],
+    "current_cleat_seats_carried_by_full_parent_volume": 8,
+    "fresh_v3_probes": 36,
+    "nominal_wood_seats": 112,
+    "old_actions_or_strength_transferred": false,
+    "scope": "nominal geometry only; current pressure, stiffness, contact and complete resistance unresolved",
+    "unchanged_v3_proofs": 76
+  },
+  "release": {
+    "climbing": false,
+    "fabrication": false,
+    "physical": false,
+    "structural": false
+  },
+  "reuse": {
+    "coarse": {
+      "limit": "same-state references and gross rectangular-stock witnesses; finished net sections/bracing and complete joint resistance remain null",
+      "needs": "one own-admitted current field; scoped current FIELD_SCHEMA/ADMISSION_SCHEMA/SUCCESS and gate; current axis/source_contract map, centroidal steel callback and current panel prepared_datums callback",
+      "reuse": "assessment.reduce_field + gross_members.member_witnesses; existing samples 41/51",
+      "wrapper_limit": "fixed-floor and raised-rail consume wrappers bind historical gates/geometry/features; reuse their context pattern only after explicit current source rebinding"
+    },
+    "disposition": {
+      "limit": "rebind old geometry/schema wrappers before use; preserve exceedances/null resistance and same-case witnesses; no cross-case force combination",
+      "needs": "fresh current steel/timber/washer/shaft reports with one exact raw field/state/case/accessory identity, all 24 duties and 12 retained starting axes; six own-admitted primary cases, separate gravity diagnostic",
+      "reuse": "existing four-report identity joins, coherent_case_coverage and joint_reference_envelope selection arithmetic"
+    },
+    "finished_sections": {
+      "limit": "old finished_sections.run is fixed to old A12/geometry and imports CAD; no call or old result transfer; keep current capacities null without additional CAD",
+      "needs": "current finished source ID, section plane/axes, own same-case cuts and a justified ligament/end/edge/restraint/failure model for affected members",
+      "reuse": "existing bounded section method only if a later claim needs it"
+    },
+    "panel_screws": {
+      "limit": "generic references only; actual Hillman product resistance and finished edge/head/punching/support behavior unresolved; remedies held",
+      "needs": "own current six panel coefficient slices/chart, 340 machining descriptors and 66 simultaneous screw actions; current panel-bank source dependencies",
+      "reuse": "assessment.panel_reductions + existing screw_references"
+    },
+    "rich_steel": {
+      "limit": "conditional 6-mm/r6-mm Fy235/Fu370 references; actual thickness, bend radius, material and complete angle/group behavior unqualified",
+      "needs": "own current 22 operator descriptors; each 8 fine bearing + 4 capture + 16 backing actions, own gravity, pose and free couples; exact current manifest via admitted_intake",
+      "reuse": "calculate.own_loads/reduce_angle + core band/heel/bore/flange equations and existing scenario",
+      "tolerances_unchanged": {
+        "force_equilibrium_n": 0.0001,
+        "moment_equilibrium_nmm": 0.1,
+        "port_aggregate_error": 1e-07
+      }
+    },
+    "shaft": {
+      "limit": "smooth-circle/body/root scenarios only; delivered body/runout/thread window and complete joint resistance unresolved",
+      "needs": "own same-state 100 current shaft cut tables/axes and exact catalog/material reference sources",
+      "reuse": "comparison.shaft_circle_comparisons and first_joint.bolt_components"
+    },
+    "timber": {
+      "limit": "individual compatible two-member references only; mixed/multiple shear planes, finished ligaments, Cg/Cdelta, splitting and group resistance remain null",
+      "needs": "own 120 current wood bearing rows, current full walls/grain and gross raw profiles, own capture actions, exact material/yield-method refs and a current manifest",
+      "reuse": "calculate_v2 equations, raw_ray/placement and own-bearing/capture replay",
+      "tolerances_unchanged": {
+        "force_replay_n": 1e-08,
+        "moment_replay_nmm": 1e-06
+      }
+    },
+    "washer": {
+      "limit": "current extension report alone lacks service_cuts/scenario; do not invent scene alias; nominal annulus support does not establish contact pressure or stiffness",
+      "needs": "own 200 signed current capture actions, own nominal hardware, current grain and support geometry; explicitly composed v3 service_cuts and current fitting scenario for full calculate API",
+      "reuse": "calculate.scenario_metrics and same-state capture diagnostics; nominal support evidence selected separately"
+    }
+  },
+  "schema": "eoere_extended_cleat_component_source_plan_verification/v1",
+  "source_only_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/component_plan.py",
+    "sha256": "caf5d1307d999843c3ea16f3536f5bdd25edb390ebbab6e624cf5f5a86dc727e"
+  },
+  "source_only_tests": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-bridge-v1/test_component_plan.py",
+    "sha256": "de0f839e3bf72cf0c5f3a0450cb7a72c58519b813fe3873b2020f883434d80f8"
+  },
+  "status": "PASS_SOURCE_ONLY_PLAN_AND_METADATA_CONTROLS"
+}

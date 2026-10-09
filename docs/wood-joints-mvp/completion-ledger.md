@@ -2,6 +2,15 @@
 
 ## Current model-completion scope and qualification status
 
+**Latest extended-cleat numerical completion:** All six fresh
+`eoere-base-side-edge-cleats-v1` cases and twelve own-case component reports are
+complete, with the optional grid off. See the [current result and review
+bindings](#current-extended-cleat-numerical-completion). Reference exceedances,
+eight mixed-stack gaps and all 24 unknown complete-joint resistances remain
+reported. Four cleat/post stations remain HOLD; actual tool/access/tolerance
+observations stay blank. Earlier builder and mechanics entries below retain
+their explicitly named revision limits.
+
 **Owner-directed builder-support continuation:** The
 [drilling and fixture development guide](eoere-builder-drilling-guide.md)
 records the current aligned-wire geometry's 100-shaft receiver census: 80
@@ -3062,6 +3071,372 @@ requires the separately reviewed method and a serial slot. Frame assembly,
 current-field admission, complete joint resistance and physical release
 remain false; no old response is selected by these manifests. Retain these
 frozen inputs active for the current descriptor, panel and force-bridge work.
+
+The reviewed cached-solid intake has now executed successfully for the current
+extended-cleat model, with the optional grid off. Its raw output is
+`adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json`, SHA
+`0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7`
+(11,401,385 bytes). The separate process record retains the exact command,
+source-only serial slot, exit zero and stdout/stderr hashes. This queries saved
+solids; it does not rebuild CAD, assemble stiffness, solve a load case or admit
+a force field. All 1,077 source pins remain unchanged. The independent
+saved-data review is
+`current-source-observations-v1/independent-review-v1/correctness/receipt.json`,
+SHA `14db73198c6705d866e42f43f41184e2235cfe66450418f6ba892aabbd98ee34`.
+
+That review authenticates 28 finished bodies, 150 physical gravity owners,
+100 shafts, 120 receiver-wall rows, 200 nominal seats, 88 fitting ports,
+176 factory holes, 66 screws and eight floor hosts with 32 points. Sixty wall
+rows are fresh, including all eight cleat receivers; sixty retain exact
+same-source proofs. The current contact inventory has 1,606 cells, versus
+1,600 in the old raised-rail field: 332 timber, 922 panel and 352 analytical
+flat-flange cells. All 363 broad-phase pairs and 72 overlapping bounds
+reconcile; 96 timber/panel patches plus 88 flat-flange patches supply those
+cells. Fifteen finished sources change while owner-pair topology is preserved.
+The recorded sampled second-moment error of 0.255509 remains a convergence
+limit; this inventory does not establish pressure convergence or actual contact.
+
+The separate current panel method retains three exact panel stiffness banks
+and refreshes ten clearance apertures in the other three panels, with current
+own mass centers and all 66 screw ports. Its source seam binds all 340 current
+apertures. The original source-only receipt and failed review findings stay
+frozen. Separate v2 entrypoints reserve output before work and preserve failed
+attempts; the corrected seam supplements the earlier stale exporter binding.
+Thirty-one intake tests and 25 panel tests pass in their recorded isolated
+processes. The corrected force bridge similarly preserves its original four
+files and first reviews. Its 32 original/corrected tests pass; independent
+input authentication precedes panel loading, and every reused compiler source
+is checked at runtime and immediately before AST parsing. These changes retain
+the original preparation, solver, force-audit arithmetic and tolerances.
+
+Three independent final reviews of each corrected method report no substantial
+findings. All paths below are relative to
+`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1`:
+
+| Receipt | SHA256 |
+| --- | --- |
+| `extended-cleat-intake-v1/final-review-v2/correctness/receipt.json` | `92b515d58db6a87fa655e9b2ce0621aff5917bfacf4d12d32fbc8e3a0269adeb` |
+| `extended-cleat-intake-v1/final-review-v2/testing/receipt.json` | `6bf68356d74127f385241f9c75dfea98545352433d1d55f04413e0cb5c29a301` |
+| `extended-cleat-intake-v1/final-review-v2/structure/receipt.json` | `f70374ad7d8b268cdf3e15ddc8075944280f3a427b201f142cfad066584dccb5` |
+| `current-panel-bank-review-v2/correctness/receipt.json` | `50e2f64cb79059c1163b8991c3d4bf42c0978f7bfa6dc3565d8da63cc971b7e0` |
+| `current-panel-bank-review-v2/testing/receipt.json` | `fbf081ac344734df59030744490a6f05f816aa14cc720eefd6c36e068bff7491` |
+| `current-panel-bank-review-v2/structure/receipt.json` | `4c09882450b9d2ea40403933b7e4592d0b8d2954763acf042c7d4d71e38ecf01` |
+| `current-force-bridge-review-v2/correctness/receipt.json` | `0ee88c66b883d762674621983c962e109a48e7efc4eaa939a29278bded529e95` |
+| `current-force-bridge-review-v2/testing/receipt.json` | `9db34a9c26936df6ce8bec97b1b41294ead2f53e02e14eead8dd40b402ad5d93` |
+| `current-force-bridge-review-v2/structure/receipt.json` | `270ad77e1c6b865383e1597bc21e72001aebf931f6747c2a2a343d1c4e13894e` |
+
+The parent then ran the corrected bridge's pure input builder once, producing
+`current-inputs-v1/attempt01/inputs.json`, SHA
+`f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa`
+(13,705,709 bytes). Its 1,086 pins bind the genuine current rows and fresh
+original six-case recipe plus gravity-only. Permanent loads comprise 50 body
+weights, 500 own bolt-role weights, 274 auxiliary shares and two accessory rows;
+each loaded case adds one climber load. The mass sum is 191.908938620187 kg
+of physical owners plus 2.207001080119 kg of auxiliary shares and 25 kg of
+accessories, matching the shop total of 219.115939700306 kg. The process exits
+zero in 10.55 seconds; its exact command/log hashes stay in `attempt01/process.json`.
+This metadata/load join constructs no panel/frame stiffness or response.
+The independent raw-input review is
+`current-inputs-v1/independent-review-v1/receipt.json`, SHA
+`f7936b055d3a0ee9a475b09bff73d46fbbf25303c23c17c14e2d3e6c4c97eb2c`.
+It passes all seven per-load/owner/point/force and wrench checks, authenticates
+1,092 input/review source pins, and exercises raw plus all six selected-case
+review bindings. Independent force/moment sums differ by at most 8.19e-12 N
+and 9.31e-10 Nmm. It supplies no stiffness, force field or structural acceptance.
+
+The parent froze `current-readiness-v1/method-input.json`, SHA
+`941ca92e8230de9d480d17f6e2a082d05a3fae267329ef0b33c81d06d0ad46f5`,
+then exercised the real all-bindings source preflight. That preflight fails
+before any panel preparation: the frozen preflight drops the raw input-file
+pin returned by `read_inputs`, so its subsequent review authentication rejects
+the correctly bound input. The API and production preauthentication retain
+that pin and pass the genuine current review. Preserve the failed
+`current-readiness-v1/preflight.json`, process record and logs. A separate
+source-preflight supplement must correct and test that bookkeeping path;
+the frozen producer/admission, current input and original review stay unchanged.
+The descriptor-only manifest is not a force-run permit.
+
+The separate `current-force-bridge-v1/preflight-fix-v3` supplement retains the
+full validated pin map with two exact AST substitutions. Its genuine
+all-bindings result is SHA
+`780b589d2381fa2d469ff075f500f744142207957de1d663b1f8c4c3f801624e`,
+with no missing references. Six tests and Ruff pass. Correctness and structure
+reviews report no substantial findings; the testing review finds a separate
+P2: preflight accepts an independently valid supplied input/review pair that
+differs from the method's bound pair. The unchanged producer already rejects
+that mismatch before panel preparation. Preserve all three v3 reviews and
+the original failed preflight; the narrow preflight-only correction continues
+in parallel, without modifying producer/admission `4916532168ba0526…`.
+
+For the actual first forward case, the parent independently checks the exact
+input/review pair against both the method and preflight, plus the geometry,
+manifest and panel bindings, and rehashes their **1,110 unique source pins**.
+The separate immutable parent slot
+`/tmp/moonboard-extended-cleat-force-parent-slot-v1.json`, SHA
+`6d40efb578db5f46f4bf5deffa762c0d3c0b7dc9f1ef36bdd4ac0e9d14895e88`,
+records that specific mitigation and authorizes serialized fresh cases only.
+The parent started `current-cases-v1/a12-forward/attempt01`, then admitted that
+fresh field before delegating the remaining five serial cases. Exact commands,
+controlled environments and separate stdout/stderr remain in each attempt.
+Each subsequent case started after the preceding genuine admission; all six
+completed without a genuine numerical failure, retry or alternative mask.
+
+The separate `preflight-fix-v4` subsequently closes the general input/method
+mismatch in source preflight. Its genuine all-bindings result is SHA
+`3f80b1185b88812d18219b1cea2ed2c1dee3cb8b323f2dafc72558f3e554f8d4`;
+verification is SHA
+`afc71138a185b23eba2fa2d4d8947691446226814ea0c5f6223d1f08b735ab59`.
+Twenty original/new tests and Ruff pass. Three final reviews report no
+substantial findings. The v4 sources, old failure and v3 reviews remain
+separate immutable records; no actual case, method-input or issued slot is
+rewritten to claim that v4 preceded execution.
+
+The separate source-only global check is
+`current-inputs-v1/global-statics-v1/result.json`, SHA
+`f05f81d17a80b1fc1e2a0df106a60ac34f6253a1bb0b664a7241e63cc3702c24`.
+All six loaded cases plus gravity-only admit nonnegative compression-equilibrium
+witnesses. The current footprint has 28 unchanged points and four right-center
+post corners shifted 39.2 mm; its outer six-vertex hull is unchanged. The minimum
+edge margin is **330.28499148 mm**. Three independent reviews find no substantial
+issues. This necessary statics check reuses the original seven known-answer
+fixtures and assess method; it establishes no compatible elastic reactions,
+floor friction, local pressure or joint resistance. Its eight direct source
+pins are distinct from the full current-input admission.
+
+### Current extended-cleat numerical completion
+
+The source-bound [six-case roster](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json)
+is SHA `99fa0df8393bf5de70a7296fe2beccf0ca2df8270eb3d4b9f8b7c5f424ab7b91`
+(96,778 bytes). Its exact field/admission/operator/process/log pointers retain
+all six fresh cases under `current-cases-v1/CASE/attempt01`. Each genuine
+admission replays its own saved q and operators, all 150 body/global closures,
+100 shaft recoveries, 88 steel-port rows, 66 screws and six panel blocks.
+The original full-gradient limit remains **1e-5 N**, inclusive.
+
+| Own case | Admitted full-gradient infinity norm, N | Generic 9-mm head ratio, CD=1 | Sampled panel bending, CD=1 | Sampled rolling shear, CD=1 |
+| --- | ---: | ---: | ---: | ---: |
+| A12-forward | 2.082835e-7 | 2.393980 | 4.371329 | 2.451803 |
+| A12-rear | 1.439250e-6 | 2.572553 | 4.613408 | 2.444748 |
+| A12-left | 4.150122e-6 | 2.448074 | 4.479116 | 2.447720 |
+| K12-right | 1.908369e-7 | 2.385496 | 4.287946 | 2.250555 |
+| K12-rear | 6.128662e-6 | 2.505959 | 4.436626 | 2.232879 |
+| A1-rear | 2.112141e-6 | 1.837689 | 2.684624 | 1.368504 |
+
+The maximum body force/moment residuals are 9.538991e-6 N / 0.011031086 Nmm,
+against unchanged 1e-4-N / 0.1-Nmm gates. Maximum global force/moment norms are
+9.975437e-7 N / 0.001435402 Nmm. All 32 normal contacts remain compression-only;
+only the two rear-leg centroids have XY restraint. Their minimum bearing is
+**592.629345 N**. No slipping, friction, anchor or other support scenario is
+qualified by this declared no-slip model.
+
+The separate [parent publication verification](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/parent-verification-v1.json)
+is SHA `477b8e9f64fe1de273cef78b423a306d7975267cc5cdda31229ddfaf33b39497`.
+Its retained standard-library helper directly checks actual raw/canonical
+field bytes, own action-table and q/gradient bindings, residual maxima,
+normal/horizontal force closure, physical census, exact source closure and
+serialized process timestamps. It verifies 1,118 unique pins in that union;
+this is distinct from each field/admission's 1,105 inventory and the original
+parent readiness's 1,110 pins. It relies on the genuine admissions for full
+force/work/operator arithmetic and performs no preparation or solve. The
+roster's original `parent_full_validation_pending` remains frozen; this later
+receipt records completion of that bounded publication check.
+
+The [component summary](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/summary.json)
+binds six coarse reports and six detailed reports to those exact same-state
+field/admission pairs. Summary SHA is
+`0bd6001b81b2823bbc4e36145614f5b9cc857d47d59eec2b93a2d5e29bbdfd9f`
+(385,803 bytes); its `summary-inputs.json` is SHA
+`ce2ebabc3d3311d77ae8aa00bc063fd7d6e380467fd5d85c7af9b898f636d9fb`.
+The saved-JSON helper's verification is SHA
+`0bcc638dbe220e07423f4898675b7c5c583ff6ce84d3a5e80d1ecc7f291543c6`:
+six joins, 96 scalar/witness/exceedance category checks, six complete timber-max
+selections and five rejection/reservation controls pass. Its verified source/
+evidence union has 1,244 keys, distinct from the narrower field inventories.
+The coarse entrypoint is `consumer-v1/consume.py`, SHA
+`f11175782c7b29abbdfbcbf5fbad63f919596bc6a613b4c7a5b65acc1027bad9`;
+the detailed entrypoint is `followups-v1/followups.py`, SHA
+`a27bacf7260905f69c2a69bae60c0f2cf4ed1f4efd229100e3c8fb846b892798`.
+Their 23 and 30 controls pass, alongside the 19 source-plan tests. Both have
+three independent clean final reviews before actual consumption. Current
+geometry, receiver, shaft, screw and panel bindings precede the reused frozen
+component arithmetic; no old q, force or capacity pass is selected.
+
+An additional independent saved-output review checks all six actual coarse
+reports without importing a producer, reducer, admission or solver. Its first
+three-case receipt is SHA
+`b3ae04e8a84ede0594f02d3b2a7d2a5436d22c39a267f1344d9d17b90958f9ea`;
+the later six-case supplement is SHA
+`5973bb5c128a76fde59c3a6183cfd06ec3d42460f6be9921e2e7e1be80e0fec9`.
+Both live under `current-component-results-v1/independent-review-v1` as
+`receipt-first-three.json` and `receipt-six-cases.json`. The supplement reuses
+the frozen first-half checks and independently checks the last three: 52,572
+total scalar comparisons, nine negative controls and three hand fixtures pass,
+with 1,167 unique source/evidence files checked before and after. Physical,
+finished-section, group and complete-resistance gaps remain unchanged.
+
+The separate actual six-case detailed-output review is
+`receipt-rich-six-cases.json`, SHA
+`71097dfa7d76449e5e46fc0307b53392c6fbd04645898b778fe104d1b20b832e`,
+in that same review directory. It passes 73,698 scalar checks and five negative
+controls, with 1,191 unique files unchanged before/after. The reader uses the
+saved flange operator chart and exact descriptor transforms; it does not
+substitute a geometric midsurface. All six reports remain unchanged, with
+product, formed-heel, mixed-stack and complete-resistance gaps intact.
+
+The final independent saved-summary review is `receipt-summary-six-cases.json`,
+SHA `8cedc2b22f3c8ad88eeceac9ff2cbbed475514670fbe8f9cbfd1a6e48a9b9c7d`.
+It directly compares 2,735 saved selections/bindings and four negative controls;
+57 direct files remain unchanged, and the derived 1,244-key union identity
+agrees. It performs no summary-generator, reducer, admission or solver replay.
+The seven compact actual-output review files total 206,555 bytes; all three
+review helpers pass Ruff. These checks preserve the numerical/model limitations.
+
+The incoming builder reading path now explicitly labels the existing drilling
+guide as preserved aligned-wire fixture concepts. Its SHA
+`35b3d750d61c0f2c8967e893f03be38dde0ae33ca963ae2d19ba08948e690c33`
+is bound by all three earlier drawing reviews, so the guide and drawings remain
+unchanged. Its all-axes-continuity wording does not extend across the later
+22-shaft/ten-screw moves; current datums come from the current shop packet.
+
+The K12-right coarse harness first stopped before invoking any consumer because
+its process-metadata serializer assumed every pin was repository-relative.
+Its exact failure stays at `k12-right/attempt01/harness-intake-failure.json`,
+SHA `d8d73e241efcf2be95532c9dca662ed5b9c998b0421233e17d9170b956c6fb3a`.
+The bounded correction preserves the absolute external archive-manifest identity;
+the first actual coarse CLI is recorded in `attempt02`. All other coarse and
+all six detailed reports use `attempt01`. This bookkeeping failure is not
+reported as a failed or retried numerical component evaluation.
+
+| Detailed own-action comparison | Current maximum and limit |
+| --- | --- |
+| t6/Ri6 heel component plus source-gravity bound | **1.1071923421**, A12-left / top-left-1 / arm-z far-plus; seven exceeded rows among 528. |
+| Owner nominal t6.35/Ri6.35 heel component | **0.9926490630**, same witness; zero exceeded heel rows, **0.7350937%** reference margin. Fixed-action scalar scenario only; actual product/3D heel resistance remains unknown. |
+| Timber-bolt unadjusted component reference | **0.6993722798**, A12-rear. 92 compatible shafts per case; eight mixed/shared stacks remain null. Cdelta=0.5/Cg=1/CD=1 sensitivity retains ten exceeded rows across five cases; it is not an adopted complete-joint capacity. |
+| Gross fully braced normal / rectangular shear references | **0.513048896 / 0.973079721**, K12-rear / K12-right respectively. Each selects its own signed section witness; no finished net-section or actual restraint qualification. |
+| Shaft specified-material first-yield scenario | **0.513451322**, A12-forward / eoere_bolt_067, 325.691247 MPa versus the specified 634.317671-MPa Fy scenario. Catalog/minimum-body/root scenarios do not qualify actual delivered geometry, root-notch strength, ASD or complete bolt resistance. |
+| Catalog-corner axial-only washer required Fy | **156.014671353 MPa**, K12-right / lumber-leg right-2. Actual Fy, combined force/couple resistance and physical pressure remain null. |
+
+The steel scenarios retain the 235/1.67 benchmark separately. Their fixed-action
+comparison thicknesses do not change the source mechanics, select a delivered
+part or qualify torsion, bend thinning or manufacturing. Timber end/edge,
+group, splitting, finished net sections and restraint remain unresolved. All
+24 complete-joint resistances, including the eight mixed-stack shaft references,
+remain null; all release flags remain false.
+
+The first-order fields have maximum sampled interaction-point motion
+**56.618189 mm** and relative timber/fitting-strip rotation **0.107755392 rad**.
+No adopted small-motion threshold or physical applicability bound is established.
+The panel distributed RHS is exact source-authenticated capture, not independently
+regenerated by admission. The source-only contact second-moment convergence
+limit and the unverified no-slip floor remain explicit. These limits prevent
+interpreting coherent numerical recovery as physical demand or strength bounds.
+
+Current source-preflight, component and global-statics final receipts are under
+the same `adjusted-base-mechanics-v1` root:
+
+| Receipt | SHA256 |
+| --- | --- |
+| `current-force-bridge-review-v4/correctness/receipt.json` | `ac4989e3c4ac4ecd30a6d8a6588e4c65860093cff8320bb953cf41a5081d2833` |
+| `current-force-bridge-review-v4/testing/receipt.json` | `fdebc4c802ba9236cdb84859fa8df10e596e2eb01dfb247ddee622159017db5a` |
+| `current-force-bridge-review-v4/structure/receipt.json` | `91ad1b495e89b590e3078af5645534b8b3a7ba4d961371831feb2b6bfe47889b` |
+| `current-component-bridge-review-v1/correctness/receipt.json` | `3de19fda83420a5abec20134ee4309885be64cf49e7e3bfa29938740c1f4204f` |
+| `current-component-bridge-review-v1/testing/receipt.json` | `4470c6a495d488f8c378aa98e4dcfcaae005abd6968ae7ec11c2a6a9d3d252c6` |
+| `current-component-bridge-review-v1/structure/receipt.json` | `c8f6652175082a31d2e766fc3b719c44f9b7d65383cbf146b509761baffe48a6` |
+| `current-component-followup-review-v1/correctness/receipt.json` | `8558675f92323487c6ef61fcbab1763cfd3f633f12e1b785de11dd3f40f8be7a` |
+| `current-component-followup-review-v1/testing/receipt.json` | `978136a0dc1ebbd7491f21ea3af94d6c34f179d56b0d1e562361bb4ea1c2a034` |
+| `current-component-followup-review-v1/structure/receipt.json` | `f1396bab3889ce3ae06e95dda016a75ef6422d77f3be3fc10dee8cef5611bf24` |
+| `current-inputs-v1/global-statics-review-v1/correctness/receipt.json` | `66e1e48845aefbca50032bd4252213bf00e707e66da8b2f53b8ab1a51a48ea7d` |
+| `current-inputs-v1/global-statics-review-v1/testing/receipt.json` | `c701a89acb778184101c12ae9cbf180bc95e596e27a5e31c629085218eee5edf` |
+| `current-inputs-v1/global-statics-review-v1/structure/receipt.json` | `5dfed8118bc4e28483d73d99fafe903d85437bc9d544ce6296f2302435bac78c` |
+
+The distinct [current-source Z180 proposal](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/result.json)
+is SHA `26d27f9c8f5e3c1d91e48143341a8e808d0ece99f316eaf789e2fcbe22e4252a`.
+It retains all current 100/66 identity joins and analytically moves only the
+four dedicated cleat/post bolts from Z200 to Z180. The maximum-bore/screw gap
+would change from **−0.05625 to 3.94375 mm**; the 96 fixed bolts and all screws
+stay unchanged. Independent general-3D segment checks cover 40,752 distances;
+four fixtures, seven rejection controls, exact replay and three independent
+reviews pass. Its producer/verifier authenticate 13/16 direct pins, not the
+full geometry/source admission. The four stations remain HOLD: new finished
+receivers, eight seats, end/edge geometry, tools, tolerances and changed case
+actions are unevaluated. No geometry/model/axis is changed or adopted here.
+The three proposal review receipts are under
+`cleat-remedy-v1/current-source-followup-v1/independent-review-v1`:
+correctness `38fcf272fdf3f4cd69e80b0c2ced9b82803e14e45f385525e81b24eb847160d1`,
+testing `f26968ef3295bbe637f5b03e35279d6eed26bcfd834ba35489a231f1a815ab3d`,
+structure `5dec6f3cff8f53064068f899b2c1e9390a5f472c624d564669f0319a4250d542`.
+
+Both raw current metadata outputs (**25,107,094 bytes**), six fields
+(**151,039,074 bytes**), six operator sets (**55,848,679 bytes**), all twelve
+component reports and their process logs remain **active ignored inputs**.
+The twelve raw component reports total **38,100,437 bytes**.
+Retain their source caches, all earlier fields/operators, failed preflights,
+harness records and original/corrected method/review bytes. Nothing is archived,
+pruned or substituted. `parent-authority-v1/issued-serial-slot-v1.json` preserves
+the exact 4,137-byte original temporary permit for evidence recovery; it does
+not authorize a future run. The older navigation recovery snapshot does not
+cover these later raw outputs. Compact methods, commands, source manifests,
+tests, reviews and summary witnesses are necessary permanent reproducibility
+records; bulky fields/operators/details stay out of Git.
+
+The owned publication set comprises **250 paths**, including **243 new files /
+3,754,774 bytes** and seven maintained documentation files. The largest new
+record is the 385,803-byte per-case component summary; the remaining compact
+methods, source maps, tests and original/final reviews retain reproducible
+arithmetic, failed evidence and review provenance. No raw field/operator,
+large component report, cached solid, mesh or copied dependency is added.
+Parent checks reproduce the exact saved-field verification and component
+summary, authenticate their 1,118/1,244-key unions, parse owned JSON/Python,
+and resolve 862 local Markdown destinations / 68 fragments. The historical
+summary payload remains byte-identical to `845e2e0c`. Affected method/review
+checks are reused at their frozen hashes; documentation publication adds no
+CAD/native execution or full historical rerun. Existing unrelated tracked,
+intent-to-add and untracked work stays outside this publication.
+The staged whitespace check reports one extra EOF blank in the frozen
+`current-component-bridge-v1/followups-v1/test_followups.py` (SHA
+`eec79c2a9f33305f9cccfbec14520806f69a4a46a34efb995e4dc7ab31df912f`).
+Its reviewed bytes remain unchanged; the rest of the staged set passes the
+whitespace check. This formatting exception changes no test or arithmetic.
+
+### Separate synthetic strength-method benchmark
+
+The [scalar limit-analysis benchmark](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/README.md)
+is distinct from those twelve candidate reports. Its 15 synthetic coupons,
+45 saved fields, six torsion-ratio settings and 12 modes test a two-member
+constant-moment/raw-bearing formulation. The maximum upper/lower shortfall is
+0.005209%. These results provide neither an ASD capacity nor candidate,
+vector/torsional, multi-member or complete-joint resistance.
+
+The original benchmark and its first review findings remain frozen. Separate
+`evidence-correction-v1`, `review-fix-v2` and `path-boundary-v3` additions close
+source/evidence handling findings: output reservation, complete raw LP/witness
+checks, executing-source snapshots, lexical file/ancestor identity and rejecting
+parent traversal before normalization or loading. The supported reproduction
+entrypoint is now
+[path-boundary-v3/run.py](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/path-boundary-v3/run.py),
+SHA `bacd09d6851433b3d1eb7195f498e88b41f103022450301d3407c5033cbdec64`.
+Its verification is SHA
+`c204c1f8a186edd820c160297c55ac10a86a077a15dd228740c89efb44171e5d`.
+Seven actual-CLI negatives and four API controls pass; two fresh productions
+and verification reproduce all three issued output files exactly. All 45
+original numeric fields and 34 source pins remain unchanged. Final independent
+reviews exercise additional direct API, loaded-source drift and serialization
+retarget controls; all report no substantial findings.
+
+Final receipts are under the raw benchmark's
+`evidence-correction-v1/review-fix-v2/path-boundary-v3/independent-review-v1`:
+
+| Review | Receipt SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `107662fce898f6410f9fd4469351606bdcea308bfcfb519a36cd956efb530e4d` |
+| `testing/receipt.json` | `6927ebbf3958767ae0457f1b587842e68a89a0f95f50d6fa6e865f23ac16216a` |
+| `structure/receipt.json` | `0582d932be12856fde53912cdcb1bbaedcd5f9518510d0384c12256a4b3ca836` |
+
+Keep all 22 compact source/input/result/verification files (**227,965 bytes**),
+the original and corrected reviews and every failed/superseded attempt active.
+The prior 17 issued files remain immutable dependencies/history; the five-file
+v3 wrapper does not replace their bytes or numerical method. No candidate,
+global, native, CAD or physical execution follows from this synthetic closure.
 
 ### Extended side cleats
 

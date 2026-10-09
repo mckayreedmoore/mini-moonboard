@@ -1,0 +1,178 @@
+{
+  "binding_rule": "Exact dictionary equality of each supplied path/sha256 pair with method.input, method.input_review, method.source_manifest, method.panel_bank, and method.input.geometry.cached_source_export. Pinned method input geometry.report/source_manifest also match the method geometry/manifest.",
+  "candidate_CAD_panel_K_global_K_q_actions_or_solve_performed": false,
+  "checks": [
+    {
+      "command": "uv run pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v4/test_preflight.py",
+      "exit_code": 0,
+      "passed": 14,
+      "seconds": 21.75
+    },
+    {
+      "command": "uv run pytest -q /home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v3/test_preflight.py",
+      "exit_code": 0,
+      "passed": 6,
+      "seconds": 9.59
+    },
+    {
+      "command": "uv run ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v4",
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python",
+        "-B",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v4/preflight.py",
+        "--mode",
+        "preflight",
+        "--inputs",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json",
+        "--inputs-sha256",
+        "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa",
+        "--input-review",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/independent-review-v1/receipt.json",
+        "--input-review-sha256",
+        "f7936b055d3a0ee9a475b09bff73d46fbbf25303c23c17c14e2d3e6c4c97eb2c",
+        "--method-input",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-readiness-v1/method-input.json",
+        "--method-input-sha256",
+        "941ca92e8230de9d480d17f6e2a082d05a3fae267329ef0b33c81d06d0ad46f5",
+        "--source-export",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json",
+        "--source-export-sha256",
+        "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7",
+        "--source-manifest",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json",
+        "--source-manifest-sha256",
+        "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6",
+        "--panel-bank",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py",
+        "--panel-bank-sha256",
+        "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b",
+        "--out",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v4/all-bindings.json"
+      ],
+      "exit_code": 0,
+      "method_reference_bindings_complete": true,
+      "missing": [],
+      "seconds": 10.949926616000084
+    }
+  ],
+  "confirmed_finding": {
+    "bytes": 8089,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/testing/receipt.json",
+    "sha256": "bbfab7047ae927cece449f54599523d481f9a18f48728d4f3c99530e3e7c5da2"
+  },
+  "controls": {
+    "all_five_supplied_method_refs_require_exact_equality": true,
+    "candidate_preparation_and_panel_frame_operator_callbacks_prohibited_in_genuine_test": true,
+    "different_valid_raw_input_review_pair_rejected_before_v3": true,
+    "existing_file_dangling_symlink_and_failed_output_refused_before_original_work": true,
+    "genuine_exact_six_ref_pass": true,
+    "input_hash_tamper_retains_failed_attempt": true,
+    "partial_no_method_and_method_only_truthful": true,
+    "review_only_ref_mismatch_rejected_before_v3": true
+  },
+  "files": {
+    "all-bindings.json": {
+      "bytes": 24548,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v4/all-bindings.json",
+      "sha256": "3f80b1185b88812d18219b1cea2ed2c1dee3cb8b323f2dafc72558f3e554f8d4"
+    },
+    "preflight.py": {
+      "bytes": 5236,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v4/preflight.py",
+      "sha256": "244f441114f3215d82e45d55403da5cfb2417d9b996779bcb5291188c2cd7ad2"
+    },
+    "test_preflight.py": {
+      "bytes": 8033,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v4/test_preflight.py",
+      "sha256": "ffb459d39cc7855ca4fb3f597bc025ab2f7553486666008e374c691cdf1ecbae"
+    }
+  },
+  "force_slot_opened": false,
+  "frozen_original_corrected_v3_and_review_sources": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v2/correctness/receipt.json": "0ee88c66b883d762674621983c962e109a48e7efc4eaa939a29278bded529e95",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v2/structure/receipt.json": "270ad77e1c6b865383e1597bc21e72001aebf931f6747c2a2a343d1c4e13894e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v2/testing/receipt.json": "9db34a9c26936df6ce8bec97b1b41294ead2f53e02e14eead8dd40b402ad5d93",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/correctness/receipt.json": "786118273cf2f1004fde447f801a80834244629786a6491501a6726360afa62f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/structure/receipt.json": "a5261622c8c6280f748ce610055686f9d8128542145ee2fc1dd4f395897e2294",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/testing/receipt.json": "bbfab7047ae927cece449f54599523d481f9a18f48728d4f3c99530e3e7c5da2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py": "ddc85386050d97145597dc720bef78634c9b326f0878aced8c02c8df4710c05b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v3/all-bindings.json": "780b589d2381fa2d469ff075f500f744142207957de1d663b1f8c4c3f801624e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v3/preflight.py": "a557f8ee72a211f809220f5ac25621e2c7a6c0d9fdfdadd94b95cc8d31c0254c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v3/test_preflight.py": "ff06c0b5f2b8d951f72f6f071141633950f82c50c904388ceb3f1386ecfb4334",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v3/verification.json": "c5348a6100dfb2bae65e52499044a3d41c60a4fe5d351a4d83f46e40bb1107fd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/preflight-fix-v4/preflight.py": "244f441114f3215d82e45d55403da5cfb2417d9b996779bcb5291188c2cd7ad2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/source-preflight.json": "158b2fd603cabac3d5e39ac81f726da251ce6a393b797e7e047daef3dee85fdc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/test_bridge.py": "cdaf6e63a542b738fd81b99e4c211952dd46765fb8c2082a1d43c0d977b88c90",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/verification.json": "18903e345a4c7f59ecbf0036cd68946733981f8a8b9de29a3fef0a63b68a3f7a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/source-preflight.json": "4118719a61da4645085f4840b1888ac6df600df2307edc8c0d40ffb79d4eafe0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/test_bridge.py": "72cdd692b40df93e2a6a194e31d9bd03fe7125baf6fb605a09b66954bbecacf6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/verification.json": "7ca9a676dd1c7b1ae41a4408caeae6d0d22c0ee57da43095663b8587238d5fab"
+  },
+  "genuine_exact_six_references": {
+    "input_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/independent-review-v1/receipt.json",
+      "sha256": "f7936b055d3a0ee9a475b09bff73d46fbbf25303c23c17c14e2d3e6c4c97eb2c"
+    },
+    "inputs": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json",
+      "sha256": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa"
+    },
+    "method_input": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-readiness-v1/method-input.json",
+      "sha256": "941ca92e8230de9d480d17f6e2a082d05a3fae267329ef0b33c81d06d0ad46f5"
+    },
+    "panel_bank": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py",
+      "sha256": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b"
+    },
+    "source_export": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json",
+      "sha256": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7"
+    },
+    "source_manifest": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json",
+      "sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+    }
+  },
+  "method_source_pin_count": 1102,
+  "method_source_pins_byte_record_unchanged": true,
+  "missing_or_partial_bindings": "Reported unchecked with complete=false; no method-reference equality claim for absent references.",
+  "preserved_semantic_mismatch_fixture": {
+    "independently_authenticated_in_negative_test_before_v4_refusal": true,
+    "input_review": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/testing/_probes/attempt-vi76g4cj/duplicate-review.json",
+      "sha256": "c93250d6109fb449961a4bb235dd1c2f1f629b21869fc72a2bb185878582e328"
+    },
+    "inputs": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/testing/_probes/attempt-vi76g4cj/duplicate-input.json",
+      "sha256": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa"
+    },
+    "production_use_or_alias_authorization": false,
+    "result": {
+      "bytes": 19143,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-review-v3/testing/_probes/attempt-vi76g4cj/method-mismatch.json",
+      "sha256": "e1c23b75f4dcd48523af96c1539f1fd0b72d847bd1ed1d1afbf0a9b04c6628ac"
+    }
+  },
+  "producer_and_admission_unchanged": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+    "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+  },
+  "producer_authenticator_arithmetic_or_tolerances_changed": false,
+  "production_readiness_claimed": false,
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "result_direct_source_pin_count": 49,
+  "schema": "eoere_method_bound_source_preflight_supplement_verification/v1",
+  "status": "SOURCE_PREFLIGHT_REFERENCE_BINDING_CONTROLS_PASS_PRODUCTION_UNPERFORMED"
+}

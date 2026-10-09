@@ -1,0 +1,89 @@
+{
+  "actual_native_candidate_BREP_queries_or_K_q_forces_load_cases_browser_or_solve_executed": false,
+  "actual_parent_slot_created_or_authorized": false,
+  "checks": {
+    "all_test_groups_run_in_separate_processes": true,
+    "controls": {
+      "abrupt_exit_17_retains_STARTED_record": true,
+      "actual_CLI_dangling_output_native_callback_count": 0,
+      "actual_native_CLI_missing_parent_marker_stops_and_retains_FAILED_record": true,
+      "actual_source_only_CLI_preserves_current_schema_and_verifies1077pins": true,
+      "actual_two_competing_CLI_calls": [
+        {
+          "exit_code": 0,
+          "role": "exclusive winner"
+        },
+        {
+          "exit_code": 1,
+          "role": "rejected existing reservation"
+        }
+      ],
+      "competing_calls_total_fake_native_callbacks": 1,
+      "failed_attempt_json_retained_and_reuse_rejected": true
+    },
+    "frozen_cached_exporter_checks_passed": 8,
+    "frozen_cached_exporter_seconds": 0.29,
+    "frozen_extension_checks_passed": 17,
+    "frozen_extension_seconds": 2.43,
+    "isolated_frozen_cached_exporter_test_command": "PYTHONPATH=. .venv/bin/python -B -m pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-export-v1/test_export.py",
+    "isolated_frozen_extension_test_command": "PYTHONPATH=. .venv/bin/python -B -m pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py",
+    "isolated_new_test_command": "PYTHONPATH=. .venv/bin/python -B -m pytest -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/test_output_reservation.py",
+    "new_checks_passed": 6,
+    "new_observed_seconds": 1.66,
+    "ruff_command": "uv run ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2",
+    "ruff_pass": true
+  },
+  "confirmed_finding": {
+    "affected_behavior": "output admission timing only; geometry and mechanics descriptors unchanged",
+    "frozen_original_cli": "Path.exists() admits a dangling final-component symlink and does not reserve concurrent output before the callback. Its later exclusive open protects bytes only after work."
+  },
+  "corrected_API": {
+    "CLI": "PYTHONPATH=. EOERE_PARENT_SERIALIZED_EXTRACTION=1 .venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/export.py --extract --manifest EXACT_MANIFEST --manifest-sha256 EXACT_SHA --slot EXACT_PARENT_SLOT --slot-sha256 EXACT_SLOT_SHA --out FRESH_EXCLUSIVE_JSON",
+    "frozen_prepare_API_and_descriptor_schema_changed": false,
+    "source_only": "same CLI without --extract, or write_API with extract=False",
+    "write_API": "export_to_file(manifest_path,manifest_sha,out,*,extract=False,slot_path=None,slot_sha=None)"
+  },
+  "correction": {
+    "dangling_final_component_and_same_output_race": "rejected before producer callback",
+    "failure": "Reserved path retained with FAILED record and exception type/message; abrupt exit retains flushed STARTED record",
+    "method": "Path.open(\"x\") atomically reserves the output before loading frozen intake code or calling any source/native producer",
+    "source_gates": "Frozen exporter bytes verified before loading; new wrapper bytes verified before and after producer; unchanged source/manifest/slot/census gates reused",
+    "success": "Same reserved file descriptor receives result with unchanged current descriptor schema and an explicit reservation receipt"
+  },
+  "old_geometry_forces_capacity_or_passes_transferred": false,
+  "original_three_files_verified_unchanged": true,
+  "parent_manifests_unchanged": {
+    "adjusted": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/adjusted-base-manifest.json",
+      "sha256": "27220ec69ebe96e0c637d02d74aea1a7732f68d111b9918c973fa8ee954b48c2"
+    },
+    "extended": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/parent-authority-v1/extended-cleat-manifest.json",
+      "sha256": "458a7f0220e5776fdb53b876b9815715bf278c5b22eea7699824a9919dd6bfe6"
+    }
+  },
+  "preserved_original_source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/export.py": "bdfa95b4da8dfcb3d183dcaf59574afdb2f42e938f8e535680739fa0637696bb",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/test_extended_intake.py": "786cdfb9e8560716ab603d26179ce3a0b5635965d3238e234f669811768fe63a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/verification.json": "e5b8451c7b6d23822b8909378f2df98e6132e16384900ac20b5c3522b5193544"
+  },
+  "remaining": [
+    "Fresh independent review of this output-reservation correction",
+    "Parent same-manifest serial slot and genuine cached-solid descriptor extraction",
+    "Current panel/operator and load preparation plus factory readiness and independent raw-field admission",
+    "Complete joint resistance and physical acceptance remain separate unresolved duties"
+  ],
+  "schema": "eoere_extended_cleat_output_reservation_review_fix/v2",
+  "shared_docs_staging_commits_pushes_or_original_evidence_mutations_performed": false,
+  "source_only_closure": {
+    "canonical_sha256": "ce58a6677efb741fc719e68757f7a34dd994c31ad0129443baefb7ea4214dd55",
+    "current_geometry_sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "optional_2026_extra": false,
+    "verified_pins": 1077
+  },
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/export.py": "93ed36c39b4237cd587498fbb9dd2b2b7e3d275afc2be89302dab178c25d5858",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/extended-cleat-intake-v1/review-fix-v2/test_output_reservation.py": "3ceae6b82c0022493115a9ab0ce0b5a6c54a628337cb30cdb3fe6b1b3018daae"
+  },
+  "status": "PASS_CLI_AND_FAKE_CALLBACK_CONTROLS_NATIVE_EXTRACTION_STILL_PENDING_PARENT_REVIEW_AND_SLOT"
+}

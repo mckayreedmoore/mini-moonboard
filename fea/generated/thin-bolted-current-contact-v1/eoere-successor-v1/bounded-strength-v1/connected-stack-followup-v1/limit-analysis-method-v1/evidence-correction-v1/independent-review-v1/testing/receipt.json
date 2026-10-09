@@ -1,0 +1,365 @@
+{
+  "all_watched_bytes_unchanged": true,
+  "controls": [
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/clean.json"
+      ],
+      "label": "issued_distinct_replay",
+      "receipt": {
+        "byte_identical_replay": true,
+        "run_files_sha256": {
+          "details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+          "result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+          "run-provenance.json": "1851fd283403365346c1944c189543b56a83f300c60a27dc7bbd1016ad7daa33"
+        },
+        "status": "VERIFIED_SYNTHETIC_ONLY",
+        "validated_claims": {
+          "candidate_inputs_used": false,
+          "candidate_joint_capacity": null,
+          "capacity_or_pass_claim": false
+        }
+      },
+      "receipt_exists": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"VERIFIED_SYNTHETIC_ONLY\", \"validated_claims\": {\"candidate_inputs_used\": false, \"candidate_joint_capacity\": null, \"capacity_or_pass_claim\": false}}\n"
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/missing_marker/run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/missing_marker/replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/missing_marker/receipt.json"
+      ],
+      "label": "missing_marker",
+      "receipt_exists": false,
+      "returncode": 1,
+      "stderr": "Evidence rejected: [Errno 2] No such file or directory: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/missing_marker/run/run-provenance.json'\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/extra_provenance_capacity/run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/extra_provenance_capacity/replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/extra_provenance_capacity/receipt.json"
+      ],
+      "label": "extra_provenance_capacity",
+      "receipt_exists": false,
+      "returncode": 1,
+      "stderr": "Evidence rejected: Bad production provenance schema\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/boolean_case_count/run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/boolean_case_count/replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/boolean_case_count/receipt.json"
+      ],
+      "label": "boolean_case_count",
+      "receipt_exists": false,
+      "returncode": 1,
+      "stderr": "Evidence rejected: Wrong summary census\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/extra_detail_claim/run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/extra_detail_claim/replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/extra_detail_claim/receipt.json"
+      ],
+      "label": "extra_detail_claim",
+      "receipt_exists": false,
+      "returncode": 1,
+      "stderr": "Evidence rejected: Bad field schema\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/nonfinite_density/run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/nonfinite_density/replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/nonfinite_density/receipt.json"
+      ],
+      "label": "nonfinite_density",
+      "receipt_exists": false,
+      "returncode": 1,
+      "stderr": "Evidence rejected: Nonfinite JSON constant: NaN\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/wrong_end_moment/run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/wrong_end_moment/replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/wrong_end_moment/receipt.json"
+      ],
+      "label": "wrong_end_moment",
+      "receipt_exists": false,
+      "returncode": 1,
+      "stderr": "Evidence rejected: Changed reported end moment\n",
+      "stdout": ""
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/retarget/run-link",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/retarget/replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/retarget/second-receipt.json"
+      ],
+      "label": "recheck_retargeted_evidence_rejects",
+      "receipt_exists": false,
+      "returncode": 1,
+      "stderr": "Evidence rejected: Replay bytes differ\n",
+      "stdout": ""
+    }
+  ],
+  "findings": [
+    {
+      "file": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+      "fix": "Keep each original absolute lexical evidence path and its resolved identity; after serialization verify both path resolution and consumed bytes are unchanged, or reject symlinked evidence paths. Add a CLI regression for directory/file symlink retargeting that requires rejection and no receipt.",
+      "impact": "The final evidence-drift guard certifies an old resolved target while the supplied run path points to different, unverified evidence. The existing regular-file drift regression misses this false-positive receipt path.",
+      "line": 581,
+      "observed": "Retargeting the run directory symlink to changed evidence during receipt serialization exits 0 and writes VERIFIED_SYNTHETIC_ONLY; the receipt hash disagrees with the result now reachable at --run.",
+      "priority": "P2",
+      "title": "Recheck the consumed evidence paths as well as their resolved targets"
+    }
+  ],
+  "issued_regression_audit": {
+    "commands": 36,
+    "forged_result_controls_with_expected_evidence_rejection": 23,
+    "regressions_sha256": "5918161c6a94ed2a09b2c383e411d6f462caf25eb73b5aa4c439c6de5a3563b0",
+    "rejections": 33,
+    "source_drift_controls_with_specific_drift_rejection": 5,
+    "successes": 3
+  },
+  "limits": [
+    "Synthetic JSON and stdlib/retained dimensional-check CLI only.",
+    "No CAD, BRep, panel bank, frame stiffness, native mechanics, shared edits, staging, commits or archive pruning.",
+    "Prior independent review receipts were hash-checked without reading their findings.",
+    "Temporary fixtures were exclusively reviewer-created and removed by TemporaryDirectory."
+  ],
+  "observations": [
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/same-run.json"
+      ],
+      "label": "same_directory_used_twice",
+      "receipt": {
+        "byte_identical_replay": true,
+        "run_files_sha256": {
+          "details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+          "result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+          "run-provenance.json": "1851fd283403365346c1944c189543b56a83f300c60a27dc7bbd1016ad7daa33"
+        },
+        "status": "VERIFIED_SYNTHETIC_ONLY",
+        "validated_claims": {
+          "candidate_inputs_used": false,
+          "candidate_joint_capacity": null,
+          "capacity_or_pass_claim": false
+        }
+      },
+      "receipt_exists": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"VERIFIED_SYNTHETIC_ONLY\", \"validated_claims\": {\"candidate_inputs_used\": false, \"candidate_joint_capacity\": null, \"capacity_or_pass_claim\": false}}\n"
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py",
+        "verify",
+        "--run",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/invented_control_ratio/run",
+        "--replay",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/invented_control_ratio/replay",
+        "--out",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/invented_control_ratio/receipt.json"
+      ],
+      "forged_ratio": 1e+99,
+      "label": "invented_control_ratio",
+      "original_ratio": 2.6118852600580973,
+      "receipt": {
+        "byte_identical_replay": true,
+        "run_files_sha256": {
+          "details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+          "result.json": "faafb6ecb0eccae9deadd005d6c81c3e84d74cea55d9f906d06d6dc76a5ad201",
+          "run-provenance.json": "763f97a1134c62e43dbf7aa70715000236a988ff3dc0574a0c3b908f930c2574"
+        },
+        "status": "VERIFIED_SYNTHETIC_ONLY",
+        "validated_claims": {
+          "candidate_inputs_used": false,
+          "candidate_joint_capacity": null,
+          "capacity_or_pass_claim": false
+        }
+      },
+      "receipt_exists": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"VERIFIED_SYNTHETIC_ONLY\", \"validated_claims\": {\"candidate_inputs_used\": false, \"candidate_joint_capacity\": null, \"capacity_or_pass_claim\": false}}\n"
+    },
+    {
+      "command": [
+        "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+        "-B",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/review.py",
+        "retarget",
+        "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/owned-probes-qwj7isaa/retarget"
+      ],
+      "current_result_sha256": "99e78ba37543fd336d2a2f6af75a354781a79278fcd407d7a0f69bcdcb3e6f54",
+      "label": "directory_symlink_retarget_after_receipt_serialization",
+      "new_current_capacity": 12345.0,
+      "receipt": {
+        "byte_identical_replay": true,
+        "run_files_sha256": {
+          "details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+          "result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+          "run-provenance.json": "1851fd283403365346c1944c189543b56a83f300c60a27dc7bbd1016ad7daa33"
+        },
+        "status": "VERIFIED_SYNTHETIC_ONLY",
+        "validated_claims": {
+          "candidate_inputs_used": false,
+          "candidate_joint_capacity": null,
+          "capacity_or_pass_claim": false
+        }
+      },
+      "receipt_exists": true,
+      "receipt_hash_matches_current_result": false,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"status\": \"VERIFIED_SYNTHETIC_ONLY\", \"validated_claims\": {\"candidate_inputs_used\": false, \"candidate_joint_capacity\": null, \"capacity_or_pass_claim\": false}}\n"
+    }
+  ],
+  "question": "Do real CLI rejection controls and final evidence stability checks cover false-positive verification receipts?",
+  "review_command": "uv run python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/independent-review-v1/testing/review.py",
+  "review_script_sha256": "9a0e7cb6d8e8d974f126c1c7ec08198589a37c36de4400ebbbff14b36b1e2ed3",
+  "schema": "independent_synthetic_evidence_testing_review/v1",
+  "source_and_issued_sha256_after": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/README.md": "4a362e561cea83922fe2c39c78c9ea52cd6337ce82aac55c058fd12fea6b3e48",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/analyze.py": "c258fb08193f3106d0280c636e91f1f0573ddcc442c54ad408c02777e5039881",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/README.md": "7cf33280fd63851ced5afc0912aaece212f555fba9e64fd63234add51bf6e519",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/check.py": "c495ef759fbfee4eb7b2a8dd24f5bdebec6ed745f2b00f4dff09b9bd7a675809",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py": "aca93df3baf397274c432ab9b6672331ed9f94ecb0665340e21dd1b86c3d66d8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/inputs.json": "fe3b1f8f2c52041262ad03f60ff39db43433c641df558ea878b57c20e420aa12",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/verification.json": "3263448bd49bb3c0fdd4f18704d8319164c0acdbd0fbbb33628fc8cc7b95fc63",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/inputs.json": "bab3f6c7d57c34e6b208c0d78462a7f5c18bf3f59111b67f659fe7f3084044a2",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verification.json": "d0d24644d7adaa0d22273a1e377da71fd9cde51b62e225d6e841249a924857ff",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verify.py": "6d7351cb61c1bbc550f70f01cf54d05be07badb05d7511989e12989c381764db",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/verification.json": "57f81a98a5d158f997b54c0ed4094914339f38b0d9c5809643c227fd1f82a02e",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/clean-verification.json": "b4c30c3da39367486790b57305e76016b408cfce8952a0056a3bfeddf915d6a0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-replay/details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-replay/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-replay/run-provenance.json": "1851fd283403365346c1944c189543b56a83f300c60a27dc7bbd1016ad7daa33",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run/details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run/run-provenance.json": "1851fd283403365346c1944c189543b56a83f300c60a27dc7bbd1016ad7daa33",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/frozen-packet.json": "ace9ab9d51c7f6320fb87be5f88329299f38b4bde5e7f1a9f2f0d77e98d2d371",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/regressions.json": "5918161c6a94ed2a09b2c383e411d6f462caf25eb73b5aa4c439c6de5a3563b0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/correctness/receipt.json": "c2df4f5e1a3d944c22f62073cd20c215dd26802a173c4b608e985ee34e8d7075",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/structure/receipt.json": "941d59bc668264938ebfa7da8303c6d9126aef27bf795a3f003d85204ad34f7a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/testing/receipt.json": "66e9fc7f71d4c4889c11624d100dd103ad066d70bf509a3803eb8729c9919fa9",
+    "tests/test_dowel_yield.py": "9a359170144a23bc85dc17e95aabf565c70adf3802e6017a7fdbdf4dec2fd3f2",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "source_and_issued_sha256_before": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/README.md": "4a362e561cea83922fe2c39c78c9ea52cd6337ce82aac55c058fd12fea6b3e48",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/analyze.py": "c258fb08193f3106d0280c636e91f1f0573ddcc442c54ad408c02777e5039881",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/README.md": "7cf33280fd63851ced5afc0912aaece212f555fba9e64fd63234add51bf6e519",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/check.py": "c495ef759fbfee4eb7b2a8dd24f5bdebec6ed745f2b00f4dff09b9bd7a675809",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/correction.py": "aca93df3baf397274c432ab9b6672331ed9f94ecb0665340e21dd1b86c3d66d8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/inputs.json": "fe3b1f8f2c52041262ad03f60ff39db43433c641df558ea878b57c20e420aa12",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/verification.json": "3263448bd49bb3c0fdd4f18704d8319164c0acdbd0fbbb33628fc8cc7b95fc63",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/inputs.json": "bab3f6c7d57c34e6b208c0d78462a7f5c18bf3f59111b67f659fe7f3084044a2",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verification.json": "d0d24644d7adaa0d22273a1e377da71fd9cde51b62e225d6e841249a924857ff",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/verify.py": "6d7351cb61c1bbc550f70f01cf54d05be07badb05d7511989e12989c381764db",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/result.json": "d81540a6c69b98f1182a6d2649d9a0d39126756ea94f0b3cd691026de7cb94d1",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/verification.json": "57f81a98a5d158f997b54c0ed4094914339f38b0d9c5809643c227fd1f82a02e",
+    "fea/dowel_yield.py": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/clean-verification.json": "b4c30c3da39367486790b57305e76016b408cfce8952a0056a3bfeddf915d6a0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-replay/details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-replay/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-replay/run-provenance.json": "1851fd283403365346c1944c189543b56a83f300c60a27dc7bbd1016ad7daa33",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run/details.json": "aa54d1d87249e59f4abe30b2559cf3d3999561d25951d0ebaa7bc9cf3b4300a3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run/result.json": "14a9633f8cc97b9179c9c42aee3b88a28ed4b35c434f9c2625bf06cc1c710c63",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/fresh-run/run-provenance.json": "1851fd283403365346c1944c189543b56a83f300c60a27dc7bbd1016ad7daa33",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/frozen-packet.json": "ace9ab9d51c7f6320fb87be5f88329299f38b4bde5e7f1a9f2f0d77e98d2d371",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/attempt01/regressions.json": "5918161c6a94ed2a09b2c383e411d6f462caf25eb73b5aa4c439c6de5a3563b0",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/correctness/receipt.json": "c2df4f5e1a3d944c22f62073cd20c215dd26802a173c4b608e985ee34e8d7075",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/structure/receipt.json": "941d59bc668264938ebfa7da8303c6d9126aef27bf795a3f003d85204ad34f7a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/independent-review-v1/testing/receipt.json": "66e9fc7f71d4c4889c11624d100dd103ad066d70bf509a3803eb8729c9919fa9",
+    "tests/test_dowel_yield.py": "9a359170144a23bc85dc17e95aabf565c70adf3802e6017a7fdbdf4dec2fd3f2",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "status": "FINDING_REPRODUCED",
+  "target_count": 11,
+  "target_frozen_map_sha256": "ace9ab9d51c7f6320fb87be5f88329299f38b4bde5e7f1a9f2f0d77e98d2d371",
+  "watched_file_count": 28
+}

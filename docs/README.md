@@ -1,31 +1,16 @@
 # Selected baseline reference packet
 
-For current engineering work, start at the
-[eoere bolted-frame development summary](wood-joints-mvp/README.md) and
-[build-completion sequence](wood-joints-mvp/completion-ledger.md#build-package-completion).
-That separate lane uses 22 angles and two cleats. Its latest
-[geometry viewer](../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear)
-aligns 30 wire passages on six rails, retains the two upright passages and trims
-the two exterior cleats. Full thickness, all bolt/screw axes and every LED endpoint
-remain fixed. Its preserved untrimmed raised-rail conditional numerical packet covers
-all six original loaded cases, retaining reference exceedances and null complete
-joint resistance. Its [raised-rail shop and assembly guide](wood-joints-mvp/eoere-shop-assembly-guide.md)
-records nominal datums, hardware and operation dispositions with unresolved
-physical inputs; the cleat trim and wire revision have separate geometry evidence and no transferred
-mechanics pass. The packet remains unreleased. Earlier WJ24 criteria and packets
-remain preserved history in the same documentation folder.
-
-For current builder-support development, use the
-[active reading path](wood-joints-mvp/README.md#active-builder-reading-path)
-and [drilling/fixture guide](wood-joints-mvp/eoere-builder-drilling-guide.md).
-The preserved raised-rail cut profiles and wire coordinates are not templates
-for the later trimmed-cleat/aligned-wire geometry.
+For ongoing Eoere engineering and builder-support work, start at the
+**[main development summary and revision map](wood-joints-mvp/README.md)**.
+Its [active builder reading path](wood-joints-mvp/README.md#active-builder-reading-path)
+identifies current extended-cleat geometry, matching nominal shop records,
+held stations and source-bound current numerical evidence. Historical results
+retain their own revision limits.
 
 The instructions below belong to the selected screw-and-bracket baseline,
 `compact-floor-flush-development`, governed by
 [current-candidate.json](../current-candidate.json). They preserve that baseline's
-conditional shop packet and evidence; they do not authorize building the
-eoere design. Earlier models and their results are indexed in the
+conditional shop packet and evidence. Earlier models and results remain in the
 [design-history catalog](history/design-history.md).
 
 ## 1. Baseline plywood variants
