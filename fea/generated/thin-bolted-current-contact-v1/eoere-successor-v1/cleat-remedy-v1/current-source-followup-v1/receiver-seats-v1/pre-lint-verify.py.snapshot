@@ -1,0 +1,203 @@
+"""Independently check source-only Z180 bore/seat results, without its producer."""
+from __future__ import annotations
+
+import argparse
+import copy
+import hashlib
+import json
+import math
+import subprocess
+import sys
+from pathlib import Path
+
+OWN = Path(__file__).resolve()
+ROOT = next(p for p in OWN.parents if (p / "AGENTS.md").is_file())
+HERE = OWN.parent
+INPUT_SHA = "e3fda210640db0bc395d808c90625d65e8049da315c0872da12077731e6f0e41"
+PROGRAM_SHA = "5f6d088a836f1ac198c2cc7c8355b3a6ca8a20034a863ab813e4e33fa4a3fa03"
+RESULT_SHA = "a21c25d6693a86f2617655cec1e82aa51c182b153e19baf8f5d1431afa381443"
+
+
+def require(ok, label):
+    if not ok:
+        raise ValueError(label)
+
+
+def sha(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+
+def read(path, digest):
+    require(sha(path) == digest, "exact file required: " + str(path))
+    return json.loads(Path(path).read_bytes())
+
+
+def close(value, expected, label, tolerance=2e-8):
+    require(math.isfinite(value) and math.isfinite(expected) and abs(value-expected) <= tolerance, "independent geometry differs: " + label)
+
+
+def circle_margin(center, polygon):
+    """Independent point-to-finite-edge distance with convex inside test."""
+    distances, signs = [], []
+    for i, a in enumerate(polygon):
+        b = polygon[(i+1) % len(polygon)]
+        vector = [b[j]-a[j] for j in (0, 1)]
+        offset = [center[j]-a[j] for j in (0, 1)]
+        t = min(1, max(0, sum(offset[j]*vector[j] for j in (0, 1))/sum(v*v for v in vector)))
+        distances.append(math.hypot(*(offset[j]-t*vector[j] for j in (0, 1))))
+        signs.append(vector[0]*offset[1]-vector[1]*offset[0])
+    require(all(v >= -2e-8 for v in signs), "center lies outside own current profile")
+    return min(distances)
+
+
+def check(result, inp, geometry, profiles, placement):
+    require(result["status"] == "UNADOPTED_SOURCE_RECIPE_ANALYTIC_BORE_AND_SEAT_CONTAINMENT_SUPPORTED" and result["current_geometry_adopted_or_changed"] is False, "unadopted analytic status required")
+    require(result["complete_joint_resistance"] is None and all(v is False for v in result["release"].values()), "no resistance or release allowed")
+    require(result["execution"]["CAD_cache_query_rebuild_native_global_or_force_execution"] is False and result["execution"]["finished_BREP_bytes_authenticated_not_queried"] is True, "no finished-solid query claim allowed")
+    proposed = {a["id"]: a for a in placement["proposed_axes"]}
+    require(result["proposed_axes"] == placement["proposed_axes"] and len(proposed) == 4 and all(a["point_xyz_mm"][2] == 180 for a in proposed.values()), "exact four Z180 proposal records required")
+    require(result["retained_other_current_axes"] == 96 and result["retained_current_screws"] == 66 and result["optional_2026_extra"] is False, "100/66 extra-off identity required")
+    for name, member in result["affected_members"].items():
+        source = profiles[name]
+        require(source["basis_grain_u_v_xyz"] == [[0, 0, 1], [1, 0, 0], [0, 1, 0]], "specific current axis-aligned source basis required")
+        vertices = {(source["datum_xyz_mm"][0]+p[1], source["datum_xyz_mm"][1]+p[2], source["datum_xyz_mm"][2]+p[0]) for p in source["vertices_luv_mm"]}
+        require(set(tuple(p) for p in member["YZ_polygon_mm"]) == {v[1:] for v in vertices}, "actual sloping raw profile differs")
+        require(member["X_interval_mm"] == [min(v[0] for v in vertices), max(v[0] for v in vertices)], "raw X thickness differs")
+        require(set(member["current_own_bore_axis_ids"]) == {a["id"] for a in geometry["axes"] if name in a["receivers"]}, "complete own cut inventory required")
+        require(member["current_services_recorded_on_receiver"] == 0 and member["modeled_timber_screw_pilots"] is False, "source omissions must remain explicit")
+        require(member["cached_topology_counts"]["faces"] == 10 and member["cached_topology_counts"]["solids"] == 1, "cached four-bore source topology differs")
+        close(member["raw_volume_mm3"]-member["current_bore_void_volume_mm3"], source["finished"]["volume_mm3"], "recorded raw/void volume", 1e-5)
+    cases = result["scenarios"]
+    require(len(cases) == 4 and len({(s["bore_scenario"], s["void_inventory"]) for s in cases}) == 4, "four separate diameter/void scenarios required")
+    checks = 0
+    for scenario in cases:
+        maximum = scenario["bore_scenario"] == "all_affected_wood_bores_max11p1125"
+        replace = scenario["void_inventory"] == "replace_eight_Z200_receiver_voids_from_raw_profiles"
+        require(scenario["bore_scenario"] in ("current_modeled_bores", "all_affected_wood_bores_max11p1125") and scenario["void_inventory"] in ("replace_eight_Z200_receiver_voids_from_raw_profiles", "retain_existing_Z200_voids_for_read_only_comparison"), "unknown scenario")
+        wall_rows, seat_rows = scenario["bore_occurrences"], scenario["nominal_annular_seats"]
+        require(len(wall_rows) == len(seat_rows) == 8 and {(r["axis_id"], r["receiver"]) for r in wall_rows} == {(a["id"], n) for a in proposed.values() for n in a["receivers"]}, "eight bore occurrences required")
+        require({(r["axis_id"], r["end"]) for r in seat_rows} == {(a, e) for a in proposed for e in ("head", "nut")}, "eight unique external seats required")
+        for kind, rows in (("bore", wall_rows), ("seat", seat_rows)):
+            for row in rows:
+                a, name = proposed[row["axis_id"]], row["receiver"]
+                stock = result["affected_members"][name]
+                require(name in a["receivers"], "wrong bore/seat owner")
+                diameter = inp["maximum_affected_wood_bore_diameter_mm"] if maximum else a["bore_diameter_mm"]
+                edge = circle_margin(a["point_xyz_mm"][1:], stock["YZ_polygon_mm"])
+                if kind == "bore":
+                    radius = diameter/2
+                    first_interval = stock["X_interval_mm"]
+                    close(row["candidate_bore_diameter_mm"], diameter, "own diameter")
+                    close(row["bore_to_raw_profile_edge_lower_bound_mm"], edge-radius, "full bore/raw profile")
+                    require(row["source_recipe_analytic_full_circumference_supported"] is True and row["new_finished_BREP_wall_queried"] is False, "bore scope claim differs")
+                else:
+                    radius = a["hardware_scenario"]["washer_od_mm"]/2
+                    station = 0 if row["end"] == "head" else a["grip_mm"]
+                    x = a["point_xyz_mm"][0]+station*a["direction_xyz"][0]
+                    inward = a["direction_xyz"][0]*(1 if row["end"] == "head" else -1)
+                    first_interval = sorted((x, x+inward*inp["annular_inward_skin_mm"]))
+                    require(row["support_point_xyz_mm"] == [x, *a["point_xyz_mm"][1:]] and row["inward_X_sign"] == inward, "own external seat datum differs")
+                    close(row["nominal_washer_ID_mm"], a["hardware_scenario"]["washer_id_mm"], "own washer ID")
+                    close(row["nominal_washer_OD_mm"], 2*radius, "own washer OD")
+                    close(row["annular_outer_edge_to_raw_profile_lower_bound_mm"], edge-radius, "annulus/raw profile")
+                    close(row["own_bore_to_annular_inner_radius_margin_mm"], (row["nominal_washer_ID_mm"]-diameter)/2, "own annular inner clearance")
+                    require(row["own_bore_to_annular_inner_radius_margin_mm"] >= 0 and row["source_recipe_analytic_full_nominal_annulus_supported"] is True and row["new_finished_BREP_annular_skin_queried"] is False and row["physical_contact_or_strength_qualified"] is False, "annular scope claim differs")
+                cuts = [c for c in geometry["axes"] if name in c["receivers"] and not (replace and c["id"] in proposed)]
+                cuts += [c for c in proposed.values() if name in c["receivers"] and c is not a]
+                distances = []
+                for cut in cuts:
+                    p, d = cut["point_xyz_mm"], cut["direction_xyz"][0]
+                    other_interval = sorted((p[0]-d, p[0]+d*(cut["grip_mm"]+1)))
+                    dx = max(first_interval[0]-other_interval[1], other_interval[0]-first_interval[1], 0)
+                    center_distance = math.hypot(dx, a["point_xyz_mm"][1]-p[1], a["point_xyz_mm"][2]-p[2])
+                    second_radius = (inp["maximum_affected_wood_bore_diameter_mm"] if maximum else cut["bore_diameter_mm"])/2
+                    distances.append((cut, center_distance, center_distance-radius-second_radius))
+                require(row["other_cut_comparisons"] == len(distances) == (3 if replace else 5), "complete own other-cut comparisons required")
+                witness = row["minimum_other_cut_separation"]
+                match = [d for d in distances if d[0]["id"] == witness["second"] and d[0]["point_xyz_mm"] == witness["second_source_point_xyz_mm"]]
+                require(len(match) == 1, "specific old/new cut provenance required")
+                close(witness["finite_axis_distance_mm"], match[0][1], "independent finite-axis distance")
+                close(witness["capsule_separation_lower_bound_mm"], min(d[2] for d in distances), "independent all-own-cut minimum")
+                require(witness["capsule_separation_lower_bound_mm"] > 0 and witness["second_cut_geometry_provenance"] == ("proposed_Z180" if match[0][0] is proposed.get(witness["second"]) else "current_recorded_cut"), "positive own source-cut separation required")
+                checks += 1
+        for name, values in (
+            ("minimum_raw_profile_bore_margin_mm", [r["bore_to_raw_profile_edge_lower_bound_mm"] for r in wall_rows]),
+            ("minimum_bore_to_other_cut_lower_bound_mm", [r["minimum_other_cut_separation"]["capsule_separation_lower_bound_mm"] for r in wall_rows]),
+            ("minimum_raw_profile_annular_outer_margin_mm", [r["annular_outer_edge_to_raw_profile_lower_bound_mm"] for r in seat_rows]),
+            ("minimum_annular_disk_to_other_cut_lower_bound_mm", [r["minimum_other_cut_separation"]["capsule_separation_lower_bound_mm"] for r in seat_rows]),
+        ):
+            close(scenario[name], min(values), "summary " + name)
+    require(checks == 64, "all32 bore and32 seat observations required")
+    return checks
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--out", required=True, type=Path)
+    args = parser.parse_args()
+    require(args.out.resolve().parent == HERE and not args.out.exists(), "fresh owned verification output required")
+    inp = read(HERE / "inputs.json", INPUT_SHA)
+    result = read(HERE / "result.json", RESULT_SHA)
+    pins = {**result["source_sha256"], str(OWN.relative_to(ROOT)): sha(OWN), str((HERE / "result.json").relative_to(ROOT)): RESULT_SHA}
+    require(pins[str((HERE / "calculate.py").relative_to(ROOT))] == PROGRAM_SHA, "exact final analytic producer required")
+    failure_path = HERE / "attempt01-failure.json"
+    failure = read(failure_path, sha(failure_path))
+    pins[str(failure_path.relative_to(ROOT))] = sha(failure_path)
+    for key in ("source_snapshot", "saved_result"):
+        ref = failure[key]
+        require(sha(ROOT / ref["path"]) == ref["sha256"], "failed development evidence must remain exact")
+        pins[ref["path"]] = ref["sha256"]
+    failed = read(ROOT / failure["saved_result"]["path"], failure["saved_result"]["sha256"])
+    require(failed["source_sha256"][str((HERE / "calculate.py").relative_to(ROOT))] == failure["source_snapshot"]["sha256"] and failed["scenarios"] == result["scenarios"], "reporting failure must preserve exact old source and unchanged analytic results")
+
+    def unchanged():
+        require(all(sha(ROOT / path) == h for path, h in pins.items()), "source or result bytes changed")
+
+    unchanged()
+    data = {key: read(ROOT / inp["sources"][key]["path"], inp["sources"][key]["sha256"]) for key in ("geometry", "profiles", "placement")}
+    count = check(result, inp, data["geometry"], data["profiles"], data["placement"])
+    controls = []
+    for label, mutate in (
+        ("missing_own_seat", lambda r: r["scenarios"][0]["nominal_annular_seats"].pop()),
+        ("wrong_proposed_Z", lambda r: r["proposed_axes"][0]["point_xyz_mm"].__setitem__(2, 200)),
+        ("changed_bore_margin", lambda r: r["scenarios"][0]["bore_occurrences"][0].update(bore_to_raw_profile_edge_lower_bound_mm=0)),
+        ("invented_physical_support", lambda r: r["scenarios"][0]["nominal_annular_seats"][0].update(physical_contact_or_strength_qualified=True)),
+        ("hidden_old_void_provenance", lambda r: r["scenarios"][0]["nominal_annular_seats"][0]["minimum_other_cut_separation"].update(second_cut_geometry_provenance="proposed_Z180")),
+    ):
+        altered = copy.deepcopy(result)
+        mutate(altered)
+        try:
+            check(altered, inp, data["geometry"], data["profiles"], data["placement"])
+        except ValueError:
+            controls.append(label)
+        else:
+            raise ValueError("altered analytic report accepted: " + label)
+    producer = HERE / "calculate.py"
+    protected = {p: sha(p) for p in (producer, HERE / "inputs.json", HERE / "result.json")}
+    cli = []
+    for label, target in (("occupied_output", HERE / "result.json"), ("input_output_alias", HERE / "inputs.json"), ("outside_owned_packet", HERE.parent / "unissued-rejection-control.json")):
+        require(target.exists() or label == "outside_owned_packet", "known protected output required")
+        if label == "outside_owned_packet":
+            require(not target.exists(), "outside control target must be absent")
+        proc = subprocess.run([sys.executable, str(producer), "--out", str(target)], cwd=ROOT, capture_output=True, check=False)
+        require(proc.returncode != 0 and b"fresh direct output in owned packet required" in proc.stderr, "CLI must reject before writing")
+        require(all(sha(p) == h for p, h in protected.items()) and (label != "outside_owned_packet" or not target.exists()), "rejected output changed evidence")
+        cli.append(label)
+    unchanged()
+    require(not any(n in sys.modules for n in ("cadquery", "OCP", "numpy", "scipy")), "stdlib independent geometry only")
+    verification = {"schema": "eoere_current_Z180_source_profile_bore_and_seat_independent_verification/v1", "status": "PASS_BOUNDED_ANALYTIC_APPLICABILITY_NOT_FINISHED_SOLID_OR_TOOL_QUALIFICATION",
+                    "source_sha256": dict(sorted(pins.items())), "source_pins_before_after_unchanged": True, "findings": [], "checked_bore_and_seat_rows": count,
+                    "method": "Independent source-coordinate permutation, point-to-finite-edge distances and parallel finite-X cylinder-axis distances. No producer import or full calculation replay.",
+                    "in_memory_corruption_controls_rejected": controls, "CLI_early_rejection_controls": cli,
+                    "execution": {"CAD_cache_query_native_global_force_or_model_action": False, "shared_document_staging_or_commit_action": False, "command": list(sys.orig_argv), "python": sys.version},
+                    "preserved_failed_development_attempt": {"path": str((HERE / "attempt01-failure.json").relative_to(ROOT)), "sha256": sha(HERE / "attempt01-failure.json"), "scope": "Final stdout relative-path formatting failure after report write; failed report and exact source snapshot retained. No native numerical retry."},
+                    "limits": result["limits"], "required_next_inputs_or_queries": result["required_next_inputs_or_queries"], "complete_joint_resistance": None, "release": result["release"]}
+    raw = (json.dumps(verification, sort_keys=True, indent=2, allow_nan=False)+"\n").encode()
+    with args.out.open("xb") as stream:
+        stream.write(raw)
+    unchanged()
+    print(json.dumps({"status": verification["status"], "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw), "source_files": len(pins), "checked_rows": count, "in_memory_controls": len(controls), "CLI_controls": len(cli)}, sort_keys=True))
+
+
+if __name__ == "__main__":
+    main()

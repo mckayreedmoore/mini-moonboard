@@ -3357,14 +3357,141 @@ would change from **−0.05625 to 3.94375 mm**; the 96 fixed bolts and all screw
 stay unchanged. Independent general-3D segment checks cover 40,752 distances;
 four fixtures, seven rejection controls, exact replay and three independent
 reviews pass. Its producer/verifier authenticate 13/16 direct pins, not the
-full geometry/source admission. The four stations remain HOLD: new finished
-receivers, eight seats, end/edge geometry, tools, tolerances and changed case
-actions are unevaluated. No geometry/model/axis is changed or adopted here.
+full geometry/source admission. The four stations remain HOLD: new finished-solid
+receiver/seat queries, complete end/edge geometry, tools, tolerances and changed
+case actions remain open. No geometry/model/axis is changed or adopted here.
 The three proposal review receipts are under
 `cleat-remedy-v1/current-source-followup-v1/independent-review-v1`:
 correctness `38fcf272fdf3f4cd69e80b0c2ced9b82803e14e45f385525e81b24eb847160d1`,
 testing `f26968ef3295bbe637f5b03e35279d6eed26bcfd834ba35489a231f1a815ab3d`,
 structure `5dec6f3cff8f53064068f899b2c1e9390a5f472c624d564669f0319a4250d542`.
+
+The separate [source-profile receiver and washer-seat study](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json)
+uses the same current-source proposal. Its five frozen final files total
+164,872 bytes: `inputs.json`
+`e3fda210640db0bc395d808c90625d65e8049da315c0872da12077731e6f0e41`,
+`calculate.py` `5f6d088a836f1ac198c2cc7c8355b3a6ca8a20034a863ab813e4e33fa4a3fa03`,
+`result.json` `a21c25d6693a86f2617655cec1e82aa51c182b153e19baf8f5d1431afa381443`,
+`verify.py` `1ab517d0e2b874fc43c9c4f78fce1cda80dd6dbda2a70f9e37ebdce2edffc51c`,
+and `verification-v1.json`
+`ae0c5dd215fd2bddaa6c2b0fcf46fa51038ac672d8611722ee34b4b4d6afded6`.
+The four affected receivers are straight X extrusions of their recorded convex
+profiles, including the actual sloping cleat top. All four own current bores per
+member and the absence of recorded service cuts are checked. Their saved volume
+identity checks source consistency rather than reconstructing topology.
+
+All eight proposed full-circumference bores and eight external nominal washer
+rings fit that source recipe in both nominal-hole and 11.1125-mm maximum-hole
+scenarios. Replacing the eight Z200 void occurrences from raw profiles gives
+minimum bore/profile, washer/profile and washer/other-cut margins of
+**34.74375, 27.219 and 32.16275 mm**, respectively. Keeping the old voids is
+an explicitly separate, read-only comparison: its maximum-hole washer/old-cut
+margin is only **1.36275 mm**. It does not authorize extra abandoned holes.
+The independent finite-edge/parallel-X verifier checks all 64 bore/seat rows,
+five altered-result controls and three early CLI rejections, with 29 direct
+pins unchanged before/after; both helpers pass Ruff. Source timber screw pilots
+and countersinks are absent, and the current 26.162-mm OD / 11.1125-mm ID washer
+scenario does not cover all catalog or delivered dimensions. No BREP query,
+model adoption, physical contact, tool fit or capacity follows from these checks.
+The five development records listed in
+`receiver-seats-v1/controls01/frozen-packet.json` remain active, including the
+saved report/source/stdout-format failure and the pre-lint verifier receipt.
+The failed reporting attempt occurred after its analytic report was written;
+the final arithmetic is unchanged, and no numerical/native retry is claimed.
+Three independent source-geometry reviews report no substantial findings. All
+64 rows reproduce without a new CAD or mechanics run. Additional controls cover
+12 cut-inventory corruptions, four scenario-boundary corruptions, four verifier
+corruptions, finite-edge/segment hand answers, skin thickness, output preservation
+and concurrent writers. Producer/verifier CLI replays in a private source-linked
+mirror preserve the recorded scenarios. The receipts under
+`receiver-seats-v1/independent-review-v1` are:
+
+| Review | Receipt SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `7a4338a4eff07588c58dd44f6d4b10403cd61cce83dbc20ccaafebfd35f7c5cc` |
+| `testing/receipt.json` | `fd6fefa37b360942155b632eccc18061ddd7e7a0800c4a179af76b970c19babf` |
+| `structure/receipt.json` | `57f3e31f38429e11f9d5f2b603416d6606da512f452102e454172d2b0a94b22f` |
+
+These reviews retain the analytic source-recipe boundary; they do not establish
+observed finished-solid, actual tool, pressure or resistance qualification.
+
+The separate [signed-end inventory and square-end markers](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
+reuse the six completed rich reports rather than regenerating their actions.
+The producer SHA is `fc45c5e990b11c20a3e6e98e9723b25ec366d05a780b229d82cdb639c6dc4ad0`;
+the result SHA is `4c66a7f194a747a14291e25c4277ec7288aa95a9bef9eab68233312288e9be9b`.
+Its 26 direct pins, exact signed-decomposition replays, six boundary fixtures
+and byte-identical JSON reproduction pass; this is not another operator or
+inherited-closure audit. Across the four current Z200 axes, the six cases have
+48 wood surfaces and 96 individual bearing points: 91 oblique and five zero.
+There are 39 grain-direction and 43 cross-grain sign-reversing surfaces. Those
+local opposing forces must be retained; an aggregate net-force direction cannot
+replace them in an end/edge or splitting check.
+
+Three independent end-inventory reviews report no substantial findings. They
+check the six source-case joins, all 96 decompositions, 36 square-end category
+markers, exact output replay, source preservation and output guards; the testing
+review adds 22 semantic controls. Their receipts are under
+`end-geometry-v1/independent-review-v1`:
+
+| Review | Receipt SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `5f56fa9fab0c1e6fd26c69b0693fe1b15aa97e1f40f46d8ae9f076718e36a787` |
+| `testing/receipt.json` | `0c7d9c09480f7a250ce4f7a7ea42e3616a8f90db8bde77387a86778f21786c24` |
+| `structure/receipt.json` | `c30f40458793e60207b39eec5f7666e63714e95e9d1848fab74a16e981d2d6d0` |
+
+The original testing-review helper and receipt remain frozen. A separate
+`testing/review-v2.py`, SHA
+`bbef776060e24bf5cd2067ff355d47b185cda21d3877ef90840f887b7d7fb21a`,
+only sorts imports and explicitly binds immediately invoked loop lambdas for
+Ruff. Its unchanged bounded review passes; `testing/receipt-v2.json` is SHA
+`cf96c5db4b5c666245905340058b73ed86e1624d2365cbc5936c12092e208866`.
+This reviewer-only lint correction changes neither target source nor results.
+
+Separately, the unadopted Z180 centers leave **40.3 mm** to the square cleat
+bottom and **58.9 mm** to the square post top. For nominal D9.525, both exceed
+the classified softwood toward-end 3.5D minimum and the 4D full-value
+away/perpendicular marker. Their pure toward-end markers are **0.604424447**
+and **0.883389576**, respectively; neither is a complete joint factor. The
+minimum raw side-edge distance is 44.45 mm, 6.35 mm above the perpendicular
+loaded-edge 4D benchmark. No Z200 action is assigned to the Z180 proposal.
+The sloping cleat end, complete group/shear-plane factor, finished void ligaments,
+local fracture and oblique edge classification remain outside those markers.
+
+The existing pinned [2024 NDS Chapter 12](hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf),
+SHA `5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a`,
+was read at printed pages 97–100 / PDF pages 19–22 using shared-cache
+`pypdf[crypto]==6.1.0`. Sections 12.5.1.2a–c, Tables 12.5.1A–D and 12.6
+distinguish reduced classified end values, the smallest applicable group/shear-plane
+factor, edge/row rules and local stresses. The 46-page chapter contains the
+specification, despite its filename; it does not authenticate the older 2018
+commentary interpolation as 2024 commentary. A shortfall from 7D alone is not
+a blanket rejection, and satisfying 4D alone does not close a complete joint.
+Neither new study changes the reviewed geometry, closes the four drilling holds,
+assigns proposal demand or qualifies resistance. Required next work is the
+source-bound proposed finished receiver/seat geometry and current installation
+envelopes, followed by compatible changed-case actions if the proposal is adopted.
+Existing raw post caches already occupy the current X intervals, including the
+right post; do not apply another kerf translation. The current cleat polygon
+supplies the two new raw extrusions. The narrow reconstruction can reuse
+`scripts/thin_bolted_occupied.py:bore_wood`,
+`scripts/thin_bolted_timber_resistance.py:finished_bore_wall_intervals` and
+`scripts/thin_bolted_layout_revision.py:annular_backing`, with a local twelve-axis
+view restricted to the four receivers. The authoritative 100-axis/66-screw lists
+stay separate and unchanged. Substitute the four proposed records before cuts;
+do not cut into the old finished solids or retain old voids. No adapter or native
+query was executed in this discovery. Parent frozen inputs and serialized
+readiness remain necessary before that bounded geometry work.
+
+This followup publication adds 27 compact files / **591,905 bytes** and updates
+only this ledger and the main development summary. The source inventories,
+signed bearing witnesses, original/final reviewer records and five development
+records remain active, including the frozen pre-lint testing helper. Maintained
+analysis/seat helpers and the latest review helpers pass Ruff; the original
+testing helper is retained as immutable review provenance. The two studies'
+53-key direct-source union is unchanged. Current raw fields/operators/reports
+remain required consumers; no source, cache, failed result or historical viewer
+is archived, pruned or substituted. No raw frame result, mesh, manual or dependency
+installation is copied into this publication.
 
 Both raw current metadata outputs (**25,107,094 bytes**), six fields
 (**151,039,074 bytes**), six operator sets (**55,848,679 bytes**), all twelve
@@ -3379,7 +3506,7 @@ cover these later raw outputs. Compact methods, commands, source manifests,
 tests, reviews and summary witnesses are necessary permanent reproducibility
 records; bulky fields/operators/details stay out of Git.
 
-The owned publication set comprises **250 paths**, including **243 new files /
+The `2999d8b9` publication set comprises **250 paths**, including **243 new files /
 3,754,774 bytes** and seven maintained documentation files. The largest new
 record is the 385,803-byte per-case component summary; the remaining compact
 methods, source maps, tests and original/final reviews retain reproducible

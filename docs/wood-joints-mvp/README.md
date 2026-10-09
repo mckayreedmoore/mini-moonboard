@@ -46,7 +46,12 @@ purchase scenario. Its nominal mass is 219.115940 kg, including the retained
 bore/screw gap becomes **−0.05625 mm** in the maximum wood-hole scenario.
 The [current-source Z180 proposal](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/result.json)
 would increase the analytic maximum-bore gap to 3.94375 mm, but remains
-unadopted and requires finished-solid, receiver and installation checks.
+unadopted. The separate [receiver and washer-seat study](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json)
+supports all eight proposed bore occurrences and nominal washer rings within
+the recorded profiles and cut inventory. Fresh finished-solid queries, actual
+tool access and installation tolerances remain open. The [signed-end inventory](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
+reuses current bearing forces separately: many reverse through the holes, so
+net-force direction and square-end distance alone cannot establish joint strength.
 No cutting, drilling, complete-joint
 acceptance or climbing release follows from the current geometry or shop packet.
 All actual observations remain blank; all 200 access sides remain unverified.

@@ -1,0 +1,156 @@
+{
+  "control_outputs_in_tmp_removed": true,
+  "direct_source_pins_checked_before_after": 26,
+  "direction_fixtures": 10,
+  "end_boundary_fixtures": 12,
+  "genuine_CLI_exact_byte_replay": true,
+  "independent_saved_inventory_checks": {
+    "bearing_point_count": 96,
+    "case_count": 6,
+    "crossgrain_sign_reversal_surface_count": 43,
+    "nonzero_bearing_angle_range_deg": [
+      15.431323669172917,
+      89.19654784119479
+    ],
+    "oblique_bearing_points": 91,
+    "parallel_sign_reversal_surface_count": 39,
+    "wood_surface_count": 48,
+    "zero_lateral_bearing_points": 5
+  },
+  "invalid_helper_input_controls": 5,
+  "limits": [
+    "This review authenticates/extracts existing six-case signed reports; existing field admissions and reducer/operator arithmetic are not independently re-audited.",
+    "The96 current Z200 bearings remain separate from eight Z180 geometry-only endpoint rows; no proposal forces, complete Cdelta/Cg or resistance is assigned.",
+    "Classified square-end factors remain scenarios; sloping cleat top, finished void ligaments, group/edge/fracture resistance and actual installation remain unqualified.",
+    "No CAD/BREP/native/global/component solve, genuine field consumption, model adoption, physical work, shared edits, staging or commits occurred."
+  ],
+  "memory_fixture_hash_gate_bypass_is_not_an_admission": true,
+  "output_controls": [
+    "occupied_output_before_build",
+    "late_writer_preserved",
+    "build_failure_no_output"
+  ],
+  "own_source_surface_and_bearing_identity_checks": true,
+  "passed": true,
+  "preserved_v1_review_records_sha256": {
+    "receipt.json": "0c7d9c09480f7a250ce4f7a7ea42e3616a8f90db8bde77387a86778f21786c24",
+    "review.py": "d843f6a9a7da351a7bac42d6eead7c8af84a24c2dc8e1f612f637e03089c3f39"
+  },
+  "proposed_geometry_only_markers_checked": 8,
+  "release": {
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "geometry_adopted": false,
+    "structural": false
+  },
+  "reviewer_ruff_no_cache": true,
+  "reviewer_sha256": "bbef776060e24bf5cd2067ff355d47b185cda21d3877ef90840f887b7d7fb21a",
+  "ruff_frozen_helper_no_cache": true,
+  "schema": "eoere_signed_end_inventory_independent_testing_review/v1",
+  "semantic_in_memory_controls": [
+    {
+      "name": "wrong_case_roster",
+      "rejection": "exact six-case roster/order required"
+    },
+    {
+      "name": "missing_geometry_axis",
+      "rejection": "current geometry census/identity changed"
+    },
+    {
+      "name": "duplicate_source_owner",
+      "rejection": "duplicate source owner"
+    },
+    {
+      "name": "wrong_screw_census",
+      "rejection": "current geometry census/identity changed"
+    },
+    {
+      "name": "adopted_proposal",
+      "rejection": "unadopted current-source proposal required"
+    },
+    {
+      "name": "wrong_proposal_z",
+      "rejection": "proposal differs beyond its declared Z change"
+    },
+    {
+      "name": "nonwood_stack",
+      "rejection": "dedicated two-wood stack required"
+    },
+    {
+      "name": "wrong_report_case",
+      "rejection": "existing own-case report identity/release changed"
+    },
+    {
+      "name": "wrong_field_join",
+      "rejection": "existing own-case report identity/release changed"
+    },
+    {
+      "name": "wrong_admission_join",
+      "rejection": "existing own-case report identity/release changed"
+    },
+    {
+      "name": "capacity_claim",
+      "rejection": "existing own-case report identity/release changed"
+    },
+    {
+      "name": "release_claim",
+      "rejection": "existing own-case report identity/release changed"
+    },
+    {
+      "name": "missing_surface",
+      "rejection": "all eight distinct current wood surfaces required"
+    },
+    {
+      "name": "duplicate_surface",
+      "rejection": "all eight distinct current wood surfaces required"
+    },
+    {
+      "name": "duplicate_bearing_id",
+      "rejection": "two own bearing points required"
+    },
+    {
+      "name": "signed_force_mismatch",
+      "rejection": "existing signed decomposition does not replay"
+    },
+    {
+      "name": "sign_reversal_claim",
+      "rejection": "signed reversal or qualification marker differs"
+    },
+    {
+      "name": "complete_Cdelta_claim",
+      "rejection": "signed reversal or qualification marker differs"
+    },
+    {
+      "name": "complete_Cg_claim",
+      "rejection": "signed reversal or qualification marker differs"
+    },
+    {
+      "name": "nonvertical_profile",
+      "rejection": "this bounded inventory requires the recorded vertical-grain profile"
+    },
+    {
+      "name": "oblique_post_end",
+      "rejection": "post ends must be recorded square ends"
+    },
+    {
+      "name": "grain_parallel_to_shaft",
+      "rejection": "end-grain/oblique shaft requires a different method"
+    }
+  ],
+  "source_hash_path_and_pin_conflict_controls": [
+    "source changed: scripts/thin_bolted_timber_resistance.py",
+    "repository-relative source required",
+    "repository-relative source required",
+    "conflicting direct pin"
+  ],
+  "substantial_findings": [],
+  "target": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1",
+    "sha256": {
+      "analyze.py": "fc45c5e990b11c20a3e6e98e9723b25ec366d05a780b229d82cdb639c6dc4ad0",
+      "result.json": "4c66a7f194a747a14291e25c4277ec7288aa95a9bef9eab68233312288e9be9b"
+    }
+  },
+  "target_and_all_direct_bytes_unchanged": true
+}
