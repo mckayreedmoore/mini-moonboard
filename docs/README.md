@@ -15,6 +15,12 @@ physical inputs; the cleat trim and wire revision have separate geometry evidenc
 mechanics pass. The packet remains unreleased. Earlier WJ24 criteria and packets
 remain preserved history in the same documentation folder.
 
+For current builder-support development, use the
+[active reading path](wood-joints-mvp/README.md#active-builder-reading-path)
+and [drilling/fixture guide](wood-joints-mvp/eoere-builder-drilling-guide.md).
+The preserved raised-rail cut profiles and wire coordinates are not templates
+for the later trimmed-cleat/aligned-wire geometry.
+
 The instructions below belong to the selected screw-and-bracket baseline,
 `compact-floor-flush-development`, governed by
 [current-candidate.json](../current-candidate.json). They preserve that baseline's

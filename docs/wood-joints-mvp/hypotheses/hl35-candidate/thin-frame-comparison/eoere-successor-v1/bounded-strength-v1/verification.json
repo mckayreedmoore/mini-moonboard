@@ -1,0 +1,66 @@
+{
+  "active_retention": {
+    "details_reconstructible_from_owned_script_and_frozen_inputs": true,
+    "existing_original_geometry_and_field_sources": "Retained; no byte substitution or inherited acceptance",
+    "issued_raw_output": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/attempt05",
+    "owned_packet": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1",
+    "superseded_output": "attempt04; earlier preflight failures attempt01 through attempt03; no pruning"
+  },
+  "affected_checks": {
+    "command": "uv run pytest -q tests/test_washer_plate_response.py tests/test_reinforced_timber_resistance.py tests/test_thin_bolted_timber_common_shaft_checks.py",
+    "failed": 0,
+    "independent_direct_bearing_force_replay_max_error_n": 2.1316282072803006e-14,
+    "passed": 38,
+    "ruff_check": "PASS",
+    "ruff_format_check": "PASS"
+  },
+  "artifacts": {
+    "details": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/attempt05/details.json",
+      "recomputed_serialized_bytes_identical": true,
+      "sha256": "4015a163e71e95ab421760786ffa978112a572b656edc3b1f5c3c6f4ef3d8280"
+    },
+    "result": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/attempt05/result.json",
+      "recomputed_serialized_bytes_identical": true,
+      "sha256": "ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda"
+    }
+  },
+  "complete_source_map_in_detailed_output": true,
+  "known_answers": {
+    "exact_CAD_rectangle_area_mm2": 200.0,
+    "independent_annulus_kern_312p5_Nmm_and_tension_rejection": true,
+    "intersected_support_rejected": true,
+    "opening_and_compression_signs": true,
+    "trimmed_rectangular_and_oblique_ray_known_answers": true
+  },
+  "native_global_response_or_CAD_rebuild": false,
+  "owned_artifacts": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md": {
+      "bytes": 13641,
+      "sha256": "5940ec7ca4bcbbe260527d311cec29766c7170bbda637c1404cd3fcf33061491"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/analyze.py": {
+      "bytes": 37852,
+      "sha256": "8bffd53e9e730e63db2f041a10626edb002cba7034af118d6dc9bdf3fed69ae3"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/inputs.json": {
+      "bytes": 21135,
+      "sha256": "ae2c65447ed9a0b628dd25b52573f4c04eca58bc6f2b2657ee0a6f88a69a6bd7"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/result.json": {
+      "bytes": 94574,
+      "sha256": "ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda"
+    }
+  },
+  "runtime": {
+    "cadquery": "2.8.0",
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_four_bounded_strength_reproduction/v1",
+  "source_pin_count": 1065,
+  "source_union_canonical_sha256": "68f660bcf8720f7548464cb1f2991959a0a97aaef0a50eea0d7bbb35b892a5a5",
+  "status": "PASS"
+}

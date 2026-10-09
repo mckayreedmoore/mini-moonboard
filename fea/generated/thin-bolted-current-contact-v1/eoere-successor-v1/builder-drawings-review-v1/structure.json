@@ -1,0 +1,147 @@
+{
+  "branch": "master",
+  "checks": [
+    {
+      "command": ".venv/bin/python -B docs/wood-joints-mvp/eoere-builder-drawings/leg-corner.py --check",
+      "result": {
+        "bolt_axes": 4,
+        "generated_bytes": 32666,
+        "members": 3,
+        "sources": 8,
+        "status": "PASS_SAVED_COORDINATE_DRAWINGS"
+      }
+    },
+    {
+      "check": "Frozen seven target SHA256 pins and byte volume",
+      "result": "PASS: all exact expected hashes; drawing directory 49,941 bytes; guide 17,348 bytes"
+    },
+    {
+      "check": "Read-only SVG XML/text inspection",
+      "result": "PASS: four valid SVG documents; three paper sheets declare 190mm x 260mm, two 100-mm checks, explicit nominal/no-release use and target-circle limits. Overview declares no marking scale and projected X-band overlap."
+    },
+    {
+      "check": "Local dependency census",
+      "result": "PASS_LOCAL: all eight source files exist; five saved JSON/CSV records are tracked; three BREP hash dependencies are retained ignored files."
+    }
+  ],
+  "context_only_files": [
+    "AGENTS.md",
+    "README.md",
+    "docs/README.md",
+    "docs/wood-joints-mvp/README.md",
+    "docs/wood-joints-mvp/completion-ledger.md"
+  ],
+  "context_policy": "Mutable entrypoint and ledger navigation hunks were context, not immutable reviewed targets. Receipt applies to the seven hashes above; root owns subsequent context integration.",
+  "excluded": [
+    "Independent geometry or arithmetic verification, owned by another review",
+    "Engineering acceptance or new engineering prerequisites",
+    "Native mechanics, CAD, full repository suite, installs, physical printing or fabrication",
+    "Shared file edits, staging, commits, branch creation, archival or pruning"
+  ],
+  "findings": [],
+  "limits": [
+    "This receipt is a source/document architecture review, not physical feasibility, printed-scale, tool-access, tolerance or resistance acceptance.",
+    "The local replay uses three retained ignored BREP files only for hash authentication; it is not evidence of a clean-clone or hosted execution environment.",
+    "No independent raster-render inspection was performed by this reviewer; SVG structure/text were inspected and root owns presentation integration."
+  ],
+  "next_action": "Root may integrate this scope-limited review with independent mathematical and presentation reviews; current declared machining and strength gaps remain unchanged.",
+  "observations": [
+    {
+      "evidence": [
+        "leg-corner.py:45-63",
+        "leg-corner.py:76-84",
+        "leg-corner-data.json:sources",
+        "eoere-builder-drilling-guide.md:103-109"
+      ],
+      "result": "Helper reads five existing saved records and verifies three existing unchanged finished BREP hashes, rather than duplicating CAD/source assets or regenerating frozen shop tables. Saved receiver records are reconciled to current shaft identities, receiver order, grip and axis points. No old strength or machining acceptance is transferred.",
+      "subject": "Saved source ownership"
+    },
+    {
+      "evidence": [
+        "leg-corner.py:1-11",
+        "leg-corner.py:292-311",
+        "eoere-builder-drilling-guide.md:227-239"
+      ],
+      "result": "Generation uses the Python standard library. Check mode verifies all eight source pins before byte-comparing five generated outputs. Write mode writes only the drawing data and four SVG files. Six drawing-directory files total 49,941 bytes; five outputs total 32,666 bytes. No CAD, native solver, installed package or copied reference asset is added.",
+      "subject": "Dependency and reproduction boundary"
+    },
+    {
+      "evidence": [
+        "README.md: original Eoere proposal and builder-support additions",
+        "docs/README.md: active builder path addition",
+        "docs/wood-joints-mvp/README.md: Active builder reading path and preserved WJ24 labels",
+        "eoere-builder-drilling-guide.md:3-16"
+      ],
+      "result": "Entry navigation identifies aligned-wire geometry as current; it labels raised-rail shop/numerical records and WJ24 packets as preserved. Unchanged shaft recipes and three unchanged bodies have bounded reuse. Old cleat/wire profiles and old mass are explicitly excluded from current claims.",
+      "subject": "Revision-aware reader flow"
+    },
+    {
+      "evidence": [
+        "eoere-builder-drilling-guide.md:79-93",
+        "eoere-builder-drilling-guide.md:147-172",
+        "eoere-builder-drilling-guide.md:189-225",
+        "eoere-builder-drilling-guide.md:241-276",
+        "all four SVG text labels",
+        "leg-corner-data.json:limits"
+      ],
+      "result": "Guide/data/overview/sheets distinguish raw outlines, marking targets, transverse drilling stacks and left-only scope. Every SVG carries nominal/no-release language. Missing recess method, actual saw/drill/bit/guide envelopes, fixture retention, tolerance budget, printer scaling and independent wrench/removal access remain open. Guide respects the owner tool policy and does not imply a flat-table setup, a selected drill diameter or a qualified current joint.",
+      "subject": "Nominal drawings and operation limits"
+    },
+    {
+      "evidence": [
+        "eoere-builder-drilling-guide.md:268-276",
+        "docs/wood-joints-mvp/completion-ledger.md: builder-drawing retention addition"
+      ],
+      "result": "Current summary and existing ledger own active next work and retained evidence. The continuation proposes no duplicate dated checkpoint or archive/prune operation; previews are identified as temporary.",
+      "subject": "Retention ownership"
+    }
+  ],
+  "review_id": "builder-drawings-review-v1/structure",
+  "reviewed_target_files": [
+    {
+      "bytes": 17348,
+      "path": "docs/wood-joints-mvp/eoere-builder-drilling-guide.md",
+      "sha256": "35b3d750d61c0f2c8967e893f03be38dde0ae33ca963ae2d19ba08948e690c33"
+    },
+    {
+      "bytes": 17275,
+      "path": "docs/wood-joints-mvp/eoere-builder-drawings/leg-corner.py",
+      "sha256": "320a03a002d125705b18730f4d06d56fe2a8c6bd660823cd8f447d83ece2b4a9"
+    },
+    {
+      "bytes": 10685,
+      "path": "docs/wood-joints-mvp/eoere-builder-drawings/leg-corner-data.json",
+      "sha256": "c002531f6e10a3611687c308e52db6fe1025bcffac15912b925d361a97ec8a3a"
+    },
+    {
+      "bytes": 10184,
+      "path": "docs/wood-joints-mvp/eoere-builder-drawings/leg-corner-overview.svg",
+      "sha256": "5f5003c1713ee9574089bce5bb690e0eba69cc5de76193684627676dabeb18c0"
+    },
+    {
+      "bytes": 3931,
+      "path": "docs/wood-joints-mvp/eoere-builder-drawings/left-leg-foot-template.svg",
+      "sha256": "e7bcaeaab7b1ad54ec91d85110370ad174377f12845d7aaec3f3a8d6b1a84dba"
+    },
+    {
+      "bytes": 3898,
+      "path": "docs/wood-joints-mvp/eoere-builder-drawings/left-leg-top-template.svg",
+      "sha256": "53a80477e609006a1640dbb81a96eeefaa5418676693aa5963133c8202058dcc"
+    },
+    {
+      "bytes": 3968,
+      "path": "docs/wood-joints-mvp/eoere-builder-drawings/left-runner-rear-template.svg",
+      "sha256": "249c46dc7b0ecedaed143709d08fa51cb30539ebcecf4921aa984dc25941f4aa"
+    }
+  ],
+  "reviewer_role": "independent architecture and document ownership reviewer",
+  "schema": "eoere_builder_drawings_structure_review/v1",
+  "scope": [
+    "Source ownership and reuse of saved records",
+    "Compactness and dependency/reproduction boundaries",
+    "Active versus preserved reading paths",
+    "Guide, data and standalone SVG declared limits",
+    "Misleading builder-operation or acceptance claims"
+  ],
+  "status": "PASS_NO_ACTIONABLE_FINDINGS_WITHIN_REVIEW_SCOPE"
+}

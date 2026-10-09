@@ -1,0 +1,404 @@
+{
+  "bolts": [
+    {
+      "direction_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "id": "rail_rear_bolt_left_1",
+      "label": "R1",
+      "nominal_bolt_diameter_mm": 9.525,
+      "nominal_underhead_length_mm": 114.3,
+      "point_xyz_mm": [
+        -1219.2,
+        1551.0,
+        69.0
+      ],
+      "receiver_centers": [
+        {
+          "L_mm": 1726.7,
+          "W_mm": -70.69999999999999,
+          "member": "base_floor_left",
+          "wood_interval_mm": 38.09999999999991
+        },
+        {
+          "L_mm": 88.269485048046,
+          "W_mm": 69.86397394146408,
+          "member": "lumber_leg_left",
+          "wood_interval_mm": 50.799999999999955
+        }
+      ],
+      "timber_grip_mm": 88.9
+    },
+    {
+      "direction_xyz": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "id": "rail_rear_bolt_left_2",
+      "label": "R2",
+      "nominal_bolt_diameter_mm": 9.525,
+      "nominal_underhead_length_mm": 114.3,
+      "point_xyz_mm": [
+        -1219.2,
+        1517.0,
+        97.5
+      ],
+      "receiver_centers": [
+        {
+          "L_mm": 1692.7,
+          "W_mm": -42.19999999999999,
+          "member": "base_floor_left",
+          "wood_interval_mm": 38.09999999999991
+        },
+        {
+          "L_mm": 124.07363957298602,
+          "W_mm": 96.06154098029836,
+          "member": "lumber_leg_left",
+          "wood_interval_mm": 50.799999999999955
+        }
+      ],
+      "timber_grip_mm": 88.9
+    },
+    {
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "id": "lumber_leg_bolt_left_1",
+      "label": "U1",
+      "nominal_bolt_diameter_mm": 12.7,
+      "nominal_underhead_length_mm": 203.2,
+      "point_xyz_mm": [
+        -1130.3,
+        1125.245692062,
+        1734.987315516
+      ],
+      "receiver_centers": [
+        {
+          "L_mm": 1953.1148529403297,
+          "W_mm": 59.40603609148354,
+          "member": "base_side_left",
+          "wood_interval_mm": 88.90000000000009
+        },
+        {
+          "L_mm": 1807.7334095702847,
+          "W_mm": 84.83990311314545,
+          "member": "lumber_leg_left",
+          "wood_interval_mm": 88.89999999999986
+        }
+      ],
+      "timber_grip_mm": 177.8
+    },
+    {
+      "direction_xyz": [
+        -1.0,
+        -0.0,
+        -0.0
+      ],
+      "id": "lumber_leg_bolt_left_2",
+      "label": "U2",
+      "nominal_bolt_diameter_mm": 12.7,
+      "nominal_underhead_length_mm": 203.2,
+      "point_xyz_mm": [
+        -1130.3,
+        1143.254307938,
+        1788.012684484
+      ],
+      "receiver_centers": [
+        {
+          "L_mm": 2005.3103573288731,
+          "W_mm": 39.11738602334492,
+          "member": "base_side_left",
+          "wood_interval_mm": 88.90000000000009
+        },
+        {
+          "L_mm": 1854.9133046504064,
+          "W_mm": 54.672743813825264,
+          "member": "lumber_leg_left",
+          "wood_interval_mm": 88.89999999999986
+        }
+      ],
+      "timber_grip_mm": 177.8
+    }
+  ],
+  "limits": [
+    "Raw broad-face outlines are not finished recess/service-cut contours.",
+    "Target crosshairs are nominal centers, not drilled-hole outlines or selected bit sizes.",
+    "No machining tolerance, actual printer scale, tool travel, fixture retention or physical fit is verified.",
+    "Only the left side is drawn; no right-side recess or head/nut mirroring instruction is issued.",
+    "No current complete joint resistance, fabrication release or transferred six-case pass."
+  ],
+  "parts": {
+    "base_floor_left": {
+      "basis_L": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "basis_W": [
+        -0.0,
+        -0.0,
+        1.0
+      ],
+      "datum_xyz_mm": [
+        -1257.3,
+        -175.7,
+        139.7
+      ],
+      "end_angles_away_from_square_deg": [
+        0.0,
+        13.83648621710885
+      ],
+      "finished_source": {
+        "bounds_xyz_mm": [
+          [
+            -1257.3000000000002,
+            -1219.2
+          ],
+          [
+            -175.7,
+            1639.9464830416932
+          ],
+          [
+            0.0,
+            139.70000000000047
+          ]
+        ],
+        "bytes": 8906,
+        "id": "base_floor_left",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_floor_left.brep",
+        "sha256": "056fbf11e64b89db21fb5f9499493192c606d7bcc64408fc44e9585adf41cd28",
+        "volume_mm3": 9557555.31219891
+      },
+      "raw_profile_LW_mm": [
+        [
+          0.0,
+          -139.7
+        ],
+        [
+          1815.646483042,
+          -139.7
+        ],
+        [
+          1781.238528413,
+          -0.0
+        ],
+        [
+          0.0,
+          -0.0
+        ]
+      ],
+      "raw_profile_yz_mm": [
+        [
+          -175.7,
+          0.0
+        ],
+        [
+          1639.946483042,
+          0.0
+        ],
+        [
+          1605.538528413,
+          139.7
+        ],
+        [
+          -175.7,
+          139.7
+        ]
+      ]
+    },
+    "base_side_left": {
+      "basis_L": [
+        0.0,
+        0.6427876099290708,
+        0.7660444429154699
+      ],
+      "basis_W": [
+        -0.0,
+        0.7660444429154699,
+        -0.6427876099290708
+      ],
+      "datum_xyz_mm": [
+        -1130.3,
+        -175.7,
+        277.0
+      ],
+      "end_angles_away_from_square_deg": [
+        49.99999998186002,
+        40.000000018139986,
+        0.0
+      ],
+      "finished_source": {
+        "bounds_xyz_mm": [
+          [
+            -1219.2,
+            -1130.3
+          ],
+          [
+            -175.70000000000005,
+            1535.5845074835179
+          ],
+          [
+            277.0,
+            2246.2903761488856
+          ]
+        ],
+        "bytes": 22500,
+        "id": "base_side_left",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_left.brep",
+        "sha256": "e9c12d0260fd9893ac2b1be2c2eedfde6880919830cb8ae5735fdd5d2df5b68c",
+        "volume_mm3": 30973054.353887204
+      },
+      "raw_profile_LW_mm": [
+        [
+          0.0,
+          -0.0
+        ],
+        [
+          43.96950009227461,
+          -36.894791334199354
+        ],
+        [
+          2539.7676060361077,
+          -36.894792124151536
+        ],
+        [
+          2539.7676060806766,
+          102.80520787592764
+        ],
+        [
+          86.26381271891238,
+          102.80520865253696
+        ]
+      ],
+      "raw_profile_yz_mm": [
+        [
+          -175.7,
+          277.0
+        ],
+        [
+          -41.49733120799999,
+          277.0
+        ],
+        [
+          1535.584507484,
+          2156.492947076
+        ],
+        [
+          1428.5680987799997,
+          2246.290376149
+        ],
+        [
+          -175.7,
+          334.398105944
+        ]
+      ]
+    },
+    "lumber_leg_left": {
+      "basis_L": [
+        0.0,
+        -0.23915183195284334,
+        0.970982183808539
+      ],
+      "basis_W": [
+        0.0,
+        -0.9709821838085387,
+        -0.23915183195284329
+      ],
+      "datum_xyz_mm": [
+        -1308.1,
+        1639.946483042,
+        0.0
+      ],
+      "end_angles_away_from_square_deg": [
+        36.1635137838692,
+        13.836486216217054
+      ],
+      "finished_source": {
+        "bounds_xyz_mm": [
+          [
+            -1308.1000000000004,
+            -1219.2
+          ],
+          [
+            1053.0404491052132,
+            1639.9464830416935
+          ],
+          [
+            -3.183231456205249e-12,
+            1931.3088913595152
+          ]
+        ],
+        "bytes": 14682,
+        "id": "lumber_leg_left",
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/lumber_leg_left.brep",
+        "sha256": "973d428ea18f1e259a4b39727b1023db66b1b3c3d924a9ed2b89729e17e72d40",
+        "volume_mm3": 21731234.24013823
+      },
+      "raw_profile_LW_mm": [
+        [
+          0.0,
+          -0.0
+        ],
+        [
+          1989.0260846908022,
+          2.183713831982459e-08
+        ],
+        [
+          1886.9176922210384,
+          139.70000002065376
+        ],
+        [
+          34.4079546267471,
+          139.7000000002166
+        ]
+      ],
+      "raw_profile_yz_mm": [
+        [
+          1053.0404491049999,
+          1798.7539505310008
+        ],
+        [
+          1496.071546581,
+          1.4210854715202004e-14
+        ],
+        [
+          1639.946483042,
+          0.0
+        ],
+        [
+          1164.2672510649998,
+          1931.3088913600009
+        ]
+      ]
+    }
+  },
+  "recess": {
+    "end_from_heel_L_mm": 637.5426611175141,
+    "maximum_depth_mm": 38.1,
+    "nominal_runner_top_clearance_mm": 2.0,
+    "remaining_lower_thickness_mm": 50.8,
+    "run_mm": 457.2,
+    "start_from_heel_L_mm": 180.34266111751407,
+    "transverse_fit_allowance_mm": 0.0
+  },
+  "revision": "eoere-grid-aligned-wire-cutouts-v1",
+  "schema": "eoere_builder_leg_corner_nominal/v1",
+  "sources": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums-result.json": "d8ce1edd41cc423f9f584bf15ee066919ca0fbb1bd0e046be910393772aa54a4",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/member-end-datums.csv": "c38a8dff38aef1dc74c9eb54c0f9843f672b88a886582a3085e46104310ce5be",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/members.csv": "98dd8cf3bf74adf95a6a3a36fe7675f31cc61fd4d3018bf80ae11fbfb58a9f1d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/receiver-holes.csv": "0d3574fee9b56fcb2089ae6fa01c51ca1523d8ed793c22d8efd532759fc2b9e7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_floor_left.brep": "056fbf11e64b89db21fb5f9499493192c606d7bcc64408fc44e9585adf41cd28",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_left.brep": "e9c12d0260fd9893ac2b1be2c2eedfde6880919830cb8ae5735fdd5d2df5b68c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/lumber_leg_left.brep": "973d428ea18f1e259a4b39727b1023db66b1b3c3d924a9ed2b89729e17e72d40"
+  },
+  "status": "NOMINAL_LAYOUT_AND_FIXTURE_CONCEPT_NOT_FABRICATION_RELEASE",
+  "tool_policy": "Owner: circular saw, handheld drill, clamps and pull saw; prefer pull saw for 4x6.",
+  "units": "mm; degrees"
+}

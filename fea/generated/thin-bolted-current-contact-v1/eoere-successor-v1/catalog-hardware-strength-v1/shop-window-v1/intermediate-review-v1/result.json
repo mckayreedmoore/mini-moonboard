@@ -1,0 +1,136 @@
+{
+  "all100_worksheet_and_prior_group_census_pass": true,
+  "all18_frozen_files_verified_before_after": true,
+  "all24_original_shorts_covered": true,
+  "all879_pins_verified_before_after": true,
+  "comparisons": [
+    {
+      "minimum_body_deficit_mm": [
+        "10.5156"
+      ],
+      "minimum_nut_near_minus_Lg_mm": "3.2512",
+      "minimum_two_pitch_margin_mm": "5.8420",
+      "old_sku": 368,
+      "pack_spend_usd": "18.30",
+      "quantity": 16
+    },
+    {
+      "minimum_body_deficit_mm": [
+        "10.5156"
+      ],
+      "minimum_nut_near_minus_Lg_mm": "3.2512",
+      "minimum_two_pitch_margin_mm": "10.1600",
+      "old_sku": 371,
+      "pack_spend_usd": "22.49",
+      "quantity": 4
+    },
+    {
+      "minimum_body_deficit_mm": [
+        "12.827"
+      ],
+      "minimum_nut_near_minus_Lg_mm": "4.3688",
+      "minimum_two_pitch_margin_mm": "11.53550769230769230769230769",
+      "old_sku": 407,
+      "pack_spend_usd": "15.15",
+      "quantity": 4
+    }
+  ],
+  "complete100_axis_records_exact": true,
+  "confirmed_blockers": [],
+  "decimal_box_corners_checked": 96,
+  "execution": {
+    "CAD": false,
+    "command": "uv run python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/intermediate-review-v1/review.py --pdf /tmp/mini-moonboard-asme-b18-2-1-2012-review.pdf --reproduced FRESH_REPRODUCED_JSON --snapshot fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/catalog-hardware-strength-v1/shop-window-v1/intermediate-review-v1/source-files.json --out FRESH_REVIEW_JSON",
+    "dependencies": "Python standard library",
+    "force_fields": false,
+    "native": false,
+    "producer_overwrite": false,
+    "python_version": "3.12.3",
+    "repository_mutation_in_controls": false
+  },
+  "explicit_limits_preserved": [
+    "Nominal receiver-plus-plate dimensions and independent catalog boxes only.",
+    "No full smooth-bearing pass: saved minimum-body deficits remain 10.5156/10.5156/12.827 mm.",
+    "Actual thread/runout, active nut threads, coating, washer/fillet seating, thread-bearing resistance, new tip/tool/removal paths remain unknown.",
+    "No product adoption, force/strength/access transfer, fabrication or climbing release."
+  ],
+  "fresh_output_byte_identical": true,
+  "frozen_shop14_and_proposal4_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/access-sides.csv": "1593cb17a0f46e5490131a5653f36a9b5faee61e99f09770b9481581ce0cbda8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-stacks.csv": "632728ed64920a53538e8c6067b933ee7b9f338dfae33d3c22516c5cf3b1f352",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/README.md": "ba6462cafa1bbacefafbe1780fcd6ad0103c799960a2370d2a97c5e3c040b0f7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/analyze.py": "303df010f8f3f7546a6554a4af43dca79f34aa5c029917419274f37c46ce13ca",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/inputs.json": "82552d51ed132add7c8f7d966486c93989824de2c6e133892bde979e48d5fb70",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/result.json": "c3b1e839f0204862f5455d8b4b29bec024f2102fc42e573ba7528b4204d302d8",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums-inputs.json": "e8aace81ef3c0069839428c1007ffe0ae2dd69e63e8b23dbe5f5a68b02ee90b0",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums-result.json": "d8ce1edd41cc423f9f584bf15ee066919ca0fbb1bd0e046be910393772aa54a4",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.md": "54e0025255a7de1780e352835904a4f29ff7dfa903473be9ecc63774601cf6d0",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware-inputs.json": "e79af8082845b4255ba9b3d246b3c39b6afa9100c177b9cdb0052fa18c916041",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware-result.json": "173250f8c30a97be4db74534df431eed825f067529f7ea550c95b7369fc88d68",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.md": "fe20169f9241599e8098b1960a180b5fbc194961fed62385c9836f1762ea972a",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/member-end-datums.csv": "c38a8dff38aef1dc74c9eb54c0f9843f672b88a886582a3085e46104310ce5be",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/members.csv": "98dd8cf3bf74adf95a6a3a36fe7675f31cc61fd4d3018bf80ae11fbfb58a9f1d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/panel-screw-datums.csv": "5b19816c6623cc5f151e684e89d2623907f3b8551eee9b88b9056da74b184347",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/receiver-holes.csv": "0d3574fee9b56fcb2089ae6fa01c51ca1523d8ed793c22d8efd532759fc2b9e7"
+  },
+  "issued_result_sha256": "c3b1e839f0204862f5455d8b4b29bec024f2102fc42e573ba7528b4204d302d8",
+  "negative_controls": [
+    {
+      "control": "source",
+      "message": "changed source: docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json",
+      "rejected": true
+    },
+    {
+      "control": "axis",
+      "message": "current complete axis records differ",
+      "rejected": true
+    },
+    {
+      "control": "census",
+      "message": "current physical shaft census",
+      "rejected": true
+    },
+    {
+      "control": "release",
+      "message": "release changed",
+      "rejected": true
+    }
+  ],
+  "pack_total_usd": "55.94",
+  "primary_listing_review": [
+    {
+      "matching_specs_and_price": true,
+      "partially_threaded": true,
+      "price_usd_per10": "22.49",
+      "sku": "38WP04",
+      "url": "https://www.grainger.com/product/Hex-Head-Cap-Screw-Steel-38WP04"
+    },
+    {
+      "matching_specs_and_price": true,
+      "partially_threaded": true,
+      "price_usd_per5": "15.15",
+      "sku": "G0340956",
+      "url": "https://www.zoro.com/zoro-select-grade-5-12-13-hex-head-cap-screw-zinc-plated-steel-8-12-in-l-5-pk-n012000500850/i/G0340956/"
+    },
+    {
+      "access_limit": "Web exact URL and /i alias unavailable; direct HTTP403. Author reports an earlier primary observation of matching product/specs and $9.15 per ten; this reviewer cannot freshly reproduce that page. Pack arithmetic independently checked.",
+      "matching_specs_and_price": null,
+      "sku": "G0341148",
+      "url": "https://www.zoro.com/zoro-select-grade-5-38-16-hex-head-cap-screw-zinc-plated-steel-4-34-in-l-10-pk-n012000370475/i/G0341148/"
+    }
+  ],
+  "primary_standard_review": {
+    "limit": "Uncoated full-body hex cap screws only; finished zinc dimensions require applicable agreement; Lg is special ring-gage reach and Lb ends at last scratch/extrusion angle, neither is actual full-form thread onset.",
+    "locators": "Table12 printed21-22/PDF pages31-32 (indices30-31); Table13 printed23/PDF page33 (index32); sections1.3/1.5/4.7",
+    "pdf_sha256": "c3b36b05e45149816941ae0d3e3e17c808831ce4d93f9f082424d9ecebaaa0a6",
+    "visual_table_rows_and_definitions_match": true
+  },
+  "review_source_sha256": "8300ebe08ca1dff4e14dc786e2767f29139abe9041da8cae3fc4e27b50ec08a8",
+  "schema": "eoere_intermediate_bolt_independent_review/v1",
+  "source_map_canonical_sha256": "e312a385f2a525c2ee48e18133a3142e3e89138a681b06d3420cab9cf23b8047",
+  "source_pin_count": 879,
+  "spare_count": 11,
+  "status": "PASS_BOUNDED_SOURCE_CENSUS_AND_DIMENSION_REVIEW_WITH_ONE_LISTING_ACCESS_LIMIT"
+}

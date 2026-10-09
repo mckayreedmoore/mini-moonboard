@@ -1,0 +1,512 @@
+{
+  "active_retention": "Review source and compact result plus once-only replay remain in this ignored review path; existing frozen packet and all shared sources remain active; no archive/prune operation.",
+  "checks_already_observed": {
+    "command": "uv run pytest -q tests/test_washer_plate_response.py tests/test_reinforced_timber_resistance.py tests/test_thin_bolted_timber_common_shaft_checks.py",
+    "failed": 0,
+    "passed": 38
+  },
+  "cleat_raw_freebody": [
+    {
+      "case_id": "a12-rear",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 21.37288646522778,
+      "low_Y_external_force_n": -21.3728864652268,
+      "member": "eoere_cleat_left",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 21.37288646522778,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": 9.805489753489383e-13
+    },
+    {
+      "case_id": "a12-rear",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 11.83012519462494,
+      "low_Y_external_force_n": -11.8301251946413,
+      "member": "eoere_cleat_right",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 11.83012519462494,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": -1.6358470134036907e-11
+    },
+    {
+      "case_id": "a12-forward",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 27.768780491046186,
+      "low_Y_external_force_n": -27.768780490984227,
+      "member": "eoere_cleat_left",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 27.768780491046186,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": 6.195932655828074e-11
+    },
+    {
+      "case_id": "a12-forward",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 18.276998416073326,
+      "low_Y_external_force_n": -18.276998416067787,
+      "member": "eoere_cleat_right",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 18.276998416073326,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": 5.538680625249981e-12
+    },
+    {
+      "case_id": "a12-left",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 25.12031745556962,
+      "low_Y_external_force_n": -25.120317455669806,
+      "member": "eoere_cleat_left",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 25.12031745556962,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": -1.0018652574217413e-10
+    },
+    {
+      "case_id": "a12-left",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 22.095889753865833,
+      "low_Y_external_force_n": -22.095889753872047,
+      "member": "eoere_cleat_right",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 22.095889753865833,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": -6.213696224222076e-12
+    },
+    {
+      "case_id": "k12-right",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 23.72263423470168,
+      "low_Y_external_force_n": -23.722634234699665,
+      "member": "eoere_cleat_left",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 23.72263423470168,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": 2.014388655879884e-12
+    },
+    {
+      "case_id": "k12-right",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 25.143292056173024,
+      "low_Y_external_force_n": -25.14329205618384,
+      "member": "eoere_cleat_right",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 25.143292056173024,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": -1.0814460438268725e-11
+    },
+    {
+      "case_id": "k12-rear",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 12.40890841810048,
+      "low_Y_external_force_n": -12.408908418089178,
+      "member": "eoere_cleat_left",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 12.40890841810048,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": 1.1302958569103794e-11
+    },
+    {
+      "case_id": "k12-rear",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 21.478112309894627,
+      "low_Y_external_force_n": -21.47811230990351,
+      "member": "eoere_cleat_right",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 21.478112309894627,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": -8.881784197001252e-12
+    },
+    {
+      "case_id": "a1-rear",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 1.5763695679332423,
+      "low_Y_external_force_n": -1.5763695679430327,
+      "member": "eoere_cleat_left",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 1.5763695679332423,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": -9.79039072035448e-12
+    },
+    {
+      "case_id": "a1-rear",
+      "direct_crossplane_X_clamp_tie_n": 0.0,
+      "high_Y_external_force_n": 5.887042149848252,
+      "low_Y_external_force_n": -5.887042149860109,
+      "member": "eoere_cleat_right",
+      "minimum_bore_edge_to_plane_mm": 20.24062499999999,
+      "necessary_tension_n": 5.887042149848252,
+      "other_external_table_census": {
+        "attachment_actions": 0,
+        "body_applied_loads": 1,
+        "contact_actions": 29,
+        "floor_actions": 0,
+        "panel_screw_actions": 0,
+        "retained_bolt_actions": 0
+      },
+      "raw_report_force_max_error_n": 0.0,
+      "whole_Y_residual_n": -1.1857181902996672e-11
+    }
+  ],
+  "confirmed_blockers": [],
+  "frozen_or_shared_paths_written_staged_committed_or_pruned": false,
+  "frozen_packet_sha256_before_after": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md": "5940ec7ca4bcbbe260527d311cec29766c7170bbda637c1404cd3fcf33061491",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/analyze.py": "8bffd53e9e730e63db2f041a10626edb002cba7034af118d6dc9bdf3fed69ae3",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/inputs.json": "ae2c65447ed9a0b628dd25b52573f4c04eca58bc6f2b2657ee0a6f88a69a6bd7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/result.json": "ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/verification.json": "8abeea98cab6801ec3135f4633783b7b1d63a38f807384756dcf8cbcf7ea5ecc"
+  },
+  "heel_scalar_boundary_original_method_ratio": 1.0000000000000002,
+  "member_census": {
+    "50b_scenario_domains_all_entered": true,
+    "actual_bracing_qualified": false,
+    "case_members": 132,
+    "same_cut_samples": 23844,
+    "weak_column_domain_members": [
+      "base_header",
+      "base_principal_center_left",
+      "base_principal_center_right",
+      "base_rail_top"
+    ]
+  },
+  "native_global_response_or_actual_geometry_rebuild": false,
+  "negative_fixtures": {
+    "added_contact_Y_force": "unaccounted cleat Y action",
+    "intersected_bore": "cut crosses bore support",
+    "missing_or_reversed_raw_force": "report misses or reverses an own external force",
+    "opening_sign_reversal": {
+      "necessary_integrated_Y_tension_under_fixed_actions_n": 0.0,
+      "signed_external_Y_on_high_portion_n": -100.0
+    },
+    "tampered_field_rejected_by_original_admission": "source-bound actual fixed-floor field/receipt pair required"
+  },
+  "net_section_census": {
+    "bending_torsion_continuous_minimum_or_fracture_disposed": false,
+    "changed_members": 8,
+    "fixed_old_case_bounds": 594,
+    "max_necessary_axial_average_reference": 0.016661665003103093,
+    "max_necessary_shear_average_reference": 0.11272160349492806,
+    "planes": 99
+  },
+  "nominal_washer_thickness_census_per_case": [
+    {
+      "2.032": 16,
+      "2.6416": 176,
+      "3.175": 8
+    },
+    {
+      "2.032": 16,
+      "2.6416": 176,
+      "3.175": 8
+    },
+    {
+      "2.032": 16,
+      "2.6416": 176,
+      "3.175": 8
+    },
+    {
+      "2.032": 16,
+      "2.6416": 176,
+      "3.175": 8
+    },
+    {
+      "2.032": 16,
+      "2.6416": 176,
+      "3.175": 8
+    },
+    {
+      "2.032": 16,
+      "2.6416": 176,
+      "3.175": 8
+    }
+  ],
+  "original_heel_known_answers": {
+    "command": ".venv/bin/python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/test_core.py",
+    "curved_pure_bending_force_moment_recovery": true,
+    "same_point_wrench_and_net_centroid_torque_transport": true,
+    "status": "PASS_CHEAP_ANALYTICAL_KNOWN_ANSWERS"
+  },
+  "original_replay": {
+    "byte_identical": true,
+    "details_sha256": "4015a163e71e95ab421760786ffa978112a572b656edc3b1f5c3c6f4ef3d8280",
+    "result_sha256": "ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda",
+    "runs": 1
+  },
+  "own_report_field_links": [
+    {
+      "case_id": "a12-rear",
+      "own_field_pin": true,
+      "report_kind": "shafts"
+    },
+    {
+      "case_id": "a12-rear",
+      "own_field_pin": true,
+      "report_kind": "steel"
+    },
+    {
+      "case_id": "a12-rear",
+      "own_field_pin": true,
+      "report_kind": "timber"
+    },
+    {
+      "case_id": "a12-rear",
+      "own_field_pin": true,
+      "report_kind": "washers"
+    },
+    {
+      "case_id": "a12-forward",
+      "own_field_pin": true,
+      "report_kind": "shafts"
+    },
+    {
+      "case_id": "a12-forward",
+      "own_field_pin": true,
+      "report_kind": "steel"
+    },
+    {
+      "case_id": "a12-forward",
+      "own_field_pin": true,
+      "report_kind": "timber"
+    },
+    {
+      "case_id": "a12-forward",
+      "own_field_pin": true,
+      "report_kind": "washers"
+    },
+    {
+      "case_id": "a12-left",
+      "own_field_pin": true,
+      "report_kind": "shafts"
+    },
+    {
+      "case_id": "a12-left",
+      "own_field_pin": true,
+      "report_kind": "steel"
+    },
+    {
+      "case_id": "a12-left",
+      "own_field_pin": true,
+      "report_kind": "timber"
+    },
+    {
+      "case_id": "a12-left",
+      "own_field_pin": true,
+      "report_kind": "washers"
+    },
+    {
+      "case_id": "k12-right",
+      "own_field_pin": true,
+      "report_kind": "shafts"
+    },
+    {
+      "case_id": "k12-right",
+      "own_field_pin": true,
+      "report_kind": "steel"
+    },
+    {
+      "case_id": "k12-right",
+      "own_field_pin": true,
+      "report_kind": "timber"
+    },
+    {
+      "case_id": "k12-right",
+      "own_field_pin": true,
+      "report_kind": "washers"
+    },
+    {
+      "case_id": "k12-rear",
+      "own_field_pin": true,
+      "report_kind": "shafts"
+    },
+    {
+      "case_id": "k12-rear",
+      "own_field_pin": true,
+      "report_kind": "steel"
+    },
+    {
+      "case_id": "k12-rear",
+      "own_field_pin": true,
+      "report_kind": "timber"
+    },
+    {
+      "case_id": "k12-rear",
+      "own_field_pin": true,
+      "report_kind": "washers"
+    },
+    {
+      "case_id": "a1-rear",
+      "own_field_pin": true,
+      "report_kind": "shafts"
+    },
+    {
+      "case_id": "a1-rear",
+      "own_field_pin": true,
+      "report_kind": "steel"
+    },
+    {
+      "case_id": "a1-rear",
+      "own_field_pin": true,
+      "report_kind": "timber"
+    },
+    {
+      "case_id": "a1-rear",
+      "own_field_pin": true,
+      "report_kind": "washers"
+    }
+  ],
+  "physical_census": {
+    "angles": 22,
+    "bolts": 100,
+    "cases": 6,
+    "current_changed_members": 8,
+    "screws": 66,
+    "timbers": 22
+  },
+  "review_scope": "Fixed old authenticated actions/current local geometry sensitivity; no current response, resistance acceptance, actual hardware or bracing pass.",
+  "review_source_sha256": "84f896bb587b1d33eb376e57b89b18500eeaa64b97ca394dd3577017ed14e628",
+  "schema": "eoere_bounded_strength_independent_review/v1",
+  "signed_annulus_equilibrium_fixtures": [
+    {
+      "full_contact_admissible": true,
+      "integrated_N_Mx_My": [
+        100.0,
+        120.00000000000003,
+        -159.99999999999997
+      ],
+      "signed_moment_xy_Nmm": [
+        120.0,
+        -160.0
+      ]
+    },
+    {
+      "full_contact_admissible": true,
+      "integrated_N_Mx_My": [
+        100.0,
+        -120.0,
+        160.00000000000003
+      ],
+      "signed_moment_xy_Nmm": [
+        -120.0,
+        160.0
+      ]
+    },
+    {
+      "full_contact_admissible": true,
+      "integrated_N_Mx_My": [
+        99.99999999999999,
+        312.50000000000006,
+        2.853273173286652e-14
+      ],
+      "signed_moment_xy_Nmm": [
+        312.5,
+        0.0
+      ]
+    },
+    {
+      "full_contact_admissible": false,
+      "integrated_N_Mx_My": [
+        99.99999999999999,
+        313.00000000000006,
+        2.919886554764162e-14
+      ],
+      "signed_moment_xy_Nmm": [
+        313.0,
+        0.0
+      ]
+    }
+  ],
+  "source_union": {
+    "canonical_sha256": "68f660bcf8720f7548464cb1f2991959a0a97aaef0a50eea0d7bbb35b892a5a5",
+    "pins": 1065,
+    "verified_before_after": true
+  },
+  "status": "PASS_BOUNDED_METHOD_AND_REPORTING_REVIEW_NO_CONFIRMED_BLOCKER"
+}

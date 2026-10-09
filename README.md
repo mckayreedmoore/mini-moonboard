@@ -29,7 +29,9 @@ component/joint records pass source and numerical review; reference exceedances
 and null complete joint resistance remain recorded. The owner stopped further
 panel/screw remedies. The [earlier eoere A12 viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-development&view=rear)
 and its evidence remain preserved separately.
-The [development contract](eoere-bolted-candidate.json) remains separate from
+The [original Eoere proposal contract](eoere-bolted-candidate.json) binds the
+earlier `eoere-far-pairs-cleat-corners-v1` geometry; use the development summary
+and latest geometry receipt for subsequent revisions. It remains separate from
 the selected baseline. No physical floor capacity, fabrication or climbing
 release is established.
 
@@ -40,6 +42,12 @@ dimensions, tools and actual observations stay explicit; coherent documentation
 does not supply the model's unknown complete joint capacities. Its original
 cleat profiles, wire-cut coordinates and six-case findings do not evaluate the
 subsequent trim or aligned passages.
+
+Builder-support work starts with the
+[drilling and fixture development guide](docs/wood-joints-mvp/eoere-builder-drilling-guide.md).
+It distinguishes single-timber bracket drilling from proposed matched-part
+setups for the 20 two-timber axes. Finished fixture drawings, drill-bit
+instructions, tool paths and manufacturing tolerances remain unresolved.
 
 ## Preserved wood-joint studies
 

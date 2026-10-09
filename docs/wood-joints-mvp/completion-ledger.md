@@ -2,6 +2,137 @@
 
 ## Current model-completion scope and qualification status
 
+**Owner-directed builder-support continuation:** The
+[drilling and fixture development guide](eoere-builder-drilling-guide.md)
+records the current aligned-wire geometry's 100-shaft receiver census: 80
+single-timber and 20 two-timber axes, including all twelve starting frame
+bolts. Proposed matched-part fixtures preserve all bolt/screw axes and current
+trimmed cleats; no cutting/drilling tolerance, bit selection, tool-access pass
+or complete joint qualification is added. The first active target is a
+representative leg/runner/side drawing and fixture concept. Frozen raised-rail
+shop tables remain unchanged and are not current trimmed-cleat cut templates.
+No native/CAD execution, physical work or archive/prune is commissioned here.
+
+The first builder corner now has a source-bound
+[overview](eoere-builder-drawings/leg-corner-overview.svg), three 190 × 260-mm
+nominal layout sheets and an expanded [operation guide](eoere-builder-drilling-guide.md#first-corner-pull-saw-layout-and-paired-drilling).
+The owner's tool policy is circular saw, handheld drill, clamps and pull saw,
+with the pull saw preferred for 4×6 end cuts. The standard-library helper reads
+five saved records and checks three finished-body hashes against the current
+aligned-wire receipt. Eight pins, raw face/cut datums and four original bolt
+axes are retained in [drawing data](eoere-builder-drawings/leg-corner-data.json).
+The lower runner/leg seat crosses 38.1 + 50.8 = 88.9 mm of timber; the upper
+side/leg pair crosses 88.9 + 88.9 = 177.8 mm. R1/R2 have 44.365-mm diagonal
+spacing and U1/U2 56 mm; paper target rings do not select drill diameters.
+Digital renders are presentation checks only. Physical print scaling, saw
+kerf/back-spine clearance, long-bit/guide travel, cradle/clamp geometry and
+cut/hole tolerances remain unverified. Next: the recess cutting/finishing method
+and dimensioned supported drilling fixture. Retain these compact drawing inputs,
+helper and five outputs; rendered previews are temporary. No archive/prune,
+new native/CAD execution, physical trial or build release is added.
+
+Drawing helper SHA256 is
+`320a03a002d125705b18730f4d06d56fe2a8c6bd660823cd8f447d83ece2b4a9`;
+data SHA256 is
+`c002531f6e10a3611687c308e52db6fe1025bcffac15912b925d361a97ec8a3a`.
+The helper plus five generated files total 49,941 bytes. Reproduce/check with
+`.venv/bin/python -B docs/wood-joints-mvp/eoere-builder-drawings/leg-corner.py --check`.
+That saved-coordinate replay passes, as do independent inversion of all six
+paper-sheet target centers, both 100-mm scale bars, physical SVG page dimensions,
+affected-page local links, Ruff error checks and `git diff --check`. Shared
+Sharp renders were visually inspected without adding an installation or
+retaining raster previews. These checks verify digital drawings only.
+
+Three independent drawing reviews found no confirmed issues within the nominal
+layout, saved-coordinate reproduction and document-ownership scopes. Their
+compact receipts in `builder-drawings-review-v1` are:
+
+| Review | Receipt SHA256 |
+| --- | --- |
+| Saved geometry and operation text, `correctness.json` | `92d0df5c2f15d060ebdae28489e04e1627285c5583d47bcedf9631a1e927bcd0` |
+| Digital verification and rejection controls, `verification.json` | `8cb3f0872f9f7c766e6f847ef00c721ae0527f7b24c22d70d40c4f4664fcfed2` |
+| Sources, reuse and reading boundaries, `structure.json` | `6dac76be0730c327e468cafbded0be210edaf955b3031b2728bc0b1cb8e2cc67` |
+
+The reviews verify all seven frozen builder files, eight source pins, 26 raw
+vertices, four axes/eight receiver occurrences and six paper targets. Independent
+digital target errors are below 0.00005 mm; this is numerical reproduction
+precision, not a woodworking tolerance. The negative controls reject changed
+source-pin digests, paper target positions and receiver coordinates. Retain the seven builder files
+(67,289 bytes) and three compact review receipts (21,633 bytes). Actual print
+scale, recess finishing, tool travel, fixture restraint and tolerances remain
+unverified. No new physical qualification or geometry change follows.
+
+The separate procurement followup is
+[bolt-window-followup-v1/result.json](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/result.json),
+SHA `c3b1e839f0204862f5455d8b4b29bec024f2102fc42e573ba7528b4204d302d8`.
+It preserves all 100 issued axes and recipes, verifies 879 pins and screens 96
+catalog-box corners for 24 unadopted 4¾/6½/8½-inch Grade 5 proposals. Nominal
+length/gage comparisons clear; smooth-body/thread regions, finished zinc,
+seating, longer tips and tool/removal paths remain unresolved. The extra nominal
+tips are 6.35/12.7/12.7 mm, respectively. No hardware adoption, geometry change,
+actual delivered fit or strength pass follows; the old 24 short comparisons
+remain. The parent owns the underlying source review and receiving feasibility.
+
+Independent bolt-window review is complete:
+`catalog-hardware-strength-v1/shop-window-v1/intermediate-review-v1/result.json`,
+SHA `c7ee728638c3b4aa79989925aaf927826784cba3b6bad4024be704335a850fbc`.
+The exact replay, 879 pins, complete 100-axis join, all 24 original short rows,
+96 independently calculated decimal corners and four rejection controls pass.
+The original fourteen shop files and four proposal files remain unchanged.
+Two product pages were freshly reverified; the first listing retains an earlier
+primary-page observation with a subsequent access limit. The observed pack
+arithmetic of $55.94 covers the 24 proposed replacement bolts and eleven spares,
+before freight/tax; it is not a verified order or an adopted basket. The separate
+[source-access supplement](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/source-access.json),
+SHA `16ab3848f90f243e306e3cfaa4687b64955f56fe9adc9a28550d7437e61c2de1`,
+preserves that limit and the ASME printed/PDF page convention. Delivered
+thread/runout, coated dimensions, seating and longer-tip/tool access remain open.
+
+**Four owner-requested bounded strength studies are complete:** the
+[existing packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md)
+reuses the authenticated old raised-rail actions and current local geometry.
+Its compact result SHA is
+`ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda`;
+independent `bounded-strength-review-v1/review-result.json` is SHA
+`46bc5fa29f34f804bd4c79cc8e7ee793de85230ccefaecf18254b0c2f0e8badd`.
+No confirmed blocker remains within this sensitivity/reporting scope.
+
+| Study | Usable result and remaining limit |
+| --- | --- |
+| Timber bolts and splitting | Unadjusted single-bolt maximum remains 0.699104; eight mixed/shared stacks per case remain unqualified. All twelve cleat/case opening-force bounds are positive, 1.576–27.769 N. The X clamps do not directly tie across that Y-normal plane. Oblique-end, group and splitting resistance remain unresolved. |
+| Bracket heel | t6.35/Ri6.35 retains 0.998300, only 0.17% reference margin. At fixed radius/actions the scalar thickness boundary is 6.343792 mm. This is not a receiving limit or actual formed-heel resistance. |
+| Washers and timber seats | Axial-only required washer Fy reaches 72.773 MPa nominal and 156.176 MPa at catalog corners. Declared full-contact rings allow 2.783–3.709 mm eccentricity before tensile pressure; this supplies no physical moment capacity or combined resistance. |
+| Member stability and net sections | Gross normal/shear comparisons remain 0.526047/0.977592. Four long members need justified weak-column effective lengths no greater than 1905 mm to enter the recorded domain. Ninety-nine cached section planes quantify local area/average-force sensitivities; net bending, torsion, concentration and fracture remain open. |
+
+The independent review reproduces the exact compact/detail digests and all
+1,065 pins, independently sums every cleat's raw free body, checks signed
+annulus force/moment closure and rejects altered forces, intersected bore
+supports and tampered fields. Thirty-eight affected tests, the original heel
+known answers and owned-source lint/format checks pass. It preserves all five
+issued study files. These are fixed-old-action calculations: changed mass,
+stiffness and redistribution are unknown. No matching revised response,
+installed brace, complete joint strength or physical release is established.
+The owner-stopped panel/screw remedies remain stopped.
+
+Retain the five bolt-proposal files (167,214 bytes), five strength-study files
+(170,430 bytes), bolt review helper/snapshot/receipt (26,757 bytes) and strength
+review helper/receipt (36,521 bytes) as compact reproducible evidence. The
+existing source consumers, cached sections, detailed rows, failed/superseded
+attempts and once-only review replays remain active in their ignored output
+paths. The separate resistance followup is still owned by its producer and is
+not included in these frozen results. No archive or prune is performed; earlier
+verified recovery entries remain applicable to their original source sets.
+
+Parent publication validation covers 25 new compact files totaling 489,844
+bytes and four maintained documentation entrypoints. The saved results, source
+maps and review helpers are retained to reproduce the comparisons and rejection
+controls; no raw fields, meshes, detailed runs or dependencies are added. All
+671 local destinations and 50 Markdown fragments in the staged seven pages
+resolve. Staged JSON/Python syntax, exact owned-file bytes, seven builder review
+bindings, affected calculation lint and whitespace checks pass. Unrelated
+midpoint/viewer work is preserved outside this publication. These checks do not
+replace the recorded repository-wide failures or establish physical acceptance.
+
 The **raised-rail conditional numerical MVP and nominal shop/assembly packet
 are published at `2cab2be5`**. The owner's latest geometry direction trims both
 exterior cleats along the sloping side rear edges, retaining full thickness and
@@ -13,7 +144,7 @@ shifting the center principal remains unadopted. The preceding
 reporting scope was finishing and publishing the conditional numerical MVP
 and remaining nominal shop/assembly documentation. All six
 loaded cases are complete. Reuse frozen evidence, retain exceedances and
-unknown resistance, and stop panel/screw remedies. Complete hardware/receiving,
+unknown resistance, and stop panel/screw remedies. The completed packet records hardware/receiving,
 100-bolt/200-side access dispositions, cut/hole datums and missing tolerances,
 assembly/removal instructions and BOM/cost/mass limits. Physical testing and
 engineer approval are excluded; Actual/Disposition cells stay blank.
@@ -2032,14 +2163,47 @@ objective replaces the older strength-resolution/full-build scope preserved
 below. Its completion criterion is coherent independently reviewed reporting,
 instructions and publication, with actual observations blank.
 
-| Current workstream | Source-bound deliverable | Reporting completion criterion |
+| Preserved raised-rail workstream | Source-bound deliverable | Reporting completion criterion |
 | --- | --- | --- |
 | Six-case numerical evaluation | [Compact six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json), authenticated fields and component/joint reviews | Complete: all six own cases, retained exceedances, 24 null full joint resistances and explicit method/support limits. No additional strength-pass solve. |
 | Heel assumptions | Original 528-row study and separate owner-requested t6.35/Ri6.35 supplement | Complete: both frozen scenarios, narrow nominal margin, source/fixture reviews and unresolved physical applicability are recorded separately. |
-| Nominal cuts and holes | Current 22-member profiles/datums, 120 receiver occurrences, six panels and 66 screw axes | Complete nominal reporting: current identities/coordinates, four moved screws/sixteen moved stacks and missing manufacturing tolerances are reviewed; no baseline cut-sheet acceptance transfers. |
+| Nominal cuts and holes | Preserved raised-rail 22-member profiles/datums, 120 receiver occurrences, six panels and 66 screw axes | Complete nominal reporting for that revision: identities/coordinates, four moved screws/sixteen moved stacks and missing manufacturing tolerances are reviewed; no baseline cut-sheet acceptance transfers. |
 | Hardware and access | 100 physical stacks, 200 head/nut sides, receiving equations and observed-price limits | Complete nominal reporting: every stack/side has a disposition; tools, threads, seats and continuous paths remain explicitly unverified. Actual observations stay blank. |
-| Assembly, removal and procurement | [Current shop/assembly guide](eoere-shop-assembly-guide.md), individual-part accounting and cost/mass scope | Complete nominal reporting: reviewed dependency order, receiving instructions and cost/mass limits; old B103/block routes supply no current acceptance. No physical test or external approval gate. |
+| Assembly, removal and procurement | [Preserved raised-rail shop/assembly guide](eoere-shop-assembly-guide.md), individual-part accounting and cost/mass scope | Complete nominal reporting for that revision: reviewed dependency order, receiving instructions and cost/mass limits; old B103/block routes supply no current acceptance. No physical test or external approval gate. |
 | Review and publication | Saved-source checks, independent reviews, shared repository checks and compact artifacts | Complete at `2cab2be5`: reporting, reviews, retention and normal master publication; actual repository-wide failures are recorded. |
+
+**Builder documentation audit:** Reviewed the repository README, baseline
+entrypoints, active Eoere summary and ledger, preserved shop guide, hardware and
+cut-datum companions, and new builder-support guide against the current
+aligned-wire and trimmed-cleat receipts. The original Eoere proposal contract
+remains bound to its original revision; the current entrypoint now says so.
+No frozen contract, issued shop file, geometry or numerical receipt was changed.
+
+| Finding | Disposition and next action |
+| --- | --- |
+| Some active-summary links described the preserved raised-rail shop packet as current, although two cleats and six rail passages changed afterward. | Corrected revision labels and added one active builder reading path. Current operation drawings must use the latest profiles; unchanged shaft identities do not make old cut templates current. |
+| The summary's generic engineering-reading and purchasing sections led to WJ24's 44 timbers, 104/108 axes and 47 criteria. | Explicitly labeled those sections as preserved WJ24 reading, retaining their headings, links and records. |
+| The 218.912854-kg mass could be read as the latest revision's inventory. | Labeled it as the preserved raised-rail estimate; a reconciled trimmed/aligned inventory remains missing. No replacement mass was invented. |
+| Nominal reporting completion can be mistaken for a usable fabrication method. | Retain proposed-method status. Develop face-specific operation drawings, datum/handedness labels, drill selection, guide travel, cut/hole tolerances and acceptance checks for one paired corner first. No operation is qualified by this audit. |
+| Current tool and removal access is unverified at all 200 head/nut sides. | Keep those dispositions. Fixture/drilling access and wrench/counterhold/removal access need separate checks; old 140-side passes do not transfer. |
+| The lower bore/screw gap is only 0.340625 mm, and 24 catalog-box stack comparisons are short. | Keep these explicit fit constraints. Templates do not supply a tolerance budget; the separate procurement followup owns length/shank/thread feasibility. No axis or recipe change is adopted. |
+| Local evidence links include retained ignored inputs; hosted availability is not equivalent to local existence. | All 671 local links and Markdown anchors in the nine audited pages resolved before these navigation edits. Forty-two distinct file targets were locally present but untracked, including the new guide and retained ledger evidence. Use existing archive/recovery entries for ignored evidence; no missing current published-table link was found. External website availability was not tested. |
+
+Both issued source-only checks passed:
+`.venv/bin/python -B docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py --check`
+and the sibling `hardware.py --check`. They verified saved bytes/pins and
+coordinate joins, not current manufacturing or strength. Counts reconcile:
+100 unique stacks, 200 access sides, 120 receiver occurrences, 66 screw axes,
+22 installed angles/six four-packs and 100 nuts/200 washers. Actual cells remain
+blank. The current geometry independently gives 80 single-timber and 20
+two-timber shafts, with both leg families transverse. Active work remains the
+builder guide's paired-corner drawing/fixture target and the separate procurement
+followup; historical packets remain retained, with no archive/prune proposed.
+After the edits, all 686 local links/Markdown anchors in the same nine pages
+resolve and `git diff --check` passes. SHA256 comparison preserves all 14 issued
+shop files, the shop guide, both later geometry receipts, the six-case receipt
+and original Eoere contract: 19 files unchanged. No external browser, CAD or
+native-mechanics check was run for this documentation audit.
 
 **Subsequent owner-directed geometry:** trim both exterior 2×6 cleats to the
 sloping rear edges of the 4×6 sides. Keep the full 38.1-mm thickness, existing

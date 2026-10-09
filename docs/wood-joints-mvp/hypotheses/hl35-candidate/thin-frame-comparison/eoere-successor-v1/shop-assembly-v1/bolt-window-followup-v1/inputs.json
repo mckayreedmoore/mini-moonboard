@@ -1,0 +1,107 @@
+{
+  "schema": "eoere_intermediate_bolt_dimension_inputs/v1",
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "geometry_revision": "eoere-grid-aligned-wire-cutouts-v1",
+  "sources": {
+    "current_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json",
+      "sha256": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5"
+    },
+    "hardware_method": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py",
+      "sha256": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef"
+    },
+    "hardware_result": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware-result.json",
+      "sha256": "173250f8c30a97be4db74534df431eed825f067529f7ea550c95b7369fc88d68"
+    },
+    "hardware_table": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-stacks.csv",
+      "sha256": "632728ed64920a53538e8c6067b933ee7b9f338dfae33d3c22516c5cf3b1f352"
+    }
+  },
+  "standard_transcription": {
+    "url": "https://www.wanhong-fastener.com/wp-content/uploads/2025/04/ASME-B18.2.1-2012.pdf",
+    "pdf_sha256": "c3b36b05e45149816941ae0d3e3e17c808831ce4d93f9f082424d9ecebaaa0a6",
+    "locators": "Table 12 printed21-22/PDF30-31; Table13 printed23/PDF32; sections1.3 and4.7",
+    "verified_against_existing_pdf": true,
+    "scope": "2012 full-body hex cap screw dimensional comparison for uncoated parts. Vendor listing does not establish finished zinc dimensions or a particular lot. Lg is grip gaging length, not actual first full-form thread; Lb is the minimum smooth body length. Nominal thread length is a calculation reference. No actual thread-bearing or nut active-thread interval is supplied."
+  },
+  "products": [
+    {
+      "old_sku": 368,
+      "quantity": 16,
+      "receiver_plus_plate_mm": 95.25,
+      "merchant": "Zoro",
+      "sku": "G0341148",
+      "manufacturer_part": "N01200.037.0475",
+      "url": "https://www.zoro.com/zoro-select-grade-5-38-16-hex-head-cap-screw-zinc-plated-steel-4-34-in-l-10-pk-n012000370475/i/G0341148/",
+      "diameter_in": 0.375,
+      "nominal_length_in": 4.75,
+      "length_tolerance_minus_in": 0.10,
+      "Lg_max_in": 3.75,
+      "Lb_min_in": 3.44,
+      "listed_minimum_thread_length_in": 1.0,
+      "partially_threaded": true,
+      "material_standard": "SAE J429 Grade5",
+      "dimensional_standard": "ASME B18.2.1 (listing does not name edition)",
+      "pack_quantity": 10,
+      "observed_pack_price_usd": 9.15
+    },
+    {
+      "old_sku": 371,
+      "quantity": 4,
+      "receiver_plus_plate_mm": 133.35,
+      "merchant": "Grainger",
+      "sku": "38WP04",
+      "manufacturer_part": "N01200.037.0650",
+      "url": "https://www.grainger.com/product/Hex-Head-Cap-Screw-Steel-38WP04",
+      "drawing_url": "https://www.grainger.com/ec/pdf/grainger-38wp04.pdf",
+      "diameter_in": 0.375,
+      "nominal_length_in": 6.5,
+      "length_tolerance_minus_in": 0.18,
+      "Lg_max_in": 5.25,
+      "Lb_min_in": 4.94,
+      "listed_minimum_thread_length_in": 1.25,
+      "partially_threaded": true,
+      "material_standard": "SAE J429 Grade5",
+      "dimensional_standard": "ASME B18.2.1 (listing does not name edition)",
+      "pack_quantity": 10,
+      "observed_pack_price_usd": 22.49
+    },
+    {
+      "old_sku": 407,
+      "quantity": 4,
+      "receiver_plus_plate_mm": 177.8,
+      "merchant": "Zoro",
+      "sku": "G0340956",
+      "manufacturer_part": "N01200.050.0850",
+      "url": "https://www.zoro.com/zoro-select-grade-5-12-13-hex-head-cap-screw-zinc-plated-steel-8-12-in-l-5-pk-n012000500850/i/G0340956/",
+      "diameter_in": 0.5,
+      "nominal_length_in": 8.5,
+      "length_tolerance_minus_in": 0.18,
+      "Lg_max_in": 7.0,
+      "Lb_min_in": 6.62,
+      "listed_minimum_thread_length_in": 1.5,
+      "partially_threaded": true,
+      "material_standard": "SAE J429 Grade5",
+      "dimensional_standard": "ASME B18.2.1 (listing does not name edition)",
+      "pack_quantity": 5,
+      "observed_pack_price_usd": 15.15
+    }
+  ],
+  "price_scope": "Primary listing observations October8MDT/October9UTC2026, before freight/tax; not inventory, a quote or an order. Only these24 proposed replacement bolts, without updating the full hardware basket or adopting any product.",
+  "limits": [
+    "All100 current axis records must exactly equal the issued raised-rail records before reusing their scalar stack dimensions.",
+    "The comparison keeps nominal receiver-plus-plate thickness and the existing matching catalog nut/washer dimension boxes. Actual timber, bracket, washer, coating and nut dimensions remain unknown.",
+    "Full smooth bearing, actual thread/runout profile, active nut thread interval, fillet/washer fit, new tip/tool/removal clearance and resistance remain unverified.",
+    "Longer bolt proposals change occupied tips and required withdrawal; report before any geometry adoption. No packing, altered washers, cut bolts or full-thread substitution is adopted."
+  ],
+  "release": {
+    "hardware_adoption": false,
+    "delivered_fit": false,
+    "strength": false,
+    "fabrication": false,
+    "climbing": false
+  }
+}

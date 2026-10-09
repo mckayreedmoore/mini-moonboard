@@ -7,7 +7,49 @@ folder also preserves earlier wood-joint and bracket studies. Start here for
 the current engineering record. The selected screw-and-bracket baseline remains a separate
 [preserved reference](../../current-candidate.json); its passes do not transfer.
 
+## Active builder reading path
+
+| Need | Record and revision boundary |
+| --- | --- |
+| Latest frame and service geometry | [Aligned-wire viewer](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear) and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json): current trimmed cleats and revised passages; geometry evidence only. |
+| Drilling setups, fixtures and templates | [Builder-support guide](eoere-builder-drilling-guide.md): proposed methods, unresolved tool access/tolerances and next drawing target. |
+| Assembly dependencies and nominal hardware | [Preserved raised-rail shop guide](eoere-shop-assembly-guide.md): unchanged shaft identities/recipes are useful; its untrimmed profiles and old wire cuts are not current templates. |
+| Numerical findings | [Six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json): preserved untrimmed raised-rail geometry, reference exceedances and null complete joint resistance. |
+| Local strength followups | [Four bounded studies](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md): old admitted actions held fixed for current local geometry; complete joint resistance remains unresolved. |
+| Documentation gaps and evidence recovery | [Completion ledger](completion-ledger.md#build-package-completion): current builder work, frozen reporting scope and separate subsequent revisions. |
+
 ## Current disposition
+
+Owner-directed builder-support work now starts with the
+[drilling and fixture development guide](eoere-builder-drilling-guide.md).
+The current 100-axis census has 80 single-timber and 20 two-timber shafts;
+the latter include both two-bolt leg connection families. Matched-part drilling
+and fixture methods are proposals with tool access and tolerances unresolved.
+Keep current geometry and frozen shop/evidence packets; this work does not
+assert structural qualification. The first [leg/runner/side overview](eoere-builder-drawings/leg-corner-overview.svg)
+and three 190 × 260-mm printable nominal layout sheets now use the owner's
+pull-saw/handheld-drill/clamp policy. Eight source hashes bind the three unchanged
+members and four bolt axes. Lower timber grip is 88.9 mm; upper grip is 177.8 mm.
+Next: complete the tapered-recess operation, identify actual tool/bit envelopes
+and dimension the supported drilling fixture/tolerances, then repeated families.
+
+The separate [bolt-window followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/bolt-window-followup-v1/result.json)
+screens unadopted 4¾/6½/8½-inch partially threaded Grade 5 proposals for the 24
+tight catalog comparisons. Only nominal length/gage boxes clear; delivered body,
+threads, coating, seating, longer-tip/tool access and strength remain unresolved.
+Current bolt recipes and geometry stay unchanged.
+
+The [four bounded strength studies](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md)
+are complete and independently reviewed. They reproduce the old six-case
+actions and quantify local sensitivities to the trimmed cleats and revised
+rail cuts; they do not calculate a matching revised frame response. The cleat
+opening-force bound reaches 27.769 N, the nominal heel comparison retains only
+0.17% margin, and four long members need justified restraint assumptions.
+Washer/contact and finished-member resistance also remain incomplete. The
+[ledger](completion-ledger.md#current-model-completion-scope-and-qualification-status)
+records the review, source bindings and active evidence. Further applicable
+resistance work is a separate followup; no hardware or geometry change follows
+from these studies.
 
 **Current geometry aligns 30 wire passages on six rails to the original grid
 columns, retaining the two already-aligned center-upright passages.** The
@@ -16,7 +58,7 @@ and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-suc
 form the distinct `eoere-grid-aligned-wire-cutouts-v1` revision. Six raw rails
 are recut rather than retaining their old channels; 30 rounded routes change.
 All 132 LED endpoints, 131 links, the two connector-bearing links, 100 bolt
-positions and 66 screw axes remain unchanged. Actual rail/route geometry,
+positions and 66 screw axes remain unchanged. Saved CAD rail/route geometry,
 nominal interference, bore and screw backing, mesh and browser checks pass.
 The passages have a 20.427677-mm nominal front width and 14.35-mm rear depth;
 the cable center remains at N8 with the recorded 8-mm fillets. These are CAD
@@ -30,7 +72,7 @@ The preceding geometry step trims both exterior 2×6 cleats to the sloping sides
 rear edges, with full 38.1-mm thickness and all bolt positions retained.
 The [trimmed-cleat viewer](../../site/index.html?model=eoere-bolted-trimmed-cleats-development&view=rear)
 and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json)
-form a distinct `eoere-rear-trimmed-cleats-v1` revision. Actual saved CAD,
+form a distinct `eoere-rear-trimmed-cleats-v1` revision. Saved CAD,
 independent output review, genuine mesh checks and front/rear browser navigation
 pass their geometric/display checks. Only two cleat solids change; 26 other
 wood/panel bodies, all 100 bolt axes and all 66 screw axes remain unchanged.
@@ -47,18 +89,18 @@ packet are published at `2cab2be5`.** Their source bytes, results, cut profiles
 and reviews stay frozen; their six-case calculations do not evaluate the new
 cleat geometry. The completed reporting scope retains exceedances and unknown
 resistance. The owner-directed scope was to finish and publish that packet. The
-six-case evaluation is complete. Reuse its frozen evidence, retaining
-exceedances and unknown resistance; stop panel/screw remedies and preserve
-backer/cross-support proposals as unadopted studies. Complete the current
-hardware/receiving guidance, 100-bolt/200-side access dispositions, cut/hole
-datums and missing tolerances, assembly/removal order and BOM/cost/mass limits.
+six-case evaluation is complete. Its frozen evidence retains
+exceedances and unknown resistance; panel/screw remedies are stopped and
+backer/cross-support proposals remain unadopted studies. The completed packet
+records hardware/receiving guidance, 100-bolt/200-side access dispositions,
+cut/hole datums and missing tolerances, assembly/removal order and BOM/cost/mass limits.
 Physical testing and engineer approval are outside this completion scope.
 Actual observations stay blank. Coherent reviewed reporting completes this
 scope; full physical resistance qualification is not its completion criterion.
 The earlier complete-build strength-pass objective is superseded. See the
 [active sequence](completion-ledger.md#build-package-completion).
 The [nominal shop/assembly packet](eoere-shop-assembly-guide.md) is now complete
-within that reporting scope. Its current cut/hole and 100-stack/200-side tables,
+within that reporting scope. Its raised-rail cut/hole and 100-stack/200-side tables,
 receiving guidance, dependency order and cost/mass limits pass independent
 review. Tool paths, delivered parts, missing tolerances and complete joint
 resistance remain explicit unresolved inputs. Both heel scenarios and their
@@ -128,8 +170,9 @@ passes the actual scene, front/rear browser and connection-inspection checks.
 The old A12 field remains bound to the preserved earlier geometry.
 See the [active evidence and revision sequence](completion-ledger.md#build-package-completion).
 
-The raised-rail metadata inventory gives **218.912854 kg**, including the
-25-kg allowance and excluding pads. All 100 hardware recipes remain unchanged;
+The preserved raised-rail metadata inventory gives **218.912854 kg**, including the
+25-kg allowance and excluding pads. This is not a reconciled mass inventory for
+the later trimmed-cleat/aligned-wire geometry. All 100 hardware recipes remain unchanged;
 the recorded complete bolt/nut/washer purchase comparison is **$109.93**,
 plus six four-pack angle prices and unpriced wood and other items. Catalog
 tolerance corners leave 24 short stack comparisons; the existing per-stack
@@ -154,8 +197,8 @@ The inventory records 100 nuts, 200 washers and six four-packs of angles:
 stack. Full nut seating, smooth-shank reach, thread/runout and washer support
 remain separate checks; this length equation supplies no tool or removal pass.
 
-The [current shop and assembly guide](eoere-shop-assembly-guide.md) organizes
-the current 22 timbers, 22 angles, two cleats and 100 shafts, including the
+The [preserved raised-rail shop and assembly guide](eoere-shop-assembly-guide.md) organizes
+that revision's 22 timbers, 22 angles, two cleats and 100 shafts, including the
 four moved lower screws and sixteen moved stacks. Each of the 200 head/nut
 sides has an explicit nominal disposition; actual tool and continuous-removal
 paths remain unverified. The preserved construction tables cover 20 timbers,
@@ -1041,6 +1084,11 @@ the proposal has its own [drawing](hypotheses/mvp-resume-2026-10-01/upper-corner
 
 ## Engineering reading order
 
+This is the preserved WJ24 reading path. Its 104/108-axis layouts, 44 timbers
+and 47-criterion register do not govern the current Eoere geometry or hardware.
+Use the [active builder reading path](#active-builder-reading-path) above for
+the Eoere lane.
+
 | Question | Maintained record |
 | --- | --- |
 | What completed, and what remains unresolved? | [Joint disposition](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/mvp-joint-disposition.md) |
@@ -1097,6 +1145,10 @@ geometry or load-accounting limits; they are not strength passes.
 The disposition links each result to its own forces and method.
 
 ## Conditional operations and purchasing
+
+The records below belong to the preserved WJ24 studies, not the current Eoere
+frame. Use the [active builder reading path](#active-builder-reading-path) for
+Eoere hardware and proposed fixture work.
 
 The [assembly package](hypotheses/mvp-resume-2026-10-01/assembly-package/README.md)
 and [shop guide](hypotheses/mvp-resume-2026-10-01/assembly-package/shop-guide.md)

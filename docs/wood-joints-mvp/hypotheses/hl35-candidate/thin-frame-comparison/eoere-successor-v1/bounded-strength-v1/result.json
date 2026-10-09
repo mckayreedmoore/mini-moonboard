@@ -1,0 +1,2368 @@
+{
+  "bracket_heel": {
+    "actual_3D_heel_capacity": null,
+    "comparison_count": 528,
+    "exact_nominal_replay": true,
+    "held_inside_radius_mm": 6.35,
+    "maximum_uniform_scale_of_all_root_actions_and_own_gravity_to_reference": 1.0017028902191065,
+    "minimum_scenario_Fy_for_this_comparison_mpa": 234.60050110127713,
+    "next_input": "Delivered minimum thickness/radius, thinning and grade, or a matching manufacturer multi-action connector resistance. Whole-flange torsion, holes and transverse continuity need their own applicability; no second grid sweep resolves these inputs.",
+    "nominal_minus_scalar_boundary_mm": 0.006207514244342072,
+    "nominal_thickness_mm": 6.35,
+    "question": "How much section/material uncertainty can the owner nominal heel comparison tolerate?",
+    "same_case_whole_flange_references_not_added_to_half_band": [
+      {
+        "additive_to_half_band_bending": false,
+        "combined_reference_mpa": 90.49459554126254,
+        "conditional_combined_yield_reference_ratio": 0.643089253420887,
+        "fixed_warping_both_ends_reference_mpa": 55.52149660618506,
+        "flange": "arm-x",
+        "force_N_V1_V2_n": [
+          97.78431724000839,
+          556.1972606598372,
+          83.69725913872006
+        ],
+        "moment_T_M1_M2_nmm": [
+          -22755.144283042355,
+          -11091.18198278208,
+          31684.936031619265
+        ],
+        "status": "SEPARATE_UNHOLED_STRAIGHT_PLATE_REFERENCE_NOT_AN_ACTUAL_BOUND"
+      },
+      {
+        "additive_to_half_band_bending": false,
+        "combined_reference_mpa": 109.97383965008086,
+        "conditional_combined_yield_reference_ratio": 0.7815162221941917,
+        "fixed_warping_both_ends_reference_mpa": 73.21932231974579,
+        "flange": "arm-z",
+        "force_N_V1_V2_n": [
+          -78.72225738384051,
+          -560.3717828003473,
+          97.78431724245416
+        ],
+        "moment_T_M1_M2_nmm": [
+          -30008.48942365856,
+          10408.340230371898,
+          -24623.804388067656
+        ],
+        "status": "SEPARATE_UNHOLED_STRAIGHT_PLATE_REFERENCE_NOT_AN_ACTUAL_BOUND"
+      }
+    ],
+    "thickness_at_scalar_reference_boundary_mm": 6.343792485755658,
+    "worst": {
+      "body": "eoere_clip_single_top_left_1",
+      "case_id": "a12-left",
+      "comparison": {
+        "actual_formed_heel_stress_bound": false,
+        "additional_straight_normal_mpa": 9.758517722323086,
+        "bounding_source_gravity_equivalent_mpa": 140.47934197681266,
+        "component_equivalent_without_gravity_mpa": 135.81487284748536,
+        "conditional_base_metal_first_yield_index": 0.5977844339438837,
+        "conditional_combined_yield_reference_ratio": 0.9983000046862857,
+        "gravity_moment_bound_per_component_nmm": 924.2149086844197,
+        "inside_radius_scenario_mm": 6.35,
+        "nominal_band_shear_mpa": 4.7561552082805925,
+        "pure_bending_peak_mpa": 125.80628836496066,
+        "status": "CONDITIONAL_COMPONENT_SCENARIO_3D_HEEL_UNSUPPORTED"
+      },
+      "port_id": "arm-z/far-plus"
+    }
+  },
+  "case_ids": [
+    "a12-rear",
+    "a12-forward",
+    "a12-left",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "current_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/aligned-wire-cutouts-v1/cad-v1/geometry.json",
+    "sha256": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5"
+  },
+  "known_answers": {
+    "exact_CAD_rectangle_area_mm2": 200.0,
+    "independent_annulus_kern_312p5_Nmm_and_tension_rejection": true,
+    "intersected_support_rejected": true,
+    "opening_and_compression_signs": true,
+    "trimmed_rectangular_and_oblique_ray_known_answers": true
+  },
+  "limits": [
+    "All demand comes from the preserved untrimmed raised-rail six-case fields; current trim/wire geometry has no matching response.",
+    "Current local geometry queries at fixed old actions are sensitivities, not current-case strength passes.",
+    "The 2x climber multiplier and no-slip floor remain unverified analytical assumptions.",
+    "Existing panel/screw exceedances remain recorded; stopped remedy studies remain stopped.",
+    "No fabricated or delivered part, physical test, floor restraint or complete joint resistance is verified."
+  ],
+  "load_contract": {
+    "all_recorded_gravity_and_accessory_allowance_retained": true,
+    "climber_multiplier": 2,
+    "dynamic_multiplier_and_no_slip_floor_verified": false,
+    "field_case_geometry": "eoere-bottom-rail-tnut-clearance-v1",
+    "hold_outward_standoff_mm": 100,
+    "local_geometry_sensitivity": "eoere-grid-aligned-wire-cutouts-v1",
+    "new_response_evaluated": false,
+    "simultaneous_horizontal_load_n": 300,
+    "single_climber_lb": 250,
+    "vertical_climber_load_n": 2224.11080763025
+  },
+  "members_stability_and_net_sections": {
+    "actual_bracing_finished_net_strength_or_continuous_maximum": null,
+    "case_members": 132,
+    "current_section_queries": {
+      "bending_torsion_stress_concentrations_and_splitting_strength": null,
+      "changed_members": 8,
+      "exact_cached_section_planes": 99,
+      "members": [
+        {
+          "member": "base_rail_bottom_left",
+          "minimum_current_over_gross_area": {
+            "current": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8522727272671793,
+            "current_over_old_area": 1.0,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 0.002834067428089766,
+                "necessary_shear_average_reference": 0.0031150613141595045,
+                "parallel_axial_n": -131.6302142991393,
+                "transverse_shear_n": 17.537111386109267
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 0.0033914385138069723,
+                "necessary_shear_average_reference": 0.002356378905270808,
+                "parallel_axial_n": -157.51769838999985,
+                "transverse_shear_n": 13.265895968652
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 0.0004063970755912294,
+                "necessary_shear_average_reference": 0.004309028249857014,
+                "parallel_axial_n": -18.875392173246023,
+                "transverse_shear_n": 24.258883136630455
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.0076455183094178,
+                "necessary_shear_average_reference": 0.0011319503818594515,
+                "parallel_axial_n": -355.10136545162766,
+                "transverse_shear_n": 6.3726321661743235
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0023976450695916687,
+                "necessary_shear_average_reference": 0.003649926677160057,
+                "parallel_axial_n": -111.36027717461555,
+                "transverse_shear_n": 20.548285967128173
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 0.004622050012207784,
+                "necessary_shear_average_reference": 0.052493533077315725,
+                "parallel_axial_n": -214.67429729374092,
+                "transverse_shear_n": 295.52706794013335
+              }
+            ],
+            "member": "base_rail_bottom_left",
+            "old": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              -1065.2126,
+              4.998585142726597,
+              441.0789846579628
+            ],
+            "station_mm": -1065.2126
+          },
+          "minimum_current_over_old_area": {
+            "current": {
+              "area_mm2": 4775.835,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -55.5,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.897279885463021,
+            "current_over_old_area": 0.897279885468862,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 0.0026919118713653934,
+                "necessary_shear_average_reference": 0.002900154570646888,
+                "parallel_axial_n": -131.63021426743018,
+                "transverse_shear_n": 17.189448661565056
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 0.0032220876197666588,
+                "necessary_shear_average_reference": 0.0016198475872819175,
+                "parallel_axial_n": -157.55496615243754,
+                "transverse_shear_n": 9.600966521909138
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 0.0003856276071000076,
+                "necessary_shear_average_reference": 0.004203499557443209,
+                "parallel_axial_n": -18.85657739763365,
+                "transverse_shear_n": 24.914478894642016
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.007269806151269829,
+                "necessary_shear_average_reference": 0.0013586925984783024,
+                "parallel_axial_n": -355.48197233104696,
+                "transverse_shear_n": 8.05307996503847
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0022780915753133463,
+                "necessary_shear_average_reference": 0.002939956463507049,
+                "parallel_axial_n": -111.39505916559789,
+                "transverse_shear_n": 17.425357671683862
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 0.005084636408779509,
+                "necessary_shear_average_reference": 0.09908000643779859,
+                "parallel_axial_n": -248.63064317931958,
+                "transverse_shear_n": 587.2551419458259
+              }
+            ],
+            "member": "base_rail_bottom_left",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              -1019.2,
+              4.998585142726597,
+              441.0789846579628
+            ],
+            "station_mm": -1019.2
+          },
+          "sample_plane_count": 14
+        },
+        {
+          "member": "base_rail_bottom_right",
+          "minimum_current_over_gross_area": {
+            "current": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8522727272671793,
+            "current_over_old_area": 1.0,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.004580189078251716,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 25.785459075759483
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.006032145246712386,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 33.95965357340891
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.011691144337767306,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 65.81857620283346
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.004098778943610089,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 23.07522569600657
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0008863228371341988,
+                "necessary_shear_average_reference": 0.005918474214750263,
+                "parallel_axial_n": -41.16587482494452,
+                "transverse_shear_n": 33.31971061632088
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.004319685359473163,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 24.31888032434001
+              }
+            ],
+            "member": "base_rail_bottom_right",
+            "old": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              154.13739999999999,
+              4.998585142726597,
+              441.0789846579628
+            ],
+            "station_mm": 154.13739999999999
+          },
+          "minimum_current_over_old_area": {
+            "current": {
+              "area_mm2": 4775.835,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -55.5,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.897279885463021,
+            "current_over_old_area": 0.897279885468862,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 2.7733950381677382e-05,
+                "necessary_shear_average_reference": 0.0050999195694528135,
+                "parallel_axial_n": 0.6826392069605755,
+                "transverse_shear_n": 30.22763217674505
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 1.5916304625696065e-05,
+                "necessary_shear_average_reference": 0.006538003966688516,
+                "parallel_axial_n": 0.391761484314409,
+                "transverse_shear_n": 38.75127369829574
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 8.00458587267666e-06,
+                "necessary_shear_average_reference": 0.012650158998425374,
+                "parallel_axial_n": 0.19702365068705863,
+                "transverse_shear_n": 74.978506616482
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 1.6041111423360614e-05,
+                "necessary_shear_average_reference": 0.003948607260816917,
+                "parallel_axial_n": 0.39483345971670514,
+                "transverse_shear_n": 23.403711816420817
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0008442383022020259,
+                "necessary_shear_average_reference": 0.005649261263237756,
+                "parallel_axial_n": -41.281911861125714,
+                "transverse_shear_n": 33.483624439553026
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 9.693356683005213e-06,
+                "necessary_shear_average_reference": 0.004468708542537747,
+                "parallel_axial_n": 0.23859079676021488,
+                "transverse_shear_n": 26.486393812560166
+              }
+            ],
+            "member": "base_rail_bottom_right",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              180.79999999999995,
+              4.998585142726597,
+              441.0789846579628
+            ],
+            "station_mm": 180.79999999999995
+          },
+          "sample_plane_count": 15
+        },
+        {
+          "member": "base_rail_service_lower_left",
+          "minimum_current_over_gross_area": {
+            "current": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8522727272558239,
+            "current_over_old_area": 1.0,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0038345071279539487,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 21.587433386332066
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0037994894267097163,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 21.39029141534929
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0035977986923990462,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 20.254816855964332
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.000541311588030154,
+                "necessary_shear_average_reference": 0.0034057348423784605,
+                "parallel_axial_n": -25.141589656193506,
+                "transverse_shear_n": 19.173539541856375
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0035034861707794384,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 19.723858062559597
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0036870558861701675,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 20.75731526331849
+              }
+            ],
+            "member": "base_rail_service_lower_left",
+            "old": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              -1065.2126,
+              643.7527025785001,
+              1202.3164988965004
+            ],
+            "station_mm": -1065.2126
+          },
+          "minimum_current_over_old_area": {
+            "current": {
+              "area_mm2": 4775.835,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -55.5,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8972798854510659,
+            "current_over_old_area": 0.897279885468862,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 4.121251389829199e-14,
+                "necessary_shear_average_reference": 0.004016109435404113,
+                "parallel_axial_n": -2.0152264613997346e-09,
+                "transverse_shear_n": 23.803802617219684
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 1.1909830378333302e-13,
+                "necessary_shear_average_reference": 0.004100416545124076,
+                "parallel_axial_n": 2.931467408217342e-09,
+                "transverse_shear_n": 24.303497615894525
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 2.101417576386425e-05,
+                "necessary_shear_average_reference": 0.003982071979131915,
+                "parallel_axial_n": 0.5172397037189344,
+                "transverse_shear_n": 23.602059884924312
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.000514159641862278,
+                "necessary_shear_average_reference": 0.0035742088499792764,
+                "parallel_axial_n": -25.14158971767105,
+                "transverse_shear_n": 21.18462241780657
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 6.2627613127219e-06,
+                "necessary_shear_average_reference": 0.003918964636328543,
+                "parallel_axial_n": 0.15415064774631937,
+                "transverse_shear_n": 23.228017604466007
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 1.7889351687800825e-14,
+                "necessary_shear_average_reference": 0.003673905242686118,
+                "parallel_axial_n": -8.747608793657288e-10,
+                "transverse_shear_n": 21.77553093058809
+              }
+            ],
+            "member": "base_rail_service_lower_left",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              -1019.2,
+              643.7527025785001,
+              1202.3164988965004
+            ],
+            "station_mm": -1019.2
+          },
+          "sample_plane_count": 14
+        },
+        {
+          "member": "base_rail_service_lower_right",
+          "minimum_current_over_gross_area": {
+            "current": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8522727272558239,
+            "current_over_old_area": 1.0,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.004072882209059007,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 22.92943276528817
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.004045583887157434,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 22.77574920546041
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.004822414841608183,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 27.149136950496235
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.0007673107737300084,
+                "necessary_shear_average_reference": 0.0033513119303137462,
+                "parallel_axial_n": -35.63827754380455,
+                "transverse_shear_n": 18.867150493750962
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0011085363394207034,
+                "necessary_shear_average_reference": 0.0033186426487578262,
+                "parallel_axial_n": -51.486734038181424,
+                "transverse_shear_n": 18.683229610092557
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.003628030209445353,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 20.42501366056726
+              }
+            ],
+            "member": "base_rail_service_lower_right",
+            "old": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              154.13739999999999,
+              643.7527025785001,
+              1202.3164988965004
+            ],
+            "station_mm": 154.13739999999999
+          },
+          "minimum_current_over_old_area": {
+            "current": {
+              "area_mm2": 4775.835,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -55.5,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8972798854510659,
+            "current_over_old_area": 0.897279885468862,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 1.0006992109398018e-13,
+                "necessary_shear_average_reference": 0.0033898017415456964,
+                "parallel_axial_n": -4.893260175209308e-09,
+                "transverse_shear_n": 20.091626701188734
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 3.967159652403997e-14,
+                "necessary_shear_average_reference": 0.003394835614370827,
+                "parallel_axial_n": 9.764706007378619e-10,
+                "transverse_shear_n": 20.12146286901655
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 7.378176809709349e-13,
+                "necessary_shear_average_reference": 0.004170782555745591,
+                "parallel_axial_n": 1.8160531395204284e-08,
+                "transverse_shear_n": 24.720562602478285
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.0007288228083019546,
+                "necessary_shear_average_reference": 0.002961282520492143,
+                "parallel_axial_n": -35.63827755294092,
+                "transverse_shear_n": 17.551758921261786
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0010529326518726688,
+                "necessary_shear_average_reference": 0.002914914749969136,
+                "parallel_axial_n": -51.486734038166425,
+                "transverse_shear_n": 17.276933427812768
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 1.303262162599184e-13,
+                "necessary_shear_average_reference": 0.003180937932336951,
+                "parallel_axial_n": 3.2078295262480525e-09,
+                "transverse_shear_n": 18.853674158248296
+              }
+            ],
+            "member": "base_rail_service_lower_right",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              180.79999999999995,
+              643.7527025785001,
+              1202.3164988965004
+            ],
+            "station_mm": 180.79999999999995
+          },
+          "sample_plane_count": 14
+        },
+        {
+          "member": "base_rail_service_upper_left",
+          "minimum_current_over_gross_area": {
+            "current": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8522727272616933,
+            "current_over_old_area": 1.0,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 0.002544973386856805,
+                "necessary_shear_average_reference": 0.0007156786514844381,
+                "parallel_axial_n": -118.2030423755172,
+                "transverse_shear_n": 4.029113703378104
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 0.0013282260108896647,
+                "necessary_shear_average_reference": 0.0021047357708293525,
+                "parallel_axial_n": -61.69037219024128,
+                "transverse_shear_n": 11.84920036199098
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.002290934246077102,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 12.8974569036843
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.002514284679304434,
+                "necessary_shear_average_reference": 0.002457021930469345,
+                "parallel_axial_n": -116.7776842094961,
+                "transverse_shear_n": 13.832494107545445
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0038997452636284056,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 21.95470976922206
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0042382862579629175,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 23.860621251420422
+              }
+            ],
+            "member": "base_rail_service_upper_left",
+            "old": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              -1065.2126,
+              736.3462577535001,
+              1312.665200928
+            ],
+            "station_mm": -1065.2126
+          },
+          "minimum_current_over_old_area": {
+            "current": {
+              "area_mm2": 4775.835,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -55.5,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8972798854572452,
+            "current_over_old_area": 0.897279885468862,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 0.0024172270180146797,
+                "necessary_shear_average_reference": 0.0016127333417954276,
+                "parallel_axial_n": -118.19856128978921,
+                "transverse_shear_n": 9.558799818522527
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 0.0012616027878364264,
+                "necessary_shear_average_reference": 0.002581912441841568,
+                "parallel_axial_n": -61.690372203405175,
+                "transverse_shear_n": 15.303202048914326
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 5.864859970873338e-06,
+                "necessary_shear_average_reference": 0.0027462383654664325,
+                "parallel_axial_n": 0.14435676506065984,
+                "transverse_shear_n": 16.277174973151883
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.002391148628144392,
+                "necessary_shear_average_reference": 0.0018257545543535975,
+                "parallel_axial_n": -116.92336945201393,
+                "transverse_shear_n": 10.821393624436892
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 6.922389696402771e-06,
+                "necessary_shear_average_reference": 0.0037783981087192325,
+                "parallel_axial_n": 0.170386639753505,
+                "transverse_shear_n": 22.394868525334076
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 3.2733214958760136e-06,
+                "necessary_shear_average_reference": 0.004144752910411182,
+                "parallel_axial_n": 0.08056903395731327,
+                "transverse_shear_n": 24.56628280764143
+              }
+            ],
+            "member": "base_rail_service_upper_left",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              -1019.2,
+              736.3462577535001,
+              1312.665200928
+            ],
+            "station_mm": -1019.2
+          },
+          "sample_plane_count": 14
+        },
+        {
+          "member": "base_rail_service_upper_right",
+          "minimum_current_over_gross_area": {
+            "current": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8522727272616933,
+            "current_over_old_area": 1.0,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.003496691828088938,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 19.68560740469386
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0036375760941272347,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 20.478754895830964
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0062235390301288,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 35.03715855962718
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.0029429985611812144,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 16.56843585774489
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.00498088062612768,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 28.041264531219454
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 0.0,
+                "necessary_shear_average_reference": 0.004152086666923054,
+                "parallel_axial_n": 0.0,
+                "transverse_shear_n": 23.375336476243845
+              }
+            ],
+            "member": "base_rail_service_upper_right",
+            "old": {
+              "area_mm2": 4536.28125,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              154.13739999999999,
+              736.3462577535001,
+              1312.665200928
+            ],
+            "station_mm": 154.13739999999999
+          },
+          "minimum_current_over_old_area": {
+            "current": {
+              "area_mm2": 4775.835,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -55.5,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.8972798854572452,
+            "current_over_old_area": 0.897279885468862,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 1.4508125713926127e-05,
+                "necessary_shear_average_reference": 0.002954216703209562,
+                "parallel_axial_n": 0.3571007842568971,
+                "transverse_shear_n": 17.5098792557225
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 1.3498670524407133e-05,
+                "necessary_shear_average_reference": 0.003046728311396509,
+                "parallel_axial_n": 0.33225420883031315,
+                "transverse_shear_n": 18.058202974610918
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 8.415972729945844e-06,
+                "necessary_shear_average_reference": 0.005533485558796747,
+                "parallel_axial_n": 0.20714946378383875,
+                "transverse_shear_n": 32.797412556956246
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 7.907946776667362e-06,
+                "necessary_shear_average_reference": 0.002229715330428692,
+                "parallel_axial_n": 0.19464499077913736,
+                "transverse_shear_n": 13.215701531990925
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 2.2104734400479358e-06,
+                "necessary_shear_average_reference": 0.004395875264183481,
+                "parallel_axial_n": 0.05440825469705317,
+                "transverse_shear_n": 26.054705132309966
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 1.6315360944180745e-05,
+                "necessary_shear_average_reference": 0.0035049234041883218,
+                "parallel_axial_n": 0.4015837954180936,
+                "transverse_shear_n": 20.773962025608363
+              }
+            ],
+            "member": "base_rail_service_upper_right",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              180.79999999999995,
+              736.3462577535001,
+              1312.665200928
+            ],
+            "station_mm": 180.79999999999995
+          },
+          "sample_plane_count": 14
+        },
+        {
+          "member": "eoere_cleat_left",
+          "minimum_current_over_gross_area": {
+            "current": {
+              "area_mm2": 2285.39153,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  9.86597,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.42937744923974797,
+            "current_over_old_area": 0.42937744923974697,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 1.1086987198432099e-10,
+                "necessary_shear_average_reference": 5.681940572772524e-15,
+                "parallel_axial_n": -2.5942964185787787e-06,
+                "transverse_shear_n": 1.6115685691153325e-11
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 1.1086984404782188e-10,
+                "necessary_shear_average_reference": 2.5303975005711224e-14,
+                "parallel_axial_n": -2.5942957648794618e-06,
+                "transverse_shear_n": 7.176965381914556e-11
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 1.108694778367575e-10,
+                "necessary_shear_average_reference": 3.72368498912358e-14,
+                "parallel_axial_n": -2.5942871957340685e-06,
+                "transverse_shear_n": 1.0561486191028452e-10
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 1.1086963482773618e-10,
+                "necessary_shear_average_reference": 7.52893842244263e-15,
+                "parallel_axial_n": -2.5942908692400124e-06,
+                "transverse_shear_n": 2.135432492651499e-11
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 1.1086970952750554e-10,
+                "necessary_shear_average_reference": 3.990769242067397e-15,
+                "parallel_axial_n": -2.5942926171751424e-06,
+                "transverse_shear_n": 1.1319017146935436e-11
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 1.1086967566968325e-10,
+                "necessary_shear_average_reference": 6.0246106620827906e-15,
+                "parallel_axial_n": -2.594291824919992e-06,
+                "transverse_shear_n": 1.7087600723412986e-11
+              }
+            ],
+            "member": "eoere_cleat_left",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              -1238.25,
+              -105.85,
+              429.3999
+            ],
+            "station_mm": 429.3999
+          },
+          "minimum_current_over_old_area": {
+            "current": {
+              "area_mm2": 2285.39153,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  9.86597,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.42937744923974797,
+            "current_over_old_area": 0.42937744923974697,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 1.1086987198432099e-10,
+                "necessary_shear_average_reference": 5.681940572772524e-15,
+                "parallel_axial_n": -2.5942964185787787e-06,
+                "transverse_shear_n": 1.6115685691153325e-11
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 1.1086984404782188e-10,
+                "necessary_shear_average_reference": 2.5303975005711224e-14,
+                "parallel_axial_n": -2.5942957648794618e-06,
+                "transverse_shear_n": 7.176965381914556e-11
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 1.108694778367575e-10,
+                "necessary_shear_average_reference": 3.72368498912358e-14,
+                "parallel_axial_n": -2.5942871957340685e-06,
+                "transverse_shear_n": 1.0561486191028452e-10
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 1.1086963482773618e-10,
+                "necessary_shear_average_reference": 7.52893842244263e-15,
+                "parallel_axial_n": -2.5942908692400124e-06,
+                "transverse_shear_n": 2.135432492651499e-11
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 1.1086970952750554e-10,
+                "necessary_shear_average_reference": 3.990769242067397e-15,
+                "parallel_axial_n": -2.5942926171751424e-06,
+                "transverse_shear_n": 1.1319017146935436e-11
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 1.1086967566968325e-10,
+                "necessary_shear_average_reference": 6.0246106620827906e-15,
+                "parallel_axial_n": -2.594291824919992e-06,
+                "transverse_shear_n": 1.7087600723412986e-11
+              }
+            ],
+            "member": "eoere_cleat_left",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              -1238.25,
+              -105.85,
+              429.3999
+            ],
+            "station_mm": 429.3999
+          },
+          "sample_plane_count": 7
+        },
+        {
+          "member": "eoere_cleat_right",
+          "minimum_current_over_gross_area": {
+            "current": {
+              "area_mm2": 2285.39153,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  9.86597,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.42937744923974797,
+            "current_over_old_area": 0.42937744923974697,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 1.1086968098369122e-10,
+                "necessary_shear_average_reference": 6.727639931341549e-15,
+                "parallel_axial_n": -2.5942919492649708e-06,
+                "transverse_shear_n": 1.9081602348376645e-11
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 1.1086970223972317e-10,
+                "necessary_shear_average_reference": 3.835623864459489e-15,
+                "parallel_axial_n": -2.5942924466448858e-06,
+                "transverse_shear_n": 1.0878978376740355e-11
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 1.1086966564898247e-10,
+                "necessary_shear_average_reference": 1.765281062298359e-14,
+                "parallel_axial_n": -2.594291590440889e-06,
+                "transverse_shear_n": 5.006865945214198e-11
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 1.1086952460002774e-10,
+                "necessary_shear_average_reference": 1.1548369630323123e-14,
+                "parallel_axial_n": -2.5942882899698816e-06,
+                "transverse_shear_n": 3.275463599520453e-11
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 1.10869934841444e-10,
+                "necessary_shear_average_reference": 4.2716080039871495e-15,
+                "parallel_axial_n": -2.5942978894022417e-06,
+                "transverse_shear_n": 1.2115560010949047e-11
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 1.108696916876216e-10,
+                "necessary_shear_average_reference": 4.181380550408401e-15,
+                "parallel_axial_n": -2.594292199731285e-06,
+                "transverse_shear_n": 1.1859647921766686e-11
+              }
+            ],
+            "member": "eoere_cleat_right",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              1235.075,
+              -105.85,
+              429.3999
+            ],
+            "station_mm": 429.3999
+          },
+          "minimum_current_over_old_area": {
+            "current": {
+              "area_mm2": 2285.39153,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  9.86597,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "current_over_gross_rectangle_area": 0.42937744923974797,
+            "current_over_old_area": 0.42937744923974697,
+            "fixed_old_action_average_bounds": [
+              {
+                "case_id": "a12-rear",
+                "necessary_axial_average_reference": 1.1086968098369122e-10,
+                "necessary_shear_average_reference": 6.727639931341549e-15,
+                "parallel_axial_n": -2.5942919492649708e-06,
+                "transverse_shear_n": 1.9081602348376645e-11
+              },
+              {
+                "case_id": "a12-forward",
+                "necessary_axial_average_reference": 1.1086970223972317e-10,
+                "necessary_shear_average_reference": 3.835623864459489e-15,
+                "parallel_axial_n": -2.5942924466448858e-06,
+                "transverse_shear_n": 1.0878978376740355e-11
+              },
+              {
+                "case_id": "a12-left",
+                "necessary_axial_average_reference": 1.1086966564898247e-10,
+                "necessary_shear_average_reference": 1.765281062298359e-14,
+                "parallel_axial_n": -2.594291590440889e-06,
+                "transverse_shear_n": 5.006865945214198e-11
+              },
+              {
+                "case_id": "k12-right",
+                "necessary_axial_average_reference": 1.1086952460002774e-10,
+                "necessary_shear_average_reference": 1.1548369630323123e-14,
+                "parallel_axial_n": -2.5942882899698816e-06,
+                "transverse_shear_n": 3.275463599520453e-11
+              },
+              {
+                "case_id": "k12-rear",
+                "necessary_axial_average_reference": 1.10869934841444e-10,
+                "necessary_shear_average_reference": 4.2716080039871495e-15,
+                "parallel_axial_n": -2.5942978894022417e-06,
+                "transverse_shear_n": 1.2115560010949047e-11
+              },
+              {
+                "case_id": "a1-rear",
+                "necessary_axial_average_reference": 1.108696916876216e-10,
+                "necessary_shear_average_reference": 4.181380550408401e-15,
+                "parallel_axial_n": -2.594292199731285e-06,
+                "transverse_shear_n": 1.1859647921766686e-11
+              }
+            ],
+            "member": "eoere_cleat_right",
+            "old": {
+              "area_mm2": 5322.57,
+              "bounds_uv_mm": {
+                "u": [
+                  -19.05,
+                  19.05
+                ],
+                "v": [
+                  -69.85,
+                  69.85
+                ]
+              },
+              "status": "section_present"
+            },
+            "point_xyz_mm": [
+              1235.075,
+              -105.85,
+              429.3999
+            ],
+            "station_mm": 429.3999
+          },
+          "sample_plane_count": 7
+        }
+      ],
+      "new_global_gravity_distribution_stiffness_or_actions_evaluated": false,
+      "next_input": "Matching current response and applicable net bending/shear/torsion/connection treatment. Areas and necessary average bounds do not dispose bending or fracture."
+    },
+    "next_input": "Document actual lateral restraint and load transfer for each long member. Effective-length scenarios are requirements, not installed bracing.",
+    "question": "Do sampled gross stresses conceal a conventional member stability problem?",
+    "same_cut_comparisons": 23844,
+    "weak_column_domain_exceeding_members": [
+      {
+        "actual_restraint_qualified": false,
+        "full_span_mm": 2435.2250000000004,
+        "member": "base_header",
+        "weak_column_effective_length_domain_cap_mm": 1904.9999999999998
+      },
+      {
+        "actual_restraint_qualified": false,
+        "full_span_mm": 2474.014902957183,
+        "member": "base_principal_center_left",
+        "weak_column_effective_length_domain_cap_mm": 1904.9999999999998
+      },
+      {
+        "actual_restraint_qualified": false,
+        "full_span_mm": 2474.014902957183,
+        "member": "base_principal_center_right",
+        "weak_column_effective_length_domain_cap_mm": 1904.9999999999998
+      },
+      {
+        "actual_restraint_qualified": false,
+        "full_span_mm": 2257.425,
+        "member": "base_rail_top",
+        "weak_column_effective_length_domain_cap_mm": 1905.0000000366936
+      }
+    ],
+    "worst_50b_weak_column_scenario": {
+      "case_id": "k12-rear",
+      "full_length_K1": {
+        "Euler_denominators_positive": true,
+        "branch": "NDS_3_9_3_and_3_9_4",
+        "interaction_ratio": 0.5739350095867105,
+        "ratio_exceeds_one": false,
+        "ratio_qualified_inside_declared_stability_domain": false,
+        "stability_3_9_4_ratio": 0.10421860886435784,
+        "stress_compression_tension_strong_weak_mpa": [
+          0.021193504068375495,
+          0.0,
+          3.4288999991414064,
+          0.8146186855227218
+        ],
+        "within_slenderness_limits": false
+      },
+      "fully_braced_normal": 0.5260473188650422,
+      "local_same_cut_actions_n_nmm": [
+        -112.80390895145008,
+        -7.560289067394823,
+        -47.84691151732316,
+        -31018.39349556349,
+        -424933.87825861346,
+        27532.742605043233
+      ],
+      "member": "base_rail_top",
+      "shear_torsion_sufficient_reference": 0.5640193406687035,
+      "station_mm": 435.07499,
+      "weak_column_50b_scenario": {
+        "Euler_denominators_positive": true,
+        "branch": "NDS_3_9_3_and_3_9_4",
+        "interaction_ratio": 0.5728631298668122,
+        "ratio_exceeds_one": false,
+        "ratio_qualified_inside_declared_stability_domain": true,
+        "stability_3_9_4_ratio": 0.09770311782453883,
+        "stress_compression_tension_strong_weak_mpa": [
+          0.021193504068375495,
+          0.0,
+          3.4288999991414064,
+          0.8146186855227218
+        ],
+        "within_slenderness_limits": true
+      }
+    },
+    "worst_full_span_K1_normal": {
+      "case_id": "k12-rear",
+      "full_length_K1": {
+        "Euler_denominators_positive": true,
+        "branch": "NDS_3_9_3_and_3_9_4",
+        "interaction_ratio": 0.5739350095867105,
+        "ratio_exceeds_one": false,
+        "ratio_qualified_inside_declared_stability_domain": false,
+        "stability_3_9_4_ratio": 0.10421860886435784,
+        "stress_compression_tension_strong_weak_mpa": [
+          0.021193504068375495,
+          0.0,
+          3.4288999991414064,
+          0.8146186855227218
+        ],
+        "within_slenderness_limits": false
+      },
+      "fully_braced_normal": 0.5260473188650422,
+      "local_same_cut_actions_n_nmm": [
+        -112.80390895145008,
+        -7.560289067394823,
+        -47.84691151732316,
+        -31018.39349556349,
+        -424933.87825861346,
+        27532.742605043233
+      ],
+      "member": "base_rail_top",
+      "shear_torsion_sufficient_reference": 0.5640193406687035,
+      "station_mm": 435.07499,
+      "weak_column_50b_scenario": {
+        "Euler_denominators_positive": true,
+        "branch": "NDS_3_9_3_and_3_9_4",
+        "interaction_ratio": 0.5728631298668122,
+        "ratio_exceeds_one": false,
+        "ratio_qualified_inside_declared_stability_domain": true,
+        "stability_3_9_4_ratio": 0.09770311782453883,
+        "stress_compression_tension_strong_weak_mpa": [
+          0.021193504068375495,
+          0.0,
+          3.4288999991414064,
+          0.8146186855227218
+        ],
+        "within_slenderness_limits": true
+      }
+    },
+    "worst_fully_braced_normal": {
+      "case_id": "k12-rear",
+      "full_length_K1": {
+        "Euler_denominators_positive": true,
+        "branch": "NDS_3_9_3_and_3_9_4",
+        "interaction_ratio": 0.5739350095867105,
+        "ratio_exceeds_one": false,
+        "ratio_qualified_inside_declared_stability_domain": false,
+        "stability_3_9_4_ratio": 0.10421860886435784,
+        "stress_compression_tension_strong_weak_mpa": [
+          0.021193504068375495,
+          0.0,
+          3.4288999991414064,
+          0.8146186855227218
+        ],
+        "within_slenderness_limits": false
+      },
+      "fully_braced_normal": 0.5260473188650422,
+      "local_same_cut_actions_n_nmm": [
+        -112.80390895145008,
+        -7.560289067394823,
+        -47.84691151732316,
+        -31018.39349556349,
+        -424933.87825861346,
+        27532.742605043233
+      ],
+      "member": "base_rail_top",
+      "shear_torsion_sufficient_reference": 0.5640193406687035,
+      "station_mm": 435.07499,
+      "weak_column_50b_scenario": {
+        "Euler_denominators_positive": true,
+        "branch": "NDS_3_9_3_and_3_9_4",
+        "interaction_ratio": 0.5728631298668122,
+        "ratio_exceeds_one": false,
+        "ratio_qualified_inside_declared_stability_domain": true,
+        "stability_3_9_4_ratio": 0.09770311782453883,
+        "stress_compression_tension_strong_weak_mpa": [
+          0.021193504068375495,
+          0.0,
+          3.4288999991414064,
+          0.8146186855227218
+        ],
+        "within_slenderness_limits": true
+      }
+    },
+    "worst_shear_torsion_sufficient_reference": {
+      "case_id": "k12-right",
+      "full_length_K1": {
+        "Euler_denominators_positive": true,
+        "branch": "NDS_3_9_3_and_3_9_4",
+        "interaction_ratio": 0.06237529481388823,
+        "ratio_exceeds_one": false,
+        "ratio_qualified_inside_declared_stability_domain": false,
+        "stability_3_9_4_ratio": 0.05368941544707201,
+        "stress_compression_tension_strong_weak_mpa": [
+          0.04943131645155679,
+          0.0,
+          0.3598182991698092,
+          0.08417978065024162
+        ],
+        "within_slenderness_limits": false
+      },
+      "fully_braced_normal": 0.0550630324321115,
+      "local_same_cut_actions_n_nmm": [
+        -263.1016420107795,
+        -92.55233477535542,
+        1240.0747644126066,
+        -40714.43853139199,
+        -44591.264070964695,
+        2845.135121968001
+      ],
+      "member": "base_rail_top",
+      "shear_torsion_sufficient_reference": 0.9775918848242755,
+      "station_mm": 1058.5905550895714,
+      "weak_column_50b_scenario": {
+        "Euler_denominators_positive": true,
+        "branch": "NDS_3_9_3_and_3_9_4",
+        "interaction_ratio": 0.06079835494358207,
+        "ratio_exceeds_one": false,
+        "ratio_qualified_inside_declared_stability_domain": true,
+        "stability_3_9_4_ratio": 0.038492810940922335,
+        "stress_compression_tension_strong_weak_mpa": [
+          0.04943131645155679,
+          0.0,
+          0.3598182991698092,
+          0.08417978065024162
+        ],
+        "within_slenderness_limits": true
+      }
+    }
+  },
+  "release": {
+    "candidate_selection": false,
+    "climbing": false,
+    "current_complete_resistance": false,
+    "physical_work": false
+  },
+  "response_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/geometry.json",
+    "sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b"
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_four_bounded_strength_studies/v1",
+  "source_binding": {
+    "canonical_sha256": "68f660bcf8720f7548464cb1f2991959a0a97aaef0a50eea0d7bbb35b892a5a5",
+    "direct_source_sha256": {
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/analyze.py": "8bffd53e9e730e63db2f041a10626edb002cba7034af118d6dc9bdf3fed69ae3",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/inputs.json": "ae2c65447ed9a0b628dd25b52573f4c04eca58bc6f2b2657ee0a6f88a69a6bd7",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/inputs.json": "18ebb448d2c23161a4ff0238ffe1f7aee1fd3f53a1695359cb6a349d70da68e5",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/heel-assumptions-v1/nominal-scenario-result.json": "b15af3afd2dd3ae24ed78c83b27b0d2738d94744183db97d0f063700fee6a9de",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json": "4223b78f85418b37832861d8eedc936381188e4e091750bbc8c112646d7f1056",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/product-source-inputs.json": "132c8838065e4d7ec7a321d807a940074b02079e611c926033e1362b48cee961",
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/source-drawing.jpg": "8148969aa88db8a69b43065bda94f6c8a607f79eec3214debbeb6b577c026b45",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/aligned-wire-cutouts-v1/cad-v1/geometry.json": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/gross_members.py": "01aaf22c8b2cf93430e7bbce4768260efea39bed3d527b8f5486ba4e38e32258",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/a1-rear/manifest.json": "93be490eddda2b2dd882d0e350a6766dc6bbe5b82e6d2555de75b0dc43ef1d85",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/a12-forward/manifest.json": "b6ef3e3a638492d4bdc9f6d2c2190d36c506f555ef3ac2ff3c3a7bc423c51601",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/a12-left/manifest.json": "596b7d9a3de97670b296e8bc74bd1acfa6da6849700c9b170004981dbbb041ef",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/a12-rear/manifest.json": "d8c9086c373ce7e1b7e91c854b722c353efd4acd063fd1379fb97bd0f9a26029",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/k12-rear/manifest.json": "93ecd692bca67ba143859fd0897628bb5018bb9d452d538542fe4b886c00e8b2",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/cases-v1/k12-right/manifest.json": "fbd1a710e432f83cd8987df63fc6ea1e7fc5983d69271534279ac0d5b5f7b178",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/curation-index-v1.json": "345e44cc3faea40a6b87a48f0be1be580025136294dd1e0b84924f38114553f3",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/finished_sections.py": "7721ecccf31cbb2b8c798ec056ae148ce09d64d1c47c1557495cc0a0292628f9",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/a1-rear/shafts-v1.json": "df14d853612f61abde28014946e0c2c1e17bd6575dd3f6e2561f6c7ccb7a745e",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/a1-rear/washers-v1.json": "40d09748d19862c2d88d74cae1f46ddca5c6eb919961942b2df66c602127addb",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/a12-forward/shafts-v1.json": "ed1cc2361e4951a1d7219b468dc5b706e7a56fbe4839360bded6f88da31d50f9",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/a12-forward/washers-v1.json": "cb46eed43f2f1ea2442853c6940de5c99bfc3e0d63ca4ca58b4e4020e3d7b310",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/a12-left/shafts-v1.json": "e25c7a9e6398e7cb5e7c441dbebb0c6f12aa05b273e8e047ed33b4c4633f7dc6",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/a12-left/washers-v1.json": "96afd3218c316ef478b9e7cc6ff15f799c0b042d9e90e7e614c0aa5bb376e51d",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/a12-rear/shafts-v1.json": "dc6f9160d90406a8144916c24ac1140cacd17d74e5c3d6de252049ddc4356274",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/a12-rear/washers-v1.json": "0ed7a41f475d062b094c8e482e8a1efd6b8d46c9e18fdf080bf699db8bcb119b",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/k12-rear/shafts-v1.json": "d94c85ccc2a5a86384297fa335346fe9f180d5dc0182675c7fff1a366ee7d9af",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/k12-rear/washers-v1.json": "ccfe994e77a5dbd14c0e228b8b02796809c2a61b155b78c779129898be0c301e",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/k12-right/shafts-v1.json": "359f99a730f9d7be102fff2555518afbd6ada54d631151dceb9db35ba33e2e27",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/k12-right/washers-v1.json": "70df5051fd0ac3c94030937c8fad86673cbd4f8962af1d7c2c1bab0c9a13d755",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/fixed-floor-cases-v1/reference-envelope-v1.json": "cd998adf55d27c5593e17c6e3ea689b0b922cc2edfb09a8a4bc128456a178684",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/representative-sources-v1/calculate.py": "7db694b36872d87703a16de02b1ef6f387bfcefdef10075b3bf7033e687a81ef",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/representative-sources-v1/strength_screen.py": "d4c21f43aed1fadde0f9d67eb5022acd3c1504cd6697b7805826f5f9e7535a12",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/core.py": "477ca831860a163e4baefcab3a93fd82002528f4735fe66ec98aec0d382797f1",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/inputs.json": "c5bb4cfcf7fb69050bbf54508259e50d6b85d4261ef5c4580da6c2413a33f93e",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/references.json": "698c4369d611adc39e02afe791c673bb9f18e60d2c88b520bacfb89d01c42af5",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/result-fixed-floor-a1-rear-v2.json": "e08741fff4b37025eebd5b06f54c4e83601b51f3e37bb7c7a543af82a82de2de",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/result-fixed-floor-a12-forward-v1.json": "d15e91173668bd72c1a5dcb68a31800da7500f036e302b515eb2157e98b51575",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/result-fixed-floor-a12-left-v1.json": "5693e0d50d68c68477d2bb05dcb5a030cdb7ed1eab35e37e49995ea863aad6b2",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/result-fixed-floor-a12-rear-v1.json": "14f13e4e6b984a5dd2de137467f760e39f98eb6b08a32adfa562bf3a3b5cf83a",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/result-fixed-floor-k12-rear-v2.json": "80c34540b9a3bc7bf2b83f7bc6dbdf0304f30a2df00b87bbe4cb8b9d986809b8",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/result-fixed-floor-k12-right-v2.json": "795a6ffe936e9ee6bed092cd5e04e6dc30d9a311e7828212020485f79978d7fb",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/test_core.py": "5ae1573a706117a96dc2ddc3afc5e3c6bffbac4be502f354726cfe40186241e0",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/calculate_v2.py": "41385d35d8faf785ae14f88f8bb54ed69dbed56e271ff7524f1dc6b071f6310d",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/result-fixed-floor-a1-rear-v1.json": "b9b6aee30124a3f46b437d5a1ecf2b79acedef7a77be2466ff3b9b8ac3129901",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/result-fixed-floor-a12-forward-v1.json": "6e130b2ee074e1038de181a9722e867b9a5ce8c9678614357d128474ea10bef0",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/result-fixed-floor-a12-left-v1.json": "093a9fb835c477bb5d50a19abd0dfeffe9fe08ea65dc05923c447c4d83082d91",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/result-fixed-floor-a12-rear-v1.json": "690e5545f9b5ce633178c2e3a0007349be6520b86c6e0e78b7b4542e0f55ffe0",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/result-fixed-floor-k12-rear-v1.json": "0c46d006744aa2f3c9d0e85e34329bd51beb5a932a96a13ffa173fcf42e848d2",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/timber-reuse-v1/result-fixed-floor-k12-right-v1.json": "8c766947da6bf42e9f998935f731ef4644114faef6ed446f47f3478f0a9af0e1",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/washer-reuse-v1/admitted_intake.py": "b57fce9e682be9cf7740ba6857f768e387ac198f75a328682ddca15a14cd5eb0",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/geometry.json": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-net-sections-v1/material-source.json": "37808016a6ff7e6d9d0b95f51e5acd43f9ec2e0d48713d2c084850301a7f8072",
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-net-sections-v1/net_normal.py": "304f96e6c0df4e18c3a00f2c5c8a7d2206d3c6f024c4bf6ab1beb171924d78b0",
+      "fea/reinforced_timber_resistance.py": "d4e8302d39beb9f53c70fa264762c59c231f6e6b086cb866906ca39eeab9cfbc",
+      "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+      "scripts/thin_bolted_timber_common_shaft_checks.py": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7",
+      "scripts/thin_bolted_timber_demand_checks.py": "1be05e74563d2cc7a7ea5437aa4ff7217e62f8314f9fe011ff273d201f755e20",
+      "scripts/wood_joint_wj12_sections.py": "8d448eb02238a4fdfb019fa8274d68cfbbfb2718f329670e5f1a1d5a154952ba"
+    },
+    "pin_count": 1065,
+    "verified_before_after": true
+  },
+  "status": "COMPLETE_FIXED_OLD_ACTION_STUDIES_CURRENT_GEOMETRY_RESPONSE_UNEVALUATED",
+  "timber_bolts_and_splitting": {
+    "changed_silhouette_records": 36,
+    "cleat_force_only_opening_bounds": [
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "a12-rear",
+        "member": "eoere_cleat_left",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 21.37288646522778,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 21.37288646522778,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -99.13200065979422
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -56.43338567304009
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            77.75911419456742
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            77.80627213826787
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "a12-rear",
+        "member": "eoere_cleat_right",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 11.83012519462494,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 11.83012519462494,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -17.973068223689246
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -31.939169288243754
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            6.142943029047947
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            43.769294482868695
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "a12-forward",
+        "member": "eoere_cleat_left",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 27.768780491046186,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 27.768780491046186,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -183.97183900455042
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -163.24183980562526
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            156.2030585135662
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            191.01062029667145
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "a12-forward",
+        "member": "eoere_cleat_right",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 18.276998416073326,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 18.276998416073326,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -24.804467647585238
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -30.514115269520666
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            6.52746923151745
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            48.79111368559399
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "a12-left",
+        "member": "eoere_cleat_left",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 25.12031745556962,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 25.12031745556962,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -141.4535619679924
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -115.00293517881667
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            116.33324451232261
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            140.1232526343863
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "a12-left",
+        "member": "eoere_cleat_right",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 22.095889753865833,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 22.095889753865833,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -22.387191363329595
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -8.336833378594253
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            0.29130160945754846
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            30.432723132460087
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "k12-right",
+        "member": "eoere_cleat_left",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 23.72263423470168,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 23.72263423470168,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -24.04538799389528
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -9.264602164331642
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            0.32275375919561344
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            32.98723639903332
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "k12-right",
+        "member": "eoere_cleat_right",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 25.143292056173024,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 25.143292056173024,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -138.72236789400114
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -112.35808821639945
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            113.5790758378173
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            137.50138027257248
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "k12-rear",
+        "member": "eoere_cleat_left",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 12.40890841810048,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 12.40890841810048,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -18.456085979899395
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -32.074863455551636
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            6.0471775618102175
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            44.48377187365212
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "k12-rear",
+        "member": "eoere_cleat_right",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 21.478112309894627,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 21.478112309894627,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -97.67615004506098
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -54.87064585869767
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            76.19803773515747
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            76.3487581685923
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "a1-rear",
+        "member": "eoere_cleat_left",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 1.5763695679332423,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 1.5763695679332423,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            7.799832546511308
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            3.6715064065418037
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            -9.37620211445434
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -2.0951368386085614
+          ]
+        ]
+      },
+      {
+        "actual_timber_perpendicular_tension_capacity": null,
+        "case_id": "a1-rear",
+        "member": "eoere_cleat_right",
+        "moment_shear_and_other_crack_planes_closed": false,
+        "necessary_integrated_Y_tension_under_fixed_actions_n": 5.887042149848252,
+        "plane_y_mm": -105.85,
+        "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+        "signed_external_Y_on_high_portion_n": 5.887042149848252,
+        "whole_bore_supports_y_min_max_force_n": [
+          [
+            -136.409375,
+            -126.090625,
+            -6.535110206545467
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            -14.457251268499917
+          ],
+          [
+            -136.409375,
+            -126.090625,
+            0.6480680566853582
+          ],
+          [
+            -85.609375,
+            -75.290625,
+            20.34429341834817
+          ]
+        ]
+      }
+    ],
+    "complete_Cg_Cdelta_joint_and_splitting_resistances": null,
+    "current_revision": "eoere-grid-aligned-wire-cutouts-v1",
+    "mixed_or_shared_unsupported_shafts_per_case": 8,
+    "nearest_current_grain_positive_ray": {
+      "actual_geometry_factor_and_splitting_capacity": null,
+      "axis_id": "eoere_bolt_067",
+      "case_id": "a12-rear",
+      "current_silhouette_rays": {
+        "crossgrain_negative": {
+          "boundary_normal_to_grain_deg": 90.0,
+          "distance_mm": 95.25,
+          "outward_normal_yz": [
+            1.0,
+            -0.0
+          ]
+        },
+        "crossgrain_positive": {
+          "boundary_normal_to_grain_deg": 49.99999999999488,
+          "distance_mm": 37.99783228363251,
+          "outward_normal_yz": [
+            -0.7660444431189206,
+            0.6427876096866079
+          ]
+        },
+        "grain_negative": {
+          "boundary_normal_to_grain_deg": 0.0,
+          "distance_mm": 202.3875,
+          "outward_normal_yz": [
+            -0.0,
+            -1.0
+          ]
+        },
+        "grain_positive": {
+          "boundary_normal_to_grain_deg": 49.99999999999488,
+          "distance_mm": 45.28405313480308,
+          "outward_normal_yz": [
+            -0.7660444431189206,
+            0.6427876096866079
+          ]
+        }
+      },
+      "old_raw_rays": {
+        "crossgrain_negative": {
+          "distance_mm": 95.25,
+          "end_normal_to_grain_deg": null,
+          "raw_plane": "v_edge_positive"
+        },
+        "crossgrain_positive": {
+          "distance_mm": 44.44999999999999,
+          "end_normal_to_grain_deg": null,
+          "raw_plane": "v_edge_negative"
+        },
+        "grain_negative": {
+          "distance_mm": 202.3875,
+          "end_normal_to_grain_deg": 0.0,
+          "raw_plane": "end"
+        },
+        "grain_positive": {
+          "distance_mm": 87.3125,
+          "end_normal_to_grain_deg": 0.0,
+          "raw_plane": "end"
+        }
+      },
+      "own_signed_components": {
+        "axial_signed_n": -232.87206655245728,
+        "cross_grain_axis_xyz": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "cross_grain_loaded_edge": "positive",
+        "cross_grain_signed_n": 99.13200065979422,
+        "force_on_receiver_xyz_n": [
+          232.87206655245728,
+          -99.13200065979422,
+          549.4649000350286
+        ],
+        "grain_axis_xyz": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "grain_loaded_end": "positive",
+        "lateral_n": 558.3357680870154,
+        "lateral_xyz_n": [
+          0.0,
+          -99.13200065979422,
+          549.4649000350286
+        ],
+        "load_to_grain_degrees": 10.227032940533652,
+        "oblique_lateral_action": true,
+        "parallel_grain_signed_n": 549.4649000350286
+      },
+      "receiver": "eoere_cleat_left"
+    },
+    "next_input": "A matching revised field; an applicable eccentric complete-group/timber splitting route. Existing X-axis clamp forces are already spent and do not cross the Y-normal crack.",
+    "own_pair_group_records": 276,
+    "question": "Which conventional bolt components and cleat splitting paths can be resolved without another field?",
+    "records_with_established_uniform_load_aligned_row": 0,
+    "supported_single_bolt_comparisons": 552,
+    "trimmed_cleat_bore_records": 48,
+    "worst_cleat_force_only_opening": {
+      "actual_timber_perpendicular_tension_capacity": null,
+      "case_id": "a12-forward",
+      "member": "eoere_cleat_left",
+      "moment_shear_and_other_crack_planes_closed": false,
+      "necessary_integrated_Y_tension_under_fixed_actions_n": 27.768780491046186,
+      "plane_y_mm": -105.85,
+      "retained_X_axis_bolts_cross_this_Y_normal_plane": false,
+      "signed_external_Y_on_high_portion_n": 27.768780491046186,
+      "whole_bore_supports_y_min_max_force_n": [
+        [
+          -136.409375,
+          -126.090625,
+          -183.97183900455042
+        ],
+        [
+          -85.609375,
+          -75.290625,
+          -163.24183980562526
+        ],
+        [
+          -136.409375,
+          -126.090625,
+          156.2030585135662
+        ],
+        [
+          -85.609375,
+          -75.290625,
+          191.01062029667145
+        ]
+      ]
+    },
+    "worst_unadjusted_lateral_component": {
+      "Cdelta": null,
+      "Cdelta0p5_Cg1_CD1_sensitivity_ratio": 1.3982079562738237,
+      "Cg": null,
+      "V_over_unadjusted_component_Z": 0.6991039781369118,
+      "axis_id": "lumber_leg_bolt_left_2",
+      "case_id": "a12-rear",
+      "complete_joint_Z_n": null,
+      "exceeds_unadjusted_component_reference": false,
+      "governing_mode": "IV",
+      "lateral_demand_n": 1561.214424579798,
+      "required_Cg_times_Cdelta_at_CD1_component_only": 0.6991039781369118,
+      "six_mode_references_n": {
+        "II": 2923.7518073328433,
+        "IIIm": 2671.1444860540428,
+        "IIIs": 3197.942229072466,
+        "IV": 2233.1648415738973,
+        "Im": 5331.826010407896,
+        "Is": 7424.883467344968
+      },
+      "unadjusted_component_Z_n": 2233.1648415738973
+    }
+  },
+  "washers_and_timber_seats": {
+    "conditional_wood_landings_per_case": 44,
+    "including_catalog_corner_rows": 6000,
+    "maximum_two_face_affine_eccentricity_mm": 3.7091243703703696,
+    "minimum_positive_load_two_face_affine_eccentricity_mm": 2.7828180743376825,
+    "next_input": "Washer minimum dimensions/grade and actual two-face seated moment/contact behavior. Thickness reduces the axial plate diagnostic but does not increase the geometric full-contact eccentricity limit.",
+    "nominal_washer_thicknesses_mm": [
+      2.032,
+      2.6416,
+      3.175
+    ],
+    "own_end_cases": 1200,
+    "question": "Does washer thickening close axial bending, eccentric seating and wood bearing together?",
+    "unmeasured_actual_seated_moment_and_combined_washer_strength": null,
+    "worst_axial_only_required_Fy": {
+      "ID_OD_thickness_mm": [
+        13.8938,
+        35.05199999999999,
+        2.1843999999999997
+      ],
+      "N_n": 849.882040106273,
+      "actual_own_moment_and_combined_metal_resistance": null,
+      "axial_only_Fy_required_mpa": 156.17580708433445,
+      "capture_id": "lumber_leg_bolt_right_2/nut-capture",
+      "case_id": "k12-right",
+      "host": "lumber_leg_right",
+      "scenario": "catalog_corner_1",
+      "source_nominal_full_support": true,
+      "two_face_affine_eccentricity_limit_mm": 3.5505154814814817,
+      "two_face_affine_full_contact_moment_limit_nmm": 3017.5193408303885,
+      "wood_peak_reference_at_two_face_contact_limit": 0.4154273445324362
+    },
+    "worst_full_supported_wood_pressure_at_contact_limit": {
+      "ID_OD_thickness_mm": [
+        11.5062,
+        25.222199999999997,
+        1.6256
+      ],
+      "N_n": 453.2926454953383,
+      "actual_own_moment_and_combined_metal_resistance": null,
+      "axial_only_Fy_required_mpa": 143.49926926972287,
+      "capture_id": "eoere_bolt_006/nut-capture",
+      "case_id": "a12-left",
+      "host": "base_side_left",
+      "scenario": "catalog_corner_2",
+      "source_nominal_full_support": true,
+      "two_face_affine_eccentricity_limit_mm": 2.8940497864768684,
+      "two_face_affine_full_contact_moment_limit_nmm": 1311.8514839073187,
+      "wood_peak_reference_at_two_face_contact_limit": 0.46787127313739213
+    }
+  }
+}

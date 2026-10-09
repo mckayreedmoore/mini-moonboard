@@ -1,0 +1,119 @@
+{
+  "actual_checks": [
+    {
+      "check": "Read AGENTS.md, current development summary, complete guide/generator/data, SVG elements, three relevant member rows/raw end-datum groups, eight receiver occurrences, four current axes and saved left-leg recess definition.",
+      "status": "PASS"
+    },
+    {
+      "check": "SHA-256 verification of seven targets and eight data-bound inputs; first three target hashes match delegated frozen authority.",
+      "source_count": 8,
+      "status": "PASS",
+      "target_count": 7
+    },
+    {
+      "check": "Independent standard-library arithmetic from source CSV world vertices: L=dot(world-datum,basis_L), W=-dot(world-datum,basis_V), and unit/orthogonal bases.",
+      "maximum_transform_error_mm": 9.094947017729282e-13,
+      "raw_vertices": 26,
+      "status": "PASS"
+    },
+    {
+      "axes": 100,
+      "check": "Current JSON receiver census vs guide table.",
+      "single_timber": 80,
+      "status": "PASS",
+      "two_timber": 20
+    },
+    {
+      "check": "Four current axis points/directions match data; eight local receiver centers independently recomputed; entry/exit travel intervals contiguous in -X.",
+      "lower": {
+        "entry_X_mm": -1219.2,
+        "grip_mm": 88.9,
+        "leg_exit_X_mm": -1308.1,
+        "remaining_leg_mm": 50.8,
+        "runner_exit_X_mm": -1257.3,
+        "runner_mm": 38.1
+      },
+      "maximum_local_center_error_mm": 0,
+      "status": "PASS",
+      "upper": {
+        "entry_X_mm": -1130.3,
+        "grip_mm": 177.8,
+        "leg_exit_X_mm": -1308.1,
+        "leg_mm": 88.9,
+        "side_exit_X_mm": -1219.2,
+        "side_mm": 88.9
+      }
+    },
+    {
+      "R_pair_spacing_mm": 44.364963653766246,
+      "U_pair_spacing_mm": 55.99999999965929,
+      "check": "Independent cut-angle arithmetic atan2(long-edge offset,139.7) and distances from source edge/world coordinates, checked against 0.001-mm / 0.001-degree guide rounding.",
+      "front_foot_L_mm": 34.4079546267471,
+      "front_top_L_mm": 1886.9176922210384,
+      "leg_foot_deg": 13.836486216237699,
+      "leg_top_deg": 36.16351378363798,
+      "rear_top_L_mm": 1989.0260846908022,
+      "runner_rear_deg": 13.83648621710883,
+      "status": "PASS"
+    },
+    {
+      "check": "Independently project heel B onto recess grain direction; subtract this global origin from source taper endpoints; confirm both lower holes fall below full-depth endpoint.",
+      "full_depth_end_L_mm": 180.3426611175874,
+      "full_stock_return_L_mm": 637.5426611175874,
+      "maximum_depth_mm": 38.1,
+      "return_run_mm": 457.2,
+      "status": "PASS"
+    },
+    {
+      "check": "Parse each physical SVG with ElementTree independently of generator: width 190mm, height 260mm, viewBox 0 0 190 260, 1 mm/unit, two 100-mm scale checks. Check all six target circles and three red end lines from independently recomputed source positions within serialized 0.0001-mm precision.",
+      "circle_targets": 6,
+      "cut_lines": 3,
+      "sheets": 3,
+      "status": "PASS"
+    },
+    {
+      "check": "Independently invert overview world-YZ projection for four target circles. Manually confirm raw profiles, face handedness and schematic member order: outer left-leg sheet faces -X, inner runner sheet faces +X, lower runner/leg and upper side/leg drilling proceed toward -X.",
+      "status": "PASS"
+    },
+    {
+      "check": "Guide claim/operation review: owner pull-saw/handheld-drill/clamp policy, left-only sheets, outer-face raw leg outlines, explicit incomplete recess method, separate nominal bolt length/drill travel, unverified bit/tolerance/tool/fixture/access/physical fit and strength boundaries are preserved.",
+      "status": "PASS"
+    }
+  ],
+  "commands": [
+    "Read-only cat/nl/sed/head and sha256sum on AGENTS.md and owned review targets/sources.",
+    "One inline .venv/bin/python -B standard-library review script read CSV/JSON/XML and independently checked transforms, cut angles, spacings, recess origin, axis/receiver intervals and SVG coordinates. It did not import the drawing helper or run its --check.",
+    "Final .venv/bin/python -B script rehashed targets and wrote only this permitted ignored receipt."
+  ],
+  "evidence": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json": "2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums-result.json": "d8ce1edd41cc423f9f584bf15ee066919ca0fbb1bd0e046be910393772aa54a4",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/member-end-datums.csv": "c38a8dff38aef1dc74c9eb54c0f9843f672b88a886582a3085e46104310ce5be",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/members.csv": "98dd8cf3bf74adf95a6a3a36fe7675f31cc61fd4d3018bf80ae11fbfb58a9f1d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/receiver-holes.csv": "0d3574fee9b56fcb2089ae6fa01c51ca1523d8ed793c22d8efd532759fc2b9e7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_floor_left.brep": "056fbf11e64b89db21fb5f9499493192c606d7bcc64408fc44e9585adf41cd28",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_left.brep": "e9c12d0260fd9893ac2b1be2c2eedfde6880919830cb8ae5735fdd5d2df5b68c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/lumber_leg_left.brep": "973d428ea18f1e259a4b39727b1023db66b1b3c3d924a9ed2b89729e17e72d40"
+  },
+  "findings": [],
+  "limitations": [
+    "This is saved-coordinate correctness review within the nominal proposal scope, not engineering acceptance, fabrication release or physical observation.",
+    "No CAD import/rebuild, native mechanics, global solve, full suite, web lookup, geometry change, bit/tolerance selection, fixture qualification, printing or physical trial performed.",
+    "Generator --check is owned by the separate testing reviewer and was not duplicated.",
+    "Visual rendering/presentation and physical printer/tool results are outside these independent source-coordinate checks."
+  ],
+  "reviewer": "builder_drawing_correctness",
+  "revision": "eoere-grid-aligned-wire-cutouts-v1",
+  "schema": "eoere_builder_drawings_independent_correctness_review/v1",
+  "scope": "Read-only independent correctness review of frozen guide, saved-coordinate generator/data, and four SVGs. No shared edits.",
+  "status": "NO_SUBSTANTIAL_CONFIRMED_ERRORS",
+  "target_sha256": {
+    "docs/wood-joints-mvp/eoere-builder-drawings/left-leg-foot-template.svg": "e7bcaeaab7b1ad54ec91d85110370ad174377f12845d7aaec3f3a8d6b1a84dba",
+    "docs/wood-joints-mvp/eoere-builder-drawings/left-leg-top-template.svg": "53a80477e609006a1640dbb81a96eeefaa5418676693aa5963133c8202058dcc",
+    "docs/wood-joints-mvp/eoere-builder-drawings/left-runner-rear-template.svg": "249c46dc7b0ecedaed143709d08fa51cb30539ebcecf4921aa984dc25941f4aa",
+    "docs/wood-joints-mvp/eoere-builder-drawings/leg-corner-data.json": "c002531f6e10a3611687c308e52db6fe1025bcffac15912b925d361a97ec8a3a",
+    "docs/wood-joints-mvp/eoere-builder-drawings/leg-corner-overview.svg": "5f5003c1713ee9574089bce5bb690e0eba69cc5de76193684627676dabeb18c0",
+    "docs/wood-joints-mvp/eoere-builder-drawings/leg-corner.py": "320a03a002d125705b18730f4d06d56fe2a8c6bd660823cd8f447d83ece2b4a9",
+    "docs/wood-joints-mvp/eoere-builder-drilling-guide.md": "35b3d750d61c0f2c8967e893f03be38dde0ae33ca963ae2d19ba08948e690c33"
+  }
+}
