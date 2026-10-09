@@ -1,0 +1,202 @@
+{
+  "artifact_bindings": {
+    "details.json": {
+      "bytes": 2623984,
+      "existing_replay_bytes_identical": true,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt02/details.json",
+      "sha256": "ca4d7d007857045b66af03e3ce3c5b8c03fdba7ee11fa151e6dee6707891de03"
+    },
+    "result.json": {
+      "bytes": 15231,
+      "existing_replay_bytes_identical": true,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt02/result.json",
+      "sha256": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b"
+    }
+  },
+  "case_closure": [
+    {
+      "admission_sha256": "76bbc5bd8818fcf327414f727cd4c8067bb1e46f39859f2018d17d266f2d5ee0",
+      "admission_source_pins": 479,
+      "case_id": "a12-rear",
+      "field_sha256": "7b335b70ceac3063d1cc446d96d2fecfce674fc89b0bcfe8ec8302f3ae946de9",
+      "field_source_pins": 478,
+      "signed_action_tables": 11,
+      "state_id": "eoere-raised-rear-leg-floor-cd47f7617d1e904822879691"
+    },
+    {
+      "admission_sha256": "46f9bd9235209bbee8de974a6bb2cb93c46433fa72a05873ed6b227825e90cf7",
+      "admission_source_pins": 479,
+      "case_id": "a12-forward",
+      "field_sha256": "d6833b240cb06a56212959411b38d6eb4a03a0074a6395d64ef7702d4cd5136e",
+      "field_source_pins": 478,
+      "signed_action_tables": 11,
+      "state_id": "eoere-raised-rear-leg-floor-e7240cf2760658bbee220b37"
+    },
+    {
+      "admission_sha256": "748e0df73e0fa68f11ae74be7b73177da0946c1ed85963f3805c98ecfd797ea9",
+      "admission_source_pins": 479,
+      "case_id": "a12-left",
+      "field_sha256": "72658936f3fa75c3f2e54ad5f9461289589acc01da0f8a5b50af1d6cb9210a14",
+      "field_source_pins": 478,
+      "signed_action_tables": 11,
+      "state_id": "eoere-raised-rear-leg-floor-96728e305c58fa4959d29966"
+    },
+    {
+      "admission_sha256": "2830b5777e8d61639a911315ba4ab4a3312d4998ad67f82f12d1843353d66ae4",
+      "admission_source_pins": 479,
+      "case_id": "k12-right",
+      "field_sha256": "87723cf815a4cd1f2f0a88fc13dbdb2233b6eaea4ed7b1439857a7aad4fc30af",
+      "field_source_pins": 478,
+      "signed_action_tables": 11,
+      "state_id": "eoere-raised-rear-leg-floor-61e410574200632068e73c23"
+    },
+    {
+      "admission_sha256": "f99f93e312d23b2d3260576d2836df1060f3967443645f1180403fd1309cc955",
+      "admission_source_pins": 479,
+      "case_id": "k12-rear",
+      "field_sha256": "d55b15a830a7741ae83445fb1895ff17f58baac94afd415401442e46497ff639",
+      "field_source_pins": 478,
+      "signed_action_tables": 11,
+      "state_id": "eoere-raised-rear-leg-floor-ad71805381a937c83b2944b3"
+    },
+    {
+      "admission_sha256": "ec9cda84d0c97e534b51aec3e21b943f0c48540ecbfaf0531c21925bd7a54380",
+      "admission_source_pins": 479,
+      "case_id": "a1-rear",
+      "field_sha256": "985bb860c30f2b8017ea1b22f68f44db6b0c708f68b18f8a368924f569053adb",
+      "field_source_pins": 478,
+      "signed_action_tables": 11,
+      "state_id": "eoere-raised-rear-leg-floor-3f40c109b59069ced45e231d"
+    }
+  ],
+  "confirmed_findings": [],
+  "coverage": {
+    "admission_action_table_bindings": 66,
+    "cleat_reused_net_tension_section_rows": 14,
+    "cleat_shear_rows": 24,
+    "cleat_tearout_rows": 48,
+    "direct_input_and_used_solid_pins": true,
+    "finite_outputs": true,
+    "inherited_bolt_comparisons": 552,
+    "null_complete_resistance_and_false_release_preserved": true,
+    "own_timber_and_washer_report_bindings": 12,
+    "required_helper_and_dependency_pins": [
+      "mini_moonboard/bolted_timber_checks.py",
+      "fea/reinforced_timber_resistance.py",
+      "scripts/thin_bolted_timber_common_shaft_checks.py",
+      "scripts/thin_bolted_steel_resistance.py",
+      "scripts/thin_bolted_timber_demand_checks.py",
+      "pyproject.toml",
+      "uv.lock"
+    ],
+    "unique_wood_washer_seats": 112,
+    "washer_rows": 3360
+  },
+  "descriptive_issuance_sources_sha256_verified_before_after": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/fixed-floor-components-v1/issue_manifest.py": "ef5e3609799cdab4893d60d2c113c9d4fa9740034b0037660b3a3f2f2b3de505",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-execution-v1/issue_manifest.py": "d41b2fe866d2b53b2c5c161d9db58b31fc902221000ef59f0877158301edf3e6"
+  },
+  "execution": {
+    "CAD_query_or_rebuild": false,
+    "archive_or_prune": false,
+    "git_mutation": false,
+    "global_or_library_test_run": false,
+    "mechanical_calculation_replay": false,
+    "native_or_global_solve": false,
+    "source_only_negative_control_manifests_created_then_removed": 4,
+    "target_or_shared_document_edits": false
+  },
+  "independent_replay": {
+    "full_replay_repeated": false,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-followup-review-v1/review-result.json",
+    "review_source_sha256": "d8fb5afcc5bfb72eb88174f7916219e2cf54cd5467554a472e69dc009229c8c8",
+    "sha256": "3f48ef86677961289b1dce6d8f0f1a8c6369961d2ed1074ff7c3db7f2abcf02b"
+  },
+  "known_answers_reused_from_once_only_exact_replay": {
+    "full_gap_clipped_probe_fractions": [
+      1.0000000000000002,
+      0.0,
+      0.49999999999999994
+    ],
+    "independent_washer_area_reference_lbf": 368.1553890925539,
+    "invalid_input_rejections": 3,
+    "near_and_exact_5d_references_n": [
+      5.0,
+      20.0
+    ]
+  },
+  "library_tests": {
+    "current_named_test_source_census": {
+      "tests/test_bolted_timber_checks.py": {
+        "declared_cases": 43,
+        "sha256": "4a8b26619d8597dfab0cb37a73af2bd84b06d14ab58b9741e80bbcf831e44101"
+      },
+      "tests/test_reinforced_timber_resistance.py": {
+        "declared_cases": 9,
+        "sha256": "a75556830c4d3fe0e4fced521616a9a63ed3e0e7cb01f318729083d4d55ef572"
+      }
+    },
+    "rerun": false,
+    "saved_result_reused": {
+      "command": "uv run pytest -q tests/test_bolted_timber_checks.py tests/test_reinforced_timber_resistance.py",
+      "failed": 0,
+      "passed": 52
+    }
+  },
+  "limits": [
+    "Known CAD/full-gap-edge and mechanical arithmetic controls are reused from the authenticated once-only replay; no CAD probes or calculation replay are repeated.",
+    "The saved 52-pass library assertion is reused. This review additionally inspects the present test sources and independently counts 43+9 cases; it does not claim a fresh execution.",
+    "MTC application precedent remains descriptive primary-source context, not an adopted product capacity or calculation input."
+  ],
+  "new_genuine_source_intake_negative_controls": [
+    {
+      "control": "wrong exact field hash",
+      "message": "exact manifest artifact required: field",
+      "rejected": true
+    },
+    {
+      "control": "absolute artifact path",
+      "message": "manifest paths must be repository-relative",
+      "rejected": true
+    },
+    {
+      "control": "other case's genuine admission receipt",
+      "message": "source-bound actual fixed-floor field/receipt pair required",
+      "rejected": true
+    },
+    {
+      "control": "wrong expected own case",
+      "message": "manifest own field identity differs: case_id",
+      "rejected": true
+    }
+  ],
+  "preserved_files_sha256_before_after": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md": "5940ec7ca4bcbbe260527d311cec29766c7170bbda637c1404cd3fcf33061491",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/analyze.py": "8bffd53e9e730e63db2f041a10626edb002cba7034af118d6dc9bdf3fed69ae3",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/inputs.json": "ae2c65447ed9a0b628dd25b52573f4c04eca58bc6f2b2657ee0a6f88a69a6bd7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md": "327cecaf787ad8bef3280c3f1f87e4c21c723b7af04949f86bcfc483917ca5af",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py": "5cddc0db7a3976d232e84b9789eccff0e7b0b99ca11bcf24bb0ef3dc28bfa5a7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/inputs.json": "c5e2e58ca5e81ceb8e10c73a9e8287094020db5aebc1841ebece6c6e27a5e099",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/result.json": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/verification.json": "9e4b44ee39bc191908b43f36a1d698031a93a2f81b8f4632d86453c90bed8628",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/result.json": "ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/verification.json": "8abeea98cab6801ec3135f4633783b7b1d63a38f807384756dcf8cbcf7ea5ecc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-followup-review-v1/replay/details.json": "ca4d7d007857045b66af03e3ce3c5b8c03fdba7ee11fa151e6dee6707891de03",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-followup-review-v1/replay/result.json": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-followup-review-v1/review-result.json": "3f48ef86677961289b1dce6d8f0f1a8c6369961d2ed1074ff7c3db7f2abcf02b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-followup-review-v1/review.py": "d8fb5afcc5bfb72eb88174f7916219e2cf54cd5467554a472e69dc009229c8c8",
+    "tests/test_bolted_timber_checks.py": "4a8b26619d8597dfab0cb37a73af2bd84b06d14ab58b9741e80bbcf831e44101",
+    "tests/test_reinforced_timber_resistance.py": "a75556830c4d3fe0e4fced521616a9a63ed3e0e7cb01f318729083d4d55ef572"
+  },
+  "retention": "Only this compact helper and receipt are new ignored review evidence. Existing issued details, once-only replay, source cache and frozen packet stay active; nothing is pruned.",
+  "review_source_sha256": "0a820c3c57aa97407753daedcd3e0dbeb9698225666a9a679be28da5253b8fb8",
+  "schema": "eoere_resistance_publication_source_verification/v1",
+  "scope": "Six fixed old raised-rail fields and preserved aligned-wire local geometry only; adjusted base, unofficial 2026 grid, actual complete joint resistance and release are excluded.",
+  "source_binding": {
+    "canonical_sha256": "63b32fe6cb5a355765fe5d0a5aaa5dafbcaf310d4aaf336c1fcb000977aed2fc",
+    "pin_count": 1071,
+    "verified_before_after": true
+  },
+  "source_bytes_verified_twice": 453552520,
+  "status": "PASS_NO_CONFIRMED_SUBSTANTIAL_VERIFICATION_OR_SOURCE_INTAKE_OMISSION"
+}

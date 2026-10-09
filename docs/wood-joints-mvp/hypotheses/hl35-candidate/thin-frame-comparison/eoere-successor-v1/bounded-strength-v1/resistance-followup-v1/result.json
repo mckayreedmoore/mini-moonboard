@@ -1,0 +1,344 @@
+{
+  "bolt_yield_components": {
+    "adjusted_oblique_group_or_shared_stack_reference_n": null,
+    "reused_issued_component_rows": 552,
+    "scope": "Six-mode single-shear references remain finite; none supplies the missing group, geometry, mixed shared-stack or complete-member resistance.",
+    "unadjusted_single_shear_component_reference_range_n": [
+      755.3683150113741,
+      2685.8405799641605
+    ],
+    "worst_unadjusted_component_comparison": {
+      "Cdelta": null,
+      "Cdelta0p5_Cg1_CD1_sensitivity_ratio": 1.3982079562738237,
+      "Cg": null,
+      "V_over_unadjusted_component_Z": 0.6991039781369118,
+      "axis_id": "lumber_leg_bolt_left_2",
+      "case_id": "a12-rear",
+      "complete_joint_Z_n": null,
+      "exceeds_unadjusted_component_reference": false,
+      "governing_mode": "IV",
+      "lateral_demand_n": 1561.214424579798,
+      "required_Cg_times_Cdelta_at_CD1_component_only": 0.6991039781369118,
+      "six_mode_references_n": {
+        "II": 2923.7518073328433,
+        "IIIm": 2671.1444860540428,
+        "IIIs": 3197.942229072466,
+        "IV": 2233.1648415738973,
+        "Im": 5331.826010407896,
+        "Is": 7424.883467344968
+      },
+      "unadjusted_component_Z_n": 2233.1648415738973
+    }
+  },
+  "case_ids": [
+    "a12-rear",
+    "a12-forward",
+    "a12-left",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "cleat_member_components": {
+    "actual_all_mode_current_cleat_resistance_n": null,
+    "complete_section_versus_independent_group_force_max_error_n": 1.0015810403274372e-10,
+    "current_local_parameter_sensitivity_reference_range_n": [
+      1243.1169597820317,
+      1534.2631442094591
+    ],
+    "loaded_bolt_plane_adjusted_net_tension_reference_range_n": [
+      22112.25692900825,
+      23379.22727864454
+    ],
+    "near_end_rectangular_reference_range_n": [
+      1395.8133425985259,
+      1395.8133425985266
+    ],
+    "scope": "NDS reduced-depth connection shear checks a rectangular bending-member component and uses shear on grain-normal sections. Current trimmed-depth and sloping-end tearout values are parameter sensitivities. The separate Y-normal tensile-opening cut, torsion, bending, clamp pressure and interacting modes remain undisposed.",
+    "stock_depth_trimmed_engagement_parameter_sensitivity_range_n": [
+      1130.939790493586,
+      1395.8133425985266
+    ],
+    "worst_average_parallel_net_tension": {
+      "Ft747p5psi_CF1p3_scenario_reference_n": 22112.289882604153,
+      "area_mm2": 4290.456857,
+      "base_Ft575psi_area_reference_n": 17009.453755849347,
+      "maximum_average_tension_over_adjusted_reference": 0.016661665003103093,
+      "maximum_fixed_old_average_tension_n": 368.4275664754562,
+      "member": "eoere_cleat_left",
+      "station_mm": 342.0874
+    },
+    "worst_matching_section_shear": {
+      "adjacent_complete_own_cut_wrenches": [
+        {
+          "affine_selfweight_mass_and_centroid_retained": true,
+          "axial_tension_positive_n": 185.47439862025988,
+          "cut_grain_station_mm": 336.928025,
+          "cut_point_xyz_mm": [
+            -1238.25,
+            -105.85,
+            336.928025
+          ],
+          "force_on_lower_portion_xyz_n": [
+            213.52268950726975,
+            -347.21367881023764,
+            185.47439862025988
+          ],
+          "moment_on_lower_portion_about_cut_xyz_nmm": [
+            -30026.67902988052,
+            -11132.105979953498,
+            12371.264420603293
+          ],
+          "side": -1,
+          "station_mm": 336.928025
+        },
+        {
+          "affine_selfweight_mass_and_centroid_retained": true,
+          "axial_tension_positive_n": -2.129883653627516,
+          "cut_grain_station_mm": 347.24697499999996,
+          "cut_point_xyz_mm": [
+            -1238.25,
+            -105.85,
+            347.24697499999996
+          ],
+          "force_on_lower_portion_xyz_n": [
+            -266.49832178604015,
+            -6.204459168657195e-11,
+            -2.129883653627516
+          ],
+          "moment_on_lower_portion_about_cut_xyz_nmm": [
+            1.3440512702800333e-08,
+            -10661.671492400239,
+            4176.229608369121
+          ],
+          "side": 1,
+          "station_mm": 347.24697499999996
+        }
+      ],
+      "case_id": "a12-forward",
+      "current_local_depth_parameter_sensitivity": {
+        "Fv_prime_mpa": 1.241056312770305,
+        "b_mm": 38.09999999999991,
+        "connection_within_5d_of_end": true,
+        "d_mm": 133.2478322836325,
+        "de_mm": 88.7978322836325,
+        "equation": "3.4-6",
+        "nearest_grain_end_mm": 87.3125,
+        "reference_n": 1243.1169597820317
+      },
+      "current_local_parameter_sensitivity_ratio": 0.2793089387752526,
+      "current_trimmed_cleat_complete_splitting_resistance_n": null,
+      "group_crossgrain_Y_resultant_n": -347.2136788101757,
+      "group_grain_station_mm": 342.0875,
+      "maximum_adjacent_grain_normal_section_Y_shear_n": 347.21367881023764,
+      "member": "eoere_cleat_left",
+      "stock_depth_trimmed_engagement_parameter_sensitivity_ratio": 0.3070134075472754,
+      "stock_depth_with_trimmed_engagement_parameter_sensitivity": {
+        "Fv_prime_mpa": 1.241056312770305,
+        "b_mm": 38.09999999999991,
+        "connection_within_5d_of_end": true,
+        "d_mm": 139.7,
+        "de_mm": 88.7978322836325,
+        "equation": "3.4-6",
+        "nearest_grain_end_mm": 87.3125,
+        "reference_n": 1130.939790493586
+      },
+      "untrimmed_component_ratio": 0.24875366083250416,
+      "untrimmed_rectangular_NDS_reference": {
+        "Fv_prime_mpa": 1.241056312770305,
+        "b_mm": 38.09999999999991,
+        "connection_within_5d_of_end": true,
+        "d_mm": 139.7,
+        "de_mm": 95.24999999999999,
+        "equation": "3.4-6",
+        "nearest_grain_end_mm": 87.3125,
+        "reference_n": 1395.8133425985259
+      }
+    },
+    "worst_parallel_row_parameter_sensitivity": {
+      "axis_id": "eoere_bolt_067",
+      "case_id": "a12-forward",
+      "current_end_distance_parameter_sensitivity_n": 2141.222286410457,
+      "current_loaded_grain_ray": {
+        "boundary_normal_to_grain_deg": 49.99999999999488,
+        "distance_mm": 45.28405313480308,
+        "outward_normal_yz": [
+          -0.7660444431189206,
+          0.6427876096866079
+        ]
+      },
+      "current_oblique_end_full_tearout_qualification": false,
+      "current_parameter_sensitivity_ratio": 0.3363857837180034,
+      "member": "eoere_cleat_left",
+      "old_single_bolt_parallel_row_reference_n": 4128.505686663641,
+      "old_square_loaded_end_distance_mm": 87.3125,
+      "own_parallel_grain_signed_force_n": 720.2767369286366
+    }
+  },
+  "current_geometry": "eoere-grid-aligned-wire-cutouts-v1",
+  "known_answers": {
+    "full_gap_clipped_probe_fractions": [
+      1.0000000000000002,
+      0.0,
+      0.49999999999999994
+    ],
+    "independent_washer_area_reference_lbf": 368.1553890925539,
+    "invalid_input_rejections": 3,
+    "near_and_exact_5d_references_n": [
+      5.0,
+      20.0
+    ]
+  },
+  "limits": [
+    "All six issued fields are for untrimmed raised-rail eoere-bottom-rail-tnut-clearance-v1. Current trimmed/aligned-wire geometry has no new response field; fixed old forces with new local geometry are sensitivities.",
+    "Dry DF-L No.2, CD=1, inherited tabulated values and explicitly identified CF=1.3 tension scenario. Actual species, grade, moisture, grain, flaws and dimensions are unobserved.",
+    "Reduced-depth NDS shear is a rectangular bending-member component; current trimmed cleat values use local dimensions as parameter sensitivity. No universal sawn-lumber Ft-perp or numerical all-mode cleat capacity is introduced.",
+    "Parallel row tearout acts parallel to grain toward an end and here uses one bolt at a time; a sloping-end ray substitution is not adopted square-end qualification. Full moments and connected groups remain separate.",
+    "Washer CAD probes prove nominal geometry under a bounding catalog annulus, not delivered parts, seating, stiff pressure distribution, preload, physical couples or metal grade/combined strength.",
+    "No Cg/Cdelta invented, EC5 characteristic resistance converted to an ASD allowable, shared wood/steel bolt stack capacity summed, floor qualification or climber rating claimed.",
+    "Original five-file bounded packet stays frozen. This followup retains only the scoped calculation, inputs, compact result and verification; raw probe rows and complete pins stay in the ignored reproducer output. No raw-run pruning."
+  ],
+  "load_contract": {
+    "all_recorded_gravity_and_accessory_allowance_retained": true,
+    "climber_multiplier": 2,
+    "dynamic_multiplier_and_no_slip_floor_verified": false,
+    "field_case_geometry": "eoere-bottom-rail-tnut-clearance-v1",
+    "hold_outward_standoff_mm": 100,
+    "local_geometry_sensitivity": "eoere-grid-aligned-wire-cutouts-v1",
+    "new_response_evaluated": false,
+    "simultaneous_horizontal_load_n": 300,
+    "single_climber_lb": 250,
+    "vertical_climber_load_n": 2224.11080763025
+  },
+  "material_reference": {
+    "Emin_mpa": 3998.9592300376494,
+    "Fb_star_mpa": 8.066866033006981,
+    "Fc_perp_mpa": 4.309223308230226,
+    "Fc_star_mpa": 10.238714580355017,
+    "Ft_mpa": 5.15383107664335,
+    "Fv_mpa": 1.241056312770305
+  },
+  "method_sources": [
+    {
+      "source": {
+        "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf",
+        "sha256": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644"
+      },
+      "title": "AWC NDS 2024, Chapter 3, printed page 21, 3.4.4.1 / Eqs.3.4-6 and 3.4-7",
+      "url": "https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240718_AWCWebsite_Chapter-3-Design-Provisions-and-Equations.pdf",
+      "use": "Read and visually checked existing authoritative chapter; rectangular-member reduced-depth shear component."
+    },
+    {
+      "source": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/sources/nds2024-errata-20260323.pdf",
+        "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"
+      },
+      "title": "AWC NDS 2024 errata, March23 2026, pages1-2",
+      "url": "https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf",
+      "use": "Current correction explicitly identifies 3.4.4.1 and de for perpendicular-grain fasteners."
+    },
+    {
+      "title": "MTC Solutions Beam Hanger Design Guide v4.0, printed page123",
+      "url": "https://mtcsolutions.com/wp-content/uploads/2024/02/BHDGvU4.0_Web.pdf",
+      "use": "Primary manufacturer practice checked visually online: same NDS near-end reduced-depth method. Application precedent only, not product strength transferred to Eoere."
+    },
+    {
+      "paths": [
+        "mini_moonboard/bolted_timber_checks.py",
+        "fea/reinforced_timber_resistance.py"
+      ],
+      "title": "Repository NDS2024 bolted timber helpers and adjusted dry DF-L No.2 member references",
+      "use": "Existing Appendix E parallel row tearout and net section, full washer bearing references. Inherited complete source closure pins the source documents and helpers."
+    },
+    {
+      "path": "tests/test_washer_seating.py",
+      "title": "Existing washer-seat CAD thin-probe verification",
+      "use": "Reuse parameterized method on saved current solids and verify full / gap / edge negative controls; no selected-baseline CAD build."
+    }
+  ],
+  "release": {
+    "candidate_selected": false,
+    "complete_joint_strength_qualified": false,
+    "fabrication": false,
+    "geometry_changed": false,
+    "new_response_solve": false
+  },
+  "response_geometry": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/geometry.json",
+    "sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b"
+  },
+  "runtime": {
+    "cadquery": "2.8.0",
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_nds_component_resistance_followup/v1",
+  "source_binding": {
+    "canonical_sha256": "63b32fe6cb5a355765fe5d0a5aaa5dafbcaf310d4aaf336c1fcb000977aed2fc",
+    "pin_count": 1071,
+    "verified_before_after": true
+  },
+  "status": "FINITE_COMPONENT_REFERENCES_AND_CURRENT_SEAT_GEOMETRY; COMPLETE_JOINT_RESISTANCE_OPEN",
+  "washer_wood_bearing": {
+    "catalog_and_nominal_reference_range_n": [
+      1704.976383088264,
+      3467.409251884851
+    ],
+    "current_annular_probes_full": 44,
+    "current_wood_seats": 112,
+    "minimum_support_fraction_in_queried_seats": 0.9999999999997338,
+    "nominal_recipe_references_n": [
+      1765.5771313748983,
+      1898.5532362492327,
+      3437.331323401372
+    ],
+    "previously_service_cut_conditional_seats_checked": 44,
+    "reused_trimmed_cleat_footprints": 8,
+    "reused_unchanged_finished_seats": 60,
+    "scope": "Current CAD containment with fixed old axial forces; Fc-perp ring references require sound dry DF-L No.2 and a sufficiently stiff seated washer. No physical couple, preload or combined washer resistance is established.",
+    "worst_at_two_face_affine_contact_limit": {
+      "Fc_perp625psi_full_ring_reference_n": 1704.976383088264,
+      "OD_mm": 25.222199999999997,
+      "axial_N_n": 453.2926454953383,
+      "capture_id": "eoere_bolt_006/nut-capture",
+      "case_id": "a12-left",
+      "full_modeled_support": true,
+      "host": "base_side_left",
+      "mean_reference_ratio": 0.2658644717848107,
+      "peak_reference_ratio_at_two_face_affine_contact_limit": 0.46787127313739213,
+      "physical_couple_and_washer_combined_resistance_qualified": false,
+      "profile": "catalog-corner-3",
+      "support_inner_diameter_mm": 11.5062,
+      "two_face_affine_eccentricity_mm": 2.8940497864768684
+    },
+    "worst_catalog_or_nominal_mean": {
+      "Fc_perp625psi_full_ring_reference_n": 1704.976383088264,
+      "OD_mm": 25.222199999999997,
+      "axial_N_n": 453.2926454953383,
+      "capture_id": "eoere_bolt_006/nut-capture",
+      "case_id": "a12-left",
+      "full_modeled_support": true,
+      "host": "base_side_left",
+      "mean_reference_ratio": 0.2658644717848107,
+      "peak_reference_ratio_at_two_face_affine_contact_limit": 0.46787127313739213,
+      "physical_couple_and_washer_combined_resistance_qualified": false,
+      "profile": "catalog-corner-3",
+      "support_inner_diameter_mm": 11.5062,
+      "two_face_affine_eccentricity_mm": 2.8940497864768684
+    },
+    "worst_nominal_mean": {
+      "Fc_perp625psi_full_ring_reference_n": 3437.331323401372,
+      "OD_mm": 34.925,
+      "axial_N_n": 849.882040106273,
+      "capture_id": "lumber_leg_bolt_right_2/nut-capture",
+      "case_id": "k12-right",
+      "full_modeled_support": true,
+      "host": "lumber_leg_right",
+      "mean_reference_ratio": 0.24725054414169242,
+      "peak_reference_ratio_at_two_face_affine_contact_limit": 0.423432967276994,
+      "physical_couple_and_washer_combined_resistance_qualified": false,
+      "profile": "nominal",
+      "support_inner_diameter_mm": 14.2875,
+      "two_face_affine_eccentricity_mm": 3.6314062499999995
+    }
+  }
+}

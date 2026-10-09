@@ -1,0 +1,84 @@
+{
+  "artifacts": {
+    "details.json": {
+      "bytes": 2623984,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt02/details.json",
+      "recomputed_serialized_bytes_identical": true,
+      "sha256": "ca4d7d007857045b66af03e3ce3c5b8c03fdba7ee11fa151e6dee6707891de03"
+    },
+    "result.json": {
+      "bytes": 15231,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt02/result.json",
+      "recomputed_serialized_bytes_identical": true,
+      "sha256": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b"
+    }
+  },
+  "checks": {
+    "command": "uv run pytest -q tests/test_bolted_timber_checks.py tests/test_reinforced_timber_resistance.py",
+    "complete_source_map_verified_after_reproduction": true,
+    "failed": 0,
+    "original_five_file_packet_unchanged": true,
+    "own_cleat_cut_vs_independent_group_max_error_n": 1.0015810403274372e-10,
+    "passed": 52,
+    "relative_readme_file_links": "PASS",
+    "ruff_check": "PASS",
+    "ruff_format_check": "PASS"
+  },
+  "execution": {
+    "CAD_rebuild_or_geometry_edit": false,
+    "cached_CAD_annulus_queries": 44,
+    "complete_joint_strength_accepted": false,
+    "mesh_export": false,
+    "native_or_global_solve": false,
+    "physical_inspection_or_test": false,
+    "reused_existing_seat_proofs": 68
+  },
+  "known_answers": {
+    "full_gap_clipped_probe_fractions": [
+      1.0000000000000002,
+      0.0,
+      0.49999999999999994
+    ],
+    "independent_washer_area_reference_lbf": 368.1553890925539,
+    "invalid_input_rejections": 3,
+    "near_and_exact_5d_references_n": [
+      5.0,
+      20.0
+    ]
+  },
+  "owned_artifacts": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md": {
+      "bytes": 10846,
+      "sha256": "327cecaf787ad8bef3280c3f1f87e4c21c723b7af04949f86bcfc483917ca5af"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py": {
+      "bytes": 30223,
+      "sha256": "5cddc0db7a3976d232e84b9789eccff0e7b0b99ca11bcf24bb0ef3dc28bfa5a7"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/inputs.json": {
+      "bytes": 5280,
+      "sha256": "c5e2e58ca5e81ceb8e10c73a9e8287094020db5aebc1841ebece6c6e27a5e099"
+    },
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/result.json": {
+      "bytes": 15231,
+      "sha256": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b"
+    }
+  },
+  "retention": {
+    "active": "Owned five-file calculation packet, issued attempt02 details, original admitted fields and existing original bounded evidence. Latest AWC errata is pinned under the ignored sources folder; existing Chapter3, AppendixE and material supplement are reused.",
+    "shared_summary_and_publication_owner": "Main thread 01a10d52-a895-7fc1-87f7-b69d75e039cb; no shared staging or commit by this task.",
+    "superseded": "attempt01 local-depth screen retained with exact input and script snapshots in source-at-first-run. No pruning or archive operation performed."
+  },
+  "runtime": {
+    "cadquery": "2.8.0",
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_nds_resistance_followup_verification/v1",
+  "source_binding": {
+    "canonical_sha256": "63b32fe6cb5a355765fe5d0a5aaa5dafbcaf310d4aaf336c1fcb000977aed2fc",
+    "pin_count": 1071,
+    "verified_before_after": true
+  },
+  "status": "PASS"
+}

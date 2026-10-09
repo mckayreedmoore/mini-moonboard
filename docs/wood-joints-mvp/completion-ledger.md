@@ -90,7 +90,7 @@ thread/runout, coated dimensions, seating and longer-tip/tool access remain open
 
 **Four owner-requested bounded strength studies are complete:** the
 [existing packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md)
-reuses the authenticated old raised-rail actions and current local geometry.
+reuses the authenticated old raised-rail actions and preserved aligned-wire local geometry.
 Its compact result SHA is
 `ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda`;
 independent `bounded-strength-review-v1/review-result.json` is SHA
@@ -114,13 +114,78 @@ stiffness and redistribution are unknown. No matching revised response,
 installed brace, complete joint strength or physical release is established.
 The owner-stopped panel/screw remedies remain stopped.
 
+The independently reviewed
+[component resistance followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md)
+retains those six old fields and `eoere-grid-aligned-wire-cutouts-v1` local
+geometry. Its five-file packet totals 65,346 bytes; result SHA256 is
+`f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b`.
+Independent receipt
+`bounded-strength-review-v1/resistance-followup-review-v1/review-result.json`
+has SHA256
+`3f48ef86677961289b1dce6d8f0f1a8c6369961d2ed1074ff7c3db7f2abcf02b`.
+The review reports no confirmed blocker in this component/sensitivity scope;
+the adjusted base, optional 2026 grid and matching revised response remain
+outside it.
+
+Two complementary publication reviews also report no confirmed findings:
+
+| Review and receipt under `bounded-strength-review-v1` | Receipt SHA256 |
+| --- | --- |
+| `resistance-publication-verification-v1/review-result.json` | `0c463f8b32e0cf0fd5f53d2c0a1b72b584ef3c9b6048841e684e2d06b1139525` |
+| `resistance-publication-structure-v1/review-result.json` | `34ca7743c2d2bd8c2d629fd0b7a263157e621ea1e6bec0060ff08c7fb115defd` |
+
+Verification independently checks all six field/receipt pairs, 66 action-table
+bindings, 12 component-report bindings and four genuine intake rejection
+controls. Structure checks helper reuse, exact output bindings, units,
+reading boundaries and retention. Both recheck all 1,071 source pins without
+another full calculation or library test run. The original correctness review
+and these two distinct reviews preserve the same frozen target bytes.
+
+Cached finished-solid annuli resolve all **44** blanket service-cut washer
+landing flags. Together with 60 unchanged-source and eight trimmed-cleat
+proofs, all **112 wood seats** have nominal geometric support; the remaining
+88 end seats are steel. This supplies eligibility for full-ring bearing
+references, with no observed pressure, installation preload or rotational
+clamp. Nominal bearing references are 1.766/1.899/3.437 kN; catalog corners
+span 1.705–3.467 kN. Highest nominal and catalog mean-pressure ratios are
+0.2473 and 0.2659; the declared affine full-contact-limit pressure ratio
+reaches 0.4679.
+
+NDS 2024 §3.4.4.1 reduced-depth near-end shear gives **1.396 kN** for the
+untrimmed rectangular cleat. The conservative trimmed-engagement screen
+retaining original stock depth gives **1.131 kN** against its matching
+347.214-N grain-normal section shear, ratio **0.3070**. The local-depth
+screen gives 1.243 kN and 0.2793. These rectangular parameter sensitivities
+leave complete nonrectangular, simultaneous-force/moment qualification open.
+The shortened grain-ray single-bolt tear-out screen gives 2.141 kN against
+720.277 N, ratio 0.3364; oblique-end and group qualification remain open.
+Net parallel-tension references span 22.112–23.379 kN in the inherited
+CF=1.3 scenario, with maximum average ratio 0.01666. The separate 27.769-N
+Y-normal opening bound is not used as this transverse-shear demand.
+
+The once-only independent replay reproduces exact compact/detail bytes and
+all **1,071 pins** before and after. All 48 independent signed cut wrenches,
+24 group rows, 112 seat proofs and 3,360 own-case washer profile rows reconcile;
+maximum force/moment differences are 1.71e-13 N and 7.28e-12 N·mm. Formula,
+contact-probe and rejection fixtures pass; the producer's 52 affected library
+tests were reused rather than repeated by the reviewer. No revised response,
+complete joint acceptance, physical observation or panel remedy follows.
+
+Keep the five compact files and three independent review helpers/receipts
+(83,726 bytes) active, along with issued `attempt02/details.json` (2,623,984 bytes,
+SHA256 `ca4d7d007857045b66af03e3ce3c5b8c03fdba7ee11fa151e6dee6707891de03`),
+its inputs, existing fields and shared references. Superseded `attempt01`
+retains its exact `source-at-first-run` inputs; it and temporary source-survey
+exports are archive candidates after consumer/ownership checks. No archive or
+prune occurred. Original study files and review receipts remain unchanged.
+
 Retain the five bolt-proposal files (167,214 bytes), five strength-study files
 (170,430 bytes), bolt review helper/snapshot/receipt (26,757 bytes) and strength
 review helper/receipt (36,521 bytes) as compact reproducible evidence. The
 existing source consumers, cached sections, detailed rows, failed/superseded
 attempts and once-only review replays remain active in their ignored output
-paths. The separate resistance followup is still owned by its producer and is
-not included in these frozen results. No archive or prune is performed; earlier
+paths. The separate resistance followup above preserves these frozen results.
+No archive or prune is performed; earlier
 verified recovery entries remain applicable to their original source sets.
 
 Parent publication validation covers 25 new compact files totaling 489,844

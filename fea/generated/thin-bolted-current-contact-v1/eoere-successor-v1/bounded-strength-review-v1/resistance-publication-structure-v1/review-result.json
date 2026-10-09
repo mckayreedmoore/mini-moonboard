@@ -1,0 +1,125 @@
+{
+  "checked_artifacts": {
+    "details.json": {
+      "bytes": 2623984,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt02/details.json",
+      "recomputed_serialized_bytes_identical": true,
+      "sha256": "ca4d7d007857045b66af03e3ce3c5b8c03fdba7ee11fa151e6dee6707891de03"
+    },
+    "result.json": {
+      "bytes": 15231,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt02/result.json",
+      "recomputed_serialized_bytes_identical": true,
+      "sha256": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b"
+    }
+  },
+  "direct_dependency_pins": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/analyze.py": "8bffd53e9e730e63db2f041a10626edb002cba7034af118d6dc9bdf3fed69ae3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/washer-reuse-v1/admitted_intake.py": "b57fce9e682be9cf7740ba6857f768e387ac198f75a328682ddca15a14cd5eb0",
+    "fea/reinforced_timber_resistance.py": "d4e8302d39beb9f53c70fa264762c59c231f6e6b086cb866906ca39eeab9cfbc",
+    "mini_moonboard/bolted_timber_checks.py": "a1414547d9eaa3d60e81482b4a2cac2d49e88f31aafa341dca5be9ec8ef4aa13",
+    "pyproject.toml": "84e007ad5c9cfffa853f21627fecbaec0a85c602560d5d5e0b507326e9b02452",
+    "scripts/thin_bolted_steel_resistance.py": "5a41c7d4a46bf1857e4c756fb35c12cc4253d2fd74f49de01a95c275a8c80602",
+    "scripts/thin_bolted_timber_common_shaft_checks.py": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7",
+    "tests/test_washer_seating.py": "6165667a6e522b10f9b16d6d3971b43618616d8ef52d5b36de0301f8ddffad95",
+    "uv.lock": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+  },
+  "execution": {
+    "CAD_queries_or_rebuild": false,
+    "archive_or_prune": false,
+    "git_mutations_or_staging": false,
+    "native_or_global_solve": false,
+    "numerical_replay": false,
+    "target_imports": false,
+    "target_or_shared_edits": false,
+    "test_suites": false
+  },
+  "findings": [],
+  "five_file_packet_bytes": 65346,
+  "local_readme_links_verified": 5,
+  "observations": [
+    {
+      "assessment": "The followup consumes the original bounded packet and admitted intake, imports existing NDS/reference/own-wrench/annulus-pressure helpers, and reuses saved exact section areas and 552 issued bolt comparisons. New code adds the reduced-depth component formula and parameterizes the existing thin-annulus probe method. It does not copy a solver, library installation, or second section exporter.",
+      "criterion": "method reuse and cohesion",
+      "evidence": [
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py:24",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py:562"
+      ]
+    },
+    {
+      "assessment": "Chapter 3 and March 2026 AWC errata are explicit pinned method inputs. Existing NDS Appendix/material documents and repository helpers remain in the inherited source closure. MTC is identified only as application precedent; no MTC product rating, XC basis, perpendicular-tension value or generic joint factor is transferred. Formula interpretation and primary-source visual checks are the existing independent review's evidence, not repeated here.",
+      "criterion": "source authority",
+      "evidence": [
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/inputs.json",
+        "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-followup-review-v1/review-result.json"
+      ]
+    },
+    {
+      "assessment": "Six authenticated untrimmed raised-rail fields remain the sole response authority. The fixed aligned-wire revision and unchanged axis records are asserted; local trim/cut dimensions are sensitivities. The result does not consume adjusted-base or optional 2026-grid geometry sources or claim their response or geometry acceptance.",
+      "criterion": "dataflow and revision boundary",
+      "evidence": [
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py:589",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md:13",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/result.json"
+      ]
+    },
+    {
+      "assessment": "The 44 new annular probes, 60 unchanged-source proofs and eight trimmed-cleat proofs establish nominal eligibility for 112 wood washer seats. Thin geometric containment remains distinct from deeper stress, actual seating, preload, moment, washer metal resistance or rotational restraint. Rectangular shear, trimmed-depth and sloping-end screens retain their component/sensitivity status; complete cleat and adjusted group/shared-stack resistance remain null.",
+      "criterion": "claim boundaries",
+      "evidence": [
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md:97",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py:299",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py:549"
+      ]
+    },
+    {
+      "assessment": "The existing lbf helper interface is converted at explicit inch/mm and N/lbf boundaries. The reduced-depth formula uses MPa and millimeters to produce N; result keys carry N, N/mm-squared and N-mm conventions. README states 1 kN equals 1000 N, inherited dry DF-L No.2 CD=1 and CF=1.3 tension scenario, and does not convert a component reference into climber rating. The old load contract and unverified no-slip/multiplier assumptions remain recorded.",
+      "criterion": "units and load contracts",
+      "evidence": [
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py:35",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py:264",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md:29"
+      ]
+    },
+    {
+      "assessment": "The five-file packet is compact; exact issued attempt02 result/details paths, sizes and hashes authenticate. The CLI supplies output and compare modes; the README identifies the ignored output root and issued attempt. Existing uv.lock/pyproject pins plus recorded Python/NumPy/CadQuery versions retain the environment basis. The active source closure, admitted fields, details and shared primary sources stay active. Superseded attempt01 exact input/script snapshots remain recoverable, with archive/prune subject to the existing workflow; this followup performs neither.",
+      "criterion": "reproduction and retention",
+      "evidence": [
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md:135",
+        "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/verification.json"
+      ]
+    }
+  ],
+  "retention": "Only this ignored helper and compact receipt are added. Existing evidence sources, frozen packets and result paths remain unchanged; nothing is archived or pruned.",
+  "review_check_command": "python3 fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-publication-structure-v1/review.py --check",
+  "review_helper_sha256": "f1a8905a38f8d7c82f47bcee9281d3d8a928ef24a4cfc1ca675f52625d595ec3",
+  "runtime_as_recorded_by_producer": {
+    "cadquery": "2.8.0",
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_resistance_publication_structure_review/v1",
+  "scope": "Five-file resistance followup and existing independent correctness receipt; fixed six old raised-rail fields plus preserved aligned-wire local geometry. Adjusted-base/optional 2026-grid geometry sources, fresh response and actual joint acceptance excluded.",
+  "source_binding": {
+    "canonical_sha256": "63b32fe6cb5a355765fe5d0a5aaa5dafbcaf310d4aaf336c1fcb000977aed2fc",
+    "details_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/attempt02/details.json",
+    "details_sha256": "ca4d7d007857045b66af03e3ce3c5b8c03fdba7ee11fa151e6dee6707891de03",
+    "pin_count": 1071,
+    "verified_before_after": true
+  },
+  "source_sha256_before_after": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md": "5940ec7ca4bcbbe260527d311cec29766c7170bbda637c1404cd3fcf33061491",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/analyze.py": "8bffd53e9e730e63db2f041a10626edb002cba7034af118d6dc9bdf3fed69ae3",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/inputs.json": "ae2c65447ed9a0b628dd25b52573f4c04eca58bc6f2b2657ee0a6f88a69a6bd7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md": "327cecaf787ad8bef3280c3f1f87e4c21c723b7af04949f86bcfc483917ca5af",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/analyze.py": "5cddc0db7a3976d232e84b9789eccff0e7b0b99ca11bcf24bb0ef3dc28bfa5a7",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/inputs.json": "c5e2e58ca5e81ceb8e10c73a9e8287094020db5aebc1841ebece6c6e27a5e099",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/result.json": "f6ae2d1bbf5528f0027c74bfd2de13fa444b8bc567afaa079d66a295ab04b36b",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/verification.json": "9e4b44ee39bc191908b43f36a1d698031a93a2f81b8f4632d86453c90bed8628",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/result.json": "ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/verification.json": "8abeea98cab6801ec3135f4633783b7b1d63a38f807384756dcf8cbcf7ea5ecc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-followup-review-v1/review-result.json": "3f48ef86677961289b1dce6d8f0f1a8c6369961d2ed1074ff7c3db7f2abcf02b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-review-v1/resistance-followup-review-v1/review.py": "d8fb5afcc5bfb72eb88174f7916219e2cf54cd5467554a472e69dc009229c8c8"
+  },
+  "status": "PASS_SOURCE_AUTHORITY_DATAFLOW_AND_CLAIM_BOUNDARIES_NO_SUBSTANTIVE_FINDING"
+}

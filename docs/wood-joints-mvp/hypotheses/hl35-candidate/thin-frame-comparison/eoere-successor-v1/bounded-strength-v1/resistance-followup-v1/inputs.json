@@ -1,0 +1,76 @@
+{
+  "limits": [
+    "All six issued fields are for untrimmed raised-rail eoere-bottom-rail-tnut-clearance-v1. Current trimmed/aligned-wire geometry has no new response field; fixed old forces with new local geometry are sensitivities.",
+    "Dry DF-L No.2, CD=1, inherited tabulated values and explicitly identified CF=1.3 tension scenario. Actual species, grade, moisture, grain, flaws and dimensions are unobserved.",
+    "Reduced-depth NDS shear is a rectangular bending-member component; current trimmed cleat values use local dimensions as parameter sensitivity. No universal sawn-lumber Ft-perp or numerical all-mode cleat capacity is introduced.",
+    "Parallel row tearout acts parallel to grain toward an end and here uses one bolt at a time; a sloping-end ray substitution is not adopted square-end qualification. Full moments and connected groups remain separate.",
+    "Washer CAD probes prove nominal geometry under a bounding catalog annulus, not delivered parts, seating, stiff pressure distribution, preload, physical couples or metal grade/combined strength.",
+    "No Cg/Cdelta invented, EC5 characteristic resistance converted to an ASD allowable, shared wood/steel bolt stack capacity summed, floor qualification or climber rating claimed.",
+    "Original five-file bounded packet stays frozen. This followup retains only the scoped calculation, inputs, compact result and verification; raw probe rows and complete pins stay in the ignored reproducer output. No raw-run pruning."
+  ],
+  "method_sources": [
+    {
+      "source": {
+        "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf",
+        "sha256": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644"
+      },
+      "title": "AWC NDS 2024, Chapter 3, printed page 21, 3.4.4.1 / Eqs.3.4-6 and 3.4-7",
+      "url": "https://web-media.awc.org/wp-content/uploads/2021/12/17210019/AWC_NDS2024_withCommentary_20240718_AWCWebsite_Chapter-3-Design-Provisions-and-Equations.pdf",
+      "use": "Read and visually checked existing authoritative chapter; rectangular-member reduced-depth shear component."
+    },
+    {
+      "source": {
+        "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/sources/nds2024-errata-20260323.pdf",
+        "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"
+      },
+      "title": "AWC NDS 2024 errata, March23 2026, pages1-2",
+      "url": "https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf",
+      "use": "Current correction explicitly identifies 3.4.4.1 and de for perpendicular-grain fasteners."
+    },
+    {
+      "title": "MTC Solutions Beam Hanger Design Guide v4.0, printed page123",
+      "url": "https://mtcsolutions.com/wp-content/uploads/2024/02/BHDGvU4.0_Web.pdf",
+      "use": "Primary manufacturer practice checked visually online: same NDS near-end reduced-depth method. Application precedent only, not product strength transferred to Eoere."
+    },
+    {
+      "paths": [
+        "mini_moonboard/bolted_timber_checks.py",
+        "fea/reinforced_timber_resistance.py"
+      ],
+      "title": "Repository NDS2024 bolted timber helpers and adjusted dry DF-L No.2 member references",
+      "use": "Existing Appendix E parallel row tearout and net section, full washer bearing references. Inherited complete source closure pins the source documents and helpers."
+    },
+    {
+      "path": "tests/test_washer_seating.py",
+      "title": "Existing washer-seat CAD thin-probe verification",
+      "use": "Reuse parameterized method on saved current solids and verify full / gap / edge negative controls; no selected-baseline CAD build."
+    }
+  ],
+  "original_details": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/attempt05/details.json",
+    "sha256": "4015a163e71e95ab421760786ffa978112a572b656edc3b1f5c3c6f4ef3d8280"
+  },
+  "original_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/inputs.json",
+    "sha256": "ae2c65447ed9a0b628dd25b52573f4c04eca58bc6f2b2657ee0a6f88a69a6bd7"
+  },
+  "original_result": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/result.json",
+    "sha256": "ba5ada3a7d76dc113a0a82705c0e1b3889b16e8b0b98d86669b17438e4624cda"
+  },
+  "pinned_method_sources": [
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/rawlocal/profile-method-completion/sources/nds2024-chapter3.pdf",
+      "sha256": "205df74e16f632dfe78211e99bfa5dfa8b9f8dd316e9c5fa1316493f795ec644"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/sources/nds2024-errata-20260323.pdf",
+      "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"
+    },
+    {
+      "path": "tests/test_washer_seating.py",
+      "sha256": "6165667a6e522b10f9b16d6d3971b43618616d8ef52d5b36de0301f8ddffad95"
+    }
+  ],
+  "schema": "eoere_nds_component_resistance_followup_inputs/v1"
+}

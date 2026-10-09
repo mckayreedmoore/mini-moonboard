@@ -15,7 +15,7 @@ the current engineering record. The selected screw-and-bracket baseline remains 
 | Drilling setups, fixtures and templates | [Builder-support guide](eoere-builder-drilling-guide.md): proposed methods, unresolved tool access/tolerances and next drawing target. |
 | Assembly dependencies and nominal hardware | [Preserved raised-rail shop guide](eoere-shop-assembly-guide.md): unchanged shaft identities/recipes are useful; its untrimmed profiles and old wire cuts are not current templates. |
 | Numerical findings | [Six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json): preserved untrimmed raised-rail geometry, reference exceedances and null complete joint resistance. |
-| Local strength followups | [Four bounded studies](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md): old admitted actions held fixed for current local geometry; complete joint resistance remains unresolved. |
+| Local strength followups | [Four bounded studies](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/README.md) and [component resistance followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md): old admitted actions with preserved aligned-wire local geometry; complete joint resistance remains unresolved. |
 | Documentation gaps and evidence recovery | [Completion ledger](completion-ledger.md#build-package-completion): current builder work, frozen reporting scope and separate subsequent revisions. |
 
 ## Current disposition
@@ -47,9 +47,17 @@ opening-force bound reaches 27.769 N, the nominal heel comparison retains only
 0.17% margin, and four long members need justified restraint assumptions.
 Washer/contact and finished-member resistance also remain incomplete. The
 [ledger](completion-ledger.md#current-model-completion-scope-and-qualification-status)
-records the review, source bindings and active evidence. Further applicable
-resistance work is a separate followup; no hardware or geometry change follows
-from these studies.
+records the review, source bindings and active evidence. No hardware or geometry
+change follows from these studies.
+
+The independently reviewed [component resistance followup](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md)
+adds finite wood-bearing and connection-shear references for the preserved
+aligned-wire geometry under those same old actions. All 112 wood washer seats
+have nominal geometric support; the 44 blanket service-cut landing warnings are
+resolved within that revision. The highest catalog mean-bearing comparison is
+0.2659; the conservative reduced-depth cleat-shear sensitivity is 0.3070.
+Actual contact and complete joint resistance remain open. These results do not
+evaluate the separate adjusted base or optional extra grid.
 
 **Current geometry aligns 30 wire passages on six rails to the original grid
 columns, retaining the two already-aligned center-upright passages.** The
