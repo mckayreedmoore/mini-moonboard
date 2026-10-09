@@ -32,7 +32,8 @@ Geometry, response and shop coverage have different boundaries:
 | Role | Exact revision / record | Viewer or scope |
 | --- | --- | --- |
 | **Main geometry** | `eoere-raised-kicker-screws-v1` · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json) | [Extra grid off](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-kicker-clearance-frame-development&view=rear); two holes/screws raised, bolts fixed. |
-| Optional unofficial preview | Current geometry plus `eoere-2026-horizontal-midpoint-grid-v3` | [Extra grid on](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-kicker-clearance-2026-development&view=rear); 120 added T-nuts/lights and 119 links, provisional positions. |
+| Optional unofficial preview | Current geometry plus `eoere-expanded-right-column-v1` · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json) | [Extra grid on](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-expanded-right-column-development&view=rear); 264 main positions, with a new column 100 mm right of K. |
+| Preserved 252-position preview | `eoere-2026-horizontal-midpoint-grid-v3` | [Earlier extra grid](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-kicker-clearance-2026-development&view=rear); 120 added T-nuts/lights and 119 links. |
 | Smaller-channel predecessor | `eoere-uniform-small-service-channels-v1` · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-uniform-channels-v1.json) | [Preserved viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-uniform-channels-frame-development&view=rear); preceding kicker positions. |
 | **Current shop plan** | `eoere-raised-kicker-screws-v1` | [Current packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md), composing current channels/screws with unchanged raw cuts, nesting, recesses and receiver axes. Purchase hardware overrides viewer lengths. |
 | **Latest six-case response** | `eoere-base-side-edge-cleats-v1` · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) | [Preserved viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear); six own-case admissions and twelve component reports, fixed-rear-leg support scenario. |
@@ -77,14 +78,16 @@ resistance are unqualified. Its results do not select the proposal or release
 current Z200 operations. The [detailed proposal record](../wood-joints-mvp/completion-ledger.md#lowered-cleat-bolt-proposal-conditional-numerical-completion)
 links the full comparisons, fixtures, reviews and retained raw evidence.
 
-An unadopted column 100 mm right of K adds twelve main-face positions, taking
-that optional grid from 252 to 264 main positions, plus ten kicker positions.
-The owner intends dedicated future upgrade holds, with a few empty mounting
-sites and no duplicate existing sets. Their final count and coordinates remain
-unresolved. Cached T-nut/LED and generic rear-bolt envelopes clear
-both current variants, with **33.625 mm** from the flange to the right 4×6.
-Hold footprints and new cables remain unresolved; see the
-[right-column screen](../wood-joints-mvp/completion-ledger.md#hypothetical-column-right-of-k).
+The owner-requested optional column adds twelve T-nuts and matching LEDs at
+X2300 mm: **264 main positions**, plus ten unchanged kicker positions.
+The two right panels include the new bores. Three right rails receive the
+existing smaller cable-channel profile; all 100 bolt and 66 screw axes stay fixed.
+Exact CAD checks clear the new services and generic rear-bolt envelopes:
+**33.625 mm** flange-to-right-4×6 gap and **14.325 mm** cable gap.
+The original-grid option and preceding 252-position viewer remain available.
+Future official grid/holds, actual hold footprints, cable installation and
+changed-section strength remain unresolved. See the
+[right-column implementation](../wood-joints-mvp/completion-ledger.md#owner-requested-right-column-preview).
 
 ## Remaining work and next actions
 

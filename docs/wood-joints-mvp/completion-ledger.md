@@ -2847,6 +2847,70 @@ screws, installed bolt lengths, tolerances, tools and the twelve new LED cable
 routes remain unresolved. No resistance, native response or fabrication release
 follows from this nominal occupancy screen.
 
+### Owner-requested right-column preview
+
+The owner subsequently directed adding the column. Optional revision
+`eoere-expanded-right-column-v1` implements twelve positions at panel X2300 mm,
+100 mm right of K. The [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json)
+and [viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-expanded-right-column-development&view=rear)
+compose the existing 120 midpoints with twelve new T-nuts, twelve LEDs and
+twelve cable links: **264 main-face positions and ten unchanged kicker sites**.
+`Kplus1`–`Kplus12` are local preview labels, not an announced MoonBoard column.
+The actual kerf-right panel edge is 135.225 mm from the new centers; the earlier
+138.4-mm screen dimension referred to the nominal untrimmed board edge.
+
+Both right panels now contain twelve new 11.1125-mm T-nut bores and twelve
+13-mm LED bores in total. Exact removed volumes match full-depth circular
+prisms within 0.01 mm³, with unchanged panel outlines. The lower panel receives
+six T-nut/seven LED holes; the upper receives six/five. These are modeled
+occupancies, not new shop bit or physical drilling instructions.
+
+Eleven vertical links reuse the original K-column dogleg routes translated
+100 mm right, retaining clearance around the generic rear hold-bolt envelopes.
+One lifted horizontal link extends the extra-grid chain from JK1. The first
+attempt found three rail crossings; its producer and failed intersection
+receipt remain in ignored `right-column-v1/cad-v1/`. The successor adds one
+existing-profile front-open service channel to each of `base_rail_bottom_right`,
+`base_rail_service_lower_right` and `base_rail_service_upper_right`: 20.428-mm
+front width / 14.35-mm rear depth, removing 7,925.408 mm³ per rail. All other
+nineteen timbers, the base-grid option, 100 frame-bolt axes, 66 Hillman axes and
+kicker are unchanged. These optional cuts have no transferred strength pass.
+
+The [producer](../../scripts/eoere_right_column.py) checks the new bodies,
+bores, channels and 50.8-mm-reach / 11.1125-mm-diameter rear-bolt probes against
+the current occupied timber, metal and existing services. Ninety-four bounding
+box candidates receive exact intersections; no unexpected intersections exceed
+1e-4 mm³. Shared cable endpoints are confined to their LED envelopes. The
+right-4×6 minimum gaps are **33.625 mm** for T-nuts, **40.76875 mm** for the
+generic rear-bolt probes and **14.325 mm** for cables. Link lengths are at most
+266.265483 mm against the existing approximate 304.8-mm budget. Actual hold
+footprints/bolts, retention screws, tolerances, cable bends/slack/feed and
+changed-section resistance remain unqualified.
+
+Successful CAD output and all **774 unchanged source pins** remain active in
+ignored `fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/right-column-v1/cad-v2/`.
+The compact permanent receipt binds that output. The new compressed viewer
+patch is **2,724,933 bytes**: five changed panel/rail meshes, twelve new cable
+meshes and two shared T-nut/LED templates. It reuses 1,375 existing visible
+parts and adds 36, yielding 1,416 visible parts. The prior 252-position scene,
+its frozen receipts and every historical viewer choice retain their bytes.
+The current frame's expanded-grid toggle selects this successor; extra grid
+off remains the current raised-kicker base. All release flags remain false.
+
+`node scripts/check_eoere_right_column.mjs OUTPUT.json` verifies actual Three.js
+geometry, unchanged parent parts/axes, component counts, transformed datums,
+saved BREP bindings and rejection of eight altered claims plus three bad hashes.
+The passed receipt is `right-column-v1/actual-mesh-v2.json` under the same ignored
+Eoere output root. `bun scripts/check_eoere_right_column_browser.cjs OUTPUT_DIR`
+uses the shared Gwen runner without page-context evaluation. Its
+`right-column-v1/browser-v1/result.json` and inspected front/rear images confirm
+264 → base → 264 toggle behavior and preserved 252-position navigation, with
+no page errors or failed requests. Targeted Ruff, development identity/tests,
+mesh compaction and alias checks pass. This work performs no native mechanics.
+The compact receipt/scene, cached CAD inputs and browser evidence remain active;
+no output is archived or pruned. The next inputs are the official expansion
+layout, actual hold/hardware/cable details and optional-cut strength evidence.
+
 ### Right principal midpoint relocation screen
 
 The owner directed investigating a leftward move after reviewing the optional
