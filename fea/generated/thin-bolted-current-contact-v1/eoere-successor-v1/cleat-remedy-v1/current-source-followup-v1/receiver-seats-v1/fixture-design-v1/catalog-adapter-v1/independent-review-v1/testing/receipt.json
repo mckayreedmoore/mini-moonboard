@@ -1,0 +1,267 @@
+{
+  "actual_scalar_and_SVG_replay_exact": true,
+  "additional_cap_line_endpoint_corners": 128,
+  "additional_cap_slop_mm": 0.1276013888888889,
+  "additional_cap_swept_margin_mm": 0.4661486111111105,
+  "additional_fastener_flange_gap_mm": 8.739187499999991,
+  "all13_release_fields_false": true,
+  "all9_actual_observation_values_blank": true,
+  "catalog_and_constraint_controls": [
+    {
+      "name": "H_body_diameter",
+      "rejection": "catalog H-40-12 dimensional join"
+    },
+    {
+      "name": "H_underhead_length",
+      "rejection": "catalog H-40-12 dimensional join"
+    },
+    {
+      "name": "H_head_F",
+      "rejection": "catalog H-40-12 dimensional join"
+    },
+    {
+      "name": "H_head_G",
+      "rejection": "catalog H-40-12 dimensional join"
+    },
+    {
+      "name": "counterbore_row",
+      "rejection": "catalog H-40-12 dimensional join"
+    },
+    {
+      "name": "obsolete_catalog_tolerance",
+      "rejection": "current tolerance/material boundary"
+    },
+    {
+      "name": "metal_fit_promoted_to_wood",
+      "rejection": "current tolerance/material boundary"
+    },
+    {
+      "name": "guidance_longer_than_short_body",
+      "rejection": "guidance requirement exceeds shortest body"
+    },
+    {
+      "name": "feet_datum",
+      "rejection": "feet/guide wood-entry datum join"
+    },
+    {
+      "name": "guide_datum",
+      "rejection": "feet/guide wood-entry datum join"
+    },
+    {
+      "name": "body_reaches_frame",
+      "rejection": "catalog body can reach frame wood"
+    },
+    {
+      "name": "cap_capture",
+      "rejection": "conditional catalog capture/access dimensions fail"
+    },
+    {
+      "name": "cap_swept_aperture",
+      "rejection": "conditional catalog capture/access dimensions fail"
+    },
+    {
+      "name": "false_budget_success",
+      "rejection": "recorded generic allowance exceedances changed"
+    }
+  ],
+  "direct_source_pin_count": 25,
+  "excluded": [
+    "native/CAD/BREP/FEA/global/physical execution",
+    "browser or SVG rendering",
+    "site/model/shared documentation changes",
+    "manufacturer fact or PDF interpretation re-audit",
+    "actual catalog part/bit fit",
+    "field tolerance or workholding proof",
+    "budget relaxation or strength acceptance",
+    "staging or commit"
+  ],
+  "findings": [],
+  "generic_allowances_remain_unmet": true,
+  "historical_hash_only_before_after": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/development-v1/adapter.py": "cf8c0d414fca17a85077afe30dc23998fd47cff15193867eca7a7ac9a08c58b3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/development-v1/record.json": "61c09d1e8817dc37ea098fd659f929f9ac514bacf5a3d3c85f8bc98cd6c4e42a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result.json": "dca9c6601fccbb1628aa42587fa51221c90e1083e6c52c77c312bf2a6ce99915",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result.svg": "c15a18c7fc48593ec981d0998e35884d801793e77fb29ef63743ffe06a5518bc"
+  },
+  "independent_Decimal_API_replay_exact": true,
+  "independent_Decimal_endpoint_corners": 256,
+  "independent_Decimal_tamper_controls": [
+    {
+      "field": "reach_and_guidance.worst_cap_to_point_breakout_mm",
+      "rejection": "maximum full path"
+    },
+    {
+      "field": "reach_and_guidance.worst_free_chuck_projection_mm",
+      "rejection": "maximum free projection"
+    },
+    {
+      "field": "reach_and_guidance.nominal_cap_to_point_breakout_mm",
+      "rejection": "nominal path"
+    },
+    {
+      "field": "reach_and_guidance.nominal_free_chuck_projection_mm",
+      "rejection": "nominal projection"
+    },
+    {
+      "field": "chip_routes.physical_bushing_exit_to_wood_gap_interval_mm.0",
+      "rejection": "minimum physical exit gap"
+    },
+    {
+      "field": "chip_routes.physical_bushing_exit_to_wood_gap_interval_mm.1",
+      "rejection": "maximum physical exit gap"
+    },
+    {
+      "field": "cap_and_mounting.conditional_minimum_radial_capture_lip_mm",
+      "rejection": "minimum capture lip"
+    },
+    {
+      "field": "chip_routes.gap_minimum_minus_general_reference_mm",
+      "rejection": "general gap comparison"
+    },
+    {
+      "field": "generic_error_allowance_comparisons.guide_tilt.derived_bound_mm",
+      "rejection": "full-path guide tilt"
+    },
+    {
+      "field": "generic_error_allowance_comparisons.insert_play.derived_bound_mm",
+      "rejection": "last constrained point slop"
+    },
+    {
+      "field": "generic_error_allowance_comparisons.relative_bore_screw.derived_bound_mm",
+      "rejection": "required relative bound"
+    },
+    {
+      "field": "minimum_body_capsule_separation_after_derived_bound_mm",
+      "rejection": "conditional body residual"
+    },
+    {
+      "field": "hypothetical_whole_screw9p525_separation_after_derived_bound_mm",
+      "rejection": "hypothetical full-screw residual"
+    },
+    {
+      "field": "FISCH_nominal_comparison.NL_minus_full_cap_chip_path_reference_mm",
+      "rejection": "retained full-path diagnostic deficit"
+    },
+    {
+      "field": "FISCH_nominal_comparison.NL_minus_physical_lower_exit_reference_mm",
+      "rejection": "separate lower outlet comparison"
+    },
+    {
+      "field": "FISCH_nominal_comparison.NL_minus_wood_exposure_reference_mm",
+      "rejection": "wood exposure comparison"
+    },
+    {
+      "field": "FISCH_nominal_comparison.GL_minus_worst_projection_mm",
+      "rejection": "available length not chuck engagement"
+    },
+    {
+      "field": "configured_ID_cases.0.catalog_ID_interval_mm.0",
+      "rejection": "ID interval"
+    },
+    {
+      "field": "configured_ID_cases.0.catalog_ID_interval_mm.1",
+      "rejection": "ID interval"
+    },
+    {
+      "field": "configured_ID_cases.0.printed_nominal_diametral_gap_range_mm.0",
+      "rejection": "printed diameter gap only"
+    },
+    {
+      "field": "configured_ID_cases.0.printed_nominal_diametral_gap_range_mm.1",
+      "rejection": "printed diameter gap only"
+    },
+    {
+      "field": "configured_ID_cases.1.catalog_ID_interval_mm.0",
+      "rejection": "ID interval"
+    },
+    {
+      "field": "configured_ID_cases.1.catalog_ID_interval_mm.1",
+      "rejection": "ID interval"
+    },
+    {
+      "field": "configured_ID_cases.1.printed_nominal_diametral_gap_range_mm.0",
+      "rejection": "printed diameter gap only"
+    },
+    {
+      "field": "configured_ID_cases.1.printed_nominal_diametral_gap_range_mm.1",
+      "rejection": "printed diameter gap only"
+    },
+    {
+      "field": "configured_ID_cases.2.catalog_ID_interval_mm.0",
+      "rejection": "ID interval"
+    },
+    {
+      "field": "configured_ID_cases.2.catalog_ID_interval_mm.1",
+      "rejection": "ID interval"
+    },
+    {
+      "field": "configured_ID_cases.2.printed_nominal_diametral_gap_range_mm.0",
+      "rejection": "printed diameter gap only"
+    },
+    {
+      "field": "configured_ID_cases.2.printed_nominal_diametral_gap_range_mm.1",
+      "rejection": "printed diameter gap only"
+    },
+    {
+      "field": "configured_ID_cases.0.actual_bit_fit_established",
+      "rejection": "printed gap promoted to actual fit"
+    },
+    {
+      "field": "configured_ID_cases.1.actual_bit_fit_established",
+      "rejection": "printed gap promoted to actual fit"
+    },
+    {
+      "field": "configured_ID_cases.2.actual_bit_fit_established",
+      "rejection": "printed gap promoted to actual fit"
+    }
+  ],
+  "mechanics_or_physical_release": false,
+  "native_or_numeric_library_import_attempts": [],
+  "negative_full_cap_bit_reference_retained": true,
+  "owned_producer_CLI_JSON_sha256": "6de0ba64a2a741bfff604f7043e8492dff9e7a874f9508df2ca24f44a2575cf1",
+  "owned_verifier_main_exact_replay_sha256": "7cc2edc01fbdf98536e0a2029ea7e090503e135df7d698395127bbc30bea55b1",
+  "producer_CLI_sole_normalized_difference": "drawing.path points to own temporary SVG",
+  "reused_output_guard_API_controls": [
+    "existing_result_rejected",
+    "non_JSON_name_rejected",
+    "nested_output_rejected",
+    "dangling_JSON_leaf_rejected",
+    "dangling_SVG_leaf_rejected",
+    "existing_SVG_leaf_rejected",
+    "parent_alias_retarget_inert_after_canonical_binding",
+    "late_canonical_leaf_rejected_by_exclusive_create"
+  ],
+  "review_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/testing/review.py",
+    "sha256": "9fddef5ba3f4c8148eab1ce2858671ef54aceda46b9bb6bae0434353893bd00e"
+  },
+  "schema": "eoere_Z180_catalog_adapter_independent_testing_review/v1",
+  "scope": "Actual scalar and SVG producer replay, actual independent Decimal API and 256 endpoint corners, additional 128 cap-endpoint corners, mutations, reused output guards, owned producer main replay and verifier main with only receipt/guard scratch IO redirected. Existing generic/native source evidence and manufacturer facts reused, not independently re-qualified or fetched.",
+  "six_target_sha256_before_after": {
+    "adapter.py": "f3831931d6c89330e07d76d1099cc4ecdf9a9a0c6e7be1b069413a7a1bc22a04",
+    "inputs.json": "dd0df7d6b5eb30aab11184c4d4471333e545b270232333ba9577678c9155282d",
+    "result-v2.json": "e5e34e992365aedf30b56710efd9dcbb4d1a64e77e4ede29ff656d0479ff17de",
+    "result-v2.svg": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b",
+    "verification-v1.json": "7cc2edc01fbdf98536e0a2029ea7e090503e135df7d698395127bbc30bea55b1",
+    "verify.py": "dd755dc20baf508cb03896062f317d5e4a6171e732b1a7329461da4b8a3931d3"
+  },
+  "source_controls": [
+    {
+      "name": "input_bytes",
+      "rejection": "exact catalog adapter inputs required"
+    },
+    {
+      "name": "source_hash",
+      "rejection": "frozen source changed: fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/inputs.json"
+    },
+    {
+      "name": "primary_PDF_bytes",
+      "rejection": "shared primary PDF byte count"
+    },
+    {
+      "name": "nonfinite_JSON",
+      "rejection": "nonfinite JSON"
+    }
+  ],
+  "sources_unchanged_before_after": true
+}

@@ -1,0 +1,93 @@
+{
+  "actual_main_gate_alternate_producer_replay_passed": true,
+  "all_unchanged_before_after": true,
+  "complete_reviewed_pin_map_canonical_sha256": "86c46bb91464c6ebc64e7e298006530df3db872f5d4689462a8ee4bcd1f43790",
+  "findings": [],
+  "independent_positive_runtime_leaf_combinations": [
+    [
+      "generic_live_execution_python"
+    ],
+    [
+      "wrapper_live_execution_python"
+    ],
+    [
+      "generic_live_execution_python",
+      "wrapper_live_execution_python"
+    ]
+  ],
+  "independent_rejected_gate_controls": [
+    "saved_generic_runtime",
+    "runtime_invariant",
+    "runtime_command",
+    "extra_runtime_leaf",
+    "missing_runtime_leaf",
+    "arithmetic",
+    "source_pin",
+    "release",
+    "execution_flag",
+    "extra_top_level_field",
+    "nontext_generic_live_execution_python_NoneType",
+    "nontext_generic_live_execution_python_int",
+    "nontext_generic_live_execution_python_list",
+    "nontext_generic_live_execution_python_bool",
+    "nontext_wrapper_live_execution_python_NoneType",
+    "nontext_wrapper_live_execution_python_int",
+    "nontext_wrapper_live_execution_python_list",
+    "nontext_wrapper_live_execution_python_bool"
+  ],
+  "inherited_frozen_pin_map": {
+    "field": "reviewed_sha256",
+    "receipt": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/correctness/receipt.json",
+    "sha256": "2fa20fccddc98183caac46b5f6a80a114881639d067d5ae524749bedebb38b31"
+  },
+  "limits": [
+    "Stdlib source/AST/JSON/byte-hash review and local synthetic runtime metadata controls only. Real verifier main/child/output guard fixtures are reused as authenticated saved evidence, not rerun by this reviewer.",
+    "Producer and real admission gate are replayed with synthetic alternate runtime text, not a second interpreter. Shared runpy/sys modules are not changed; only the freshly loaded wrapper's local references are rebound and restored.",
+    "Frozen v1 math/source and v2 scope evidence are reused. No CAD/BREP/native/FEA/global/browser/physical work, product/fixture qualification or shared edits.",
+    "All generic error exceedances remain; current Z200/100 bolts/66 screws/HOLD/forces remain unchanged, Z180 unadopted and panel remedies stopped. No budget relaxation, strength or physical acceptance."
+  ],
+  "live_provenance_not_mutated": true,
+  "math_evidence_reused_without_independent_recalculation": true,
+  "original_derived_relative_bound_mm": 1.522541290125167,
+  "prior_P2_corrected": true,
+  "release": {
+    "actual_tool_fit": false,
+    "catalog_bushing_selected": false,
+    "chip_clearing_qualified": false,
+    "climbing": false,
+    "complete_joint_strength": false,
+    "effective_guidance_observed": false,
+    "fabrication": false,
+    "field_bit_selected": false,
+    "generic_1p50_budget_carried_forward": false,
+    "geometry_adopted": false,
+    "machining_tolerance_achieved": false,
+    "physical_operation": false,
+    "workholding_qualified": false
+  },
+  "reported_actual_main_negative_controls": 8,
+  "review_helper_sha256": "6b199a52a3f7459f056c648c71cb0ecf858c47a835f5e76eb9349c0aad44638b",
+  "reviewed_files": 51,
+  "saved_generic_runtime_strict": true,
+  "saved_real_main_positive_probe_authenticated": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/main-v3-runtime-control01.json",
+    "retention": "ACTIVE ignored raw positive control; reproduced by verify-v3.py actual_main_controls. No archive/prune.",
+    "sha256": "15916c44ed0f5e999c1ee5dc5d4a9a2334e6f2fc95e6336bffeda5e47e38779a"
+  },
+  "schema": "catalog_adapter_verifier_v3_independent_correctness_review/v1",
+  "supplemental_reviewed_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/controls01/publication-file-inventory-v3.json": "df6b43be7214dd73b67284df0b45bdf6a7bd4dbeb9eb54a2f459c22447a73230",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/development-v3/record.json": "cc29e88cfa833412ee41089347cdd0605127e376ca4708dbb96f23b6109672aa",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/development-v3/verify-v3.py": "81418f203302506d0e86f7d8880ae51126860dc403a51fe727f1bc3ead26deae",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/correctness/receipt.json": "2fa20fccddc98183caac46b5f6a80a114881639d067d5ae524749bedebb38b31",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/correctness/review.py": "3a1bfdbc265754b05337a85adecdd8a7242985e0ca63f261bc4cd88bfa5dc214",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/main-v3-runtime-control01.json": "15916c44ed0f5e999c1ee5dc5d4a9a2334e6f2fc95e6336bffeda5e47e38779a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verification-v3.json": "2b484b62786d0c919aa21a0560cff078e2dfd2182ea5c070b5a32d9b920746da",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verify-v3.py": "354bac725ebd23693bb835da073b8b503118df471cdded27e271dc3cd38f009e"
+  },
+  "target_sha256": {
+    "controls01/publication-file-inventory-v3.json": "df6b43be7214dd73b67284df0b45bdf6a7bd4dbeb9eb54a2f459c22447a73230",
+    "verification-v3.json": "2b484b62786d0c919aa21a0560cff078e2dfd2182ea5c070b5a32d9b920746da",
+    "verify-v3.py": "354bac725ebd23693bb835da073b8b503118df471cdded27e271dc3cd38f009e"
+  }
+}

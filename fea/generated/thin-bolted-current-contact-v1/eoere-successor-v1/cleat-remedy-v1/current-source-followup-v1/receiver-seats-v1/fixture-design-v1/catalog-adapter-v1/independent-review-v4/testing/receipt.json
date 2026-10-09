@@ -1,0 +1,271 @@
+{
+  "actual_dunder_main_preflight_controls": [
+    {
+      "case": "help",
+      "child_launch_attempts": 0,
+      "expected_outcome": 0,
+      "filesystem_mutation_attempts": 0
+    },
+    {
+      "case": "missing_out",
+      "child_launch_attempts": 0,
+      "expected_outcome": 2,
+      "filesystem_mutation_attempts": 0
+    },
+    {
+      "case": "occupied_output",
+      "child_launch_attempts": 0,
+      "expected_outcome": "fresh receipt required",
+      "filesystem_mutation_attempts": 0
+    },
+    {
+      "case": "outside_parent",
+      "child_launch_attempts": 0,
+      "expected_outcome": "owned canonical JSON receipt required",
+      "filesystem_mutation_attempts": 0
+    },
+    {
+      "case": "wrong_suffix",
+      "child_launch_attempts": 0,
+      "expected_outcome": "owned canonical JSON receipt required",
+      "filesystem_mutation_attempts": 0
+    },
+    {
+      "case": "changed_verify-v3.py",
+      "child_launch_attempts": 0,
+      "expected_outcome": "frozen v2/v3 packet or inventories differ",
+      "filesystem_mutation_attempts": 0
+    },
+    {
+      "case": "changed_verification-v3.json",
+      "child_launch_attempts": 0,
+      "expected_outcome": "frozen v2/v3 packet or inventories differ",
+      "filesystem_mutation_attempts": 0
+    },
+    {
+      "case": "changed_controls01/publication-file-inventory-v3.json",
+      "child_launch_attempts": 0,
+      "expected_outcome": "frozen v2/v3 packet or inventories differ",
+      "filesystem_mutation_attempts": 0
+    }
+  ],
+  "actual_main_alternate_live_runtime_regression_passed": true,
+  "actual_main_byte_exact_replay_with_authenticated_control_record_sha256": "d493675b10ed82518371ef23089850114a59025b96007b9f12e50ec207a6367f",
+  "actual_main_corruption_rejections_before_controls_and_output": [
+    {
+      "before_controls_and_output": true,
+      "path": [
+        "derived_relative_bound_under_declared_unobserved_conditions_mm"
+      ],
+      "rejection": "non-runtime wrapper scalar/source/structure replay difference"
+    },
+    {
+      "before_controls_and_output": true,
+      "path": [
+        "runtime_reproduction",
+        "generic_recorded_execution_python"
+      ],
+      "rejection": "non-runtime wrapper scalar/source/structure replay difference"
+    },
+    {
+      "before_controls_and_output": true,
+      "path": [
+        "release",
+        "fabrication"
+      ],
+      "rejection": "non-runtime wrapper scalar/source/structure replay difference"
+    }
+  ],
+  "all_sources_targets_reviews_and_history_unchanged": true,
+  "eighteen_prior_review_files_hash_only_before_after": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/correctness/receipt.json": "9c650931a7de6da7596a21e362fda980868a28042df8142bfb6cedf3607b2111",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/correctness/review.py": "492362cb3246bf799bc8b7c9b38fd929bf5954e1f33f1a0acc87b5fcbb451a78",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/structure/receipt.json": "af283d3fe442175ee9bd37fb0aba25e701134dc142d46738b8adeed792587b19",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/structure/review.py": "3d9d09f8cc4983efaff294362a886c337ab001126037ebe020cb930d5ea9d210",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/testing/receipt.json": "e71cae8af9660a4d7b857105a75dc572039a697a78481d74c1907ef211ac5ac8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/testing/review.py": "9fddef5ba3f4c8148eab1ce2858671ef54aceda46b9bb6bae0434353893bd00e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/correctness/receipt.json": "2fa20fccddc98183caac46b5f6a80a114881639d067d5ae524749bedebb38b31",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/correctness/review.py": "3a1bfdbc265754b05337a85adecdd8a7242985e0ca63f261bc4cd88bfa5dc214",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/structure/receipt.json": "ffacb1b5aef91be8cd71915b986691b20ad8a343f7444843b72d44b9010f83ab",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/structure/review.py": "f0329edc5e792dd11ad259889faa5b77744c3981bc5385c09bef8ab13fa87698",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/testing/receipt.json": "8fabd992267e8d7f924ad0c1b7c8723198904a3f50b248d46538ac7637e3d31a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/testing/review.py": "df7f8d29b6fa958dac210a0f70404fb42536752b80267f0699399af08b5074d5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/correctness/receipt.json": "76d0c837da31cb1c9595338be2a795035f492c4f16a71102ab75d1ea69ce90e8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/correctness/review.py": "6b199a52a3f7459f056c648c71cb0ecf858c47a835f5e76eb9349c0aad44638b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/structure/receipt.json": "4fa449b8650c882161c8a34a17f22ee7eac5225fd5045060db9ce3bf007c9e08",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/structure/review.py": "7d781b62430693e4ba1fab7454cc73a83556d6ec64fce48aba7ef88e2451968d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/testing/receipt.json": "54ed621a699e73361be8557f4d58fab0442b9700b73cd692452e376bc82ad9e8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/testing/review.py": "5c9d70484e4a69a1f5e5390bc62aff31804229addb69f210226f8a71efbf0489"
+  },
+  "excluded": [
+    "reviewer child/control launcher execution",
+    "native/CAD/BREP/FEA/global/browser/physical work",
+    "manufacturer/PDF or actual bit/fixture fit qualification",
+    "model/current forces/held operations/panel remedies or acceptance changes",
+    "shared files, docs/site/index edits, staging or commit"
+  ],
+  "findings": [],
+  "inventory_file_bytes": 250361,
+  "inventory_file_count": 24,
+  "inventory_files_hash_and_bytes_before_after": {
+    "adapter-v2.py": {
+      "bytes": 6051,
+      "sha256": "dae93a7011242ad3878f47040cbf3af9cd224d7077eb503621a8816d55cd4014"
+    },
+    "adapter.py": {
+      "bytes": 24455,
+      "sha256": "f3831931d6c89330e07d76d1099cc4ecdf9a9a0c6e7be1b069413a7a1bc22a04"
+    },
+    "controls01/publication-file-inventory-v2.json": {
+      "bytes": 4365,
+      "sha256": "e0f7e412e4f8a64385dc564d7793c8b3b9cdf6fbe256c561c7c8eb9f1497f514"
+    },
+    "controls01/publication-file-inventory-v3.json": {
+      "bytes": 5994,
+      "sha256": "df6b43be7214dd73b67284df0b45bdf6a7bd4dbeb9eb54a2f459c22447a73230"
+    },
+    "controls01/publication-file-inventory.json": {
+      "bytes": 2241,
+      "sha256": "9f8241920281107edf8edcf77d96b54ec049a0025a0fb2d053a9b54c4d740f0c"
+    },
+    "development-v1/adapter.py": {
+      "bytes": 23821,
+      "sha256": "cf8c0d414fca17a85077afe30dc23998fd47cff15193867eca7a7ac9a08c58b3"
+    },
+    "development-v1/record.json": {
+      "bytes": 676,
+      "sha256": "61c09d1e8817dc37ea098fd659f929f9ac514bacf5a3d3c85f8bc98cd6c4e42a"
+    },
+    "development-v3/record.json": {
+      "bytes": 821,
+      "sha256": "cc29e88cfa833412ee41089347cdd0605127e376ca4708dbb96f23b6109672aa"
+    },
+    "development-v3/verify-v3.py": {
+      "bytes": 11336,
+      "sha256": "81418f203302506d0e86f7d8880ae51126860dc403a51fe727f1bc3ead26deae"
+    },
+    "inputs.json": {
+      "bytes": 6606,
+      "sha256": "dd0df7d6b5eb30aab11184c4d4471333e545b270232333ba9577678c9155282d"
+    },
+    "result-v2.json": {
+      "bytes": 22014,
+      "sha256": "e5e34e992365aedf30b56710efd9dcbb4d1a64e77e4ede29ff656d0479ff17de"
+    },
+    "result-v2.svg": {
+      "bytes": 5302,
+      "sha256": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b"
+    },
+    "result-v3.json": {
+      "bytes": 24341,
+      "sha256": "1060bc7a57fb90b6dc8b3dd1aeb18bb863eb3e0fbe7dd2043c524a15c5d48fbf"
+    },
+    "result-v3.svg": {
+      "bytes": 5302,
+      "sha256": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b"
+    },
+    "result.json": {
+      "bytes": 22006,
+      "sha256": "dca9c6601fccbb1628aa42587fa51221c90e1083e6c52c77c312bf2a6ce99915"
+    },
+    "result.svg": {
+      "bytes": 4858,
+      "sha256": "c15a18c7fc48593ec981d0998e35884d801793e77fb29ef63743ffe06a5518bc"
+    },
+    "verification-v1.json": {
+      "bytes": 2690,
+      "sha256": "7cc2edc01fbdf98536e0a2029ea7e090503e135df7d698395127bbc30bea55b1"
+    },
+    "verification-v2.json": {
+      "bytes": 6492,
+      "sha256": "286c4df35620d46d4a3276904ffb6f4997c5a0cf57f8c49b6e113a0f9231410e"
+    },
+    "verification-v3.json": {
+      "bytes": 11705,
+      "sha256": "2b484b62786d0c919aa21a0560cff078e2dfd2182ea5c070b5a32d9b920746da"
+    },
+    "verification-v4.json": {
+      "bytes": 14764,
+      "sha256": "d493675b10ed82518371ef23089850114a59025b96007b9f12e50ec207a6367f"
+    },
+    "verify-v2.py": {
+      "bytes": 8777,
+      "sha256": "2f01212e390c5ea53a23821ecb6042e82fe0c9b64fd1fc54341c0944b3c0757f"
+    },
+    "verify-v3.py": {
+      "bytes": 11355,
+      "sha256": "354bac725ebd23693bb835da073b8b503118df471cdded27e271dc3cd38f009e"
+    },
+    "verify-v4.py": {
+      "bytes": 15373,
+      "sha256": "7d12b93a566807bdb6ea855f15339bfd11dbc11b7ff12c51e098b25d3d8288b3"
+    },
+    "verify.py": {
+      "bytes": 9016,
+      "sha256": "dd755dc20baf508cb03896062f317d5e4a6171e732b1a7329461da4b8a3931d3"
+    }
+  },
+  "main_default_and_child_controls_disabled": true,
+  "main_enabled_controls_called_once_after_actual_normal_checks_before_receipt": [
+    "Decimal",
+    "runtime_controls",
+    "output_guards",
+    "actual_main_controls_reused"
+  ],
+  "mechanics_or_physical_release": false,
+  "native_or_numeric_library_import_attempts": [],
+  "prior_v3_CLI_controls_before_preflight_finding_closed": true,
+  "reused_evidence": "Frozen producer actual scalar/SVG/CLI proof, v3 strict runtime comparator and 312 leaf controls; current v4 normal main APIs actually rerun retained seven runtime, eight output and 256 Decimal controls. Parent-run positive child and entrypoint audit evidence authenticated; review invokes actual __main__ preflight with child and filesystem mutation boundaries blocked and actual main with owned final receipt/guard IO. The expensive/control child launcher is replaced only by its authenticated issued report for exact final receipt replay, not claimed as own execution.",
+  "reused_own_v3_helper_sha256": "5c9d70484e4a69a1f5e5390bc62aff31804229addb69f210226f8a71efbf0489",
+  "reused_own_v3_receipt_sha256": "54ed621a699e73361be8557f4d58fab0442b9700b73cd692452e376bc82ad9e8",
+  "reused_v3_strict_scalar_leaf_rejection_count": 312,
+  "review_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v4/testing/review.py",
+    "sha256": "3c9ff720bbbc7a037c5b81b9c2e73f0f459c2cf56db0cd6c0e2daad21581d49f"
+  },
+  "runtime_comparator_AST_unchanged_from_reviewed_v3": true,
+  "saved_parent_actual_CLI_positive_authenticated_not_reexecuted": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/main-v4-runtime-control-ea162454a9954fc6b18645e50092b13e.json",
+    "sha256": "7fd71cd6d630d93e2473bd7b39fbcfd9cc91e5d5159e043635b844f736376f4b"
+  },
+  "schema": "eoere_Z180_catalog_adapter_independent_testing_review/v4",
+  "scope": "Bounded v4 CLI/output sequencing, regression controls and current source-only fixture reproducibility. No broad historical arithmetic re-audit, second-interpreter qualification or actual fixture/hardware/physical proof. Current Z200/100 bolts/66 screws/forces/HOLD and unadopted Z180 remain unchanged; reference exceedances and blank actuals/false releases retained.",
+  "shared_runpy_and_sys_version_unchanged": true,
+  "thirty_source_pins_authenticated_before_after": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md": "53514b9a457274d664f73259cf043f4b0f04f04a4f259c067f7545c79b65902f",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current_profiles.json": "1ec82f4c83abda73f993455c21fa56371d6ed9046e208694c4d24226e26a2a27",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower_bolt_z_v2.py": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json": "4c66a7f194a747a14291e25c4277ec7288aa95a9bef9eab68233312288e9be9b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-result-review-v1/correctness/receipt.json": "d15cfd92da7f257d1415fc1a97f348610a98ea2243e0a7c02d27f6081fe7cca9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/result.json": "6efea34ce52b3521da6d14b89853ef83ab9c1a1f7861c71f6410fc8db7738cb3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/placement.json": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/calculate.py": "5f6d088a836f1ac198c2cc7c8355b3a6ca8a20034a863ab813e4e33fa4a3fa03",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter-v2.py": "dae93a7011242ad3878f47040cbf3af9cd224d7077eb503621a8816d55cd4014",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter.py": "f3831931d6c89330e07d76d1099cc4ecdf9a9a0c6e7be1b069413a7a1bc22a04",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/inputs.json": "dd0df7d6b5eb30aab11184c4d4471333e545b270232333ba9577678c9155282d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result-v2.json": "e5e34e992365aedf30b56710efd9dcbb4d1a64e77e4ede29ff656d0479ff17de",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result-v2.svg": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verification-v1.json": "7cc2edc01fbdf98536e0a2029ea7e090503e135df7d698395127bbc30bea55b1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verify.py": "dd755dc20baf508cb03896062f317d5e4a6171e732b1a7329461da4b8a3931d3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/design.py": "4c84897e42d4d32b1692bec8801a3c002b1c5684f984a907bde8e2cc73e4a3db",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/inputs.json": "b17a8f72f41ab2b8ce75ffaac15af075432a0ffe7111daead6597cb34eff86be",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.json": "ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.svg": "60b5b105d42d35350bfe5a263f1c997974f7b3f9b1a27eea0317f88a84bd37c7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/verification-v1.json": "28fe869385596b6b09b562ee009654da491c7fc4e10013de99ba6edc5977aab4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/verify.py": "b91887fa829c4bda60332dd1541ef26f3648d4613c5725e7f6a25d74e4cd3513",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/catalog-cache-v1/FISCH-013P-Pen_Drill.pdf": "1eaf6221834c14ba7b15d82c72ec43d86b5c1d063d5492e14bb69f3fc97f4c52",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json": "0b7ff9a2905fb5ea2b5b26cfb33a3df30c13456ddd6e5018d67dff5b3499d38c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result-v3.json": "16962d3d5bc897336c37ac5da945e08bd0268604c1f0fc640127786dd5d97781",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json": "a21c25d6693a86f2617655cec1e82aa51c182b153e19baf8f5d1431afa381443",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/result.json": "26d27f9c8f5e3c1d91e48143341a8e808d0ece99f316eaf789e2fcbe22e4252a",
+    "scripts/thin_bolted_occupied.py": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+  },
+  "three_v4_target_sha256_before_after": {
+    "controls01/publication-file-inventory-v4.json": "6d35166082919605b1d61684c212e6ff0d5f07620a38b07538dfe4b5f5d438b5",
+    "verification-v4.json": "d493675b10ed82518371ef23089850114a59025b96007b9f12e50ec207a6367f",
+    "verify-v4.py": "7d12b93a566807bdb6ea855f15339bfd11dbc11b7ff12c51e098b25d3d8288b3"
+  }
+}

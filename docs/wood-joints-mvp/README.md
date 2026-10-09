@@ -82,8 +82,21 @@ positioning budget leaves **2.44375 mm** to the modeled screw body if achieved.
 These are fixture requirements, with actual observations blank.
 The [catalog comparison](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json)
 identifies a wood bit with documented dimensions and a standard guide whose
-taller flange requires a separate mounting/reach adaptation. Actual guides,
-clamps, drill/chuck, chip clearing and socket wells remain unverified.
+taller flange requires a different mounting arrangement. The separate
+[catalog adaptation](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result-v3.json)
+requires 122.98725 mm of usable bit projection at its declared tolerance corner.
+Its derived positioning allowance is 1.522541 mm against the unchanged 1.50-mm
+target, retaining that exceedance and a conditional 2.421209-mm screw-body gap.
+Actual guides, clamps, drill/chuck, chip clearing and socket wells remain
+unverified.
+
+The separate [factory-guide comparison](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/factory-guide-sources-v1.json)
+identifies the manufacturer-listed Milescraft 1307 at $24.99 with a 13/32-inch
+guide hole. This could avoid the custom press-fit receiving plate and cap.
+Its hole position, effective guidance, supported footprint and tool fit remain
+unestablished; no product dimensions or machining pass are inferred from the
+hole-size listing. The smaller Big Gator STD1000DGNP stops at 3/8 inch and is
+excluded from this final-bore comparison.
 
 The current six-case calculation retains 250 lb ×2 downward, 300 N horizontal,
 the recorded 100-mm hold arm and gravity. All 32 floor points are compression-only;

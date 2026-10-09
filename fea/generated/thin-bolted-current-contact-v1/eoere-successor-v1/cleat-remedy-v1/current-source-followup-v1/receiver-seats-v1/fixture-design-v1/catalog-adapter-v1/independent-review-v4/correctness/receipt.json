@@ -1,0 +1,96 @@
+{
+  "actual_entrypoint_readonly_audits": {
+    "actual_dunder_main_cases": [
+      {
+        "case": "help",
+        "child_launch_attempts": 0,
+        "expected_exit_code": 0,
+        "file_mutation_attempts": 0
+      },
+      {
+        "case": "invalid_parent",
+        "child_launch_attempts": 0,
+        "expected_exit_code": 1,
+        "file_mutation_attempts": 0
+      },
+      {
+        "case": "occupied_output",
+        "child_launch_attempts": 0,
+        "expected_exit_code": 1,
+        "file_mutation_attempts": 0
+      }
+    ],
+    "invalid_output_absent": true,
+    "method": "Same-executable children invoke runpy.run_path with run_name=__main__ and real CLI arguments. Process audit hooks detect and block any nested subprocess.Popen or filesystem mutation; every case records zero attempts.",
+    "occupied_output_bytes_unchanged": true
+  },
+  "actual_main_positive_probe_authenticated": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/main-v4-runtime-control-ea162454a9954fc6b18645e50092b13e.json",
+    "retention": "ACTIVE ignored raw positive control; reproduced by verify-v4.py actual_main_controls. No archive/prune.",
+    "sha256": "7fd71cd6d630d93e2473bd7b39fbcfd9cc91e5d5159e043635b844f736376f4b"
+  },
+  "all_reviewed_bytes_unchanged_before_after": true,
+  "child_probe_controls_disabled": true,
+  "complete_reviewed_pin_map_canonical_sha256": "ceefb6e6eb46755acc9a8e194e3f77e32fdcc9e0569b821cea26ac748dcbc350",
+  "findings": [],
+  "independent_actual_main_early_guard_checks": {
+    "calculator_calls": 0,
+    "nonwriting_destination_absent": true,
+    "optional_control_calls": 0,
+    "real_main_early_rejections": [
+      "help",
+      "missing_output",
+      "unknown_option",
+      "wrong_parent",
+      "wrong_suffix",
+      "occupied_output",
+      "source_digest_failure"
+    ],
+    "source_checksum_failure_is_local_in_memory_control": true
+  },
+  "inherited_pin_map_receipt": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/correctness/receipt.json",
+    "sha256": "76d0c837da31cb1c9595338be2a795035f492c4f16a71102ab75d1ea69ce90e8"
+  },
+  "limits": [
+    "Stdlib/source/AST/JSON/byte hashing and read-only preflight controls only. Three real __main__ audit children ran; positive control-producing main, output guard fixtures and numerical studies are reused as frozen evidence, not rerun.",
+    "Seven actual-main early rejects use in-memory spies, including a local mocked source-checksum failure. No target/source bytes or shared runpy/sys state are modified and no control receipts are created.",
+    "All math, producer/result/SVG and strict runtime provenance boundaries remain frozen. Synthetic runtime metadata is not a second interpreter execution or product/fixture qualification.",
+    "Current Z200/100 bolts/66 screws/forces/HOLD remain unchanged, Z180 unadopted, error exceedances retained and panel remedies stopped. No native/CAD/FEA/browser/physical work or strength/physical acceptance."
+  ],
+  "optional_controls_are_after_normal_checks_and_default_off": true,
+  "release": {
+    "actual_tool_fit": false,
+    "catalog_bushing_selected": false,
+    "chip_clearing_qualified": false,
+    "climbing": false,
+    "complete_joint_strength": false,
+    "effective_guidance_observed": false,
+    "fabrication": false,
+    "field_bit_selected": false,
+    "generic_1p50_budget_carried_forward": false,
+    "geometry_adopted": false,
+    "machining_tolerance_achieved": false,
+    "physical_operation": false,
+    "workholding_qualified": false
+  },
+  "review_helper_sha256": "1db94355ebf5141edc99fd0171a7dc5279997ee73d53e7a3a0634a148cf698f2",
+  "reviewed_files": 57,
+  "runtime_comparator_AST_exact_to_reviewed_v3": true,
+  "schema": "catalog_adapter_verifier_v4_independent_correctness_review/v1",
+  "supplemental_reviewed_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/controls01/publication-file-inventory-v4.json": "6d35166082919605b1d61684c212e6ff0d5f07620a38b07538dfe4b5f5d438b5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/correctness/receipt.json": "76d0c837da31cb1c9595338be2a795035f492c4f16a71102ab75d1ea69ce90e8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v3/correctness/review.py": "6b199a52a3f7459f056c648c71cb0ecf858c47a835f5e76eb9349c0aad44638b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/main-v4-runtime-control-ea162454a9954fc6b18645e50092b13e.json": "7fd71cd6d630d93e2473bd7b39fbcfd9cc91e5d5159e043635b844f736376f4b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verification-v4.json": "d493675b10ed82518371ef23089850114a59025b96007b9f12e50ec207a6367f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verify-v4.py": "7d12b93a566807bdb6ea855f15339bfd11dbc11b7ff12c51e098b25d3d8288b3"
+  },
+  "target_sha256": {
+    "controls01/publication-file-inventory-v4.json": "6d35166082919605b1d61684c212e6ff0d5f07620a38b07538dfe4b5f5d438b5",
+    "verification-v4.json": "d493675b10ed82518371ef23089850114a59025b96007b9f12e50ec207a6367f",
+    "verify-v4.py": "7d12b93a566807bdb6ea855f15339bfd11dbc11b7ff12c51e098b25d3d8288b3"
+  },
+  "three_runtime_leaf_combinations_passed": true,
+  "unchanged_math_and_normalization_evidence_reused": true
+}

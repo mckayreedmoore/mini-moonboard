@@ -1,0 +1,118 @@
+{
+  "schema": "eoere_Z180_factory_drill_guide_source_comparison/v1",
+  "question": "Can a standard clamp-on drill block avoid the precision receiving holes, head spacers and cap of the separate press-fit-bushing fixture without assuming product dimensions or achievable accuracy?",
+  "source_reading_date": "2026-10-09",
+  "status": "STANDARD_GUIDE_OPTION_IDENTIFIED_DIMENSIONS_AND_FIT_UNESTABLISHED",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/inputs.json": "b17a8f72f41ab2b8ce75ffaac15af075432a0ffe7111daead6597cb34eff86be",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.json": "ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json": "0b7ff9a2905fb5ea2b5b26cfb33a3df30c13456ddd6e5018d67dff5b3499d38c"
+  },
+  "sources": {
+    "Milescraft_1307": {
+      "url": "https://milescraft.com/product/drill-block-pro/",
+      "title": "DrillBlockPRO, model 1307",
+      "authority": "manufacturer product page",
+      "facts": {
+        "model": "1307",
+        "listed_price_USD": 24.99,
+        "price_scope": "Manufacturer page observation on the reading date; not a delivered quotation, purchase or addition to the frame hardware total.",
+        "guide_hole_count": 25,
+        "listed_nominal_guide_range_in": [0.125, 0.5],
+        "listed_increment_in": 0.015625,
+        "explicit_13p32_guide_listed": true,
+        "material_description": "Hardened steel",
+        "two_centered_rows": true,
+        "centering_marks_and_dual_V_grooves": true,
+        "flat_stock_and_clamping_described": true,
+        "listed_material_uses": ["wood", "metal", "plastic"]
+      },
+      "not_established_by_read_page": {
+        "length_width_height_mm": null,
+        "13p32_hole_location_relative_to_base_mm": null,
+        "supported_base_and_clamp_footprints": null,
+        "usable_cylindrical_guidance_length_mm": null,
+        "actual_ID_tolerance_and_guide_normality": null,
+        "achievable_positional_accuracy_mm": null,
+        "chip_exit_and_paired_76p2mm_wood_use": null
+      },
+      "image_observation_scope": "Manufacturer links identify product photographs. Direct image retrieval and the existing browser runner both returned HTTP 403 for attempted image access. No photograph, drawing dimension or scaled product geometry is claimed to have been observed. Third-party dimensions were not adopted."
+    },
+    "Big_Gator_STD1000DGNP": {
+      "url": "https://biggatortools.com/shop/ols/products/313670773-big-gator-tools-std1000dgnp-v-drill-guide",
+      "title": "Standard V-DrillGuide 1/8 to 3/8, STD1000DGNP",
+      "authority": "manufacturer product page",
+      "facts": {
+        "model": "STD1000DGNP",
+        "guide_hole_count": 17,
+        "listed_nominal_guide_range_in": [0.125, 0.375],
+        "listed_increment_in": 0.015625,
+        "includes_13p32": false
+      },
+      "disposition": "Exclude this model from the 13/32-inch final wood-bore option. Do not transfer another Big Gator model's range or dimensions to it."
+    },
+    "Big_Gator_method_FAQ": {
+      "url": "https://biggatortools.com/v-drillguide-faqs",
+      "title": "Drill Guide FAQs",
+      "authority": "manufacturer instructions and FAQ",
+      "facts": {
+        "clamp_guide_to_stock_before_drilling": true,
+        "side_hash_marks_align_to_marked_centerline": true,
+        "matching_transfer_punch_alignment_method_described": true,
+        "flat_base_and_90_degree_V_groove_described": true,
+        "rectangular_standard_3p8_to_1p2_variant_mentioned": true,
+        "tap_guide_is_not_a_drill_guide": true,
+        "spade_bit_is_not_compatible": true
+      },
+      "limits": "This method supports considering a clamp-on factory guide. It supplies no quantitative accuracy for this project. The rectangular 3/8-to-1/2 variant needs its own product identity, hole list and dimensions before a geometry comparison; the FAQ is not those specifications."
+    }
+  },
+  "paired_stack_reach_envelope": {
+    "role": "A conditional sizing relation for a guide placed directly on the matched wood pair; not the existing generic or catalog-adapter geometry and not a manufactured fixture.",
+    "source_member_thickness_mm": 38.1,
+    "source_matched_stack_deviation_max_mm": 0.5,
+    "source_breakout_travel_mm": 6.35,
+    "source_minimum_chuck_to_guide_gap_mm": 2.0,
+    "maximum_pair_plus_breakout_mm": 83.05,
+    "guide_top_to_wood_offset_mm": null,
+    "projection_relation": "Required usable projection = actual guide-top-to-wood offset + 85.05 mm, under the retained 0.5-mm stack allowance and 6.35-mm breakout condition.",
+    "FISCH_NL_nominal_mm": 120.0,
+    "FISCH_GL_nominal_mm": 150.0,
+    "conditional_maximum_offset_for_120mm_full_top_exit_reference_mm": 36.95,
+    "limits": "The 36.95-mm value only subtracts the 83.05-mm pair/breakout reference from the catalog NL. It is not a permitted guide height, usable flute guarantee or a mandatory full-top chip route. Actual point, flute, guide entrance/exit, lower outlet and chuck engagement remain unknown. No actual guide height is substituted."
+  },
+  "diameter_scope": {
+    "nominal_13p32_exact_mm": 10.31875,
+    "FISCH_printed_nominal_mm": 10.32,
+    "printed_difference_mm": 0.00125,
+    "meaning": "Both are catalog presentations of the 13/32-inch nominal size. Decimal rounding and unpublished tool/guide tolerances prevent either a fit guarantee or an incompatibility conclusion from this 0.00125-mm difference. The manufacturer's 13/32 hole listing does not establish the original 0.10-mm maximum play condition."
+  },
+  "next_input": "For an actual 1307 or a dimensioned manufacturer drawing, identify the 13/32-hole center, guide-top-to-wood offset, effective bearing segment and base/clamp contact patches. Compare those with the existing matched-pair supports, independent member clamps, chuck keepout and original error requirements. Preserve actual observations blank until observed; do not manufacture a press-fit receiving plate merely to complete this source comparison.",
+  "preserved": {
+    "generic_fixture_and_catalog_adapter_frozen": true,
+    "current_Z200_and_four_HOLD_stations": true,
+    "100_frame_bolts_and66_Hillman": true,
+    "current_forces_transferred_to_Z180": false,
+    "new_frame_or_fixture_geometry": false,
+    "new_native_CAD_or_mechanics_run": false,
+    "panel_screw_remedies_resumed": false
+  },
+  "actual_observations": {
+    "guide": "",
+    "bit": "",
+    "drill_chuck": "",
+    "clamps": "",
+    "Actual": "",
+    "Disposition": ""
+  },
+  "release": {
+    "guide_selected": false,
+    "bit_selected": false,
+    "product_fit": false,
+    "fixture_or_positional_accuracy": false,
+    "geometry_adopted": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "climbing": false
+  }
+}

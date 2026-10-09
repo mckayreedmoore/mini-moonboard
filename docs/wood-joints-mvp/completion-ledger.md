@@ -3738,7 +3738,126 @@ observation. The inventory preserves the verifier's `controls01` parent on a
 clean checkout. Two PNGs, two freeze manifests and the source PDF total
 **612,963 bytes**, active and ignored. The first lint/visual snapshots explain
 the retained source copies; no full manual, dependency or new geometry bank
-is added. The catalog-adapter draft remains a distinct unpublished input scope.
+is added. The later catalog adaptation remains a separate input scope.
+
+The [catalog adapter result](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result-v3.json),
+SHA `1060bc7a57fb90b6dc8b3dd1aeb18bb863eb3e0fbe7dd2043c524a15c5d48fbf`,
+reuses the frozen generic fixture and source arithmetic. Current Carr Lane
+unlisted ±0.381-mm tolerances give underhead length 18.669–19.431 mm, head
+diameter 19.859625–20.621625 mm and head height 5.17525–5.93725 mm.
+Two temporary 6.35-mm guide feet use the existing guide-clamp footprints.
+Head-matched cap spacers remain a proposed requirement; fixed nominal spacers
+cannot accommodate the whole head-height interval. The nominal guide-clamp
+bare opening becomes 133.35 mm. No permanent frame member or fastener changes.
+
+At the declared tolerance corner, the cap-to-breakout path is 120.98725 mm
+and required usable bit projection is **122.98725 mm**. Effective contiguous
+guidance of at least 18 mm is an unobserved condition, rather than a catalog
+body-length guarantee. With the unchanged 0.08-degree angle and 0.10-mm play
+conditions, tilt contributes 0.168930 mm against its 0.16-mm allocation and
+line play contributes 0.553611 mm against 0.50 mm. The total derived relative
+allowance is **1.522541 mm**, exceeding the unchanged 1.50-mm target by
+0.022541 mm. No tighter angle/play condition or relaxed budget is adopted.
+The conditional screw-body residual is 2.421209 mm; the separate hypothetical
+whole 9.525-mm screw capsule leaves 0.158709 mm. Positive arithmetic residuals
+do not establish installed tolerances or a complete fixture pass.
+
+The physical bushing-exit gap is 5.769–6.931 mm under the stated stack
+conditions. The nominal front outlet is open between the feet and stop, but
+chip flow is unobserved. FISCH NL 120 mm is 0.98725 mm shorter than the full-cap
+chip-path reference, while its comparison with the lower outlet leaves
+30.019 mm. Those are distinct routes: the negative full-cap reference alone
+does not reject the bit. Overall length minus required projection does not
+qualify chuck engagement. Configured guide IDs .4062/.40625/.4063 inch remain
+separate nominal comparisons; the exact ordering suffix, tool diameter,
+entrance geometry and actual fit remain unselected.
+
+The separate [factory-guide source comparison](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/factory-guide-sources-v1.json),
+SHA `3e0d553d76fa076764c06a393554c98e297b597fee8d339fd493053ea057e429`,
+identifies [Milescraft 1307](https://milescraft.com/product/drill-block-pro/)
+with 25 listed guides from 1/8 through 1/2 inch in 1/64-inch increments,
+explicitly including 13/32. Its manufacturer-listed price is $24.99 on
+October 9, 2026, outside the dated frame-hardware total. A factory block could
+avoid the precision receiving plate, separate head spacers and cap. The read
+page supplies no footprint, hole-center datums, effective guidance or accuracy
+bound; attempted photograph access returned HTTP 403, so no photograph
+dimensions are inferred. The smaller Big Gator STD1000DGNP stops at 3/8 inch
+and is excluded from this final-bore comparison. The manufacturer FAQ's
+clamp/mark/transfer-punch method supplies ordinary practice, not this project's
+positional accuracy.
+
+For a factory guide directly on the matched pair, the retained pair/breakout
+reference is 83.05 mm. Required projection would be the actual guide-top-to-wood
+offset plus 85.05 mm, including the 2-mm chuck gap. The 120-mm NL comparison
+leaves 36.95 mm for that offset only as a conditional full-top-exit relation;
+no actual guide height or flute guarantee is substituted. The next useful
+product inputs are the 13/32-hole center, top offset, effective bearing segment
+and base/clamp patches. This source comparison adds no fixture geometry,
+product selection, frame change or physical-test prerequisite.
+
+The shared 14,143-byte
+`cleat-corners-v1/lower_bolt_z_v2.py`, SHA
+`a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095`,
+is included unchanged as a required scalar dependency of the generic and
+catalog fixtures. Its historical main program is not rerun or adopted.
+The one-page FISCH cache remains active and ignored. If absent, restore it
+from the [manufacturer PDF](https://www.fisch-tools.com/assets/documents/013P-Pen_Drill.pdf)
+to the exact `raw_active_cache.path` in the source-facts JSON, requiring
+87,148 bytes and SHA
+`1eaf6221834c14ba7b15d82c72ec43d86b5c1d063d5492e14bb69f3fc97f4c52`.
+Preserve an existing cache; differing downloaded bytes are not a substitute
+for this frozen input. All initial results, lint evidence and review findings
+remain active. Current Z200 geometry, four HOLD stations, 100 bolts, 66 screws,
+six-case actions and the unadopted Z180 boundary remain unchanged.
+
+The initial catalog review found an unpublished shared scalar dependency and
+an unnecessary comparison of recorded Python runtime text. The unchanged
+shared helper above closes the publication dependency. The versioned
+`adapter-v2.py` wrapper normalizes only the generic `/execution/python` text
+for replay and records the live runtime separately; its scalar results,
+source pins and drawing remain exact. Later verifier reviews found a second
+comparison of live runtime text and optional controls running before CLI
+argument/output validation. Those findings and their original sources and
+receipts remain frozen. The final
+[v4 verification](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verification-v4.json),
+SHA `d493675b10ed82518371ef23089850114a59025b96007b9f12e50ec207a6367f`,
+normalizes only the two declared live runtime text leaves, checks arguments,
+destination, sources and normal replay before optional controls, and retains
+strict comparisons for recorded provenance and every other result field.
+The reproduction command is in the
+[v4 inventory](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/controls01/publication-file-inventory-v4.json).
+
+The final checks cover 30 source pins, 256 independent Decimal tolerance
+corners, seven producer runtime controls, eight output controls, a real-main
+positive runtime control and eight rejected result corruptions. These runtime
+tests use altered metadata on the same executable; they do not claim execution
+on a second interpreter. Three entrypoint controls verify no nested child
+launch or filesystem mutation for help, invalid-parent and occupied-output
+requests. The parent independently replayed the final CLI successfully; its
+receipt matches the issued one except the fresh positive-probe path. Three
+final independent reviews report no substantial findings in their bounded
+correctness, testing and publication scopes:
+
+| Final review | Receipt SHA256 |
+| --- | --- |
+| [Correctness](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v4/correctness/receipt.json) | `b5057a89e5efc20095b161adb7023595003052a09241bdfa0b4baf452ca3ff80` |
+| [Testing](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v4/testing/receipt.json) | `85d57513fbc24bdd74c96d251aaa73805c1487418d30da2ebe8e28b27cf19c26` |
+| [Structure and publication](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v4/structure/receipt.json) | `0d63e0f7b2a13f8e20a6b9b56333ec04f091f3b85f595172e73d91846a29f306` |
+
+This publication adds **53 compact files / 712,106 bytes**, plus edits to this
+ledger and the existing summary: 25 adapter sources/results/inventories,
+24 review helpers/receipts, two consumed positive-probe fixtures, the factory
+guide source comparison and the shared scalar helper. Preserved source
+versions and review generations explain the corrected failures and are bound
+by later evidence hashes. All remain active. The exact v3 and v4 positive-probe
+JSONs, totaling **23,030 bytes**, are now tracked at the paths bound in the
+inventories so frozen review helpers can read them on another checkout.
+The older inventories' ignored labels describe their disposition when issued;
+their bytes are unchanged. Other raw probes, parent reproduction outputs,
+previews and the shared one-page PDF remain active and ignored. No archive,
+prune, full manual, dependency installation or new geometry bank is included.
+These reproducibility corrections do not resolve the retained fixture error
+allowances or establish actual product, tool, joint or climbing acceptance.
 
 The separate [signed-end inventory and square-end markers](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
 reuse the six completed rich reports rather than regenerating their actions.

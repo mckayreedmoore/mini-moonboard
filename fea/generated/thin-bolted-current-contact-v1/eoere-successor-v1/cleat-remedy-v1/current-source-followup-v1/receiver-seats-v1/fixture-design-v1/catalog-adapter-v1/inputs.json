@@ -1,0 +1,83 @@
+{
+  "schema": "eoere_Z180_catalog_fixture_adapter_inputs/v1",
+  "question": "Adapt the generic Z180 matched-pair fixture to catalog H-40-12 dimensions and current tolerances, retaining the original error conditions and reporting unmet allowances without a tool or physical-use pass. Compare the documented FISCH wood bit and distinguish full-guide and lower chip routes.",
+  "source_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/inputs.json": "b17a8f72f41ab2b8ce75ffaac15af075432a0ffe7111daead6597cb34eff86be",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/design.py": "4c84897e42d4d32b1692bec8801a3c002b1c5684f984a907bde8e2cc73e4a3db",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.json": "ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.svg": "60b5b105d42d35350bfe5a263f1c997974f7b3f9b1a27eea0317f88a84bd37c7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/verify.py": "b91887fa829c4bda60332dd1541ef26f3648d4613c5725e7f6a25d74e4cd3513",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/verification-v1.json": "28fe869385596b6b09b562ee009654da491c7fc4e10013de99ba6edc5977aab4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json": "0b7ff9a2905fb5ea2b5b26cfb33a3df30c13456ddd6e5018d67dff5b3499d38c"
+  },
+  "catalog_facts_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json",
+  "generic_fixture_result_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.json",
+  "changes": {
+    "temporary_guide_feet_height_mm": 6.35,
+    "feet_use_existing_guide_clamp_pad_rectangles": true,
+    "guide_thickness_nominal_mm": 19.05,
+    "guide_bottom_w_nominal_mm": 95.25,
+    "guide_top_w_nominal_mm": 114.3,
+    "cleat_guide_bottom_stop_w_top_nominal_mm": 114.3,
+    "cap_thickness_mm": 6.35,
+    "cap_hole_nominal_D_mm": 12.7,
+    "cap_hole_D_deviation_max_mm": 0.1,
+    "cap_hole_to_flange_axis_eccentricity_max_mm": 0.15,
+    "cap_to_head_top_gap_design_mm": [
+      0.0,
+      0.05
+    ],
+    "noncatalog_fixture_height_aggregate_deviation_max_mm": 0.2,
+    "effective_contiguous_guidance_min_mm": 18.0,
+    "effective_guidance_scope": "A condition on contiguous cylindrical guidance contained entirely in the underhead body, without assuming head or entrance radius guides. This 18-mm minimum is not established by the catalog or by physical observation.",
+    "catalog_dimension_tolerance_scope": "Use current manufacturer unlisted +/-0.015-inch dimensions for underhead length, head F and head G. Do not import the older +/-0.010-inch statement or infer a measured part.",
+    "retainer_spacer_scope": "Set guide-only cap spacers to the actual head top, within the proposed 0..0.05-mm capture gap. A fixed nominal spacer is not guaranteed to accommodate the catalog head-height range. No frame packing or permanent fastener changes."
+  },
+  "retained_error_conditions": {
+    "relative_bore_screw_target_mm": 1.5,
+    "guide_normal_angle_max_deg": 0.08,
+    "bushing_diametral_play_max_mm": 0.1,
+    "original_guide_tilt_allocation_mm": 0.16,
+    "original_insert_slop_allocation_mm": 0.5,
+    "other_relative_error_terms_mm": {
+      "member_registration_and_seating": 0.2,
+      "guide_axis_location": 0.15,
+      "additional_cutting_centerline_drift": 0.2,
+      "clamp_motion": 0.1,
+      "future_screw_axis_placement": 0.15
+    },
+    "maximum_effective_cutting_diameter_mm": 11.1125,
+    "no_tighter_angle_or_play_condition_adopted": true,
+    "no_relative_target_relaxation_adopted": true
+  },
+  "configured_ID_reference_in": [
+    0.4062,
+    0.40625,
+    0.4063
+  ],
+  "configured_ID_scope": "The exact four-decimal ordering suffix is not selected. Show both surrounding four-decimal values and exact fractional 13/32 as separate diameter comparisons; the fraction is not a four-decimal order instruction.",
+  "limits": [
+    "Only temporary fixture dimensions change. Current Z200 frame, four HOLD stations, 100 bolts, 66 Hillman,old fields and both handed mappings remain unchanged; Z180 is unadopted.",
+    "All full-path error allocations remain declared design conditions. Any exceeded generic allowance is retained as an unmet comparison. No machining accuracy or complete fixture pass.",
+    "The general manufacturer 0.5..1.5D chip-gap guidance is a comparison, not a mandatory wood-specific minimum, chip-removal proof or guided handheld drilling qualification.",
+    "Permanent press-fit H bushings and recommended metal jig holes do not qualify a wood receiving plate. Guide material, mounting retention, fit, entrance geometry and achievable accuracy remain actual inputs.",
+    "Catalog dimensions/working length do not establish usable chuck projection, usable guided flute, point length, runout, chip behavior or physical tool access. A full-guide route shortfall alone does not reject a bit when a separately justified lower outlet exists.",
+    "FISCH NL 120 and GL 150 are manufacturer nominal dimensions, with no published tolerance in the cited page. No part, purchase, bit or physical operation is selected.",
+    "No physical test, floor-friction test, CAD, BREP query, native mechanics, source forces, model edit, staging or commit."
+  ],
+  "release": {
+    "catalog_bushing_selected": false,
+    "field_bit_selected": false,
+    "actual_tool_fit": false,
+    "effective_guidance_observed": false,
+    "machining_tolerance_achieved": false,
+    "chip_clearing_qualified": false,
+    "workholding_qualified": false,
+    "generic_1p50_budget_carried_forward": false,
+    "geometry_adopted": false,
+    "complete_joint_strength": false,
+    "physical_operation": false,
+    "fabrication": false,
+    "climbing": false
+  }
+}

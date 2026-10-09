@@ -1,0 +1,134 @@
+{
+  "actual_main_controls": null,
+  "all_sources_packets_and_available_reviews_unchanged": true,
+  "frozen_v2_packet_and_inventory_sha256": {
+    "adapter-v2.py": "dae93a7011242ad3878f47040cbf3af9cd224d7077eb503621a8816d55cd4014",
+    "controls01/publication-file-inventory-v2.json": "e0f7e412e4f8a64385dc564d7793c8b3b9cdf6fbe256c561c7c8eb9f1497f514",
+    "controls01/publication-file-inventory.json": "9f8241920281107edf8edcf77d96b54ec049a0025a0fb2d053a9b54c4d740f0c",
+    "result-v3.json": "1060bc7a57fb90b6dc8b3dd1aeb18bb863eb3e0fbe7dd2043c524a15c5d48fbf",
+    "result-v3.svg": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b",
+    "verification-v2.json": "286c4df35620d46d4a3276904ffb6f4997c5a0cf57f8c49b6e113a0f9231410e",
+    "verify-v2.py": "2f01212e390c5ea53a23821ecb6042e82fe0c9b64fd1fc54341c0944b3c0757f"
+  },
+  "limits": [
+    "Generic producer normalizes only /execution/python; this verifier normalizes only the two declared live-runtime text leaves. Recorded generic runtime and every other field remain exact.",
+    "Runtime controls use synthetic metadata on the same interpreter, not execution on a second interpreter or a native-method qualification.",
+    "All three generic error allowances remain unmet. No product, fixture, actual-tool, physical fit, strength or budget relaxation."
+  ],
+  "live_comparison_input_unchanged": true,
+  "live_runtime_provenance": {
+    "every_other_generic_scalar_source_guard_and_structure_field_exact": true,
+    "generic_live_execution_python": "3.12.99 (main, Oct 09 2026, 00:00:00) [GCC 13.3.0]",
+    "generic_recorded_execution_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "normalized_generic_comparison_path_only": "/execution/python",
+    "original_v1_reproduction_command": "uv run python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/reproduction-01.json",
+    "original_v1_result_arithmetic_source_and_guards_exact": true,
+    "original_v1_six_files_unchanged": true,
+    "runtime_change_is_not_a_method_tool_or_physical_qualification": true,
+    "wrapper_live_execution_python": "3.12.99 (main, Oct 09 2026, 00:00:00) [GCC 13.3.0]"
+  },
+  "normalized_wrapper_comparison_paths_only": [
+    "/runtime_reproduction/generic_live_execution_python",
+    "/runtime_reproduction/wrapper_live_execution_python"
+  ],
+  "passed": true,
+  "preserved_available_review_sha256": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/correctness/receipt.json": "9c650931a7de6da7596a21e362fda980868a28042df8142bfb6cedf3607b2111",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/correctness/review.py": "492362cb3246bf799bc8b7c9b38fd929bf5954e1f33f1a0acc87b5fcbb451a78",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/structure/receipt.json": "af283d3fe442175ee9bd37fb0aba25e701134dc142d46738b8adeed792587b19",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/structure/review.py": "3d9d09f8cc4983efaff294362a886c337ab001126037ebe020cb930d5ea9d210",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/testing/receipt.json": "e71cae8af9660a4d7b857105a75dc572039a697a78481d74c1907ef211ac5ac8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/testing/review.py": "9fddef5ba3f4c8148eab1ce2858671ef54aceda46b9bb6bae0434353893bd00e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/correctness/receipt.json": "2fa20fccddc98183caac46b5f6a80a114881639d067d5ae524749bedebb38b31",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/correctness/review.py": "3a1bfdbc265754b05337a85adecdd8a7242985e0ca63f261bc4cd88bfa5dc214",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/structure/receipt.json": "ffacb1b5aef91be8cd71915b986691b20ad8a343f7444843b72d44b9010f83ab",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/structure/review.py": "f0329edc5e792dd11ad259889faa5b77744c3981bc5385c09bef8ab13fa87698",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/testing/receipt.json": "8fabd992267e8d7f924ad0c1b7c8723198904a3f50b248d46538ac7637e3d31a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v2/testing/review.py": "df7f8d29b6fa958dac210a0f70404fb42536752b80267f0699399af08b5074d5"
+  },
+  "preserved_original_ten_file_sha256": {
+    "adapter.py": "f3831931d6c89330e07d76d1099cc4ecdf9a9a0c6e7be1b069413a7a1bc22a04",
+    "development-v1/adapter.py": "cf8c0d414fca17a85077afe30dc23998fd47cff15193867eca7a7ac9a08c58b3",
+    "development-v1/record.json": "61c09d1e8817dc37ea098fd659f929f9ac514bacf5a3d3c85f8bc98cd6c4e42a",
+    "inputs.json": "dd0df7d6b5eb30aab11184c4d4471333e545b270232333ba9577678c9155282d",
+    "result-v2.json": "e5e34e992365aedf30b56710efd9dcbb4d1a64e77e4ede29ff656d0479ff17de",
+    "result-v2.svg": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b",
+    "result.json": "dca9c6601fccbb1628aa42587fa51221c90e1083e6c52c77c312bf2a6ce99915",
+    "result.svg": "c15a18c7fc48593ec981d0998e35884d801793e77fb29ef63743ffe06a5518bc",
+    "verification-v1.json": "7cc2edc01fbdf98536e0a2029ea7e090503e135df7d698395127bbc30bea55b1",
+    "verify.py": "dd755dc20baf508cb03896062f317d5e4a6171e732b1a7329461da4b8a3931d3"
+  },
+  "recorded_generic_runtime_and_every_other_field_exact": true,
+  "recorded_runtime_provenance": {
+    "every_other_generic_scalar_source_guard_and_structure_field_exact": true,
+    "generic_live_execution_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "generic_recorded_execution_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "normalized_generic_comparison_path_only": "/execution/python",
+    "original_v1_reproduction_command": "uv run python -B fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter.py --out fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/reproduction-01.json",
+    "original_v1_result_arithmetic_source_and_guards_exact": true,
+    "original_v1_six_files_unchanged": true,
+    "runtime_change_is_not_a_method_tool_or_physical_qualification": true,
+    "wrapper_live_execution_python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]"
+  },
+  "release": {
+    "actual_tool_fit": false,
+    "catalog_bushing_selected": false,
+    "chip_clearing_qualified": false,
+    "climbing": false,
+    "complete_joint_strength": false,
+    "effective_guidance_observed": false,
+    "fabrication": false,
+    "field_bit_selected": false,
+    "generic_1p50_budget_carried_forward": false,
+    "geometry_adopted": false,
+    "machining_tolerance_achieved": false,
+    "physical_operation": false,
+    "workholding_qualified": false
+  },
+  "reused_independent_decimal_checks": {
+    "all_three_generic_allocations_remain_unmet": true,
+    "full_path_deficit_and_lower_outlet_comparisons_distinct": true,
+    "full_path_interval_mm": [
+      "118.77525",
+      "120.98725"
+    ],
+    "independent_decimal_endpoint_corners": 256,
+    "maximum_guide_tilt_mm": "0.1689301790140555737074638986641614412684923742075264791",
+    "maximum_insert_line_slop_mm": "0.5536111111111111111111111111111111111111111111111111111",
+    "physical_gap_interval_mm": [
+      "5.769",
+      "6.931"
+    ],
+    "printed_ID_gaps_do_not_establish_actual_fit": true,
+    "required_relative_bound_mm": "1.522541290125166684818575009775272552379603485318637590"
+  },
+  "reused_output_guard_controls": [
+    "existing_result_rejected",
+    "non_JSON_name_rejected",
+    "nested_output_rejected",
+    "dangling_JSON_leaf_rejected",
+    "dangling_SVG_leaf_rejected",
+    "existing_SVG_leaf_rejected",
+    "parent_alias_retarget_inert_after_canonical_binding",
+    "late_canonical_leaf_rejected_by_exclusive_create"
+  ],
+  "runtime_reproduction_controls": {
+    "nonruntime_controls_rejected": [
+      "relative_budget",
+      "execution_flag",
+      "source_pin",
+      "extra_execution_field",
+      "production_loader_rejects_relative_budget_change"
+    ],
+    "normalizer_does_not_mutate_its_input": true,
+    "runtime_only_positive_control": true,
+    "shared_runpy_module_unchanged": true,
+    "synthetic_runtime_is_not_an_observed_second_interpreter": true,
+    "synthetic_runtime_production_loader_control": true
+  },
+  "schema": "eoere_Z180_catalog_adapter_runtime_reproduction_verification/v3",
+  "source_pin_count": 30,
+  "v1_drawing_bytes_exact": true,
+  "v1_scalar_source_and_guard_outputs_exact": true,
+  "verification_method_sha256": "354bac725ebd23693bb835da073b8b503118df471cdded27e271dc3cd38f009e"
+}

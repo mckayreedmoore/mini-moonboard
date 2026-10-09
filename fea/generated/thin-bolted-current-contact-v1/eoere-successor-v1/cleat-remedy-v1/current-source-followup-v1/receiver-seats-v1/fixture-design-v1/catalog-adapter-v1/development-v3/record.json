@@ -1,0 +1,9 @@
+{
+  "schema": "eoere_catalog_adapter_verifier_v3_preflight/v1",
+  "producer_sha256": "81418f203302506d0e86f7d8880ae51126860dc403a51fe727f1bc3ead26deae",
+  "command": "uv run ruff check fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verify-v3.py",
+  "exit_code": 1,
+  "finding": "B023 at line172: negative-control lambda does not bind loop variable bad. No verifier or native execution occurred.",
+  "additional_source_inspection": "The unexecuted relative-budget negative control referenced a nonexistent path. Use the actual derived_relative_bound_under_declared_unobserved_conditions_mm scalar.",
+  "retention": "Retain preflight source and this record; final verifier is a separate corrected source."
+}

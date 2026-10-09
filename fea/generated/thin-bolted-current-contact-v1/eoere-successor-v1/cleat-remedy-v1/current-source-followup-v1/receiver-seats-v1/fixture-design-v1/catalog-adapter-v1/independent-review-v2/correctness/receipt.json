@@ -1,0 +1,154 @@
+{
+  "all_reviewed_bytes_unchanged_before_after": true,
+  "exact_same_runtime_scalar_and_SVG_replay": true,
+  "factory_source_arithmetic": {
+    "actual_guide_geometry_known": false,
+    "nominal_full_top_offset_comparison_mm": 36.95,
+    "pair_plus_breakout_mm": 83.05,
+    "projection_additive_reference_mm": 85.05
+  },
+  "findings": [
+    {
+      "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verify-v2.py",
+      "fix": "Compare all non-runtime result fields exactly. Validate runtime-block invariant and saved-runtime fields separately, record current live runtimes separately in the new receipt, and add this top-level verifier gate to the alternate-runtime positive control.",
+      "impact": "A different Python build's valid producer replay changes only live runtime provenance, but the verifier rejects it before its positive runtime controls. This reintroduces the runtime-only reproducibility failure the v2 wrapper removes.",
+      "line": 128,
+      "severity": "P2",
+      "title": "Keep live runtime provenance out of the saved-result equality gate"
+    }
+  ],
+  "independent_runtime_namespace_checks": {
+    "confirmed_verifier_regression": {
+      "all_nonruntime_fields_exact": true,
+      "alternate_runtime_producer_succeeded": true,
+      "alternate_runtime_verifier_gate_rejected": "v2 wrapper exact scalar/source replay",
+      "only_changed_top_level_field": "runtime_reproduction",
+      "production_statement_line": 128,
+      "same_runtime_replay_passed": true,
+      "synthetic_metadata_only_not_second_interpreter_execution": true
+    },
+    "independent_nonruntime_controls_rejected": [
+      "arithmetic",
+      "source_digest",
+      "native_execution_flag",
+      "extra_nested_field",
+      "missing_nested_field",
+      "handed_axis",
+      "release"
+    ],
+    "normalizer_input_immutable": true,
+    "runtime_only_positive_control": true,
+    "shared_runpy_unchanged_and_local_namespaces_isolated": true
+  },
+  "limits": [
+    "Read-only stdlib/source/JSON/byte hashing and local namespace/synthetic metadata controls. No native/CAD/BREP/FEA/global/physical/browser/site work or shared edits.",
+    "Different runtime strings are synthetic metadata, not execution on a second interpreter. Only the actual verifier admission AST statement is replayed; verifier main and output guard fixtures are not run.",
+    "Frozen v1 math and source-bound finished-solid evidence are reused. Manufacturer source-page facts and actual guide dimensions, product/fixture fit, chip clearing, workholding and achieved tolerances are not regenerated or qualified.",
+    "Current Z200/100 bolts/66 screws/HOLD/forces remain unchanged, Z180 unadopted, panel remedies stopped. Generic error allowances remain unmet; full-cap NL deficit remains distinct from a justified lower outlet. No budget relaxation, strength or physical acceptance."
+  ],
+  "publication_inventory_files_and_bytes_exact": true,
+  "release": {
+    "actual_tool_fit": false,
+    "catalog_bushing_selected": false,
+    "chip_clearing_qualified": false,
+    "climbing": false,
+    "complete_joint_strength": false,
+    "effective_guidance_observed": false,
+    "fabrication": false,
+    "field_bit_selected": false,
+    "generic_1p50_budget_carried_forward": false,
+    "geometry_adopted": false,
+    "machining_tolerance_achieved": false,
+    "physical_operation": false,
+    "workholding_qualified": false
+  },
+  "reported_seven_runtime_controls_replayed": {
+    "nonruntime_controls_rejected": [
+      "relative_budget",
+      "execution_flag",
+      "source_pin",
+      "extra_execution_field",
+      "production_loader_rejects_relative_budget_change"
+    ],
+    "normalizer_does_not_mutate_its_input": true,
+    "runtime_only_positive_control": true,
+    "shared_runpy_module_unchanged": true,
+    "synthetic_runtime_is_not_an_observed_second_interpreter": true,
+    "synthetic_runtime_production_loader_control": true
+  },
+  "reused_frozen_v1_independent_math_audit": {
+    "derived_relative_bound_mm": 1.522541290125167,
+    "effective_span_and_line_endpoint_cases": 2048,
+    "full_cap_path_interval_mm": [
+      118.77524999999999,
+      120.98724999999999
+    ],
+    "generic_target_mm": 1.5,
+    "lower_exit_path_maximum_mm": 89.981,
+    "maximum_cap_slop_from_physical_corners_mm": 0.12649027777777777,
+    "maximum_effective_span_slop_mm": 0.5536111111111112,
+    "physical_catalog_corners": 256,
+    "physical_gap_interval_mm": [
+      5.768999999999991,
+      6.930999999999997
+    ],
+    "temporary_feet_added": 2,
+    "temporary_original_parts_changed": 3
+  },
+  "review_helper_sha256": "3a1bfdbc265754b05337a85adecdd8a7242985e0ca63f261bc4cd88bfa5dc214",
+  "reviewed_sha256": {
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md": "53514b9a457274d664f73259cf043f4b0f04f04a4f259c067f7545c79b65902f",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current_profiles.json": "1ec82f4c83abda73f993455c21fa56371d6ed9046e208694c4d24226e26a2a27",
+    "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower_bolt_z_v2.py": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json": "4c66a7f194a747a14291e25c4277ec7288aa95a9bef9eab68233312288e9be9b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/independent-result-review-v1/correctness/receipt.json": "d15cfd92da7f257d1415fc1a97f348610a98ea2243e0a7c02d27f6081fe7cca9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/result.json": "6efea34ce52b3521da6d14b89853ef83ab9c1a1f7861c71f6410fc8db7738cb3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/placement.json": "5e131e9f58014b4a9426aa6a976338b930f471221e19b8e0e122ceff105f9b39",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/calculate.py": "5f6d088a836f1ac198c2cc7c8355b3a6ca8a20034a863ab813e4e33fa4a3fa03",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter-v2.py": "dae93a7011242ad3878f47040cbf3af9cd224d7077eb503621a8816d55cd4014",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter.py": "f3831931d6c89330e07d76d1099cc4ecdf9a9a0c6e7be1b069413a7a1bc22a04",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/controls01/publication-file-inventory-v2.json": "e0f7e412e4f8a64385dc564d7793c8b3b9cdf6fbe256c561c7c8eb9f1497f514",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/controls01/publication-file-inventory.json": "9f8241920281107edf8edcf77d96b54ec049a0025a0fb2d053a9b54c4d740f0c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/development-v1/adapter.py": "cf8c0d414fca17a85077afe30dc23998fd47cff15193867eca7a7ac9a08c58b3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/development-v1/record.json": "61c09d1e8817dc37ea098fd659f929f9ac514bacf5a3d3c85f8bc98cd6c4e42a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/correctness/receipt.json": "9c650931a7de6da7596a21e362fda980868a28042df8142bfb6cedf3607b2111",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/correctness/review.py": "492362cb3246bf799bc8b7c9b38fd929bf5954e1f33f1a0acc87b5fcbb451a78",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/inputs.json": "dd0df7d6b5eb30aab11184c4d4471333e545b270232333ba9577678c9155282d",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result-v2.json": "e5e34e992365aedf30b56710efd9dcbb4d1a64e77e4ede29ff656d0479ff17de",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result-v2.svg": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result-v3.json": "1060bc7a57fb90b6dc8b3dd1aeb18bb863eb3e0fbe7dd2043c524a15c5d48fbf",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result-v3.svg": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result.json": "dca9c6601fccbb1628aa42587fa51221c90e1083e6c52c77c312bf2a6ce99915",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/result.svg": "c15a18c7fc48593ec981d0998e35884d801793e77fb29ef63743ffe06a5518bc",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verification-v1.json": "7cc2edc01fbdf98536e0a2029ea7e090503e135df7d698395127bbc30bea55b1",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verification-v2.json": "286c4df35620d46d4a3276904ffb6f4997c5a0cf57f8c49b6e113a0f9231410e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verify-v2.py": "2f01212e390c5ea53a23821ecb6042e82fe0c9b64fd1fc54341c0944b3c0757f",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/verify.py": "dd755dc20baf508cb03896062f317d5e4a6171e732b1a7329461da4b8a3931d3",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/design.py": "4c84897e42d4d32b1692bec8801a3c002b1c5684f984a907bde8e2cc73e4a3db",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/inputs.json": "b17a8f72f41ab2b8ce75ffaac15af075432a0ffe7111daead6597cb34eff86be",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.json": "ec1c101da8f16f29cf0949c75086418e01e3b89268f55e27379fdb6a83a212f5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/result.svg": "60b5b105d42d35350bfe5a263f1c997974f7b3f9b1a27eea0317f88a84bd37c7",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/verification-v1.json": "28fe869385596b6b09b562ee009654da491c7fc4e10013de99ba6edc5977aab4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/verify.py": "b91887fa829c4bda60332dd1541ef26f3648d4613c5725e7f6a25d74e4cd3513",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/catalog-cache-v1/FISCH-013P-Pen_Drill.pdf": "1eaf6221834c14ba7b15d82c72ec43d86b5c1d063d5492e14bb69f3fc97f4c52",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/factory-guide-sources-v1.json": "3e0d553d76fa076764c06a393554c98e297b597fee8d339fd493053ea057e429",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/guide-bit-sources-v1.json": "0b7ff9a2905fb5ea2b5b26cfb33a3df30c13456ddd6e5018d67dff5b3499d38c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/result-v3.json": "16962d3d5bc897336c37ac5da945e08bd0268604c1f0fc640127786dd5d97781",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/result.json": "a21c25d6693a86f2617655cec1e82aa51c182b153e19baf8f5d1431afa381443",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/result.json": "26d27f9c8f5e3c1d91e48143341a8e808d0ece99f316eaf789e2fcbe22e4252a",
+    "scripts/thin_bolted_occupied.py": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+  },
+  "schema": "catalog_adapter_v2_independent_correctness_review/v1",
+  "target_sha256": {
+    "adapter-v2.py": "dae93a7011242ad3878f47040cbf3af9cd224d7077eb503621a8816d55cd4014",
+    "controls01/publication-file-inventory-v2.json": "e0f7e412e4f8a64385dc564d7793c8b3b9cdf6fbe256c561c7c8eb9f1497f514",
+    "result-v3.json": "1060bc7a57fb90b6dc8b3dd1aeb18bb863eb3e0fbe7dd2043c524a15c5d48fbf",
+    "result-v3.svg": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b",
+    "verification-v2.json": "286c4df35620d46d4a3276904ffb6f4997c5a0cf57f8c49b6e113a0f9231410e",
+    "verify-v2.py": "2f01212e390c5ea53a23821ecb6042e82fe0c9b64fd1fc54341c0944b3c0757f"
+  },
+  "target_source_inventory_and_own_prior_files_rehashed": 43
+}

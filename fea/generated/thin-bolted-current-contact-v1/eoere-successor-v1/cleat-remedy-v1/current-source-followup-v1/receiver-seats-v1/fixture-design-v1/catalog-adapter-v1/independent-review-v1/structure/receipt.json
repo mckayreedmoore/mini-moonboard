@@ -1,0 +1,166 @@
+{
+  "checks": {
+    "inert_output_controls": [
+      "existing_result",
+      "non_JSON",
+      "nested_output",
+      "occupied_json_inert_leaf",
+      "occupied_svg_inert_leaf",
+      "parent_alias_retarget_inert_after_binding"
+    ],
+    "native_or_browser_execution": false,
+    "result_and_SVG_replay_exact": true,
+    "saved256_Decimal_corners_reproduced": true
+  },
+  "context_sha256": {
+    "AGENTS.md": "e72c0ca31382df1e3f26dfba213973f7ffc8be4ce2a984fd634d75fe917ffc87",
+    "CONTRIBUTING.md": "312c88e8c7907f9bdbb687a75c2e4fd8319cb32e9939adccf69446807f066d90",
+    "docs/wood-joints-mvp/README.md": "868ae6454472ec19700119e609ed7656bf549f8d98144b0353fa3ed8c98f95c6",
+    "docs/wood-joints-mvp/completion-ledger.md": "a095c6280f781728d7703f8d20c796b103511bcab85a32e5747ccc8f12071452",
+    "pyproject.toml": "84e007ad5c9cfffa853f21627fecbaec0a85c602560d5d5e0b507326e9b02452"
+  },
+  "findings": [
+    {
+      "call_path": "adapter.load -> generic design.evaluate -> prepare -> verify/pure capsule helper; generic design.py:81-83",
+      "evidence": "Absent-file mock reproduces FileNotFoundError; no other pre-existing .py source pin lacks committed coverage.",
+      "fix": "Publish the existing shared helper unchanged at its current path, or add an exact bound restoration path; preserve catalog/generic/history bytes. Keep the shared PDF cache separate and document its recovery boundary.",
+      "impact": "Publishing the listed catalog files cannot make the recorded reproduction command run on a clean checkout, even after restoring the intentionally ignored PDF.",
+      "issue": "The required shared capsule helper is absent from the reviewed Git commit and documented recovery map.",
+      "location": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter.py:54",
+      "required_bytes": 14143,
+      "required_path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower_bolt_z_v2.py",
+      "required_sha256": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095",
+      "severity": "P2"
+    },
+    {
+      "evidence": {
+        "all_other_result_fields_identical": true,
+        "error": "generic result arithmetic differs",
+        "frozen_build": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "only_changed_field": "execution.python"
+      },
+      "fix": "Preserve originals; compare arithmetic/source fields independently of environment provenance and record live runtime separately, or explicitly provide and bind the exact required interpreter build.",
+      "impact": "Another supported Python 3.12 patch/build rejects the adapter despite identical source pins and scalar outputs; the reproduction command does not bind that exact interpreter build.",
+      "issue": "Generic arithmetic comparison also requires an identical live sys.version build string.",
+      "location": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter.py:57",
+      "severity": "P2"
+    }
+  ],
+  "frozen_six_target_sha256": {
+    "adapter.py": "f3831931d6c89330e07d76d1099cc4ecdf9a9a0c6e7be1b069413a7a1bc22a04",
+    "inputs.json": "dd0df7d6b5eb30aab11184c4d4471333e545b270232333ba9577678c9155282d",
+    "result-v2.json": "e5e34e992365aedf30b56710efd9dcbb4d1a64e77e4ede29ff656d0479ff17de",
+    "result-v2.svg": "4b52eaba8f98d5457b606061f5d51eace14bc222d38dc6bc0f873d91ff2e1b6b",
+    "verification-v1.json": "7cc2edc01fbdf98536e0a2029ea7e090503e135df7d698395127bbc30bea55b1",
+    "verify.py": "dd755dc20baf508cb03896062f317d5e4a6171e732b1a7329461da4b8a3931d3"
+  },
+  "integrity": {
+    "direct_source_pins": 25,
+    "documented_recovery_maps_checked": {
+      "/home/mckay-linux/repos/mini-moonboard-cleanup-backups-navigation-v1/recovery-plan.json": "bcc2e8622fc4be3fe06fb5623e6f18085c657c9509eec027f123b78758a7b0af",
+      "/home/mckay-linux/repos/mini-moonboard-cleanup-backups-navigation-v1/required-inputs.json": "7a2fc1e21801263ef3062350469c290cc562f1cb9e35aae352c39eec9fd689da"
+    },
+    "review_commit": "df0a3a9d8dbf4f89dea3e1ec54b7c3a56aab2392",
+    "small_runtime_code_audit": {
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/cut-datums.py": {
+        "bytes": 20484,
+        "in_review_commit": true,
+        "new_packet_target": false,
+        "sha256": "66ac9e8bfbf5d219e22bc7a541177e1217469f7556533f67650d5a69c8efb839"
+      },
+      "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/hardware.py": {
+        "bytes": 33380,
+        "in_review_commit": true,
+        "new_packet_target": false,
+        "sha256": "4898493569fbe23160d8c4051b09e9c17f2b2f66923092385c53170dd03426ef"
+      },
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-corners-v1/lower_bolt_z_v2.py": {
+        "bytes": 14143,
+        "in_review_commit": false,
+        "new_packet_target": false,
+        "sha256": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095"
+      },
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/calculate.py": {
+        "bytes": 21590,
+        "in_review_commit": true,
+        "new_packet_target": false,
+        "sha256": "5f6d088a836f1ac198c2cc7c8355b3a6ca8a20034a863ab813e4e33fa4a3fa03"
+      },
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/adapter.py": {
+        "bytes": 24455,
+        "in_review_commit": false,
+        "new_packet_target": true,
+        "sha256": "f3831931d6c89330e07d76d1099cc4ecdf9a9a0c6e7be1b069413a7a1bc22a04"
+      },
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/design.py": {
+        "bytes": 33114,
+        "in_review_commit": true,
+        "new_packet_target": false,
+        "sha256": "4c84897e42d4d32b1692bec8801a3c002b1c5684f984a907bde8e2cc73e4a3db"
+      },
+      "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/verify.py": {
+        "bytes": 10292,
+        "in_review_commit": true,
+        "new_packet_target": false,
+        "sha256": "b91887fa829c4bda60332dd1541ef26f3648d4613c5725e7f6a25d74e4cd3513"
+      },
+      "scripts/thin_bolted_occupied.py": {
+        "bytes": 20882,
+        "in_review_commit": true,
+        "new_packet_target": false,
+        "sha256": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+      }
+    },
+    "unchanged_before_after": true,
+    "verified_source_output_retention_union": 39
+  },
+  "later_parent_publication_fix": {
+    "interpreter_comparison_correction_not_reviewed_here": true,
+    "original_pre_fix_assessment_commit_and_packet_not_relabelled": true,
+    "sha256": "a49bc35aeea241360af9df401bd48cc875ccdd34a6e118e109c06d122f45c095",
+    "shared_helper_staged_byte_identically": true
+  },
+  "limits": [
+    "Standard-library source/hash/scalar replay and inert controls only; no native/CAD/BREP/FEA/global/browser/physical execution.",
+    "The interpreter portability control changes only metadata; no second interpreter or clean-machine run is claimed.",
+    "No independent manufacturer requalification or new catalog selection. Ignored raw PDF bytes were authenticated without rendering/copying; current numerical records were hashed only.",
+    "Original frozen catalog/generic/history records and reviews remain active and unchanged. Parent owns any later publication fix; this receipt describes the reviewed commit and target.",
+    "No source/shared docs/site/model edits, cleanup, staging or commit; no current force transfer or fixture/strength/physical acceptance."
+  ],
+  "publication_inventory": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/controls01/publication-file-inventory.json",
+    "sha256": "9f8241920281107edf8edcf77d96b54ec049a0025a0fb2d053a9b54c4d740f0c"
+  },
+  "retained_first_run_sha256": {
+    "development-v1/adapter.py": "cf8c0d414fca17a85077afe30dc23998fd47cff15193867eca7a7ac9a08c58b3",
+    "development-v1/record.json": "61c09d1e8817dc37ea098fd659f929f9ac514bacf5a3d3c85f8bc98cd6c4e42a",
+    "result.json": "dca9c6601fccbb1628aa42587fa51221c90e1083e6c52c77c312bf2a6ce99915",
+    "result.svg": "c15a18c7fc48593ec981d0998e35884d801793e77fb29ef63743ffe06a5518bc"
+  },
+  "review_helper_sha256": "3d9d09f8cc4983efaff294362a886c337ab001126037ebe020cb930d5ea9d210",
+  "ruff": {
+    "command": ".venv/bin/ruff check --no-cache fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/fixture-design-v1/catalog-adapter-v1/independent-review-v1/structure/review.py",
+    "exit_code": 0,
+    "output": "All checks passed!"
+  },
+  "schema": "eoere_Z180_catalog_fixture_architecture_review/v1",
+  "scope_and_retention": {
+    "actuals_blank_and_release_flags_false": true,
+    "catalog_values_are_not_actual_product_fit": true,
+    "current_Z200_geometry_100_bolts_66_screws_HOLD_and_fields_preserved": true,
+    "current_forces_not_transferred": true,
+    "generic_error_allocations_remain_unmet": true,
+    "generic_scalar_helpers_reused_without_whole_CAD_import": true,
+    "generic_six_files_preserved": true,
+    "original_first_run_and_lint_failure_preserved": true,
+    "permanent_packet_bytes": 121444,
+    "shared_raw_PDF": {
+      "active_ignored_and_not_copied": true,
+      "bytes": 87148,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/receiver-seats-v1/hardware-followup-v1/catalog-cache-v1/FISCH-013P-Pen_Drill.pdf",
+      "primary_recovery_URL": "https://www.fisch-tools.com/assets/documents/013P-Pen_Drill.pdf",
+      "sha256": "1eaf6221834c14ba7b15d82c72ec43d86b5c1d063d5492e14bb69f3fc97f4c52",
+      "tracked_in_review_commit": false
+    }
+  }
+}
