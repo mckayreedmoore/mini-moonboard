@@ -25,6 +25,7 @@ Geometry, response and shop coverage have different revision boundaries:
 | Role | Exact revision / record | Viewer or operations |
 | --- | --- | --- |
 | **Main development geometry** | `eoere-base-side-edge-cleats-v1` · [receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) | [Extended-cleat base, extra grid off](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear); published at `bca5f988`. |
+| Unadopted lower-corner proposal | `eoere-lower-cleat-z180-proposal-v1` · [four-axis patch and eight receiver datums](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json) | [Z180 preview](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-lower-cleat-z180-development&view=rear); lowers four bolt stacks 20 mm and replaces their eight receiver holes. Current Z200 results and shop instructions retain their original binding. |
 | Optional unofficial preview | Extended cleats plus `eoere-2026-horizontal-midpoint-grid-v3` | [Extra grid on](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-2026-development&view=rear); 120 added T-nuts/lights and 119 cable links. Exact midpoints are provisional assumptions. |
 | Current shop coverage | `eoere-base-side-edge-cleats-v1`, extra grid off | [Current shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md), published at `845e2e0c`; nominal records, held stations and unresolved tolerances. |
 | **Current six-case response** | `eoere-base-side-edge-cleats-v1` · [case roster](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json) | Six genuine independent admissions and twelve component reports; first-order fixed-rear-leg support scenario, without a resistance or physical-applicability pass. |
@@ -51,7 +52,13 @@ supports all eight proposed bore occurrences and nominal washer rings within
 the recorded profiles and cut inventory. The subsequent [four-receiver finished-solid query](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/result.json)
 observes complete 38.1-mm own bore walls and full nominal washer-ring backing
 in both proposed hole-size scenarios, including the eight retained receiver
-occurrences. Actual tool access, placement tolerances and complete end/edge
+occurrences. The separate [Z180 preview](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-lower-cleat-z180-development&view=rear)
+uses those four saved nominal receiver solids and translates all twenty bolt-stack
+components. It reuses the other 997 visible parts; the extra grid stays off.
+Its proposed lower centers are 44.45/95.25 mm from the common Y-minimum edge,
+40.3 mm above each cleat bottom and 58.9 mm below each post top.
+These are proposal datums, with actual observations blank.
+Actual tool access, placement tolerances and complete end/edge
 and joint resistance remain open. The [signed-end inventory](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
 reuses current bearing forces separately: many reverse through the holes, so
 net-force direction and square-end distance alone cannot establish joint strength.
@@ -101,7 +108,7 @@ for source/review bindings, retained sensitivity exceedances and exact gaps.
 
 ## Remaining work and next actions
 
-1. Review the geometrically checked Z180 proposal for the four held cleat/post
+1. Review the separate Z180 preview for the four held cleat/post
    stations before adopting changed axes or revised drilling instructions. Current
    saved loads belong to Z200 and cannot establish the proposed joint resistance.
 2. Use the completed current numerical packet within its declared scope. Complete

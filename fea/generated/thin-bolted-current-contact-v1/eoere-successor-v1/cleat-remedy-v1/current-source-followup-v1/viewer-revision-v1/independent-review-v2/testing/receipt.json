@@ -1,0 +1,215 @@
+{
+  "actual_source_verification_exact_replay": true,
+  "all15_target_sha256_before_after": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/export-v2.py": "12a584e008e8c09cf86f80d9303508f433382bf5f7191b171b83656ee7061c91",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/export.py": "8e6511c73d8f38e749476d3e783cf67c8a291ebb904a8ab9a571e6c0828cac15",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/inputs.json": "7a3f4231427d0e74461a1fb4729db2046ea34afceaaa2ef99f43b0e4475b0870",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/mesh-check-v1.json": "0e42d746122e1560c8ce18e85fc3000a20f0fa33a8316389c1070c4e1050c547",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/parent-readiness-v2.json": "508f36add767d32d004d37c5042a74ac168701021d33857ad24b5e9c8ca5f464",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/parent-readiness.json": "a22f1c7a5ebb428a1dd53a55feb76120a913245154945c0f77653c9755f1472b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/export-result.json": "837bb3fbc7832de6da97200ad1b9092d584108975c23811b25fd9cfbcece66f5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json": "4886a4bccaee43b93b23e521710b7d8b84dcb7b5ba627ef722694ceb79b7f319",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/source-verification-v2.json": "99f8ad3c47c5fca83c3a96f70f5297885087e2f704618fb28ee43b64ad6b3d35",
+    "scripts/check_eoere_lower_cleat_z180.mjs": "b6b489bb141f002de043accd71149c0f7126ca5b9e58be3a26d0e7adfc3ee684",
+    "scripts/check_eoere_lower_cleat_z180_browser.cjs": "1cb49f4b02e654709019af2473a959aa8dc7a35f5510f50bb9057a1e97869e9c",
+    "scripts/check_eoere_lower_cleat_z180_browser_v2.cjs": "6b6527b14c518760d56a848bee952240e9c0c089a3dc0d32d6a1147b2ffe26b3",
+    "site/eoere-lower-cleat-z180-overlay.mjs": "4739e1f9dace0d41bb750ecbae18f78d0ca9521c1c5fe44d3a5bff68600fc8ca",
+    "site/eoere-lower-cleat-z180-scene.json.gz": "8f3f6c17396b632475e36dda8ad2cba275cc39fac2520b20ca371ced3f390616",
+    "site/index.html": "127da69b3b89336209005008cb3ee2542dd7726618a47dbc47a422051683e471"
+  },
+  "browser_helper_review": {
+    "actual_browser_execution": false,
+    "fieldset_disabled_attribute_assertion": true,
+    "source_sha256": "6b6527b14c518760d56a848bee952240e9c0c089a3dc0d32d6a1147b2ffe26b3",
+    "status_at_review": "parent running current v2 helper"
+  },
+  "cli_and_output_preservation_controls": [
+    {
+      "name": "actual_verify_only_cli_redirected_to_owned_fresh_output",
+      "passed": true
+    },
+    {
+      "name": "exclusive_verify_only_output_reuse",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/independent-review-v2/testing/review-scratch-ked7dvjw/fresh-verification.json'"
+    },
+    {
+      "name": "unsupported_cli_--unsupported",
+      "rejection": "only --verify-only or a fresh fixed-destination export is supported"
+    },
+    {
+      "name": "unsupported_cli_--verify-only",
+      "rejection": "only --verify-only or a fresh fixed-destination export is supported"
+    },
+    {
+      "name": "unsupported_cli_--outdir",
+      "rejection": "only --verify-only or a fresh fixed-destination export is supported"
+    },
+    {
+      "name": "actual_fixed_destination_export_rejects_existing_frozen_run",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01'"
+    },
+    {
+      "name": "fixed_export_dangling_output",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/independent-review-v2/testing/review-scratch-ked7dvjw/runs-v1/export01'"
+    },
+    {
+      "name": "fixed_export_existing_file",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/independent-review-v2/testing/review-scratch-ked7dvjw/runs-v1/export01'"
+    },
+    {
+      "name": "fresh_export_reserved_before_native_sentinel",
+      "passed": true
+    },
+    {
+      "name": "reserved_directory_cannot_be_reused",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/independent-review-v2/testing/review-scratch-ked7dvjw/runs-v1/export01'"
+    },
+    {
+      "name": "fixed_export_aliased_parent",
+      "rejection": "canonical output parent required"
+    }
+  ],
+  "excluded": [
+    "native/CAD imports",
+    "BREP import/query/reconstruction/tessellation",
+    "Three checker rerun",
+    "browser launch/screenshots",
+    "mechanics/FEA/frame/global solve",
+    "field admission or strength acceptance",
+    "target/shared edits"
+  ],
+  "findings": [],
+  "mechanics_or_physical_release": false,
+  "native_import_attempts": [],
+  "readiness_and_consumed_result_controls": [
+    {
+      "name": "v2_schema",
+      "rejection": "source-bound v2 parent readiness required"
+    },
+    {
+      "name": "v2_exporter_sha256",
+      "rejection": "source-bound v2 parent readiness required"
+    },
+    {
+      "name": "v2_only_four_saved_BREP_display_tessellations",
+      "rejection": "source-bound v2 parent readiness required"
+    },
+    {
+      "name": "v2_native_mechanics_or_full_frame_CAD_authorized",
+      "rejection": "source-bound v2 parent readiness required"
+    },
+    {
+      "name": "v2_geometry_adoption_authorized_by_this_file",
+      "rejection": "source-bound v2 parent readiness required"
+    },
+    {
+      "name": "v2_reviewed_native_result_sha256",
+      "rejection": "parent review and consumed native-result digest differ"
+    },
+    {
+      "name": "v1_parent_reviewed_result_join",
+      "rejection": "parent review and consumed native-result digest differ"
+    },
+    {
+      "name": "consumed_input_digest_join",
+      "rejection": "parent review and consumed native-result digest differ"
+    },
+    {
+      "name": "frozen_source_pin_export.py",
+      "rejection": "source changed: fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/export.py"
+    },
+    {
+      "name": "frozen_source_pin_inputs.json",
+      "rejection": "source changed: fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/inputs.json"
+    },
+    {
+      "name": "frozen_source_pin_parent-readiness.json",
+      "rejection": "source changed: fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/parent-readiness.json"
+    },
+    {
+      "name": "frozen_exporter_bytes",
+      "rejection": "original exporter changed"
+    },
+    {
+      "name": "consumed_native_result_bytes",
+      "rejection": "parent review and consumed native-result digest differ"
+    }
+  ],
+  "reused_v1_testing": {
+    "actual_Three_proof_sha256": "0e42d746122e1560c8ce18e85fc3000a20f0fa33a8316389c1070c4e1050c547",
+    "actual_Three_rerun": false,
+    "early_loader_controls": 5,
+    "helper_sha256": "cdc8a2f93337097adac147ea17c211daa7e6f0d8cce0dab70936e03cab2de290",
+    "historical_dispatches": 14,
+    "old_validator_controls": 42,
+    "receipt_sha256": "3c09760dc8f920c5932e58e2ed543efe087c6bb2e712c093156401528adbce11",
+    "toggle_routes": 8
+  },
+  "review_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/independent-review-v2/testing/review.py",
+    "sha256": "40de3a985183ecf3c955939842a20f5e4b7bac94f7478e376610bcdebd94f960"
+  },
+  "review_target_manifest": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/review-target-v2.json",
+    "sha256": "f2a2548a638f152306b9279b8498ac226ba3b4589b9ebd8725b09743bf69bd37"
+  },
+  "saved_report_and_output_controls": [
+    {
+      "name": "report_schema",
+      "rejection": "original display scope differs"
+    },
+    {
+      "name": "report_status",
+      "rejection": "original display scope differs"
+    },
+    {
+      "name": "report_native_cuts_Boolean_or_mechanics",
+      "rejection": "original display scope differs"
+    },
+    {
+      "name": "report_saved_response_transferred",
+      "rejection": "original display scope differs"
+    },
+    {
+      "name": "report_release",
+      "rejection": "original display scope differs"
+    },
+    {
+      "name": "layout.json_path",
+      "rejection": "original output binding differs"
+    },
+    {
+      "name": "layout.json_sha256",
+      "rejection": "original output binding differs"
+    },
+    {
+      "name": "layout.json_bytes",
+      "rejection": "original output binding differs"
+    },
+    {
+      "name": "scene.json.gz_path",
+      "rejection": "original output binding differs"
+    },
+    {
+      "name": "scene.json.gz_sha256",
+      "rejection": "original output binding differs"
+    },
+    {
+      "name": "scene.json.gz_bytes",
+      "rejection": "original output binding differs"
+    },
+    {
+      "name": "report_source_hash",
+      "rejection": "source changed: docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json"
+    },
+    {
+      "name": "layout_descriptor_semantics",
+      "rejection": "current proposed descriptor differs"
+    }
+  ],
+  "schema": "eoere_lower_cleat_z180_supported_v2_independent_testing_review/v1",
+  "scope": "Actual stdlib verify_current and owned redirected CLI byte replay; source hashes; in-memory readiness/result/output tampering; fixed-destination output guards and reservation sentinel. Existing saved receiver audit and unchanged v1 actual Three/routing proofs reused, not independently re-executed as native or mesh work.",
+  "sources_unchanged_before_after": true,
+  "v1_finding_closed": "Both original and supported parent readiness digests must match the consumed input pin and actual result bytes before frozen prepare/audit or native display work.",
+  "verified_source_pins": 17
+}

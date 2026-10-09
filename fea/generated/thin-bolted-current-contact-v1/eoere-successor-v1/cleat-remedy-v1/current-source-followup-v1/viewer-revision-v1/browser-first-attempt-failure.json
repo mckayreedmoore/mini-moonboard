@@ -1,0 +1,20 @@
+{
+  "exact_original_reconstruction": {
+    "replace_once_from": "page.locator('#part-visibility').isDisabled()",
+    "replace_once_to": "page.locator('#visibility').isDisabled()",
+    "source": "scripts/check_eoere_lower_cleat_z180_browser.cjs"
+  },
+  "exit_code": 1,
+  "failure": "Checker selected nonexistent #visibility; actual fieldset is #part-visibility. No browser success receipt was produced.",
+  "fixed_checker_sha256": "1cb49f4b02e654709019af2473a959aa8dc7a35f5510f50bb9057a1e97869e9c",
+  "geometry_failure_inferred": false,
+  "loaded_checker_sha256": "306969669fbe0c7e14c1c2bbd38a268fc35dc18408b7276e4791d4d4fd2ed104",
+  "retention": "First attempt screenshots remain active ignored; failure is not relabeled as a pass.",
+  "schema": "eoere_z180_browser_first_attempt_failure/v1",
+  "screenshots": [
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/browser-v1/z180-rear.png",
+      "sha256": "93bcc11f0cdeca9c19e701b298d224149feca412ce27cce201ebb82d6124dcb0"
+    }
+  ]
+}

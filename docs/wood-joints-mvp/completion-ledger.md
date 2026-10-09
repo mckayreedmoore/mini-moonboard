@@ -3565,6 +3565,94 @@ than publishing only a pass label. The twelve raw finished BREPs stay active
 ignored. Existing frame fields/operators, source caches, prior studies and
 historical viewer assets remain active; no archive or prune operation occurs.
 
+The separate [Z180 viewer proposal](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-lower-cleat-z180-development&view=rear)
+now displays the four reported 20-mm lower-axis moves without changing the
+current `eoere-base-side-edge-cleats-v1` authority or its six-case responses.
+Its distinct identity is `eoere-lower-cleat-z180-proposal-v1`, extra grid off.
+The [geometry patch and receiver datums](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json)
+bind the current descriptor, original unadopted placement and four already
+queried `proposed_Z180_modeled` finished receivers. The 96 other bolt records,
+all 66 screw records, profiles, stock and hardware dimensions remain unchanged.
+The proposed eight receiver occurrences have centers 44.45/95.25 mm from
+Y-minimum, 40.3 mm above each cleat bottom and 58.9 mm below each post top.
+Actual observations and bit instructions in that patch remain null.
+
+The display export reuses the existing saved-result auditor and tessellator.
+Only four SHA-bound finished BREPs are imported and tessellated; no cuts,
+Booleans, frame reconstruction, native mechanics or force recovery run.
+The new loader replaces four receiver meshes and translates all five existing
+hardware components on each of the four shafts by (0,0,−20) mm. It preserves
+the other **997 of 1,021 visible parts**, all 100 bolt axes and all 66 Hillman
+screws. The old current and historical viewer choices stay available.
+
+The new gzip asset is **41,081 bytes**, SHA
+`8f3f6c17396b632475e36dda8ad2cba275cc39fac2520b20ca371ced3f390616`;
+decoded SHA is
+`a4c80a0afc79519d860a42ffc8e902fd20400ddb180ab2612ab8243dc079a30c`.
+The geometry patch is SHA
+`4886a4bccaee43b93b23e521710b7d8b84dcb7b5ba627ef722694ceb79b7f319`.
+The [actual Three.js check](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/mesh-check-v1.json),
+SHA `0e42d746122e1560c8ce18e85fc3000a20f0fa33a8316389c1070c4e1050c547`,
+checks all unchanged vertex/metadata records, every translated vertex, source
+and datum joins, full part counts, thirteen invalid claim/census controls and
+three invalid scene/layout hash options. JavaScript checks semantic descriptor
+records; the exporter checks the original Python canonical digest separately.
+
+The first export's readiness record named the correct native-result digest,
+but its code did not enforce that particular join. The frozen v1 source,
+issued output and original reviews remain intact. The supported
+[v2 entrypoint](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/export-v2.py),
+SHA `12a584e008e8c09cf86f80d9303508f433382bf5f7191b171b83656ee7061c91`,
+adds the parent-review/consumed-result digest gate before the unchanged exporter.
+Its [source-only verification](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/source-verification-v2.json)
+is SHA `99f8ad3c47c5fca83c3a96f70f5297885087e2f704618fb28ee43b64ad6b3d35`.
+It reproduces the descriptor and saved receiver audit, verifies the old outputs
+and sources, and performs no native import or second tessellation.
+Its issued bytes retain two unused tuple-local names at line 71; Ruff passes
+with only `RUF059` excluded for that frozen helper. Other maintained new Python
+helpers use the ordinary Ruff rules.
+
+All three final v2 reviews report no substantial findings. They reproduce the
+17-pin source-only verification, exercise readiness/digest and output rejection
+controls, and retain the old geometry, composition and routing proofs within
+their original limits. The final receipts are under
+`viewer-revision-v1/independent-review-v2`:
+
+| Review receipt | SHA256 |
+| --- | --- |
+| `correctness/receipt.json` | `6a5cfde0873497a00203233677015284cad82847ce26fc56e0668e01357f957e` |
+| `testing/receipt.json` | `3878bf2bf9f2bdfbb88b17c3c0da90ca09b555bd957f2053bfd70ed11caaf04d` |
+| `structure/receipt.json` | `78cdd07c99487ef340fe8fd441d1181d68b6db7b404ae17214ce9090b68890b9` |
+
+The [successful browser receipt](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/browser-v3/result.json)
+is SHA `403822fa43c4bcb4c106d34e9efca87c5ed982fe65742388fa2a8028c9579047`.
+It records the rendered rear assembly, both left/right complete bolt stacks,
+return to the original current model, retained choices and zero page/request
+errors. It uses the shared Gwen runner without page-context code evaluation.
+The first two browser attempts failed checker assumptions about a fieldset;
+their failure records/screenshots are preserved separately, not counted as
+geometry failures or successful runs. The corrected v2 browser helper checks
+the actual disabled attribute. Original scene, layout and source bytes are
+unchanged through those checker corrections.
+
+The four saved nominal receiver BREPs, raw export gzip and screenshots remain
+active ignored inputs. Compact descriptors, source/readiness records, original
+and corrected helpers, failures, checks and reviews remain active reproducibility
+evidence. Only the site copy of the new gzip is needed in Git; the raw export
+copy remains byte-identical and ignored. No current fields/operators, source
+caches, old viewer assets or failed evidence are archived or pruned. This is
+a separate geometry preview, not revised drilling instructions, Z180 actions,
+complete joint resistance or physical release.
+This publication adds **32 compact files / 277,691 bytes** and updates the main
+summary, this ledger and the viewer index. Its largest new artifact is the
+41,081-byte four-receiver display patch; no full scene bank or dependency is
+copied. The raw gzip and five screenshots total **1,097,827 bytes**, ignored and
+active. Parent checks exactly replay the source-only verification, retain all
+49 preceding publication files outside the maintained summaries, parse owned
+JSON/Python and pass both mesh-alias checks. A broader Ruff scan reports 152
+existing diagnostics in 73 files byte-identical to `bedb85b8`, with none in this
+publication; that scan is not reported as a passing repository-wide check.
+
 The separate [signed-end inventory and square-end markers](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/end-geometry-v1/result.json)
 reuse the six completed rich reports rather than regenerating their actions.
 The producer SHA is `fc45c5e990b11c20a3e6e98e9723b25ec366d05a780b229d82cdb639c6dc4ad0`;

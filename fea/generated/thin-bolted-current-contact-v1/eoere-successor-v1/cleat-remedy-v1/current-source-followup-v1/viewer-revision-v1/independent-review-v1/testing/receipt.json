@@ -1,0 +1,207 @@
+{
+  "browser_status": "pending; no browser requested from reviewers",
+  "cheap_node_controls": {
+    "new_preview_dispatch": {
+      "loader": "loadLowerCleatPreviewScene",
+      "options": {
+        "baselineParts": [],
+        "baselineText": "{\"parts\":[]}",
+        "decodedSha256": "a4c80a0afc79519d860a42ffc8e902fd20400ddb180ab2612ab8243dc079a30c",
+        "expectedSha256": "8f3f6c17396b632475e36dda8ad2cba275cc39fac2520b20ca371ced3f390616",
+        "layoutSha256": "4886a4bccaee43b93b23e521710b7d8b84dcb7b5ba627ef722694ceb79b7f319",
+        "url": "eoere-lower-cleat-z180-scene.json.gz"
+      }
+    },
+    "new_preview_toggle_visible": false,
+    "pre_parent_loader_controls": [
+      "invalid_expectedSha256",
+      "invalid_decodedSha256",
+      "topology_type",
+      "topology_count",
+      "topology_hash"
+    ],
+    "toggle_cases": [
+      [
+        "eoere-extended-cleat-frame-development",
+        false,
+        "eoere-extended-cleat-frame-development"
+      ],
+      [
+        "eoere-extended-cleat-frame-development",
+        true,
+        "eoere-extended-cleat-2026-development"
+      ],
+      [
+        "eoere-extended-cleat-2026-development",
+        false,
+        "eoere-extended-cleat-frame-development"
+      ],
+      [
+        "eoere-extended-cleat-2026-development",
+        true,
+        "eoere-extended-cleat-2026-development"
+      ],
+      [
+        "eoere-adjusted-frame-development",
+        false,
+        "eoere-adjusted-frame-development"
+      ],
+      [
+        "eoere-adjusted-frame-development",
+        true,
+        "eoere-new-2026-adjustments"
+      ],
+      [
+        "eoere-new-2026-adjustments",
+        false,
+        "eoere-adjusted-frame-development"
+      ],
+      [
+        "eoere-new-2026-adjustments",
+        true,
+        "eoere-new-2026-adjustments"
+      ]
+    ],
+    "unchanged_old_choices_and_dispatch": 14,
+    "validator_controls": [
+      "schema",
+      "revision",
+      "candidate",
+      "status",
+      "layout_path",
+      "layout_hash",
+      "extra_grid",
+      "response_transfer",
+      "resistance",
+      "missing_host",
+      "duplicate_host",
+      "wrong_host_id",
+      "host_transform",
+      "host_template",
+      "host_brep_hash",
+      "host_kind",
+      "host_revision",
+      "missing_translation",
+      "duplicate_translation",
+      "wrong_axis",
+      "wrong_X_translation",
+      "wrong_Z_translation",
+      "parent_decoded_sha256",
+      "parent_layout_sha256",
+      "parent_sha256",
+      "parent_url",
+      "count_timber",
+      "count_panel",
+      "count_bracket",
+      "count_bolt",
+      "count_physical_bolt_axes",
+      "count_screw",
+      "count_lights",
+      "count_tnuts",
+      "count_wire",
+      "count_total_visible_parts",
+      "release_candidate_accepted",
+      "release_climbing_released",
+      "release_drilling_released",
+      "release_fabrication_released",
+      "release_geometry_adopted",
+      "release_structural_accepted"
+    ]
+  },
+  "eight_unique_datums_independently_rejoined": true,
+  "excluded": [
+    "CAD/native imports",
+    "BREP query/reconstruction/tessellation",
+    "mechanics/FEA/frame/global solve",
+    "browser execution or screenshots",
+    "field admission or strength acceptance",
+    "source/shared edits"
+  ],
+  "export_preflight_controls": [
+    {
+      "name": "only_four_saved_BREP_display_tessellations",
+      "rejection": "bounded parent readiness required"
+    },
+    {
+      "name": "native_mechanics_or_full_frame_CAD_authorized",
+      "rejection": "bounded parent readiness required"
+    },
+    {
+      "name": "geometry_adoption_authorized_by_this_file",
+      "rejection": "bounded parent readiness required"
+    },
+    {
+      "name": "inputs_sha256",
+      "rejection": "source changed: fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/inputs.json"
+    },
+    {
+      "name": "exporter_sha256",
+      "rejection": "source changed: fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/export.py"
+    },
+    {
+      "name": "runtime",
+      "rejection": "pinned native display runtime required"
+    },
+    {
+      "name": "saved_result_hash",
+      "rejection": "source changed: fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/finished-receivers-v1/runs-v1/candidate01/result.json"
+    }
+  ],
+  "export_source_pins_verified": 15,
+  "findings": [
+    {
+      "evidence": "Changing only the readiness digest to 64 zeros in memory still lets actual stdlib prepare() return saved audit.pass true and descriptor bytes for result 6efea34ce52b3521da6d14b89853ef83ab9c1a1f7861c71f6410fc8db7738cb3.",
+      "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/export.py",
+      "fix": "Before verifier/native work, require the readiness reviewed_native_result_sha256 to equal the pinned inp.native_result digest; add a conflicting-readiness negative control.",
+      "impact": "A stale or contradictory parent readiness can authorize display work on a result other than the one its explicit approval digest names. The issued frozen readiness and geometry currently agree; this is a guard defect, not a wrong issued observation.",
+      "line": 68,
+      "problem": "The bounded readiness gate never compares reviewed_native_result_sha256 with the consumed native-result source pin.",
+      "severity": "medium"
+    }
+  ],
+  "fresh_actual_Three_check": {
+    "byte_equal_frozen_mesh_check": true,
+    "claim_controls": 13,
+    "command": "node scripts/check_eoere_lower_cleat_z180.mjs fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/independent-review-v1/testing/actual-mesh-check-v1.json",
+    "executions": 1,
+    "hash_controls": 3,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/independent-review-v1/testing/actual-mesh-check-v1.json",
+    "replacement_receivers": 4,
+    "retained_axes": 100,
+    "retained_screws": 66,
+    "sha256": "0e42d746122e1560c8ce18e85fc3000a20f0fa33a8316389c1070c4e1050c547",
+    "translated_hardware_components": 20,
+    "unchanged_parts": 997
+  },
+  "historical_index_comparison": {
+    "commit": "bedb85b8d6ce2cf7f2b2d61cb458e428c3dc4d7c",
+    "index_sha256": "6693f03e969b63f1c2446e3b2172d346fa379584a928f3dedbff325a4ca17bf6"
+  },
+  "mechanics_or_physical_release": false,
+  "native_import_attempts": [],
+  "review_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/independent-review-v1/testing/review.py",
+    "sha256": "cdc8a2f93337097adac147ea17c211daa7e6f0d8cce0dab70936e03cab2de290"
+  },
+  "review_target_manifest": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/review-target-v1.json",
+    "sha256": "9bd09c57b337c7176d3965e79d620341d2d63b4aeec1b5afbd36d191786f7310"
+  },
+  "schema": "eoere_lower_cleat_z180_viewer_independent_testing_review/v1",
+  "scope": "One actual existing Node/Three checker execution; stdlib exporter intake and exact descriptor replay; byte hashes; tiny synthetic JS validator/early loader controls and extracted source routing/toggle functions. Existing saved receiver verifier reused during prepare, not independently re-audited.",
+  "source_only_descriptor_exact_replay": true,
+  "sources_unchanged_before_after": true,
+  "target_sha256_before_after": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/export.py": "8e6511c73d8f38e749476d3e783cf67c8a291ebb904a8ab9a571e6c0828cac15",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/inputs.json": "7a3f4231427d0e74461a1fb4729db2046ea34afceaaa2ef99f43b0e4475b0870",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/mesh-check-v1.json": "0e42d746122e1560c8ce18e85fc3000a20f0fa33a8316389c1070c4e1050c547",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/parent-readiness.json": "a22f1c7a5ebb428a1dd53a55feb76120a913245154945c0f77653c9755f1472b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/export-result.json": "837bb3fbc7832de6da97200ad1b9092d584108975c23811b25fd9cfbcece66f5",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json": "4886a4bccaee43b93b23e521710b7d8b84dcb7b5ba627ef722694ceb79b7f319",
+    "scripts/check_eoere_lower_cleat_z180.mjs": "b6b489bb141f002de043accd71149c0f7126ca5b9e58be3a26d0e7adfc3ee684",
+    "scripts/check_eoere_lower_cleat_z180_browser.cjs": "1cb49f4b02e654709019af2473a959aa8dc7a35f5510f50bb9057a1e97869e9c",
+    "site/eoere-lower-cleat-z180-overlay.mjs": "4739e1f9dace0d41bb750ecbae18f78d0ca9521c1c5fe44d3a5bff68600fc8ca",
+    "site/eoere-lower-cleat-z180-scene.json.gz": "8f3f6c17396b632475e36dda8ad2cba275cc39fac2520b20ca371ced3f390616",
+    "site/index.html": "127da69b3b89336209005008cb3ee2542dd7726618a47dbc47a422051683e471"
+  }
+}
