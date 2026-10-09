@@ -23,9 +23,11 @@ the cable center remains at N8 with the recorded 8-mm fillets. These are CAD
 envelopes, not routing-tool, delivered harness or installation instructions.
 The two upright links follow their LED rows, which differ from the corresponding
 T-nut rows. The center principal stays in its existing position.
+The latest geometry is published at `78685125`; deployment and served-file
+verification pass, as recorded in the existing ledger.
 
 The preceding geometry step trims both exterior 2×6 cleats to the sloping sides'
-rear edges, with full 38.1-mm thickness and all bolt positions retained.**
+rear edges, with full 38.1-mm thickness and all bolt positions retained.
 The [trimmed-cleat viewer](../../site/index.html?model=eoere-bolted-trimmed-cleats-development&view=rear)
 and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json)
 form a distinct `eoere-rear-trimmed-cleats-v1` revision. Actual saved CAD,

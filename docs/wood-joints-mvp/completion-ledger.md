@@ -2310,10 +2310,21 @@ The final parent check reuses the saved documentation link checker: **636**
 local destinations and **44** Markdown fragments resolve. All **689** original
 assessment, **644** final joint-validation and **784** new geometry pins remain
 unchanged; the original guide, fourteen shop and nine heel files remain frozen.
-Only the five new permanent assets and five maintained documentation/navigation
-paths are staged for normal master publication. The fourteen unrelated
+The five new permanent assets and five maintained documentation/navigation
+paths were committed and pushed normally on master as
+`78685125b8b26ce93f8ad142aa0433b69a66b9d8`. The fourteen unrelated
 historical helpers stay untouched. The completed numerical/reporting packet,
 trim geometry and aligned-wire geometry retain separate qualification scopes.
+
+Pages workflow **37869216211** succeeds for that exact commit. The served
+index, both aligned-wire loaders and compressed scene return HTTP 200 and
+match the reviewed local bytes; the decoded scene matches its original SHA.
+The observation receipt is
+`aligned-wire-cutouts-v1/publication-v1/receipt.json`, SHA
+`f74083fc86918a5b149b3bfa9463376a7ccb37ec7f28fcb43e3638f1e9739d24`.
+This post-publication receipt remains active separately from the closed
+58-file archive. No raw evidence is pruned or overwritten. Deployment does
+not extend the prior numerical results to the revised cuts.
 
 **Latest owner scope takes precedence over the earlier full-build objective
 below:** “Don't attempt to resolve the screw panel problem. Just take the model
