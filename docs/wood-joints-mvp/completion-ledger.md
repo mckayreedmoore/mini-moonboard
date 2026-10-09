@@ -2,8 +2,14 @@
 
 ## Current model-completion scope and qualification status
 
-The owner now directs **finishing and publishing the completed conditional
-numerical MVP and remaining nominal shop/assembly documentation**. All six
+The **raised-rail conditional numerical MVP and nominal shop/assembly packet
+are published at `2cab2be5`**. The owner's latest geometry direction trims both
+exterior cleats along the sloping side rear edges, retaining full thickness and
+all bolt positions. Its separate geometry/display checks pass; no six-case
+mechanics pass transfers to the trim. Wire-cutout alignment is the next bounded
+geometry task; shifting the center principal is unadopted. The preceding
+reporting scope was finishing and publishing the conditional numerical MVP
+and remaining nominal shop/assembly documentation. All six
 loaded cases are complete. Reuse frozen evidence, retain exceedances and
 unknown resistance, and stop panel/screw remedies. Complete hardware/receiving,
 100-bolt/200-side access dispositions, cut/hole datums and missing tolerances,
@@ -15,8 +21,9 @@ strength-resolution requirement of the earlier complete-build objective;
 it adds no fabrication or climbing release. The
 owner-directed **eoere B0C7V7VS89 successor** has 22 angles, two exterior
 2×6 cleats, 22 timbers, 100 through-bolt stacks and 66 Hillman screws. The
-latest geometry revision raises only the mirrored bottom rails and their
-dependent hardware above the first T-nut row, retaining existing wire cutouts.
+evaluated geometry revision raises the mirrored bottom rails and their
+dependent hardware above the first T-nut row, retaining its wire cutouts.
+The subsequent cleat trim changes only the two cleat bodies.
 The
 [active sequence](#build-package-completion) covers its geometry, completed
 joint/component findings and coordinated shop/hardware instructions.
@@ -2013,7 +2020,7 @@ joint findings. The reviewed geometry, load basis and release boundaries remain.
 
 #### Build-package completion
 
-**Current reporting and shop-documentation objective:** finish and publish
+**Completed reporting and shop-documentation objective:** finish and publish
 the existing raised-rail conditional numerical MVP and its nominal shop and
 assembly packet. The owner explicitly excludes physical testing and engineer
 approval. Reuse the completed six-case calculations; record unknown joint
@@ -2030,7 +2037,122 @@ instructions and publication, with actual observations blank.
 | Nominal cuts and holes | Current 22-member profiles/datums, 120 receiver occurrences, six panels and 66 screw axes | Complete nominal reporting: current identities/coordinates, four moved screws/sixteen moved stacks and missing manufacturing tolerances are reviewed; no baseline cut-sheet acceptance transfers. |
 | Hardware and access | 100 physical stacks, 200 head/nut sides, receiving equations and observed-price limits | Complete nominal reporting: every stack/side has a disposition; tools, threads, seats and continuous paths remain explicitly unverified. Actual observations stay blank. |
 | Assembly, removal and procurement | [Current shop/assembly guide](eoere-shop-assembly-guide.md), individual-part accounting and cost/mass scope | Complete nominal reporting: reviewed dependency order, receiving instructions and cost/mass limits; old B103/block routes supply no current acceptance. No physical test or external approval gate. |
-| Review and publication | Saved-source checks, independent reviews, shared repository checks and compact artifacts | Reporting, reviews and retention are complete; actual repository-wide failures are recorded. Normal owned master publication follows the owner's authorization after quiet hours. |
+| Review and publication | Saved-source checks, independent reviews, shared repository checks and compact artifacts | Complete at `2cab2be5`: reporting, reviews, retention and normal master publication; actual repository-wide failures are recorded. |
+
+**Subsequent owner-directed geometry:** trim both exterior 2×6 cleats to the
+sloping rear edges of the 4×6 sides. Keep the full 38.1-mm thickness, existing
+angles, all 100 physical bolt positions and all 66 Hillman axes. The proposed
+angle move was a question, not an adopted change. This separate revision is
+`eoere-rear-trimmed-cleats-v1`, displayed as
+[eoere-bolted-trimmed-cleats-development](../../site/index.html?model=eoere-bolted-trimmed-cleats-development&view=rear).
+No solver, stiffness/contact preparation, revised demand or physical release
+is part of this geometric task. The following raised-rail numerical/shop
+records retain their original untrimmed input scope.
+
+The source-only independent profile review is
+`flush-cleat-review-v1/review.json`, SHA
+`7607bb2cd55d681707c3bdfec8dff48d645948360b2a9d31123e2ecd94e22023`;
+its helper is SHA
+`d31b075e537b7f0ba3315ff4fdde61ae6bf2757f4c342b3b45c2ba5979c8a2a2`.
+The parent freezes 345 pins in `cleat-rear-trim-v1/plan-v1.json`, SHA
+`1450325474fd56d8585b161012e134512bba1a57757fbf2e07ccd0f8035b40bb`,
+with generator SHA
+`25ea28b46994c9fa9f91fbb7fecbc6215dcb92f228af516a253c446ffb921da0`.
+The bounded CAD branch imports/cuts only two saved cleats and reuses existing
+mesh, line-span and overlap helpers. Python 3.12.3, CadQuery 2.8.0,
+cadquery-ocp 7.9.3.1.1 and ocp_vscode 4.0.1 are the recorded environment.
+The initial import-path failure and subsequent relative-output-path failure
+remain in `launch-check-v1/v2.json`; the latter's partial left BREP is retained.
+Neither changed the frozen method or plan. The successful command uses
+`PYTHONPATH=.` and absolute plan/output paths:
+
+```sh
+wj_trim_root=/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1
+PYTHONPATH=. uv run python -B "$wj_trim_root/revision.py" build --plan "$wj_trim_root/plan-v1.json" --out "$wj_trim_root/cad-v2"
+```
+
+Preserve the issued output; a reproduction must use a fresh output directory.
+The [published geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json)
+is **25,079 B**, SHA
+`4223b78f85418b37832861d8eedc936381188e4e091750bbc8c112646d7f1056`.
+Both exported cleats are valid single solids and subsets of their old bodies.
+Each loses **144,269.005500 mm³**, matching the analytic wedge, and retains
+**1,384,934.840738 mm³**. Eight bore-body and eight full washer-annulus checks
+retain complete nominal occupancy; original bore voids and runner seats remain.
+All 26 other wood/panel bodies and the original 100/66 complete axis records
+stay unchanged. The total nominal mass delta at 500 kg/m³ is **−0.144269 kg**;
+this is not a refreshed whole-frame inventory or gravity response.
+
+The nearest upper rear bolts are **067 left / 070 right**. Their centers are
+**29.108028 mm** from the cut, bore edges **23.948653 mm**, and washer outer
+edges **16.027028 mm**, measured perpendicular to the inclined cut. The
+along-Z center distance is a different **45.284053 mm**. These are geometric
+distances, not an adopted timber capacity. All 58 historical contact-cell
+centroids remain inside the retained outline; that does not prove full-patch
+or stiffness equivalence. The lower cleat/post bore-to-kicker-screw gap stays
+**0.340625 mm**. The prior Z180 move remains unadopted.
+
+Independent actual-output review is `flush-cleat-review-v1/actual-output-review.json`,
+SHA `0a54f3568a3b3dcef5f966ec0a743c8b2c020716ce7a72097b0dcf18f399b9dd`;
+its helper is SHA
+`87b95c1bbc9d2783a6d34159a06bee5d96a15f3ef9f37f1d28068cc9f5a36c4a`.
+It verifies 346 parent/plan pins, imports only the two saved new BReps,
+independently checks 1,152 bore/washer-ring samples per cleat and binds the
+byte-identical public copies. Status is
+`PASS_SAVED_GEOMETRY_AND_DISPLAY_BINDINGS_ONLY`; no strength or mechanics
+acceptance is inferred. The **68,766-B** viewer patch is SHA
+`e49ed92875c8de3dfafbab10755fb49175662c0c4a3eaf5affe247da04535c57`;
+the **6,552-B** loader is SHA
+`c07c98a029bfddc9d5d35455e92b2f68f6532a76eb4e0eefcb9a96367d1c733b`.
+It authenticates/reuses the preserved raised-rail scene and replaces only the
+two cleat meshes. All 1,019 other rendered parts retain their exact geometry
+and fabrication metadata; 1,021 parts, 100 bolt groups and 66 screws remain.
+
+The genuine Three.js mesh check is
+`cleat-rear-trim-v1/actual-mesh-check-v1.json`, SHA
+`129f0b76033f9835139fe4d287a344429bd2b3e81e1e3de73544dd9ad94c3264`.
+Its seven negative identity/parent/body/mechanics/release/census/transform
+controls reject. The checker is
+`scripts/check_eoere_cleat_trim_scene.mjs`, SHA
+`789315a9134b083ca071c607624786b00e290453550b6431ff9afce8cc4b17e0`.
+Genuine front/rear browser/navigation evidence is
+`cleat-rear-trim-v1/browser-v1/result.json`, SHA
+`2c4e689b70674c30f84157fbb161a43794db9561d6ac295f9d05d8ff74b052f3`.
+It has no page errors or failed requests/responses and records both preserved
+and new model navigation, exact served HTML and inspected screenshots. The
+existing Bun/Playwright runner and dependencies are reused without page-context
+code evaluation or new installation. Scoped Ruff, Node syntax, whitespace,
+mesh compaction and all **13,618** alias URL checks pass. No unchanged full
+repository test suite or historical export is repeated for this bounded trim.
+
+Four necessary new permanent assets total **106,959 B**: the compact geometry
+receipt, two-mesh scene, loader and checker. The two new raw roots remain
+active ignored inputs and are recoverable in
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-cleat-rear-trim-v1.tar.gz`,
+**698,613 B**, SHA
+`f2db9e4bb09cc3a16e4d37c7dd95fa9309dcd41ba22af8b7e937a4cef073ad6c`.
+Its **6,677-B** `.manifest.json` is SHA
+`7c31c15338b4e656529c237f1e02f4cf99787a635e94c5c1f038cd17cc46cd54`.
+It retains **20 files / 950,731 raw bytes**, including the failed launch
+records/partial export, frozen helper/plan, successful BReps/scene and both
+reviews/screenshots. Archive creation verifies every member/restored file and
+the unchanged source inventory. Nothing is pruned, and old case/operator/shop/
+heel sources, all old viewer choices, manuals and installations remain intact.
+Recover into a new external directory:
+
+```sh
+uv run python -B scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-cleat-rear-trim-v1.tar.gz.manifest.json --destination /tmp/eoere-cleat-rear-trim-restored
+```
+
+The next authorized geometry task aligns the horizontal and vertical 2×6 wire
+cutouts, including the two center-upright passages, to the existing LED/T-nut
+grid. Preserve all 132 endpoints, 131 links, fixed hold hardware and every
+bolt/screw axis. Source review shows the two upright passages already align;
+six rail bodies and 30 wire routes need a separate bounded revision. Restore
+those rails from raw stock before recutting, rather than retaining old and new
+notches. The proposed center-principal shift remains unadopted. Actual CAD
+clearance, support and display checks are the next deliverables; the reviewed
+source-only routes are not already executed geometry.
 
 **Latest owner scope takes precedence over the earlier full-build objective
 below:** “Don't attempt to resolve the screw panel problem. Just take the model
@@ -2993,6 +3115,14 @@ for **18:20 MDT**, then explicitly authorizes commit/push immediately at
 follows the final shared-ownership, selected-authority, generated-volume and
 exact 34-path staging checks. Fourteen unrelated untracked historical helpers
 remain untouched and outside the owned publication.
+
+Normal publication completed at
+`2cab2be5f2229d485f3e2ff32cec179a6f78fdd3` on master. The
+[Pages workflow](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37864092397)
+succeeds. Independent HTTP 200 byte checks of the deployed index, raised-rail
+overlay and compressed scene match the pushed sources exactly. The numerical
+and nominal-shop reporting publication is complete; the subsequent owner
+geometry changes above have their own evidence and publication scope.
 
 The joint owner's verified external archive is
 `/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-raised-rail-six-case-joint-mvp-v1.tar.gz`,

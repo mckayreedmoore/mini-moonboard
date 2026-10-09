@@ -11,10 +11,15 @@ Start at the [eoere development summary](docs/wood-joints-mvp/README.md) and
 Their retained `wood-joints-mvp` paths contain the active work and its history.
 The current approach uses **22 eoere angles, two exterior 2×6 cleats, 22
 timbers, 100 through-bolt stacks and 66 purchased Hillman panel/kicker screws**.
-The owner-directed bottom-rail revision raises only the mirrored rails and
-their dependent hardware, retaining the wire cutouts and climbing surface.
+The current geometry trims both exterior cleats' projecting corners along
+the rear edges of the sloping sides. Full 38.1-mm cleat thickness, all 100
+bolt positions and all 66 screw axes remain unchanged. The
+[trimmed-cleat viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-trimmed-cleats-development&view=rear)
+and [geometry receipt](docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json)
+record this separate, unevaluated geometry revision. Wire-cutout alignment is
+the next bounded geometry task; a center-principal shift is unadopted.
 
-The raised-rail model has a completed [conditional six-case numerical packet](docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json)
+The preserved, untrimmed raised-rail model has a completed [conditional six-case numerical packet](docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json)
 under **250 lb ×2, 300 N horizontal, a 100-mm hold arm** and recorded gravity.
 Its explicit support scenario retains 32 compression-only normal contacts and
 assumes no slip at the two rear legs. All six fresh fields and their scoped
@@ -26,11 +31,12 @@ The [development contract](eoere-bolted-candidate.json) remains separate from
 the selected baseline. No physical floor capacity, fabrication or climbing
 release is established.
 
-The [current shop and assembly guide](docs/wood-joints-mvp/eoere-shop-assembly-guide.md)
+The [preserved raised-rail shop and assembly guide](docs/wood-joints-mvp/eoere-shop-assembly-guide.md)
 organizes the nominal cut/hole datums, all 100 hardware stacks and 200 access
 sides, receiving limits, assembly/removal order and cost/mass scope. Missing
 dimensions, tools and actual observations stay explicit; coherent documentation
-does not supply the model's unknown complete joint capacities.
+does not supply the model's unknown complete joint capacities. Its original
+cleat profiles and six-case findings do not evaluate the new trim.
 
 ## Preserved wood-joint studies
 
@@ -65,7 +71,7 @@ uv sync --locked
 uv run python -m http.server 8767 --directory site
 ```
 
-Open [the local raised-bottom-rail viewer](http://localhost:8767/index.html?model=eoere-bolted-bottom-rail-development&view=rear)
+Open [the local trimmed-cleat viewer](http://localhost:8767/index.html?model=eoere-bolted-trimmed-cleats-development&view=rear)
 for the latest geometry revision, or choose a preserved model in the Design list.
 Contributor instructions cover affected checks, mesh aliases and verified
 evidence archiving. Preserve frozen inputs and historical results.

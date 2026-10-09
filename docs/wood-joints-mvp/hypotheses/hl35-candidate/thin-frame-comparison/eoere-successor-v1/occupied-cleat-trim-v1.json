@@ -1,0 +1,867 @@
+{
+  "schema": "eoere_two_cleat_trim_geometry/v1",
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "revision": "eoere-rear-trimmed-cleats-v1",
+  "status": "REVISE_UNEVALUATED_GEOMETRY",
+  "viewer_key": "eoere-bolted-trimmed-cleats-development",
+  "parent_geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-bottom-rail-v1.json",
+    "sha256": "ecfb27653a12ac326b1ba8cf4b051038d3de43db775bfc8f43e6c1a36be3744b"
+  },
+  "independent_arithmetic": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/flush-cleat-review-v1/review.json",
+    "sha256": "7607bb2cd55d681707c3bdfec8dff48d645948360b2a9d31123e2ecd94e22023"
+  },
+  "plan": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/plan-v1.json",
+    "sha256": "1450325474fd56d8585b161012e134512bba1a57757fbf2e07ccd0f8035b40bb"
+  },
+  "generator": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/revision.py",
+    "sha256": "25ea28b46994c9fa9f91fbb7fecbc6215dcb92f228af516a253c446ffb921da0"
+  },
+  "source_pin_count": 346,
+  "source_pins_canonical_sha256": "be164ff269e3fd16492eba819e107ac8d17c0dac6d630801cd8aa02c735b129e",
+  "verified_parent_source_bytes_unchanged": true,
+  "changed_finished_solids": [
+    {
+      "id": "eoere_cleat_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/cad-v2/eoere_cleat_left.brep",
+      "sha256": "90fc257db67838a4df9c259f8f67afebe5eeaa3b0b3d4187f704e143780c3047",
+      "bytes": 11430,
+      "volume_mm3": 1384934.8407381151,
+      "removed_volume_mm3": 144269.00549953408,
+      "bounds_xyz_mm": [
+        [
+          -1257.3,
+          -1219.2
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          139.7,
+          429.4
+        ]
+      ],
+      "center_of_mass_xyz_mm": [
+        -1238.2499999999998,
+        -101.34172190139626,
+        272.88401940092183
+      ],
+      "old_void_volume_mm3": 12744.682762346929,
+      "new_void_volume_mm3": 12744.682762346696,
+      "runner_seat_area_mm2": 5322.569999999987,
+      "valid_single_solid": true
+    },
+    {
+      "id": "eoere_cleat_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-rear-trim-v1/cad-v2/eoere_cleat_right.brep",
+      "sha256": "6e251d645c90417e7f028140de65068a569441d7ed951c6c8a3a05a74ee2bdcf",
+      "bytes": 11940,
+      "volume_mm3": 1384934.840738115,
+      "removed_volume_mm3": 144269.0054995343,
+      "bounds_xyz_mm": [
+        [
+          1216.025,
+          1254.125
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          139.7,
+          429.4
+        ]
+      ],
+      "center_of_mass_xyz_mm": [
+        1235.0749999999998,
+        -101.34172190139628,
+        272.8840194009217
+      ],
+      "old_void_volume_mm3": 12744.682762346929,
+      "new_void_volume_mm3": 12744.682762346929,
+      "runner_seat_area_mm2": 5322.569999999987,
+      "valid_single_solid": true
+    }
+  ],
+  "unchanged_noncleat_bodies": [
+    {
+      "id": "base_floor_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_floor_left.brep",
+      "sha256": "056fbf11e64b89db21fb5f9499493192c606d7bcc64408fc44e9585adf41cd28",
+      "bytes": 8906,
+      "volume_mm3": 9557555.31219891,
+      "bounds_xyz_mm": [
+        [
+          -1257.3000000000002,
+          -1219.2
+        ],
+        [
+          -175.7,
+          1639.9464830416932
+        ],
+        [
+          0.0,
+          139.70000000000047
+        ]
+      ]
+    },
+    {
+      "id": "base_floor_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_floor_right.brep",
+      "sha256": "fd6777b565364d9d877937f620c84abd57f377818313d634a04531761feeab51",
+      "bytes": 8988,
+      "volume_mm3": 9557555.31219891,
+      "bounds_xyz_mm": [
+        [
+          1216.0249999999999,
+          1254.125
+        ],
+        [
+          -175.7,
+          1639.9464830416932
+        ],
+        [
+          0.0,
+          139.70000000000047
+        ]
+      ]
+    },
+    {
+      "id": "base_header",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_header.brep",
+      "sha256": "ba2dfb0bc3124d36625656ab4aa4c6c873d47964db4fbd577fe592e2e7f68620",
+      "bytes": 12465,
+      "volume_mm3": 12936166.162725296,
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          1216.025
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          238.9,
+          277.0
+        ]
+      ]
+    },
+    {
+      "id": "base_post_center_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_post_center_left.brep",
+      "sha256": "46dc35a4a5d081b804c454186b323718c9f3586be253950b082d94896d3a60ee",
+      "bytes": 5742,
+      "volume_mm3": 1265189.6316188262,
+      "bounds_xyz_mm": [
+        [
+          -89.05,
+          -50.949999999999996
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          0.0,
+          238.9
+        ]
+      ]
+    },
+    {
+      "id": "base_post_center_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_post_center_right.brep",
+      "sha256": "40ca6ed7c88aa5305fcb1734bc2989b31cd8a0bb7cc2c9300f7201cd45dc5184",
+      "bytes": 5682,
+      "volume_mm3": 1265189.6316188264,
+      "bounds_xyz_mm": [
+        [
+          50.95,
+          89.05000000000001
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          0.0,
+          238.9
+        ]
+      ]
+    },
+    {
+      "id": "base_post_outer_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_post_outer_left.brep",
+      "sha256": "c7caabfcd9c32f35baa9a68a5535bd82d3d68bdb907d64a38aa16f1be7b8d88e",
+      "bytes": 7879,
+      "volume_mm3": 1257799.2238631428,
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          -1181.1000000000001
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          0.0,
+          238.9
+        ]
+      ]
+    },
+    {
+      "id": "base_post_outer_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_post_outer_right.brep",
+      "sha256": "c5ba34b36bdc69ee184e8676c0ef2ce3a788b6ef6b9b300e1d0413e30464e7f6",
+      "bytes": 8005,
+      "volume_mm3": 1257799.2238631498,
+      "bounds_xyz_mm": [
+        [
+          1177.9250000000002,
+          1216.0250000000003
+        ],
+        [
+          -175.7,
+          -36.0
+        ],
+        [
+          0.0,
+          238.9
+        ]
+      ]
+    },
+    {
+      "id": "base_principal_center_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_principal_center_left.brep",
+      "sha256": "008431e4d91e9f8c3aa3a5545cb38be73de4b024489c5b387847434d7d246be5",
+      "bytes": 26792,
+      "volume_mm3": 13089863.255658045,
+      "bounds_xyz_mm": [
+        [
+          -89.05000000000007,
+          -50.94999999999999
+        ],
+        [
+          -182.70000000000005,
+          1511.0942995544606
+        ],
+        [
+          277.0,
+          2217.1040828660525
+        ]
+      ]
+    },
+    {
+      "id": "base_principal_center_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_principal_center_right.brep",
+      "sha256": "6b3ef261b443d1f28f5d9f4587acd59202a50df185cff0d74552070b2f62c055",
+      "bytes": 27044,
+      "volume_mm3": 13089863.255658068,
+      "bounds_xyz_mm": [
+        [
+          50.94999999999982,
+          89.0500000000001
+        ],
+        [
+          -182.70000000000005,
+          1511.0942995544606
+        ],
+        [
+          277.0,
+          2217.1040828660525
+        ]
+      ]
+    },
+    {
+      "id": "base_rail_bottom_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_rail_bottom_left.brep",
+      "sha256": "ed9d6ed2837a6dbaac208e2517b87caf3b842495a9cfcd7d02600bf7f78560ba",
+      "bytes": 71229,
+      "volume_mm3": 5488335.011744339,
+      "bounds_xyz_mm": [
+        [
+          -1130.3,
+          -89.04999999999995
+        ],
+        [
+          -60.75472317367472,
+          70.75189345910574
+        ],
+        [
+          381.58712348007566,
+          500.5708458361222
+        ]
+      ]
+    },
+    {
+      "id": "base_rail_bottom_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_rail_bottom_right.brep",
+      "sha256": "669caf18d258affe2f1075b859c4b6d4c3c525c4e655b9740642c04305c4d6bb",
+      "bytes": 70588,
+      "volume_mm3": 5471521.533278015,
+      "bounds_xyz_mm": [
+        [
+          89.04999999999995,
+          1127.125
+        ],
+        [
+          -60.7547231736747,
+          70.75189345910545
+        ],
+        [
+          381.5871234800779,
+          500.57084583612215
+        ]
+      ]
+    },
+    {
+      "id": "base_rail_service_lower_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_rail_service_lower_left.brep",
+      "sha256": "29e288e7e8a3b921f9277bb2fdd9824f17831762b64a90852dfd534ef9e95ba7",
+      "bytes": 52750,
+      "volume_mm3": 5489754.2899069805,
+      "bounds_xyz_mm": [
+        [
+          -1130.3,
+          -89.04999999999995
+        ],
+        [
+          577.9993942620813,
+          709.5060108948614
+        ],
+        [
+          1142.8246377184857,
+          1261.8083600745288
+        ]
+      ]
+    },
+    {
+      "id": "base_rail_service_lower_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_rail_service_lower_right.brep",
+      "sha256": "f92d85a6a4bff422f0a7e89f231a700db3cbeea36673eff9fff9ed5188d83a60",
+      "bytes": 52323,
+      "volume_mm3": 5472855.130156921,
+      "bounds_xyz_mm": [
+        [
+          89.04999999999995,
+          1127.125
+        ],
+        [
+          577.9993942620813,
+          709.5060108948614
+        ],
+        [
+          1142.8246377184857,
+          1261.8083600745288
+        ]
+      ]
+    },
+    {
+      "id": "base_rail_service_upper_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_rail_service_upper_left.brep",
+      "sha256": "b46725d5855db72ad21352b9668236e9e82023070b69fbea28f6ef045c777e66",
+      "bytes": 51063,
+      "volume_mm3": 5489754.289906952,
+      "bounds_xyz_mm": [
+        [
+          -1130.3,
+          -89.04999999999995
+        ],
+        [
+          670.5929494374273,
+          802.0995660702074
+        ],
+        [
+          1253.1733397497746,
+          1372.1570621058174
+        ]
+      ]
+    },
+    {
+      "id": "base_rail_service_upper_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_rail_service_upper_right.brep",
+      "sha256": "b1e660e2cbc85088df382098cd9aa124884f8dc311961327906b6e7ebca25627",
+      "bytes": 50590,
+      "volume_mm3": 5472855.130156928,
+      "bounds_xyz_mm": [
+        [
+          89.04999999999995,
+          1127.125
+        ],
+        [
+          670.5929494374273,
+          802.0995660702074
+        ],
+        [
+          1253.1733397497746,
+          1372.1570621058174
+        ]
+      ]
+    },
+    {
+      "id": "base_rail_top",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_rail_top.brep",
+      "sha256": "a3ad79b74a9c02ddda95ebeb4e0b2d2a31b49fac410c98c0ae8dd4f4353cd673",
+      "bytes": 21640,
+      "volume_mm3": 11989813.216725286,
+      "bounds_xyz_mm": [
+        [
+          -1130.3,
+          1127.125
+        ],
+        [
+          1404.0778908507375,
+          1535.584507483516
+        ],
+        [
+          2127.306653792841,
+          2246.2903761488838
+        ]
+      ]
+    },
+    {
+      "id": "base_side_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_left.brep",
+      "sha256": "e9c12d0260fd9893ac2b1be2c2eedfde6880919830cb8ae5735fdd5d2df5b68c",
+      "bytes": 22500,
+      "volume_mm3": 30973054.353887204,
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          -1130.3
+        ],
+        [
+          -175.70000000000005,
+          1535.5845074835179
+        ],
+        [
+          277.0,
+          2246.2903761488856
+        ]
+      ]
+    },
+    {
+      "id": "base_side_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/base_side_right.brep",
+      "sha256": "a7c40e0e7c5b7961e1c62a4c9c5c6fb983cfef2aa5240fda64daeb5ead827e22",
+      "bytes": 22212,
+      "volume_mm3": 30973054.35388719,
+      "bounds_xyz_mm": [
+        [
+          1127.125,
+          1216.025
+        ],
+        [
+          -175.70000000000005,
+          1535.5845074835179
+        ],
+        [
+          277.0,
+          2246.2903761488856
+        ]
+      ]
+    },
+    {
+      "id": "lumber_leg_left",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/lumber_leg_left.brep",
+      "sha256": "973d428ea18f1e259a4b39727b1023db66b1b3c3d924a9ed2b89729e17e72d40",
+      "bytes": 14682,
+      "volume_mm3": 21731234.24013823,
+      "bounds_xyz_mm": [
+        [
+          -1308.1000000000004,
+          -1219.2
+        ],
+        [
+          1053.0404491052132,
+          1639.9464830416935
+        ],
+        [
+          -3.183231456205249e-12,
+          1931.3088913595152
+        ]
+      ]
+    },
+    {
+      "id": "lumber_leg_right",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/lumber_leg_right.brep",
+      "sha256": "16a355aab9da48f1fb3d404f7c73691774c180be58bf56c8b6ae19ea960e1e1e",
+      "bytes": 14095,
+      "volume_mm3": 21731234.240138225,
+      "bounds_xyz_mm": [
+        [
+          1216.025,
+          1304.9250000000004
+        ],
+        [
+          1053.0404491052132,
+          1639.9464830416935
+        ],
+        [
+          -3.183231456205249e-12,
+          1931.3088913595152
+        ]
+      ]
+    },
+    {
+      "id": "kicker_left",
+      "kind": "panel",
+      "path": "fea/generated/thin-bolted-v4-geometry/kicker_left.brep",
+      "sha256": "561cbfa8fe8325f8d8841658efb07ad56f91116792ace903520a0e80873349be",
+      "bytes": 31395,
+      "volume_mm3": 6144798.030971613,
+      "center_of_mass_xyz_mm": [
+        -610.37373134,
+        -26.872632984,
+        138.370616871
+      ],
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          -1.5875000000000454
+        ],
+        [
+          -36.0,
+          -17.743749999999956
+        ],
+        [
+          0.0,
+          277.0
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 4.6566128730773926e-09,
+      "roundtrip_bounds_error_mm": 0.0
+    },
+    {
+      "id": "kicker_right",
+      "kind": "panel",
+      "path": "fea/generated/thin-bolted-v4-geometry/kicker_right.brep",
+      "sha256": "f0af1e550f1468aca720a3fd7058b765b4f51c859adc8aec0df440fefa1f68ea",
+      "bytes": 31549,
+      "volume_mm3": 6144798.030971613,
+      "center_of_mass_xyz_mm": [
+        607.194603985,
+        -26.872632984,
+        138.370616871
+      ],
+      "bounds_xyz_mm": [
+        [
+          -1.5875,
+          1216.0249999999999
+        ],
+        [
+          -36.0,
+          -17.743749999999956
+        ],
+        [
+          0.0,
+          277.0
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 3.725290298461914e-09,
+      "roundtrip_bounds_error_mm": 0.0
+    },
+    {
+      "id": "main_lower_left",
+      "kind": "panel",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/main_lower_left.brep",
+      "sha256": "3c0833f43a3ac721db0c7e7c476ac56e7b560b3a4fd9f0883ca38a7932b4ee0f",
+      "bytes": 156193,
+      "volume_mm3": 26931109.157457456,
+      "center_of_mass_xyz_mm": [
+        -610.949620763,
+        367.080983325,
+        749.724171142
+      ],
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          -1.5875000000000454
+        ],
+        [
+          -31.788799976145405,
+          765.8829526183812
+        ],
+        [
+          276.83528567501793,
+          1222.531562025023
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 3.725290298461914e-08,
+      "roundtrip_bounds_error_mm": 3.637978807091713e-12
+    },
+    {
+      "id": "main_lower_right",
+      "kind": "panel",
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/occupied-bottom-rail-v1/main_lower_right.brep",
+      "sha256": "b91ea120b6a99600a080c0e2c2036653479a033189393d8e42dcb132ea23668a",
+      "bytes": 139155,
+      "volume_mm3": 26958695.225642182,
+      "center_of_mass_xyz_mm": [
+        607.348480476,
+        367.075263612,
+        749.717354307
+      ],
+      "bounds_xyz_mm": [
+        [
+          -1.5875,
+          1216.025
+        ],
+        [
+          -31.788799976145405,
+          765.8829526183812
+        ],
+        [
+          276.83528567501793,
+          1222.531562025023
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 1.4901161193847656e-08,
+      "roundtrip_bounds_error_mm": 3.637978807091713e-12
+    },
+    {
+      "id": "main_upper_left",
+      "kind": "panel",
+      "path": "fea/generated/thin-bolted-v4-geometry/main_upper_left.brep",
+      "sha256": "548d368bbe9389dbcbd7f101ce70d5f1249bae3dd39495346be6f000852958d5",
+      "bytes": 146840,
+      "volume_mm3": 26960187.483798306,
+      "center_of_mass_xyz_mm": [
+        -610.850662793,
+        1150.765029351,
+        1683.682448087
+      ],
+      "bounds_xyz_mm": [
+        [
+          -1219.2,
+          -1.5875000000000454
+        ],
+        [
+          751.8978537536867,
+          1549.569606348207
+        ],
+        [
+          1210.7966707256762,
+          2156.4929470756747
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 1.862645149230957e-08,
+      "roundtrip_bounds_error_mm": 3.637978807091713e-12
+    },
+    {
+      "id": "main_upper_right",
+      "kind": "panel",
+      "path": "fea/generated/thin-bolted-v4-geometry/main_upper_right.brep",
+      "sha256": "5c8325fd6a786aac69f9975cf21c9e25434338bbd15399999aa9ace66f4f9d63",
+      "bytes": 130590,
+      "volume_mm3": 26982927.164258443,
+      "center_of_mass_xyz_mm": [
+        607.325087714,
+        1150.759802606,
+        1683.67621881
+      ],
+      "bounds_xyz_mm": [
+        [
+          -1.5875,
+          1216.0249999999999
+        ],
+        [
+          751.8978537536867,
+          1549.569606348207
+        ],
+        [
+          1210.7966707256762,
+          2156.4929470756747
+        ]
+      ],
+      "solid_count": 1,
+      "roundtrip_volume_error_mm3": 2.9802322387695312e-08,
+      "roundtrip_bounds_error_mm": 3.637978807091713e-12
+    }
+  ],
+  "all_100_axis_records_sha256": "2de62caaf3a48cc2e77b73c0d26c4b5434648c3e75a6bf5a7a7dee8b9bd4ed32",
+  "all_66_screw_axis_records_sha256": "b2e4dae5ac0efc0483a842a39e37a4d6f2088e3c7ce68bf3d2f2a8248a0e56d4",
+  "bolt_bore_washer_geometry": [
+    {
+      "axis_id": "eoere_bolt_067",
+      "receiver": "eoere_cleat_left",
+      "full_bore_body_fraction": 1.0,
+      "retained_wall_length_mm": 38.09999999999991,
+      "modeled_washer_footprint_fraction": 1.0,
+      "nominal_bore_edge_margin_mm": 23.94865327144138,
+      "nominal_washer_edge_margin_mm": 16.02702827144138
+    },
+    {
+      "axis_id": "eoere_bolt_071",
+      "receiver": "eoere_cleat_left",
+      "full_bore_body_fraction": 1.0,
+      "retained_wall_length_mm": 38.09999999999991,
+      "modeled_washer_footprint_fraction": 1.0,
+      "nominal_bore_edge_margin_mm": 39.290625000000006,
+      "nominal_washer_edge_margin_mm": 31.369000000000003
+    },
+    {
+      "axis_id": "cleat_post_bolt_left_1",
+      "receiver": "eoere_cleat_left",
+      "full_bore_body_fraction": 1.0,
+      "retained_wall_length_mm": 38.09999999999991,
+      "modeled_washer_footprint_fraction": 1.0,
+      "nominal_bore_edge_margin_mm": 39.29062499999999,
+      "nominal_washer_edge_margin_mm": 31.36899999999999
+    },
+    {
+      "axis_id": "cleat_post_bolt_left_2",
+      "receiver": "eoere_cleat_left",
+      "full_bore_body_fraction": 1.0,
+      "retained_wall_length_mm": 38.09999999999991,
+      "modeled_washer_footprint_fraction": 1.0,
+      "nominal_bore_edge_margin_mm": 39.290625000000006,
+      "nominal_washer_edge_margin_mm": 31.369000000000003
+    },
+    {
+      "axis_id": "eoere_bolt_070",
+      "receiver": "eoere_cleat_right",
+      "full_bore_body_fraction": 1.0,
+      "retained_wall_length_mm": 38.09999999999991,
+      "modeled_washer_footprint_fraction": 1.0,
+      "nominal_bore_edge_margin_mm": 23.94865327144138,
+      "nominal_washer_edge_margin_mm": 16.02702827144138
+    },
+    {
+      "axis_id": "eoere_bolt_074",
+      "receiver": "eoere_cleat_right",
+      "full_bore_body_fraction": 1.0,
+      "retained_wall_length_mm": 38.09999999999991,
+      "modeled_washer_footprint_fraction": 1.0,
+      "nominal_bore_edge_margin_mm": 39.290625000000006,
+      "nominal_washer_edge_margin_mm": 31.369000000000003
+    },
+    {
+      "axis_id": "cleat_post_bolt_right_1",
+      "receiver": "eoere_cleat_right",
+      "full_bore_body_fraction": 1.0,
+      "retained_wall_length_mm": 38.09999999999991,
+      "modeled_washer_footprint_fraction": 1.0,
+      "nominal_bore_edge_margin_mm": 39.29062499999999,
+      "nominal_washer_edge_margin_mm": 31.36899999999999
+    },
+    {
+      "axis_id": "cleat_post_bolt_right_2",
+      "receiver": "eoere_cleat_right",
+      "full_bore_body_fraction": 1.0,
+      "retained_wall_length_mm": 38.09999999999991,
+      "modeled_washer_footprint_fraction": 1.0,
+      "nominal_bore_edge_margin_mm": 39.290625000000006,
+      "nominal_washer_edge_margin_mm": 31.369000000000003
+    }
+  ],
+  "retained_YZ_polygon_mm": [
+    [
+      -175.7,
+      139.7
+    ],
+    [
+      -36.0,
+      139.7
+    ],
+    [
+      -36.0,
+      429.4
+    ],
+    [
+      -95.98394573645291,
+      429.4
+    ],
+    [
+      -175.7,
+      334.398105944
+    ]
+  ],
+  "rear_profile_edge_YZ_mm": [
+    [
+      -175.7,
+      334.398105944
+    ],
+    [
+      1428.5680987799997,
+      2246.290376149
+    ]
+  ],
+  "lower_bore_kicker_screw_gap": [
+    {
+      "bolt": "cleat_post_bolt_left_2",
+      "screw": "round_kicker_left_rim_2",
+      "orthogonal_axis_separation_Z_mm": 8.0,
+      "bore_radius_mm": 5.159375,
+      "saved_screw_body_radius_mm": 2.5,
+      "finite_screw_wood_interval_Y_mm": [
+        -36.0,
+        -81.24375
+      ],
+      "axis_crossing_Y_mm": -80.45,
+      "nominal_bore_to_screw_body_gap_mm": 0.3406250000000002,
+      "independent_of_upper_angle_pose_and_cleat_top_clip": true
+    },
+    {
+      "bolt": "cleat_post_bolt_right_2",
+      "screw": "round_kicker_right_rim_2",
+      "orthogonal_axis_separation_Z_mm": 8.0,
+      "bore_radius_mm": 5.159375,
+      "saved_screw_body_radius_mm": 2.5,
+      "finite_screw_wood_interval_Y_mm": [
+        -36.0,
+        -81.24375
+      ],
+      "axis_crossing_Y_mm": -80.45,
+      "nominal_bore_to_screw_body_gap_mm": 0.3406250000000002,
+      "independent_of_upper_angle_pose_and_cleat_top_clip": true
+    }
+  ],
+  "counts": {
+    "timber": 22,
+    "panel": 6,
+    "bracket": 22,
+    "bolt": 500,
+    "screw": 66,
+    "wire": 131,
+    "physical_bolt_axes": 100,
+    "new_bolt_axes": 88,
+    "retained_starting_bolt_axes": 12,
+    "lights": 132,
+    "tnuts": 142,
+    "total_visible_parts": 1021,
+    "owned_scene_solids": 550,
+    "angle_stacks": 84,
+    "cleat_post_stacks": 4,
+    "factory_holes": 176,
+    "installed_factory_holes": 88,
+    "starting_duties_accounted": 24
+  },
+  "mechanics_ready": false,
+  "release": {
+    "candidate_accepted": false,
+    "complete_joint_acceptance": false,
+    "capacity_established": false,
+    "fabrication_released": false,
+    "structural_released": false,
+    "climbing_released": false
+  },
+  "nominal_timber_mass_change_kg_at_500kg_m3": -0.1442690054995342,
+  "limits": [
+    "Only two saved cleats were cut; other 26 wood/panel BReps and all metal/service poses retain exact source bindings.",
+    "Shrinking valid timber subsets cannot add intersections with unchanged parts; no whole-frame rebuild is claimed.",
+    "Bore and annular-land containment are nominal geometry checks, not contact, splitting or complete joint resistance.",
+    "Cuts change timber geometry, mass and centroid. Closed fields and shop tables belong to the untrimmed parent revision; no mechanical pass transfers.",
+    "Actual cuts, stock, parts and tolerances remain unobserved. No physical work or release is supplied."
+  ]
+}

@@ -3,11 +3,15 @@
 For current engineering work, start at the
 [eoere bolted-frame development summary](wood-joints-mvp/README.md) and
 [build-completion sequence](wood-joints-mvp/completion-ledger.md#build-package-completion).
-That separate lane uses 22 angles and two cleats. Its conditional numerical
-packet now covers all six original loaded cases, retaining reference exceedances
-and null complete joint resistance. Its [current shop and assembly guide](wood-joints-mvp/eoere-shop-assembly-guide.md)
+That separate lane uses 22 angles and two cleats. Its latest
+[geometry viewer](../site/index.html?model=eoere-bolted-trimmed-cleats-development&view=rear)
+trims only the two exterior cleats, retaining full thickness and all bolt/screw
+axes. Its preserved untrimmed raised-rail conditional numerical packet covers
+all six original loaded cases, retaining reference exceedances and null complete
+joint resistance. Its [raised-rail shop and assembly guide](wood-joints-mvp/eoere-shop-assembly-guide.md)
 records nominal datums, hardware and operation dispositions with unresolved
-physical inputs. The packet remains unreleased. Earlier WJ24 criteria and packets
+physical inputs; the cleat trim has separate geometry evidence and no transferred
+mechanics pass. The packet remains unreleased. Earlier WJ24 criteria and packets
 remain preserved history in the same documentation folder.
 
 The instructions below belong to the selected screw-and-bracket baseline,

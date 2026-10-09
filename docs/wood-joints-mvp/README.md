@@ -9,8 +9,26 @@ the current engineering record. The selected screw-and-bracket baseline remains 
 
 ## Current disposition
 
-**The owner now directs finishing and publishing the existing conditional
-numerical MVP and its remaining nominal shop/assembly documentation.** The
+**Current geometry: both exterior 2×6 cleats are trimmed to the sloping sides'
+rear edges, with full 38.1-mm thickness and all bolt positions retained.**
+The [trimmed-cleat viewer](../../site/index.html?model=eoere-bolted-trimmed-cleats-development&view=rear)
+and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json)
+form a distinct `eoere-rear-trimmed-cleats-v1` revision. Actual saved CAD,
+independent output review, genuine mesh checks and front/rear browser navigation
+pass their geometric/display checks. Only two cleat solids change; 26 other
+wood/panel bodies, all 100 bolt axes and all 66 screw axes remain unchanged.
+The nearest upper bore edge is 23.948653 mm from the cut and the washer outer
+edge is 16.027028 mm away, measured perpendicular to the cut. These are nominal
+containment distances, not joint-strength references. The existing lower
+bore/kicker-screw gap remains 0.340625 mm. No angle or bolt relocation is adopted.
+The owner also authorizes a subsequent wire-cutout alignment revision; the
+center-principal shift remains an unadopted suggestion.
+
+**The preserved untrimmed raised-rail numerical MVP and nominal shop/assembly
+packet are published at `2cab2be5`.** Their source bytes, results, cut profiles
+and reviews stay frozen; their six-case calculations do not evaluate the new
+cleat geometry. The completed reporting scope retains exceedances and unknown
+resistance. The owner-directed scope was to finish and publish that packet. The
 six-case evaluation is complete. Reuse its frozen evidence, retaining
 exceedances and unknown resistance; stop panel/screw remedies and preserve
 backer/cross-support proposals as unadopted studies. Complete the current
@@ -32,7 +50,8 @@ the [existing ledger](completion-ledger.md#build-package-completion).
 original loaded cases.** Its [compact six-case receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json)
 binds the fresh fields, independent floor/component reviews and final joint
 review. Exceedances remain recorded and every complete joint resistance
-remains null. The geometry and 66-screw policy are unchanged.
+remains null. The evaluated geometry and 66-screw policy stay frozen separately
+from the subsequent trim.
 
 Use eoere B0C7V7VS89 angles with the far transverse pair on each
 flange: four 3/8-inch through bolts per angle. Sixteen main angles sit inside
@@ -80,7 +99,7 @@ The subsequent cross-support proposal and pending screening preparation are
 stopped under the owner's latest scope; no support or screw change is adopted.
 Independent geometry review supports a separate four-cleat-bolt
 Z180 proposal, with 3.94375 mm clearance at the larger bore sensitivity;
-the published Z200 model has not changed. The owner's latest model direction
+the Z200 bore locations remain unchanged. The preceding model direction
 raises only the two bottom rails above the first T-nut row, retaining the
 existing wire cutouts and routes. The completed nominal rebuild uses a
 30.625-mm rise along the board, giving 6.35 mm above the service envelope.
