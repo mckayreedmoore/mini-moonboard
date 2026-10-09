@@ -1,0 +1,87 @@
+{
+  "case_id": "k12-right",
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+    "-B",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/review-fix-v2/bridge.py",
+    "--mode",
+    "run",
+    "--run",
+    "--case-id",
+    "k12-right",
+    "--wall-seconds",
+    "900",
+    "--inputs",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/inputs-v1/attempt01/inputs.json",
+    "--inputs-sha256",
+    "80b5c013b5c69e895c4286d8673f91143f57ac0b0b5243c7370450ec87a2565a",
+    "--input-review",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/inputs-review-v1/runs-v1/attempt01/receipt.json",
+    "--input-review-sha256",
+    "3b8b6e2dff8cc8d047cf53b7865137aea11d5085d86359041f6541c78e9dcedf",
+    "--method-input",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/readiness-v1/method-input.json",
+    "--method-input-sha256",
+    "2549e962a5feac6617e27e8f324b6b7b576beb0683289c5dcfd1ee4b5d588654",
+    "--slot",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/readiness-v1/serialized-slot.json",
+    "--slot-sha256",
+    "74b562805b1aad0b7461554c791b5526391f7f751ee6f7f555987da4c46f035c",
+    "--out",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/k12-right/attempt01/field.json"
+  ],
+  "controlled_environment": {
+    "EOERE_PARENT_SERIALIZED_FORCE_RUN": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "cwd": "/home/mckay-linux/repos/mini-moonboard",
+  "elapsed_seconds": 96.78734033,
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-09T11:19:28.542246+00:00",
+  "historical_state_or_actions_used": false,
+  "logs": {
+    "stderr.log": {
+      "bytes": 0,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/k12-right/attempt01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "stdout.log": {
+      "bytes": 1738,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/k12-right/attempt01/stdout.log",
+      "sha256": "07c778267e4c5d65a9fabf019d4313b7ddc1474fc88b1c049061be4eb693cb5b"
+    }
+  },
+  "pins_after": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/serial-capture-v1.py": "5dc4f8fd42c772aaaea7dfde8545804e70e7b28cbbcc561c6fc9ca7f041453f6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/admission.json": "b5a75796f2d39c49e04ef9b37d5fbfa9dc84f4cb0c03ff1c80925ac40a1b3baf",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/field.json": "43ccb97ab8e95bb2a37092a47fafe1b2b40ef8275145dad5ae736e80a6065a09",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/inputs-review-v1/runs-v1/attempt01/receipt.json": "3b8b6e2dff8cc8d047cf53b7865137aea11d5085d86359041f6541c78e9dcedf",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/inputs-v1/attempt01/inputs.json": "80b5c013b5c69e895c4286d8673f91143f57ac0b0b5243c7370450ec87a2565a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/readiness-v1/method-input.json": "2549e962a5feac6617e27e8f324b6b7b576beb0683289c5dcfd1ee4b5d588654",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/readiness-v1/serialized-slot.json": "74b562805b1aad0b7461554c791b5526391f7f751ee6f7f555987da4c46f035c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/review-fix-v2/bridge.py": "dc224c51a46f78433df614ce53b76e2a8f4b1a7ac4c436b7d0d212f784388f55"
+  },
+  "pins_before": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/serial-capture-v1.py": "5dc4f8fd42c772aaaea7dfde8545804e70e7b28cbbcc561c6fc9ca7f041453f6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/admission.json": "b5a75796f2d39c49e04ef9b37d5fbfa9dc84f4cb0c03ff1c80925ac40a1b3baf",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/field.json": "43ccb97ab8e95bb2a37092a47fafe1b2b40ef8275145dad5ae736e80a6065a09",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/inputs-review-v1/runs-v1/attempt01/receipt.json": "3b8b6e2dff8cc8d047cf53b7865137aea11d5085d86359041f6541c78e9dcedf",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/inputs-v1/attempt01/inputs.json": "80b5c013b5c69e895c4286d8673f91143f57ac0b0b5243c7370450ec87a2565a",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/readiness-v1/method-input.json": "2549e962a5feac6617e27e8f324b6b7b576beb0683289c5dcfd1ee4b5d588654",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/readiness-v1/serialized-slot.json": "74b562805b1aad0b7461554c791b5526391f7f751ee6f7f555987da4c46f035c",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/review-fix-v2/bridge.py": "dc224c51a46f78433df614ce53b76e2a8f4b1a7ac4c436b7d0d212f784388f55"
+  },
+  "pins_unchanged": true,
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "schema": "eoere_serial_current_run_process_capture/v1",
+  "started_at_utc": "2026-10-09T11:17:51.762050+00:00",
+  "status": "FINISHED"
+}

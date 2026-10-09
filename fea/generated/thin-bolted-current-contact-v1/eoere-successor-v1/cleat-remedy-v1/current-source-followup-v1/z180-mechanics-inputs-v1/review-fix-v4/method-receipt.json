@@ -1,0 +1,56 @@
+{
+  "correction": "One guarded AST iterable seam validates exact mixed original contact schemas and selects timber/panel rows. Frozen loop arithmetic updates only joined changed patch IDs. Source-domain flange rows and their domains/patches remain identical; postcondition also verifies every unaffected timber/panel row. No new normal equality or tolerance is imposed.",
+  "helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v4/descriptor.py",
+    "sha256": "a7b27b82eb3bafc698d371ce2f4b2e71c89cc4306459cd795ed1ca1c983ae106"
+  },
+  "inputs": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v4/inputs.json",
+    "sha256": "a359cb1c7c3c30954d6e36204bd523cd0d565c10a9b78f9af09e6ddcbb66b6be"
+  },
+  "preserved_first_failure": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/failure-v1.json",
+    "sha256": "ccb3aa55b2b13da5bb37d4a3eccab17bfa67355fb14d664545046014aae2ff37"
+  },
+  "preserved_second_failure": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/failure-v2.json",
+    "sha256": "d1f9f8d824980f059ccfbec10bfd188c03708b1fbaeb4fb136a6f7f3dcc04c5c"
+  },
+  "release": {
+    "candidate_admitted": false,
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "physical_contact": false,
+    "structural": false
+  },
+  "reused_frozen_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/descriptor.py",
+    "sha256": "691f46fd47b2e952e3b8911d61ddf855d9806c20190f77a1d6e0f57ad022a9ac"
+  },
+  "reused_frozen_v2": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v2/descriptor.py",
+    "sha256": "8ab67c15c544ba1cf1f0209020fb87614072c665a8eaa39dc667a23db5b2823a"
+  },
+  "reused_frozen_v3": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v3/descriptor.py",
+    "sha256": "b9540ab1612033194c8ae7ac230ab21082813cd63cf824cc77b58cba9bfa6b1b"
+  },
+  "schema": "eoere_z180_geometry_delta_mixed_contact_supplement/v1",
+  "source_contract_audit": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v4/source-contract-audit.json",
+    "sha256": "38806c62cee80b39ec3266fd4258df13db3d071c0667c033f268f86aaae22941"
+  },
+  "status": "SOURCE_FIX_FROZEN_FIXTURES_PASS_PENDING_PARENT_REVIEW_AND_RETRY_AUTHORIZATION",
+  "tests": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v4/test_descriptor.py",
+    "sha256": "077609ecc14077fc3e6c27eb63d749b434b80a64c0c8c261087889650ac796b9"
+  },
+  "validation": {
+    "command": "uv run pytest --import-mode=importlib -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1",
+    "genuine_descriptor_retry_performed": false,
+    "pytest": "58 passed in 0.72s",
+    "python": "3.12.3",
+    "ruff": "All checks passed"
+  }
+}

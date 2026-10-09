@@ -1,0 +1,49 @@
+{
+  "admission": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/admission.json",
+    "sha256": "b5a75796f2d39c49e04ef9b37d5fbfa9dc84f4cb0c03ff1c80925ac40a1b3baf"
+  },
+  "case_id": "a12-forward",
+  "command": [
+    "/home/mckay-linux/repos/mini-moonboard/.venv/bin/python3",
+    "-B",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/review-fix-v2/bridge.py",
+    "--mode",
+    "admit",
+    "--field",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/field.json",
+    "--out",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/admission.json"
+  ],
+  "elapsed_seconds": 51.44847884500268,
+  "exit_code": 0,
+  "field": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/field.json",
+    "sha256": "43ccb97ab8e95bb2a37092a47fafe1b2b40ef8275145dad5ae736e80a6065a09"
+  },
+  "finished_at_utc": "2026-10-09T11:09:02.333520+00:00",
+  "logs": {
+    "admission-stderr.log": {
+      "bytes": 0,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/admission-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "admission-stdout.log": {
+      "bytes": 0,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/a12-forward/attempt01/admission-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "schema": "eoere_parent_z180_admission_process_capture/v1",
+  "source_drift": [],
+  "source_pins_verified_before_after": 1171,
+  "started_at_utc": "2026-10-09T11:08:10.887455+00:00"
+}

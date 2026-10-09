@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/review-fix-v3/summarize.py", line 146, in <module>
+    main()
+  File "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/review-fix-v3/summarize.py", line 141, in main
+    result = write_to_file({"path": args.manifest, "sha256": args.manifest_sha256}, args.out)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/review-fix-v3/summarize.py", line 122, in write_to_file
+    result = a.build(manifest, manifest_ref)  # Unchanged99 implementation.
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/summarize.py", line 218, in build
+    records = [case_records(row, pins) for row in manifest["cases"]]
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/summarize.py", line 189, in case_records
+    require(snapshots[key]["schema"] == schema, "exact component source snapshot required")
+  File "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/summarize.py", line 44, in require
+    raise ValueError(message)
+ValueError: exact component source snapshot required

@@ -1,0 +1,28 @@
+{
+  "actual_candidate_summary_attempted": false,
+  "completed_final_receipt": null,
+  "interruption": "An automatic content review ended the worker turn before a final v2 testing receipt was issued. No completed testing pass is inferred.",
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "reported_finding": {
+    "description": "An ancestor directory can change after the path is bound but before the final parent identity is first recorded. The final-parent-only check does not authenticate that earlier ancestor.",
+    "disposition": "Separate output-only v3 correction requested; v2 sources remain unchanged.",
+    "parent_confirmation": "Frozen source records only the final parent after mkdir; the reported identity-capture gap is confirmed by static inspection.",
+    "reviewer_reported_observation": "One fabricated local fixture demonstrated output could reach the replacement ancestor. No genuine candidate data or numerical method executed.",
+    "scope": "Output ownership, not numerical calculations.",
+    "source_lines": "54-58"
+  },
+  "reviewer": "/root/cleat_integration_testing",
+  "schema": "eoere_parent_recorded_incomplete_source_review/v1",
+  "status": "REVIEW_INTERRUPTED_AFTER_FINDING",
+  "target": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/review-fix-v2/summarize.py",
+    "sha256": "15dd2c60a1b6db3eeae6e98b0267268a4460c9a6efc86cb711aa8376fb82046f"
+  }
+}

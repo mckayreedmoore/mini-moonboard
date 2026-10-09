@@ -1,0 +1,71 @@
+{
+  "case_count": 6,
+  "command": [
+    "uv",
+    "run",
+    "python",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/review-fix-v4/summarize.py",
+    "--manifest",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/summary-inputs-v2.json",
+    "--manifest-sha256",
+    "618622d3257ec2e3a008d5731dddb18a600e66043376da16ac9c2ad00203b02d",
+    "--out",
+    "/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt02/summary.json"
+  ],
+  "complete_joint_resistance": null,
+  "cwd": "/home/mckay-linux/repos/mini-moonboard",
+  "elapsed_seconds": 5.1472283719995175,
+  "env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "execution_scope": "Saved JSON/source selection only; no gate, reducer, model, operator, native or CAD execution.",
+  "exit_code": 0,
+  "finished_at_utc": "2026-10-09T12:07:36.101396+00:00",
+  "manifest": {
+    "bytes": 21083,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/summary-inputs-v2.json",
+    "sha256": "618622d3257ec2e3a008d5731dddb18a600e66043376da16ac9c2ad00203b02d"
+  },
+  "output": {
+    "bytes": 963105,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt02/summary.json",
+    "sha256": "8241e099fd31a588fb4b504929f8ca487dff7b19dafbaaeea505f7aad9ed9600"
+  },
+  "post_source_count": 1314,
+  "pre_source_count": 1314,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "schema": "eoere_z180_saved_summary_process_receipt/v1",
+  "source_union_canonical_sha256_after": "433e1fd7d975333b379154851ed0e71fd3b5d03661f49faf479e475cd1267c17",
+  "source_union_canonical_sha256_before": "433e1fd7d975333b379154851ed0e71fd3b5d03661f49faf479e475cd1267c17",
+  "started_at_utc": "2026-10-09T12:07:30.954132+00:00",
+  "status": "PASS",
+  "stderr": {
+    "bytes": 0,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt02/stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "stdout": {
+    "bytes": 302,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt02/stdout.log",
+    "sha256": "0f9572c9851b750c4d464f1adeafc28b20d56ee0dfeb9f0a7c0acbeb4d3ad8bb"
+  },
+  "summary_schema": "eoere_exact_unadopted_z180_six_case_summary/v1",
+  "summary_source_union_matches_outer_before_after": true,
+  "unadopted_proposal": true,
+  "unchanged_before_after": true,
+  "writer": {
+    "bytes": 4960,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/review-fix-v4/summarize.py",
+    "sha256": "e4ba76473e84aa7afdae3599a2c196b894a7d0311a407de9bb0daece647196d9"
+  }
+}

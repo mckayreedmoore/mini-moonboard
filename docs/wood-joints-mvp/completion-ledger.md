@@ -4056,6 +4056,240 @@ The staged whitespace check reports one extra EOF blank in the frozen
 Its reviewed bytes remain unchanged; the rest of the staged set passes the
 whitespace check. This formatting exception changes no test or arithmetic.
 
+### Lowered cleat-bolt proposal: conditional numerical completion
+
+The separate `eoere-lower-cleat-z180-proposal-v1` now has six fresh force
+fields, six genuine own admissions and six combined coarse/detailed component
+reports. This completes its candidate-bound numerical evaluation within the
+owner's amended scope: retain exceedances and unqualified resistances, and
+stop panel/screw remedies. The proposal remains unadopted; the main Z200
+geometry, its four drilling holds, its numerical packet and the selected
+screw-and-bracket baseline keep their own authority.
+
+Only the four dedicated cleat/post bolt stations move down 20 mm. The same
+22 timbers, six panels, 22 angles, 100 shafts and 66 Hillman axes remain.
+The four original four-inch hardware recipes are retained, without spacers.
+The separately studied 4½-inch/spacer alternative is excluded from these
+inputs, fields, component reports and nominal shop tables.
+
+The descriptor preparation reuses the authenticated parent bank and the four
+previously saved proposed receiver solids. Its final
+[descriptor receipt](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/result-v2.json),
+SHA `12e26549009068ae03e7a855dc3d8af959a1ae1ea45d192c8bd27921f9675db9`,
+binds the full 100-axis roster, four moved shafts, twenty hardware roles,
+sixteen rebound bore walls, analytic mass-centroid corrections and changed
+contact descriptors. It uses no new CAD/BREP query or native solve. The final
+raw descriptor is SHA
+`deccc585f3cc38cc315bf5618cb7ab7007b948e90cec8a4144c04a89cd2275df`;
+its 6,092,681 bytes remain active ignored input. Earlier failed preparation
+records and intermediate source versions remain frozen and recoverable.
+
+| Frozen mechanics input or check | SHA256 |
+| --- | --- |
+| [Own seven-case source inputs](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/inputs-v1/attempt01/inputs.json) | `80b5c013b5c69e895c4286d8673f91143f57ac0b0b5243c7370450ec87a2565a` |
+| [Independent raw/selected-input review](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/inputs-review-v1/runs-v1/attempt01/receipt.json) | `3b8b6e2dff8cc8d047cf53b7865137aea11d5085d86359041f6541c78e9dcedf` |
+| [Parent method readiness](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/readiness-v1/method-input.json) | `2549e962a5feac6617e27e8f324b6b7b576beb0683289c5dcfd1ee4b5d588654` |
+| [Independent saved-readiness audit](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/readiness-v1/independent-review-v1/receipt.json) | `a2ad394159d3440f0cad8b654be93d38e1c2355b5bc4af424755def1a90faba7` |
+| [Six-case force/admission roster](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/result-v1.json) | `b37923501498fe35f500105df8b1ee601d7f4d4a553d80a109692565bac3400a` |
+| [Independent saved six-case output audit](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/independent-output-review-v1/runs-v1/attempt01/receipt.json) | `ba6bcdb50cb721ec83709cc393bae9256fd865bd9a235c08f8ebae2f651d52a7` |
+| [Six combined component reports and process roster](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/component-results-v1/result-roster-v1.json) | `b88953ec73f50756a22519b54a6809c5c55c312783133574fc36066c0866ada7` |
+
+The seven source cases retain exactly the same total applied force/moment
+wrenches and floor points as the authenticated current Z200 inputs. All seven
+comparison errors are zero. This permits reuse of the existing global-statics
+feasibility result and its **330.28499148-mm** minimum support-edge margin;
+old elastic reactions, q, internal forces and capacities are not reused.
+The original six-panel bank is authenticated before reuse. Its captured
+distributed RHS remains source-authenticated rather than independently
+regenerated. The changed local contact quadrature's recorded convergence
+limit remains a diagnostic, not a contact-pressure or physical-demand bound.
+
+Parent readiness followed three final independent descriptor reviews, three
+force-adapter reviews, the raw-input audit and an independent genuine
+`read_method` check with preparation/assembly callbacks trapped. The corrected
+force entrypoint is
+`z180-mechanics-execution-v1/review-fix-v2/bridge.py`, SHA
+`dc224c51a46f78433df614ce53b76e2a8f4b1a7ac4c436b7d0d212f784388f55`.
+Its unique/exact 100-axis intake guard preserves the frozen numerical methods.
+The six cases ran serially at one thread, with new own operators and no
+historical initial state. Every saved field then passed its separate own
+admission and exact raw-pair gate. There were no force or component retries.
+
+| Own Z180 case | Admitted full-gradient norm, N | Generic 9-mm head, CD=1 | Sampled panel bending, CD=1 | Sampled rolling shear, CD=1 |
+| --- | ---: | ---: | ---: | ---: |
+| A12-forward | 7.181216e-7 | 2.394285 | 4.371039 | 2.451843 |
+| A12-rear | 3.211885e-6 | 2.572731 | 4.613881 | 2.444890 |
+| A12-left | 1.586982e-7 | 2.447559 | 4.478231 | 2.447405 |
+| K12-right | 2.509858e-6 | 2.384951 | 4.286937 | 2.250170 |
+| K12-rear | 4.266536e-6 | 2.506029 | 4.436910 | 2.232968 |
+| A1-rear | 4.585086e-6 | 1.837486 | 2.684588 | 1.368479 |
+
+The maximum admitted full-gradient norm is **4.585085932e-6 N**, below the
+unchanged inclusive **1e-5-N** limit. Maximum replayed body force/moment
+residuals are **5.607324e-6 N / 0.006086282 Nmm**, within the unchanged
+1e-4-N / 0.1-Nmm gates. All 150 bodies, 100 shafts, 88 steel ports, 66 screws
+and six panel blocks have own-state recovery. All 32 floor normals remain
+compression-only; only the two rear-leg centroids have XY restraint under the
+unverified no-slip assumption. Both credited legs bear in every case, with
+minimum **592.726899 N**. Floor friction, anchorage and other support scenarios
+remain unqualified.
+
+The independent saved-output audit checks raw/canonical admissions, all eleven
+action-table bindings, signed full gradient/q, coordinate maps, panel exports,
+operator pointers, source selection, census, residuals, floor wrench closure,
+exact process inputs and serialized chronology. It transforms residual wrenches
+between the saved global origin and the load-work reference explicitly; a
+nonzero-residual fixture checks that distinction. Nineteen controls and Ruff
+pass. Its 1,246-file evidence union is unchanged. Method inputs have 1,171 pins,
+individual fields/admissions 1,174, and their six-case operator union 1,184;
+those inventories have distinct scopes. Full operator/work/recovery arithmetic
+relies on the genuine own admissions, rather than this metadata reader.
+
+The component entrypoint is the separately reviewed
+`component-consumer-v1/review-fix-v2/consume.py`, SHA
+`791e39cbdfbf80e6a207ca568898c0347e7f400ac428efa84dc65906a8a8cf92`.
+Three final independent reviews precede the first real consumption. It admits
+the exact own raw pair before loading the frozen coarse/detailed reducers;
+the single descriptor-review release-key correction changes no equations or
+mechanics claims. Each report covers all 100 shafts, 120 wood surfaces,
+200 end captures, 22 angle duties, two cleat corners, 66 simultaneous screws
+and six panels on the unchanged 41-by-41 diagnostic grid.
+
+| Own Z180 component comparison | Maximum and scope |
+| --- | --- |
+| Generic head / sampled panel bending / rolling shear | **2.572731 / 4.613881 / 2.451843**. Generic head and spatial references remain exceeded; actual Hillman and local panel resistance are unknown. No remedy is attempted. |
+| Heel t6/Ri6 | **1.1100212551**, A12-left / top-left-1 / arm-z far-plus; seven exceeded rows among 528. |
+| Owner nominal heel t6.35/Ri6.35 | **0.9951840424**, same witness; zero exceeded rows, only **0.4815958%** reference margin. The 235/1.67 benchmark remains a scalar fixed-action scenario, not actual product/3D heel resistance. |
+| Timber-bolt unadjusted reference | **0.6991810638**, A12-rear. 92 compatible shafts per case; eight mixed stacks remain null. The non-adopted Cdelta=0.5/Cg=1/CD=1 sensitivity retains ten exceeding rows across five cases. |
+| Gross normal / shear references | **0.514426534 / 0.974373772**, K12-rear / K12-right, respectively. Raw rectangles and assumed restraint; own finished net sections remain unqualified. |
+| Shaft specified-material first-yield scenario | **0.512707490**, A12-forward / eoere_bolt_067. Delivered shank, root notch, ASD and complete bolt resistance remain unqualified. |
+| Catalog-corner axial-only washer required Fy | **157.133108568 MPa**, K12-right / lumber-leg right-2. Actual material, combined couples and physical pressure remain unknown. |
+
+Nominal seat evidence is **112 = sixteen own new + 96 unchanged** source-bound
+geometric observations. Full nominal annuli establish no actual pressure,
+stiffness or strength. All 24 complete-joint resistances remain null, including
+signed group/splitting, end/edge, finished-section and restraint gaps. Maximum
+sampled interaction-point motion is **57.232675 mm**, and maximum relative
+timber/fitting-strip rotation is **0.109314365 rad**. There is no adopted
+small-motion threshold, first-order physical-applicability pass or demand bound.
+
+Each component result verifies 1,228 current source pins. Their union has
+1,253 distinct paths and no drift. The first outer process snapshot omitted
+42 returned provenance paths from its before-inventory; all were nevertheless
+in the real field/admission source closure and checked by the frozen gate and
+consumer. That independent outer-snapshot coverage caveat remains explicit;
+its after snapshot and current returned pins match. The following five outer
+snapshots cover every returned pin before and after. No first-run completeness
+claim or additional run replaces the frozen evidence.
+
+The matching [unadopted nominal shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/z180-proposal-v1/README.md)
+comes from one genuine output trial after three independent source reviews.
+Its ten candidate files total **348,024 bytes**; result SHA is
+`a8cacd9cfaf04d92b98ecb32b74908a43d39c3351e9d90cad4e6194188790208`,
+and process SHA is
+`465e79f086ec1e0c107dbd8994efe662b76a327f877e0f636d996442b9939c49`.
+The independent saved-output review is SHA
+`7b22bcf9af293220fe776c57176bf576b2692cfd9336367bb06377fced3bd94f`.
+All 1,141 shop pins stay unchanged. It checks the ten output hashes, CSV/JSON/SVG
+structure, eight moved and eight retained bore-wall bindings, eight access-side
+translations, twenty component roles, four distinct native-volume/analytic-COM
+records, and 3,296 table plus forty role Actual/Disposition cells remaining blank.
+All 200 access sides remain unverified. Six drawings and five data tables link
+their unchanged original files; no duplicate assets are introduced.
+
+The same 28 raw profiles fit the existing **13-stick / 150-board-foot** scenario.
+Nominal mass remains **219.115940 kg**, including the 25-kg allowance and
+excluding pads. The earlier dated partial $109.93 hardware comparison keeps
+its unpriced items; these studies supply neither measured weight nor a new quote.
+Actual saw/drill/guide/clamp envelopes, registration, finishing allowances,
+shank/runout, washer/nut seating and installed tool/removal fit remain open.
+The catalog fixture's **1.522541-mm** positioning allowance still exceeds its
+unchanged **1.50-mm** target; no machining pass is relabeled. Actual cells remain
+blank, with no new physical-test or external-sign-off prerequisite.
+
+Keep the original/corrected sources, failed preparation and review probes,
+all final reviews, commands, compact output tables and summary witnesses active.
+The final descriptor, earlier descriptor attempts, 13,925,221-byte mechanics
+input, **154,326,660-byte** six-field bank, **57,202,333-byte** operator bank,
+**37,596,835-byte** component result bank and detailed process snapshots remain
+active ignored dependencies. No source, raw evidence, cache or historical viewer
+is archived, pruned, substituted or duplicated. Inert raw review fixtures also
+remain ignored; their compact controls and observed results are retained.
+
+The final [six-case saved-data summary](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt02/summary.json)
+is SHA `8241e099fd31a588fb4b504929f8ca487dff7b19dafbaaeea505f7aad9ed9600`,
+**963,105 bytes**. Its [exact manifest](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/summary-inputs-v2.json)
+is SHA `618622d3257ec2e3a008d5731dddb18a600e66043376da16ac9c2ad00203b02d`.
+The real [process receipt](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt02/process.json),
+SHA `0fc7aad991990f56bd16324d90e264babbe17ce87145d60a8c6fe5dfc5c187f4`,
+records the exact command, Python version, single-thread environment, zero exit
+status and 5.147228-second execution. Its **1,314-path** source union matches
+the summary exactly before and after. Reproduction uses that command with a
+fresh output beneath the same `summary-v1/runs-v1` directory; existing output
+files are never overwritten.
+
+The supported reporting entrypoint is
+[review-fix-v4/summarize.py](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/review-fix-v4/summarize.py),
+SHA `e4ba76473e84aa7afdae3599a2c196b894a7d0311a407de9bb0daece647196d9`.
+It reuses the frozen `0547b984` witness selectors, original `99ead119`
+source/state/hash/census/coverage checks, and separately reviewed `78762607`
+exclusive output writer. The earlier
+[failed summary trial](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt01/process.json)
+is preserved: the original reader expected two schema names that the authentic
+process snapshots do not use. The correction changes exactly those two
+schema literals and the optional inventory-history access. All twelve actual
+snapshots retain `eoere_z180_component_process_source_snapshot/v1`; the first
+case's two inventory observations and 42 uncovered outer-before paths remain,
+while absence in the other five is reported as an empty observation list.
+No saved snapshot is relabeled, and no force/component run is repeated.
+
+Thirteen focused correction controls and Ruff pass. An actual six-case
+in-memory saved-data replay preceded production; it had 1,306 source pins
+under the earlier manifest and remains distinct from the final output trial.
+The unchanged writer has 43 passing inert controls and three clean final
+reviews. Earlier output-ownership findings, probes and the
+[interrupted second testing review](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/independent-review-v2/testing/parent-recorded-review-interruption.json)
+remain frozen; that interrupted review is not a pass. Final independent
+correction reviews reuse the unchanged mathematics and writer proofs:
+
+| Final saved-data adapter review | Receipt SHA256 |
+| --- | --- |
+| [Correctness](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/independent-review-v4/correctness/receipt.json) | `d4b782b37ab4142c28a377bba24fd9c8f06fd8bf8c562e6a1747ee1574de1419` |
+| [Testing](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/independent-review-v4/testing/receipt.json) | `f47ca0517e8d4c0859522b053f81064c7b9d433dcad1c02e62e2be4c270e9180` |
+| [Structure](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/independent-review-v4/structure/receipt.json) | `cbffc5bdb693c052f5e800796baa6eb084e7b6a8824bf5a7975e2ee90226f5d7` |
+
+All three report no substantial findings in their bounded scopes. The
+[parent saved-summary validation](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/summary-v1/runs-v1/attempt02/parent-verification.json),
+SHA `8fd7a0d64c9a9a2e86f3d7c62bdca953a78a890bebf17b4459cae0e32824cb51`,
+matches all six reported witness sets to the previous saved-data selections,
+checks exact own pair/component bindings, and retains every false release,
+null complete resistance and first-snapshot caveat. This reporting work calls
+no field producer, admission, reducer, operator, CAD or native solver.
+
+The compact numerical/shop payload contains **252 files / 5,850,512 bytes**,
+excluding the two maintained documents and final documentation-review records.
+The six-case summary, six own admissions, source/readiness/review receipts,
+commands, corrected and failed sources, and ten nominal shop outputs are
+necessary reproducibility evidence; the largest new file is the summary above.
+The three owned folders additionally retain **67 regular raw/fixture files /
+284,811,250 bytes** outside publication, including the source descriptors,
+mechanics input, fields, operators, full component reports and detailed process
+snapshots. All remain active; none is archived or pruned. Unchanged drawings,
+data tables, dependencies and viewer meshes are referenced rather than copied.
+The [final documentation audit](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/documentation-review-v1/receipt.json)
+binds this maintained entry, the summary and nominal shop reading path to saved
+evidence; it does not confer structural or physical acceptance.
+
+The existing [repository CI at `6922bca`](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37911251610/job/113756661369)
+remains failed. A read-only comparison with [the earlier `516d68` run](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37907806128/job/113745407246)
+finds identical sets of 287 failed and 178 errored test IDs, 4,803 passes, and
+217 identical lint diagnostics. Missing saved assets/operators, stale frozen
+source/export hashes and historical assertions remain among the causes; one
+already failing artifact-hash assertion has a different actual hash. This is
+not a green repository-wide result. The focused candidate checks above retain
+their own scope. [Pages deployment at `6922bca`](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37911251743)
+passed. No full-suite rerun or historical export rebuild was performed here.
+
 ### Separate synthetic strength-method benchmark
 
 The [scalar limit-analysis benchmark](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/README.md)

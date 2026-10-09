@@ -1,0 +1,249 @@
+{
+  "actual_CAD_BREP_candidate_preparation_or_native_solve_operations_performed": false,
+  "additional_descriptor_rejections": [
+    {
+      "case": "wrong_COM_translation",
+      "rejection": "same nominal metal role with only Z180 translation required; no spacer"
+    },
+    {
+      "case": "changed_unmoved_shaft",
+      "rejection": "unmoved physical shaft descriptor changed"
+    },
+    {
+      "case": "wrong_hardware_length",
+      "rejection": "own four-axis patch must retain nominal4in hardware"
+    },
+    {
+      "case": "historical_response",
+      "rejection": "response or relabeled native-current descriptor prohibited"
+    },
+    {
+      "case": "missing_source_pin",
+      "rejection": "proposal descriptor reference outside source closure"
+    },
+    {
+      "case": "declared_count",
+      "rejection": "complete declared four-axis/eight-hole/two-patch proposal proof required"
+    }
+  ],
+  "all_sources_and_targets_unchanged": true,
+  "complete_joint_resistance": null,
+  "downstream_unique_axis_factory_guard_source_only_inspection": {
+    "condition": "len(axis_ids) == len(set(axis_ids))",
+    "line": 102,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_factory.py",
+    "scope": "The frozen inherited factory separately rejects duplicate shaft axes; duplicate full rows also violate earlier physical-body uniqueness. No factory validation/preparation or genuine force/admission bypass is claimed.",
+    "sha256": "5ca9a2018cc8a45fbddcf929f446cdd22b9d5fcae6ba816959de2c897b464570",
+    "source_inspected_not_executed": true
+  },
+  "duplicate_moved_axis_inert_intake_observation": {
+    "coherent_require_sources_accepted": true,
+    "declared_moved_axis_count": 4,
+    "list_length": 100,
+    "omitted_declared_moved_axis": "cleat_post_bolt_left_1",
+    "source": "retained test_bridge.fixture() synthetic in-memory structures only",
+    "unique_axis_ids": 99,
+    "validate_descriptor_accepted": true
+  },
+  "excluded": [
+    "genuine descriptor/input construction or candidate source-field consumption",
+    "current panel preparation/K, genuine frame operator/q/actions/admission or solve",
+    "CAD/BREP/native/browser work",
+    "broad mechanical arithmetic or historical acceptance re-audit",
+    "current Z200/100 bolts/66 screws/forces/HOLD, 4in hardware or unadopted Z180 adoption",
+    "spacer inclusion, panel remedies or resistance/physical release",
+    "shared Git/docs/index edits, staging or commit"
+  ],
+  "existing_dependency_definition_imports_observed": [
+    "OCP",
+    "cadquery",
+    "numpy",
+    "scipy"
+  ],
+  "findings": [
+    {
+      "file": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/bridge.py",
+      "fix": "Before per-shaft validation, require unique axis IDs and exact equality with the parent axis-ID set, and require the declared four moved IDs to occur exactly once. Add descriptor and coherent input-join duplicate/missing-axis negative controls while retaining the downstream factory guard.",
+      "impact": "validate_descriptor checks 100 rows but never requires 100 unique/exact axis IDs. Replacing one moved shaft by a duplicate unchanged shaft in the retained inert fixture passes descriptor validation and, with coherently joined inert data.shafts, require_sources. The source contract can therefore declare four moves while omitting a declared moved axis. No genuine descriptor/input trial, source preflight with supplied candidate evidence, readiness, preparation or force/admission bypass is claimed: the pinned inherited first_order_factory.validate_rows separately rejects duplicate axes downstream.",
+      "line": 134,
+      "severity": "medium",
+      "title": "Descriptor intake permits duplicate shafts and an omitted declared moved axis"
+    }
+  ],
+  "four_target_sha256_before_after": {
+    "bridge.py": "fc95da9c8b81b8153813b6c98895401c4f4b5cf96e61d68973ba417c386917c6",
+    "source-preflight.json": "4588317f7790a8982ecd89c66c6b47c4d15474567848ce72ac409f389d3ecc97",
+    "test_bridge.py": "d02c448019ac7bdc0b7b465337ce52a617d18c5e771c2e307d873bcc9e4b38be",
+    "verification.json": "0028e21509a60bcf8da1628f7839f37f24c7e0244a959949ad765f07ca200050"
+  },
+  "inherited_method_evidence_hash_only_before_after": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py": {
+      "bytes": 34513,
+      "sha256": "ddc85386050d97145597dc720bef78634c9b326f0878aced8c02c8df4710c05b"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py": {
+      "bytes": 11789,
+      "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/source-preflight.json": {
+      "bytes": 14368,
+      "sha256": "158b2fd603cabac3d5e39ac81f726da251ce6a393b797e7e047daef3dee85fdc"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/test_bridge.py": {
+      "bytes": 11177,
+      "sha256": "cdaf6e63a542b738fd81b99e4c211952dd46765fb8c2082a1d43c0d977b88c90"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/verification.json": {
+      "bytes": 6980,
+      "sha256": "18903e345a4c7f59ecbf0036cd68946733981f8a8b9de29a3fef0a63b68a3f7a"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/source-preflight.json": {
+      "bytes": 13345,
+      "sha256": "4118719a61da4645085f4840b1888ac6df600df2307edc8c0d40ffb79d4eafe0"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/test_bridge.py": {
+      "bytes": 6481,
+      "sha256": "72cdd692b40df93e2a6a194e31d9bd03fe7125baf6fb605a09b66954bbecacf6"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/verification.json": {
+      "bytes": 5707,
+      "sha256": "7ca9a676dd1c7b1ae41a4408caeae6d0d22c0ee57da43095663b8587238d5fab"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json": {
+      "bytes": 13705709,
+      "sha256": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py": {
+      "bytes": 16060,
+      "sha256": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json": {
+      "bytes": 11401385,
+      "sha256": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json": {
+      "bytes": 14291,
+      "sha256": "4886a4bccaee43b93b23e521710b7d8b84dcb7b5ba627ef722694ceb79b7f319"
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/parent-sources-v1.json": {
+      "bytes": 4203,
+      "sha256": "60167af5e6dc11207bf17df0b62a9c3177d4ec3109531d6e7d3068023eee91c2"
+    }
+  },
+  "mechanics_or_physical_release": false,
+  "occupied_output_rejections_before_frozen_import": [
+    {
+      "before_frozen_import": true,
+      "kind": "file",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/independent-review-v1/testing/scratch-zfrtu2r8/file.json'",
+      "rejection_type": "FileExistsError"
+    },
+    {
+      "before_frozen_import": true,
+      "kind": "directory",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/independent-review-v1/testing/scratch-zfrtu2r8/directory.json'",
+      "rejection_type": "FileExistsError"
+    },
+    {
+      "before_frozen_import": true,
+      "kind": "dangling_symlink",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/independent-review-v1/testing/scratch-zfrtu2r8/dangling_symlink.json'",
+      "rejection_type": "FileExistsError"
+    },
+    {
+      "before_frozen_import": true,
+      "kind": "existing_symlink",
+      "rejection": "[Errno 17] File exists: '/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/independent-review-v1/testing/scratch-zfrtu2r8/existing_symlink.json'",
+      "rejection_type": "FileExistsError"
+    }
+  ],
+  "one_fresh_all_missing_main_preflight_byte_exact_sha256": "4588317f7790a8982ecd89c66c6b47c4d15474567848ce72ac409f389d3ecc97",
+  "original_inert_tests": {
+    "count": 15,
+    "exit_code": 0,
+    "qualification": "Normal existing dependency definitions imported, including transitive CAD library definitions as explicitly permitted; no candidate CAD/BREP operation or preparation.",
+    "stdout": "...............                                                          [100%]\n15 passed in 1.76s"
+  },
+  "production_readiness_claimed": false,
+  "repository_reference_controls": [
+    {
+      "case": "absolute",
+      "rejection": "exact repository-relative proposal source reference required"
+    },
+    {
+      "case": "digest",
+      "rejection": "proposal source bytes differ"
+    },
+    {
+      "case": "extra_field",
+      "rejection": "exact repository-relative proposal source reference required"
+    },
+    {
+      "case": "outside",
+      "rejection": "proposal source bytes differ"
+    }
+  ],
+  "review_harness_correction": "Reviewer restrictions initially stopped three dependency-loading tests (12 passed), first at NumPy and then before transitive cadquery import from mini_moonboard.__init__. Parent clarified that existing dependency definitions may be imported for the authorized inert replay; the final replay uses normal imports and no package shim. No target failure, candidate preparation or native solve is claimed by those initial harness stops.",
+  "review_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/independent-review-v1/testing/review.py",
+    "sha256": "e5558e68391075ceaeb03b0c011d082a01ac6c9f85eb5753b712058a69420ddd"
+  },
+  "schema": "eoere_z180_execution_adapter_independent_testing_review/v1",
+  "scope": "Frozen four-file source adapter only. Retained synthetic fixture, original fifteen inert tests and one fresh default all-missing source preflight, extra source/reference/descriptor/output/context controls. Existing dependencies are imported normally; no CAD/BREP operation occurs. The downstream factory guard is inspected, not executed. Original 491653 arithmetic and 014f panel identity reused within existing evidence; no genuine final descriptor/input/review/method exists or was constructed/consumed.",
+  "scoped_context_hooks_restored_after_exception": true,
+  "source_drift_rejections": [
+    {
+      "before_import": true,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/bridge.py",
+      "rejection": "frozen production/proposal bridge changed"
+    },
+    {
+      "before_import": true,
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+      "rejection": "frozen production/proposal bridge changed"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json",
+      "rejection": "proposal source bytes differ"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/parent-sources-v1.json",
+      "rejection": "proposal source bytes differ"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json",
+      "rejection": "proposal source bytes differ"
+    }
+  ],
+  "twenty_nine_source_closure_sha256_before_after": {
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/bridge.py": "ddc85386050d97145597dc720bef78634c9b326f0878aced8c02c8df4710c05b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json": "4886a4bccaee43b93b23e521710b7d8b84dcb7b5ba627ef722694ceb79b7f319",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/bridge.py": "fc95da9c8b81b8153813b6c98895401c4f4b5cf96e61d68973ba417c386917c6",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/parent-sources-v1.json": "60167af5e6dc11207bf17df0b62a9c3177d4ec3109531d6e7d3068023eee91c2",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/admission.py": "ee47bca7795483c3d304030a26e368c9e2bf9b3bbff48ef10b5416e8aa344fa9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/runner.py": "02b35eb6eb148e1b178fcca069b761065eaec8f0641ec5adc91f211b3e9eceb4",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/floor-practical-resolution-v1/support_law.py": "b4bc326d2060d6fc49d0f29218306533e4cea305db72dce2f0e09338c7e3ad2e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/assembly_interface.py": "4103015c05405e930e10c90edb5e147dd9d1ec2fb0575f17e3e4efc01a6cb66b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_admission.py": "e61ee415f0a8cd83f3ea4b0606064bceb128413eed4e66f1192955b1610ff66b",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_admission_v2.py": "bfb984c47372d20387883d11d1d49f8a12d9debda1b0c78f1c024ace01bc2821",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_admission_v3.py": "a32992a3a5f4fb8c16a0402ad522b938650d8744200ca4d8a28dfd38e07a0008",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/first_order_factory.py": "5ca9a2018cc8a45fbddcf929f446cdd22b9d5fcae6ba816959de2c897b464570",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/four_port.py": "8482d5f3f1d01eee9141db2bbeef5237f87cb7d78f00619749604c0a23f57567",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/guarded_assembly_interface.py": "a2b5ef4f45d05f3a29c428583238c3ead927ac7ae259a6c4a8d7c63ded3d0ad8",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/inputs.json": "a938b41e53f5708c74e30ec1f021e894513ab6be4b1c6df390bababcfeebbd8e",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/operator_bundle.py": "534356acc914bd9fb81f24e67311fe40123d70754224a6466fe0da1d7f1426a9",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/run_first_order.py": "28ceafcb9eac9764358071b728da96fbb2e5cd46011ead031ade8a9d7a811a39",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/run_first_order_v2.py": "750dd24733c101c98c06d135e9c5c88a5b33a610d09e79736ee4500171685f32",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/test_four_port.py": "75dcf7ff98c056d319c20fc4c8783485f0415e5fd3a3fa906b1f0adec5dc93dd",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-cases-v1/cases.py": "1f7a1b332ee37627725ce8127df8ff3541ac4deec5fdc586a36e7f7953860978",
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raised-rail-execution-v1/driver.py": "4aaaa91dbad2674dc5bd42a43b38949675c94aa9619534c15d0f6f906e532692",
+    "scripts/run_thin_bolted_finite_frame.py": "5cf423d80e57b6f4386eb6c7aae39961ba083a7b4a457c7d37694cb80101361e",
+    "scripts/thin_bolted_common_shaft.py": "0ff8c52a36f168cba0bd3fed2d592daa9e5d9de5facbc650b151f64c2f23f4eb",
+    "scripts/thin_bolted_frame_mechanics.py": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448",
+    "scripts/thin_bolted_incremental_step.py": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489",
+    "scripts/thin_bolted_numerical_step.py": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28",
+    "scripts/thin_bolted_panel_mechanics.py": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa",
+    "scripts/thin_bolted_support_state_search.py": "c162d296306a263be4e6769c4249abf6491512e8f7d9af323ab2e9b10b1018e8"
+  }
+}

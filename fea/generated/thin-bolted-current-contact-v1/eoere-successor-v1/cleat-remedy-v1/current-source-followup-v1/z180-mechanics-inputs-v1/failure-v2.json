@@ -1,0 +1,40 @@
+{
+  "CAD_BREP_import_K_panel_preparation_response_or_solve_performed": false,
+  "accepted_descriptor_written": false,
+  "cause": "352 inherited flange_contact rows use source_domain_id and have no source_patch_id. The frozen changed timber/panel patch loop indexes that missing key before preserving unrelated rows.",
+  "correction": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v3/descriptor.py",
+    "sha256": "b9540ab1612033194c8ae7ac230ab21082813cd63cf824cc77b58cba9bfa6b1b"
+  },
+  "error": "source_patch_id",
+  "error_type": "KeyError",
+  "failed_output": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/runs-v1/attempt02/descriptor.json",
+    "sha256": "fd56af74e5133fb96229708ae2372beb96ece2ec778c052e6ee78a4aeaf0c054"
+  },
+  "frozen_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/descriptor.py",
+    "sha256": "691f46fd47b2e952e3b8911d61ddf855d9806c20190f77a1d6e0f57ad022a9ac"
+  },
+  "frozen_original_and_corrections_preserved": true,
+  "inputs": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v3/inputs.json",
+    "sha256": "80db8edae5b8f19b89d05be7330ac245439c1423e981c4b35c01d31b1181f560"
+  },
+  "method": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v3/method-receipt.json",
+    "sha256": "81bfa70d2bdfbe5b627134606cb00445ed88ea8cfca961a77176015e1961c717"
+  },
+  "release": {
+    "candidate_admitted": false,
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "physical_contact": false,
+    "structural": false
+  },
+  "schema": "eoere_z180_geometry_delta_failed_trial/v1",
+  "source_closure_reauthenticated_after_failure": 1114,
+  "source_line": 506,
+  "status": "FAILED_AT_DIRECT_CONTACT_SOURCE_JOIN"
+}

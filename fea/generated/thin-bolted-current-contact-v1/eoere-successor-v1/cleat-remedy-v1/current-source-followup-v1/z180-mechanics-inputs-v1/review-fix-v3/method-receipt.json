@@ -1,0 +1,53 @@
+{
+  "absolute_pin_method": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v2/method-receipt.json",
+    "sha256": "20491da899719175c5cfd4d5298ebba427ded62184bb49825c672af50ee9eb40"
+  },
+  "correction": "One exact authenticated AST comparison checks the actual proposal release key set. Neither proposal nor current export records are mapped or relabelled; no geometry arithmetic or tolerance changes. Both correction source references are required in inputs and added explicitly to output provenance.",
+  "helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v3/descriptor.py",
+    "sha256": "b9540ab1612033194c8ae7ac230ab21082813cd63cf824cc77b58cba9bfa6b1b"
+  },
+  "inputs": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v3/inputs.json",
+    "sha256": "80db8edae5b8f19b89d05be7330ac245439c1423e981c4b35c01d31b1181f560"
+  },
+  "original_method": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/method-receipt.json",
+    "sha256": "5d5a8b40a4cf484452d227bf51528bbd72d7cbe8a0c3e1edc1084e6d340972ff"
+  },
+  "preserved_failure": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/failure-v1.json",
+    "sha256": "ccb3aa55b2b13da5bb37d4a3eccab17bfa67355fb14d664545046014aae2ff37"
+  },
+  "release": {
+    "candidate_admitted": false,
+    "climbing": false,
+    "complete_joint_resistance": false,
+    "fabrication": false,
+    "physical_contact": false,
+    "structural": false
+  },
+  "reused_frozen_absolute_pin_adapter": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v2/descriptor.py",
+    "sha256": "8ab67c15c544ba1cf1f0209020fb87614072c665a8eaa39dc667a23db5b2823a"
+  },
+  "reused_frozen_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/descriptor.py",
+    "sha256": "691f46fd47b2e952e3b8911d61ddf855d9806c20190f77a1d6e0f57ad022a9ac"
+  },
+  "schema": "eoere_z180_geometry_delta_layout_release_supplement/v1",
+  "status": "SOURCE_FIX_FROZEN_FIXTURES_PASS_PENDING_PARENT_REVIEW_AND_RETRY_AUTHORIZATION",
+  "tests": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/review-fix-v3/test_descriptor.py",
+    "sha256": "be029b65fd043d0d85cad200700f3a6c3ad322e96d415447d59f363b1d2ae0f2"
+  },
+  "validation": {
+    "actual_pinned_release_metadata_only_check": true,
+    "command": "uv run pytest --import-mode=importlib -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1",
+    "genuine_descriptor_retry_performed": false,
+    "pytest": "40 passed in 0.41s",
+    "python": "3.12.3",
+    "ruff": "All checks passed"
+  }
+}
