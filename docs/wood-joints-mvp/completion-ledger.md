@@ -2,6 +2,13 @@
 
 ## Current model-completion scope and qualification status
 
+**Latest local geometry:** `eoere-uniform-small-service-channels-v1` uses one
+smaller passage profile and removes eleven repeated cable-arc cuts on the right
+center principal. All 100 bolt and 66 screw axes remain fixed. See the
+[geometry, mesh and browser evidence](#uniform-smaller-cable-channels-and-principal-arc-cuts).
+The following numerical and shop completion remains bound to the preceding
+extended-cleat geometry; no response or construction release transfers.
+
 **Latest extended-cleat numerical completion:** All six fresh
 `eoere-base-side-edge-cleats-v1` cases and twelve own-case component reports are
 complete, with the optional grid off. See the [current result and review
@@ -4354,6 +4361,101 @@ the original and corrected reviews and every failed/superseded attempt active.
 The prior 17 issued files remain immutable dependencies/history; the five-file
 v3 wrapper does not replace their bytes or numerical method. No candidate,
 global, native, CAD or physical execution follows from this synthetic closure.
+
+### Uniform smaller cable channels and principal arc cuts
+
+The owner requested one smaller wood passage size and clarified that the
+unnecessary cuts were the repeated right-principal cuts at the cable arcs,
+rather than its existing lower transverse passage. The distinct local revision
+`eoere-uniform-small-service-channels-v1` starts from the authenticated extended
+cleats. It restores **97,352.067293 mm³** on `base_principal_center_right` by
+removing the eleven F-column arc cut tools (`wire_061_F12_F11` through
+`wire_071_F2_F1`). Their light endpoints stay fixed and the flexible links run
+straight beside the principal. The genuine transverse passage stays. All
+100 bolt axes, 66 Hillman axes, panels, lights, T-nuts and cleats stay fixed.
+
+Both modes use the original smaller passage tool: **R6.35 mm (0.25 in)** at
+local N8 mm, giving derived **20.427677 mm (0.8042 in)** front width and
+**14.35 mm (0.5650 in)** rear depth. Optional-grid timbers are rebuilt from
+the revised base, filling the preceding deeper channels before recutting.
+The optional mode changes nine timber meshes and 140 cable meshes, including
+the eleven common F links, 119 added links and ten original horizontal joins.
+The header returns to its unchanged base shape. Local cable bends around bulbs
+occur in free space; straight machining paths remain independent of those
+flexible cable shapes. Two existing provisional connector bodies remain on
+their original links, moved along those links to avoid bulbs. Modeled cable
+crossing and rear margins can be as small as **0.20 / 0.15 mm**; actual slack,
+bend radius, feeding and installation tolerances remain unverified.
+
+The [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-uniform-channels-v1.json),
+SHA `5726cad4203df4533b599c869e6a0e2e0599e27e874e6252cc34f34d5b36e6d4`,
+records **609 authenticated source pins**. Reconstructed old-principal geometry
+matches the saved parent before the arc cuts are removed. All saved replacement
+solids are valid. Its six collision registers are empty: base services against
+the restored principal, all active services against revised timber, new cables
+against all metal, all metal against revised timber, new cables against unrelated
+services and new cables against unrelated cables. Intended light-endpoint
+contacts are explicitly identified. T-nut barrels use the source normal into
+the plywood and light bodies retain the source 12-mm depth. These are nominal
+geometry checks, with no native solver execution or transferred mechanics pass.
+
+One **1,905,715-byte** shared gzip patch contains 150 unique replacement bodies
+for the two modes. Its SHA is
+`b52c2a1551cb4f328f394f0a781a565671e3d1315ef4427ab8f1becb5189545b`;
+decoded SHA is
+`f57eb3ffa650e5c120d597f8b8e6b7399dc6466d7c8ac223faa639346a5d024c`.
+The [loader](../../site/eoere-uniform-channels-overlay.mjs) composes on the frozen
+extended-cleat loaders, sharing every untouched body. The actual Three.js check
+passes with **1,009/1,021** unchanged base parts and **1,231/1,380** unchanged
+optional-grid parts; all untouched mesh arrays compare exactly. Eight invalid
+scope/profile/census controls and three invalid hash options reject. Result
+`uniform-service-channels-v1/run-v3/actual-mesh-check.json` has SHA
+`993e13c7eeaaa2edd0b148d81a2cbd1fbaa0234d2932554d67f4503104df8e5f`.
+
+The local viewer exposes `eoere-uniform-channels-frame-development` and
+`eoere-uniform-channels-2026-development`, preserves the prior choices and keeps
+the optional grid unofficial. The real browser check passes an off/on/off/on
+cycle, retained choices, complete bolt-selector census and three visually
+inspected rear/front captures, with zero page errors or failed requests.
+`uniform-service-channels-v1/run-v3/browser-v1/result.json` has SHA
+`40515b7caceb165e296d52503caceaf9ac7bdd1d954b6e5a4e29314ef94cfc33`.
+It binds the served index, loader, scene, shared Bun/Playwright runner and tool
+versions; no page-context evaluation is used. Publication is not yet observed.
+
+Reproduce into a fresh ignored output using
+`PYTHONPATH=. .venv/bin/python -B scripts/eoere_uniform_service_channels.py --out FRESH_OUTPUT`;
+the producer snapshots itself and source hashes before CAD import and rechecks
+inputs afterward. Check the frozen scene with
+`node scripts/check_eoere_uniform_channels.mjs FRESH_CHECK_JSON` and
+`bun scripts/check_eoere_uniform_channels_browser.cjs FRESH_BROWSER_DIRECTORY`.
+Raw roots are under
+`fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/uniform-service-channels-v1/`.
+Keep `run-v3` and its cached solids active. Preserve `run-v1` and `run-v2`, their
+producer/input snapshots and failed collision registers as recoverable attempts:
+v1 used the superseded single-bottom-cut interpretation and an incorrect service
+checker; v2 restored the intended F-column scope but retained incorrect checker
+service orientations/dimensions and unresolved local crossovers. The corrected checker/routing in v3 passes;
+failed attempts do not supply evidence. No archive or pruning occurred.
+
+Retain the producer, receipt, shared mesh patch, loader and two focused check
+helpers: **six new files / 2,540,119 bytes**, plus the maintained index, summary
+and ledger. The receipt retains the 609 source pins and saved-body/route evidence.
+The new mesh volume is needed for the changed timber and 140
+cable links; unchanged geometry is reused and raw BReps/screenshots stay ignored.
+The extended-cleat shop drawings and six-case numerical responses remain frozen
+to their preceding geometry. Matching channel drawings and actual routing/tool
+tolerances remain open; all release flags remain false.
+
+Scoped Ruff, JavaScript syntax, smoke geometry/export, changed local links and
+`git diff --check` pass. Repository-wide Ruff reports **1,852 diagnostics**
+outside the new producer. The broader default pytest invocation used the shared
+mesh-materialization wrapper and was interrupted after **1,279 passes and nine
+failures** in 326.32 seconds. The failures concern the unchanged PB-01 ledger
+assertion, seven stale AGENTS.md source pins and an unchanged preflight error-text
+assertion. No channel code is involved in those failures, and no full-suite pass
+is claimed. Their foreign sources and frozen evidence remain untouched.
+The wrapper completed its cleanup. Final shared-mesh compaction passes with
+6,823 retained files and 13,618 aliases; the alias URL check also passes.
 
 ### Extended side cleats
 

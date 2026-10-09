@@ -1,21 +1,28 @@
 # Eoere bolted-frame development
 
 This is the main development entry for `compact-floor-flush-eoere-bolted-development`.
-The current geometry is **`eoere-base-side-edge-cleats-v1`**, with the optional
-extra grid **off**. It uses 22 timbers, six panels, 22 angles, 100 through-bolt
+The current local geometry is **`eoere-uniform-small-service-channels-v1`**,
+with the optional extra grid **off**. It uses 22 timbers, six panels, 22 angles, 100 through-bolt
 stacks and 66 purchased Hillman panel/kicker screws. The retained folder name
 also covers earlier wood-joint studies. The selected screw-and-bracket
 [baseline authority](../../current-candidate.json) stays separate.
+
+The owner-directed revision uses the smaller cable passage throughout:
+derived **20.428 mm (0.8042 in) front width / 14.35 mm (0.5650 in) rear depth**.
+Eleven repeated cable-arc cuts on the moved right center principal are filled;
+flexible links now run straight beside it. The existing transverse passage
+and all bolt/screw axes remain. This is geometry evidence only; the preceding
+shop and numerical packets retain their exact earlier geometry bindings.
 
 ## Active builder reading path
 
 | Need | Start here | Boundary |
 | --- | --- | --- |
-| Current geometry | [Extended-cleat viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear) · [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) | Extends both full-thickness cleats to the sloping side edge; retains the adjusted v3 axes. Geometry evidence only. |
-| Current nominal shop records | [Extended-cleat shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md) | Current profiles, hole/screw datums, stock nesting, hardware and assembly dependencies; four cleat/post stations remain **HOLD**. |
+| Current local geometry | [Smaller-channel viewer](../../site/index.html?model=eoere-uniform-channels-frame-development&view=rear) · [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-uniform-channels-v1.json) | Uniform smaller passages and eleven principal arc cuts removed; retains the extended cleats and all 100/66 axes. Geometry evidence only. |
+| Latest nominal shop records | [Extended-cleat shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md) | Preceding channel geometry; hole/screw datums, stock nesting, hardware and assembly dependencies remain source-bound. Channel drawings need a matching revision; four cleat/post stations remain **HOLD**. |
 | Preserved fixture concepts | [Aligned-wire builder-support guide](eoere-builder-drilling-guide.md) | Frozen to `eoere-grid-aligned-wire-cutouts-v1`. Later v3 moved 22 shafts and ten screws; use the current shop packet for current datums. Actual tools, reach, fixtures and tolerances remain unresolved. |
-| Current numerical evidence | [Six fresh cases](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json) · [parent verification](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/parent-verification-v1.json) | Current extended-cleat geometry, extra grid off; passing equilibrium/recovery audits, retained reference exceedances and unknown complete-joint resistance. |
-| Current component comparisons | [Six-case summary](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/summary.json) | Own-case panel, screw, gross timber, steel, shaft and washer references; complete-joint resistance remains null. |
+| Latest numerical evidence | [Six fresh cases](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json) · [parent verification](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/parent-verification-v1.json) | Preceding extended-cleat geometry, extra grid off; passing equilibrium/recovery audits, retained reference exceedances and unknown complete-joint resistance. No response transfers to the channel revision. |
+| Latest component comparisons | [Six-case summary](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/summary.json) | Preceding own-case panel, screw, gross timber, steel, shaft and washer references; complete-joint resistance remains null. |
 | Current tasks and detailed evidence | [Completion ledger](completion-ledger.md#build-package-completion) · [qualification status](completion-ledger.md#current-model-completion-scope-and-qualification-status) | Detailed scope, source bindings, reviews and open inputs; earlier “current” sections retain their historical meaning. |
 
 ## Revision map
@@ -24,11 +31,12 @@ Geometry, response and shop coverage have different revision boundaries:
 
 | Role | Exact revision / record | Viewer or operations |
 | --- | --- | --- |
-| **Main development geometry** | `eoere-base-side-edge-cleats-v1` · [receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) | [Extended-cleat base, extra grid off](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear); published at `bca5f988`. |
+| **Main local development geometry** | `eoere-uniform-small-service-channels-v1` · [receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-uniform-channels-v1.json) | [Smaller-channel base, extra grid off](../../site/index.html?model=eoere-uniform-channels-frame-development&view=rear); local successor, publication unobserved. |
+| Preserved extended-cleat geometry | `eoere-base-side-edge-cleats-v1` · [receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) | [Extended-cleat base](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear); published at `bca5f988`. |
 | Unadopted lower-corner proposal | `eoere-lower-cleat-z180-proposal-v1` · [four-axis patch and eight receiver datums](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/viewer-revision-v1/runs-v1/export01/layout.json) · [own six-case roster](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-execution-v1/cases-v1/result-v1.json) | [Z180 preview](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-lower-cleat-z180-development&view=rear); four stacks lower 20 mm, with eight replacement holes and a [matching nominal shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/z180-proposal-v1/README.md). Its fresh numerical evidence remains separate from current Z200 results and instructions. |
-| Optional unofficial preview | Extended cleats plus `eoere-2026-horizontal-midpoint-grid-v3` | [Extra grid on](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-2026-development&view=rear); 120 added T-nuts/lights and 119 cable links. Exact midpoints are provisional assumptions. |
-| Current shop coverage | `eoere-base-side-edge-cleats-v1`, extra grid off | [Current shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md), published at `845e2e0c`; nominal records, held stations and unresolved tolerances. |
-| **Current six-case response** | `eoere-base-side-edge-cleats-v1` · [case roster](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json) | Six genuine independent admissions and twelve component reports; first-order fixed-rear-leg support scenario, without a resistance or physical-applicability pass. |
+| Optional unofficial preview | Smaller channels plus `eoere-2026-horizontal-midpoint-grid-v3` | [Local extra grid on](../../site/index.html?model=eoere-uniform-channels-2026-development&view=rear); 120 added T-nuts/lights and 119 added cable links. Exact midpoints are provisional assumptions. |
+| Latest shop coverage | `eoere-base-side-edge-cleats-v1`, extra grid off | [Preceding shop packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/README.md), published at `845e2e0c`; channel revision not yet incorporated. |
+| **Latest six-case response** | `eoere-base-side-edge-cleats-v1` · [case roster](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json) | Six genuine independent admissions and twelve component reports for the preceding geometry; first-order fixed-rear-leg support scenario, without a resistance or physical-applicability pass. |
 | Preserved adjusted base | `eoere-midpoint-ready-frame-v3` · [receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-adjusted-base-v3.json) | [Pre-extension base](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-adjusted-frame-development&view=rear); 39.2-mm principal shift, 22 moved shafts and ten moved screws. |
 | Preserved aligned-wire geometry | `eoere-grid-aligned-wire-cutouts-v1` · [receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json) | [Aligned-wire viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-aligned-wire-development&view=rear); 30 rail passages aligned to the original grid. |
 | Preserved trimmed cleats | `eoere-rear-trimmed-cleats-v1` · [receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json) | [Trimmed-cleat viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-trimmed-cleats-development&view=rear); distinct geometry evidence. |
@@ -37,7 +45,11 @@ Geometry, response and shop coverage have different revision boundaries:
 
 ## Current disposition
 
-The current nominal shop packet covers 28 wood/panel profiles, 120 receiver-hole
+The following shop and numerical results describe the preceding
+`eoere-base-side-edge-cleats-v1` geometry. They have not been recalculated or
+reissued for the smaller-channel successor.
+
+That nominal shop packet covers 28 wood/panel profiles, 120 receiver-hole
 occurrences for 100 shafts, 66 screw datums, 100 hardware sets, 200 access sides
 and nine drawings. The revised blanks fit the same 13-stick / 150-board-foot
 purchase scenario. Its nominal mass is 219.115940 kg, including the retained
@@ -120,7 +132,7 @@ unestablished; no product dimensions or machining pass are inferred from the
 hole-size listing. The smaller Big Gator STD1000DGNP stops at 3/8 inch and is
 excluded from this final-bore comparison.
 
-The current six-case calculation retains 250 lb ×2 downward, 300 N horizontal,
+The preceding six-case calculation retains 250 lb ×2 downward, 300 N horizontal,
 the recorded 100-mm hold arm and gravity. All 32 floor points are compression-only;
 only the two rear-leg centroids receive XY restraint under the unverified no-slip
 assumption. Each fresh case has its own saved-field/operator audit, with no retries
@@ -191,13 +203,15 @@ for exact inputs, reviews, output checks and active evidence retention.
    stations before adopting changed axes or revised drilling instructions. The
    current Z200 and separate Z180 numerical packets retain their own bindings;
    neither establishes complete proposed-joint resistance.
-2. Use the completed current numerical packet within its declared scope. Complete
+2. Use the completed extended-cleat numerical packet within its declared scope. Complete
    joint resistance, finished net sections, restraint and first-order physical
    applicability remain open; no old response or capacity transfers by relabeling.
 3. Identify actual saw/drill/bit and finishing-tool envelopes, then resolve
    supported reach, recess finishing, fixture dimensions and interface tolerances
-   against current shop datums. The preserved guide's axis-continuity statement
-   belongs to its earlier aligned-wire scope; it does not cover the later 22/10 moves.
+   against the source-bound shop datums. Update channel drawings for the smaller
+   passages before using them for this successor. The preserved guide's
+   axis-continuity statement belongs to its earlier aligned-wire scope; it does
+   not cover the later 22/10 moves.
 4. Retain the current screw count and purchase policy. Panel/screw remedies stay
    stopped; the optional extra grid remains unofficial and separately scoped.
 
@@ -212,7 +226,8 @@ Use the current geometry and shop packet above, then the bounded evidence:
 
 ## Conditional operations and purchasing
 
-Use the current shop tables for changed members/stations. Earlier leg-corner
+Use the shop tables within their named geometry revision. The smaller-channel
+successor still needs matching channel drawings. Earlier leg-corner
 layout sheets cover only their source-bound unchanged members and four axes.
 Model occupancy and CSV lengths are analysis envelopes, not released bit sizes
 or delivered shank lengths. Actual parts, tool access and tolerances remain
@@ -245,3 +260,9 @@ Required cached solids, source banks, fields, operators and reviews remain
 and [contributor recovery workflow](../../CONTRIBUTING.md) before moving files.
 Historical viewer choices and shared mesh aliases remain available. Candidate
 selection, native authorization and physical acceptance remain separate decisions.
+
+The smaller-channel producer, shared scene patch, loader and focused mesh/browser
+checks remain active with their 609 authenticated inputs and saved CAD bodies.
+The [channel ledger entry](completion-ledger.md#uniform-smaller-cable-channels-and-principal-arc-cuts)
+records reproduction and failed-attempt retention. No archive or pruning is
+authorized by this continuation.
