@@ -9,7 +9,22 @@ the current engineering record. The selected screw-and-bracket baseline remains 
 
 ## Current disposition
 
-**Current geometry: both exterior 2×6 cleats are trimmed to the sloping sides'
+**Current geometry aligns 30 wire passages on six rails to the original grid
+columns, retaining the two already-aligned center-upright passages.** The
+[aligned-wire viewer](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear)
+and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json)
+form the distinct `eoere-grid-aligned-wire-cutouts-v1` revision. Six raw rails
+are recut rather than retaining their old channels; 30 rounded routes change.
+All 132 LED endpoints, 131 links, the two connector-bearing links, 100 bolt
+positions and 66 screw axes remain unchanged. Actual rail/route geometry,
+nominal interference, bore and screw backing, mesh and browser checks pass.
+The passages have a 20.427677-mm nominal front width and 14.35-mm rear depth;
+the cable center remains at N8 with the recorded 8-mm fillets. These are CAD
+envelopes, not routing-tool, delivered harness or installation instructions.
+The two upright links follow their LED rows, which differ from the corresponding
+T-nut rows. The center principal stays in its existing position.
+
+The preceding geometry step trims both exterior 2×6 cleats to the sloping sides'
 rear edges, with full 38.1-mm thickness and all bolt positions retained.**
 The [trimmed-cleat viewer](../../site/index.html?model=eoere-bolted-trimmed-cleats-development&view=rear)
 and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json)
@@ -21,8 +36,9 @@ The nearest upper bore edge is 23.948653 mm from the cut and the washer outer
 edge is 16.027028 mm away, measured perpendicular to the cut. These are nominal
 containment distances, not joint-strength references. The existing lower
 bore/kicker-screw gap remains 0.340625 mm. No angle or bolt relocation is adopted.
-The owner also authorizes a subsequent wire-cutout alignment revision; the
-center-principal shift remains an unadopted suggestion.
+The later wire revision retains these two cleats byte-for-byte. Its source
+bindings, independent review, limits and recovery are in the
+[existing ledger](completion-ledger.md#build-package-completion).
 
 **The preserved untrimmed raised-rail numerical MVP and nominal shop/assembly
 packet are published at `2cab2be5`.** Their source bytes, results, cut profiles

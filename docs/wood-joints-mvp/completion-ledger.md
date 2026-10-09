@@ -6,8 +6,10 @@ The **raised-rail conditional numerical MVP and nominal shop/assembly packet
 are published at `2cab2be5`**. The owner's latest geometry direction trims both
 exterior cleats along the sloping side rear edges, retaining full thickness and
 all bolt positions. Its separate geometry/display checks pass; no six-case
-mechanics pass transfers to the trim. Wire-cutout alignment is the next bounded
-geometry task; shifting the center principal is unadopted. The preceding
+mechanics pass transfers to the trim. The subsequent wire-cutout revision
+aligns 30 passages on six rails while retaining the two center-upright passages,
+132 LED endpoints and all bolt/screw axes. Its geometric/display checks pass;
+shifting the center principal remains unadopted. The preceding
 reporting scope was finishing and publishing the conditional numerical MVP
 and remaining nominal shop/assembly documentation. All six
 loaded cases are complete. Reuse frozen evidence, retain exceedances and
@@ -2144,15 +2146,174 @@ Recover into a new external directory:
 uv run python -B scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-cleat-rear-trim-v1.tar.gz.manifest.json --destination /tmp/eoere-cleat-rear-trim-restored
 ```
 
-The next authorized geometry task aligns the horizontal and vertical 2×6 wire
-cutouts, including the two center-upright passages, to the existing LED/T-nut
-grid. Preserve all 132 endpoints, 131 links, fixed hold hardware and every
-bolt/screw axis. Source review shows the two upright passages already align;
-six rail bodies and 30 wire routes need a separate bounded revision. Restore
-those rails from raw stock before recutting, rather than retaining old and new
-notches. The proposed center-principal shift remains unadopted. Actual CAD
-clearance, support and display checks are the next deliverables; the reviewed
-source-only routes are not already executed geometry.
+The trim is published at `6eb59b28f95839432f5e7125281975eaa09406f1`.
+Its [Pages deployment](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37866997049)
+passes; HTTP 200 checks independently verify exact deployed index, loader and
+scene bytes. The receipt is `cleat-rear-trim-v1/publication-v1/receipt.json`,
+SHA `b972057539fe71f45f2194bc938fdb697ea84cb36630cf6fff09bc0f74209b8a`.
+This later receipt remains active separately from the twenty-file trim archive.
+
+**Owner-directed wire-cutout alignment:** the later
+`eoere-grid-aligned-wire-cutouts-v1` geometry and
+[viewer](../../site/index.html?model=eoere-bolted-aligned-wire-development&view=rear)
+align 30 rail crossings on the original grid columns. The two center-upright
+passages already follow LED rows S19.2/S2219.2 mm and remain unchanged. Those
+rows differ from the matching frozen T-nut rows S99.2/S2319.2 mm; no simultaneous
+row alignment is claimed. The principal move is unadopted. All 132 endpoints,
+131 links, the fixed G2 +5-mm endpoint, connector links 050/100, all 100 bolt
+axes, all 66 screw axes and the two trimmed cleats stay unchanged.
+
+The original source-only route prescription is
+`aligned-wire-cutouts-review-v1/review.json`, SHA
+`2cad7f100e6503c2991e8fc5cd5302ce5b3da9210760fb85bb0d28c266d4196d`,
+with producer SHA
+`1c2955c489ecd37189973237fe5e147c7da57d0491efb96a06e922103940ac41`.
+The distinct follow-up is SHA
+`154cde1cd1341d7398a545a48fd764647b5977abae4a6fe3ef84084039107866`,
+with producer SHA
+`8fbe04f3f06517acaf65948188b7e558f7082d6c87264e87a96e0e2371b33dc3`.
+The mistakenly augmented intermediate receipt/helper remain frozen recovery
+evidence; their historical producer targets the issued v1 path and must not
+be run over it. Exact issued v1 bytes were restored and independently verified
+before the parent plan froze. The follow-up changes no route.
+
+The parent keeps the reviewed q=5.5-mm dogleg return, N8 cable-center plane and
+8-mm fillets. Thirty own rounded lengths are **226.265482–266.265482 mm**,
+within their recorded **304.8-mm** nominal budgets. The projected panel-hole
+gap is **0.136105 mm**, a conservative infinite-axis comparison. Actual
+finite T-nut flange and barrel N gaps are **4.14/6.0 mm**. The separate
+nominal straight 3/8-inch hold-shaft projection gives **0.929855 mm** regardless
+of its length; actual holds/hold bolts and larger rear hardware are absent.
+Increasing q to 5.9/5.95 mm breaks the full centered front-strip condition;
+the frozen recipe is retained. These geometric hypotheses do not qualify
+delivered cable, slack, bend radius, machining or removal.
+
+The source-only **769-pin** parent plan is
+`aligned-wire-cutouts-v1/plan-v1.json`, SHA
+`c09ddd71a50b25d9ef17407c100fc34f61cde2f7451bef639aaf2277de71d3ed`;
+its producer is SHA
+`6d195ff3910fc155147a9a2f731460d685cd668fc9715e5e5bad7062c8dbeb01`.
+One bounded CAD run reuses the existing simplify/sweep/front-open, bore and
+hardware helpers. Only six cached raw rails and 30 routes are rebuilt. The
+raw rails receive their existing bottom translations and new cuts, then
+their unchanged 24 bolt bores. The old void inventory reconciles within
+**0.000170 mm³**, accounting for old wire cuts and bores; no old channel is
+silently retained. There is no whole-frame rebuild, candidate field, native
+mechanics solve or refreshed resistance. The command is:
+
+```sh
+wj_wire_root=/home/mckay-linux/repos/mini-moonboard/fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/aligned-wire-cutouts-v1
+PYTHONPATH=. uv run python -B "$wj_wire_root/revision.py" build --plan "$wj_wire_root/plan-v1.json" --out "$wj_wire_root/cad-v1"
+```
+
+Preserve the issued output and use a fresh directory for reproduction. The
+[public geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json)
+is **523,488 B**, SHA
+`2b31d82a41cd6eb1c80e3ed84b2d0cae428fdc575b1c8c6fa27d7c3e6f0276c5`,
+with **784** frozen source pins. All six rails are valid single solids with
+valid saved-BREP roundtrips. Thirty constant slot sections each remove
+**7,925.407966 mm³**, agreeing with the analytic **208.015957-mm²** section
+through the 38.1-mm rail span. Nominal front width is **20.427677 mm**, rear
+depth **14.35 mm**. All 24 unchanged rail bore bodies and 24 CAT/nominal
+screw-body backing checks have fraction **1.0**. All six occupied collision
+lists are empty: new wire/timber, wire/metal, wire/screw, wire/T-nut, active
+cut-void/metal and unintended wire/wire. Thirty-nine intentional adjacent
+wire junctions lie wholly inside their common modeled bulbs.
+
+The Boolean timber loop checks **22 timbers**. Six unchanged panels are
+excluded by separate scalar geometry bounds, not by an invented CAD-loop
+claim: main panels end at N0 while wire occupies N6–10; kicker Z is below
+277 mm while saved new wire begins at 307.134956 mm, a 30.134956-mm gap.
+Nonendpoint bulbs have a separate
+conservative **163.9276-mm** planar separation. The front sweep radius
+10.213839 mm exceeds the 8-mm route fillet radius outside the rails. Valid
+rails and exact straight-slot volumes do not prove whole-cutter validity,
+front-lifting corridors or physical installation. The six-rail nominal mass
+delta at 500 kg/m³ is **+0.001376 kg**; no new whole-frame mass/gravity field
+is issued. Contact patches, net sections, stiffness and full joint resistance
+remain unevaluated for this revision.
+
+Independent saved-output review is
+`aligned-wire-cutouts-review-v1/actual-output-review.json`, SHA
+`99990fe682a5a59afb17ce1d398388e05042ca9381f2d1b1605f0ba4bbd188ff`;
+its helper is SHA
+`33b731faa76dc74c0217fe1b037e73c40432026f93af54136ca39413d3d28a70`.
+Status is `PASS_NOMINAL_SAVED_GEOMETRY_AND_DISPLAY_BINDINGS_ONLY`. It verifies
+all 784 parent pins, imports the 36 saved changed bodies and six preserved
+panel outlines, and independently checks 165 slot points per rail, 48 annular
+timber face lands with fraction 1.0, all endpoints/lengths/unchanged records and
+the actual 36 display meshes. Maximum display-volume difference is 0.097017%,
+within that geometric review's recorded quantization scope. Its finite panel
+and nonendpoint-LED exclusions supply the bounds above. It performs no CAD
+reconstruction, full-frame export or native/global mechanics. Nominal lands
+and display agreement do not qualify nut/washer strength, contact, tool paths
+or delivered tolerances.
+
+The actual Three.js geometry receipt is
+`aligned-wire-cutouts-v1/actual-mesh-check-v1.json`, SHA
+`09c826afa71fb2191653d6f851e5a6edcd238256cb0d3f8a8161cbef1e6a8b32`.
+It verifies 1,021 visible parts, exact reuse of **985** unaffected parts,
+all 100 bolt groups, 66 screws, 131 wires and 132 lights. Its nine negative
+revision/parent/principal/connector/transform/census/mechanics/release/layout
+guards reject. The unchanged frozen base loader is SHA
+`902cc6e270aa72c136dc14479db96119b6df3633aa2bda308c951d383f5d7696`;
+the checker is SHA
+`221bf2fdef02dfe871e7e417f044e2d947b6385130913935c6b96dc8b4b26ae6`.
+The **8,341,735-B** raw patch remains active ignored audit input. Its decoded
+SHA is `367ddf67b376597e9ca906bb1faa904cbbfa16c98ddc86c879548a6eff637573`.
+The published **3,875,633-B** gzip is SHA
+`dbb6c2cdf65b4473b71a38faa233dd7c6f43bb02bb07ad6a702943c343947ee4`.
+The small gzip adapter, SHA
+`7daff2ab08ef351bdc784ee78289b8fee4235caf00a7ee50b39e69d1109c72f6`,
+verifies both hashes and reuses the frozen loader through a temporary Blob
+URL. No issued loader, raw patch or prior receipt is overwritten.
+`compression-contract-v1.json`, SHA
+`3e33620bd0d0a9a0aaa6f25a35778edc6f16a0837f714fd4b5141fb56192391d`,
+proves decoded-byte identity, allowing reuse of the genuine raw mesh check.
+
+The browser receipt is `aligned-wire-cutouts-v1/browser-v1/result.json`, SHA
+`5d69132b5a35daba0c0904b7af9eebaffea19084887a5edb1c3ed67b2ccdd2c8`.
+It exercises the gzip/Blob loader, inspected front/rear screenshots, new/trim/
+raised navigation and current entry link with zero page errors or failed
+requests/responses. Its served HTML is a retained snapshot; later navigation
+edits do not rewrite prior snapshots. No page-context code evaluation or
+dependency install is used. Scoped Ruff, Node syntax, whitespace, compaction
+and all **13,618** alias URLs pass. The five necessary new permanent assets
+total **4,414,592 B**: six-rail/30-wire meshes in gzip, their two small loaders,
+checker and compact geometry receipt. Raw runs, code, cached bodies and all
+old scenes remain active; only the compressed new scene is published.
+
+The verified external recovery archive is
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-aligned-wire-cutouts-v1.tar.gz`,
+**5,082,991 B**, SHA
+`86279068bcd94c1b553d0d32d5955aae10a2e736a536d1df372bec56332222d3`.
+Its **17,226-B** `.manifest.json` is SHA
+`688acf55c2884086ff14352d6d5ac6377b8f6bcebeb29c0e8275e4ffcdf3a15c`.
+It preserves **58 files / 10,554,403 raw bytes** across the two new wire
+producer/review roots and the preceding trim publication receipt. Every
+archive member, restored file and unchanged source inventory verifies.
+All raw sources and current consumers remain active; nothing is pruned.
+The ignored local `site/eoere-aligned-wire-scene.json` is byte-identical to
+the archived `aligned-wire-cutouts-v1/cad-v1/scene.json`. Its path remains
+available for the frozen mesh checker. Recover that copy only to an absent
+target, or verify the existing decoded SHA rather than overwriting it.
+The gzip is reproducible with Python 3.12.3
+`gzip.compress(raw_bytes, compresslevel=9, mtime=0)`; verify its recorded SHA.
+No shared bodies, installations, manuals or earlier raw fields are duplicated
+into the new archive. Recover into a fresh external directory:
+
+```sh
+uv run python -B scripts/evidence_archive.py restore --manifest /home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-08/eoere-aligned-wire-cutouts-v1.tar.gz.manifest.json --destination /tmp/eoere-aligned-wire-cutouts-restored
+```
+
+The final parent check reuses the saved documentation link checker: **636**
+local destinations and **44** Markdown fragments resolve. All **689** original
+assessment, **644** final joint-validation and **784** new geometry pins remain
+unchanged; the original guide, fourteen shop and nine heel files remain frozen.
+Only the five new permanent assets and five maintained documentation/navigation
+paths are staged for normal master publication. The fourteen unrelated
+historical helpers stay untouched. The completed numerical/reporting packet,
+trim geometry and aligned-wire geometry retain separate qualification scopes.
 
 **Latest owner scope takes precedence over the earlier full-build objective
 below:** “Don't attempt to resolve the screw panel problem. Just take the model

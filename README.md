@@ -11,13 +11,15 @@ Start at the [eoere development summary](docs/wood-joints-mvp/README.md) and
 Their retained `wood-joints-mvp` paths contain the active work and its history.
 The current approach uses **22 eoere angles, two exterior 2×6 cleats, 22
 timbers, 100 through-bolt stacks and 66 purchased Hillman panel/kicker screws**.
-The current geometry trims both exterior cleats' projecting corners along
+The current geometry centers the six rails' 30 wire passages on the original
+grid columns and retains the two already-aligned upright passages. All 132 LED
+endpoints and 131 links remain fixed. It also trims both exterior cleats' projecting corners along
 the rear edges of the sloping sides. Full 38.1-mm cleat thickness, all 100
 bolt positions and all 66 screw axes remain unchanged. The
-[trimmed-cleat viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-trimmed-cleats-development&view=rear)
-and [geometry receipt](docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-cleat-trim-v1.json)
-record this separate, unevaluated geometry revision. Wire-cutout alignment is
-the next bounded geometry task; a center-principal shift is unadopted.
+[aligned-wire viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-aligned-wire-development&view=rear)
+and [geometry receipt](docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-aligned-wire-v1.json)
+record this separate, unevaluated geometry revision. The preceding trimmed-cleat
+viewer and all earlier choices remain available; a center-principal shift is unadopted.
 
 The preserved, untrimmed raised-rail model has a completed [conditional six-case numerical packet](docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/fixed-floor-numerical-mvp-v1.json)
 under **250 lb ×2, 300 N horizontal, a 100-mm hold arm** and recorded gravity.
@@ -36,7 +38,8 @@ organizes the nominal cut/hole datums, all 100 hardware stacks and 200 access
 sides, receiving limits, assembly/removal order and cost/mass scope. Missing
 dimensions, tools and actual observations stay explicit; coherent documentation
 does not supply the model's unknown complete joint capacities. Its original
-cleat profiles and six-case findings do not evaluate the new trim.
+cleat profiles, wire-cut coordinates and six-case findings do not evaluate the
+subsequent trim or aligned passages.
 
 ## Preserved wood-joint studies
 
@@ -71,7 +74,7 @@ uv sync --locked
 uv run python -m http.server 8767 --directory site
 ```
 
-Open [the local trimmed-cleat viewer](http://localhost:8767/index.html?model=eoere-bolted-trimmed-cleats-development&view=rear)
+Open [the local aligned-wire viewer](http://localhost:8767/index.html?model=eoere-bolted-aligned-wire-development&view=rear)
 for the latest geometry revision, or choose a preserved model in the Design list.
 Contributor instructions cover affected checks, mesh aliases and verified
 evidence archiving. Preserve frozen inputs and historical results.
