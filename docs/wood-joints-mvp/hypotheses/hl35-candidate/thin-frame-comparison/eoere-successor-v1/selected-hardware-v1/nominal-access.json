@@ -1,0 +1,79 @@
+{
+  "Actual": "",
+  "Disposition": "",
+  "access_sides": 200,
+  "continuous_reference_handle_sweep_deg": 60,
+  "counts": {
+    "assembled_socket_clear": 176,
+    "box_end_insertion_clear": 200,
+    "complete_wrench_axial_insertion_clear": 200,
+    "frame_stage_removal_clear": 200,
+    "frame_stage_socket_clear": 176,
+    "short_socket_clear": 200,
+    "static_counterhold_clear": 200,
+    "working_handle_60deg_clear": 200
+  },
+  "extra_grid_added_hardware_checks": 48,
+  "extra_grid_added_hardware_clear": true,
+  "fine_query_count": 7392,
+  "finite_cylinder_known_answers": 3,
+  "limits": [
+    "Exact nominal solid intrusions against conservative finite envelopes; not delivered-tool qualification.",
+    "Frame stage removes all panels, panel screws, T-nuts, LEDs and wiring before structural bolt operations.",
+    "Rows with tool or removal envelopes below Z=0 require a raised or reoriented, independently supported setup; its actual clearance and stability remain unqualified.",
+    "Counterhold and 60-degree operating sweeps use conservative generic wrench envelopes; clamp/guide sweeps remain unverified.",
+    "Tangency within 0.0001 mm3 is not positive intrusion; no positive manufacturing tolerance is established.",
+    "No native mechanics, timber rebuild, actual observations or fabrication/climbing release."
+  ],
+  "maximum_additional_reference_floor_clearance_mm": 93.2217303915869,
+  "mechanics_or_physical_release": false,
+  "minimum_selected_operation_z_mm": -93.2217303915869,
+  "nominal_intrusion_queries": 978,
+  "nominal_socket_wall_allowance_mm": 1.5,
+  "off_floor_setup_required_sides": 12,
+  "outputs": {
+    "access.json": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/selected-hardware-v1/access-v6/access.json",
+      "sha256": "2d57c7cd56cb063f55ac8f5b28eac4f68098abb8854baad800bec7cd48caa806"
+    },
+    "queries.json": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/selected-hardware-v1/access-v6/queries.json",
+      "sha256": "907517a9c360fa663336099349cf79abb917b6d5b36e50e5920e0d8ace1e7c9c"
+    }
+  },
+  "production_obstacle_query_known_answers": 3,
+  "query_operations": {
+    "box": 200,
+    "complete": 634,
+    "full": 100,
+    "head": 100,
+    "nut": 100,
+    "seated": 400,
+    "selected": 48,
+    "short": 200,
+    "spacer": 8,
+    "static": 416,
+    "working": 634
+  },
+  "removal_interval_policy": "Each part's near face reaches the selected bolt tip; the sweep includes that part's full axial thickness.",
+  "revision": "eoere-selected-purchase-hardware-v1",
+  "schema": "eoere_selected_hardware_nominal_access/v1",
+  "socket_axial_envelope_mm": 50.8,
+  "source_bytes_unchanged": true,
+  "source_layout": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
+    "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+  },
+  "source_map": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/selected-hardware-v1/access-v6/source-pins.json",
+    "sha256": "cfc1f3c8808b2fcc3fd5be5d48882317e8ac5848f20863c25869f9afec6e8b66"
+  },
+  "source_map_canonical_sha256": "242075c7ee00bba4011d0a8f77a886c981d2d076f68008596b4a0d29562ba766",
+  "source_pin_count": 1535,
+  "static_handle_length_width_thickness_max_mm": [
+    152.4,
+    19.05,
+    6.35
+  ],
+  "temporary_support_or_reorientation_qualified": false
+}

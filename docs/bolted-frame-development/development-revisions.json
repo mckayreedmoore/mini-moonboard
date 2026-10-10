@@ -3,7 +3,7 @@
   "candidate": "compact-bolted-frame-development",
   "geometry": {
     "revision": "eoere-raised-kicker-screws-v1",
-    "viewer": "eoere-kicker-clearance-frame-development",
+    "viewer": "eoere-selected-hardware-frame-development",
     "receipt": {
       "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
       "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
@@ -16,7 +16,7 @@
   },
   "optional_grid": {
     "revision": "eoere-expanded-right-column-v1",
-    "viewer": "eoere-expanded-right-column-development",
+    "viewer": "eoere-selected-hardware-grid-development",
     "default_enabled": false,
     "official": false,
     "receipt": {
@@ -64,7 +64,7 @@
     ],
     "current_channel_drawings_complete": true,
     "shop_planning_only": true,
-    "hardware_model_updated": false
+    "hardware_model_updated": true
   },
   "response": {
     "revision": "eoere-base-side-edge-cleats-v1",
@@ -102,5 +102,35 @@
   },
   "fabrication_released": false,
   "climbing_released": false,
-  "evidence_candidate": "compact-floor-flush-eoere-bolted-development"
+  "evidence_candidate": "compact-floor-flush-eoere-bolted-development",
+  "hardware_model": {
+    "revision": "eoere-selected-purchase-hardware-v1",
+    "viewers": {
+      "base": "eoere-selected-hardware-frame-development",
+      "extra": "eoere-selected-hardware-grid-development"
+    },
+    "receipt": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
+      "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+    },
+    "scene": {
+      "path": "site/eoere-selected-hardware-scene.json.gz",
+      "sha256": "41830cf651f8b0a321a89336f654af5d90a4f42a1d705a7411b5e088de3b2811",
+      "decoded_sha256": "960caea3fc342224eefa9d5acdaf68a4ee56f6a3f85ab756d29712f8cb7e6baa"
+    },
+    "wood_screw_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+      "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+    },
+    "optional_grid_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json",
+      "sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a"
+    },
+    "shop_override": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv",
+      "sha256": "6644c0a9432362d7d8310956cf3d1290ec11589899ff6c498c0380a5e0d8a767"
+    },
+    "analysis_pass_transferred": false,
+    "actual_parts_verified": false
+  }
 }

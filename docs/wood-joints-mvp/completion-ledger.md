@@ -4503,6 +4503,94 @@ The prior 17 issued files remain immutable dependencies/history; the five-file
 v3 wrapper does not replace their bytes or numerical method. No candidate,
 global, native, CAD or physical execution follows from this synthetic closure.
 
+### Current selected hardware viewer and nominal installation
+
+The owner-directed remaining-work goal applies the selected purchase stacks
+in **`eoere-selected-purchase-hardware-v1`**. The
+[implementation and method packet](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md)
+and [geometry receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json)
+retain `eoere-raised-kicker-screws-v1` as timber/panel/screw authority. All 100
+bolt axes, 66 Hillman axes and climbing surfaces stay fixed. The current base
+viewer keeps the optional grid off; its separate expanded-grid variant retains
+the unofficial 264-position layout. Every preceding viewer remains available.
+The maintained revision index binds wood/screw geometry, optional grid,
+applied hardware, the frozen shop override and preceding response separately.
+
+The frozen input SHA is `3ae3fa72868a834641260f1e10034fb13c0dd2c3ba31dbe9dbac3fcd2cf34e5c`;
+the new receipt SHA is `c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09`.
+The 21,032-byte scene SHA is `41830cf651f8b0a321a89336f654af5d90a4f42a1d705a7411b5e088de3b2811`.
+Six shared mesh templates replace 32 shafts, translate eight nuts and add eight
+spacers. The base/expanded census is 1,029 / 1,424 parts, with 100 physical
+bolts, 100 nuts, 200 washers, eight spacers, 22 angles and 66 screws.
+CADQuery 2.8.0 verifies two known answers and 48 valid changed world BREPs;
+all 1,446 source pins remain unchanged. Actual Three.js checks retain
+981 / 1,376 unchanged geometries and verify selected lengths, stack roles,
+changed bounds and display-envelope containment. Independent retained-axis
+station checks and rendered annulus/bore checks pass; twenty scene, station,
+shape and hash controls reject. No thread form is rendered
+or delivered shank observation inferred.
+
+The nominal access refinement authenticates 1,535 pins and records 7,392 exact
+intrusion queries, including failed trial orientations. All 200 sides have a
+clear complete box-wrench insertion, continuous 60° working sweep, static
+counterhold and shaft/head or nut/spacer removal corridor in the documented
+frame stage before panels/services. A 50.8-mm reference socket body conflicts
+at 24 nut sides; a seated 25.4-mm body clears all 200, without a complete
+socket/driver approach claim. Use the per-side box-wrench method and recorded
+orientations; actual tools, retention and tolerances remain unobserved.
+All 48 added metal envelopes also clear nominal optional-grid geometry.
+The corrected `access-v6` spacer corridor includes its full 12.7-mm thickness
+beyond the bolt tip; the superseded v3 corridor stopped 4.1402 mm early.
+V5 retains byte-identical v4 queries and exposes floor-setup fields that v4
+omitted: twelve front/rear rail bolt sides need up to 93.221730-mm clearance
+below the frame in a raised or reoriented, independently supported setup.
+Actual setup clearance and stability remain unqualified. The production
+removal constructor is exercised against full rigid-part travel at every
+selected stack, including an obstacle in the formerly omitted spacer interval.
+V6 retains byte-identical V5 queries and rows while binding the production
+wrench constructor. Its tests check transformed three-dimensional handles,
+an obstacle reached during intermediate rotation and the full axial entry.
+Three production-query known answers and regression checks cover neighboring
+bolts, own-stack exclusion, stage filtering and an obstacle in that omitted
+interval. Vertical-bolt inspection now uses a nondegenerate side camera;
+fresh browser captures inspect both vertical and horizontal six-piece stacks.
+
+The guide/clamp study checks 100 axis requirements and 120 receiver occurrences.
+All proposed 38.1-mm guide rings and two alternative 25.4-mm clamp-pad lands
+have nominal finished-wood support. Twelve initial ±50.8-mm grain pad layouts
+overhang; their recorded alternative positions clear. The 19.05-mm guide and
+6.35-mm backer need up to 203.2-mm usable bit projection/clamp opening before
+extra fixtures. Fit arithmetic uses shop 13/32- and 17/32-in bits, separately
+from occupied bore envelopes. The proposed 0.02-mm guide diametral play and
+half-gap entry-error allocation leave only 0.011771 mm at the longest path.
+Actual runout, guide rigidity, drill/chuck approach and clamp bodies/retention
+are required inputs; no fixture performance or physical operation is claimed.
+The tested production face probe enters nominal stock from both sides,
+rejects recessed guide support and rejects unavailable or overlapping pad pairs.
+Actual/Disposition cells remain blank.
+
+The bounded mechanics review records seven explicit evidence gaps and assigns
+no current resistance. Four longer mixed-header bodies cover nominal far
+interfaces; the other four mixed shafts retain potential 10.5156-mm far-cleat
+thread/runout exposure, 27.60% of a 38.1-mm interval. Ideal spacer/washer/nut
+projected areas establish no contact capacity. Current screw-end strength,
+connected yielding, thread bearing, cut-aware sections, restraint and complete
+joints remain unknown. The earlier component exceedances, small heel margin,
+unverified no-slip assumption and paused remedies remain in force. No native
+solve, member enlargement, new fastener, physical test or blanket sign-off
+prerequisite is introduced.
+
+The [verification receipt](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/verification.json)
+records focused checks and reviews. Compact permanent outputs are necessary
+for current hardware occupancy, per-side methods and fixture requirements;
+the raw CAD bank, full intrusion queries, source maps, screenshots and all
+attempts stay active under ignored `selected-hardware-v1/`. Earlier packets
+retain their bytes. The existing recovery kit now has persistent external
+placement and verified 1,219-input restoration; its older scope does not cover
+this new raw closure. No evidence is pruned. See the maintained
+[recovery and CI record](../repository-cleanup-evaluation-2026-09-28.md#observed-ci-publication-hold):
+the existing failed baseline/source/cache/lint gates still hold Pages.
+
 ### Current shop and hardware selection
 
 The owner directed completing the four followups: review the effects of the

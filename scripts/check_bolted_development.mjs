@@ -8,6 +8,7 @@ import {runInNewContext} from 'node:vm';
 import {gunzipSync} from 'node:zlib';
 import {validateKickerClearance} from '../site/eoere-kicker-clearance-overlay.mjs';
 import {validateUniformChannels} from '../site/eoere-uniform-channels-overlay.mjs';
+import {validateSelectedHardware} from '../site/eoere-selected-hardware-overlay.mjs';
 
 export const ROOT = fileURLToPath(new URL('../', import.meta.url));
 export const INDEX_PATH = 'docs/bolted-frame-development/development-revisions.json';
@@ -72,7 +73,7 @@ export function checkDevelopment(index = readIndex()) {
   assert.ok(read(index.shop.packet).toString().includes(index.shop.revision), 'shop packet revision differs');
   assert.equal(index.shop.current_channel_drawings_complete, true);
   assert.equal(index.shop.shop_planning_only, true);
-  assert.equal(index.shop.hardware_model_updated, false);
+  assert.equal(index.shop.hardware_model_updated, true);
   assert.deepEqual(index.shop.screw_datums, geometry.panel_screw_datums);
   bound(index.shop.screw_datums);
   const shop = JSON.parse(bound(index.shop.result));
@@ -88,6 +89,28 @@ export function checkDevelopment(index = readIndex()) {
   const hardware = shop.files['hardware-selection.csv'];
   assert.deepEqual(index.shop.overrides, [{path: `${shopDirectory}/hardware-selection.csv`, sha256: hardware.sha256}]);
   index.shop.overrides.forEach(bound);
+  const hardwareModel = index.hardware_model;
+  assert.ok(hardwareModel, 'explicit applied hardware binding required');
+  const hardwareGeometry = JSON.parse(bound(hardwareModel.receipt));
+  assert.equal(hardwareGeometry.revision, hardwareModel.revision);
+  assert.deepEqual(hardwareGeometry.retained_axis_geometry, index.geometry.receipt);
+  assert.deepEqual(hardwareModel.wood_screw_geometry, index.geometry.receipt);
+  assert.deepEqual(hardwareModel.optional_grid_geometry, index.optional_grid.receipt);
+  assert.deepEqual(hardwareModel.shop_override, index.shop.overrides[0]);
+  assert.deepEqual(hardwareGeometry.hardware_selection, hardwareModel.shop_override);
+  assert.deepEqual(hardwareGeometry.shop_result, index.shop.result);
+  assert.equal(hardwareGeometry.selected_hardware_overrides_parent_lengths, true);
+  assert.equal(hardwareModel.analysis_pass_transferred, false);
+  assert.equal(hardwareModel.actual_parts_verified, false);
+  const hardwareEncoded = bound(hardwareModel.scene), hardwareDecoded = gunzipSync(hardwareEncoded);
+  assert.equal(sha(hardwareDecoded), hardwareModel.scene.decoded_sha256);
+  const hardwareScene = validateSelectedHardware(JSON.parse(hardwareDecoded), hardwareModel.receipt.sha256);
+  assert.deepEqual(hardwareScene.selected_stacks, hardwareGeometry.selected_stacks);
+  assert.deepEqual(hardwareModel.viewers, hardwareScene.keys);
+  assert.equal(hardwareModel.viewers.base, index.geometry.viewer);
+  assert.equal(hardwareModel.viewers.extra, index.optional_grid.viewer);
+  assert.equal(hardwareScene.parents.base.layout_sha256, index.geometry.receipt.sha256);
+  assert.equal(hardwareScene.parents.extra.layout_sha256, index.optional_grid.receipt.sha256);
   for (const [name, record] of Object.entries(shop.files)) {
     assert.equal(path.posix.basename(name), name, 'shop companion must be a filename');
     const bytes = bound({path: `${shopDirectory}/${name}`, sha256: record.sha256});
@@ -117,7 +140,7 @@ export function checkDevelopment(index = readIndex()) {
   read(index.unadopted_proposal.shop_packet);
 
   const html = read('site/index.html').toString();
-  const variants = html.match(/const kickerClearanceModels = (\[[^;]+\]);/)?.[1];
+  const variants = html.match(/const selectedHardwareModels = (\[[^;]+\]);/)?.[1];
   assert.ok(variants, 'current viewer variant seam missing');
   assert.deepEqual(Array.from(runInNewContext(variants)), [index.geometry.viewer, index.optional_grid.viewer]);
   const baseline = JSON.parse(read(index.selected_baseline.authority));
@@ -127,12 +150,12 @@ export function checkDevelopment(index = readIndex()) {
   for (const model of [index.geometry.viewer, index.optional_grid.viewer, index.unadopted_proposal.viewer])
     assert.equal(viewerModel(html, model), model, `unknown viewer model: ${model}`);
   assert.ok(html.includes(`href="?model=${index.geometry.viewer}&view=rear">Current eoere geometry`));
-  for (const [key, expected] of Object.entries({url: path.basename(index.geometry.scene.path),
-    expectedSha256: index.geometry.scene.sha256, decodedSha256: index.geometry.scene.decoded_sha256,
-    layoutSha256: index.geometry.receipt.sha256})) {
-    const expression = html.match(new RegExp(`\\b${key}: (kickerClearance \\? .+),\\r?\\n`))?.[1];
+  for (const [key, expected] of Object.entries({url: path.basename(hardwareModel.scene.path),
+    expectedSha256: hardwareModel.scene.sha256, decodedSha256: hardwareModel.scene.decoded_sha256,
+    layoutSha256: hardwareModel.receipt.sha256})) {
+    const expression = html.match(new RegExp(`\\b${key}: (selectedHardware \\? .+),\\r?\\n`))?.[1];
     assert.ok(expression, `viewer ${key} binding missing`);
-    assert.equal(runInNewContext(`(${expression})`, {kickerClearance: true}, {timeout: 1000}), expected);
+    assert.equal(runInNewContext(`(${expression})`, {selectedHardware: true}, {timeout: 1000}), expected);
   }
   const entries = ['README.md', 'docs/README.md', 'docs/bolted-frame-development/README.md'];
   for (const name of entries) validateEntry(read(name).toString(), index);

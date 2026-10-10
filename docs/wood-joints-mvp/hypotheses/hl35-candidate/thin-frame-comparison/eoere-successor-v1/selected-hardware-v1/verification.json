@@ -1,0 +1,245 @@
+{
+  "CAD_known_answers": 2,
+  "CI_diagnosis": {
+    "Pages_publication": "held_by_existing_CI_gates",
+    "conclusion": "failure",
+    "record": "docs/repository-cleanup-evaluation-2026-09-28.md#observed-ci-publication-hold",
+    "run_id": 37995508154
+  },
+  "access_counts": {
+    "assembled_socket_clear": 176,
+    "box_end_insertion_clear": 200,
+    "complete_wrench_axial_insertion_clear": 200,
+    "frame_stage_removal_clear": 200,
+    "frame_stage_socket_clear": 176,
+    "short_socket_clear": 200,
+    "static_counterhold_clear": 200,
+    "working_handle_60deg_clear": 200
+  },
+  "access_known_answers": 3,
+  "actual_Three_mesh_check": {
+    "bytes": 8083,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/selected-hardware-v1/run-v2/actual-mesh-check-v4.json",
+    "sha256": "1433c8dd1c42c63b5b127aa7881b65da1c14b92c338d74690f9a358ab6e7c5de"
+  },
+  "actual_parts_or_tools_observed": false,
+  "blank_actual_disposition_cells": 1144,
+  "browser_check": {
+    "bytes": 2518,
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/selected-hardware-v1/browser-v5/result.json",
+    "sha256": "30ec33bcdfc8ef6ef16141dee78faba8b039da9e7a1f8e4d85862f31ad876dab"
+  },
+  "climbing_released": false,
+  "exact_nominal_intrusion_queries": 7392,
+  "fabrication_released": false,
+  "fixture_counts": {
+    "axes": 100,
+    "both_pad_candidates_inside_raw_face": 108,
+    "guide_inside_raw_face": 120,
+    "guide_rings_fully_supported_on_nominal_finished_face": 120,
+    "receivers": 120,
+    "square_stock_face_axes": 120,
+    "two_pads_on_nominal_finished_face": 120
+  },
+  "fixture_known_answers": 1,
+  "focused_checks": {
+    "identity": {
+      "command": "node scripts/check_bolted_development.mjs",
+      "exit_code": 0
+    },
+    "node": {
+      "command": "node --test tests/test_bolted_development.mjs",
+      "exit_code": 0
+    },
+    "python": {
+      "command": "uv run pytest -q tests/test_eoere_selected_hardware.py tests/test_eoere_nominal_access.py tests/test_eoere_current_shop_followup.py",
+      "exit_code": 0
+    },
+    "ruff": {
+      "command": "uv run ruff check scripts/eoere_selected_hardware.py scripts/eoere_nominal_access.py scripts/eoere_drill_fixture_requirements.py tests/test_eoere_selected_hardware.py tests/test_eoere_nominal_access.py docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/review.py",
+      "exit_code": 0
+    }
+  },
+  "focused_node_tests_passed": 23,
+  "focused_python_tests_passed": 55,
+  "foreign_files_unchanged": 22,
+  "frozen_shop_companion_bytes": 396229,
+  "frozen_shop_companions_unchanged": 13,
+  "geometry_counts": {
+    "Hillman_screws": 66,
+    "added_spacers": 8,
+    "angles": 22,
+    "base": 1029,
+    "extra": 1424,
+    "longer_shafts": 32,
+    "panels": 6,
+    "physical_bolt_axes": 100,
+    "timbers": 22,
+    "translated_nuts": 8
+  },
+  "independent_review": {
+    "confirmed_unique_findings_fixed": 8,
+    "deferred_review_findings": [],
+    "fifth_pass": "no_substantial_findings_in_all_three_scopes",
+    "first_pass_confirmed_findings": 2,
+    "first_pass_findings_fixed": [
+      "Independent retained-axis station checks",
+      "Rendered spacer bore and signed volume checks"
+    ],
+    "fourth_pass_confirmed_findings": 2,
+    "fourth_pass_findings_fixed": [
+      "Production wrench-envelope construction controls",
+      "Production finished-face probe and pad-selection controls"
+    ],
+    "parent_confirmed_defect_fixed": "Vertical bolt inspection camera fallback",
+    "passes_completed": 5,
+    "review_record": {
+      "bytes": 2148,
+      "path": "fea/generated/selected-hardware-followup-v1/final-verification-v1/review-outcomes-v1.json",
+      "sha256": "7d6544f56fa76a7130240fecb5b5923ff17b692e99a2ac7f0dd8388e5d268dfd"
+    },
+    "second_pass_confirmed_findings": 2,
+    "second_pass_findings_fixed": [
+      "Complete rigid-spacer removal corridor",
+      "Production collision query and stage/stack filtering controls"
+    ],
+    "third_pass_confirmed_findings": 2,
+    "third_pass_findings_fixed": [
+      "Production removal-envelope constructor coverage",
+      "Portable selected-pose floor-clearance requirements"
+    ]
+  },
+  "local_links": {
+    "checked": 18,
+    "receipt": {
+      "bytes": 4443,
+      "path": "fea/generated/selected-hardware-followup-v1/final-verification-v1/local-links-v4.json",
+      "sha256": "18c709543f099e6406cd747fbf294848d3e94eb82bb8035b4098d609eb0c4c5d"
+    }
+  },
+  "maximum_additional_reference_floor_clearance_mm": 93.2217303915869,
+  "mechanics_review_byte_exact_replay": true,
+  "native_mechanics_executed": false,
+  "off_floor_setup_required_sides": 12,
+  "outputs": [
+    {
+      "bytes": 130260,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
+      "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+    },
+    {
+      "bytes": 11932,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md",
+      "sha256": "35836709109d86b7dae6c8cff82ee4c69d159e904fc05c3aecc9d5ab1fb5487f"
+    },
+    {
+      "bytes": 24750,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/access-methods.csv",
+      "sha256": "d6d22212d9f76c75be44db261139c5888f352d73a30a79690b4cbd3e463b652a"
+    },
+    {
+      "bytes": 198750,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/drill-fixtures.json",
+      "sha256": "dfb3d3d2d22ac3ce952f1e9ccaa75cce2131dbc4b0ea77b092f3b3accb2cc6a5"
+    },
+    {
+      "bytes": 2757,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/inputs.json",
+      "sha256": "3ae3fa72868a834641260f1e10034fb13c0dd2c3ba31dbe9dbac3fcd2cf34e5c"
+    },
+    {
+      "bytes": 8183,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/mechanics-review.json",
+      "sha256": "1f73df94b7a68772fc6e14d6b4855071c2c55dc4094c7eb23250492d6752e119"
+    },
+    {
+      "bytes": 3457,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/nominal-access.json",
+      "sha256": "4b16aebf9cdbde8bfc0caa78c1a68501590605fdbcc16e5d212e9cdfad2e2c67"
+    },
+    {
+      "bytes": 5224,
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/review.py",
+      "sha256": "4a8e3a71fa537f6e3b6d719a3d0ce3c28bc13b0fdd6763e0d36cd61220613d74"
+    },
+    {
+      "bytes": 17584,
+      "path": "scripts/check_eoere_selected_hardware.mjs",
+      "sha256": "8d2097aad9842d89e3bae2bcf7885e18cf53b5b8fc391525656056542ad5e020"
+    },
+    {
+      "bytes": 5787,
+      "path": "scripts/check_eoere_selected_hardware_browser.cjs",
+      "sha256": "bb3204b32df0ae9cbac90610d117519b38e566e591e935d927bec243c3d8861f"
+    },
+    {
+      "bytes": 9797,
+      "path": "scripts/eoere_drill_fixture_requirements.py",
+      "sha256": "14eec8068b4552a525ad2bd5b8634e007226a45515c4ffb577042f40ae57d051"
+    },
+    {
+      "bytes": 24986,
+      "path": "scripts/eoere_nominal_access.py",
+      "sha256": "712fd9571217066b385d4eb2f96852e6c1688e93be541a913ab82154778f91c1"
+    },
+    {
+      "bytes": 18702,
+      "path": "scripts/eoere_selected_hardware.py",
+      "sha256": "5a2b12500ffdbdb8bf9ea2138dcbf649fd9cb476281e8f2bf40a73212edaa6fb"
+    },
+    {
+      "bytes": 12994,
+      "path": "site/eoere-selected-hardware-overlay.mjs",
+      "sha256": "179a8630b1a5f05c4c42f2923c760ab94f66566acd6e3d56ed6a1993d3834e6d"
+    },
+    {
+      "bytes": 21032,
+      "path": "site/eoere-selected-hardware-scene.json.gz",
+      "sha256": "41830cf651f8b0a321a89336f654af5d90a4f42a1d705a7411b5e088de3b2811"
+    },
+    {
+      "bytes": 15276,
+      "path": "tests/test_eoere_nominal_access.py",
+      "sha256": "37a40b116cf261605c08ab1077e25e6fcc21d2b19f064737c6b973031eec8f82"
+    },
+    {
+      "bytes": 2597,
+      "path": "tests/test_eoere_selected_hardware.py",
+      "sha256": "9adb9e8da5170a645274b399d8ef53118fa8bf9ec4b94d9067ed9cd000cef8cc"
+    }
+  ],
+  "passed": true,
+  "persistent_recovery_includes_new_raw_closure": false,
+  "persistent_recovery_placement": {
+    "bytes": 1750,
+    "path": "fea/generated/selected-hardware-followup-v1/recovery-placement-v1/verified-placement.json",
+    "sha256": "1bfae4ce96b4bb588cd93e9fa566433cf1d93c369ca361ca4438295a1fd79681"
+  },
+  "persistent_recovery_proof": {
+    "bytes": 4751,
+    "path": "/home/mckay-linux/repos/mini-moonboard-cleanup-backups-navigation-v2/restore-proof-v1/recovery-proof.json",
+    "sha256": "693d775b931427af5e005d0000c9d0027378e405efe31a6d8bc34e08bacf6f4a"
+  },
+  "persistent_recovery_scope_inputs": 1219,
+  "production_obstacle_query_known_answers": 3,
+  "production_wrench_and_finished_face_regression_tests": 12,
+  "rejected_scene_station_shape_hash_controls": 20,
+  "rendered_spacer_instances_checked": 16,
+  "retained_axis_stations_checked": 48,
+  "revision": "eoere-selected-purchase-hardware-v1",
+  "schema": "eoere_selected_hardware_verification/v1",
+  "scope": "Source-bound nominal hardware, installation requirements and bounded reporting only",
+  "selected_baseline_authority_and_source_unchanged": true,
+  "source_pin_counts": {
+    "access": 1535,
+    "fixture": 30,
+    "geometry": 1446,
+    "mechanics": 6
+  },
+  "temporary_support_or_reorientation_qualified": false,
+  "unique_source_pins_checked": 1543,
+  "unresolved_resistance_topics": 7,
+  "v4_v5_v6_query_bytes_identical": true,
+  "v5_v6_access_rows_identical": true,
+  "v5_v6_fixture_rows_identical": true
+}

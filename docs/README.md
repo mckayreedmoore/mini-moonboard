@@ -5,11 +5,12 @@ For ongoing compact bolted-frame engineering and builder-support work, start at 
 Its [active builder reading path](bolted-frame-development/README.md#active-builder-reading-path)
 identifies the geometry, source-bound shop records, overrides and remaining holds.
 The current geometry is **`eoere-raised-kicker-screws-v1`**:
-[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-kicker-clearance-frame-development&view=rear).
+[current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-selected-hardware-frame-development&view=rear).
 The [checked revision index](bolted-frame-development/development-revisions.json) keeps
 the matching shop plan separate from the preceding six-case numerical evidence.
 The plan includes the current channel/screw changes and selected hardware
-overrides. Historical results retain their own revision limits.
+overrides, now applied by the separately bound hardware viewer overlay.
+Historical results retain their own revision limits.
 
 The instructions below belong to the selected screw-and-bracket baseline,
 `compact-floor-flush-development`, governed by

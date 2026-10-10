@@ -175,7 +175,35 @@ reports **151 diagnostics in 72 files**, all byte-identical to HEAD and outside
 this change. They are recorded, not treated as a new green CI result or fixed
 by changing frozen witnesses. Full CI and remote Pages execution are not claimed.
 
-### Recovery extension and storage limitation
+### Observed CI publication hold
+
+[Master CI 37995508154](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/37995508154)
+failed on `30421e59`. The three dependent Pages runs were skipped. The
+development identity/synthetic and shared-mesh gates passed; the four failed
+gates were repository lint, pytest, selected-candidate verification and packet
+helper lint. Pytest reported 287 failures, 178 errors, 4,824 passes, one skip
+and 16 deselections. A fresh full replay is not claimed by the focused current
+hardware checks.
+
+Missing ignored inputs include `fea/generated/thin-bolted-panel/operators-intervals8.npz`
+and the preserved `current-full-frame-input-manifest-attempt04` JSON. Other
+failures include stale finite-contact source bindings, older scene/ledger
+expectations, and executable-bit lint errors. The retained raw log and compact
+module summary are in
+`fea/generated/selected-hardware-followup-v1/ci-diagnosis-v1/`.
+
+The selected-candidate gate specifically finds a source revision conflict:
+the preserved A12 geometry binds `mini_moonboard/compact_floor_flush_frame.py`
+at SHA `4cc03e086b381de2cd04685578bfccccfa72ee6e3545814d8e2469a3196de045`,
+while the selected viewer/construction and live module bind
+`8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a`.
+The later source change seats the top-center header clips. Reconcile that
+recorded geometry/authority boundary explicitly; do not rewrite frozen source
+hashes to assert a pass. This followup runs no selected-baseline native solve.
+The successful-CI Pages dependency remains enforced. Git publication of owned
+development work does not establish a successful Pages deployment.
+
+### Recovery extension and persistent placement
 
 The v2 map covers **1,219 exact inputs: 431 Git-supplied and 788 restored**.
 It extends the preserved v1 scope with both latest geometry receipts and their
@@ -186,12 +214,16 @@ All 15 provider archives were verified and restored into a fresh external tree;
 every required hash and all original sources were checked. Relocating the new
 kit and restoring again also passes, proving its own manifest is portable.
 
-The external kit is `/tmp/mini-moonboard-cleanup-backups-navigation-v2/`.
-Current filesystem permissions allow external writes only in `/tmp`; durable
-sibling-backup placement therefore remains open. A retained local kit copy is
+The six-file kit now resides at
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-navigation-v2/`.
+Its 1,221,453 bytes match the original kit exactly. A fresh restore there
+verified all **1,219 inputs** (788 restored and 431 Git-supplied); all original
+inputs, six kit files and 15 provider manifests remained unchanged.
+The former `/tmp` placement remains historical. A retained local kit copy is
 `fea/generated/repository-navigation-v1/current-repository-remediation-v1/recovery-kit-v2/`.
 It is ignored, about 1 MB, and can bootstrap a fresh external kit if temporary
-storage is cleared. It is not an independent durable external backup. The
+storage is cleared. The sibling directory provides persistent storage outside
+the checkout, on this machine; it is not an off-machine backup. The
 original solids, all newer numerical raw fields/operators and the owner's
 67 retained raw/fixture files remain active. Nothing is pruned.
 
@@ -201,21 +233,27 @@ original solids, all newer numerical raw fields/operators and the owner's
 | Companion `.manifest.json` | `800ba40579efb47a0b70ba0a71e85850168e298b198340c224b69fd6aebe7afb` |
 | `recovery-plan.json` | `85a6de64a86c344f331688dbd0677c9e5e98287c613f739fe3507990a867bacf` |
 | `restore_current_inputs.py` | `fe0ea599bfb52419fb6be17eb2b9931a46b811c83a67cf76cc38a23c66a67d6c` |
+| Persistent placement `restore-proof-v1/recovery-proof.json` | `693d775b931427af5e005d0000c9d0027378e405efe31a6d8bc34e08bacf6f4a` |
 
 Recover into a fresh external destination, retaining the old provider archives
 at their recorded locations:
 
 ```sh
-python3 -B /tmp/mini-moonboard-cleanup-backups-navigation-v2/restore_current_inputs.py \
+python3 -B /home/mckay-linux/repos/mini-moonboard-cleanup-backups-navigation-v2/restore_current_inputs.py \
   --repository /home/mckay-linux/repos/mini-moonboard \
-  --destination /tmp/mini-moonboard-recovered-NEW
+  --destination /home/mckay-linux/repos/mini-moonboard-recovered-NEW
 ```
 
-If the temporary kit is absent, first copy the retained local `recovery-kit-v2`
+If the external kit is absent, first copy the retained local `recovery-kit-v2`
 directory to a fresh external location and run its helper there. The runner
 refuses occupied destinations and never writes recovered inputs into a checkout.
 Newer numerical packet recovery remains separately bounded by its owners; this
-map supplies no complete newer mechanics replay claim. The earlier publication
+map supplies no complete newer mechanics replay claim.
+The placement receipt is
+`fea/generated/selected-hardware-followup-v1/recovery-placement-v1/verified-placement.json`.
+This recovery scope does not cover the new selected-hardware raw run.
+
+The earlier publication
 tree finding (`site/docs` exposing the documentation tree) remains a separate
 open task; this change preserves existing historical URLs.
 

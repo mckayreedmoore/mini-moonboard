@@ -1,0 +1,58 @@
+{
+  "hardware_selection": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv",
+    "sha256": "6644c0a9432362d7d8310956cf3d1290ec11589899ff6c498c0380a5e0d8a767"
+  },
+  "method_sources": [
+    {
+      "path": "scripts/eoere_2026_adjustments.py",
+      "sha256": "136d7e63f1e337ef8a65421d22d4614b336697cb1b8556ff099995fe26a92821"
+    },
+    {
+      "path": "scripts/thin_bolted_occupied.py",
+      "sha256": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+    },
+    {
+      "path": "scripts/export_wood_joint_wj24_scene.py",
+      "sha256": "271d3c267035e7d9087eb25144ca24cb8301b36dffce3215a62aae0d45cc1db2"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    }
+  ],
+  "parent_scenes": {
+    "base": {
+      "decoded_sha256": "2827864558af2b5fe9decf559c1de618391a97fe493566996263ad8453ac4003",
+      "layout_sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f",
+      "path": "site/eoere-kicker-clearance-scene.json.gz",
+      "sha256": "0c0acfde3d6dbcaada4ffc9789898775348d4765b87525a83c20e724f8e8aa52"
+    },
+    "extra": {
+      "decoded_sha256": "f584be56983e8bafe3cd68a3a20b0b88d745964b08a6b2bf3b4eeb631f1474ec",
+      "layout_sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a",
+      "path": "site/eoere-right-column-scene.json.gz",
+      "sha256": "220e8dda8aa8a7aed1b6a85aeb8237755664931b0f3a080474d9478da3970492"
+    }
+  },
+  "parents": {
+    "base": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+      "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+    },
+    "extra": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-right-column-v1.json",
+      "sha256": "3707efb8f3da016673b8a418bec4603463736a11eacec3b3ddf4730fbd451d4a"
+    }
+  },
+  "revision": "eoere-selected-purchase-hardware-v1",
+  "schema": "eoere_selected_hardware_inputs/v1",
+  "shop_result": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/result.json",
+    "sha256": "c316386f4e994ad97d0718404252d9f8195f10d6d547ffe3aae22f078ff44f07"
+  },
+  "shop_source_union": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/current-shop-followup-v1/run-v6/source-union-audit.json",
+    "sha256": "41c5e900b29c6140c67fed5bbb7242215d60cf5fe637d95d72dd9a14bfa283ad"
+  }
+}

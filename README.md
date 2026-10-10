@@ -11,11 +11,12 @@ It identifies the current geometry, matching nominal shop records, applicable
 numerical evidence and remaining work.
 
 The current geometry is **`eoere-raised-kicker-screws-v1`**:
-[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-kicker-clearance-frame-development&view=rear).
+[open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-selected-hardware-frame-development&view=rear).
 Its optional extra grid remains off and unofficial. The
 [checked revision index](docs/bolted-frame-development/development-revisions.json)
 separates this geometry and its matching shop plan from the preceding
-six-case numerical evidence. Selected bolt lengths override the viewer hardware.
+six-case numerical evidence. The current viewer applies the selected bolt lengths and eight spacers
+through a separately bound hardware overlay.
 Actual hardware-fit, installation and joint-strength holds remain. No fabrication or climbing
 release is established.
 
@@ -51,6 +52,6 @@ uv sync --locked
 uv run python -m http.server 8767 --directory site
 ```
 
-Open [the local current-development viewer](http://localhost:8767/index.html?model=eoere-kicker-clearance-frame-development&view=rear).
+Open [the local current-development viewer](http://localhost:8767/index.html?model=eoere-selected-hardware-frame-development&view=rear).
 Required ignored inputs stay active; follow the documented recovery workflow
 before reproducing or archiving evidence.
