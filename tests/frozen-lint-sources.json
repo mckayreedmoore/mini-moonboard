@@ -1,0 +1,521 @@
+{
+  "schema": "frozen_lint_sources/v1",
+  "ruff_version": "0.16.6",
+  "reason": "Preserve issued and historical source bytes. Waivers cover only reviewed existing diagnostics; byte changes require removing or explicitly re-reviewing the waiver. Maintained additions retain the full pinned lint rules.",
+  "sources": {
+    "fea/code_aster_trial/a09_topology.py": {
+      "sha256": "ad210e9d18519736a4cf2eace18d9870d98b65026075e23cf31d7eb2e4127159",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/actual_map/check_actual_map_history.py": {
+      "sha256": "a5c8594639dfce2c012869e70ecf9abeaa66a8fbaad9c923129b0624c00834d8",
+      "rules": [
+        "C401",
+        "F841",
+        "I001",
+        "RUF100",
+        "UP035"
+      ]
+    },
+    "fea/code_aster_trial/actual_map/generate_actual_map.py": {
+      "sha256": "8c18e1446523a4a765c7e671207703742900ebdd37181eecff4de935363161b6",
+      "rules": [
+        "F841",
+        "I001",
+        "RUF100",
+        "SIM114",
+        "UP035"
+      ]
+    },
+    "fea/code_aster_trial/audit_embedded_checks.py": {
+      "sha256": "844b78b7ea57bcf91b7fb125af9ce2bc4274bad0d6b9329f45a71a066c2ddf3d",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/constraints/check_constraints_history.py": {
+      "sha256": "896b01e68279dfeada24e89ce7911f244e0e977a1cf14facee932ff8b8d426dd",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact/check_contact_trial.py": {
+      "sha256": "72f71a837b335631a9b60aed3e3c74d49903ae250318e9e02bd664b473a336f4",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_common/check_result.py": {
+      "sha256": "2015adebf4f7efcc1b590991da585f684e95e135f13879a85c7924314194c7f9",
+      "rules": [
+        "C401",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_common/compare_order_control.py": {
+      "sha256": "57a963f638aeb48bc3e6aa6099fa1c598d6c4dbeae7ace03b9b848fa13fec0ea",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_common/generate_mesh.py": {
+      "sha256": "e5abbd24501bf6aa6d3a5539ca26e04cdfb03a361164a1821f3e9c435b500dd0",
+      "rules": [
+        "F841",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_common/preflight.py": {
+      "sha256": "e2fab5dfb4fc2ee77da69e9e8a2464e658aba4003515bd9d9917941128d0e5d8",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_full/check_result.py": {
+      "sha256": "2015adebf4f7efcc1b590991da585f684e95e135f13879a85c7924314194c7f9",
+      "rules": [
+        "C401",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_full/generate_mesh.py": {
+      "sha256": "387d85c9b11299d391e280cfdbde72b0dde44658f6be0e89c38de67e70ba7290",
+      "rules": [
+        "F841",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_full/preflight.py": {
+      "sha256": "361bf755bd3bb204b3d6c65e59641d79c6278a9c4be9cc4a80d6fc7eea627b00",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed/check_result.py": {
+      "sha256": "2015adebf4f7efcc1b590991da585f684e95e135f13879a85c7924314194c7f9",
+      "rules": [
+        "C401",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed/generate_mesh.py": {
+      "sha256": "387d85c9b11299d391e280cfdbde72b0dde44658f6be0e89c38de67e70ba7290",
+      "rules": [
+        "F841",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed/preflight.py": {
+      "sha256": "361bf755bd3bb204b3d6c65e59641d79c6278a9c4be9cc4a80d6fc7eea627b00",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed_cell_order_reversed/check_result.py": {
+      "sha256": "2015adebf4f7efcc1b590991da585f684e95e135f13879a85c7924314194c7f9",
+      "rules": [
+        "C401",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed_cell_order_reversed/compare_order_control.py": {
+      "sha256": "88cacbcdad50eacb4385539c616444b0c6728119f56179aab44b1842dd1d858d",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed_cell_order_reversed/generate_mesh.py": {
+      "sha256": "e5abbd24501bf6aa6d3a5539ca26e04cdfb03a361164a1821f3e9c435b500dd0",
+      "rules": [
+        "F841",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed_cell_order_reversed/preflight.py": {
+      "sha256": "e2fab5dfb4fc2ee77da69e9e8a2464e658aba4003515bd9d9917941128d0e5d8",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed_reversed/check_result.py": {
+      "sha256": "2015adebf4f7efcc1b590991da585f684e95e135f13879a85c7924314194c7f9",
+      "rules": [
+        "C401",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed_reversed/generate_mesh.py": {
+      "sha256": "387d85c9b11299d391e280cfdbde72b0dde44658f6be0e89c38de67e70ba7290",
+      "rules": [
+        "F841",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_3d_mixed_reversed/preflight.py": {
+      "sha256": "361bf755bd3bb204b3d6c65e59641d79c6278a9c4be9cc4a80d6fc7eea627b00",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_body_force/audit_body_force_known_answer.py": {
+      "sha256": "c6fc3acc86dd2d3f8f76ab8779c847651ba8c4468a14039ba5c5895e538e3614",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_body_force/prepare_body_force_known_answer.py": {
+      "sha256": "7ccd0c623caf246f9ca0f05b75169717e46ecdba464d2d6e38d8779abdb2ecc1",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_pressure/check_contact_pressure.py": {
+      "sha256": "93e7f2f807ce1f914a472c88f7ac5bf8b9cee168b274b63a10742dc93f04f827",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_pressure_premap/check_contact_pressure.py": {
+      "sha256": "93e7f2f807ce1f914a472c88f7ac5bf8b9cee168b274b63a10742dc93f04f827",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_pressure_single/check_contact_pressure.py": {
+      "sha256": "90ba0ec4f1a5d44219a53bd24fd7e6d0d045b840a44c2f81b05db76e8b340c41",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_pressure_stress/check_contact_pressure.py": {
+      "sha256": "93e7f2f807ce1f914a472c88f7ac5bf8b9cee168b274b63a10742dc93f04f827",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_pressure_stress/check_contact_stress.py": {
+      "sha256": "11161fe4650ef6d98ab3d4d617019842920af394e76e129dc0ab2acc55d557cd",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_pressure_stress_corrected/check_contact_pressure.py": {
+      "sha256": "93e7f2f807ce1f914a472c88f7ac5bf8b9cee168b274b63a10742dc93f04f827",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_pressure_stress_corrected/check_contact_stress.py": {
+      "sha256": "9b5ca2466c624734981b8649032dd7313c68682dc3af8e4f3b619a21884aea79",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_surface_force/audit_known_answer.py": {
+      "sha256": "be1845c4a3b2b915051b3d9043b0c70186a7f99299ca83d2350cdc77ba7c69c6",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/contact_surface_force/prepare_known_answer.py": {
+      "sha256": "7fe541f0862b7af3ce32ea296d9c47634809c8abe8444d27afa8466e06228edf",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/audit_contact_samples.py": {
+      "sha256": "1f817982162f1570de83489a19affde28c61a76b7de86824c3990afbe079e882",
+      "rules": [
+        "I001",
+        "RUF100"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/audit_lags_c_reconstruction.py": {
+      "sha256": "c0f4ec23b138ef98d179f6772cf3080d5c3cff015f1de62e4526a397af3e99d5",
+      "rules": [
+        "C401",
+        "I001",
+        "RUF100"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/body_restricted_force/audit_curved_body_force.py": {
+      "sha256": "17fd67e7fa499d86ea85cc9f72907df75dbaebc485ae33a09d72f298ddbb4c6e",
+      "rules": [
+        "F841",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/body_restricted_force/prepare_curved_body_force.py": {
+      "sha256": "f4027029aa0875de202810e80fa4b0fa190a56de1606554f46f1df6021b7f23d",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/cell_order_reversal_control/compare_paired_attempts.py": {
+      "sha256": "2abee53bd8a6faa247178c0896c8d4948ab741c126eb9d8da7b0b0a669f9dd91",
+      "rules": [
+        "I001",
+        "RUF100"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/cell_order_reversal_control/generate.py": {
+      "sha256": "526c51ab6a0ad184ea14cf23dd4571fdd4f4fce37d27bceef3ea6b174d1efd96",
+      "rules": [
+        "I001",
+        "RUF100"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/cell_order_reversal_control/prepare_control.py": {
+      "sha256": "eec201cfa6b3ddc05f692749de565965beea5952af804611f5a2ecbf25a041c4",
+      "rules": [
+        "I001",
+        "RUF059"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/check_curved_contact.py": {
+      "sha256": "00e449d4cf259b4fcbadd7ab1491a2859fc90371e935ab56bd9079f4913a3ba8",
+      "rules": [
+        "B023",
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/generate.py": {
+      "sha256": "526c51ab6a0ad184ea14cf23dd4571fdd4f4fce37d27bceef3ea6b174d1efd96",
+      "rules": [
+        "I001",
+        "RUF100"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/native_input/generate.py": {
+      "sha256": "526c51ab6a0ad184ea14cf23dd4571fdd4f4fce37d27bceef3ea6b174d1efd96",
+      "rules": [
+        "I001",
+        "RUF100"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/native_input_v2/generate.py": {
+      "sha256": "526c51ab6a0ad184ea14cf23dd4571fdd4f4fce37d27bceef3ea6b174d1efd96",
+      "rules": [
+        "I001",
+        "RUF100"
+      ]
+    },
+    "fea/code_aster_trial/curved_contact/native_input_v3/generate.py": {
+      "sha256": "526c51ab6a0ad184ea14cf23dd4571fdd4f4fce37d27bceef3ea6b174d1efd96",
+      "rules": [
+        "I001",
+        "RUF100"
+      ]
+    },
+    "fea/code_aster_trial/extract_candidate_med.py": {
+      "sha256": "c7ac3c4a51e9ce11b54d96c79dddca3a5ac36f29ac001289d1cf82587c4558ac",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/extract_nodal_med.py": {
+      "sha256": "85cd047e1931ac8cbb5f2d7ee0087739582251f636325a45480c3d7a9138fc5d",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/impact/audit.py": {
+      "sha256": "cb0192e2a561b946b7265f44fe373c22cf7c439a8249d9bf880ec8293a1984d4",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/impact/compare_native.py": {
+      "sha256": "973e1e230a1775a94cb9a93a1fbf6a75f2ef4fc12595bc364fd5361d4b422e56",
+      "rules": [
+        "I001",
+        "TRY004"
+      ]
+    },
+    "fea/code_aster_trial/impact/generate.py": {
+      "sha256": "c6bc08102f09032e18b65a2745b350ca41a3bbd47aac69c66f691b42177b709b",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/impact/oracle.py": {
+      "sha256": "e499d73daf0b43641fb9f1e6f3d798fc84f3a091846589f7d3b1f388ea3d3918",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/code_aster_trial/mass_reference/aster_tetra10_mass.py": {
+      "sha256": "3ca1b7ee684545dc0a954be3f31c0d0d829d57e4e014a1f1e450b124bd83cc68",
+      "rules": [
+        "I001",
+        "UP035"
+      ]
+    },
+    "fea/code_aster_trial/mass_reference/build_reference.py": {
+      "sha256": "097cf4675ace853e56f18a39601f8077dc7e65f63fa36b4b7c6595ac76609b63",
+      "rules": [
+        "F401",
+        "I001",
+        "RUF046"
+      ]
+    },
+    "fea/code_aster_trial/run_frozen.py": {
+      "sha256": "326d378ad9fff5884a5cb8c93cf512515d50b8ab90e4eb1b99c6ee950ae5fc32",
+      "rules": [
+        "I001",
+        "UP017"
+      ]
+    },
+    "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/raw-angle-review-v1/independent_corrected_gate_review.py": {
+      "sha256": "549db25e60db304c49d6a638fbc922df6e9615a497e9e5f96242b4a129088897",
+      "rules": [
+        "B023"
+      ]
+    },
+    "fea/generated/thin-bolted-v4-geometry/annular-seat-response-v2/independent-pressure-numerical-review.py": {
+      "sha256": "cbde187d3661c1128dd592a64a76d77131e0f5558f4a5f35df5969fdd045780d",
+      "rules": [
+        "C408",
+        "I001"
+      ]
+    },
+    "fea/wood_joint_current_port_motion.py": {
+      "sha256": "a8a6084507605d0ab4cc9880939c8dec9d7aa51dbb38b7155de0787622068f6e",
+      "rules": [
+        "F401",
+        "F601",
+        "PIE810"
+      ]
+    },
+    "fea/wood_joint_current_port_motion_audit.py": {
+      "sha256": "507fea4156e1599e443db3b690dcb88746ec58f98f19c6f625524adc2d200a3e",
+      "rules": [
+        "RUF034"
+      ]
+    },
+    "fea/wood_joint_external_force_history.py": {
+      "sha256": "9e1e7141e1f669394949008e5f89472dbf0a51ff2c6ace2a9d7535aaca50f78e",
+      "rules": [
+        "F401",
+        "I001"
+      ]
+    },
+    "fea/wood_joint_external_force_transient.py": {
+      "sha256": "e2f277da719dc34f85abb66e866bff6e8dd7eded9b429a9ed0e2c5e41bc0f9d4",
+      "rules": [
+        "BLE001",
+        "I001",
+        "PLW1510",
+        "UP017"
+      ]
+    },
+    "fea/wood_joint_force_coupon_audit.py": {
+      "sha256": "dd1bc87291c6a45dff9fd4846efc1e8ca9dcbd0f9d09e672513d70da5d91167a",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/wood_joint_force_port_coupon.py": {
+      "sha256": "11a4a88ce50e2585ad75f2c936ffd6f42fb8ba36fad2a6998eb1a1c1ace39a05",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/wood_joint_port_coupon_audit.py": {
+      "sha256": "585a1bd6cad49c7a7152d508e0662e5a686e71e8935d52140408e1544060ffad",
+      "rules": [
+        "I001"
+      ]
+    },
+    "fea/wood_joint_port_reaction_coupon.py": {
+      "sha256": "4c6f3d0a25e5f43c519262f3ee5719889dcaa53d86aa72128ac09bb36019a3b2",
+      "rules": [
+        "I001",
+        "PLW1510",
+        "UP017"
+      ]
+    },
+    "fea/wood_joint_reduced_contacts.py": {
+      "sha256": "4e088d485cee8953bfdca411f646f18abfb49271c9d8f3b46044588a6a7c1ce7",
+      "rules": [
+        "RUF007"
+      ]
+    },
+    "fea/wood_joint_reduced_gravity.py": {
+      "sha256": "e41c09282d59fa41d452ec88031fc59213863fd6edf65b1335dc8de92b7d3c45",
+      "rules": [
+        "B023",
+        "I001",
+        "RUF046"
+      ]
+    },
+    "fea/wood_joint_reduced_loads.py": {
+      "sha256": "d8e2da5ad196878c8d10dc27920e0723bbc9b89b824624521a55bcee7caebbf3",
+      "rules": [
+        "I001",
+        "PERF102"
+      ]
+    },
+    "fea/wood_joint_reduced_panels.py": {
+      "sha256": "50b94669a5f112a75357529af01ca56ff6acd8887f1245f4368b58e6ee4ec388",
+      "rules": [
+        "I001",
+        "RUF007",
+        "SIM102",
+        "UP035"
+      ]
+    },
+    "mini_moonboard/nds_2024_multi_member_bolt_yield.py": {
+      "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89",
+      "rules": [
+        "F841",
+        "I001",
+        "TRY004",
+        "UP035"
+      ]
+    },
+    "scripts/hl35_fit_revision.py": {
+      "sha256": "2b59b72c08a24e27654aa2a338ae4929ea8384dd78d273e0d0df91eec2103acc",
+      "rules": [
+        "F401",
+        "RUF059"
+      ]
+    },
+    "scripts/hl35_full_fit_candidate.py": {
+      "sha256": "e42f08e87362028b9cb6e63b26986520cbfe40d61ccf7386ca12fbe171adf2fa",
+      "rules": [
+        "I001"
+      ]
+    },
+    "scripts/thin_bolted_timber_demand_checks.py": {
+      "sha256": "1be05e74563d2cc7a7ea5437aa4ff7217e62f8314f9fe011ff273d201f755e20",
+      "rules": [
+        "I001"
+      ]
+    },
+    "scripts/thin_bolted_timber_resistance.py": {
+      "sha256": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d",
+      "rules": [
+        "I001",
+        "RUF007"
+      ]
+    },
+    "scripts/wood_joint_current_full_frame_manifest.py": {
+      "sha256": "0774aa06a560a72411d6fd80da00bd82e81320c7b9191dc36c75641f9f8c9df6",
+      "rules": [
+        "F841",
+        "I001"
+      ]
+    },
+    "scripts/wood_joint_wj08_criteria.py": {
+      "sha256": "265703e9952988a7a5a965c0d228f178397645ca126dbef4819817475aae4db2",
+      "rules": [
+        "I001",
+        "SIM102",
+        "UP035"
+      ]
+    }
+  }
+}

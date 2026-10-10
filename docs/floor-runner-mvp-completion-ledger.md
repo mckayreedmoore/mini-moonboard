@@ -1,5 +1,12 @@
 # Floor-runner MVP completion ledger
 
+**Mechanics applicability:** the current model relocates two split-center header
+clips from Y=-135 to Y=-124.9 mm (10.1 mm). Numerical pass statements below describe the
+preceding clip stations in the frozen six-case evidence. Current-layout mechanics
+are unverified. See the [checked applicability record](current-candidate-status.md)
+and [exact disclosure](../current-candidate-applicability.json). The selected
+candidate identity is unchanged; no historical pass or fabrication release transfers.
+
 ## Status and claim boundary
 
 Selected candidate: `compact-floor-flush-development`. The authenticated
@@ -249,9 +256,9 @@ instructions. It does not change geometry, criteria or evidence.
 
 | Class | Finding | Evidence | Correction | Who / when |
 | --- | --- | --- | --- | --- |
-| A, closed | Bolt finished-hole instruction was not stated in the current assembly guide (“use the final specified bore/pilot dimensions”) even though NDS §12.1.3 and the CSV diameters already exist. | [Former assembly-guide step 5](floor-flush-assembly-guide.md); [compact-spliced-build-package.md](compact-spliced-build-package.md) NDS range; `bolt-hardware.csv` 14.2875 / 11.1125 mm | Checklist and assembly guide now state D+1/32 to D+1/16, with CAD as the upper end. | Closed in this handoff |
+| A, closed | Bolt finished-hole instruction was not stated in the current assembly guide (“use the final specified bore/pilot dimensions”) even though NDS §12.1.3 and the CSV diameters already exist. | [Former assembly-guide step 5](floor-flush-assembly-guide.md); [compact-spliced-build-package.md](history/compact-spliced-build-package.md) NDS range; `bolt-hardware.csv` 14.2875 / 11.1125 mm | Checklist and assembly guide now state D+1/32 to D+1/16, with CAD as the upper end. | Closed in this handoff |
 | A, closed | Front-pair rule existed without a practical registration method. | [Criteria](floor-runner-mvp-criteria.md) `front_pair_fixture`; [fabrication review](floor-flush-fabrication-review.md) | Checklist/guide: dry-fit, rigid 39.5 mm fixture, pins in finished holes. Rule unchanged. | Closed in this handoff |
-| A, closed | SDS wood-lead-hole and template instruction lived in historical notes, not the current shop sequence. | [panel-screw-necessity.md](panel-screw-necessity.md); [ml24z-qualification.md](ml24z-qualification.md) | Owner-selected 5/32 in wood lead hole through purchased ML24Z holes (Simpson catalog bit). Occupied CAD is not the bit. | Closed; owner direction to predrill |
+| A, closed | SDS wood-lead-hole and template instruction lived in historical notes, not the current shop sequence. | [panel-screw-necessity.md](history/panel-screw-necessity.md); [ml24z-qualification.md](ml24z-qualification.md) | Owner-selected 5/32 in wood lead hole through purchased ML24Z holes (Simpson catalog bit). Occupied CAD is not the bit. | Closed; owner direction to predrill |
 | A, closed as method | Hillman 42605 installation method. | Owner direction: lead-hole pilot plus face countersink. [Purchase record](current-panel-screw-purchase.md) | Method recorded. Bit diameters remain a D5 measurement; not invented here. | Owner/builder on offcut before the 66 holes |
 | B | All receiving and fabricated-work measurements. | This ledger’s observation table; checklist Actual/Disposition columns | Leave blank until observed. | Owner/builder at receiving and fabrication |
 | C | Unlisted ML24Z actions; full-root sensitivity >1.0; no-slip floor assumption; recess local-fracture method limit. | [Criteria](floor-runner-mvp-criteria.md); [aggregate](floor-runner-mvp-evidence.json) | Unchanged disclosures. | Not a shop measurement |

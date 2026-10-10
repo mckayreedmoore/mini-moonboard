@@ -5,6 +5,82 @@ now use `compact-bolted-frame-development`. The source-bound evidence candidate
 remains `compact-floor-flush-eoere-bolted-development`; frozen geometry IDs,
 receipts and paths are unchanged. The selected baseline keeps its own authority.
 
+## CI repair and current structural assessment
+
+The owner's current scope is CI repair plus structural assessment of unchanged
+`eoere-raised-kicker-screws-v1` with `eoere-selected-purchase-hardware-v1` and the
+extra grid off. Actual build-fit work is excluded. Exceedances are recorded
+without remedies; no hardware, geometry, purchasing or physical work is added.
+No Eoere native solve is authorized. The earlier wood-joint-lane exception does
+not transfer. Current acceptance remains unresolved rather than a prerequisite
+to completing this bounded assessment.
+
+The [issued assessment](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/structural-assessment.json)
+and [method/limits](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md#bounded-mechanics-review)
+join all 100 selected stacks to 120 timber bearing intervals. The catalog
+minimum-body bound yields **68 above-quarter potential thread/runout rows,
+24 within-quarter rows and eight nominally fully smooth-body rows**. The first
+group prevents guaranteeing the NDS full-body-diameter exception from the
+catalog windows alone; it establishes neither actual thread exposure nor a
+strength failure. Current capacities and actual thread fractions remain null.
+Ideal spacer/washer/nut-overlap mean pressures per 1,000 N centered axial action
+are 4.965/5.318/10.735 MPa, without an allowable or current axial action.
+
+The existing component authenticator reproduces the preceding six-case summary
+and its **1,244 pinned-source union** (`405a10b4ec928627570fb00996ad364e0617c350e3f4a40e7de98e43682eff69`).
+Forty own-case reference exceedance rows, all reported head-axis exceedances,
+unadopted timber sensitivities and shaft/washer/steel diagnostics are retained.
+The governing preceding generic head ratio is 2.572553; generic required thread
+over gross penetration is 1.391751. Panel bending X/Y is 4.613408/2.684624,
+rolling shear X/Y 2.451803/1.117058, and t6/Ri6 heel 1.107192. The nominal
+t6.35/Ri6.35 heel remains 0.992649. These extended-cleat references do not apply
+as current Hillman, changed-section, complete-bolt or spacer acceptance.
+
+Exact missing evidence stays recorded for Hillman end/splitting/head/withdrawal,
+current simultaneous actions, compatible whole-stack contact/yield, thread/root
+intervals, spacer seating and washer bending, cut-aware sections, panel
+participation and restraint/applicability. No current response, complete-joint
+resistance or release is invented. The compact 138,879-byte permanent assessment
+retains all stack/member rows and own-case witnesses; the checked revision index
+binds it separately from response. The small producer reuses the existing
+JSON-only authenticator, with no CAD, force producer or solver execution.
+
+CI diagnosis of [run 38021246260](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/38021246260)
+identified expanded Ruff defaults, nonexecutable shebang modes, old replay tests
+requiring ignored frozen inputs and a genuine selected-baseline geometry/evidence
+mismatch. Exact historical test selectors preserve opt-in failures; shared
+synthetic yield and portable PB03/PB04 orchestration tests remain active. Exact
+source/rule waivers retain 76 issued sources under an active byte/rule guard;
+66 shebang files change executable modes without changing source bytes.
+
+The new [baseline applicability disclosure](../../current-candidate-applicability.json)
+records the existing two split-center clip moves and authenticates the preceding
+model inside every one of six source archives. The original authority, frozen
+reports and manifests remain byte-identical. Current mechanical acceptance is
+explicitly unverified; current viewer/drawing/source checks and export rebuilding
+remain strict. The existing CI final gate and Pages dependency are unchanged.
+Maintained baseline build, assembly, checklist, width-choice, master-plan and
+completion entries expose the same applicability disclosure; frozen viewer
+metadata, manifests and source archives remain unchanged.
+Validation uses a plain clean master clone without local ignored research inputs;
+only owned changes are overlaid. Targeted rejection controls cover all six source
+archives, disclosure joins, frozen lint waivers and assessment acceptance boundaries.
+Focused validation passes 90 Python tests, five portable orchestration tests,
+48 Node identity/rejection controls, 185 synthetic packet tests and 22 descriptor
+tests. Root/packet Ruff, both mesh checks, CAD smoke and selected-baseline export
+rebuilding also pass. Full clean-checkout/default CI and the existing candidate
+rebuild gates determine publication; no historical replay is reported as passing.
+
+Raw CI logs, source inventories, clean-checkout records and assessment trials
+remain active under ignored `fea/generated/selected-hardware-followup-v1` until
+verification closes. Existing geometry/shop/recovery inputs stay active; no
+archive or prune is performed. The older frozen entries below retain their
+revision, fit and commissioning limits.
+After CI/publication verification closes, isolated clean checkouts, CI logs and
+raw assessment trials can be archived through the existing verified-archive
+workflow. The issued assessment's inputs and component/source banks remain active;
+an old or ignored path alone is not deletion authority.
+
 ## Current model-completion scope and qualification status
 
 **Latest geometry:** `eoere-raised-kicker-screws-v1` raises the two upper outer
@@ -24,8 +100,8 @@ complete, with the optional grid off. See the [current result and review
 bindings](#current-extended-cleat-numerical-completion). Reference exceedances,
 eight mixed-stack gaps and all 24 unknown complete-joint resistances remain
 reported. The current followup resolves the four cleat/post nominal stack
-choices and modeled screw clearance; end strength, actual fit/contact and
-continuous access remain open. Actual tool/access/tolerance observations stay
+choices and modeled screw clearance; end strength and actual fit/contact remain
+open. Nominal continuous access is covered by the later selected-hardware study. Actual tool/access/tolerance observations stay
 blank. Earlier builder and mechanics entries below retain their explicitly
 named revision limits.
 

@@ -14,7 +14,11 @@ packet.
 - Cut and drill sheets: [https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction](https://github.com/mckayreedmoore/mini-moonboard/tree/master/docs/floor-flush-construction)
 
 On the 3D page, **Design** should read **Bought 4×4 plywood · official Mini faces**.
-That is the geometry the six 250 lb calculations were run on.
+The six 250 lb calculations used that panel-width option with the preceding
+top-center header clip stations. The current model relocates those two clips
+from Y=-135 to Y=-124.9 mm (10.1 mm); its mechanics are unverified. See the
+[checked applicability record](current-candidate-status.md). Neither plywood
+choice transfers the frozen six-case pass to the changed clip layout.
 
 ## Cut 4×8 plywood
 

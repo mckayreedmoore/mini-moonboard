@@ -1,5 +1,12 @@
 # Assembly guide
 
+**Mechanics applicability:** the current model relocates two split-center header
+clips from Y=-135 to Y=-124.9 mm (10.1 mm). Numerical pass statements below describe the
+preceding clip stations in the frozen six-case evidence. Current-layout mechanics
+are unverified. See the [checked applicability record](current-candidate-status.md)
+and [exact disclosure](../current-candidate-applicability.json). The selected
+candidate identity is unchanged; no historical pass or fabrication release transfers.
+
 This is the order of work for the selected frame. Use it with the
 [shop checklist](floor-flush-shop-checklist.md).
 

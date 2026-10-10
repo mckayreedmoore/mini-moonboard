@@ -193,10 +193,8 @@ def test_three_receiver_manifest_axis_stays_pending_without_symmetric_physical_s
 
 
 def test_manifest_hash_mismatch_fails_closed(tmp_path):
-    root = Path(__file__).resolve().parents[1]
-    source = root / CURRENT_MANIFEST_PATH
     tampered = tmp_path / "manifest.json"
-    tampered.write_bytes(source.read_bytes() + b" ")
+    tampered.write_text('{"unreviewed": "manifest"}\n')
     result = inspect_current_candidate_axis(tampered, "some-axis")
     assert result["status"] == "pending"
     assert result["reference_lateral_lbf"] is None

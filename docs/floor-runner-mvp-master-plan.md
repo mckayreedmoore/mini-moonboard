@@ -1,8 +1,15 @@
 # Floor-runner MVP master plan
 
+**Mechanics applicability:** the current model relocates two split-center header
+clips from Y=-135 to Y=-124.9 mm (10.1 mm). Numerical pass statements below describe the
+preceding clip stations in the frozen six-case evidence. Current-layout mechanics
+are unverified. See the [checked applicability record](current-candidate-status.md)
+and [exact disclosure](../current-candidate-applicability.json). The selected
+candidate identity is unchanged; no historical pass or fabrication release transfers.
+
 Created September 15, 2026 after the owner returned to the floor-runner design.
 This plan supersedes the active execution direction in
-[engineering-execution-plan.md](engineering-execution-plan.md). That document
+[engineering-execution-plan.md](history/engineering-execution-plan.md). That document
 remains the historical record of the earlier floor-runner, uncut and
 spliced-knee investigations.
 

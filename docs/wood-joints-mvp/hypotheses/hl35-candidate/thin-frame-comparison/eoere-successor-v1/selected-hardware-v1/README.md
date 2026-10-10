@@ -118,6 +118,50 @@ method remains a conditional shop plan; this overlay changes no cuts.
 
 ## Bounded mechanics review
 
+The owner-directed [structural assessment](structural-assessment.json) completes
+the feasible reporting/calculation scope for the unchanged raised-screw geometry
+and selected hardware, with the extra grid off. Actual build-fit work is excluded
+from this continuation; every observation remains blank. Complete resistance and
+current response remain unknown. No remedy, geometry/hardware change, CAD rebuild
+or native solve was performed.
+
+All **100 stacks / 120 timber intervals** are joined to their selected bolt's
+underhead datum, including maximum catalog head-washer thickness and intervening
+plates. The calculation bounds possible thread/runout occupancy beyond minimum
+smooth body; it does not identify delivered threads. Under
+[NDS 2024 §12.3.7.1–.2, printed page 95](https://awc.org/wp-content/uploads/2026/09/AWC_NDS2024_withCommentary_20260911_Website_Chapter-12-Dowel-Type-Fasteners.pdf),
+full-body diameter has a limited exception when thread bearing occupies at most
+one quarter of the relevant member. Otherwise root diameter or a justified
+detailed threaded-part analysis is needed. The archived source digest is recorded
+in the assessment; catalog gage length is not substituted for actual thread start.
+
+| Catalog geometric bound | Stacks | Maximum possible fraction in a timber |
+| --- | ---: | --- |
+| Above one quarter | 68 | 60 short angle stacks: 44.267%; four front frame and four mixed cleat stacks: 27.600%. |
+| Within one quarter, with possible exposure | 24 | Sixteen 4¾-in: 11.829%; four rear-runner: 20.700%; four ½-in: 14.629%. |
+| Minimum nominal smooth body covers wood | 8 | Four shared-header and four spacer-equipped cleat/post stacks: 0%. |
+
+The **68 above-quarter bounds prevent guaranteeing the diameter exception from
+these catalog windows alone**. They do not prove actual thread exposure or a
+strength failure. Every stack retains null actual thread fraction and null current
+capacity. No longer bolt, changed stack or other remedy is proposed.
+
+The existing spacer areas give ideal mean pressures per 1,000 N centered axial
+force of **4.965 MPa** on the ring, **5.318 MPa** over the washer overlap and
+**10.735 MPa** over the ideal nut overlap. These unit-force calculations supply
+neither current axial actions nor allowable contact, bending or seating resistance.
+
+The assessment authenticates the preceding six-case summary through its existing
+JSON-only helper and **1,244-source union**, retaining 40 own-case reference
+exceedance rows and the other reported timber sensitivity, shaft, washer and steel
+diagnostics. Governing preceding references include generic head **2.572553**,
+generic required thread/gross penetration **1.391751**, panel bending X/Y
+**4.613408 / 2.684624**, rolling shear X/Y **2.451803 / 1.117058**, and t6/Ri6 heel
+**1.107192**. The nominal t6.35/Ri6.35 heel reference is **0.992649**. These are
+recorded extended-cleat comparisons, not Hillman-specific resistance or a pass
+for the current sections, screws, bolts or spacers. Their complete-joint resistance
+stays null. No exceedance is repaired.
+
 The [reproducible review](mechanics-review.json) keeps current resistance
 unknown and retains all preceding head/panel/heel reference exceedances.
 Its [small standard-library producer](review.py) uses authenticated issued
@@ -150,6 +194,11 @@ Run `scripts/eoere_nominal_access.py --out FRESH_IGNORED_DIRECTORY` and
 with the repository Python environment and `PYTHONPATH=.`. Run
 `python3 -B review.py --out NEW.json` from this packet directory for the
 standard-library mechanics review. No generator overwrites an earlier attempt.
+Run `uv run python -m scripts.eoere_structural_assessment --out FRESH.json`
+from the repository root to reproduce the structural assessment after restoring
+its recorded source inputs. It reuses the issued component authenticator and
+does not execute a solver. The checked development index binds the issued result;
+portable tests independently replay all 100 stack joins from tracked shop tables.
 
 Keep raw `selected-hardware-v1/run-v2`, `access-v6`, `fixture-v6`, `browser-v5`
 and all earlier attempts active. Source maps, queries, producer snapshots,
@@ -162,5 +211,11 @@ its access queries and rows remain byte-identical to V5. Keep preceding
 results as limited method evidence. The persistent
 recovery kit covers its recorded older scope; it does not claim this new raw
 closure. No input, failed experiment or historical viewer is pruned.
+The structural assessment is a necessary 138,879-byte permanent record of the
+100 stacks, 120 member intervals and preceding own-case exceedance witnesses.
+Its raw trials and CI logs remain in ignored
+`fea/generated/selected-hardware-followup-v1/ci-diagnosis-v1`; they are active
+verification evidence until this continuation closes. Existing frozen packets,
+source banks and recovery records remain active; nothing is nominated for pruning.
 No purchasing, physical tests, cutting, drilling, fabrication or climbing
 release follows from these conditional development deliverables.

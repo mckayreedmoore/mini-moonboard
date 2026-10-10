@@ -23,7 +23,7 @@ The viewer applies `eoere-selected-purchase-hardware-v1`: 32 longer bolts and ei
 | Current shop records and hardware choice | [Matching shop packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md) · [100 selected stacks](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv) | Current screw/channel datums; selected bolt lengths and eight spacers are now applied in the viewer. Actual fit and strength remain open. |
 | Preserved fixture concepts | [Builder drilling guide](../wood-joints-mvp/eoere-builder-drilling-guide.md) | Frozen aligned-wire geometry; later v3 moved 22 shafts and ten screws. Actual reach, fixtures and tools remain unresolved. |
 | Latest numerical evidence | [Six fresh cases](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json) · [parent verification](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/parent-verification-v1.json) | Preceding extended-cleat geometry, extra grid off. Passing numerical audits do not transfer to the channel or raised-screw revisions. |
-| Component comparisons | [Six-case summary](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-component-results-v1/summary.json) | Own-case references retain exceedances; complete-joint resistance remains null. |
+| Structural assessment | [Current bounded assessment](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md#bounded-mechanics-review) | All 100 stacks/120 timber intervals; 68 potential thread/runout bounds exceed one quarter. Earlier references retain exceedances; current complete resistance remains null. |
 | Detailed tasks and holds | [Completion ledger](../wood-joints-mvp/completion-ledger.md#build-package-completion) · [qualification status](../wood-joints-mvp/completion-ledger.md#current-model-completion-scope-and-qualification-status) | Source bindings, reviews and missing inputs; earlier “current” sections keep their historical meaning. |
 
 ## Revision map
@@ -98,14 +98,14 @@ changed-section strength remain unresolved. See the
 
 ## Remaining work and next actions
 
-1. Resolve current screw/end and complete-joint resistance, net sections,
-   restraint and physical applicability; bind any new response to current inputs.
-2. Check delivered hardware against the selected rows, including shank/runout,
-   full nut seating, spacer/washer contact and threaded wood bearing.
-3. Apply the documented generic tool requirements to actual equipment,
-   fixtures and placement tolerances; the completed nominal paths do not inspect actual tools.
-4. Retain the 66-screw count and purchase policy. Other panel/screw strength
-   remedies remain stopped; the extra grid and Z180 layout remain unadopted.
+1. The owner-directed bounded structural assessment is complete. Current screw/end,
+   complete-joint, finished-section and restraint acceptance remain unresolved.
+2. Retain every recorded exceedance without a remedy. Catalog bounds do not
+   establish actual thread exposure, connected contact/yield or current resistance.
+3. Actual build-fit work is excluded from this continuation; observations stay blank.
+   The existing physical-operation limits remain, without commissioning more fit work.
+4. Keep CI passing through its existing publication gates. Preserve the 66-screw policy;
+   panel/screw remedies remain stopped, and the extra grid and Z180 stay unadopted.
 
 ## Engineering reading order
 
@@ -146,4 +146,4 @@ Required cached solids, fields, operators, source banks and reviews remain
 [cleanup/recovery record](../repository-cleanup-evaluation-2026-09-28.md) and
 [contributor workflow](../../CONTRIBUTING.md) before moving files. Historical
 viewers and mesh aliases stay available. The persistent kit restored all 1,219 recorded inputs; no raw inputs are pruned.
-Pages remains held by the [diagnosed CI failures](../repository-cleanup-evaluation-2026-09-28.md#observed-ci-publication-hold).
+Pages publication requires successful CI for the exact master revision; see the [CI repair record](../wood-joints-mvp/completion-ledger.md#ci-repair-and-current-structural-assessment).

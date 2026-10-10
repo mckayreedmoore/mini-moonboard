@@ -14,6 +14,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,6 +34,55 @@ def read_json(path):
 
 def module_path(root, name):
     return root / (name.replace('.', '/') + '.py')
+
+
+def read_selection(root):
+    selection = read_json(root / 'current-candidate.json')
+    companion = root / 'current-candidate-applicability.json'
+    if companion.is_file():
+        disclosure = read_json(companion)
+        if disclosure.pop('candidate', None) != selection['candidate']:
+            raise ValueError('Applicability companion candidate differs from authority')
+        if 'recorded_geometry_applicability' in selection:
+            raise ValueError('Duplicate recorded-geometry applicability disclosure')
+        selection['recorded_geometry_applicability'] = disclosure
+    return selection
+
+
+def geometry_applicability(root, selection, geometry):
+    """Authenticate a disclosed historical model without promoting its results."""
+    model_name = selection['model_module'].replace('.', '/') + '.py'
+    recorded_sha = geometry['source_sha256'].get(model_name)
+    current_sha = digest(root / model_name)
+    disclosure = selection.get('recorded_geometry_applicability')
+    if disclosure is None:
+        if recorded_sha != current_sha:
+            raise ValueError('geometry does not identify current model revision')
+        return {'matches_current_model': True, 'mechanical_acceptance': False}
+    if (set(disclosure) != {'status', 'model_source', 'recorded_sha256',
+                           'current_sha256', 'change_commit', 'reason',
+                           'results_apply_to_current_model'}
+            or disclosure['status'] != 'RECORDED_GEOMETRY_DIFFERS_FROM_CURRENT_MODEL'
+            or disclosure['model_source'] != model_name
+            or disclosure['recorded_sha256'] != recorded_sha
+            or disclosure['current_sha256'] != current_sha
+            or recorded_sha == current_sha
+            or disclosure['results_apply_to_current_model'] is not False
+            or re.fullmatch(r'[0-9a-f]{40}', disclosure['change_commit']) is None
+            or not disclosure['reason'].strip()):
+        raise ValueError('Invalid recorded-geometry applicability disclosure')
+    # The normal aggregate checks authenticate each archive and sources.zip.
+    # Also inspect the archived source itself, rather than trusting a declared hash.
+    aggregate = authenticated_aggregate(root, selection)
+    if aggregate is None:
+        raise ValueError('Historical geometry disclosure requires authenticated evidence')
+    saved = read_json(root / aggregate['path'])
+    for case in saved['cases'].values():
+        with zipfile.ZipFile(root / case['archive'] / 'sources.zip') as archive:
+            if (archive.namelist().count(model_name) != 1
+                    or hashlib.sha256(archive.read(model_name)).hexdigest() != recorded_sha):
+                raise ValueError('Archived model differs from recorded geometry source')
+    return {**disclosure, 'matches_current_model': False, 'mechanical_acceptance': False}
 
 
 def recorded_assessments(root, selection):
@@ -162,6 +212,14 @@ def status_markdown(selection, records):
     else:
         lines.extend([('Authenticated six-case selected-candidate aggregate: **pending**. '
                        'See completion plan for partial-case work; historical cases are not promoted here.'), ''])
+    disclosure = selection.get('recorded_geometry_applicability')
+    if disclosure:
+        lines.extend(['**The recorded mechanics geometry differs from the current model.**',
+                      disclosure['reason'],
+                      f"The change is recorded in commit `{disclosure['change_commit']}`.",
+                      f"Recorded model SHA-256: `{disclosure['recorded_sha256']}`.",
+                      f"Current model SHA-256: `{disclosure['current_sha256']}`.",
+                      'The six recorded passes do not establish mechanics acceptance of the later clip layout.', ''])
     packet = []
     for field, title in (('shop_checklist', 'shop checklist'),
                          ('assembly_guide', 'assembly guide'),
@@ -172,7 +230,7 @@ def status_markdown(selection, records):
     if packet:
         lines.extend(['Shop packet: ' + '; '.join(packet) + '.', ''])
     lines.extend([f'Full scope and remaining checks: [build package]({package}) and [completion plan]({plan}).', '',
-             '| Recorded case | Implemented criteria met | Matches selected geometry snapshot | Recorded status |',
+             '| Recorded case | Implemented criteria met | Matches recorded geometry snapshot | Recorded status |',
              '| --- | --- | --- | --- |'])
     for case, record in records.items():
         target = Path(os.path.relpath(record['assessment'], Path(selection['status_document']).parent)).as_posix()
@@ -186,7 +244,7 @@ def status_markdown(selection, records):
 
 
 def check(root=ROOT):
-    selection = read_json(root / 'current-candidate.json')
+    selection = read_selection(root)
     key = selection['candidate']
     errors = []
 
@@ -259,12 +317,17 @@ def check(root=ROOT):
     geometry_path = root / selection['geometry']
     geometry = read_json(geometry_path)
     require(geometry['candidate'] == key, 'Geometry candidate differs from authority')
+    if errors:
+        raise ValueError('\n'.join(errors))
+    applicability = geometry_applicability(root, selection, geometry)
+    model_name = model_path.relative_to(root).as_posix()
     for name, expected in geometry['source_sha256'].items():
+        if name == model_name and not applicability['matches_current_model']:
+            continue  # Exact historical/current sources were checked above.
         source = root / name
         require(source.is_file() and digest(source) == expected,
                 f'Stale geometry source snapshot: {name}')
-    model_name = model_path.relative_to(root).as_posix()
-    for label, manifest in (('viewer', viewer), ('geometry', geometry)):
+    for label, manifest in (('viewer', viewer),):
         require(manifest['source_sha256'].get(model_name) == digest(model_path),
                 f'{label} does not identify current model revision')
 
@@ -330,11 +393,15 @@ def check(root=ROOT):
         'candidate': key,
         'configuration_consistent': True,
         'qualified_for_design': False,
+        'recorded_geometry_applicability': applicability,
         'viewer_manifest_sha256': digest(viewer_path),
         'construction_manifest_sha256': digest(drawing_path),
         'aggregate_evidence': aggregate,
         'recorded_assessments': records,
-        'scope': selection['scope'],
+        'recorded_authority_scope': selection['scope'],
+        'scope': (selection['scope'] if applicability['matches_current_model'] else
+                  'Six recorded cases describe the preceding clip geometry only. '
+                  'Current-layout mechanics are unverified. ' + applicability['reason']),
     }
 
 
@@ -349,7 +416,7 @@ def main():
         if args.write_status:
             if args.check_exports:
                 parser.error('--write-status and --check-exports are separate operations')
-            selection = read_json(ROOT / 'current-candidate.json')
+            selection = read_selection(ROOT)
             path = ROOT / selection['status_document']
             path.write_text(status_markdown(selection, recorded_assessments(ROOT, selection)))
             print(path)

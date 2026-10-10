@@ -2,6 +2,7 @@
 import gzip
 import hashlib
 import json
+import zipfile
 from pathlib import Path
 
 import pytest
@@ -25,7 +26,8 @@ def configuration(tmp_path):
     selection = json.loads(Path('current-candidate.json').read_text())
     key = 'fixture-development'
     for extra in ('shop_checklist', 'assembly_guide', 'decision_log', 'working_set',
-                  'viewer_documents', 'width_options', 'width_option_document'):
+                  'viewer_documents', 'width_options', 'width_option_document',
+                  'recorded_geometry_applicability'):
         selection.pop(extra, None)
     selection.update({
         'candidate': key,
@@ -80,7 +82,10 @@ def configuration(tmp_path):
                                                      for p in (viewer, viewer.with_name('parts.json'))}},
                         'artifact_sha256': {hardware.name: digest(hardware)}})
     geometry = tmp_path / selection['geometry']
-    write_json(geometry, {'candidate': key, 'source_sha256': sources})
+    auxiliary = tmp_path / 'mini_moonboard/fixture_geometry_input.json'
+    auxiliary.write_text('{"value": 1}\n')
+    write_json(geometry, {'candidate': key, 'source_sha256': {
+        **sources, auxiliary.relative_to(tmp_path).as_posix(): digest(auxiliary)}})
     for name in selection['recorded_assessments'].values():
         write_json(tmp_path / name, {'candidate': key, 'qualified_for_design': False,
                                     'status': 'IMPLEMENTED_FLUSH_CRITERIA_NOT_MET',
@@ -94,7 +99,9 @@ def configuration(tmp_path):
         write_json(archive / 'checks.json', {'candidate': key})
         native = json.dumps({'candidate': key}).encode()
         (archive / 'report.json.gz').write_bytes(gzip.compress(native))
-        (archive / 'sources.zip').write_bytes(b'source snapshot')
+        with zipfile.ZipFile(archive / 'sources.zip', 'w') as snapshot:
+            snapshot.writestr(model.relative_to(tmp_path).as_posix(), model.read_bytes())
+            snapshot.writestr(auxiliary.relative_to(tmp_path).as_posix(), auxiliary.read_bytes())
         manifest = {
             'candidate': key,
             'native_report_sha256': hashlib.sha256(native).hexdigest(),
@@ -149,6 +156,140 @@ def test_consistency_authenticates_six_case_aggregate(configuration):
             'k12-right', 'k12-rear', 'a1-rear',
         ],
     }
+
+
+@pytest.fixture
+def disclosed_geometry_change(configuration):
+    root, selection = configuration
+    model_name = selection['model_module'].replace('.', '/') + '.py'
+    model = root / model_name
+    recorded_sha = digest(model)
+    model.write_text(model.read_text() + '# Later geometry revision.\n')
+    viewer = root / selection['viewer_manifest']
+    drawing = root / selection['construction_manifest']
+    for path in (viewer, drawing):
+        manifest = json.loads(path.read_text())
+        manifest['source_sha256'][model_name] = digest(model)
+        if path == drawing:
+            manifest['source_sha256'][selection['viewer_manifest']] = digest(viewer)
+        write_json(path, manifest)
+    selection['recorded_geometry_applicability'] = {
+        'status': 'RECORDED_GEOMETRY_DIFFERS_FROM_CURRENT_MODEL',
+        'model_source': model_name,
+        'recorded_sha256': recorded_sha,
+        'current_sha256': digest(model),
+        'change_commit': 'a' * 40,
+        'reason': 'Two clip stations moved; old results retain their geometry.',
+        'results_apply_to_current_model': False,
+    }
+    write_json(root / 'current-candidate-applicability.json', {
+        'candidate': selection['candidate'], **selection.pop('recorded_geometry_applicability'),
+    })
+    selection['recorded_geometry_applicability'] = json.loads(
+        (root / 'current-candidate-applicability.json').read_text())
+    selection['recorded_geometry_applicability'].pop('candidate')
+    (root / selection['status_document']).write_text(
+        status_markdown(selection, recorded_assessments(root, selection)))
+    return root, selection
+
+
+def test_disclosed_change_authenticates_old_source_without_transferring_passes(disclosed_geometry_change):
+    root, _ = disclosed_geometry_change
+    result = check(root)
+    assert result['configuration_consistent'] is True
+    assert result['recorded_geometry_applicability']['matches_current_model'] is False
+    assert result['recorded_geometry_applicability']['mechanical_acceptance'] is False
+    assert result['recorded_geometry_applicability']['results_apply_to_current_model'] is False
+    assert result['recorded_authority_scope'] != result['scope']
+    assert 'preceding clip geometry only' in result['scope']
+    assert 'Current-layout mechanics are unverified' in result['scope']
+
+
+@pytest.mark.parametrize('mutation', ['changed', 'missing'])
+def test_disclosure_does_not_exempt_other_geometry_sources(disclosed_geometry_change, mutation):
+    root, _ = disclosed_geometry_change
+    auxiliary = root / 'mini_moonboard/fixture_geometry_input.json'
+    if mutation == 'changed':
+        auxiliary.write_text('{"value": 2}\n')
+    else:
+        auxiliary.unlink()
+    with pytest.raises(ValueError, match='Stale geometry source snapshot'):
+        check(root)
+
+
+@pytest.mark.parametrize('field,value', [
+    ('recorded_sha256', '0' * 64), ('current_sha256', '0' * 64),
+    ('model_source', 'other.py'), ('results_apply_to_current_model', True),
+    ('status', 'ACCEPTED'), ('change_commit', 'missing'), ('reason', ''),
+])
+def test_disclosure_rejects_false_applicability_or_source_drift(disclosed_geometry_change, field, value):
+    root, selection = disclosed_geometry_change
+    selection['recorded_geometry_applicability'][field] = value
+    write_json(root / 'current-candidate-applicability.json', {
+        'candidate': selection['candidate'], **selection['recorded_geometry_applicability'],
+    })
+    with pytest.raises(ValueError, match='applicability disclosure'):
+        check(root)
+
+
+@pytest.mark.parametrize('label', [
+    'a12-left', 'a12-rear', 'a12-forward', 'k12-right', 'k12-rear', 'a1-rear',
+])
+@pytest.mark.parametrize('mutation', ['wrong', 'missing', 'duplicate'])
+def test_disclosure_rejects_rehashed_archive_with_wrong_model(disclosed_geometry_change, label, mutation):
+    root, selection = disclosed_geometry_change
+    aggregate_path = root / selection['aggregate_evidence']
+    aggregate = json.loads(aggregate_path.read_text())
+    case = aggregate['cases'][label]
+    archive = root / case['archive']
+    name = selection['recorded_geometry_applicability']['model_source']
+    with zipfile.ZipFile(archive / 'sources.zip') as snapshot:
+        original = snapshot.read(name)
+    with zipfile.ZipFile(archive / 'sources.zip', 'w') as snapshot:
+        if mutation == 'missing':
+            snapshot.writestr('other.py', original)
+        elif mutation == 'duplicate':
+            snapshot.writestr(name, original)
+            with pytest.warns(UserWarning, match='Duplicate name'):
+                snapshot.writestr(name, original)
+        else:
+            snapshot.writestr(name, 'impostor')
+    manifest_path = archive / 'manifest.json'
+    manifest = json.loads(manifest_path.read_text())
+    manifest['files']['sources.zip'] = digest(archive / 'sources.zip')
+    write_json(manifest_path, manifest)
+    case['manifest_sha256'] = digest(manifest_path)
+    write_json(aggregate_path, aggregate)
+    with pytest.raises(ValueError, match='Archived model differs'):
+        check(root)
+
+
+@pytest.mark.parametrize('candidate', ['other-development', None])
+def test_companion_candidate_must_match_authority(disclosed_geometry_change, candidate):
+    root, _ = disclosed_geometry_change
+    path = root / 'current-candidate-applicability.json'
+    record = json.loads(path.read_text())
+    if candidate is None:
+        record.pop('candidate')
+    else:
+        record['candidate'] = candidate
+    write_json(path, record)
+    with pytest.raises(ValueError, match='companion candidate differs'):
+        check(root)
+
+
+def test_duplicate_disclosure_is_rejected(disclosed_geometry_change):
+    root, selection = disclosed_geometry_change
+    write_json(root / 'current-candidate.json', selection)
+    with pytest.raises(ValueError, match='Duplicate recorded-geometry'):
+        check(root)
+
+
+def test_missing_companion_does_not_allow_historical_geometry(disclosed_geometry_change):
+    root, _ = disclosed_geometry_change
+    (root / 'current-candidate-applicability.json').unlink()
+    with pytest.raises(ValueError, match='geometry does not identify current model'):
+        check(root)
 
 
 def test_consistency_accepts_selected_candidate_in_grouped_current_designs(configuration):

@@ -9,11 +9,18 @@ Geometry-hash agreement alone does not authenticate force sources or establish m
 Authenticated six-case summary: [aggregate evidence](floor-runner-mvp-evidence.json).
 Each saved assessment still describes one case; its local "full case set" gate is superseded by the authenticated aggregate, not rewritten.
 
+**The recorded mechanics geometry differs from the current model.**
+The current viewer and shop model relocate clip_split_base_center_left and clip_split_base_center_right from Y=-135 mm to Y=-124.9 mm, a 10.1-mm translation, so the front SDS remains in wood. Frozen six-case mechanics retain the preceding clip stations; their passes apply only to that recorded geometry. Current-layout mechanics applicability is unverified.
+The change is recorded in commit `7cdd2e37ed2d364b47879a960b9eb15b93c67048`.
+Recorded model SHA-256: `4cc03e086b381de2cd04685578bfccccfa72ee6e3545814d8e2469a3196de045`.
+Current model SHA-256: `8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a`.
+The six recorded passes do not establish mechanics acceptance of the later clip layout.
+
 Shop packet: [shop checklist](floor-flush-shop-checklist.md); [assembly guide](floor-flush-assembly-guide.md); [working set](selected-working-set.md).
 
 Full scope and remaining checks: [build package](floor-flush-build-package.md) and [completion plan](floor-runner-mvp-master-plan.md).
 
-| Recorded case | Implemented criteria met | Matches selected geometry snapshot | Recorded status |
+| Recorded case | Implemented criteria met | Matches recorded geometry snapshot | Recorded status |
 | --- | --- | --- | --- |
 | [a12-left](../fea/results/floor-runner-mvp/a12-left/flush-checks.json) | 36/36 | yes | `IMPLEMENTED_FLUSH_CRITERIA_MET_COMPLETION_GATES_OPEN` |
 | [a12-rear](../fea/results/floor-runner-mvp/a12-rear/flush-checks.json) | 36/36 | yes | `IMPLEMENTED_FLUSH_CRITERIA_MET_COMPLETION_GATES_OPEN` |

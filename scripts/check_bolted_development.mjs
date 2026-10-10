@@ -37,6 +37,51 @@ export function validateEntry(text, index) {
   assert.ok(text.includes(`?model=${index.geometry.viewer}&view=rear`), 'incoming viewer differs');
 }
 
+export function validateStructuralAssessment(report, index) {
+  assert.equal(report.schema, 'eoere_current_structural_assessment/v1');
+  assert.equal(report.geometry_revision, index.geometry.revision);
+  assert.equal(report.hardware_revision, index.hardware_model.revision);
+  assert.equal(report.assessment_status, 'BOUNDED_ASSESSMENT_COMPLETE_ACCEPTANCE_UNRESOLVED');
+  for (const key of ['extra_grid', 'current_response_computed', 'historical_pass_transferred',
+    'native_solve_performed', 'cad_rebuilt', 'remedies_attempted', 'geometry_or_hardware_changed',
+    'structural_acceptance', 'fabrication_released', 'climbing_released'])
+    assert.equal(report[key], false, `assessment boundary: ${key}`);
+  assert.equal(report.actual_build_fit_work_excluded_by_owner, true);
+  assert.equal(report.actual_observations, null);
+  assert.equal(report.thread_method.threshold, .25);
+  for (const ref of [index.hardware_model.receipt, index.shop.result, index.shop.overrides[0], index.response.components])
+    assert.equal(report.source_sha256[ref.path], ref.sha256, `assessment source: ${ref.path}`);
+  bound({path: 'scripts/eoere_structural_assessment.py',
+    sha256: report.source_sha256['scripts/eoere_structural_assessment.py']});
+  assert.deepEqual(report.preceding_reference_comparisons.recorded_geometry.report, index.response.geometry);
+  assert.equal(report.preceding_reference_comparisons.applies_to_current_model, false);
+  assert.equal(report.preceding_reference_comparisons.complete_joint_resistance, null);
+  assert.ok(report.preceding_reference_comparisons.governing_own_case_witnesses.length > 0);
+  assert.ok(report.preceding_reference_comparisons.saved_reference_exceedances.length > 0);
+  assert.equal(report.preceding_reference_comparisons.other_saved_exceedance_and_sensitivity_disclosures.length, 6);
+  assert.equal(report.thread_stacks.length, 100);
+  assert.equal(report.thread_stacks.reduce((n, row) => n + row.members.length, 0), 120);
+  assert.ok(report.thread_stacks.every(row => row.actual_thread_fraction === null && row.current_capacity === null));
+  const counts = {};
+  for (const row of report.thread_stacks)
+    counts[row.catalog_envelope_disposition] = (counts[row.catalog_envelope_disposition] || 0) + 1;
+  assert.deepEqual(report.thread_catalog_envelope_counts, counts);
+  const previousPath = path.posix.join(path.posix.dirname(index.structural_assessment.path), 'mechanics-review.json');
+  const previous = JSON.parse(bound({path: previousPath, sha256: report.source_sha256[previousPath]}));
+  assert.deepEqual(report.current_unresolved_modes, previous.unresolved);
+  assert.ok(report.current_unresolved_modes.every(row => row.current_resistance === null));
+  const contact = report.spacer_contact;
+  assert.equal(contact.current_resistance, null);
+  assert.equal(contact.current_axial_actions, null);
+  assert.deepEqual(contact.nominal_projection_areas_mm2, previous.nominal_projection_areas_mm2);
+  const pressures = contact.mean_pressure_mpa_per_1000n_centered_axial_force;
+  assert.deepEqual(Object.keys(pressures).sort(), Object.keys(contact.nominal_projection_areas_mm2).sort());
+  for (const [name, area] of Object.entries(contact.nominal_projection_areas_mm2)) {
+    assert.ok(Number.isFinite(area) && area > 0);
+    assert.equal(pressures[name], 1000 / area);
+  }
+}
+
 export function checkDevelopment(index = readIndex()) {
   assert.equal(index.schema, 'bolted_frame_development_revisions/v1');
   assert.equal(index.fabrication_released, false);
@@ -130,6 +175,7 @@ export function checkDevelopment(index = readIndex()) {
   const components = JSON.parse(bound(index.response.components));
   assert.equal(cases.candidate_geometry_sha256, index.response.geometry.sha256);
   assert.deepEqual(components.current_geometry.report, index.response.geometry);
+  validateStructuralAssessment(JSON.parse(bound(index.structural_assessment)), index);
   for (const record of [cases, components, JSON.parse(bound(index.unadopted_proposal.cases))])
     assert.ok(Object.values(record.release).every(value => value === false));
   assert.equal(index.unadopted_proposal.adopted, false);

@@ -66,8 +66,8 @@ def test_v4_timbers_are_active_without_releasing_g1() -> None:
         decision["active_scope_reference"]
         == "docs/bolted-candidate-simple-joints-v4.md"
     )
-    assert "PB-01" in ledger["active_focus"]
-    assert "PB-02" in ledger["active_focus"]
+    assert "revised bolted solid-wood block system" in ledger["active_focus"]
+    assert "G1, G2, and all construction gates remain open" in ledger["active_focus"]
     assert decision["g1_resume_decision"]["route"] != (
         "published_bolted_timber_HL_installation_plus_checked_unlisted_actions"
     )

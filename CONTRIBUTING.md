@@ -35,8 +35,8 @@ Run checks affected by the change before committing. For code or model changes,
 the normal repository checks are:
 
 ```bash
-uv run ruff check .
-uv run pytest
+uv run ruff check --no-cache mini_moonboard fea scripts tests --extend-exclude fea/contact_wrench_benchmark.py
+uv run python -m scripts.compact_viewer_meshes --run -- uv run pytest
 uv run scripts/smoke_test.py
 ```
 
@@ -48,6 +48,13 @@ justify a CAD rebuild, native solve or complete historical export.
 Lint excludes immutable launch and search-controller snapshots under
 `fea/results/`; preserve those source witnesses rather than reformatting them.
 Maintained analysis code remains linted.
+Ruff 0.16 expands the default rules. Exact source/rule waivers in `ruff.toml`
+preserve issued native and analysis witnesses instead of changing their bytes.
+`tests/frozen-lint-sources.json` pins all 76 waived files and their exact rules;
+its active test rejects changed source bytes or an unrecorded waiver. Portable
+maintained code and new helpers retain the current defaults. Executable shebang
+files have executable Git modes. The five maintained packet directories are
+also linted explicitly by [CI](.github/workflows/ci.yml).
 
 The default test run covers the current candidate and shared geometry, hardware,
 and analysis utilities. Preserved historical-model tests are opt-in:
@@ -67,6 +74,12 @@ its original environment hashes. Its geometry tests remain active, while the
 selected candidate's artifact provenance and rebuild are checked in CI.
 CI uses the same default; its manual workflow can also include historical tests
 and the historical reference/V1 export comparison.
+The current inventory additionally identifies old PB/WJ/barrel/thin-frame replay
+tests that need frozen ignored source banks or earlier model/source bindings.
+Those exact modules/cases remain available with `--include-historical`; missing
+inputs and source drift still fail there. Synthetic yield calculations and
+portable orchestration tests remain in the default suite. This separation does
+not repair or requalify historical evidence, and no missing-file auto-skip is used.
 
 The September 12, 2026 full run had 2,777 passes, eight skips and three historical
 source-inventory failures in `test_reinforcement_review.py`,
@@ -101,6 +114,14 @@ source/artifact hashes, drawing-to-viewer links, the viewer default and leading
 document references. Its reported manifest hashes identify the exact export and
 drawing snapshots; a candidate name alone does not identify a revision.
 Recorded assessments retain their own input revisions and open gates.
+[`current-candidate-applicability.json`](current-candidate-applicability.json)
+discloses the selected baseline's intentional two-clip geometry change after
+its frozen six-case assessment. It supplements the original authority without
+changing its bytes. Validation authenticates the preceding model inside all six
+source archives and the exact live model digest, retaining strict checks on
+every other source and artifact. Machine output derives a historical scope and
+explicitly marks current mechanical acceptance unverified. This disclosure does
+not transfer the preceding case passes or exempt current export rebuilding.
 The [recorded-evidence inventory](docs/current-candidate-status.md) is checked
 against those files, including criteria counts, geometry-snapshot agreement and
 open gates. After an intentional assessment or geometry update, review the

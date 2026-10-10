@@ -4,17 +4,17 @@ from pathlib import Path
 
 import pytest
 
+from fea.wood_joint_reduced_native import digest
 from fea.wood_joint_reduced_trial import _postrun_review_integrity_passes
+from fea.wood_joint_reduced_trial_c11 import verify_c10_postrun_audit
 from fea.wood_joint_reduced_trial_review import (
     TOLERANCE_MM,
-    _check_prior_execution,
     _authorized_review_binding,
+    _check_prior_execution,
     _rf_active_normal_opening_interval,
     check_active_set_history,
     derive_next_active_set,
 )
-from fea.wood_joint_reduced_native import digest
-from fea.wood_joint_reduced_trial_c11 import verify_c10_postrun_audit
 
 ROOT = Path(__file__).resolve().parents[1]
 C08 = (
