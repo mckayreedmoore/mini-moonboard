@@ -82,6 +82,505 @@ export function validateStructuralAssessment(report, index) {
   }
 }
 
+export function validateCurrentResponse(report, index) {
+  const response = index.current_response;
+  assert.ok(response, 'explicit current response binding required');
+  assert.equal(response.revision, index.geometry.revision);
+  assert.equal(response.hardware_revision, index.hardware_model.revision);
+  assert.deepEqual(response.geometry, index.geometry.receipt);
+  assert.deepEqual(response.hardware_model, index.hardware_model.receipt);
+  assert.equal(response.applies_to_current_geometry, true);
+  assert.equal(response.applies_to_current_hardware, true);
+  assert.ok(response.components, 'separate current component references required');
+  assert.equal(report.schema, 'eoere_selected_hardware_six_case_response/v1');
+  assert.equal(report.status, 'CURRENT_CONDITIONAL_FIRST_ORDER_CASES_ADMITTED');
+  assert.equal(report.candidate, index.evidence_candidate);
+  assert.equal(report.geometry_revision, response.revision);
+  assert.equal(report.hardware_revision, response.hardware_revision);
+  assert.deepEqual(report.geometry, response.geometry);
+  assert.deepEqual(report.hardware_model, response.hardware_model);
+  for (const key of ['extra_grid', 'native_solve_performed', 'historical_q_forces_or_passes_transferred',
+    'remedies_attempted', 'actual_build_fit_work_performed', 'structural_acceptance',
+    'physical_demand_bounds_established']) assert.equal(report[key], false, `response boundary: ${key}`);
+  assert.equal(report.conditional_first_order_solve_performed, true);
+  assert.equal(report.all_six_saved_field_admissions_pass, true);
+  assert.equal(report.complete_joint_resistance, null);
+  assert.equal(report.finished_member_capacity, null);
+  assert.deepEqual(report.release, Object.fromEntries(['candidate_accepted', 'complete_joint_acceptance',
+    'capacity_established', 'fabrication_released', 'structural_released', 'climbing_released'].map(k => [k, false])));
+  assert.equal(report.source_manifest.path, path.posix.join(path.posix.dirname(response.cases.path), 'inputs.json'));
+  const manifest = JSON.parse(bound(report.source_manifest));
+  assert.equal(manifest.schema, 'eoere_selected_hardware_current_response_sources/v1');
+  assert.deepEqual(manifest.references.geometry, response.geometry);
+  assert.deepEqual(manifest.references.hardware, response.hardware_model);
+  assert.equal(manifest.optional_extra_grid, false);
+  for (const [key, name] of Object.entries({summary_producer: 'summarize_eoere_current_response',
+    force_producer: 'eoere_current_response', input_checker: 'check_eoere_current_inputs'})) {
+    assert.equal(report[key].path, `scripts/${name}.py`);
+    bound(report[key]);
+  }
+  const sequence = ['a12-forward', 'a12-rear', 'a12-left', 'k12-right', 'k12-rear', 'a1-rear'];
+  assert.deepEqual(report.case_sequence, sequence);
+  assert.deepEqual(report.cases.map(row => row.case_id), sequence);
+  assert.equal(new Set(report.cases.map(row => row.state_id)).size, 6);
+  const raw = 'fea/generated/selected-hardware-followup-v1/current-response-v1/';
+  for (const row of report.cases) {
+    const directory = `${raw}cases-v1/${row.case_id}/attempt01/`;
+    for (const [key, name] of [['field', 'field.json'], ['admission', 'admission.json']]) {
+      assert.equal(row[key].path, directory + name);
+      assert.match(row[key].sha256, /^[a-f0-9]{64}$/);
+    }
+    assert.equal(row.current_equilibrium_and_recovery_pass, true);
+    assert.equal(row.physical_demand_bounds_established, false);
+    assert.equal(row.first_order_physical_applicability_established, false);
+    assert.ok(Number.isFinite(row.gradient_inf_n) && row.gradient_inf_n >= 0 && row.gradient_inf_n <= 1e-5);
+    for (const [key, value] of Object.entries({physical_bodies: 150, timber: 22, fitting: 22,
+      panel: 6, shaft: 100, floor_normals: 32, floor_xy_components: 16, end_captures: 200}))
+      assert.equal(row.counts[key], value, `response census: ${key}`);
+    assert.equal(row.applied_load_checks.physical_load_count, 835);
+    assert.equal(row.applied_load_checks.complete_six_component_applied_load_work_replayed, true);
+    assert.equal(row.applied_load_checks.distributed_panel_rhs_independently_regenerated, false);
+    assert.equal(row.applied_load_checks.distributed_panel_rhs_is_exact_source_authenticated_capture, true);
+    assert.equal(row.equilibrium_verification.all_body_and_global_checks_pass, true);
+    assert.equal(row.equilibrium_verification.all_bodies, 150);
+    for (const leg of ['lumber_leg_left', 'lumber_leg_right'])
+      assert.ok(Number.isFinite(row.normal_force_n_by_host[leg]) && row.normal_force_n_by_host[leg] > 1e-7);
+    assert.equal(row.floor_support_summary.normal_reactions_nonnegative, true);
+    assert.equal(row.floor_support_summary.friction_or_anchor_capacity_established, false);
+    assert.equal(row.floor_support_summary.centroid_xy_penalty_is_exact_distributed_no_slip, false);
+    assert.equal(row.motion_diagnostics.first_order_applicability_established, false);
+    assert.equal(row.motion_diagnostics.adopted_small_motion_threshold, null);
+    for (const key of ['maximum_owned_interaction_point_linear_displacement_norm_mm',
+      'maximum_relative_timber_or_fitting_strip_rotation_norm_rad'])
+      assert.ok(Number.isFinite(row.motion_diagnostics[key]) && row.motion_diagnostics[key] >= 0);
+    assert.equal(row.spacer_nut_capture_actions.length, 8);
+    assert.equal(new Set(row.spacer_nut_capture_actions.map(r => r.axis_id)).size, 8);
+    assert.ok(row.spacer_nut_capture_actions.every(r => Number.isFinite(r.compression_n) && r.compression_n >= 0));
+  }
+  assert.equal(report.maximum_full_gradient_residual_n, Math.max(...report.cases.map(r => r.gradient_inf_n)));
+  assert.equal(report.maximum_owned_interaction_motion_mm,
+    Math.max(...report.cases.map(r => r.motion_diagnostics.maximum_owned_interaction_point_linear_displacement_norm_mm)));
+  assert.equal(report.maximum_relative_timber_or_fitting_rotation_rad,
+    Math.max(...report.cases.map(r => r.motion_diagnostics.maximum_relative_timber_or_fitting_strip_rotation_norm_rad)));
+  assert.ok(Number.isInteger(report.source_union.count) && report.source_union.count > 1450);
+  assert.match(report.source_union.canonical_sha256, /^[a-f0-9]{64}$/);
+  assert.equal(report.source_union.record.path, raw + 'summary-source-map-v1.json');
+}
+
+export function validateCurrentComponents(report, index) {
+  const response = index.current_response, forces = JSON.parse(bound(response.cases));
+  assert.equal(report.schema, 'eoere_current_six_case_structural_references/v1');
+  assert.equal(report.status, 'BOUNDED_CURRENT_REFERENCES_COMPLETE_RESISTANCE_UNKNOWN');
+  assert.equal(response.components.path, path.posix.join(path.posix.dirname(response.cases.path), 'components.json'));
+  assert.deepEqual(report.current_response, response.cases);
+  assert.equal(report.geometry_revision, response.revision);
+  assert.equal(report.hardware_revision, response.hardware_revision);
+  assert.deepEqual(report.geometry, response.geometry);
+  assert.deepEqual(report.hardware_model, response.hardware_model);
+  assert.deepEqual(report.release, forces.release);
+  for (const key of ['extra_grid', 'structural_acceptance', 'native_solve_performed', 'CAD_rebuilt',
+    'actual_build_fit_work_performed', 'remedies_attempted', 'physical_demand_bounds_established'])
+    assert.equal(report[key], false, `component boundary: ${key}`);
+  for (const key of ['complete_joint_resistance', 'finished_member_capacity', 'Hillman_product_capacity'])
+    assert.equal(report[key], null, `unknown current resistance: ${key}`);
+  const input = JSON.parse(bound(report.component_inputs));
+  assert.equal(input.schema, 'eoere_current_component_inputs/v1');
+  assert.deepEqual(input.current_response, response.cases);
+  assert.deepEqual(input.release, report.release);
+  for (const [key, name] of Object.entries({component_producer: 'eoere_current_components',
+    section_producer: 'eoere_current_sections', summary_producer: 'summarize_eoere_current_components'})) {
+    assert.equal(report[key].path, `scripts/${name}.py`);
+    bound(report[key]);
+  }
+  assert.deepEqual(report.case_sequence, forces.case_sequence);
+  assert.deepEqual(report.cases.map(r => r.case_id), forces.case_sequence);
+  const screwAxes = JSON.parse(bound(response.geometry)).screw_axes.map(r => r.axis_id).sort();
+  const timberMembers = [...new Set(report.targeted_finished_sections.planes.map(r => r.member))].sort();
+  const raw = 'fea/generated/selected-hardware-followup-v1/current-components-v1/';
+  for (const [i, row] of report.cases.entries()) {
+    const force = forces.cases[i];
+    for (const key of ['state_id', 'field', 'admission', 'release']) assert.deepEqual(row[key], force[key] ?? forces[key]);
+    for (const [key, name] of [['raw_components', 'components.json'], ['producer_process', 'process.json']]) {
+      assert.equal(row[key].path, `${raw}cases-v1/${row.case_id}/attempt02/${name}`);
+      assert.match(row[key].sha256, /^[a-f0-9]{64}$/);
+    }
+    assert.equal(row.coarse.complete24_joint_resistances, null);
+    assert.equal(row.coarse.generic_screw_references.all66_own_axes, true);
+    assert.equal(row.coarse.generic_screw_references.Hillman_product_capacity_or_complete_end_interaction, null);
+    const screws = row.coarse.generic_screw_references;
+    const headIDs = screws.generic_CD1_head_exceedance_axis_ids;
+    const scalars = screws.all_screw_reference_scalars;
+    const threadRows = screws.all_effective_thread_length_reference_exceedances;
+    assert.deepEqual(screws.reference_counts, {axes: 66, generic_CD1_head_exceedances: headIDs.length,
+      effective_thread_length_exceedances: threadRows.length});
+    assert.equal(new Set(headIDs).size, headIDs.length);
+    assert.equal(scalars.length, 66);
+    assert.deepEqual(scalars.map(r => r.axis_id).sort(), screwAxes);
+    for (const scalar of scalars) {
+      assert.ok(Number.isFinite(scalar.generic_head_ratio_CD1) && scalar.generic_head_ratio_CD1 >= 0);
+      assert.ok(Number.isFinite(scalar.generic_withdrawal_required_effective_thread_mm_CD1)
+        && scalar.generic_withdrawal_required_effective_thread_mm_CD1 >= 0);
+      assert.ok(Number.isFinite(scalar.gross_nominal_length_after_panel_mm) && scalar.gross_nominal_length_after_panel_mm > 0);
+      if (scalar.generic_withdrawal_required_effective_thread_mm_CD1 > scalar.gross_nominal_length_after_panel_mm)
+        assert.ok(scalar.effective_thread_exceedance_witness, 'whole effective-thread witness binding required');
+      else assert.equal(scalar.effective_thread_exceedance_witness, null);
+    }
+    assert.deepEqual(headIDs, scalars.filter(r => r.generic_head_ratio_CD1 > 1).map(r => r.axis_id));
+    assert.deepEqual(threadRows.map(r => r.axis_id), scalars.filter(r =>
+      r.generic_withdrawal_required_effective_thread_mm_CD1 > r.gross_nominal_length_after_panel_mm).map(r => r.axis_id));
+    assert.equal(new Set(threadRows.map(r => r.axis_id)).size, threadRows.length);
+    assert.deepEqual(threadRows, scalars.filter(r => r.effective_thread_exceedance_witness !== null)
+      .map(r => r.effective_thread_exceedance_witness));
+    const headWorst = screws.generic_head_ratio_CD1;
+    assert.ok(Number.isFinite(headWorst.generic_head_ratio_CD1));
+    assert.equal(headWorst.generic_head_ratio_CD1, Math.max(...scalars.map(r => r.generic_head_ratio_CD1)));
+    assert.equal(scalars.find(r => r.axis_id === headWorst.axis_id)?.generic_head_ratio_CD1, headWorst.generic_head_ratio_CD1);
+    if (headWorst.generic_head_ratio_CD1 > 1) assert.ok(headIDs.includes(headWorst.axis_id));
+    else assert.equal(headIDs.length, 0);
+    for (const witness of threadRows) {
+      const scalar = scalars.find(r => r.axis_id === witness.axis_id);
+      for (const key of ['axis_id', 'generic_head_ratio_CD1', 'generic_withdrawal_required_effective_thread_mm_CD1',
+        'gross_nominal_length_after_panel_mm']) assert.deepEqual(witness[key], scalar[key]);
+      assert.equal(witness.case_id, row.case_id);
+      assert.equal(witness.state_id, row.state_id);
+      assert.ok(Number.isFinite(witness.generic_withdrawal_required_effective_thread_mm_CD1));
+      assert.ok(Number.isFinite(witness.gross_nominal_length_after_panel_mm));
+      assert.ok(witness.generic_withdrawal_required_effective_thread_mm_CD1 > witness.gross_nominal_length_after_panel_mm);
+    }
+    const threadWorst = screws.generic_withdrawal_required_effective_thread_mm_CD1;
+    if (threadWorst.generic_withdrawal_required_effective_thread_mm_CD1 > threadWorst.gross_nominal_length_after_panel_mm) {
+      const saved = threadRows.find(r => r.axis_id === threadWorst.axis_id);
+      assert.ok(saved, 'largest effective-thread exceedance witness must be retained');
+      for (const [key, value] of Object.entries(threadWorst)) assert.deepEqual(saved[key], value);
+    }
+    assert.equal(row.coarse.panels.per_panel.length, 6);
+    const panelExceedances = row.coarse.panels.per_panel.flatMap(p => Object.entries(p.section_components).flatMap(([component, value]) => {
+      assert.ok(Number.isFinite(value.sampled_ratio_CD1));
+      return value.sampled_ratio_CD1 > 1 ? [{panel: p.panel, component, ...value}] : [];
+    }));
+    assert.deepEqual(row.coarse.panels.sampled_section_exceedances_CD1, panelExceedances);
+    assert.deepEqual(row.rich.steel_scenarios.map(r => r.comparison), [
+      {id: 't6_r6', inside_radius_scenario_mm: 6, thickness_mm: 6, yield_factor: 1.67, rupture_factor: 2},
+      {id: 't6p35_r6p35', inside_radius_scenario_mm: 6.35, thickness_mm: 6.35, yield_factor: 1.67, rupture_factor: 2},
+    ]);
+    const steelCategories = {
+      physical_cut_nominal_combined: 'conditional_combined_yield_reference_ratio',
+      near_hole_nominal_combined: 'conditional_combined_yield_reference_ratio',
+      far_hole_nominal_combined: 'conditional_combined_yield_reference_ratio',
+      radius_conditioned_heel_component_with_gravity: 'conditional_combined_yield_reference_ratio',
+      separate_whole_flange_torsion_warping: 'conditional_combined_yield_reference_ratio',
+      used_hole_bearing: 'bearing_reference_ratio', used_hole_tearout: 'tearout_reference_ratio',
+      unused_near_hole_net_shear: 'net_shear_rupture_reference_ratio',
+    };
+    for (const scenario of row.rich.steel_scenarios) {
+      assert.equal(scenario.fixed_actions_only, true);
+      assert.equal(scenario.product_strength, null);
+      assert.deepEqual(Object.keys(scenario.summary).sort(), Object.keys(steelCategories).sort());
+      for (const [name, metric] of Object.entries(steelCategories)) {
+        const category = scenario.summary[name], values = category.all_reference_values;
+        assert.equal(category.comparison_count, name === 'separate_whole_flange_torsion_warping' ? 44 : 88);
+        assert.equal(values.length, category.comparison_count);
+        assert.ok(values.every(v => Number.isFinite(v) && v >= 0));
+        assert.equal(category.worst.saved_metric, metric);
+        assert.equal(category.worst[metric], Math.max(...values));
+        assert.equal(category.exceedance_count, category.exceedances.length);
+        assert.deepEqual(category.exceedances, category.whole_exceedance_witness_bindings);
+        assert.deepEqual(category.exceedances.map(w => w[metric]), values.filter(v => v > 1));
+        for (const witness of [category.worst, ...category.exceedances]) {
+          assert.equal(witness.saved_metric, metric);
+          assert.equal(typeof witness.body, 'string');
+          if (name === 'unused_near_hole_net_shear') assert.equal(typeof witness.port_id, 'string');
+          else assert.equal(typeof witness.flange, 'string');
+          if (name === 'radius_conditioned_heel_component_with_gravity')
+            assert.equal(witness.inside_radius_scenario_mm, scenario.comparison.inside_radius_scenario_mm);
+        }
+        if (category.worst[metric] > 1) assert.deepEqual(category.exceedances.find(w =>
+          w.body === category.worst.body && w.flange === category.worst.flange && w.port_id === category.worst.port_id
+          && w.axis_id === category.worst.axis_id && w[metric] === category.worst[metric]), category.worst);
+      }
+    }
+    assert.equal(row.rich.timber.summary.physical_shafts, 100);
+    assert.equal(row.rich.timber.summary.wood_surfaces, 120);
+    assert.equal(row.rich.timber.summary.supported_component_reference_count, 92);
+    assert.equal(row.rich.timber.all24_complete_joint_resistances, null);
+    assert.equal(row.rich.timber.mixed_stacks.length, 8);
+    assert.equal(row.rich.shaft.complete_bolt_resistance, null);
+    assert.equal(row.rich.washers.census.physical_end_captures, 200);
+    assert.equal(row.rich.washers.census.full_source_nominal_wood_ring_landing, 0);
+    assert.equal(row.rich.washers.nominal_seat_geometry.nominal_wood_seats, 112);
+    assert.equal(row.rich.washers.nominal_seat_geometry.all_current_finished_wood_lands_qualified, false);
+    assert.equal(row.mixed_stack_statics.compatible_threaded_contact_or_yield_capacity, null);
+    assert.equal(row.mixed_stack_statics.mixed_axis_ids.length, 8);
+    assert.equal(row.mixed_stack_statics.own_surface_count, 24);
+    const stability = row.gross_member_stability, members = stability.all_member_witness_records;
+    assert.equal(stability.member_count, 22);
+    assert.equal(stability.saved_sampled_witness_count, 44);
+    assert.equal(members.length, 22);
+    assert.deepEqual(members.map(r => r.member).sort(), timberMembers);
+    const stabilityWitnesses = [];
+    for (const member of members) {
+      for (const key of ['span_mm', 'weak_column_domain_limit_mm', 'full_length_over_weak_column_domain_limit'])
+        assert.ok(Number.isFinite(member[key]) && member[key] > 0);
+      assert.equal(member.full_length_over_weak_column_domain_limit, member.span_mm/member.weak_column_domain_limit_mm);
+      assert.equal(member.actual_restraint_or_complete_resistance, null);
+      assert.deepEqual(member.two_saved_witness_sensitivities.map(w => w.witness),
+        ['fully_braced_normal', 'sufficient_shear_torsion']);
+      for (const witness of member.two_saved_witness_sensitivities) {
+        assert.ok(Number.isFinite(witness.station_global_grain_projection_mm));
+        assert.ok(Number.isFinite(witness.interaction_ratio) && witness.interaction_ratio >= 0);
+        assert.equal(witness.ratio_exceeds_one, witness.interaction_ratio > 1);
+        assert.equal(typeof witness.within_slenderness_limits, 'boolean');
+        assert.equal(typeof witness.Euler_denominators_positive, 'boolean');
+        assert.equal(witness.ratio_qualified_inside_declared_stability_domain,
+          witness.within_slenderness_limits && witness.Euler_denominators_positive);
+        stabilityWitnesses.push({member: member.member, ...witness});
+      }
+    }
+    const domainKeys = ['member', 'span_mm', 'weak_column_domain_limit_mm', 'full_length_over_weak_column_domain_limit'];
+    assert.deepEqual(stability.full_length_domain_exceedances, members
+      .filter(r => r.full_length_over_weak_column_domain_limit > 1)
+      .map(r => Object.fromEntries(domainKeys.map(k => [k, r[k]]))));
+    assert.deepEqual(stability.saved_witness_reference_exceedances, stabilityWitnesses.filter(w => w.interaction_ratio > 1));
+    assert.deepEqual(stability.largest_saved_K1_normal_sensitivity, stabilityWitnesses.find(w =>
+      w.interaction_ratio === Math.max(...stabilityWitnesses.map(v => v.interaction_ratio))));
+    assert.equal(row.spacer_nuts.length, 8);
+    assert.deepEqual(row.spacer_nuts.map(r => ({axis_id: r.axis_id, compression_n: r.N_n})).sort((a,b) => a.axis_id.localeCompare(b.axis_id)),
+      [...force.spacer_nut_capture_actions].sort((a,b) => a.axis_id.localeCompare(b.axis_id)));
+    for (const spacer of row.spacer_nuts) {
+      assert.equal(spacer.nominal_washer_ring_reference.uniform_load_ring_outer_radius_mm, 19.05/2);
+      assert.equal(spacer.spacer_strength_nut_contact_or_compatible_pressure_bound, null);
+      assert.equal(spacer.ideal_projection_is_not_actual_contact_or_pressure_bound, true);
+    }
+    assert.equal(row.support_screen.actual_no_slip_or_overturning_qualified, false);
+    assert.equal(row.support_screen.floor_friction_or_contact_pressure_capacity, null);
+  }
+  const finished = report.targeted_finished_sections;
+  assert.deepEqual(finished.producer, report.section_producer);
+  assert.equal(finished.selected_unique_planes, 38);
+  assert.equal(finished.same_plane_case_comparisons, 228);
+  assert.equal(finished.members, 22);
+  assert.equal(finished.planes.length, 38);
+  assert.equal(new Set(finished.planes.map(r => `${r.member}/${r.station_global_grain_projection_mm}`)).size, 38);
+  assert.equal(new Set(finished.planes.map(r => r.member)).size, 22);
+  assert.equal(finished.continuous_finished_member_resistance, null);
+  assert.deepEqual(finished.per_case_worst_witnesses.map(r => r.case_id), forces.case_sequence);
+  function validateFinishedWitness(witness, expectedCase = witness.case_id) {
+    const binding = forces.cases.find(r => r.case_id === expectedCase);
+    const plane = finished.planes.find(r => r.member === witness.member
+      && r.station_global_grain_projection_mm === witness.station_global_grain_projection_mm);
+    assert.ok(binding && plane, 'own case and selected finished plane required');
+    assert.equal(witness.case_id, expectedCase);
+    assert.equal(witness.state_id, binding.state_id);
+    assert.equal(witness.finished_area_mm2, plane.finished_area_mm2);
+    assert.equal(witness.finished_shear_torsion_fracture_or_stability_resistance, null);
+    for (const value of [witness.normal_reference.fully_braced_linear_normal_CD1_reference_index,
+      witness.necessary_mean_shear_over_CD1_Fv]) assert.ok(Number.isFinite(value) && value >= 0);
+  }
+  const finishedScalars = finished.all_selected_plane_reference_scalars;
+  const planeCaseID = w => JSON.stringify([w.case_id, w.member, w.station_global_grain_projection_mm]);
+  assert.equal(finishedScalars.length, 228);
+  assert.deepEqual(finishedScalars.map(planeCaseID).sort(), finished.planes.flatMap(p =>
+    forces.case_sequence.map(case_id => planeCaseID({...p, case_id}))).sort());
+  for (const scalar of finishedScalars) {
+    assert.equal(scalar.state_id, forces.cases.find(r => r.case_id === scalar.case_id).state_id);
+    for (const value of [scalar.fully_braced_linear_normal_CD1_reference_index,
+      scalar.necessary_mean_shear_over_CD1_Fv]) assert.ok(Number.isFinite(value) && value >= 0);
+    if (scalar.fully_braced_linear_normal_CD1_reference_index > 1 || scalar.necessary_mean_shear_over_CD1_Fv > 1) {
+      validateFinishedWitness(scalar.exceedance_witness, scalar.case_id);
+      assert.equal(planeCaseID(scalar.exceedance_witness), planeCaseID(scalar));
+      assert.equal(scalar.exceedance_witness.normal_reference.fully_braced_linear_normal_CD1_reference_index,
+        scalar.fully_braced_linear_normal_CD1_reference_index);
+      assert.equal(scalar.exceedance_witness.necessary_mean_shear_over_CD1_Fv, scalar.necessary_mean_shear_over_CD1_Fv);
+    } else assert.equal(scalar.exceedance_witness, null);
+  }
+  for (const [i, row] of finished.per_case_worst_witnesses.entries())
+    for (const key of ['normal_worst', 'necessary_shear_worst']) {
+      validateFinishedWitness(row[key], row.case_id);
+      assert.equal(row[key].state_id, forces.cases[i].state_id);
+      const scalar = finishedScalars.find(r => planeCaseID(r) === planeCaseID(row[key]));
+      assert.equal(row[key].normal_reference.fully_braced_linear_normal_CD1_reference_index,
+        scalar.fully_braced_linear_normal_CD1_reference_index);
+      assert.equal(row[key].necessary_mean_shear_over_CD1_Fv, scalar.necessary_mean_shear_over_CD1_Fv);
+      const metric = key === 'normal_worst' ? 'fully_braced_linear_normal_CD1_reference_index' : 'necessary_mean_shear_over_CD1_Fv';
+      assert.equal(scalar[metric], Math.max(...finishedScalars.filter(r => r.case_id === row.case_id).map(r => r[metric])));
+    }
+  for (const [globalKey, worstKey, exceedanceKey, scalarKey, metric] of [
+    ['maximum_normal_reference', 'normal_worst', 'all_selected_plane_normal_reference_exceedances',
+      'fully_braced_linear_normal_CD1_reference_index',
+      w => w.normal_reference.fully_braced_linear_normal_CD1_reference_index],
+    ['maximum_necessary_mean_shear', 'necessary_shear_worst', 'all_selected_plane_necessary_shear_reference_exceedances',
+      'necessary_mean_shear_over_CD1_Fv',
+      w => w.necessary_mean_shear_over_CD1_Fv],
+  ]) {
+    const global = finished[globalKey], exceedances = finished[exceedanceKey];
+    validateFinishedWitness(global);
+    const owner = finished.per_case_worst_witnesses.find(r => r.case_id === global.case_id);
+    assert.deepEqual(global, owner[worstKey]);
+    assert.equal(metric(global), Math.max(...finished.per_case_worst_witnesses.map(r => metric(r[worstKey]))));
+    assert.ok(Array.isArray(exceedances), 'finished exceedance disclosure required');
+    assert.deepEqual(exceedances, finishedScalars.filter(r => r[scalarKey] > 1).map(r => r.exceedance_witness));
+    assert.equal(new Set(exceedances.map(w => `${w.case_id}/${w.member}/${w.station_global_grain_projection_mm}`)).size, exceedances.length);
+    for (const witness of exceedances) {
+      validateFinishedWitness(witness);
+      const own = finished.per_case_worst_witnesses.find(r => r.case_id === witness.case_id)[worstKey];
+      assert.ok(metric(witness) > 1 && metric(witness) <= metric(own), 'strict own-case finished exceedance required');
+    }
+    for (const row of finished.per_case_worst_witnesses) {
+      const worst = row[worstKey];
+      if (metric(worst) > 1) assert.deepEqual(exceedances.find(w => w.case_id === row.case_id
+        && w.member === worst.member && w.station_global_grain_projection_mm === worst.station_global_grain_projection_mm), worst);
+    }
+  }
+  assert.equal(report.static_geometry_only_reused.historical_actions_ratios_or_passes_transferred, false);
+  assert.deepEqual(report.static_geometry_only_reused.source, index.structural_assessment);
+  assert.ok(Object.keys(report.missing_inputs).length >= 8);
+  assert.ok(Number.isInteger(report.source_union.count) && report.source_union.count > 1524);
+  assert.equal(report.source_union.all_sources_unchanged, true);
+  assert.match(report.source_union.canonical_sha256, /^[a-f0-9]{64}$/);
+  assert.ok(report.source_union.record.path.startsWith(raw + 'summary-source-map-'));
+}
+
+export function validateEngineeringAssessment(report, index) {
+  const forces = JSON.parse(bound(index.current_response.cases));
+  const components = JSON.parse(bound(index.current_response.components));
+  assert.equal(report.schema, 'eoere_current_engineering_assessment/v1');
+  assert.equal(report.status, 'ENGINEERING_ASSESSMENT_COMPLETE_ACCEPTANCE_NOT_ESTABLISHED');
+  assert.deepEqual(report.geometry, index.geometry.receipt);
+  assert.deepEqual(report.hardware_model, index.hardware_model.receipt);
+  assert.equal(report.geometry_revision, index.geometry.revision);
+  assert.equal(report.hardware_revision, index.hardware_model.revision);
+  assert.deepEqual(report.current_response, index.current_response.cases);
+  assert.deepEqual(report.current_components, index.current_response.components);
+  assert.equal(report.producer.path, 'scripts/eoere_engineering_assessment.py');
+  bound(report.producer);
+  assert.equal(report.screw_panel_exceedance_resolution_deferred_by_owner, true);
+  for (const key of ['screw_panel_load_path_removed_or_capacity_accepted', 'physical_demand_bounds_established',
+    'structural_acceptance', 'native_solve_CAD_rebuild_or_remedy_performed']) assert.equal(report[key], false);
+  for (const key of ['small_motion_threshold_adopted', 'complete_joint_resistance', 'finished_member_capacity'])
+    assert.equal(report[key], null);
+  assert.deepEqual(report.release, forces.release);
+  assert.equal(report.all_input_sources_unchanged, true);
+  assert.deepEqual(report.verified_input_unions, [forces.source_union, components.source_union]);
+  assert.deepEqual(report.recorded_load_basis, {climber_lb: 250, downward_multiplier: 2,
+    horizontal_force_n: 300, accessory_mass_kg: 25,
+    dynamic_spectrum_or_all_hold_direction_envelope_verified: false});
+  assert.deepEqual(report.equilibrium_wrench_reference_xyz_mm, [0, 750, 1100]);
+  assert.deepEqual(Object.keys(report.recorded_hold_geometry).sort(), ['A1', 'A12', 'K12']);
+  const cross = (a, b) => [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];
+  assert.deepEqual(report.case_sequence, forces.case_sequence);
+  assert.deepEqual(report.cases, forces.cases.map(r => Object.fromEntries(
+    ['case_id', 'state_id', 'field', 'admission', 'operator_bundle'].map(k => [k, r[k]]))));
+  assert.deepEqual(report.load_checks.map(r => r.case_id), forces.case_sequence);
+  assert.deepEqual(report.active_action_load_path_screen.map(r => r.case_id), forces.case_sequence);
+  const probe = report.finite_arm_contact_probe;
+  assert.equal(probe.fixed_original_directors, true);
+  assert.equal(probe.evaluated_at_saved_linear_state, true);
+  assert.equal(probe.finite_equilibrium_contact_law_or_error_bound, false);
+  assert.equal(probe.classification_tolerance_mm, 1e-8);
+  assert.deepEqual(probe.cases.map(r => r.case_id), forces.case_sequence);
+  assert.deepEqual(probe.contact_scalar_columns,
+    ['linear_gap_mm', 'fixed_director_finite_arm_gap_mm', 'relative_linear_rotation_rad']);
+  assert.equal(probe.contact_identities.length, 684);
+  assert.equal(new Set(probe.contact_identities.map(r => r.contact_id)).size, 684);
+  for (const identity of probe.contact_identities) {
+    assert.ok(typeof identity.contact_id === 'string' && identity.contact_id.length > 0);
+    assert.ok(['timber_face_contact', 'flange_contact'].includes(identity.kind));
+    assert.ok(typeof identity.first === 'string' && typeof identity.second === 'string' && identity.first !== identity.second);
+    assert.equal(identity.point_xyz_mm.length, 3);
+    assert.ok(identity.point_xyz_mm.every(Number.isFinite));
+  }
+  const classification = g => g > probe.classification_tolerance_mm ? 1 : g < -probe.classification_tolerance_mm ? -1 : 0;
+  const maximum = (rows, metric) => rows.reduce((best, row) => best === null || metric(row) > metric(best) ? row : best, null);
+  for (const [i, c] of probe.cases.entries()) {
+    const force = forces.cases[i], load = report.load_checks[i], routing = report.active_action_load_path_screen[i];
+    assert.equal(c.state_id, force.state_id);
+    assert.equal(c.physical_error_bound_or_response, false);
+    assert.equal(c.contacts, 684);
+    assert.equal(c.all_contact_scalars.length, c.contacts);
+    const rows = c.all_contact_scalars.map((values, j) => {
+      assert.equal(values.length, probe.contact_scalar_columns.length);
+      assert.ok(values.every(Number.isFinite) && values[2] >= 0, 'finite own contact scalar census required');
+      return {...probe.contact_identities[j], ...Object.fromEntries(probe.contact_scalar_columns.map((key, k) => [key, values[k]])),
+        gap_change_mm: values[1]-values[0], linear_class: classification(values[0]), surrogate_class: classification(values[1])};
+    });
+    for (const [key, kind, expected] of [['timber_face_contacts', 'timber_face_contact', 332], ['flange_contacts', 'flange_contact', 352]]) {
+      assert.equal(c[key], rows.filter(r => r.kind === kind).length);
+      assert.equal(c[key], expected);
+    }
+    const changes = rows.filter(r => r.linear_class*r.surrogate_class === -1);
+    for (const key of ['open_to_compressed', 'compressed_to_open', 'strict_open_compressed_class_changes'])
+      assert.ok(Number.isInteger(c[key]) && c[key] >= 0 && c[key] <= c.contacts);
+    assert.equal(c.strict_open_compressed_class_changes, changes.length);
+    assert.equal(c.open_to_compressed, changes.filter(r => r.linear_class === -1).length);
+    assert.equal(c.compressed_to_open, changes.filter(r => r.linear_class === 1).length);
+    assert.deepEqual(c.maximum_absolute_gap_change, maximum(rows, r => Math.abs(r.gap_change_mm)));
+    assert.deepEqual(c.maximum_relative_linear_rotation, maximum(rows, r => r.relative_linear_rotation_rad));
+    assert.deepEqual(c.largest_gap_change_class_switch, maximum(changes, r => Math.abs(r.gap_change_mm)));
+    assert.ok(Math.abs(c.maximum_relative_linear_rotation.relative_linear_rotation_rad-
+      force.motion_diagnostics.maximum_relative_timber_or_fitting_strip_rotation_norm_rad) <= 1e-12);
+    assert.equal(load.physical_load_rows, 835);
+    assert.equal(load.numerical_load_basis_verified, true);
+    for (const key of ['whole_force_xyz_n', 'whole_moment_about_origin_xyz_nmm', 'midplane_couple_xyz_nmm', 'load_point_xyz_mm']) {
+      assert.equal(load[key].length, 3);
+      assert.ok(load[key].every(Number.isFinite), `complete load vector required: ${key}`);
+    }
+    const horizontal = {'a12-forward': [0,-300], 'a12-rear': [0,300], 'a12-left': [-300,0],
+      'k12-right': [300,0], 'k12-rear': [0,300], 'a1-rear': [0,300]}[c.case_id];
+    assert.deepEqual(load.climber_force_xyz_n, [...horizontal, -250*2*4.4482216152605]);
+    const sourceWrench = force.applied_load_checks.applied_wrench_about_reference_n_nmm;
+    const referenceCouple = cross(report.equilibrium_wrench_reference_xyz_mm, sourceWrench.slice(0, 3));
+    for (let j = 0; j < 3; j++) {
+      assert.ok(Math.abs(load.whole_force_xyz_n[j]-sourceWrench[j]) < 1e-7);
+      assert.ok(Math.abs(load.whole_moment_about_origin_xyz_nmm[j]-sourceWrench[j+3]-referenceCouple[j]) < 1e-5);
+    }
+    assert.equal(load.hold, c.case_id.split('-')[0].toUpperCase());
+    const hold = report.recorded_hold_geometry[load.hold];
+    assert.equal(load.panel, hold.panel);
+    assert.deepEqual(load.load_point_xyz_mm, hold.load_point_xyz_mm);
+    assert.equal(hold.panel_midplane_xyz_mm.length, 3);
+    assert.ok(hold.panel_midplane_xyz_mm.every(Number.isFinite));
+    const holdCouple = cross(hold.load_point_xyz_mm.map((x, j) => x-hold.panel_midplane_xyz_mm[j]), load.climber_force_xyz_n);
+    for (let j = 0; j < 3; j++) assert.ok(Math.abs(load.midplane_couple_xyz_nmm[j]-holdCouple[j]) < 1e-5);
+    assert.ok(Math.abs(load.permanent_and_accessory_weight_n-
+      (forces.modeled_gravity.known_modeled_mass_kg+25)*9.80665) < 1e-7);
+    assert.equal(routing.state_id, force.state_id);
+    assert.equal(routing.physical_owners, 150);
+    assert.equal(routing.physical_owner_ids.length, routing.physical_owners);
+    assert.equal(new Set(routing.physical_owner_ids).size, routing.physical_owners);
+    assert.ok(routing.physical_owner_ids.every(id => typeof id === 'string' && id.length > 0 && id !== 'floor'));
+    assert.ok(routing.physical_owner_ids.includes(load.panel));
+    assert.ok(Number.isInteger(routing.active_action_rows) && routing.active_action_rows >= 0);
+    const floor = routing.physical_owners, graph = Array.from({length: floor+1}, () => new Set()), edgeKeys = new Set();
+    let activeRows = 0;
+    for (const edge of routing.active_edge_census) {
+      assert.equal(edge.length, 3);
+      const [first, second, count] = edge;
+      assert.ok(Number.isInteger(first) && Number.isInteger(second) && first >= 0 && first < second && second <= floor);
+      assert.ok(Number.isInteger(count) && count > 0);
+      const key = `${first}/${second}`;
+      assert.ok(!edgeKeys.has(key), 'unique active edge required'); edgeKeys.add(key);
+      graph[first].add(second); graph[second].add(first); activeRows += count;
+    }
+    assert.equal(routing.active_action_rows, activeRows);
+    const reached = new Set([floor]), pending = [floor];
+    while (pending.length) for (const next of graph[pending.pop()]) if (!reached.has(next)) {reached.add(next); pending.push(next);}
+    assert.deepEqual(routing.owners_without_active_action_path_to_floor,
+      routing.physical_owner_ids.filter((id, j) => !reached.has(j)).sort());
+    assert.equal(routing.force_threshold_n, 1e-6);
+    assert.equal(routing.moment_threshold_nmm, 1e-5);
+    assert.equal(routing.directional_restraint_capacity_or_complete_joint_behavior_qualified, false);
+    assert.equal(routing.all_owners_have_active_action_path_to_floor, routing.owners_without_active_action_path_to_floor.length === 0);
+  }
+  const domains = components.cases[0].gross_member_stability.all_member_witness_records;
+  assert.deepEqual(report.member_effective_length_domain, domains.map(r => ({member: r.member, full_span_mm: r.span_mm,
+    maximum_effective_length_for_l_over_d_50_mm: r.weak_column_domain_limit_mm,
+    maximum_effective_length_factor_for_full_span: r.weak_column_domain_limit_mm/r.span_mm,
+    full_span_K1_outside_domain: r.span_mm > r.weak_column_domain_limit_mm,
+    actual_effective_length_factor: null, bracing_or_member_strength_qualified: false})));
+  assert.ok(report.contact_probe_rows.path.startsWith('fea/generated/selected-hardware-followup-v1/engineering-acceptance-v1/'));
+  assert.match(report.contact_probe_rows.sha256, /^[a-f0-9]{64}$/);
+}
+
 export function checkDevelopment(index = readIndex()) {
   assert.equal(index.schema, 'bolted_frame_development_revisions/v1');
   assert.equal(index.fabrication_released, false);
@@ -176,6 +675,11 @@ export function checkDevelopment(index = readIndex()) {
   assert.equal(cases.candidate_geometry_sha256, index.response.geometry.sha256);
   assert.deepEqual(components.current_geometry.report, index.response.geometry);
   validateStructuralAssessment(JSON.parse(bound(index.structural_assessment)), index);
+  assert.ok(index.current_response, 'current response missing');
+  validateCurrentResponse(JSON.parse(bound(index.current_response.cases)), index);
+  validateCurrentComponents(JSON.parse(bound(index.current_response.components)), index);
+  assert.ok(index.engineering_assessment, 'current engineering assessment missing');
+  validateEngineeringAssessment(JSON.parse(bound(index.engineering_assessment)), index);
   for (const record of [cases, components, JSON.parse(bound(index.unadopted_proposal.cases))])
     assert.ok(Object.values(record.release).every(value => value === false));
   assert.equal(index.unadopted_proposal.adopted, false);
@@ -208,6 +712,7 @@ export function checkDevelopment(index = readIndex()) {
   assert.ok(read(entries[2]).toString().trimEnd().split('\n').length <= 150,
     'keep the development entry within 150 lines; link details from the ledger');
   return {passed: true, revision: geometry.revision, shop_revision: shop.revision, response_revision: index.response.revision,
+    current_response_revision: index.current_response.revision, current_response_hardware: index.current_response.hardware_revision,
     bolt_axes: geometry.axes.length, screw_axes: geometry.screw_axes.length,
     full_ignored_input_closure_checked: false, mechanics_executed: false};
 }

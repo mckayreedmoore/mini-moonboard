@@ -22,8 +22,8 @@ The viewer applies `eoere-selected-purchase-hardware-v1`: 32 longer bolts and ei
 | Current geometry | [Selected-hardware viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-selected-hardware-frame-development&view=rear) · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json) | Geometry evidence only; 100 bolts fixed, two screws raised. |
 | Current shop records and hardware choice | [Matching shop packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md) · [100 selected stacks](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv) | Current screw/channel datums; selected bolt lengths and eight spacers are now applied in the viewer. Actual fit and strength remain open. |
 | Preserved fixture concepts | [Builder drilling guide](../wood-joints-mvp/eoere-builder-drilling-guide.md) | Frozen aligned-wire geometry; later v3 moved 22 shafts and ten screws. Actual reach, fixtures and tools remain unresolved. |
-| Latest numerical evidence | [Six fresh cases](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/result-v1.json) · [parent verification](../../fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-cases-v1/parent-verification-v1.json) | Preceding extended-cleat geometry, extra grid off. Passing numerical audits do not transfer to the channel or raised-screw revisions. |
-| Structural assessment | [Current bounded assessment](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md#bounded-mechanics-review) | All 100 stacks/120 timber intervals; 68 potential thread/runout bounds exceed one quarter. Earlier references retain exceedances; current complete resistance remains null. |
+| Latest numerical evidence | [Six current cases](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json) · [method and limits](../wood-joints-mvp/completion-ledger.md#current-geometry-and-selected-hardware-six-case-forces) | Raised screws, smaller channels and selected hardware, extra grid off. Conditional first-order forces; physical applicability and resistance remain unresolved. |
+| Structural assessment | [Current joint/member references](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json) · [scope and missing inputs](../wood-joints-mvp/completion-ledger.md#current-joint-and-finished-member-references) | Six current states, all 100 bolts/66 screws, 38 finished timber planes. Reference exceedances recorded; complete resistance remains null. |
 | Detailed tasks and holds | [Completion ledger](../wood-joints-mvp/completion-ledger.md#build-package-completion) · [qualification status](../wood-joints-mvp/completion-ledger.md#current-model-completion-scope-and-qualification-status) | Source bindings, reviews and missing inputs; earlier “current” sections keep their historical meaning. |
 
 ## Revision map
@@ -38,7 +38,8 @@ Geometry, response and shop coverage have different boundaries:
 | Smaller-channel predecessor | `eoere-uniform-small-service-channels-v1` · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-uniform-channels-v1.json) | [Preserved viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-uniform-channels-frame-development&view=rear); preceding kicker positions. |
 | Applied hardware geometry | `eoere-selected-purchase-hardware-v1` · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json) | [Nominal installation followup](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md); 100 bolt axes retained, 32 shafts extended, eight spacers added. |
 | **Current shop plan** | `eoere-raised-kicker-screws-v1` | [Current packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md), composing current channels/screws with unchanged raw cuts, nesting, recesses and receiver axes. The separately bound hardware overlay applies the purchase override. |
-| **Latest six-case response** | `eoere-base-side-edge-cleats-v1` · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json) | [Preserved viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-extended-cleat-frame-development&view=rear); six own-case admissions and twelve component reports, fixed-rear-leg support scenario. |
+| **Current six-case response** | `eoere-raised-kicker-screws-v1` + `eoere-selected-purchase-hardware-v1` | [Six admitted fields](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json) and [component references](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json); extra grid off, fixed-rear-leg support. Complete resistance remains null. |
+| Preserved extended-cleat response | `eoere-base-side-edge-cleats-v1` · [numerical record](../wood-joints-mvp/completion-ledger.md#current-extended-cleat-numerical-completion) | Six own-case admissions and twelve component reports for their preceding geometry. |
 | Unadopted lower-corner proposal | `eoere-lower-cleat-z180-proposal-v1` | [Z180 preview](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-lower-cleat-z180-development&view=rear) · [separate shop packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/z180-proposal-v1/README.md); four stacks lowered 20 mm and eight replacement holes, with its own six-case response. |
 | Original Eoere proposal | `eoere-far-pairs-cleat-corners-v1` · [frozen contract](../../eoere-bolted-candidate.json) | [Earlier viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-bolted-development&view=rear); retained proposal identity. |
 
@@ -63,17 +64,17 @@ Guide rings and two clamp pads have nominal finished-face support at all
 at the longest path; actual tooling and observations stay unresolved/blank.
 See the [installation study](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/README.md) and [current followup](../wood-joints-mvp/completion-ledger.md#current-shop-and-hardware-selection).
 
-The preceding extended-cleat numerical packet retains six genuine own-case
-admissions under the original loads, 32 compression-only floor points and two
-rear-leg XY restraints under the unverified no-slip assumption. Its largest
-full-gradient residual is **6.128662e-6 N**, within the unchanged 1e-5-N gate.
-Reference exceedances remain for generic screw heads, panel bending/rolling
-shear and the t6/Ri6 heel scenario. The owner nominal t6.35/Ri6.35 heel reference
-has a small margin; actual formed-product resistance remains unknown.
-Physical applicability, finished sections, restraint, demand bounds and all
-complete-joint resistances remain open. See the
-[detailed numerical record](../wood-joints-mvp/completion-ledger.md#current-extended-cleat-numerical-completion)
-for comparisons, sensitivity exceedances and the source-captured panel-RHS limit.
+All six current cases pass saved-field equilibrium and recovery audits under
+the original loads, 32 compression-only floor points and two rear-leg XY
+restraints under the unverified no-slip assumption. The maximum full-gradient
+residual is **5.521612e-6 N**, within the unchanged 1e-5-N gate. Maximum modeled
+connection-point motion is **56.603761 mm**; no small-motion acceptance threshold
+is adopted. These conditional first-order actions establish neither physical
+demand bounds nor complete-joint or finished-member resistance. Gross-stock
+timber stiffness, generic screw stiffness and flat nominal fittings retain their
+limits. The [current force record](../wood-joints-mvp/completion-ledger.md#current-geometry-and-selected-hardware-six-case-forces)
+links exact inputs and all six audits. Current generic screw-head/withdrawal,
+panel and t6 heel exceedances are recorded in the [resistance evaluation](../wood-joints-mvp/completion-ledger.md#current-joint-and-finished-member-references).
 
 ## Proposed Z180 evaluation
 
@@ -98,10 +99,11 @@ changed-section strength remain unresolved. See the
 
 ## Remaining work and next actions
 
-1. The owner-directed bounded structural assessment is complete. Current screw/end,
-   complete-joint, finished-section and restraint acceptance remain unresolved.
-2. Retain every recorded exceedance without a remedy. Catalog bounds do not
-   establish actual thread exposure, connected contact/yield or current resistance.
+1. The [engineering assessment](../wood-joints-mvp/completion-ledger.md#engineering-assessment-and-acceptance-decisions) is complete for the recorded six-case scope.
+   Physical demand applicability, complete joints and finished-member/stability
+   acceptance remain unresolved; finite-arm probes retain a contact concern.
+2. Screw/panel exceedance resolution is deferred by the owner. Retain other
+   exceedances without remedies; catalog bounds do not establish complete resistance.
 3. Actual build-fit work is excluded from this continuation; observations stay blank.
    The existing physical-operation limits remain, without commissioning more fit work.
 4. Keep CI passing through its existing publication gates. Preserve the 66-screw policy;
@@ -114,8 +116,7 @@ Use the geometry and shop paths above, then the
 [resistance followup](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/README.md),
 [adjusted-base audit](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/README.md)
 and [connected-stack followup](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/README.md).
-Their older actions, local geometry and trial bearing parameters keep their limits.
-Use the [guarded reproduction entrypoints](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/README.md).
+Their older actions, local geometry and trial bearing parameters keep their limits; use the [guarded reproduction entrypoints](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/reproduction-guard-v1/README.md).
 
 ## Conditional operations and purchasing
 
@@ -141,8 +142,8 @@ Earlier [wood-joint records](../history/wood-joint-development-summary-before-na
 and [thin-frame discussion](../history/eoere-development-summary-before-compaction.md#preserved-thin-b103b104-predecessor)
 retain their own geometry, loads and unresolved criteria.
 
-Required cached solids, fields, operators, source banks and reviews remain
-**active inputs**, including ignored `fea/generated/`. The 1,446 hardware-geometry and 1,535 access-study pins remain active. Use the
+Required cached solids, current and historical fields, operators, source banks
+and reviews remain **active inputs**, including ignored `fea/generated/`. Use the
 [cleanup/recovery record](../repository-cleanup-evaluation-2026-09-28.md) and
 [contributor workflow](../../CONTRIBUTING.md) before moving files. Historical
 viewers and mesh aliases stay available. The persistent kit restored all 1,219 recorded inputs; no raw inputs are pruned.

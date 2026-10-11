@@ -1,5 +1,11 @@
 # Selected purchase hardware and nominal installation followup
 
+The later [engineering assessment and acceptance decisions](../../../../../completion-ledger.md#engineering-assessment-and-acceptance-decisions)
+confirm the recorded six-case load basis and add saved-state contact/effective-length
+diagnostics. Screw/panel exceedance resolution is deferred by the owner. Physical
+demand applicability, complete-joint resistance and finished-member/stability
+acceptance remain open; no release or geometry/hardware change follows.
+
 The current viewer applies **`eoere-selected-purchase-hardware-v1`** to the
 retained **`eoere-raised-kicker-screws-v1`** timber, panel and screw geometry.
 All 100 bolt axes, 66 Hillman axes and climbing surfaces remain fixed.
@@ -122,8 +128,11 @@ The owner-directed [structural assessment](structural-assessment.json) completes
 the feasible reporting/calculation scope for the unchanged raised-screw geometry
 and selected hardware, with the extra grid off. Actual build-fit work is excluded
 from this continuation; every observation remains blank. Complete resistance and
-current response remain unknown. No remedy, geometry/hardware change, CAD rebuild
-or native solve was performed.
+current response were unknown when that assessment was issued. The later
+[current six-case forces](#current-six-case-forces) and
+[current joint/member references](#current-joint-and-member-references) add their own bounded evidence.
+The assessment itself performs no remedy,
+geometry/hardware change, CAD rebuild or native solve.
 
 All **100 stacks / 120 timber intervals** are joined to their selected bolt's
 underhead datum, including maximum catalog head-washer thickness and intervening
@@ -169,11 +178,11 @@ dimensions and the preserved connected-stack packet. No native solve runs.
 
 | Question | Usable result | Exact missing evidence |
 | --- | --- | --- |
-| Raised screw ends | Nominal backing; 26.9-mm post-top and 19.05-mm side axis distances. | Hillman-specific end/splitting, head/withdrawal resistance and current simultaneous actions. Generic 5-mm guidance is not its capacity. |
-| Eight mixed stacks | Four new header bodies cover nominal far interfaces. Other four shafts retain up to 10.5156 mm potential far-cleat thread/runout exposure, 27.60% of 38.1 mm. | Actual diameter intervals, compatible connected yielding/contact and current member wrenches; old prescribed-action equilibrium is not current resistance. |
-| Eight spacer contacts | Nominal projected areas: spacer ring 201.396 mm²; washer overlap 188.036 mm²; ideal hex-nut overlap 93.158 mm². | Actual flatness/chamfers, coating, steel properties, washer bending, eccentricity and axial seat actions. These areas are not allowable capacities. |
+| Raised screw ends | Current simultaneous actions and nominal backing; 26.9-mm post-top and 19.05-mm side axis distances. | Hillman-specific end/splitting and combined head/withdrawal/lateral resistance. Generic guidance is not its capacity. |
+| Eight mixed stacks | Current own member wrenches and 24 surface bearing trials per case; selected thread windows remain bounded. | Actual diameter intervals and compatible connected yielding/contact; equilibrated bearing trials are not resistance. |
+| Eight spacer contacts | All 48 own nut forces and nominal washer-ring comparisons; projected areas remain separate from actual contact. | Flatness/chamfers, coating, steel properties, compatible washer/spacer bending, eccentricity and nut seating resistance. |
 | Other thread-bearing rows | 92 selected rows do not establish smooth body through all far wood. | Delivered body/runout/root intervals and an applicable connected bearing/yield treatment. |
-| Finished sections and restraint | Existing restored-principal volume and historical support scenario remain recorded. | Current signed demands, cut-aware strength/stability, panel participation and justified physical restraint/applicability. |
+| Finished sections and restraint | Current signed demands, 38 exact finished planes/228 comparisons, panel and support screens. | Continuous critical sections/local failure modes, justified bracing, product panel resistance and physical restraint/applicability. |
 | Complete joints | Geometry, catalog windows and nominal access are separate completed checks. | Compatible behavior under simultaneous actions and product-specific angle/joint resistance. All current complete resistances remain null. |
 
 The ideal contact formulas are `pi*(OD²-ID²)/4` for rings and
@@ -181,7 +190,80 @@ The ideal contact formulas are `pi*(OD²-ID²)/4` for rings and
 existing modeled 19.05-mm spacer OD, 10.31875-mm ID, 11.1125-mm washer ID
 and 14.2875-mm nut flats; they contain no material or allowable stress.
 The earlier six-case response remains bound to the extended-cleat revision.
-No changed gravity, stiffness, contact or response pass is claimed here.
+That frozen assessment supplies no changed gravity, stiffness, contact or
+response pass; the separately bound current force packet follows below.
+
+## Current six-case forces
+
+Owner-directed item 1 is complete for the exact raised-screw geometry and
+selected hardware, with the extra grid off. The [source manifest](current-response-v1/inputs.json)
+and [six-case result](current-response-v1/result.json) bind fresh conditional
+first-order fields for `a12-forward`, `a12-rear`, `a12-left`, `k12-right`,
+`k12-rear` and `a1-rear`. All six pass independent saved-field equilibrium,
+load-work and recovery checks. Their maximum full-gradient residual is
+**5.521612e-6 N**, below the unchanged 1e-5-N numerical gate.
+
+The adapter updates finished receiver/panel sources, the two raised screw
+ports, 32 selected shaft lengths, eight separate spacer gravity rows and
+eight outward nut capture faces. It reuses the existing mechanics and audit
+helpers. No old solved state, force or acceptance is transferred. There are
+150 physical owners, 100 shaft bodies, 508 metal gravity roles, 66 screw axes
+and 835 applied load rows in each live case. Each case has its own saved
+operator bundle and unchanged source capture.
+
+Maximum modeled connection-point motion is **56.603761 mm** and maximum
+relative timber/fitting rotation is **0.107845 rad**. These are first-order
+diagnostics with no adopted small-motion threshold. Gross-stock timber
+stiffness, generic Hillman stiffness, full nominal shaft diameters and flat
+nominal fittings remain conditional priors. The fixed two rear-leg centroid
+XY restraints and 32 compression-only normal points do not establish physical
+floor capacity or exact distributed no-slip restraint. The distributed panel
+right-hand side is an authenticated producer capture, not an independently
+regenerated distribution. Physical applicability and demand bounds remain open.
+
+Peak modeled screw withdrawal is **1,492.868838 N** at
+`round_panel_upper_left_rim_4` in `a12-rear`. The result also retains each
+case's eight spacer nut-capture actions; their maximum is **334.929289 N**
+at `cleat_post_bolt_left_2` in `a12-left`. These actions do not qualify screw,
+washer, spacer, steel, timber or complete-joint resistance. The earlier
+thread-window bounds and reference exceedances retain their exact inputs.
+No remedy, geometry/hardware change, actual fit work or native FEA is performed.
+
+The [maintained ledger](../../../../../completion-ledger.md#current-geometry-and-selected-hardware-six-case-forces)
+records all cases, exact preparation/method/execution references, review and
+reproduction details. The bounded component evaluation follows below;
+every release flag and current capacity stays false/null.
+
+## Current joint and member references
+
+Items 2 and 3 now have their own [six-case component record](current-response-v1/components.json)
+and [frozen calculation inputs](current-response-v1/components-inputs.json).
+All calculations consume the current admitted fields. The
+[maintained evaluation ledger](../../../../../completion-ledger.md#current-joint-and-finished-member-references)
+records scope, witnesses, exact missing inputs and reproduction commands.
+
+Current generic screw-head demand reaches **2.572615**, and required effective
+thread length reaches **62.969535 mm** against **45.243750 mm** gross nominal
+penetration. These references do not qualify Hillman resistance. Sampled panel
+bending reaches **4.613400** and rolling shear **2.451860**. The t6/Ri6 heel
+scenario reaches **1.107141**; the nominal t6.35/Ri6.35 scenario reaches
+**0.992604**. Every reference exceedance remains recorded without a remedy.
+
+All 100 shafts, 120 timber walls, 200 washer captures and 66 screws are covered
+per case. The 92 compatible two-member lateral references remain conditional;
+eight mixed stacks have current equilibrated force/couple trials, not a yield
+capacity. Eight nut washers now use nominal spacer overlap rings. Maximum
+spacer force is **334.929289 N**, with ideal nut-overlap mean **3.595300 MPa**;
+actual pressure, product strength and compatible contact remain unknown.
+
+The cached-solid study covers **38 finished planes / 228 same-case comparisons**
+across all 22 timbers. Its maximum conditional fully-braced normal index is
+**0.524029** and necessary average-shear index **0.153412**. These selected planes
+do not establish continuous critical sections, local hole/notch failure or member
+stability. Four members exceed the full-span weak-column domain and need justified
+restraint/effective lengths. Necessary floor-plane balance screens pass; friction,
+floor capacity and first-order physical applicability remain unqualified.
+All 24 complete-joint resistances and complete finished-member capacities stay null.
 
 ## Reproduction and retention
 

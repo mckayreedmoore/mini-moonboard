@@ -1,0 +1,66 @@
+{
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+    "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+  },
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_model": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
+    "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+  },
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "optional_extra_grid": false,
+  "owner_direction": "Start with item 1: loads and forces for the exact current model; then use those results for joint and member evaluation. Record exceedances without remedies.",
+  "readiness": {
+    "candidate_assembly_or_solve": false
+  },
+  "references": {
+    "bridge": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+      "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+    },
+    "cached_exporter": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-export-v1/export.py",
+      "sha256": "718fc48186bbb37ef297a599d371a0a8def020864c90426c8e5492dcd404fb2f"
+    },
+    "channels": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-uniform-channels-v1.json",
+      "sha256": "5726cad4203df4533b599c869e6a0e2e0599e27e874e6252cc34f34d5b36e6d4"
+    },
+    "geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+      "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+    },
+    "hardware": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
+      "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+    },
+    "panel_bank": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-panel-bank-v1/panel_operators.py",
+      "sha256": "014f867eac1e9286dee188024544b5853e5cda2aa1cd11037d7aee5a2b29966b"
+    },
+    "prior_export": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-source-observations-v1/attempt01.json",
+      "sha256": "0f7e95f0dabfb5f0b5d63f8ef7d78e3c52c07672b4f482a89a89496eec703de7"
+    },
+    "prior_geometry": {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-extended-cleats-v1.json",
+      "sha256": "01ba30abe20c2efec136374b8d9a74a098a19929be3cc784b5ebcf7608e62a2d"
+    },
+    "prior_inputs": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-inputs-v1/attempt01/inputs.json",
+      "sha256": "f0c55ac1d67650eec2de0cedfe4ec383d5b2a04253fbf10c9db9df9251711baa"
+    }
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "schema": "eoere_selected_hardware_current_response_sources/v1",
+  "scope": "Fresh conditional first-order fields under the original six loads and fixed rear-leg XY / compression-only floor support. No design changes, native FEA, physical work or release."
+}

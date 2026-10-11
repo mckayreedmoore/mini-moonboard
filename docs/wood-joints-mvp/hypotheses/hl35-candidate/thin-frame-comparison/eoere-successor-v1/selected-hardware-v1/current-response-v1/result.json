@@ -1,0 +1,2451 @@
+{
+  "actual_build_fit_work_performed": false,
+  "all_six_saved_field_admissions_pass": true,
+  "candidate": "compact-floor-flush-eoere-bolted-development",
+  "case_sequence": [
+    "a12-forward",
+    "a12-rear",
+    "a12-left",
+    "k12-right",
+    "k12-rear",
+    "a1-rear"
+  ],
+  "cases": [
+    {
+      "admission": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/admission.json",
+        "sha256": "7453caef66a49d23efaf42387c1671c31bd6ddb09cd91773615ab3b9c753b36f"
+      },
+      "admission_elapsed_seconds": 57.41709357697982,
+      "admission_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/admission-process.json",
+        "sha256": "cad2cbde7520cfc897c2e96eca5ef712bff174c92436c588c4ac9158522a9012"
+      },
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          0.0,
+          -300.0,
+          -4376.845379241654,
+          -1581924.2219424036,
+          -2274350.025581245,
+          305760.0
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 835
+      },
+      "case_id": "a12-forward",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9350,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_equilibrium_and_recovery_pass": true,
+      "equilibrium_verification": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 7.957669310671203e-07,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0007539689362067507,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/field.json",
+        "sha256": "00ccac1496c2a46b63e92e540cd50b1fd537a078cfa397f04c0734210a2016f5"
+      },
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 269.147909010066,
+        "maximum_centroid_xy_penalty_motion_mm": 0.0026914790901006597,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          -1.4674393611358028e-07,
+          300.0000005623962
+        ],
+        "support_resultant_force_xyz_n": [
+          -1.4674393611358028e-07,
+          300.0000005623962,
+          4376.845378472881
+        ]
+      },
+      "global_residual_n_nmm": [
+        -1.4674393611358028e-07,
+        5.623962238132663e-07,
+        -7.687731340411119e-07,
+        -0.0010243803262710571,
+        -0.0007057492621243,
+        -0.0002136204275302589
+      ],
+      "gradient_inf_n": 4.470348358154297e-08,
+      "horizontal_force_xyz_n_by_host": {
+        "base_floor_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_floor_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumber_leg_left": [
+          41.06815207726215,
+          269.147909010066,
+          0.0
+        ],
+        "lumber_leg_right": [
+          -41.068152224006084,
+          30.852091552330265,
+          0.0
+        ]
+      },
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 49.76850635787966,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.10784477952695389,
+        "timber_node_rotation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_rotation_norm_rad": 0.007304204752850993
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_rotation_norm_rad": 0.007591487874005583
+          },
+          {
+            "body": "base_header",
+            "maximum_node_rotation_norm_rad": 0.02304121886516583
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_rotation_norm_rad": 0.01052108020397185
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_rotation_norm_rad": 0.007728170359858609
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_rotation_norm_rad": 0.06417067465212922
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_rotation_norm_rad": 0.012761857818780357
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_rotation_norm_rad": 0.01880544239647633
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_rotation_norm_rad": 0.016532570008953584
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_rotation_norm_rad": 0.013529047079693251
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_rotation_norm_rad": 0.004693886560873054
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_rotation_norm_rad": 0.014016419286631556
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_rotation_norm_rad": 0.005747129239018375
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_rotation_norm_rad": 0.01597234708444174
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_rotation_norm_rad": 0.005890025875927327
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_rotation_norm_rad": 0.03693413002049926
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_rotation_norm_rad": 0.02031848211064717
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_rotation_norm_rad": 0.007029879447653798
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_rotation_norm_rad": 0.09563462113198057
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_rotation_norm_rad": 0.03130332006617972
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_rotation_norm_rad": 0.011032624470127659
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_rotation_norm_rad": 0.01005601404995977
+          }
+        ],
+        "timber_node_translation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_translation_norm_mm": 12.287156137572252
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_translation_norm_mm": 13.16848548253618
+          },
+          {
+            "body": "base_header",
+            "maximum_node_translation_norm_mm": 31.87602221275448
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_translation_norm_mm": 23.596434004163232
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_translation_norm_mm": 23.295102183222806
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_translation_norm_mm": 24.306428616426874
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_translation_norm_mm": 15.056318981948358
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_translation_norm_mm": 26.196133308695522
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_translation_norm_mm": 24.081688472749235
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_translation_norm_mm": 35.28736807945695
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_translation_norm_mm": 22.466472430769702
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_translation_norm_mm": 24.29104739347482
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_translation_norm_mm": 15.36249796280807
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_translation_norm_mm": 23.017375907106228
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_translation_norm_mm": 15.104947066550356
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_translation_norm_mm": 20.993818417799186
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_translation_norm_mm": 37.952985292852155
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_translation_norm_mm": 19.636629023890542
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_translation_norm_mm": 51.80224200011526
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_translation_norm_mm": 22.833769225722293
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_translation_norm_mm": 18.93561509015988
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_translation_norm_mm": 10.623283149097603
+          }
+        ]
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 8.332983592627384,
+        "base_floor_right": 80.95520498606669,
+        "base_post_center_left": 149.1212785130633,
+        "base_post_center_right": 176.43889701177068,
+        "base_post_outer_left": 586.0515305316172,
+        "base_post_outer_right": 227.57374170127298,
+        "lumber_leg_left": 2355.1009292645836,
+        "lumber_leg_right": 793.2708128718782
+      },
+      "operator_bundle": {
+        "arrays": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/field.json.operators.npz",
+          "sha256": "48b3637be053fe4f4618c80845cedea624fa7324d329ff59c1500f18f4bd61a2"
+        },
+        "manifest": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/field.json.operators.json",
+          "sha256": "fd62d2c79792172389ff5b6033e6a9955ddc4804754e7365ea96d792ccee6624"
+        }
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9350,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "peak_panel_screw_withdrawal": {
+        "axis_id": "round_panel_upper_left_rim_4",
+        "withdrawal_n": 1389.273409123552
+      },
+      "physical_demand_bounds_established": false,
+      "producer_elapsed_seconds": 104.24886348602013,
+      "producer_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/process.json",
+        "sha256": "074e5afeeda82c018d011ad98bebe21409e29b61edd300aa5af6a043ef35d839"
+      },
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.11560569925712737,
+        "lumber_leg_right": 0.06475190069587722
+      },
+      "spacer_nut_capture_actions": [
+        {
+          "axis_id": "eoere_bolt_065",
+          "compression_n": 12.589494850441696
+        },
+        {
+          "axis_id": "eoere_bolt_066",
+          "compression_n": 31.766797310883057
+        },
+        {
+          "axis_id": "eoere_bolt_079",
+          "compression_n": 31.44275466980355
+        },
+        {
+          "axis_id": "eoere_bolt_080",
+          "compression_n": 48.722989721466064
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_1",
+          "compression_n": 50.05731979887784
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_2",
+          "compression_n": 234.71359975157213
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_1",
+          "compression_n": 39.78203402088232
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_2",
+          "compression_n": 157.49364681239575
+        }
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-32e5f3452e2252e729e473a3"
+    },
+    {
+      "admission": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-rear/attempt01/admission.json",
+        "sha256": "e99c0b25fdcc295108af6c5cf746554e9240946f45c12d79122ffee487c58533"
+      },
+      "admission_elapsed_seconds": 57.75027514298563,
+      "admission_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-rear/attempt01/admission-process.json",
+        "sha256": "de0ebbdc6a4890b671f0a4fbcb94eae9d3cd3ed71914dba8ad09131e44a79325"
+      },
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          0.0,
+          300.0,
+          -4376.845379241654,
+          -2115424.3002408594,
+          -2274350.025581245,
+          -305760.0
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 835
+      },
+      "case_id": "a12-rear",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9350,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_equilibrium_and_recovery_pass": true,
+      "equilibrium_verification": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 8.168280390941665e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0033729095704803573,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-rear/attempt01/field.json",
+        "sha256": "009fa240e45cf10824c2536bbc3a3191ce117a1b1822594650a1375929c9574a"
+      },
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 269.14790836732874,
+        "maximum_centroid_xy_penalty_motion_mm": 0.002691479083673287,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          -1.0798275695833581e-07,
+          -299.9999997826103
+        ],
+        "support_resultant_force_xyz_n": [
+          -1.0798275695833581e-07,
+          -299.9999997826103,
+          4376.8453783512105
+        ]
+      },
+      "global_residual_n_nmm": [
+        -1.0798275695833581e-07,
+        2.1738969735451974e-07,
+        -8.904435162548907e-07,
+        -0.0006549619138240814,
+        -0.0008283955976366997,
+        -3.604759695008397e-05
+      ],
+      "gradient_inf_n": 4.69228498117813e-06,
+      "horizontal_force_xyz_n_by_host": {
+        "base_floor_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_floor_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumber_leg_left": [
+          59.48297273337887,
+          -269.14790836732874,
+          0.0
+        ],
+        "lumber_leg_right": [
+          -59.48297284136163,
+          -30.852091415281556,
+          0.0
+        ]
+      },
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 37.29535783238667,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.07705829184459403,
+        "timber_node_rotation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_rotation_norm_rad": 0.01016865560422206
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_rotation_norm_rad": 0.008067340521328637
+          },
+          {
+            "body": "base_header",
+            "maximum_node_rotation_norm_rad": 0.018358498425557913
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_rotation_norm_rad": 0.010363612095733955
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_rotation_norm_rad": 0.004669058658441922
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_rotation_norm_rad": 0.06311543740259683
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_rotation_norm_rad": 0.008848033267253707
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_rotation_norm_rad": 0.018269797227646743
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_rotation_norm_rad": 0.01931961740309396
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_rotation_norm_rad": 0.01372685248888599
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_rotation_norm_rad": 0.001988446995603611
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_rotation_norm_rad": 0.013361308606333038
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_rotation_norm_rad": 0.007847164727586061
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_rotation_norm_rad": 0.01541857114896667
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_rotation_norm_rad": 0.008437364102226329
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_rotation_norm_rad": 0.038888868796192945
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_rotation_norm_rad": 0.0211447001185678
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_rotation_norm_rad": 0.0055525846338301274
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_rotation_norm_rad": 0.06364849849187713
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_rotation_norm_rad": 0.025701062435085905
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_rotation_norm_rad": 0.009000980714694044
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_rotation_norm_rad": 0.009798775373529927
+          }
+        ],
+        "timber_node_translation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_translation_norm_mm": 12.186514728081976
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_translation_norm_mm": 11.99046112003302
+          },
+          {
+            "body": "base_header",
+            "maximum_node_translation_norm_mm": 25.479783317844817
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_translation_norm_mm": 18.611002257625152
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_translation_norm_mm": 18.592846772266338
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_translation_norm_mm": 21.137337166559384
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_translation_norm_mm": 13.641915792077809
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_translation_norm_mm": 24.48250687768432
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_translation_norm_mm": 21.99891558079347
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_translation_norm_mm": 26.74633325834335
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_translation_norm_mm": 17.072054024764107
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_translation_norm_mm": 16.112082809063704
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_translation_norm_mm": 14.017355511211209
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_translation_norm_mm": 15.120834303854487
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_translation_norm_mm": 14.416677440820594
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_translation_norm_mm": 26.132931930507464
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_translation_norm_mm": 29.699506498920606
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_translation_norm_mm": 17.549420139280237
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_translation_norm_mm": 38.28104373041778
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_translation_norm_mm": 20.342287991774636
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_translation_norm_mm": 12.29632022845946
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_translation_norm_mm": 14.247145923074767
+          }
+        ]
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 68.77823312297095,
+        "base_floor_right": 96.49316244816958,
+        "base_post_center_left": 88.18264132332138,
+        "base_post_center_right": 124.12391470574553,
+        "base_post_outer_left": 0.0,
+        "base_post_outer_right": 201.92264366748202,
+        "lumber_leg_left": 2928.7113459736984,
+        "lumber_leg_right": 868.6334371098226
+      },
+      "operator_bundle": {
+        "arrays": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-rear/attempt01/field.json.operators.npz",
+          "sha256": "ed68eb83b93280036b3498700689d65b2ed4025786536b19a0c862ebee3e0132"
+        },
+        "manifest": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-rear/attempt01/field.json.operators.json",
+          "sha256": "7314c6fece4ae0890871bf7b630414e49d33f9e48e37ed8f6647bfafe3273663"
+        }
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9350,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "peak_panel_screw_withdrawal": {
+        "axis_id": "round_panel_upper_left_rim_4",
+        "withdrawal_n": 1492.86883765927
+      },
+      "physical_demand_bounds_established": false,
+      "producer_elapsed_seconds": 105.48748256999534,
+      "producer_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-rear/attempt01/process.json",
+        "sha256": "50e2a08910ded927bedea6978e0bc440b574d3c0f593cb0f95bf6d5120ec1f7c"
+      },
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.0941173529811882,
+        "lumber_leg_right": 0.07714189155361775
+      },
+      "spacer_nut_capture_actions": [
+        {
+          "axis_id": "eoere_bolt_065",
+          "compression_n": 34.84614735483926
+        },
+        {
+          "axis_id": "eoere_bolt_066",
+          "compression_n": 9.80098528278539
+        },
+        {
+          "axis_id": "eoere_bolt_079",
+          "compression_n": 32.801011892608265
+        },
+        {
+          "axis_id": "eoere_bolt_080",
+          "compression_n": 81.43039632973796
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_1",
+          "compression_n": 41.244305067199335
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_2",
+          "compression_n": 160.33822060925874
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_1",
+          "compression_n": 47.083716046472105
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_2",
+          "compression_n": 193.11521419375444
+        }
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-e3b07f02dceaa23f3d06e1ec"
+    },
+    {
+      "admission": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-left/attempt01/admission.json",
+        "sha256": "44ca5027eae6705870c867c91c1a76046d9531bb9861a403131b1e1a427ce8d5"
+      },
+      "admission_elapsed_seconds": 57.32589032701799,
+      "admission_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-left/attempt01/admission-process.json",
+        "sha256": "0ba4c79849df5f2ca2622211e5ef25f835d8398a8cb88595a82ca2368eb7e13e"
+      },
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          -300.0,
+          0.0,
+          -4376.845379241654,
+          -1848674.2610916314,
+          -2541100.064730473,
+          239866.13026966414
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 835
+      },
+      "case_id": "a12-left",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9350,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_equilibrium_and_recovery_pass": true,
+      "equilibrium_verification": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 1.6135550609431455e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0018895820646135464,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-left/attempt01/field.json",
+        "sha256": "56687fa1eb10d71a4e64069c1062264332a640d8dd46da56d636396a9f311c93"
+      },
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 226.756845453371,
+        "maximum_centroid_xy_penalty_motion_mm": 0.00226756845453371,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          300.00000029628757,
+          4.269529174649733e-07
+        ],
+        "support_resultant_force_xyz_n": [
+          300.00000029628757,
+          4.269529174649733e-07,
+          4376.845378325851
+        ]
+      },
+      "global_residual_n_nmm": [
+        2.962875669254572e-07,
+        4.269529174649733e-07,
+        -9.158029570244253e-07,
+        -0.0009327391162514687,
+        -0.0006093061529099941,
+        -0.0003236328484490514
+      ],
+      "gradient_inf_n": 1.1002285089080049e-06,
+      "horizontal_force_xyz_n_by_host": {
+        "base_floor_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_floor_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumber_leg_left": [
+          226.756845453371,
+          -2.1608460491651105,
+          0.0
+        ],
+        "lumber_leg_right": [
+          73.24315484291654,
+          2.160846476118028,
+          0.0
+        ]
+      },
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 56.41700161742077,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.0913971198517639,
+        "timber_node_rotation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_rotation_norm_rad": 0.02882962071107875
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_rotation_norm_rad": 0.024866145613446473
+          },
+          {
+            "body": "base_header",
+            "maximum_node_rotation_norm_rad": 0.019478731001450263
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_rotation_norm_rad": 0.011831212744607848
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_rotation_norm_rad": 0.008116845819446893
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_rotation_norm_rad": 0.06059409266712242
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_rotation_norm_rad": 0.011841160221713196
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_rotation_norm_rad": 0.019478560360811303
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_rotation_norm_rad": 0.017130401760308507
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_rotation_norm_rad": 0.013089339432732347
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_rotation_norm_rad": 0.005040516746428734
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_rotation_norm_rad": 0.014518742317919737
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_rotation_norm_rad": 0.00564180865174415
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_rotation_norm_rad": 0.01618153744020515
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_rotation_norm_rad": 0.005866195301465329
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_rotation_norm_rad": 0.038486465304511344
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_rotation_norm_rad": 0.017839941227189866
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_rotation_norm_rad": 0.010650225289588266
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_rotation_norm_rad": 0.08022366746367078
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_rotation_norm_rad": 0.03082841991061946
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_rotation_norm_rad": 0.03229509580812553
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_rotation_norm_rad": 0.027329183552402374
+          }
+        ],
+        "timber_node_translation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_translation_norm_mm": 40.7185209231998
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_translation_norm_mm": 36.70592228829905
+          },
+          {
+            "body": "base_header",
+            "maximum_node_translation_norm_mm": 44.91907939762204
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_translation_norm_mm": 40.76179685717101
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_translation_norm_mm": 39.25568598219423
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_translation_norm_mm": 42.346741058479914
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_translation_norm_mm": 36.502171415987085
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_translation_norm_mm": 48.05040893057765
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_translation_norm_mm": 48.82534320552446
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_translation_norm_mm": 47.879282379862964
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_translation_norm_mm": 39.2553459330689
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_translation_norm_mm": 44.842655021441374
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_translation_norm_mm": 41.36637593575976
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_translation_norm_mm": 44.862179888728924
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_translation_norm_mm": 41.938020630496005
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_translation_norm_mm": 48.62891076681785
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_translation_norm_mm": 49.03433398010817
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_translation_norm_mm": 45.6533008685824
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_translation_norm_mm": 57.228694987159614
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_translation_norm_mm": 37.785293584210436
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_translation_norm_mm": 50.66847010359448
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_translation_norm_mm": 45.49335685925796
+          }
+        ]
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 0.0,
+        "base_floor_right": 53.562950211026674,
+        "base_post_center_left": 121.55185451277056,
+        "base_post_center_right": 199.16241532083,
+        "base_post_outer_left": 355.15651727813236,
+        "base_post_outer_right": 166.9765726980188,
+        "lumber_leg_left": 2763.556672946416,
+        "lumber_leg_right": 716.8783953586569
+      },
+      "operator_bundle": {
+        "arrays": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-left/attempt01/field.json.operators.npz",
+          "sha256": "e7e7bd284fb4b1d93a0dbf19326a619ee2666e09160a6276c4496150661202ba"
+        },
+        "manifest": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-left/attempt01/field.json.operators.json",
+          "sha256": "fd608709fa7025efe4839cae21f2090015c8d2e73ea8bdb3d1408b6af33d0c81"
+        }
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9350,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "peak_panel_screw_withdrawal": {
+        "axis_id": "round_panel_upper_left_rim_4",
+        "withdrawal_n": 1420.6230478022292
+      },
+      "physical_demand_bounds_established": false,
+      "producer_elapsed_seconds": 105.81477348899352,
+      "producer_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-left/attempt01/process.json",
+        "sha256": "bb4297b4db56da630fcef02c5917cd44da3659cc1214071a0ca1ef745cbcf5b2"
+      },
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.08205626581573879,
+        "lumber_leg_right": 0.10221402043626383
+      },
+      "spacer_nut_capture_actions": [
+        {
+          "axis_id": "eoere_bolt_065",
+          "compression_n": 13.847214227842631
+        },
+        {
+          "axis_id": "eoere_bolt_066",
+          "compression_n": 14.534105246593265
+        },
+        {
+          "axis_id": "eoere_bolt_079",
+          "compression_n": 35.76623413245306
+        },
+        {
+          "axis_id": "eoere_bolt_080",
+          "compression_n": 46.90261093402551
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_1",
+          "compression_n": 65.33598946812624
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_2",
+          "compression_n": 334.929288961769
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_1",
+          "compression_n": 295.35856383925994
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_2",
+          "compression_n": 135.88892259570252
+        }
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cc866dc617528bd4c95cde49"
+    },
+    {
+      "admission": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-right/attempt01/admission.json",
+        "sha256": "f246a4915bf4b68f04d3264d22e39222fbdafc2a4aa41ae05af7a22261b68205"
+      },
+      "admission_elapsed_seconds": 57.743348805990536,
+      "admission_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-right/attempt01/admission-process.json",
+        "sha256": "36a5362ec9c1fbd21077902872db842e4f89c9cbb966f4af968e5621b764993a"
+      },
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          300.0,
+          0.0,
+          -4376.845379241654,
+          -1848674.2610916314,
+          2440621.6288284827,
+          -239866.13026966414
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 835
+      },
+      "case_id": "k12-right",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9350,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_equilibrium_and_recovery_pass": true,
+      "equilibrium_verification": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 7.899258327158386e-07,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0007889532625747936,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-right/attempt01/field.json",
+        "sha256": "28a2badaf561a476d237f636dd04c540e2d73cccce0862a9ec62599a2a53e99a"
+      },
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 226.44372113277163,
+        "maximum_centroid_xy_penalty_motion_mm": 0.0022644372113277164,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          -300.00000087377805,
+          4.671707465320196e-07
+        ],
+        "support_resultant_force_xyz_n": [
+          -300.00000087377805,
+          4.671707465320196e-07,
+          4376.845378397465
+        ]
+      },
+      "global_residual_n_nmm": [
+        -8.737780490264413e-07,
+        4.671707465320196e-07,
+        -8.441893442068249e-07,
+        -0.0009194938465952873,
+        3.1410716474056244e-05,
+        0.0006341396365314722
+      ],
+      "gradient_inf_n": 1.1920928955078125e-07,
+      "horizontal_force_xyz_n_by_host": {
+        "base_floor_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_floor_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumber_leg_left": [
+          -73.5562797410064,
+          2.1608467278944055,
+          0.0
+        ],
+        "lumber_leg_right": [
+          -226.44372113277163,
+          -2.160846260723659,
+          0.0
+        ]
+      },
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 56.60376113300569,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.09022091631177345,
+        "timber_node_rotation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_rotation_norm_rad": 0.0253164922189568
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_rotation_norm_rad": 0.02928911309989218
+          },
+          {
+            "body": "base_header",
+            "maximum_node_rotation_norm_rad": 0.01919277835033642
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_rotation_norm_rad": 0.007934674659963248
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_rotation_norm_rad": 0.01128566540218321
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_rotation_norm_rad": 0.012619108428836547
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_rotation_norm_rad": 0.060121048598936695
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_rotation_norm_rad": 0.017113736070002265
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_rotation_norm_rad": 0.01921415176235111
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_rotation_norm_rad": 0.004729061699552403
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_rotation_norm_rad": 0.012601917848563895
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_rotation_norm_rad": 0.005802037212901613
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_rotation_norm_rad": 0.014066886509722964
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_rotation_norm_rad": 0.00604368498095221
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_rotation_norm_rad": 0.01572723283363144
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_rotation_norm_rad": 0.039261987324116135
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_rotation_norm_rad": 0.010917523957439168
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_rotation_norm_rad": 0.01759572643038735
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_rotation_norm_rad": 0.032128188964181514
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_rotation_norm_rad": 0.07909099530997225
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_rotation_norm_rad": 0.027739301378292662
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_rotation_norm_rad": 0.0327024304829863
+          }
+        ],
+        "timber_node_translation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_translation_norm_mm": 37.49865011324873
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_translation_norm_mm": 41.511668916028334
+          },
+          {
+            "body": "base_header",
+            "maximum_node_translation_norm_mm": 45.382441021031056
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_translation_norm_mm": 39.85034749560927
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_translation_norm_mm": 41.44181686216711
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_translation_norm_mm": 37.29648324434353
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_translation_norm_mm": 42.992617961461995
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_translation_norm_mm": 49.12947588834242
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_translation_norm_mm": 48.392617738313724
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_translation_norm_mm": 39.772921538929644
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_translation_norm_mm": 48.33697867127187
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_translation_norm_mm": 41.858712548072816
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_translation_norm_mm": 45.31713034117982
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_translation_norm_mm": 42.412264906811586
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_translation_norm_mm": 45.335525375237076
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_translation_norm_mm": 48.857809057567835
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_translation_norm_mm": 45.99872201830676
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_translation_norm_mm": 49.44955105214947
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_translation_norm_mm": 38.687298543845436
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_translation_norm_mm": 57.39457924802771
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_translation_norm_mm": 45.9614064317459
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_translation_norm_mm": 51.10688708502479
+          }
+        ]
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 47.624601297391955,
+        "base_floor_right": 0.0,
+        "base_post_center_left": 213.03811541135073,
+        "base_post_center_right": 118.23693499570243,
+        "base_post_outer_left": 165.04981755120772,
+        "base_post_outer_right": 352.5377871826274,
+        "lumber_leg_left": 748.3691350343519,
+        "lumber_leg_right": 2731.9889869248327
+      },
+      "operator_bundle": {
+        "arrays": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-right/attempt01/field.json.operators.npz",
+          "sha256": "27041c93dce602117f860c87feeff105f0090508fb768551330ff22b5235b2e5"
+        },
+        "manifest": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-right/attempt01/field.json.operators.json",
+          "sha256": "8bf2cffa01ee27a6be4eadc83ee9bf35fbe8a2b2e832ae92d73b9fba84017588"
+        }
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9350,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "peak_panel_screw_withdrawal": {
+        "axis_id": "round_panel_upper_right_rim_4",
+        "withdrawal_n": 1384.347379113053
+      },
+      "physical_demand_bounds_established": false,
+      "producer_elapsed_seconds": 104.62375609698938,
+      "producer_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-right/attempt01/process.json",
+        "sha256": "4d8a6c47042153e8c8a68972d47028ed97198c858f93c23282fcf7ae8a51a4cb"
+      },
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.09833116948830552,
+        "lumber_leg_right": 0.08288980371196286
+      },
+      "spacer_nut_capture_actions": [
+        {
+          "axis_id": "eoere_bolt_065",
+          "compression_n": 47.533909780588054
+        },
+        {
+          "axis_id": "eoere_bolt_066",
+          "compression_n": 41.42410421920451
+        },
+        {
+          "axis_id": "eoere_bolt_079",
+          "compression_n": 20.535670132872276
+        },
+        {
+          "axis_id": "eoere_bolt_080",
+          "compression_n": 10.539488392700246
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_1",
+          "compression_n": 294.86180395341677
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_2",
+          "compression_n": 138.59385954851433
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_1",
+          "compression_n": 65.0843130317007
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_2",
+          "compression_n": 333.92417231310037
+        }
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-cd4f86b977feca5a7b2b1530"
+    },
+    {
+      "admission": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-rear/attempt01/admission.json",
+        "sha256": "767bd616bc6336ac26cdd3fab0b0d60583c09aeb09c14c4f833003b8bcd3121f"
+      },
+      "admission_elapsed_seconds": 55.468066089990316,
+      "admission_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-rear/attempt01/admission-process.json",
+        "sha256": "fd44e120d36225bd63c2486f531acefe14975a4f634b880e57ffd75835fe16c4"
+      },
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          0.0,
+          300.0,
+          -4376.845379241654,
+          -2115424.3002408594,
+          2173871.5896792547,
+          294240.0
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 835
+      },
+      "case_id": "k12-rear",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9350,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_equilibrium_and_recovery_pass": true,
+      "equilibrium_verification": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 8.200101589020307e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.007061363870618317,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-rear/attempt01/field.json",
+        "sha256": "8cdeda021a39868687013c0c7e8a540f73fd3cba0782784afa8e353456db687d"
+      },
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 265.02356335842694,
+        "maximum_centroid_xy_penalty_motion_mm": 0.002650235633584269,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          7.056399908833555e-09,
+          -299.99999977014807
+        ],
+        "support_resultant_force_xyz_n": [
+          7.056399908833555e-09,
+          -299.99999977014807,
+          4376.845378396441
+        ]
+      },
+      "global_residual_n_nmm": [
+        7.056399908833555e-09,
+        2.2985193481872557e-07,
+        -8.452125257463194e-07,
+        -0.0007454594597220421,
+        0.000609004870057106,
+        6.805890006944537e-05
+      ],
+      "gradient_inf_n": 5.521611793711278e-06,
+      "horizontal_force_xyz_n_by_host": {
+        "base_floor_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_floor_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumber_leg_left": [
+          60.02848987027305,
+          -34.9764364117211,
+          0.0
+        ],
+        "lumber_leg_right": [
+          -60.02848986321665,
+          -265.02356335842694,
+          0.0
+        ]
+      },
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 36.66550451543044,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.07625535863226848,
+        "timber_node_rotation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_rotation_norm_rad": 0.007279681293426263
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_rotation_norm_rad": 0.009629771796351647
+          },
+          {
+            "body": "base_header",
+            "maximum_node_rotation_norm_rad": 0.017818804367014388
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_rotation_norm_rad": 0.004578771785471801
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_rotation_norm_rad": 0.009673981887875445
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_rotation_norm_rad": 0.008899754168585646
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_rotation_norm_rad": 0.0626985390756551
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_rotation_norm_rad": 0.019343958667222775
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_rotation_norm_rad": 0.017965658821500374
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_rotation_norm_rad": 0.002208339039640922
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_rotation_norm_rad": 0.01317584366470668
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_rotation_norm_rad": 0.008183426371037516
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_rotation_norm_rad": 0.012958135703679364
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_rotation_norm_rad": 0.008767079408792169
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_rotation_norm_rad": 0.015060139524685502
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_rotation_norm_rad": 0.039795919224313726
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_rotation_norm_rad": 0.005878618599135109
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_rotation_norm_rad": 0.020897652183776524
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_rotation_norm_rad": 0.026645151342207466
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_rotation_norm_rad": 0.06291543205963762
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_rotation_norm_rad": 0.009107957141683687
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_rotation_norm_rad": 0.008189175710707234
+          }
+        ],
+        "timber_node_translation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_translation_norm_mm": 10.76372310941448
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_translation_norm_mm": 11.213187796539264
+          },
+          {
+            "body": "base_header",
+            "maximum_node_translation_norm_mm": 24.872757114895446
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_translation_norm_mm": 17.810571153343712
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_translation_norm_mm": 17.859593094773793
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_translation_norm_mm": 12.70283783116087
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_translation_norm_mm": 20.495551492096922
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_translation_norm_mm": 21.564713057618043
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_translation_norm_mm": 24.12889260524118
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_translation_norm_mm": 16.43126841373962
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_translation_norm_mm": 26.16436876379366
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_translation_norm_mm": 13.271568183862273
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_translation_norm_mm": 15.379907266010994
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_translation_norm_mm": 13.66066624848204
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_translation_norm_mm": 14.394795555952758
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_translation_norm_mm": 25.635101154835144
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_translation_norm_mm": 16.933949179794638
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_translation_norm_mm": 29.10003799073257
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_translation_norm_mm": 19.97512790610268
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_translation_norm_mm": 37.62060033981596
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_translation_norm_mm": 13.311720674987013
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_translation_norm_mm": 11.283978312498686
+          }
+        ]
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 96.45496663764351,
+        "base_floor_right": 66.4546052786384,
+        "base_post_center_left": 142.27411191616642,
+        "base_post_center_right": 83.83152361309126,
+        "base_post_outer_left": 188.18740361055686,
+        "base_post_outer_right": 0.0,
+        "lumber_leg_left": 905.465423313491,
+        "lumber_leg_right": 2894.1773440268535
+      },
+      "operator_bundle": {
+        "arrays": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-rear/attempt01/field.json.operators.npz",
+          "sha256": "85a2860bc330360ceaf5de44d17907608569f927dbe2ae3226c5e3d0732fd08f"
+        },
+        "manifest": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-rear/attempt01/field.json.operators.json",
+          "sha256": "e5ee87dd27656fefc089a37139ad0c2c3ecda173a539207afef573030df62766"
+        }
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9350,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "peak_panel_screw_withdrawal": {
+        "axis_id": "round_panel_upper_right_rim_4",
+        "withdrawal_n": 1454.2722986874492
+      },
+      "physical_demand_bounds_established": false,
+      "producer_elapsed_seconds": 106.56305098999292,
+      "producer_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-rear/attempt01/process.json",
+        "sha256": "4e28bbbbe09c12012a7ae66dada32593938d0f11fd33ecb6eff380b170289577"
+      },
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.07672845673395363,
+        "lumber_leg_right": 0.09389087293927557
+      },
+      "spacer_nut_capture_actions": [
+        {
+          "axis_id": "eoere_bolt_065",
+          "compression_n": 70.24201828858617
+        },
+        {
+          "axis_id": "eoere_bolt_066",
+          "compression_n": 39.51174568199914
+        },
+        {
+          "axis_id": "eoere_bolt_079",
+          "compression_n": 9.614457685231725
+        },
+        {
+          "axis_id": "eoere_bolt_080",
+          "compression_n": 33.521526868824814
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_1",
+          "compression_n": 47.717315213191554
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_2",
+          "compression_n": 194.1457497022827
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_1",
+          "compression_n": 42.74697161744845
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_2",
+          "compression_n": 166.82367692225907
+        }
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-41220f5e8594badf535ed933"
+    },
+    {
+      "admission": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a1-rear/attempt01/admission.json",
+        "sha256": "0555412e65b94f50d4ec782a228844e054d7523c0199be76f58d81bbf939fbb2"
+      },
+      "admission_elapsed_seconds": 55.91381595499115,
+      "admission_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a1-rear/attempt01/admission-process.json",
+        "sha256": "78f80659428c6b93a985403ad8b00a5824d2f827003ea83915af5d2748b6fba1"
+      },
+      "applied_load_checks": {
+        "applied_wrench_about_reference_n_nmm": [
+          0.0,
+          300.0,
+          -4376.845379241654,
+          1568541.82964512,
+          -2274350.025581245,
+          -305760.0
+        ],
+        "complete_six_component_applied_load_work_replayed": true,
+        "distributed_panel_rhs_independently_regenerated": false,
+        "distributed_panel_rhs_is_exact_source_authenticated_capture": true,
+        "nonpanel_affine_selfweight_and_point_load_projections_replayed": true,
+        "physical_load_count": 835
+      },
+      "case_id": "a1-rear",
+      "counts": {
+        "bearings": 416,
+        "contacts": 1838,
+        "dofs": 9350,
+        "end_captures": 200,
+        "fitting": 22,
+        "floor_normals": 32,
+        "floor_xy_components": 16,
+        "panel": 6,
+        "physical_bodies": 150,
+        "shaft": 100,
+        "timber": 22
+      },
+      "current_equilibrium_and_recovery_pass": true,
+      "equilibrium_verification": {
+        "all_bodies": 150,
+        "all_body_and_global_checks_pass": true,
+        "force_tolerance_n": 0.0001,
+        "maximum_body_force_norm_n": 2.6436913937793184e-06,
+        "maximum_body_moment_about_reference_norm_nmm": 0.0023423678702824374,
+        "moment_tolerance_nmm": 0.1
+      },
+      "field": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a1-rear/attempt01/field.json",
+        "sha256": "5d46aba1e921bd218cc53985141ddd293ba4c415ad5cdd54972d55d240013a97"
+      },
+      "first_order_physical_applicability_established": false,
+      "floor_support_summary": {
+        "centroid_xy_penalty_is_exact_distributed_no_slip": false,
+        "friction_or_anchor_capacity_established": false,
+        "maximum_centroid_tangent_component_n": 269.14790864671636,
+        "maximum_centroid_xy_penalty_motion_mm": 0.0026914790864671634,
+        "normal_reactions_nonnegative": true,
+        "required_horizontal_resultant_xy_n": [
+          1.497736654698656e-07,
+          -299.9999999475811
+        ],
+        "support_resultant_force_xyz_n": [
+          1.497736654698656e-07,
+          -299.9999999475811,
+          4376.845378370123
+        ]
+      },
+      "global_residual_n_nmm": [
+        1.497736654698656e-07,
+        5.24188976669393e-08,
+        -8.715305739315227e-07,
+        -4.457822069525719e-05,
+        -0.0006850692443549633,
+        6.455759285017848e-05
+      ],
+      "gradient_inf_n": 2.451513304781566e-06,
+      "horizontal_force_xyz_n_by_host": {
+        "base_floor_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_floor_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_center_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_left": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "base_post_outer_right": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "lumber_leg_left": [
+          23.67982457553367,
+          -269.14790864671636,
+          0.0
+        ],
+        "lumber_leg_right": [
+          -23.679824425760003,
+          -30.85209130086475,
+          0.0
+        ]
+      },
+      "loaded_recovery_checks": {
+        "captured_global_potential_omits_this_q_independent_constant": true,
+        "fitting_gravity_condensation_potential_constant_nmm": -0.004129683263794137,
+        "loaded_root_recoveries_replayed": 22,
+        "own_signed_external_action_shaft_cut_recoveries_replayed": 100,
+        "own_surface_aggregate_recoveries_replayed": 208
+      },
+      "motion_diagnostics": {
+        "adopted_small_motion_threshold": null,
+        "finite_contact_pressure_or_physical_demand_bounds_established": false,
+        "first_order_applicability_established": false,
+        "maximum_owned_interaction_point_linear_displacement_norm_mm": 16.554276472203785,
+        "maximum_relative_timber_or_fitting_strip_rotation_norm_rad": 0.02920811797545635,
+        "timber_node_rotation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_rotation_norm_rad": 0.0065202497453805035
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_rotation_norm_rad": 0.0059117144000499075
+          },
+          {
+            "body": "base_header",
+            "maximum_node_rotation_norm_rad": 0.005311447064893503
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_rotation_norm_rad": 0.005123581894011573
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_rotation_norm_rad": 0.005146183697289444
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_rotation_norm_rad": 0.008083682367978589
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_rotation_norm_rad": 0.004655621261736266
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_rotation_norm_rad": 0.00896786141404438
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_rotation_norm_rad": 0.014396595307265959
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_rotation_norm_rad": 0.016481482179583156
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_rotation_norm_rad": 0.007797738583934777
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_rotation_norm_rad": 0.0056439872965552695
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_rotation_norm_rad": 0.008531460661105167
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_rotation_norm_rad": 0.006959101598112772
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_rotation_norm_rad": 0.009139391019068003
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_rotation_norm_rad": 0.006653022332390375
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_rotation_norm_rad": 0.008612831336241418
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_rotation_norm_rad": 0.007956830449653942
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_rotation_norm_rad": 0.010752687012733193
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_rotation_norm_rad": 0.015617176433487695
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_rotation_norm_rad": 0.00697997755733672
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_rotation_norm_rad": 0.005927727828908585
+          }
+        ],
+        "timber_node_translation_rows": [
+          {
+            "body": "base_floor_left",
+            "maximum_node_translation_norm_mm": 10.9735722078428
+          },
+          {
+            "body": "base_floor_right",
+            "maximum_node_translation_norm_mm": 10.495479927260702
+          },
+          {
+            "body": "base_header",
+            "maximum_node_translation_norm_mm": 12.018667151867323
+          },
+          {
+            "body": "base_post_center_left",
+            "maximum_node_translation_norm_mm": 9.841419499221265
+          },
+          {
+            "body": "base_post_center_right",
+            "maximum_node_translation_norm_mm": 9.839126397591535
+          },
+          {
+            "body": "base_post_outer_left",
+            "maximum_node_translation_norm_mm": 11.52974955718776
+          },
+          {
+            "body": "base_post_outer_right",
+            "maximum_node_translation_norm_mm": 11.336451292401145
+          },
+          {
+            "body": "base_principal_center_left",
+            "maximum_node_translation_norm_mm": 12.144793592208252
+          },
+          {
+            "body": "base_principal_center_right",
+            "maximum_node_translation_norm_mm": 11.825389619625563
+          },
+          {
+            "body": "base_rail_bottom_left",
+            "maximum_node_translation_norm_mm": 15.625094051868187
+          },
+          {
+            "body": "base_rail_bottom_right",
+            "maximum_node_translation_norm_mm": 12.414357408662463
+          },
+          {
+            "body": "base_rail_service_lower_left",
+            "maximum_node_translation_norm_mm": 9.599516488049359
+          },
+          {
+            "body": "base_rail_service_lower_right",
+            "maximum_node_translation_norm_mm": 8.090383115497557
+          },
+          {
+            "body": "base_rail_service_upper_left",
+            "maximum_node_translation_norm_mm": 9.472048093714148
+          },
+          {
+            "body": "base_rail_service_upper_right",
+            "maximum_node_translation_norm_mm": 7.638547113677484
+          },
+          {
+            "body": "base_rail_top",
+            "maximum_node_translation_norm_mm": 10.651517697078047
+          },
+          {
+            "body": "base_side_left",
+            "maximum_node_translation_norm_mm": 13.128786323344075
+          },
+          {
+            "body": "base_side_right",
+            "maximum_node_translation_norm_mm": 13.42961850546735
+          },
+          {
+            "body": "eoere_cleat_left",
+            "maximum_node_translation_norm_mm": 14.36111079573443
+          },
+          {
+            "body": "eoere_cleat_right",
+            "maximum_node_translation_norm_mm": 14.77966239221596
+          },
+          {
+            "body": "lumber_leg_left",
+            "maximum_node_translation_norm_mm": 9.425466240020729
+          },
+          {
+            "body": "lumber_leg_right",
+            "maximum_node_translation_norm_mm": 5.7426655320207205
+          }
+        ]
+      },
+      "normal_force_n_by_host": {
+        "base_floor_left": 67.7189057176821,
+        "base_floor_right": 87.27599477770491,
+        "base_post_center_left": 516.3142471566558,
+        "base_post_center_right": 336.1795343150837,
+        "base_post_outer_left": 1797.422291878414,
+        "base_post_outer_right": 145.49834053716415,
+        "lumber_leg_left": 833.2866825788709,
+        "lumber_leg_right": 593.1493814085483
+      },
+      "operator_bundle": {
+        "arrays": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a1-rear/attempt01/field.json.operators.npz",
+          "sha256": "cb769a9f82a7fb4e2e9a79aede3fb7e0ed1e5c41b0bb13002b6acd17465c6445"
+        },
+        "manifest": {
+          "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a1-rear/attempt01/field.json.operators.json",
+          "sha256": "1c86a0ae0d202c761bc51f7ed64b56f84c1d1434a23e64463e80f904f4b721c3"
+        }
+      },
+      "owned_port_checks": {
+        "full_owned_dof_count": 9350,
+        "new_finite_contact_law_adopted": false,
+        "owned_point_ports_independently_replayed": 2336,
+        "unchanged_original_reference_floor_rows": 48
+      },
+      "peak_panel_screw_withdrawal": {
+        "axis_id": "round_panel_lower_left_rim_1",
+        "withdrawal_n": 1066.394501801919
+      },
+      "physical_demand_bounds_established": false,
+      "producer_elapsed_seconds": 116.56476498601842,
+      "producer_process": {
+        "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a1-rear/attempt01/process.json",
+        "sha256": "92cb365aba4a3f4203c3c862e7cd9911d3b2ff40c8242c05bbf23aa41f44143b"
+      },
+      "reaction_ratio_required_not_measured_friction": {
+        "lumber_leg_left": 0.3242432528372548,
+        "lumber_leg_right": 0.06556859869180591
+      },
+      "spacer_nut_capture_actions": [
+        {
+          "axis_id": "eoere_bolt_065",
+          "compression_n": 25.805588757733442
+        },
+        {
+          "axis_id": "eoere_bolt_066",
+          "compression_n": 22.351746339049168
+        },
+        {
+          "axis_id": "eoere_bolt_079",
+          "compression_n": 18.26353569075743
+        },
+        {
+          "axis_id": "eoere_bolt_080",
+          "compression_n": 20.34112928654083
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_1",
+          "compression_n": 53.45644443643405
+        },
+        {
+          "axis_id": "cleat_post_bolt_left_2",
+          "compression_n": 48.8100661307258
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_1",
+          "compression_n": 27.83591942534569
+        },
+        {
+          "axis_id": "cleat_post_bolt_right_2",
+          "compression_n": 81.5126841908902
+        }
+      ],
+      "state_id": "eoere-selected-hardware-fixed-floor-f8064e98e1983d8b4d429cfa"
+    }
+  ],
+  "complete_joint_resistance": null,
+  "conditional_first_order_solve_performed": true,
+  "execution_inputs": {
+    "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/execution-inputs-v2.json",
+    "sha256": "88395624a4a6bc6baeb98f8e7c635f86bae392a83182307eebbc4ee3790c5e1d"
+  },
+  "extra_grid": false,
+  "finished_member_capacity": null,
+  "force_producer": {
+    "path": "scripts/eoere_current_response.py",
+    "sha256": "3340243bd8127d3fa9fd8c2f5b1778db7abadc6da8a05c901e33b79b503a7944"
+  },
+  "geometry": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json",
+    "sha256": "7ebee98cb777de63ecdbc32007c97967c445500d93053eb942ab775568a5fb5f"
+  },
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_model": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-selected-hardware-v1.json",
+    "sha256": "c16ea7dbda86e6471d6dd1edff44f59e0d0a2db1c3fd1af145ffbd6a8a62ec09"
+  },
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "historical_q_forces_or_passes_transferred": false,
+  "input": {
+    "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/inputs-attempt05.json",
+    "sha256": "316edd1dbb9b2200f752f938891ac4857928a90d062fbfcf96ef709ce93363dc"
+  },
+  "input_checker": {
+    "path": "scripts/check_eoere_current_inputs.py",
+    "sha256": "26ec47218fa82f00f3eadb0cfcd5fd1271638038358c5f114539ac5cb6a2a873"
+  },
+  "input_review": {
+    "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/input-review-v3.json",
+    "sha256": "9219b04f4929834a6049272b06618347cbd78200755c73eb841721a389d29236"
+  },
+  "limits": [
+    "Gross-stock timber stiffness; finished-section resistance and stability are not established.",
+    "Generic Hillman stiffness and nominal flat Eoere fitting priors; product/complete-joint resistance unknown.",
+    "Spacer axial capture/gravity included, without spacer compliance, seating or washer resistance qualification.",
+    "Unverified no-slip floor; fixed two rear-leg centroid XY penalties and 32 compression-only normal points.",
+    "First-order motions are diagnostics; physical demand bounds and support/panel applicability remain open.",
+    "Distributed panel RHS is authenticated producer capture, not an independently regenerated load distribution.",
+    "All earlier exceedances remain recorded for their exact prior inputs; no remedies are attempted."
+  ],
+  "maximum_full_gradient_residual_n": 5.521611793711278e-06,
+  "maximum_owned_interaction_motion_mm": 56.60376113300569,
+  "maximum_relative_timber_or_fitting_rotation_rad": 0.10784477952695389,
+  "method_input": {
+    "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/method-input-v2.json",
+    "sha256": "c9b28d32b58be6e3d4048b00f1f0e457a74d27d53ca17d62ba712d7771739673"
+  },
+  "modeled_gravity": {
+    "additional_accessory_kg": 25.0,
+    "known_modeled_mass_kg": 194.51783449102362,
+    "primary_accessory_placement": "retained-original-top-hold",
+    "primary_accessory_point_xyz_mm": [
+      0.0,
+      1458.9642244114814,
+      2065.1804494620624
+    ],
+    "unitemized_accessory_scope": "Original 25 kg holds/hold-bolts/electrical allowance; separate nominal T-nut and Hillman envelope gravity included when exact cache is used. Pads have no mass input. No parts are weighed."
+  },
+  "native_solve_performed": false,
+  "physical_demand_bounds_established": false,
+  "preflight": {
+    "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/preflight-v2.json",
+    "sha256": "7a69f9aa009f80ee022d7c6939ac67b6346c708b84d823520af4c5f1d9a4a1c7"
+  },
+  "release": {
+    "candidate_accepted": false,
+    "capacity_established": false,
+    "climbing_released": false,
+    "complete_joint_acceptance": false,
+    "fabrication_released": false,
+    "structural_released": false
+  },
+  "remedies_attempted": false,
+  "schema": "eoere_selected_hardware_six_case_response/v1",
+  "source_manifest": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/inputs.json",
+    "sha256": "ac1e055a1d852b39bc84be2bc9c93e30675a2efcc95c9d9472b7b50e7deb1919"
+  },
+  "source_union": {
+    "canonical_sha256": "7faa5b3cb4bfe8eb57ad57e7003a6de4f1abee7df2abdf3636207c93123c63cb",
+    "count": 1524,
+    "record": {
+      "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/summary-source-map-v1.json",
+      "sha256": "358746c4b6dfd9e3e58ee6027d44350eb0f6f0470ff53d1a2913b0047c424ff9"
+    }
+  },
+  "status": "CURRENT_CONDITIONAL_FIRST_ORDER_CASES_ADMITTED",
+  "structural_acceptance": false,
+  "summary_producer": {
+    "path": "scripts/summarize_eoere_current_response.py",
+    "sha256": "1d613e1151d61132e6e591d814cef8d1edc0cc209377ff5a6cf28aa461f6e34b"
+  }
+}
