@@ -25,9 +25,13 @@ outcomes of that completed scope.
 The owner initially requested complete engineering qualification with only
 panel/screw exceedances deferred. On October 12, after the remaining unsupported
 bases were identified, the owner explicitly selected **“Keep the current design
-and its qualification limits.”** The current task therefore completes the
-investigation, documentation and publication while retaining those limits;
-**engineering acceptance is not established.** Physical demand and movement,
+and its qualification limits.”** That investigation, documentation and
+publication task is complete at `e2ddd1a0`, with successful exact-revision CI
+and Pages deployment. The owner subsequently requested completing the remaining
+items with a new goal. **The three engineering qualifications are active again;
+engineering acceptance is not established.** The current design remains the
+analysis target while applicable methods, missing inputs and any required
+model changes are identified. Physical demand and movement,
 complete fitting/joint resistance and finished timber strength/stability remain
 unqualified as recorded in the
 [remaining-work table](#factory-alternatives-and-remaining-engineering-inputs).
@@ -169,8 +173,11 @@ The owner requested investigation of cleat transverse resistance,
 combined joint/finished-member resistance and physical stiffness/restraint
 applicability. On October 12, the owner chose to keep the current design and
 its qualification limits rather than develop a separate joint revision.
-All three qualifications remain unestablished outcomes of the investigation.
-Completing this documented scope does not establish engineering acceptance.
+The subsequent owner continuation reopens all three qualifications for
+completion. Their existing evidence and unestablished statuses remain valid;
+the new goal requires applicable resistance and physical response proofs
+before these qualifications can close. No geometry or hardware revision is
+selected by this continuation.
 
 The [current cleat reducer](../../scripts/eoere_cleat_transverse_wrench.py)
 adds the previously unresolved simultaneous normal-force moments to the
@@ -213,6 +220,78 @@ This continuation establishes no new resistance exceedance or physical failure.
 | Cleat transverse resistance | Complete saved normal force and both normal-force moments on the actual intact cut, including finished gravity and both point traces. | Establish an applicable resistance/transfer proof for these crossed, opposing actions with the retained shear and torque. NDS §3.8.2 provides no generic sawn-lumber perpendicular tensile allowable. The reduced-depth NDS §3.4.4.1 beam-shear check does not dispose of this normal wrench. EC5's single beam-connection expression cannot be compared to an opening lower bound or silently converted into NDS ASD capacity. No crossing Y-axis bolt or other qualified normal transfer path is established. |
 | Complete combined joint and finished-member resistance | Current 92 two-member references, 48 mixed-stack raw trials, washer/heel comparisons, eight front end/edge screens, 38 finished section planes and six additional rail cuts remain complete. | Establish an applicable complete contact/yield proof or conservative resistance bound with supported design reductions for the eight mixed stacks, complete signed group/oblique geometry and local splitting/row/block/bore resistance, and finished shear/torsion/normal interactions. Individual low scalar ratios cannot supply those capacities. Three disconnected faces at the queried rail bore section also require their actual three-dimensional transfer basis. This is a resistance-method gap, not a request to repeat the admitted frame cases. |
 | Physical stiffness and restraint applicability | Six current first-order cases and all later saved-pose work checks remain complete; current stiffness inputs and earlier published-method/restraint studies are available. | Establish a supported current stiffness/contact treatment or conservative demand bound and directional restraint credit. The source springs and rigid-heel/gross-stock analogies remain declared priors, not physical bounds. The panel/screw brace path overlaps deferred attachment behavior. No particular solver, actual-fit inspection or floor-friction test is made mandatory. |
+
+#### Published methods checked for the reopened qualifications
+
+The renewed source search asks whether a published method can close the
+current complete demand without changing the reviewed design. It adds useful
+routes below, but establishes no new resistance or physical response bound.
+These are specific applicability questions to resolve before another run.
+
+| Source and usable method | Current applicability and next action |
+| --- | --- |
+| [NLGA 2025 grading rules](https://nlga.org/wp-content/uploads/2025/11/NLGA-ENG-Grading-Rules-2025-small.pdf), EU annex, pp.51–56: eligible Canadian D Fir-L (N) No.1/No.2 maps to **C16**. | A published strength-class route exists. The annex also requires additional CEN grading provisions, including growth, wane, distortion and fissure limits. The current DF-L No.2 declaration does not establish that additional assignment. Resolve the nominal species/grading scope before adopting its properties; actual observations remain excluded and blank. No C24 equivalence is inferred. |
+| [Swedish Wood, Design of timber structures, Volume 2 (2022)](https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf), Table 3.3, p.10: EN 338:2016 gives C16 **characteristic** transverse tensile strength **0.4 MPa**. [BSI](https://landingpage.bsigroup.com/LandingPage/Undated?UPI=000000000000560918) lists that EN 338 edition as current. | This supplies a conditional class property to investigate, rather than an NDS ASD allowable or fracture energy. A matching material assignment, consistent load/resistance format and applicable complete stress/fracture method are still needed. Dividing the affine cut stress by 0.4 MPa would not qualify the cleat. |
+| [Canadian Wood Council, connection design example (March 2025)](https://cwc.ca/wp-content/uploads/2025/03/Connections-Sample-Design.pdf), pp.1–2: CSA O86-19 checks yielding, row shear, group tear-out, net tension, transverse splitting and their oblique-load interaction. | These are useful component and interaction methods, including an example with a D.Fir-L timber member. Its reported capacities belong to its own members, four-bolt layout and factored force. Map the actual current groups, geometry and simultaneous actions into the applicable clauses and design format before numerical use. The example does not qualify the current three-dimensional cleat or mixed stacks. |
+| [COST FP1402, Design of Connections in Timber Structures](https://www.cost.eu/wp-content/uploads/2018/11/Design-of-Connections-in-Timber-Structures.pdf), pp.149–151 and 157–158: reviews fracture methods, adjacent-connection effects and a cantilever/moment-joint modification. [Jensen's original moment-joint paper](https://jwoodscience.springeropen.com/counter/pdf/10.1007/s10086-005-0706-y.pdf), pp.583–588, defines the beam/foundation geometry and material inputs. | Moment-joint methods exist; moment loading alone is not a reason to reject them. The cited models need their own load/crack geometry and material basis, including fracture energy and, for Jensen's formulation, transverse tensile strength. The present width-varying normal moment and retained shear/torque need explicit coverage or a justified conservative extension. |
+| The same COST volume, pp.285–294, compares connection stiffness, load distribution and brittle/ductile failure for multiple shear planes. The [existing stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md) records EC5 slip-modulus and NDS group-action scope. | Reuse these methods to formulate a current connection law or bound. The reviewed examples do not establish a universal lower stiffness for the present gaps, axial seats, angles and panel attachments. No current spring value or directional restraint credit is adopted from their examples. |
+
+The saved governing left-cleat `a12-left` trace explains why a planar
+beam-connection substitution needs care. In global coordinates its normal
+force is **Fy = 26.002121 N**, with **Mz = 10,767.114567 Nmm** across the
+**38.1-mm X width**, and **Mx = 2,168.591285 Nmm** across the
+**277.942094-mm Z height**. The complete necessary normal bound is
+`(26.002121 + max(26.002121, 2*10767.114567/38.1, 2*2168.591285/277.942094))/2`
+= **295.602493 N**. Omitting Mz from this particular normal calculation
+would leave only **26.002121 N**. A uniform-width Y–Z beam model therefore
+omits the governing width-varying demand unless an additional transfer proof
+covers it. These numbers reuse the authenticated trace; they establish
+neither capacity nor a physical failure.
+
+The read-only interface followup independently recovers that governing wrench
+from the original `a12-left` field's individual actions. On the high-Y portion,
+four bore-bearing forces contribute **+2,420.769516 Nmm** to Mz, two axial
+seat forces contribute **−10,971.818986 Nmm**, and three active side-member
+contact forces contribute **+19,318.164037 Nmm**. Their sum is the recorded
+**10,767.114567 Nmm**. Each of those nine source actions has zero free couple;
+the aggregate bore couples recover the moments of those individual forces.
+Including finished-portion gravity recovers all six cut-wrench components
+within **2.274e-12 N/Nmm**. Nominal **0.396875-mm radial bore clearance** and
+washer-seat geometry are already represented in the current evidence. The
+source still explicitly leaves physical pressure/prying and timber-contact
+response unqualified. Closing this limit needs supported resistance and
+physical load sharing for those represented force paths. Dropping aggregate
+couples or adopting an ideal pressure distribution would change the proof's
+scope rather than establish that qualification.
+
+The next analysis must resolve a concrete method question: either cover the
+complete current three-dimensional timber/contact actions with an applicable
+resistance method and supported material inputs, or demonstrate a supported
+alternative transfer allocation and bound its effect on the connected frame.
+A change to hardware or geometry must be identified before altering the
+reviewed model. The mixed-stack design reductions, local brittle modes and
+current physical stiffness/restraint questions in the table above remain
+active alongside that cleat question. No adopted criterion closes in this
+source followup, and no native solve or repeated six-case run is justified by
+the new references alone.
+
+The COST reference is retained once in the ignored
+`fea/generated/selected-hardware-followup-v1/engineering-closure-v1/source-cache/Design-of-Connections-in-Timber-Structures.pdf`:
+**24,468,901 bytes**, SHA-256
+`3d4810b75f94c87db3bc7370c1247acd8b8523a8f87480240579a55294e91dd1`.
+Its page text was extracted with **pypdf 6.1.1** using the shared uv cache.
+It remains a research input; no reference PDF, raw run or existing evidence
+is pruned or added to permanent tracked assets.
+
+Validation rehashes all **2,087 cleat source pins** unchanged and independently
+recovers both normal-resultant values above from the saved governing trace.
+The development revision checker, all **six documentation-link tests**,
+**1,031 local links / 104 Markdown fragments** and diff whitespace checks
+pass. Independent correctness, testing/evidence and architecture reviews
+report no substantial findings. The **20,484 foreign index entries** and
+**23 foreign modified/untracked files** remain unchanged, with no staged
+diff. This followup changes only the maintained summary and ledger; the
+qualification goal remains active.
 
 The [published stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md)
 is reused for method scope. Its older PB02 hardware values are not transferred.
@@ -1422,9 +1501,9 @@ is 300 × 90 × 130 mm and is not a replacement at the current axes.
 These are alternative installations requiring their own geometry, demand and
 joint checks, not admitted substitutions. No model or hardware choice changes.
 
-The following table records qualification limits retained by the owner's
-October 12 disposition, beyond the **completed conditional numerical
-evaluation and bounded assessment**.
+The following table records the three reopened qualifications, following the
+owner's initial October 12 disposition to retain their limits, beyond the
+**completed conditional numerical evaluation and bounded assessment**.
 Existing first-order fields, component comparisons and saved-pose diagnostics
 remain complete in their stated scopes. Missing catalog properties remain
 assumptions to resolve for qualification; the current washer comparisons do
@@ -1440,8 +1519,10 @@ not report an exceedance.
 These are qualification limits recorded by the completed evaluations, not a
 list of analyses never performed or demonstrated physical failures. Restraint
 credit depends in part on panel/attachment behavior, overlapping that deferred
-scope. The owner keeps the current design with these qualification limits;
-they are not outstanding redesign tasks in the current completion scope.
+scope. The owner initially retained the current design with these qualification
+limits. The subsequent completion request reopens their qualification work; a
+geometry or hardware revision remains unselected and must be identified before
+altering the reviewed model.
 The first-order response, bounded component/member evaluation and engineering
 assessment retain their completed numerical/reporting status. The owner's
 panel/screw deferral and exclusion of actual build fit stay in force; complete

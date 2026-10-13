@@ -100,11 +100,11 @@ changed-section strength remain unresolved. See the
 ## Remaining work and next actions
 
 The [current conditional numerical evaluation](../wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) is **complete**, including the bounded component/member evaluation and engineering assessment.
-The owner keeps the current design with its [three qualification limits](../wood-joints-mvp/completion-ledger.md#cleat-transverse-wrenches-and-the-three-qualification-limits); engineering acceptance remains unestablished. [Front end/edge screens pass](../wood-joints-mvp/completion-ledger.md#current-front-runnerpost-end-and-outer-edge-qualification), and complete cleat normal-wrench demands are recorded. Panel/screw exceedances remain deferred.
+The owner has reopened the [three engineering qualifications](../wood-joints-mvp/completion-ledger.md#cleat-transverse-wrenches-and-the-three-qualification-limits) for completion. Their resistance and physical-applicability bases remain unestablished; the current design is retained while applicable methods and required inputs are checked. [Front end/edge screens pass](../wood-joints-mvp/completion-ledger.md#current-front-runnerpost-end-and-outer-edge-qualification), and complete cleat normal-wrench demands are recorded. Panel/screw exceedances remain deferred.
 
 1. Reuse the completed current fields, component/member comparisons and assessment.
    Six first-order cases are admitted; 38 exact timber planes give 228 comparisons. Bolt 0.631, washer 0.319/0.685 and working t6.35/Ri6.35 heel 0.993 references retain their assumptions; eight front bolt/wood end/edge screens pass, with complete group/joint resistance still unqualified.
-2. Keep qualification limits distinct from completed investigations and demonstrated failures.
+2. Establish applicable complete resistance and physical response bases for the three reopened qualifications; the [published-method review](../wood-joints-mvp/completion-ledger.md#published-methods-checked-for-the-reopened-qualifications) records usable routes and exact applicability questions.
    Six later finite-motion work checks pass; their poses are not finite equilibrium. [Completed restraint, motion and splitting studies](../wood-joints-mvp/completion-ledger.md#completed-investigations-and-applicability) retain their revision limits. The 56.6-mm motion has no adopted failure limit; four full-span flags are method-domain exceptions. Current applicability and complete resistance remain unqualified; no particular solver is prescribed.
 3. Preserve panel/screw deferral, excluded actual fit, blank observations and the no-slip assumption.
    Keep the 66-screw policy, extra grid/Z180 unadopted and CI publication gates.
