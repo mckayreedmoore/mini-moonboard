@@ -13,7 +13,7 @@ choice is between a supported reinforced/local-detail method and a separately
 modeled uncut-leg arrangement. Merely running the remaining global cases or
 lengthening the taper cannot close the present material/method gap.
 
-The existing [taper review](taper-method-applicability-review.md) and exact
+The existing [taper review](history/taper-method-applicability-review.md) and exact
 [nominal-extrema diagnostic](flush-taper-stress-diagnostic.json) remain valid
 evidence. Their A12-left maximum cut-face longitudinal tension is
 0.021506 MPa. The ideal smooth-face traction relation at a 1:12 slope implies

@@ -1,5 +1,11 @@
 # Barrel-nut native case log
 
+**Historical barrel-nut development.** This record belongs to the earlier
+`compact-floor-flush-bolted-development` lane and its stated 46/48-pair topology.
+Its “current” labels, hardware selections and next actions describe that
+record. For ongoing work, use [compact bolted-frame development](bolted-frame-development/README.md);
+its 100 through-bolt stacks have separate geometry and evidence.
+
 This log records native-solver attempts for the
 `compact-floor-flush-bolted-development` candidate. It is an audit trail, not
 an acceptance ledger. A run is retained as evidence only when its source

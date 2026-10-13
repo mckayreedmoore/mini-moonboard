@@ -1,5 +1,11 @@
 # Draft factory-connector information inquiries
 
+**Historical connector/block development.** The layout, constraints and
+next actions below belong to this earlier study. For ongoing work, use
+[compact bolted-frame development](bolted-frame-development/README.md) and
+its checked revision index; this record does not select a current joint or
+change the active geometry.
+
 Status: prepared, not approved or sent. No recipient or communication channel is selected.
 These are information requests, not product approval or a purchase instruction. Attach the
 [representative center-joint package](bolted-candidate-center-joint-info.md) only after its

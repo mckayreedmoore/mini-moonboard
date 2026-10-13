@@ -20,7 +20,7 @@ The connection inspector temporarily hides holds and restores that preference
 when returning to the assembly. Hold geometry is excluded from CAD exports,
 frame weight, and engineering calculations.
 
-Use [Problem highlights](viewer-problem-highlights.md) to mark start, hand,
+Use [Problem highlights](history/viewer-problem-highlights.md) to mark start, hand,
 foot, and finish holds and share the selection through a link.
 
 ## Sources and observed layout
@@ -107,7 +107,7 @@ Use Moon's current app and installation references, together with the actual
 holds, to install the physical set. Updating a placeholder with better visual
 information must preserve the distinction between observed layout and estimated
 geometry. Faithful scans or reproductions remain subject to the project's
-[hold scanning and publication policy](hold-scanning-and-ip.md).
+[hold scanning and publication policy](history/hold-scanning-and-ip.md).
 
 An independent implementation review checked the eleven reusable parametric
 profiles against that policy: they do not trace distinctive individual hold

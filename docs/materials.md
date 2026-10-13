@@ -1,5 +1,11 @@
 # Materials ledger
 
+**Historical V1 material record.** Quantities and selections below describe
+that earlier design. Use the [current bolted builder plan](bolted-frame-development/builder-plan.md)
+for the active development inventory, or the [selected-baseline packet](README.md)
+for its separate shop instructions. Purchased plywood identity is recorded in
+[purchased materials](purchased-materials.md).
+
 This ledger separates source-backed climbing-surface requirements from the
 provisional V1 construction package. The generated
 [`v1 BOM`](../exports/mini_moonboard_v1_bom.csv) and
@@ -33,7 +39,7 @@ on this same frame: their selection changes only the app-directed hold position,
 orientation, hold-bolt inventory, and unused insert count. It does not change
 the panel envelope, box frame, legs or structural-fastener geometry. The
 per-hold bolt inventory and orientation transfer are controlled by
-[`v1-hold-installation.md`](v1-hold-installation.md), not guessed from panel CAD.
+[`v1-hold-installation.md`](history/v1-hold-installation.md), not guessed from panel CAD.
 
 ## Provisional frame approach
 
@@ -88,7 +94,7 @@ The former 36 mm service-gap clearance calculation no longer applies.
 The owner describes one or two continuous LED strips, to be removed before
 panel separation and reinserted after assembly. Actual kit version, strip
 count, spare inventory and power equipment must be verified; see the current
-[LED installation and relocation guide](v1-led-installation.md).
+[LED installation and relocation guide](history/v1-led-installation.md).
 
 ## Generated reference panel cut list
 

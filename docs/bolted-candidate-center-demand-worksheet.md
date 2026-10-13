@@ -1,5 +1,11 @@
 # Center-joint demand worksheet — diagnostic, no capacity or drilling release
 
+**Historical connector/block development.** The layout, constraints and
+next actions below belong to this earlier study. For ongoing work, use
+[compact bolted-frame development](bolted-frame-development/README.md) and
+its checked revision index; this record does not select a current joint or
+change the active geometry.
+
 The fixed-member left center principal and post connect to the same header.
 Two unselected AB205 arrangements are under study: coincident shared-header
 bolts, or distinct top and underside header rows. This worksheet defines the

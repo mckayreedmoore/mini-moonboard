@@ -1,5 +1,11 @@
 # Center connection: numerical reference and concept decision
 
+**Historical connector/block development.** The layout, constraints and
+next actions below belong to this earlier study. For ongoing work, use
+[compact bolted-frame development](bolted-frame-development/README.md) and
+its checked revision index; this record does not select a current joint or
+change the active geometry.
+
 Status: diagnostic design work only, **not** a bolt demand, joint rating, or drilling release.
 The physical build is kerf-right, the lumber is uncut and undrilled, and all 66 panel/kicker
 screw axes and the existing twelve frame-bolt arrangements remain protected. No custom steel

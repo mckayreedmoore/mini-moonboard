@@ -1,5 +1,11 @@
 # Bolted candidate: V4 simple-timber-joint plan and history
 
+**Historical connector/block development.** The layout, constraints and
+next actions below belong to this earlier study. For ongoing work, use
+[compact bolted-frame development](bolted-frame-development/README.md) and
+its checked revision index; this record does not select a current joint or
+change the active geometry.
+
 On 2026-09-23 the owner selected a revised bolted solid-wood block system
 for current development. The existing
 [corner-block viewer](bolted-candidate-prototypes/owner-corner-viewer.md)

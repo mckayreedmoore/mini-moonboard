@@ -1,0 +1,1946 @@
+{
+  "axis_ids": [
+    "rail_front_bolt_left_1",
+    "rail_front_bolt_left_2",
+    "rail_front_bolt_right_1",
+    "rail_front_bolt_right_2"
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "limits": [
+    "No complete Cdelta or Cg adoption; no row/group/oblique-shear-area or local fracture qualification.",
+    "Read cached finished solids and authenticated six current fields only; no CAD rebuild or mechanics solve.",
+    "A passing end/outer-edge screen does not qualify simultaneous force/couple transfer or structural acceptance."
+  ],
+  "methods": {
+    "container": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/candidate-reference-solids-v2/bridge.py",
+      "sha256": "a215a91e1ef3f1f48c36e41065bea5078be5f3d3e1bfcb9fc5e6bd263bf91098"
+    },
+    "distance": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/reference-solid-distance-v1/distance.py",
+      "sha256": "b0b94063be8fc595bb01ffcb08f876061e3aa9efca6cb4466e5c74fb183fdc8d"
+    },
+    "end_component": {
+      "path": "scripts/thin_bolted_timber_resistance.py",
+      "sha256": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d"
+    },
+    "execution_module_10": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_utils/__init__.py",
+      "sha256": "4a9a9d941150a1648e017b1efcd2ebb8ffdde730f9c0366f1d826121eb099caf"
+    },
+    "execution_module_100": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/utils.py",
+      "sha256": "9d4d3e27b73470755be2a8f6485dea5cf2b62022537802104904f1e20af67f42"
+    },
+    "execution_module_101": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/typesystem.py",
+      "sha256": "a81adba06469d753e2bdec673ad81fee04540bdbe9e5003f94e8b8971d3c2979"
+    },
+    "execution_module_102": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/dispatch.py",
+      "sha256": "ac1cea69e5ac0852ffd9864d179910e7f16d1c80f48d24be3fd3fb19993b90c8"
+    },
+    "execution_module_103": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/base_types.py",
+      "sha256": "a4fc3b01de1d78ac31364b9765e589be394364f656047fac22a1a5260e97fc77"
+    },
+    "execution_module_104": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/datetime_parse.py",
+      "sha256": "a570c1582fc4d50c9f0923709deda77303cb44862b14214a40b1064af37c5c54"
+    },
+    "execution_module_105": {
+      "path": ".venv/lib/python3.12/site-packages/typing_extensions.py",
+      "sha256": "4040ca1a1ecbee00d1385c12a93084d1c5bd46f0b774f07e5ae7e91c4f55e696"
+    },
+    "execution_module_106": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/pytypes.py",
+      "sha256": "8e2cf99c5c9ab71f981744df0c23f05438f0dbb5c78ca538d13ff56725e1d4c5"
+    },
+    "execution_module_107": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/validation.py",
+      "sha256": "27f2d97569faec03b0c2fe3867abd391ad8fb43e324765626f6ab64c12aea22a"
+    },
+    "execution_module_108": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/dataclass.py",
+      "sha256": "a6e3d0823a22b1336fa4944d452836434f1e54f44de4232cfbc960000f3aece3"
+    },
+    "execution_module_109": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/__init__.py",
+      "sha256": "387bbe57416ca568852e87e61d700d2bca048d59c32ce9441ccc57ff26f24cc7"
+    },
+    "execution_module_11": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_globals.py",
+      "sha256": "fe13921c6f4a00bd12891da7d800f2a42f878c067d8ed881ddf0af3fbace3a36"
+    },
+    "execution_module_110": {
+      "path": ".venv/lib/python3.12/site-packages/multimethod/__init__.py",
+      "sha256": "32700ac704b1999097a30e7b6544ff63295eb496a5906b0454eea8f4409d8114"
+    },
+    "execution_module_111": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/utils.py",
+      "sha256": "ee9fd22c558e649406e761933a468bc6592457032de6bfae0c356f1ff537d119"
+    },
+    "execution_module_112": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/geom.py",
+      "sha256": "4a32ab0aabb4a045a4eacb3853c2ec126e3675d39357adb38923acc97c08fc6a"
+    },
+    "execution_module_113": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/__init__.py",
+      "sha256": "b564bf67b4dedc5ef2aec7b4f61f019fe41f124fa59f700563c456b30c6162f9"
+    },
+    "execution_module_114": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/util/__init__.py",
+      "sha256": "2363b443ad4cda1ccb5ca43c70fefd9747999bcfdb3d0b9fc6f908e2f0810625"
+    },
+    "execution_module_115": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/numpy_interface/__init__.py",
+      "sha256": "b0722efdf323e6eea311714ab782e742ea36fbcda9cc701c6499ed40bd10421a"
+    },
+    "execution_module_116": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/util/vtkConstants.py",
+      "sha256": "65712a92f847051a6d7992169d5fb5cab80571805858233e2d14ae1a112133dc"
+    },
+    "execution_module_117": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/util/numpy_support.py",
+      "sha256": "713ac7153f46bfbd449d1a8631ffa9fecfb5a9803d3f9780377547fa7d5b8cf6"
+    },
+    "execution_module_118": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/numpy_interface/dataset_adapter.py",
+      "sha256": "8c7f65f4300c9ba96cdc864815de3450c10c451ae19e892755b03391cbbb0344"
+    },
+    "execution_module_119": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/util/pickle_support.py",
+      "sha256": "eac0d7b295a659e63d77017509cc2cdee3c43636a89bb7fb15b7aadb74a0c3fc"
+    },
+    "execution_module_12": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_distributor_init.py",
+      "sha256": "14148976054795071ae41ad011560fa059ba2924c98481675ad59b1241214d2a"
+    },
+    "execution_module_120": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/util/data_model.py",
+      "sha256": "f1e101300be0e5590a713ff9431e6236db5c809ab9ede7cf054f81ed9dae50f9"
+    },
+    "execution_module_121": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/util/execution_model.py",
+      "sha256": "837f1bcc1d2c60d3367d18ed4eff01d14cae0c3b89ef0a49a56c66b8614b0d35"
+    },
+    "execution_module_122": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/ShapeBuild/__init__.py",
+      "sha256": "cf7ab0e8e9868a6271c8488ca3987ae4aa84125342baf7e42f336d569586154f"
+    },
+    "execution_module_123": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GeomAbs/__init__.py",
+      "sha256": "6630f5907febfd9c4ee1ceb08b305ae36d3cdc558ed0597f0cc60ffdecdc020b"
+    },
+    "execution_module_124": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/shape_protocols.py",
+      "sha256": "351497b2249de957c3f9604ab4ba6fc5e95d9202d2bcfc324ff06a8ab95efb12"
+    },
+    "execution_module_125": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/warnings.py",
+      "sha256": "c1058d33b29a975d0e4011c7706f5281dc1a05e15b51eddf0c41777dc1c11c21"
+    },
+    "execution_module_126": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/util.py",
+      "sha256": "54b22b72a221e70ea7f7eb760b3c11008b3f8f4750eff0166e7d9e688c851f15"
+    },
+    "execution_module_127": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/unicode.py",
+      "sha256": "8e6b33a519dfca10905a5d9187ff78753fe5c5033a7782a249ff62bd8f5bfe6e"
+    },
+    "execution_module_128": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/exceptions.py",
+      "sha256": "66df7ebeb038b9357c2752252550b48254206a4c1104e61c0ec3774dfc2a41ea"
+    },
+    "execution_module_129": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/results.py",
+      "sha256": "944655c903d659aaf39f063f25fff6b7de07bc623b7950f367c812e297f47934"
+    },
+    "execution_module_13": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/exceptions.py",
+      "sha256": "df16e967d97b1779a1c2dca6be5d2fa84e346a237c6e471e6a8f1a5df66c9795"
+    },
+    "execution_module_130": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/actions.py",
+      "sha256": "a435badd59168794ea47a00a38cc830a86c8d0917e42e05ce39008fa82240fcc"
+    },
+    "execution_module_131": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/core.py",
+      "sha256": "bf85898e2fb78559a54cd1d4d2284f463d689afbb74db97bcb4266bb39cf5446"
+    },
+    "execution_module_132": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/helpers.py",
+      "sha256": "4d6bd4a3c9a7910cf8fe48e32544e5905fc2c2c853c74bd90e43f3776c855bd2"
+    },
+    "execution_module_133": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/testing.py",
+      "sha256": "91cabab0b3f2036de1af00f3074345e57eb5286cf42110e39e139b0badbf98e9"
+    },
+    "execution_module_134": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/common.py",
+      "sha256": "4ac100cd7449ab60f71dd180e5744ffb0c36698d9cb42a52e446ee0da8252b52"
+    },
+    "execution_module_135": {
+      "path": ".venv/lib/python3.12/site-packages/pyparsing/__init__.py",
+      "sha256": "08c1cce44cc9489825cfe3c2012bff9395b5e2d46486b09fe86488e0aacf2f6e"
+    },
+    "execution_module_136": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/selectors.py",
+      "sha256": "4258b4a19d7b96a694d6b7c6089afd06af96ba8707c31f061a6da0400bb962b3"
+    },
+    "execution_module_137": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Message/__init__.py",
+      "sha256": "0683e63ec1d810b02548a62b0cf099510531461a72a4e5f6fbc3b3cf912aa823"
+    },
+    "execution_module_138": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TopAbs/__init__.py",
+      "sha256": "4f58aa144714f239fb5d6dc1fc19cc2ee3aa8bc6ab49628183027c2a27421324"
+    },
+    "execution_module_139": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Precision/__init__.py",
+      "sha256": "e1ff23c3e9b5c94f0810f45981843d4df812776cfed852f2a19f5889994b2909"
+    },
+    "execution_module_14": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_exceptions.py",
+      "sha256": "5fc120d61ab5b94f0bf7088ec05a368d1aba4b4be78c27606051e3de1016f42a"
+    },
+    "execution_module_140": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TColgp/__init__.py",
+      "sha256": "2be5185b28c280b42ef5f6a5f00a88fffc0eb7a052efe6adde2bc36a4186bae8"
+    },
+    "execution_module_141": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TColStd/__init__.py",
+      "sha256": "02d457198693b0a3a94b509b0ed2f2f2ae40c9a8e9877389e8056b5d64c05ce5"
+    },
+    "execution_module_142": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepAdaptor/__init__.py",
+      "sha256": "ea102f830adc49e78a1a2edf39e05add452f8e569e339d91533473ee12a3d478"
+    },
+    "execution_module_143": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepBuilderAPI/__init__.py",
+      "sha256": "cd4d040d0f34aec60590ba5491f858372e8107428d21c7c2cc4bc622907348fb"
+    },
+    "execution_module_144": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GProp/__init__.py",
+      "sha256": "86008c3e06d49851975b3e6fb1d6ec1d0cf759346cb6bd069263e7659a8d9926"
+    },
+    "execution_module_145": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepGProp/__init__.py",
+      "sha256": "de8386bbdde71a5b3cc31cc07cae42e9d674d81ccd6b593cfd0215bc72a0a696"
+    },
+    "execution_module_146": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepPrimAPI/__init__.py",
+      "sha256": "060d0415c3f85066a4d551ade5fba9eeaa1540bbcdbcfc3504c5a381f09f763f"
+    },
+    "execution_module_147": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepIntCurveSurface/__init__.py",
+      "sha256": "ee4aaf215a31fd600dd875f402cd5f8321daec2fb9c20b20ce1d6bd7aeb0ffd5"
+    },
+    "execution_module_148": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TopExp/__init__.py",
+      "sha256": "6738df64dc378366f6bf722b5d3972fc135861d7b8bf88ac767dbb881b19988c"
+    },
+    "execution_module_149": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRep/__init__.py",
+      "sha256": "0b31d5a192a36f2cc4d6c06eb44269a736ca4f9a3c0f7d53dc44a20305fc458c"
+    },
+    "execution_module_15": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/printoptions.py",
+      "sha256": "345a6fcb96e78dbbea9ca7aa42dd2f784131a400180153688865c7de98255807"
+    },
+    "execution_module_150": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GC/__init__.py",
+      "sha256": "085675b3519d968aaca211f9922adc05016aa97ba5b8923951b034854603d67c"
+    },
+    "execution_module_151": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GCE2d/__init__.py",
+      "sha256": "f81035252be21f82b266b0d3a0771f8c49be6b630b407bf9f5a175c639ea6bfc"
+    },
+    "execution_module_152": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/gce/__init__.py",
+      "sha256": "38bf670572457e77c6bf0be5bb14747ab83fff8b21ca093f49268c8e8b971e5d"
+    },
+    "execution_module_153": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GeomAPI/__init__.py",
+      "sha256": "9e574d52b35f8274ebc01fecd2265b5d488a6d78d8a9c833acf91d1d1852c433"
+    },
+    "execution_module_154": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepFill/__init__.py",
+      "sha256": "a240391e019e99606c32a3e3616d979d53a469fefc81b7482f40df6e2db8ff72"
+    },
+    "execution_module_155": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepAlgoAPI/__init__.py",
+      "sha256": "0d1057f5444370c105e5ee5f16907171408de0784953657f60086e81dcd3da6b"
+    },
+    "execution_module_156": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Geom/__init__.py",
+      "sha256": "370d4679c13ec5d7067a0c5ef19e77378f9bc669ee231955810ea4c63ce3172f"
+    },
+    "execution_module_157": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Geom2d/__init__.py",
+      "sha256": "bb356c55b20b81a8c221a9bca027f541573ed9f4ed90f6ddbce1997cc916c2f3"
+    },
+    "execution_module_158": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Geom2dAPI/__init__.py",
+      "sha256": "3345e8966871954bfcfc44e6f624a6091d93c15e8e35d5fb5fe4568ba664b693"
+    },
+    "execution_module_159": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepLib/__init__.py",
+      "sha256": "032dcd7d45176a05cf338070d1f4dda1153989a1a08f0e84e7684c22e07359ed"
+    },
+    "execution_module_16": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/dtypes.py",
+      "sha256": "29ba7455e6125e2986d6e1149cd4ae9d699b208ad23edf1cd7482fdac29bda4a"
+    },
+    "execution_module_160": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepOffsetAPI/__init__.py",
+      "sha256": "a670a5266f3a32b8d769fae4d6bf5366eeb8a676d5e7a6b461c610367262f5ba"
+    },
+    "execution_module_161": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepFilletAPI/__init__.py",
+      "sha256": "0bce5765ee32ea865d51ec4bc5af51bd441f867b2792ba5149e0931b04eb717c"
+    },
+    "execution_module_162": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TopTools/__init__.py",
+      "sha256": "425c6ae4f1dfca75c9aac8691d4c2925a8aa5fc58946205e4c74528abc2511ad"
+    },
+    "execution_module_163": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/ShapeFix/__init__.py",
+      "sha256": "a0ffcbba6e1d66313a7df716b19bd8f008d04bdb666e3d336b78378374e58de7"
+    },
+    "execution_module_164": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/STEPControl/__init__.py",
+      "sha256": "d06aa330e11908152ca418dea5eb38642f83b33224933ef89886f6f5c9a1749b"
+    },
+    "execution_module_165": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/StlAPI/__init__.py",
+      "sha256": "ee4ad580cbb969455808247d747067aefa7cb7b35192ad136479a27d49d22abd"
+    },
+    "execution_module_166": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/ShapeUpgrade/__init__.py",
+      "sha256": "001675a3971d3b8ad413e707b8dd369a1233dbff86caa4c43b3479aabd346850"
+    },
+    "execution_module_167": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepTools/__init__.py",
+      "sha256": "7b9ed2dd46f790065633374cc7bcf1547b1e5630ef631dde40493359a1f3fc32"
+    },
+    "execution_module_168": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/LocOpe/__init__.py",
+      "sha256": "6d832ab1868b6957ac311b528ee3f11c6cdb4dff8cd988519d72c4335da307fa"
+    },
+    "execution_module_169": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepCheck/__init__.py",
+      "sha256": "0ab104aced4b25047abebc060ffb8e279303b6319cdf2a09aa4e2ab85b0f2882"
+    },
+    "execution_module_17": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_utils/_inspect.py",
+      "sha256": "cc5b890011f4f03d4a82afde79c6240f53a0834397a75b78a2a8d9c4cd2474b9"
+    },
+    "execution_module_170": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Font/__init__.py",
+      "sha256": "9203208bd1895696fee7836e4616b693e39472e3b752ceb78477a17e3d11049f"
+    },
+    "execution_module_171": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/StdPrs/__init__.py",
+      "sha256": "6a68c8ad69aeb9f647c5b330eeabf5833e432d59b85f2a7976b275cfac715e61"
+    },
+    "execution_module_172": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Graphic3d/__init__.py",
+      "sha256": "0f360263b0576d87ebc791d6b958d0c728ce97017f1ea3025ce120986a2fa611"
+    },
+    "execution_module_173": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/NCollection/__init__.py",
+      "sha256": "76688e850c29fb91c925381e0f078514d3e115e637ac7885cd23f0f113b52a73"
+    },
+    "execution_module_174": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepFeat/__init__.py",
+      "sha256": "37c378ae2f3091a0cb548708acac089e3aae677c8b6a125fa26e3fe45d054209"
+    },
+    "execution_module_175": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepClass3d/__init__.py",
+      "sha256": "b10e074780d67cf96a26f7864e2ff2ebab1440b4251d1e72896a0b1a74bd4ef2"
+    },
+    "execution_module_176": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TCollection/__init__.py",
+      "sha256": "2bffb786926b5e76bc99c61773161b4ac7012d8cc3b1a7cc5689292fdc6d70a5"
+    },
+    "execution_module_177": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepOffset/__init__.py",
+      "sha256": "ea32daccc869033da6e0fb6e2ce1ef6271a62f73da29cdceeb46f66afce8eb50"
+    },
+    "execution_module_178": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BOPAlgo/__init__.py",
+      "sha256": "fa56a80e4fb1261246ac62e005c5d9abc7dea7d212e0890882ea1b7a843527f7"
+    },
+    "execution_module_179": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/IFSelect/__init__.py",
+      "sha256": "53b240b4dbe9b6bba59cc504e9c0cd50605f5775488c4e18f23f99625daf3e7b"
+    },
+    "execution_module_18": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/overrides.py",
+      "sha256": "88cf63f86be1eba2a303d221f011af2077194d819c06a10c725f01c939afe4ca"
+    },
+    "execution_module_180": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/ShapeAnalysis/__init__.py",
+      "sha256": "e5fa0bae9449db185fab91e0b3b69bbc244ede09e9829709e5bdf26bd0a9e022"
+    },
+    "execution_module_181": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GCPnts/__init__.py",
+      "sha256": "7c02ee7c065522a72e687c04dd90ca7ba1457cd3831f25b617a7bf7f4d4fb5fc"
+    },
+    "execution_module_182": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GeomFill/__init__.py",
+      "sha256": "9aedd4e650b70284b61e2a868f832ec855b00ad4c1d16d092d48d1dc43b50610"
+    },
+    "execution_module_183": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepProj/__init__.py",
+      "sha256": "930ee2eeea23c45b0e346b98efd88d539dd0c657ce2c56f8410170ebc9e6f0bb"
+    },
+    "execution_module_184": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepExtrema/__init__.py",
+      "sha256": "8e8a4e65ab8eb413fbcc2a2031e909775d29c858e55b59119a1bd840f3dbd373"
+    },
+    "execution_module_185": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/util/misc.py",
+      "sha256": "00f5156782a18d218ef4ed1656920138e3a8addb0f0088da7b6c039d06fc6a2d"
+    },
+    "execution_module_186": {
+      "path": ".venv/lib/python3.12/site-packages/vtkmodules/util/vtkVariant.py",
+      "sha256": "e474fd8e3fe843ffe825329169bbd5e9514b2589c7ef4667a9a35d73499dab99"
+    },
+    "execution_module_187": {
+      "path": ".venv/lib/python3.12/site-packages/vtk.py",
+      "sha256": "f1f5935548a81150a8fd9d2aae05b0c282b72b5e8289f8d0bb618121b2ce51cc"
+    },
+    "execution_module_188": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/IVtkOCC/__init__.py",
+      "sha256": "e1b86d366b91890d4cbc68ed222991474e5936b95f49204481f4f943ee75026c"
+    },
+    "execution_module_189": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/IVtkVTK/__init__.py",
+      "sha256": "a05b895be4b3ae969de063f1299b8d30918a0d80553b0ad8931c327acc3a4167"
+    },
+    "execution_module_19": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/multiarray.py",
+      "sha256": "afd14181b927aa10800a0c5dab5f456f52e219726847dbef379e313419029d49"
+    },
+    "execution_module_190": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Standard/__init__.py",
+      "sha256": "2d3adb18218ad673cb9fe1107ef44ca65bab058f1861da937358aef62cecabaa"
+    },
+    "execution_module_191": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Prs3d/__init__.py",
+      "sha256": "ceed33b854dd9becd7222b3da862be5d39b3fbfe557d0514dd4e929032ea36fa"
+    },
+    "execution_module_192": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Quantity/__init__.py",
+      "sha256": "bfe01d9d098fe9759049a8708ee0a55454ad34b319593aa65878903666754ebb"
+    },
+    "execution_module_193": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Aspect/__init__.py",
+      "sha256": "fa2c054f7d263fbcade84449f972ea8158f02b004547233e730e2f3cf92a51ca"
+    },
+    "execution_module_194": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Interface/__init__.py",
+      "sha256": "8095926c9e62adeeed28e5946284f58b3b2e55cfd3c9e1a52d09f1ad22269459"
+    },
+    "execution_module_195": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/ShapeCustom/__init__.py",
+      "sha256": "b4a7042560de26483eef5df21452309e9acb0d2df2f27062f9b9bce7240d67c0"
+    },
+    "execution_module_196": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepAlgo/__init__.py",
+      "sha256": "3556dbd4f5d9ce81166617a8abb075520fb8edb71a87440f72523bafc7eb6724"
+    },
+    "execution_module_197": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/ChFi2d/__init__.py",
+      "sha256": "4a75f6b72602f1f4f3a5c66f4fb0a5d96a50d2e90fff244c14ab97ac304cea52"
+    },
+    "execution_module_198": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GeomConvert/__init__.py",
+      "sha256": "bdcc57aab5aebca9144a8a6910c28789583e3d39dcd0ab691bc332da5edf14c3"
+    },
+    "execution_module_199": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Approx/__init__.py",
+      "sha256": "135e22719478dee213752164b1e1e983bad3c956974011dd38c26e48f23a21b3"
+    },
+    "execution_module_20": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/umath.py",
+      "sha256": "fabc529bdfcc632ae82bcaaa5539494802757e5a52c492999e2ebfe10f396987"
+    },
+    "execution_module_200": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/LProp3d/__init__.py",
+      "sha256": "7c35918fb8f16823ba0895df18cf3810b804d0af56f8fc0f89ec4569fc0ebb8d"
+    },
+    "execution_module_201": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Adaptor3d/__init__.py",
+      "sha256": "21500cd7dd15c1e3f39701e3a95721676c8e82ac2e07ae3052a2f4ccdb4488de"
+    },
+    "execution_module_202": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GeomAdaptor/__init__.py",
+      "sha256": "6b7a3fa1a3372c69c3637de7b3d03198b9eff9a6f86bfea2b55ec9ccb02d3423"
+    },
+    "execution_module_203": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/OSD/__init__.py",
+      "sha256": "f1594aa2fcd8e91ab1a840887fea3f81a4c92b42864116d69f118a7d4a08885a"
+    },
+    "execution_module_204": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/shapes.py",
+      "sha256": "6f6a9136b45177bd9cb00ed1706f90078aab04ea2b1a7eb26ab5b46aa43f6c94"
+    },
+    "execution_module_205": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/VrmlAPI/__init__.py",
+      "sha256": "3711c4ff1d0cd9dcd40bff44b94bb9a341d722d921d1ee304f17d9390a0365a1"
+    },
+    "execution_module_206": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/HLRBRep/__init__.py",
+      "sha256": "69ada8c1ca8ec3119ad9c4ae090c0229c079d3e0bc33536c16773a168f0ef739"
+    },
+    "execution_module_207": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/HLRAlgo/__init__.py",
+      "sha256": "30e4741f80220cfaf0d146e20572077c09c8e13be9dc2dfd2ec657d26ff004e6"
+    },
+    "execution_module_208": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/exporters/svg.py",
+      "sha256": "87e2a0d0a4a6dc02e878df51c47db1a32413508fcab0bf0efa8771300a56620f"
+    },
+    "execution_module_209": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/exporters/json.py",
+      "sha256": "d662edafc551ac3d3d82ed923fc1fa489811d96b323fb8e9c076b3fb82ded68f"
+    },
+    "execution_module_21": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_string_helpers.py",
+      "sha256": "e929a0a22ea80f60ae9e3c014abf41676d079029ef5ba9d33db953394de95a78"
+    },
+    "execution_module_210": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/exporters/amf.py",
+      "sha256": "1d8abc86614775c7468c503660b7ada3a45fa7e29391a19ef483ffcebebc5aa9"
+    },
+    "execution_module_211": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/exporters/threemf.py",
+      "sha256": "f3993bb467712345631224f177447fa02750f19fc71c105dd3bd24081ed9e03e"
+    },
+    "execution_module_212": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/version.py",
+      "sha256": "68e612dcf76595891e6e4158ba1a79f59da0c6bb8793205d73e3774ebfe7a7d6"
+    },
+    "execution_module_213": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/_options.py",
+      "sha256": "120de38a90e7a90b838e9005379db424470c14feacdc9faa71c328d326979ae6"
+    },
+    "execution_module_214": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/colors.py",
+      "sha256": "2dc20b764a7ca766f9719f954974e46348595669a4ae8eb7dd4da512e0ed16fb"
+    },
+    "execution_module_215": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/__init__.py",
+      "sha256": "5f298cec121527bdf5e5eaee879ae8b1b12362f6001ea73594e3b39e27e43dab"
+    },
+    "execution_module_216": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/const.py",
+      "sha256": "72cca642b257f387d265bf0b25409daf72aade602539db6e37723e8aafed164b"
+    },
+    "execution_module_217": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/enums.py",
+      "sha256": "cfdf4630e0a7b1b253640b4cf58184329419267f6844d8706a789e2f2cb60a83"
+    },
+    "execution_module_218": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/acc/__init__.py",
+      "sha256": "e80e7bc0ea6ad20a1949cbd98422ac5089a46a95c1851682343a2ac2e9d81636"
+    },
+    "execution_module_219": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/_ctypes.py",
+      "sha256": "5614a44e0e283d2bfb5b81b69436ca6bc83146bd6f81fb8639ce703f70828537"
+    },
+    "execution_module_22": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_type_aliases.py",
+      "sha256": "fd576d1516aca4b752b374a3b448f03a9acc6b748243dd72f89619f7b300344d"
+    },
+    "execution_module_220": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_add_docstring.py",
+      "sha256": "89f41e376a028bae35ecfb597475cc2acbd4e4955cbb9b0f8b9eadd08a8b9b33"
+    },
+    "execution_module_221": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/typing/__init__.py",
+      "sha256": "6e4a28e8b4a221250cb6f4c6423f568c439da1c1a236e7563dff818675b0f82a"
+    },
+    "execution_module_222": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/construct2d.py",
+      "sha256": "075357f3993b721cd7a658cc4be09a47bacde7e95dd76e5107417485fd57a66e"
+    },
+    "execution_module_223": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/construct3d.py",
+      "sha256": "19b08b46b806aa71b753777299eb6b0a06f403c1b4c4b38b289afc1014d43bdd"
+    },
+    "execution_module_224": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/bezier_interpolation.py",
+      "sha256": "9f70cfcdca081f8d53523972c17db72a4613903042a3735bbc39e8de97766c53"
+    },
+    "execution_module_225": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/parametrize.py",
+      "sha256": "8214c7ed2ee46559d5a9dc3627967a7cdd545453203779d6ef54072aee5358a7"
+    },
+    "execution_module_226": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/bbox.py",
+      "sha256": "3e1e5f4f7e5c9f902529b65c621612395beb4a77dc6a1981fa7c2ecaa2a61474"
+    },
+    "execution_module_227": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/linalg.py",
+      "sha256": "ab033271e2261232859772c43190b8a1b54f54b5496dc4fd774072537df416a2"
+    },
+    "execution_module_228": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/bspline.py",
+      "sha256": "9908c6428edf30535ec8aac6c68393890349668e391906adff6946d03be914ef"
+    },
+    "execution_module_229": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/bezier.py",
+      "sha256": "2d7aa88b6cc7117e1a724e275515788f06087fbeb3c61f169735d36b9efe34b8"
+    },
+    "execution_module_23": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/numerictypes.py",
+      "sha256": "de7be532bd85cff56ad4e29786d76ec5bf2d511f7e364919bdd7cb0ad93ad3a8"
+    },
+    "execution_module_230": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/eulerspiral.py",
+      "sha256": "13c9b5f819a84dfc45ea916bb33c91602f8ab6b9aaf629f42c4de09c9fb7699a"
+    },
+    "execution_module_231": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/ucs.py",
+      "sha256": "a4d710808959a3a503ad379a40c4d1d54d57671087834ba12ac733357aabf4ec"
+    },
+    "execution_module_232": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/bulge.py",
+      "sha256": "af18f1f45744539bddbc48e14430129661c35688e4496847bab7e8682c1866dd"
+    },
+    "execution_module_233": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/line.py",
+      "sha256": "1dec22bf86b8f272cb1cb1d267694dfe17625c24110edb196b6f07ae5bb8632b"
+    },
+    "execution_module_234": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/circle.py",
+      "sha256": "bb7602b6b13ac05cc2009ff650a8bd0d55c72a97747df489e48b35bcf234069c"
+    },
+    "execution_module_235": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/arc.py",
+      "sha256": "43523acdfbfd1924a200700fedd672cbfde56d71e7bb46ecd08a6916e727df79"
+    },
+    "execution_module_236": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/ellipse.py",
+      "sha256": "535685163b4e1e1fb4fc5833508d04c0857425d9a460240b7a5c484e794ffa08"
+    },
+    "execution_module_237": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/box.py",
+      "sha256": "f2fa0a39fed2e070fe3f5746bb34fa8d6e97d9b5114da2dd6aa0879e6a65ff7c"
+    },
+    "execution_module_238": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/shape.py",
+      "sha256": "70d8bc1250b9e5d72ae940e96ac4caab38062df887eeae74b62523baddad997f"
+    },
+    "execution_module_239": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/offset2d.py",
+      "sha256": "63f72eb34f547f8192c83cbe9cfc9b242fdc7671b34b7aa1ff55b7072ef63b3c"
+    },
+    "execution_module_24": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_methods.py",
+      "sha256": "724facf7e63c5b8fcc2fac14bf31a02cb048d9e28f516d86502ba5077a425476"
+    },
+    "execution_module_240": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/transformtools.py",
+      "sha256": "a6efd4ff6180ef2c3c734b156fb29984e245b539ba85cdf6fcbd1a77f2230242"
+    },
+    "execution_module_241": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/curvetools.py",
+      "sha256": "47240ac4a45ddd2d5b59bc2773ec1640a704d4d09dfc46dd979cd07c3634e74e"
+    },
+    "execution_module_242": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/polyline.py",
+      "sha256": "48142aac1c5998310bf0a0abdea824d5b5d767ef8d1d7c222b7214344737d28e"
+    },
+    "execution_module_243": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/__init__.py",
+      "sha256": "146a7e993457b8600eb2d6266692e679bd43d3d881082b1815638588add275c1"
+    },
+    "execution_module_244": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/types.py",
+      "sha256": "6b2d73b9194190ec06deb8f68879c07bceabc31fed3271ba175a2aab9b749b44"
+    },
+    "execution_module_245": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/juliandate.py",
+      "sha256": "5074b7346ccac7c446d88e06b772a45241cc4ebbfd771426fba669cfe10eff9f"
+    },
+    "execution_module_246": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/binarydata.py",
+      "sha256": "29a13645df67360900f24ebdce6cdaf6a76331b35913d50a736b71acc99cee50"
+    },
+    "execution_module_247": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/__init__.py",
+      "sha256": "10ea75aa17d15683bbfdc043fb592f963a207378268cda89be6fbdd14389fc75"
+    },
+    "execution_module_248": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/codepage.py",
+      "sha256": "c7ab6255d42b1fe2763807e39f0eb18b7da1219ac7fab49bdc4c4e8b70d5f3b1"
+    },
+    "execution_module_249": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/tagger.py",
+      "sha256": "03c5eafad5f5e82570ab72815bb107e5a9ef404da36e046cdcc9742eb594e97d"
+    },
+    "execution_module_25": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/fromnumeric.py",
+      "sha256": "ed6b3fe56e1921ed140c9d8ddd26393faaaa9304846084ae3ce78146bcabe605"
+    },
+    "execution_module_250": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/validator.py",
+      "sha256": "c96d39f078500ab5ca5c3cff1339341c50467ab2989011e5cdc27f9eee9e6d19"
+    },
+    "execution_module_251": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/mesh.py",
+      "sha256": "a56b1105bdeb6cf2af16efba70b6738ebd85634c8048068bfb4d1e21867a4673"
+    },
+    "execution_module_252": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/forms.py",
+      "sha256": "5f01f1f45feb9b95a528111036b18e9dc86c00fa8cbf0546492e3b2585ad423d"
+    },
+    "execution_module_253": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/arrows.py",
+      "sha256": "5b4327d95717ce9c6c2ddd352a2789a4dca203375f09485fe9ae2c855383d9f8"
+    },
+    "execution_module_254": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/r12spline.py",
+      "sha256": "3951bde376bfd01722e02f2b8cba747493f3e81dc6bd21fc820b4f012f204320"
+    },
+    "execution_module_255": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/perlin.py",
+      "sha256": "320b6fa8c4324708352a4253aebfe4c45b27e7c7753c3f45435ee8f96a60cea5"
+    },
+    "execution_module_256": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/curves.py",
+      "sha256": "97ea3b8fe5ae437000c77b41ae42dcca0e9ca59b74fb512dc4df632eff9e718f"
+    },
+    "execution_module_257": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/trace.py",
+      "sha256": "b7ef1d7df9672c545f5aa8e822e9aa8963a7b20511205eaf584129e006ce9827"
+    },
+    "execution_module_258": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/factory.py",
+      "sha256": "279abcd9a1c7dc4019de83991b3f8b1b485ca1cc1eef7a0b455f7a09b4c8b871"
+    },
+    "execution_module_259": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/tags.py",
+      "sha256": "f53074f8eb651ca2ca797f6ff70f9532c98d3a2a38b6fc9f5cc25395a6fe5c2e"
+    },
+    "execution_module_26": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/shape_base.py",
+      "sha256": "1d6e897dfdb7edf2d71e8ed75254a6e7106b1a947592f88d91af96d1ad2c469e"
+    },
+    "execution_module_260": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/copy.py",
+      "sha256": "c1e0104a9baeb0033fc096ad874b27988c053bf98027a22eaf18f776a096dafe"
+    },
+    "execution_module_261": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/xdict.py",
+      "sha256": "1e968781752ac12ae9f44f64acbade71c6637dc74c5fc36f6432f9b194fa822e"
+    },
+    "execution_module_262": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/repair.py",
+      "sha256": "903f2b02e7c8b1e4b646234a34846a6653f6c42c0cf194dcec210aae0b7d9425"
+    },
+    "execution_module_263": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/xdata.py",
+      "sha256": "9bd850abf882e13d435cc2ebe131e842aaf4e24f2d900d64e1cbeb8b83016482"
+    },
+    "execution_module_264": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/appdata.py",
+      "sha256": "2c91a688841501d9951c6d49d05baa69b7753557689209d405b01172816b87f2"
+    },
+    "execution_module_265": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/extendedtags.py",
+      "sha256": "a93b50c5512a971f0dae18e66db2e027b12e6c1c7d3a0f0e806072a6b24178a9"
+    },
+    "execution_module_266": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/attributes.py",
+      "sha256": "feb678af8efc4896b797ebd380893b6ee1b3f8762ee43e55ca4d20ab3f800fe2"
+    },
+    "execution_module_267": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dxfns.py",
+      "sha256": "9d752495a91e864dd13141a7a3c8d783850f5eeff8105e61027b607511afbae0"
+    },
+    "execution_module_268": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dxfentity.py",
+      "sha256": "fddd3c4331be2be4a00da769e6368ce2ee3621710f0536ad2f65be2f71a568b1"
+    },
+    "execution_module_269": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/proxygraphic.py",
+      "sha256": "facdb0bb5f04dec47036bd5f8d927b444f7706d61044e4240350ba74fc293a05"
+    },
+    "execution_module_27": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_ufunc_config.py",
+      "sha256": "0e938bb63600619bfe9028e8f285f9ddcd925b62d0220690ec4a650a48ac45a5"
+    },
+    "execution_module_270": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dxfgfx.py",
+      "sha256": "416ee3a85f5cbf9bc891da2489b6491c310c9dc22c5cc1457b81ffffecc121ec"
+    },
+    "execution_module_271": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dxfobj.py",
+      "sha256": "4426fcbc0f9106ffde248d43e9aebcbb4a50e9db034e27478ab4e0988f0cc59c"
+    },
+    "execution_module_272": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dxfclass.py",
+      "sha256": "aac6e2e3e06b9ec784e016e0818dbbe14d8727bd1562a1b7a9f3f33194cfeed6"
+    },
+    "execution_module_273": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/table.py",
+      "sha256": "915b7ca998cd56a37250ac9762b19030ec60068a34cd2b72640a79d5d9dd3c48"
+    },
+    "execution_module_274": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/audit.py",
+      "sha256": "96c5cef57d3fda1c8230554ba4fae38e8feee36c18a38b3d0ba8c813572d5773"
+    },
+    "execution_module_275": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/layer.py",
+      "sha256": "3c3a1296eae99577f3484bad73e12cd41706a33e88bb3999992001d254ddd796"
+    },
+    "execution_module_276": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/complex_ltype.py",
+      "sha256": "d3bc0136918a964ef9ca1432225b5c21a41df98b1675ee4ec50a5266d0b3cf6c"
+    },
+    "execution_module_277": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/ltype.py",
+      "sha256": "93824c3611f76505a16e15e1c920418161155de09b5bae2534294be2bb89dd59"
+    },
+    "execution_module_278": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/textstyle.py",
+      "sha256": "af01686b00b7b6e763be955094dc2ca5cef129f6961b7107c6171166871fdb90"
+    },
+    "execution_module_279": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dimstyle.py",
+      "sha256": "9586dbe5759f58c571bb7d32b589c529ed03703e5146a877eacf30ca098e435f"
+    },
+    "execution_module_28": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_asarray.py",
+      "sha256": "f5aa779032cd51c8ca49039fae454fcebd2d64647513576d0884ff61e68525d2"
+    },
+    "execution_module_280": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/view.py",
+      "sha256": "9910ee61aead8e1845fb9d8c012f89f658454cdd8215cfb143c8d39a773224c3"
+    },
+    "execution_module_281": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/vport.py",
+      "sha256": "5272d421b1f64027faa9313d60e2d1f5d2c53e7f3d488b9e450d0c3550006dc8"
+    },
+    "execution_module_282": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/ucs.py",
+      "sha256": "cfa9ec73d565ed95ac29ef8a92d6400b81c3666d933412105a17659f98a0b4e7"
+    },
+    "execution_module_283": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/appid.py",
+      "sha256": "e5ef5c80507b542bbe582d71aba5e42b85982389380ce055d00132cc26cbd414"
+    },
+    "execution_module_284": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/block.py",
+      "sha256": "28c9eba0dc48ed386732a8d76c3315407351a951f4191989abe68268ae81d16e"
+    },
+    "execution_module_285": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/blockrecord.py",
+      "sha256": "ffd9006fdd99e7b863ac33c800894ff19060ec9577cd6d380dabe52917be0c75"
+    },
+    "execution_module_286": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/groupby.py",
+      "sha256": "2cbdc9e55f858fa99f5da2f85979e907a115c7127fad35275a32f133484a02d7"
+    },
+    "execution_module_287": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/queryparser.py",
+      "sha256": "51bee9193ed67fa0f91bbeccdd402a655e54f20be1bfd8f18f772f4b00be4f55"
+    },
+    "execution_module_288": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/query.py",
+      "sha256": "ab2e8779f3d0e61c421ade50cda8917c3075402cd6b206f21698080e3edff4a7"
+    },
+    "execution_module_289": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/acad_proxy_entity.py",
+      "sha256": "9344f19f0dc9c2b372add73e49ad044b11471bbaaf694ed7d9273927db35579b"
+    },
+    "execution_module_29": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/arrayprint.py",
+      "sha256": "ea1e7577acc4048383d842a628827e33dc544f06842ab5848b3ee3bb298eaea2"
+    },
+    "execution_module_290": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dictionary.py",
+      "sha256": "91bef1d012a5ee294d5e221daec7d39b327fc37366600d7f7d3c2de7b0baf9c8"
+    },
+    "execution_module_291": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/layout.py",
+      "sha256": "ad4c80e88f5e6bdc650b55a7e76fcb74056b5ad702798c311030ed4a7b5eeb81"
+    },
+    "execution_module_292": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/idbuffer.py",
+      "sha256": "2dc173f54e0909d86e4edc2337e74a44e7edd9bf496e185d6e42bf365f257457"
+    },
+    "execution_module_293": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/sun.py",
+      "sha256": "02c855b02a65c8e67f397db10220d452e99727080cc5ce80d2c1deb8174ca273"
+    },
+    "execution_module_294": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/objectcollection.py",
+      "sha256": "1f7eb2443ef8c511d116e94fb6ccbbb189490fb629b640539753a1f3d23ae748"
+    },
+    "execution_module_295": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/material.py",
+      "sha256": "d590f51cf29e2c7efd5dc51ac530646ced8e159a47a99c5233d89a2da4ff8565"
+    },
+    "execution_module_296": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/oleframe.py",
+      "sha256": "a3c31b79cecba088a5ac7e42e5fe7075e69e3d444fad10f3cf57f213960ed765"
+    },
+    "execution_module_297": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/spatial_filter.py",
+      "sha256": "90b09163877bd0760d0c6df8fe877099427a256d556955bd92a81f41753272d5"
+    },
+    "execution_module_298": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/visualstyle.py",
+      "sha256": "445d5a19e95a19817ab531e7c373e8d6f2793ee82e43f0e6e9aead8684bf8090"
+    },
+    "execution_module_299": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/line.py",
+      "sha256": "f5ed5f336896c0f70396662b402aea89304a800e8fd41f9ee1125bf4ec16d264"
+    },
+    "execution_module_30": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/numeric.py",
+      "sha256": "feb150554b4879d4df7bd0a4ab7b1a6b818de7ba994ed0c73583fee177533417"
+    },
+    "execution_module_300": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/point.py",
+      "sha256": "28499b3ed1e75e185253c8c13dafc32685c87af508ab2b931d5f169396bdbddf"
+    },
+    "execution_module_301": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/circle.py",
+      "sha256": "8362513f37049ef53dff29a690de290f21ae8c9bc6b178580ac3b76619d7769d"
+    },
+    "execution_module_302": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/arc.py",
+      "sha256": "8d3b15790825d19256e37e60a88471fa1ae7faee220e139a3be1d246f65dc025"
+    },
+    "execution_module_303": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/shape.py",
+      "sha256": "edc987551cbc996ec4270e1e1221d6ba8b5828138b853ee608cfa12d6331bd05"
+    },
+    "execution_module_304": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/solid.py",
+      "sha256": "aa5e7c49dbb09a3a29ea2a3af5b094e42426e35a6a40fc6149dcc90a43c685ae"
+    },
+    "execution_module_305": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/text.py",
+      "sha256": "a5d342bed0f49708e3d766668e0620d4d087469bd78588ac91138bf026e509de"
+    },
+    "execution_module_306": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/text.py",
+      "sha256": "2fd0e80488240359241a6534031d7f0bb071b516cfb167f16fb8f9249cdc9ee0"
+    },
+    "execution_module_307": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/subentity.py",
+      "sha256": "ab59db31396378c0148b114723cdfd30ce0c1464a807e0e1f3e86b7a9ded00e9"
+    },
+    "execution_module_308": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/boundary_paths.py",
+      "sha256": "5b1cd54669a0b04b3bca80e5d852b4efa5fb4e992956b1cdc3c4f270e2784618"
+    },
+    "execution_module_309": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/explode.py",
+      "sha256": "bd774b26fb968209d88d7801f6e747a77635c787a6952f1a1ebf80746051aea3"
+    },
+    "execution_module_31": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/einsumfunc.py",
+      "sha256": "4b4fc2d54ebe6b533f680fde2fa468d30449c2d44afc73041b6debb6e302dedf"
+    },
+    "execution_module_310": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/mtext.py",
+      "sha256": "365e3bf0ef94262edfd0438600c35a705de935312701f293d9ef07b8e8c39f9a"
+    },
+    "execution_module_311": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/attrib.py",
+      "sha256": "5b6f6ba3776e8ec4b4418782f9207f567c76b8e3f19c1f7292347793e437b843"
+    },
+    "execution_module_312": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/insert.py",
+      "sha256": "511f29c6ec9642803c122fcb1ddb6d2c3347c0d2ba668197ce330c607862544a"
+    },
+    "execution_module_313": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/polyline.py",
+      "sha256": "fe30ce2b3e84be51ce4dab2ec8be0afb1ed31892c9ce4aaf01d9bd09ebc29ba6"
+    },
+    "execution_module_314": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/tagwriter.py",
+      "sha256": "3a99b0500845c462c237129e2638993e7029047f449ecd00bea205e3ed6f61dd"
+    },
+    "execution_module_315": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/indexing.py",
+      "sha256": "0b5b1f2c9d6764efcdd2d5eae3cc04140b1306d9d00f9e136dcca8562441e7e9"
+    },
+    "execution_module_316": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/packedtags.py",
+      "sha256": "65a6c9f2ab1fb8cf8a5f9c498a4869b2ef9d864666c397fd8ee39a903576c889"
+    },
+    "execution_module_317": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/lwpolyline.py",
+      "sha256": "172397caccce5ada23692b84d3840886b0886274782ab27d7510af8e8b5afd7c"
+    },
+    "execution_module_318": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/polyline.py",
+      "sha256": "53f679785023d8a0ff0d14ea47f0f2617a0f6b0e945c3d98a07520c2a3e3d70f"
+    },
+    "execution_module_319": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/handle.py",
+      "sha256": "dae41117264828abae8a48d83eebf8f8753a6ebc955ac3e0e80bc8b870e26ddf"
+    },
+    "execution_module_32": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/function_base.py",
+      "sha256": "97925f5f2a271088cbff838a149a6312335d8dac80ac0314f0c85a31b442c1b5"
+    },
+    "execution_module_320": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entitydb.py",
+      "sha256": "bd79c6d0f084cd67355ab27c830f007322a019cbc34c096a8bafd1dbb10b0912"
+    },
+    "execution_module_321": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dimstyleoverride.py",
+      "sha256": "ab2f330333279b2bb0903295b17513098d9bf07c2a317fe9de93105a81c8c4b4"
+    },
+    "execution_module_322": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dimension.py",
+      "sha256": "23507e476319d3dd89215593b66c2c5a08557b4855c9909305ebdb67e69a45a9"
+    },
+    "execution_module_323": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/viewport.py",
+      "sha256": "756ec5b4d4600a63c7f64dd57583ec538cf4f0fe4832e630702239e987618851"
+    },
+    "execution_module_324": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/ellipse.py",
+      "sha256": "82e7c70cd585d89340fcccb2dcc5806f396baa4dca614eee7c9c8baf6580f61b"
+    },
+    "execution_module_325": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/xline.py",
+      "sha256": "63fd028686b61a5f7dcd6132bcaa7d3c202ce0893cb93c1e856cf6ddc29485f0"
+    },
+    "execution_module_326": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/mtext_columns.py",
+      "sha256": "509fa52e7bff7429dd1b262087769e33058811af54052da948ac51375d7e66aa"
+    },
+    "execution_module_327": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/spline.py",
+      "sha256": "ded0d4ed638aeb04585589ed3755230d422734221ef45e23dc66ace4e47a8321"
+    },
+    "execution_module_328": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/mesh.py",
+      "sha256": "3d2f5ee3becedbb8e91667de8c781325d29711fd83e56b64259307158dc6f544"
+    },
+    "execution_module_329": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/gradient.py",
+      "sha256": "6a2af106a10e31ddf5549128bf51e5a31e9f2f77a3fd6a7b1d303d0884b4c3a1"
+    },
+    "execution_module_33": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/getlimits.py",
+      "sha256": "ec0927f602302ef9b449f2773151deaab480cb5ad8eff4c8bbba59e489daf106"
+    },
+    "execution_module_330": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/_iso_pattern.py",
+      "sha256": "ff7ad10ec9c9cc4201bcb98a0f6a3b08eb780b12ea837bc7e22a9806eb9b9a9b"
+    },
+    "execution_module_331": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/pattern.py",
+      "sha256": "091bcdbcb395e15116c11583f6b7641a73de03ca0368ea049b75e2e7872a7c08"
+    },
+    "execution_module_332": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/pattern.py",
+      "sha256": "58e380ea044dc1a7a99b50cf84c8e57177b23418e6949de9beb8b818f22bb492"
+    },
+    "execution_module_333": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/polygon.py",
+      "sha256": "52774ae4fd9d76d5885c5795494ffe80ae467a6926f6783fa5161030c796baf3"
+    },
+    "execution_module_334": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/hatch.py",
+      "sha256": "9fffed475879d238a5f869121ab1b7ed53d44e004193394282a0e4d269b6eb1f"
+    },
+    "execution_module_335": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/mpolygon.py",
+      "sha256": "e2c82ff5ac65953414d54358d689368aa3e85e6a92d8e0722c7efe6cf866fa37"
+    },
+    "execution_module_336": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/image.py",
+      "sha256": "aba9c3a84492e0cc47736971bd7066c875c24934169f858a68e8d177fe45cb2f"
+    },
+    "execution_module_337": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/underlay.py",
+      "sha256": "9c715c4d4dff5c4a94baa6cfd1059f4d424cd14d3bd66e6f6573082d37c83064"
+    },
+    "execution_module_338": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/leader.py",
+      "sha256": "918e20a1c3142f7393d69114ff9bd42065a33c9857fde7238bf864737ed1823c"
+    },
+    "execution_module_339": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/tolerance.py",
+      "sha256": "a19d6f2a63bedf3606ad6bf740d5931adcf3ed0c764d4868b6b09cd2c2068bac"
+    },
+    "execution_module_34": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/memmap.py",
+      "sha256": "9f79da21b64da6722a66cc86e126061b33371ad66139314580de483a0ebc254c"
+    },
+    "execution_module_340": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/helix.py",
+      "sha256": "9434adba63c4185d2af62f4ef959a929082684123b1b1dd283dc02079c02bd1e"
+    },
+    "execution_module_341": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/crypt.py",
+      "sha256": "4eb68651eaabe46c566590c568602df8e38268adeb8aceeccac5cdf98d0b01c6"
+    },
+    "execution_module_342": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/msgtypes.py",
+      "sha256": "233f8ef8ac1cd5bbdcd24593d14e9af6d17f6045f819d26f6ed12a82784073b2"
+    },
+    "execution_module_343": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/temporary_transform.py",
+      "sha256": "fdff3176c3f8e683e7afabbef9d16b2c9ae1f971878caf1726278b896685a299"
+    },
+    "execution_module_344": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/acis.py",
+      "sha256": "e18bca58037dd211fcdaf92406812a96ea6b6c2f607f858e302a1dc889fed555"
+    },
+    "execution_module_345": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/mline.py",
+      "sha256": "eee46cda3d1d2e3fa053cf4478f0bc0ed8b3df8d856b38490b2c446f57bc6038"
+    },
+    "execution_module_346": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/mleader.py",
+      "sha256": "9303d33c49ab200f22e2f659c05f7c2f61a197c821618b8e6e2012183ab05a59"
+    },
+    "execution_module_347": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/light.py",
+      "sha256": "e79eca0dd3c224fd261720b89afabad3cd6fe97ae02b6d6459318a34c5800372"
+    },
+    "execution_module_348": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/acad_table.py",
+      "sha256": "66209d150937008f0bc387c9caa5418c26af4e201750ab2ff9fbca4e4af49fff"
+    },
+    "execution_module_349": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/units.py",
+      "sha256": "9a9e8d3fffd9e23d4280665ad7e4faadb980dd206f318890c32d78c2a27e63fc"
+    },
+    "execution_module_35": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/records.py",
+      "sha256": "bf0ffa47a868c210494dd351ebe9d58bea06bde6730e8224ca39979b12ba351b"
+    },
+    "execution_module_350": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/geodata.py",
+      "sha256": "98b276796f1cb1427e9edfbd979019bc611cb5fff050a6634d7330f389e4e455"
+    },
+    "execution_module_351": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/__init__.py",
+      "sha256": "189f561047b814649e384dfe97c323566fe4c6cd14ebd86582971de4a340f765"
+    },
+    "execution_module_352": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/__init__.py",
+      "sha256": "aca0c115a04d2d6a8adcbbd0c981403ea74b01d31cb9d3c882f0171c30d83e7a"
+    },
+    "execution_module_353": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/font_face.py",
+      "sha256": "eb9ecb7a7174439812b8a355693b741feb8b7e3ae8a9fc3efe5bd78507205849"
+    },
+    "execution_module_354": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/__init__.py",
+      "sha256": "0c90569a85ff1da6aeeea9609af5b27db852ceb5f6a8beb7e919ecec21b4d699"
+    },
+    "execution_module_355": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/loggingTools.py",
+      "sha256": "fe6f28b021b675a80fe2bc6e686699b8965c766302ac8502a0a623b75b1ef395"
+    },
+    "execution_module_356": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/__init__.py",
+      "sha256": "54b3030613d88642138266271414ae226832ed4773a4c7896b69a60242a79616"
+    },
+    "execution_module_357": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/configTools.py",
+      "sha256": "4f5277c8a449ce11ad5e115e35473dddd46f9252b0e0d71b7b44edac9276e196"
+    },
+    "execution_module_358": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/config/__init__.py",
+      "sha256": "b1a18b29665224cca35c7052413ea12d355a57d79433476d2003cb7b047b2f28"
+    },
+    "execution_module_359": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/textTools.py",
+      "sha256": "e2320fc420c4e49bface379fc8b768bd80cb5a4f9220ef427de040b027de41db"
+    },
+    "execution_module_36": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs.py",
+      "sha256": "2fc06f2d919b16afc1e1f1abdb161bdce9eedafe3e07f127bb0f45b0841964c6"
+    },
+    "execution_module_360": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/xmlWriter.py",
+      "sha256": "581d3205de5ddbd68d1db989347b7825b0a7898c02b5270e7273d9dd513298e6"
+    },
+    "execution_module_361": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/roundTools.py",
+      "sha256": "e68420f511f1942e3e29944ede9686ac37d4958ec481de24124763db607787f0"
+    },
+    "execution_module_362": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/fixedTools.py",
+      "sha256": "400fe97b31d87aeb0e25e2ccfb916af6a23bdf616f1c600868dc205b9e5f2a8e"
+    },
+    "execution_module_363": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/sstruct.py",
+      "sha256": "1d727226c3e48e41f26542bab90e730a66f96dae44ae86f245fa0a3be5a1847f"
+    },
+    "execution_module_364": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/ttLib/sfnt.py",
+      "sha256": "1a98e0a95fa78d2c525f5e12447562d6b0222e219ea0df6a58235dde0b7d14f0"
+    },
+    "execution_module_365": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/vector.py",
+      "sha256": "b2fa31d7fc84781821287327bd36b74b51b443900ca5ff082b739889055576a6"
+    },
+    "execution_module_366": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/transform.py",
+      "sha256": "e28ade702521b09b7c0e78b446986eb05f863dbcf1f767e562c8fdbbe7455cc2"
+    },
+    "execution_module_367": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/pens/__init__.py",
+      "sha256": "0c90569a85ff1da6aeeea9609af5b27db852ceb5f6a8beb7e919ecec21b4d699"
+    },
+    "execution_module_368": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/pens/basePen.py",
+      "sha256": "236860d444fd96c8656097d0613f429b5a27fee54db732fbbe463a8e6097dec1"
+    },
+    "execution_module_369": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/enumTools.py",
+      "sha256": "154dd307de58e46de261f0a1c05c2828a1032f80a706ad78c40cc60bebdcf734"
+    },
+    "execution_module_37": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_add_newdocs_scalars.py",
+      "sha256": "db6f2b889f9dcfd7d5df64ef3a430f532b3fdbfc279c3b94f8451b1757a16efb"
+    },
+    "execution_module_370": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/pens/pointPen.py",
+      "sha256": "9973b94efdb993201d67d157dbd2284d04a37a1d34926b6fdd264832bbbc66f2"
+    },
+    "execution_module_371": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/pens/recordingPen.py",
+      "sha256": "6a1a2b60cdd41f919d7ac7b5cd92a01e31d692ac4c61121a4dca8ca42a9205b1"
+    },
+    "execution_module_372": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/pens/filterPen.py",
+      "sha256": "44482ca5769a4af1775d4c2a7b8d1a6dedd7fc4efe59b04fd7722a2d45012c2c"
+    },
+    "execution_module_373": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/pens/transformPen.py",
+      "sha256": "d696ba65b8f27cc5a1f9a634ef4564c007f587c9432b55db9387df6f3348b72e"
+    },
+    "execution_module_374": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/ttLib/ttGlyphSet.py",
+      "sha256": "7140613066b986ccde56a3a6d8aa4e75e261f8bb22a84ed135dc8850f676bcef"
+    },
+    "execution_module_375": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/ttLib/ttFont.py",
+      "sha256": "01bed50be567307a84cd4f0c19e12514e746689501f6f7aacddc04edeeb59079"
+    },
+    "execution_module_376": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/ttLib/tables/__init__.py",
+      "sha256": "71063cd9641cd7d3ecaacb11b03f978db1c3fb9a201b4d0376b0568e07db0fe3"
+    },
+    "execution_module_377": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/ttLib/tables/DefaultTable.py",
+      "sha256": "960e57bce6ec6cdbed1422e21414952ed266d5efe782cf5787d9e9e5bde7b5e3"
+    },
+    "execution_module_378": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/ttLib/tables/D_S_I_G_.py",
+      "sha256": "6a107028c8097fd84f9b7113b85d48bc6e1dd7f525496d147733bce4389b39c9"
+    },
+    "execution_module_379": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/misc/timeTools.py",
+      "sha256": "eee357e62cf8a4188ae22ef8688ccd8a22dfacda084206e20064d501c15f7af5"
+    },
+    "execution_module_38": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_dtype.py",
+      "sha256": "59a285cabfcef070f8c3e6eaa15c1d4fde4791983e374e275944fd638c11f926"
+    },
+    "execution_module_380": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/ttLib/ttCollection.py",
+      "sha256": "d4804e8fc58e76cb6410ff44607327420016eb599ff4688452f9a35daefea243"
+    },
+    "execution_module_381": {
+      "path": ".venv/lib/python3.12/site-packages/fontTools/ttLib/__init__.py",
+      "sha256": "680216e6681739c26159186cc641545d3e3c9cd201293e7e6e5049c97a8e8fb2"
+    },
+    "execution_module_382": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/path/commands.py",
+      "sha256": "b21aacb1c9146a5a8d1f53555c6e2edffeaca01607e4def52cada7597ec0c6c8"
+    },
+    "execution_module_383": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/path/path.py",
+      "sha256": "94a69b57f0c08737d88a406621e915226f143e78716dbd13f89500ece6d92f01"
+    },
+    "execution_module_384": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/_mapbox_earcut.py",
+      "sha256": "cd3cb56498cb80487018c7233c17b197d48a6ce954cb298baffba55882471689"
+    },
+    "execution_module_385": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/math/triangulation.py",
+      "sha256": "92c238fab2051bb96a439404e0c50f1ad325decb1a45172ff453d7dd1de83e4a"
+    },
+    "execution_module_386": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/protocols.py",
+      "sha256": "5d7f840db7e9d95f130af8f82a84f9afda8afe533ac0315689e9d7027afa5b31"
+    },
+    "execution_module_387": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/path/nesting.py",
+      "sha256": "1941f3e458b88db1a3df673c1ddd54be325117e75deee3f7be29dabb44a94f4b"
+    },
+    "execution_module_388": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/path/tools.py",
+      "sha256": "a5078589f0e605ab86dcfc6e610379114daf70447e1334e54189850486a00324"
+    },
+    "execution_module_389": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/path/converter.py",
+      "sha256": "ce3f02f7ec059aad4a72d856c969f8bdb3f26743a36108afcd29ebd5f7b0d8f2"
+    },
+    "execution_module_39": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_dtype_ctypes.py",
+      "sha256": "28f3e56a40ec3e4b938523abe6a1705b48c9f559e36ef5b811684e6c21d81881"
+    },
+    "execution_module_390": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/path/shapes.py",
+      "sha256": "29dc532b5ede9ec4f4b82bf81cbe263622ff702a8245177af715803dd57dabc6"
+    },
+    "execution_module_391": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/path/__init__.py",
+      "sha256": "207325a855ffabf573be549c799c1af292f2a0865fa0946180e5ea094b0e5614"
+    },
+    "execution_module_392": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/font_measurements.py",
+      "sha256": "df395fcc9381e39abcf048c4f512a83d820e6cb2ac45787fd1ec2cb1989b90eb"
+    },
+    "execution_module_393": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/npshapes.py",
+      "sha256": "8da141a7275a1195c8abb956c9537080f3593473a57973acd4a7ab14111664d5"
+    },
+    "execution_module_394": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/glyphs.py",
+      "sha256": "0e6315f6647604cced158df4fd7e762e50d9dbb621e0f91b536e1e7165ddcc48"
+    },
+    "execution_module_395": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/shapefile.py",
+      "sha256": "0c09ae74851d347396556cfaed3117cf325e81351e4971ea0c514ad0b80c3fe0"
+    },
+    "execution_module_396": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/lff.py",
+      "sha256": "5779b5fd60aadcd2eaa23d36c1ed2945ded489ed18248696f4af4f97c09f1269"
+    },
+    "execution_module_397": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/font_manager.py",
+      "sha256": "e5ca0e4cbc200a65948efc995f69a1f26e6a4c4b9a5ce5f27e9df7b0791700ef"
+    },
+    "execution_module_398": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/font_synonyms.py",
+      "sha256": "33bcde66c09548906d1783dbfe05ec17fa8e07c725ebfb9221bc54050f55bf21"
+    },
+    "execution_module_399": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/fonts/fonts.py",
+      "sha256": "7fe8fa289e19fb3694a51725b9c7ce0fdbadd46e9c4628d778c44164fd77a90a"
+    },
+    "execution_module_40": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/_internal.py",
+      "sha256": "497f1ce325bcc6ffc2ccf013e2cdd2ff2e32c55106a0a07997213d45d6c777a0"
+    },
+    "execution_module_400": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/text_layout.py",
+      "sha256": "e3d758912c2bd58d9be94c840ce8b63b713187e8090126a8fc359070ec085045"
+    },
+    "execution_module_401": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/abstract_mtext_renderer.py",
+      "sha256": "197858c341ff161e4816c777e40cde9d766ea29df62eed0add9232af938620a6"
+    },
+    "execution_module_402": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/text_size.py",
+      "sha256": "14c9aca084ddfec6de792fef96b225fa97f04e58e186ad96e00e9d1b047dfae7"
+    },
+    "execution_module_403": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/mleader.py",
+      "sha256": "5879cadf58ae09f3fcca2af1434818a86ee07911307ad8ba1692f75c743d3a39"
+    },
+    "execution_module_404": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/__init__.py",
+      "sha256": "5980457d8fe9afc61237d24ef60ba11d904181c09d4a9fe0c9e5973be92b60c4"
+    },
+    "execution_module_405": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/tools/standards.py",
+      "sha256": "f3b64bf6a8d623109258fe6a75eb8e1d1f86b3d7f65b6234297faa78004c5340"
+    },
+    "execution_module_406": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/entities/dxfgroups.py",
+      "sha256": "25917e507350c0c9d02865d683ea93532bfb430b8c45839d9aa435e6cb6c3a80"
+    },
+    "execution_module_407": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/dim_base.py",
+      "sha256": "2cfd34a0369707c1661457b0094d67426b96b41d4b4014a05cca9447d046dc40"
+    },
+    "execution_module_408": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/dim_linear.py",
+      "sha256": "b3983a8b8fa820cf614872f28d5478bc83d60c29c4c9fab2f1318983763239ab"
+    },
+    "execution_module_409": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/graphicsfactory.py",
+      "sha256": "9e620196a2527ca302b739a172f97f9ace0e65d11cc6f63c7c709a03e6b5f8b8"
+    },
+    "execution_module_41": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_pytesttester.py",
+      "sha256": "cc2729e50688028a9aeedb131b2a12c0480f3477cc1c0e84be7f5d4177164002"
+    },
+    "execution_module_410": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/layouts/base.py",
+      "sha256": "b73bac0a3dc06e151fe71782b89ca187e6f0b4415502a5de6416cbd3a2c53f83"
+    },
+    "execution_module_411": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/layouts/layout.py",
+      "sha256": "fd6d045130d84b1cc26f98ec63defd1d60b008f0edd14497c981eb6d3d2c896c"
+    },
+    "execution_module_412": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/layouts/blocklayout.py",
+      "sha256": "786098061f1fb8d30a4a178258725d5c29f047666958ffba8bf19bb7fe10ee1f"
+    },
+    "execution_module_413": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/layouts/layouts.py",
+      "sha256": "acaf21336a154c55934793b0ec1cfa9ca551ea7162945a0a652f5434378da829"
+    },
+    "execution_module_414": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/layouts/__init__.py",
+      "sha256": "cb7163b9438c5d4c4e5dbfa77cdfa9dcc4c5d3dd17cba20970ab180ffbc4687a"
+    },
+    "execution_module_415": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/loader.py",
+      "sha256": "3eab9568db58fd8d9f09c02724a2cc8aea47f05ca61f9785d2747e88900df373"
+    },
+    "execution_module_416": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/dim_curved.py",
+      "sha256": "1c180436e454650d7dd0cef75af8fe9fded22e73e0a4fb52c2ac52d22bd09645"
+    },
+    "execution_module_417": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/dim_radius.py",
+      "sha256": "f9dbb70b2b13d211f2d9fc5462d5d0fee4b7b1dab2938e8ef22ece273a29a3e0"
+    },
+    "execution_module_418": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/dim_diameter.py",
+      "sha256": "c60f86946baf4342584f3eccdd1063b4a9a3c90df46d72d86c76542228b0703e"
+    },
+    "execution_module_419": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/dim_ordinate.py",
+      "sha256": "22dd6d320ec5c9faaa87e87b19f1cd7b7182ccc3440a176810a3ac7c499cbd0d"
+    },
+    "execution_module_42": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_core/__init__.py",
+      "sha256": "837ce8aec8693095d2e1c7c306d385d1785a50be97a009935c64cae04e3555d2"
+    },
+    "execution_module_420": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/render/dimension.py",
+      "sha256": "04306af042e5cddce5ad337e041951e9ca572b4791e3e810e7a9ec4052adf200"
+    },
+    "execution_module_421": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/__init__.py",
+      "sha256": "e8d4b6ffabe8fd1da23781fe425218222fc1a0bbc91dda398e18b1d6e09a1250"
+    },
+    "execution_module_422": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/acdsdata.py",
+      "sha256": "ec6b9ab917bbbfd0731fc140ffab71a97a5988aff7b5c3f50a178fbb17bdc241"
+    },
+    "execution_module_423": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/blocks.py",
+      "sha256": "af0fd6eb81cafc7e02c6beb8f0cb9568eedc1a1ccdde075bb5895fe1d3edc9a8"
+    },
+    "execution_module_424": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/classes.py",
+      "sha256": "51f48788c5391cf60662be03072c94a83608e53c37a037d9f1764aeaacd82a81"
+    },
+    "execution_module_425": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/entities.py",
+      "sha256": "a4be25ba3bf7ddd8340a1cc0cf59e7e0294adbd2051763a76a8c09151fd50148"
+    },
+    "execution_module_426": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/hdrvars.py",
+      "sha256": "2b92bd6e00bda1ab0bae38c785ed460f5320d631fd805da51ea6df18270262ac"
+    },
+    "execution_module_427": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/headervars.py",
+      "sha256": "476a4e9aa5c816e70ac35941611c06cad609881172cd31c95ba7c7da35d6e12a"
+    },
+    "execution_module_428": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/header.py",
+      "sha256": "18ac20145da1285fab1d4db2c19a07f8ec905956467dfb633def9a7fbe547bf4"
+    },
+    "execution_module_429": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/objects.py",
+      "sha256": "8b8d7ddb5aca1c2fac0e3709a0f4de779727ffee4d6bb1520d630a1b01659b25"
+    },
+    "execution_module_43": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/__config__.py",
+      "sha256": "123a0d8cddb5863e4f4293c634bc03250fcb7ebb1131e95a34c0a06059b82ad1"
+    },
+    "execution_module_430": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/table.py",
+      "sha256": "e3ebe96f2c0f417c3cd7f899b74618eaa08a0a95a7d8d58d13cb757cc6faea63"
+    },
+    "execution_module_431": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/sections/tables.py",
+      "sha256": "a0bfd9c0efec61d66cd36661d4b8fee917b74726af103e2df5cb86cb6a131e04"
+    },
+    "execution_module_432": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/messenger.py",
+      "sha256": "7482cf6f192e3fe4a8ed0fab71a56685a8cf85ba6ae3f48972c64361dce5913c"
+    },
+    "execution_module_433": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/document.py",
+      "sha256": "1d501ebac64ef299c5555cf2f7bd85dd8b5b7a4ab85c769679e062729a05d350"
+    },
+    "execution_module_434": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/filemanagement.py",
+      "sha256": "46d3b5657389de88c899c34e7c361ce349f0df6caccd3fdaa4661d9c3b6f9e77"
+    },
+    "execution_module_435": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/lldxf/encoding.py",
+      "sha256": "91b53873c5e4be30d5ae078aa8b77491b02f68e47dc60961018036f9982c3001"
+    },
+    "execution_module_436": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/__init__.py",
+      "sha256": "6fb6ce1e3b4066825af46ae40bb1ba2aa64e05860e8bb95e7f1dcd6e1fd39ff0"
+    },
+    "execution_module_437": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/disassemble.py",
+      "sha256": "b20b203d7ce9b542f7182a613a71bae5b40bc8bb59aa153a680992187e72786f"
+    },
+    "execution_module_438": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/bbox.py",
+      "sha256": "aafdb666535cb054eeb4553cc47d3bf8385a9d02f8d9cd5710b7f8f4a8ae09e7"
+    },
+    "execution_module_439": {
+      "path": ".venv/lib/python3.12/site-packages/ezdxf/zoom.py",
+      "sha256": "9e5fec2f33cf1032b7657913f2a614de5256a57b298a8f2b2e714050ad3092d8"
+    },
+    "execution_module_44": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_nbit_base.py",
+      "sha256": "496ed60d5b3b711b201c21e1608c9f2e3f4757f0173f85ffd83d7187e54da43c"
+    },
+    "execution_module_440": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/units.py",
+      "sha256": "79ca2878501dd762e0daec4e39b447747ff84c4403ffbe15360d0f96d9b3be1e"
+    },
+    "execution_module_441": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/exporters/dxf.py",
+      "sha256": "8dcf93ec1b60f84ec3c5abd1ab3f4e0214e5496ccb0d5e4f203ebb034e4d09e2"
+    },
+    "execution_module_442": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/exporters/vtk.py",
+      "sha256": "a9a4500fb1528a7e1fba958b6ceb055675068a47c6b1922fef4f2417bb812c8e"
+    },
+    "execution_module_443": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/exporters/__init__.py",
+      "sha256": "af15223c3ae0f2c4113b5d29a0c3b21401602b966dcbd5d56aacc696162a8472"
+    },
+    "execution_module_444": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/hull.py",
+      "sha256": "96a70bac3c744ae1cb50f4a3ddcbf7326b0ea1cdec66ce49921b1960f4d8d74a"
+    },
+    "execution_module_445": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/importers/dxf.py",
+      "sha256": "e7f4f8e8e76d4e8bce1de18ac398fe7e16103ba6dcef9554b8dfae7c7ba7db60"
+    },
+    "execution_module_446": {
+      "path": ".venv/lib/python3.12/site-packages/nlopt/nlopt.py",
+      "sha256": "4b3f801a6c6c609533f1626e6c3c36883925d66a2481bcf53c29584c2229b1c9"
+    },
+    "execution_module_447": {
+      "path": ".venv/lib/python3.12/site-packages/nlopt/__init__.py",
+      "sha256": "b4b80d8080bead86c6e9b9f16af764deef863d3fb85ecb057412f93d335ce96d"
+    },
+    "execution_module_448": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/sketch_solver.py",
+      "sha256": "1f74cfab9c0ddcd6d4abb2add8e66a30ad9471fe8d0bf694c13c145e8ff10b1f"
+    },
+    "execution_module_449": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/sketch.py",
+      "sha256": "e496692dd0b1079de87e598344d6fcff98bca28797de6cb981af44d827e9620c"
+    },
+    "execution_module_45": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_nested_sequence.py",
+      "sha256": "3bc45b3564a962a54c203adede2390a7c852ba48349a4c9332a5e7abfe3f2c24"
+    },
+    "execution_module_450": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/cq.py",
+      "sha256": "0f8e24be54ec48602ba63c2f9c2b34ea828f82f36f6c1e8e93867e535e353b4c"
+    },
+    "execution_module_451": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/importers/__init__.py",
+      "sha256": "f4f9605e824c59398d78c313bc0ee6d857e9f8ad45604fa3f67341aa59512934"
+    },
+    "execution_module_452": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TDocStd/__init__.py",
+      "sha256": "cfad99664bb6f9d5673ea8a6b86b5f5fbf22c67d788b7203a06e3ed8c268ccb2"
+    },
+    "execution_module_453": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/XCAFDoc/__init__.py",
+      "sha256": "fba5ee17576f209a9278c99dbeeb91758e20172f6924dbecbee2fed6769a217d"
+    },
+    "execution_module_454": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/XCAFApp/__init__.py",
+      "sha256": "0d5a59f8d7d99c843513a5e35f4b108d8958c7575f6cd42c260c489d3d1362bc"
+    },
+    "execution_module_455": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BinXCAFDrivers/__init__.py",
+      "sha256": "f6d6b0d37fadb00da095f90f4aa18542fd951f3cf77fafc4c7fe35167f5e71a7"
+    },
+    "execution_module_456": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/XmlXCAFDrivers/__init__.py",
+      "sha256": "7c64008c70c31884b6abe23549f6522664ced5504109171c82cae0631de7c1ab"
+    },
+    "execution_module_457": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TDataStd/__init__.py",
+      "sha256": "a69e52bfdf6bd7cc9ce7adc91110ab9fec098aaf9817bbf636c2953f12a3b231"
+    },
+    "execution_module_458": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TDF/__init__.py",
+      "sha256": "4a385a177109f7192abef4bda0a9239f7ff2c2d333c2d47ce5a7579b95e0175f"
+    },
+    "execution_module_459": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/assembly.py",
+      "sha256": "aae49ddd7aae312159d036bd05473433be9df1f6fd6d7e2da25ef682b598773d"
+    },
+    "execution_module_46": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_shape.py",
+      "sha256": "8086f11c19de0c82c78caa3617e4d4f0834ae82afd843befb0f88e9700137a3e"
+    },
+    "execution_module_460": {
+      "path": ".venv/lib/python3.12/site-packages/casadi/casadi.py",
+      "sha256": "fbaa61c22173071f5ffe893b7b2928fcfb01b93c618b200e7250a4c95f0baa1d"
+    },
+    "execution_module_461": {
+      "path": ".venv/lib/python3.12/site-packages/casadi/__init__.py",
+      "sha256": "d2b4bc1b6b511ba6becd98ac50767d88d1b52870a56f50f8e147cdbcced3d289"
+    },
+    "execution_module_462": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/solver.py",
+      "sha256": "baa0798ebf1779af2213259bd168f9675880b4b3b77eb09e71b1f2fde4220c4f"
+    },
+    "execution_module_463": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/XSControl/__init__.py",
+      "sha256": "33fd90ceb1938d3738a406e871ab2bad97de91c85670a54e8bd52f3099cd4cd1"
+    },
+    "execution_module_464": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/STEPCAFControl/__init__.py",
+      "sha256": "c824bd76e29226da61405b9f90786d6f19632c556470bb05e13e9b28ba1f1b3f"
+    },
+    "execution_module_465": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/STEPConstruct/__init__.py",
+      "sha256": "6495c591bf1a1346cadde5f21f412bcb31a3f9cf747fce21edbc2954cc97f72e"
+    },
+    "execution_module_466": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/StepShape/__init__.py",
+      "sha256": "f4c969535619682dfbb20cf646f8e74c905463c5dd326e27832e08e58a30539b"
+    },
+    "execution_module_467": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/StepGeom/__init__.py",
+      "sha256": "a17bcc86865877db4d9a05f0ecbc7d9df6ade7b927e63f42fe5c03551f5bf38e"
+    },
+    "execution_module_468": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/PCDM/__init__.py",
+      "sha256": "cbe7ff1288dc66b8f57ae35e7c82f8b235da1987cc39ec5bc7dbb775dfd4574d"
+    },
+    "execution_module_469": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/RWGltf/__init__.py",
+      "sha256": "8968eacbb18dc7c01eb919d89bafffb83bb50629d1283bcfbe122362de8ae5e7"
+    },
+    "execution_module_47": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_array_like.py",
+      "sha256": "5c9d8a290c4d76fe7e85f4367f21fdc33f40eed80b44f66d6378629fb4271bf8"
+    },
+    "execution_module_470": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/exporters/assembly.py",
+      "sha256": "3db45b8a8c905b7e3608333a0511a71f56d03b2d3ec3e5098a79a821715bdc17"
+    },
+    "execution_module_471": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/importers/assembly.py",
+      "sha256": "72fdc4e7e1ee20f8581e8503c3db65119baf7e9e831600b64e84f789ee0a997c"
+    },
+    "execution_module_472": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/assembly.py",
+      "sha256": "c0f5100b78253a4bcf5833602ad309ea0af0ab5db12b8d16e4c5de17de52914c"
+    },
+    "execution_module_473": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/plugins/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "execution_module_474": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/__init__.py",
+      "sha256": "aee64095e45cbb3af8ff4f3de654aecfa75a2647b2a80160a118e87228128cd7"
+    },
+    "execution_module_475": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepClass/__init__.py",
+      "sha256": "af6ec10dea167bebd277b1b5accd02c17eab0f2414549d392278e0501604766a"
+    },
+    "execution_module_476": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/GeomLProp/__init__.py",
+      "sha256": "0953082936de6816387f87f8d55ec731de27f61290ed978fbfc3eafc1edfa895"
+    },
+    "execution_module_48": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_char_codes.py",
+      "sha256": "c1ad22e8a3fb2405b257e8bdb303a07ff0a923ab23f7175bf5af3b6b62316bd1"
+    },
+    "execution_module_49": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_dtype_like.py",
+      "sha256": "060ecb1f4c35793a8a3b4fe200cb1151b51b7d17fc2e53ac7699da4271752bc7"
+    },
+    "execution_module_5": {
+      "path": ".venv/lib/python3.12/site-packages/_virtualenv.py",
+      "sha256": "cfb3db86aaa53bb62b5ff764970bec2d71c9228590a0ebec57f6ec926cc0bf1a"
+    },
+    "execution_module_50": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_nbit.py",
+      "sha256": "9a353bc8328b57ad47a79fbe36eae4c48272b136a7307df7b70e5ae2e725a284"
+    },
+    "execution_module_51": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_scalars.py",
+      "sha256": "02ee1deaaea050040b408b9613fe4f1de80b45290a5c1bb38d5d70a76a6eb7f5"
+    },
+    "execution_module_52": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/_ufunc.py",
+      "sha256": "1ce91a13eeb05747dddeb9876460b7f580072087fcb72be5cde903e32e064310"
+    },
+    "execution_module_53": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_typing/__init__.py",
+      "sha256": "23712a130b95f1134c0e93988ee72abe6c1015180277768ac13bae4fe1c8f59b"
+    },
+    "execution_module_54": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_array_utils_impl.py",
+      "sha256": "4644b9438e60d2a4cc38e0fb70d2a36b0887e0ae2251b37a1a9bb6b4da0a7b6e"
+    },
+    "execution_module_55": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_stride_tricks_impl.py",
+      "sha256": "0db57f30a81b00919e7922828cc23c4c32759c07a647639b76d1e157871fe862"
+    },
+    "execution_module_56": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_twodim_base_impl.py",
+      "sha256": "0b31bb9f23700e5bf20ab94648afc1357b175fb96b6e1fb80d248fbb461fcebb"
+    },
+    "execution_module_57": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/array_utils.py",
+      "sha256": "5db732849f52d0894d9cff4dcbacb280b30400259650f34e53cbdebe3d531292"
+    },
+    "execution_module_58": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/linalg/_linalg.py",
+      "sha256": "fb51e084cbb05b72a571a088299222055f3f176792ea9ea66186327a31ec787f"
+    },
+    "execution_module_59": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/linalg/__init__.py",
+      "sha256": "3b50094af1bb3530254d3bcb19349c612d5db6f859707320a466c7f71499abc2"
+    },
+    "execution_module_6": {
+      "path": ".venv/lib/python3.12/site-packages/_distutils_hack/__init__.py",
+      "sha256": "ced72e54431ecf2d8d7dbd8a1e27724f1b171af3ca1503c304bf11c59a7fe861"
+    },
+    "execution_module_60": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/matrixlib/defmatrix.py",
+      "sha256": "8ce552b26458ede8773335bba3835e1c6793f28d5c83ef29dcaa535a8f645c53"
+    },
+    "execution_module_61": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/matrixlib/__init__.py",
+      "sha256": "52de88a9f8ee03e930c28e8704e6008058d75c2fe1ed857fdc7c83b0a33bd9d9"
+    },
+    "execution_module_62": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_histograms_impl.py",
+      "sha256": "3f4f1940f437fe139d852031afe1c2b9f85e32a2c32f8d90c0125445af9f16cd"
+    },
+    "execution_module_63": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py",
+      "sha256": "000d045b739c89974bfd9bae66beaa35bfd97ea7a06d13378aa234153a3b6116"
+    },
+    "execution_module_64": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_index_tricks_impl.py",
+      "sha256": "e168b1ab86f91c9c8ab64e97b2fdc7eb3fe0559c8432d33c9b267b68b4eb407e"
+    },
+    "execution_module_65": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_arraypad_impl.py",
+      "sha256": "69f17907431860505f879f7ac0f69be927464119e4068583b5f84f11fee63131"
+    },
+    "execution_module_66": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_arraysetops_impl.py",
+      "sha256": "9f896cc0ddc2f4f94ed7cf0b28fa5dba777ec77df3c44788afcd6448d55416b4"
+    },
+    "execution_module_67": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_arrayterator_impl.py",
+      "sha256": "1ed3800c81ee1bd0036db3138268783ff9ae91ed55fbc13e14d10eddb54e18f0"
+    },
+    "execution_module_68": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py",
+      "sha256": "d923a746bdfc4cbc254cd932c03670a9f7566827002b2cf5dc40db8bc81bb5fb"
+    },
+    "execution_module_69": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_utils_impl.py",
+      "sha256": "4cb745a05e5cef826bc6c38c55d62cd02113a61d4531b26098c7d86ff2ae2435"
+    },
+    "execution_module_7": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/version.py",
+      "sha256": "2a6201cf5d41c1ddefd7d267a6499a268770a3addb258945fa06b793621028e6"
+    },
+    "execution_module_70": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_format_impl.py",
+      "sha256": "b34d4671a88964e22002effe2cb376263156babbe37237594311dda05dd85771"
+    },
+    "execution_module_71": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/format.py",
+      "sha256": "9e9274789853eee28d2b96b49423067e226ff91e23c8d86220f7996c970d5c1b"
+    },
+    "execution_module_72": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_datasource.py",
+      "sha256": "9ead7eb599f6ed893aae85ddf9a8316502b4efd0595cea2b9ddf7af1ab097460"
+    },
+    "execution_module_73": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_iotools.py",
+      "sha256": "04e6c05a9fe7ebd9a92d888524bf15512926b9272b453ae5c4ac5c63ab816b48"
+    },
+    "execution_module_74": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_npyio_impl.py",
+      "sha256": "51eb4572baad1e8198f71b3488a3cbcdb81ac85aa3c15cc2708cd907198a1fb5"
+    },
+    "execution_module_75": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_ufunclike_impl.py",
+      "sha256": "f468fbb02ccb1038be6194044b04d3f873604c130f59841612109b0e1718feea"
+    },
+    "execution_module_76": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_type_check_impl.py",
+      "sha256": "53a091170f8fe5fafb13e7b241f8d04c352185c1253125c389aba52ee37e4939"
+    },
+    "execution_module_77": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_polynomial_impl.py",
+      "sha256": "530f29b1db6a1610bd02291c94196e100a3dd7b80f3a278fb6173e29dd297545"
+    },
+    "execution_module_78": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_shape_base_impl.py",
+      "sha256": "b550d0cc5e7efe46dc1c77f0286330fcb4100fcbbeb98f41aa9127c2c44e01ec"
+    },
+    "execution_module_79": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_version.py",
+      "sha256": "0affabe9bf73540e9b0febf2158f2d09746ef5de4eb069e3a976a57d8d9194e0"
+    },
+    "execution_module_8": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_expired_attrs_2_0.py",
+      "sha256": "a6cf0f96202d89f172abe6ad706fe252ba7672ee35091722bd70870c83a0426f"
+    },
+    "execution_module_80": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/introspect.py",
+      "sha256": "e97a1b86c7a928352ff339a83e47d53391206421afeb53f63ca97f6916c49074"
+    },
+    "execution_module_81": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/mixins.py",
+      "sha256": "cd047e8888c2492796c5ea4ae62fbbba34967f0163ad467fab18deac88a4c3a6"
+    },
+    "execution_module_82": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/npyio.py",
+      "sha256": "79a3ef7c7192cd413bd132471cb3823c85fd1b98a132e0447b1cbafcf36127d4"
+    },
+    "execution_module_83": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/_scimath_impl.py",
+      "sha256": "6f9ffec91cd62483bc75afd9e01f2a41eebc8fc9693bc82db4696f18da65cadc"
+    },
+    "execution_module_84": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/scimath.py",
+      "sha256": "aa315a41eab4cc4225ee02aa3a16a3fef9820bf29a15dc9398774b514912a792"
+    },
+    "execution_module_85": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/stride_tricks.py",
+      "sha256": "c74fc17f097270102547706fa714e775e3fde9d1c14ff7c049b9134d3cc16202"
+    },
+    "execution_module_86": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/lib/__init__.py",
+      "sha256": "9983bd3542d050794af5c33999f9d6caedb36fc2c4c3184442b842fef757d92d"
+    },
+    "execution_module_87": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_array_api_info.py",
+      "sha256": "4332889405b9c5b4f946d761086346f58c0acb82bbfb5f9180b30d5520b5c972"
+    },
+    "execution_module_88": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/__init__.py",
+      "sha256": "09295a80660f17925ae23765ce8cbd7ff7ceae968d5f2f89349f1cb74c0b9e11"
+    },
+    "execution_module_89": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/occ_impl/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "execution_module_9": {
+      "path": ".venv/lib/python3.12/site-packages/numpy/_utils/_conversions.py",
+      "sha256": "d3133175e2cece20e61ec44cffc96e121e12fa441d328320e86c4d0c36acebd9"
+    },
+    "execution_module_90": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/__init__.py",
+      "sha256": "1f8f924a37102913fb09252f8289977ca1adfc9d284f36e5b7170df5e7b840bd"
+    },
+    "execution_module_91": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/gp/__init__.py",
+      "sha256": "23936dbe654819ccf180e06c58b3c7766704feb6f33fac833261a34dacd72b01"
+    },
+    "execution_module_92": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/Bnd/__init__.py",
+      "sha256": "5dd3312130bf3cd9e25b59de6401a261b8f83ee2d255982b378ad68e2d984b79"
+    },
+    "execution_module_93": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepBndLib/__init__.py",
+      "sha256": "2691504e731860b237e9f269c45c0c16a6253fd6d8060236bb1bd1c7e91ba14c"
+    },
+    "execution_module_94": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BRepMesh/__init__.py",
+      "sha256": "f8efaae349c86b2c7688ed8a287fac039e888b64ef3478cd14905bdf8c371558"
+    },
+    "execution_module_95": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TopoDS/__init__.py",
+      "sha256": "62b8a62a81d4bbd4417d9cce118e3521382f38c385fdaef36d717863accea1bd"
+    },
+    "execution_module_96": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/TopLoc/__init__.py",
+      "sha256": "078b5b63a136a5f7eed630fc5965e07a16eb79cd3a52dca34e3519c89a5f05fa"
+    },
+    "execution_module_97": {
+      "path": ".venv/lib/python3.12/site-packages/OCP/BinTools/__init__.py",
+      "sha256": "85277c6957d0fa838da8a1677ad1edf84a49f1f50d2de0856a47b07e090d65c9"
+    },
+    "execution_module_98": {
+      "path": ".venv/lib/python3.12/site-packages/cadquery/types.py",
+      "sha256": "702fe50849c4457a372d33729fd0cbb7cb52c511e584bf255677851aee11a63e"
+    },
+    "execution_module_99": {
+      "path": ".venv/lib/python3.12/site-packages/runtype/common.py",
+      "sha256": "d9f24eae39ac562de41f07c6b6830a3d435dc4adacb903d0ef45b086cf92d247"
+    },
+    "intake": {
+      "path": "scripts/eoere_current_washer_lands.py",
+      "sha256": "d759bcab2d92bcb709f24726c324d83426483e2fd650dff80775ec0aa17b74d9"
+    },
+    "uv_lock": {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    }
+  },
+  "primary_source": {
+    "locators": [
+      "12.5.1.2(a), Table12.5.1A: softwood tension 7D full value, 3.5D minimum",
+      "12.5.1.3, Table12.5.1C: perpendicular loaded outer edge4D; parallel/unloaded1.5D",
+      "12.5.1.2: complete connected-group minimum and oblique shear area remain separate"
+    ],
+    "path": "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf",
+    "sha256": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a",
+    "url": "https://awc.org/resources/2024-nds/"
+  },
+  "producer": {
+    "path": "scripts/eoere_front_bolt_placement.py",
+    "sha256": "f360d2a36e4420a043c58d98205313db0b799a68ba322cc410aa9fa6959312a7"
+  },
+  "question": "Do both current front runner/post arrangements clear full-value end and conservative reversible external-edge requirements over every own complete bearing interval, on source-confirmed finished exterior planes?",
+  "schema": "eoere_front_bolt_placement_inputs/v1",
+  "test_source": {
+    "path": "tests/test_eoere_front_bolt_placement.py",
+    "sha256": "8596c248acd70ef4176a90c6702dcb2a6589cdfadb4e00048dd45289539512a3"
+  }
+}

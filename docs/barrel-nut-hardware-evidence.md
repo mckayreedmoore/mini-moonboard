@@ -1,5 +1,11 @@
 # Barrel-nut hardware evidence ledger
 
+**Historical barrel-nut development.** This record belongs to the earlier
+`compact-floor-flush-bolted-development` lane and its stated 46/48-pair topology.
+Its “current” labels, hardware selections and next actions describe that
+record. For ongoing work, use [compact bolted-frame development](bolted-frame-development/README.md);
+its 100 through-bolt stacks have separate geometry and evidence.
+
 The machine-readable BN-1 ledger is
 [`barrel-nut-hardware-evidence.json`](barrel-nut-hardware-evidence.json). It
 covers all 46 provisional bolt/barrel/washer stacks in the integrated

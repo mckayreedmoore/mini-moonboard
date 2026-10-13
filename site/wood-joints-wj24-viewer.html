@@ -42,12 +42,13 @@
   <header id="inspection-panel" class="collapsed">
     <button id="panel-toggle" type="button" aria-expanded="false" aria-controls="inspection-panel">Open inspection panel</button>
     <h1 id="viewer-title">WJ24 wood-joint design review</h1>
-    <p id="revision-status" class="revise" role="status" aria-live="polite" aria-atomic="true"><strong>Loading the current WJ24 review scene…</strong></p>
+<p class="local"><strong>Historical wood-joint study.</strong> This page preserves its named earlier model and results. <a href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/bolted-frame-development/README.md">Current compact bolted-frame development</a> has separate geometry, shop records and qualification limits.</p>
+    <p id="revision-status" class="revise" role="status" aria-live="polite" aria-atomic="true"><strong>Loading the preserved WJ24 review scene…</strong></p>
     <p id="scope">Loading source-bound scene…</p>
     <p id="revision-links" class="local"></p>
     <p class="local"><a href="wood-joints-midpoint-review.html">Hypothetical denser-layout clearance maps</a></p>
     <p id="counts" class="local">Loading scene counts…</p>
-    <p id="scene-description">Current design-review summary and source identity will appear here. This viewer does not grant fabrication, drilling, structural, assembly, or climbing release.</p>
+    <p id="scene-description">Preserved WJ24 design-review summary and source identity will appear here. This viewer does not grant fabrication, drilling, structural, assembly, or climbing release.</p>
     <fieldset id="layers">
       <legend>Scene layers</legend>
       <label><input type="checkbox" data-layer="baseline" checked /> Baseline context</label>
@@ -59,8 +60,8 @@
     <p id="baseline-status" class="local" role="status" aria-live="polite" aria-atomic="true">Checking pinned baseline assets…</p>
     <section id="finding-list" aria-live="polite"></section>
     <details open>
-      <summary id="geometry-summary">Current revision geometry checks</summary>
-      <p id="geometry-status" class="local">Loading current revision checks…</p>
+      <summary id="geometry-summary">Saved WJ24 revision geometry checks</summary>
+      <p id="geometry-status" class="local">Loading saved WJ24 revision checks…</p>
       <div id="finite-contact"></div>
       <div id="led-extraction"></div>
       <div id="findings"></div>
@@ -502,33 +503,33 @@
           !sameIds(data.solids.filter(row => row.display_class === 'electrical_replacement').map(row => row.id), Object.keys(electricalReplacements)) ||
           !sameIds(data.solids.filter(row => row.display_class === 'candidate_hardware').map(row => row.id), expectedHardwareIds) ||
           data.solids.some(row => row.display_class === 'candidate_hardware' && row.collision_envelope !== true)) {
-        throw new Error('WJ24 design-review overlays do not match the current model inventory');
+        throw new Error('WJ24 design-review overlays do not match this WJ24 model inventory');
       }
 
-      const statusSentence = `Design review only. ${report.summary} No earlier static or diagnostic pass is carried into this revision; no acceptance or release is granted.`;
+      const statusSentence = `Preserved WJ24 design review only. ${report.summary} No earlier static or diagnostic pass is carried into this revision; no acceptance or release is granted.`;
       setViewerMode({
-        title: 'WJ24 owner-directed design review',
+        title: 'Preserved WJ24 owner-directed design review',
         status: statusSentence,
         label: 'Design review',
-        description: `This scene shows the geometry in the current owner-directed design-review revision. Candidate hardware is represented as CAD occupancy envelopes, not selected or delivered components. ${inventory.moved_panel_axes.length ? `${inventory.moved_panel_axes.length} existing panel-screw visuals use explicit revision display translations; their pinned baseline mesh assets remain hash-checked.` : 'No panel-screw display translations are specified for this revision.'} The view does not establish acceptance, capacity, installation, fabrication, assembly, structural release, or climbing release.`,
-        geometrySummary: 'Current revision checks and findings',
-        reportSummary: 'Current revision report and source identity',
+        description: `This scene shows the geometry in the preserved owner-directed WJ24 design-review revision. Candidate hardware is represented as CAD occupancy envelopes, not selected or delivered components. ${inventory.moved_panel_axes.length ? `${inventory.moved_panel_axes.length} existing panel-screw visuals use explicit revision display translations; their pinned baseline mesh assets remain hash-checked.` : 'No panel-screw display translations are specified for this revision.'} The view does not establish acceptance, capacity, installation, fabrication, assembly, structural release, or climbing release.`,
+        geometrySummary: 'Saved WJ24 revision checks and findings',
+        reportSummary: 'Saved WJ24 revision report and source identity',
         instructions: 'Interactive three-dimensional WJ24 design-review scene. Drag with a pointer or touch to rotate, and use the mouse wheel or pinch to zoom. You can also focus the scene and use the arrow keys to rotate and plus or minus to zoom. The inspection panel has buttons for the left end, right end, and full frame, plus checkboxes for scene layers. This scene is for design review and does not establish acceptance or release.',
       });
       document.querySelector('#scope').textContent = report.summary;
-      document.querySelector('#geometry-status').textContent = `Current revision ${revisionId}. The report below contains the geometry checks supplied for this revision.`;
+      document.querySelector('#geometry-status').textContent = `Saved WJ24 revision ${revisionId}. The report below contains the geometry checks supplied for this revision.`;
       document.querySelector('#identity').textContent = `Revision ${revisionId} · source commit ${binding.source_commit} · source inventory SHA-256 ${binding.source_inventory_sha256} · parent scene SHA-256 ${binding.parent_scene_sha256} · revision report SHA-256 ${binding.revision_report_sha256}.`;
       document.querySelector('#counts').textContent = `${inventory.target_duties.length} duties · ${Object.keys(inventory.shared_hosts).length} shared hosts · ${Object.keys(inventory.candidate_parts).length} candidate parts · ${Object.keys(inventory.candidate_axes).length} candidate axes / ${expectedHardwareIds.length} hardware occupancy roles · ${inventory.fixed_panel_axes.length} fixed + ${inventory.moved_panel_axes.length} moved panel-screw axes · ${inventory.frame_bolts.length} retained frame bolts.`;
       document.querySelector('#release-boundary').textContent = 'Every acceptance and release flag is false. This revision is a design review only.';
       const alternatives = document.createElement('a');
       alternatives.href = 'wood-joints-kicker-options.html';
-      alternatives.textContent = 'Explore separate frame-to-kicker options; no option is selected.';
+      alternatives.textContent = 'Explore historical WJ24 frame-to-kicker sketches; no option is selected.';
       document.querySelector('#revision-links').append(alternatives);
       for (const limit of data.limits) { const li = document.createElement('li'); li.textContent = limit; document.querySelector('#limits').append(li); }
       for (const row of data.findings) document.querySelector('#finding-list').append(renderFinding(row));
       const checks = data.revision_checks || report.geometry_checks || report.checks;
       document.querySelector('#geometry-status').textContent += checks ? ` ${Array.isArray(checks) ? checks.length : Object.keys(checks).length} current geometry checks are recorded.` : '';
-      if (checks) jsonDetails(document.querySelector('#findings'), 'Current revision geometry checks', checks);
+      if (checks) jsonDetails(document.querySelector('#findings'), 'Saved WJ24 revision geometry checks', checks);
       jsonDetails(document.querySelector('#findings'), 'Current revision findings', data.findings);
       jsonDetails(document.querySelector('#report-details'), 'Current revision report', report);
       jsonDetails(document.querySelector('#report-details'), 'Source binding', binding);

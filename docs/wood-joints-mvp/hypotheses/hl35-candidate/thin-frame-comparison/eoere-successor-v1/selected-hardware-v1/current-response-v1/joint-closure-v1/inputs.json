@@ -1,0 +1,90 @@
+{
+  "case_components": [
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-components-v1/cases-v1/a12-forward/attempt02/components.json",
+      "sha256": "c374536a091e1361a27c3d27cd4852adf9f7deb74cc5911fb41f3dc9a0468de9"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-components-v1/cases-v1/a12-rear/attempt02/components.json",
+      "sha256": "bfa5e8e0ff7cd82b0f3bae23b4524e9f50b7ad0fc39d3a0f187f47c2eca29571"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-components-v1/cases-v1/a12-left/attempt02/components.json",
+      "sha256": "799fdb7f6bd3531468b870edc9b71f1293d49ad4c2939424f48657b7f874d735"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-components-v1/cases-v1/k12-right/attempt02/components.json",
+      "sha256": "8927504187e834463603143786636f3531e0a443e80ff81d2f74120c25f3f1b8"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-components-v1/cases-v1/k12-rear/attempt02/components.json",
+      "sha256": "b21fe9e6a12db933caec06ac52e81416a13b3d43919077f42e57403a99aff3e4"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-components-v1/cases-v1/a1-rear/attempt02/components.json",
+      "sha256": "352b2136dc35d61d0a5565e66fdd5591cbb5fbb0ad40c1ed30a322b504c0ba5c"
+    }
+  ],
+  "current_components": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json",
+    "sha256": "20de966cb0c684c6d9ebed1cd380999386fa61b12106f9d7b5640e539439efaf"
+  },
+  "current_response": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json",
+    "sha256": "a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e"
+  },
+  "limits": [
+    "An equilibrated affine bearing trial is a statically admissible field for the declared independent circular raw bearing and plastic bending references. This is not a deformation-compatible pressure distribution, an optimized collapse bound, or an NDS adjusted design value.",
+    "No common Rd is adopted or applied. Current group/geometry reductions, splitting, member/local fracture, axial/shear/torsion interaction, washer/capture contact and fitting strength remain separate.",
+    "Each member keeps its complete signed lateral force/couple. All nominal own bolt-metal gravity roles are retained, including selected spacers. All continuous cubic moment extrema, material endpoints and declared body/root transitions are searched.",
+    "Raw Fyb92000psi follows the existing conditional Grade5 purchase specification; root/runout floor remains a purchase condition, not an ordinary UNC guarantee or actual observation. Q235B Fu370MPa is a conditional material basis, not finished Eoere product qualification.",
+    "Saved current first-order actions remain conditional. This calculation does not establish finite-frame demands, physical stiffness/compatibility, complete joints or structural acceptance."
+  ],
+  "material_scenarios": {
+    "body_and_purchase_root": "own selected catalog minimum body; own declared purchase root floor; neither is delivered observation",
+    "bolt_Fyb_psi": 92000.0,
+    "steel_Fu_mpa": 370.0,
+    "wood_G": 0.5
+  },
+  "methods": [
+    {
+      "path": "mini_moonboard/nds_2024_multi_member_bolt_yield.py",
+      "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89"
+    },
+    {
+      "path": "fea/dowel_yield.py",
+      "sha256": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf",
+      "sha256": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-net-sections-v1/material-source.json",
+      "sha256": "37808016a6ff7e6d9d0b95f51e5acd43f9ec2e0d48713d2c084850301a7f8072"
+    }
+  ],
+  "primary_methods": {
+    "NDS2024": "https://awc.org/resources/2024-nds/",
+    "NDS_clauses": [
+      "12.3.3 solid-sawn Fe",
+      "12.3.6.2 Fyb tensile-yield route",
+      "12.3.7.2 detailed moment/bearing analysis of threaded portion"
+    ],
+    "TR12": "https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf",
+    "TR12_locators": [
+      "Part2 bearing/dowel statics",
+      "Appendix A effective steel Fe=1.5Fu"
+    ]
+  },
+  "producer": {
+    "path": "scripts/eoere_mixed_stack_yield.py",
+    "sha256": "f688ecc399191af4605267999d51c3962af063788b9a5bd8aabe597c9840244a"
+  },
+  "question": "Can the current eight mixed-stack simultaneous member wrenches be carried by their existing continuous affine bearing trials without exceeding declared raw bearing and piecewise bolt plastic-moment references?",
+  "schema": "eoere_current_mixed_stack_affine_raw_yield_inputs/v1"
+}

@@ -1,6 +1,10 @@
 # Floor-runner MVP six-case record
 
-Selected candidate: `compact-floor-flush-development`. All six current,
+**Recorded baseline case scope:** these six cases precede two later center-clip
+translations. Current-layout mechanics are unverified; see the
+[checked applicability record](current-candidate-status.md).
+
+Selected candidate: `compact-floor-flush-development`. All six recorded,
 engineer-unreviewed cases use the owner's conditional no-slip floor support
 assumption. This is not a fabrication release or climber rating.
 

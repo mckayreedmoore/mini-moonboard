@@ -1,5 +1,10 @@
 # Support alternatives that clear the climbing space
 
+**Historical design record.** Selections, “current” cases and outstanding
+work below refer to the named earlier candidate. The [selected baseline](README.md)
+and [active bolted-frame development](bolted-frame-development/README.md)
+retain their own geometry, hardware and evidence.
+
 Two separate designs address the diagonal knee projecting inside the climbing
 area. The floor-rail candidate removes the raised knees. The exterior-brace
 candidate moves all knee wood outside the panel edges while retaining
@@ -38,7 +43,7 @@ See the [side-by-side comparison](clear-space-comparison.svg).
 
 Mass uses closed mesh volumes at 600 kg/m³ wood/plywood and 7850 kg/m³ steel,
 including modeled T-nut envelopes. Holds, hold bolts, LEDs and wiring are
-excluded; these are estimates, not measured weights. See [weight notes](prototype-weights.md).
+excluded; these are estimates, not measured weights. See [weight notes](history/prototype-weights.md).
 
 The floor rails are **1880 × 139.7 × 38.1 mm**, from world Y = −210 to
 1670 mm and Z = 0 to 139.7 mm. They lie against the inward faces of the legs
@@ -73,7 +78,7 @@ pieces extend 20 mm farther into the overlap, giving lap stations from
 remain entirely outboard. Use the revised member profiles and splice drilling
 together; a wider bolt pattern alone does not supply the added end distance.
 
-Both alternatives incorporate the [base-angle placement correction](compact-base-finish-review.md):
+Both alternatives incorporate the [base-angle placement correction](history/compact-base-finish-review.md):
 the outer angles move 29.15 mm forward to Y = −105.85 mm, leaving 19.05 mm
 between their footprints and both header depth edges. All twelve relocated
 SDS screws retain full nominal receiver penetration. The inclined rim ends
@@ -176,16 +181,16 @@ batch stopped at A12-left contact cycling. Correcting the friction-cell
 collocation produced a converged response, exposing bolt lateral 1.029 and
 washer-bending 1.595 shortfalls in the preceding 56 mm upper joint. These are
 historical failures, not results of the current 64 mm/24 mm revision. See the
-[contact investigation](exterior-knee-contact-verification.md) and preserved
+[contact investigation](history/exterior-knee-contact-verification.md) and preserved
 `fea/results/clear-space-exterior-trials/pre-coulomb-64mm-revision/`, other `clear-space-exterior-trials/` and
 `exterior-cells04-verified/` archives for those distinct geometries and responses.
 
-The separate [runner recess study](floor-runner-recess-study.md) obtained a
+The separate [runner recess study](history/floor-runner-recess-study.md) obtained a
 converged A12-rear response and met 31 of 33 criteria. Actual cut-member ratio
 was 0.5666; local notch resistance remains unqualified. Its artificial full-height
 50.8 mm continuous-band diagnostic reached 1.1458 above the recess and is not
 evidence that the actual cut section failed. No further recess cases followed
-that first design gate. Neither that trial nor the [recess concept](floor-runner-leg-recess.md)
+that first design gate. Neither that trial nor the [recess concept](history/floor-runner-leg-recess.md)
 qualifies a modification to the preserved floor-rail assembly.
 
 The resistance assessment reports actual-angle lateral resistance at CD = 1,
@@ -250,7 +255,7 @@ whole and the legs have no floor-runner recesses in this selected candidate.
 ## Preserved floor-rail conditional assembly guidance
 
 1. Use the complete floor-rail package and verify its final result and manifest.
-   Use the [retained material basis](leg-material-basis.md) and
+   Use the [retained material basis](history/leg-material-basis.md) and
    [candidate hardware requirements](clear-space-hardware.md). The stock CSV
    describes blank envelopes; the profile and member sheets specify actual ends.
 2. Establish floor datum Z = 0 and main-face datum Z = 277 mm. The 127 mm pad

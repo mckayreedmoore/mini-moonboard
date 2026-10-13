@@ -1,5 +1,11 @@
 # Barrel-nut candidate receiving and offcut checklist
 
+**Historical barrel-nut development.** This record belongs to the earlier
+`compact-floor-flush-bolted-development` lane and its stated 46/48-pair topology.
+Its “current” labels, hardware selections and next actions describe that
+record. For ongoing work, use [compact bolted-frame development](bolted-frame-development/README.md);
+its 100 through-bolt stacks have separate geometry and evidence.
+
 > **Topology notice:** item labels and counts below bind the earlier 46-pair
 > integrated pose. Revised two-vertical-bolt principal geometry has 48 pairs and
 > must use the generated 48-pair template from

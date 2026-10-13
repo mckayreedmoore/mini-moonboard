@@ -1,5 +1,11 @@
 # RS-2: fixed-member center-joint information package
 
+**Historical connector/block development.** The layout, constraints and
+next actions below belong to this earlier study. For ongoing work, use
+[compact bolted-frame development](bolted-frame-development/README.md) and
+its checked revision index; this record does not select a current joint or
+change the active geometry.
+
 Status: information package only. No connector, bolt row, drilling position, capacity,
 or structural acceptance is selected. Keep the center principal and post in their
 current positions, the physical `kerf-right` panels, and all 66 panel/kicker screws.

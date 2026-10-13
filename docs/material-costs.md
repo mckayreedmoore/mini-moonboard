@@ -1,6 +1,12 @@
 # Materials cost ledger
 
-The current [insert-candidate build draft](round-insert-build-plan.md) retains
+**Historical round-frame and insert scenarios.** The “current” quantities
+and prices below belong to those earlier candidates. The active bolted
+development uses the [current builder inventory](bolted-frame-development/builder-plan.md#parts-and-stock)
+and its dated hardware basket. This ledger remains a record of earlier
+assumptions and source observations, rather than a live quote.
+
+The current [insert-candidate build draft](history/round-insert-build-plan.md) retains
 the framing hardware priced here but replaces the panel screws with **56
 E-Z LOK 801420-13 inserts and 56 Dottie FMDD14114 machine screws**. Both new
 items remain unpriced and are excluded from every subtotal below. The SPAX
@@ -9,7 +15,7 @@ insert purchasing schedule.
 
 **The currently priced remaining-material scenario is $260.41 USD, before the selected panel screws, missing hold hardware, any demonstrated plywood shortage, tax and shipping. Retain the already purchased Roseburg face plywood.** This is neither a complete additional-spend total nor the full value of installed materials, and it is not a construction release. Prices were checked on **September 11, 2026**. Of that portion, $17.80 is a displayed price for unavailable 8-foot boards; the remaining listed-available portion is $242.61. Neither figure is a local delivered quote.
 
-Quantities follow the [round-service purchasing draft](round-service-build-plan.md), which retains the previous 18 lumber blanks. The [purchased-material record](purchased-materials.md) separately confirms owned Roseburg face plywood, Lowe’s item 12235 / model 119055. Its purchased quantity, receipt cost and verified usable yield are not recorded here. The current round candidate has 56 panel/kicker screws: twelve on each main face and four on each kicker. The 87- and 75-screw patterns remain historical comparison scenarios. Final hardware quantities must be reconciled with that candidate's released export; a cost entry does not qualify its strength, installation or delivered material.
+Quantities follow the [round-service purchasing draft](history/round-service-build-plan.md), which retains the previous 18 lumber blanks. The [purchased-material record](purchased-materials.md) separately confirms owned Roseburg face plywood, Lowe’s item 12235 / model 119055. Its purchased quantity, receipt cost and verified usable yield are not recorded here. The current round candidate has 56 panel/kicker screws: twelve on each main face and four on each kicker. The 87- and 75-screw patterns remain historical comparison scenarios. Final hardware quantities must be reconciled with that candidate's released export; a cost entry does not qualify its strength, installation or delivered material.
 
 ## Priced materials
 
@@ -46,7 +52,7 @@ For a transparent package comparison only, Home Depot lists [SPAX 211-4191020400
 | Historical reduced comparison | 75 | 1 × 161 | $12.63 | 86 |
 | Current round development pattern, including eight kicker screws | 56 | 1 × 161 | $12.63 | 105 |
 
-Both reduced patterns save **$0 in this package scenario**. They reduce installed hardware, not the number of boxes purchased. The [screw-necessity review](panel-screw-necessity.md) governs why the candidates are being examined; package arithmetic does not establish that screws can be removed. None of these counts is a qualified final construction schedule. Recalculate against the actual approved SKU and package size once selected.
+Both reduced patterns save **$0 in this package scenario**. They reduce installed hardware, not the number of boxes purchased. The [screw-necessity review](history/panel-screw-necessity.md) governs why the candidates are being examined; package arithmetic does not establish that screws can be removed. None of these counts is a qualified final construction schedule. Recalculate against the actual approved SKU and package size once selected.
 
 ## Unpriced materials and measured inputs
 
@@ -67,7 +73,7 @@ An **optional replacement-stock comparison**, excluded from the base budget, is 
 
 The Roseburg face plywood, V5 MoonBoard LED kit, original controller, supply and included cables are already owned and excluded from repurchasing by default. Record their quantities and any missing or unusable component after inspection; no replacement quantity or cost is assumed. The owned Mini hold bundle is also separate sunk inventory, while missing hold hardware remains unresolved above. Historical plywood and kit spending is not included in the remaining-material subtotal and cannot be reconstructed without receipts.
 
-Threaded inserts and machine screws remain a removable-panel development option and a possible later worn-hole repair, not installed hardware in this candidate. No speculative insert purchase is included. Temporary supports, tools and labor have no material allowance here; inventory the separate [tools and equipment list](round-service-build-plan.md#tools-and-equipment) first. Repair suitability, safe disassembly support and structural review are not purchased or established by this cost page.
+Threaded inserts and machine screws remain a removable-panel development option and a possible later worn-hole repair, not installed hardware in this candidate. No speculative insert purchase is included. Temporary supports, tools and labor have no material allowance here; inventory the separate [tools and equipment list](history/round-service-build-plan.md#tools-and-equipment) first. Repair suitability, safe disassembly support and structural review are not purchased or established by this cost page.
 
 ## Reproduce the arithmetic
 

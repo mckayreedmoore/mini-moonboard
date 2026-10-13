@@ -1,5 +1,11 @@
 # Inspection and maintenance program
 
+**Earlier inspection-program template.** This document preserves the
+reviewer-based process proposed for earlier designs. Current development
+status and operation holds are maintained in the [bolted-frame summary](bolted-frame-development/README.md)
+and [builder plan](bolted-frame-development/builder-plan.md); this template
+does not introduce a blanket external approval prerequisite for that work.
+
 This is a release-gated record format, not an approved inspection interval or
 structural assessment. The qualified reviewer must set the final inspection
 scope, acceptance criteria, responsibilities, and intervals after the frame,
@@ -74,5 +80,5 @@ movement, any alteration, or an extended period out of use.
 | Reviewer disposition, if required | **unresolved** |
 
 Link every corrective action to a record in
-[`change-control.md`](change-control.md). A repair that alters any structural
+[`change-control.md`](history/change-control.md). A repair that alters any structural
 or controlled component must follow the same review process as a design change.

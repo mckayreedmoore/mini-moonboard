@@ -40,7 +40,7 @@
     </style>
   </head>
   <body>
-    <header><h1>Mini MoonBoard DIY frame</h1><p id="disclaimer">Independent DIY project. Not affiliated with Moon Climbing.</p><p id="model-status">Drag to orbit · scroll to zoom · click a part to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall assembly dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div><a class="support-link" href="?model=eoere-selected-hardware-frame-development&view=rear">Current eoere geometry · Compact bolted frame</a><a class="support-link" href="?model=eoere-uniform-channels-frame-development&view=rear">Preserved smaller-channel frame</a><a class="support-link" href="?model=eoere-extended-cleat-frame-development&view=rear">Preserved extended-cleat geometry</a><a class="support-link" href="?model=eoere-adjusted-frame-development&view=rear">Preserved adjusted base frame</a><a class="support-link" href="?model=eoere-bolted-aligned-wire-development&view=rear">Preserved aligned-wire geometry</a><a class="support-link" href="?model=eoere-bolted-trimmed-cleats-development&view=rear">Preserved trimmed-cleat geometry</a><a class="support-link" href="?model=eoere-bolted-bottom-rail-development&view=rear">Preserved raised-rail frame · six-case packet</a><a class="support-link" href="?model=eoere-bolted-development&view=rear">Preserved eoere frame · conditional A12 model</a><a class="support-link" href="?model=wood-joints-working-proposal">Working wood-joint model · 108-bolt proposal · HOLD</a><a class="support-link" href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/bolted-frame-development/README.md">Compact bolted frame · status and evidence</a><a class="support-link" href="wood-joints-wj24-viewer.html">Reviewed wood-joint scene · 104 bolts · not build-ready</a><a class="support-link" href="wood-joints-outer-viewer.html">Earlier wood-joint trials · WJ-03 / WJ-04 / WJ-05</a><a class="support-link" href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/history/design-history.md">Design history · results and lessons</a><a class="support-link" href="https://ko-fi.com/mckayreedmoore" target="_blank" rel="noopener noreferrer">Support this project on Ko-fi ↗</a></header>
+    <header><h1>Mini MoonBoard DIY frame</h1><p id="disclaimer">Independent DIY project. Not affiliated with Moon Climbing.</p><p id="model-status">Drag to orbit · scroll to zoom · click a part to inspect it</p><label>Panel overlay <select id="overlay"><option value="none">None</option><option value="grid">Grid-reference labels</option><option value="grid-high">High-contrast grid-reference labels</option></select></label><label><input id="dimensions" type="checkbox" checked /> Overall assembly dimensions</label><label><input id="person" type="checkbox" checked /> 5 ft 8 in reference person</label><div id="part">Loading selectable CAD parts…</div><a class="support-link" href="?model=eoere-selected-hardware-frame-development&view=rear">Current eoere geometry · Compact bolted frame</a><a class="support-link" href="?model=eoere-uniform-channels-frame-development&view=rear">Preserved smaller-channel frame</a><a class="support-link" href="?model=eoere-extended-cleat-frame-development&view=rear">Preserved extended-cleat geometry</a><a class="support-link" href="?model=eoere-adjusted-frame-development&view=rear">Preserved adjusted base frame</a><a class="support-link" href="?model=eoere-bolted-aligned-wire-development&view=rear">Preserved aligned-wire geometry</a><a class="support-link" href="?model=eoere-bolted-trimmed-cleats-development&view=rear">Preserved trimmed-cleat geometry</a><a class="support-link" href="?model=eoere-bolted-bottom-rail-development&view=rear">Preserved raised-rail frame · six-case packet</a><a class="support-link" href="?model=eoere-bolted-development&view=rear">Preserved eoere frame · conditional A12 model</a><a class="support-link" href="?model=wood-joints-working-proposal">Preserved wood-joint proposal · 108 bolts · unadopted</a><a class="support-link" href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/bolted-frame-development/README.md">Compact bolted frame · status and evidence</a><a class="support-link" href="wood-joints-wj24-viewer.html">Reviewed wood-joint scene · 104 bolts · not build-ready</a><a class="support-link" href="wood-joints-outer-viewer.html">Earlier wood-joint trials · WJ-03 / WJ-04 / WJ-05</a><a class="support-link" href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/history/design-history.md">Design history · results and lessons</a><a class="support-link" href="https://ko-fi.com/mckayreedmoore" target="_blank" rel="noopener noreferrer">Support this project on Ko-fi ↗</a></header>
     <script type="importmap">
       { "imports": { "three": "https://unpkg.com/three@0.161.0/build/three.module.js" } }
     </script>
@@ -50,6 +50,7 @@
       import { STLLoader } from 'https://unpkg.com/three@0.161.0/examples/jsm/loaders/STLLoader.js';
       import { createHoldMesh } from './hold-geometry.js';
       import {loadMeshAliases, resolveMeshPath} from './mesh-assets.mjs';
+      import {resolveDocumentPath, documentsForModel} from './documentation-links.mjs';
       import {validateOwnerCornerScene, renderOwnerCornerScene} from './owner-corner-overlay.mjs';
       import {validateOwnerBarrelScene, renderOwnerBarrelScene} from './owner-barrel-overlay.mjs?v=approved-bore-pose';
       import {loadWoodJointScene} from './wood-joints-overlay.mjs';
@@ -260,7 +261,7 @@
       const requestedModel = new URLSearchParams(location.search).get('model');
       const woodJointModels = [
         ['eoere-selected-hardware-frame-development', 'Current frame · selected partial-thread bolts and eight spacers'],
-        ['eoere-selected-hardware-grid-development', 'Current frame with expanded grid · 264 main positions'],
+        ['eoere-selected-hardware-grid-development', 'Optional unofficial grid on current frame · 264 main positions'],
         ['eoere-kicker-clearance-frame-development', 'Preserved raised-kicker frame · preceding bolt lengths'],
         ['eoere-expanded-right-column-development', 'Expanded grid · 264 main positions · added column right of K'],
         ['eoere-kicker-clearance-2026-development', 'Preserved 252-position preview · midpoint holes and lights'],
@@ -270,17 +271,17 @@
         ['eoere-extended-cleat-frame-development', 'Preserved extended-cleat frame · preceding cable cutouts'],
         ['eoere-extended-cleat-2026-development', 'Extended-cleat 2026 preview · unofficial midpoint holes and lights'],
         ['eoere-adjusted-frame-development', 'Preserved adjusted base frame · principal moved for midpoint clearance'],
-        ['eoere-new-2026-adjustments', 'New 2026 adjustments · unofficial midpoint holes and lights'],
+        ['eoere-new-2026-adjustments', 'Preserved 2026 midpoint preview · unofficial holes and lights'],
         ['eoere-bolted-aligned-wire-development', 'Preserved aligned-wire geometry · trimmed cleats'],
         ['eoere-bolted-trimmed-cleats-development', 'Preserved trimmed-cleat geometry · original wire cutouts'],
         ['eoere-bolted-bottom-rail-development', 'Preserved raised-rail frame · conditional six-case packet'],
         ['eoere-bolted-development', 'Preserved eoere cleat corners · conditional A12 study'],
         ['thin-bolted-development', 'Preserved thin B103/B104 frame · conditional study'],
-        ['hl35-counterbore-development', 'HL35 current proposal · lower corners need revision'],
+        ['hl35-counterbore-development', 'Preserved HL35 counterbore proposal · lower corners need revision'],
         ['hl35-fit-development', 'HL35 v7 · bolt-tip conflicts · preserved study'],
         ['hl35-development', 'HL35 initial direct swap · failed fit · REVISE'],
-        ['wood-joints-working-proposal', 'Wood-joint working proposal · 108 bolts · unadopted'],
-        ['wood-joints-reviewed', 'Reviewed wood-joint source · 104 bolts · HOLD'],
+        ['wood-joints-working-proposal', 'Preserved wood-joint proposal · 108 bolts · unadopted'],
+        ['wood-joints-reviewed', 'Preserved reviewed wood-joint source · 104 bolts · HOLD'],
       ];
       const isWoodJoint = woodJointModels.some(([key]) => key === requestedModel);
       const lumberModels = ['2x6', '2x8', '2x10', '2x12'].flatMap(size => [0, 150, 300].map(extension => [`lumber-leg-${size}-e${extension}`, `${size} straight legs · +${extension} mm (${(extension / 25.4).toFixed(2)} in) · unqualified`]));
@@ -314,7 +315,7 @@
       // The wood-joint work has its own entry above; these models preserve the baseline and history.
       const currentDesigns = document.createElement('optgroup'); currentDesigns.label = 'Preserved selected baseline';
       const developmentDesigns = document.createElement('optgroup'); developmentDesigns.label = 'Previous bolted concepts · not build-ready';
-      const woodJointDesigns = document.createElement('optgroup'); woodJointDesigns.label = 'Active wood-joint development · not build-ready';
+      const woodJointDesigns = document.createElement('optgroup'); woodJointDesigns.label = 'Bolted-frame development and preserved predecessors · conditional';
       const recentDesigns = document.createElement('optgroup'); recentDesigns.label = 'Recent floor-runner / 4×6 history';
       const historicalDesigns = document.createElement('optgroup'); historicalDesigns.label = 'Earlier studies';
       const recentKeys = new Set([...clearSpaceModels.map(([value]) => value),
@@ -360,24 +361,26 @@
           : (updateToggle.checked ? 'eoere-new-2026-adjustments' : 'eoere-adjusted-frame-development'));
         location.assign(url);
       });
-      if (model !== 'plywood') document.querySelector('#model-status').textContent = `${model} complete candidate geometry · NOT build-ready · drag to orbit · click to inspect · bolts steel gray, screws blue, angles gray; red marks an explicit clearance failure, not a strength rating`;
+      if (model !== 'plywood') document.querySelector('#model-status').textContent = `${model} geometry preview · NOT build-ready · drag to orbit · click to inspect · bolts steel gray, screws blue, angles gray; red marks an explicit clearance failure, not a strength rating`;
       if (isWoodJoint) document.querySelector('#model-status').textContent = [...selectedHardwareModels, 'eoere-lower-cleat-z180-development', preservedKickerGrid, ...kickerClearanceModels, ...uniformChannelModels, ...extendedCleatModels, 'eoere-adjusted-frame-development', 'eoere-new-2026-adjustments', 'eoere-bolted-development', 'eoere-bolted-bottom-rail-development', 'eoere-bolted-trimmed-cleats-development', 'eoere-bolted-aligned-wire-development'].includes(model)
         ? 'Loading eoere bolted proposal · 22 angles / 100 bolt axes / 66 Hillman screws · strength pending'
         : model === 'wood-joints-working-proposal'
         ? 'Loading wood-joint working proposal · 108 bolts / 66 Hillman screws · unadopted · HOLD'
-        : 'Loading reviewed wood-joint source · 104 bolts / 66 Hillman screws · HOLD';
-      if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · read the linked package before fabrication · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
-      if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Bought 4×4 plywood · official faces';
-      if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Cut from 4×8 · equal faces, missing width on the right';
+        : model === 'wood-joints-reviewed'
+        ? 'Loading preserved reviewed wood-joint source · 104 bolts / 66 Hillman screws · HOLD'
+        : `Loading preserved ${model} geometry · strength unqualified`;
+      if (['compact-exterior-brace-development', 'compact-floor-rail-development', 'compact-spliced-knee-development', 'compact-spliced-flush-top-development'].includes(model)) document.querySelector('#model-status').textContent = 'Conditional build package under documented loads and assumptions · preserved case evidence; no fabrication release · drag to orbit · click to inspect; colors identify hardware and clearance, not strength ratings';
+      if (model === 'compact-floor-flush-development') document.querySelector('#model-status').textContent = 'Selected screw-and-bracket baseline · bought 4×4 plywood. Recorded six-case passes precede two clip moves; current-layout mechanics unverified. Conditional documentation; no fabrication release.';
+      if (model === 'compact-floor-flush-kerf-right') document.querySelector('#model-status').textContent = 'Selected screw-and-bracket baseline · cut from 4×8, kerf on the right. Recorded six-case passes precede two clip moves; current-layout mechanics unverified. Conditional documentation; no fabrication release.';
       if (model === 'bolted-v4-development') document.querySelector('#model-status').textContent = 'DEVELOPMENT V4 · geometry-only PB05 trial: selected kerf-right assembly is context. PB02 has ten trial bores; two center blocks remain PB04; six outer blocks are 95.25 mm narrow, no-pocket PB05 solids with nominal 8-inch upright and 5-inch rail through-bolt stack envelopes. All 66 panel/kicker screw axes remain. Exactly 14 legacy angle duties and 84 SDS axes remain. Nominal hardware is unverified; no structural acceptance, drilling plan, or fabrication release.';
       if (model === 'owner-corner-layout') document.querySelector('#model-status').textContent = 'Complete layout concept — not structurally qualified or build-ready. All 24 structural angles are replaced in this proposal; red blocks need geometry revision. The 66 panel/kicker screws and 12 frame bolts remain. Diagnostic bolt paths are not selected hardware. No drilling or fabrication release.';
-      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. The two seam-side center posts replace the separate kicker backers and receive the four fixed center screws. All 24 old angle duties have provisional barrel/bolt paths and all 46 pairs have visible timber trial cuts. The approved left first-row shift clears two previously modeled service-bore intersections; wood section and tolerances remain unverified. Current rim removal clears the nominal modeled path, but real tools and barrel extraction are unverified. The centered one-barrel joint and smaller F1–G1 passage fit the limited nominal CAD screen, but strand feeding, moment transfer, thread fit, wood capacity and drilling remain unresolved. The 66 panel/kicker screws and 12 frame bolts remain. No fabrication release.';
+      if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent = 'Barrel-only development concept — not structurally qualified or build-ready. The two seam-side center posts replace the separate kicker backers and receive the four fixed center screws. All 24 old angle duties have provisional barrel/bolt paths and all 46 pairs have visible timber trial cuts. The approved left first-row shift clears two previously modeled service-bore intersections; wood section and tolerances remain unverified. This barrel-layout revision clears the nominal modeled rim path, but real tools and barrel extraction are unverified. The centered one-barrel joint and smaller F1–G1 passage fit the limited nominal CAD screen, but strand feeding, moment transfer, thread fit, wood capacity and drilling remain unresolved. The 66 panel/kicker screws and 12 frame bolts remain. No fabrication release.';
       if (model === 'owner-barrel-layout') document.querySelector('#model-status').textContent += ' Family-specific trial bolt lengths improve the nominal thread/body overlap; actual retailer bolt threads and usable engagement are not verified. The full nominal rim path clears modeled wood and retained hardware; real demounting is unverified.';
       if (model === 'base-bearing-concept') document.querySelector('#model-status').textContent = 'Horizontal-base layout study · connections omitted · NOT build-ready · drag to orbit · click wood to inspect';
       if (['horizontal-service-development', 'round-bore-service-development', 'round-insert-development', 'round-structural-development'].includes(model)) {
         const round = model !== 'horizontal-service-development';
         const stem = model === 'round-structural-development' ? 'round-structural' : model === 'round-insert-development' ? 'round-insert' : round ? 'round-service' : 'horizontal-service';
-        const links = document.createElement('nav'); links.id = 'model-documents'; links.setAttribute('aria-label', 'Current candidate documents');
+        const links = document.createElement('nav'); links.id = 'model-documents'; links.setAttribute('aria-label', 'Historical candidate documents');
         links.style.cssText = 'display:flex;flex-wrap:wrap;gap:.25rem .75rem';
         for (const [label, path] of [['Draft build plan', `docs/${stem}-build-plan.md`],
           ['Drilling PDF', `docs/${stem}-drilling/drilling.pdf`],
@@ -388,7 +391,7 @@
             ['Disassembly', 'docs/disassembly-guide.md'],
             ['Insert repair', 'docs/threaded-insert-repair-guide.md']] : [])]) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
-          link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
+          link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+resolveDocumentPath(path);
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link);
         }
         document.querySelector('header h1').after(links);
@@ -397,7 +400,7 @@
         const links = document.createElement('nav'); links.id = 'model-documents';
         for (const [label, path] of (model === 'compact-spliced-knee-development' ? [['Conditional build package', 'docs/compact-spliced-build-package.md'], ['Spliced-knee assessment', 'docs/compact-splice-study.md'], ['Material specifications', 'docs/leg-material-basis.md']] : model === 'compact-thick-development' ? [['Compact 4×6 study', 'docs/compact-thick-study.md'], ['Construction package', 'docs/compact-construction-package.md'], ['Material specifications', 'docs/leg-material-basis.md']] : model === 'thick-leg-centered-pivot-development' ? [['4×6 pivot study', 'docs/thick-leg-pivot-study.md']] : model === 'no-shoes-development' ? [['Candidate changes', 'docs/no-shoes-candidate.md'], ['Material specifications', 'docs/leg-material-basis.md']] : model === 'wider-leg-development' ? [['2×8 assessment', 'docs/wider-leg-decision.md'], ['CAD and drilling package', 'docs/wider-leg-review/README.md'], ['Catalog hardware', 'docs/wider-leg-hardware.md'], ['150 lb comparison', 'docs/leg-150-comparison.md']] : [['2×6 assessment', 'docs/leg-completion-decision.md'], ['150 lb comparison', 'docs/leg-150-comparison.md'], ['Revision review', 'docs/round-reinforcement-development.md'], ['T-nuts and hold bolt guidance', 'docs/moonboard-hold-hardware.md']])) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
-          link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
+          link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+resolveDocumentPath(path);
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link, ' ');
         }
         document.querySelector('header h1').after(links);
@@ -408,7 +411,7 @@
         const documentStem = model === 'compact-floor-rail-2x4-development' ? 'floor-rail-2x4' : model === 'compact-floor-recess-development' ? 'floor-runner-recess' : model === 'compact-floor-taper-development' ? 'floor-runner-taper' : 'clear-space';
         for (const [label, path] of (model === 'compact-spliced-flush-top-development' ? [['Historical build package', 'docs/compact-spliced-flush-top-build-package.md'], ['Historical six-case evidence', 'docs/compact-spliced-flush-top-evidence.json'], ['Historical commercial-angle ledger', 'docs/compact-spliced-flush-top-angle-ledger.md']] : [['Support assessment', `docs/${documentStem}-study.md`], ['Catalog hardware and installation', `docs/${documentStem}-hardware.md`]])) {
           const link = document.createElement('a'); link.textContent = label; link.className = 'support-link';
-          link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+path;
+          link.href = 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/'+resolveDocumentPath(path);
           link.target = '_blank'; link.rel = 'noopener noreferrer'; links.append(link, ' ');
         }
         document.querySelector('#model-status').after(links);
@@ -662,21 +665,21 @@
           resolveMeshPath: path => resolveMeshPath(path, sharedMeshes),
         });
         document.querySelector('#model-status').textContent = selectedHardware
-          ? 'Selected hardware · 100 Grade 5 partial-thread bolt stacks; 32 longer bolts and eight factory spacers. Raised kicker screws and smaller channels retained. ' + (selectedHardwareGrid ? 'Expanded unofficial grid on: 264 main positions. ' : 'Extra grid off. ') + 'Nominal geometry checked; delivered fit, installation and strength remain conditional.' : rightColumn
+          ? 'Selected hardware · 100 Grade 5 partial-thread bolt stacks; 32 longer bolts and eight factory spacers. Raised kicker screws and smaller channels retained. ' + (selectedHardwareGrid ? 'Expanded unofficial grid on: 264 main positions. ' : 'Extra grid off. ') + (selectedHardwareGrid ? 'Geometry preview only; the six matching first-order cases and bounded references cover extra grid off. ' : 'Six matching first-order cases and bounded references are complete. ') + 'Complete resistance and physical stiffness/restraint remain unqualified. Shop planning is conditional; actual fit is unobserved.' : rightColumn
           ? 'Expanded grid · 264 main-face positions and LEDs; 10 kicker positions. Added column 100 mm right of K, with 33.625 mm nominal T-nut clearance to the right 4×6. Unofficial, provisional layout; strength and installation unevaluated.' : kickerClearance
           ? `Kicker screw clearance · upper outer kicker screws raised 20 mm to Z212; bolts retained at Z200. Maximum modeled bore gap 3.944 mm. Smaller cable channels retained. 100 bolt axes / 66 Hillman screws. ${kickerClearance2026 ? '120 added T-nuts and 120 lights; unofficial, provisional positions.' : 'Extra grid off.'} Geometry checked; strength and installation unevaluated.` : uniformChannels
           ? `Smaller cable channels · 20.428 mm wide / 14.35 mm deep. Repeated cable-arc cuts removed from the right center principal; flexible routes use the channels. 100 bolt axes / 66 Hillman screws retained. ${uniformChannel2026 ? '120 added T-nuts and 120 lights; unofficial, provisional positions.' : 'Extra unofficial 2026 holes and lights are off.'} Geometry revision; strength and installation unevaluated.` : lowerCleatZ180
-          ? 'Unadopted Z180 proposal · four lower cleat/post bolts moved down 20 mm; their eight receiver holes move with them. 100 bolt axes / 66 Hillman screws retained. Extra grid off. Current six-case results remain bound to Z200. Drilling, tool access and revised joint resistance unresolved.' : extendedCleat2026
-          ? 'Extended-cleat 2026 preview · both full-thickness cleats reach the sloping side edge. Unofficial, provisional positions: 120 added T-nuts and 120 lights, with panel holes and service cutouts. 100 bolt axes / 66 Hillman screws retained. Positions are not fully greenlit. Revised strength and installation unevaluated.' : extendedCleatFrame
-          ? 'Extended-cleat frame · both full-thickness side cleats reach the sloping side edge; existing bolts, washer seats and wiring retained. Maximum cleat blank 361.186 mm. 100 bolt axes / 66 Hillman screws. Extra unofficial 2026 holes and lights are off. Revised strength and installation unevaluated.' : adjustments2026
-          ? 'New 2026 adjustments · unofficial, provisional midpoint positions: 120 added T-nuts and 120 lights, with panel holes and service cutouts. The base frame includes the 39.2-mm principal move, rail extensions and connection adjustments. Positions are not fully greenlit and may differ by hold. Red marks nominal clashes. Strength and installation unevaluated.' : adjustedFrame
+          ? 'Unadopted Z180 proposal · four lower cleat/post bolts moved down 20 mm; their eight receiver holes move with them. 100 bolt axes / 66 Hillman screws retained. Extra grid off. Six separate own-case first-order results and component references are complete; they do not select this proposal or transfer to current Z200. Nominal drilling records exist; actual access and complete resistance remain unqualified.' : extendedCleat2026
+          ? 'Extended-cleat 2026 preview · both full-thickness cleats reach the sloping side edge. Unofficial, provisional positions: 120 added T-nuts and 120 lights, with panel holes and service cutouts. 100 bolt axes / 66 Hillman screws retained. Positions are not fully greenlit. The preserved six-case packet covers this frame with extra grid off, not these added holes and lights. Complete resistance and actual installation remain unqualified.' : extendedCleatFrame
+          ? 'Extended-cleat frame · both full-thickness side cleats reach the sloping side edge; existing bolts, washer seats and wiring retained. Maximum cleat blank 361.186 mm. 100 bolt axes / 66 Hillman screws. Extra unofficial 2026 holes and lights are off. Six matching first-order cases and bounded component references are recorded for this preceding geometry and hardware. Complete resistance and actual installation remain unqualified.' : adjustments2026
+          ? 'Preserved 2026 midpoint preview · unofficial, provisional positions: 120 added T-nuts and 120 lights, with panel holes and service cutouts. The base frame includes the 39.2-mm principal move, rail extensions and connection adjustments. Positions are not fully greenlit and may differ by hold. Red marks nominal clashes. Strength and installation unevaluated.' : adjustedFrame
           ? 'Adjusted base frame · right principal moved 39.2 mm toward the center seam; right kicker post moved; three split rails extended; six bracket arrangements and ten panel/kicker screw axes moved coherently. 100 bolt axes / 66 Hillman screws. Extra unofficial 2026 holes and lights are off. Geometry proposal; revised strength and installation unevaluated.' : eoereAlignedWire
           ? 'Preserved eoere geometry · wire passages centered on original grid columns · 30 revised links / 2 retained upright passages · trimmed full-thickness cleats. All 132 LED endpoints, 100 bolt positions and 66 screw axes retained. Nominal geometry checked; revised joint strength, tolerances and removal remain unevaluated.' : eoereCleatTrim
           ? 'Preserved eoere geometry · both exterior 2×6 cleats trimmed to the sloping side rear edges · full 38.1-mm thickness and all 100 bolt positions retained. Nominal bores and washer lands clear; joint strength, tolerances and removal remain unqualified. The six-case numerical packet belongs to the preserved untrimmed model.' : eoereBottomRail
           ? 'Preserved raised-rail model · bottom rails raised 30.625 mm above the first T-nut row · existing wire cutouts retained · 100 bolt axes / 66 Hillman screws. Four lower panel screws move with the rails. Joint strength, lower-cleat clearance and disassembly remain pending.' : eoereBolted
           ? 'Preserved eoere A12 model · 16 main + 6 base/header angles · two exterior 2×6 cleats · 100 bolt axes / 66 Hillman screws. Nominal intersections clear; the lower bolt bore/screw gap is only 0.34 mm. Joint strength, tolerances and disassembly remain pending.' : thinBolted
           ? 'Preserved thinner B103/B104 proposal · original 2×6 members and 4×6 legs/rims · 36 fittings / 70 bolt axes / 66 Hillman screws. Revised header rows, selected smaller washers and shallow wire channels shown. Nominal fit clears; strength, actual hardware and disassembly remain pending.' : hl35Counter
-          ? 'HL35 current proposal · 30 angles / 112 planning bolt axes / 66 Hillman screws. Four lower corner joints need revision: washer recesses reduce receiving wood and flange support. Joint resistance and physical methods remain unqualified; no build or climbing release.' : hl35Fit
+          ? 'Preserved HL35 counterbore proposal · 30 angles / 112 planning bolt axes / 66 Hillman screws. Four lower corner joints need revision: washer recesses reduce receiving wood and flange support. Joint resistance and physical methods remain unqualified; no build or climbing release.' : hl35Fit
           ? 'HL35 v7 · preserved failed input. Earlier partial checks cleared; the complete bolt-tip query found eight angle contacts and four unrelated-timber contacts. REVISE · no release.' : hl35
           ? 'HL35 replacement candidate · 48 angles / 152 planning bolt axes / 66 preserved Hillman screws · REVISE. Receiving wood and paired-angle seats fail the nominal fit checks. No build or climbing release.' : reviewed
           ? 'Reviewed wood-joint source · 104 bolts / 208 washers / 66 Hillman screws · HOLD. Geometry and hardware occupancy are conditional; no build or climbing release.'
@@ -716,13 +719,13 @@
             more.replaceChildren();
             const v4Documents = [
               {label: 'V4 design sequence', path: 'docs/bolted-candidate-simple-joints-v4.md'},
-              {label: 'PB02 current ten-bore placement', path: 'docs/bolted-candidate-prototypes/simple-center-current-placement-table.md'},
+              {label: 'Preserved PB02 ten-bore placement', path: 'docs/bolted-candidate-prototypes/simple-center-current-placement-table.md'},
               {label: 'PB03 lower-center pair', path: 'docs/bolted-candidate-prototypes/simple-pb03-lower-center-pair.md'},
             ];
             const ownerCornerDocuments = [
-              {label: 'Current layout blockers', path: 'docs/bolted-candidate-prototypes/owner-corner-viewer.md'},
+              {label: 'Preserved corner-layout blockers', path: 'docs/bolted-candidate-prototypes/owner-corner-viewer.md'},
               {label: 'Owner layout scope and gates', path: 'docs/bolted-candidate-simple-joints-v4.md'},
-              {label: 'Approved center-post placement', path: 'docs/bolted-candidate-prototypes/center-posts-x180-owner-review.md'},
+              {label: 'Earlier owner-reviewed center-post placement', path: 'docs/bolted-candidate-prototypes/center-posts-x180-owner-review.md'},
               {label: 'Center-header geometry trial', path: 'docs/bolted-candidate-prototypes/owner-layout-center-header-four.md'},
             ];
             const ownerBarrelDocuments = [
@@ -732,13 +735,13 @@
               {label: 'Historical outward-post rim withdrawal screen', path: 'docs/bolted-candidate-prototypes/owner-barrel-rim-withdrawal-hardware-probe.md'},
               {label: 'Historical outward-post connector inventory', path: 'docs/bolted-candidate-prototypes/owner-barrel-native-connector-inventory.md'},
               {label: 'Historical outward-post bolt-stack audit', path: 'docs/bolted-candidate-prototypes/owner-barrel-installed-stack-audit.md'},
-              {label: 'Current integrated 46-pair bolt reach — no fit release', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-stack-audit.md'},
+              {label: 'Preserved 46-pair bolt reach — no fit release', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-stack-audit.md'},
               {label: 'Retail bolt/thread evidence — unverified fit', path: 'docs/bolted-candidate-prototypes/owner-barrel-retail-thread-evidence.md'},
               {label: 'Historical two-row center hardware leads', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-center-hardware.md'},
               {label: 'Six-inch outer-rail setback', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-rail-setback-probe.md'},
               {label: 'Integrated center-post stock leads', path: 'docs/bolted-candidate-prototypes/owner-barrel-center-post-retail.md'},
               {label: 'Outer-header wood cut screen', path: 'docs/bolted-candidate-prototypes/owner-barrel-outer-header-cut-integrity.md'},
-              {label: 'Current integrated rail and center numerical screen — no structural release', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-preliminary.md'},
+              {label: 'Preserved rail and center numerical screen — no structural release', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-preliminary.md'},
               {label: 'Historical two-row center preliminary components', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-center-prelim.md'},
               {label: 'Historical outward-post two-joint screen', path: 'docs/bolted-candidate-prototypes/owner-barrel-mvp-preliminary.md'},
               {label: 'Integrated partial retail cost — no purchase release', path: 'docs/bolted-candidate-prototypes/owner-barrel-integrated-cost.md'},
@@ -746,13 +749,13 @@
             ];
             const documents = model === 'bolted-v4-development' ? v4Documents :
               model === 'owner-corner-layout' ? ownerCornerDocuments :
-              model === 'owner-barrel-layout' ? ownerBarrelDocuments : design.documents;
+              model === 'owner-barrel-layout' ? ownerBarrelDocuments : documentsForModel(model, design.documents);
             const first = new Set(['bolted-v4-development', 'owner-corner-layout', 'owner-barrel-layout'].includes(model) ? [] : ['Shop checklist', 'Assembly guide', 'Official vs 4×8 kerf width']);
             for (const row of documents) {
               const link = document.createElement('a');
               link.textContent = row.label;
               link.className = 'support-link';
-              link.href = row.path.startsWith('http') ? row.path : 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/' + row.path;
+              link.href = row.path.startsWith('http') ? row.path : 'https://github.com/mckayreedmoore/mini-moonboard/blob/master/' + resolveDocumentPath(row.path);
               link.target = '_blank';
               link.rel = 'noopener noreferrer';
               (first.has(row.label) ? primaryNav : more).append(link, ' ');
@@ -822,6 +825,11 @@
         holdStatus.textContent = 'Holds unavailable until this design’s frame data loads. Select an available design.';
         if (isWoodJoint) {
           document.querySelector('#model-status').textContent = `Wood-joint scene unavailable: ${error.message}. HOLD; source identity must match.`;
+          weightLine.textContent = 'Planning mass: unavailable';
+        } else {
+          document.querySelector('#model-status').textContent = ['2x10', '2x12', '2x8-shallow', '2x8-foot100'].includes(model)
+            ? `Historical export unavailable for ${model}: ${error.message}. The original exports need recovery; see Design history. Select an available design.`
+            : `Model ${model} unavailable: ${error.message}. Select an available design or reload to retry.`;
           weightLine.textContent = 'Planning mass: unavailable';
         }
       });

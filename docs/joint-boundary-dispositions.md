@@ -1,10 +1,15 @@
 # Joint boundary dispositions: all current frame connections
 
+**Historical top-joint inventory.** “Current” below refers to
+`top-joint-development`, not the active compact bolted frame. Use the
+[maintained development summary](bolted-frame-development/README.md) and
+[builder plan](bolted-frame-development/builder-plan.md) for today's scope.
+
 This is a finite review inventory for **top-joint-development**, not a claim
 that all margins have been measured or accepted. It covers the 278 frame
 connections in the [exported schedule](../exports/top-joint-development/top-joint-development_connections.csv).
 Holds, insert retainers and electrical mounting hardware are separate inventories
-in [hardware-fit dispositions](hardware-fit-dispositions.md). **No construction
+in [hardware-fit dispositions](history/hardware-fit-dispositions.md). **No construction
 or capacity approval follows from this table.**
 
 ## Connection-family inventory
@@ -30,7 +35,7 @@ one row; counts total 278. Word-token wildcards do not authorize substitutions.
 
 ## Evidence shared by the families
 
-The current [top-joint audit](top-joint-development.md) records nominal
+The current [top-joint audit](history/top-joint-development.md) records nominal
 solid-clearance, receiving-bore, reserved-service and minimum washer-annulus
 checks. The 24 retained tool obstructions are access dependencies, not an
 approved erection sequence. None establishes timber or steel edge resistance.
@@ -65,7 +70,7 @@ head seats. Do not transfer that coverage to other members.
    justified. A positive ligament is not sufficient resistance.
 2. Complete the remaining timber/steel boundary dimensions and real head-seat
    deductions identified above; preserve explicit unknown load/grain categories.
-3. Close the [product-fit checklist](hardware-fit-dispositions.md), then review
+3. Close the [product-fit checklist](history/hardware-fit-dispositions.md), then review
    connection resistance and unanchored stability using qualified demand data.
    Rejected FEA force recovery cannot supply those demands.
 

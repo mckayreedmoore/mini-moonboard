@@ -1,5 +1,10 @@
 # Structural insert options (investigation, not selected)
 
+**Selected-baseline alternative study.** The twelve bolts and SDS duties
+below belong to `compact-floor-flush-development`. This is separate from
+[active bolted-frame development](bolted-frame-development/README.md),
+which uses 100 through-bolt stacks. No insert is selected or qualified to install.
+
 This is a later-option study. The build is still Hillman 42605 and SDS25112. The
 twelve bolts stay bolts. No model change yet.
 
@@ -140,5 +145,6 @@ repair; not a rated substitute.
   Hillman either.
 - Six-case evidence does not move with the hardware.
 
-Until then: build the current packet. This file is a map, not a shopping
+Use the selected-baseline packet for its recorded scope and holds. This file
+is a map, not a shopping
 list or a machining release.

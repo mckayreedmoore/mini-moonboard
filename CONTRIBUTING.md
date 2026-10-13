@@ -56,8 +56,9 @@ maintained code and new helpers retain the current defaults. Executable shebang
 files have executable Git modes. The five maintained packet directories are
 also linted explicitly by [CI](.github/workflows/ci.yml).
 
-The default test run covers the current candidate and shared geometry, hardware,
-and analysis utilities. Preserved historical-model tests are opt-in:
+The default test run covers the selected baseline, active development checks
+and shared geometry, hardware and analysis utilities. Preserved historical-model
+tests are opt-in:
 
 ```bash
 uv run pytest --include-historical                 # Current and historical tests
@@ -81,6 +82,26 @@ inputs and source drift still fail there. Synthetic yield calculations and
 portable orchestration tests remain in the default suite. This separation does
 not repair or requalify historical evidence, and no missing-file auto-skip is used.
 
+Current qualification tests that authenticate recovered local source banks
+have a separate, explicit opt-in:
+
+```bash
+uv run pytest --include-recovered-evidence
+uv run pytest --include-recovered-evidence -m recovered_evidence
+```
+
+`tests/recovered-evidence.txt` lists exact functions whose frozen mechanics
+fixtures also authenticate ignored historical fields, operators, cached solids
+and standards. These remain current evidence checks, separate from the
+historical inventory. Their original test and producer bytes are preserved.
+The default suite retains 387 portable qualification tests; the additional
+216 tests require the documented recovery inputs. All 603 pass with those
+inputs present. Selecting the opt-in never skips missing or changed inputs.
+Seven small, unchanged helper/contract files are retained at their original
+paths for the portable checks; large evidence banks and manuals stay ignored.
+Use the [qualification recovery notes](docs/wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment)
+alongside the navigation recovery kit below for the shared topology/review inputs.
+
 The September 12, 2026 full run had 2,777 passes, eight skips and three historical
 source-inventory failures in `test_reinforcement_review.py`,
 `test_round_service_export_contract.py` and `test_round_structural_global_envelope.py`.
@@ -95,7 +116,7 @@ uv run --with pytest-xdist pytest -n 4 --dist loadfile
 ```
 
 `loadfile` keeps a file's tests together so they can reuse process-local CAD
-caches. A local four-worker trial passed 299 current/shared tests in 23.4 seconds,
+caches. An earlier reduced-suite four-worker trial passed 299 tests in 23.4 seconds,
 approximately the same as serial execution. Keep serial execution as the default;
 additional workers did not improve this reduced suite in that trial.
 
@@ -131,7 +152,7 @@ not recalculate or qualify the evidence. A passing
 configuration check does not establish mechanical acceptance or fabrication release.
 Use `uv run python -m scripts.current_candidate` for this check without a CAD rebuild.
 
-The current exporter builds all meshes, metadata and STEP from CAD without
+The selected-baseline exporter builds all meshes, metadata and STEP from CAD without
 reading historical export bundles. `--check` uses an empty temporary output
 directory and compares the rebuilt assets and source manifest with the committed
 candidate. `--root PATH` permits an independent output directory. Source hashes
@@ -149,7 +170,7 @@ uv run python -m mini_moonboard.export
 The STEP exporter removes color metadata and normalizes unstable Open CASCADE
 timestamps and assembly counters so unchanged geometry produces byte-identical
 artifacts. Colors remain available when viewing the CadQuery assembly directly.
-CI always checks the current candidate rebuild and fails when its committed
+CI always checks the selected-baseline rebuild and fails when its committed
 artifacts are stale. The reference/V1 export check runs only when historical
 testing is requested through the manual workflow.
 The panel-datum CSV and SVG are also deterministic; the SVG is a visual
@@ -195,19 +216,21 @@ paths retain their meanings; the former entry remains a compatibility pointer.
 Run the fast Git-only checks without CAD, a browser or recovered raw inputs:
 
 ```sh
-node --test tests/test_bolted_development.mjs
+node --test tests/test_bolted_development.mjs tests/test_documentation_links.mjs
 uv run pytest --import-mode=importlib -q fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/cleat-remedy-v1/current-source-followup-v1/z180-mechanics-inputs-v1/test_descriptor.py
 ```
 
-The first checks revision/scene identities, incoming descriptions and rejection
-controls. The second reuses synthetic moment, source and output guards from the
+The Node tests check revision/scene identities, incoming descriptions, rejection
+controls and current-versus-history documentation routes. The Python test reuses
+synthetic moment, source and output guards from the
 separate proposal packet; it does not evaluate candidate strength. CI aggregates
 this gate with its existing separately scoped checks. Keep the main entry within
 150 lines and link detailed results from the existing ledger.
 
 Pages now follows successful `CI` completion on `master` and checks out that
 run's exact commit. It publishes the verified committed assets without rebuilding
-them. To request publication manually, run **CI** on `master`; there is no
+them. Each Pages run names its triggering CI run ID and validated commit for
+publication checks. To request publication manually, run **CI** on `master`; there is no
 independent Pages dispatch that bypasses validation. See GitHub's
 [workflow-run event documentation](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#workflow_run).
 

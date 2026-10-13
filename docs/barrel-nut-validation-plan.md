@@ -1,5 +1,11 @@
 # Barrel-nut validation and conditional DIY completion plan
 
+**Historical barrel-nut development.** This record belongs to the earlier
+`compact-floor-flush-bolted-development` lane and its stated 46/48-pair topology.
+Its “current” labels, hardware selections and next actions describe that
+record. For ongoing work, use [compact bolted-frame development](bolted-frame-development/README.md);
+its 100 through-bolt stacks have separate geometry and evidence.
+
 Prepared 22 September 2026 against freshly fetched `master` / `origin/master`
 at `ca203ae94a10f9470c3b6fd567fe199db7e824ae`.
 

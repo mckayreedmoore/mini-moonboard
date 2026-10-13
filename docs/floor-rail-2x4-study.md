@@ -1,5 +1,10 @@
 # Isolated 2×4 floor-rail trial: not accepted
 
+**Historical design record.** Selections, “current” cases and outstanding
+work below refer to the named earlier candidate. The [selected baseline](README.md)
+and [active bolted-frame development](bolted-frame-development/README.md)
+retain their own geometry, hardware and evidence.
+
 **Both A12-rear contact-solver attempts were numerically rejected. There is no
 valid strength result for this trial.** The selected design remains
 `compact-floor-rail-development`, with its passing single-2×6 rails and

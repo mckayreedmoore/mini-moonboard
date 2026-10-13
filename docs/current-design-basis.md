@@ -1,5 +1,11 @@
 # Current design basis: flush floor-runner development
 
+**Selected-baseline scope.** Active bolted-frame work starts at the
+[maintained development summary](bolted-frame-development/README.md).
+The six baseline passes below belong to the recorded mechanics geometry;
+two later center-clip translations leave current-layout applicability
+unverified, as disclosed in the [recorded status](current-candidate-status.md).
+
 The selected development is `compact-floor-flush-development`: solid 4×6
 legs/rims, a compact single-2×6 base, two outboard 2×6 floor runners, whole
 kickers, the 1:12 rear recess, twelve complete outward-facing bolt stacks, 24
@@ -65,40 +71,40 @@ The following September 12 evidence describes `no-shoes-development`, not the
 new compact 4×6 candidate. It is retained for traceability; no acceptance transfers.
 
 Geometry and browser checks are complete. The
-[whole-body equilibrium calculation](current-frame-equilibrium.md) evaluates
+[whole-body equilibrium calculation](history/current-frame-equilibrium.md) evaluates
 support reactions and overturning. The
-[base connection review](current-base-connection-basis.md) identifies the
+[base connection review](history/current-base-connection-basis.md) identifies the
 manufacturer's published load directions and the limits of applying them to
 this installation. These results do not establish internal joint forces or
 member strength.
 
-The [assembled-frame response calculation](current-frame-response.md) now
+The [assembled-frame response calculation](history/current-frame-response.md) now
 provides internal member forces, joint moments and deflections for selected
 cases. Its numerical checks pass, but the demanding upper-left case exceeds the
 leg joint's conditional bolt reference. The 2×6 leg's gross-section comparison
 is below its reference. Selected panel-screw comparisons and base-angle
 applicability also remain unresolved.
 
-An [independent leg-response audit](current-leg-response-audit.md) reproduces
+An [independent leg-response audit](history/current-leg-response-audit.md) reproduces
 the joint moment from both bolt forces and the floor/leg free body. It found no
 coordinate or explicit support-clamp error that would justify removing that moment.
 
-The [bounded replacement screen](current-leg-revision-screen.md) identifies
+The [bounded replacement screen](history/current-leg-revision-screen.md) identifies
 larger exploratory layouts using current stock boundaries and saved joint
 resultants. It does not select an upgrade: the changed assembly must supply its
 own demands, and the screen does not establish that larger stock is necessary.
 
 The selected exterior-brace assembly supersedes those historical connection
 trials. Its current decision is recorded in the
-[completion record](current-diy-completion-record.md) and
+[completion record](history/current-diy-completion-record.md) and
 [support study](clear-space-study.md). All six current cases meet their 25 listed
 conditional criteria; the separate 5×5 A12-left foot-grid sensitivity also
 meets those criteria. This does not demonstrate converged local floor pressure.
 The specified hardware/thread conditions, conditional no-slip support assumption
 and unqualified commercial-angle actions remain explicit limits. Recorded
 Coulomb and earlier floor-rail cases retain their own historical evidence. The
-[spliced-knee study](compact-splice-study.md) and
-[build package](compact-spliced-build-package.md) remain references.
+[spliced-knee study](history/compact-splice-study.md) and
+[build package](history/compact-spliced-build-package.md) remain references.
 No acceptance transfers between these assemblies.
 
 A targeted physical test would be appropriate if a remaining uncertainty affects

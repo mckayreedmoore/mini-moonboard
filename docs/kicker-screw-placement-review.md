@@ -1,5 +1,11 @@
 # Current kicker screw placement review
 
+**Historical SPAX placement review.** This record describes the earlier
+`compact_spliced_kicker` layout and product assumptions below. The active
+bolted development retains 66 Hillman 42605 screws and raises two outer
+upper kicker axes to Z212 mm; use its [current builder plan](bolted-frame-development/builder-plan.md#5-route-services-then-fit-kickers-and-panels).
+Do not transfer this record's SPAX installation rules or resistance to Hillman.
+
 The four bottom screws are lowered 52 mm; retain the remaining placement. The nine screws in each independent kicker have useful receiver geometry, a high header row that resists panel peeling, and no identified shaft, hold-hole or modeled wiring-passage conflict. Only the four bottom post screws move; the upper post and header axes remain fixed. This review does not reopen the owner's accepted panel construction or no-slip floor scope.
 
 ## Actual current layout

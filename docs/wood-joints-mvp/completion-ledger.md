@@ -5,6 +5,1466 @@ now use `compact-bolted-frame-development`. The source-bound evidence candidate
 remains `compact-floor-flush-eoere-bolted-development`; frozen geometry IDs,
 receipts and paths are unchanged. The selected baseline keeps its own authority.
 
+## Engineering closure beyond the assessment
+
+**The current conditional numerical evaluation is complete** for
+`eoere-raised-kicker-screws-v1` with `eoere-selected-purchase-hardware-v1`, extra
+grid off. Current first-order forces, bounded joint/member comparisons and the
+engineering assessment have reached their recorded calculation/reporting
+endpoints. Their unknown capacities and applicability limits are reported
+outcomes of that completed scope.
+
+| Numerical stage | Recorded completion and usable result |
+| --- | --- |
+| [Current frame forces](#current-geometry-and-selected-hardware-six-case-forces) | **Complete: six of six current first-order cases admitted.** Equilibrium, applied-load work, owner routing and recovery checks pass; maximum residual 5.521612e-6 N against the unchanged 1e-5-N gate. |
+| [Current joint/hardware comparisons](#current-joint-and-finished-member-references) | **Bounded evaluation complete.** All 100 shafts, 22 fittings and 66 screws are covered in each case, including 92 two-member bolt references and eight mixed-stack statics. Later affine raw-yield trials cover all 48 mixed-stack/case combinations. Nominal heel and axial washer comparisons are complete. The [front runner/post screen](#current-front-runnerpost-end-and-outer-edge-qualification) now closes full-value end and outer-edge distances for four bolts/eight wood occurrences; complete geometry/group factors remain separate. |
+| [Finished timber and stability references](#current-joint-and-finished-member-references) | **Bounded evaluation complete.** Thirty-eight exact finished planes/228 same-case comparisons, gross stability sensitivities and floor-resultant screens are recorded. Later local timber queries add the cleat opening bounds, compression-event census and six rail cuts. The [simultaneous cleat calculation](#cleat-transverse-wrenches-and-the-three-qualification-limits) now includes both normal-force moments in 12 member/case records and 24 point-action traces. Complete local resistance and restraint remain unqualified. |
+| [Engineering assessment](#engineering-assessment-and-acceptance-decisions) | **Assessment complete.** Recorded loads, all 150 owners' active-action floor paths, finite-arm contact diagnostics and effective-length domain requirements are checked. Four full-span domain exceptions and all missing acceptance inputs remain disclosed. |
+| Later finite-motion method extension | **Saved-pose diagnostic scope complete.** The v5 record composes all 9,450 coordinates/150 owners/835 loads per case; all six owner-work checks and 132 fitting heel checks pass. Its explicit finite-equilibrium flags remain false: these checks do not replace the admitted first-order fields or constitute a finite-equilibrium solve. |
+
+The owner initially requested complete engineering qualification with only
+panel/screw exceedances deferred. On October 12, after the remaining unsupported
+bases were identified, the owner explicitly selected **“Keep the current design
+and its qualification limits.”** The current task therefore completes the
+investigation, documentation and publication while retaining those limits;
+**engineering acceptance is not established.** Physical demand and movement,
+complete fitting/joint resistance and finished timber strength/stability remain
+unqualified as recorded in the
+[remaining-work table](#factory-alternatives-and-remaining-engineering-inputs).
+They do not reopen the completed conditional numerical stages above. Actual
+build fit remains excluded, all observations stay blank, and the reviewed
+geometry, purchased screw policy and no-slip floor assumption are preserved.
+The qualification continuation below queries existing cached solids and current
+actions without a model change, mechanics solve or physical release.
+
+The read-only progress audit checks the current revision-index bindings, exact
+case/state/field joins and all **1,524 force, 1,561 component and 1,687 finite
+source pins**, with **1,695 distinct files** verified across their overlapping
+unions and result bindings. It also authenticates **13 current supplemental
+records** against the existing digest table, confirms the 38/228 section
+counts and recomputes both heel exceedance counts from the saved reference
+arrays. No frozen result or source bytes change. The maintained status here
+supersedes recent summaries that presented these completed evaluations only
+as unfinished engineering work.
+
+### Completed investigations and applicability
+
+The evidence search also confirms the following completed investigations.
+Their source revisions and method limits explain which results remain usable;
+these subjects must not be described as uninvestigated.
+
+| Completed investigation | Usable result and applicability limit |
+| --- | --- |
+| [Eoere member-restraint return paths](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/revised-base-audit-v1/README.md#member-restraint-and-the-attachment-path) | The earlier base-v3 audit maps screws, panels and other receivers for all four long members. Candidate maximum station gaps are 358.383–870.150 mm, below the 1,905-mm weak-column domain limit. This establishes identifiable geometric return paths, while their lateral stiffness/strength and end-restraint credit remain unqualified. Its older case actions are not current selected-hardware forces. |
+| [Frame rank/seating assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/frame-stability.md) and [coupled motion bounds](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/joint-frame-motion-bounds.md) | Fixed-force clearance seating and motion bounds were completed for the earlier 104-bolt wood-joint frame. Bounded seating is an affirmative result within those laws. Its geometry, coordinate chart and contact laws differ from the current 100-bolt Eoere frame; its motion values do not transfer as current bounds. |
+| [Full-length member sensitivity](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/member-restraint-completion.md) and [all-joint splitting assessment](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/README.md) | Earlier member kernels, splitting demands and candidate transfer paths were evaluated. The sources explicitly retain conditional domain exclusions and unqualified complete splitting resistance. They are completed sensitivity/path assessments for their frozen timber/block model, not an adopted capacity for the current Eoere joints. |
+| [Coupled bearing/bolt-bending method benchmark](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/README.md) and [guarded correction](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/bounded-strength-v1/connected-stack-followup-v1/limit-analysis-method-v1/evidence-correction-v1/review-fix-v2/README.md) | All 15 synthetic cases at three discretizations pass independent field checks and byte replay. This completes a useful raw scalar statics benchmark; it uses no candidate fields and establishes neither current mixed-stack compatibility nor adjusted complete-joint resistance. Current mixed-stack raw trials are separately complete below. |
+
+For the current frame, the **56.603761-mm interaction-point motion is a
+computed diagnostic with no adopted movement limit**, not a failed movement
+criterion. The **four full-span effective-length exceptions are method-domain
+limits**, not demonstrated buckling failures. The mapped restraint route uses
+screw lateral bearing and panel in-plane stiffness, so its qualification
+overlaps panel/attachment behavior; it is not a separate demonstrated
+non-panel failure. The assessment permits an applicable physical treatment
+or justified conservative bound and does not prescribe a particular solver.
+
+Completed conditional bolt and washer checks remain usable. The 92 two-member
+bolt references already include the purchase-root treatment where required;
+their maximum unadjusted demand/reference is **0.631248**. The separate bolt-metal
+first-yield diagnostic peaks at **0.513229**. Across all six current cases, axial
+washer comparisons peak at **0.319358 nominal / 0.685364 adverse catalog geometry**
+against the assumed 33-ksi steel marker, with no axial reference exceedance.
+All **112 nominal wood washer seats** have modeled annular support. The
+[thread and washer interpretation](#online-specifications-for-selected-hardware)
+records the calculation scope. Product-profile/material assumptions and
+eccentric contact/prying remain explicit within complete-joint qualification;
+the completed calculations do not need repeating solely because a catalog
+yield minimum is absent.
+
+The owner's existing working heel assumption is **6.35-mm thickness and
+6.35-mm inside radius**. It has already been assessed against all six current
+saved fields: **0 of 528 heel reference exceedances**, maximum **0.992604**,
+about **0.740% below** the conditional marker. The retained 6-mm/6-mm
+sensitivity has seven exceeded rows and a maximum of **1.107141**. Both
+scenarios have inside radius equal to thickness, so radius equality alone
+does not explain the different results. The remaining fitting work concerns
+dimensional/material applicability and complete joint behavior; the nominal
+heel comparison is complete within its fixed-action scope.
+
+### Current front runner/post end and outer-edge qualification
+
+The owner's continuation request is addressed first at the governing two-wood
+bolt reference. The [placement reducer](../../scripts/eoere_front_bolt_placement.py)
+reuses the authenticated current field/component intake and the existing end
+factor helper, under [frozen inputs](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/front-bolt-placement-inputs-v1.json).
+It covers `rail_front_bolt_left_1`, `_left_2`, `_right_1` and `_right_2` on
+both front runner/post arrangements: **eight bolt/wood occurrences on four
+members**, with all **24 bolt/case references** bound to their own six saved
+states. The strict cached-solid query confirms all six exterior stock planes
+and four cylindrical bore faces per member; the rear floor bevel is included
+over each full wood-bearing interval. No source geometry is rebuilt.
+
+All eight occurrences pass both reversible distance screens. Minimum grain
+end distance is **70.172141 mm**, exceeding the **66.675-mm (7D)** full-value
+softwood tension criterion. Minimum outer cross-grain edge distance is
+**41.597141 mm**, exceeding the conservative **38.100-mm (4D)** loaded-edge
+criterion. Both grain directions and both external edges are checked, so
+reversed actions cannot select away the shorter distance. The minimum margin
+is **3.497141 mm**. The pinned official [NDS 2024](https://awc.org/resources/2024-nds/), Chapter 12, §12.5.1 and
+Tables 12.5.1A/C support these end/outer-edge screens.
+
+This closes those placement limits for the four front bolts. The existing
+**0.631248** maximum unadjusted bolt reference is unchanged. The separate
+**1.262496** sensitivity obtained by imposing a 0.5 geometry factor is
+**not established by these end/outer-edge distances**; it remains a
+non-adopted sensitivity. Complete `Cdelta`, `Cg`, adjusted joint resistance,
+signed row/group ownership, oblique shear area, interacting holes and local
+fracture are not established by this screen. No complete-joint pass is claimed.
+
+The immutable input is **95,767 bytes**, SHA-256
+`44833a616f970dd42dbeb37c4904dfa32672fa323740acf0a98699e12afd9757`.
+Its 477 method/execution references bind reused source and installed module
+bytes without copying dependencies or unchanged assets. The **368,644-byte**
+raw result stays in the ignored engineering-closure output folder, with all
+**2,083 source pins** verified. The original pinned tests stay unchanged;
+[additional reversal controls](../../tests/test_eoere_front_bolt_reversals.py)
+cover inadequate distances at either end and either edge. Current source
+inputs and this raw result remain active; no archive or prune is performed.
+
+Reproduction and focused checks (use a fresh output path; existing records
+refuse overwrites):
+
+```sh
+uv run python -B -m scripts.eoere_front_bolt_placement --out fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-front-bolt-placement-v1-replay.json
+uv run pytest -q tests/test_eoere_front_bolt_placement.py tests/test_eoere_front_bolt_reversals.py
+uv run ruff check scripts/eoere_front_bolt_placement.py tests/test_eoere_front_bolt_placement.py tests/test_eoere_front_bolt_reversals.py
+```
+
+All **16 tests** and Ruff pass. The replay is byte-identical to the recorded
+result. The development revision checker, local file links and diff whitespace
+checks pass; the active summary stays at 150 lines. Two independent review
+passes are complete: the first identified missing opposite-side regression
+coverage, now supplied without changing the pinned tests; the final
+correctness, testing and architecture reviews report no substantial findings.
+Independent saved-coordinate arithmetic confirms all eight screens and all
+24 case joins. The original force, component and assessment hashes remain
+unchanged. No staging, commit or push accompanies this continuation.
+
+The remaining qualification review also reuses the existing current cleat
+opening queries: maximum necessary transverse opening is **27.917423 N** at
+Y = **−105.85 mm** in `a12-forward`. The retained X-axis bolts do not cross
+that Y-normal plane, and no resisting traction/fracture basis is qualified.
+The small force alone cannot establish a pass. The pinned official
+[NDS 2024](https://awc.org/resources/2024-nds/), Chapter 3, §3.8.2, directs avoiding perpendicular tension and considering
+sufficient mechanical reinforcement when it cannot be avoided; it supplies
+no generic sawn-lumber perpendicular-tension allowable. These are necessary
+force-only bounds, not complete crack-plane/couple checks or a quantified
+physical failure. Closing this limit needs an applicable current fracture
+or supported mechanical transfer basis. No cleat remedy or new bolt is added.
+
+### Cleat transverse wrenches and the three qualification limits
+
+The owner requested investigation of cleat transverse resistance,
+combined joint/finished-member resistance and physical stiffness/restraint
+applicability. On October 12, the owner chose to keep the current design and
+its qualification limits rather than develop a separate joint revision.
+All three qualifications remain unestablished outcomes of the investigation.
+Completing this documented scope does not establish engineering acceptance.
+
+The [current cleat reducer](../../scripts/eoere_cleat_transverse_wrench.py)
+adds the previously unresolved simultaneous normal-force moments to the
+Y = −105.85-mm cut. Its [frozen input record](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/cleat-transverse-wrench-inputs-v1.json)
+reuses the existing authenticated six-case intake, strict solid/container
+query and pure normal-hull helper. No historical forces or capacities transfer.
+The query measures both portions of each current finished cleat and splits
+uniform self-weight using their actual modeled volumes and mass centers.
+All bore-bearing and end-capture actions, signed timber contact actions and
+free couples are retained. The whole-body force and moment balances close
+within **9.286e-10 N** and **6.226e-8 Nmm**, respectively, against the unchanged
+1e-5 numerical gates.
+
+There are **12 own member/case records and 24 one-sided point-action traces**.
+Including or excluding point actions on the cut changes the normal wrench
+by at most **6.294e-9 N/Nmm**; the separate tangential trace difference stays
+in the record. The intact rectangular cut is **38.100 × 277.942094 mm**,
+area **10,589.593796 mm²**. Both members' cached finished solids are bound.
+
+The earlier **27.917423-N** force-only opening bound remains correct for its
+scope. It does not bound the simultaneous tensile demand from moments.
+The enlarged calculation gives a maximum **necessary normal tensile
+resultant of 295.602493 N**, at the left cleat in `a12-left`. That case has
+normal resultant **26.002121 N**, normal-force moments **10,767.114567 Nmm**
+and **2,168.591285 Nmm**, plus retained tangential forces and
+**75,100.319104 Nmm** of cut-normal torque. The rectangular-hull construction
+allows unbounded point pressure, so this tensile resultant is a necessary
+lower bound, not a sufficient finite-pressure or reinforcement design.
+
+One affine normal-equilibrium field peaks at **0.166996 MPa** tension and
+**0.162086 MPa** compression. The necessary tensile-resultant/area lower
+bound is **0.027914 MPa**. Neither is a measured stress, a wood allowable,
+fracture resistance or a complete shear/torsion/normal interaction check.
+The historical conditional `Ft90 = 0.5 MPa`, clear-wood data and unrelated
+glulam/Eurocode strength classes are not adopted as current DF-L No.2 capacity.
+This continuation establishes no new resistance exceedance or physical failure.
+
+| Requested qualification | Reused or added usable evidence | Retained limit and basis needed for future qualification |
+| --- | --- | --- |
+| Cleat transverse resistance | Complete saved normal force and both normal-force moments on the actual intact cut, including finished gravity and both point traces. | Establish an applicable resistance/transfer proof for these crossed, opposing actions with the retained shear and torque. NDS §3.8.2 provides no generic sawn-lumber perpendicular tensile allowable. The reduced-depth NDS §3.4.4.1 beam-shear check does not dispose of this normal wrench. EC5's single beam-connection expression cannot be compared to an opening lower bound or silently converted into NDS ASD capacity. No crossing Y-axis bolt or other qualified normal transfer path is established. |
+| Complete combined joint and finished-member resistance | Current 92 two-member references, 48 mixed-stack raw trials, washer/heel comparisons, eight front end/edge screens, 38 finished section planes and six additional rail cuts remain complete. | Establish an applicable complete contact/yield proof or conservative resistance bound with supported design reductions for the eight mixed stacks, complete signed group/oblique geometry and local splitting/row/block/bore resistance, and finished shear/torsion/normal interactions. Individual low scalar ratios cannot supply those capacities. Three disconnected faces at the queried rail bore section also require their actual three-dimensional transfer basis. This is a resistance-method gap, not a request to repeat the admitted frame cases. |
+| Physical stiffness and restraint applicability | Six current first-order cases and all later saved-pose work checks remain complete; current stiffness inputs and earlier published-method/restraint studies are available. | Establish a supported current stiffness/contact treatment or conservative demand bound and directional restraint credit. The source springs and rigid-heel/gross-stock analogies remain declared priors, not physical bounds. The panel/screw brace path overlaps deferred attachment behavior. No particular solver, actual-fit inspection or floor-friction test is made mandatory. |
+
+The [published stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md)
+is reused for method scope. Its older PB02 hardware values are not transferred.
+The current six fields instead declare **1,000 N/mm screw stiffness**,
+**1,000 N/mm axial end capture**, **1 N/mm³ wood bedding**,
+**2 N/mm³ panel foundation**, **26.246719 N/mm² shaft/wood foundation**,
+and gross-stock timber **E = 11,031.612 MPa**, shear/E = **0.064**.
+These values are not newly selected or calibrated here.
+[USDA/FPL's fastener chapter](https://research.fs.usda.gov/download/treesearch/50078.pdf),
+printed p.4, distinguishes service slip and oversized-hole travel; its lateral
+formula alone does not justify axial seating, rotational contact, formed-heel
+behavior or a complete frame demand bound. The [AWC March 2026 errata](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf)
+confirms the reduced-depth beam-shear route, without assigning a general
+crossed-cleat perpendicular-tension capacity. The detailed
+[splitting method-scope investigation](hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/splitting-reference-scope.md)
+already records these applicability limits and alternative-method possibilities.
+
+The publisher's [2018 NDS Commentary](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf),
+C3.8.2, printed p.208, also explains why a clear-specimen transverse-tension
+estimate cannot supply a lower-bound capacity for ordinary commercial lumber:
+undetected ring shakes and later checking/splitting can reduce that strength
+substantially. Its approximate one-third-of-shear observation concerns clear,
+check- and shake-free material of comparable quality. It is not an adopted
+DF-L No.2 value here. This earlier commentary is explanatory; current
+specification provisions and design values remain from the pinned 2024 edition.
+
+Input SHA-256 is
+`72e580b84c5a098b08a6faf1619c720dfc23d70a6d7403b311d0ffd9f9a7ee4e`.
+The **2,902-byte** input references the existing execution closure rather than
+copying its 477 references or dependencies. The **670,633-byte** raw result
+stays ignored and active in the engineering-closure output folder, with
+**2,087 source pins**. Original geometry, hardware, fields, frozen component
+results, deferrals, no-slip assumption and blank observations stay in force.
+There is no model/geometry change, native solve, remedy, actual-fit work,
+staging, commit, push, archive or prune.
+
+Reproduction uses a fresh output path:
+
+```sh
+uv run python -B -m scripts.eoere_cleat_transverse_wrench --inputs docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/cleat-transverse-wrench-inputs-v1.json --out fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-transverse-wrench-v1-replay.json
+uv run pytest -q tests/test_eoere_cleat_transverse_wrench.py tests/test_eoere_cleat_actions.py
+uv run ruff check scripts/eoere_cleat_transverse_wrench.py tests/test_eoere_cleat_transverse_wrench.py tests/test_eoere_cleat_actions.py
+```
+
+All **21 tests** and Ruff pass. The original pinned test source stays frozen;
+[additional action controls](../../tests/test_eoere_cleat_actions.py), SHA-256
+`4b14b597af7f04ab338686cfd9cf5ff84e0266c5aa7dfa586712516607406152`,
+cover complete bore/capture/free-couple extraction, both contact signs,
+nonzero cut moments, unequal finished-volume gravity, signed affine corners
+and force-balanced moment imbalance. The second raw run is byte-identical;
+all **2,087 pins** remain unchanged. The development revision checker,
+local file links and diff whitespace checks pass; the summary stays
+at 150 lines. Independent saved-field action reconstruction agrees with
+all 24 traces within **7.28e-12 N/Nmm** and independently recovers the
+295.602493-N bound. These checks validate the demand calculation without
+supplying the still-missing resistance and applicability bases.
+Three independent review passes are complete. Five confirmed coverage gaps
+were addressed in the supplemental controls without altering frozen source
+or result bytes. The final correctness, testing and architecture reviews
+report no substantial findings; five adverse in-memory mutations are rejected.
+
+### Builder-plan consolidation and documentation scope
+
+The maintained [builder plan](../bolted-frame-development/builder-plan.md)
+composes the current raised-screw shop records and selected-hardware access
+followup beside the cut, drill, support, assembly and dismantling steps. Its
+[timber layout](../bolted-frame-development/builder-layout.md) presents all
+22 raw timber profiles and 120 receiver occurrences, preserving source
+L/U/V coordinates and joining selected bolt lengths, bits and spacers.
+The standard-library [producer](../../scripts/eoere_builder_layout.py)
+authenticates the checked shop-result binding and its issued inputs, checks
+both endpoints against their world shaft axes, and leaves issued records
+and blank observation cells unchanged. No CAD rebuild or mechanics run is
+needed for this presentation.
+
+The root README, [builder index](../README.md#which-documents-are-current),
+baseline working set and history catalog now distinguish the six matching
+current cases from preceding response evidence. Scope notices identify
+older material/cost/inspection records and the selected baseline's two-clip
+mechanics-applicability limit. Source-bound earlier plans retain their
+bytes and issue-time meaning. The maintained map routes those records
+without reopening old task queues or transferring their capacities.
+
+The engineering review reuses the current qualification results above:
+complete cleat force/moment resistance, compatible mixed-joint and
+finished-member resistance, and physical stiffness/restraint remain open.
+The guide records the current 295.602493-N necessary cleat tensile resultant
+without inventing a transverse-tension capacity. Panel/screw remedies stay
+deferred; actual fit is excluded. Temporary supports, drill-guide alignment
+and delivered-part compatibility remain affected-operation requirements,
+with no new geometry, hardware, floor test or blanket approval gate.
+
+Recheck with `uv run python -m scripts.eoere_builder_layout --check`,
+`uv run pytest -q tests/test_eoere_builder_layout.py`, Ruff on that producer
+and test, and the existing development revision checker. These pass, along
+with all 214 development rejection tests, 264 local targets/fragments in
+the maintained reading path, and 29 unchanged geometry/hardware/shop
+bindings. Independent parsing confirms all 120 presented coordinate and
+hardware rows. Three review passes are complete; the final correctness,
+testing and architecture reviews report no substantial findings. Earlier
+review findings corrected the header's U/V convention and the different
+left/right recessed entry coordinates, with regression assertions for both.
+
+The four new guide/layout/producer/test files total **64,086 bytes**. The
+human-readable layout makes existing end and receiver marks usable beside
+their selected hardware without copying solids, meshes or source banks.
+The builder guide, layout, current source tables and reusable inputs stay
+active. This work created no raw runs or additional archive candidates;
+frozen historical packets remain recoverable at their existing paths.
+
+### Repository-wide text and navigation audit
+
+The repository inventory covered all **2,214 tracked Markdown files**, the
+maintained reading paths, top-level planning records, viewer pages and workflow
+instructions. Earlier mutable plans now carry their candidate/revision scope;
+safe moved links point into the history folder. The history landing and viewer
+menus distinguish the current 100-bolt development, selected screw-and-bracket
+baseline, preserved studies and unadopted proposals. Six current first-order
+cases and the bounded assessment are complete; the three qualification limits,
+panel/screw deferral and excluded actual fit retain their recorded meaning.
+Source-bound earlier reports keep their frozen bytes and issue-time wording.
+
+The presentation-only [document router](../../site/documentation-links.mjs)
+selects matching shop/evidence links without changing scene metadata or
+engineering receipts. Missing historical exports now replace loading/geometry
+claims with an explicit recovery status. The `2x10`, `2x12`, `2x8-shallow` and
+`2x8-foot100` exports remain absent, and Pages does not regenerate them; their
+menu identities remain available for recovery. A browser-global name collision
+in the historical post comparison chart was repaired without changing its
+calculation or model. The [regression checks](../../tests/test_documentation_links.mjs)
+exercise actual menu/status/error paths and the chart's slider, duration and
+bound controls. CI and contributor instructions include the new test.
+
+All **220 Node checks** pass with
+`node --test tests/test_bolted_development.mjs tests/test_documentation_links.mjs`,
+both in the shared checkout and in an isolated input tree assembled from HEAD
+plus explicitly reviewed publication/audit paths. The read-set audit found no
+unpublished dependencies. Four existing focused viewer/immutable-ledger tests,
+278 local Markdown targets/fragments and the development revision checker
+pass. Browser validation checks seven model statuses/document menus, five
+historical scope banners and the chart controls, with no page errors. The final
+three independent correctness, testing and architecture reviews report no
+substantial findings. All **679 protected input hashes**, plus both restored
+producer records, remain unchanged. This is text/presentation verification;
+no mechanics, geometry, hardware or acceptance result was changed.
+
+The two new routing/test files total **15,150 bytes**. Current guides, router,
+tests and source tables stay active. Historical records and the failed browser
+check remain recoverable at their existing paths. Temporary inventories,
+clean-input checks and browser captures stay outside tracked permanent assets;
+no raw evidence or meshes were pruned and no new routine status report was
+added. See the [history catalog](../history/design-history.md#complete-viewer-collection)
+for the missing-export scope and the existing recovery workflow before archive
+or pruning work.
+
+### Current supplemental calculation records
+
+The new [mixed-stack reducer](../../scripts/eoere_mixed_stack_yield.py) consumes
+the authenticated six own-case component records under the frozen
+[second input record](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/inputs-v2.json).
+It reconstructs each complete signed affine bearing field, includes that shaft's
+own metal gravity and searches every stationary point of continuous cubic
+bending magnitude across the catalog body/purchase-root transition. The 48
+stack/case combinations, 144 surfaces and 504 segments have a maximum **raw
+material trial index of 0.2800156895**, at `eoere_bolt_067` in `a12-forward`.
+This is an equilibrated raw bearing/plastic-moment trial, not compatible contact,
+an adopted ASD capacity, a group/splitting check or complete joint resistance.
+No common yield reduction factor is adopted.
+
+The [local timber reducer](../../scripts/eoere_local_timber_closure.py) reuses
+current actions and the cached valid rail solid. Its twelve cleat force-only
+opening lower bounds reach **27.917423 N**. The retained X-axis bolts do not
+cross the queried Y-normal split plane; these lower bounds do not dispose of
+couples or establish fracture resistance. A compression action-event census
+retains 132 own member/case witnesses from 17,514 candidate event sides,
+including header compression missed by the earlier two selected witnesses.
+Six exact rail cuts around bores `_017`/`_018` give 36 own-case comparisons.
+At the shared bore center the finished area is **4536.281250 mm²**, against
+5322.570000 mm² gross; the three disconnected section faces require an
+applicable finished shear/torsion and local-fracture method. Area loss alone
+is not an exceedance or a capacity check.
+
+The [current washer-land query](../../scripts/eoere_current_washer_lands.py)
+closes the previously unqueried **nominal finished-wood seat support**: all
+112 bounding catalog/nominal annuli lie inside the current cached solids to
+the reused thin-volume tolerance. Twenty-two timber sources are bound from
+the complete 28-body timber/panel observation table. The 672 own seat/case
+forces retain a largest uniform least-ring-area mean of **1.138839 MPa**.
+Full/gapped/edge-clipped analytic coupons pass. This proves modeled occupancy
+0.1 mm inward, not observed flatness/contact, peak pressure, washer bending,
+local wood fracture or combined resistance; those limits remain explicit.
+
+The [finite fitting precision extension](../../scripts/eoere_finite_fitting_precision.py)
+replaces cancellation-prone coordinate subtraction with algebraically identical
+Rodrigues increments and relative translations. It keeps the existing potential,
+analytic Jacobians, stiffness, local root solver, Hessian differences and force
+gate. The same synthetic load that previously missed the 1e-8-N heel gate now
+has **9.30e-16 N** residual, 1.91e-14 N/Nmm body-wrench closure and
+3.21e-12 relative error against the unchanged reference Schur tangent.
+This synthetic coupon reads no candidate field. The separate current-pose
+extension below tests candidate fittings without admitting a finite frame or
+qualifying real formed-angle stiffness or physical demand bounds.
+The pinned NumPy 2.5.2 [sinc definition](https://numpy.org/doc/stable/reference/generated/numpy.sinc.html)
+and SciPy 1.18.1 [root interface](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.root.html)
+support the numerical implementation; root-reported success does not replace
+the independently enforced residual gate.
+
+Raw records remain active under
+`fea/generated/selected-hardware-followup-v1/engineering-closure-v1/`:
+
+| Record | SHA-256 | Use |
+| --- | --- | --- |
+| `current-cleat-transverse-wrench-v1.json` | `7d6df246082753bf17ff1289ff7c0166f1c3e91236e9edfec07ad0180449fe8b` | Twelve complete current normal-wrench records/twenty-four point traces; maximum necessary tensile resultant 295.602493 N. Resistance and physical applicability remain unqualified. |
+| `current-front-bolt-placement-v1.json` | `5f7c91e5f7640889719c6a95c952877e494046005072e0b8d1542daf0784da1e` | All eight front runner/post end/outer-edge screens pass; complete geometry/group factors and joint resistance remain null. |
+| `mixed-stack-affine-raw-v2.json` | `36c2a7f03423690b39a762b10f08659afe4afdfe08d08feffcb8c44171be5e36` | Current authenticated raw trial. |
+| `local-timber-v2.json` | `56b199f0eb9528b4ade42c4efd782c329556fb49b8f1635de1935dc315ea11e1` | Current authenticated local queries. |
+| `finite-fitting-precision-v3.json` | `a83a4bea33705cfddc2660de669fb7de6049d8c8aef8e6575989aeb6dccd8c27` | Same-load local coupon with all 22 execution/method sources bound and an explicit result-residual guard. |
+| `finite-fitting-precision-v4.json` | `36505987512c5937e0fcab949f5a031e4b2efd5947ca4f8c07c5b9d9434154e2` | Preserved synthetic result before completing the eager-import source closure. |
+| `finite-fitting-precision-v5.json` | `ea7209b444c2034737d288bcea7fba9eee5bc9a7220836cac58e8bb4f64ebba4` | Preserved synthetic result with the imported intake helper, before binding CLI publication dependencies. |
+| `finite-fitting-precision-v6.json` | `226a965bf32c07079dd9a075b9df87aa5ebe54febab87f6b820d18852714ff57` | Current unchanged synthetic result with all 25 execution sources, including the actual publication manifest and loaded output writer. |
+| `current-fitting-finite-v1.json` | `f43de8bdd12a88ca189f84d4089fba0dccd17b5406abe813fa77fd6db8dd65b8` | Initial current-pose probes: 119 pass and 13 local residual failures retained. |
+| `current-fitting-finite-v2.json` | `187862c0743788dac2f74438fa9a3ff08637736046377286b2e71a45be622282` | Preserved initial all-132 result with bounded residual refinement. |
+| `current-fitting-finite-v3.json` | `74a94ae75eb2426278fb697b27cae700f1547229991c7c70bdd9d13396f0c446` | Preserved 132-probe result with imported intake checks. |
+| `current-fitting-finite-v4.json` | `6608453b123bd28743f1d25be5efe71516a962e542f3d97e44aa177b6ed77cc7` | Current source-complete 132-probe result with explicit publication guards; case calculations identical to v2/v3. |
+| `current-washer-lands-v2.json` | `01d9be4a8991eb15634aab336d3f9d27637cf7f1fc8693811c968f2efa225306` | All 112 current modeled wood seats and 672 own-case comparisons. |
+| `finite-preflight-v4.json` | `c6c57f23c237c7adbb1b19d537ea63c11d2ecf21cd297a7a9d7551067972c5a3` | Current coordinate/load/contact ownership and all 600 shaft/case, 6,744 original source-port/case gauge checks. |
+| `current-timber-inverse-probes-v1.json` | `688fe1efffe6d5275c82dd303aebc76a3e60a76a040cea1684197bed34992ce1` | Current 228 representative own-pair inverse/complete-boundary feature probes; no force or frame calculation. |
+| `current-timber-inverse-allcells-v1.json` | `878d0cb69fa5b1d05cd58aacf8b00591b61282350cd5dfc7e8171c220dae60ff` | All 62,904 registered pair/cell/case inverse/complete-boundary probes; compact resolved observations, complete unresolved records and extrema. |
+| `current-timber-boundaries-v1.json` | `0e8af1c7312080c91a8d716a3027bc0447227d71cc119d72724c5e1db09570aa` | Current 22 closed timber boundaries and exact complete source faces for all 332 registered contact rows. |
+| `current-timber-domains-v2.json` | `4a06e7d6b3f59654b1612e9c2f731fc55cb87bd26d84018c4ad13cbc1d7b3db9` | Preserved initial current own-chart/own-box bound record, before completing a transitive import binding. |
+| `current-timber-domains-v3.json` | `12d3cc0b8c0969942aaedc0609a10379ae4b02bcba15f8cb88802dc7ba0d4302` | Current same boundary/face fields and 132 own-chart/own-box bounds, with the source-complete imported geodesic fixture binding. |
+| `current-timber-fullfaces-v4.json` | `c651c304a1eb4e9e2621fe610a77ff50dcf1b57a0d4ef2bab4f0eb1fd46e0b8c` | Preserved initial 51-face measure before narrowing the broad discard flag to occupancy-driven discard. |
+| `current-timber-fullfaces-v5.json` | `6dce08e63a1d1b33c223657cd652bbfd2e938aa4a51f6eb8527ba7661cda4145` | Current unchanged 51-face measure with explicit numerical-cell cutoff, conservation and occupancy tolerances. |
+| `current-timber-contact-scope-v1.json` | `da3b32281558aabd2df07bcd8afd89d037a99471f9d57e57fbd55dee9608d376` | Preserved failed intake: full finished-source metadata was incorrectly compared with a path/hash reference. |
+| `current-timber-contact-scope-v2.json` | `03f959ccf2d851c78264ac9240bd42eb41ee6bcbf6658e0c06d736ff940737c8` | Current 38 registered pair/whole-face plan and conservative whole-solid screening of all 231 timber pairs in each saved diagnostic pose. |
+| `current-timber-neighbor-pieces-v1.json` | `1ca16fa0cda9d02df0ee43bfe6e9fb139d59fa46509dbc3a418b83602009d194` | Same six poses and all 231 pairs with source-axis station-piece covers; no additional possible neighbor is excluded. |
+| `current-timber-neighbor-pieces-v2.json` | `68e9e5e3f13940a2b934a6fbc108cc35b6178ef9f5c654b849ae8984b4c2034b` | Intersected source boxes and reference-distance-minus-motion screen exclude all 27 previous unregistered case/pair possibilities at the six saved poses. |
+| `current-timber-bedding-v1.json` | `5a87c2ccc0fe844567a14151116dc7bd441e367c468cedc30697e93df338cca1` | Preserved complete force evaluation; inherited first-order status fields need the explicit v2 namespace below. No frame equilibrium or strength acceptance. |
+| `current-timber-bedding-v2.json` | `684b510d9b4ba110aee187a7e1fd6f83f14277b58dea36b17cf8cf3c4bd3174e` | Guarded metadata-only export of the same 62,904 forces/gradients, trial guards and owner wrenches; source first-order metrics are nested, numerical work is not repeated. |
+| `current-finite-frame-v1.json` | `35f39b3205e89d470082d880a5927d9f26e3e742ce55452902aece73c884218f` | Failed first complete saved-pose attempt at the unchanged owner force/moment work gate; no accepted pose or actions. |
+| `current-finite-frame-work-audit-v1.json` | `74c33eb5088beafe4cddf59c5c1e62c61671f3dd0afdd494854c437634932cbd` | Failed exploratory observer on the fourth case's fitting heel stationarity gate; no accepted response. |
+| `current-finite-frame-work-audit-v2.json` | `fb19d39f0fd7250443efbe0d43b0207738e63d016f9ef921fb54e52ab73c66ff` | Exploratory six-case failure observations for the first producer; its late observer self-hash is not a formally admitted loaded-source seal. |
+| `current-finite-frame-v2.json` | `4fb1266caab4810678390c2059090e4ff0647b3fbe7ccc321554f488e1899e69` | Failed fresh attempt after the runtime-normal and exact-seed repairs; the unchanged owner-work gate still stops the response. |
+| `current-finite-frame-work-audit-v3.json` | `3e54e3fb18e58743bf8f9146017ab2661acce5ad72d67eb6bdab6cf5558c99db` | Preserved observer scope failure when the second case genuinely passed the unchanged diagnostic gates. |
+| `current-finite-frame-work-audit-v4.json` | `f2cc8ad234d38f9fc3e390a93e56d23ee3800aea53db945b5176430c5c8dff57` | Source-bound six-case observer: two diagnostic passes and four remaining world-origin fitting-work failures. |
+| `current-fitting-world-work-input-v1.json` | `d8c46ccb947867f04dac7777e917e3898d9d1cd0fb3c1dd4361ff07d683a84a9` | One unchanged current fitting's geometry, load, port pose and heel seed extracted from authenticated sources. |
+| `current-fitting-world-work-coupon-v1.json` | `54c74941ea5904bda88fce51267e074f4a16b044acf6a20def33a315ffe3141e` | Same-potential numerical accuracy comparison; tighter heel target closes the unchanged world-origin work gate. |
+| `current-finite-frame-v3.json` | `950c481f7dc4c3335e6ef4896975a355b7ac06501be8ca462d2d554bb5b1d1f4` | Preserved failed attempt with a blanket 1e-9-N final heel requirement; that added requirement is distinct from the original acceptance gate. |
+| `current-finite-frame-v4.json` | `0239a33e6b82ccb72a6532b303030d5de5638e3759a490eb41262e3bae6f4b46` | Fresh attempt with separate refinement and acceptance: first three diagnostic work checks pass, then `k12-right` fails the unchanged owner-work gate. No complete accepted response. |
+| `current-finite-frame-v5.json` | `1ab541095e902ca50c18db11b92543b54786bd3ff332429c1a673fea95717f55` | All six complete saved-pose work/heel checks pass with fixed numerical datums. Complete finite equilibrium, physical demand and strength remain unqualified. |
+| `current-fitting-accuracy-floor-v1.json` | `072f0143fdd500c2fe9be9f67367ad00b65bdb63a987e16763423261a993f1d9` | First tighter-target failure and a separate 2e-9-N comparison at the same base-left fitting. |
+| `current-fitting-accuracy-floor-v2.json` | `0b39df67e54e98d51d86bd8fa8c35526f1fadddd9bbf85c63ed95a0d02e256fa` | All 132 local numerical-target comparisons; 29 miss the added 2e-9-N target, retaining their returned heels and original-gate status. |
+| `current-fitting-accuracy-floor-v3.json` | `1f5aca80aa017195539a7553f240b4e6a16100f1f71c0cad8bb7faf4d73c8628` | Exploratory isolation of all 22 `k12-right` fittings: all original heel gates pass; one world-origin work check fails. This observer's explicit pins omit the precision producer, so it is not a complete execution-source closure. |
+| `current-fitting-accuracy-floor-v4.json` | `b07327851990628bdfe0b7d994e7775068ee6ed575befbbc17c27a1f79ca9b70` | Supplemental exploratory observations of all 132 current fittings. Its 62 listed pins verify, but omit `uv.lock` and do not declare numerical tool versions; excluded from complete execution-source admission. The independently complete v5 frame freshly evaluates all 132 fittings. |
+| `current-fitting-world-work-input-v2.json` | `f95a16e514223cc647b2a089a7b003d47c9a11f0db49efdfbaec9a4ee8c14684` | The unchanged fourth-case fitting, port state, seed, own load, geometry and source references for numerical translation testing. |
+| `current-fitting-world-work-coupon-v2.json` | `9a6ceb9a36b7b924974047e190f8b3e499677955b98e4ae7cbd7a7ee1eb1ed27` | Thirty-pin local coordinate comparison; restores the original world points and work offset while preserving physics and acceptance gates. |
+
+The [current finite preflight](../../scripts/eoere_current_finite_preflight.py)
+reuses the frozen ownership partition and circular-shaft method against all
+six authenticated current operator manifests. The current chart has **9,350**
+coordinates; restoring one free axial rotation per shaft gives **9,450**.
+All 150 physical owners and 835 source loads are retained: 88 timber,
+22 fitting, 508 shaft-metal and 217 panel loads. Each fitting has exactly one
+own gravity load, reserved for the loaded internal heel. The current contact
+inventory includes 332 timber and 922 panel contact rows, plus 32 floor normal
+points and **two** enabled rear-leg centroid XY groups. The older finite plan's
+9,272/9,372 maps, 500 metal loads and different contact/support inventories
+cannot transfer to this revision.
+
+For the declared circular-shaft law, all 100 multi-element shafts retain energy,
+on-axis source positions and axial directors under a common material roll at
+each saved diagnostic pose. Maximum source-point change is **4.55e-13 mm**;
+maximum own force roll work is **3.70e-11 Nmm/rad** and internal roll work is
+9.57e-12 Nmm/rad. The 508 original metal centroids retain their source precision
+offsets without projection; each head centroid beyond the elastic station range
+uses the original endpoint rigid arm, extending at most 4.5 mm. Nonzero point
+couples and physical off-axis sources fail the method's guards. The omitted
+spin is restored as zero only for these initial diagnostic poses, not claimed
+as a finite gauge representative or equilibrium. Full frame composition,
+current timber contact domains and physical stiffness bounds remain open.
+
+The preflight has 41 passing portable tests and 1,615 verified source pins.
+Its 4,160,610-byte detailed output remains ignored and active because it retains
+every own source-port check. The two failed preflight records remain recoverable;
+the v2 producer is preserved exactly in `source-at-preflight-failed-v2/`.
+The unchanged v3 results and exact producer remain in `source-at-preflight-v3/`;
+v4 additionally binds the producer hash to its loaded bytes before intake.
+Tests retain all 600 own saved poses and independently check both endpoint-arm
+positions/Jacobians without clipping original metal centroids.
+At preflight closure, all five followup producers had **133 passing portable tests**
+and passing Ruff; the development-index and whitespace checks passed. Independent
+correctness, testing and architecture reviews found no substantial remaining
+preflight findings after the loaded-source and two testing gaps were fixed.
+Reproduce with `uv run python -m scripts.eoere_current_finite_preflight --out FRESH.json`;
+the output must be fresh and frozen source dependencies must be restored.
+
+The fitting extension then rebuilt all 22 current reference matrices, factory
+holes and four-port coordinates exactly and used each of the six fields' own
+port poses, loaded-heel seed and single fitting-gravity source. These are local
+diagnostic poses, not finite frame equilibria. The initial 132 probes retained
+13 failures of the unchanged **1e-8-N** heel residual gate, despite SciPy's
+reported iterate convergence. The [hybr documentation](https://docs.scipy.org/doc/scipy/reference/optimize.root-hybr.html)
+defines `xtol` through consecutive iterates; that flag is not a force check.
+
+An explicit extension at the original root callback permits at most three
+improving Newton corrections with the existing central-difference step. It
+counts every callback against a hard limit of 100, restores the original
+callback on success or failure and still executes the frozen condensation,
+positive-heel and residual gates. No stiffness or force tolerance changes.
+All **132 local probes now pass**; exactly 13 need one correction each, with
+at most 28 root callbacks. Maximum heel residual is **9.071684e-9 N**,
+independent spatial-work error is 2.488378e-9 N/Nmm and body-wrench residual is
+1.420305e-6 N/Nmm, within their unchanged gates. These positive local branches
+do not prove global uniqueness, physical fitting properties or frame equilibrium.
+
+The changed local actions also show why these checks cannot close physical
+demand applicability. At the saved `k12-right` pose, fitting
+`eoere_clip_single_top_right_2`, port `arm-z/far-plus`, the finite local force
+norm is **9121.816113 N**, versus 626.799388 N in the first-order field. The
+global-vector force difference is 9459.267602 N and couple difference is
+321292.764608 Nmm. Other frame bodies have not been balanced against these
+changed local actions. This is a diagnostic comparison, **not a new design
+demand, an admitted frame result or a strength exceedance**.
+
+The current-pose output binds 1,617 execution/input sources. Its 1,696,194 bytes
+and the initial failed output stay ignored and active for stationarity and
+force-routing review. The exact initial producer is preserved in
+`source-at-current-fitting-finite-v1/`; the preceding synthetic v3 producer is
+preserved in `source-at-fitting-precision-v3/`. The initial all-pass v2 producer
+is preserved in `source-at-current-fitting-finite-v2/`; the subsequent v3
+producer is preserved in `source-at-current-fitting-finite-v3/`. The current
+synthetic v6 result is unchanged and binds all 25 execution sources. Its source
+closure includes the eagerly imported intake helper, actual publication
+manifest and loaded output writer; current-pose v4 retains all 1,617 pins and
+exactly the same case calculations as v2/v3. Reproduce local
+current-pose checks with
+`timeout 180s uv run python -m scripts.eoere_finite_fitting_precision --current-fittings --out FRESH.json`.
+The fitting extension has 59 passing portable tests covering bounded refinement,
+callback restoration, unchanged gates, independent spatial work and gravity,
+exact current matrix/port ownership and all 132 own-case routes.
+
+The [current timber-domain query](../../scripts/eoere_current_timber_domains.py)
+now constructs the genuine closed-boundary distance geometry for all **22**
+current cached timber solids. The frozen strict-container bridge retains every
+original face and its location/orientation; each solid passes the existing
+validity, single closed shell and outward infinite-point classification gates.
+Every current source contact joins both of its own full planar face signatures
+to a genuine closed-boundary feature: **332 rows, 38 pairs/patches and 51
+distinct complete faces**. Both sides are retained without clipping a face to
+its opposing body. Shared faces preserve all registered opposing owners instead
+of silently selecting a single master.
+
+This closes current source topology and registered-face ownership only. No
+distance query, finite inverse, contact force, full-face quadrature or frame
+calculation runs. Slave selection, complete measure, new-neighbor coverage,
+smooth/touch-feature and ambient/inverse qualifications remain open. Reproduce
+with `timeout 60s uv run python -m scripts.eoere_current_timber_domains --out FRESH.json`.
+Its 18 portable tests cover current case/source identity, both full face sides,
+multiple opponents, all 22 own imports and source checks before and after.
+At boundary-v1 closure, all **1,611** source pins verified; its exact producer
+now resolves through the preserved snapshot. The 1,505,322-byte boundary/face
+record stays ignored and active for current contact-provider integration.
+
+At this closure, all six followup producers have **191 passing portable tests**.
+Fresh independent correctness, testing and architecture reviews found no
+substantial remaining fitting/boundary findings. Tests reject source drift
+before any fitting probe and during the final probe, preserve all own port
+actions and both full timber face sides, and enforce the unchanged derivative
+step and acceptance gates. These checks close their stated local scopes.
+
+The current-domain followup asks whether each of the 22 source-bound timber
+charts remains one-to-one on its own finished-solid bounding box plus the
+existing 100-mm ambient padding at all six diagnostic poses. The frozen
+geodesic sufficient-bound kernel already answers that mathematical question
+for declared charts and boxes; its older candidate plan cannot transfer.
+It reuses the kernel with the current 9,450-coordinate map, genuine cached-solid
+bounds and each own saved state. This does not check target-image membership,
+inverse convergence, physical stiffness, full contact measure or equilibrium.
+The exact boundary-v1 producer remains in
+`source-at-current-timber-boundaries-v1/`; the initial domain-v2 producer remains
+in `source-at-current-timber-domains-v2/`.
+
+That current-domain calculation now passes all **132** sufficient bounds,
+including every one of 1,284 geodesic segments and 264 rigid endpoint
+extensions. Maximum padded `L` is **0.1920542193**, for `eoere_cleat_left` in
+`a12-forward`; the smallest lower bilipschitz factor is 0.8079457807 and largest
+inverse Lipschitz factor on the map image is 1.2377068164. The boxes use a fresh
+BoundingBox query of each genuine closed cached solid, checked against its own
+authenticated observation, then 1e-6 mm body padding and 100 mm ambient padding.
+Original current indices and world rotation storage are preserved. Each of the
+six exact 9,350-coordinate vectors is extended with the 100 initial zero shaft
+spins established by preflight; these are still diagnostic poses rather than
+finite gauge representatives or equilibria.
+
+This closes the sufficient mathematical one-to-one criterion on these declared
+current ambient boxes at these six poses, under the frozen exact-map hypotheses.
+It does not establish that a contact target lies in the map image, a converged
+inverse, nearest-feature/touch/station branches or a physical response bound.
+The existing floating-point padding is not interval arithmetic. Every later
+trial state must pass its own bounds. All original boundary owners, full faces,
+contact bindings and case fields are exactly unchanged. The 4,193,584-byte
+current-domain v3 record has **1,626 verified source pins** and remains ignored
+and active. Reproduce with
+`timeout 90s uv run python -m scripts.eoere_current_timber_domains --injectivity --out FRESH.json`.
+The geodesic kernel imports a helper that reads its sibling test file at module
+initialization. The extension now binds that exact file and verifies its loaded
+hash; the missing v2 source binding is preserved rather than silently rewritten.
+All bound and boundary calculations are exactly identical between v2 and v3.
+The domain extension has **51 passing portable tests**, including nonuniform
+interior stations with interior-only displacement/rotation, distinct optional
+dependency unions and early/late dependency drift rejection. All six followup
+producers have **224 passing tests**, with passing repository Ruff,
+development-index and whitespace checks. Fresh independent correctness,
+testing and architecture reviews found no substantial remaining findings after
+the source-closure and chart fixtures were corrected. The full frame, contact
+and strength qualifications remain open.
+
+At domain-v3 closure, the publication set contained fourteen new small
+producer/test/input files, **246,201 bytes**, plus the two maintained documentation edits. Both input JSONs
+are ignored and need targeted force-add if publishing. All 633 local links in
+the maintained documents resolve; the development entry stays at 150 lines.
+All 20,548 other pre-existing files, shared index and HEAD remain unchanged.
+The mixed-stack, local-timber, washer, preflight, fitting-coupon,
+current-fitting and current-domain source unions verified at 1,606, 1,607, 1,608,
+1,615, 25, 1,617 and 1,626 pins respectively. Active current cached solids,
+fields, operators, new raw records and preserved producer snapshots stay in
+place; none is archived or pruned. The next contact question is complete
+positive quadrature on the 51 own source faces, followed by a current
+slave/master and new-neighbor contract. Reuse the frozen full-own-face clipping
+and moment helpers; its old candidate face counts and slave plan cannot transfer.
+This followup asks whether all 51 complete current source faces admit positive
+area cells whose centroids and 0.05-mm inward probes occupy their own solid,
+while conserving whole-face area and first moment. It uses the existing
+25-mm clipped grid and bounded whole-grid refinement unchanged, retaining the
+exact native second moments as diagnostics. Both source sides are measured;
+they are not both adopted as contact-force integration surfaces. The domain-v3
+producer is preserved in `source-at-current-timber-domains-v3/` before this
+same-packet extension; no frozen input, geometry or native mechanics changes.
+
+The whole-face query now retains **17,756** positive area resultants over all
+**51 complete current source faces**, totaling **4,926,918.928565 mm²**.
+Every centroid lies on its own native face within the frozen tolerance, and
+every 0.05-mm inward probe occupies that face owner's current finished solid.
+Forty-nine faces pass the original 25-mm grid; the two leg faces require two
+whole-grid refinement levels. Initial void-centroid attempts remain in each
+face record. No opposing body's footprint removes source area, and the query
+does not select a slave/master or add these two-sided measures to a force model.
+
+Maximum area discrepancy is **9.40e-9 mm²** and first-moment centroid discrepancy
+is **3.54e-11 mm**. The largest sampled-versus-native second-moment relative
+error is **0.0357455664**, at the right side member's end face. This remains a
+quadrature diagnostic, not a pressure, energy or stiffness convergence bound.
+The frozen partition omits numerical cells of area at most 1e-8 mm² and checks
+whole-face area/first moments against its declared tolerances; no failed
+occupancy sample is discarded to obtain a passing grid.
+
+The current 9,838,944-byte full-face v5 record binds **1,623 verified source pins**;
+it stays ignored and active because every original cell and refinement attempt
+is required for later contact composition. All previous topology, complete-face,
+contact and case bindings are exactly unchanged. Reproduce with
+`timeout 600s uv run python -m scripts.eoere_current_timber_domains --full-face-measure --out FRESH.json`.
+There are **81 passing timber-domain tests** and **254 passing tests** across
+the six followup producers. The multi-cell fixtures check every retained cell,
+its unique identity, positive area, first moment and refinement history.
+Independent review of v4 found an overbroad discard flag and insufficient
+multi-cell regression coverage. The flag now distinguishes occupancy-driven
+discard from the unchanged numerical-area cutoff, and the output records the
+actual partition, occupancy and conservation parameters. All 17,756 cells,
+moments and refinement attempts are exactly identical in v4 and v5. The exact
+v4 producer remains in `source-at-current-timber-fullfaces-v4/`; v4 is preserved.
+Fresh independent correctness, testing and architecture reviews of v5 found
+no substantial remaining findings. All 1,623 pins verify; repository Ruff,
+development-index and whitespace checks passed before the next extension.
+The prior domain-v3 producer resolves through its preserved snapshot; its own
+source path is not silently replaced in the older frozen record.
+
+The [current contact-scope reducer](../../scripts/eoere_current_contact_scope.py)
+reuses those exact faces, cells and domain bounds without another geometry
+query. Choosing the smaller complete source face, with the feature ID breaking
+exact area ties, gives **38 registered pairs, 36 selected full faces and 10,484
+pair/cell bindings**. Each pair keeps the entire selected face measure. Two
+outer-post faces each retain both their floor member and cleat as eligible
+masters; no arbitrary single-master choice or opposing-footprint clipping is
+made. This is a source plan, not yet a composed contact-force law or complete
+coverage of other boundary features.
+
+For each of the six own saved poses, the reducer bounds every current finished
+timber solid's deformed position. The source-bound straight geodesic chart gives
+`phi(X)-X = u(t)+(R(t)-I)(X-C(t))`. Nodal translation component extrema, the
+frozen segment rotation-angle upper bounds and corner bounds on the reference
+radial arm enclose every interior point; both rigid endpoint extensions include
+the possible axial overhang. Each resulting axis-aligned box has 1e-6 mm
+numerical padding. This is a real-arithmetic enclosure under the exact map
+hypotheses, not interval arithmetic or a physical displacement bound.
+
+All **231 timber pairs** are screened in each pose. Strict box separation
+excludes **188 pairs** in each of the first five cases and **191** in `a1-rear`:
+**1,131 of 1,386 pair/case exclusions**. There are five possible unregistered
+neighbor pairs in each of the first five cases and two in the last. Across
+the poses these involve six distinct pairs: center post/principal on either
+side, outer post/side member on either side, and lower/upper service rails on
+either side. These conservative box overlaps are **not detected contact or
+collisions**. They identify pairs needing stronger exclusion or complete own
+feature coverage; the 38 registered pairs alone cannot be admitted as complete
+new-neighbor coverage. Every later trial state needs its own screening.
+
+The 2,072,526-byte v2 record has **1,642 verified source pins** and remains
+ignored and active. Its domain-v3 producer receipt explicitly resolves to the
+unchanged preserved snapshot while the current face producer keeps its own
+path; the original frozen receipts remain intact. The failed v1 and its exact
+producer in `source-at-contact-scope-failed-v1/` are recoverable. Correct intake
+compares the path/hash fields of the richer finished-source record; tests retain
+its ID, size, bounds and volume metadata. There are **48 passing contact-scope
+tests**, including exact frozen-map image samples, nonuniform interior-only
+motion, both endpoint extensions, multi-master ownership and early/late source
+drift. Reproduce with
+`timeout 60s uv run python -m scripts.eoere_current_contact_scope --out FRESH.json`.
+The first independent review reproduced every box/pair classification and found
+two testing gaps: loose endpoint allowances masked omitted interior rotations,
+and aligned area/name order masked an incorrect face choice. Dedicated interior
+twist, dominant first/last overhang and opposing area/name plus exact-tie fixtures
+now check these contributions independently. Review also exposed missing
+negative interior displacement and later-segment rotation cases. Both now
+require the true mapped point to remain enclosed and a neighboring body to
+remain unresolved; an asymmetric box checks the farthest radial corner, and
+each dominant overhang has a distinct endpoint rotation. The integrated fixture
+now has both registered and unregistered overlaps, checks the exact 38-pair
+registry passed to screening, and verifies every published registered-pair flag.
+Independent measure-only and intake-only dependencies now have before/after
+verification and early/late drift cases. Every verification and published pin
+must equal the complete fixture source set, so overlapping closures cannot
+mask loss of a source group.
+Fresh independent correctness, testing and architecture reviews found no
+substantial remaining contact-scope findings. All 1,642 pins verify; all 48
+contact-scope tests, repository Ruff, development-index and whitespace checks
+pass. No distance, inverse, force, full frame or native mechanics calculation
+runs in this step; strength acceptance remains open.
+
+The [current inverse/feature adapter](../../scripts/eoere_current_contact_inverse.py)
+addresses the next method question: can a current occupied source-face cell be
+mapped into its own master's guarded reference chart and queried against that
+master's complete genuine closed boundary? The earlier runtime provider fixes
+20 owners and 8,088 coordinates, so its candidate factory is inapplicable here.
+The new adapter reuses the frozen geodesic map, sufficient bound, Newton inverse,
+strict container and own-distance callback kernels. One cell per registered
+pair is selected nearest its original patch's area-weighted centroid; this is
+a diagnostic subset of the 10,484 pair/cell bindings. No contact force is added.
+Known-answer rigid/interior/endpoint inverses, state-cache guards, open, compressed,
+void, touch and medial features pass. A tiny residual-to-root ball must remain
+strictly inside the same ambient box under its `L<1` bound; floating evaluation
+is not an interval certificate. All **50 adapter tests** pass, including a small
+22-solid / six-state integration recipe and independent early/late drift of
+intake, domain, measure and method source groups. An inconsistent inverse's own
+master-map residual is independently rechecked before any distance callback.
+Distinct slave/master bounds also protect the certificate's own owner, chart,
+box and bound routing.
+
+All **228 current pair/case probes** complete: nine points lie strictly outside
+their containing deformed master box, 189 have a strictly open reference
+classification, and 30 have qualified smooth compressed reference features.
+There are no unresolved inverse or distance branches in this diagnostic subset.
+The **219 actual inverse queries** converge in at most two Newton steps, with
+maximum residual **4.547474e-13 mm** against the unchanged 1e-11-mm gate.
+The largest residual-to-root ball radius is **6.515323e-13 mm**; every final
+point has at least **96.811181 mm** ambient-box margin. All **132 fresh own
+bounds** exactly reproduce the saved source-bound records. The largest sampled
+compressed reference-distance magnitude is **0.312663 mm**, not current
+Euclidean penetration or pressure. The 2,350,261-byte v1 record binds **1,677
+verified source pins** and stays ignored and active. Reproduce with
+`timeout 180s uv run python -m scripts.eoere_current_contact_inverse --out FRESH.json`.
+The v1 producer pin `scripts/eoere_current_contact_inverse.py`, SHA
+`a378dd66167a97039b2231e28dec20890cdb6584c517e824da405c052e35e965`,
+now resolves explicitly to its same-named exact snapshot under
+`source-at-current-timber-inverse-probes-v1/`; its other 1,676 pins remain
+unchanged. Review's residual-observation and master-domain-routing test gaps
+are covered, as is a later full-cell coordinate-binding gap.
+
+The full-cell extension reuses every one of the 10,484 registered pair/cell
+bindings, without footprint clipping, at the same six diagnostic poses.
+All **62,904 probes** resolve: **3,322** lie strictly outside their containing
+master box, **57,924** have strictly open own-reference classifications and
+**1,658** have qualified smooth compressed features. The **59,582 actual
+inverses** take at most three Newton steps; maximum residual is
+**9.890755e-12 mm**, within the unchanged 1e-11-mm gate. Maximum root-ball
+radius is **1.405413e-11 mm** and minimum final ambient margin is
+**45.603533 mm**. All 132 fresh bounds reproduce the frozen records.
+Maximum sampled compressed reference-distance magnitude is **1.302422 mm**,
+not a physical pressure or strength comparison. Eleven compressed probes use
+a different own-master feature from the original patch's master face; the
+complete-boundary query retains them. All 228 representative complete-probe
+hashes match the preserved v1 results exactly.
+
+The **76,966,059-byte** full-cell record binds **1,677 verified pins**, stays
+ignored and active, and retains native/complete-probe hashes in compact
+resolved rows plus complete unresolved records and extrema. These diagnostic
+rows are not contact-force inputs. Reproduce with
+`timeout 3600s uv run python -m scripts.eoere_current_contact_inverse --all-cells --out FRESH.json`.
+All **62 adapter tests** pass, including exact complete-cell/coordinate bindings,
+every distinct own state, master certificates, compact native fields,
+complete unresolved inverse/distance retention, heterogeneous extrema with
+first-tied full witnesses, invalid measure and final-probe source drift.
+Independent correctness, testing and provenance reviews are clean. New neighbors and station/touch branches
+at later trial states, force composition and finite-frame equilibrium remain
+open; this saved-pose point-query pass does not cover them.
+
+The subsequent neighbor question is whether tighter source-bound enclosures
+can exclude the six still-possible unregistered timber pairs. The existing
+whole-world-box rule is conservative but can greatly overestimate the radial
+arm of a diagonal member. A rigidly transformed genuine-source bounding box
+and a union of station-interval enclosures can retain the same map and its
+rotation bounds while reducing this overestimate. Strict separation must hold
+for every pair of covering pieces; any remaining overlap stays unresolved.
+The [piece-enclosure implementation](../../scripts/eoere_current_neighbor_enclosures.py)
+now queries all 22 genuine closed solids in a proper rigid source-axis basis.
+Pinned OCCT 7.9.3 [AddOptimal](https://raw.githubusercontent.com/Open-Cascade-SAS/OCCT/V7_9_3/src/BRepBndLib/BRepBndLib.hxx)
+uses full native geometry, no triangulation, with shape tolerances included;
+CadQuery 2.8.0 [transformShape](https://cadquery.readthedocs.io/en/latest/classreference.html#cadquery.Shape.transformShape)
+acts on a copy using a typed rigid transform. Native re-expression differences
+are bounded on the original world box and added to local bounds with 1e-6 mm
+padding. Every axial interval and both endpoint overhangs are covered using
+the source-bound geodesic rotation and translation envelopes. All **132 fresh
+bounds** and old coarse boxes reproduce their frozen records exactly.
+
+The **1,548 piece covers** (258 per pose) supply all **1,386 whole-pair
+decisions**. This tighter source-axis method excludes **none** of the previous
+27 case/pair possibilities: five remain in each first case through `k12-rear`,
+and two remain in `a1-rear`; they are the same six distinct pairs listed above.
+This is an unsuccessful exclusion result, not detected contact or collision.
+The **4,619,041-byte** record binds **1,678 verified source pins** and stays
+ignored and active; no geometry, contact force, model or floor support changed.
+Reproduce with `timeout 300s uv run python -m scripts.eoere_current_neighbor_enclosures --out FRESH.json`.
+The initial **50 portable tests** pass: genuine rotated/cut/curved source boxes,
+independent rigid/twist/tilt/translation motions, nonuniform interior stations,
+both overhangs, every-piece strict separation including exact touch, invalid
+source/state/cover rejection and all six current-sized source/state joins with
+final-screen drift rejection. Correctness and provenance reviews are clean;
+testing review's differing interior/endpoint rotation gap now has an additional
+independent containment/false-exclusion regression. The v1 producer pin
+`scripts/eoere_current_neighbor_enclosures.py`, SHA
+`fe698139e50c8154903b188a8519650be7d41f2150386907a92d376f2fdb724f`,
+resolves to its exact same-named snapshot in
+`source-at-current-timber-neighbor-pieces-v1/`; the failed exclusion evidence
+and its other 1,677 pins are preserved.
+This method does not qualify later trial states; remaining pairs require
+stronger containing geometry or complete own-boundary contact coverage before
+force/frame admission. Source floating-point limitations remain explicit.
+
+The next refinement asks whether intersecting each piece's reference box with
+the original whole-solid world box removes virtual corners near the post tops,
+and whether the native reference minimum between service rails exceeds both
+whole-material motion bounds. The first retains two independent containing
+boxes; the second uses the triangle inequality, subtracting both displacement
+norm bounds and declared native-distance numerical padding. Exact touch or a
+negative margin remains unresolved. Neither test changes geometry or supplies
+a physical contact force, interval certificate or later-state admission.
+
+The v2 refinement now excludes **all 27 prior unregistered case/pair
+possibilities** at the same six saved poses. The source-box intersections
+exclude the **15 post/principal or post/side comparisons**, with at least
+**33.939626 mm** strict piece-separation margin. For the **12 service-rail
+comparisons**, the native source minimum exceeds both whole-material
+displacement bounds and numerical padding by at least **12.525087 mm**.
+No unregistered timber pair remains possible under these saved-pose screens;
+all registered pairs remain in the force plan. This does not test timber
+against metal, panels or other material, or qualify a future trial state.
+
+Six native source-pair minima are queried once, with completion status,
+nonnegative distance, all returned closest-point witnesses and unchanged own
+solid/topology guards. OCCT 7.9.3's pinned [minimum-distance interface](https://raw.githubusercontent.com/Open-Cascade-SAS/OCCT/V7_9_3/src/BRepExtrema/BRepExtrema_DistShapeShape.hxx)
+defines the native query and its 1e-7-mm deflection setting; the separate
+1e-6-mm padding is declared numerical padding, not an error theorem or interval
+certificate. The motion bound is the maximum over every covering piece of
+the translation norm bound plus its rotation displacement and numerical
+padding. The triangle inequality subtracts **both** bodies' bounds; a zero or
+negative result supplies no exclusion. Current geometry and forces are unchanged.
+
+All **96 neighbor tests** pass, including analytic separated/contained/touching/
+overlapping/curved source pairs, a genuine horizontal-cut solid, distinct
+interior/end rotations, worst-piece motion norms, strict zero-margin behavior,
+source rejection and six current-sized cases with a genuine diagonal-gap pair
+excluded only by the distance-minus-motion screen. Asymmetric mixed-sign
+translation intervals now independently check the maximum motion norm and
+prevent exclusion of a genuine gap closed by an upper-end translation.
+Another genuine rotated-source arrangement excludes a pair only through its
+piece covers while both coarse and distance-minus-motion screens remain
+inconclusive. Strict separation, exact touch and witness components are checked
+independently along all three world axes. The combined inverse and neighbor
+suite passes **158 tests**, with clean independent correctness, testing and
+provenance reviews. The
+**5,385,166-byte** v2 record binds **1,678 verified pins**, remaining ignored
+and active. Reproduce with the preceding neighbor command using a fresh output
+path; v1 and its snapshot remain active and recoverable.
+
+The next force question is whether the complete fixed reference-material
+quadrature can compose signed timber forces and derivatives at each own state.
+The [current timber bedding adapter](../../scripts/eoere_current_timber_bedding.py)
+reuses the frozen energy/inverse/jet kernel and complete-boundary callbacks.
+Its source-only current preparation binds **22 timber maps**, **10,484 fixed
+cells**, the six own states and **1,680 verified source pins**. Every trial
+recomputes own bounds and all timber-pair screens; a new unresolved neighbor,
+inverse, touch or feature branch stops the complete response. Only strictly
+exterior master-box points supply locally zero energy without an inverse.
+The original declared bedding is retained, rather than inferred from the
+diagnostic probe rows. All **48 portable tests** pass, including independent
+force/covector and energy answers, finite-difference gradients/tangents,
+multi-cell derivative and six-component owner-wrench sums, rigid objectivity,
+new-trial neighbor rejection, source drift and a genuine 22-owner/six-case
+recipe with distinct known answers. Heterogeneous source-cell areas and pair
+bedding values retain their own complete bindings. A genuine bored-solid
+opening inside the master box retains its inverse/distance evidence and zero
+energy, gradient and tangent, alongside compressed and strict-box-open cells.
+Independent correctness, testing and provenance reviews are clean.
+
+The production force record now retains **62,904 cell/case rows**: **1,658
+compressed**, **57,924 reference-open** and **3,322 strict-master-box-open**.
+All six cases pass the unchanged inverse, feature and trial-neighbor guards.
+The maximum cell-force norm is **577.685951 N**, maximum full-gradient work
+residual **5.69e-14 N**, and maximum complete owner-wrench sum component
+**1.20e-9 N or N·mm**. These are numerical scenario results, not qualified
+physical contact forces or candidate equilibria. Direct saved-row arithmetic
+independently reproduces every case energy and every owner's force/moment sum.
+The **58,492,055-byte** ignored record binds **1,680 verified source pins**;
+complete rows, fixed cells, trial covers and extrema remain active inputs.
+The original v1 case records copied inherited first-order admission fields
+beside timber-only gradients. Those inherited pass flags and small residuals
+describe the source first-order solve, not the new timber response. v1 bytes
+and its exact producer remain preserved in
+`source-at-current-timber-bedding-v1/`. v2 nests that complete source binding
+under `saved_first_order_source`, verifies the unchanged constitutive AST and
+all current state/measure joins, and updates only status/provenance metadata.
+Every force, energy, gradient, row, trial bound, extremum and owner wrench is
+unchanged. The **58,771,156-byte** v2 record binds **1,682 verified pins**; early and final-case drift tests reject
+changes to the raw record, snapshot or law sources. Fresh independent
+correctness, testing and architecture reviews are clean. Reproduce the
+metadata export with `uv run python -B -m scripts.eoere_current_timber_bedding --reexport-preserved --out FRESH.json`;
+the full numerical command omits `--reexport-preserved` and requires a fresh
+output and restored frozen dependencies.
+At that timber-only stage, full-frame composition, physical stiffness, complete
+joint/hardware resistance, finished timber strength/restraint and movement
+acceptance remained open; the later composition result below closes numerical
+work only. No
+geometry, floor support or release changed.
+
+The [current full-frame composition](../../scripts/eoere_current_finite_frame.py)
+passed independent correctness, testing and architecture code reviews. Its source-only preparation restores the
+existing 22 timber, 100 shaft, 22 fitting and six panel elastic blocks;
+all **150 own block checks** match the cached source operator with maximum
+relative error **2.30e-18**. It binds all six current cases, **9,450 coordinates**,
+**835 original source loads** per case and **1,687 verified pins**. The existing
+finite/objective adapters are reused; source-order shaft spins, current
+four-strip fitting ports and each fitting's own heel gravity remain explicit.
+The narrow current-panel load gate authenticates the own projection and
+retains the frozen load and generalized-correction calculations. It keeps
+the original 32 floor normals and two enabled rear-leg centroid XY groups.
+All **53 focused tests** pass, including six-case routing of all load families,
+panel load totals, complete owner force/moment work with nonzero connector
+couples, source rejection, future contact recomputation and explicit separation
+of inherited first-order status. The fixed numerical operand seal includes
+projected-ring screw routing and rejects detached lookup rows, altered timber
+measure or elastic matrices, legacy fitting insertion and changed adapter
+ownership before either response path. The first production attempt stopped
+at the unchanged **1e-5 N/Nmm** owner-work gate; no complete response was
+accepted. The exact producer, SHA-256
+`4dc1f78c6754ad6e0a4f9904809271ebc35f8f23c8d465a40b0860fa4162ebdb`,
+is preserved in `source-at-current-finite-frame-v1/` under the raw root.
+Exploratory first-three-case work discrepancies are **0.000252–0.000305 N/Nmm**,
+principally at panels. The
+fourth case, `k12-right`, also stops at `eoere_clip_split_top_center_right`:
+heel residual **1.0191731903e-8 N** exceeds the unchanged **1e-8-N** gate.
+Neither discrepancy establishes a physical strength failure, and neither is
+waived. The failed observer's source is retained in
+`source-at-current-finite-frame-work-audit-v1/`. The later six-case observer
+retains five work failures and this heel failure; its self-hash was captured
+after preparation, so it remains exploratory. Its exact source is retained in
+`source-at-current-finite-frame-work-audit-v2/`.
+
+The first method audit identifies an independent rounding inconsistency in
+the four main panels: their recorded in-plane axes are orthonormal, but the
+separately rounded outward normal has a **3.1660e-10** orthogonality defect.
+The current runtime embedding now derives that normal from the unchanged
+in-plane axes, retaining the original outward sign and handedness. Source
+geometry, midsurfaces, local XY, stiffness and source RHS remain unchanged;
+the transverse embedding change is explicit and sealed. A genuine plate/point
+coupon reduces the observed world-motion work error from **0.0019478 Nmm**
+to below **1e-9 Nmm**, while internal energy, gradient and tangent are
+bit-identical. The normal-offset change at half thickness is below **4e-9 mm**.
+The first-port transport also returns an exact copy of the heel seed when
+that controlling port is unchanged; other-port changes still require fresh
+stationarity. No root option, constitutive law or gate changes.
+
+Fresh correctness, testing and architecture reviews are clean on producer
+`14d945789a0be6d85c3b7d3fccdb44933d0a88662bfb66520c5240c814400b93`,
+preserved in `source-at-current-finite-frame-v2/`. Its fresh production attempt
+still fails the unchanged owner-work gate. These repairs therefore do not
+establish complete response closure, heel-gate closure in all six cases or
+finite equilibrium; the remaining discrepancy is under method review.
+
+The source-bound v4 observer captures **two diagnostic passes** (`a12-rear`
+and `k12-rear`) and four fitting-work failures of **1.1775e-5–2.0523e-5 Nmm**.
+All 1,689 pins verified before the producer changed. Timber-contact work
+closes below **1.40e-9 N/Nmm** and the generic component below **9.55e-8**
+in the four failed cases. Independent transport of the existing local fitting
+actions reproduces those failures: a locally accepted heel force residual
+gains a moment arm when transported to the world origin. The immutable
+1e-8-N local check alone is insufficient for the separate 1e-5-Nmm world check.
+The v3 observer had stopped when it encountered a genuine diagnostic pass;
+its failed receipt and exact source remain preserved, rather than labeling
+that observer scope error as a frame failure.
+
+A source-bound, unchanged `a12-forward` fitting coupon reduces world-origin
+wrench error from **1.3278213e-5 to 7.4825221e-7 N/Nmm** by requesting
+**1e-9 N numerical heel accuracy** through the existing refiner. Heel residual
+falls from 5.5644e-9 to **7.4874e-10 N**, with 26 callbacks against the
+unchanged cap of 100. Geometry, potential, stiffness, source load, seed,
+root options and original acceptance checks remain unchanged. The current
+frame requests that stricter numerical target and records it separately from
+the original heel acceptance gate. All **57 focused tests** pass, including
+the genuine unchanged-fitting/world-wrench regression and cached/fresh
+wrapper rejection of independently mismatched recovered actions. Fresh correctness, testing and architecture reviews of
+producer `d1c0d255b82a18e6856ee38b54f1fb5748001b4aad97c1564e1aea96c2cb4d14`
+and the final test file are clean. The root's 57-test run passes in 28.01 seconds;
+Ruff passes. Independent testing confirms that promoting the numerical target
+to the outer acceptance gate, or falsely reporting target attainment, is rejected.
+
+The fresh v3 attempt exposed an implementation distinction: passing the
+1e-9 target as `heel_tolerance_n` also made it a new final acceptance gate.
+At `eoere_clip_angle_base_left` in `a12-forward`, the unchanged refiner returned
+**1.0124861e-9 N** after an improving correction, then stopped on a
+non-improving trial. A separate 2e-9 target returns the same heel and closes
+world work to **1.1983548e-6 N/Nmm**; it uses 27 callbacks rather than 40.
+This is an observed refinement limit, not proof of a mathematical precision
+floor or a failed original criterion. All-case local probing also finds 29
+missed 2e-9 targets, so a blanket stricter final force gate is not adopted.
+
+The current composition now separates these roles explicitly: a scoped,
+restored refiner seam seeks 1e-9-N numerical accuracy, while the unchanged
+frozen condensation checks the **original 1e-8-N gate** and callback cap.
+Target attainment is recorded separately. Every response still requires
+positive heel and the complete **1e-5 N/Nmm** owner-work check; failures of
+those original checks are never caught or accepted. The genuine base-left
+regression exercises this distinction through both condensation and the public
+`LoadedFittings` response, reports the original-valid missed target explicitly,
+and checks callback restoration on error.
+The exact failed v3 producer remains in `source-at-current-finite-frame-v3/`.
+The v4 producer is retained separately in `source-at-current-finite-frame-v4/`.
+Its fresh production attempt passes the first three saved-pose work checks at
+**1.8524e-6**, **1.9898e-6** and **8.5417e-6 N/Nmm**, then stops at the unchanged
+owner-work gate in `k12-right`. Their signed full gradients remain
+**116,925–263,551 N**, so these diagnostic passes are not finite equilibrium.
+The failure receipt retains null accepted coordinates/actions and false release
+flags. Separating numerical accuracy from acceptance resolves the unintended
+new heel requirement; it has not closed all complete-frame work checks.
+
+The fourth-case local isolation identifies `eoere_clip_single_top_right_2`:
+its **4.6952e-9-N** heel residual passes the original gate, but the world-origin
+wrench error is **1.16254e-5 Nmm**, above 1e-5. A separately source-bound coupon
+subtracts the same fixed translation from all four numerical ports and the
+internal heel seed, then restores the physical points and dead-force energy
+offset. This reduces the residual to **2.3561e-10 N** and world error to
+**5.6394e-7 Nmm**, with 29 callbacks rather than 54. Original-world energy
+differs by **2.48e-11 Nmm**, gradient by **5.39e-9 N**, and returned heel by
+**1.25e-13 mm/1000rad**. The reference geometry, rotations, source loads,
+stiffness, potential, root options and all acceptance gates remain unchanged.
+This is a numerical coordinate datum, not movement of a physical fitting.
+
+The current wrapper stores each source first-port translation as a fixed,
+sealed datum, reuses it at future trials, and restores all port/root/load/heel
+points plus the exact dead-force work offset. Raw numerical heel coordinates
+and the refinement datum remain explicit. All **58 focused tests** pass in
+28.70 seconds; Ruff passes. The genuine regression verifies restored world
+work, physical points, energy derivatives, tangent differences and future
+datum reuse. The original-valid missed-target regression also remains in use
+with an explicit zero numerical datum. Fresh correctness, testing and
+architecture reviews are clean on producer
+`b42e91768c211c661918239f1223accbee574e8a18e299d1fda43f89c88b3788`.
+The supplemental v4 local observer checks all **132 fittings**: every
+original heel and world-work check passes, maximum heel residual is
+**8.6766e-10 N**, maximum world error **1.1818e-6 Nmm**, and at most 29 callbacks
+are used. All 62 listed pins verify, but the observer omits `uv.lock` from its
+published pin union and does not declare numerical tool versions. Its bytes and
+exact source in `source-at-current-fitting-accuracy-floor-v4-bound/` remain
+exploratory and are excluded from complete execution-source admission. The
+independently complete v5 frame below freshly evaluates all 132 fittings and
+supplies the primary evidence; no replay of this superseded observer is needed.
+
+The fresh **v5 complete-frame diagnostic passes all six original owner-work,
+local heel and positive-heel checks**, with the unchanged 100-callback cap.
+All **1,687 source pins** verify. The **74,187,502-byte** result remains ignored
+raw evidence, retaining all six source maps, signed gradients and physical
+actions; it is not a permanent publication asset. It composes the 150 owners,
+9,450 coordinates and 835 own loads per case without changing the source
+geometry or load cases. Its exact producer is retained in
+`source-at-current-finite-frame-v5/`.
+
+| Case | Owner-work error, N/Nmm | Full signed gradient maximum, N |
+| --- | ---: | ---: |
+| `a12-forward` | 8.47504e-7 | 263550.633342 |
+| `a12-rear` | 8.30099e-7 | 116924.539077 |
+| `a12-left` | 7.89762e-7 | 188036.717592 |
+| `k12-right` | 5.57222e-7 | 182973.817791 |
+| `k12-rear` | 7.15940e-7 | 115122.092592 |
+| `a1-rear` | 1.18172e-6 | 40316.198437 |
+
+The maximum **1.18172e-6-N/Nmm work error** is below 1e-5. All 132 heel roots
+also meet the 1e-9 numerical target, and both original rear-leg XY hosts retain
+compression in each case (minimum **592.420939 N**). This preserves the
+unverified no-slip analytical branch and introduces no anchor. The signed
+gradients are far above the unchanged 1e-5-N equilibrium gate: these six old
+first-order poses are **not finite equilibria**. Every equilibrium, physical
+strength and release flag remains false. Independent correctness, testing and
+architecture reviews of the saved output report no substantial v5 findings.
+Their read-only audits verify the source/state joins, all 900 owner balances,
+132 fitting responses, 11,940 connector rows and per-case load/energy sums.
+The architecture review identified the supplemental observer provenance gap
+dispositioned above. No numerical replay was used for these saved-output
+reviews, and no complete engineering acceptance follows from this method result.
+
+The earlier `mixed-stack-affine-raw-v1.json`, `local-timber-v1.json`, first input
+record, `finite-fitting-precision-v1.json` and exact `source-at-first-run-v1/`
+producer snapshots remain recoverable. The unchanged v2 fitting coupon and its
+exact producer in `source-at-second-run-v2/` are also retained; v3 independently
+checks the returned heel residual against the unchanged 1e-8-N gate. Portable
+tests exercise the exact synthetic load/pose, solver arguments, residual and
+source checks, and route 112 distinct seat datums to their own 22 receiver solids,
+including catalog annuli wider than nominal and smaller supported inner radii.
+Their arithmetic was independently confirmed; v2 strengthens six-case/state,
+material-declaration and helper-source intake. Do not substitute v2 bytes at a
+v1 path. No raw evidence is archived or pruned. Reproduction commands are
+`uv run python -m scripts.eoere_mixed_stack_yield --out FRESH.json`,
+`uv run python -m scripts.eoere_local_timber_closure --out FRESH.json` and
+`uv run python -m scripts.eoere_finite_fitting_precision --out FRESH.json`, plus
+`uv run python -m scripts.eoere_current_washer_lands --out FRESH.json`;
+each output must be fresh and all frozen source dependencies must be restored.
+
+The preceding four-producer closure had **92 passing portable tests**, passing
+Ruff and the development-index check, and clean independent correctness,
+testing and architecture reviews. Its 1,606 mixed-stack, 1,607 timber and
+1,608 washer source pins remain current; historical fitting producer pins
+resolve through their preserved snapshots. All 20,548 pre-existing files outside
+the two maintained documentation edits and HEAD remain unchanged. Git refreshed
+the binary index cache; all HEAD blob/mode/stage entries, the eight pre-existing
+intent-to-add entries and their flags remain unchanged, with no staged diff.
+At finite-frame closure, the owned publication set contained **24 new files / 614,556 bytes**:
+eleven producer/test pairs and two small frozen inputs, plus edits to this
+ledger and the development entry. The largest new file is the 65,074-byte
+frame test module. Across affected runs, **566 distinct tests** pass; this is
+not a claim of one combined 566-test invocation. The final frame suite has
+58 tests, and the ten other suites retain their preceding 508 passing tests.
+All **638 local link destinations** in the two maintained documents resolve;
+the development entry remains at 150 lines and its revision check passes.
+Bulky raw records stay active in ignored output locations. No raw inputs,
+failed attempts or producer snapshots are archived or pruned.
+
+The later front-placement, complete cleat-wrench and Git-portability integration
+brings this qualification publication to **40 new files / 909,362 bytes**, plus
+the two maintained entries, contributor instructions and test-selection hooks.
+The seven unchanged frozen helper/contract files needed by the portable tests
+total **140,218 bytes** and retain their original paths and bytes. The four
+small joint-closure inputs remain explicit publication inputs. No large raw
+fields, operators, solids, cached standards or environment installations are
+added. Those source banks remain active, recoverable local inputs.
+
+The full affected set has **603 passing tests**. Of these, **387** are portable
+and **216** authenticate the recovered source bank through their frozen
+mechanics fixtures. The exact 63 functions are recorded in
+[recovered-evidence.txt](../../tests/recovered-evidence.txt); they remain
+current checks, separate from historical tests. Run the full affected modules
+with `uv run pytest --include-recovered-evidence`; the default retains portable
+checks, and the opt-in fails on missing or changed inputs. Test selection is
+explicit, with no file-presence skip or substitution for production guards.
+All original qualification producer/test bytes and frozen result pins remain
+unchanged. The [selection controls](../../tests/test_test_selection.py) cover
+default and explicit selection, independent historical selection, new tests,
+parameterized cases and missing-source failure; all **15 controls** pass.
+The **387 portable tests** also pass in an isolated 83-file input snapshot,
+with no recovered solids, operators, fields or standards available. An initial
+snapshot omitted the tracked root-identification file; restoring that Git file
+fixed the snapshot without adding a source bank or changing test bytes.
+Independent correctness, testing and architecture reviews report no substantial
+findings for this integration. All 40 proposed additions match their recorded
+sizes and hashes; all **2,087 cleat source pins** and the current result,
+components and engineering-assessment bytes remain unchanged.
+For recovered checks, use the existing navigation-v2 kit and its exact-input
+map in the [recovery record](../repository-cleanup-evaluation-2026-09-28.md#recovery-extension-and-persistent-placement).
+The additional 23 shared topology/review dependencies match the existing
+71-file archive at
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/thin-build-closed-solids-and-member-v4.tar.gz`;
+its companion manifest SHA is
+`874b651728e7bb19ec4ed522f788a97cc6f284c39c89e858b4f54f2caefc22be`.
+Restore that manifest with `uv run python scripts/evidence_archive.py restore --manifest MANIFEST --destination FRESH_DIRECTORY`,
+then compare each required hash before copying missing inputs to their original
+paths. This reuses the recorded archive; no new archive or pruning is needed.
+
+The coordinated builder/documentation publication and repository text audit
+bring this set to **46 new files / 988,598 bytes**, across **99 owned paths**
+including maintained edits. All **1,173 local file targets** and **76 Markdown
+fragments** in the 45 affected Markdown documents resolve; the active entry
+remains at 150 lines. The owner-kept
+qualification limits are reflected in both maintained entries; a final
+independent scope review found no contradictory acceptance or redesign claim.
+The full affected 603-test run also passes with the explicit recovered-evidence
+option. Full shared regression and exact-revision CI publication are separate
+gates; the latter follows the repository's Denver quiet-hours window.
+The full shared command, `uv run python -m scripts.compact_viewer_meshes --run -- uv run pytest -q`,
+finished with **5,514 passes, four failures, one skip and 496 deselections** in
+5,118.77 seconds. Its four failures were exactly the cache-contamination checks
+dispositioned below; all pass in the 60-test targeted rerun. The subsequently
+added builder-layout test also passes separately. This records a resolved
+regression run plus focused reruns, not one wholly green full invocation.
+Post-run mesh checks pass for **6,823 retained files** and **13,618 shared URLs**.
+The Pages run title now names its triggering CI run and source revision;
+publication monitoring requires both rather than inferring the trigger from
+the workflow's default-branch SHA. Existing checkout and deployment gates remain.
+
+The shared run identified two PB02 refinement authentication failures caused
+by five unbound `.ruff_cache` files dated October 6 inside its preserved
+`source_snapshots` directory. All **278 frozen source files** matched all five
+reports; no source byte or authentication guard needed repair. The cache was
+unused and is disposable under the existing cleanup policy. Its **16,482 bytes**
+were archived, fully test-restored and verified before the archive helper's
+separate unchanged-source prune. All **13 refinement checks** then pass.
+The external archive is
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/pb02-refinement-unbound-ruff-cache-2026-10-12.tar.gz`
+(5,016 bytes, SHA-256
+`8ae23d493d2f6ed357b3297e89cc011e73c2a44b286fc87e9ba2eb311410b038`);
+its companion manifest SHA-256 is
+`ebb686ecc1ccde828be7fd713cc18408fefc98977b70379d5900fd4332581fce`.
+Recovery uses `uv run python scripts/evidence_archive.py restore --manifest MANIFEST --destination FRESH_DIRECTORY`;
+keep these unbound caches outside the frozen snapshot. No raw run or frozen
+input was pruned. Ruff verification continues to use `--no-cache`.
+
+The same contamination caused two later PB03 checks to fail. The bounded
+diagnostic-tree inventory found eight further unused cache roots from October
+4–6, containing **40 files / 134,960 bytes**. Their **2,262 frozen source files**
+and eight source-map reports matched before and after separate archive,
+test-restore, verification and prune operations. The additional archive is
+`/home/mckay-linux/repos/mini-moonboard-cleanup-backups-2026-10-07/diagnostic-unbound-ruff-caches-2026-10-12.tar.gz`
+(27,788 bytes, SHA-256
+`e1aca9d7e51ebe0808162b1ecd8d50401412898fb5b57db32dc6ae7d391de8b4`);
+its companion manifest SHA-256 is
+`a658998c8bfb28fcba9ba66eeeeb897a79920d7cd2fb928452424bc108d2e641`.
+The same recovery command applies. All **60 targeted PB02/PB03/PB04/PB05
+authentication checks** now pass with unchanged code, evidence and guards.
+
+Beyond the completed conditional numerical stages, full engineering
+qualification would require physical demand/stiffness/contact and movement
+criteria, complete structural joints and hardware, then finished timber/local
+strength and directional restraint/global stability. Existing splitting-source
+reviews already show that a simple beam-splitting resultant is insufficient for
+the cleats' opposing bolt forces and couples; their hypothetical fracture inputs
+are not adopted DF-L design values. The owner now retains these qualification
+limits with the current design; a separate joint revision is not selected.
+Any future qualification work must address these specific questions without
+transferring an older candidate's acceptance. The prior
+published revision `4647fa60` passed [all CI gates](https://github.com/mckayreedmoore/mini-moonboard/actions/runs/38109883102).
+
+A fresh read of the [owner-selected Eoere listing](https://www.amazon.com/dp/B0C7V7VS89)
+on October 11 confirms its Q235B description and the unresolved ¼-in/6-mm
+nominal thickness ambiguity. Its advertised shelf load is not an applicable
+frame-joint force/couple capacity. No guaranteed minimum formed thickness,
+heel radius or applicable complete joint rating was found in that listing.
+The owner's existing 6.35-mm-thickness/6.35-mm-radius nominal comparison is
+already complete for the six current fields: **0 of 528 heel reference
+exceedances**, maximum **0.992604**. The **1.107141** result belongs to the
+separate 6-mm/6-mm sensitivity and remains recorded with its seven exceeded
+rows. Both assume inside radius equal to thickness. These fixed-action
+comparisons retain their dimensional/material assumptions and do not
+establish complete formed-fitting resistance.
+
+The October 11 reads of the selected [3/8-in washer](https://boltdepot.com/Product-Details?product=15023)
+and [1/2-in washer](https://boltdepot.com/Product-Details?product=15025) confirm
+tempered medium-carbon steel, a Grade 5 label and ASME B18.21.1 dimensional
+limits. Those pages do not state a numeric yield minimum or a washer material
+standard. The [selected 3/8-in nut](https://boltdepot.com/Product-Details?product=2571)
+separately names SAE J995; that nut standard is not transferred to washers or
+spacers. The spacer page could not be retrieved in that first read; the
+owner-requested lookup below subsequently recovered it. No new material
+minimum is adopted.
+
+### Online specifications for selected hardware
+
+The owner requested an online specification search on October 11. The exact
+selection remains the [100-stack hardware table](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv).
+Fresh supplier reads identify all seven selected bolt SKUs as zinc-plated,
+partially threaded SAE J429 Grade 5 products with ASME B18.2.1 dimensions:
+
+| Selected bolt | Count | Diameter/thread × nominal length | Published minimum thread length |
+| --- | ---: | --- | ---: |
+| [Bolt Depot 363](https://boltdepot.com/Product-Details?product=363) | 60 | 3/8-16 × 2½ in | 1 in |
+| [Bolt Depot 366](https://boltdepot.com/Product-Details?product=366) | 4 | 3/8-16 × 3½ in | 1 in |
+| [Bolt Depot 367](https://boltdepot.com/Product-Details?product=367) | 4 | 3/8-16 × 4 in | 1 in |
+| [Bolt Depot 368](https://boltdepot.com/Product-Details?product=368) | 8 | 3/8-16 × 4½ in | 1 in |
+| [Zoro G0341148 / N01200.037.0475](https://www.zoro.com/zoro-select-grade-5-38-16-hex-head-cap-screw-zinc-plated-steel-4-34-in-l-10-pk-n012000370475/i/G0341148/) | 16 | 3/8-16 × 4¾ in | 1 in |
+| [Grainger 38WP04 / N01200.037.0650](https://www.grainger.com/product/Hex-Head-Cap-Screw-Steel-38WP04) | 4 | 3/8-16 × 6½ in | 1¼ in |
+| [Zoro G0340956 / N01200.050.0850](https://www.zoro.com/zoro-select-grade-5-12-13-hex-head-cap-screw-zinc-plated-steel-8-12-in-l-5-pk-n012000500850/i/G0340956/) | 4 | 1/2-13 × 8½ in | 1½ in |
+
+[Portland Bolt's J429 table](https://www.portlandbolt.com/technical/specifications/sae-j429/)
+gives Grade 5 at both selected diameters an **85-ksi proof stress, 92-ksi
+minimum yield and 120-ksi minimum tensile strength**, with HRC25–34 core
+hardness. This corroborates the existing conditional 92-ksi bolt basis.
+Grainger and both Zoro pages also display HRC19; Zoro displays a 74–85-ksi
+proof range. These fields conflict with the stated grade's size-specific
+requirements and remain a supplier-data clarification, not proof that a
+delivered bolt fails. No purchase or delivered conformity is asserted.
+
+The supplier's [thread-length note](https://boltdepot.com/fastener-information/Bolts/US-Thread-Length?nv=res)
+explicitly permits more than its listed minimum thread length. Subtracting
+that minimum from nominal bolt length therefore cannot guarantee smooth-body
+length. Grainger's [38WP04 drawing](https://www.grainger.com/ec/pdf/grainger-38wp04.pdf)
+shows a 1.250-in thread dimension without an item-specific tolerance.
+[Portland Bolt's runout reference](https://www.portlandbolt.com/technical/faqs/thread-runout/)
+lists cap-screw transition references of 0.312 in for 3/8-in and 0.385 in
+for 1/2-in diameters. Those class references do not provide the selected
+parts' actual full-form/root/runout profiles or replace the existing purchase
+conditions. The [BBI inch-thread tables](https://www.brightonbest.com/download/pds/PDS_Thread_Details_Inch_Series.pdf)
+provide external major/pitch limits, not a product-bound minimum root profile.
+
+| Selected component | Confirmed supplier specification | Remaining property boundary |
+| --- | --- | --- |
+| [3/8-in nut 2571](https://boltdepot.com/Product-Details?product=2571) / [1/2-in nut 2573](https://boltdepot.com/Product-Details?product=2573) | SAE J995 Grade 5; ASME B18.2.2. Nut heights 0.320–0.337 / 0.427–0.448 in. The [J995 table](https://www.portlandbolt.com/technical/specifications/sae-j995/) gives both UNC sizes 120-ksi proof stress. | Nut proof stress is not a washer yield value or a complete joint/contact capacity. |
+| [3/8-in USS washer 15023](https://boltdepot.com/Product-Details?product=15023) | Tempered medium-carbon steel; Grade 5 label; OD 0.993–1.030, ID 0.433–0.453, thickness 0.064–0.104 in. | No numeric yield minimum or material standard is stated. |
+| [1/2-in USS washer 15025](https://boltdepot.com/Product-Details?product=15025) | Same material/grade description; OD 1.368–1.380, ID 0.547–0.577, thickness 0.086–0.132 in. | Retain these SKU-specific catalog bounds; no numeric yield minimum is stated. |
+| [Spacer 13731](https://boltdepot.com/Product-Details?product=13731) | Zinc-plated low-carbon steel; 13/32-in ID, ¾-in OD, ½-in length: 10.31875 / 19.05 / 12.7 mm. | No numeric strength minimum, material grade or dimensional tolerances are stated. |
+| [Eoere ZX128-B-T4 / B0C7V7VS89](https://www.amazon.com/dp/B0C7V7VS89) | Main description says low-carbon steel; embedded specification says Q235B and ¼ in (6 mm). Nominal 3½-in size, eight holes for 3/8-in bolts and 300-lb shelf-load advertisement. | Minimum formed net thickness, heel radius/tolerances and applicable simultaneous joint resistance remain absent from the retrieved listing. |
+
+BBI's [USS washer sheet](https://www.brightonbest.com/download/pds/USS_Flat_Washers.pdf)
+does specify ASTM F436 mechanical properties and HRC38–45 for its hardened
+washer family. No source binds that family to Bolt Depot 15023/15025, and
+hardness alone is not an adopted numeric yield floor. The earlier larger
+strut-washer family minima remain option evidence; they are not transferred.
+
+The owner's followup asks whether threads are consequential and recalls the
+completed washer comparisons. Both questions have usable current evidence.
+The [six-case component record](hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json)
+already uses the conditional purchase-root diameter where the quarter-thread
+exception cannot be established; the 0.631248 maximum two-member reference
+does not assume a smooth shank throughout. AWC's [published explanation](https://awc.org/faq/what-is-the-difference-between-full-diameter-and-reduced-diameter-body-lag-screws-also-known-as-lag-bolts/)
+describes the root-diameter treatment, quarter-bearing exception and detailed
+threaded-part alternative. The existing pinned 2024 chapter remains the
+current method source.
+
+A bounded same-force comparison reuses `rail_front_bolt_left_2` in
+`a12-forward`: 569.345359 N lateral force, two 38.1-mm bearing lengths,
+63.844906° / 26.155094° grain angles and the same 92-ksi bending-yield basis.
+The saved reference allows 9.906 mm potential thread/runout in the side
+member, 26% of its bearing length, and uses the declared 0.2881-in root floor.
+Calling the existing [two-wood helper](../../mini_moonboard/bolted_wood_wood_yield.py)
+with those inputs reproduces the saved 901.936150-N mode-II reference exactly.
+Keeping the same inputs and NDS reduction terms, setting both thread-bearing
+lengths to zero and using the 0.375-in full-body bending moment gives the
+comparison below. The component record's own raw-case binding supplies the
+inputs and helper pins; all three calculation helpers and all six raw-case
+hashes were verified. No frame response is recomputed.
+
+| Same-force scenario | Unadjusted lateral reference | Demand/reference |
+| --- | ---: | ---: |
+| Hypothetical smooth bearing throughout | 1,096.224907 N | 0.519369 |
+| Existing conditional root-diameter treatment | 901.936150 N | 0.631248 |
+
+For this component, accounting for threads reduces the reference by about
+18%; both comparisons remain below 1.0 before the unresolved joint/group/end
+adjustments. Threads are consequential and already included in the reference.
+The separate current body/root metal first-yield diagnostic peaks at 0.513229,
+with no reference exceedance. Product-bound profiles, root-notch behavior,
+compatible contacts and complete joint resistance retain their limits.
+
+The current washer calculations also remain below their declared 33-ksi
+(227.527-MPa) comparison marker in all six cases, with zero reported axial
+reference exceedances. Required yield peaks at **72.662591 MPa / 0.319358**
+for nominal geometry and **155.938834 MPa / 0.685364** at adverse catalog
+dimensions. The latter belongs to `lumber_leg_bolt_right_2/head-capture` in
+`k12-right`. These are completed conditional axial plate calculations, not
+missing calculations or observed washer failures. Their remaining scope is
+the selected material-strength basis and compatible eccentric contact/prying;
+the finished-wood occupancy check separately covers all 112 nominal seats.
+Retain these results when prioritizing work rather than repeating them merely
+because a catalog yield minimum is absent.
+
+A public method source also exists for lateral joint stiffness:
+[Swedish Wood, Volume 1 (2022), §4.16, p. 114](https://www.svenskttra.se/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol1-2022.pdf)
+gives the Eurocode 5 reference `Kser = ρm^1.5 d / 23` N/mm for dowels,
+bolts and screws, with density in kg/m³ and diameter in mm, and `Ku = 2 Kser / 3`.
+It allows doubling the reference for wood/steel joints. Its
+[Volume 2 joint-slip table (2016), p. 37](https://shop.svenskttra.se/media/1163/design-of-timber-structures-2-2016.pdf)
+separately includes bolt clearance in slip. Applying a reference here requires
+matching density, fastener/shear-plane scope, clearance and loading regime;
+the complete axial/couple/contact behavior still needs its own basis. This
+is a method lead, with no adopted change to the current 1,000-N/mm Hillman
+springs, formed-angle laws or resistance. Movement criteria remain a design
+decision. The lookup narrows source questions but supplies no new equilibrium,
+capacity, geometry change or physical acceptance.
+
+### Factory alternatives and remaining engineering inputs
+
+A bounded factory-alternative read on October 11 also checks the
+[Hilti MQW-4-90](https://www.hilti.com/c/CLS_MODULAR_SUPPORT_SYSTEM/CLS_SYS_CONNECTORS_INT/r11307177),
+which states S235JR and 4-mm thickness, and the
+[Fischer FMA 4](https://www.fischer-international.com/en/products/installation-systems/channel-system/heavy-duty-channel-system-fms/construction-elements/mounting-angle-fma-3-and-fma-4/547843-fma-4),
+which states S235JR and 190 × 90 × 190 mm at 6-mm thickness. Neither supplies
+the current Eoere product's missing properties. The manufacturer-authored
+[Unistrut P2484/P2484W design report](https://cdn.shopify.com/s/files/1/0614/5546/6701/files/P2484_P2484W_Design_Load_1.pdf?v=1780598754)
+does publish moments, but for seven-hole gusseted brackets tested with two
+½-in-13 channel-nut/cap-screw assemblies per leg, torqued to 50 ft-lb.
+Those results do not qualify the current timber/3/8-in-bolt installation.
+The published [Fischer 8-mm angle](https://www.fischer-international.com/en/products/installation-systems/channel-system/heavy-duty-channel-system-fms/construction-elements/angle-bracket-fmasf-90)
+is 300 × 90 × 130 mm and is not a replacement at the current axes.
+These are alternative installations requiring their own geometry, demand and
+joint checks, not admitted substitutions. No model or hardware choice changes.
+
+The following table records qualification limits retained by the owner's
+October 12 disposition, beyond the **completed conditional numerical
+evaluation and bounded assessment**.
+Existing first-order fields, component comparisons and saved-pose diagnostics
+remain complete in their stated scopes. Missing catalog properties remain
+assumptions to resolve for qualification; the current washer comparisons do
+not report an exceedance.
+
+| Work area | Completed numerical evidence to reuse | Unclosed qualification for the broader goal |
+| --- | --- | --- |
+| Physical response and movement | Six current first-order cases are admitted. Six later complete-frame diagnostic work checks pass for the 9,450-coordinate composition and current load/contact census. Earlier frame seating/motion bounds are complete for their own revisions. | Justify current physical stiffness/contact and kinematic applicability, or establish a conservative demand bound, with any applicable movement criterion stated. The later saved finite poses remain unbalanced; their work closure does not qualify their forces. A finite-equilibrium assessment is one possible method route, not an automatic additional prerequisite when a justified treatment or bound suffices. |
+| Formed Eoere fitting | The owner's working **t6.35/Ri6.35** assumption has **0 of 528 heel reference exceedances**, maximum **0.992604**. The **t6/Ri6** sensitivity retains seven exceeded rows, maximum **1.107141**. Both use radius equal to thickness. | Establish dimensional/material applicability and an applicable complete simultaneous force/couple heel/hole/flange/rupture method. Preserve the narrow nominal margin and the 6-mm sensitivity. The nominal fixed-action heel comparison is complete; product net thickness/heel geometry and full joint resistance remain unqualified. Factory alternatives require their own geometry and joint checks before any model change. |
+| Complete bolted joints and hardware contact | The 92 two-member references already treat threads where required and peak at **0.631248** unadjusted. The four front runner/post bolts now pass all eight full-value end/outer-edge screens. Bolt-metal first-yield peaks at **0.513229**; axial washer comparisons peak at **0.319358 nominal / 0.685364 adverse**, with all 112 nominal wood seats supported. All 48 current mixed-stack/case raw trials are complete; the earlier coupled bearing/bending synthetic benchmark is also complete. | Qualify complete current signed row/group and oblique geometry treatment, other joints' end/edge conditions, splitting/row/block fracture and simultaneous axial/lateral/couple behavior, including compatible contact/yield for the eight mixed stacks. Retain explicit root/runout, washer/spacer material and eccentric contact/prying assumptions within that method. The **1.262496** imposed-factor sensitivity is not established by the checked front end/outer-edge distances; complete factors remain null. Earlier splitting/path assessments retain their source-model limits. |
+| Finished timber and global stability | Thirty-eight exact section planes give 228 current comparisons below their sampled normal/mean-shear references. Full-span stability sensitivities, candidate brace return paths and conditional no-slip support-resultant screens are recorded. | Current continuous critical-section, local hole/notch fracture and finished shear/torsion resistance remain unqualified. Directional restraint/effective-length credit and deformed global stability also remain unestablished. The four full-span exceptions are formula-domain limits, not buckling failures; mapped brace paths exist but their panel/attachment stiffness and strength are not qualified. Do not transfer an old splitting capacity to current cut shapes and connected paths. |
+
+These are qualification limits recorded by the completed evaluations, not a
+list of analyses never performed or demonstrated physical failures. Restraint
+credit depends in part on panel/attachment behavior, overlapping that deferred
+scope. The owner keeps the current design with these qualification limits;
+they are not outstanding redesign tasks in the current completion scope.
+The first-order response, bounded component/member evaluation and engineering
+assessment retain their completed numerical/reporting status. The owner's
+panel/screw deferral and exclusion of actual build fit stay in force; complete
+joint/member capacities remain null and physical-demand qualification remains
+false in the frozen records.
+
+The October 11 blocked audit rechecked the unchanged v5 result, its six false
+equilibrium/physical-qualification flags, current conditional joint inputs and
+the existing restraint/material sources. The same missing basis remained after
+three consecutive goal turns. The later continuation request authorizes work
+on these qualification limits. It has produced the front placement result
+above while preserving the fixed current model and deferred remedies; it does
+not select a geometry or hardware revision. No result is awaiting a running
+mechanics calculation. The current cleat transverse-opening transfer basis,
+complete simultaneous joint resistance and physical response applicability
+remain unclosed; the panel/attachment restraint dependency overlaps the
+deferred scope.
+The existing larger-washer material floors and alternate bracket test reports
+do not apply to the selected components. Repeating nominal comparisons alone
+does not resolve the missing physical applicability and complete-resistance
+basis. A justified treatment or bound can address applicability; this
+assessment does not make a new finite-equilibrium solve mandatory.
+
 ## Engineering assessment and acceptance decisions
 
 The owner requested completing the senior-design-engineer assessment while
@@ -38,7 +1498,7 @@ verification or directional restraint.
 | Physical demand and first-order applicability | **Not established** | Finite-arm diagnostics below alter contact classifications at saved q. Gross timber stiffness, generic screw springs, nominal shaft/fitting laws and simplified restraint remain conditional. An applicable kinematic/contact and stiffness treatment, or a justified bound, is needed before adopting these actions as physical design demands. This assessment does not require a particular solver. |
 | Small-motion/serviceability limits | **No criterion adopted** | Preserve 56.603761 mm maximum interaction-point motion and 0.107845 rad maximum relative timber/fitting rotation as diagnostics. They do not themselves define a pass/fail threshold or acceptable operating movement. |
 | Complete structural connections | **Resistance remains null** | All 24 replacement joint duties, the twelve starting frame-bolt arrangements and all 100 current stacks retain their current signed demands. Complete splitting/row/block fracture, group action, simultaneous axial/lateral/couple behavior and compatible mixed-stack contact/yield remain necessary. Separate two-member bolt references are insufficient for complete joints. |
-| Steel fittings and hardware contact | **Product/design resistance not established** | Establish defensible Eoere thickness/heel/material minima and an applicable heel/hole/flange/rupture method; retain the t6 heel exceedance and the t6.35 nominal comparison. Establish thread/root/runout bounds and compatible washer/spacer/nut contact and resistance. A catalog joint rating is one possible evidence route, not a mandatory substitute for an applicable engineering method. |
+| Steel fittings and hardware contact | **Conditional component references complete; complete resistance not established** | Root-treated bolt references and axial washer comparisons are below their stated references; all 112 nominal wood washer seats have modeled support. The working t6.35/Ri6.35 heel comparison also has zero reference exceedances, maximum 0.992604; retain t6/Ri6 as the separate exceeded sensitivity. Qualify material/profile assumptions and compatible washer/spacer/nut contact, eccentricity and prying within complete joints. Establish Eoere dimensional/material applicability and a complete heel/hole/flange/rupture method. A catalog joint rating is one possible evidence route, not a mandatory substitute for an applicable engineering method. |
 | Finished timber strength and stability | **Complete resistance remains null** | Reuse the 38 exact planes/228 comparisons. Continuous critical sections, local hole/notch fracture and finished shear/torsion remain unqualified. Four members need justified effective lengths/restraint for the recorded column method to apply; domain-only requirements follow below. |
 | Support and global stability | **Conditional on the recorded support model** | Six necessary normal-resultant hull screens remain usable. Two rear-leg centroid XY restraints are not exact distributed no-slip support. Local/yaw contact and deformed stability remain unqualified. The owner's unverified no-slip assumption remains explicit; no friction test or anchor is added. |
 | Screw/panel exceedances | **Deferred by owner** | Existing head/withdrawal, panel bending/rolling and local transfer limitations remain recorded. No screw/panel remedy or acceptance is inferred. |
@@ -108,13 +1568,14 @@ complete stability check. No member is enlarged or restraint added.
 | `base_principal_center_right` | 2474.015 | 1905.000 | 0.770003 |
 | `base_rail_top` | 2257.425 | 1905.000 | 0.843882 |
 
-Qualification next needs an applicable demand/stiffness/contact basis, then
-complete-joint methods with defensible hardware/material inputs, then finished
-local-member and restraint/stability evidence. Those are exact unresolved
-engineering inputs/methods, not work completed by recording a table. Screw/panel
-exceedance resolution and actual build fit remain excluded. No blanket external
-sign-off prerequisite is added; all current capacities and release flags retain
-their null/false values.
+The numerical assessment above is complete, including the four domain
+requirements and explicit unknown restraint factors. Broader qualification
+needs an applicable demand/stiffness/contact basis, complete-joint methods with
+defensible hardware/material inputs, and finished local-member and
+restraint/stability evidence. These are unresolved acceptance inputs/methods
+beyond the completed assessment. Screw/panel exceedance resolution and actual
+build fit remain excluded. No blanket external sign-off prerequisite is added;
+all current capacities and release flags retain their null/false values.
 
 Reproduce with
 `uv run python -B -m scripts.eoere_engineering_assessment --out FRESH.json --raw-probes fea/generated/selected-hardware-followup-v1/engineering-acceptance-v1/FRESH-ROWS.json`.
@@ -155,6 +1616,14 @@ Every exceedance is retained; no remedy, model change, native FEA or fit work ru
 | `k12-rear` | 2.506103 | 1.355801 | 4.436740 | 0.959491 | 0.859837 |
 | `a1-rear` | 1.837685 | 0.994187 | 2.684631 | 0.709784 | 0.635671 |
 
+The owner's working nominal heel assumption is **t6.35/Ri6.35**; all **528**
+current heel comparisons are below its conditional reference, maximum
+**0.992604**. The retained **t6/Ri6** dimensional sensitivity has **seven**
+exceeded comparisons, maximum **1.107141**. Both have inside radius equal to
+thickness. The nominal result is a completed fixed-action reference check;
+the roughly 0.740% difference below the marker is not a verified physical
+product reserve.
+
 These are separate same-case references, not adopted product capacities. The
 worst generic head and effective-thread requirements belong to
 `round_panel_upper_left_rim_4` in `a12-rear`: **62.969535 mm** required effective
@@ -168,8 +1637,10 @@ lateral strength, panel punching and the raised kickers' 26.9-mm post-end and
 Every case covers **100 shafts, 120 timber walls, 200 captures, 22 fittings,
 two cleat corners, six panels and 66 screws**. Selected lengths and catalog
 minimum smooth bodies replace the old bolt-length lookup. The 92 compatible
-two-member lateral references peak at **0.631248** unadjusted; the expressly
-unadopted `Cdelta=0.5, Cg=1, CD=1` sensitivity reaches **1.262496** at
+two-member lateral references already use the conditional purchase-root
+treatment where the quarter-thread exception is not established and peak at
+**0.631248** unadjusted. The expressly unadopted `Cdelta=0.5, Cg=1, CD=1`
+sensitivity reaches **1.262496** at
 `rail_front_bolt_left_2` in `a12-forward`. Current group/splitting factors and
 all 24 complete-joint resistances stay null. The conditional body/root-circle
 first-yield index peaks at **0.513229**; it does not qualify bolt/root-notch
@@ -188,12 +1659,15 @@ than the generic head-circle proxy. All 48 current nut forces are retained.
 Maximum force **334.929289 N** at `cleat_post_bolt_left_2`, `a12-left`, gives
 ideal mean stresses of **1.663035 MPa** on the spacer ring, **1.781198 MPa**
 on washer overlap and **3.595300 MPa** on ideal nut overlap. These projected
-means do not bound actual pressure. The largest catalog-corner washer
-required-Fy diagnostic is **155.938834 MPa**; no numeric washer/spacer product
-strength is adopted. All 112 wood washer lands remain conditional because
-complete current local trims are not queried; old nominal-seat proof does
-not transfer. Nut footprint, chamfers, eccentricity, pressure/prying couples,
-spacer compliance and compatible contact/resistance remain missing.
+means do not bound actual pressure. Across all six cases, maximum required
+washer Fy is **72.662591 MPa nominal / 155.938834 MPa at adverse catalog
+dimensions**, or **0.319358 / 0.685364** of the assumed 33-ksi marker. These
+completed axial comparisons have no reference exceedance; no numeric selected
+washer/spacer product strength is adopted. The later
+[current washer query](#engineering-closure-beyond-the-assessment) proves nominal
+annular occupancy in all 112 finished wood lands. Remaining questions concern
+the material basis, nut footprint, chamfers, eccentricity, pressure/prying
+couples, spacer compliance and compatible contact/resistance.
 
 The [finished-section output](../../fea/generated/selected-hardware-followup-v1/current-components-v1/sections-attempt04.json)
 queries existing cached BREPs at **38 distinct planes**: each of the 22
@@ -472,8 +1946,11 @@ maximum-bore gap is 3.94375 mm; full modeled backing does not qualify screw
 end-distance strength. See the [clearance evidence](#raised-outer-kicker-screws)
 and preserved [channel evidence](#uniform-smaller-cable-channels-and-principal-arc-cuts).
 The [latest six-case numerical completion](#current-geometry-and-selected-hardware-six-case-forces)
-binds this geometry and the selected hardware, with physical applicability and
-resistance unresolved. The [current shop and hardware selection](#current-shop-and-hardware-selection)
+binds this geometry and the selected hardware. The current bounded joint/member
+evaluation and engineering assessment are also complete; the
+[maintained progress summary](#engineering-closure-beyond-the-assessment)
+separates their completed scopes from unresolved physical applicability and
+resistance. The [current shop and hardware selection](#current-shop-and-hardware-selection)
 now covers the raised screws and smaller channels, with an explicit purchase
 override. Neither record supplies construction or climbing release.
 

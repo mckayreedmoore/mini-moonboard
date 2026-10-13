@@ -5,7 +5,7 @@ The viewer includes 130 generic visual placeholders for the Mini MoonBoard
 hold setup control to preview them. The 2020 and 2025 layouts share the viewer's
 visibility, front-view, and hold-selection controls.
 
-Use [Problem highlights](viewer-problem-highlights.md) to mark start, hand,
+Use [Problem highlights](history/viewer-problem-highlights.md) to mark start, hand,
 foot, and finish holds and share the selection through a link.
 
 ## Sources and observed layout
@@ -69,4 +69,4 @@ hold references to install holds. The preview does not establish grip geometry,
 clearance, fastener length, connection resistance, or frame, panel, and floor
 adequacy. Holds remain excluded from the structural model and CAD exports.
 Faithful scans and reproductions remain governed by the project's
-[hold scanning and publication policy](hold-scanning-and-ip.md).
+[hold scanning and publication policy](history/hold-scanning-and-ip.md).

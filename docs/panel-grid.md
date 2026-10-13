@@ -98,7 +98,7 @@ fabrication authority. Before production drilling, verify:
 - the chosen metric or imperial template printed at 100 percent scale;
 - the template calibration measurements against the physical print;
 - actual panel size and the 2437/2438.8/2440 mm width discrepancy documented
-  in [`requirements.md`](requirements.md); and
+  in [`requirements.md`](history/requirements.md); and
 - the vertical placement of this official kicker pattern on a taller custom
   kicker. V1 uses a 225 mm total kicker: retain the official pattern from
   `y = -150` to `0` and leave the added `y = -225` to `-150` region blank.

@@ -1,5 +1,10 @@
 # Compact spliced-knee flush-top development package
 
+**Historical design record.** Selections, “current” cases and outstanding
+work below refer to the named earlier candidate. The [selected baseline](README.md)
+and [active bolted-frame development](bolted-frame-development/README.md)
+retain their own geometry, hardware and evidence.
+
 **Status: development package; commercial-angle connection gate open.** Six fresh
 listed assembled cases meet their stated bolt/splice, member, contact and geometry
 criteria. Retained ML24Z/SDS separation capacity and independent flange-couple
@@ -8,7 +13,7 @@ from current flush-top geometry; the previous spliced-knee six-case result and
 later trim approximation do not qualify the relocated upper joint.
 See the [six-case commercial-angle ledger](compact-spliced-flush-top-angle-ledger.md)
 for the exact open demands and the
-[online product/options review](compact-spliced-flush-top-angle-options.md) for
+[online product/options review](history/compact-spliced-flush-top-angle-options.md) for
 the larger-hardware disposition.
 
 ## Exact revision

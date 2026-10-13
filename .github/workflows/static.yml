@@ -1,4 +1,5 @@
 name: Deploy interactive CAD viewer
+run-name: Publish ${{ github.event.workflow_run.head_sha }} from CI ${{ github.event.workflow_run.id }}
 
 on:
   workflow_run:

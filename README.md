@@ -14,16 +14,17 @@ The current geometry is **`eoere-raised-kicker-screws-v1`**:
 [open the current viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-selected-hardware-frame-development&view=rear).
 Its optional extra grid remains off and unofficial. The
 [checked revision index](docs/bolted-frame-development/development-revisions.json)
-separates this geometry and its matching shop plan from the preceding
-six-case numerical evidence. The current viewer applies the selected bolt lengths and eight spacers
-through a separately bound hardware overlay.
+binds this geometry, the matching shop plan, selected hardware and six current
+first-order load cases separately from preserved earlier results. The current viewer
+applies the selected bolt lengths and eight spacers through its hardware overlay.
 Actual hardware-fit, installation and joint-strength holds remain. No fabrication or climbing
 release is established.
 
 | Need | Start here |
 | --- | --- |
 | Model, shop records and next actions | [Main development entry](docs/bolted-frame-development/README.md) |
-| Detailed evidence and task dispositions | [Development ledger](docs/wood-joints-mvp/completion-ledger.md#build-package-completion) |
+| Current dimensions, tools and assembly sequence | [Builder plan](docs/bolted-frame-development/builder-plan.md) |
+| Detailed evidence and task dispositions | [Development ledger](docs/wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) |
 | Preserved selected baseline | [Baseline reference packet](docs/README.md) · [machine authority](current-candidate.json) |
 | Earlier options, failures and lessons | [Design-history catalog](docs/history/design-history.md) |
 | Repository organization and evidence recovery | [Cleanup record](docs/repository-cleanup-evaluation-2026-09-28.md) |

@@ -102,7 +102,7 @@ requires an applicable allowable for each participating direction. It supplies
 no independent arbitrary-moment term. The alternative 75% provision is limited
 to named roof-to-wall product groups. It is not an ML24Z workaround.
 
-The earlier [A34 study](round-base-angle-remedy.md) identified a catalog bearing
+The earlier [A34 study](history/round-base-angle-remedy.md) identified a catalog bearing
 uplift entry but left sloped-grain applicability, complete hardware geometry,
 and wrench resistance unresolved. Its receiver-fit result used a preceding
 single-2x6 rim/header assembly. It does not qualify placement in the current

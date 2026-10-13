@@ -20,11 +20,11 @@ The viewer applies `eoere-selected-purchase-hardware-v1`: 32 longer bolts and ei
 | Need | Start here | Boundary |
 | --- | --- | --- |
 | Current geometry | [Selected-hardware viewer](https://mckayreedmoore.github.io/mini-moonboard/?model=eoere-selected-hardware-frame-development&view=rear) · [receipt](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/occupied-kicker-clearance-v1.json) | Geometry evidence only; 100 bolts fixed, two screws raised. |
-| Current shop records and hardware choice | [Matching shop packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md) · [100 selected stacks](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv) | Current screw/channel datums; selected bolt lengths and eight spacers are now applied in the viewer. Actual fit and strength remain open. |
+| Current shop records and hardware choice | [Builder sequence and dimensions](builder-plan.md) · [Matching shop packet](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/README.md) · [100 selected stacks](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/shop-assembly-v1/extended-cleat-followup-v1/current-model-followup-v1/hardware-selection.csv) | Current screw/channel datums; selected bolt lengths and eight spacers are now applied in the viewer. Actual fit and strength remain open. |
 | Preserved fixture concepts | [Builder drilling guide](../wood-joints-mvp/eoere-builder-drilling-guide.md) | Frozen aligned-wire geometry; later v3 moved 22 shafts and ten screws. Actual reach, fixtures and tools remain unresolved. |
-| Latest numerical evidence | [Six current cases](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json) · [method and limits](../wood-joints-mvp/completion-ledger.md#current-geometry-and-selected-hardware-six-case-forces) | Raised screws, smaller channels and selected hardware, extra grid off. Conditional first-order forces; physical applicability and resistance remain unresolved. |
-| Structural assessment | [Current joint/member references](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json) · [scope and missing inputs](../wood-joints-mvp/completion-ledger.md#current-joint-and-finished-member-references) | Six current states, all 100 bolts/66 screws, 38 finished timber planes. Reference exceedances recorded; complete resistance remains null. |
-| Detailed tasks and holds | [Completion ledger](../wood-joints-mvp/completion-ledger.md#build-package-completion) · [qualification status](../wood-joints-mvp/completion-ledger.md#current-model-completion-scope-and-qualification-status) | Source bindings, reviews and missing inputs; earlier “current” sections keep their historical meaning. |
+| Latest numerical evidence | [Six current cases](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json) · [method and limits](../wood-joints-mvp/completion-ledger.md#current-geometry-and-selected-hardware-six-case-forces) | **Current conditional first-order numerical scope complete.** Raised screws, smaller channels and selected hardware, extra grid off. Physical applicability and resistance remain unresolved. |
+| Structural assessment | [Current joint/member references](../wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json) · [scope and missing inputs](../wood-joints-mvp/completion-ledger.md#current-joint-and-finished-member-references) | **Bounded numerical evaluation and engineering assessment complete.** Six current states, all 100 bolts/66 screws, 38 planes/228 comparisons. Exceedances and null complete resistance are recorded outcomes. |
+| Detailed tasks and holds | [Completion ledger](../wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) · [qualification status](../wood-joints-mvp/completion-ledger.md#current-model-completion-scope-and-qualification-status) | Completed numerical stages, source bindings and broader qualification gaps; earlier “current” sections keep their historical meaning. |
 
 ## Revision map
 
@@ -99,15 +99,15 @@ changed-section strength remain unresolved. See the
 
 ## Remaining work and next actions
 
-1. The [engineering assessment](../wood-joints-mvp/completion-ledger.md#engineering-assessment-and-acceptance-decisions) is complete for the recorded six-case scope.
-   Physical demand applicability, complete joints and finished-member/stability
-   acceptance remain unresolved; finite-arm probes retain a contact concern.
-2. Screw/panel exceedance resolution is deferred by the owner. Retain other
-   exceedances without remedies; catalog bounds do not establish complete resistance.
-3. Actual build-fit work is excluded from this continuation; observations stay blank.
-   The existing physical-operation limits remain, without commissioning more fit work.
-4. Keep CI passing through its existing publication gates. Preserve the 66-screw policy;
-   panel/screw remedies remain stopped, and the extra grid and Z180 stay unadopted.
+The [current conditional numerical evaluation](../wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment) is **complete**, including the bounded component/member evaluation and engineering assessment.
+The owner keeps the current design with its [three qualification limits](../wood-joints-mvp/completion-ledger.md#cleat-transverse-wrenches-and-the-three-qualification-limits); engineering acceptance remains unestablished. [Front end/edge screens pass](../wood-joints-mvp/completion-ledger.md#current-front-runnerpost-end-and-outer-edge-qualification), and complete cleat normal-wrench demands are recorded. Panel/screw exceedances remain deferred.
+
+1. Reuse the completed current fields, component/member comparisons and assessment.
+   Six first-order cases are admitted; 38 exact timber planes give 228 comparisons. Bolt 0.631, washer 0.319/0.685 and working t6.35/Ri6.35 heel 0.993 references retain their assumptions; eight front bolt/wood end/edge screens pass, with complete group/joint resistance still unqualified.
+2. Keep qualification limits distinct from completed investigations and demonstrated failures.
+   Six later finite-motion work checks pass; their poses are not finite equilibrium. [Completed restraint, motion and splitting studies](../wood-joints-mvp/completion-ledger.md#completed-investigations-and-applicability) retain their revision limits. The 56.6-mm motion has no adopted failure limit; four full-span flags are method-domain exceptions. Current applicability and complete resistance remain unqualified; no particular solver is prescribed.
+3. Preserve panel/screw deferral, excluded actual fit, blank observations and the no-slip assumption.
+   Keep the 66-screw policy, extra grid/Z180 unadopted and CI publication gates.
 
 ## Engineering reading order
 

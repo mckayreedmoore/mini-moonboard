@@ -40,7 +40,7 @@ Moon wrench size above.
 
 ## T-nut geometry for CAD
 
-The [recorded user measurements](site-survey.md#plywood-and-hardware-samples) identify
+The [recorded user measurements](history/site-survey.md#plywood-and-hardware-samples) identify
 Escape three-hole screw-in T-nuts, Amazon ASIN B00FJGT7QI. These are retained
 with screws, not hammer-in prongs. The [Escape product page](https://escapeclimbing.com/products/hd3hnut)
 confirms the three-hole screw-in design, included screws and 7/16-inch drill-bit

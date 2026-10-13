@@ -1,5 +1,10 @@
 # Later insert option (not this build)
 
+**Selected screw-and-bracket baseline only.** The 66 panel/kicker and
+144 ML24Z/SDS axes below belong to `compact-floor-flush-development`. This
+repair option is separate from [active bolted-frame development](bolted-frame-development/README.md)
+and does not authorize insert installation or insert pilots in either lane.
+
 Build with the specified wood screws and the twelve bolt stacks. This note is
 only a **later option**: if you take the plywood off often, or a wood screw
 wears out, those screw holes can become threaded inserts. Do **not** drill

@@ -1,0 +1,30 @@
+{
+  "schema": "thin_bolted_geodesic_injectivity_method_inputs/v1",
+  "synthetic_extent": {
+    "schema": "thin_bolted_finite_reference_domain_box/v1",
+    "owner_id": "synthetic-timber",
+    "bounds_xyz_mm": [[-5.0, 105.0], [-2.0, 2.0], [-3.0, 3.0]],
+    "source_identity": {"kind": "analytic-synthetic-convex-box", "finished_body_containment": "toy declaration only"}
+  },
+  "analytic_proof": [
+    "Let D be a convex finite ambient box. Define psi(X)=phi(X)-X. If phi is continuous and piecewise C1 on finite station slabs and sup_D ||Dpsi||2<=L<1, integrate psi along the straight segment joining any X,Y in D. The finite C0 joins preserve the fundamental-theorem bound: |psi(X)-psi(Y)|<=L|X-Y|. Consequently (1-L)|X-Y|<=|phi(X)-phi(Y)|<=(1+L)|X-Y|, proving global one-to-one on D and inverse Lipschitz constant<=1/(1-L) only on phi(D). A line lying in a join plane uses the common nodal rigid-pose tangent; no cross-node C1 assumption is needed.",
+    "For a segment of station length h, station s=a dot (X-start), t=(s-s0)/h, chord derivative v=(c1-c0)/h, c(t)=c0+t(c1-c0), u(t)=u0+tDeltaU, w=X-c(t), R(t)=R0 Exp(t[omega]), omega=Log(R0T R1): phi=c+u+Rw and D(phi-I)=(R-I)(I-v aT)+(DeltaU/h+R[omega]w/h)aT. The centerline cancellation is exact; no duplicate (I-R)a term is added.",
+    "On each source-supported SO3 shortest-log branch, absolute angles obey theta(t)<=min(theta0+t|omega|,theta1+(1-t)|omega|). Thus Theta<=min(pi,(theta0+theta1+|omega|)/2) bounds every geodesic interpolant; endpoint maximum alone is not generally a bound. ||R-I||2=2sin(theta/2), ||[omega]||2=|omega| and ||b aT||2=|b||a| give Li<=2sin(Theta/2)||I-v aT||2+|a|(|DeltaU|+|omega|Wi)/h.",
+    "The arm w(X) is affine for each segment. Every box point is a convex combination of its eight corners, so Wi=max_corner|w| bounds its norm throughout the box, conservatively even outside the segment slab. For an exact straight unit-axis source chart v=a, I-v aT is the cross projector with norm1 and w is the transverse arm. Li then reduces to2sin(Theta/2)+|DeltaU|/h+|omega|*max_cross_radius/h.",
+    "The frozen clamped station fractions produce rigid endpoint extensions phi=ci+ui+Ri(X-ci), where ||D(phi-I)||2=2sin(theta_i/2). At every shared station plane both neighboring segment values agree with that same nodal rigid pose, as do the endpoint extensions. They are C0 with one-sided derivative jumps. The maximum of all segment and both endpoint bounds supplies a whole-box Lipschitz bound.",
+    "This is a sufficient analytic criterion. L>=1 is inconclusive, not inversion or noninjectivity. Positive pointwise detF alone is insufficient: (exp(x)cos(y),exp(x)sin(y),z) has detF=exp(2x)>0 on a convex box spanning more than2pi in y yet repeats after2pi. This illustrative map is not substituted for the frozen geodesic timber map."
+  ],
+  "finite_extent_source_contract": [
+    "Production must bind the own timber ID, exact released q/map source identity, proper local/world chart, every source station/node index, and a finite convex ambient box containing that same finished source BREP. A cached exact finished-body AABB may supply the box only through a verified file/hash/body join; a raw-member envelope or another state's force/pose identity cannot silently replace it.",
+    "The pure API requires schema thin_bolted_finite_reference_domain_box/v1, owner_id, finite bounds_xyz_mm and nonempty source_identity; it hashes all row/q/extent inputs but does not authenticate an actual body-containment claim. Parent-owned production admission must perform that source join. No actual candidate q, body cache or BREP is consumed by these synthetic coupons.",
+    "Floating chart checks and a1e-10 comparison padding do not constitute interval arithmetic or a formal numerical roundoff certificate. The analytic theorem concerns the source's mathematical geodesic formula R0 Exp(t Log(R0T R1)); its numerical SO3 primitives use small-angle series and floating operations. No rigorous bound on their series/roundoff deviations or numerical-map global certificate is supplied here. Meaningful strict margin and independently authenticated extents remain required in production."
+  ],
+  "limits": [
+    "Only the existing finite geodesic timber material point map is bounded. No panel, fitting, shaft map or physical constitutive/stiffness bound is transferred.",
+    "An injective box map does not prove that a target is in its image, inverse existence on another body/domain, inside-material classification, unique nearest feature, normal-tube reach, moving adjacency/overlap, contact pressure or joint strength.",
+    "Absolute-identity bounds deliberately remain conservative under large rigid rotations; no optional rigid-reference optimization is implemented. Reaching or exceeding1 leaves the criterion inconclusive.",
+    "Source SO3 absolute rotations near pi and neighboring director turns near90degrees remain rejected by the unchanged primitives. C0 nodes and clamped extensions remain explicitly one-sided for differential contact methods.",
+    "No current candidate q/BREP, K, response/global/native solve, actions, fabrication or climbing release is supplied."
+  ],
+  "release": {"candidate_method_ready": false, "candidate_admission": false, "capacity": false, "fabrication": false, "climbing": false}
+}

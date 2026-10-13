@@ -1,5 +1,10 @@
 # Selected wood fasteners for the next hardware variation
 
+**Historical transition-candidate selection.** These products and the
+164-position mapping use the earlier `lower-transition-development` layout. They are not
+the active bolted frame's 66 purchased Hillman screws or its 100 bolt stacks.
+Use the [current builder inventory](bolted-frame-development/builder-plan.md#parts-and-stock).
+
 2026-09-06. These are **actual product selections for design development**, not
 permission to build, assigned connection capacities, or a claim that the existing
 viewer already contains these products. Preserve `lower-transition-development`
@@ -70,7 +75,7 @@ the report distinguishes 2 in thread from a historical 2⅜ in alternative.
 Do not combine the larger length/strength from different generations.
 
 No SDWS spacing or capacity credit transfers to GRK. The old
-[SDWS screen](front-rib-fastener-selection.md) remains historical evidence,
+[SDWS screen](history/front-rib-fastener-selection.md) remains historical evidence,
 not this new product's installation schedule. Unselected species/grade,
 plywood properties, reliefs and neighboring mixed screw groups still govern
 the later connection design. The user's offcut-test waiver remains unchanged.
@@ -102,7 +107,7 @@ head exploration. The 38.1 mm screw length must be positioned from its bearing
 datum, not copied onto the old arbitrary start. Verify point exit, perpendicular
 crossed fasteners, seating and LED/wire paths at all 32 locations.
 
-The [existing UK-model reconstruction](mid-batten-clip-study.md) remains only a
+The [existing UK-model reconstruction](history/mid-batten-clip-study.md) remains only a
 geometry proxy: its hole centers, Ø4.3434 holes and sharp bend are not newly
 certified US production dimensions. Keep that distinction on exported parts.
 Reserve a **project-assumed 2 mm inner-bend exclusion** and 1 mm external

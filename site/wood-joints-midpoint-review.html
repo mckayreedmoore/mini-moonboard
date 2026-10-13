@@ -4,16 +4,17 @@
 <style>
 :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#11191d;color:#e7eded}body{max-width:1200px;margin:auto;padding:24px}h1{font-size:1.7rem}p{line-height:1.5;max-width:95ch}a{color:#93d5f7}table{border-collapse:collapse;width:100%;margin:24px 0}th,td{text-align:left;padding:10px;border-bottom:1px solid #42515b}#maps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.card{border:1px solid #42515b;border-radius:8px;padding:16px;background:#192329}.card h2{font-size:1.15rem}.card svg{width:100%;max-height:520px;background:#10171a}.point{cursor:pointer}.point:focus{stroke:white;stroke-width:10;outline:none}#detail{position:sticky;bottom:12px;max-height:220px;overflow:auto;padding:16px;border:1px solid #7994a3;background:#17242cf5;border-radius:8px;white-space:pre-line;line-height:1.45}.key{display:inline-block;margin-right:16px}.dot{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px}small{color:#b7c7d0}@media(max-width:650px){body{padding:12px}#maps{grid-template-columns:1fr}table{font-size:.8rem}th,td{padding:6px}}
 </style></head><body>
-<a href="wood-joints-wj24-viewer.html">Open the current 3D model</a>
+<a href="wood-joints-wj24-viewer.html">Open the preserved WJ24 model</a>
 <h1>Hypothetical denser hold layout</h1>
+<p class="local"><strong>Historical wood-joint study.</strong> This page preserves its named earlier model and results. <a href="https://github.com/mckayreedmoore/mini-moonboard/blob/master/docs/bolted-frame-development/README.md">Current compact bolted-frame development</a> has separate geometry, shop records and qualification limits.</p>
 <p>Horizontal and vertical midpoints between neighboring LEDs and between neighboring T-nuts, using the reviewed model’s actual grid. This is a hypothetical layout, not a confirmed future MoonBoard setting.</p>
 <p>Each position is screened as a new hold: a 25.4 mm T-nut flange, 1.86 mm behind the panel, plus an 11.1125 mm diameter rear projection extending 50.8 mm. The projection is provisional; the result depends on the eventual bolt length. No frame or panel holes are changed by this screen.</p>
 <p><span class="key"><i class="dot" style="background:#f47777"></i>Timber blocks flange</span><span class="key"><i class="dot" style="background:#ffbe63"></i>Timber blocks rear projection only</span><span class="key"><i class="dot" style="background:#85c8a0"></i>No timber hit within envelope</span><br><small>Pale outlines mark a collision with existing LEDs, T-nuts, or structural hardware. They do not indicate additional timber hits. Click or focus a point for details.</small></p>
-<p id="status">Loading current clearance report…</p>
+<p id="status">Loading the saved WJ24 clearance report…</p>
 <table><thead><tr><th>Midpoints</th><th>Sites</th><th>Timber blocked</th><th>Flange blocked</th><th>Existing LED/T-nut overlap</th></tr></thead><tbody id="summary"></tbody></table>
 <div id="maps"></div><p>Maps face the climbing surface: A is at left, K at right, and row 1 is at the bottom. No diagonal or extrapolated edge positions are included. The kicker has only one hold row and no LEDs.</p>
 <p>This screen predates the common-block consolidation and bolt revisions. It has not been rerun for those changes.</p>
-<p>No-hit dots are not a compatibility approval. Future hold bodies, new LED positions, retention screws and tool access are not checked. Joint evaluations remain paused.</p>
+<p>No-hit dots are not a compatibility approval. Future hold bodies, new LED positions, retention screws and tool access are not checked. This historical screen does not describe the active bolted-frame evaluation.</p>
 <div id="detail" aria-live="polite">Select a hypothetical position to inspect its obstructions.</div>
 <script>
 const ns='http://www.w3.org/2000/svg';

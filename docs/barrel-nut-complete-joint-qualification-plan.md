@@ -1,5 +1,11 @@
 # Barrel-nut complete-joint qualification plan
 
+**Historical barrel-nut development.** This record belongs to the earlier
+`compact-floor-flush-bolted-development` lane and its stated 46/48-pair topology.
+Its “current” labels, hardware selections and next actions describe that
+record. For ongoing work, use [compact bolted-frame development](bolted-frame-development/README.md);
+its 100 through-bolt stacks have separate geometry and evidence.
+
 Prepared 22 September 2026 for
 `compact-floor-flush-bolted-development`. This plan covers only failure modes
 that the candidate's documentary mechanics and controlled product evidence

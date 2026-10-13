@@ -1,5 +1,11 @@
 # Direct cross-dowel bounded go/no-go packet
 
+**Historical barrel-nut development.** This record belongs to the earlier
+`compact-floor-flush-bolted-development` lane and its stated 46/48-pair topology.
+Its “current” labels, hardware selections and next actions describe that
+record. For ongoing work, use [compact bolted-frame development](bolted-frame-development/README.md);
+its 100 through-bolt stacks have separate geometry and evidence.
+
 This packet defines the shortest remaining decision path for the direct
 cross-dowel alternative. It is not a drilling instruction, purchase request,
 test authorization, fabrication release, or change to the selected angle-frame

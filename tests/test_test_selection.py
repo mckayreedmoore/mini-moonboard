@@ -10,10 +10,11 @@ import pytest
 TEST_ROOT = Path(__file__).resolve().parent
 
 
-def test_historical_inventory_references_existing_unique_tests():
-    entries = [line.strip() for line in (TEST_ROOT / 'historical.txt').read_text().splitlines()
+@pytest.mark.parametrize('inventory', ['historical.txt', 'recovered-evidence.txt'])
+def test_selection_inventory_references_existing_unique_tests(inventory):
+    entries = [line.strip() for line in (TEST_ROOT / inventory).read_text().splitlines()
                if line.strip() and not line.lstrip().startswith('#')]
-    assert len(entries) == len(set(entries)), 'Duplicate historical inventory entries'
+    assert len(entries) == len(set(entries)), f'Duplicate entries in {inventory}'
     for entry in entries:
         filename, separator, function = entry.partition('::')
         assert Path(filename).name == filename and filename.startswith('test_')
@@ -37,6 +38,7 @@ def test_selection_in_independent_pytest_process(tmp_path, arguments, expected_c
     tests = tmp_path / 'tests'
     tests.mkdir()
     (tests / 'conftest.py').write_bytes((TEST_ROOT / 'conftest.py').read_bytes())
+    (tests / 'recovered-evidence.txt').write_text('')
     (tests / 'historical.txt').write_text(
         '# Only explicitly listed tests are historical.\n'
         'test_archived.py\n'
@@ -64,3 +66,51 @@ def test_selection_in_independent_pytest_process(tmp_path, arguments, expected_c
     assert result.returncode == expected_code, result.stdout + result.stderr
     assert expected in result.stdout, result.stdout
     assert (tests / 'archived-imported').exists() is imported
+
+
+@pytest.mark.parametrize('arguments, recovered, expected_code, expected, imported', [
+    ([], False, 0, '3 passed, 2 deselected', False),
+    ([], True, 0, '3 passed, 2 deselected', False),
+    (['--include-historical'], True, 0, '3 passed, 2 deselected', False),
+    (['--include-recovered-evidence'], True, 0, '6 passed', True),
+    (['--include-recovered-evidence', '-m', 'recovered_evidence'], True, 0,
+     '3 passed, 3 deselected', True),
+    (['--include-recovered-evidence'], False, 1, '3 failed, 3 passed', True),
+    (['tests/test_recovered.py'], True, 5, '1 deselected', True),
+    (['tests/test_recovered.py', '--include-recovered-evidence'], True, 0, '1 passed', True),
+])
+def test_recovered_evidence_selection_is_explicit_and_missing_inputs_fail(
+        tmp_path, arguments, recovered, expected_code, expected, imported):
+    tests = tmp_path / 'tests'
+    tests.mkdir()
+    (tests / 'conftest.py').write_bytes((TEST_ROOT / 'conftest.py').read_bytes())
+    (tests / 'historical.txt').write_text('')
+    (tests / 'recovered-evidence.txt').write_text(
+        'test_recovered.py\ntest_mixed.py::test_local_source\n',
+    )
+    (tests / 'test_recovered.py').write_text(
+        'from pathlib import Path\n'
+        'Path(__file__).with_name("recovered-imported").touch()\n'
+        'def test_bound_source():\n'
+        '    assert Path(__file__).with_name("source-bank").read_text() == "frozen"\n',
+    )
+    (tests / 'test_active.py').write_text('def test_current():\n    assert True\n')
+    (tests / 'test_new.py').write_text('def test_new_unlisted():\n    assert True\n')
+    (tests / 'test_mixed.py').write_text(
+        'from pathlib import Path\nimport pytest\n'
+        'def test_portable():\n    assert True\n'
+        '@pytest.mark.parametrize("value", [1, 2])\n'
+        'def test_local_source(value):\n'
+        '    assert Path(__file__).with_name("source-bank").read_text() == "frozen"\n',
+    )
+    if recovered:
+        (tests / 'source-bank').write_text('frozen')
+    environment = dict(os.environ, PYTEST_DISABLE_PLUGIN_AUTOLOAD='1')
+    environment.pop('PYTEST_ADDOPTS', None)
+    result = subprocess.run(
+        [sys.executable, '-m', 'pytest', '-q', *arguments], cwd=tmp_path,
+        env=environment, capture_output=True, text=True, timeout=30, check=False,
+    )
+    assert result.returncode == expected_code, result.stdout + result.stderr
+    assert expected in result.stdout, result.stdout
+    assert (tests / 'recovered-imported').exists() is imported
