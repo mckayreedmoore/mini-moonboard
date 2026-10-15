@@ -1,0 +1,70 @@
+{
+  "actual_observations": null,
+  "axis_id": "eoere_bolt_067",
+  "candidate_cells_per_member": 32,
+  "candidate_facets": 32,
+  "candidate_method": "Reuse the original 32-cell/32-facet statics LP only to select multipliers. Preserve every original signed force, first moment, point force/free couple, interval and raw cap. Extract all nonzero moment multipliers; restore intercepted callbacks on success/failure. No source field, frame force or reference divisor changes.",
+  "case_id": "a12-forward",
+  "certificate_method": "For arbitrary lambda_F/lambda_J and moment-cut nu, integrate the norm of the exact affine support coefficients over every physical bearing interval, split at all selected cuts. Rational outward square-root, Jensen and chord bounds certify the continuous circular support integral. The necessary lower bound is absolute exact virtual work divided by the support upper. The LP optimum or finite facets supply no continuous certificate by themselves.",
+  "complete_joint_resistance": null,
+  "continuous_support_gap_tolerance": "1/1000000",
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "highs_version": "1.12.0",
+  "integration_cell_budget_per_piece": 100000,
+  "limits": [
+    "Uniform divisors 3.2/4/5 remain the original engineering hypotheses motivated by NDS reduction terms, not an established generalized ASD conversion. Working divisor 5 is unchanged; no favorable reference is chosen.",
+    "The necessary bound covers unrestricted measurable bearing densities with prescribed member lateral forces/first moments and circular raw cap constraints. Selected one-sided bending cuts give necessary conditions, not a complete physical pressure or compatibility law.",
+    "A necessary lower above one proves no field satisfies this declared continuous bearing/bending reference model. A lower at or below one establishes neither feasibility nor a pass. Every previous witness and comparison remains unchanged.",
+    "Complete axial/torsional/washer/fitting, group/geometry/brittle transfer, finished-member, physical stiffness/contact/restraint and force-applicability qualifications remain separate. No physical failure, structural release, redesign or observed hardware/wood is inferred.",
+    "Current geometry,100 bolts/66 Hillman axes, rejected tie history, deferred panel/screw exceedances, excluded actual fit and blank observations remain preserved. No external native, frame or elastic solve or CAD rebuild occurs."
+  ],
+  "method_references": [
+    "https://docs.scipy.org/doc/scipy/reference/optimize.linprog-highs-ds.html",
+    "https://web.stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf"
+  ],
+  "physical_demand_bounds_established": false,
+  "physical_failure_established": false,
+  "physical_or_structural_release": false,
+  "question": "Does the recorded working-divisor-5 saved-witness exceedance necessarily hold for every measurable continuous vector bearing density satisfying the same complete member force/first-moment and circular bearing/bending references? A finite LP alone cannot answer this continuous question.",
+  "reduction_helper": {
+    "path": "scripts/eoere_joint_reference_reductions.py",
+    "sha256": "0975986787103eb7eba5fcbd4c60299fa920499f0f0adf7217026fa294a0467c"
+  },
+  "runtime_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_mixed_continuous_bound_inputs/v1",
+  "source_arguments_sha256": "814b0834c2dd1c5979e4f20cdbe6dd702e82265756904285b0752396e1218869",
+  "source_saved_verification": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-joint-vector-tests-attempt05-verification.json",
+    "sha256": "f301d89a0f0d5396e53f7679b13ef3fbaee2a454ed444d838bbe0c712f45fe16"
+  },
+  "source_uniform_reduction": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-mixed-uniform-material-reduction-attempt02.json",
+    "sha256": "f6949ebc771638ba5b621d810a453bb4010072e23e6e628a5dc869b22fee2814"
+  },
+  "source_vector_fields": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-joint-vector-tests-attempt05.json",
+    "sha256": "20042c23555a8e846f4bf3f76a41101b4db37c21a003e53e6bc2493d97edc147"
+  },
+  "spatial_helper": {
+    "path": "scripts/eoere_mixed_stack_yield.py",
+    "sha256": "75185ffe49cf47da94ee2ae01cc97351557e5d9c4604ff9230ba08e570e397ef"
+  },
+  "structural_acceptance": false,
+  "uniform_reference_divisors": [
+    3.2,
+    4.0,
+    5.0
+  ],
+  "vector_helper": {
+    "path": "scripts/eoere_joint_vector_tests.py",
+    "sha256": "13bd01ac5f1e3f4d73bf2941dd890068aaadd0e57c7d77e1fe8125603c2469e6"
+  },
+  "working_uniform_reference_divisor": 5.0
+}

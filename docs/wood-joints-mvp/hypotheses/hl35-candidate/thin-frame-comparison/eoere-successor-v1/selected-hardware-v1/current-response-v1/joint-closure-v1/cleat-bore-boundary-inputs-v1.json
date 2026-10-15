@@ -1,0 +1,209 @@
+{
+  "actual_observations": null,
+  "angular_divisions_per_quarter": 16,
+  "assumptions": [
+    "Preserve the retained geometry and selected hardware, 100 bolts and 66 Hillman axes, optional grid off. No native FEA, new frame response, CAD rebuild, geometry change, physical work, staging or publication.",
+    "Reuse the authenticated fine-grid job only for its twelve original field/state-bound action records and current analytic geometry. Do not consume or reinterpret its solved displacements, stresses or nodal force clouds. All 48 bore/case wrenches retain both signed bearing forces and exact first moments.",
+    "The two original bearing actions lie exactly on each own bore axis, have zero axial force and zero free couple. The third, purely axial washer capture remains a separate duty. Reject an added, off-axis or unhandled action rather than omit it.",
+    "Treat the frozen analytic half-plane profile and four full-width cylindrical voids as the source geometry hypothesis, with its prior cached valid-solid and volume comparison. Exact squared inequalities check each complete cylindrical wall stays within the profile and clear of other bores. This is not a universal CAD-error bound, delivered-hole inspection or new geometry revision.",
+    "Piecewise constant nonnegative pressure acts radially from the bore void into wood. The boundary stress trace sigma=-p*n_tensor_n supplies exactly that compressive traction. Permit pressures anywhere on the full circumference; actual shank clearance, active contact, elastic compatibility and pressure distribution are not established by this static relaxation.",
+    "Use 16 rational half-tangent sectors per quarter-circle and 16 axial intervals: 64 angular sectors and 1024 pressure patches per bore. Integrals of radial normals use exact sine/cosine endpoint differences; all endpoints and source binary values are rational. No pi approximation or surface quadrature enters wrench recovery.",
+    "The LP selects pressures only. A four-column exact Neumann inverse certificate bounds a nearby correction of the full residual. Positive selected pressure margins preserve nonnegativity; all other pressures remain unchanged. Failure to certify a selected witness is inconclusive.",
+    "Adopt the existing unobserved full-tensor C16 linear stress gauge: tension/compression parallel 8.5/17 MPa, tension/compression perpendicular 0.4/2.2 MPa, longitudinal shear 3.2*0.67=2.144 MPa and rolling shear 0.8 MPa. The rolling reference and scalar divisors remain declared approximations, not verified wood properties or a code capacity assignment.",
+    "For the pure radial compressive stress trace, the pointwise gauge is p*(nL^2/Fc0+nV^2/Fc90+abs(nL*nV)/Fv). Rational normal interval bounds enclose that value over each complete angular sector. The frozen six strength-divisor/action scenarios retain working divisor 2.",
+    "The independent necessary test permits every full-tensor boundary stress in the declared domain, including axial and tangential tractions. Its multiplier field v=lambdaF+lambdaM_cross_r and all six engineering strain coefficients retain complete moment capacity. Interval normal/axial bounds and the positive area-density upper 2/(1+t_left^2) enclose the continuous surface support.",
+    "A necessary lower above one refutes the declared full-tensor boundary law at the original bore wrench. A construction upper at or below one establishes a relaxed pressure/stress-trace realization only. An upper above one or lower below one is not a demonstrated failure or full resistance pass; no optimality claim follows.",
+    "The boundary constructions do not prove interior stress equilibrium, inter-bore or washer/face transfer, free outer tractions, buckling, fracture, complete joint/member resistance, physical stiffness/contact/restraint applicability, actual build fit or climbing readiness. The broader goal stays active unless those requirements have separate applicable evidence.",
+    "Keep panel/screw exceedances deferred, actual observations blank, rejected cross-tie history and every frozen/foreign source unchanged. Keep new raw records in ignored output and update existing ledgers; no archive, prune, staging or publication."
+  ],
+  "axial_divisions": 16,
+  "base_strengths_mpa": {
+    "compression_parallel": "17",
+    "compression_perpendicular": "11/5",
+    "parallel_shear": "268/125",
+    "rolling_shear": "4/5",
+    "tension_parallel": "17/2",
+    "tension_perpendicular": "2/5"
+  },
+  "complete_cleat_resistance": null,
+  "correction_helper": {
+    "path": "scripts/eoere_recession_certificate.py",
+    "sha256": "36ad7aa4a8bf8c78057bc8c15be84a372495414be111b4443cf2fbc9a8e38803"
+  },
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "engineering_question": "Can all original cleat bore forces and first moments be represented by compressive cylindrical-wall pressures with a declared full-tensor stress trace, and do unrestricted boundary tractions already contradict that same material law?",
+  "execution_sources": [
+    {
+      "path": "fea/current_response_model.py",
+      "sha256": "faae5b14c47c3c485f41d56eb77ec9e9a6c1801e5a143276a91afc3a294a9894"
+    },
+    {
+      "path": "fea/floor_recess_mesh.py",
+      "sha256": "518e3ee913537fb0e42a6dd843166974a011299921e116759bf2d330f221d184"
+    },
+    {
+      "path": "fea/frd_displacements.py",
+      "sha256": "8e580ffdb49ee24f669984b8e944e614a6c7c4b825d76ee7e2fa4d859baec01c"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+      "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+    },
+    {
+      "path": "fea/horizontal_frame_stress.py",
+      "sha256": "2d378b069d0f8d4946ec8debfde6da876f264302eaaa5dbc4470fee2616f5c6b"
+    },
+    {
+      "path": "fea/horizontal_panel_frame.py",
+      "sha256": "9ac5ceb2bd76ffddb6c048f92e54082a4672d72aab635ba2230e4352253378d9"
+    },
+    {
+      "path": "fea/reinforced_frame_demand.py",
+      "sha256": "7c9d9b19155ddb257bdb3479eafa98cdb2fe81788b5f0e62b35d12fae0667655"
+    },
+    {
+      "path": "fea/round_insert_frame.py",
+      "sha256": "a4d831e559c1d73c175421e6073f34f3b6c5e520ff7d9f9751f046c527456f14"
+    },
+    {
+      "path": "fea/round_structural_frame.py",
+      "sha256": "d8b0cfda736b19b006ee1d460c2422c1166d59101106b7b42e27e5d9ede253d9"
+    },
+    {
+      "path": "fea/shell_surface_recovery.py",
+      "sha256": "852266005f160a5a519621687b0eb1b06fb07cc50b090ee3d4d3a75d046ec10c"
+    },
+    {
+      "path": "fea/vertical_panel_comparison.py",
+      "sha256": "e3079c6d82219ccc255905a38f4b61bb0354bfd52454f490b1590dc8fa0e79ea"
+    },
+    {
+      "path": "mini_moonboard/__init__.py",
+      "sha256": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12"
+    },
+    {
+      "path": "mini_moonboard/connection_geometry.py",
+      "sha256": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4"
+    },
+    {
+      "path": "mini_moonboard/model.py",
+      "sha256": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef"
+    },
+    {
+      "path": "mini_moonboard/panel_grid.py",
+      "sha256": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873"
+    },
+    {
+      "path": "scripts/eoere_bore_boundary_tractions.py",
+      "sha256": "8ff117d99886d4fdfc2cebc613fef186a859874c904bbf7d50087bf4c0acfa68"
+    },
+    {
+      "path": "scripts/eoere_cleat_bore_boundary_audit.py",
+      "sha256": "91899c1d2127fe75569a927a809c7d1ed0bce3fc76a0ef8456cc602453ddb3e1"
+    },
+    {
+      "path": "scripts/eoere_cleat_finite_body.py",
+      "sha256": "70f6936e3cec9b90c104f4dc40427ae2fd329b379a4d9eb8b2c6703331761a84"
+    },
+    {
+      "path": "scripts/eoere_cleat_reference_audit.py",
+      "sha256": "39ca71c599ddf0763bc1efc1ff1adc677983ddce4170beaf02ed0e44c41b33c7"
+    },
+    {
+      "path": "scripts/eoere_cleat_section_dual.py",
+      "sha256": "e790f848da97927b7e6140003136bf2163d4a0907c7222cee866ecf3b2cdedf4"
+    },
+    {
+      "path": "scripts/eoere_cleat_section_reference.py",
+      "sha256": "85a2eb16fdb340479bcf2d9b9524796eacfeebbaaa8bf5254ad7ec0839f0482d"
+    },
+    {
+      "path": "scripts/eoere_cleat_section_traction.py",
+      "sha256": "6669086dd1874abc6472473dd160037b4cfcce15d04759965c780a33dbe0db04"
+    },
+    {
+      "path": "scripts/eoere_cleat_transverse_wrench.py",
+      "sha256": "011178a0f14aaf63e96e413e49a80ee7fa83f64c9967f0d274e88bf2838cd112"
+    },
+    {
+      "path": "scripts/eoere_cleat_virtual_work.py",
+      "sha256": "9289851212c5351f8854eaef6b3e5d7522b0fd7ca7e0e8978ed3bf26a8ea08f0"
+    },
+    {
+      "path": "scripts/eoere_current_components.py",
+      "sha256": "442918bc18848b3f60649d4802206c583ae5da4809cf373c7a829f14a5b9c333"
+    },
+    {
+      "path": "scripts/eoere_current_response.py",
+      "sha256": "3340243bd8127d3fa9fd8c2f5b1778db7abadc6da8a05c901e33b79b503a7944"
+    },
+    {
+      "path": "scripts/eoere_current_washer_lands.py",
+      "sha256": "d759bcab2d92bcb709f24726c324d83426483e2fd650dff80775ec0aa17b74d9"
+    },
+    {
+      "path": "scripts/eoere_joint_reference_reductions.py",
+      "sha256": "0975986787103eb7eba5fcbd4c60299fa920499f0f0adf7217026fa294a0467c"
+    },
+    {
+      "path": "scripts/eoere_joint_vector_tests.py",
+      "sha256": "13bd01ac5f1e3f4d73bf2941dd890068aaadd0e57c7d77e1fe8125603c2469e6"
+    },
+    {
+      "path": "scripts/eoere_mixed_continuous_bound.py",
+      "sha256": "dedf90c18256090410ed60dbadabe1b83135acb919220056f7040768c912888b"
+    },
+    {
+      "path": "scripts/eoere_mixed_stack_yield.py",
+      "sha256": "75185ffe49cf47da94ee2ae01cc97351557e5d9c4604ff9230ba08e570e397ef"
+    },
+    {
+      "path": "scripts/eoere_recession_certificate.py",
+      "sha256": "36ad7aa4a8bf8c78057bc8c15be84a372495414be111b4443cf2fbc9a8e38803"
+    },
+    {
+      "path": "scripts/eoere_section_patches.py",
+      "sha256": "f46ba85f820489ec08f29043f1faa7111a9e0a62b9d1e30480d2cca6cf8c36e2"
+    },
+    {
+      "path": "scripts/summarize_eoere_current_response.py",
+      "sha256": "1d613e1151d61132e6e591d814cef8d1edc0cc209377ff5a6cf28aa461f6e34b"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "highs_version": "1.12.0",
+  "material_hypothesis": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/conditional-material-assumptions-v1.json",
+    "sha256": "62683a42e9d6c693cc90446ea8ef43d189b704481c9a93320dc59a6c85873eb8"
+  },
+  "method_helper": {
+    "path": "scripts/eoere_bore_boundary_tractions.py",
+    "sha256": "8ff117d99886d4fdfc2cebc613fef186a859874c904bbf7d50087bf4c0acfa68"
+  },
+  "physical_demand_bounds_established": false,
+  "rational_helper": {
+    "path": "scripts/eoere_section_patches.py",
+    "sha256": "f46ba85f820489ec08f29043f1faa7111a9e0a62b9d1e30480d2cca6cf8c36e2"
+  },
+  "reference_pdf": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/source-cache/swedish-wood-design-vol2-2022.pdf",
+    "sha256": "98d0bf2e406ce743217578af31ffe4d464a40bccd317d38a8c918715e7452f75"
+  },
+  "runtime_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_cleat_bore_boundary_inputs/v1",
+  "source_job": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-field-refinement-attempt01/job00/result.json",
+    "sha256": "74b86c388795bb42710eb77f431e03ac4fc0c6bf4edd2fc8aa9061af6af82816"
+  },
+  "structural_acceptance": false,
+  "tensor_helper": {
+    "path": "scripts/eoere_cleat_virtual_work.py",
+    "sha256": "9289851212c5351f8854eaef6b3e5d7522b0fd7ca7e0e8978ed3bf26a8ea08f0"
+  }
+}

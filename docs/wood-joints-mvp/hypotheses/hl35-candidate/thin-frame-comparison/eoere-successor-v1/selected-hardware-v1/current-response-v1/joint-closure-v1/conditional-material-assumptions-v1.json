@@ -1,0 +1,41 @@
+{
+  "schema": "eoere_conditional_material_assumptions/v1",
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "extra_grid": false,
+  "owner_authorization": "Owner requested full completion, online help where uncertain and reasonable assumptions. Retain current design; panel/screw exceedances deferred; actual build fit excluded.",
+  "material_assignment": "Additional conditional numerical hypothesis that the modeled intact section has at least the declared C16 reference-strength envelope. This is not an observed grade assignment, a generic NDS DF-L No.2 capacity or a manufacturer qualification.",
+  "source_characteristic_values_mpa": {
+    "tension_perpendicular": 0.4,
+    "compression_perpendicular": 2.2,
+    "parallel_shear": 3.2,
+    "rolling_shear_approximation": 0.8
+  },
+  "parallel_shear_reference_reduction": 0.67,
+  "intact_section_base_reference_mpa": {
+    "tension": 0.4,
+    "compression": 2.2,
+    "parallel_shear": 2.144,
+    "rolling_shear": 0.8
+  },
+  "source_value_basis": "Swedish Wood, Design of timber structures Volume 2, edition 3:2022, Table 3.3 p.10 (C16), p.11 (approximate rolling shear); p.25 gives a 0.67 crack-width factor for structural timber shear. Applying that reduction to the parallel-shear reference in this traction construction is an explicit conservative engineering choice, not an assertion that the entire construction is an EC5 procedure.",
+  "source_url": "https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf",
+  "interaction_hypothesis": "max(sigma/Ft,-sigma/Fc) + abs(tau_parallel)/Fv + abs(tau_rolling)/Fr <= 1. Positive linear interaction is an explicit engineering model, not a published complete connection fracture criterion.",
+  "reference_scaling_basis": "Divide the declared base strengths by 2 for the working engineering reference; divisors 1.5 and 3 are sensitivities. No kmod, gammaM or NDS CD conversion is claimed. The source frame loads already include the recorded twice-bodyweight climber scenario. Uniform whole-wrench magnification 1.5 is a separate sensitivity, not an authenticated Eurocode ULS combination or a proven physical demand bound.",
+  "strength_scaling_scenarios": [
+    {"id": "working_divisor2_nominal_actions", "strength_divisor": 2.0, "whole_wrench_multiplier": 1.0, "working_reference": true},
+    {"id": "sensitivity_divisor1p5_nominal_actions", "strength_divisor": 1.5, "whole_wrench_multiplier": 1.0, "working_reference": false},
+    {"id": "sensitivity_divisor3_nominal_actions", "strength_divisor": 3.0, "whole_wrench_multiplier": 1.0, "working_reference": false},
+    {"id": "sensitivity_divisor2_actions1p5", "strength_divisor": 2.0, "whole_wrench_multiplier": 1.5, "working_reference": false},
+    {"id": "sensitivity_divisor1p5_actions1p5", "strength_divisor": 1.5, "whole_wrench_multiplier": 1.5, "working_reference": false},
+    {"id": "sensitivity_divisor3_actions1p5", "strength_divisor": 3.0, "whole_wrench_multiplier": 1.5, "working_reference": false}
+  ],
+  "base_reference_index_tolerance": 0.00001,
+  "cached_sources": [
+    {"path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/source-cache/swedish-wood-design-vol2-2022.pdf", "sha256": "98d0bf2e406ce743217578af31ffe4d464a40bccd317d38a8c918715e7452f75"},
+    {"path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/source-cache/Design-of-Connections-in-Timber-Structures.pdf", "sha256": "3d4810b75f94c87db3bc7370c1247acd8b8523a8f87480240579a55294e91dd1"}
+  ],
+  "fracture_scope": "General EN338 transverse tensile strength does not supply complete perpendicular-loaded connection resistance (COST connection report p155). The intact-section field leaves bore concentration, crack initiation/propagation, three-dimensional elastic compatibility and complete cleat resistance separate.",
+  "actual_observations": null,
+  "physical_or_structural_release": false
+}

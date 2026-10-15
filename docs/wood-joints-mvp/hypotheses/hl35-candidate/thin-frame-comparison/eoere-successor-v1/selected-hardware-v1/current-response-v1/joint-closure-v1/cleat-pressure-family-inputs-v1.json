@@ -1,0 +1,69 @@
+{
+  "actual_observations": null,
+  "boundary_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-traction-witness-attempt02.json",
+    "sha256": "fc8cbb3ae4025e61cdac70ca3657c0e84160e491620fe069b8323606a22ad226"
+  },
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_cleat_pressure_family.py",
+      "sha256": "01f074c55cd7b480210db94dcb9e45bb026bc08cccc15b58c9718c9a79104dae"
+    },
+    {
+      "path": "tests/test_eoere_cleat_pressure_family.py",
+      "sha256": "6adeb03cc0564ebecefff5ada5c35b4307fbaaf08754d84639d65ac96252f77c"
+    },
+    {
+      "path": "scripts/eoere_cleat_traction_witness.py",
+      "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+    }
+  ],
+  "extra_grid": false,
+  "family_definition": [
+    "Each unchanged source bore band may independently choose any real pressure half-angle beta in the closed interval [30,90] degrees. Its radial pressure is uniform along its recorded axial interval and proportional to max(cos(pi*phi/(2*beta)),0) inside |phi|<=beta, with phi measured from its own signed lateral force direction.",
+    "Normalize each pressure exactly to its own saved band force using J(beta)=integral[-beta,beta] cos(pi*phi/(2*beta))*cos(phi) dphi. Exact stored binary source forces, radii and axial endpoints are retained. No stored rounded endpoint amplitude is asserted to equal its irrational exact normalization.",
+    "The two bands at each bore retain their own source axial centers, resultants and complete source-wrench reconstruction. Every other cleat action remains present, with no new support or balancing force. One finite-area contradiction at the selected band suffices to rule out the full C16 stress-domain criterion for the complete prescribed-load cleat.",
+    "For each window [beta0,beta1], the zero-extended nonnegative angular shape increases pointwise with beta, and cos(phi)>=0 on [-pi/2,pi/2], so J(beta)<=J(beta1). Thus pressure(beta,phi)>=|F|*shape(beta0,phi)/(radius*length*J(beta1)) over any witness strictly inside beta0. Three windows cover every real beta in [30,90] degrees.",
+    "J(30)=3*sqrt(3)/8, J(45)=2*sqrt(2)/3, J(60)=6/5 and J(90)=pi/2. The corresponding lower-end shapes are 4*c^3-3*c, 2*c^2-1 and sqrt((1+4*c^3-3*c)/2), where c=cos(phi)>cos(beta0). Existing exact square-root, pi, normal-chart and full-tensor support helpers are reused."
+  ],
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "half_angle_windows_degrees": [
+    [
+      30,
+      45
+    ],
+    [
+      45,
+      60
+    ],
+    [
+      60,
+      90
+    ]
+  ],
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "limits": [
+    "The pressure family and positive-linear C16 stress domain are unobserved engineering hypotheses, not calibrated material/contact laws, an NDS bearing allowable or a complete fracture model. All retained strength divisors, load factors and physical applicability limits remain unchanged.",
+    "Three previously saved witness arcs only choose candidates. Exact rational pressure lower, complete stress-domain support upper and positive-area inequalities decide the continuous-angle certificate. A lower at or below one is inconclusive; no optimum, safety pass or absence of other witnesses follows.",
+    "A necessary boundary failure precludes every complete stress field that retains this same boundary traction and stress domain. Additional interior equilibrium, axial/shear/torque or brittle constraints cannot restore that declared combination. This is conditional negative qualification, not a measured physical failure, a physical demand bound or complete resistance of a different load/constitutive model.",
+    "Use one common source band to cover every half-angle window; independent half-angle choices at other bands therefore cannot remove the contradiction. Other angular shapes, axial pressure profiles, force distributions or material laws are outside this family and receive no failure/pass transfer.",
+    "Preserve the full active engineering goal and all broader physical applicability limits. Keep the reviewed geometry, 100 bolts, 66 Hillman axes, rejected cross-tie history, panel/screw deferral and excluded actual fit. No native, elastic, frame, contact-equilibrium or CAD solve, design change, observation or release occurs."
+  ],
+  "primary_methods": {
+    "retained_C16_table": "https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf",
+    "stress_traction": "https://solidmechanics.org/Text/Chapter2_3/Chapter2_3.php"
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_cleat_continuous_pressure_family_inputs/v1",
+  "selected_band": {
+    "case_id": "a12-forward",
+    "member": "eoere_cleat_left",
+    "source_action_id": "cleat_post_bolt_left_1/point/1"
+  },
+  "structural_acceptance": false
+}

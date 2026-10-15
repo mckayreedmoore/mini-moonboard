@@ -1,0 +1,79 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "Named question: which reversible end/edge marker misses matter for the actual signed same-case wood force components, and how are end-component minima shared by the complete ordinary two-fastener connections?",
+    "Reuse the frozen 120-occurrence outer-profile inventory and all six authenticated current fields. No solid query, mesh change, new force field, native/elastic/frame solve or design revision is required.",
+    "Each saved wood action retains its complete force and free couple at its own bearing-interval midpoint, including its original end-capture contribution. Project the original vector onto the declared stock grain, remaining cross-edge axis and bore axis; do not substitute force on the shaft or discard moments.",
+    "For a numerically resolved perpendicular-to-grain force component, apply the conservative projected-component markers from NDS Table12.5.1C: 4D toward the loaded outer edge and 1.5D on the opposite unloaded edge. This componentwise screen is not a codified oblique force/couple interaction or a complete code eligibility check.",
+    "The 1e-5-N direction gate is a predeclared comparison convention, not a physical force error bound. An unresolved cross component gives a null directional screen; it cannot silently pass or choose a favorable side. The actual unrounded vectors remain recorded.",
+    "Classify each grain-end plane for the signed parallel component as softwood tension toward the end (7D full,3.5D minimum) or compression away from it (4D full,2D minimum). Also retain the perpendicular-component end trial (4D full,2D minimum). An unresolved parallel sign uses the conservative reversible softwood-tension requirement.",
+    "Reuse the frozen square-end equation helper. Its per-plane partial values on sloping planes remain unadopted trials. Source planar-face matches and vertex diagnostics do not establish full ligaments, internal bore/channel effects or local resistance.",
+    "NDS12.5.1.2 makes the smallest applicable factor govern all fasteners in a group and every shear plane in an asymmetric/multiple connection. Report the minimum force-component end trial across both shafts and all wood members in each of the46 existing ordinary physical pairs; do not assign that trial as complete Cdelta or a resistance.",
+    "The eight mixed stacks retain all their own wood-component actions. Their separate complete geometry/contact/resistance qualification is not supplied by an ordinary-pair minimum. Existing Cg bounds, component references, raw mixed fields and material sensitivities remain unchanged.",
+    "A failed loaded/unloaded geometric marker records a failure of this declared sufficient component screen. It does not establish a physical fracture, complete joint-code failure or an actual force exceedance. Opposing bearing pressures/free couples can require both sides even when the net force chooses only one.",
+    "Parallel-only edge checks for long bearing lengths and row widths, row spacing, oblique shear area, connected-group eligibility, suspended loads below the neutral axis, reduced-depth shear, combined contact/bolt/washer/heel/wood behavior and local splitting/row/block/bore resistance remain outside this directional component proof.",
+    "Preserve current100 bolts/66 Hillman axes, retained design, rejected-tie history, panel/screw deferral, excluded actual fit, blank observations and no-slip analytical assumption. No capacity, stiffness bound, floor-friction credit, anchor, fabrication or climbing release is invented; no staging/publication/archive/prune occurs."
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "distance_gate_mm": 1e-06,
+  "end_method": {
+    "path": "scripts/thin_bolted_timber_resistance.py",
+    "sha256": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d"
+  },
+  "extra_grid": false,
+  "force_direction_gate_n": 1e-05,
+  "geometry_inventory": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-bolt-outer-geometry-attempt01.json",
+    "sha256": "f066d3d68efa67944350c4c5ffcef38d334a1f2ae97f10b30f395c1a919ef084"
+  },
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "loaded_perpendicular_edge_multiplier": 4.0,
+  "physical_demand_bounds_established": false,
+  "primary_source_urls": [
+    "https://awc.org/resources/2024-nds/",
+    "https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf"
+  ],
+  "references": [
+    {
+      "path": "scripts/eoere_two_member_group_bound.py",
+      "sha256": "6d68e14bdf4448002d6c1bf66f0f859ccacb3832ebb30e5118cc7924f50218ea"
+    },
+    {
+      "path": "scripts/eoere_bolt_outer_geometry.py",
+      "sha256": "8a952c7a75a20acd214c52157a9bd69ae9c24dda83f308dca615b946bbd765ec"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/sources/nds2024-errata-20260323.pdf",
+      "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf",
+      "sha256": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a"
+    },
+    {
+      "path": "scripts/eoere_front_bolt_row_factor.py",
+      "sha256": "d3108edf785d4fd8d1384b95fa57282977a55e77eaf5905bc536184f14de31f4"
+    },
+    {
+      "path": "scripts/eoere_front_bolt_group_scope.py",
+      "sha256": "d9b4cb45e82f7a487725e53c147f7c1c4bf7e43d63ebad8667d7229e7005bbd8"
+    }
+  ],
+  "runtime_versions": {
+    "numpy": "2.5.2"
+  },
+  "schema": "eoere_current_bolt_directional_geometry_inputs/v1",
+  "source_closure_note": "Before first execution, independent review identified two transitive ordinary-group helpers absent from v1 source pins. Version 2 binds both helpers and checks their loaded-source digests; v1 bytes remain preserved. No result was produced under v1.",
+  "structural_acceptance": false,
+  "supersedes_preexecution_input": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/bolt-directional-geometry-inputs-v1.json",
+    "sha256": "ecf9fa59815a7aa5900dd863ad33069a7acd925b12ca266d8455cc5a4a7bf7b9"
+  },
+  "unloaded_edge_multiplier": 1.5
+}

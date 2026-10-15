@@ -1,0 +1,78 @@
+{
+  "actual_observations": null,
+  "current_bolt_count": 100,
+  "current_response": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json",
+    "sha256": "a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e"
+  },
+  "current_screw_count": 66,
+  "definition_loader": {
+    "path": "scripts/eoere_cleat_traction_witness.py",
+    "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+  },
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "implementation": {
+    "path": "scripts/eoere_normal_patch_bound.py",
+    "sha256": "47967f6ad033b6f0cd86fb2e928e704ef4ad7f179ef7d4b81bd1e59f3e2a46e2"
+  },
+  "limits": [
+    "This is a local contact-representation question, not a current-case response, new frame equilibrium or whole-frame energy counterexample.",
+    "The nominal analytic domain is the projected 12-decimal convex straight-edge polygon minus the two complete 5/5.159375-mm circular holes. Signature area/centroid/plane identity gates do not prove a physical or CAD error envelope.",
+    "Use the existing own 40000-N/mm area-weighted flange prior as a hypothetical distributed density only. It remains unmeasured and is not adopted as a calibrated wood/flange contact law.",
+    "The affine gap is a free local infinitesimal relative translation/tilt control. It preserves all source model geometry and loads and is not asserted at an admitted load case.",
+    "Every sampled point opens while an exact rational inner material box closes. This rules out a finite multiplicative upper for this isolated normal foundation term on affine gaps, including arbitrary positive per-sample coefficient scaling.",
+    "It does not rule out a whole-system bound using other elastic/contact terms, or qualify complete flange/washer/shaft/wood transfer, plasticity, fracture, finite motion, floor restraint or physical demand.",
+    "All three full engineering qualifications remain open. Keep panel/screw exceedances deferred, actual fit excluded, observations blank and the rejected cross-tie historical."
+  ],
+  "primary_methods": [
+    {
+      "locator": "Section 2, Eqs.2.2-2.8; Section 4",
+      "scope": "Tensionless Winkler contact, energy and variable contact regions; not a source for current timber foundation modulus.",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1155/MPE/2008/786520"
+    },
+    {
+      "locator": "slide 3.14, Jensen inequality",
+      "scope": "Convex averaging inequality; the current local counterexample and energy lower bound are derived here.",
+      "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf"
+    }
+  ],
+  "prior_steel_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-steel-transfer-method-attempt01.json",
+    "sha256": "19032644315d14b1cc4f7af2c7081427cba140f20c8b91be71eaa800e8e0312a"
+  },
+  "prior_traction_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-traction-witness-attempt02.json",
+    "sha256": "fc8cbb3ae4025e61cdac70ca3657c0e84160e491620fe069b8323606a22ad226"
+  },
+  "pure_helpers": {
+    "pi": {
+      "path": "scripts/eoere_curved_bend_field.py",
+      "sha256": "26c72f5f88f947d66035ebf5fbac7193ac9a532222c0e2f7439cd21dba371efc"
+    },
+    "polygon": {
+      "path": "scripts/eoere_cleat_section_dual.py",
+      "sha256": "e790f848da97927b7e6140003136bf2163d4a0907c7222cee866ecf3b2cdedf4"
+    },
+    "rational": {
+      "path": "scripts/eoere_section_patches.py",
+      "sha256": "f46ba85f820489ec08f29043f1faa7111a9e0a62b9d1e30480d2cca6cf8c36e2"
+    }
+  },
+  "revision_index": {
+    "path": "docs/bolted-frame-development/development-revisions.json",
+    "sha256": "88471b8209863134672494ca9540d1f89fae044499951669e769f0b0fa10d753"
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "sample_opening_mm": "1/100",
+  "schema": "eoere_current_normal_patch_bound_inputs/v1",
+  "structural_acceptance": false,
+  "tests": {
+    "path": "tests/test_eoere_normal_patch_bound.py",
+    "sha256": "050cdeff2f87a100e337f67b55b4f82a8b19426a136b0f60ac8690df0db7d728"
+  }
+}

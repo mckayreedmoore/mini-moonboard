@@ -1,0 +1,93 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "Named question: can the captured convex first-order model give reaction enclosures across explicit stiffness intervals, permitting contact switches, without another force solve?",
+    "The published conjugate/weak-duality definitions support the derivation; this project derives its radial-clearance conjugate, coefficient perturbation bound and Cauchy reaction enclosures. It is not a published qualification of this frame.",
+    "The unchanged-law control and factors [0.5,2] and [0.1,10] are predeclared mathematical sensitivity families. They are not observed or published physical extrema. EC5 service slip and NDS gamma describe different quantities and do not justify those whole-model intervals.",
+    "The old elastic core is assumed positive semidefinite by its linear-elastic construction, and the trial core obeys alpha*K0 <= Knew <= beta*K0 in Loewner order with the same kernel. A nonnegative seed energy and symmetry check are not an independent PSD proof. No finite-body, effective-restraint or finished-stock property bound is inferred.",
+    "All positive common-shaft bearing, shaft-end capture, timber-face and flange-contact coefficients vary in the family interval. Their kinematic maps, normal cones and radial clearances are unchanged. Panel/screw/contact and floor normal/XY coefficients stay fixed; their energies remain in the proof and their physical behavior remains unqualified.",
+    "Replay recovers the measured residual g0 from each unchanged saved field. The dual-feasible load is exactly the floating-model f_hat=f+g0, not the original f. Record its hashes and both residual norms; do not discard g0 or claim a bound at f without a residual-to-response proof.",
+    "Let Q be the sum of old quadratic complementary energies, L=sum(clearance*norm(lateral_force)), and Qvar omit fixed spring kinds. Verify C0=Q+L=-Pi(q0)+q0.g0 and q0.f_hat=2Q+L. The seed is stationary under f_hat, assuming the stated convex core.",
+    "Fenchel gap is at most eta*Qvar with eta=max((alpha-1)^2/alpha,(beta-1)^2/beta). For every attained equilibrium in the trial family, sum(norm(delta_r_j)^2/(2*knew_j)) <= eta*Qvar. Each vector port uses its maximum positive axial/lateral coefficient for a valid norm enclosure; inactive normal/radial contacts can switch.",
+    "For an own two-Gauss wood interval, resultant change <= sqrt(2*gap*sum(beta*kl)), and couple change about its own midpoint <= sqrt(2*gap*sum(beta*kl*arm_squared)). Old signed source forces and their actual Gauss stations are retained. Free couples and other joint actions are not replaced by this bearing-only enclosure.",
+    "Add 0.001 Nmm to Qvar before gap evaluation as a declared numerical padding and check work identities within 1e-5 Nmm. This is a floating-point arithmetic evaluation of an exact mathematical inequality, not an interval-arithmetic rounding certificate.",
+    "Wood-land upper mean pressure is compared to the preserved 625-psi perpendicular compression reference on the least catalog-profile ring area. An upper index above one is a failure to certify that scalar reference across the family, not an actual force, an observed failure or complete joint strength. Local bearing/crushing, splitting, washer/heel interaction and finished-member capacities are not created.",
+    "The fixed rear-leg XY law defines an outer mathematical family; unbearing restrained-leg solutions would still be inadmissible in the selected no-slip support scenario. No new equilibrium, existence, displacement bound, floor bearing/friction credit, anchor or directional physical restraint proof is established.",
+    "Fixed first-order geometry, fixed applied captured body loads, unchanged contact maps and positive coefficient cones are essential. Geometric updates, changed fitting condensation loads, material yielding/fracture and post-failure redistribution lie outside this bound.",
+    "Retain 100 bolts, 66 Hillman axes, rejected-proposal history, panel/screw deferral and excluded actual fit. No native/frame/elastic solve, CAD rebuild, geometry change, archive, prune, staging or publication is performed by this consumer."
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "energy_padding_nmm": 0.001,
+  "extra_grid": false,
+  "fixed_spring_kinds": [
+    "floor_normal",
+    "floor_tangent",
+    "panel_contact",
+    "panel_screw"
+  ],
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "identity_tolerance_nmm": 1e-05,
+  "physical_demand_bounds_established": false,
+  "primary_source_urls": [
+    "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+    "https://web.stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf",
+    "https://research.fs.usda.gov/download/treesearch/50078.pdf"
+  ],
+  "references": [
+    {
+      "path": "scripts/thin_bolted_frame_mechanics.py",
+      "sha256": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448"
+    },
+    {
+      "path": "scripts/thin_bolted_numerical_step.py",
+      "sha256": "82b7d5a8d9d9dc871ee6410fb4c5854093a998cfd9b331fdd986917b63ebbc28"
+    },
+    {
+      "path": "scripts/thin_bolted_incremental_step.py",
+      "sha256": "3a3c794bb38352f1cc34d4c736a0812c14a53021d484549dc61d0a634cf83489"
+    },
+    {
+      "path": "scripts/thin_bolted_support_state_search.py",
+      "sha256": "c162d296306a263be4e6769c4249abf6491512e8f7d9af323ab2e9b10b1018e8"
+    },
+    {
+      "path": "scripts/eoere_connection_stiffness_references.py",
+      "sha256": "1230f2f7a5b22116482ff26dadd85db4374bc19e890e1663f45fafdb330e0ba4"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-connection-stiffness-references-attempt02.json",
+      "sha256": "e27b4736ccfb09c5242090ddcf393677386e95feb4049d0c3f0361941461fb5c"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    }
+  ],
+  "runtime_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "saved_force_tolerance_n": 1e-06,
+  "schema": "eoere_current_reaction_energy_bound_inputs/v1",
+  "stiffness_families": [
+    {
+      "alpha": 1.0,
+      "beta": 1.0,
+      "id": "unchanged-law-control"
+    },
+    {
+      "alpha": 0.5,
+      "beta": 2.0,
+      "id": "half-to-double-trial"
+    },
+    {
+      "alpha": 0.1,
+      "beta": 10.0,
+      "id": "tenth-to-tenfold-trial"
+    }
+  ],
+  "structural_acceptance": false,
+  "wood_land_reference_mpa": 4.309223308230226
+}

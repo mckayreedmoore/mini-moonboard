@@ -1,0 +1,112 @@
+{
+  "actual_observations": null,
+  "bound_helper": {
+    "path": "scripts/eoere_original_load_bounds.py",
+    "sha256": "9e8bcca92b1477709a60307f7d49385e00d9c4e179bf5c5a67cdc438d32d04b0"
+  },
+  "core_helper": {
+    "path": "scripts/eoere_elastic_core_certificate.py",
+    "sha256": "44711336829993e3eb0999ba6e9d32cf8f1218cbffc65c67ecb698650683abb4"
+  },
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "engineering_question": "Can the existing static witnesses and saved trial poses give useful equilibrium reaction enclosures after only flange-normal energies are replaced by continuous compression beds, without another response or static optimization?",
+  "execution_adapter_schema": "eoere_continuous_normal_reaction_adapter/v2",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_normal_patch_reactions.py",
+      "sha256": "2453ea37c5b6f36db193518ebf0e42cc09dc33d9ffc9f2e1d2f69854ed9fc3cd"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_reactions.py",
+      "sha256": "363d43db605a9197907198ac9fca01f00dfd44b6c1caf96724cecf2897913897"
+    },
+    {
+      "path": "scripts/eoere_normal_patch_reaction_consumer.py",
+      "sha256": "bd4f0fcb81de08ea6d0ba53912f1c590b1c4320c0661a1b53b724afe34665c8b"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_reaction_consumer.py",
+      "sha256": "89918d02817468b7e9941e22c5a10795ded67ef9bb23974168c00370d8ab0794"
+    }
+  ],
+  "existence_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-recession-attempt01.json",
+    "sha256": "bd562e323a18d5bb74d72b60bb7bcef2aed8d4b81dd11bc642f08fa89a36187e"
+  },
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "integer_boundary_counterexample": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-reactions-integer-boundary-v1.json",
+    "sha256": "412e6ce695649898d8dfc800bad3c2abfe31e056340d944991fde8c879718562"
+  },
+  "law_hypothesis": [
+    "Use precisely the previously certified invariant K0 core and every unchanged source scalar/vector law, clearance, floor point and rear-leg XY row. Replace the 352 sampled flange-normal terms by the already defined 88 continuous normal beds using their own exact stored constant kappa. These are hypothetical unmeasured coefficients, not physical lower/upper bounds.",
+    "Keep all six original binary64 loads, source coordinate maps and q as authenticated. The saved q are only primal trial points. None is admitted as a changed-law equilibrium.",
+    "For each patch select four disjoint, strictly material square supports centered at the existing nominal centroid coordinates. Start with common half-width 8 mm and halve at most 32 times until all four supports are inside the polygon, outside both disks and mutually disjoint. These are auxiliary dual supports, not replacement contact cells, manufacturing tolerances or model-energy quadrature.",
+    "Reuse the prior piecewise point-map integrator to form full 9350-coordinate compression-average rows, including fitting-port ownership, literal source directors, every timber station and endpoint clamp. Compose with the exact registered R without discarding any coefficient. Retain rounding differences from old source rows.",
+    "Reuse the original certified 800-column minor and its inverse norm upper a. With exact minor change delta, a*delta<1 certifies new inverse upper a/(1-a*delta). Reuse the saved original-load near-dual vector, recompute both old and new exact correction boxes and require strictly positive corrected one-sided weights. No auxiliary force optimization or inverse is performed.",
+    "On each box of area A use constant pressure lambda/A and zero pressure on its remainder of that patch. Disjoint support gives exact conjugate sum lambda^2/(2*kappa*A). Combine its correction-box upper with minus lambda times the exact average compression and the already certified whole-patch primal energy upper, including any contact outside the supports.",
+    "Both old and new corrected complete loads annihilate the same registered rigid map. Their difference is in range K0. Bound each free-coordinate load difference by its exact center plus both correction radii, then use the existing positive G eigenvalue lower. Minkowski adds its complementary-norm upper to the authenticated old residual upper separately on each owner. This reuses saved bounds and needs no new core action, inverse, factorization or field solve.",
+    "Sum half the transferred complementary residual square, unchanged scalar/radial Fenchel gaps and distributed normal Fenchel gaps. Conjugate strong convexity bounds weighted reaction differences by twice this total. Existing exact reaction functional helpers cover rear-leg sums, all 112 catalog wood lands and the unchanged bolt-067 lateral functional in its own a12-forward case.",
+    "For complete continuous patch normal resultants use the L2 pressure metric, not the dual support areas. The Gram upper is kappa times the complete outer polygon area, filling holes only for an upper bound. Each patch retains the full primal normal energy in the gap.",
+    "All arithmetic bounds are rational, with inherited outward 24-decimal upper rounding and square-root intervals. Positive tiny terms are retained. Existing existence applies to this fixed coefficient member; no uniqueness, admitted changed-law response or uniform physical family conclusion follows."
+  ],
+  "limits": [
+    "These are certified enclosures for the declared fixed-reference continuous-normal model at its exact original loads. A wide upper bound above a reference is inconclusive, not an exceeded actual reaction or a resistance failure. A nonpositive rear-leg lower bound is inconclusive, not loss of bearing.",
+    "The old sampled-comparator >569-N rear-leg bound, washer mean-pressure upper and bolt-067 equilibrium failure are not transferred. This packet computes new enclosures; the retained old results keep their own sampled law.",
+    "The dual supports, constant trial pressure and saved poses are proof choices. They do not supply a physical pressure distribution, pretension, contact calibration, actual floor friction, floor anchor or finished-member/joint capacity.",
+    "Retain all continuous primal energy, including areas outside dual supports. Rigid-mode coordinates and full generalized coordinates serve different roles; no area-average row is substituted for the continuous energy.",
+    "Direct source/operator/current evidence pins are freshly captured. Prior complete core and historical source-bank audits are inherited, not described as a new verification of every old input. No old matrix PSD failure is ignored; the declared invariant K0 alone is covered.",
+    "If material-box selection, rank perturbation, exact load correction or a conjugate-domain gate fails, stop without issuing a successful bound record. Inconclusive interval comparisons do not establish instability, nonexistence, physical failure or acceptance.",
+    "Physical contact/restraint applicability, finite-motion demand bounds, complete holed-fitting resistance, local mixed/brittle geometry and finished-member/cleat resistance remain separate. The earlier prescribed cleat-pressure negative decisions retain their explicit load/strength hypotheses.",
+    "Keep the full active engineering goal, reviewed geometry, 100 bolts and 66 Hillman axes. Rejected cross-tie stays history; panel/screw exceedances remain deferred and actual fit excluded. No new static LP, inverse/factorization, native/global/frame/contact-equilibrium solve, CAD rebuild, geometry revision, physical test, staging, commit/push, archive or prune.",
+    "The preserved v1 distributed_gap helper divides ordinary integer arguments in floating arithmetic. The exact-input consumer normalizes primal, used stiffness, candidate, correction radius and movement to Fractions before that helper. Current production already passed Fractions, so every issued v1 engineering case, full map and rank proof must remain exactly equal; preserve the counterexample, v1 input/result and implementation."
+  ],
+  "material_box_maximum_half_width_mm": "8",
+  "mixed_helper": {
+    "path": "scripts/eoere_mixed_reaction_bound.py",
+    "sha256": "1c14938bbf5a25d69e5a6d1335dd0df80ac05473bb5ff52882e1e6d368b9f1d8"
+  },
+  "mixed_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-mixed-reaction-bound-attempt01.json",
+    "sha256": "df9933aa49ebbd09c475c9532678752dc13cfc0dcdad76d2fa5844d8f95df615"
+  },
+  "original_bounds": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-original-load-bounds-attempt01.json",
+    "sha256": "675039735a786a27b16b987b8db4576da9c6a0d7512cea77f8c42b9a490a33ff"
+  },
+  "port_reader": {
+    "path": "scripts/eoere_original_load_audit.py",
+    "sha256": "f4e3ac42d35326b413481c7c2943d5863e80efffcab6c6ebffe928906e7f979a"
+  },
+  "preserved_v1_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/normal-patch-reaction-inputs-v1.json",
+    "sha256": "233d8578955aa95fd52dec31af5479ec6774b8b7425c6db641036c5fc0d0fa50"
+  },
+  "preserved_v1_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-reactions-attempt01.json",
+    "sha256": "f7de3fe56d71f57b40cf4be0d7c5e3f967391abf75392448aba44a97ef4efb19"
+  },
+  "primary_method": {
+    "sections": "3.3 and 5.1-5.2; finite-area conjugates and residual-transfer bounds are derived explicitly in this packet",
+    "title": "Boyd and Vandenberghe, Convex Optimization, conjugates and dual lower bounds",
+    "url": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf"
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_continuous_normal_reaction_inputs/v1",
+  "structural_acceptance": false,
+  "transfer_helper": {
+    "path": "scripts/eoere_normal_patch_recession.py",
+    "sha256": "a2189516e303746b7985042c4ca2727054152949be3362e5f4e798c02a8f5af9"
+  },
+  "transfer_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/normal-patch-recession-inputs-v1.json",
+    "sha256": "10cf60121a809924142f08a69ee9499738e2d1412fee723aa3c998049478fcff"
+  }
+}

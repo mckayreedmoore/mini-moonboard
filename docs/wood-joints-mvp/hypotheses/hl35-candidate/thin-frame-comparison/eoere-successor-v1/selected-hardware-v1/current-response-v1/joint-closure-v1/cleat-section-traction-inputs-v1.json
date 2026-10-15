@@ -1,0 +1,58 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "Named question: can an exact six-resultant traction construction close the four undecided working section-only comparisons without changing the retained design, material hypothesis, demand, or old failed construction?",
+    "Reuse the frozen 24 complete cut wrenches and exact support-cell certificates, with the unchanged C16-envelope hypothesis, positive linear interaction, 0.67 parallel-shear reference reduction, six divisor/load scenarios, and threshold one.",
+    "Take the signed strength-axis intercept on every support cell. Each such constant traction has unit interaction. Integrate all six resultants exactly over those cells using their area and first moments; then multiply the field by the previously certified positive necessary interaction lower bound mu.",
+    "The extremal field need not exactly carry the saved wrench. Retain its entire six-component residual and correct it with the existing normal/parabolic-shear/torsion polynomial helper. Exact rational integration must recover the original six resultants with zero remainder; no residual is rounded away.",
+    "The positive asymmetric interaction is convex and positively homogeneous, hence subadditive. The complete corrected field has pointwise interaction no greater than mu plus a rigorous continuous upper bound on the correction field. Reuse the existing exact-rational Bernstein helper and its unchanged 1e-5 enclosure tolerance and 100000-cell budget.",
+    "This is sufficient only for the declared section-only model of measurable tractions carrying six resultant integrals subject to the same pointwise interaction. It does not impose compatible three-dimensional displacements, continuity, full volume equilibrium or free-side-face tractions. The new field must not inherit the earlier polynomial field side-boundary or torsional-divergence properties.",
+    "No optimizer, native/elastic/frame mechanics solve, new force field, CAD/solid query, geometry/hardware change, actual-fit work, or material calibration occurs. Optimizer success and global optimality are neither needed nor claimed.",
+    "Keep every old source/input/result and its failed or unresolved comparison unchanged. New sufficient bounds may close a section-only comparison; they do not overwrite old construction exceedances or prove complete cleat, bore/notch/crack, combined joint/member, stiffness/contact/restraint or physical demand qualification.",
+    "Preserve the reviewed current 100 bolts and 66 Hillman axes, rejected-tie history, panel/screw deferral, excluded actual fit, blank observations and unverified no-slip assumption. No redesign, remedy, manufacturer qualification, fabrication or climbing release, staging, publication, archive or prune is introduced."
+  ],
+  "bernstein_cell_budget": 100000,
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "dual_helper": {
+    "path": "scripts/eoere_cleat_section_dual.py",
+    "sha256": "e790f848da97927b7e6140003136bf2163d4a0907c7222cee866ecf3b2cdedf4"
+  },
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "material_scenarios": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/conditional-material-assumptions-v1.json",
+    "sha256": "62683a42e9d6c693cc90446ea8ef43d189b704481c9a93320dc59a6c85873eb8"
+  },
+  "physical_demand_bounds_established": false,
+  "previous_section_construction": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-section-reference-attempt02.json",
+    "sha256": "d6117cf16bd0cbbe56f9d99e056f1abe12450093129a6f6b3c9089f0226f2364"
+  },
+  "primary_source_urls": [
+    "https://web.stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf",
+    "https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf"
+  ],
+  "references": [
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    }
+  ],
+  "residual_field_interaction_tolerance": 1e-05,
+  "runtime_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_cleat_section_traction_inputs/v1",
+  "section_dual": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-section-dual-attempt01.json",
+    "sha256": "4f9d162ab4fd3e95a225130ba706cd01875e01aab975da4692b7e37b1cc43d61"
+  },
+  "section_helper": {
+    "path": "scripts/eoere_cleat_section_reference.py",
+    "sha256": "85a2eb16fdb340479bcf2d9b9524796eacfeebbaaa8bf5254ad7ec0839f0482d"
+  },
+  "structural_acceptance": false
+}

@@ -1,0 +1,49 @@
+{
+  "actual_observations": null,
+  "control_gates": {
+    "energy_nmm": 1e-05,
+    "force_n": 1e-07,
+    "mass_mean_mm": 1e-07,
+    "mass_sum": 1e-12,
+    "moment_nmm": 1e-05,
+    "reference_rhs_n": 1e-05
+  },
+  "current_finite_frame_v5": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-finite-frame-v5.json",
+    "sha256": "1ab541095e902ca50c18db11b92543b54786bd3ff332429c1a673fea95717f55"
+  },
+  "engineering_question": "Restore the current finite panel physical load potentials and both saved generalized correction terms on the same six current panel spaces, ready to compose with the bounded bulk interface. Preserve all 217 source actions and saved reference RHS coefficients per case, without constructors, correction regeneration or any candidate response solve.",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_finite_panel_loads.py",
+      "sha256": "8d21a30051dc8716bd9c7ee4ffcf65de15ca1200db614c127e77e3c938d704da"
+    },
+    {
+      "path": "tests/test_eoere_finite_panel_loads.py",
+      "sha256": "a57b45db313bdfc346fff0d7bbff2b2ab4b25472e50ba5e0b1fb0438778c3a88"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "law_and_limits": [
+    "Use the authenticated current finite-frame-v5.json as saved numeric source data, never its assembler, solve or diagnostic response q. Its six own source field/case identities, runtime panel axes, coefficient chart, reference mass row and mass mean must match the retained current fields. Do not rehash the full historical source bank or transfer a v5 finite-equilibrium claim: all six flags remain false.",
+    "Capture the full frozen FinitePanelLoads.external method without its constructor. Change only the single mass-mean data access from mass_weights@xy_mm to the same saved mass_reference_xy_mm. Capture the existing point ports, current rigid generators and sparse embedding methods; construct no mass/elastic operator or fake one-point quadrature. No matrix inverse, factorization, correction reconstruction or native/frame/contact-equilibrium run occurs.",
+    "For each of 36 panel/case registrations, restore its one uniform selfweight action and all other physical source-world point forces. Use the saved normalized reference mass coefficient row for uniform work, and the complete signed-offset/optional accessory-edge point-port position, gradient and Hessian for physical point potentials -F dot (p(q)-p_ref). The retained signed aperture/bevel mass proxy is not a measured veneer density or physical countersink mass law.",
+    "Preserve every bit of the saved retained_rigid_RHS and reference_port_alignment correction vectors. Keep their potentials -delta_f dot q, zero Hessians and current equivalent rigid-generator wrenches explicit and separate. They are generalized numerical loads with no invented physical point-force/traction representation. Restore all 72 own correction terms, using a deduplicated vector registry.",
+    "The mass row sum and its first moments reproduce the normalized reference measure only within the recorded numerical gates; exact normalization in the saved binary coefficients is not asserted. Do not renormalize the row or move a source datum. Compare the complete restored reference generalized force against the already-authenticated saved linear panel force vector with the unchanged 1e-5-N reference gate.",
+    "Evaluate only synthetic zero, uniform translation and common finite-rotation controls. Physical dead-load potential changes by the known force work; the external load is not required to be invariant under motion with gravity held fixed. Check physical plus both generalized correction wrenches against the total coefficient-space work with separate 1e-7-N/1e-5-Nmm gates. Unit controls also check nonuniform-field first derivatives and full geometric Hessians.",
+    "Retain the exact 217 physical panel source identities once per case, with the other 618 source actions remaining in their previously defined bulk work spaces, total 835. These corrections are additional explicit generalized work terms, not extra purchased parts or extra physical source IDs. No candidate geometry, hardware, axes, source force or saved field changes.",
+    "This supplies a finite numerical external-load definition for composition with the bulk/interface law. It does not evaluate a coupled frame, justify current physical stiffness/restraint, establish complete cleat/finished-member resistance, or close any of the three full qualifications. Next define head/shaft and nut/shaft transfer, complete contact search and brittle behavior, then assemble/evaluate under the existing execution constraints. Panel/screw exceedances remain deferred and actual fit is excluded. Nothing is staged, committed, pushed, archived or pruned."
+  ],
+  "panel_bulk_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-panel-bulk-coupling-attempt02.json",
+    "sha256": "b24d52dc23b134977b81f57327e61dda7eb921b20f82ab2b24ae7f8325b4a570"
+  },
+  "primary_method": {
+    "scope": "Body-force and discrete external work follow the existing virtual-work method. The exact finite point-port chain rule and the two generalized correction potentials are reused from the frozen finite adapter. The present source restoration and known-motion controls are project derivations, not a new resistance or physical applicability method.",
+    "virtual_work": "https://solidmechanics.org/Text/Chapter8_1/Chapter8_1.php"
+  },
+  "schema": "eoere_finite_panel_load_inputs/v1",
+  "structural_acceptance": false
+}

@@ -1,0 +1,136 @@
+{
+  "Ft90_reference_mpa": 0.2,
+  "Gc_all_modes_n_per_mm": [
+    0.1,
+    0.05
+  ],
+  "actual_observations": null,
+  "assumptions": [
+    "The complete current individual bearing, axial seat, contact and body loads are fixed; every original signed force and free couple remains. Original self-weight is retained at its source centroid and spread as a local nodal load hypothesis, not a recovered uniform continuum body load.",
+    "Only the current four full-width bore-seeded grain-parallel full-front flaws in each cleat are sampled: original radius plus 5 mm on both tips, with each tip separately extended to 10 mm. Unmodeled crack surfaces and other members remain unqualified. No physical drilling or crack is introduced.",
+    "The existing unmeasured nine-constant orthotropic material is used in both R/T bindings. Working Ft90=0.2 MPa retains the divisor-two section hypothesis. Common Gc=0.1 N/mm for every mode/mixture is the historical unmeasured hypothesis; Gc=0.05 is an adverse sensitivity. No NDS duration or grade capacity is assigned.",
+    "The existing minimum-norm original-side nonseam load mapper uses 15-mm and 30-mm radius increments as separate local boundary hypotheses. Coincident point actions are evaluated on both sides using a 1e-6-mm selection shift with exact counter-couple, preserving their original global wrench. These are not recovered bore/washer pressure fields or compatible bolt-contact laws.",
+    "Every intact/initial/final comparison must retain an identical physical prescribed nodal load fingerprint for each boundary hypothesis. No force cloud may silently stitch a crack through seam nodes.",
+    "The same source-bound C3D20 staircase geometry is used intact/initial/final. Every actual bore requires positive void sampling, quarter-diameter radial partition bounds and independent local void volume error below 20%; whole retained volume must differ by less than 5% from its own finished BREP. Curved-face stresses are not claimed.",
+    "A fully split seam stiffness is assembled once and closed by a proved Boolean congruence for each crack configuration. Right/left reuse requires bit-identical independently generated local nodes and element coordinates. Own case/actions and bore identities remain separate.",
+    "Six scalar gauges remove rigid motion only; free and gauge reactions must each satisfy the original 1e-5-N residual gate. Nested fixed-load energies must be nondecreasing. Total free-face G=(Ufinal-Uinitial)/added sound area and contact upper reference=(Ufinal-Uintact)/added area retain all three-dimensional modes.",
+    "Peak transverse stress is sampled at 27 Gauss points per intact element; it is neither a continuous maximum nor a converged initiation capacity. The 15/10-mm response comparison is required, with a 20% change guard. A reference exceedance or mesh limit is recorded without redesign.",
+    "These finite local comparisons do not bound changes to connected-frame actions when a crack or stiffness changes. Complete cleat, combined joint/member resistance and physical response remain unestablished until their own required proofs are complete. Panel/screw exceedances are deferred, no-slip support remains an assumption, actual observations stay blank."
+  ],
+  "change_reason": "The current 20-mm source-side 15-mm load cloud has only three usable nodes at two base-header contact-point stations. Geometry-only census finds at least four at 15 mm and six at 10 mm. Refine field grids to 15/10 mm; retain the original four-node and full-wrench guards, all current actions and physical geometry.",
+  "coincident_point_sides": [
+    -1,
+    1
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "jobs": [
+    {
+      "mesh_size_mm": 15.0,
+      "plane_mm": -25.4,
+      "swap_RT": false
+    },
+    {
+      "mesh_size_mm": 15.0,
+      "plane_mm": 25.4,
+      "swap_RT": false
+    },
+    {
+      "mesh_size_mm": 15.0,
+      "plane_mm": -25.4,
+      "swap_RT": true
+    },
+    {
+      "mesh_size_mm": 15.0,
+      "plane_mm": 25.4,
+      "swap_RT": true
+    },
+    {
+      "mesh_size_mm": 10.0,
+      "plane_mm": -25.4,
+      "swap_RT": false
+    },
+    {
+      "mesh_size_mm": 10.0,
+      "plane_mm": 25.4,
+      "swap_RT": false
+    },
+    {
+      "mesh_size_mm": 10.0,
+      "plane_mm": -25.4,
+      "swap_RT": true
+    },
+    {
+      "mesh_size_mm": 10.0,
+      "plane_mm": 25.4,
+      "swap_RT": true
+    }
+  ],
+  "kernel": {
+    "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/project-draft09/producer-project-draft.py",
+    "sha256": "c5b966e89f303c00ec54526e58d9cde3c768f9d6eef1ad5244a781cd191fb6ec"
+  },
+  "maximum_dofs": 120000,
+  "maximum_raw_COO_bytes": 1200000000,
+  "mesh_sizes_mm": [
+    15.0,
+    10.0
+  ],
+  "purpose": "Evaluate current three-dimensional mixed-mode finite-bore-flaw energy where a direct mean-stress length construction is unavailable. This is not an external native or revised-frame solve.",
+  "radius_increments_mm": [
+    15.0,
+    30.0
+  ],
+  "references": [
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/project-draft09/producer-project-draft.py",
+      "sha256": "c5b966e89f303c00ec54526e58d9cde3c768f9d6eef1ad5244a781cd191fb6ec"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/corner_frame.py",
+      "sha256": "726f058d488e2dc9e7f83abc5537246afd994102ccddaee17416a7126a610f5d"
+    },
+    {
+      "path": "fea/horizontal_panel_frame.py",
+      "sha256": "9ac5ceb2bd76ffddb6c048f92e54082a4672d72aab635ba2230e4352253378d9"
+    },
+    {
+      "path": "fea/floor_recess_mesh.py",
+      "sha256": "518e3ee913537fb0e42a6dd843166974a011299921e116759bf2d330f221d184"
+    },
+    {
+      "path": "fea/wood_joint_reduced_members.py",
+      "sha256": "825bd3a8463eef3fbd7df9bd4892b20b660d980f5c94088537ce7a0a5d058335"
+    },
+    {
+      "path": "fea/wood_joint_patch_materials.py",
+      "sha256": "ecbbd11a8a0e99ece69aeb5cb4159e7cf17e0aa18c509c78b5c8f5a2e573ae78"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/coupon03/validation.json",
+      "sha256": "90c9f5f7d01f2443b5f7ed0ba95384c8c439846b437c5786ef840facc0c401e4"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/gauge02/gauge-validation.json",
+      "sha256": "4ace24c1087984796d8dcef07792112b1adc8a8e9730543218d4313592a540fc"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/rawlocal/splitting-capacity-completion/bore-coupon01/bore-validation.json",
+      "sha256": "e9987a061883f7a0fd3383787cefd1fa8918cbb570b1f5110e1a233c3aa6215e"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/conditional-material-assumptions-v1.json",
+      "sha256": "62683a42e9d6c693cc90446ea8ef43d189b704481c9a93320dc59a6c85873eb8"
+    }
+  ],
+  "runtime_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_cleat_finite_body_inputs/v1",
+  "superseded_input": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/cleat-finite-body-inputs-v1.json",
+    "sha256": "28152bd95c2a4d3145c088d665e53a703e86b20910a88bffe4c5166a893fee36"
+  }
+}

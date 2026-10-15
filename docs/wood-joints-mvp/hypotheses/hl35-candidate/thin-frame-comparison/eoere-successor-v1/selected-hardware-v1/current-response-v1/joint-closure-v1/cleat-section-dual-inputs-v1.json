@@ -1,0 +1,55 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "Named question: does the previous complete six-component intact-section construction exceedance establish a necessary exceedance for every possible section traction under the same declared strength and interaction hypothesis?",
+    "Reuse the frozen 24 current one-sided cut wrenches, exact intact rectangle, C16-envelope hypothesis, engineering divisors, 0.67 parallel-shear reduction and positive linear interaction. Do not change forces, design, material assumptions or the earlier failed construction.",
+    "The admissible section traction set is max(sigma/Ft,-sigma/Fc)+abs(tau_p)/Fv+abs(tau_q)/Fr <= U. Its unit set is the convex hull of the six signed traction-axis intercepts. This is the same declared intact-section hypothesis, not a published full wood-connection interaction or observed timber property.",
+    "For any six-component dual wrench multiplier lambda, integrate the support function of that traction set over the entire rectangle. The exact ratio lambda.dot(wrench)/support_integral is a necessary lower bound on the smallest possible pointwise interaction for any traction carrying the complete saved wrench.",
+    "All six resultants and their signs are retained: N,Vp,Vq,T,Mp,Mq in the saved right-handed Y,Z,X basis. The weights are lambda_N+q*lambda_Mp-p*lambda_Mq, lambda_Vp-q*lambda_T, and lambda_Vq+p*lambda_T. Do not drop torque, moments or opposing normal stress.",
+    "SLSQP chooses one finite candidate multiplier for each trace; optimization termination is diagnostic and supplies no certificate of global optimality. Exact-rational halfspace clipping partitions the rectangle by the six affine support pieces, integrates each piece analytically and computes the certified lower-bound ratio independently of the optimizer.",
+    "Retain the earlier exact-rational continuous construction upper bound. A necessary lower bound above one certifies infeasibility of this section traction hypothesis; a lower bound below one alone cannot establish feasibility. Where the lower bound is at or below one and the previous construction upper exceeds one, the section comparison remains unresolved.",
+    "No numerical mechanics, native solver, frame solve, field refinement, CAD/solid query, geometry/hardware change or actual-fit work occurs. This six-variable support search produces a mathematical multiplier, not a frame force or physical response.",
+    "An intact-section traction envelope is not a compatible three-dimensional elastic field, local bore/notch or crack resistance, complete cleat/joint/member strength, stiffness/contact/restraint applicability or physical-demand bound. The old reference passes and failed constructions remain preserved.",
+    "Keep the current 100 bolts and 66 Hillman axes, rejected-tie history, panel/screw deferral, excluded actual fit, blank observations and no-slip analytical assumption. No remedy, fabrication or climbing release, staging, publication, archive or prune is introduced."
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "material_scenarios": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/conditional-material-assumptions-v1.json",
+    "sha256": "62683a42e9d6c693cc90446ea8ef43d189b704481c9a93320dc59a6c85873eb8"
+  },
+  "optimizer_options": {
+    "ftol": 1e-09,
+    "maxiter": 200,
+    "method": "SLSQP"
+  },
+  "physical_demand_bounds_established": false,
+  "previous_section_construction": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-section-reference-attempt02.json",
+    "sha256": "d6117cf16bd0cbbe56f9d99e056f1abe12450093129a6f6b3c9089f0226f2364"
+  },
+  "primary_source_urls": [
+    "https://web.stanford.edu/~boyd/cvxbook/bv_cvxslides.pdf",
+    "https://docs.scipy.org/doc/scipy/reference/optimize.minimize-slsqp.html",
+    "https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf"
+  ],
+  "references": [
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    }
+  ],
+  "runtime_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_cleat_section_dual_inputs/v1",
+  "section_helper": {
+    "path": "scripts/eoere_cleat_section_reference.py",
+    "sha256": "85a2eb16fdb340479bcf2d9b9524796eacfeebbaaa8bf5254ad7ec0839f0482d"
+  },
+  "structural_acceptance": false
+}

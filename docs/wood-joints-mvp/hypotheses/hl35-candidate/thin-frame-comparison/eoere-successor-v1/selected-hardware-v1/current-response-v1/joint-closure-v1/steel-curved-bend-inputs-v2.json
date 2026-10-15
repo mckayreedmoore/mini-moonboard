@@ -1,0 +1,110 @@
+{
+  "assumptions": [
+    "The existing Ri=t scenario is an ideal unholed quarter-annular rectangular bend, width 88.9 mm, outer-face tangent offset a+t, with source heel coordinates unchanged. This is a strength model, not revised CAD or an observed product.",
+    "The homogeneous associated perfectly plastic Mises continuum has conditional Q235B base-metal yield reference 235 MPa. Its stress is compared to 235/1.67 MPa. The retained numerical factor is not asserted to be an approved plastic angle design rule, first-yield criterion or product capacity.",
+    "All own fine bearing, capture and backing actions and free couples are retained. Only end force/moment resultants are specified for the ideal bend; its end-traction distributions are supplied by the equilibrated construction.",
+    "Uniform bend force density equals the own source total gravity force divided by w*t*(2*arm-t). The remaining weight is split equally between two straight-flange resultants at positive interior stations chosen to preserve the source total force and center of mass. The bend has its exact uniform volume load under this hypothesis; source mass and COM are not observed anew.",
+    "The 6.0-mm scenario changes strength geometry at the same saved actions and source total gravity; it is a fixed-action sensitivity, not another compatible frame response.",
+    "Exact model equilibrium and free-side properties follow from the displayed analytical fields. Binary64 interval arithmetic rounds every basic operation outward and encloses angular functions by rational half-angle identities and alternating inverse-tangent series. Serialized field parameters are treated as exact decimal input values in that interval check."
+  ],
+  "comparisons_mm": [
+    6.35,
+    6.0
+  ],
+  "current_components": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/components.json",
+    "sha256": "20de966cb0c684c6d9ebed1cd380999386fa61b12106f9d7b5640e539439efaf"
+  },
+  "current_response": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json",
+    "sha256": "a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e"
+  },
+  "frozen_steel_calculator": {
+    "calculator": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/calculate.py",
+      "sha256": "6acf9421d8fcbcafd1334edfa3a5a9e3bbb80ccea8594d9094d47cba4c4d7b18"
+    },
+    "core": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/joint-mvp-v1/steel-reuse-v1/core.py",
+      "sha256": "477ca831860a163e4baefcab3a93fd82002528f4735fe66ec98aec0d382797f1"
+    }
+  },
+  "implementation": {
+    "adapter": {
+      "path": "scripts/eoere_curved_bend_audit.py",
+      "sha256": "3721508e5ea74e3349baa4df3ddf6dd5daadab5ee7cd00ce518b43afa05905e7"
+    },
+    "consumer": {
+      "path": "scripts/eoere_curved_bend_consumer.py",
+      "sha256": "ecde982b7be5de1b7535745a16d5dc8fc71ee2f73bb5bb6cadc8270d016a06f0"
+    },
+    "consumer_tests": {
+      "path": "tests/test_eoere_curved_bend_consumer.py",
+      "sha256": "44423edea015ae622bc4dbedd71461ad220e0e73200391eea9f83d074b993a7b"
+    },
+    "field": {
+      "path": "scripts/eoere_curved_bend_field.py",
+      "sha256": "26c72f5f88f947d66035ebf5fbac7193ac9a532222c0e2f7439cd21dba371efc"
+    },
+    "promoted_body_free_controls": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-steel-curved-sector-controls-v1.json",
+      "sha256": "89466799ffc4fc2c52dbce8bbabe675c9bb961bc51f90c54c1d38f117be7ef5e"
+    },
+    "tests": {
+      "path": "tests/test_eoere_curved_bend_field.py",
+      "sha256": "1f04ac64a1bf5be248ea721439efe45f25d680253084285c4cd89c4b599b1841"
+    }
+  },
+  "inside_radius_equals_comparison_thickness": true,
+  "intake_correction": {
+    "arithmetic_recomputed_not_inherited": true,
+    "confirmed_issue": "v1 could hash a path and consume a different reopened buffer; its generic runtime loader and lockfile were not in the execution closure.",
+    "correction": "Capture/hash/parse each JSON buffer once, record and recheck the actual consumed input buffer, compile captured pinned calculator/core bytes, extract only the unchanged captured v1 mechanics definitions/rotation, and pin remaining used helper and shared runtime.",
+    "observed_source_tampering": false,
+    "v1_preserved": true
+  },
+  "interval_cell_budget": 10000,
+  "limits": [
+    "This constructs ideal-bend plastic-collapse references under stated constitutive, geometry, gravity and end-traction assumptions. It does not prove elastic compatibility, first yield, physical stiffness, cyclic behavior, fracture or stability.",
+    "The source actions close within their unchanged 1e-4 N / 0.1 Nmm recovery gates, not exact arithmetic. Opposite end residuals are reported; no exact original-field stress certificate is claimed.",
+    "Generated bend end tractions have not been matched to a complete statically admissible field in the actual straight holed/contact flanges. A complete fitting or complete-joint capacity remains unestablished.",
+    "Nominal hole disks and source point-action stations are screened outside the assumed curved region. This does not inspect real contact footprints, bend datums, thinning or delivered dimensions.",
+    "A successful interval covering bounds this particular stress construction everywhere in the ideal bend; a covering budget miss is inconclusive, and a constructed high stress would not alone prove necessary physical failure.",
+    "The old nominal elastic heel and t6 sensitivity comparisons remain unchanged. The new full-width plastic construction is a different limit-state method; its index does not replace or rescale them.",
+    "No current native/frame solve, CAD rebuild, hardware/axis or design change, actual-fit work, panel/screw remedy, staging, commit, push, archive or prune is authorized or performed by this input.",
+    "The v1 input/result and source paths remain frozen as the superseded intake attempt. The v2 consumer independently recomputes every arithmetic row and requires equality to the preserved v1 rows; it does not use their stress results to prove the new coverings."
+  ],
+  "preceding_attempt": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-steel-curved-bend-attempt01.json",
+    "sha256": "589c912b7a2382e62f8d7be5cb63283bbf934e78c78aa154bacedbc83ac23edb"
+  },
+  "prior_input": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/steel-curved-bend-inputs-v1.json",
+    "sha256": "9c92bbb764e5d5202b9a7dd898bbcf2633853057150a641710dc3d867e0942ab"
+  },
+  "question": "Can a full-width three-dimensional equilibrated stress field carry all current fitting end wrenches and declared uniform bend gravity everywhere within the retained Q235B/1.67 reference?",
+  "retained_material_source": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/steel-net-sections-v1/material-source.json",
+    "sha256": "37808016a6ff7e6d9d0b95f51e5acd43f9ec2e0d48713d2c084850301a7f8072"
+  },
+  "revision_index": {
+    "path": "docs/bolted-frame-development/development-revisions.json",
+    "sha256": "88471b8209863134672494ca9540d1f89fae044499951669e769f0b0fa10d753"
+  },
+  "runtime": {
+    "files": {
+      "pyproject": {
+        "path": "pyproject.toml",
+        "sha256": "84e007ad5c9cfffa853f21627fecbaec0a85c602560d5d5e0b507326e9b02452"
+      },
+      "uv_lock": {
+        "path": "uv.lock",
+        "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+      }
+    },
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "schema": "current_ideal_curved_bend_captured_inputs/v2"
+}

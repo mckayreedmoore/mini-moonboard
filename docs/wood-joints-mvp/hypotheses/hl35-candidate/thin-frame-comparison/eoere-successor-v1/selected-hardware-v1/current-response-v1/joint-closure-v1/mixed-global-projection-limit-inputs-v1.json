@@ -1,0 +1,41 @@
+{
+  "actual_observations": null,
+  "axis_id": "eoere_bolt_067",
+  "case_id": "a12-forward",
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "engineering_question": "Can any registered rigid-kernel projection certify a bolt067 exceedance using the same continuous-model candidate1, correction box, full gap, necessary functional and support, or must the next proof change one of those certificates?",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_mixed_global_projection_limit.py",
+      "sha256": "025355ed0238f24a12dbf6433447e7d2cc97d54242a6727302b463fc82fc4d7f"
+    },
+    {
+      "path": "tests/test_eoere_mixed_global_projection_limit.py",
+      "sha256": "ea996287643a1b67b85a6314300334e5627ac450aa2604cb058e399c4574eb00"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "limits": [
+    "Reuse two frozen auxiliary candidates from the original-load and refined-mixed records. Independently certify both with the same complete continuous rigid matrix, original load, selected minor and existing rank bound. No LP, inverse, factorization or response is computed.",
+    "The exact null vector is the difference of two corrected balanced duals; the explicit raw candidate difference generally is not null. Bound its action from below and dual density norm from above using the sum of both certified correction radii.",
+    "Embed each normal weight as uniform pressure on its own existing certified disjoint material support. Its exact dual norm uses kappa*area. Continuous virtual actions retain their complete whole-patch metric, including material outside those supports; the finite average-row metric is not substituted for it.",
+    "The second candidate is only an annihilator proof witness. Preserve the first candidate, its correction box and full upper gap certificate, the frozen functional and fixed-point work, support and working divisor 5.",
+    "For all 800 registered rigid-kernel directions the corrected dual difference annihilates the original load map. Weighted Cauchy bounds the full projection metric from below; the first corrected dual anchors every shifted center and offset. No projection or optimum is selected.",
+    "The resulting ceiling limits necessary lower endpoints from this same fixed generic gap/Cauchy certificate family. It is not an upper resistance index, actual pass/failure or complete joint/member qualification. New gaps, candidates/boxes, functionals/supports or sharper theorems remain outside the conclusion.",
+    "The fixed model and unmeasured constitutive hypotheses are unchanged. Physical stiffness/contact/restraint applicability, finite geometry and complete resistance remain open. Keep current 100 bolts and 66 Hillman axes, rejected proposal history, deferred panel/screw exceedances, excluded actual fit and blank observations."
+  ],
+  "primary_methods": {
+    "duality": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+    "extension": "The all-owner null-witness and pressure-embedding Cauchy argument is derived explicitly here; the generic published duality method does not itself qualify the physical joint."
+  },
+  "prior_projection_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-mixed-shaft-projection-limit-attempt01.json",
+    "sha256": "2ad0b0b9c24688682135942a5af382c7eac9241a736ad9cf3993b1e9c6751f5e"
+  },
+  "schema": "eoere_mixed_global_projection_limit_inputs/v1",
+  "structural_acceptance": false,
+  "uniform_reference_divisor": "5"
+}

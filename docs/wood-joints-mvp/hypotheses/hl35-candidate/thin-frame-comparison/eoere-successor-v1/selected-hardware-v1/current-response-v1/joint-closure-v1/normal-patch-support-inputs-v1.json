@@ -1,0 +1,124 @@
+{
+  "actual_observations": null,
+  "bound_helper": {
+    "path": "scripts/eoere_original_load_bounds.py",
+    "sha256": "9e8bcca92b1477709a60307f7d49385e00d9c4e179bf5c5a67cdc438d32d04b0"
+  },
+  "core_helper": {
+    "path": "scripts/eoere_elastic_core_certificate.py",
+    "sha256": "44711336829993e3eb0999ba6e9d32cf8f1218cbffc65c67ecb698650683abb4"
+  },
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "energy_grid_subdivisions": 4,
+  "engineering_question": "Can larger material pressure supports with the original centroids and sharper certified whole-patch energy uppers tighten the continuous-normal reaction intervals enough to resolve any retained qualification comparisons, without changing the model, coefficients, original loads or responses?",
+  "exact_scalar_adapter": {
+    "path": "scripts/eoere_normal_patch_reaction_iterables.py",
+    "sha256": "f376a931dc8c93cd96a06752649391571aebb3b2811fc2fa0c39c5f99982bba5"
+  },
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_normal_patch_reactions.py",
+      "sha256": "2453ea37c5b6f36db193518ebf0e42cc09dc33d9ffc9f2e1d2f69854ed9fc3cd"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_reactions.py",
+      "sha256": "363d43db605a9197907198ac9fca01f00dfd44b6c1caf96724cecf2897913897"
+    },
+    {
+      "path": "scripts/eoere_normal_patch_reaction_consumer.py",
+      "sha256": "bd4f0fcb81de08ea6d0ba53912f1c590b1c4320c0661a1b53b724afe34665c8b"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_reaction_consumer.py",
+      "sha256": "89918d02817468b7e9941e22c5a10795ded67ef9bb23974168c00370d8ab0794"
+    },
+    {
+      "path": "scripts/eoere_normal_patch_reaction_iterables.py",
+      "sha256": "f376a931dc8c93cd96a06752649391571aebb3b2811fc2fa0c39c5f99982bba5"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_reaction_iterables.py",
+      "sha256": "a02c4e21c22b8147773588788c2e083ed098790d0f50ec220f25f36b2a6498e1"
+    },
+    {
+      "path": "scripts/eoere_normal_patch_supports.py",
+      "sha256": "5e07169376bfa0a6b173a8d0f98906d5c88d71b5cbcbdc8819fdcebd47bdac48"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_supports.py",
+      "sha256": "8d8d19c4354c6ff04ea6d0a9b4e690bc855a174262eda56b26cd00dfe88e2d81"
+    }
+  ],
+  "existence_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-recession-attempt01.json",
+    "sha256": "bd562e323a18d5bb74d72b60bb7bcef2aed8d4b81dd11bc642f08fa89a36187e"
+  },
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "hole_square_padding_mm": "1/1000000",
+  "law_hypothesis": [
+    "The continuous compression-only normal law, exact invariant K0, every unchanged scalar/vector spring/clearance/floor law, all six original loads and all saved q remain identical to the preceding continuous-normal packet. Its existence proof and exact original-load/static/core certificates are reused within that same model; no physical property is calibrated.",
+    "Only auxiliary dual pressures and primal energy upper estimates change. Source/scalar identities, fitting ownership, literal contact directors, all source stations, endpoint clamps and stored rotation scaling remain exact. The geometric model, 100 bolts and 66 Hillman axes remain unchanged.",
+    "For a patch bounding width W and height H use base rectangle half-widths W/4,H/4 at each original nominal centroid. For every outer edge, the available scale is the positive signed center-to-edge cross product divided by abs(dx)*H/4+abs(dy)*W/4. For every centroid pair use max(abs(delta_x)/(W/2),abs(delta_y)/(H/2)). The common scale is 49/50 times the minimum of these limits and one. Exact strict corner containment and outer-box disjointness are checked.",
+    "For each real circular hole remove its axis-aligned cover square of half-width radius+1e-6 mm and that square reflected through the support centroid. Split at all cover-square boundaries, retaining only disjoint complete material rectangles. Reflections make the retained union centrally symmetric; exact area and first-moment checks must recover the original centroid. Ghost exclusions remove only auxiliary pressure support, never physical/model material or primal energy.",
+    "A nonnegative corrected force lambda on a support union of area A gives pressure lambda/A there and zero on the remainder. Supports of distinct columns are disjoint. Exact conjugate cost remains lambda^2/(2*kappa*A). Integrate every full-coordinate point-map polynomial over the union by grouped degree-two area moments, retaining all station cuts. No averaged law replaces the continuous energy.",
+    "Compose the full-coordinate averages with the same registered rigid map. The old minor inverse norm upper and exact perturbation bound certify the new minor if their product is below one. Reuse the original-load near-dual vectors with an exact selected-component correction box and strictly positive one-sided margin; no LP, inverse/factorization or new response is computed.",
+    "For each station piece of each saved-pose gap g, clip a fixed four-by-four rational bounding-box grid to its complete outer polygon. At each nonzero cell form the exact first-order Taylor affine polynomial a about the cell bounding-box midpoint. Bernstein coefficients bound the quadratic remainder g-a below by m on that box. Thus g>=a+m and max(-g,0)^2<=max(-(a+m),0)^2. Clip the affine-compression half-plane and integrate its degree-two square exactly using the existing triangle-midpoint rule.",
+    "Every grid cell belongs to a complete partition of the station polygon and exact total area is checked. Filling both holes is permitted only for the nonnegative primal-energy upper. Sum outward-rounded 24-decimal cell bounds and take their minimum with the prior certified outer-area bound, never with a heuristic/sample value.",
+    "Reuse the earlier exact residual-transfer, complete Fenchel-gap and reaction-functional formulas. For each full continuous patch resultant retain kappa times complete outer polygon area as the Gram upper, not the dual support area. Retain all unchanged floor, spring, radial-clearance and capture energies.",
+    "The prior strict original-load witness proves model existence; these new bounds enclose every attained equilibrium of this same declared fixed-reference coefficient member. All chosen q and pressure fields are proof candidates only. An upper above a reference or nonpositive support lower is inconclusive; no actual failure, pressure, pretension, coefficient range or physical acceptance follows."
+  ],
+  "limits": [
+    "This improves certificates for the already defined continuous-normal comparator only. It does not select that model as a physical bound or transfer sampled-comparator leg-bearing/mean-land/bolt-067 conclusions without new calculation.",
+    "Material support dimensions, 49/50 margin, 1e-6-mm square padding and four-by-four grid are proof controls, not manufacturing tolerances, new contact cells, measured properties or energy quadrature. Discrete geometry/screw axes, material policy and loads do not change.",
+    "All geometry/polynomial operations use exact rational real arithmetic on previously declared nominal and stored binary data. Positive tiny terms are retained. Direct current references are captured afresh; wider historical source-bank/core audits remain inherited rather than rehashed in full.",
+    "The preserved driver is compiled from an authenticated source buffer with exactly two input-key replacements and one literal change for the support_fraction control. Its prepare function is replaced to supply certified tighter saved-pose energy uppers, and its pressure-support function is replaced with the stated union construction. The existing exact-scalar/iterator adapter supplies the unchanged conjugate calculation. No old source or failed result is edited.",
+    "Stop without issuing a successful packet if strict material containment, symmetry/area, complete station/grid partition, rank perturbation or original-load correction fails. This method failure would be inconclusive, not evidence of physical instability/nonexistence.",
+    "Results may remain inconclusive. Do not infer achieved resistance from section traces, an upper interval above one, small solver residuals or assumed coefficients. Physical complete-joint/contact/restraint applicability, finite-motion demand, brittle/local geometry, holed fitting/finished-member/cleat resistance and actual no-slip support retain their separate limits.",
+    "Keep the full original engineering goal active unless its complete audit is satisfied. Preserve the retained design, 100 bolts/66 Hillman axes, rejected cross-tie history, deferred panel/screw exceedances, excluded actual build fit and blank observations. No native/global/frame/contact-equilibrium or revised response solve, no new LP/inverse/factorization, CAD rebuild, redesign, physical test, staging, commit/push, archive or prune."
+  ],
+  "mixed_helper": {
+    "path": "scripts/eoere_mixed_reaction_bound.py",
+    "sha256": "1c14938bbf5a25d69e5a6d1335dd0df80ac05473bb5ff52882e1e6d368b9f1d8"
+  },
+  "mixed_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-mixed-reaction-bound-attempt01.json",
+    "sha256": "df9933aa49ebbd09c475c9532678752dc13cfc0dcdad76d2fa5844d8f95df615"
+  },
+  "original_bounds": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-original-load-bounds-attempt01.json",
+    "sha256": "675039735a786a27b16b987b8db4576da9c6a0d7512cea77f8c42b9a490a33ff"
+  },
+  "port_reader": {
+    "path": "scripts/eoere_original_load_audit.py",
+    "sha256": "f4e3ac42d35326b413481c7c2943d5863e80efffcab6c6ebffe928906e7f979a"
+  },
+  "previous_finite_support_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-reactions-attempt03.json",
+    "sha256": "8f3132057ba1cde9e3f29d30a82b6d91dc9a572c320fa307772fd309f1ca087f"
+  },
+  "primary_methods": {
+    "Bernstein_box_convex_hull": "https://icps.u-strasbg.fr/pco/bernstein.htm",
+    "conjugates_and_dual_bounds": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+    "extension": "Support symmetry, grouped polynomial moments and affine compression majorants are derived explicitly; published generic methods do not themselves establish this frame law or physical applicability."
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_continuous_normal_reaction_inputs/v1",
+  "structural_acceptance": false,
+  "support_fraction": "49/50",
+  "support_refinement_schema": "eoere_continuous_normal_support_refinement_inputs/v1",
+  "transfer_helper": {
+    "path": "scripts/eoere_normal_patch_recession.py",
+    "sha256": "a2189516e303746b7985042c4ca2727054152949be3362e5f4e798c02a8f5af9"
+  },
+  "transfer_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/normal-patch-recession-inputs-v1.json",
+    "sha256": "10cf60121a809924142f08a69ee9499738e2d1412fee723aa3c998049478fcff"
+  }
+}

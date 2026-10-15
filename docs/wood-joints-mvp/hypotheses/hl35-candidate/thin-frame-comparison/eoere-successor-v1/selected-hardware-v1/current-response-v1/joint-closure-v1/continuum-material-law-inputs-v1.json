@@ -1,0 +1,85 @@
+{
+  "actual_observations": null,
+  "constitutive_definition": {
+    "axes": "For each of the 22 current timber grain/section frames, retain source L,R,T and the right-handed R/T swap. These are 44 orientation bindings, not all 2^22 whole-frame orientation combinations and not an enclosure over all growth-ring angles.",
+    "finite_applicability": "This is a Saint-Venant-Kirchhoff-type constitutive idealization. Objectivity and positive compliance do not prove finite incremental stability, global convexity, an admissible range of material strain, equilibrium existence, or physical applicability. Those checks remain required in an evaluated model.",
+    "fracture": "Retain the prior unmeasured all-mode Gc=0.1 N/mm reference and 0.05 adverse sensitivity. These are parameters, not a complete fracture treatment. A compatible current crack/contact/load representation and a justified energy or conservative resistance bound are still needed; no failed mesh guard is waived.",
+    "kinematics": "F=I+Grad(u), J=det(F)>0, E=(F^T F-I)/2. The six strain entries are (E11,E22,E33,2E12,2E13,2E23). S is the symmetric second Piola stress in the reference material frame. C is the reciprocal engineering compliance.",
+    "mixed_elastic_density": "L(F,S)=E_v(F).S_v - (S_v.C.S_v)/2. Stationarity in S requires E_v=C.S_v. P=F.S and sigma=F.S.F^T/J. A nonstationary mixed value is not physical strain energy.",
+    "status": "working_bulk_material_hypothesis_and_exact_controls_only",
+    "steel": "Reuse the current steel E=200000 MPa and nu=0.3 as an isotropic elastic bulk hypothesis. Existing individual metal strength references retain their own material assumptions; no plastic redistribution credit is added.",
+    "strength": "Retain the signed six-component positive-linear C16 reference gauge and working divisor 2 as a separate engineering strength hypothesis, with its source sensitivities. Evaluate physical stress components consistently in a deformed orthonormal material frame; second Piola stresses must not silently be compared to Cauchy-stress references.",
+    "wood": "Reuse the existing nine-constant Douglas-fir diagnostic ratios and three independent Poisson ratios, scaled uniformly in all elastic moduli to the retained export timber_e_mpa=11031.612. Derive reverse Poisson ratios by reciprocity. This combines the current grade response reference with unmeasured clear-wood elastic ratios; it is not a measured stock property set."
+  },
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "elastic_material_helper": {
+    "path": "fea/wood_joint_patch_materials.py",
+    "sha256": "ecbbd11a8a0e99ece69aeb5cb4159e7cf17e0aa18c509c78b5c8f5a2e573ae78"
+  },
+  "engineering_question": "Define a traceable three-dimensional elastic material law and finite-work convention on all current timber frames, before replacing the existing joint priors. Determine exactly what this supplies and what still requires assembled interface/fracture evaluation.",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_continuum_material_law.py",
+      "sha256": "33a5fc73e4ab33290412dcec07d03a2bc3c5f55c65942db3dcb11a17057b9b82"
+    },
+    {
+      "path": "tests/test_eoere_continuum_material_law.py",
+      "sha256": "aa912fbd4b2fb260d4974114edd2d952bff75fe6488a88e509b430b9c51575c8"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "interface_definition": {
+    "floor": "Retain the recorded no-slip assumption, compression-only vertical support and two rear-leg XY restraint locations. No floor-friction test, physical anchor, verified pad stiffness or observed floor is claimed. Reevaluate directional credit and bearing if the assembled law changes.",
+    "geometry": "Preserve current geometry and 100/66 axes. Existing finished solid references and nominal hardware/formed-heel hypotheses are starting inputs, not a completed common continuum geometry. No mesh, CAD rebuild, design proposal or new geometry revision is emitted.",
+    "hardware": "Retain nominal partial-thread shaft geometry, own washers and eight spacers. Resolve washer bending, holed flanges and wood embedment together. Head/shaft and engaged nut/thread idealizations must be explicitly mapped before assembly; the viewer nut envelope is not a physical threaded solid.",
+    "loads": "Bind all six own current field/load records. Preserve the recorded original climber/body/accessory force and couple bookkeeping and prevent duplicate mass. Changing continuum load maps requires an explicit work-consistent mapping rather than inheriting old generalized nodal loads.",
+    "normal_contact": "Use a common nonadhesive frictionless structural-contact target: g>=0, p>=0, p*g=0 on the actual paired surfaces. Contact forces and moments must emerge from the same deformed surface pressure field. Do not retain independent fitted flange/wood bedding and capture springs as an additional parallel load path when their compliance is resolved by bulk solids.",
+    "panel_screws": "Retain all 66 Hillman axes and the purchased-screw policy. Their existing stiffness priors remain explicit inherited hypotheses until separately mapped; strength exceedances stay deferred. No SPAX/SDS product stiffness or capacity is transferred to Hillman.",
+    "pressure": "Do not prescribe the earlier cleat pressure-width family as the physical equilibrium pressure. Its existing necessary failures stay valid for that separate prescribed-load hypothesis.",
+    "scope": "Target the current finished 22 timber bodies, 22 fittings and 100 selected bolt stacks, with the unchanged six-panel/66-Hillman attachment system. Metadata binding is not a mesh or complete surface formulation."
+  },
+  "limits": [
+    "This packet defines and audits bulk material inputs, finite work conventions and current identity bindings; it does not claim the complete assembled interface law or its numerical evaluation is ready or qualified.",
+    "Positive compliance is proved by exact Sylvester minors and positive shear entries; no inverse matrix, eigenvalue calculation or factorization is performed. No solver, displacement, contact pressure or candidate stress field is generated.",
+    "Use the 44 recorded material orientation bindings within their stated scope. No unobserved ring orientation, 2^22 orientation enclosure, physical stiffness range or material calibration is implied.",
+    "All earlier conditional positive/negative results remain within their original laws. Full cleat, combined joint/member and physical stiffness/contact/restraint qualification remain open. Preserve design, rejected cross-tie history, panel/screw deferral, excluded actual fit and blank observations."
+  ],
+  "primary_methods": {
+    "coupled_washer_embedment": "https://link.springer.com/article/10.1186/s10086-021-01973-9",
+    "finite_elastic_work": "https://solidmechanics.org/Text/Chapter3_5/Chapter3_5.php",
+    "source_limits": "FPL ratios concern clear wood near 12% moisture; Teranishi 2021 is a specimen-specific washer/contact study. Neither supplies complete current joint or material qualification. The finite mixed-work extension and exact material controls are derived here.",
+    "wood_elastic_ratios": "https://research.fs.usda.gov/download/treesearch/62244.pdf",
+    "wood_source_retrieval": "The historical chapter link now redirects, and current full-book retrieval did not yield a usable fresh PDF. Reuse the already authenticated cached 2021 chapter and its rendered Tables 5-1/5-2, freshly inspected, rather than copy or replace that source."
+  },
+  "remaining_assembly_and_evaluation": [
+    "Complete the current surface/volume and hardware engagement mapping, including loaded bore and washer/flange/backing paths, paired contacts and possible contact changes; preserve all six original loads and exact work.",
+    "Evaluate the resulting coupled component model or derive a conservative energy/stiffness mapping to the certified comparator. Positive bulk compliance and material objectivity alone supply neither result. Respect the existing no-new-response/native/frame-run scope.",
+    "Retain full axial/lateral/couple and brittle criteria. Supply current volume-equilibrium/fracture evidence or a valid conditional negative decision in this same model, without transferring either earlier prescribed-pressure or sampled-control failure.",
+    "Check current finite-geometry and directional restraint applicability under the evaluated law. No physical observation or blanket external sign-off is added as a prerequisite."
+  ],
+  "retained_fracture_input": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/cleat-finite-body-inputs-v4.json",
+    "sha256": "0f1d551f4fa746fce953bd7910371d70d472a4f70f6ce0ecf9948fc04ac0cb18"
+  },
+  "retained_reaction_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-supports-attempt01.json",
+    "sha256": "9a54365d1188a71c12fb904396619df9f3d513a20a799561870b61f116d41422"
+  },
+  "retained_strength_input": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/cleat-volume-work-inputs-v1.json",
+    "sha256": "0538af65f509b44176bfa9f659f2c16ac7c60618024f568d446cb9e39cc22ccf"
+  },
+  "schema": "eoere_continuum_material_law_inputs/v1",
+  "structural_acceptance": false,
+  "wood_source_cache": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/source-cache/usda-2021-wood-handbook-ch5.pdf",
+    "sha256": "724c99666ad364c4bd13022b5b1db09bb391166eace37bd920fee1f8d2d23204"
+  },
+  "wood_source_note": {
+    "path": "docs/wood-joints-mvp/orthotropic-material-scenario.md",
+    "sha256": "f6b723ddfc911284958df7a5348162f6d659396bbc03b83a74fcfbb125b3477f"
+  }
+}

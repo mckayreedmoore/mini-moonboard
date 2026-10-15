@@ -1,0 +1,74 @@
+{
+  "actual_observations": null,
+  "core_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-elastic-core-audit-attempt01.json",
+    "sha256": "42f0559a4e495244d31aa1df4652124d0bce7df3fb8bddf7c95f27cf32bae39b"
+  },
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "definition_loader": {
+    "path": "scripts/eoere_cleat_traction_witness.py",
+    "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+  },
+  "exact_recession_helper": {
+    "path": "scripts/eoere_recession_certificate.py",
+    "sha256": "36ad7aa4a8bf8c78057bc8c15be84a372495414be111b4443cf2fbc9a8e38803"
+  },
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_normal_patch_recession.py",
+      "sha256": "a2189516e303746b7985042c4ca2727054152949be3362e5f4e798c02a8f5af9"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_recession.py",
+      "sha256": "036a5f671a44f9b4a4cdbbf1298078e64c01692663d772e8a2541bf4d4af774e"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "law_hypothesis": [
+    "Keep the exact constructed invariant core K0, its registered 800-dimensional kernel on 150 owners, all other recorded scalar/vector laws, clearances, 32 floor normal rows and the four enabled rear-leg XY rows. Replace only 352 sampled flange-normal terms by compression-only continuous energies on the same 88 nominal polygon-minus-two-holes domains.",
+    "Use the captured real-arithmetic piecewise quadratic source point map with all source stations/clamps, fitting ports, literal directors and stored rotation scale. Each distributed energy is integral kappa(x)*max(-g(x,q),0)^2/2 dA. For each fixed model kappa is measurable and bounded above and below by finite strictly positive constants on each patch. The existing constant density is one unmeasured member of this family.",
+    "If a registered rigid direction has zero leading distributed normal energy, its compression-positive gap is nonpositive throughout each finite material box. Its exact area-average is therefore nonpositive. Use one 0.0001-mm half-width box at each old centroid coordinate as a necessary cone test only; do not replace the integrated law with those averages.",
+    "Split every box exactly at all beam stations and clamps. Integrate each degree-two polynomial exactly using a convex polygon fan and the three edge-midpoint triangle rule. Retain all source/nominal mapping and rigid-coordinate rounding differences in the new 800-by-2872 auxiliary matrix.",
+    "For the same inherited 800-column minor, let a bound its old inverse infinity norm and delta bound the new-minus-old minor norm. If a*delta<1, Neumann perturbation gives the new inverse norm upper a/(1-a*delta). Reuse every old auxiliary candidate vector and exact original load, correcting its complete exact balance residual only in that minor.",
+    "A full-rank new auxiliary matrix and strictly positive one-sided corrected weights imply negative original load work on every nonzero recession direction of the complete continuous-normal potential. With the same certified PSD core kernel and remaining positive laws this proves coercivity and existence for each fixed model. It supplies no uniqueness or uniform response bound."
+  ],
+  "limits": [
+    "This is a mathematical existence transfer for a declared fixed-reference finite-coordinate family, not physical contact calibration, finite-geometry restraint, actual no-slip support, credited-leg bearing or complete resistance. The source gross-body analogies and all material/installation limits remain unchanged.",
+    "Do not apply the sampled-comparator reaction enclosures or bolt-067 equilibrium failure certificate to the changed distributed-contact law from existence alone. The existing six saved poses are not admitted equilibria of this law; no new equilibrium or response is calculated.",
+    "Material boxes are positive-area auxiliary cone tests. Their dimensions are proof controls, not manufacturing tolerances, new contact cells or a quadrature approximation of the model energy. Their constraints form a relaxation of zero distributed energy, not an equivalent pressure law or a universal sampled-energy upper.",
+    "Reuse the frozen core and original minor proofs only after exact own source/operator, rigid-basis, minor-hash and case/load joins. Direct current sources are captured afresh; earlier full historical bank verification is inherited rather than described as a new complete rehash.",
+    "If the perturbation or corrected-weight margin is inconclusive, record that result without claiming singularity, instability or nonexistence. No LP, QR, eigensolve, matrix inverse/factorization, elastic/native/frame/contact-equilibrium response, CAD rebuild, geometry change or new physical test is authorized by this packet.",
+    "Preserve the full active engineering goal, 100 bolts, 66 Hillman axes, rejected cross-tie history, panel/screw deferral, excluded actual fit and blank observations. Preserve every frozen and foreign input/result; do not stage, commit, push, archive or prune."
+  ],
+  "material_box_half_width_mm": "1/10000",
+  "primary_methods": {
+    "recession_and_existence": "https://ocw.mit.edu/courses/6-253-convex-analysis-and-optimization-spring-2012/69136e797daa75d9481c21d1f6b84a31_MIT6_253S12_lec05.pdf",
+    "verified_linear_algebra": "https://www.tuhh.de/ti3/paper/rump/Ru06c.pdf"
+  },
+  "recession_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-recession-certificates-attempt01.json",
+    "sha256": "31b5136368a1d9854802d4bb519ff6a70bb7d03c2a58ed17fa57a0163922a6b9"
+  },
+  "rigid_reader": {
+    "path": "scripts/eoere_recession_audit.py",
+    "sha256": "9335b2518e02a0109e9d7a29c99c6af9032a1349807a41043b44712ee8fa214e"
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_continuous_normal_recession_inputs/v1",
+  "structural_acceptance": false,
+  "trace_helper": {
+    "path": "scripts/eoere_normal_patch_trace.py",
+    "sha256": "e7e0deb227258a53e35e0260db2445880af642313b50b72c9c98233c3f19a813"
+  },
+  "trace_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-trace-attempt02.json",
+    "sha256": "99fdbf345c2c1807221a7312e0bc9381206b8d68257eff01e7fa17e777b2c1df"
+  }
+}

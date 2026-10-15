@@ -1,0 +1,67 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "Only field-grid pitch changes. All parent geometry, grain/R/T bindings, bore-flaw paths, original signed actions/couples, radius/side force-cloud hypotheses, material references and source/tool gates remain.",
+    "This is a local Python elastic refinement, not an external native executable, whole/revised-frame solve, CAD rebuild or physical design revision.",
+    "The four complete plane/material jobs keep both members, six own cases and all four boundary hypotheses. Current10-mm results are retained and paired, not rerun.",
+    "The original20-percent comparison guard remains. Lower energy/stress or a passed mesh comparison does not establish an exhaustive fracture path maximum, physical material calibration, complete resistance or release.",
+    "Failed fields and mesh/strength comparisons remain recorded outcomes. No redesigned geometry, panel/screw remedy, actual-fit work, observed material or floor-friction test is introduced."
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "history_disposition": "Existing center_post_cleat_left12-state/384-comparison work reports energy convergence but stress limits and unqualified full splitting. Its geometry/actions differ. Current7.5-mm geometry-only census exists; no applicable current7.5-mm response is recorded. Kernel and validated coupons are reused, no historical capacity or force transfers.",
+  "history_review_source": {
+    "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/splitting-capacity-completion.md",
+    "sha256": "bc23d8689cadad7ea20e705732531228fc851b071493bedd9c5cfa48dd8743b7"
+  },
+  "method_references": [
+    {
+      "path": "scripts/eoere_cleat_finite_body.py",
+      "sha256": "70f6936e3cec9b90c104f4dc40427ae2fd329b379a4d9eb8b2c6703331761a84"
+    },
+    {
+      "path": "scripts/eoere_cleat_finite_body_audit.py",
+      "sha256": "28c077bc10e80c04cce4c999f0a40ca25dca6067959990f4603f43a787dca7d5"
+    }
+  ],
+  "new_mesh_size_mm": 7.5,
+  "original_seed_job_indices": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "parent_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/cleat-finite-body-inputs-v4.json",
+    "sha256": "0f1d551f4fa746fce953bd7910371d70d472a4f70f6ce0ecf9948fc04ac0cb18"
+  },
+  "parent_saved_field_audit": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-finite-body-audit-attempt03.json",
+    "sha256": "773ff0f2cb3a201a0eaca727cbc155e717ebd7ff67222eb066c63f5c036b070e"
+  },
+  "question": "Do the current10-to7.5-mm fields satisfy the unchanged20-percent energy and sampled-stress mesh guard where current15/10 comparisons did not?",
+  "schema": "eoere_current_cleat_field_grid_refinement_inputs/v1",
+  "seed_results": [
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-finite-body-attempt04/job04/result.json",
+      "sha256": "2b046c74bfdf6a5eba4baa65c2333c5a649e4cd539ab441333f07ffc5b398f3b"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-finite-body-attempt04/job05/result.json",
+      "sha256": "a6ae6080f1a799b5956eafdd125f5b576eb00cf18e622b3f66bc4bf6a99e79c1"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-finite-body-attempt04/job06/result.json",
+      "sha256": "f7e8f3588ec9019bd7e06e7620015b4d337944fbe067eaf9444b76ae18d971fa"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-finite-body-attempt04/job07/result.json",
+      "sha256": "1ad6a3fe13af5fad7ea85ffd72a9dee109bb2a23f3233723e3f5b50d4f56d17f"
+    }
+  ],
+  "structural_acceptance": false,
+  "two_grid_relative_change_guard": 0.2
+}

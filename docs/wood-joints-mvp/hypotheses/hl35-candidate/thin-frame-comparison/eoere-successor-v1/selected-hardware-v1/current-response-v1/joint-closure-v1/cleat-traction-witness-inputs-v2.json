@@ -1,0 +1,98 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "The complete current continuous-load packet is reused unchanged. Its three bore contact half-angles and axial bands are unobserved prescribed-pressure hypotheses, not measured contact, compatible bolt/washer/wood stiffness, or a bound covering every physical pressure footprint. Every other current cleat action remains present; this necessary boundary test adds no balancing load or support.",
+    "The retained homogeneous six-component asymmetric positive-linear C16 stress domain, raw values, uniform strength divisors1.5/2/3 (working2), and whole-load factors1/1.5 are unchanged. The domain is an engineering hypothesis, not a published full wood fracture law, an NDS allowable/embedment capacity, inspected stock or a DF-L No.2 class mapping.",
+    "At any smooth bore point with radial unit n pointing into the wood and prescribed compression p, Cauchy traction requires -n.sigma.n=p. Every stress in the complete retained domain obeys p<=h(-n tensor n). All six symmetric stress components remain free in this support bound; no pure radial stress tensor is imposed. Strictly exceeding a support upper on a finite surface patch rules out this declared load/strength hypothesis without an interior solve. It does not establish physical failure.",
+    "Floating quarter-circle sampling chooses one witness for each of 96bands and3half-angles. Exact rational chart intervals of initial radius1/4096 are reduced only to stay inside the loaded arc, at most20times. The inner half of each axial band has positive width. Exact pressure lower and strength-support upper bounds cover the complete chosen angular/axial patch. A value at or below one remains inconclusive; the finite search never proves that no stronger witness exists or that other patches are safe.",
+    "Exact integer square-root enclosures and the existing Machin-series pi enclosure bound pressure shapes and normalization. The normalization interval includes both the exact own-wrench normalization and the stored float peak, so the result does not depend on silently equating a rounded pressure parameter to an irrational exact value. Binary source forces, radii and interval endpoints retain their stored exact rational values.",
+    "The three pressure families and six material/load scenarios give1728comparisons, including270zero-action rows. A failed conditional reference is retained without a remedy or geometry change. Optimized existential bore-wall traces, NDS bearing checks, old elastic crack clouds and current physical material/contact laws remain separate.",
+    "No local elastic/native/global/frame solve, CAD query/rebuild or new mesh is run. The full engineering goal remains active for justified complete resistance and physical applicability dispositions; this boundary reference alone supplies neither a full safety pass nor physical demand bounds. The100bolts/66Hillman axes remain fixed, panel/screw exceedances remain deferred, actual fit is excluded, and no observation or release is implied.",
+    "The active v2 consumer converts divisor and load_factor arguments to positive exact Fractions before any certificate arithmetic, including ordinary float arguments. Float values retain their exact stored binary value; literal1.5 equals3/2. Exact unity remains inconclusive. This repairs the generic v1 callable threshold defect; v1 production already used Fraction scenarios. Every current v2 row and summary must equal the preserved v1 result."
+  ],
+  "continuous_load_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-continuous-load-attempt02.json",
+    "sha256": "02787666d4d08b5dd5348b41b8d54a93d2192365a8b360604e09b937e19b0f2f"
+  },
+  "current_bolt_count": 100,
+  "current_response": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json",
+    "sha256": "a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e"
+  },
+  "current_screw_count": 66,
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_cleat_traction_witness.py",
+      "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+    },
+    {
+      "path": "tests/test_eoere_cleat_traction_witness.py",
+      "sha256": "8b4a526f70dfe57af420df28d707c5e44bf20ca09ef8e1366dcc79dcd90d123a"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    },
+    {
+      "path": "scripts/eoere_cleat_traction_consumer.py",
+      "sha256": "fbfa7c15f7920c47e7a89f6129c2a4a9982a5b498f12c29d03259a7838f8fc21"
+    },
+    {
+      "path": "tests/test_eoere_cleat_traction_consumer.py",
+      "sha256": "c7ef21c3e552e0292a4b16c8dd8954f97c05ad579fa96e65de4449ebf22a4869"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "initial_half_tangent_radius": "1/4096",
+  "maximum_arc_halvings": 20,
+  "methods": {
+    "normal": {
+      "path": "scripts/eoere_bore_boundary_tractions.py",
+      "sha256": "645878415321268d211fda2e678ac16a06643193b1c3d9b4ba32b2ea661a2381"
+    },
+    "pi": {
+      "path": "scripts/eoere_curved_bend_field.py",
+      "sha256": "26c72f5f88f947d66035ebf5fbac7193ac9a532222c0e2f7439cd21dba371efc"
+    },
+    "rational": {
+      "path": "scripts/eoere_section_patches.py",
+      "sha256": "f46ba85f820489ec08f29043f1faa7111a9e0a62b9d1e30480d2cca6cf8c36e2"
+    },
+    "stress": {
+      "path": "scripts/eoere_cleat_virtual_work.py",
+      "sha256": "9289851212c5351f8854eaef6b3e5d7522b0fd7ca7e0e8978ed3bf26a8ea08f0"
+    }
+  },
+  "preserved_v1_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/cleat-traction-witness-inputs-v1.json",
+    "sha256": "dd032d78ac0753cc453a09c7e1b7af45c72c4fe54ee3168ebdf15f4b1591d5d8"
+  },
+  "preserved_v1_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-traction-witness-attempt01.json",
+    "sha256": "b052cc9ceba1dd018decb4885652e9c1ffe34dae5d8f4aab65551f8aa356d4a5"
+  },
+  "primary_methods": {
+    "C16_table_3_3": "https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf",
+    "stress_traction": "https://solidmechanics.org/Text/Chapter2_3/Chapter2_3.php"
+  },
+  "retained_strength_input": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/cleat-volume-work-inputs-v1.json",
+    "sha256": "0538af65f509b44176bfa9f659f2c16ac7c60618024f568d446cb9e39cc22ccf"
+  },
+  "revision_index": {
+    "path": "docs/bolted-frame-development/development-revisions.json",
+    "sha256": "88471b8209863134672494ca9540d1f89fae044499951669e769f0b0fa10d753"
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_cleat_continuous_traction_witness_inputs/v1",
+  "selection_divisions_per_quarter": 512,
+  "threshold_counterexample": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-traction-v1-threshold-counterexample.json",
+    "sha256": "1166276603a0b2137490464f4f1e3115053e6962934b34deb3d0d17713118041"
+  }
+}

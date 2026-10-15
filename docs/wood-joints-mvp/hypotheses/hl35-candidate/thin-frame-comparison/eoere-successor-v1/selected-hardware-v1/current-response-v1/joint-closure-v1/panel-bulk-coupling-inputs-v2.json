@@ -1,0 +1,96 @@
+{
+  "actual_observations": null,
+  "connectors": {
+    "path": "scripts/thin_bolted_finite_connectors.py",
+    "sha256": "6bf2c5ca9006e474d8b10642e8e4dbbfc657070c0d221b98abfbc1d2d6e03060"
+  },
+  "consumer_execution_sources": [
+    {
+      "path": "scripts/eoere_panel_bulk_consumer.py",
+      "sha256": "6f6275882feea7dcaba06446af67c3b12fc7e4e82479ac727a70a4dcabc21716"
+    },
+    {
+      "path": "tests/test_eoere_panel_bulk_consumer.py",
+      "sha256": "53b687b6bb76dc00fa5408dfb4bff09546aa793d85c40b10401a8c10fe756135"
+    }
+  ],
+  "consumer_schema": "eoere_panel_bulk_datum_consumer/v2",
+  "control_gates": {
+    "energy_nmm": 1e-06,
+    "force_n": 1e-06,
+    "moment_nmm": 1e-05,
+    "position_mm": 1e-08
+  },
+  "current_finite_frame": {
+    "path": "scripts/eoere_current_finite_frame.py",
+    "sha256": "b42e91768c211c661918239f1223accbee574e8a18e299d1fda43f89c88b3788"
+  },
+  "datum_source_field": {
+    "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/field.json",
+    "sha256": "00ccac1496c2a46b63e92e540cd50b1fd537a078cfa397f04c0734210a2016f5"
+  },
+  "definition_loader": {
+    "path": "scripts/eoere_cleat_traction_witness.py",
+    "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+  },
+  "engineering_question": "Define a bounded objective receiver functional for each existing finite panel screw port on its own finished timber, with exact force/moment virtual work and no H1 point evaluation. Retain the generic screw law and prove known-answer finite work controls without evaluating a candidate response.",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_panel_bulk_coupling.py",
+      "sha256": "8efacb2503ae09795f3f9dc2d792bb4e61264c06bfdf1a51731c573f4560e79d"
+    },
+    {
+      "path": "tests/test_eoere_panel_bulk_coupling.py",
+      "sha256": "07ae4a710b1932cc8c4d860c962cb0e5f76a94b8548e2db45a6dc414960ac470"
+    }
+  ],
+  "extra_grid": false,
+  "finite_plate": {
+    "path": "scripts/thin_bolted_finite_plate.py",
+    "sha256": "2b0de347d0ef35d08ab7a8d4078fa2e26a50cee6e7c2f708560dd1f0979b9180"
+  },
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "law_and_limits": [
+    "Reuse the current 66 own panel/receiver joins, six cubic interval-eight panel coefficient spaces and the existing finite projected 9/5-mm ring port. Preserve its full normal-position and director derivatives. Initialize only authenticated port dependencies, never the panel stiffness/mass assembler or load constructor.",
+    "Reuse the frozen runtime panel embedding with its scalar-triple-product determinant. V1 then stops at its unchanged 1e-7-mm reference-datum gate: 24 upper-panel source screw datums differ from the projected-ring midsurface by at most 4.497880e-7 mm. Preserve all source points and transport the complete datum offset objectively as ring(q)+point(q,source_point)-point(q,ring_reference), using the two existing Kirchhoff point ports with their full derivatives. Keep the original numerical gates and all 66 source points unchanged. The finite timber port targets the original source point. This is a numerical datum map, not a changed screw station or actual fit observation.",
+    "Reuse the existing disk quadrature algorithm with four Gauss nodes/weights calculated by explicit scalar radicals instead of an eigensystem. Its mathematical four-point Legendre rule is retained, but bit identity to the old eigensolver is not asserted. Use fixed declared numerical method gates and retain observed discrepancies.",
+    "For each previously contained cube D with center C and half-width 0.5/1/2 mm, define T(chi)=mean_D chi+mean_D Grad(chi)*(p-C). This bounded linear H1 functional is affine-exact and equivariant under every proper common spatial rigid motion. The volume-mean and mean-gradient coordinates are functionals of one timber placement field, not independently added physical degrees of freedom.",
+    "The bound is |T(v)|<=V^(-1/2)*(||v||_L2(D)+|p-C|*||Grad(v)||_L2(D)). Receiver force work is F dot T(v); its equivalent nominal cube body force F/V and boundary traction (F/V)*((p-C) dot N) retain force and current spatial moment. The cube boundary is an internal integration surface, not a cut, physical pressure law or drilled screw envelope.",
+    "These small contained cubes and their affine extension to the panel datum are explicit unmeasured numerical attachment hypotheses. Their size sensitivities change nonaffine work. They provide neither physical embedment calibration nor proof of local wood/head pressure, fracture, complete strength or stiffness applicability.",
+    "Retain ka=kl=1000 N/mm, zero radial clearance, tension-only axial action, and the existing objective connector potential .5*ka*max(n dot delta,0)^2+.5*kl*|delta-n*(n dot delta)|^2. The director belongs to the panel, and all director work/couples stay present. These are generic numerical Hillman priors, not SPAX/SDS or measured product properties.",
+    "Run only known affine placement, uniform slip, common finite rotation and virtual-work controls at the retained reference geometry. Do not read saved displacement q or calculate a new candidate response/equilibrium. Preserve old saved panel load vectors, all explicit generalized correction potentials, source gravity work and support assumptions; this interface definition does not replace or physically qualify those load laws.",
+    "Finite projected-ring axial averaging is an explicit different numerical kinematic hypothesis from the saved current linear axial row. Source station and loads are retained; original first-order panel B, states and demand/resistance bounds are not transferred to the new coupling. The independent 66-axis read-only comparison records maximum absolute coefficient difference 0.006070076078 or less; it is not an acceptance tolerance.",
+    "All three full qualifications remain open. Next complete the finite panel load/correction mapping, head/shaft and nut/shaft transfer, full contact search, brittle law and assembled evaluation. No response/global/frame/native/contact-equilibrium solve, optimization, inverse matrix/factorization, CAD rebuild, redesign, staging, commit, push, archive or prune. Panel/screw exceedances remain deferred and actual fit is excluded."
+  ],
+  "panel_adapter": {
+    "path": "scripts/thin_bolted_finite_panel_adapter.py",
+    "sha256": "c0e2534158d10ca49e6e1ee20db7b8a7e72b746b49618a18bf5ab08a9526064b"
+  },
+  "panel_basis": {
+    "path": "scripts/thin_bolted_panel_mechanics.py",
+    "sha256": "472eef63a8af59367533028008c68e4f7e32780e49891499154ba2950559a3aa"
+  },
+  "primary_method": {
+    "numerical_distributed_coupling": "https://docs.software.vt.edu/abaqusv2025/English/SIMACAECSTRefMap/simacst-c-coupling.htm",
+    "scope": "The manufacturer manual distinguishes distributing from rigid coupling and describes force/moment transmission through weighted-average motion. The present continuum volume/mean-gradient port is a project derivation, not the Abaqus algorithm, a product stiffness law or a manufacturer-qualified Hillman connection."
+  },
+  "remaining_load_work": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-remaining-load-work-attempt01.json",
+    "sha256": "4c3b160cd2adf174ddc6a8badad283e672e847805fe1cfbde03046e076af4363"
+  },
+  "saved_panel_row_comparison": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/panel-bulk-linear-port-comparison-v1.json",
+    "sha256": "6efa44864838aa5186a1d6347424dae42ed454c7daa821804f290d98c45c78d5"
+  },
+  "schema": "eoere_panel_bulk_coupling_inputs/v1",
+  "stopped_v1": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/panel-bulk-coupling-stopped-v1.json",
+    "sha256": "950fe63c2b2fe3b7b08d063c59b1b1410c9f11cdb44f6e6b22b189ee27aef836"
+  },
+  "structural_acceptance": false,
+  "v1_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/panel-bulk-coupling-inputs-v1.json",
+    "sha256": "f159f4e693c7f6beb195bebd68d560cc28a4125d06858d25ebd00dfb5355a1ad"
+  }
+}

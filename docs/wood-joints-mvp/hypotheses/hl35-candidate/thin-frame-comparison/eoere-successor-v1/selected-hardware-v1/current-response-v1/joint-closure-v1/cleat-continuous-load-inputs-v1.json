@@ -1,0 +1,83 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "The existing source-audited job-00 geometry and twelve own case/member action records are reused. All 516 original signed point-action forces and moments are retained individually as rigid virtual-work resultants. This does not preserve the old nonlinear virtual-work functional or repeat its force solve.",
+    "Each of the 96 lateral bearing points becomes a frictionless compressive radial pressure on its own true circular bore. Its uniform axial band is the largest band symmetric about its own current Gauss station within the 38.1-mm cleat. Radial pressure is p0*cos(pi*phi/(2*beta)) for abs(phi)<=beta and zero otherwise. Contact half-angles 30, 60 and 90 degrees are separate unobserved load-footprint hypotheses, not measured contact arcs, bounds covering every footprint, a stiffness law, or a solution enforcing the actual bolt/bore clearance.",
+    "Each of the 48 centered wood-side axial captures becomes a uniform compression over its own nominal washer annulus on the outer cleat face. Own washer ID/OD come from the current selected shaft hardware scenario. Profile and other-bore clearance are checked; existing washer resistance comparisons are not rerun or replaced. Washer bending, prying and pressure compatibility remain separate.",
+    "All 360 timber-contact actions, including zero/open rows, use uniform compression on their own source trimmed contact cells. The eight original shared face intersections and sixty actual clipped cells are replayed from nine captured frozen finished BREP sources. Areas, centroids and identities must reproduce. Each implicit cell remains the exact trimmed patch intersected with its recorded plane-grid box; it is not replaced by a rectangle, point, or disk. Pressures are prescribed load hypotheses, not physical peak-pressure bounds or a compatible simultaneous contact law.",
+    "Each original gravity force becomes a uniform body-force density on the own complete sloping prism minus four circular bores. Independently integrated volume and centroid must match the source self-weight wrench. No extra support, reaction, preload, friction or balancing load is added.",
+    "This stage defines continuous surface/body loading only. No local elastic/native/frame response, new mesh, interior stress/fracture resistance, physical response bound or full-joint qualification is produced. Material properties and thresholds are unchanged. The design stays fixed, panel/screw exceedances remain deferred, actual fit is excluded, and no physical observation or release is implied."
+  ],
+  "bore_contact_half_angles_degrees": [
+    30,
+    60,
+    90
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_cleat_surface_loads.py",
+      "sha256": "a2b271e6f7e31ffe1cab903facd4d940f950ab60011812f2ce7d255ff69437f5"
+    },
+    {
+      "path": "tests/test_eoere_cleat_surface_loads.py",
+      "sha256": "79c7550b4fad7756f648fb5a6184f5639e40704e67383c8fb0d07da674592eeb"
+    },
+    {
+      "path": "scripts/wood_joint_current_face_pair_atlas_attempt01.py",
+      "sha256": "016dbce14bff6408de418fc6cce35fa0590a72ceef43565164aa10f4b4bea3bb"
+    },
+    {
+      "path": "fea/wood_joint_reduced_contacts.py",
+      "sha256": "4e088d485cee8953bfdca411f646f18abfb49271c9d8f3b46044588a6a7c1ce7"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    }
+  ],
+  "extra_grid": false,
+  "fields": [
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-forward/attempt01/field.json",
+      "sha256": "00ccac1496c2a46b63e92e540cd50b1fd537a078cfa397f04c0734210a2016f5"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-rear/attempt01/field.json",
+      "sha256": "009fa240e45cf10824c2536bbc3a3191ce117a1b1822594650a1375929c9574a"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a12-left/attempt01/field.json",
+      "sha256": "56687fa1eb10d71a4e64069c1062264332a640d8dd46da56d636396a9f311c93"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-right/attempt01/field.json",
+      "sha256": "28a2badaf561a476d237f636dd04c540e2d73cccce0862a9ec62599a2a53e99a"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/k12-rear/attempt01/field.json",
+      "sha256": "8cdeda021a39868687013c0c7e8a540f73fd3cba0782784afa8e353456db687d"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/current-response-v1/cases-v1/a1-rear/attempt01/field.json",
+      "sha256": "5d46aba1e921bd218cc53985141ddd293ba4c415ad5cdd54972d55d240013a97"
+    }
+  ],
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "runtime_versions": {
+    "cadquery": "2.8.0",
+    "cadquery-ocp": "7.9.3.1.1",
+    "numpy": "2.5.2"
+  },
+  "schema": "eoere_current_cleat_continuous_load_inputs/v1",
+  "seed": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-field-refinement-attempt01/job00/result.json",
+    "sha256": "74b86c388795bb42710eb77f431e03ac4fc0c6bf4edd2fc8aa9061af6af82816"
+  },
+  "seed_audit": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-field-refinement-audit-attempt01.json",
+    "sha256": "29f3a8f17590464c9b10f3e951fa00525b4d84efefe111383015381420812d9b"
+  }
+}

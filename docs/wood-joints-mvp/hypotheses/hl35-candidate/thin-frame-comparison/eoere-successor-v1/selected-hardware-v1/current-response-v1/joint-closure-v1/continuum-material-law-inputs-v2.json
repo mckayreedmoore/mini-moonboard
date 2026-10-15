@@ -1,0 +1,26 @@
+{
+  "consumer_schema": "eoere_continuum_material_admission_consumer/v1",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_continuum_material_consumer.py",
+      "sha256": "277bba35ab395dd9083dc2dd61fbc07af21ee5ae322f2d162ad0f79c604d504a"
+    },
+    {
+      "path": "tests/test_eoere_continuum_material_consumer.py",
+      "sha256": "7c2491b11fc402976964219749d28792e334214c39ba9e76cdb7cd455e7e54d4"
+    }
+  ],
+  "frozen_driver": {
+    "path": "scripts/eoere_continuum_material_law.py",
+    "sha256": "33a5fc73e4ab33290412dcec07d03a2bc3c5f55c65942db3dcb11a17057b9b82"
+  },
+  "preserved_stopped_preflight": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-continuum-material-law-stopped01.json",
+    "sha256": "b7042a37784de933239255d104e1770d5c94f3fe65aa96654624a57aacd25906"
+  },
+  "preserved_v1_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/continuum-material-law-inputs-v1.json",
+    "sha256": "f06f4ef48988684e705079f9dc565f125b49763b99b22b949d78fc75831710a2"
+  },
+  "scope": "Adapt exactly one string/int admission comparison; preserve frozen inputs and all bulk constitutive arithmetic. No assembled response or qualification is computed."
+}

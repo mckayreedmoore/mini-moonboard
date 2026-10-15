@@ -1,0 +1,586 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "Keep the selected current geometry, hardware, six original fields, 100 bolts and 66 Hillman axes. Use only cached BREP queries, exact action recovery and static section LPs. No new frame/native FEA response, CAD model rebuild or redesign.",
+    "Reuse the authenticated local-timber-v2 source report and all of its source bindings. Recover its original signed point actions, their own host datums and free couples, and the same affine selfweight mass/centroid. Preserve tiny nonzero forces and couples.",
+    "The assessed interval is the minimum-to-maximum station of the six earlier top-rail queries. Enumerate every nonzero point-action event inside it separately in each case; no station grouping or point-load shift. Source endpoints at each event are evaluated before and after their actual actions.",
+    "The grain is exactly X. Use an exactly orthonormal rational frame parameterized by the recorded half-tangent. Transform the source binary positions/forces/couples exactly. Only nominal projected CAD vertices round to eight decimals, with their exact rounding error recorded.",
+    "The projected convex-quadrilateral vertex envelope of 2e-6 mm is an explicit numerical geometry assumption, including CAD/projection/rounding uncertainty; it is not a certified universal CAD error theorem or a physical cut tolerance. A 1e-4-mm inset and exact expanded-corner containment construct robust inner rectangles.",
+    "Capture each cached BREP once, verify its byte buffer and import that in-memory snapshot. Cached-solid Boolean queries must show each of three continuous inner prisms has zero material outside the finished rail, and that the finished rail has zero material outside its original planar/straight-edged raw stock. Raw-stock projected vertex extrema plus the envelope give a conservative outer section rectangle. No cached BREP bytes change or duplicate.",
+    "For a plane normal to grain, use the additional unobserved C16 reference envelope: tension parallel 8.5 MPa, compression parallel 17 MPa, and both longitudinal shear components 3.2*0.67=2.144 MPa. Table 3.3 printed p.10 supplies C16 strengths; p.25 supplies the conservative crack-width factor. The helper key rolling_shear is only its legacy second-shear slot; this plane uses longitudinal shear in both directions, not the cleat rolling-shear approximation.",
+    "The pointwise section hypothesis is max(sigma/Ft,-sigma/Fc)+abs(tau_p)/Fv+abs(tau_q)/Fv<=u. Retain the existing six divisor/action scenarios, including working divisor 2. This is an engineering comparison, not a generic NDS DF-L No.2 grade/capacity assignment or an authenticated EC5 ULS check.",
+    "Bilinear corner tractions are selected by an LP. Exact polynomial integration plus a six-resultant correction recovers all N,Vp,Vq,T,Mp,Mq. Existing Bernstein bounds certify the continuous pointwise interaction. A selected LP objective or dual is not optimality, feasibility or resistance proof.",
+    "Between source point events, the unchanged affine gravity and fixed preceding point actions give a complete cut wrench of degree at most three in station. Four exact cubic Bernstein control fields on the common corridors yield, by convexity, a sufficient section-field upper bound at every station. These controls are generally synthetic wrenches, not newly predicted physical demands.",
+    "Necessary lower bounds are evaluated only on actual source-polynomial stations using exact continuous support integrals over an outer rectangle. A failed synthetic control upper is inconclusive; only an actual-station necessary lower above one proves this declared section hypothesis fails.",
+    "Continuous section traction feasibility and modeled material corridors do not establish per-piece three-dimensional stress equilibrium, inter-piece or bore load transfer, free side tractions, elastic compatibility, buckling, fracture, complete joint/member resistance or physical stiffness/demand bounds. Keep those full qualifications explicit.",
+    "Preserve deferred panel/screw exceedances, excluded actual fit, blank observations, rejected-proposal history, foreign files/index and all frozen source/results. No staging, publication, archive or pruning."
+  ],
+  "base_strengths_mpa": {
+    "compression": "17",
+    "parallel_shear": "268/125",
+    "rolling_shear": "268/125",
+    "tension": "17/2"
+  },
+  "central_station_mm": "2335445160768307/2199023255552",
+  "coordinate_decimal_digits": 8,
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "engineering_question": "Can common retained wood corridors and exact six-wrench section fields bound the entire existing top-rail bore region, including all source point-event traces, rather than infer finished shear/torsion from gross stock or six sampled cuts?",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_current_response.py",
+      "sha256": "3340243bd8127d3fa9fd8c2f5b1778db7abadc6da8a05c901e33b79b503a7944"
+    },
+    {
+      "path": "scripts/summarize_eoere_current_response.py",
+      "sha256": "1d613e1151d61132e6e591d814cef8d1edc0cc209377ff5a6cf28aa461f6e34b"
+    },
+    {
+      "path": "scripts/eoere_current_components.py",
+      "sha256": "442918bc18848b3f60649d4802206c583ae5da4809cf373c7a829f14a5b9c333"
+    },
+    {
+      "path": "scripts/eoere_current_washer_lands.py",
+      "sha256": "d759bcab2d92bcb709f24726c324d83426483e2fd650dff80775ec0aa17b74d9"
+    },
+    {
+      "path": "scripts/eoere_cleat_transverse_wrench.py",
+      "sha256": "011178a0f14aaf63e96e413e49a80ee7fa83f64c9967f0d274e88bf2838cd112"
+    },
+    {
+      "path": "scripts/eoere_cleat_reference_audit.py",
+      "sha256": "39ca71c599ddf0763bc1efc1ff1adc677983ddce4170beaf02ed0e44c41b33c7"
+    },
+    {
+      "path": "scripts/eoere_cleat_finite_body.py",
+      "sha256": "70f6936e3cec9b90c104f4dc40427ae2fd329b379a4d9eb8b2c6703331761a84"
+    },
+    {
+      "path": "scripts/eoere_current_sections.py",
+      "sha256": "ee8cd9d7714ac485dcbefc6a95e0dc9b6cfb516d25d4baf462f07a9d482d15df"
+    },
+    {
+      "path": "scripts/eoere_local_timber_closure.py",
+      "sha256": "d95fd825e62e79cea1b83bfcc1792b97a2cfc2e0d2d06a725e853641f4700cc9"
+    },
+    {
+      "path": "scripts/eoere_cleat_section_reference.py",
+      "sha256": "85a2eb16fdb340479bcf2d9b9524796eacfeebbaaa8bf5254ad7ec0839f0482d"
+    },
+    {
+      "path": "scripts/eoere_cleat_section_dual.py",
+      "sha256": "e790f848da97927b7e6140003136bf2163d4a0907c7222cee866ecf3b2cdedf4"
+    },
+    {
+      "path": "scripts/eoere_cleat_section_traction.py",
+      "sha256": "6669086dd1874abc6472473dd160037b4cfcce15d04759965c780a33dbe0db04"
+    },
+    {
+      "path": "scripts/eoere_section_patches.py",
+      "sha256": "f46ba85f820489ec08f29043f1faa7111a9e0a62b9d1e30480d2cca6cf8c36e2"
+    },
+    {
+      "path": "scripts/eoere_mixed_stack_yield.py",
+      "sha256": "75185ffe49cf47da94ee2ae01cc97351557e5d9c4604ff9230ba08e570e397ef"
+    },
+    {
+      "path": "scripts/eoere_joint_vector_tests.py",
+      "sha256": "13bd01ac5f1e3f4d73bf2941dd890068aaadd0e57c7d77e1fe8125603c2469e6"
+    },
+    {
+      "path": "scripts/eoere_joint_reference_reductions.py",
+      "sha256": "0975986787103eb7eba5fcbd4c60299fa920499f0f0adf7217026fa294a0467c"
+    },
+    {
+      "path": "scripts/eoere_mixed_continuous_bound.py",
+      "sha256": "dedf90c18256090410ed60dbadabe1b83135acb919220056f7040768c912888b"
+    },
+    {
+      "path": "scripts/eoere_rail_section_audit.py",
+      "sha256": "4004f63c04935b6c1df40dfd6863993604ff475e3195f0a30e0fc1169e6a77c7"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/component-method-v1/gross_members.py",
+      "sha256": "01aaf22c8b2cf93430e7bbce4768260efea39bed3d527b8f5486ba4e38e32258"
+    },
+    {
+      "path": "mini_moonboard/panel_grid.py",
+      "sha256": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873"
+    },
+    {
+      "path": "mini_moonboard/model.py",
+      "sha256": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef"
+    },
+    {
+      "path": "mini_moonboard/__init__.py",
+      "sha256": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12"
+    },
+    {
+      "path": "mini_moonboard/nds_2024_group_action.py",
+      "sha256": "121ec9d5399aa3e856b4038232e6d61c628aac42ce2addf8d1ff7e3a0e4c3df9"
+    },
+    {
+      "path": "fea/dowel_yield.py",
+      "sha256": "d6c318e75c1a720d0b91f810a892e8309ef89735f66f48820ee853b753f8fe45"
+    },
+    {
+      "path": "mini_moonboard/bolted_timber_checks.py",
+      "sha256": "a1414547d9eaa3d60e81482b4a2cac2d49e88f31aafa341dca5be9ec8ef4aa13"
+    },
+    {
+      "path": "mini_moonboard/bolted_steel_wood_yield.py",
+      "sha256": "0726a07baf8214aeb8e41419f81ec41b6f30ddd3a71d87ca72d60d3e5c5953f7"
+    },
+    {
+      "path": "mini_moonboard/bolted_steel_wood_double_shear.py",
+      "sha256": "f99c71ed61e3bb19f54fb7abdb3bea8d32300e826e04e3cdf90892d1f4690ef2"
+    },
+    {
+      "path": "mini_moonboard/nds_2024_multi_member_bolt_yield.py",
+      "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89"
+    },
+    {
+      "path": "scripts/thin_bolted_timber_resistance.py",
+      "sha256": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d"
+    },
+    {
+      "path": "scripts/thin_bolted_equilibrium_audit.py",
+      "sha256": "748f637b918bf9b7faca673cb2e723c8dbb8f98bc4a2d3fd5b12987c20980b84"
+    },
+    {
+      "path": "scripts/thin_bolted_finished_support_audit.py",
+      "sha256": "0a37e67ed20e3fd1eed8b8b4d0d12889df6fd9a6fb33d6f8f68a0c6768f5ada0"
+    },
+    {
+      "path": "scripts/thin_bolted_timber_demand_checks.py",
+      "sha256": "1be05e74563d2cc7a7ea5437aa4ff7217e62f8314f9fe011ff273d201f755e20"
+    },
+    {
+      "path": "scripts/thin_bolted_timber_section_properties.py",
+      "sha256": "398e883849dfd83a34aeb60b5ac0b5d50f57ffa9b01f3f2427e341725749a80a"
+    },
+    {
+      "path": "scripts/thin_bolted_timber_common_shaft_checks.py",
+      "sha256": "c27d8d0209f2b0a032c490314fe05cee8fbc949f608dabbf813676c044b90cc7"
+    },
+    {
+      "path": "fea/reinforced_timber_resistance.py",
+      "sha256": "d4e8302d39beb9f53c70fa264762c59c231f6e6b086cb866906ca39eeab9cfbc"
+    },
+    {
+      "path": "scripts/wood_joint_wj12_sections.py",
+      "sha256": "8d448eb02238a4fdfb019fa8274d68cfbbfb2718f329670e5f1a1d5a154952ba"
+    },
+    {
+      "path": "mini_moonboard/wood_joint_wj04_config.py",
+      "sha256": "4f94f49ebc0c5f92e6dce339794983607614299f53150fc7264ca54b29e987be"
+    },
+    {
+      "path": "mini_moonboard/panel_grid_v2.py",
+      "sha256": "666e0e5c5daa70eb08ad9c49312a5b4478bc20e7d4d58cfb5062ad3c4be96fe8"
+    },
+    {
+      "path": "mini_moonboard/hold_tnut_reinforcement.py",
+      "sha256": "62f2ea72f66a014a48423351b786314288a6b82cb6ec6318df7f54294b132390"
+    },
+    {
+      "path": "mini_moonboard/box_frame.py",
+      "sha256": "69650060048f51b45cf45b6ab916d4ad10a3aa25b8c498c1232d9dfe7aef72e5"
+    },
+    {
+      "path": "mini_moonboard/box_exports.py",
+      "sha256": "4d440f5a3a7f010f8bed4e5d82d4a203fd420a5ea9a4cbb4259e082c5ac6a6d6"
+    },
+    {
+      "path": "mini_moonboard/raster.py",
+      "sha256": "199b87be5d84a8d3776c39d5e9da1c9557fc16d06089acacf5e161ed91877292"
+    },
+    {
+      "path": "mini_moonboard/hybrid.py",
+      "sha256": "0104bd110092c3fd6010f40fdc7cd4e01000bce7e8c619553e2c06fb8a0a32ec"
+    },
+    {
+      "path": "mini_moonboard/hybrid_frame.py",
+      "sha256": "6f1230e894758fac90b3cd1c6c88cc0fb01425fd9f4c13d9f647f5e5d97149d5"
+    },
+    {
+      "path": "mini_moonboard/shallow_frame.py",
+      "sha256": "da01677d76160bb544007f9dbcae5b9c381a7d9504cb698b4b1c18e15bffcdc5"
+    },
+    {
+      "path": "mini_moonboard/footprint_frame.py",
+      "sha256": "20184d3087e39afa87c418db69c65ab9caf23c542e172162c6a87c4d2f86c022"
+    },
+    {
+      "path": "mini_moonboard/joint_frame.py",
+      "sha256": "2a3c87f8ddba79807296ed97d3cb12f99608fa589099eb4af3963d10bcaf40c5"
+    },
+    {
+      "path": "mini_moonboard/independent_leg_frame.py",
+      "sha256": "6a39ae36749daa30c47eeb6c9ae143105f736eeb886a26f9e922489104be735b"
+    },
+    {
+      "path": "mini_moonboard/spacing_frame.py",
+      "sha256": "e2763d51b04a26406a3bab82fa26cd0a54908c21b04df065a378c20adf57f632"
+    },
+    {
+      "path": "mini_moonboard/clip_frame.py",
+      "sha256": "e28e8b7c8dc17d0764ea5a37f297dae37646a5dcf6e35eae85d280c0bc27ea6a"
+    },
+    {
+      "path": "mini_moonboard/transition_frame.py",
+      "sha256": "96bf2d6a0dacfaddd159b8506746d373512204e81612c441c364924b4678bc0b"
+    },
+    {
+      "path": "mini_moonboard/selected_hardware.py",
+      "sha256": "d7e49b83ce1ddfa8414b5061c050c81acd80f6692809780fcf4ea62125efb654"
+    },
+    {
+      "path": "mini_moonboard/product_connections.py",
+      "sha256": "6c6f0b2cf069ff7cd6530cb8ad0f61bbf9061d06964416c94711dc8646f0881f"
+    },
+    {
+      "path": "mini_moonboard/product_frame.py",
+      "sha256": "9df692977f7b0a376ada34b7d5959f9ab2625119dd8b818c4ab838d006980f30"
+    },
+    {
+      "path": "mini_moonboard/top_joint_frame.py",
+      "sha256": "e14ffdbf58882bbc30ea2c96132d9faa163d99c2f0a1e1d1a2a73a53a2033898"
+    },
+    {
+      "path": "mini_moonboard/wood_mvp.py",
+      "sha256": "6ac654920bd0b4b73f5810dd126094d24b5e05281285d4035cf7a6c78a06cca9"
+    },
+    {
+      "path": "mini_moonboard/bracket_mvp.py",
+      "sha256": "0bdbcf4d6e2e9f63f94faea363b4195e5a56a2ae54d7bb7617589219e71c609f"
+    },
+    {
+      "path": "mini_moonboard/easy_frame.py",
+      "sha256": "5450d9f53f3a7f878fdf16231bb45f3c7282825bce6df0ee942a3eda8179a88a"
+    },
+    {
+      "path": "mini_moonboard/bolted_frame.py",
+      "sha256": "3a1d69e86b4eb522fcc45989099a843d1f3791ab7e3bf8a72fd8629e1cd87f35"
+    },
+    {
+      "path": "mini_moonboard/lean_frame.py",
+      "sha256": "5c88826ff480d871867acc506c5f26e6274493bc72637cd1b23bbbdfb86063ce"
+    },
+    {
+      "path": "mini_moonboard/continuous_frame.py",
+      "sha256": "7a63e826a26e5ef4887512a2b620f81acf8e44e5a81741232a9594a5f0bf7488"
+    },
+    {
+      "path": "mini_moonboard/bearing_frame.py",
+      "sha256": "daf52cc611a4b4ef34b37f780a475b68d0b87ad0e176d3c68acd0112387ec81e"
+    },
+    {
+      "path": "mini_moonboard/base_frame.py",
+      "sha256": "e6f988738e172a7403a8b1a9e86d3d9fe6cfbb239fb29a16058acb0778957f16"
+    },
+    {
+      "path": "mini_moonboard/timber_connections.py",
+      "sha256": "f823f5318f02f01c464a2ca254c1953ae0190af7908668743b18addc1cef9d83"
+    },
+    {
+      "path": "mini_moonboard/timber_frame.py",
+      "sha256": "135a2d52de210ee7d48ed6788d98148ebbf3300a442bc8d63d1ea0ac124b8667"
+    },
+    {
+      "path": "mini_moonboard/insert_frame.py",
+      "sha256": "2b140b9e08cc70e3e41a9f5caa296405affffbf4f0530fc0994f61f5d734cc05"
+    },
+    {
+      "path": "mini_moonboard/round_insert_hardware.py",
+      "sha256": "019d94a75ea796d868a148c42fd8350984e815d9de4d5be99398741991a7b9e5"
+    },
+    {
+      "path": "mini_moonboard/round_panel_layout.py",
+      "sha256": "2f92d5438faac6dc8aef3aba90857a128b6f1e97a9d5aebf6793cb4d47f4b916"
+    },
+    {
+      "path": "mini_moonboard/wide_frame.py",
+      "sha256": "e93b72a1a4721ba1cf35d807ec99714962c65b29a27acf14245e233671e7f44c"
+    },
+    {
+      "path": "mini_moonboard/lumber_leg_frame.py",
+      "sha256": "d98b0e205097798dede58dbebc7bb276e9ac8bcd6ca031b808d0f7eeb61b50cb"
+    },
+    {
+      "path": "mini_moonboard/lumber_leg_spread_frame.py",
+      "sha256": "d94e6152be10eadc213e7d05c835fc507c18caed5d19bedf37c9da2a12433937"
+    },
+    {
+      "path": "mini_moonboard/screw_mvp_frame.py",
+      "sha256": "67ea2dcb2cc0100a64a003589ca3f26c0005a865659ce6f37dab5d03def65993"
+    },
+    {
+      "path": "mini_moonboard/square_2x6_frame.py",
+      "sha256": "4b460c413489a7c0ab3dda88f9271296b26f72928f6f5445dd5b2b036dd8c365"
+    },
+    {
+      "path": "mini_moonboard/square_2x6_base_revision.py",
+      "sha256": "e26d11d1b460b8203f6c5ab9c28fdb8e585b035fecf4fc9035759fc195a8b20d"
+    },
+    {
+      "path": "mini_moonboard/square_2x6_revised_frame.py",
+      "sha256": "5a6e6288db55f8b225f19a060073543fda8ee64130c541ef195fc6432e3c590c"
+    },
+    {
+      "path": "mini_moonboard/single_2x6_frame.py",
+      "sha256": "f9e37eb873584625b8f03096373944a7355742600af5e96446c0e4eab6939daa"
+    },
+    {
+      "path": "mini_moonboard/selective_2x6_frame.py",
+      "sha256": "1dcd39b898bcafe1fba04d92ddd39bd2d12a6fafdeac8f968c7c66635e56c678"
+    },
+    {
+      "path": "mini_moonboard/paired_rail_frame.py",
+      "sha256": "775decb22f1609cdc472a74490a79fb501d192d4719be188d443e09bedf6413c"
+    },
+    {
+      "path": "mini_moonboard/vertical_principal_frame.py",
+      "sha256": "06233aefdf3bb3141a87fdbbf8ebaa501c9000036e1cb5ab171745a0d019f9a1"
+    },
+    {
+      "path": "mini_moonboard/split_center_hardware.py",
+      "sha256": "cdbc6410b181fada08e25f7ca000e5dce01de59da7c6dd0ba1d5f80c1f40f49f"
+    },
+    {
+      "path": "mini_moonboard/split_center_frame.py",
+      "sha256": "f4e1f7f7c5d15b33a80202e5f783152a3f8436081ef6d3b25ff811cd1d5cb30d"
+    },
+    {
+      "path": "mini_moonboard/infill_panel_frame.py",
+      "sha256": "c051299e7746839767829505ac7c5644d729725d578983d39c1698067bb44794"
+    },
+    {
+      "path": "mini_moonboard/angle_base_frame.py",
+      "sha256": "b5b7fd39c60c17bbf75ca255e954eab8732049f35016de0285214204b345d288"
+    },
+    {
+      "path": "mini_moonboard/horizontal_service_wiring.py",
+      "sha256": "5e5893d86032a312c6b2c0985856710e2a9e21ba8dfd589a541d98a56d1be994"
+    },
+    {
+      "path": "mini_moonboard/horizontal_service_frame.py",
+      "sha256": "d253b9b74df4fb0fca83f690eec3474a5bd43c54c6b295f20b7d63f98c25f2b6"
+    },
+    {
+      "path": "mini_moonboard/round_service_wiring.py",
+      "sha256": "5404e6075b257138b269fb53edcae0893d9e88f7b1c32a0da9a87bd01c801dc2"
+    },
+    {
+      "path": "mini_moonboard/round_panel_hardware.py",
+      "sha256": "475d098b00ba4c54a7ecefa66521f001e9a91d227f4ffd16889173e7987674ec"
+    },
+    {
+      "path": "mini_moonboard/round_service_frame.py",
+      "sha256": "477d5b068153093a84c6537f77fbce22db6e2879d401c78c6a7ca82433d4dcf8"
+    },
+    {
+      "path": "mini_moonboard/round_insert_frame.py",
+      "sha256": "a28786d88b92a478d1658a8c29a6cdf8465f1ffbad87fa7fff8cf95e9ad7ca8a"
+    },
+    {
+      "path": "mini_moonboard/round_structural_wiring.py",
+      "sha256": "b802d10f1d73d2865e3a67613db0935ec2eec28d6222abc3b8c8c10dd3bbb5b2"
+    },
+    {
+      "path": "mini_moonboard/round_structural_frame.py",
+      "sha256": "0987abecc4511262ea29ad8677e051c53d1adf50a323683266d09eeacdd2a810"
+    },
+    {
+      "path": "mini_moonboard/kicker_header_reinforcement.py",
+      "sha256": "7131264344d3f2529a2b46392b542fbe3e23dfc8bb6e2ca64eb8d49be900c2c4"
+    },
+    {
+      "path": "mini_moonboard/no_shoes_frame.py",
+      "sha256": "bba168c8fbf94e4acb165b78797f4919897559fad196023c4051092b8262c470"
+    },
+    {
+      "path": "mini_moonboard/thick_leg_frame.py",
+      "sha256": "b09493de2b1c909ee1e24408122d51dc70da9b501fd49ebfa2b8a3a67d845606"
+    },
+    {
+      "path": "mini_moonboard/compact_thick_frame.py",
+      "sha256": "2cc0693053645a2d6c3bccab7c69a66f06a8347ba0440c6b95dc04866d4bb362"
+    },
+    {
+      "path": "mini_moonboard/compact_rail_frame.py",
+      "sha256": "2e6875e85abfa722d7f5c8fc797753cca8c24c557c4fe985075a0bcd96995917"
+    },
+    {
+      "path": "mini_moonboard/compact_two_frame.py",
+      "sha256": "4f2c23c4345173796d9c29b2bafcdbff6fb5170ecd8dd4bb3c206681fa13321e"
+    },
+    {
+      "path": "mini_moonboard/compact_three_leg_options.py",
+      "sha256": "5cda1980c0a42d492e53c3059f22c86a0851763b7c4aa16a2422d5a0d395bf59"
+    },
+    {
+      "path": "mini_moonboard/compact_three_leg_225_refined.py",
+      "sha256": "3f165f649339cee6ab62932db19bb2ca35211cb58f27b19e5bbff7136c7381f5"
+    },
+    {
+      "path": "mini_moonboard/compact_knee_frame.py",
+      "sha256": "775fa8614fc7a9b0d8ab9f2a2151a1325016930dbc42cc672be7ea3a4aec68c8"
+    },
+    {
+      "path": "mini_moonboard/compact_knee_two_frame.py",
+      "sha256": "0c7cc4f1612bc561b05f04e1762d2e68d271a8571fb9edf374c681afabf28681"
+    },
+    {
+      "path": "mini_moonboard/compact_spliced_knee_frame.py",
+      "sha256": "d6f25ba96219284ea45ee047f2e890ca9814fc98be35df80fafef6de38abe8be"
+    },
+    {
+      "path": "mini_moonboard/compact_spliced_installation.py",
+      "sha256": "5f57d55fbbac5b74ea013ebb83eaeb9d48a84a2b819d5b51553d6182ddde9818"
+    },
+    {
+      "path": "mini_moonboard/compact_spliced_trimmed.py",
+      "sha256": "afa478c34239811baf957512645e6555de14af4b19223a461b892aeedb9bf2c0"
+    },
+    {
+      "path": "mini_moonboard/compact_spliced_kicker.py",
+      "sha256": "e06cf2d03056f790558f1aab9391a117d299beb92c210a08a15c19f9efd8f412"
+    },
+    {
+      "path": "mini_moonboard/compact_base_finish.py",
+      "sha256": "8c0075c6a46581e7095f8750b12550917def12855486a7844158de7dae6ffd46"
+    },
+    {
+      "path": "mini_moonboard/compact_floor_recess_frame.py",
+      "sha256": "1c01f3a200bd824e18af172e7320820351caa6818b4ad3d4f35fb46835ccead0"
+    },
+    {
+      "path": "mini_moonboard/compact_floor_taper_frame.py",
+      "sha256": "07ed7ffa094a62855880cfea2af63cae8193bda4a35402dbe90fa3417d82cfb1"
+    },
+    {
+      "path": "mini_moonboard/compact_floor_flush_frame.py",
+      "sha256": "8764bec57564efa79f2636e589aa0e35b229c48975c791eec5c47b20183bf17a"
+    },
+    {
+      "path": "mini_moonboard/floor_flush_width.py",
+      "sha256": "1dc0b6cc6d1bd10ae8cffaaa707fa25bdcd264783dcb9ec59cf8b911a6512de5"
+    },
+    {
+      "path": "mini_moonboard/connection_geometry.py",
+      "sha256": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4"
+    },
+    {
+      "path": "mini_moonboard/wood_joint_geometry.py",
+      "sha256": "e437385d4894c7bcd4bbf4ee66aa9f96a53a8d3570efc6230fb225570abbb90e"
+    },
+    {
+      "path": "mini_moonboard/wood_joint_frame.py",
+      "sha256": "77b4a8b28b02088878f1f0e0483610a7918cb85f5694f0551f50cf8888886545"
+    },
+    {
+      "path": "mini_moonboard/wood_joint_panel_machining.py",
+      "sha256": "1928e32ba5b5e75caca99abb42e5d5b01822d6697c6f892dda38650cca302afd"
+    },
+    {
+      "path": "scripts/owner_layout_protected.py",
+      "sha256": "405db94a8adc2da465d137d3b35bba5848fbe67cbd35d52c0613a01161560e58"
+    },
+    {
+      "path": "scripts/wood_joint_clearance.py",
+      "sha256": "82ec31eacab279cfb1c3e2e2fe976e13712f36b8bc5d64f794a0601608d8bd2d"
+    },
+    {
+      "path": "scripts/wood_joint_wj03_compact_outer_probe.py",
+      "sha256": "1b87fffdb250e7e3021f43913bb26d2e0c6f4a3b3f198d31c6bd8b875320065e"
+    },
+    {
+      "path": "mini_moonboard/wood_joint_wj05_socket.py",
+      "sha256": "cca786d898621058bddf5c58ee266d3da3d8550b84805be1c7a856cf693c6913"
+    },
+    {
+      "path": "scripts/wood_joints_wj05_center_backer_transfer_probe.py",
+      "sha256": "3da60ba6931f791e6b877b59aab7157f6e62a7e2b9db276187113e122aa8d062"
+    },
+    {
+      "path": "scripts/wood_joint_wj03_sequence.py",
+      "sha256": "27d62b50bdbe3084c68caa35f186785e57cff412fb9e68eb5fafe423ed260386"
+    },
+    {
+      "path": "scripts/wood_joint_wj03_compact_outer_access.py",
+      "sha256": "d1a909da2bfa660d00731551972e6b256da70c9e124f4057b04a47c5404592bc"
+    },
+    {
+      "path": "scripts/wood_joint_wj04_probe.py",
+      "sha256": "75d397795e5fa69d1d04f1d14caeb57f93a2da94cacecd4a1edc5bdad3fe4d94"
+    },
+    {
+      "path": "scripts/wood_joint_wj04_tool_access.py",
+      "sha256": "91e0a8c4bd1681fe5f10d96d99c8e6b3ef39b8d7a26fb42b4bb77c6f85ae2fc8"
+    },
+    {
+      "path": "scripts/wood_joint_wj04_full_stock_probe.py",
+      "sha256": "965b997a2b3f4ecb4c39e161fc9dde1757ff8a4c8d7bc8acc90d851a122f8bde"
+    },
+    {
+      "path": "scripts/wood_joint_wj04_upper_pair_probe.py",
+      "sha256": "7e042ed35b6670191e2549f4f4922af4643db8d6552fef09b6998546ae123860"
+    },
+    {
+      "path": "scripts/wood_joint_wj04_upper_g7_crosscut_probe.py",
+      "sha256": "94d2b301450c942f1c7a95f89e3e7ee1ed643ce4db43576c78c1bce04f9302b9"
+    },
+    {
+      "path": "scripts/wood_joint_wj05_center_node_probe.py",
+      "sha256": "eafffbc95d5989bcc21a7cfed90ff25e917c778bf9758154b915cbba0ec3d173"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/adjusted-base-mechanics-v1/current-force-bridge-v1/review-fix-v2/bridge.py",
+      "sha256": "4916532168ba05268e164b28bb634743013b4aa7e062b7f9d345ecfafb954643"
+    }
+  ],
+  "expected_nonzero_source_event_stations_mm": [
+    "4655730541479829/4398046511104",
+    "2335445160768307/2199023255552"
+  ],
+  "extra_grid": false,
+  "frame_half_tangent": "-0.363970234266",
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "highs_version": "1.12.0",
+  "local_queries": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/local-timber-v2.json",
+    "sha256": "56b199f0eb9528b4ade42c4efd782c329556fb49b8f1635de1935dc315ea11e1"
+  },
+  "material_hypothesis": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/conditional-material-assumptions-v1.json",
+    "sha256": "62683a42e9d6c693cc90446ea8ef43d189b704481c9a93320dc59a6c85873eb8"
+  },
+  "member": "base_rail_top",
+  "method_helper": {
+    "path": "scripts/eoere_section_patches.py",
+    "sha256": "f46ba85f820489ec08f29043f1faa7111a9e0a62b9d1e30480d2cca6cf8c36e2"
+  },
+  "patch_inset_mm": "1/10000",
+  "physical_demand_bounds_established": false,
+  "primary_reference_urls": [
+    "https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf",
+    "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf"
+  ],
+  "projected_vertex_envelope_mm": "1/500000",
+  "reference_pdf": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/source-cache/swedish-wood-design-vol2-2022.pdf",
+    "sha256": "98d0bf2e406ce743217578af31ffe4d464a40bccd317d38a8c918715e7452f75"
+  },
+  "runtime_versions": {
+    "cadquery": "2.8.0",
+    "cadquery-ocp": "7.9.3.1.1",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_rail_continuous_section_inputs/v1",
+  "source_recovery_absolute_tolerance_n_nmm": "1/100000",
+  "structural_acceptance": false,
+  "traction_enclosure_tolerance": "1/10000000"
+}

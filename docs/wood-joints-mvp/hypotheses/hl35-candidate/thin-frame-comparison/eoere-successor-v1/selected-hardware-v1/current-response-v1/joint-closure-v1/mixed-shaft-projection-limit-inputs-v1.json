@@ -1,0 +1,49 @@
+{
+  "actual_observations": null,
+  "axis_id": "eoere_bolt_067",
+  "case_id": "a12-forward",
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "engineering_question": "Can any shaft-only registered-kernel projection of the frozen bolt067 necessary functional certify an exceedance using the current continuous-model candidate, correction box and full gap?",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_normal_patch_functionals.py",
+      "sha256": "221bd5ff7313815cac7cc61825403187e32e95ab8c6fc9ba14f8a6b17c189d07"
+    },
+    {
+      "path": "scripts/eoere_mixed_shaft_projection_limit.py",
+      "sha256": "9a8ced955420f2c092ffc0724847440a9d0413e493ebefa679fa8a2f3610a64e"
+    },
+    {
+      "path": "tests/test_eoere_mixed_shaft_projection_limit.py",
+      "sha256": "2a8d76d7aad755bd4804dab1fd8625137b1bdb04dca83383f2f751132b8a2618"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "limits": [
+    "The selected three-reaction null vector is an auxiliary proof witness, not a physical reaction or optimized response. Verify annihilation of all five retained shaft columns exactly.",
+    "For any shaft-only rigid multiplier v, C_v=C+D_shaft^T v and work_v=work-v dot p_shaft. A common exact corrected dual in the unchanged certified box gives |center_v|-box_v <= |center_0|+box_0.",
+    "Weighted Cauchy gives sum(k*C_v^2) >= (C dot z)^2/sum(z^2/k). All shaft directions have zero derivative on the entire continuous normal bed and use unchanged spring metrics.",
+    "The quantified certificate family reuses the same candidate/correction box, frozen upper gap certificate, functional, support and divisor. The lower enclosure of sqrt(2*G_upper*Gram_lower) bounds the formula radius, not the actual exact or physical gap.",
+    "A ceiling below one excludes a >1 necessary-lower certificate within this family. It proves neither a resistance pass nor actual failure. A new gap/witness, other-owner projection, functional/support or sharper theorem remains outside the result.",
+    "No native/frame/contact-equilibrium solve, inverse, factorization, optimization, CAD rebuild, design change or physical observation. Keep panel/screw exceedances deferred, actual fit excluded and all full qualification limits distinct."
+  ],
+  "null_reaction_ids": [
+    "eoere_bolt_067/bearing-0-1/lateral-1",
+    "eoere_bolt_067/bearing-1-1/lateral-1",
+    "eoere_bolt_067/bearing-2-0/lateral-1"
+  ],
+  "pivot_column_offsets": [
+    2,
+    3
+  ],
+  "reaction_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-supports-attempt01.json",
+    "sha256": "9a54365d1188a71c12fb904396619df9f3d513a20a799561870b61f116d41422"
+  },
+  "schema": "eoere_mixed_shaft_projection_limit_inputs/v1",
+  "structural_acceptance": false,
+  "uniform_reference_divisor": "5"
+}

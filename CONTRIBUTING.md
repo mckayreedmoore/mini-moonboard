@@ -94,10 +94,14 @@ uv run pytest --include-recovered-evidence -m recovered_evidence
 fixtures also authenticate ignored historical fields, operators, cached solids
 and standards. These remain current evidence checks, separate from the
 historical inventory. Their original test and producer bytes are preserved.
-The default suite retains 387 portable qualification tests; the additional
-216 tests require the documented recovery inputs. All 603 pass with those
-inputs present. Selecting the opt-in never skips missing or changed inputs.
-Seven small, unchanged helper/contract files are retained at their original
+The published qualification inventory at `e2ddd1a0` retained 387 portable
+controls and 216 controls requiring recovery inputs; all 603 passed with those
+inputs present. Later cleat work adds nine local-kernel controls in three
+explicit function entries to the recovered inventory. Their unchanged kernel
+stays at its frozen ignored path; algebra, source guards and mesh-pair controls
+continue to run by default. Use pytest's collected counts for the current tree.
+Selecting the opt-in never skips missing or changed inputs.
+Nine small, unchanged helper/contract files are retained at their original
 paths for the portable checks; large evidence banks and manuals stay ignored.
 Use the [qualification recovery notes](docs/wood-joints-mvp/completion-ledger.md#engineering-closure-beyond-the-assessment)
 alongside the navigation recovery kit below for the shared topology/review inputs.

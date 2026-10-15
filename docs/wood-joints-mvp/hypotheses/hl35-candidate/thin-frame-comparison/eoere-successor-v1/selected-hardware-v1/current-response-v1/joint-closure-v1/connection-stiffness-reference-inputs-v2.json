@@ -1,0 +1,94 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "The existing 460/480/500/520-kg/m3 density trials are sensitivities around the current 500-kg/m3 mass prior, not observed mean densities or physical extrema. NDS assigned G=0.50 is a separate quantity.",
+    "EC5 Kser=rho_mean^1.5*d/23 is a wood dowel service-slip reference per fastener and shear plane. The source describes approximately 40% of maximum load and separate clearance travel. It is not assigned to each current wood/steel/mixed joint.",
+    "NDS gamma=180000*D^1.5 lb/in is used only as the wood-to-wood group-action reference for the sixteen current ordinary wood/wood axes. It is not a universal 3D spring law.",
+    "E_steel=205000 MPa follows the published axial-series study. EA/L uses the own modeled head-to-nut pressure-face distance and full nominal-body/full purchase-root circles as sensitivities. It excludes head and thread equivalent lengths, washers, seats, wood, preload and gaps; no delivered free length or complete joint stiffness is claimed.",
+    "The own full-root sensitivities reuse the current purchase-reference floors: 7.31774 mm on 96 nominal9.525-mm axes and9.9949 mm on four nominal12.7-mm starting leg axes. They are not adopted full-thread hardware or new strength checks. Selected partially threaded hardware and the existing non-adopted full-thread strength exceedance remain unchanged.",
+    "Combining the steel scalar with two existing 1000-N/mm captures is a one-dimensional illustrative series model, not the current full frame operator or a physical demand bound.",
+    "Summed own wood-bearing quadrature springs quantify a uniform-translation foundation integral. That integral is not complete relative joint slip because shaft bending and other member compliances remain.",
+    "The Kelvin-compliance Rayleigh enclosure bounds normal modulus only within the existing unmeasured orthotropic scenario, for every direction and material rotation. E_normal divided by the 1-N/mm3 bedding prior gives an implied homogeneous compression depth, not a calibrated contact depth or lower physical stiffness.",
+    "Axial seats, pressure/prying, timber contact, local brittle behavior, finished-member stiffness, panel/attachment restraint and finite response remain outside the scalar reference proof. No stiffness is changed or qualified and no current frame cases are repeated.",
+    "Retain all current source fields and false acceptance flags. No geometry change, native or frame solve, CAD rebuild, actual observation, floor-friction test, panel/screw remedy, archive or prune is authorized by this record."
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "mean_density_sensitivities_kg_m3": [
+    460.0,
+    480.0,
+    500.0,
+    520.0
+  ],
+  "physical_demand_bounds_established": false,
+  "primary_source_urls": [
+    "https://research.fs.usda.gov/download/treesearch/50078.pdf",
+    "https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf",
+    "https://link.springer.com/article/10.1186/s10086-022-02038-1",
+    "https://link.springer.com/article/10.1186/s10086-021-01973-9"
+  ],
+  "purchase_root_floors_by_nominal_diameter_mm": {
+    "12.7": 9.9949,
+    "9.525": 7.31774
+  },
+  "references": [
+    {
+      "path": "docs/bolted-candidate-prototypes/simple-center-published-stiffness-basis.md",
+      "sha256": "823238aa24ff1c4c60be58009315b0c975bbd17ec9de436114d758a4771b10d2"
+    },
+    {
+      "path": "fea/wood_joint_patch_materials.py",
+      "sha256": "ecbbd11a8a0e99ece69aeb5cb4159e7cf17e0aa18c509c78b5c8f5a2e573ae78"
+    },
+    {
+      "path": "docs/wood-joints-mvp/orthotropic-material-scenario.md",
+      "sha256": "f6b723ddfc911284958df7a5348162f6d659396bbc03b83a74fcfbb125b3477f"
+    },
+    {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/sources/nds2024-errata-20260323.pdf",
+      "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/connection-stiffness-reference-inputs-v1.json",
+      "sha256": "a8a38c3585170916ff45e04ebd73b9ddf6209eac0e6a9bcdeac77071a1decb80"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/connection-stiffness-reference-attempt01-stop01/stop.json",
+      "sha256": "053d2dcac1bde500180589ae367065230abc6eb1e65f69a53bc6cca88c09ce19"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-connection-stiffness-references-attempt01.json",
+      "sha256": "0c6911ce9362499fa2930b1ec5da1dab1290c88f19df9ccaac7d71c441570106"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/connection-stiffness-reference-attempt01-stop01/source-00.snapshot",
+      "sha256": "ebe2e291fdf06c96e5191f944c0f7516cfa0a28b40814d400823d5918faf69cb"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/connection-stiffness-reference-attempt01-stop01/source-01.snapshot",
+      "sha256": "2a26a8a362d3531e810514c21733ad137f92b7435b8a667cdfbacf5ecdf7b595"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/connection-stiffness-reference-attempt01-stop01/source-02.snapshot",
+      "sha256": "a8a38c3585170916ff45e04ebd73b9ddf6209eac0e6a9bcdeac77071a1decb80"
+    }
+  ],
+  "runtime_versions": {
+    "numpy": "2.5.2"
+  },
+  "schema": "eoere_current_connection_stiffness_reference_inputs/v1",
+  "steel_modulus_mpa": 205000.0,
+  "structural_acceptance": false,
+  "supersedes_stopped_input": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/connection-stiffness-reference-inputs-v1.json",
+    "reason": "Preserve each nominal-diameter family and its own current purchase-root reference instead of requiring a uniform3/8-inch root.",
+    "sha256": "a8a38c3585170916ff45e04ebd73b9ddf6209eac0e6a9bcdeac77071a1decb80"
+  }
+}

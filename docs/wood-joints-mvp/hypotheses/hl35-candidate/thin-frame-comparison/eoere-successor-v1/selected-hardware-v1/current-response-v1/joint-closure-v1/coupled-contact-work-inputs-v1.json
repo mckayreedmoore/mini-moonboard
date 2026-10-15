@@ -1,0 +1,63 @@
+{
+  "actual_observations": null,
+  "bulk_material_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-continuum-material-law-attempt02.json",
+    "sha256": "8874f97aba516fa28c8021759b55897ec82474032efe95edb0d5d5abf09adc16"
+  },
+  "contact_work_definition": {
+    "oriented_gap": "For slave p and master vertices a,b,c, e1=b-a, e2=c-a, m=e1 cross e2 and H=m dot (p-a). The physical signed gap is H/|m|. H has units mm^3, not mm. Reject a degenerate face and a closest projection outside the closed triangle; do not clamp it into a different contact.",
+    "projection": "Use exact scalar Gram quotients for the orthogonal projection and its barycentric coordinates. No inverse matrix, factorization or equilibrium calculation is used.",
+    "scope": "This supplies a one-pair algebraic identity with exact controls, not a 3D contact-search, edge/edge handling, a mesh or continuum nonpenetration certificate. No current candidate multiplier or pressure is computed.",
+    "units": "lambda for this scaled constraint has units N/mm^2 but is not a physical surface pressure density. The slave resultant is lambda*m and its magnitude is lambda*|m|. Pressure requires an explicit quadrature/tributary-area map.",
+    "work": "For the oriented constraint H>=0 use a scaled lambda>=0 with lambda*H=0. Pair forces are +lambda*DH on slave and master positions. At H=0 they are a normal slave resultant and opposite barycentric master resultants from the same multiplier. Off-contact gap derivatives retain the changing-normal terms; do not freeze the master normal."
+  },
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "engineering_question": "Map all unchanged source loads and nominal stack interfaces before coupled evaluation. Verify a three-dimensional finite-contact pair work identity and identify which source point loads still need a continuous-volume or finite-port distribution; do not infer equilibrium or resistance from bookkeeping.",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_coupled_contact_work.py",
+      "sha256": "abea0f9b501f09a4b314f97dce241318b09f9ea022a94c6471c39f4703784ccf"
+    },
+    {
+      "path": "tests/test_eoere_coupled_contact_work.py",
+      "sha256": "cce949f102e7772e588f511338b71ffba12a57ce30cb354f9613d4f99d59c684"
+    }
+  ],
+  "extra_grid": false,
+  "fitting_geometry_recipe": {
+    "path": "scripts/eoere_bolted_candidate.py",
+    "sha256": "87bc48f28364ff085101d37631635236d51180c5a83efad1ecaa8ddf24bf4848"
+  },
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_geometry_recipe": {
+    "path": "scripts/thin_bolted_occupied.py",
+    "sha256": "ffe285122150654f97dba1682d1f96da9aab470547bba6e3173207a03a449b77"
+  },
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "load_mapping_limits": {
+    "body_gravity": "The 552 timber/fitting/metal-role gravity forces need normalized volume loads or another justified finite coupling, with the recorded total force and first moment. Retain catalog/nominal masses; do not derive another weight from bulk density and double-count it. Changed geometry must retain the recorded load first moments or have an explicit mapped load-oscillation term.",
+    "other_loads": "The 66 non-selfweight metal-share actions on timbers need finite receiver/attachment distributions. The 217 panel loads retain their reduced panel work only until a current panel/bulk coupling is supplied. No Hillman material, resistance or product stiffness is inferred.",
+    "ownership": "Expand the 100 retained shaft parents into their 508 recorded material roles while retaining 50 other owners. These 558 ownership targets are not 558 purchased parts: a bolt head and shaft belong to the same bolt. Preserve each original force, point and identity, and prove all 12 affine-work coefficients for every shared parent.",
+    "point_source_obstruction": "For a three-dimensional linearized H1 formulation and an interior cube tent u_n(x)=n*product_i max(1-|x_i|/epsilon,0)*e1, epsilon=1/n^2, the exact squared gradient norm is 8/3 and squared L2 norm is 8/(27*n^4), while unit point-force work is n. Point evaluation is therefore unbounded in that linearized energy space. This tent need not satisfy finite J>0; it does not prove a point-source obstruction for the finite Saint-Venant-Kirchhoff model or establish a candidate failure. That model still needs an applicable declared load functional. Separately, all 22 current sharp-L mass centroids lie outside the gross L material; their resultant points must not silently become literal solid nodes.",
+    "work_scope": "The certificate applies when each new role uses its original parent affine virtual field. It does not equate arbitrary independent new role deformations to old beam/frame kinematics or transfer prior comparator reaction bounds. Point-load bookkeeping does not establish an applicable current continuum load map."
+  },
+  "primary_methods": {
+    "contact_constraints": "https://solidmechanics.org/Text/Chapter8_8/Chapter8_8.php",
+    "source_scope": "Bower 8.1 derives work-consistent body/traction load vectors. Section 8.8.3 illustrates two-dimensional hard frictionless contact and changing geometry. The three-dimensional oriented-gap derivatives, affine ownership identity and tent-function H1 control here are project derivations, not a transferred complete 3D contact algorithm or material result.",
+    "weak_load_work": "https://solidmechanics.org/Text/Chapter8_1/Chapter8_1.php"
+  },
+  "remaining_assembly_and_evaluation": [
+    "Resolve the complete material domains and continuous load maps, including the existing ideal-bend assumption versus sharp flange geometry, partial-thread shaft geometry, head/shaft continuity and actual nut engagement idealizations. No new geometry revision or full-thread-root adoption is made here.",
+    "Map potential cylindrical/axial pairs and all actual finished face domains into a complete finite contact formulation, including possible new contacts and edge/edge events. Initial source surfaces and nominal zero seat gaps are not a complete search or current pressure field.",
+    "Do not retain independent old bedding/capture stiffness in parallel with bulk-resolved compliance. Retain the 66 Hillman policy and explicit stiffness priors, panel/screw strength deferral, current support/no-slip assumptions and blank observations. No floor-friction test or external sign-off prerequisite is introduced.",
+    "Complete the brittle/fracture treatment and finite/directional restraint applicability, then evaluate the coupled law or prove an applicable conservative mapping within authorized scope. No native, frame, contact-equilibrium, optimization, inverse-matrix/factorization or CAD rebuild is authorized or run by this packet."
+  ],
+  "schema": "eoere_coupled_contact_work_inputs/v1",
+  "selected_spacer_recipe": {
+    "path": "scripts/eoere_current_response.py",
+    "sha256": "3340243bd8127d3fa9fd8c2f5b1778db7abadc6da8a05c901e33b79b503a7944"
+  },
+  "stored_geometry_consistency_tolerance_mm": "1/10000000",
+  "structural_acceptance": false
+}

@@ -1,0 +1,68 @@
+{
+  "actual_observations": null,
+  "applicability_limits": [
+    "The sharp L reference and all eight holes are retained for this load-law construction. The separate ideal Ri=t bend stress construction is not a mapped formed-solid domain or complete fitting/contact qualification.",
+    "Nominal solid shafts, hex heads, bored hex nuts, two washers and eight spacers define gravity distributions only. Partial-thread shank/root geometry, head/shaft continuity, nut engagement and their mechanical compliance remain to define; full-thread-root sensitivity stays non-adopted.",
+    "The 66 other timber metal-share forces still need finite attachment distributions; 217 panel actions per case retain reduced panel work pending bulk coupling. Hillman resistance/stiffness is not inferred from other screws.",
+    "Matching resultants and enclosing affine differences does not preserve arbitrary old beam/modal work or transfer old comparator bounds. A symmetric-prism control has identical centroid work but different quadratic virtual work.",
+    "The complete contact search, all interacting load/constitutive/fracture laws, mesh/integration convergence, directional restraint and the common coupled evaluation remain open. Do not add old bedding/capture stiffness in parallel with resolved bulk compliance.",
+    "Panel/screw exceedances remain deferred; actual build fit is excluded; no observations, design revision, floor-friction test, physical work, native/global/frame/contact-equilibrium solve, optimization, inverse matrix or factorization is supplied. All three full qualifications remain open."
+  ],
+  "contact_work_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-coupled-contact-work-attempt01.json",
+    "sha256": "6aecf610cfdd7661b4b9e50d69e87f495bbad47642d979f0fb51dc80a112b177"
+  },
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "definition_loader": {
+    "path": "scripts/eoere_cleat_traction_witness.py",
+    "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+  },
+  "engineering_question": "Define bounded uniform volume gravity work on retained sharp-reference fittings, nominal metal roles and recorded numerical timber moment domains, keeping every source resultant and explicitly enclosing the affine first-moment differences. This is preparation for the coupled model, not a response or resistance result.",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_distributed_gravity.py",
+      "sha256": "137fa551309d833a285b0242bc4482c411c5481e831beab03f371dba8ec1b988"
+    },
+    {
+      "path": "tests/test_eoere_distributed_gravity.py",
+      "sha256": "eff44dbbe1bc83f1ca463f343d240da85a290da19f97ddb25b528d8002e39712"
+    }
+  ],
+  "extra_grid": false,
+  "fitting_geometry_recipe": {
+    "path": "scripts/eoere_bolted_candidate.py",
+    "sha256": "87bc48f28364ff085101d37631635236d51180c5a83efad1ecaa8ddf24bf4848"
+  },
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "load_law": {
+    "boundedness": "For V_D>0, |L_D(v)| <= |F_D|/sqrt(V_D) * ||v||_L2(D). The recorded square |F_D|^2/V_D is an L2 functional norm, not complementary strain energy or a stiffness/capacity bound. Numerical timber moments require a future consistent integration check.",
+    "definition": "For each domain D in the reference configuration, L_D(v)=F_D dot integral_D v dV / V_D, V_D=integral_D 1 dV. Gravity is a fixed downward dead load per reference volume. Its potential is -L_D(u); no follower-force rotation is applied.",
+    "domains": "530 analytic metal domains: 22 sharp eight-hole L fittings and 508 nominal shaft/head/nut/washer/spacer roles. Use the retained chart x=o+sum_i a_i xi_i and its positive determinant, without silently assuming stored axes have exact unit length. The 22 finished timbers use authenticated saved numerical volume/centroid moments and their pinned BREP domains; this is a numerical moment contract, not exact geometric integral certification. Observed versus older metadata volumes are separately compared under the existing 1e-5 mm^3 numerical gate used by eoere_cleat_surface_loads.uniform_gravity; use the observed numerical volume and retain the difference. This gate does not certify exact geometry integration.",
+    "moments": "Uniform loading has centroid C_D=integral_D x dV/V_D. The exact difference on v=a+B*x is sum_ij F_i B_ij (C_j-p_source,j); every coefficient is enclosed and kept as a load-mapping discrepancy. First moments are not asserted exactly equal. The 1e-7 mm source consistency gate is a recorded numerical mapping gate, not physical tolerances or a bound on arbitrary deformation work.",
+    "normalization": "Use each recorded source force exactly once, rather than recomputing mass times gravity or adding density-derived weight. Catalog fitting mass remains the basis even though its normalized density differs from bulk steel."
+  },
+  "primary_method": {
+    "scope": "Bower 8.1 supplies body-force virtual work. Shape integrals, dyadic interval bounds, chart Jacobians and source-work comparisons are project derivations. This does not transfer a nonlinear contact or fracture algorithm.",
+    "virtual_body_load_work": "https://solidmechanics.org/Text/Chapter8_1/Chapter8_1.php"
+  },
+  "pure_helpers": {
+    "intervals": {
+      "path": "scripts/eoere_bore_boundary_tractions.py",
+      "sha256": "645878415321268d211fda2e678ac16a06643193b1c3d9b4ba32b2ea661a2381"
+    },
+    "pi": {
+      "path": "scripts/eoere_curved_bend_field.py",
+      "sha256": "26c72f5f88f947d66035ebf5fbac7193ac9a532222c0e2f7439cd21dba371efc"
+    },
+    "root": {
+      "path": "scripts/eoere_cleat_traction_witness.py",
+      "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+    }
+  },
+  "schema": "eoere_distributed_gravity_inputs/v1",
+  "source_centroid_consistency_tolerance_mm": "1/10000000",
+  "source_volume_consistency_tolerance_mm3": "1/100000",
+  "structural_acceptance": false
+}

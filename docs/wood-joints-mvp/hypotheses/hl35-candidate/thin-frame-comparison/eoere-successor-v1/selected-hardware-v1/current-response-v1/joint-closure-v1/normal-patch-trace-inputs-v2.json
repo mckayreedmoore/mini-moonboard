@@ -1,0 +1,118 @@
+{
+  "actual_observations": null,
+  "bernstein_helper": {
+    "path": "scripts/eoere_cleat_section_reference.py",
+    "sha256": "85a2eb16fdb340479bcf2d9b9524796eacfeebbaaa8bf5254ad7ec0839f0482d"
+  },
+  "current_bolt_count": 100,
+  "current_response": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/result.json",
+    "sha256": "a893860fcd9e3a2d8f54bfe8cac3f4ed92a012ca69c3881784e56df4c420a32e"
+  },
+  "current_screw_count": 66,
+  "definition_loader": {
+    "path": "scripts/eoere_cleat_traction_witness.py",
+    "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+  },
+  "execution_adapter_schema": "eoere_current_normal_patch_trace_adapter/v2",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_normal_patch_trace.py",
+      "sha256": "e7e0deb227258a53e35e0260db2445880af642313b50b72c9c98233c3f19a813"
+    },
+    {
+      "path": "scripts/eoere_normal_patch_trace_consumer.py",
+      "sha256": "456d4e670843df5a9a461c2352ee19b6effa703e5c04a3578369a90153a53163"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_trace_consumer.py",
+      "sha256": "54ab8893e64569cd61a808973a58102bb1c4614541d51cceca8fdf10713fe961"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "implementation": {
+    "path": "scripts/eoere_normal_patch_trace.py",
+    "sha256": "e7e0deb227258a53e35e0260db2445880af642313b50b72c9c98233c3f19a813"
+  },
+  "limits": [
+    "The six saved binary64 q vectors are unchanged first-order poses, not equilibria of the hypothetical distributed normal law. No new force case, frame solve, native solve, CAD rebuild or design change is performed.",
+    "Use a real-arithmetic piecewise quadratic continuation of recorded linear nodal translations/rotations plus eccentric rigid arms, with actual own fitting ports, source contact directors and 1000 rotation storage scale. Preserve all beam-station cuts and endpoint clamping.",
+    "The existing nominal polygon-minus-two-full-holes domain and density are inherited. Local xy area is the declared nominal model measure; projection/rounding diagnostics do not certify CAD, actual geometry, material properties or physical contact.",
+    "Compare all 2,112 original centroid gaps with the negative of their own stored compression-positive sparse Bq and with their own forces. The 1e-9-mm map and 1e-7-N force gates are numerical intake controls. The 1e-8-mm opening/closure reporting gates are not resistance or physical acceptance criteria.",
+    "Exact Bernstein bounds enclose each polynomial on the bounding rectangle of each station-clipped polygon. Ignoring holes in outer area only enlarges force, moment and energy uppers. Inner witness boxes must lie strictly in one actual nominal material piece and outside both holes.",
+    "A floating grid only selects a candidate inner box; exact containment, circle-clearance and Bernstein inequalities decide every positive-area lower. Missing inner witnesses are inconclusive, never absence-of-contact or resistance passes.",
+    "The normal force/moment/energy intervals are at saved poses of a changed local law, not original saved forces, physical demand bounds, or new whole-frame equilibrium. The source wood/fitting operators remain gross analogies and the foundation prior remains unmeasured.",
+    "Preserve the full active engineering goal, all three broader qualification limits, the rejected tie, 100 bolts and 66 Hillman axes. Keep panel/screw exceedances deferred, actual fit excluded and observations blank."
+  ],
+  "normal_patch_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-bound-attempt01.json",
+    "sha256": "c9b453dcfe677b451f0512f45a7dd6a1d331f5616beb18ae9f989bbb5c0ddda9"
+  },
+  "opening_gate_mm": "1/100000000",
+  "polynomial_helper": {
+    "path": "scripts/eoere_cleat_virtual_work.py",
+    "sha256": "9289851212c5351f8854eaef6b3e5d7522b0fd7ca7e0e8978ed3bf26a8ea08f0"
+  },
+  "preserved_v1_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/normal-patch-trace-inputs-v1.json",
+    "sha256": "57de94f774b4efc4f33b9fa186bbf52040b6bf0cddf2bbca3672d2367b7bd326"
+  },
+  "primary_methods": [
+    {
+      "locator": "Sections 2 and 4",
+      "scope": "Unilateral Winkler foundation and contact potential, not current material calibration.",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1155/MPE/2008/786520"
+    },
+    {
+      "locator": "Bernstein range-enclosure/convex-hull property",
+      "scope": "Polynomial coefficient bounds on boxes; exact existing helper reused.",
+      "url": "https://icps.u-strasbg.fr/pco/bernstein.htm"
+    }
+  ],
+  "pure_helpers": {
+    "pi": {
+      "path": "scripts/eoere_curved_bend_field.py",
+      "sha256": "26c72f5f88f947d66035ebf5fbac7193ac9a532222c0e2f7439cd21dba371efc"
+    },
+    "polygon": {
+      "path": "scripts/eoere_cleat_section_dual.py",
+      "sha256": "e790f848da97927b7e6140003136bf2163d4a0907c7222cee866ecf3b2cdedf4"
+    },
+    "rational": {
+      "path": "scripts/eoere_section_patches.py",
+      "sha256": "f46ba85f820489ec08f29043f1faa7111a9e0a62b9d1e30480d2cca6cf8c36e2"
+    }
+  },
+  "runtime": {
+    "numpy": "2.5.2",
+    "python": "3.12.3"
+  },
+  "schema": "eoere_current_normal_patch_trace_inputs/v1",
+  "source_coordinate_convention": "Source Bq is positive compression; the geometric gap is positive opening, so g = -Bq.",
+  "source_kinematics": {
+    "fitting_port_map": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/four-port-method-v1/four_port.py",
+      "sha256": "8482d5f3f1d01eee9141db2bbeef5237f87cb7d78f00619749604c0a23f57567"
+    },
+    "independent_point_reader": {
+      "path": "scripts/thin_bolted_linear_timber_admission.py",
+      "sha256": "e6dcb38947bea00ca583cd9a9e8d37a0cf0720d1f3ca97f7013ba9f2def0c676"
+    },
+    "timber_and_point_map": {
+      "path": "scripts/thin_bolted_frame_mechanics.py",
+      "sha256": "05cdf6897645fe7ee1b72b5b5125c04c68d758108f4860f995cef6aa1b676448"
+    }
+  },
+  "stopped_v1_execution": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-trace-stopped-v1.json",
+    "sha256": "425d32d6e98d1984e0ad8e4cb3cc3e98ebf4d51d4c4234c4ef13bca4b8912f0b"
+  },
+  "structural_acceptance": false,
+  "tests": {
+    "path": "tests/test_eoere_normal_patch_trace.py",
+    "sha256": "8b56dd96f85f426d765765e6937d8b45b42ee9449b0eb5f9260646a5afdae59e"
+  },
+  "witness_grid_subdivisions": 8
+}

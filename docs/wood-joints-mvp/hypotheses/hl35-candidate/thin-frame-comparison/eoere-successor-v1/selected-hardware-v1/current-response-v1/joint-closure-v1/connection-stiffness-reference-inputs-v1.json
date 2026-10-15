@@ -1,0 +1,40 @@
+{
+  "schema": "eoere_current_connection_stiffness_reference_inputs/v1",
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "extra_grid": false,
+  "actual_observations": null,
+  "physical_demand_bounds_established": false,
+  "structural_acceptance": false,
+  "mean_density_sensitivities_kg_m3": [460.0, 480.0, 500.0, 520.0],
+  "steel_modulus_mpa": 205000.0,
+  "adverse_full_root_diameter_mm": 7.31774,
+  "runtime_versions": {"numpy": "2.5.2"},
+  "references": [
+    {"path": "docs/bolted-candidate-prototypes/simple-center-published-stiffness-basis.md", "sha256": "823238aa24ff1c4c60be58009315b0c975bbd17ec9de436114d758a4771b10d2"},
+    {"path": "fea/wood_joint_patch_materials.py", "sha256": "ecbbd11a8a0e99ece69aeb5cb4159e7cf17e0aa18c509c78b5c8f5a2e573ae78"},
+    {"path": "docs/wood-joints-mvp/orthotropic-material-scenario.md", "sha256": "f6b723ddfc911284958df7a5348162f6d659396bbc03b83a74fcfbb125b3477f"},
+    {"path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/sources/nds2024-errata-20260323.pdf", "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"},
+    {"path": "uv.lock", "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"}
+  ],
+  "primary_source_urls": [
+    "https://research.fs.usda.gov/download/treesearch/50078.pdf",
+    "https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf",
+    "https://link.springer.com/article/10.1186/s10086-022-02038-1",
+    "https://link.springer.com/article/10.1186/s10086-021-01973-9"
+  ],
+  "assumptions": [
+    "The existing 460/480/500/520-kg/m3 density trials are sensitivities around the current 500-kg/m3 mass prior, not observed mean densities or physical extrema. NDS assigned G=0.50 is a separate quantity.",
+    "EC5 Kser=rho_mean^1.5*d/23 is a wood dowel service-slip reference per fastener and shear plane. The source describes approximately 40% of maximum load and separate clearance travel. It is not assigned to each current wood/steel/mixed joint.",
+    "NDS gamma=180000*D^1.5 lb/in is used only as the wood-to-wood group-action reference for the sixteen current ordinary wood/wood axes. It is not a universal 3D spring law.",
+    "E_steel=205000 MPa follows the published axial-series study. EA/L uses the own modeled head-to-nut pressure-face distance and full nominal-body/full purchase-root circles as sensitivities. It excludes head and thread equivalent lengths, washers, seats, wood, preload and gaps; no delivered free length or complete joint stiffness is claimed.",
+    "The 7.31774-mm full-root sensitivity reuses the current purchase-reference floor. It is not adopted full-thread hardware or a new strength check. Selected partially threaded hardware and the existing non-adopted full-thread strength exceedance remain unchanged.",
+    "Combining the steel scalar with two existing 1000-N/mm captures is a one-dimensional illustrative series model, not the current full frame operator or a physical demand bound.",
+    "Summed own wood-bearing quadrature springs quantify a uniform-translation foundation integral. That integral is not complete relative joint slip because shaft bending and other member compliances remain.",
+    "The Kelvin-compliance Rayleigh enclosure bounds normal modulus only within the existing unmeasured orthotropic scenario, for every direction and material rotation. E_normal divided by the 1-N/mm3 bedding prior gives an implied homogeneous compression depth, not a calibrated contact depth or lower physical stiffness.",
+    "Axial seats, pressure/prying, timber contact, local brittle behavior, finished-member stiffness, panel/attachment restraint and finite response remain outside the scalar reference proof. No stiffness is changed or qualified and no current frame cases are repeated.",
+    "Retain all current source fields and false acceptance flags. No geometry change, native or frame solve, CAD rebuild, actual observation, floor-friction test, panel/screw remedy, archive or prune is authorized by this record."
+  ]
+}

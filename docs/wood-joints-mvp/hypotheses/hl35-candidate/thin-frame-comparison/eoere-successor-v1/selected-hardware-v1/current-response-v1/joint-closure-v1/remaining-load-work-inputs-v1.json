@@ -1,0 +1,59 @@
+{
+  "actual_observations": null,
+  "cube_half_widths_mm": [
+    "1/2",
+    "1",
+    "2"
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "definition_loader": {
+    "path": "scripts/eoere_cleat_traction_witness.py",
+    "sha256": "941cdd505e60e0e4275aa3b71fb5434d80d26a2f1c8d8f0ec96a6d87f5ae8dce"
+  },
+  "engineering_question": "Supply bounded volume gravity work for the remaining 66 timber metal shares, and authenticate the complete retained linear panel load functionals from saved arrays, without confusing them with objective finite panel/bulk coupling. Account for all 835 own source actions once per case.",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_remaining_load_work.py",
+      "sha256": "eb078177a9e10a6ae3728058953436065704fc7ad8b2cd137b2e7cef26b12082"
+    },
+    {
+      "path": "tests/test_eoere_remaining_load_work.py",
+      "sha256": "56989ef0192a75b3b7c27c64e3650dc5ce29c598fd7f44770cb19bf190c5d4ba"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_query_tolerance_mm": "1/10000000",
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "gravity_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-distributed-gravity-attempt01.json",
+    "sha256": "68ca4a665ddcb4585b120b9dadd109d4f0f81a89e82602914a629e341834bb62"
+  },
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "load_hypotheses_and_limits": [
+    "Each of the 66 existing timber metal-share source forces is spread uniformly on a world-axis cube centered exactly at its unchanged source point. Half-widths 0.5, 1 and 2 mm are explicitly unmeasured numerical spread sensitivities, not dimensions of a Hillman screw, a drilled void, inspected wood or a material-density/connection-stiffness claim. They do not add weight or change screw axes.",
+    "The cube volume is 8*r^3 and its centroid is the original point. Thus all 12 affine virtual-work coefficients and the source resultant are exactly unchanged. The L2 load-functional norm squared is |F|^2/(8*r^3). Arbitrary old beam/modal work changes; the quadratic mean control differs by r^2/3. No prior comparator bound transfers.",
+    "Read only the authenticated finished timber BREPs. Reuse the frozen strict one-child compound-to-solid container helper and original topology/hash proofs without dropping geometry. Classify the unchanged centroid and query every boundary shell, including cavities, using the pinned reference-distance method. Require 3*r^2<(d-1e-7 mm)^2. These are nominal numerical containment checks with an explicit margin, not certified exact CAD distances, physical observations or a hardware-fit qualification.",
+    "For each of the six panels and each original case, retain the saved float64 generalized load subvector as exact binary-rational coefficients. Define L_panel(q_panel)=f_saved dot q_panel and potential=-L_panel. All original linear coefficient-space work, including the already-present generalized wrench correction, is preserved by definition; no correction is recomputed and no matrix inverse is run.",
+    "Compare the retained vector against its six saved rigid-generator columns and the exact source force/moment about the recorded reference. Force and moment numerical gates are separately 1e-7 N and 1e-5 Nmm. Retain signed discrepancies. This check does not prove arbitrary physical panel work or physical rigid-objectivity at finite motion.",
+    "The 217 source panel actions per case, six panel basis/port definitions and all existing correction potentials retain their original scope. The frozen finite panel adapter remains prior evidence, not newly adopted current bulk coupling. A complete objective panel/bulk/contact load treatment and the physical meaning of generalized corrections remain open.",
+    "Together with the previous 552 material-gravity laws, require an exact disjoint inventory of all 835 source actions per case. These numerical load spaces are preparation for complete thread/head/nut connections, paired contact search, brittle treatment and assembled evaluation. All three full qualifications remain open.",
+    "Retain current geometry, 100 bolts, 66 Hillman axes, deferred panel/screw exceedances, excluded actual fit, no-slip/support assumptions and blank actual observations. No candidate CAD rebuild, new response/global/frame/native/contact-equilibrium solve, optimization, matrix inverse/factorization, redesign, staging, commit, push or archive/prune occurs."
+  ],
+  "panel_force_work_tolerance_n": "1/10000000",
+  "panel_moment_work_tolerance_nmm": "1/100000",
+  "primary_method": {
+    "body_load_virtual_work": "https://solidmechanics.org/Text/Chapter8_1/Chapter8_1.php",
+    "scope": "Body-force work and consistent finite generalized loads follow the weak-work formulation. Cube moments, L2 bounds, source partition and saved-generator work identities here are project derivations. Neither the source nor this packet supplies a complete nonlinear contact, panel coupling or fracture algorithm."
+  },
+  "reference_geometry_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/reference-solid-distance-v1/distance.py",
+    "sha256": "b0b94063be8fc595bb01ffcb08f876061e3aa9efca6cb4466e5c74fb183fdc8d"
+  },
+  "schema": "eoere_remaining_load_work_inputs/v1",
+  "strict_container_helper": {
+    "path": "fea/generated/thin-bolted-current-contact-v1/candidate-reference-solids-v2/bridge.py",
+    "sha256": "a215a91e1ef3f1f48c36e41065bea5078be5f3d3e1bfcb9fc5e6bd263bf91098"
+  },
+  "structural_acceptance": false
+}

@@ -1,0 +1,82 @@
+{
+  "actual_observations": null,
+  "consumer_schema": "eoere_equilibrium_functional_shaft_profile/v1",
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "engineering_question": "Can a fixed composite registered-kernel trial on each leg and its four connected shafts sharpen the remaining normal-bearing bounds without changing the continuous model, its original loads or certified gap?",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_normal_patch_reactions.py",
+      "sha256": "2453ea37c5b6f36db193518ebf0e42cc09dc33d9ffc9f2e1d2f69854ed9fc3cd"
+    },
+    {
+      "path": "scripts/eoere_normal_patch_functionals.py",
+      "sha256": "221bd5ff7313815cac7cc61825403187e32e95ab8c6fc9ba14f8a6b17c189d07"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_functionals.py",
+      "sha256": "58469087d621eb56cad26a778a62fcd43d581ba87e3c2cea38592da79897c814"
+    },
+    {
+      "path": "scripts/eoere_normal_patch_functional_consumer.py",
+      "sha256": "d311934f977138a5d2b8784bcede9ec6e0dd3b1b851fa4f95c8ea865015aed2b"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_functional_consumer.py",
+      "sha256": "498cbdc967f21006c60a409cd24d8461556666dab5daf63f3210aee03d41880d"
+    },
+    {
+      "path": "scripts/eoere_normal_patch_shaft_profiles.py",
+      "sha256": "0991cd3e45653db25f10ec0bd5e603304383d6c1c634c9fa5657ccd32eb07fc2"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_shaft_profiles.py",
+      "sha256": "08d69dc3a9b330de6e5cdbf2f4f7fd3939996e77c236ca0aa49583f5f14c76fd"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "limits": [
+    "Same fixed-reference invariant core, original six loads, all unchanged laws and positive unmeasured coefficients as the frozen continuous-normal result.",
+    "The exact registered own-leg vertical direction is in the certified core kernel. The complete continuous pressure bed derivative vanishes because neither owner is this leg; no centroid-to-area approximation is used.",
+    "Use the exact equilibrium identity D*r=p with multiplier -1, retaining the own applied-load offset. No optimized projection, inverse, factorization or response is computed.",
+    "For every attained equilibrium the signed scalar enclosure follows from the same full primal/dual gap and unchanged bearing metric. A nonpositive signed lower is inconclusive; normals remain nonnegative by law.",
+    "A positive model leg normal does not establish physical friction, contact or stiffness applicability, finite-motion demand, bracing or complete resistance.",
+    "Preserve current geometry/hardware, rejected proposal history, deferred panel/screw exceedances, excluded actual build fit and blank observations.",
+    "Retain every exact nonzero transformed coefficient, including the two -2^-55 floor remainders per leg, with its own unchanged-law stiffness. The signed offset is the exact registered load component, not asserted literal leg selfweight.",
+    "The fractions 3/4 and 1/8 select an auxiliary proof candidate only. They are not physical force-sharing ratios, stiffness values, material hypotheses or a claim of optimality.",
+    "Build each shaft direction from authenticated registered global translations and retained Y rotation, using the manifest rigid reference and its exact rotation/1000 scale. Do not impose the ideal geometric profile on actual nodal coordinates.",
+    "Every chosen leg and shaft must be excluded from every complete continuous-bed owner pair. Retain every nonzero source bearing, capture and floor coefficient and its own unchanged-law metric; compute the exact offset from all virtual-owner registered load components.",
+    "This is pure algebra on saved operators and existing exact load/gap certificates: no response, LP, inverse, factorization, contact equilibrium, CAD/native solve or model/geometry change. Physical stiffness/contact/restraint and complete resistance remain separate."
+  ],
+  "preserved_equilibrium_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-functionals-attempt02.json",
+    "sha256": "cbe67ecd80b7a2d77f8361c079b372b9646f464e943bfe81dc208638d7bb123e"
+  },
+  "preserved_stopped_preflight": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-functionals-stopped01.json",
+    "sha256": "f8d82897aab96b3dc022d2f31cfea9b9a7e7e65bd6db9f63620cf5ccf7bf6ab5"
+  },
+  "preserved_v1_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/normal-patch-functional-inputs-v1.json",
+    "sha256": "b6aa3459d7056704adc622e41a8e9309818c1174606f338ed9bd048355aa5075"
+  },
+  "preserved_v2_inputs": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/normal-patch-functional-inputs-v2.json",
+    "sha256": "f524ac83863bf90b7c6b408dfada7aff43771fcea8e8442af908f3e6fb6be0e8"
+  },
+  "primary_methods": {
+    "Bernstein_box_convex_hull": "https://icps.u-strasbg.fr/pco/bernstein.htm",
+    "conjugates_and_dual_bounds": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+    "extension": "Support symmetry, grouped polynomial moments and affine compression majorants are derived explicitly; published generic methods do not themselves establish this frame law or physical applicability."
+  },
+  "reaction_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-supports-attempt01.json",
+    "sha256": "9a54365d1188a71c12fb904396619df9f3d513a20a799561870b61f116d41422"
+  },
+  "schema": "eoere_continuous_normal_equilibrium_functional_inputs/v1",
+  "shaft_profile_fraction": "3/4",
+  "shaft_profile_intercept": "1/8",
+  "structural_acceptance": false
+}

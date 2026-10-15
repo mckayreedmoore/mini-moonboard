@@ -1,0 +1,60 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "The unchanged saved signed vector bearing and continuous bolt-bending fields are evaluated against every original bearing and plastic-moment reference uniformly divided by the declared factor. No force, couple or field is rescaled.",
+    "NDS2024 Table12.3.1B gives mode reduction terms 3.2Ktheta,3.6Ktheta,4Ktheta with Ktheta=1+theta/360, 0<=theta<=90 degrees, for 0.25<=D<=1 inch. Its maximum 5 motivates the conservative working uniform-reference hypothesis. The table alone does not establish an ASD conversion for asymmetric three-member stacks with independent signed member couples.",
+    "These are explicit numerical material-reference hypotheses, not current assigned NDS mixed-stack capacities or a proof of a universal reduction bound. Group and geometry factors, brittle splitting, axial/torsional/washer/fitting interactions and physical compatibility remain outside this reference test.",
+    "The finite 32-cell statics witness may exceed an assumed reference without proving that every continuous statics field fails. The stored LP polygon and certificate are checked; they do not establish full-joint collapse.",
+    "The current design and six admitted first-order demands stay unchanged; no frame/native/CAD/LP solve, actual-fit work or panel/screw remedy occurs. Actual observations remain blank; no-slip support remains an assumption."
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "physical_or_structural_release": false,
+  "primary_sources": [
+    {
+      "locator": "January2025 erratum, Table12.3.1B: mode terms and Ktheta; later March2026 errata remain current.",
+      "url": "https://web-media.awc.org/wp-content/uploads/2025/03/31134949/2024-NDS-Errata-and-Addenda-03.28.25.pdf"
+    },
+    {
+      "locator": "Current2024 specification corrections; cached source is reused.",
+      "url": "https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf"
+    }
+  ],
+  "references": {
+    "NDS_chapter12": {
+      "path": "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf",
+      "sha256": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a"
+    },
+    "NDS_current_errata": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/eoere-successor-v1/bounded-strength-v1/resistance-followup-v1/sources/nds2024-errata-20260323.pdf",
+      "sha256": "b3f4f8b3b2e2ffa5eb618de9e1182614c329d9e4a135096667364dc9a8e473c0"
+    },
+    "NDS_reduction_helper": {
+      "path": "mini_moonboard/nds_2024_multi_member_bolt_yield.py",
+      "sha256": "575d7de88d5f138412fef633ef946bccba884c1953b67e8d9211fc028d74ab89"
+    },
+    "lockfile": {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    },
+    "vector_fields": {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-joint-vector-tests-attempt05.json",
+      "sha256": "20042c23555a8e846f4bf3f76a41101b4db37c21a003e53e6bc2493d97edc147"
+    }
+  },
+  "runtime_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_mixed_uniform_material_reduction_inputs/v1",
+  "structural_acceptance": false,
+  "uniform_reference_divisors": [
+    3.2,
+    4.0,
+    5.0
+  ],
+  "working_uniform_reference_divisor": 5.0
+}

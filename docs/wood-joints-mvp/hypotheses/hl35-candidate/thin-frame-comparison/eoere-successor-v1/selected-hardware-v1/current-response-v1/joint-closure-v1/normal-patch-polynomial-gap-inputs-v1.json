@@ -1,0 +1,44 @@
+{
+  "actual_observations": null,
+  "body": "base_header",
+  "case_id": "a12-forward",
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "engineering_question": "Can a fixed positive matrix-polynomial energy majorant tighten the inherited header residual enough to cross the saved necessary gap threshold, without changing the continuous model or evaluating a new response?",
+  "execution_sources": [
+    {
+      "path": "scripts/eoere_normal_patch_polynomial_gap.py",
+      "sha256": "ff6b98824a2c3c70fa0ca5f08f8dd9abbb59e621fbe9dff70d9ba72a7dc94437"
+    },
+    {
+      "path": "tests/test_eoere_normal_patch_polynomial_gap.py",
+      "sha256": "21bcd5e4b5a34b0aa4dec4acb1a924717140a44bb02aad4c5525e8074b8260f3"
+    }
+  ],
+  "extra_grid": false,
+  "fixed_power_count": 64,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "limits": [
+    "Authenticate the saved header free/free block against its existing exact positive certificate. Reuse its eigenvalue lower bound, datum, exact sparse action, original candidate and both correction boxes. U is the exact matrix infinity norm.",
+    "Predeclare exactly 64 matrix applications. Evaluate only the scalar polynomial energy upper with exact Fractions and a positive terminal remainder. No adaptive stopping, inverse matrix, factorization, optimized trial or displacement/reaction response is computed.",
+    "Carry the uncertainty box with the I/mu bound and retain the inherited residual Minkowski bound. Replace only this body contribution in the saved full Fenchel-gap upper; other body contributions, distributed-contact primal/dual bounds and laws remain unchanged.",
+    "Compare the new gap with the previous necessary threshold and recompute the unchanged unprojected lateral interval. A fixed-family ceiling at or above one is not an achieved exceedance, passing field or complete resistance. No projection is selected.",
+    "Physical stiffness/contact/restraint applicability, complete combined joint/member and cleat/fracture resistance remain open. Preserve current 100 bolts and 66 Hillman axes, rejected proposal history, panel/screw deferral, excluded actual fit and blank observations."
+  ],
+  "primary_methods": {
+    "duality": "https://web.stanford.edu/~boyd/cvxbook/bv_cvxbook.pdf",
+    "extension": "The fixed spectral majorant and positive remainder are derived explicitly here; published polynomial methods do not establish physical joint stiffness or resistance.",
+    "polynomial_context": "https://www.netlib.org/linalg/html_templates/node76.html"
+  },
+  "projection_limit_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-mixed-global-projection-limit-attempt02.json",
+    "sha256": "d88b27d51a73245ac7a21d071b75bd89fcde22d76ed51146c9a45db0c1d61935"
+  },
+  "reaction_result": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-normal-patch-supports-attempt01.json",
+    "sha256": "9a54365d1188a71c12fb904396619df9f3d513a20a799561870b61f116d41422"
+  },
+  "schema": "eoere_normal_patch_polynomial_gap_inputs/v1",
+  "structural_acceptance": false
+}

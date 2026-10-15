@@ -1,0 +1,182 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "Homogeneous grain-aligned C16 envelope is a numerical hypothesis, not measured stock or an automatic DF-L No.2 grade mapping.",
+    "The six-component positive-linear pointwise gauge extends the previous section hypothesis. It is not a complete published wood fracture criterion or NDS/ASD conversion.",
+    "Saved regularized F defines nodal virtual work on this compatible C3D20 space. Wrench equivalence alone does not establish this load-functional assumption or actual pressure.",
+    "Virtual displacement is exactly zero on every selected-submesh boundary and every excluded-cell node; zero extension into the remaining nominal wood is compatible.",
+    "Only exact separable monotone stored maps with nonoverlapping boxes fully contained in the nominal trapezoid outside all four bores participate; unsupported maps are excluded without snapping.",
+    "Saved U only supplies arbitrary trial values. Elastic convergence, sampled stress peaks and constitutive stiffness are not used to certify the work inequality.",
+    "One trial selected by floating screening is evaluated exactly. A necessary index above one rules out this declared nodal-work strength model; any value at or below one is inconclusive.",
+    "A stronger unscreened trial may exist. This does not establish feasible full-volume stress, fracture resistance, actual stiffness/contact/restraint, or physical demand bounds.",
+    "No geometry, source load, material divisor or reference threshold is changed in response to results; no redesign, release or panel/screw remedy."
+  ],
+  "base_strengths_mpa": {
+    "compression_parallel": "17",
+    "compression_perpendicular": "11/5",
+    "parallel_shear": "268/125",
+    "rolling_shear": "4/5",
+    "tension_parallel": "17/2",
+    "tension_perpendicular": "2/5"
+  },
+  "complete_cleat_resistance": null,
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "execution_sources": [
+    {
+      "path": "fea/current_response_model.py",
+      "sha256": "faae5b14c47c3c485f41d56eb77ec9e9a6c1801e5a143276a91afc3a294a9894"
+    },
+    {
+      "path": "fea/floor_recess_mesh.py",
+      "sha256": "518e3ee913537fb0e42a6dd843166974a011299921e116759bf2d330f221d184"
+    },
+    {
+      "path": "fea/floor_taper_mesh.py",
+      "sha256": "a1728dd0bb37bf1f7c5087318bb270ca6d60b3093b32929f238c5614a44e4946"
+    },
+    {
+      "path": "fea/frd_displacements.py",
+      "sha256": "8e580ffdb49ee24f669984b8e944e614a6c7c4b825d76ee7e2fa4d859baec01c"
+    },
+    {
+      "path": "fea/horizontal_frame_stress.py",
+      "sha256": "2d378b069d0f8d4946ec8debfde6da876f264302eaaa5dbc4470fee2616f5c6b"
+    },
+    {
+      "path": "fea/horizontal_panel_frame.py",
+      "sha256": "9ac5ceb2bd76ffddb6c048f92e54082a4672d72aab635ba2230e4352253378d9"
+    },
+    {
+      "path": "fea/reinforced_frame_demand.py",
+      "sha256": "7c9d9b19155ddb257bdb3479eafa98cdb2fe81788b5f0e62b35d12fae0667655"
+    },
+    {
+      "path": "fea/round_insert_frame.py",
+      "sha256": "a4d831e559c1d73c175421e6073f34f3b6c5e520ff7d9f9751f046c527456f14"
+    },
+    {
+      "path": "fea/round_structural_frame.py",
+      "sha256": "d8b0cfda736b19b006ee1d460c2422c1166d59101106b7b42e27e5d9ede253d9"
+    },
+    {
+      "path": "fea/shell_surface_recovery.py",
+      "sha256": "852266005f160a5a519621687b0eb1b06fb07cc50b090ee3d4d3a75d046ec10c"
+    },
+    {
+      "path": "fea/vertical_panel_comparison.py",
+      "sha256": "e3079c6d82219ccc255905a38f4b61bb0354bfd52454f490b1590dc8fa0e79ea"
+    },
+    {
+      "path": "fea/wood_joint_reduced_members.py",
+      "sha256": "825bd3a8463eef3fbd7df9bd4892b20b660d980f5c94088537ce7a0a5d058335"
+    },
+    {
+      "path": "mini_moonboard/__init__.py",
+      "sha256": "ddca6b543ee77144e10ec73f6dcd3ca6ae5693cfa7ca5a881697ded0c6782f12"
+    },
+    {
+      "path": "mini_moonboard/connection_geometry.py",
+      "sha256": "f729bc64e7ea7fb9df9308411df07e02f98fc309efcf26038809a9e7bd4bc4a4"
+    },
+    {
+      "path": "mini_moonboard/model.py",
+      "sha256": "aa4f80cbb1400d21ba9fa8c74b0773bd95f7c9644e7eecc06f94cd9f712b65ef"
+    },
+    {
+      "path": "mini_moonboard/panel_grid.py",
+      "sha256": "7c13c6c99cb346710948eea0661655a2f91276aea7d86166647098dbce409873"
+    },
+    {
+      "path": "scripts/eoere_cleat_finite_body.py",
+      "sha256": "70f6936e3cec9b90c104f4dc40427ae2fd329b379a4d9eb8b2c6703331761a84"
+    },
+    {
+      "path": "scripts/eoere_cleat_reference_audit.py",
+      "sha256": "39ca71c599ddf0763bc1efc1ff1adc677983ddce4170beaf02ed0e44c41b33c7"
+    },
+    {
+      "path": "scripts/eoere_cleat_transverse_wrench.py",
+      "sha256": "011178a0f14aaf63e96e413e49a80ee7fa83f64c9967f0d274e88bf2838cd112"
+    },
+    {
+      "path": "scripts/eoere_cleat_virtual_work.py",
+      "sha256": "9289851212c5351f8854eaef6b3e5d7522b0fd7ca7e0e8978ed3bf26a8ea08f0"
+    },
+    {
+      "path": "scripts/eoere_cleat_virtual_work_audit.py",
+      "sha256": "f9fa77cbcc35200f7d787d9fc0080833585e4c41fd9b928665955c4dbd68396a"
+    },
+    {
+      "path": "scripts/eoere_current_components.py",
+      "sha256": "442918bc18848b3f60649d4802206c583ae5da4809cf373c7a829f14a5b9c333"
+    },
+    {
+      "path": "scripts/eoere_current_response.py",
+      "sha256": "3340243bd8127d3fa9fd8c2f5b1778db7abadc6da8a05c901e33b79b503a7944"
+    },
+    {
+      "path": "scripts/eoere_current_washer_lands.py",
+      "sha256": "d759bcab2d92bcb709f24726c324d83426483e2fd650dff80775ec0aa17b74d9"
+    },
+    {
+      "path": "scripts/eoere_joint_reference_reductions.py",
+      "sha256": "0975986787103eb7eba5fcbd4c60299fa920499f0f0adf7217026fa294a0467c"
+    },
+    {
+      "path": "scripts/eoere_joint_vector_tests.py",
+      "sha256": "13bd01ac5f1e3f4d73bf2941dd890068aaadd0e57c7d77e1fe8125603c2469e6"
+    },
+    {
+      "path": "scripts/eoere_mixed_continuous_bound.py",
+      "sha256": "dedf90c18256090410ed60dbadabe1b83135acb919220056f7040768c912888b"
+    },
+    {
+      "path": "scripts/eoere_mixed_stack_yield.py",
+      "sha256": "75185ffe49cf47da94ee2ae01cc97351557e5d9c4604ff9230ba08e570e397ef"
+    },
+    {
+      "path": "scripts/summarize_eoere_current_response.py",
+      "sha256": "1d613e1151d61132e6e591d814cef8d1edc0cc209377ff5a6cf28aa461f6e34b"
+    }
+  ],
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "load_factors": [
+    "1",
+    "1.5"
+  ],
+  "load_functional": "L(v)=saved_F_dot_v_on_the_compatible_virtual_space",
+  "material_source": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/source-cache/swedish-wood-design-vol2-2022.pdf",
+    "sha256": "98d0bf2e406ce743217578af31ffe4d464a40bccd317d38a8c918715e7452f75"
+  },
+  "material_source_table": "Table 3.3 printed page 10: C16 Ft0=8.5,Fc0=17,Ft90=.4,Fc90=2.2,Fv=3.2 MPa. Fv here includes declared .67 factor; rolling .8 MPa follows prior recorded hypothesis.",
+  "material_source_url": "https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf",
+  "physical_failure_established": false,
+  "runtime_versions": {
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_cleat_volume_work_inputs/v1",
+  "selected_certificate_rule": "largest_positive_work_over_float_Bernstein_upper_at_divisor_2",
+  "source_configuration_index": 0,
+  "source_job": {
+    "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/cleat-field-refinement-attempt01/job00/result.json",
+    "sha256": "74b86c388795bb42710eb77f431e03ac4fc0c6bf4edd2fc8aa9061af6af82816"
+  },
+  "stress_gauge": "max(sigma_g/Ft0,-sigma_g/Fc0)+max(sigma_u/Ft90,-sigma_u/Fc90)+max(sigma_v/Ft90,-sigma_v/Fc90)+abs(tau_gu)/Fv+abs(tau_gv)/Fv+abs(tau_uv)/Fr<=1",
+  "structural_acceptance": false,
+  "trial_rule": "all_48_intact_saved_U_columns_zeroed_outside_sound_free_nodes",
+  "uniform_strength_divisors": [
+    "1.5",
+    "2",
+    "3"
+  ],
+  "volume_helper": {
+    "path": "scripts/eoere_cleat_virtual_work.py",
+    "sha256": "9289851212c5351f8854eaef6b3e5d7522b0fd7ca7e0e8978ed3bf26a8ea08f0"
+  },
+  "working_strength_divisor": "2"
+}

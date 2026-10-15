@@ -1,0 +1,64 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "Named question: extend the completed eight-occurrence front end/outer-edge screen to all 120 current wood-bore occurrences, including compound sloping ends, changed union extents and the header bore on the other stock transverse axis.",
+    "Reuse all six authenticated current fields and cached finished solids. Source vertices describe the current outer profile; stale historical end offsets are preserved verbatim and are not substituted into the hull. Actual grain remains the recorded uninspected scenario.",
+    "For each cleat, use the separately recorded finished YZ polygon and 38.1-mm X width, rather than the full-height rectangular analysis blank. This reader interpretation does not alter any source geometry, BREP, profile, force or cut.",
+    "SciPy ConvexHull equations provide the outward halfspaces of the recorded convex outer vertices. Verify finite right-handed stock bases, unit outward normals, vertices inside planes and bounded grain/cross-edge directions. The online reference currently labels itself 1.18.0; runtime 1.18.1 is pinned and known-answer controls must confirm behavior.",
+    "Current bores must be perpendicular to the declared grain and traverse either one stock U or V direction. Compute minimum grain-end distances over the complete own bearing interval against every grain-facing outer plane; compute both remaining cross-grain edges separately.",
+    "Compare conservative 7D end and 4D outer-edge markers using each own nominal diameter. A marker miss is not an adopted failure. Below-full square-end components reuse the frozen NDS helper; on sloping profiles that value is only a non-adopted trial and no factor is assigned.",
+    "Confirm source hull planes against planar faces of each own cached finished solid. Preserve extra internal/cut faces and all other boundary types. Cached vertex containment is a diagnostic, not a proof of the entire curved boundary, a continuous ligament or a local splitting/shear path. Missing hull faces or containment mismatch must remain visible; raw marker arithmetic does not repair such a domain limit.",
+    "The original front-eight finished-face and screen proof remains unchanged. Extending the geometric inventory does not transfer its full group/oblique applicability or turn an outer profile into complete Cdelta.",
+    "Rows, connected-group ownership, oblique shear area, intervening bores/channels, local row/block/fracture behavior, captures, simultaneous couples, whole members and physical demand/restraint remain separate qualifications. No catalog capacity, complete joint resistance or release is invented.",
+    "Keep 100 bolts, 66 Hillman axes, retained current design, rejected-tie history, panel/screw deferral and excluded actual fit. No native/frame/elastic solve, CAD rebuild, geometry revision, floor-friction test, staging/publication, archive or prune is performed."
+  ],
+  "current_bolt_count": 100,
+  "current_screw_count": 66,
+  "extra_grid": false,
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "methods": {
+    "container": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/candidate-reference-solids-v2/bridge.py",
+      "sha256": "a215a91e1ef3f1f48c36e41065bea5078be5f3d3e1bfcb9fc5e6bd263bf91098"
+    },
+    "distance": {
+      "path": "fea/generated/thin-bolted-current-contact-v1/reference-solid-distance-v1/distance.py",
+      "sha256": "b0b94063be8fc595bb01ffcb08f876061e3aa9efca6cb4466e5c74fb183fdc8d"
+    },
+    "end_component": {
+      "path": "scripts/thin_bolted_timber_resistance.py",
+      "sha256": "74d992cfbe4947587a8c6f0e65f7a8b47e0cd1c79f07721620c7137208919c2d"
+    }
+  },
+  "primary_source_urls": [
+    "https://awc.org/resources/2024-nds/",
+    "https://docs.scipy.org/doc/scipy/reference/generated/scipy.spatial.ConvexHull.html"
+  ],
+  "references": [
+    {
+      "path": "scripts/eoere_front_bolt_placement.py",
+      "sha256": "f360d2a36e4420a043c58d98205313db0b799a68ba322cc410aa9fa6959312a7"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-front-bolt-placement-v1.json",
+      "sha256": "5f7c91e5f7640889719c6a95c952877e494046005072e0b8d1542daf0784da1e"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "5ea7a77ddb3072bfe1c2ba131e34b293a0103f931eb9b911e9eb248ccb6d84d3"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf",
+      "sha256": "5fc837523ff10acc097a162718700a9b4ba64e627d2b0023439146d42fe4ee2a"
+    }
+  ],
+  "runtime_versions": {
+    "cadquery": "2.8.0",
+    "cadquery-ocp": "7.9.3.1.1",
+    "numpy": "2.5.2",
+    "scipy": "1.18.1"
+  },
+  "schema": "eoere_current_bolt_outer_geometry_inputs/v1",
+  "structural_acceptance": false
+}

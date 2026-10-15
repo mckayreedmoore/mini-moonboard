@@ -1,0 +1,86 @@
+{
+  "actual_observations": null,
+  "assumptions": [
+    "The plane elastic constants reuse the existing unmeasured Wood Handbook Douglas-fir material scenario, with both radial and tangential normal bindings. They do not identify growth-ring orientation or actual stock properties.",
+    "Strengths retain the frozen C16 intact-section engineering hypothesis and divisors; this is not an NDS allowable assignment or new EC5 load combination.",
+    "GcI=0.1 N/mm and equal mode-II energy reuse the earlier explicit all-mode energy hypothesis. GcI=0.05 is an adverse lower-energy sensitivity. No current material measurement is claimed.",
+    "The 3.5 mode-II/ mode-I energy ratio follows the published spruce-model convention as a separate sensitivity. It is not a Douglas-fir lower-bound or measured ratio.",
+    "The formula is screened only for nonnegative mode magnitudes and grain-parallel, bore-tangent paths in the current sloping finished cleats. A length that fits is not an elastic stress calculation or a resistance proof.",
+    "The section action multiplier does not enter this material/process-length domain test. All six source fields are authenticated to ensure unchanged geometry; these are geometry/material scenarios, not 768 new structural load cases."
+  ],
+  "base_strengths_mpa": {
+    "parallel_shear": 2.144,
+    "tension": 0.4
+  },
+  "elastic_orientations": [
+    {
+      "E_x_mpa": 11032.0,
+      "E_y_mpa": 750.176,
+      "G_xy_mpa": 706.048,
+      "id": "grain_L_normal_R",
+      "nu_xy": 0.292
+    },
+    {
+      "E_x_mpa": 11032.0,
+      "E_y_mpa": 551.6,
+      "G_xy_mpa": 860.496,
+      "id": "grain_L_normal_T",
+      "nu_xy": 0.449
+    }
+  ],
+  "extra_grid": false,
+  "fracture_energies_mode_I_n_per_mm": [
+    0.05,
+    0.1
+  ],
+  "geometry_revision": "eoere-raised-kicker-screws-v1",
+  "hardware_revision": "eoere-selected-purchase-hardware-v1",
+  "mode_II_to_I_energy_ratios": [
+    1.0,
+    3.5
+  ],
+  "primary_method": {
+    "equations": [
+      21,
+      22,
+      23,
+      24
+    ],
+    "published": "2026-06-20",
+    "role": "Mean-stress method and planar domain; no calibrated spruce resistance is transferred.",
+    "title": "Numerical simulation of the effective number of fasteners in dowelled timber connections",
+    "url": "https://link.springer.com/article/10.1617/s11527-026-03157-7"
+  },
+  "references": [
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/conditional-material-assumptions-v1.json",
+      "sha256": "62683a42e9d6c693cc90446ea8ef43d189b704481c9a93320dc59a6c85873eb8"
+    },
+    {
+      "path": "fea/generated/selected-hardware-followup-v1/engineering-closure-v1/source-cache/aquino-2026-mean-stress.html",
+      "sha256": "5476fea58e23652eb3c6a0db3a33daa6f090f85d415fe5b0ed1e3f8328dd87e7"
+    },
+    {
+      "path": "fea/wood_joint_patch_materials.py",
+      "sha256": "ecbbd11a8a0e99ece69aeb5cb4159e7cf17e0aa18c509c78b5c8f5a2e573ae78"
+    },
+    {
+      "path": "docs/wood-joints-mvp/orthotropic-material-scenario.md",
+      "sha256": "f6b723ddfc911284958df7a5348162f6d659396bbc03b83a74fcfbb125b3477f"
+    },
+    {
+      "path": "docs/wood-joints-mvp/hypotheses/mvp-resume-2026-10-01/upper-corner-screw-layout/all-joint-splitting/splitting-capacity-completion.py",
+      "sha256": "c0a96a62bb9a8e4e949f8cc5aa7b8bc08e14329821845fe10f4703a20df8c028"
+    }
+  ],
+  "schema": "eoere_cleat_fracture_domain_inputs/v1",
+  "section_material_input": {
+    "path": "docs/wood-joints-mvp/hypotheses/hl35-candidate/thin-frame-comparison/eoere-successor-v1/selected-hardware-v1/current-response-v1/joint-closure-v1/conditional-material-assumptions-v1.json",
+    "sha256": "62683a42e9d6c693cc90446ea8ef43d189b704481c9a93320dc59a6c85873eb8"
+  },
+  "strength_divisors": [
+    1.5,
+    2.0,
+    3.0
+  ]
+}
