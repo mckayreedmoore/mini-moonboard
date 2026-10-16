@@ -12299,6 +12299,75 @@ The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. No prior result or capacity is reclassified.
 
+<a id="current-cleat-rectangular-core-limit"></a>
+**Contained rectangular core: full-value placement shortcut excluded.**
+Before using a constant-depth beam/connection expression on a smaller part
+of the sloping cleat, check whether that proposed rectangular core can retain
+the upper rear bolt and the required edge/end envelope. This extends the
+preceding finite-end packet with nominal geometry arithmetic only; no core
+is adopted, cut or substituted for the actual member.
+
+For either cleat, the finished top rises from `(Y,Z)=(-175.7,334.398105944)`
+to `(-36,500.8860828293809) mm`. The rear upper axis is at
+`(y,z)=(-131.25,342.0875) mm`. If a grain-aligned rectangular core leaves
+transverse edge allowance `e` behind this axis, its rear edge must satisfy
+`Ylow <= y-e`. The positive top slope gives the exact necessary bound:
+
+```text
+Ztop <= 334.398105944 + (Ylow+175.7)*(500.8860828293809-334.398105944)/139.7
+grain-end distance <= Ztop-342.0875
+```
+
+| Required transverse allowance behind the axis | Allowance, mm | Largest possible rectangular-core grain-end distance, mm |
+| --- | ---: | ---: |
+| Axis only, with no edge allowance | 0 | 45.284054 |
+| Least NDS tabulated edge marker, 1.5D | 14.2875 | **28.256874** |
+| Loaded-edge marker, 4D | 38.1 | **−0.121758** |
+
+End-distance bounds round **upward**; use nominal `D=9.525 mm`, not the
+occupied bore. [NDS 2024 Chapter 12](hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024_withCommentary_20250328_WebsiteChapter-12-Dowel-type-fasteners.pdf),
+Tables 12.5.1A/C, printed pp.98–99, has no tabulated edge minimum below
+1.5D, and its smallest full-value end requirement is **4D=38.1 mm**.
+Even the relaxed 1.5D edge choice therefore misses that full-value end
+envelope by at least **9.843126 mm**. The 4D edge choice cannot retain the
+axis inside the rectangular core at all. These statements apply to both
+upper rear axes, `067/070`, and exclude the full-value rectangular surrogate.
+
+This is **not a new NDS failure of the actual sloping cleat**, a complete
+geometry factor, or proof against an applicable reduced-factor/oblique or
+finite/tapered-member treatment. The 3.5D parallel-tension minimum is also
+above the second row, but is not assigned to the actual oblique actions.
+The CWC table's separate 50-mm assumption remains confined to that table;
+it is not extended to every Canadian splitting method. Continue with a
+method that retains the actual finite profile, groups and width couples;
+narrowing the member does not supply the missing full-value mapping.
+
+The independent **80-digit Decimal** check uses the inverse top-line
+intersection for **12 end/edge comparisons** and six limiting-corner checks.
+Maximum signed-area/end-distance differences are **5e-76 mm² / 4e-78 mm**.
+Four input hashes, plus the producer and output, recheck unchanged. The
+existing fields, sources, failed criteria and these **25,609 bytes** remain
+active in the ignored closure folder; nothing is archived or pruned.
+Producer/checker replays are byte-identical. Scoped Ruff, **220 affected
+Node checks**, table/hash/byte/link checks and owned whitespace checks pass;
+the maintained summary stays at **150 lines**.
+No native/frame solve, CAD query/rebuild, redesign, physical operation,
+observation or structural release is added. The full goal remains unachieved.
+
+| File in the existing closure folder | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-rectangular-core-limit-v1.py` | 5,802 | `23ca15df7ba5b4acef779d133229752db492d0fd856d33e7c480b8df0b3c646f` |
+| `current-cleat-rectangular-core-limit-attempt01.json` | 11,033 | `4eb69102d5d617ca0191bb39c9458445e47981d0ad6221f70e94726bf7c33470` |
+| `current-cleat-rectangular-core-verification-v1.json` | 8,774 | `258aa608faa1434fc99bd8a4239c0b858a30111332a00c32b8d2ef64f46a8509` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-rectangular-core-limit-v1.py /tmp/eoere-cleat-rectangular-core-replay.json
+```
+
+The result embeds `reproduction_python_source`; verification embeds its
+complete checker. Use a fresh output path. These are nominal method-scope
+bounds, not actual-stock tolerances or a complete resistance comparison.
+
 <a id="current-cleat-omission-and-ring-mapping"></a>
 **Cleat omission and ring-rule mapping: no complete exemption established.**
 The cached [NZ Wood guide](https://cms.timberunlimited.co.nz/assets/Resources/reinforcement_of_timber_members.pdf?v=1689136441),
