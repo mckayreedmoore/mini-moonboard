@@ -6586,6 +6586,91 @@ all twelve comparisons, maximum **0.532662**. The twelve post-to-cleat-band
 comparisons also pass their separate shear component. These results do not
 supply complete joint, splitting, normal-force/moment, torsion or seat capacity.
 
+<a id="current-shear-failure-basis-audit"></a>
+**Load direction and lumber grade at the four failed shear comparisons.**
+The three front-post failures above and the [left rear-foot failure](#current-mitered-prismatic-connection-shear)
+remain valid under their recorded component basis. All **eight bolt/case
+occurrences** have X-directed shafts, perpendicular to the checked shear
+direction. The corresponding **16 axial-capture/case actions** are X-only;
+the four failed member/case states have no formed-fitting face patches.
+For the posts the shear direction is Y; the leg's direction is
+`(0,0.9709821838085387,0.23915183195284329)`. Thus spreading the prescribed
+washer normal pressure contributes zero to this shear resultant at unchanged
+other reactions. The [seat-bearing pass](#current-seat-normal-bearing-interaction)
+does not clear these failures. A change in physical joint sharing would
+require its own supported force treatment.
+
+The existing [2024 Supplement Table 4A](hypotheses/hardware-material-specification-2026-09-30/materials-source/AWC_NDS2024-Supplement_20240719_Chapter-4-Reference-Design-Values_Website-1.pdf),
+printed p.34, gives the same **Fv=180 psi** for the compared visually graded
+DF-L No.2, No.1, No.1 & Btr and Select Structural rows. A grade-only change
+therefore cannot clear these comparisons at the same geometry, saved actions
+and CD1 basis. Since the shear references are linear in Fv', `180*recorded_index`
+is sufficient to put each saved conservative comparison at one. Upward
+rounding to 0.1 psi gives:
+
+| Current case | Member | Sufficient reference Fv' for this comparison, psi |
+| --- | --- | ---: |
+| `a12-forward` | Left front post | **271.0** |
+| `a12-left` | Left front post | 190.0 |
+| `k12-right` | Right front post | 188.0 |
+| `a12-forward` | Left rear-leg foot | 202.2 |
+
+These are reference requirements for the frozen comparisons, not assigned
+wood capacities or minimum physical failure strengths. No grade, duration
+factor, geometry, force or acceptance criterion is changed. The active goal
+forbids redesign; a bounded local-stock revision study has been requested
+for the front posts and left rear foot, preserving the corners, surfaces,
+all axes and hardware. That study remains pending the owner's scope decision.
+The complete-joint, response and remaining member duties stay open.
+
+Reproduce the direction and scaling arithmetic with the existing frozen
+reports and their own field bindings, using Python **3.12.3**:
+
+```sh
+uv run python -B - <<'PY'
+import hashlib, json
+from decimal import Decimal as D, ROUND_CEILING
+from pathlib import Path
+b = Path('fea/generated/selected-hardware-followup-v1/engineering-closure-v1')
+sources = [
+    ('current-front-end-connection-shear-attempt01.json', 'a42d7b5e5127f0703108315bea5fd8a0ee577e0a7690fa5988f88484e69bf2b2', 'geometries', 'positive_loaded_edge_failed_with_upper_capacity_enclosure', 'conservative_component_index'),
+    ('current-mitered-prismatic-connection-shear-attempt02.json', '7de3111e718a831b229ec42621548a50886b5af1f9ddbc0f43556ef0a6a90418', 'geometry', 'failed_component_with_upper_capacity_enclosure', 'conservative_both_edge_component_index'),
+]
+def read(path, sha):
+    blob = path.read_bytes()
+    assert hashlib.sha256(blob).hexdigest() == sha
+    return json.loads(blob)
+ncase = ncapture = 0
+for name, sha, geometry_key, failed, index in sources:
+    packet = read(b/name, sha)
+    for row in packet['rows']:
+        if not row[failed]:
+            continue
+        g = packet[geometry_key][row['geometry_key']]
+        f = read(Path(row['field']['path']), row['field']['sha256'])
+        assert (f['case_id'], f['state_id']) == (row['case_id'], row['state_id'])
+        shafts = {s['axis_id']: s for s in f['source_inputs']['shafts']}
+        assert len(g['axis_ids']) == 2
+        assert all(tuple(shafts[k]['basis'][0]) in ((1.,0.,0.),(-1.,0.,0.)) for k in g['axis_ids'])
+        v = g.get('strong_transverse_axis_xyz', g.get('transverse_axis_xyz'))
+        assert v[0] == 0
+        captures = [c for c in f['shaft_end_capture_actions'] if c['second'] == g['member']]
+        assert all(c['force_on_second_xyz_n'][1:] == [0.,0.] for c in captures)
+        assert not any(p['second'] == g['member'] for p in f['source_inputs']['flange_shared_face_patches'])
+        needed = (180*D(str(row[index]))).quantize(D('0.1'), rounding=ROUND_CEILING)
+        print(row['case_id'], g['member'], needed)
+        ncase += 1
+        ncapture += len(captures)
+assert (ncase, ncapture) == (4,16)
+PY
+```
+
+The published command reproduces all four reference requirements; all
+**220 affected development/documentation checks** pass. This audit adds no
+producer, raw artifact, dependency, mechanics/CAD solve or physical observation.
+Frozen source bytes and the four failure dispositions are preserved; the
+full goal remains active and unachieved.
+
 The worksheet reuses `member_point_inputs`, `member_cut_wrench` and the
 frozen `reduced_depth_shear` helper. It includes every actual bearing,
 capture, screw, contact, floor and body-load action plus affine selfweight.
