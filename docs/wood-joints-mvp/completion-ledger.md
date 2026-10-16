@@ -3817,11 +3817,12 @@ Maximum P is **382.009075 N**; maximum absolute Gy/Gz are
 The preserved first fixed-P/couple choice has **four interface exceedances**,
 maximum **1.574292**. That rejects that allocation choice, not the retained
 corner. The later witness keeps the original failed force fields and their
-divisor-5 conclusions intact. Whole-shaft bending, both bores' finite bearing,
-axial/torsional interaction, washers/seats, other timber cuts and complete
-brittle resistance still require checks for the new allocation. Original
-section passes are not automatically transferred to these changed local
-shares. Compatible sharing and physical demand/restraint also remain open.
+divisor-5 conclusions intact. V2 checks only the interface moment; the
+whole-shaft and bore followup below rejects that particular allocation and
+constructs another. Original section passes are not automatically transferred
+to changed local shares. Axial/torsional interaction, washers/seats, other
+timber cuts, complete brittle resistance, compatible sharing and physical
+demand/restraint remain separate.
 
 Active source/result/check records stay in the existing ignored closure folder:
 
@@ -3845,6 +3846,96 @@ tampering was observed or numerical exceedance removed by that correction.
 ```sh
 PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-coupled-bridge-witness-v2.py /tmp/eoere-coupled-bridge-witness-v2-replay.json
 ```
+
+**Whole-shaft/bore followup on the same axes.** The unchanged working
+minimum-radial-Fe/divisor-5 hypothesis rejects V2 at bolt **070 / `a12-left`**.
+Its affine pressure index is **1.642475**, and the broader established vector
+method gives **1.084812**. More decisively, every signed continuous bearing
+distribution satisfies `norm(integral(x q dx)) <= Q L^2/4`. The prescribed
+cleat first moment requires at least **1.078518** times its working line
+reference. The exact-rational certificate proves that lower bound; no mesh
+refinement can rescue that allocation. This is a failed force allocation
+under the declared reference, not a physical corner or ASD failure.
+
+V3 reduces only the normal-patch search's lateral margin from eight to four
+millimetres, retaining actual geometry and both material references. Its
+normal patches pass, maximum **0.328017 MPa**. One existing 16-cell/32-facet
+vector calculation for each of the **24 changed shaft/case fields** satisfies
+22 comparisons; bolt **067 / `a12-forward`** gives **1.005596**, and
+**070 / `a12-left`** gives **1.006825**. These trial records stay frozen;
+their finite-grid exceedances alone do not exclude all continuous fields.
+
+V4 changes only those two corner/case allocations. An auxiliary search on
+067, with both wood couples temporarily unknown, supplies a candidate for
+the forward case. Its free-couple result is not accepted as joint evidence:
+the selected P/G values are rejoined to **both** bolts, and all original own
+wood forces and moments are then prescribed in the final four checks.
+The other revision changes Gy by **+400 Nmm**. Their retained values are:
+
+| Corner/case | P, N | Gy, Nmm | Gz, Nmm |
+| --- | ---: | ---: | ---: |
+| Left / `a12-forward` | 220.000000 | −5,269.637468 | −3,959.557975 |
+| Right / `a12-left` | 60.540622 | −13,050.056672 | −4,512.556832 |
+
+All **24 V4 shaft/case lateral statics comparisons now satisfy the working
+reference**, maximum **0.983499316**, bolt **070 / `a12-left`**. Twenty
+unchanged fields are reused by exact record reference; only four changed
+fields are recalculated. The fixed-own-moment continuous checks include
+both wood bores, the steel bore, all shaft segments, the catalog body/root
+transition and metal gravity. No ordinary two-member capacity is substituted.
+The four header mixed axes are unchanged and retain their existing results.
+
+The same allocation recovers all **36 positive-area normal patches / 24
+named cut wrenches**. Maximum normal pressure is **0.910582 MPa**, below
+the unchanged **1.1-MPa C16/divisor-2 hypothesis**; all **24 interface moments**
+also pass, maximum **0.897185855**. The original six force fields stay frozen;
+steel ports, axial captures, hardware, geometry and whole-timber wrenches
+are unchanged. The new individual wood-port shares are a distinct allocation.
+This closes a simultaneous **lateral bore/shaft plus two-cut normal statics
+comparison**, not complete connection resistance or a physical demand bound.
+The pressure rectangles are internal-cut stress constructions, not observed
+contact areas or bolt-tightening instructions. Other local sections,
+splitting, shear/torque, axial-seat/fitting interaction and compatible
+restraint/response still need their own applicable conclusions.
+
+The final independent join verifies all six own component/field bindings,
+every original-plus-increment force and couple, all fixed moment constraints,
+unchanged material envelopes and continuous bearing/bending extrema.
+Maximum input-join discrepancy is **zero**; force/first-moment recovery
+errors are at most **2.73e-12 N / 2.92e-11 Nmm**. Whole-shaft end errors are
+at most **1.66e-8 N / 2.20e-6 Nmm**, inside the original gates. The separate
+normal checker recovers every patch and all 48 port increments, with maximum
+normal recovery **2.33e-10 N/Nmm** and body/shaft increment residual
+**1.46e-11 N/Nmm**. Its 43 pins and the joined lateral checker's 45 pins
+rehash unchanged. Both final producer replays are byte-identical. All seven
+new worksheet/check sources pass scoped Ruff; all **220 affected development
+and documentation checks**, the 150-line summary and whitespace checks pass.
+
+The active files remain in the same ignored closure folder. Preceding V3
+source/result/check files, its 24-field batch and the auxiliary search are
+bound transitively by the final source-pin maps, rather than copied into
+another packet. The retained negative certificate and final entrypoints are:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-coupled-bearing-necessary-certificate-v1.json` | 2,963 | `7e4ef5d532ba50dbe57fcb815e439b9ebbfa9c8ee75359a54b9681e37d4bd454` |
+| `current-coupled-bridge-witness-v4.py` | 6,927 | `91f0d01fd9ecad154a7d24972af941e7ab3ddb8e524e0b5349f56ccaa9b495e0` |
+| `current-coupled-bridge-witness-attempt04.json` | 82,651 | `179485cac02bd8031767a7acfc3763c7131405ee0db40feac8e0b474537d1479` |
+| `current-coupled-bridge-verification-v4.json` | 8,087 | `c0fe843cb27c31a3be5bf41b23b6b8a1d9d3502896c3ae5843d6eaa9d518d5a6` |
+| `current-coupled-bearing-followup-v3.py` | 4,919 | `987ae4fecd91e6bf1bcf4f3b7fb14d44f34056e5f4048384ba83022c28a4ee8a` |
+| `current-coupled-bearing-followup-attempt03.json` | 468,472 | `5d29c863bca79e1b0b78f10a737383a173926a40979fc5d022433705ca431c6c` |
+| `current-coupled-bearing-verification-v1.py` | 7,079 | `d3865e5f33dedb3f48be9667ab470b078700bd1066f1165b5ff264cb13879df6` |
+| `current-coupled-bearing-verification-v1.json` | 24,162 | `4c044898c07246308a65a7aed2f1f17c12407cffe093deaafcf5a2deff874019` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-coupled-bridge-witness-v4.py /tmp/eoere-coupled-bridge-witness-v4-replay.json
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-coupled-bearing-followup-v3.py /tmp/eoere-coupled-bearing-followup-v3-replay.json
+```
+
+Each final verification JSON embeds its full `verification_python_source`;
+calling its `verify(record_path, record_sha256)` reproduces the independent
+checks without another LP. Original failed pressure, original-force mixed-stack
+and intermediate allocation results retain their original meanings.
 
 These inputs remain active. No native/frame solve, CAD rebuild, model change,
 fabrication, archive or prune occurs. The complete engineering goal remains
