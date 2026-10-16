@@ -913,6 +913,14 @@ The next engineering inference is an applicable oblique/eccentric local
 connection treatment, preserving both receivers and complete signed actions.
 No nominal-placement reference is added and no structural hold is cleared.
 
+The rechecked [CWC lecture, PDF pp.116–117](https://cwc.ca/wp-content/uploads/2025/08/CWC-Lecture-6-Design-of-connections1.pdf),
+also gives separate cardinal placement diagrams. Its [oblique four-bolt
+example](https://cwc.ca/wp-content/uploads/2025/03/Connections-Sample-Design.pdf)
+retains separate yielding and brittle checks for its own layout and resultant
+force. Neither directly supplies an NDS spacing interpolation or transfer
+rule for these staggered pairs and their independent bore moments. The
+existing CWC cache is reused; no example capacity is transferred.
+
 The independent Decimal worksheet uses shaft origins rather than the
 producer's wood-port points. All **fourteen rows**, **nine direct source pins**
 and the disjoint **76 + 16 + 8 = 100-axis** accounting pass. Maximum geometry/
@@ -8187,7 +8195,7 @@ qualify the present crossed cleats or asymmetric shared stacks.
 | --- | --- | --- |
 | Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [38 covered ordinary pairs](#current-post-cleat-nominal-placement) now have 456 passing group/nominal-placement references and 240 reused passing member-shear comparisons, unchanged under V4. | The [other eight ordinary groups](#current-staggered-pair-placement-method-scope) fall outside the same sufficient cardinal method. Complete actual oblique placement and local brittle/eccentric transfer for the signed actions. The nominal placement assumption does not qualify splitting, combined duty or physical sharing. |
 | Shared mixed-stack lateral transfer | All 48 own stack/case trials, three meshes and continuous bounds. The working divisor-5 model necessarily exceeds one for bolt 067 in `a12-forward`, including its certified control-comparator equilibria. | An applicable adjusted resistance interpretation and simultaneous axial/couple/local-wood treatment. The known conditional failure is retained without changing the reference or design. |
-| Axial seats, bolt metal and formed angles | Combined same-cut bolt-metal yield diagnostics, axial washer comparisons, 112 modeled wood seats, working t6.35/Ri6.35 heel references and 264 ideal-bend constructions. The [complete-steel method decision](#complete-steel-flange-hole-contact-and-interface-method-decision) retains the actual backing patches and all 528 own hole-port wrenches. | Compatible eccentric/prying transfer and complete flange/hole/rupture and wood-seat interaction. Force-only block shear cannot cover the retained normal loads and bending moments; repeating washer, bolt-metal or ideal-bend checks would not resolve this inference. |
+| Axial seats, bolt metal and formed angles | Combined same-cut bolt-metal yield diagnostics, axial washer comparisons, 112 modeled wood seats, working t6.35/Ri6.35 heel references and 264 ideal-bend constructions. The [complete-steel method decision](#complete-steel-flange-hole-contact-and-interface-method-decision) retains the actual backing patches and all 528 own hole-port wrenches. | Compatible eccentric/prying transfer and complete flange/hole/rupture and wood-seat interaction. The [nominal elastic-torsion followup](#current-flange-elastic-window-comparison) leaves two region comparisons unestablished, without proving physical failure. Force-only block shear cannot cover the retained normal loads and bending moments; repeating washer, bolt-metal or ideal-bend checks would not resolve this inference. |
 | Complete timber cleat | Corrected complete cut wrenches/tractions, finite-body flaw comparisons and bore-wall boundary traces, including the width moments above. | Applicable inter-bore/washer/side-contact transfer and combined local brittle resistance. The 40 working boundary constructions do not supply an interior or fracture proof; the eight inconclusive cases do not demonstrate a failure. |
 | Finished members and restraint | 38 sampled planes/228 comparisons, 102 continuous rail-bore section comparisons and recorded geometric brace-return paths. | Three-dimensional transfer and local hole/notch fracture plus justified directional restraint/effective lengths. Section feasibility and a connected geometric path do not supply those properties. |
 | Physical demand and movement | Current scalar stiffness references and certified original-load comparator bounds; both credited rear legs bear in the control family. | A supported complete joint/contact and finite-geometry treatment or conservative physical-demand bound. The trial stiffness families are not physical extrema. The 56.6-mm interaction-point motion is not a measured hold deflection or an adopted serviceability failure. |
@@ -9372,6 +9380,109 @@ PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engine
 The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with fresh output
 filenames. PyMuPDF **1.26.4** was used only for source-page inspection.
+
+<a id="current-flange-elastic-window-comparison"></a>
+**Nominal elastic torsion and finite-footprint comparison.** The engineering
+question is whether the previous plastic Prandtl roof can simply be replaced
+by a published elastic uniform-torsion reference in the conditional net-bar
+comparison. After localizing the existing footprint allowances, **526 of 528
+region bounds** meet this nominal comparison. Two top-angle comparisons remain
+unestablished. Their upper bounds exceed one; this does **not** demonstrate
+an actual stress exceedance or fitting failure. Complete fitting resistance
+and AISC H3.3 acceptance remain unassigned.
+
+[Dowswell (2019), printed p.63, Eqs.2–3](https://ej.aisc.org/index.php/engj/article/download/1147/1146)
+gives the rectangular elastic torsion approximation and first-yield moment.
+The original page was visually checked: the coefficient is **1/3**, not the
+text extraction's `3`. All three retained net bars have `1 < w/t < 10`.
+Keep t6.35, conditional Fy235, Omega1.67 and the lower shear reference
+`tau=Fy/(sqrt(3)*Omega)`. Under a common nominal twist-rate allocation:
+
+```text
+Jj = (1/3 - 0.21*t/wj)*wj*t^3
+Tc,elastic = tau*sum(Jj)/t
+```
+
+The three approximate J values are **772.368415 / 2,970.112675 /
+772.368415 mm4**. Their sum gives **Tc,elastic = 57,764.406680 Nmm**, below
+the prior plastic **95,903.645977-Nmm** reference. Other section strengths,
+normal-load aliases, material values and the existing bar-stability increments
+are unchanged. The formula is an engineering approximation for ideal bars,
+not an exact elastic solution through the holed angle. Warping and Wagner
+resistance are not credited; actual short-plate warping stresses remain open.
+
+The first coarse correction puts **516/528** region bounds below one and leaves
+twelve outside the sufficient comparison, maximum **1.351035**. Refine only
+those twelve. Partition each straight-flange interval at finite-footprint
+edges, retaining both sides of every point event. A normal footprint's
+centroid substitution has zero error outside that footprint's enclosing X
+interval. Inside, retain its existing half-force/first-moment allowances.
+The point-model norm is convex between events, so endpoint/event maxima
+plus the active allowances cover each interval. This gives **200 windows**
+without a sampled section sweep or new pressure law.
+
+Two bounds remain above one. V2 keeps each patch's signed force error
+`sign*q*F`, `0 <= q <= 1/2`, together with its full centroid-to-cut moment.
+For the remaining partial first moments, central symmetry and nonnegative
+pressure give `abs(integral(delta_rj*p)) <= Rj*abs(F)/2`. Partition additionally
+at centroids. At fixed q vertices, each wrench is affine in X; convexity
+reduces the bound to **3,032 endpoint/vertex comparisons in 54 windows**.
+This preserves the complete force/moment relationship but leaves the two
+upper bounds unchanged. No arbitrary q grid or favorable force cancellation
+is used.
+
+| Current case | Region bounds | Bounds at or below one | Guarded nominal bar upper |
+| --- | ---: | ---: | ---: |
+| `a12-forward` | 88 | 88 | 0.984743 |
+| `a12-rear` | 88 | 88 | 0.951077 |
+| `a12-left` | 88 | 87 | **1.025755** |
+| `k12-right` | 88 | 87 | **1.018209** |
+| `k12-rear` | 88 | 88 | 0.952661 |
+| `a1-rear` | 88 | 88 | 0.789540 |
+
+Uppers round upward. The two unestablished regions are the respective
+**left/right top single angle, arm-z, outside the used-bore band**. A sharper
+applicable treatment must address their finite-load/first-moment interaction
+or the complete plate. The current bounds neither reject the physical
+fitting nor clear its transfer duty. The original roof and bar comparisons
+retain their own passing scope; they are not silently relabeled elastic.
+
+The independent 70-digit Decimal check verifies the published J/Tc arithmetic,
+all **528 coarse regions, 200 V1 windows, 54 V2 windows and 3,032 vertices**,
+plus seven exact uniform-patch controls. **133 source pins** pass. Compared
+indices/scalars agree within **7e-13**; J/Tc checks agree within **1e-10**.
+All **792 original section reductions** replay unchanged. Both producers
+and the checker reproduce byte-identically; scoped Ruff passes. Python
+**3.12.3** and the existing numerical dependencies are reused.
+All **220 affected Node checks**, ten added-line local links/ten fragments,
+six artifact hash/byte rows, eighteen case-table cells, the **150-line**
+summary and whitespace checks pass.
+
+The existing ignored closure folder retains **1,007,339 arithmetic-evidence
+bytes**, including the unsuccessful sufficient bounds. One **2,221,665-byte**
+publisher PDF is cached once for the operative equations. These files and
+all predecessors stay active; none is archived or pruned. No tracked asset,
+dependency installation, native/frame/contact solve, CAD rebuild, geometry
+change or physical operation is added. Both corners, 100 bolts, 66 Hillman
+axes and the existing member/channel holds remain. The full goal stays active.
+
+| File in the existing closure folder | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-flange-elastic-window-v1.py` | 11,305 | `14af0573e6c53d116c0a0d99bca87ea7b5e789222054f257a0aceefecb142f1e` |
+| `current-flange-elastic-window-attempt01.json` | 761,767 | `6734bc277e7190f9fa91a24a6f2b382b2c62f96ef3a52a00ef7a0f4f711424d9` |
+| `current-flange-elastic-window-v2.py` | 9,304 | `4e1cf28c23c5a0b2424d29fb885dd62a40c920da6e7c3e36d2e2f21164d859d3` |
+| `current-flange-elastic-window-attempt02.json` | 214,507 | `fd297ffd0592fc21909e1dc51920afdfe1a0ef9f185de780669514217fb135e5` |
+| `current-flange-elastic-window-verification-v1.json` | 10,456 | `c8b5706cd0118b72af12eb8a926b12fdf93392dcae96454c581a72d85f74193e` |
+| `method-source-cache/dowswell-2019-rectangular-torsion.pdf` | 2,221,665 | `11d3eb02d73bd25762ec4648658dc6f3feca49a6fe9500f84ddd3e0a2a7053ed` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-flange-elastic-window-v1.py /tmp/eoere-flange-elastic-window-v1-replay.json
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-flange-elastic-window-v2.py /tmp/eoere-flange-elastic-window-v2-replay.json
+```
+
+Both results embed their reproduction source; verification embeds its checker.
+Use fresh output filenames. V2 reads the preserved V1 result, including its
+unmodified finite-load records and unsuccessful bounds.
 
 <a id="current-unholed-flange-root-interaction"></a>
 **Simultaneous actions at the unholed flange roots.** The current six-case
