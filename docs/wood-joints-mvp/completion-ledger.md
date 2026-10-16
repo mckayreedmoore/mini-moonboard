@@ -11760,6 +11760,35 @@ and distinguishes connection-specific transverse-tension parameters from
 general EN338/EN14080 transverse-tension values (§3.1). Substituting the C16
 table's 0.4 MPa alone therefore does not complete connection splitting.
 
+<a id="current-cleat-strength-calibration-evidence"></a>
+**Strength calibration: related Douglas-fir data and their limits.** The
+targeted source search finds relevant timber data; the gap is not the
+absence of all Douglas-fir or No.2 connection research. Check the tested
+failure mode and loading before using a reported mean, fifth percentile or
+simulation default in the retained finite-cleat calculation.
+
+| Primary source inspected | Usable evidence | Current application limit |
+| --- | --- | --- |
+| [UBC TEAM 2013-08, report dated March 17, 2014](https://team.sites.olt.ubc.ca/files/2018/04/TEAM-Report-2013-08-D-Fir-Hemlock-Bolted-Connection.pdf), pp.2–6, 15 | Tests include Douglas-fir No.2-or-better timber and SAE Grade 5 bolts. Reported fifth percentiles concern longitudinal tension loading; the observed connection failures were row shear. | This is actual related-grade connection evidence, but not a calibration of perpendicular splitting, the finite sloping cleat or its width moments. Its mean/fifth-percentile ratio cannot be assigned as the Quenneville splitting gamma, and its code/test reserve cannot clear the current near-end member-shear failures. |
+| [FHWA-HRT-04-097, Wood Material Model 143 manual (2007)](https://www.fhwa.dot.gov/publications/research/safety/04097/04097.pdf), printed pp.44–46 / PDF pp.60–62, Table 8 | Publishes mode-I/II fracture defaults for a dynamic wood model. The Douglas-fir defaults were borrowed from southern yellow pine, supported there by grade-1 post-impact correlations. | These are identified modeling assumptions, not measured characteristic DF-L No.2 joint properties. They do not calibrate the retained 0.05/0.1-N/mm fracture hypotheses or supply an ASD splitting resistance. No new material-model implementation follows. |
+| [Zhang et al., Structures 90 (2026), 112370](https://doi.org/10.1016/j.istruc.2026.112370), §§2–3, Eqs.7–9; [author-deposited full text](https://www.researchgate.net/publication/410512125_Experimental_theoretical_and_numerical_studies_on_the_stiffness_of_bolted_steel-timber-steel_connections) | Studies lateral stiffness with elastic foundation models and tested end-rotation conditions; its Douglas-fir stock is described as No.2 under GB 50005–2017. | Its symmetric steel/timber/steel idealization does not qualify the current shared stacks' unequal force/couple histories or their axial capture/seat return. Reported experimental agreement is not a physical stiffness bound for this frame. Its Table 1 gives timber means for density, moisture, longitudinal compression modulus and compression strength, not a transverse splitting/fracture design calibration. |
+
+The research narrows the needed basis: a supported characteristic/design
+calibration for the **current transverse failure mode and applicable finite
+joint**, or an independently justified conservative resistance treatment.
+For the 2009 proposal, an arbitrary gamma cannot turn its plotted means into
+that basis. For the 2012 fracture model, the retained tensile/energy numbers
+remain explicit hypotheses rather than newly measured material properties.
+The existing all-mode force/couple mapping is still engineering work; these
+source limits do not convert an unselected method into an external approval
+requirement or prescribe physical testing as the only route.
+
+No published test capacity, material parameter, bolt stiffness or response
+error percentage is transferred to this candidate. Current inputs, failures,
+retained geometry and the active full goal are unchanged. This reading
+followup adds no producer, copied manual, solver run or raw field. The linked
+publications remain reference sources, not adopted calculation inputs.
+
 For each original signed trace, with tension-positive N, width b and height h,
 the existing equilibrium bound is:
 
