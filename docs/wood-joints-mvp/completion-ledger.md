@@ -6119,6 +6119,106 @@ Use a fresh output. Continue with the complete local transfer and floor-contact
 duties above; no repeat of these nominal end sections or the unchanged leg
 taper is needed unless actions, geometry or the method question changes.
 
+<a id="current-rear-foot-400n-full-floor-tractions"></a>
+**400-N allocation: finite complete floor tractions and combined mean bearing.**
+The earlier 9-MPa leg triangle passes normal-only mean bearing but **fails the
+complete-resultant mean comparison at 1.054541**. Its horizontal floor force
+was still applied at the old tangent point. Reuse the same
+[bearing helper](../../fea/reinforced_timber_resistance.py) and complete force
+**[41.068152, 269.147909, 1955.100929] N**: the load-to-grain angle is
+**21.705992°**, with reference **8.616883 MPa**. This is a missed component
+comparison in that pressure construction, not a new physical frame failure.
+Preserve its earlier passing shaft and nominal-section results within their
+original scope; they do not qualify the complete floor transfer.
+
+A larger analytical triangle on the same existing foot keeps **exactly the
+same normal force and centroid**. Use **0.25-mm** insets from the recorded
+inboard X and leading Y edges; its X base is **24.887049 mm**, Y height
+**18.75 mm**, area **233.316080 mm²** and uniform normal pressure
+**8.379624 MPa**. Its centroid remains **[−1265.845683, 1502.571547, 0] mm**.
+The runner's existing 20×40-mm rectangle is unchanged. These are analytical
+contact regions, not new pads, cuts or physical observations.
+
+Both original tangent point actions are now replaced by finite affine
+tractions on the positive-pressure leg triangle. Let C be its area centroid,
+Fxy its prescribed tangent force, and Mz_C the original tangent moment
+transported to C. With **Mz_C=−7223.700120 Nmm**, use:
+
+```text
+qxy(x,y) = Fxy/A + kappa*(-(y-Cy), x-Cx)
+kappa = Mz_C / (A*(B²+H²)/18)
+```
+
+The zero-mean rotating term supplies the missing floor moment. Uniform
+normal pressure supplies the prescribed normal force and both overturning
+moments. Both complete per-body floor six-wrenches are unchanged from the
+parent 400-N allocation. All own bolt forces/couples, bore-window cuts,
+bolt-metal duties, upper-leg/taper checks and runner-miter results therefore
+remain reusable. This is a static recovery, not a new frame-response law.
+
+Only the changed foot's partial floor loads require new nominal sections.
+An included cap of height fraction u has area `A*u²`, the affine tangent
+value at its own centroid, and an extra `Mz_C*u⁴` moment. The first single
+pressure-band interval gives an **inconclusive 2.423270 shear/torsion upper**;
+42 independent concurrent cuts peak at **0.297100**, not above one. Retain
+that coarse result. Dividing only this band into **eight equal intervals**
+gives **13 foot intervals total**, with unchanged tractions, references and
+numerical guards. Continuous bounds now pass:
+
+| Same complete floor construction | Reference upper |
+| --- | ---: |
+| Leg complete-resultant mean bearing | **0.981850** |
+| Runner complete-resultant mean bearing | **0.118448** |
+| Changed unbored foot, nominal normal | **0.209048** |
+| Changed unbored foot, nominal rectangular shear plus torsion | **0.456777** |
+
+The maximum tangent/normal demand ratio of this particular affine field is
+**1.337594**, bounded at its three vertices. If a constant Coulomb coefficient
+were imposed on this fixed normal patch, force equilibrium and the RMS moment
+bound require **mu>0.503075** for any tangent field. These are demand bounds;
+**no floor coefficient, friction rating or physical contact law is adopted**.
+The analytical no-slip assumption remains unverified. Mean bearing is not a
+pointwise stress limit, and the nominal rectangle does not qualify boundary
+concentrations, complete wood-interior/end/brittle transfer, nonprismatic
+warping or physical restraint/response. The rear-foot hold and the full goal
+remain open; the three front-post and six channel failures are unchanged.
+
+Independent polygon clipping and degree-two triangle/Gauss quadrature verify
+both the full floor wrench and **91 partial foot cuts**, all inside their
+continuous six-component bounds. Maximum full-wrench discrepancy is
+**<1.275e-8 Nmm**; sampled shear/torsion peaks at **0.297690**. The existing
+cached-solid end proof covers the contained region and is reused without
+another CAD query. All **39 distinct source bindings**, including that proof's
+inputs, are rehashed. Separate **70-digit** mean-bearing and RMS-demand checks
+agree within **2.642e-16**. Both producer replays are byte-identical; scoped
+Ruff, all **220** development/documentation tests, changed links/digests and
+whitespace checks pass. The summary stays 150 lines.
+
+These **207,966 active bytes** remain in the same ignored closure folder.
+The coarse result and its independent check stay recoverable. Results embed
+their producers/checker and bind the reused worksheet's literal adaptations.
+No source field, geometry, hardware, material factor or own shaft wrench is
+changed; no native/frame/contact solve, CAD rebuild, physical operation,
+observation, dependency, archive or pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-rear-foot-400n-floor-tractions-v1.py` | 11,285 | `b0129adc830966e9b4064acecc722610610047343136349805b7282dfda204f0` |
+| `current-rear-foot-400n-floor-tractions-attempt01.json` | 54,135 | `b459cbf26165fe8d445e78ea6a7613fcaf1934c6301ce248e9e52d086380a617` |
+| `current-rear-foot-400n-floor-tractions-coarse-verification-v1.json` | 25,435 | `b0e04f0f3691e50de7a8a3dba1642010119f227ca64c56c495bedddfe5203d43` |
+| `current-rear-foot-400n-floor-tractions-v2.py` | 3,511 | `3bb9f7611f097dcd661fcf9f54fdc1d2a73c1a96a10289f47725ff687f7de13a` |
+| `current-rear-foot-400n-floor-tractions-attempt02.json` | 76,285 | `2ec2609ca43868c352d86231d4354e9907d5a8a6ea4054b119a109505f2bc29a` |
+| `current-rear-foot-400n-floor-tractions-verification-v1.json` | 37,315 | `5e6b669e628f0638dd72939963b7f36aa01b0cb577fc1144d204992a11352309` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-400n-floor-tractions-v1.py /tmp/eoere-rear-foot-400n-floor-coarse-replay.json
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-400n-floor-tractions-v2.py /tmp/eoere-rear-foot-400n-floor-final-replay.json
+```
+
+Use fresh outputs. Continue with complete local timber transfer and supported
+restraint/response. Reuse this finite floor-wrench construction and its scoped
+comparisons; additional pressure refinement would not establish those duties.
+
 <a id="current-remaining-rectangular-connection-shear"></a>
 **Remaining rectangular receivers: 60 completed lateral-shear comparisons.**
 The four header groups, four top-rail groups and two center-post groups pass
