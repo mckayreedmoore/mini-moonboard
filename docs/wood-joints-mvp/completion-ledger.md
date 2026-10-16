@@ -4805,6 +4805,123 @@ All **220 development/documentation checks**, twelve added-line local
 link/fragment checks and whitespace checks pass. The maintained summary
 stays at **148 lines**; all current inputs and failed records stay active.
 
+<a id="current-channel-notch-location-gate"></a>
+**Service-channel notch location: six prescriptive failures.** The next
+channel question is whether the existing rounded cuts are permitted notches
+before applying another nominal shear/torsion calculation. Under the current
+frame-supported single-span basis, the central channel in **each of the six
+bottom/lower-service/upper-service half-rails fails the NDS location rule**.
+This is a completed, failed prescriptive check, not a physical failure load.
+
+The pinned [NDS 2024](https://awc.org/resources/2024-nds/), §3.2.1 and
+§3.2.3, printed p.17, separates span, notch permission and the small-notch
+stiffness marker. Section **4.4.3.2**, printed p.33, permits interior notches
+of a single-span sawn-lumber bending member only in its **outer thirds**, at
+depth no greater than **d/6**. The checked
+[March 2026 errata](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf)
+does not change that location provision. Rounded roots do not supply a
+location exemption. Section 3.4.3's notched-member shear equations require
+permitted notches; a low nominal stress ratio does not waive the location gate.
+
+Reuse the current 32-channel census. Its three cylindrical faces per channel
+span the complete **38.1-mm thickness** and open at the stock edge; these are
+transverse notches, not enclosed holes. Their **14.35-mm** depth is below
+`139.7/6 = 23.283333 mm`; their **20.427678-mm** length is below the separate
+`139.7/3 = 46.566667-mm` stiffness marker. Those dimensional comparisons pass,
+but do not establish permitted location.
+
+All frame contacts and bolt bores on each affected rail lie in two end
+regions. Include the complete finite contact footprints, even where they
+enlarge the possible support range, and each own bore envelope. This gives
+**ten enclosing regions per rail**. Effective span ends may be anywhere in
+those two end regions, covering support-face/required-bearing placement
+without choosing a favorable pressure centroid or end stiffness. No deferred,
+unqualified panel contact or screw is credited as an intermediate bending
+support. All six current cases have nonzero strong-axis bending witnesses at
+the central channels, and their geometry is identical.
+
+For left and right effective support ranges `[a0,a1]` and `[b0,b1]`, the
+intersection of every possible middle third is:
+
+```text
+[(2*a1+b1)/3, (a0+2*b0)/3]
+```
+
+Each central channel lies wholly inside that intersection. The **0.001-mm**
+outward enclosure on source bounds is numerical allowance, not a machining
+tolerance. Using world X along these horizontal rails avoids mixing their
+analysis and shop L origins:
+
+| Rails | Guaranteed middle-third band, world X mm | Central channel, world X mm | Minimum inset including numerical allowance |
+| --- | --- | --- | ---: |
+| Left bottom/lower/upper | [−723.949000, −495.401000] | [−629.413839, −608.986161] | **>94.534 mm** |
+| Right bottom/lower/upper | [468.209334, 708.765666] | [570.586161, 591.013839] | **>102.375 mm** |
+
+The displayed middle-third bands round inward and channel intervals outward.
+The affected records in the existing shop CSV are:
+
+| Receiver | Held service channel |
+| --- | --- |
+| `base_rail_bottom_left` | `wire_025_C1_C2` |
+| `base_rail_service_lower_left` | `wire_030_C6_C7` |
+| `base_rail_service_upper_left` | `wire_031_C7_C8` |
+| `base_rail_bottom_right` | `wire_097_I1_I2` |
+| `base_rail_service_lower_right` | `wire_102_I6_I7` |
+| `base_rail_service_upper_right` | `wire_103_I7_I8` |
+
+The independent shop join uses world coordinates and preserves the CSV's
+receiver L datums verbatim. Its **Actual/Disposition cells remain blank**.
+Do not substitute the analysis datum's L values for those shop coordinates.
+
+The complete location census distinguishes **six definite middle-third
+failures**, **twelve rail channels in an outer third for every enclosed span**,
+and **twelve whose location classification depends on the effective end
+support position**. The two center-principal channels belong to members with
+multiple frame attachment stations and are not classified by this single-span
+argument. Outer-third location alone supplies no local notch-strength pass.
+All **48 previous nominal normal comparisons**, including the 0.480823 upper,
+remain unchanged; they do not establish notch permission.
+
+**Disposition:** machining the six named channels is **on hold** in the
+[maintained builder plan](../bolted-frame-development/builder-plan.md).
+Retain the current geometry, drawings, shop records, 100 bolt axes and 66
+Hillman axes. Approving these cuts under the retained geometry needs an
+applicable alternative-detail basis; further nominal stress refinement cannot
+turn this failed prescriptive route into a pass. No redesign or blanket
+external sign-off prerequisite is introduced. Other joint/member work and
+the full engineering goal remain active.
+
+The independent check reconstructs all **60 support enclosures in world X**
+from the original source tables and checks all four extreme support-end pairs
+for each rail channel. The inequalities are affine in the support endpoints,
+so the extreme-pair checks cover every intermediate choice. It reproduces
+all **30 rail-channel classifications**, confirms **36 strong-axis bending
+case witnesses**, and joins all six held cuts uniquely to the shop CSV.
+All **eleven input bindings and the producer** remain unchanged. Producer
+and independent-checker replays are byte-identical; scoped Ruff passes.
+All **220 development/documentation checks**, **17** added-line local links
+including **16** fragments, artifact digest/size checks and whitespace checks
+pass. The maintained summary stays at **150 lines**.
+
+These **109,568 bytes** remain active in the existing ignored closure folder:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-channel-notch-location-v1.py` | 13,228 | `2cb6e083980dbb21badd25e9eb003d69d8d32a51766f427cd182f381d792562e` |
+| `current-channel-notch-location-attempt01.json` | 84,176 | `bf285bb3b4278c6c5af228fefb7f3a7432e32271dc62726bdb8efdd3e6f3394f` |
+| `current-channel-notch-location-verification-v1.json` | 12,164 | `f4be47b23b15ec6854db62cc34fb09b50d936fff8c6f9de6c4d1ed4c03fb7005` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-channel-notch-location-v1.py /tmp/eoere-channel-notch-location-replay.json
+```
+
+Python **3.12.3** and its standard library suffice. The result embeds
+`reproduction_python_source`; the verification record embeds its full
+`verification_python_source`. Run the latter from the repository root with a
+fresh output filename. Existing sources, normal results, manuals and failed
+experiments stay active; nothing is archived or pruned. No native/frame solve,
+CAD rebuild, new dependency, copied manual or physical observation is added.
+
 <a id="same-station-bore-window-normal-followup"></a>
 **Same-station bore-window normal followup.** Critical-section accounting
 finds that the 58 screened pairs occupy **116 distinct wood-bore occurrences**
@@ -4949,7 +5066,7 @@ The remaining unsupported qualifications reduce to this decision table:
 | --- | --- | --- |
 | Cleat local wood resistance | Passing relaxed section references, retained shear/normal reference checks and [existing-upper-bolt bridge statics](#existing-upper-bolt-bridge-statics). | **Complete local transverse/splitting resistance unsupported.** The bridge supplies a normal compression construction at the central cut with changed force shares, retaining explicit inclined-host and common-shaft demands. It does not cover every split/shear/torque path. The failed prescribed-pressure family and inapplicable beam shortcut retain their separate outcomes; neither establishes physical cleat failure. |
 | Combined joints/seats and their restraint/response paths | Ordinary lateral, bolt-metal, axial washer, ideal-bend and representative mixed-stack statics comparisons. Current restraint locations/directions are mapped. | **Complete simultaneous transfer and applicable response unsupported** for the eight mixed stacks, holed flanges and eccentric axial seats. All four long-member restraint duties share these axial capture/seat return paths. They do not create separate commissions for four member models and another frame model. |
-| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**; [48 normal comparisons cover all 32 service channels and their eight containing spans](#current-service-channel-normal-coverage). Retain the [13 continuous taper normal checks and 13 C16 tapered-normal references](#current-retained-leg-taper-normal-completion), plus [13 nominal shear/torsion references and the named 1:12 normal-notch provision](#current-retained-taper-shear-and-normal-notch-scope). | **Local channel notch/shear/torsion, combined recess duty and support/load introduction, clipped-end loading and other remaining profile coverage remain unsupported** within the stated method limits. The added taper linear normal/shear comparison has two same-cut exceedances. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load duties and the 34 compression-domain exceptions' conditional restraint dependence; completed comparisons are not reopened. |
+| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**; [48 normal comparisons cover all 32 service channels and their eight containing spans](#current-service-channel-normal-coverage). Retain the [13 continuous taper normal checks and 13 C16 tapered-normal references](#current-retained-leg-taper-normal-completion), plus [13 nominal shear/torsion references and the named 1:12 normal-notch provision](#current-retained-taper-shear-and-normal-notch-scope). | The [six central rail channels fail the NDS prescriptive location gate](#current-channel-notch-location-gate) under the frame-support basis and their machining is held. **Other local channel strength, combined recess duty and support/load introduction, clipped-end loading and remaining profile coverage stay unsupported** within the stated method limits. The added taper linear normal/shear comparison has two same-cut exceedances. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load duties and the 34 compression-domain exceptions' conditional restraint dependence; completed comparisons are not reopened. |
 
 The owner-selected disposition is to retain the current design and its
 qualification limits. Panel/screw exceedances stay deferred. No new design,

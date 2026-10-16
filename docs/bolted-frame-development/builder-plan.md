@@ -15,13 +15,18 @@ stiffness/restraint are unqualified. Actual stock, tooling, support arrangements
 and hardware have not been inspected. This guide supplies no fabrication or
 climbing release and leaves every issued observation cell blank.
 
+**Machining hold:** the six central bottom/lower-service/upper-service rail
+channels fail the [NDS notch-location check](../wood-joints-mvp/completion-ledger.md#current-channel-notch-location-gate)
+under the current frame-support basis. Keep those cuts on hold; the retained
+drawings and source datums describe their current geometry.
+
 ## Use these revisions together
 
 | Operation | Controlling records | Earlier instruction superseded |
 | --- | --- | --- |
 | Timber blanks, angled ends, rear recesses and stock nesting | [Current profiles][profiles], [end datums][ends], [raw projections][projections], [rear recess][recess] and [nesting][nesting] | These unchanged records are deliberately reused; the current packet composes them. |
 | Through-bolt receivers | [Per-member layout](builder-layout.md), derived from [120 receiver rows][holes] | Old adjusted-base v1/v2 and aligned-wire-only drill layouts precede the current axes. |
-| Wiring cuts and panel holes | [Current channel drawing][channels], [32 route/receiver rows][channel-datums], [340 panel datums][panels] and [panel plates][panel-plate] | Use smaller channels, omit eleven filled principal arcs, and raise the two named kicker screws to Z212 mm. |
+| Wiring cuts and panel holes | [Current channel drawing][channels], [32 route/receiver rows][channel-datums], [340 panel datums][panels] and [panel plates][panel-plate] | Retain smaller-channel geometry, with the six central rail cuts on hold. Omit eleven filled principal arcs and use the two kicker screw positions at Z212 mm. |
 | Bolt lengths and spacers | [100 selected stacks][hardware] and [stack drawing][stacks] | Old `bolt-stacks.csv` modeled lengths and earlier viewer lengths are not purchase instructions. The current hardware viewer applies the selection. |
 | Wrench, socket and removal access | Later [installation study][installation] and [200-side method table][access] | The shop packet's coarse 160-side unresolved screen has been refined. Nominal box-wrench access clears 200 sides; actual tools/supports remain unqualified. |
 | Current loads and resistance status | [Six current cases][forces] and [qualification ledger][qualification] | Earlier packet statements that matching response is missing describe their issue date. Earlier passes and proposals keep their own scope. |
@@ -232,12 +237,15 @@ and receiving observations still blank.
 
 ## 5. Route services, then fit kickers and panels
 
-With power disconnected and the frame open, use the [current channel drawing][channels]
-and [receiver coordinates][channel-datums]. The common rounded section has
+**Keep the six central rail channels on hold**, as named in the
+[notch-location disposition](../wood-joints-mvp/completion-ledger.md#current-channel-notch-location-gate).
+The [current channel drawing][channels] and [receiver coordinates][channel-datums]
+remain geometry records. The common rounded section has
 R6.35 mm, center N8 mm, front opening 20.427677 mm and rear depth N14.35 mm.
 Control-route vertices describe a rounded swept envelope, not sharp corners
-or a saw path. Support straight relief cuts inside waste and finish turns
-and depth by hand. No machining-error budget or qualified jig is adopted.
+or a saw path. The recorded method assumes an open frame with power disconnected,
+supported relief cuts inside waste, and hand finishing of turns and depth.
+No machining-error budget or qualified jig is adopted.
 
 The right principal retains `wire_072_F1_G1` and its bolt bores. Its eleven
 former F-column arcs are filled; do not recreate them. Expanded-grid service
