@@ -5684,6 +5684,126 @@ The result embeds V2 and pins V1; verification embeds its complete checker.
 Use fresh output names. Both retained corners, 100 bolts, 66 Hillman axes,
 panel/screw deferral and blank actual observations remain unchanged.
 
+<a id="current-front-force-cycle-moment-bound"></a>
+**Front-post relief through the existing force cycle: governing target excluded
+under both recorded bearing laws.** The [moment-only limit](#current-floor-and-shear-sharing-limits)
+does not exclude a net-force cycle. Check that wider family before trying
+amplitudes: cleat → post → runner → leg → side member → cleat, through the
+same ten axes. Keep all other interfaces, floor actions, metal ports, axial
+captures and applied loads fixed. Each directed joint then carries the same
+incremental global wrench to balance all five timbers and ten shafts.
+No particular force shares, vertical cycle force or global moment are selected.
+
+The first calculation retains the existing minimum-radial-Fe/divisor-5 law.
+Relax its line limits upward to **48.4 / 55.8 N/mm** for nominal 3/8 / 1/2-inch
+shafts, including every current smaller body/root diameter and nearest-50-psi
+rounding. Its governing relief upper is **208.382149 N**. Check whether that
+exclusion is merely a consequence of using the minimum radial strength.
+
+The broader calculation allows every load-to-grain direction in
+[NDS 2024](https://awc.org/resources/2024-nds/), Table 12.3.3 / Eq.12.3-11,
+printed pp.93/95. Retain G0.50, **Fe_parallel=5600 psi** and divisor five.
+Use its nominal-diameter parallel line upper A and the preceding perpendicular
+upper B; both enclose every current smaller body/root interval. In N/mm,
+`A=Fe_parallel*D_nominal/5`, converting psi to MPa. For bearing vector q,
+angle theta to grain and `w=cos(theta)^2`, the continuous enclosure is:
+
+```text
+r(theta) <= 1/[w/A+(1-w)/B]; beta=(A+B)/(2*sqrt(A*B))
+q_parallel^2/A^2 + q_cross^2/B^2 <= beta^2
+abs(v dot q) <= beta*sqrt(A^2*v_parallel^2+B^2*v_cross^2)
+```
+
+The exact nonnegative-square identity
+`beta^2*[w/A+(1-w)/B]^2 - [w/A^2+(1-w)/B^2]`
+`= (A-B)^2*[(A+B)*w-A]^2/(4*A^3*B^3)` proves enclosure for every direction;
+Cauchy's inequality gives the last line. Integrate that support along each
+bore to bound its moment about the pair center. Arbitrary pressure reversals
+and bore-width couples remain free; no new axial bore torque is credited.
+This is a necessary bound under the named divisor-5 hypothesis, **not an
+adjusted NDS connection capacity or a physical strength upper**.
+
+Drop shaft bending, all other strength limits and two joints. Use the post,
+runner and opposing side wood at the three retained joints. The last has
+negative cycle sense; its source moment comes from its **own** original
+forces, without assuming opposing-wood force equality:
+
+| Wood / pair, either side | Y / Z of pair center, mm | Directional absolute Mx upper, Nmm |
+| --- | ---: | ---: |
+| Outer post / front | −91.5625 / 84.1375 | 95,757.273164 |
+| Runner / rear | 1534 / 83.25 | 103,768.487011 |
+| Side member / rear leg | 1134.25 / 1761.5 | 326,123.088047 |
+
+For equivalent source moments sj and a common increment `(Fy,Fz,M0)`, use:
+
+```text
+mj = sj + M0 - Yj*Fz + Zj*Fy
+weights=(alpha,1-alpha,-1); alpha=(Yrear-Yleg)/(Yrear-Yfront)
+S=sum(weightj*sj); K=sum(weightj*Zj); Bm=sum(abs(weightj)*Cj)
+abs(S+K*Fy)<=Bm; D=-Fy <= (Bm-S)/(-K), since K<0
+```
+
+The weights cancel M0 and Fz, leaving **K≈−1678.031751 mm**. These larger
+necessary sets still cannot supply the governing positive-edge target:
+
+| Source target | Necessary +Y reduction, N, approximately | Directional cycle reduction upper, N | Result under unchanged positive-edge target |
+| --- | ---: | ---: | --- |
+| Left `a12-forward` | 274.341573 | **250.408860** | Excluded |
+| Left `a12-left` | 30.363211 | 250.928815 | Not excluded; no witness |
+| Right `k12-right` | 23.982398 | 250.989893 | Not excluded; no witness |
+
+Even the relaxed governing relief leaves outside-band shear **≥566.864556 N**,
+above the source upper reference **542.931845 N**. All **24 relevant V4 upper
+increments** miss the six bound axes, so that allocation leaves this conclusion
+unchanged. The [fixed 400-N rear-foot field](#current-rear-foot-400n-fixed-sharing)
+adds **27,879.537409 Nmm** to the rear-runner source moment. Its composed
+relief upper is smaller: **195.853456 / 237.880168 N** under minimum-radial /
+directional laws. The [finite floor-traction construction](#current-rear-foot-400n-full-floor-tractions)
+keeps the same own bolt and complete floor wrenches, so it does not evade
+this bound. These are statics bindings, not physical superposition or response.
+
+**Disposition:** do not sweep this five-member force cycle to clear the
+original governing post target under either recorded divisor-5 law. Changed-edge
+methods, other bearing laws, other frame/contact/capture paths and support
+sharing remain distinct; this is not physical failure or proof against every
+allocation. The two smaller targets receive no passing allocation from a
+necessary bound. Source post failures, channel holds and complete-joint/response
+duties remain. The full goal stays active with both corners and all axes fixed.
+
+Independent 80-digit Decimal arithmetic rejoins **54 original fine actions /
+18 own bores** for each reference. Maximum force/Mx differences are
+**2e-13 N / <2.597e-12 Nmm**; relief-bound difference is **<1.542e-15 N**.
+Checks include **72** radial-rounding, **72** factored-enclosure, **18**
+ellipse-extremizer and **18** cancellation/endpoint controls. The composition
+also recovers the 400-N total-wrench change independently, error **1.556e-12 Nmm**.
+All **22 source bindings** pass. All producer/checker/composition replays are
+byte-identical; scoped Ruff, all **220** targeted development/documentation
+checks, changed links, table/artifact values and whitespace checks pass. The
+summary stays 150 lines. Standard-library Python **3.12.3** suffices; cached
+PyMuPDF **1.26.4** only inspects the reused source pages.
+
+These **165,882 active bytes** stay in the existing ignored closure folder.
+No optimization, frame/native/contact solve, CAD query/rebuild, geometry or
+hardware change, physical operation, observation, dependency, copied manual,
+archive or pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-front-force-cycle-bound-v1.py` | 12,746 | `192aba01d1282201e48c40eab403d009a1012114af284951a85d7d80ba81387b` |
+| `current-front-force-cycle-bound-attempt01.json` | 45,047 | `80b77c277d22e13eb157396cfd27c03284c355932348081f4da79f783d650258` |
+| `current-front-force-cycle-bound-verification-v1.json` | 16,670 | `b6dd9194a263fea8c5c6609587b20d81a4ee3cca407c698b5bec12743e039e2a` |
+| `current-front-force-cycle-composition-verification-v1.json` | 14,645 | `854b3ceec75627605e2caa6715aa294464bcc7f058247cc15a896b9d1a26075e` |
+| `current-front-directional-cycle-bound-v1.py` | 9,660 | `e25dffaa9d51eac9763e365caf1d2f70492462f855ddc7ef18a2b1105c945c35` |
+| `current-front-directional-cycle-bound-attempt01.json` | 50,232 | `9eee0265e4766d28a484bbb5a82d71ffe4c5f055c814c7463bd1b1b7ec44c68c` |
+| `current-front-directional-cycle-bound-verification-v1.json` | 16,882 | `936a378283a8149d20e70798c8f0856f2c91f34b3d55f058333829a12d2b2b7c` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-front-directional-cycle-bound-v1.py /tmp/eoere-front-directional-cycle-replay.json
+```
+
+All records embed their complete sources. Reproduce from the repository root
+into fresh outputs. Current/frozen evidence stays active; none is reclassified.
+
 <a id="current-rear-foot-vertical-sharing-trial"></a>
 **A 500-N rear-foot sharing trial: balanced, but rejected under the working
 bearing reference.** A finite normal-pressure allocation can move **500 N**
