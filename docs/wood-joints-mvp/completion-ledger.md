@@ -779,6 +779,94 @@ The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. No complete connection resistance is assigned.
 
+<a id="current-post-cleat-nominal-placement"></a>
+**Straight post/cleat pairs: nominal placement and shear references.** The
+two retained lower wood/wood pairs add **four axes / 24 lateral comparisons**
+and **24 member-shear comparisons**. They pass the recorded component
+references in the source and V4 allocations. Combined with the preceding
+packets, active nominal-placement coverage is **38 ordinary pairs / 76 axes**,
+with **456 lateral and 240 member-shear references per allocation**.
+
+The [NDS 2024 placement rules](https://awc.org/resources/2024-nds/),
+Table 12.5.1A, printed p.98, and the [existing group bound](#ordinary-two-member-group-factor-bound)
+are applied to **both wood receivers**. Each bearing is 38.1 mm long, with nominal D9.525 and
+`ell/D≈4`. The post's square upper end is **38.9 mm** from the bolt axes,
+above the **3.5D = 33.3375-mm** minimum. Its calculated reversible end factor
+is **0.583427**. Use the conservative **Cdelta,placement = 0.58** for both
+bolts and both members, with the unchanged **Cg ≥ 0.5** lower bound.
+
+The cleat's square bottom is **60.3 mm** away; its **0.904387** end component
+does not govern. The existing full-width cleat core reaches Z334.398106 mm,
+so the sloping top is clear of the lower group's 7D envelope. No reduced
+sloping-end factor is adopted. Paired rows remain **50.8 mm** apart, above
+the conservative two-wood 4D spacing. Both outer edges are at least **44.45 mm**,
+above 4D = 38.1 mm. The same **1e-6-mm numerical enclosure** and stricter
+cardinal placement assumption apply; actual tolerances remain unobserved.
+All **twenty neighbor-band checks** include the other front-post and upper
+cleat bores. Their separate connection duties remain unchanged.
+
+| Side | Lateral comparisons | Receiver-shear comparisons reused | Maximum group/placement lateral index | Maximum post-shear index | Maximum cleat-shear index |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Left | 12 | 12 | **0.993476** | 0.485836 | 0.249632 |
+| Right | 12 | 12 | 0.744709 | 0.357263 | 0.180450 |
+
+Values round upward. The governing lateral row is
+`cleat_post_bolt_left_2 / a12-forward`: **369.256034 N** against the unchanged
+**1,281.659016-N** six-mode value multiplied by `0.5*0.58`. The ratio is
+only about **0.65% below this nominal reference**; no physical reserve or
+complete-corner acceptance is inferred from it. The nominal placement
+factor controls these component comparisons without increasing a material
+value, changing loads or selecting a favorable actual Cg.
+
+Reuse twelve [outer-post upper-pair shear results](#current-front-end-connection-shear)
+and twelve [rectangular lower-cleat results](#retained-cleat-reference-audit).
+The latter's current field/state and complete force/couple aliases are
+rejoined exactly. Their No.2 shear reference is reused; the separate
+transverse-tension hypothesis in that older audit is not credited.
+The V4 increments affect none of these four shafts. They lie above the lower
+cleat bands and leave all **24 whole/prefix member-wrench comparisons**
+unchanged; the posts have no increment. Thus the new 24/24 references carry
+through V4. The separate five-member `a1-rear` loop changes these lower bolts
+and receives no new reference from this worksheet.
+
+**Eight ordinary groups remain:** six staggered starting-frame pairs and
+two clipped diagonal principal/angle pairs. The eight mixed stacks remain
+separate. Local interacting bolt/screw holes, splitting, complete 3D
+force/couple transfer, axial seats, fittings and response remain open.
+Passing the upper post/cleat checks does not clear the existing lower-post
+failures, left rear-foot failure or six channel machining holds. Both retained
+corners, all 100 bolts/66 Hillman axes and the full engineering goal remain.
+
+The independent Decimal check derives the two-wood distances directly from
+the current profiles and coordinates, checks all 24 original lateral joins,
+24 reused shear joins, twenty neighbor bands and 24 V4 invariants. All
+**21 direct pins** pass. The direct minimum end factor is **0.583427071616**;
+maximum lateral-index difference is **8.817e-17**, and V4 wrench difference
+is **zero**. Producer/checker replays are byte-identical; scoped Ruff passes.
+Python **3.12.3** and its standard library suffice.
+All **220 affected Node checks**, **nine added-line local links/fragments**,
+three artifact hash/byte rows, ten numeric table cells, combined coverage,
+the **150-line** summary and whitespace checks pass.
+
+The existing ignored closure folder retains **96,385 arithmetic-evidence
+bytes**. The preceding packets, sources, failed criteria and these records
+stay active; none is archived or pruned. No manual copy, tracked asset,
+dependency, native/frame solve, CAD query/rebuild or physical operation is added.
+
+| File in the existing closure folder | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-post-cleat-placement-v1.py` | 15,591 | `82afed0ac7fe79972fc6d7d05cd4de7083a5c19eedd877bdb752927b50c07306` |
+| `current-post-cleat-placement-attempt01.json` | 70,966 | `a7b29bfe4a1de0cfbbbbb6edf73f1a5954b2515d62bf624723016610f97f82e3` |
+| `current-post-cleat-placement-verification-v1.json` | 9,828 | `d1eb1e2268d8c4b2935c095f95a15c2505e520f66b5a01943c70df551195a6f1` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-post-cleat-placement-v1.py /tmp/eoere-post-cleat-placement-replay.json
+```
+
+The result embeds `reproduction_python_source`; verification embeds
+`verification_python_source`. Run from the repository root with a fresh
+output filename. Complete corner/joint/member resistance remains null.
+
 ##### Geometry-factor source and applicability followup
 
 The pinned NDS 2024 Chapter 12, printed pp.96–99, distinguishes **load angle
@@ -8014,7 +8102,7 @@ qualify the present crossed cleats or asymmetric shared stacks.
 
 | Current duty | Completed checks to retain | Specific inference still missing |
 | --- | --- | --- |
-| Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [36 regular wood/steel pairs](#current-prismatic-pair-nominal-placement) now have 432 passing group/nominal-placement references and 216 reused passing member-shear comparisons, unchanged under V4. | Finish placement for the other ten ordinary groups and complete local brittle/eccentric transfer for the actual signed actions. The nominal placement assumption does not qualify splitting, combined duty or physical sharing. |
+| Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [38 covered ordinary pairs](#current-post-cleat-nominal-placement) now have 456 passing group/nominal-placement references and 240 reused passing member-shear comparisons, unchanged under V4. | Finish placement for the other eight ordinary groups and complete local brittle/eccentric transfer for the actual signed actions. The nominal placement assumption does not qualify splitting, combined duty or physical sharing. |
 | Shared mixed-stack lateral transfer | All 48 own stack/case trials, three meshes and continuous bounds. The working divisor-5 model necessarily exceeds one for bolt 067 in `a12-forward`, including its certified control-comparator equilibria. | An applicable adjusted resistance interpretation and simultaneous axial/couple/local-wood treatment. The known conditional failure is retained without changing the reference or design. |
 | Axial seats, bolt metal and formed angles | Combined same-cut bolt-metal yield diagnostics, axial washer comparisons, 112 modeled wood seats, working t6.35/Ri6.35 heel references and 264 ideal-bend constructions. The [complete-steel method decision](#complete-steel-flange-hole-contact-and-interface-method-decision) retains the actual backing patches and all 528 own hole-port wrenches. | Compatible eccentric/prying transfer and complete flange/hole/rupture and wood-seat interaction. Force-only block shear cannot cover the retained normal loads and bending moments; repeating washer, bolt-metal or ideal-bend checks would not resolve this inference. |
 | Complete timber cleat | Corrected complete cut wrenches/tractions, finite-body flaw comparisons and bore-wall boundary traces, including the width moments above. | Applicable inter-bore/washer/side-contact transfer and combined local brittle resistance. The 40 working boundary constructions do not supply an interior or fracture proof; the eight inconclusive cases do not demonstrate a failure. |
