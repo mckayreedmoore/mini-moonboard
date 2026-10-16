@@ -867,6 +867,89 @@ The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. Complete corner/joint/member resistance remains null.
 
+<a id="current-staggered-pair-placement-method-scope"></a>
+**Placement-method disposition for the last eight ordinary pairs.** Reuse
+the current outer-profile inventory, physical two-member group census and
+three preceding placement packets. All **46 ordinary pairs / 92 axes** now
+have a scope disposition for the same stricter-cardinal sufficient method:
+**38 pairs / 76 axes** have the recorded nominal references; **eight pairs /
+16 axes** fall outside that method. The eight mixed axes remain separate.
+This completes the method-scope inventory, while actual oblique/eccentric
+placement and complete joint resistance remain unresolved.
+
+The pinned [NDS 2024 Chapter 12](hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf),
+Table 12.5.1D, printed p.99, uses the lesser wood main/total-side length.
+For the 3/8-inch pairs, `ell=38.1` gives the perpendicular-load marker
+`(5*ell+10D)/8 = 35.718750 mm`. The rear foot's other receiver is **50.8 mm**
+thick; using the lesser **38.1 mm** remains correct. For the 1/2-inch side/leg
+pairs, `ell=88.9` and `ell/D=7` give **5D = 63.500000 mm**.
+
+| Pair family, both sides | Wood receiver | Grain offset, mm | Perpendicular row marker, mm | Marker shortfall, mm |
+| --- | --- | ---: | ---: | ---: |
+| Front runner/post | Floor runner | 27.930718 | 35.718750 | 7.788032 |
+| Front runner/post | Outer post | 27.930718 | 35.718750 | 7.788032 |
+| Rear runner/leg | Floor runner | 34.000000 | 35.718750 | 1.718750 |
+| Rear runner/leg | Rear leg | 35.804155 | 35.718750 | **−0.085405** |
+| Side/leg | Side member | 52.195504 | 63.500000 | 11.304496 |
+| Side/leg | Rear leg | 47.179895 | 63.500000 | 16.320105 |
+| Lower diagonal principal/angle | Principal | 32.653611 | 35.718750 | 3.065139 |
+
+Dimensions round to nearest six decimals. Twelve of fourteen receiver/pair
+rows miss this sufficient marker; each of the eight physical pairs has at
+least one such receiver. The two rear-leg rows' small positive clearance
+does not qualify their floor receivers. Four existing reversible 4D edge
+markers also miss: `068/069` at **29.108028 mm** versus 38.1 mm and the two
+first side/leg bores at **43.399172 mm** versus 50.8 mm. Actual signed actions,
+distributed reversals and free couples retain their earlier records.
+
+These cardinal marker misses establish neither adopted oblique-load failure
+nor a reduced resistance. Section 12.5.1.3 supplies no between-row reduction;
+**do not use offset/required spacing as Cdelta**. The [front load-aligned
+Cg result](#same-case-isolated-lateral-row-factor) and [geometry applicability
+review](#geometry-factor-source-and-applicability-followup) retain their scope.
+The uniform cardinal route cannot qualify these eight pairs; another repeat
+of the same geometry calculation would not resolve their actual loading.
+The next engineering inference is an applicable oblique/eccentric local
+connection treatment, preserving both receivers and complete signed actions.
+No nominal-placement reference is added and no structural hold is cleared.
+
+The independent Decimal worksheet uses shaft origins rather than the
+producer's wood-port points. All **fourteen rows**, **nine direct source pins**
+and the disjoint **76 + 16 + 8 = 100-axis** accounting pass. Maximum geometry/
+ratio difference is **6.25e-15**; left/right geometry differences are zero.
+This geometric symmetry is not force-case symmetry. Both replays are
+byte-identical and scoped Ruff passes with Python **3.12.3**.
+All **220 affected Node checks**, eleven added-line local links/ten fragments,
+six artifact hash/byte rows, 21 numeric dimension cells, the **150-line**
+summary and whitespace checks pass.
+The first producer guard incorrectly required different receivers to have
+equal thickness; the checker initially mixed two connections in the same
+timber during its symmetry comparison. Both stops and their exact sources
+are retained. V2 corrects only those bookkeeping guards; the lesser-length
+rule, inputs and engineering criteria remain unchanged.
+
+The existing ignored closure folder retains **42,670 bytes** for this scope
+decision. These records and their predecessors stay active; nothing is
+archived or pruned. No dependency, manual copy, tracked asset, native/frame
+solve, CAD rebuild, geometry change or physical operation is added.
+
+| File in the existing closure folder | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-staggered-placement-scope-v1.py` | 7,861 | `2b2b4f89f4c82283820edaca900d23e5d821a59259ba2f8a08a3942560125882` |
+| `current-staggered-placement-scope-attempt01-stop.json` | 1,097 | `d535a06ed913c733f752873aab6a7b051eff0acc141c2e99773094a21040b16c` |
+| `current-staggered-placement-scope-v2.py` | 1,668 | `30bcf52dfc1237b3e27e1b37501dbf7ec9cfe19cb3af8fbfc76b7e2e6ecb45c1` |
+| `current-staggered-placement-scope-attempt02.json` | 17,336 | `4673d5b89b788341218010a4a093985d9ea82553d605483b6306501df691364f` |
+| `current-staggered-placement-scope-check-attempt01-stop.json` | 6,750 | `467e3271a5162e8e531df9533b9b81e8aee749232b41bf3409b9ea6c01143232` |
+| `current-staggered-placement-scope-verification-v2.json` | 7,958 | `0ceb89c96ac89fbc5219f568469423486bce296fb773c80be5df7de407bf5dcc` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-staggered-placement-scope-v2.py /tmp/eoere-staggered-placement-scope-replay.json
+```
+
+The result embeds the V2 reproduction source and pins its preserved V1;
+verification embeds its complete checker source. Use a fresh output path.
+The full engineering goal remains active and unachieved.
+
 ##### Geometry-factor source and applicability followup
 
 The pinned NDS 2024 Chapter 12, printed pp.96–99, distinguishes **load angle
@@ -8102,7 +8185,7 @@ qualify the present crossed cleats or asymmetric shared stacks.
 
 | Current duty | Completed checks to retain | Specific inference still missing |
 | --- | --- | --- |
-| Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [38 covered ordinary pairs](#current-post-cleat-nominal-placement) now have 456 passing group/nominal-placement references and 240 reused passing member-shear comparisons, unchanged under V4. | Finish placement for the other eight ordinary groups and complete local brittle/eccentric transfer for the actual signed actions. The nominal placement assumption does not qualify splitting, combined duty or physical sharing. |
+| Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [38 covered ordinary pairs](#current-post-cleat-nominal-placement) now have 456 passing group/nominal-placement references and 240 reused passing member-shear comparisons, unchanged under V4. | The [other eight ordinary groups](#current-staggered-pair-placement-method-scope) fall outside the same sufficient cardinal method. Complete actual oblique placement and local brittle/eccentric transfer for the signed actions. The nominal placement assumption does not qualify splitting, combined duty or physical sharing. |
 | Shared mixed-stack lateral transfer | All 48 own stack/case trials, three meshes and continuous bounds. The working divisor-5 model necessarily exceeds one for bolt 067 in `a12-forward`, including its certified control-comparator equilibria. | An applicable adjusted resistance interpretation and simultaneous axial/couple/local-wood treatment. The known conditional failure is retained without changing the reference or design. |
 | Axial seats, bolt metal and formed angles | Combined same-cut bolt-metal yield diagnostics, axial washer comparisons, 112 modeled wood seats, working t6.35/Ri6.35 heel references and 264 ideal-bend constructions. The [complete-steel method decision](#complete-steel-flange-hole-contact-and-interface-method-decision) retains the actual backing patches and all 528 own hole-port wrenches. | Compatible eccentric/prying transfer and complete flange/hole/rupture and wood-seat interaction. Force-only block shear cannot cover the retained normal loads and bending moments; repeating washer, bolt-metal or ideal-bend checks would not resolve this inference. |
 | Complete timber cleat | Corrected complete cut wrenches/tractions, finite-body flaw comparisons and bore-wall boundary traces, including the width moments above. | Applicable inter-bore/washer/side-contact transfer and combined local brittle resistance. The 40 working boundary constructions do not supply an interior or fracture proof; the eight inconclusive cases do not demonstrate a failure. |
