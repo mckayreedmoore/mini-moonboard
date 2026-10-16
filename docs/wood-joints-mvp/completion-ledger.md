@@ -4922,6 +4922,114 @@ fresh output filename. Existing sources, normal results, manuals and failed
 experiments stay active; nothing is archived or pruned. No native/frame solve,
 CAD rebuild, new dependency, copied manual or physical observation is added.
 
+<a id="current-rail-end-connection-shear"></a>
+**Rail-end connection shear: 72 completed NDS component comparisons.**
+The twelve end groups on the six bottom/lower-service/upper-service half-rails
+pass the strong-axis connection-shear check in all six current cases. The
+governing guarded ratio is **0.411072556791**, displayed upward as **0.411073**,
+at `base_rail_bottom_left/low` in `a1-rear`. This closes that connection-shear
+component; it does not clear the six held channel cuts or complete a joint.
+
+The existing [NDS 2024](https://awc.org/resources/2024-nds/), §3.4.4.1(a),
+printed p.21, supplies the rectangular bending-member connection rule.
+The [March 2026 errata](https://awc.org/wp-content/uploads/2026/03/2024-NDS-Errata-and-Addenda-03.23.26.pdf),
+pp.1–2, also identifies this check and the effective-depth definition.
+Reuse the frozen `reduced_depth_shear` helper already applied to the cleat
+component. For a connection within `5d` of an end, Eq.3.4-6 is:
+
+```text
+Vr' = (2/3) * Fv' * b * de * (de/d)^2
+de = d - distance from unloaded edge to nearest bolt center
+```
+
+The existing dry DF-L No.2/CD1 basis gives **Fv'=180 psi = 1.241056313 MPa**.
+The source NDS Supplement Table 4A, printed p.34, stays bound; no C16
+substitution or duration increase is introduced. Each end group contains
+two own bolts, nominally at V **44.45 / 95.25 mm** in the **139.7-mm** depth.
+Check both loading directions and use their smaller effective depth, so a
+net-force sign or opposing bore forces cannot select a favorable edge.
+Both groups are approximately **65.0875 mm** from an end, within `5d`.
+
+The current outer-profile inventory confirms square-ended rectangular stock
+for these six members. The source vertices retain the right rails' actual
+extended grain bounds; old end-plane offsets are not substituted for them.
+All twelve complete bore bands are clear of every existing channel envelope,
+with minimum gap **>30.638 mm**. All channels lie between the two end groups,
+leaving each group's path to its nearer square end clear. This establishes
+the local band for the rectangular component check; the separate channel/
+whole-member limits remain.
+An arithmetic **0.001-mm** enclosure reduces width and engaged depth and
+increases depth. Every resulting shear reference is **>1,395.712 N**.
+These enclosures are not machining tolerances.
+
+Recover each band's shear from the complete original point actions and
+affine selfweight using the unchanged `member_point_inputs` and
+`member_cut_wrench` helpers. Retain all six cut components. Between point
+events the nonnegative affine weight density makes the strong-axis shear
+monotone; both sides of every event and both band ends therefore enclose
+its maximum absolute value. **798 one-sided/band-end cuts** cover all 72
+comparisons without a sampled sweep. Add **1e-5 N** as an arithmetic force
+allowance, not a physical demand-error bound.
+
+| Current case | Rail-end comparisons | Maximum guarded component ratio |
+| --- | ---: | ---: |
+| `a12-forward` | 12 | 0.031167 |
+| `a12-rear` | 12 | 0.024742 |
+| `a12-left` | 12 | 0.051979 |
+| `k12-right` | 12 | 0.051537 |
+| `k12-rear` | 12 | 0.026515 |
+| `a1-rear` | 12 | **0.411073** |
+
+The governing current shear is **573.739205 N**, rounded upward.
+The independent 70-digit Decimal check reconstructs the original tables and
+uses the complementary free body, explicitly subtracting the saved complete-
+body equilibrium residual to match the source's lower-portion convention.
+It reproduces all twelve geometries, 72 references and 798 full cut wrenches.
+Maximum corrected force/moment differences are **8.00e-14 N / 1.343e-10 Nmm**;
+the maximum ratio difference is **2.00e-16**. The largest saved projected
+force residual is **8.127e-6 N**, within the unchanged arithmetic allowance;
+the corresponding maximum moment residual over compared cuts is
+**0.005867 Nmm**. No source action or admission criterion changes.
+
+The first checker stopped because it compared complementary sums as though
+the saved equilibrium residual were exactly zero. Its source and stop reason
+are preserved. The corrected check accounts for that residual; it does not
+loosen the first checker's comparison guards. All **27 direct source bindings**
+and the producer remain unchanged. Producer and corrected-checker replays
+are byte-identical; scoped Ruff passes.
+All **220 development/documentation checks**, **16** added-line local links
+and their **16** fragments, artifact digest/size checks, rounded table values and
+whitespace checks pass. The maintained summary stays at **150 lines**.
+
+**Disposition:** retain these 72 completed component results. Axial seat
+transfer, other force/moment components, local brittle/group modes, other
+members' end-load introduction and physical sharing remain separate.
+The [six central-channel machining holds](#current-channel-notch-location-gate)
+remain active. Both corners, 100 bolt axes, 66 Hillman axes and source shop
+datums are unchanged; no observation cell is filled. The full engineering
+goal remains active and unachieved.
+
+These **417,277 bytes** stay active in the existing ignored closure folder:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-rail-end-connection-shear-v1.py` | 11,620 | `f83fe3a96227f5f3d7ca88f98da43ea57ca2735cce3bb76400f5b25c4bc3cba3` |
+| `current-rail-end-connection-shear-attempt01.json` | 384,821 | `ca2fd4c84bc6920a102967a1cf8bfc18ea271fcc0c3e76b9df4e20fed02be516` |
+| `current-rail-end-connection-shear-check-attempt01-source.py` | 8,304 | `e5c7a10764b6721661583a130650a94a7f82cb1a006eeb44a06897973f66463c` |
+| `current-rail-end-connection-shear-verification-v1.json` | 12,532 | `8841d4c04dce97b6a232609fa418b47abf9ca62ffaf1c5a74e157f6bb4f6b82e` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rail-end-connection-shear-v1.py /tmp/eoere-rail-end-shear-replay.json
+```
+
+Python **3.12.3** and its standard library suffice. The result embeds
+`reproduction_python_source`; the verification record embeds its corrected
+`verification_python_source` and binds the stopped checker. Run from the
+repository root with a fresh output path. Existing geometry, fields, manuals,
+helpers and failed experiments stay active; nothing is archived or pruned.
+No native/frame solve, CAD query/rebuild, new dependency or physical operation
+is added.
+
 <a id="same-station-bore-window-normal-followup"></a>
 **Same-station bore-window normal followup.** Critical-section accounting
 finds that the 58 screened pairs occupy **116 distinct wood-bore occurrences**
@@ -5066,7 +5174,7 @@ The remaining unsupported qualifications reduce to this decision table:
 | --- | --- | --- |
 | Cleat local wood resistance | Passing relaxed section references, retained shear/normal reference checks and [existing-upper-bolt bridge statics](#existing-upper-bolt-bridge-statics). | **Complete local transverse/splitting resistance unsupported.** The bridge supplies a normal compression construction at the central cut with changed force shares, retaining explicit inclined-host and common-shaft demands. It does not cover every split/shear/torque path. The failed prescribed-pressure family and inapplicable beam shortcut retain their separate outcomes; neither establishes physical cleat failure. |
 | Combined joints/seats and their restraint/response paths | Ordinary lateral, bolt-metal, axial washer, ideal-bend and representative mixed-stack statics comparisons. Current restraint locations/directions are mapped. | **Complete simultaneous transfer and applicable response unsupported** for the eight mixed stacks, holed flanges and eccentric axial seats. All four long-member restraint duties share these axial capture/seat return paths. They do not create separate commissions for four member models and another frame model. |
-| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**; [48 normal comparisons cover all 32 service channels and their eight containing spans](#current-service-channel-normal-coverage). Retain the [13 continuous taper normal checks and 13 C16 tapered-normal references](#current-retained-leg-taper-normal-completion), plus [13 nominal shear/torsion references and the named 1:12 normal-notch provision](#current-retained-taper-shear-and-normal-notch-scope). | The [six central rail channels fail the NDS prescriptive location gate](#current-channel-notch-location-gate) under the frame-support basis and their machining is held. **Other local channel strength, combined recess duty and support/load introduction, clipped-end loading and remaining profile coverage stay unsupported** within the stated method limits. The added taper linear normal/shear comparison has two same-cut exceedances. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load duties and the 34 compression-domain exceptions' conditional restraint dependence; completed comparisons are not reopened. |
+| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**; [48 normal comparisons cover all 32 service channels and their eight containing spans](#current-service-channel-normal-coverage). Retain the [13 continuous taper normal checks and 13 C16 tapered-normal references](#current-retained-leg-taper-normal-completion), plus [13 nominal shear/torsion references and the named 1:12 normal-notch provision](#current-retained-taper-shear-and-normal-notch-scope). The [72 rail-end connection-shear comparisons](#current-rail-end-connection-shear) pass, maximum **0.411073**. | The [six central rail channels fail the NDS prescriptive location gate](#current-channel-notch-location-gate) under the frame-support basis and their machining is held. **Other local channel strength, combined recess duty and support/load introduction, clipped-end loading and remaining profile coverage stay unsupported** within the stated method limits. The added taper linear normal/shear comparison has two same-cut exceedances. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load duties and the 34 compression-domain exceptions' conditional restraint dependence; completed comparisons are not reopened. |
 
 The owner-selected disposition is to retain the current design and its
 qualification limits. Panel/screw exceedances stay deferred. No new design,
