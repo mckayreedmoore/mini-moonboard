@@ -4932,6 +4932,114 @@ fresh output filename. Existing sources, normal results, manuals and failed
 experiments stay active; nothing is archived or pruned. No native/frame solve,
 CAD rebuild, new dependency, copied manual or physical observation is added.
 
+<a id="current-side-positive-bearing"></a>
+**Two paired-edge cases: positive-side bearing with complete lateral shaft statics.**
+Four fixed leg/side bolt-case fields now satisfy the unchanged working lateral
+reference while keeping the side-member transverse pressure strictly positive.
+The governing index is **0.959308599053**, displayed upward as **0.959309**.
+This answers whether those two cases can retain both forces and width moments
+with one-sided side bearing. The [original shear census](#current-mitered-prismatic-connection-shear)
+stays **315 passes / four failures / five held comparisons**, with six clipped
+groups outside the assigned rule. A statics alternative does not establish the
+actual pressure distribution, early brittle behavior or complete joint resistance.
+
+The previous continuous one-sided-pressure bound already excludes that route
+for both side bores in left `a12-forward`, left `a12-rear` and right `k12-rear`
+under its declared working cap. Those six exclusions remain closed. For left
+`a12-left` and right `k12-right`, its four scalar inequalities were inconclusive.
+This followup uses the [existing vector-bearing method](../../scripts/eoere_joint_vector_tests.py)
+for those four shafts only, with **16 cells per member / 32 facets**. It retains
+both wood surfaces, every prescribed force and width moment, all metal gravity,
+the catalog minimum body/purchase-root transition, continuous bending extrema
+and the original numerical gates. All prescribed port wrenches and the six
+original force exports stay frozen.
+
+The captured two-member adapter changes only the earlier three-member count
+guard and adds a side-direction inequality to the existing statics problem.
+Densities act on the bolt; the constraint projects their opposite onto the
+side member's original transverse direction. The **1e-4-N/mm** strict-positive
+search margin is numerical, not an added capacity. Both bearing and bolt-bending
+references retain **divisor 5** and their existing material assumptions.
+
+| Current case | Existing bolt | Full lateral bearing/shaft working index |
+| --- | --- | ---: |
+| `a12-left` | `lumber_leg_bolt_left_1` | 0.832297 |
+| `a12-left` | `lumber_leg_bolt_left_2` | **0.959309** |
+| `k12-right` | `lumber_leg_bolt_right_1` | 0.824849 |
+| `k12-right` | `lumber_leg_bolt_right_2` | 0.950645 |
+
+All **136 piecewise-constant cells** pass the direct continuous verifier;
+side pressure stays **>0.0000999999 N/mm** everywhere in its credited bearing
+intervals. The independent original-table join retains all eight own force/
+first-moment pairs: maximum discrepancies are **2e-13 N / 1.282e-10 Nmm**.
+Material-cap differences are at most **4.529e-11 N or Nmm**, as appropriate.
+No new sharing, coupling to another frame response or material factor is adopted.
+
+Because each shaft is perpendicular to the receiving side's grain, changing
+its width distribution at unchanged own force/moment leaves the saved
+longitudinal cut resultants unchanged. Using the positive-direction NDS shear
+reference therefore gives these **conditional directed-component comparisons**:
+
+| Case / receiving side | Saved shear upper, N | Positive-direction reference lower, N | Conditional index |
+| --- | ---: | ---: | ---: |
+| `a12-left` / left | 1,585.903311 | 3,365.693835 | **0.471197** |
+| `k12-right` / right | 1,567.060971 | 3,365.693835 | **0.465599** |
+
+Demand values round upward and resistance values downward. Both shafts in
+each actual pair have the positive-bearing construction; a single-bolt result
+is not substituted for the whole pair.
+
+**Disposition:** retain the four complete lateral statics witnesses and the
+two directed shear references. The [AWC TR12](https://awc.org/wp-content/uploads/2021/12/AWC-TR12-1510.pdf),
+§2.1–2.1.2, printed p.6, bases lateral yielding on ideal plastic behavior and
+assumes geometry that permits yielding before premature wood/fastener failure.
+Its yield treatment does not itself cover those other limit states. Accordingly, these constructed
+fields do not establish that the actual connection reaches them before local
+brittle failure, or qualify compatible contact, end/edge/group behavior,
+axial/torsional interaction and response. **All five paired-edge holds and
+four failed source-shear comparisons remain.** The two cases now have a
+moment-preserving, direction-consistent statics option for that continuing
+joint treatment; their moments need not be discarded to obtain it. No physical
+pressure law or full ASD joint capacity is inferred.
+
+All **14 producer / 16 verification bindings** recheck unchanged. Producer
+and checker replays are byte-identical. All three arithmetic sources pass
+scoped Ruff; all **220 development/documentation checks**, **12** added-line
+local links including **11** fragments, **ten** case-table values, artifact
+digest/size checks and whitespace checks pass. The summary stays at **150 lines**.
+The first export stopped after all
+four numerical checks passed because a NumPy comparison boolean was not JSON
+serializable. V2 normalizes that boolean and serializes before opening the
+output; its four indices exactly match the preserved first-run output. V1,
+the empty first output and its stop record remain frozen. No failed numerical
+result, strength parameter or admission criterion is removed or relaxed.
+
+These **342,426 bytes** remain active in the existing ignored closure folder.
+The 136-cell fields and continuous-segment records support the four complete
+shaft comparisons. Python **3.12.3 / NumPy 2.5.2 / SciPy 1.18.1** use the
+existing shared dependencies:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-side-positive-bearing-v1.py` | 10,502 | `ee664944ae46fc69726547995349f84cea243e9312ad4d1c218707bddb7f4333` |
+| `current-side-positive-bearing-v2.py` | 1,890 | `733a4cfdd274e671c1ffbbb928af1550d6370721554458c258d60270cb8dd4af` |
+| `current-side-positive-bearing-attempt01.json` | 0 | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` |
+| `current-side-positive-bearing-attempt01-stop.json` | 1,001 | `4ccec5d69175e6211a24c0d6fef0b609c6f3d5ef8407263f9b46d2b2606edf50` |
+| `current-side-positive-bearing-attempt02.json` | 313,399 | `103008400fb11a475742e6b2e4423d4b29c7e2f29ee0ede4cba7a16bf63979e8` |
+| `current-side-positive-bearing-verification-v1.json` | 15,634 | `f09e138df1f8929f26e23f6d7391b266e2159e0cdd0824ccb3cbd3ce82997c49` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-side-positive-bearing-v2.py /tmp/eoere-positive-side-bearing-replay.json
+```
+
+Both JSON records embed their complete `reproduction_python_source`; extract
+the verification source and run it from the repository root with a fresh output.
+V2 pins its frozen V1 source and export stop. Current fields, component inputs,
+working references, prior failures and all geometry remain active. No native/
+frame solve, CAD query/rebuild, redesign, physical operation, copied manual,
+archive, prune or actual observation is added. The full goal stays active and
+unachieved; no remaining joint or response duty is deemed complete by this result.
+
 <a id="current-mitered-prismatic-connection-shear"></a>
 **Prismatic receiver bands before miters: 144 comparisons and one added failure.**
 The current six-case continuation adds **138 conservative passes, one failed
