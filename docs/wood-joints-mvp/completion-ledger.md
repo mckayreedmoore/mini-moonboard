@@ -4565,6 +4565,120 @@ All **220 development/documentation checks**, nine added-line local
 link/fragment checks and whitespace checks pass. The maintained summary
 stays at **148 lines**; all inputs, sources and failed comparisons stay active.
 
+<a id="current-service-channel-normal-coverage"></a>
+**Current service-channel normal coverage.** The remaining section question
+is whether all current service channels have continuous nominal normal
+coverage under the existing DF-L No.2/dry/CD1 law. This followup reuses the
+clipped-profile retained-strip, centroid-enclosure and affine-gravity kernels;
+it introduces no material law or response solve.
+
+The cached-solid census identifies **216 cylindrical faces** in the 22
+current timbers. **120** match the current wood-bearing bolt occurrences
+uniquely by radius, line and direction. The other **96** form **32 smaller
+service channels**, three cylindrical faces per channel: one in each center
+principal and five in each of the six bottom/service half-rails. This joins
+the recorded smaller-channel revision, including the restored right
+principal; the removed eleven F-column arc cuts are not reinstated.
+
+Use one analysis span per affected member, from its first channel boundary
+through its last. In each span, deduct the full **14.35-mm front channel
+band** and **every own bolt-bore projection**, including bores outside the
+span, from the common retained section `S0`. This deliberate extra deduction
+covers the existing simultaneous/staggered-hole envelope without selecting
+favorable bore stations. Use the gross outer rectangle as `S1`, so it also
+encloses the wood omitted only for this conservative analysis.
+
+For `S0 ⊆ S(s) ⊆ S1`, adding material increases area and both central second
+moments. Verified full-width extrusion fixes the U centroid and zero product
+moment; the added-area centroid formula bounds the changing V centroid.
+The existing normal kernel retains its centroidal moment transport and
+outer-coordinate lever arms. Thus neither the minimum section's centroid
+nor an uncut gross strength section replaces the actual changing section.
+The bound applies to the curved finished section and to its projected-bore
+net-section envelope. The independent CAD sections retain the curved channel.
+
+**All 48 member/case comparisons are below the unchanged normal reference**,
+covering the 32 channels and the intervening spans. Governing uppers rounded
+outward are:
+
+| Current member | Channels | Normal reference upper | Own case |
+| --- | ---: | ---: | --- |
+| Center principal, left | 1 | **0.061372** | `a1-rear` |
+| Center principal, right | 1 | **0.076903** | `a12-rear` |
+| Bottom half-rail, left | 5 | **0.480823** | `a1-rear` |
+| Bottom half-rail, right | 5 | **0.086413** | `a12-left` |
+| Lower service half-rail, left | 5 | **0.032565** | `k12-right` |
+| Lower service half-rail, right | 5 | **0.034488** | `a12-left` |
+| Upper service half-rail, left | 5 | **0.045131** | `k12-right` |
+| Upper service half-rail, right | 5 | **0.045235** | `a12-left` |
+
+The calculation retains all original point forces, free couples and affine
+selfweight in **996 point-action intervals**. **28** common strip-prism
+queries find zero missing volume and zero missing solids. **24** independent
+CAD section integrations and **144** own-case section/cut checks support
+the geometry and arithmetic; the maximum sampled normal reference is
+**0.253622**, rounded outward. These samples verify the continuous enclosure
+calculation; they are not substituted for its bounds.
+
+**Disposition.** Nominal normal coverage of the current service-channel
+regions is complete under the named plane-section hypothesis. The 372
+bore-window comparisons remain closed; their coverage overlaps these spans,
+so the two counts are not disjoint obligations. Permitted-notch/local stress
+concentration, shear/torsion, splitting, end/bore load introduction,
+`CP`/`CL`, response and complete member/joint resistance remain separate.
+No physical observation, tolerance, floor condition or release is inferred.
+The full engineering completion goal remains active.
+
+**Reuse and verification.** The first attempt selected the superseded bottom
+stock-envelope records and stopped at the unchanged raw-stock containment
+guard. The already issued [bottom-placement correction](#remaining-bore-window-normal-completion)
+resolves that source placement. V2 substitutes only its two corrected
+envelope references; it creates no replacement stock or finished part and
+reruns no completed bore-window calculation. It then stopped while serializing a NumPy integer,
+before opening its output. Both stopped sources and receipts stay frozen.
+V3 reuses the existing scalar converter without changing the geometry,
+equations, reference values or placement. The fresh final replay is
+byte-identical.
+
+Independent verification builds cubic wrench polynomials from stable
+relative gravity integrals and independently summed point actions. Existing
+Bernstein subdivision encloses all **996 intervals**, with **zero wrench
+bound misses**. An independent two-by-two normal-gradient solve recovers
+all **144** saved CAD-cut comparisons within **6.87e-16**. All **1,642
+producer source pins**, plus the reused Bernstein checker's own hash, remain
+unchanged. The recorded tools are Python **3.12.3**, NumPy **2.5.2**,
+CadQuery **2.8.0** and OCP **7.9.3.1**.
+
+The following **1,755,621 bytes** stay active in the existing ignored
+engineering-closure folder. The result retains the source census, section
+enclosures, all own interval bounds and reproduction bindings; it copies no
+field dataset, manual, dependency installation or viewer asset. No new
+permanent generated repository artifact is added. Current sources, finished
+parts, the two corrected stock caches, prior results and failures remain
+unchanged; no native/frame solve, frame CAD rebuild, physical operation,
+archive or prune occurs.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-channel-span-normal-v1.py` | 18,782 | `7eec8168e3ce5e5bc3f4ca90c4f32c62314eace5bc2b5d587db07fd0c641f545` |
+| `current-channel-span-normal-attempt01-stop.json` | 1,976 | `46aadab9fc99595f6dd159ccaac6ad687289e812601cbf429d0f5d6e581fbab8` |
+| `current-channel-span-normal-v2.py` | 3,199 | `ce1bc29824d2cb9eec27bcc9224edb38ef6e2aaa4e5e2d4eb1a7229995016006` |
+| `current-channel-span-normal-attempt02-stop.json` | 925 | `2b685ed169371fc954239f60c3cea5bebc7e95e6c177d5177b51d2b9c379a0c6` |
+| `current-channel-span-normal-v3.py` | 1,760 | `e2e49df1d9cdc1ce898429e4d4bebdb7213be244c9e3a10017741d4aa2f80478` |
+| `current-channel-span-normal-attempt03.json` | 1,720,197 | `a660c5af0c06361b46da84f5e30d0ef53be9c2ab66cd358858a1b82702c82027` |
+| `current-channel-span-normal-verification-v1.json` | 8,782 | `6b23ff5a9ce505c4821c24f538acdc42ae920583cd32d90512906a44eb7e7d2a` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-channel-span-normal-v3.py /tmp/eoere-channel-span-normal-v3-replay.json
+```
+
+The verification JSON embeds its complete checker. Load with
+`__name__="verification"` and call `verify(record_path, record_sha256)`.
+The three worksheet sources and embedded checker pass scoped Ruff E9/F.
+All **220 development/documentation checks**, twelve added-line local
+link/fragment checks and whitespace checks pass. The maintained summary
+stays at **148 lines**; all current inputs and failed records stay active.
+
 <a id="same-station-bore-window-normal-followup"></a>
 **Same-station bore-window normal followup.** Critical-section accounting
 finds that the 58 screened pairs occupy **116 distinct wood-bore occurrences**
@@ -4709,7 +4823,7 @@ The remaining unsupported qualifications reduce to this decision table:
 | --- | --- | --- |
 | Cleat local wood resistance | Passing relaxed section references, retained shear/normal reference checks and [existing-upper-bolt bridge statics](#existing-upper-bolt-bridge-statics). | **Complete local transverse/splitting resistance unsupported.** The bridge supplies a normal compression construction at the central cut with changed force shares, retaining explicit inclined-host and common-shaft demands. It does not cover every split/shear/torque path. The failed prescribed-pressure family and inapplicable beam shortcut retain their separate outcomes; neither establishes physical cleat failure. |
 | Combined joints/seats and their restraint/response paths | Ordinary lateral, bolt-metal, axial washer, ideal-bend and representative mixed-stack statics comparisons. Current restraint locations/directions are mapped. | **Complete simultaneous transfer and applicable response unsupported** for the eight mixed stacks, holed flanges and eccentric axial seats. All four long-member restraint duties share these axial capture/seat return paths. They do not create separate commissions for four member models and another frame model. |
-| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**, including all staggered, same-station and single-bore windows; also [13 continuous taper normal checks and 13 explicit C16 tapered-normal references](#current-retained-leg-taper-normal-completion), plus [13 nominal shear/torsion references and the named 1:12 normal-notch provision](#current-retained-taper-shear-and-normal-notch-scope). | **Combined recess shear/transverse/torsion and local support/load introduction, clipped-end loading and remaining channel/recess critical-section coverage remain unsupported** within the stated method limits. The added linear normal/shear comparison has two same-cut exceedances; separate component passes do not establish acceptance. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load and changed-section duties. The 34 compression-domain exceptions retain their conditional restraint dependence; completed comparisons are not reopened. |
+| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**; [48 normal comparisons cover all 32 service channels and their eight containing spans](#current-service-channel-normal-coverage). Retain the [13 continuous taper normal checks and 13 C16 tapered-normal references](#current-retained-leg-taper-normal-completion), plus [13 nominal shear/torsion references and the named 1:12 normal-notch provision](#current-retained-taper-shear-and-normal-notch-scope). | **Local channel notch/shear/torsion, combined recess duty and support/load introduction, clipped-end loading and other remaining profile coverage remain unsupported** within the stated method limits. The added taper linear normal/shear comparison has two same-cut exceedances. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Retain local brittle/end-load duties and the 34 compression-domain exceptions' conditional restraint dependence; completed comparisons are not reopened. |
 
 The owner-selected disposition is to retain the current design and its
 qualification limits. Panel/screw exceedances stay deferred. No new design,
