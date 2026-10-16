@@ -7618,6 +7618,151 @@ active and unachieved; panel/screw remedies stay deferred and actual fit
 excluded. All inputs, earlier failures and these four records remain
 active; nothing is archived or pruned.
 
+<a id="current-continuous-flange-net-section-envelope"></a>
+**Continuous nominal net-section envelope for both hole rows.** All
+**264 flange/case combinations** satisfy a conservative combined section
+comparison from the working heel tangent, **X=12.7 mm**, to the **88.9-mm**
+tip. The largest guarded upper is **0.9660365078914319**, displayed upward
+as **0.966037**. This closes the nominal net-section comparison at the
+retained six-case actions, including finite normal-load footprints and a
+finite radial bore-load construction. It does not establish the actual
+three-dimensional fitting stress, local hole load entry, instability,
+bend-interface transfer or physical response.
+
+The engineering question follows the completed unholed-root work: can the
+remaining sections be checked without transferring a rectangular interaction
+to a holed section or replacing a loaded footprint by its centroid? **Yes
+for nominal section-resultant resistance.** Conventional bracket-plate
+guidance distinguishes gross flexural yielding from
+[elastic net-section flexural rupture, AISC October 2000, p.10](https://www.aisc.org/globalassets/modern-steel/steel-interchange/2000/2000v10_si_web.pdf).
+The following conservative combined-mode inequality is derived explicitly;
+it is not an unmodified Dowswell equation or a new product rating.
+
+Use the [existing 12-mm net deduction](#current-principal-block-shear-components)
+for each nominal 10-mm hole. In the calculation, deduct that width at both
+**Y=±25.4 mm** at every X, leaving three symmetric rectangular ligaments of widths
+**13.05 / 38.8 / 13.05 mm**. This deliberately uses the smallest net shape
+throughout the straight flange, including between and beyond the holes.
+Retain **t6.35**, conditional **Fy235** and factor **1.67**. The section has
+**A=412.115 mm²**, weak-axis **S=436.155042 mm³** and strong-axis
+**S=6,111.110584 mm³**. Available comparison strengths are:
+
+| Section mode | Available strength |
+| --- | ---: |
+| Axial N | 57,992.231 N |
+| Each direct shear component | 22,321.220 N |
+| Uniform torque T | 95,903.646 Nmm |
+| Weak-axis moment My | 61,375.111 Nmm |
+| Strong-axis moment Mz | 859,946.699 Nmm |
+
+Uniform/linear normal-stress modes recover N and both bending moments.
+Parabolic direct-shear modes use the conservative **1.5** peak factor.
+Each ligament has a rectangular Prandtl-roof torsion mode; their exact
+moduli sum to **1,180.4411875 mm³**. Each pure mode has Mises stress no
+greater than **235/1.67=140.718563 MPa**. The Mises expression is a norm of
+the normal and shear components. Its triangle inequality therefore supplies
+this sufficient section budget, retaining every action simultaneously:
+
+```text
+U = |N|/Nc + (|Vy|+|Vz|)/Vc + |T|/Tc + |My|/Myc + |Mz|/Mzc <= 1
+```
+
+This is a construction of nominal section traction modes, **not an
+equilibrated stress field through the complete holed body**. The scalar
+working normal/shear controls, **140.718563 / 81.243901 MPa**, also stay
+below the retained net normal/shear rupture references **185 / 111 MPa**;
+that observation does not establish local multiaxial rupture or block-path
+interaction. The existing bearing, tear-out and block-path results retain
+their component scope.
+
+For the normal loads, reuse all **352** common-flat backing unions and all
+**88** steel washer lands, enclosing the five washer profiles at their
+largest radius. Exact reflected-tile pairing confirms central symmetry of
+every cropped backing union. Each annular washer pressure is also centrally
+symmetric. Let R be a footprint's enclosing half-width and F its full force.
+At any X, the cut-force difference from its centroid action is bounded by
+**|Fj|/2**. The axial hinge-moment difference is bounded by **|Fj|Rx/2**;
+the transverse first-moment allowance is **|Fj|*(|centroid|+Rj)/2**.
+Sum these allowances as wrenches and apply the same section budget.
+
+Between centroid events the point-model wrench is affine and U is convex,
+so its maximum occurs at an event side or interval end. **7,824** such
+comparisons cover the complete intervals; no sampled section sweep or
+optimisation is substituted for that argument. The pressure allowances
+explicitly cover cuts through footprints. Retain the existing straight-flange
+gravity partition and every own bearing/capture/backing action.
+
+Inside the used-bore zone, **X=60.0875–70.0875 mm**, replace each lateral
+bearing action by its own finite radial-pressure construction. A **1.5875-mm**
+band centered at each original thickness station lies within the flange;
+the two bands at each hole are disjoint. On its loaded semicircle use
+**p=2|F|cos(theta)/(pi*R*band_width)** with R=5 mm. This recovers the
+in-plane force, zero free moment about the hole axis and the original
+through-thickness lever. Its total vector-traction variation is **4|F|/pi**,
+which bounds partial-bore resultants without equal load shares. Maximum
+constructed pressure is **32.149243 MPa**. It is not a physical peak or
+an independently qualified local hole-stress field.
+
+| Current case | Flanges | Guarded continuous nominal upper |
+| --- | ---: | ---: |
+| `a12-forward` | 44 | 0.891560 |
+| `a12-rear` | 44 | 0.795989 |
+| `a12-left` | 44 | **0.966037** |
+| `k12-right` | 44 | 0.956702 |
+| `k12-rear` | 44 | 0.810672 |
+| `a1-rear` | 44 | 0.580145 |
+
+The governing flange is **left top single angle / arm-z / a12-left**.
+Its point-model upper **0.5630738444** plus finite-normal allowance
+**0.4029616636** gives raw upper **0.9660355078914319**. The separate
+inside-bore bound is **0.754592624**. These are conservative nominal
+comparison bounds, not recovered physical stresses or actual utilisation.
+
+The independent checker uses **70-digit Decimal** reduction and exact
+rational section integrals, including all pure-mode resultants, central
+support pairing and a unit semicircle integration control. It checks
+**2,640** normal support/case occurrences and **1,056** own bore bands.
+Maximum index difference is **2.220447e-16**. The quantified coordinate
+bias allowance is at most **1.503640e-11** in index; add **1e-6** to each
+raw upper as an arithmetic guard. This guard is neither manufacturing
+tolerance nor physical-response error. Nominal-hole placement recovers the
+source bore wrenches within **2.489794e-7 Nmm**; the largest coordinate-normal
+bearing component is **1.773928e-14 N**. Centering finite normal footprints
+changes individual source wrenches by at most **1.832972e-10 Nmm**.
+These preserve the recorded numerical source-precision limits.
+
+Three active files in the existing ignored engineering-closure folder total
+**834,347 bytes**. All **128 unique direct/inherited/checker source bindings**
+are unchanged; no manual, field, CAD installation or dependency is copied.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-flange-net-envelope-v1.py` | 14,853 | `4fdc5a9cf03e3d1405be6b210a5f44be57741b1b04c583634e453fe4914710b0` |
+| `current-flange-net-envelope-attempt01.json` | 798,971 | `3562c9e682816c807fa38ac4ed7bc8efd3454581719188808db7d4c76411862a` |
+| `current-flange-net-envelope-verification-v1.json` | 20,523 | `98b887e437e2dabd6c0492565969cf67bf530ef39aa0c43410cf6e85b4ee587d` |
+
+The verification JSON embeds its complete checker. Reproduce the producer
+into a fresh output:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-flange-net-envelope-v1.py /tmp/eoere-flange-net-envelope-replay.json
+```
+
+Scoped Ruff checks pass for the producer and independent checker. Fresh
+producer/checker replays are identical. All **220 affected development and
+documentation checks**, seven changed local links/fragments and owned
+whitespace checks pass. The maintained summary stays at 148 lines; only
+the two maintained documents enter the commit.
+
+Next resolve local hole/load-entry resistance and transfer into the bend
+with the retained bore/path and bend evidence; retain physical restraint
+and response in the complete-joint decision. No native, frame, CAD or
+contact solve, redesign, candidate selection or physical operation occurs.
+Both cleats, all 100 bolt axes and 66 Hillman axes remain fixed. Panel/screw
+remedies stay deferred and actual observations blank. All three records,
+their sources and earlier failures remain active; nothing is archived or
+pruned. The full engineering completion goal remains active and unachieved.
+
 <a id="current-unholed-flange-root-interaction"></a>
 **Simultaneous actions at the unholed flange roots.** The current six-case
 comparison covers **264 roots**: both flanges of all 22 fittings in each
