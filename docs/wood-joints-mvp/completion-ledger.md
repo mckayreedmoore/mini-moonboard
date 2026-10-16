@@ -9663,6 +9663,109 @@ The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. PyMuPDF **1.26.4** was used only to inspect cached source pages.
 
+<a id="current-cleat-effective-area-force-component"></a>
+**Effective-area splitting method: directional force requirements.** The
+[NZ Wood guide](https://cms.timberunlimited.co.nz/assets/Resources/reinforcement_of_timber_members.pdf?v=1689136441),
+C5.1/C(2)–C(4), printed pp.23–25, now has a numerical group-force binding:
+
+```text
+C = k53*k54*[6.5 + 18*(de/d)^2]*(tef*d)^0.8
+Gamma = phi*k1*k15*k55*ft90_connection
+N90,w = Gamma*C
+required Gamma = lambda*N90_component/C_lower
+```
+
+Use mm, N and MPa in this empirical expression; C is reported in N/MPa.
+The table uses **lambda=1**, the unchanged current nominal actions. A coherent
+design action `lambda*N90_component` requires lambda times the tabulated
+product. No ASD/ULS conversion, material value or adjustment factor is adopted.
+
+Check each actual Y-force direction separately, using its own active rows.
+There are **24 source and 34 coupled directional components**: **38 two-row
+and 20 one-row** records. The latter retain the ten coupled groups' opposed
+forces; cancellation cannot hide a local demand. Their geometry coefficients
+are component references, not independent capacities to add together.
+
+No grainwise group-width bonus is credited (`k53=1`). Single-shear effective
+penetration is bounded by `min(b,tpen,6D)`, at most **38.1 mm**. The nearest
+row to the unloaded edge defines h1 in `k54`; for the two original row heights,
+`h1/h2=7/15` and **k54=225/137**. Bound every positive factor over the complete
+bore band, including a **1e-8-mm numerical enclosure** of the saved depths.
+For a front-loaded band, `de/d` and k54 are smallest at maximum depth;
+for rear loading the row heights are fixed and `de/d` is smallest at minimum
+depth. The area power is smallest at minimum depth. Exact fifth-power brackets
+bound `(tef*d)^0.8` from below. This establishes the parameter bound without
+replacing the sloping timber by an accepted rectangular member.
+
+| Current case | Source maximum required Gamma, MPa | Coupled V4 maximum required Gamma, MPa |
+| --- | ---: | ---: |
+| `a12-forward` | **0.016617** | 0.030076 |
+| `a12-rear` | 0.007453 | 0.007711 |
+| `a12-left` | 0.012279 | **0.035688** |
+| `k12-right` | 0.012012 | 0.035308 |
+| `k12-rear` | 0.007278 | 0.007899 |
+| `a1-rear` | 0.001019 | 0.003835 |
+
+Values round upward. The source maximum is the left upper-side two-row group
+in `a12-forward`: **348.439473 N** with coefficient **20,969.050738 N/MPa**.
+The coupled maximum is its negative-Y `eoere_bolt_071` component in
+`a12-left`: **455.651305 N** with coefficient **12,767.822005 N/MPa**.
+
+The [COST review](https://www.cost.eu/wp-content/uploads/2018/11/Design-of-Connections-in-Timber-Structures.pdf),
+printed p.155, distinguishes a connection-specific transverse-tension parameter
+from general EN338/EN14080 values. The earlier C16 intact-section assumption
+therefore cannot automatically fill Gamma. Its DIN1052 review on p.153 also
+records half-resistance reinforcement thresholds for certain adjacent groups
+and short cantilever ends. Actual classification and the compatible factors
+still need resolution; no isolated full-strength shortcut is taken.
+
+The accessible [2017 Jockwer–Dietsch followup](https://www.cost.eu/uploads/2018/07/63807.pdf),
+printed pp.174, 177–178 / PDF pp.179, 182–183, evaluates **softwood glulam**
+tests. Its approximately **9.5 / 10 N/mm^1.5** characteristic parameters belong
+to the EC5 / Ballerini fracture models, respectively; they are not this method's
+transverse-tension parameter or a current DF-L No.2 sawn-cleat assignment.
+That calibration therefore does not fill Gamma. This supplements the
+method-scope review; it is not an input to the 58-component arithmetic.
+
+**Disposition:** the directional force requirement is quantified for both
+allocations. Finite/end/group applicability, the connection material/design
+basis and simultaneous grain force, axial seats and moments remain open.
+All complete group moments and 96 individual eccentricity components retain
+their existing records; C is not assigned as Pc0. This worksheet establishes
+neither a complete corner pass nor physical failure. The full engineering goal
+remains active, with the retained geometry/hardware and six channel holds.
+
+The independent checker reconstructs forces from the original port aliases
+and raw V4 increments, and depths from the actual source polygon. All **58
+components and 17 source pins** pass; the maximum force difference is
+**2e-14 N**. It independently verifies the monotone-factor bounds, exact power
+brackets, active rows, reported maxima and retained moments. Producer/checker
+replays are byte-identical; scoped Ruff passes. All **220 affected Node checks**,
+**six** added-line local links/fragments, source/artifact hashes, **twelve**
+case-table values and whitespace checks pass. The summary stays at **150 lines**.
+Python **3.12.3** and its standard library suffice. The existing ignored closure
+folder retains **121,349 arithmetic-evidence bytes**; the two arithmetic manuals
+are reused.
+The **16,690,592-byte** 2017 proceedings are retained once in the shared source
+cache for the actual calibration and test-population statements above. All
+inputs and failed attempts remain active. No native/frame solve, CAD query/rebuild,
+dependency, permanent asset, physical operation, archive or prune is added.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-effective-area-component-v1.py` | 7,999 | `5c6f7254090167eee29adb7c2104693327f71d7cff10309dcee2633495a7ed0f` |
+| `current-cleat-effective-area-component-attempt01.json` | 105,321 | `abcd9964c8c3533b1f619870985fd7c930c7fabf7980f46f62185a65452fac6f` |
+| `current-cleat-effective-area-component-verification-v1.json` | 8,029 | `abb9fb60d5b5366e951ce859e53f34cbc944e2af61c84f035f38ca4215c7e359` |
+| `method-source-cache/cost-fp1402-2017-proceedings.pdf` | 16,690,592 | `d8112256c3439413a14e32ea11fd398fd094cf79a927a2979b69595086d3e663` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-effective-area-component-v1.py /tmp/eoere-cleat-effective-area-replay.json
+```
+
+The result embeds `reproduction_python_source`; verification embeds
+`verification_python_source`. Run from the repository root with a fresh
+output filename. PyMuPDF **1.26.4** was used only for source-page inspection.
+
 The [published stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md)
 is reused for method scope. Its older PB02 hardware values are not transferred.
 The current six fields instead declare **1,000 N/mm screw stiffness**,
