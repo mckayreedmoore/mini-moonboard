@@ -12299,6 +12299,125 @@ The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. No prior result or capacity is reclassified.
 
+<a id="current-cleat-end-placement-routes"></a>
+**Published placement routes: loaded and unloaded ends.** The direct Canadian
+illustrated placement route also excludes the twelfth upper-rear source
+state. The [CWC lecture](https://cwc.ca/wp-content/uploads/2025/08/CWC-Lecture-6-Design-of-connections1.pdf),
+PDF pp.116–117, Figures 12.4.3.1/2, specifies loaded grain-end distance
+`max(5D,50 mm)` and unloaded grain-end distance `max(4D,50 mm)`; the
+perpendicular-load exterior-joint diagram also uses the latter minimum.
+For the current nominal `D=9.525 mm`, **all three minima are 50 mm**.
+The lecture explicitly measures end distance along grain regardless of load
+direction. The [CWC Assignment 4 solutions](https://cwc.ca/wp-content/uploads/2025/08/Assignment-4_Solutions_vF.pdf),
+p.13, applies both placement sets when both grain-direction force components
+occur, before its splitting and interaction calculations on pp.16–18.
+No between-angle spacing interpolation or example capacity is transferred.
+
+Reuse the preceding **48 bore/case records** and their eight geometries.
+Both upper rear axes, `067/070`, have **45.284053 mm** to the sloping upper
+end: **twelve** occurrences miss the illustrated 50-mm end envelope by
+**4.715947 mm**, including left `067 / a1-rear`. Its net grain force is
+**−13.336224 N**; moving it outside the earlier loaded-end-only test does
+not meet the illustrated *unloaded*-end minimum. The other **36** distances
+clear this single threshold; that does not qualify their complete placement
+or resistance. V4 retains the geometry and does not remove this discrepancy.
+
+This closes **direct use of the illustrated CSA placement route** for the
+retained upper groups, beyond the earlier eleven loaded-end table misses.
+It does not establish a new failure under the adopted NDS basis, physical
+corner failure, or the absence of a justified exception/alternative method.
+The lecture's centered `14*t*sqrt(de/(1-de/d))` expression cannot by itself
+remove the placement requirement or supply the retained finite-profile,
+individual-force and width-couple mapping. Continue those engineering tasks;
+no connection strength, new factor, redesign or release is adopted here.
+
+The direct European handbook route has a larger loaded-end requirement.
+[Swedish Wood, Design of timber structures, Volume 2 (2022)](https://www.swedishwood.com/siteassets/5-publikationer/pdfer/sw-design-of-timber-structures-vol2-2022.pdf),
+p.45, Table 10.4, gives `max(7D,80 mm)` for the loaded end of a bolted
+connection, citing EN 1995-1-1:2004 §8.5.1.1. This is **80 mm** at D9.525.
+Under the existing source net-grain-force classification, **35 of 48**
+records miss that minimum: **24** lower-bolt states at the **60.3-mm** bottom
+end and **eleven** upper-rear states at the **45.284053-mm** sloping end.
+The other thirteen are not qualified by this loaded-end test. This screens
+that named handbook route, rather than adopting a European material/design
+format or asserting a failure under the selected NDS basis. Both corners
+need an applicable finite-detail treatment; substituting the familiar
+centered splitting formula does not bypass these end requirements.
+
+The new 28-page primary source is retained once in the existing ignored
+`method-source-cache/cwc-assignment4-solutions-primary.pdf`: **1,382,016 bytes**,
+SHA-256 `98dbc2964822b6d7bc4add565001cbd083d2d46b380e08f8926ce2c316d4dcfd`.
+The existing lecture and frozen calculation records stay active. No new
+producer module, raw mechanics run, CAD query, native/frame solve or physical
+operation is required. Reproduce this standard-library worksheet from the
+repository root; its exact rational profile check is independent of the
+earlier floating end-plane calculation:
+
+```sh
+uv run python -B - <<'PY'
+import hashlib, json
+from decimal import Decimal as D
+from fractions import Fraction as F
+from pathlib import Path
+b = Path('fea/generated/selected-hardware-followup-v1/engineering-closure-v1')
+refs = {
+    'current-cleat-finite-end-scope-attempt01.json': '531af2f6b5cfc2f40435e23a74c04d7510721b4914410baa1cf0432ad80f3ae8',
+    'current-cleat-rectangular-core-limit-attempt01.json': '4eb69102d5d617ca0191bb39c9458445e47981d0ad6221f70e94726bf7c33470',
+    'method-source-cache/cwc-2025-connection-lecture6.pdf': 'fed852cbd78dd82fdd29d0d86fd9e294a52321fb7dfbb134c25c2ace70bf0911',
+    'method-source-cache/cwc-assignment4-solutions-primary.pdf': '98dbc2964822b6d7bc4add565001cbd083d2d46b380e08f8926ce2c316d4dcfd',
+    'source-cache/swedish-wood-design-vol2-2022.pdf': '98d0bf2e406ce743217578af31ffe4d464a40bccd317d38a8c918715e7452f75',
+}
+for n, h in refs.items():
+    assert hashlib.sha256((b/n).read_bytes()).hexdigest() == h
+a = json.loads((b/'current-cleat-finite-end-scope-attempt01.json').read_bytes())
+for p, h in a['source_sha256'].items():
+    assert hashlib.sha256(Path(p).read_bytes()).hexdigest() == h
+assert (a['geometry_revision'], a['hardware_revision'], a['extra_grid'], a['current_bolt_count'], a['current_Hillman_count']) == ('eoere-raised-kicker-screws-v1', 'eoere-selected-purchase-hardware-v1', False, 100, 66)
+g = {(v['host'], v['axis_id']): min(D(str(e['minimum_axis_to_end_along_grain_mm'])) for e in v['end_distances']) for v in a['reused_geometry']}
+assert len(g) == 8 and len(a['rows']) == 48
+assert len({(r['case_id'], r['host'], r['axis_id']) for r in a['rows']}) == 48
+assert {r['case_id'] for r in a['rows']} == {'a12-forward', 'a12-rear', 'a12-left', 'k12-right', 'k12-rear', 'a1-rear'}
+assert all(sum((r['host'], r['axis_id']) == key for r in a['rows']) == 6 for key in g)
+assert max(D(50), 4*D('9.525')) == max(D(50), 5*D('9.525')) == 50
+miss = [r for r in a['rows'] if g[r['host'], r['axis_id']] < 50]
+assert len(miss) == 12 and {r['axis_id'] for r in miss} == {'eoere_bolt_067', 'eoere_bolt_070'}
+assert all(sum(r['axis_id'] == axis for r in miss) == 6 for axis in ('eoere_bolt_067', 'eoere_bolt_070'))
+extra = [r for r in miss if not r['source_net_loaded_end_below_table_assumption']]
+assert [(r['axis_id'], r['case_id']) for r in extra] == [('eoere_bolt_067', 'a1-rear')]
+assert extra[0]['source_force_xyz_n'][2] < 0
+core = json.loads((b/'current-cleat-rectangular-core-limit-attempt01.json').read_bytes())
+for r in core['rows']:
+    e = F(r['limits'][0]['largest_grain_end_distance_mm'])
+    old = F(g[r['member'], r['upper_rear_axis']])
+    assert abs(e-old) < F('0.0000000001') and e < 50
+assert max(D(80), 7*D('9.525')) == 80
+euro = [r for r in a['rows'] if r['source_net_loaded_end_mm'] is not None and D(str(r['source_net_loaded_end_mm'])) < 80]
+assert len(euro) == 35
+lower = [r for r in euro if r['axis_id'].startswith('cleat_post_bolt_')]
+assert len(lower) == 24 and all(abs(D(str(r['source_net_loaded_end_mm']))-D('60.3')) < D('0.0000000001') for r in lower)
+assert len([r for r in euro if r['axis_id'] in ('eoere_bolt_067', 'eoere_bolt_070')]) == 11
+print({'checked': 48, 'Canadian_illustrated_end_misses': 12, 'additional_state': '067 / a1-rear', 'European_handbook_loaded_end_misses': 35})
+PY
+```
+
+The first worksheet guard compared the nominal 60.3-mm value with the
+frozen `60.30000000000001` as exact decimals. Its stopped source remains in
+`current-cleat-end-placement-worksheet-stop01.json`, **3,951 bytes**, SHA-256
+`abfa4311ec81b6f6c79c4a44f9796fdbfa50173c420c766b0ca9035138a6161d`.
+The corrected join uses the same **1e-10-mm numerical allowance** as the
+upper-end comparison; the 50/80-mm criteria, inputs and counts are unchanged.
+This allowance is not a manufacturing tolerance or a geometry exception.
+
+The documented worksheet, **16 unique source pins**, six-state/eight-geometry
+joins and independent rational profile comparison pass. Scoped Ruff,
+**220 affected Node checks**, source/stop byte-hash entries and owned
+whitespace checks pass; the maintained summary remains **150 lines**.
+
+The full engineering goal remains active and unachieved. The retained
+corners, 100 bolt axes, 66 Hillman axes, existing holds and blank observations
+are unchanged; current inputs and failed evidence remain active without
+archive or pruning.
+
 <a id="current-cleat-rectangular-core-limit"></a>
 **Contained rectangular core: full-value placement shortcut excluded.**
 Before using a constant-depth beam/connection expression on a smaller part
