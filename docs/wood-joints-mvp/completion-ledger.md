@@ -5642,7 +5642,9 @@ frame and recheck the affected joints, members and restraint.
 Do not sweep moment-loop amplitudes to seek a force reduction that this
 family cannot produce. A supported force-transferring allocation, vertical
 support-sharing treatment or applicable alternative strength method is needed
-before the affected holds can clear. Complete fitting, wood-interior,
+before the affected holds can clear. The later [500-N trial](#current-rear-foot-vertical-sharing-trial)
+balances two finite normal floor fields but fails a necessary two-bolt bearing
+bound for its fixed floor wrenches. Complete fitting, wood-interior,
 splitting and response duties remain required; the full goal is unachieved.
 
 An independent exact-rational check uses six small Gaussian eliminations,
@@ -5681,6 +5683,128 @@ uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure
 The result embeds V2 and pins V1; verification embeds its complete checker.
 Use fresh output names. Both retained corners, 100 bolts, 66 Hillman axes,
 panel/screw deferral and blank actual observations remain unchanged.
+
+<a id="current-rear-foot-vertical-sharing-trial"></a>
+**A 500-N rear-foot sharing trial: balanced, but rejected under the working
+bearing reference.** A finite normal-pressure allocation can move **500 N**
+from the left rear leg to its adjacent runner in `a12-forward`, using the
+two existing `rail_rear_bolt_left` shafts. Both whole-body and whole-shaft
+incremental wrenches balance. Nevertheless, these particular floor wrenches
+require at least one leg-side bearing force **>1059.981664 N**, while the
+retained working bearing model permits at most **998.886794 N**. The necessary comparison
+excludes every force/transverse-couple partition and pressure shape through
+these two bolts for these fixed wrenches, with the original axial captures
+and shaft gravity fixed. This is a rejected load allocation,
+not a finding that the retained geometry or every floor-sharing alternative
+physically fails.
+
+The question follows the [377.408-N necessary reduction](#current-floor-and-shear-sharing-limits).
+Test one round **500-N** transfer, retaining every other joint, gravity and
+horizontal floor action. Replace only the two members' normal floor wrenches
+with uniform finite rectangles on their recorded existing footprints:
+
+| Analytical normal-pressure region | Force N | Center X/Y mm | Width X / length Y mm | Pressure upper MPa |
+| --- | ---: | --- | --- | ---: |
+| Left rear leg | 1855.100929 | −1268.680172 / 1508.071547 | 22 / 22 | 3.832854 |
+| Left runner | 508.332984 | −1238.250000 / 1454.637478 | 30 / 40 | 0.423611 |
+
+Forces/centers round to six decimals; pressure uppers round upward. The
+smallest nominal footprint inset is **>0.380171 mm**. These are analytical
+regions on existing feet. Their summed normal six-wrench equals the two
+original members' floor wrench, including both horizontal-axis moments.
+This establishes a normal-pressure statics construction within the recorded
+footprints, not floor contact compatibility, friction, material-interior
+strength or a new physical demand bound.
+
+Transfer each force and couple at the common wood interface to its own
+bearing center. Each bolt crosses **38.1-mm runner / 50.8-mm leg** bearing
+spans, with bearing-center separation **44.45 mm**. The original
+catalog body/design-root windows and minimum-radial-Fe/divisor-5 reference
+are unchanged. The reused affine trial gives:
+
+| Existing shaft | Source affine index | 500-N trial affine index |
+| --- | ---: | ---: |
+| `rail_rear_bolt_left_1` | 0.954106 | **2.403772** |
+| `rail_rear_bolt_left_2` | 0.844810 | **2.119989** |
+
+These are working comparison indices, not adjusted NDS/ASD or product
+capacities. The reduced low-cut shear is **−704.254584 N**. The two modified
+bore transverse resultants have **opposite signs**, so that cut alone also
+does not establish the earlier same-edge member criterion. No source failure
+or hold is cleared by the lower cut value.
+
+**The rejection does not depend on affine pressure.** For any signed vector
+line field with `|q(s)|<=c` over a centered length L, integration gives:
+
+```text
+|M| <= c*L^2/4 = R
+|F_leg_i| <= (R_leg_i + R_runner_i + |B_i|)/d_i
+max(|F1|,|F2|)^2 >= |Fsum|^2/4 + Mx^2/|p1-p2|^2
+```
+
+The first bound follows from integrating `c*abs(s)`; it allows arbitrary
+pressure reversals. At each shaft, the two own wood moments carry the
+center-spacing force couple plus fixed shaft-gravity/source-residual term B.
+Their moment budgets therefore bound the leg-side resultant. A favorable
+L1 bound on B includes the existing **0.001-Nmm** moment-closure allowance.
+For the two-bolt group, zero individual axial bolt torque and the prescribed
+whole-leg wrench give the last inequality. Here Fsum is the pair's net
+leg-side force, Mx is its moment about the pair midpoint, and p1/p2 are the
+leg bearing centers. Exact rational comparison shows
+that its force lower exceeds **both** shaft uppers. Three of the four
+initially prescribed port moments also independently exceed their necessary
+line-field budgets. The result covers pressure shapes and force/couple
+repartitions, rather than treating an affine miss as an impossibility proof.
+
+**Disposition:** reject this particular two-body allocation under the retained
+uniform working line caps. Further pressure-shape or bolt-split searches at
+these same floor wrenches cannot qualify it. Different normal floor wrenches
+or an applicable complete resistance interpretation are separate questions.
+Additional member-section passes are not adopted for this rejected trial.
+The original six fields, four shear failures, six channel holds, other joint
+duties and full engineering goal remain active and unchanged.
+
+Independent exact-rational and 70-digit Decimal checks rejoin **12 primitive
+bearing/capture actions** and **eight source/modified surface wrenches**.
+All **14 source bindings**, both rectangles and the complete body balances
+check: maximum global normal-wrench and individual body errors are
+**6.119e-10 / 3.825e-10 N/Nmm**. Own force/couple differences are below
+**6.701e-14 N / 9.198e-11 Nmm**. Direct published-form Fe arithmetic matches
+the recorded line caps within **5.429e-15 N/mm**. The independent force lower
+is derived from the floor free body, separately from the proposed bolt split.
+Exact line-moment saturation and two-bolt equality controls pass. Affine
+bending extrema are diagnostic and do not supply the rejection proof.
+
+Trial, necessary bound and checker replay byte-identically; scoped Ruff
+passes. Python **3.12.3** and shared NumPy **2.5.2** reproduce the trial;
+the bound and checker use the standard library. The first launch omitted
+the repository module path; the unchanged producer succeeds with
+`PYTHONPATH=.`. Its launch stop is preserved. All **220** targeted development/
+documentation tests pass. Changed-line checks resolve **14 local links/fragments**,
+authenticate six artifact rows and match twelve pressure-table values, four
+affine indices and three force-bound/cut values. The main summary remains
+150 lines; whitespace checks pass. No new dependency, native/frame/
+contact solve, CAD rebuild, geometry change, physical operation or observation
+is introduced. These **135,337 active bytes** stay in the existing ignored
+closure folder; nothing is archived or pruned:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-rear-foot-vertical-sharing-v1.py` | 11,937 | `16f322378432c2be65c730d2f3252d8c1ca11dc00bd7d9973a83130570184d28` |
+| `current-rear-foot-vertical-sharing-attempt01-stop.json` | 767 | `ba4519fbed0b7f22fd8e2d082657e4472b278be9d62e770c0d633db25655bec7` |
+| `current-rear-foot-vertical-sharing-attempt02.json` | 84,598 | `5dede50914f8a942d7aec45c3fb869d37c80e1f248ecdfdd092e8ae117d1885c` |
+| `current-rear-foot-vertical-sharing-bound-v1.py` | 7,691 | `b0f52c6a0ec707bf6100306e435a2022461964090e3616245179f76aa4a2142b` |
+| `current-rear-foot-vertical-sharing-bound-attempt01.json` | 16,885 | `019cd9eeeb0c1a00003c3b4b37925fcf491944e1385a42cbf2239675a5696107` |
+| `current-rear-foot-vertical-sharing-verification-v1.json` | 13,459 | `f30dddfafdda60a777c314c9a47a7a312ed4afbf4c690ba38e3b8b552f143ee8` |
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-vertical-sharing-v1.py /tmp/eoere-rear-sharing-replay.json
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-vertical-sharing-bound-v1.py /tmp/eoere-rear-sharing-bound-replay.json
+```
+
+Each result embeds its producer; verification embeds the full independent
+checker. Use fresh outputs. Both corners, 100 bolt axes, 66 Hillman axes,
+panel/screw deferral and blank actual observations remain preserved.
 
 <a id="current-remaining-rectangular-connection-shear"></a>
 **Remaining rectangular receivers: 60 completed lateral-shear comparisons.**
