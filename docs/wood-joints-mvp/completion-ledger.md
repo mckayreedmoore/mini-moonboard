@@ -11783,6 +11783,28 @@ The existing all-mode force/couple mapping is still engineering work; these
 source limits do not convert an unselected method into an external approval
 requirement or prescribe physical testing as the only route.
 
+**Mean-only calibration guard.** The 2009 paper defines gamma as the
+mean-to-fifth-percentile factor (printed p.4) and omits it from the plotted
+15-minute mean comparisons (printed p.6). Even an exact population mean
+`mu > 0` cannot establish a positive conservative gamma. For any proposed
+`0 < gamma <= 1`, put 6% of a hypothetical strength population at
+`gamma*mu/2` and 94% at `mu*(1-0.03*gamma)/0.94`. Its mean is exactly mu,
+but its fifth percentile is `gamma*mu/2`, below the proposed `gamma*mu`.
+This is an information counterexample, not an adopted timber distribution
+or a prediction of weak actual stock. Exact rational checks at gamma
+0.01, 0.1, 0.5 and 0.9 reproduce the identity. A matching lower-fractile,
+variability or design-resistance assignment, or an independently justified
+resistance treatment, is needed; choosing a small positive gamma from the
+means alone does not supply one. This guard closes that inference only;
+finite-joint applicability and the complete force/couple allocation remain
+engineering work. It assigns neither zero physical resistance nor a new
+candidate capacity and does not complete or block the full goal.
+
+The calibration and endpoint-allocation followup reuses the three unchanged
+paper/result digests recorded here; all **220 affected development and
+documentation checks** pass. No new producer, raw artifact or dependency is
+added, and no native/frame, CAD or local statics solve is run.
+
 No published test capacity, material parameter, bolt stiffness or response
 error percentage is transferred to this candidate. Current inputs, failures,
 retained geometry and the active full goal are unchanged. This reading
@@ -11906,6 +11928,27 @@ construction does not monotonically improve the local dowel reference.
 `eta=0.5` band. These counts are method-scope flags, not resistance failures.
 The thresholds are in the manuscript's critical-load units; no NDS/ASD
 conversion or load-duration increase is adopted.
+
+**Endpoint-force allocation does not remove the comparison-range flags.** The
+saved records already contain `Fplus=P/2+M/b` and `Fminus=P/2-M/b` at
+the two bearing-width endpoints. These recover P and M exactly; they are
+equivalent transverse loads under the source's rigid-dowel idealization, not
+additional bolts or proven bearing pressures. Over the saved decimal values,
+an 80-digit independent check of all **96** records recovers force within
+**3e-68 N** and moment within **1.902e-66 Nmm**. These check algebraic
+roundoff, not demand or measurement accuracy. Opposing endpoint forces are
+exactly equivalent to
+`2*abs(M)>abs(P)*b`: the same **three source / seventeen V4** range flags.
+Splitting these into separate endpoint load cases therefore does not put
+their combined wrench inside the illustrated band. The source's Eq.4 uses
+an assumed plastic load-per-width distribution; its comparison model has
+nonlinear softening and compression-only dowel contact (printed pp.3–5).
+It supplies no rule for adding separate endpoint critical loads to qualify
+the combined fracture duty. This closes the endpoint rewrite as a remedy
+for those flags, without rejecting the formal Eq.4 thresholds or every
+possible conservative extension. The matching centric resistance, finite
+geometry, opposite loaded edges and remaining simultaneous actions still
+need their own basis; no candidate capacity or failure is assigned here.
 
 The separate **24 original intact mid-Y cut traces** would give formal
 `eta=2.739491..10.891025` if substituted. Those cuts are neither the actual
