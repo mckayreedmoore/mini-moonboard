@@ -5686,6 +5686,7 @@ frozen evidence, rejected proposals, 23 foreign files and 20,484 foreign index
 entries remain unchanged; shared staging is empty. No solve, CAD change,
 redesign, archive, prune, commit or push occurs in this closure.
 
+<a id="current-cleat-jensen-method-screen"></a>
 **Published moment-joint shortcut: current length screen.**
 [Jensen (2005)](https://jwoodscience.springeropen.com/counter/pdf/10.1007/s10086-005-0706-y.pdf),
 printed p.584, Figure 2 and the paragraph following Eq.5, uses an infinite
@@ -10330,6 +10331,104 @@ uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure
 The result embeds `reproduction_python_source`; verification embeds
 `verification_python_source`. Run from the repository root with a fresh
 output filename. PyMuPDF **1.26.4** was used only for source-page inspection.
+
+<a id="current-cleat-finite-end-applicability"></a>
+**Finite cleat ends: CWC table scope and the 2012 alternative.** The
+[CWC May 2023 errata](https://cwc.ca/wp-content/uploads/2023/05/WDM2020_May2023Errata.pdf),
+printed p.434 / PDF p.9, notes 1/9, supplies a connection-table route for
+No.1/No.2 dimension lumber that includes splitting. A separately measured
+transverse-tension value is therefore not inherent to every available route.
+Its note 5, however, assumes a loaded end of at least **max(50 mm, 5D)**;
+note 10 specifies ASTM A307 bolts. Those table assumptions and configurations
+cannot be transferred directly to this Grade 5, sloping, eccentric cleat.
+
+Reuse the [checked outer-end inventory](#outer-profile-end-and-edge-inventory-for-all-current-wood-bores)
+and its existing classified NDS trials; do not repeat that geometry study:
+
+| Cleat occurrences, both sides | Nearest grain end, mm | Existing classified toward-end trial |
+| --- | ---: | ---: |
+| `067`, `070`, upper rear row | **45.284053** | **0.679176** |
+| `071`, `074`, upper front row | **105.825136** | **1.000000** |
+| Four `cleat_post` axes, lower group | **60.300000** | **0.904387** |
+
+The trials use nominal **D9.525**, not the occupied bore diameter. NDS 2024
+Table 12.5.1A/§12.5.1.2a gives the classified `min(1,e/(7D))` expression above
+3.5D. Section 12.1.2.2 defines the square-end distance; the sloping-end trial
+is still unadopted. These numbers supply neither complete Cdelta nor a
+multiplier for the independent bore-pressure/shaft reference. The smaller
+applicable group/shear-plane factor, rows, edges and brittle duties remain
+separate, as already recorded in the [source followup](#geometry-factor-source-and-applicability-followup).
+
+The new worksheet joins **48 source bore/case force-and-moment vectors** to
+that inventory. **Eleven source states** load `067` or `070` toward the upper
+end, missing the CWC table's 50-mm assumption by **4.715947 mm**. The exception
+among those twelve upper-rear states is left `067 / a1-rear`, whose grain
+force is **−13.336224 N**. All **24 coupled V4 cleat increments** leave net
+grain force unchanged, but change width moments. Net directions alone do not
+qualify their local pressure field or clear a table applicability gate.
+These are table-scope findings, not a new adopted NDS failure, a physical
+corner failure, or proof that every Canadian/finite-end method is inapplicable.
+
+The authors' [CIB-W18/45-7-2 paper](https://www.irbnet.de/daten/iconda/CIB_DC31392.pdf),
+printed p.4 / proceedings PDF p.152, provides a distinct **2012 finite-end**
+expression. It is not excluded by the earlier [2005 long-foundation screen](#current-cleat-jensen-method-screen).
+Its Eq.7 can be written:
+
+```text
+C1 = sqrt((5/3)*G*Gf)
+zeta = (C1/ft)*sqrt(10*G/(E*he))
+P_LEFM = 2*b*C1*sqrt(he/(1-he/h))
+P_est = min(P_LEFM/(2*sqrt(2*zeta+1)) + b*ft*le,
+            P_LEFM*sqrt(2*zeta+1)/(zeta+1))
+```
+
+This semi-empirical, linearized single-force estimate needs transverse
+tensile strength **ft** and mode-I fracture energy **Gf**, plus a compatible
+design-strength basis. The paper explicitly leaves near-end multiple-fastener
+mapping unresolved. Its validation uses Radiata-pine LVL; its measured means
+are not current DF-L No.2 design inputs. The sloping four-bolt groups,
+opposed components and width moments therefore still need an applicable
+mapping; the estimate is not a proved lower bound for this joint. No Pc0 or
+complete corner resistance is assigned. This is an available bounded route
+with named remaining inputs, not an exhausted-method or redesign decision.
+Continue independent joint/member duties while preserving the corner hold
+and the active full engineering goal.
+
+Independent Decimal arithmetic reconstructs the source YZ polygon, all
+**48 complete original fine-bearing/capture wrenches**, the eleven flags and
+24 raw V4 joins. Maximum differences are **3.637e-14 mm** at the ends,
+**5e-14 N** in force, **2.826e-11 Nmm** in moment and **1.808e-16** in the reused
+end trials. All **11 direct pins** pass. Producer/checker replays are
+byte-identical; scoped Ruff passes. Python **3.12.3** and its standard library
+perform the arithmetic; shared-cache PyMuPDF **1.26.4** only reads the manuals.
+All **220 affected Node checks**, **ten added-line local links/fragments**,
+five artifact hash/byte rows, eight end records, six displayed table values
+and whitespace checks pass. The maintained summary stays at **150 lines**.
+
+The existing ignored closure folder retains **99,882 arithmetic-evidence
+bytes**. The two new shared sources total **28,192,648 bytes**, kept once:
+the IRBnet URL returns the entire **444-page proceedings**, whose pp.147–160
+contain this paper and its cover/discussion. The full source is retained to
+authenticate the finite-end equations and explicit multi-fastener limitation;
+no second manual copy, tracked asset or new dependency is added. Current
+inputs and failed experiments stay active; none is archived or pruned. No
+native/frame solve, CAD rebuild, geometry change or physical operation occurs.
+
+| File in the existing closure folder | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-finite-end-scope-v1.py` | 7,716 | `b9f26403e9725b539d221e4d54105b53e7f2e16e9880b660560e3ccb261de951` |
+| `current-cleat-finite-end-scope-attempt01.json` | 85,456 | `531af2f6b5cfc2f40435e23a74c04d7510721b4914410baa1cf0432ad80f3ae8` |
+| `current-cleat-finite-end-scope-verification-v1.json` | 6,710 | `b462f784d37bc755358d4000fd0e45db6b795eb265f26924af534610d75faada` |
+| `method-source-cache/cwc-wdm2020-may2023-errata.pdf` | 1,182,688 | `d72137f31affb5eb83adfb4cdbf1ad78de48bc862bd07646cbed580e4173b0cd` |
+| `method-source-cache/cib-w18-2012-proceedings.pdf` | 27,009,960 | `a38aa26c064bac2dc33ed662d883a0f03bdc23c05ec1fd9481c821beecbf36b3` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-finite-end-scope-v1.py /tmp/eoere-cleat-finite-end-scope-replay.json
+```
+
+The result embeds `reproduction_python_source`; verification embeds
+`verification_python_source`. Run from the repository root with a fresh
+output filename. No prior result or capacity is reclassified.
 
 The [published stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md)
 is reused for method scope. Its older PB02 hardware values are not transferred.
