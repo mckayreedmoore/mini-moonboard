@@ -98,6 +98,9 @@ records the calculation scope. Product-profile/material assumptions and
 eccentric contact/prying remain explicit within complete-joint qualification;
 the completed calculations do not need repeating solely because a catalog
 yield minimum is absent.
+The later [three-dimensional axial transfer construction](#current-axial-washer-and-spacer-transfer)
+adds continuous normal-pressure, shear and hoop-stress bounds for all current
+washer ends and the eight spacer paths under explicit steel/contact hypotheses.
 
 The owner's existing working heel assumption is **6.35-mm thickness and
 6.35-mm inside radius**. It has already been assessed against all six current
@@ -2831,7 +2834,7 @@ route and the current endpoint for each remaining duty are:
 | --- | --- | --- |
 | Complete cleat normal/shear/torque and local brittle resistance | A matching receiving-member splitting calculation plus explicit allocation of all six wrench components; otherwise a representative complete-joint resistance treatment with the same bores, seats, contacts and grain. | **Complete resistance unsupported.** All 144 relaxed section comparisons satisfy their declared law, but they do not supply local brittle resistance. The width-varying normal moment contributes to the **295.602493-N necessary tensile resultant**; substituting the **27.917423-N opening force** into a planar beam formula would omit that duty. The prescribed-pressure/C16 family is **failed and closed**, with necessary lower **1.237095** throughout its 30–90° half-angle family. No refined interior solution of that same family can qualify it. |
 | Ordinary and mixed wood/bolt joints | Reuse the current NDS two-member checks and own geometry/group reductions; use a common-shaft treatment for unequal mixed-plane forces and their signed moments. | **Existing component checks complete; complete joint resistance unsupported.** The 552 Cg-only comparisons pass, maximum **0.922961**. Missing complete Cdelta/local brittle coverage is not repaired by an arbitrary factor. The mixed-stack divisor-5 lateral model is **failed and closed** at saved actions (**1.006282**) and under its control-comparator transfer (**1.004750**); neither result establishes physical or NDS-ASD failure. Axial/couple transfer and the applicable adjusted resistance basis remain missing. |
-| Bolt metal, washers, formed fittings and wood seats | Retain the completed metal/washer/heel and hole-bearing/net-section checks; address only the remaining simultaneous plate/contact/prying and rupture duties with a matching conventional mechanical model. | **Completed comparisons remain usable; complete fitting/seat transfer unsupported.** Bolt metal **0.513229**, axial washers **0.319358 / 0.685364** and the ideal-bend uppers **0.952732 / 0.979325** do not need repeating. The missing inference is a compatible load transfer through the holed flanges, actual backing domains and eccentric seats under their retained normal forces and moments. A force-only block-shear substitution does not cover those moments. |
+| Bolt metal, washers, formed fittings and wood seats | Retain the completed metal/washer/heel and hole-bearing/net-section checks; address only the remaining simultaneous plate/contact/prying and rupture duties with a matching conventional mechanical model. | **Completed comparisons remain usable; complete fitting/seat transfer unsupported.** Bolt metal **0.513229**, original axial washer references **0.319358 / 0.685364** and ideal-bend uppers **0.952732 / 0.979325** retain their scope. The later [3D axial washer/spacer construction](#current-axial-washer-and-spacer-transfer) supplies matched normal fields at all ends, maximum **0.910969** under its working steel hypothesis and factor 1.67. Remaining transfer passes through the holed flanges and timber interior under the complete wrenches. A force-only block-shear substitution does not cover those moments. |
 | Finished members and credited restraint | Reuse the current NDS §3.9 member calculations, §3.1.2 net-section comparisons and historical profile/restraint kernels on current actions. No bespoke continuum model is required. | **Existing calculations complete within their recorded assumptions:** 264 NDS interaction witnesses, no reference exceedances; 34 compression witnesses lie outside the reported slenderness domain. The 38 selected net planes do not inventory every critical section required by §3.1.2.1–.2. Remaining bounded work is the governing net-section/recess and §3.3.3/§3.7 endpoint/restraint worksheet below, with specific applicability exceptions. |
 | Stiffness/contact, finite geometry and movement applicability | Start from the already tabulated lateral slip references and bolt/washer series compliance, then a supported complete-joint law or conservative response bound. A new full continuum model is optional. | **Physical applicability unsupported.** The existing comparator and continuous-bed bounds qualify their named model families only. Published bolt-only or lateral-slip values do not bound the eccentric seats, simultaneous couples, contact changes and directional panel restraint. The **56.603761-mm** first-order motion has no adopted failure limit; finite v5 poses remain unbalanced. A matching complete law/bound is missing, rather than another equilibrium residual check. |
 
@@ -2954,7 +2957,7 @@ The other retained detail decisions are:
 
 | Detail | Decision now | What would actually change it |
 | --- | --- | --- |
-| All 100 bolt-metal and axial washer calculations | **Acceptable under their stated component hypotheses:** metal first-yield maximum **0.513229**; washers **0.319358 nominal / 0.685364 adverse**. All 112 nominal wood washer lands have modeled annular support. | A supported complete eccentric seat/prying, root/notch and combined-transfer treatment. No repeat of the passing axial comparison is needed. Delivered-part observations remain excluded. |
+| All 100 bolt-metal and axial washer calculations | **Acceptable under their stated component hypotheses:** metal first-yield maximum **0.513229**; original washers **0.319358 nominal / 0.685364 adverse**. The later [3D axial washer/spacer fields](#current-axial-washer-and-spacer-transfer) complete 6,000 normal-duty comparisons, maximum **0.910969**, with finite supported annuli and matched spacer pressures. | Complete flange/prying, internal wood-seat, root/notch and combined-transfer treatment, with material and response applicability. Do not repeat the completed axial fields. Delivered-part observations remain excluded. |
 | All 22 formed fittings, covering the current top, horizontal-rail, center base/header and outer base-angle duties | Working t6.35/Ri6.35 component and ideal-bend calculations are **acceptable under their recorded hypotheses**. The t6/Ri6 heel sensitivity has **seven failed comparisons**, retained separately. **Complete fitting/seat resistance is unsupported.** | An applicable simultaneous flange/hole/bend/rupture and backing-contact treatment. Existing force-only bearing/net-section or ideal-bend margins do not decide those remaining duties. A product joint rating is an option, not a mandatory prerequisite. |
 | Left and right exterior cleat corners | Relaxed sections are **acceptable under the declared C16 section law**; the prescribed-pressure/C16 family is **failed and closed**. **Complete cleat resistance is unsupported.** | A matching complete brittle/transfer treatment. The available beam-splitting/moment shortcuts do not cover the current width moment and geometry; the Jensen screen below supplies no Pc. A new cross-tie or other design change remains a separate owner decision. |
 | All 22 finished timbers, including the cleats, holed rails and leg/runner joints | The existing **264 NDS §3.9 witnesses**, 38-plane/228-comparison record and 102 continuous rail-section comparisons are **complete within their recorded hypotheses**. **Complete member acceptance retains the specific critical-section, recess and restraint limits below.** A full 3D model is not a prerequisite. | Use §3.1.2 critical net sections and the existing profile/restraint kernels with current actions. Record the rear-recess §3.4.3/§4.4.3 applicability exception and §3.3.3/§3.7 endpoint/restraint limits explicitly; do not transfer old capacities or infer failure from a missing continuum field. |
@@ -7609,6 +7612,142 @@ eight mixed stacks' complete behavior. The original forces, 100 bolts,
 active and unachieved; panel/screw remedies stay deferred and actual fit
 excluded. All inputs, earlier failures and these four records remain
 active; nothing is archived or pruned.
+
+<a id="current-axial-washer-and-spacer-transfer"></a>
+**Current axial washer and spacer transfer.** This completes a
+three-dimensional **static strength construction for the prescribed axial
+normal-load duty**, with matched finite pressures at all 200 current ends.
+It reuses the six original fields, 112 finished-wood land proofs and 88
+current nominal steel lands. The 100 bolt axes, 66 Hillman axes, both cleats,
+source normal forces and lateral-bore moments stay unchanged. The complete
+flange/joint, timber-interior transfer and physical response remain open.
+
+The question was whether the earlier sampled bending references could be
+replaced by a bounded normal-load path through the washer and each selected
+spacer. Apply the [plastic lower-bound method, Bower §6.2.5](https://solidmechanics.org/Text/Chapter6_2_old/Chapter6_2.php)
+to an explicit stress field. Equilibrium and tensor rotation follow the
+[cylindrical-coordinate relations, Appendix D.2.8](https://solidmechanics.org/Text/AppendixD/AppendixD.php).
+The field below is derived for this axial subproblem; those sources do not
+provide a product rating or establish the assumed material/contact data.
+
+For a washer, use inner/outer radii `a,b`, thickness `t`, load radius `c`
+and support inner radius `s=max(a,own bore radius)`. Both faces carry the
+same original force `N` with positive uniform pressures on their own rings:
+
+```text
+pt = N/[pi(c²-a²)] on a<r<c; otherwise 0
+pb = N/[pi(b²-s²)] on s<r<b; otherwise 0
+Q(r) = (1/r) integral[a,r] (pt-pb) rho d(rho)
+u = 2z/t; H(u) = u-u|u|/2; -1<=u<=1
+
+sigma_rr = 0
+sigma_theta_theta = -4rQ sign(u)/t²
+tau_rz = 2Q(1-|u|)/t
+sigma_zz = -(pt+pb)/2-(pt-pb)H(u)
+```
+
+The tensor is symmetric; other components vanish. Direct substitution gives
+zero divergence inside each region. `Q(a)=Q(b)=0` gives free radial faces;
+the top/bottom tractions are the stated pressures. Traction remains continuous
+across pressure-region boundaries and the midplane hoop-stress jump.
+All partial face resultants lie between zero and `N`, so throughout the solid:
+
+```text
+|rQ| <= N/(2pi); |Q| <= N/(2pi a); |H| <= 1/2
+B = 2N/(pi t²); S = N/(pi a t); P = max(pt_constant,pb_constant)
+VM <= sqrt(B²+P²+B P+3S²)
+```
+
+This bounds the complete constructed normal/shear tensor over the continuous
+washer volume, including **288 profile/case inner bridges** where `s>a`.
+The initial full-inner-support-only precheck stopped before output because
+those bridges exist; it is not used. No thin-plate approximation, elastic
+modulus, Poisson ratio, radial sampling or plate/contact solve enters this
+strength construction. It supplies a static collapse lower bound under the
+ductile-steel hypothesis, rather than an actual elastic peak or deformation.
+
+The common flat bearing circle retains the earlier head-circle hypothesis,
+capped by the catalog nut's inscribed hexagon and modeled nominal hexagon:
+**c=6.42366 mm** at 3/8 inch and **8.57250 mm** at 1/2 inch. Full flat
+annular contact, concentricity and ductile steel remain explicit assumptions;
+real chamfers, fillets, preload and delivered profiles/contact are excluded.
+The five resistance profiles per end are the nominal washer and four
+retained catalog corners. Their thicknesses are strength sensitivities at
+the source actions, with no CAD, stack-length or purchasing change.
+
+For each of the eight spacers, the same load ring `a<r<c` fits wholly inside
+its **19.05-mm OD / 10.31875-mm bore**. Carry constant `sigma_zz=-pt` through
+that annular column and zero stress elsewhere in the spacer. Its radial
+interfaces carry zero traction, and both terminal pressures match the nut
+and washer load ring. The earlier full-spacer-OD washer input is replaced
+within this new construction by the smaller matched footprint; all **240**
+associated washer profile/case comparisons are calculated afresh.
+
+Use the explicit **33-ksi / 227.526991-MPa ductile-steel working hypothesis**
+and comparison factor **1.67**. This is the retained washer marker and a
+new stated spacer hypothesis; neither is a guaranteed catalog minimum.
+The reported index is `1.67*VM_upper/Fy`. All comparisons are below one:
+
+| Axial construction | Comparisons | Governing result |
+| --- | ---: | --- |
+| All 200 ends, six cases, five profiles | **6,000** | **0.910968310**; sufficient Fy **207.269879 MPa**, right leg bolt 2/head, `k12-right`, catalog corner 2. `N=848.592474 N`; washer ID/OD/t **14.6558 / 34.7472 / 2.1844 mm**. |
+| Nominal washer profiles | **1,200** | **0.469221500**, same end/case; sufficient Fy **106.760556 MPa**. |
+| Mixed-stack ends, included above | **480** | All normal duties covered using each own capture force; no equal end loads or lateral-sharing acceptance is inferred. |
+| Eight spacer washer paths, included above | **240** | Washer maximum **0.661571116**. Spacer column maximum sufficient Fy **21.804712 MPa**, index **0.095833515**, left cleat/post bolt 2/nut, `a12-left`. |
+| Wood support rings, included above | **3,360** | Pressure maximum **1.138840 MPa**, index **0.264279464** against the existing DF-L `Fc90=4.309223 MPa`; internal timber transfer remains separate. |
+
+These sufficient material values belong to the constructed fields and stated
+factor, not measured strengths or necessary physical minimum strengths.
+All own capture free couples are zero and verified. Finite-ring resultants
+recover their original normal forces and world moments; the moments arising
+from lateral bore-force offsets remain with the shaft/flange. No extra
+prying multiplier or washer moment is guessed. Shaft-owned hardware gravity
+and nut/thread transfer are not reassigned to this axial subproblem.
+Matching the complete resultants does not transfer the earlier point-load
+section comparisons into the interior of a finite washer footprint.
+
+Independent verification proves **42 exact Cartesian divergence polynomial
+identities**, **14 tensor-invariant identities** and **1,000 exact radial
+equilibrium/continuous-bound checks**. It reconstructs all 6,000 cases at
+**80 decimal digits**, maximum stress discrepancy **2.308591e-14 MPa** and
+index discrepancy **2.312870e-16**. **12,000** independent world-coordinate
+face-pressure integrals recover the original wrenches within **9.313226e-10
+Nmm**. All 43 direct source pins, including 22 current finished solids behind
+the retained wood-land proof, are unchanged. The producer's end-force error
+is zero and maximum end-moment discrepancy **1.164154e-10 Nmm**.
+
+The existing ignored engineering-closure folder retains these active inputs,
+worksheet and verification, **4,468,571 bytes** total:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-axial-washer-transfer-v1.py` | 15,104 | `3e3540512c94df5802dad9163cdb292dd998e9979c4e19e34e165793ba1b4125` |
+| `current-axial-washer-transfer-attempt01.json` | 3,626,266 | `6c50749099a0089c89d4fa9beeaad2fa6d00312b1a356daab8c576bdbbe02db9` |
+| `current-axial-washer-transfer-verification-v1.json` | 12,652 | `245f16b422e11b8634e70350c2d38e39ee5fab6c9bdbd667f8b17420ba6c30fa` |
+| `method-source-cache/bower-lower-bound.html` | 428,360 | `cf892ef513b48c61def6c1f50b370f29a09823dc7cb2776ebb03c6ef9d591d5e` |
+| `method-source-cache/bower-cylindrical-coordinates.html` | 386,189 | `9b2e47d6ca541f388f2cb14f47286c41fcd894cffa32b46edfcd16ccef4db708` |
+
+The detailed result keeps all 6,000 comparisons and 1,000 unit-geometry
+records; the two primary pages are cached once for this method. No field,
+solid, installation or unchanged manual is copied. Both scripts pass scoped
+Ruff, and fresh producer/embedded-checker replays are identical. Reproduce
+into a fresh output; the verification JSON embeds its complete checker:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-axial-washer-transfer-v1.py /tmp/eoere-axial-washer-transfer-replay.json
+```
+
+All **220 affected development/documentation checks**, seven added local
+targets/fragments and owned whitespace checks pass. The maintained summary
+stays at 148 lines; only these two maintained documents enter the commit.
+
+The next steel duty is simultaneous transfer through the actual holed
+flanges and bend under their complete wrenches, using the now explicit
+normal boundary fields. Material/flat-contact assumptions, physical capture
+stiffness and compatible response remain distinct from this static axial
+construction. Full fitting/joint resistance, cleat splitting, internal wood
+load entry and the full completion goal remain open. All earlier failures
+and these inputs/results stay active; no archive or pruning is performed.
 
 ### Cleat transverse wrenches and the three qualification limits
 
