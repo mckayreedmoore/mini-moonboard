@@ -5760,6 +5760,8 @@ repartitions, rather than treating an affine miss as an impossibility proof.
 uniform working line caps. Further pressure-shape or bolt-split searches at
 these same floor wrenches cannot qualify it. Different normal floor wrenches
 or an applicable complete resistance interpretation are separate questions.
+The [later sharing envelope](#current-rear-foot-sharing-envelope) provides
+necessary force, reaction and centroid limits for those alternative wrenches.
 Additional member-section passes are not adopted for this rejected trial.
 The original six fields, four shear failures, six channel holds, other joint
 duties and full engineering goal remain active and unchanged.
@@ -5805,6 +5807,118 @@ uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure
 Each result embeds its producer; verification embeds the full independent
 checker. Use fresh outputs. Both corners, 100 bolt axes, 66 Hillman axes,
 panel/screw deferral and blank actual observations remain preserved.
+
+<a id="current-rear-foot-sharing-envelope"></a>
+**Necessary envelope for the local two-body rear-foot sharing path.** This
+applies to the left side in **`a12-forward`**. Under
+the unchanged uniform working line caps, each foot bolt's leg-side resultant
+must be **<827 N**. This tightens the earlier **998.886794-N** separate-moment
+ceiling by accounting for force and moment simultaneously. With all other
+leg/runner interfaces, horizontal reactions, axial captures and shaft gravity
+fixed, and zero individual axial bolt torque, a vertical normal-reaction
+transfer **>=716 N** is impossible within that reference. Smaller transfers
+still require a supported pressure field
+and complete joint/member treatment; no allocation is accepted here.
+
+Reuse the [existing one-sided packing argument](#current-mitered-prismatic-connection-shear).
+For any scalar projection of a signed vector line field with `|q(s)|<=c`,
+set `r=(q+c)/2`. The centered force/first-moment relation becomes:
+
+```text
+abs(S) <= c*L^2/4 - F^2/(4*c)
+```
+
+Apply that inequality along the leg-force direction to both wood spans of
+each shaft. Let f be the leg-force magnitude, g bound the fixed shaft load
+resultant, b bound the gravity/source-residual moment term, d be the bearing
+center spacing and R the sum of the two `c*L^2/4` budgets. For `f>=g`:
+
+```text
+d*f + f^2/(4*c_leg) + (f-g)^2/(4*c_runner) <= R+b
+```
+
+The same **1e-5-N / 0.001-Nmm** numerical allowances enclose G and B. Both
+quadratics increase over the relevant domain and are already positive at
+**827 N**, by **>10.3048 Nmm**. Forces below g are trivially below that
+ceiling. No wood strength, diameter window, divisor or design factor changes.
+The bound remains a necessary condition within the minimum-radial-Fe/divisor-5
+model, rather than a new adjusted NDS/ASD or physical joint capacity.
+
+Now let Delta be the normal force moved off the leg, N0 its source normal
+reaction, and t its new normal-pressure centroid's inward Y shift from the
+recorded leading edge **Y1496.071546580540 mm**. Nonnegative normal pressure
+requires `t>=0`; ordinary finite pressure at positive force requires `t>0`.
+At the two-bolt midpoint the original negative moment magnitude is m0,
+and `k=Y_pair_midpoint-Y_edge`. Keeping the other actions fixed gives:
+
+```text
+Fsum_Y = Fy0; Fsum_Z = Fz0+Delta
+abs(Mx) = m0+k*Delta+(N0-Delta)*t
+H(Delta,t) = (Fy0^2+(Fz0+Delta)^2)/4 + Mx^2/D2 - 827^2 <= 0
+```
+
+Here **D2=1968.25 mm²** is the squared separation of the two leg bearing
+centers, and `0<=Delta<N0` retains positive leg normal force. At the most
+favorable `t=0`, H is an increasing quadratic for nonnegative Delta and
+**H(716,0)>42.1540 N²**. Hence every transfer of 716 N or more is excluded
+in this family, even before assigning a pressure distribution. The source
+weak-edge cut still needs **>377.408 N** removed under its unchanged
+criterion; that lower target alone does not qualify the complete bore band
+or opposing loaded-edge directions.
+
+The analytical centroid ceilings below round upward. They are necessary
+limits on the **mean** normal-pressure location, not chosen contact points:
+
+| Vertical transfer N | Inward Y centroid shift upper mm | Absolute Y centroid upper mm |
+| --- | ---: | ---: |
+| 400 | 7.618527 | 1503.690073 |
+| 500 | 5.598579 | 1501.670126 |
+| 700 | 0.484210 | 1496.555757 |
+
+The rejected 500-N rectangle has a **12-mm** inward shift and lies outside
+this envelope independently of its proposed bolt split. No new pressure
+trial or parameter search is run. A different local sharing construction
+must satisfy these force/reaction/centroid conditions as well as its actual
+X/Y floor moments, simultaneous bearing/bending, receiver strength and
+restraint/response. The bounds do not establish such a construction, impose
+a pointwise floor-pressure capacity or exclude changes to other load paths.
+The no-slip floor support remains an unverified analytical hypothesis.
+All source fields, four shear failures, six channel holds and other required
+joint duties remain active; the full engineering goal is unachieved.
+
+The independent exact-rational/70-digit Decimal check rechecks **17 source
+bindings**, freshly rejoins both canonical source port wrenches without
+difference, and reuses the pinned earlier verification of twelve primitive
+bearing/capture joins. **Ten signed-line saturation controls**, a known-answer
+couple for two separated wood spans, both force quadratics, the complete monotonic
+reaction argument and all three centroid enclosures pass. The largest
+centroid-upper difference is **<1.431e-15 mm**, a numerical comparison only.
+Both new replays are byte-identical; scoped Ruff passes. Python **3.12.3**
+and its standard library suffice. All **220** targeted development/documentation
+tests pass. Changed-line checks resolve **15 local links/fragments**,
+authenticate three artifact rows and match nine centroid-table values and
+both integer force/reaction limits. The main summary remains 150 lines;
+whitespace checks pass.
+
+These **37,125 active bytes** stay in the existing ignored closure folder.
+Prior rejected trials and all source inputs stay frozen; no manual, asset,
+dependency, native/frame/contact solve, CAD rebuild, geometry change, physical
+operation, observation, archive or pruning is added:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-rear-foot-sharing-envelope-v1.py` | 9,409 | `38b6285c4ca0321bdecd8d96d1181ba9a8116ee09bd3963c299462f2de53fba4` |
+| `current-rear-foot-sharing-envelope-attempt01.json` | 18,667 | `59da9be2a9b79c0edc3de23889ff05230669e4b7a1953edc0ec8edfe8c547ea2` |
+| `current-rear-foot-sharing-envelope-verification-v1.json` | 9,049 | `e63d7ada5d814d870aefe6ffdefc2a9d704d36c5b7fe94d1ac949ed39ac03800` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-foot-sharing-envelope-v1.py /tmp/eoere-rear-foot-envelope-replay.json
+```
+
+The result embeds its producer and pins the retained helper; verification
+embeds its complete checker. Use fresh outputs. Both retained corners, all
+100 bolt axes, 66 Hillman axes and blank actual observations stay fixed.
+Panel/screw remedies remain deferred.
 
 <a id="current-remaining-rectangular-connection-shear"></a>
 **Remaining rectangular receivers: 60 completed lateral-shear comparisons.**
