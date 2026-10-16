@@ -570,6 +570,103 @@ All **220 development/documentation checks**, 37 changed local links,
 remains empty; this continuation performs no commit, push, archive or prune.
 The new raw outputs and their source inputs stay active.
 
+<a id="current-square-pair-nominal-placement"></a>
+**Square ordinary wood/steel pairs: nominal placement references complete.**
+Twenty of the 46 ordinary pairs have square-ended receivers and a regular
+50.8-mm cross-grain pattern. Their **40 axes / 240 case comparisons** now
+use the existing six-mode reference and **Cg ≥ 0.5**, with a conservative
+**nominal-placement Cdelta of 0.97**. All pass; the maximum is **0.616955**
+at `eoere_bolt_001 / a12-left`. The other **26 ordinary pairs / 52 axes** and
+eight mixed axes receive no new factor or resistance.
+
+The [2024 NDS](https://awc.org/resources/2024-nds/), printed pp.97–99,
+§12.5.1 and Tables 12.5.1A–D, supplies the placement rules. Each selected
+wood bearing is 38.1 mm long, with nominal D9.525 and a shaft perpendicular
+to grain. Their smallest grain-end distance is **65.0875 mm**: its reversible
+toward-end factor is approximately **0.976190**, above the **0.97 used**.
+Both ends exceed 3.5D. Every outer edge exceeds **4D = 38.1 mm**; the minimum
+is **44.449999987 mm**. Wood bearing `ell/D≈4` also closes the parallel-edge
+branch without the long-bearing addition. Maximum row spread is **50.8 mm**,
+below 127 mm. A **1e-6-mm numerical enclosure** is applied to calculated
+distances; it is not an actual manufacturing tolerance or an observation.
+
+The [2018 Commentary](https://awc.org/wp-content/uploads/2021/10/AWC_NDS2018-withCommentary_20200827_AWCWebsite_Commentary.pdf),
+C12.5.1.2–.3, printed p.264, explains that attached-steel spacing controls a
+wood row loaded perpendicular to grain and that only wood lengths enter
+`ell/D`. It also states the lack of a universal oblique-edge rule. For these
+square, regular patterns, use the stricter cardinal end/edge distances
+reversibly as the declared **engineering placement assumption**. This assigns
+the nominal outer-placement part of the lateral reference; it does not supply
+a complete arbitrary-angle/eccentric local-fracture rule or qualify force sharing.
+
+All **44 existing bores on the ten selected wood receivers** are included in
+**94 neighbor-pair checks**, including four mixed header bores solely as
+neighbors. The 50.8-mm cross-grain rows exceed the **3D** within-row wood
+minimum and **1.5D** parallel-load between-row minimum. Other grain stations
+are sufficiently separated for the **4D** parallel within-row and guarded
+**35.718751-mm** perpendicular between-row requirements. No other attachment
+on those receivers is omitted to obtain a passing pitch.
+
+The [AISC 360-22 publisher text, mirrored by SSI](https://welovesteelconstruction.ssi-steel.com/wp-content/uploads/2024/08/Specification-AISC-360-22_Specification-for-Structural-Steel-Buildings.pdf),
+§J3.4, printed p.138 / PDF p.206, supplies attached-steel minimum center
+spacing **8D/3 = 25.4 mm** and clear spacing **D = 9.525 mm**. All **120 hole
+pairs** on the twenty corresponding four-hole flanges satisfy both, including
+their unused near holes: minimum center/clear distances are **41.275 /
+31.275 mm**, before the enclosure. The factory steel-hole model stays **10 mm**. This is a
+detailing check; steel bearing/tearout, prying and Grade 5 qualification are
+not established by minimum spacing.
+
+Reuse the [half-rail shear results](#current-rail-end-connection-shear) and
+[remaining rectangular receiver results](#current-remaining-rectangular-connection-shear)
+for the matching member, two axes and case. All **120 own NDS member-shear
+comparisons** pass, maximum **0.885777** at right outer top-rail pair
+`017/018 / k12-right`. No shear, frame or CAD calculation is repeated.
+
+| Selected family | Pairs | Lateral comparisons | Member-shear comparisons reused | Maximum group/placement lateral index | Maximum member-shear index |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Header | 2 | 24 | 12 | 0.477201 | 0.303949 |
+| Top rail | 4 | 48 | 24 | **0.616955** | **0.885777** |
+| Six half rails | 12 | 144 | 72 | 0.308853 | 0.411073 |
+| Two center posts | 2 | 24 | 12 | 0.003684 | 0.055126 |
+
+Values round upward. These close the stated nominal placement/reference
+duty for the twenty pairs under the declared assumption. All original signed
+forces, free couples and axial captures remain in their frozen fields.
+NDS Table 12.5.1C footnote 2, §12.6.3 local stresses, finished cuts/bores,
+brittle transfer, combined axial/lateral/couple behavior, seats, restraint and
+response retain their own duties. Complete joint/member resistance stays
+null; the six channel machining holds and four failed post/leg comparisons
+are unchanged. The retained corners and full engineering goal stay active.
+
+Independent Decimal arithmetic checks both ends of every full wood bearing
+against the source outer planes, all 94 neighbor pairs, 120 steel-hole pairs,
+240 original component joins and 120 existing shear joins. All **13 direct
+pins** pass. Maximum lateral-index difference is **5.307e-17**. Producer/checker
+replays are byte-identical; scoped Ruff passes. Python **3.12.3** and its
+standard library suffice; shared-cache PyMuPDF **1.26.4** only reads manuals.
+All **220 affected Node checks**, **eight added-line local links/fragments**,
+three artifact hash/byte rows, twenty numeric table cells and whitespace
+checks pass. The maintained summary stays at **150 lines**.
+
+The existing ignored closure folder retains **340,709 arithmetic-evidence
+bytes**. Manuals, finished profiles, fields and prior failures are reused and
+stay active. No tracked asset, dependency, native/frame solve, CAD query/rebuild,
+physical operation, archive or pruning is added.
+
+| File in the existing closure folder | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-square-pair-placement-v1.py` | 12,908 | `83d87959e749036da11b4d8e91a7eb1647d1bff2b73dc064b06f00f606f779b6` |
+| `current-square-pair-placement-attempt01.json` | 318,242 | `67add295dcf0a9b48a7253d19a508c4cded8a45d7274d8309bf7fa2653de0ed6` |
+| `current-square-pair-placement-verification-v1.json` | 9,559 | `60f3fd41228f55738c6b7a7a299851a10d1641932ea63b3611b9ca590a08272c` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-square-pair-placement-v1.py /tmp/eoere-square-pair-placement-replay.json
+```
+
+The result embeds `reproduction_python_source`; verification embeds
+`verification_python_source`. Run from the repository root with a fresh
+output filename. No complete connection or historical resistance is reclassified.
+
 ##### Geometry-factor source and applicability followup
 
 The pinned NDS 2024 Chapter 12, printed pp.96–99, distinguishes **load angle
@@ -7805,7 +7902,7 @@ qualify the present crossed cleats or asymmetric shared stacks.
 
 | Current duty | Completed checks to retain | Specific inference still missing |
 | --- | --- | --- |
-| Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; current signed end/edge and pair/row inventories. | Applicable complete geometry/group and local brittle treatment for the actual signed group actions, with the member moments retained. Passing isolated Cg does not assign Cdelta or splitting resistance. |
+| Ordinary lateral wood/bolt transfer | 92 two-member references and 552 Cg-only comparisons; the [twenty square wood/steel pairs](#current-square-pair-nominal-placement) now have 240 passing group/nominal-placement references and 120 reused passing member-shear comparisons. | Finish placement for the other 26 ordinary groups and complete local brittle/eccentric transfer for the actual signed actions. The twenty-pair placement assumption does not qualify splitting, combined duty or physical sharing. |
 | Shared mixed-stack lateral transfer | All 48 own stack/case trials, three meshes and continuous bounds. The working divisor-5 model necessarily exceeds one for bolt 067 in `a12-forward`, including its certified control-comparator equilibria. | An applicable adjusted resistance interpretation and simultaneous axial/couple/local-wood treatment. The known conditional failure is retained without changing the reference or design. |
 | Axial seats, bolt metal and formed angles | Combined same-cut bolt-metal yield diagnostics, axial washer comparisons, 112 modeled wood seats, working t6.35/Ri6.35 heel references and 264 ideal-bend constructions. The [complete-steel method decision](#complete-steel-flange-hole-contact-and-interface-method-decision) retains the actual backing patches and all 528 own hole-port wrenches. | Compatible eccentric/prying transfer and complete flange/hole/rupture and wood-seat interaction. Force-only block shear cannot cover the retained normal loads and bending moments; repeating washer, bolt-metal or ideal-bend checks would not resolve this inference. |
 | Complete timber cleat | Corrected complete cut wrenches/tractions, finite-body flaw comparisons and bore-wall boundary traces, including the width moments above. | Applicable inter-bore/washer/side-contact transfer and combined local brittle resistance. The 40 working boundary constructions do not supply an interior or fracture proof; the eight inconclusive cases do not demonstrate a failure. |
