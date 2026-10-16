@@ -4151,6 +4151,187 @@ These inputs remain active. No native/frame solve, CAD rebuild, model change,
 fabrication, archive or prune occurs. The complete engineering goal remains
 active and unachieved.
 
+<a id="current-post-foot-pressure-and-contact-shape-bound"></a>
+**Post-foot pressure and the remaining transverse moment.** The next bounded
+question is whether finite pressure recovery removes the left `a1-rear`
+post's named cut duty, while preserving each whole interface wrench. This
+reuses the preceding original/loop records and their independently checked
+cut wrenches. It changes no bolt, material, frame case or geometric input.
+
+The post's normal floor force is **1,797.422292 N**, with pressure center
+`X=-1202.302357 / Y=-92.360147 mm`, strictly inside its recorded footprint.
+Unlike the rear-leg edge resultants, this wrench has a finite pressure
+construction. Three nonoverlapping rectangles share a **33.793285-mm X
+width** and **27.94-mm Y length**; their Y centers are **−152.416667,
+−91.88 and −59.283333 mm**. Solve their three weights from total force,
+total Y first moment and cancellation of the cut's non-gravity Mx. Their
+common X center recovers the remaining normal-force moment exactly.
+
+| Allocation | Three patch forces, N | Three pressures, MPa |
+| --- | --- | --- |
+| Original | 479.523692 / 453.830512 / 864.068088 | 0.507871 / 0.480659 / 0.915148 |
+| Five-member loop | 424.978237 / 609.674668 / 762.769387 | 0.450101 / 0.645716 / 0.807861 |
+
+Both constructions preserve the complete normal floor wrench **exactly**
+in rational arithmetic, with tangential actions retained. The named cut's
+non-gravity Mx becomes zero; allowing the entire previously bounded low-half
+gravity leaves internal `Mx` in **[−430.792777, 0] Nmm**. These pressures
+are statics constructions, not measured pressures, pointwise code limits or
+complete support resistance. Changed post sections do not inherit old passes.
+
+The **width moment remains unavoidable under pressure-shape changes alone**.
+For either +X normal timber interface, let `Q = integral((cutY-y)*p)`, with
+`p>=0`. Its lower-half contribution is
+`integral(max(cutY-y,0)*p) >= max(0,Q)`. The floor-member/post interface has
+`Q=3969.797723 Nmm`; the cleat/post interface has `Q=-1641.644988 Nmm`.
+The original fields already attain both minima. Holding these complete
+interface wrenches and the other actions fixed therefore cannot reduce the
+external lower-half `Mz` below **2489.640633 Nmm**. Floor normal pressure
+and gravity contribute no `Mz` or Y force to this cut.
+
+With tension-positive `N=-8.817576 N` and an enclosing X lever radius
+**R=19.050001 mm**, the normal hull gives:
+
+```text
+T >= (N + max(abs(N), abs(Mz)/R))/2 > 60.936 N
+```
+
+The displayed inputs round adversely: exact source sums give
+`N >= -8.817576 N`, `Mz >= 2489.64063 Nmm` and X radius below
+`19.050001 mm`; their rational lower is **60.936106995 N**. Thus the positive
+result is independent of floor-pressure spreading and of shape changes on
+either X-normal contact at unchanged interface wrenches. It is a necessary
+tensile resultant, not the complete design action or a splitting capacity.
+The earlier **112.338 / 122.970-N** lowers still apply to their frozen point
+reactions; they are not universal lowers over redistributed floor pressure.
+
+**Conventional-method implication.** The
+[Swedish Wood handbook](https://www.swedishwood.com/siteassets/5-publikationer/pdfer/glulamhandbook2-240508.pdf),
+printed pp.203–205, gives both the ordinary EC5 splitting rule and the German
+NA cross-connection treatment. Its `he/h > 0.7` exception does not dispose
+of this complete post: the cleat/post group has **he/h=0.681818** under its
+net transverse force; the front group has **0.702240**. The loop leaves
+both complete group force vectors unchanged but changes their X moments by
+**−5080 / +5080 Nmm**. A force-only comparison or the front group's geometric
+exception would omit retained moment/load-introduction duty. Applying a
+conventional splitting rule still needs an explicit moment allocation and
+its finite-end/group/material scope; no new capacity is adopted here.
+
+**Disposition:** finite recovery of this one post-foot normal wrench is
+complete as a statics construction. Close the pressure-shape-only route to
+compression-only qualification; more pressure cells cannot remove its
+remaining width moment. Next retain the full moment in the local brittle/
+end-load treatment, or justify different complete interface/shaft shares
+with their corresponding joint and member checks. That is engineering work
+within the retained design, not an external blocker or permission to redesign.
+
+The independent check reuses the previously verified cut record and
+integrates each new patch with 2×2 Gauss points. Maximum force/first-moment,
+cut-Mx and contact-bound recovery errors are **6.37e-12 N/Nmm,
+3.64e-12 Nmm and 4.55e-13 Nmm**. All **54 source pins** are unchanged; a fresh
+producer replay is byte-identical and scoped Ruff passes. The following
+**36,602 bytes** stay active in the same ignored closure folder. They add no
+dependency, copied field/manual, native/frame solve, CAD rebuild or physical
+operation; no evidence is archived or pruned.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-post-floor-pressure-v1.py` | 13,435 | `0246526d2a323d1d1bd25969ec583993e72fd57a7755183a23edc07c6a7dae86` |
+| `current-post-floor-pressure-attempt01.json` | 16,825 | `2808e6780bc6fb4823e14e5d89ef6c8e3ca20585d511ef5169326d8ef89c9e77` |
+| `current-post-floor-pressure-verification-v1.json` | 6,342 | `1af156175b03555d53616df8a1f62a0bc638aeb7097012c261fcc5fd80eb4eb6` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-post-floor-pressure-v1.py /tmp/eoere-post-floor-pressure-v1-replay.json
+```
+
+The verification JSON embeds its complete `verification_python_source`;
+calling `verify(record_path, record_sha256)` checks the pressure recovery and
+bound without another mechanics solve. The full engineering goal remains
+active and unachieved.
+
+<a id="current-rear-leg-outer-core-load-entry"></a>
+**Rear-leg outer-core load entry.** Before another taper calculation, check
+the tempting shortcut of crediting only the continuous outer **50.8-mm**
+band and ignoring the recessed inner strip. The prior paired-hole worksheet
+already checks the actual foot and full-width upper sections. It does not
+establish that the upper joint can introduce its complete force/couple into
+that narrower band. This followup screens that inference, with no new member
+calculation or geometry query.
+
+Use all **24 original upper-leg bolt/cases**, plus the loop's **two changed
+left `a1-rear` ports**. Each source upper bearing is **88.9 mm** long; the
+credited outer interval is approximately **s=127.0–177.8 mm** from its own
+shaft datum. Transport every own first moment to that interval's center.
+For grain-projected line load q on centered length L, let its resultant be
+F and first moment S. Any bounded field `abs(q)<=c` requires:
+
+```text
+abs(F) <= c L
+abs(S) <= (c L² - F²/c)/4
+required c >= (2 abs(S) + sqrt(4 S² + L² F²))/L²
+```
+
+A −c/+c field switching at `-F/(2c)` attains the moment bound; its integral
+also supplies an exact separating certificate. This is a necessary check
+for every bearing distribution, not just an affine trial.
+
+Keep the existing minimum-radial-Fe/divisor-5 working reference. Favorably
+credit the larger **12.5222-mm catalog body** throughout the core, ignoring
+the less favorable own root window, and round its line cap upward to
+**55.257 N/mm**. **Ten of 24 original records and one of the two loop
+records exceed the necessary bearing bound.** The remaining fifteen are
+inconclusive, not passes. Governing required-cap/cap ratios are:
+
+| Allocation | Governing record | Necessary ratio |
+| --- | --- | ---: |
+| Original | Left upper bolt 2 / `a12-left` | **3.114471** |
+| Loop | Left upper bolt 1 / `a1-rear` | **1.164782** |
+
+The original maximum has `F=-1446.722465 N`, `S=107989.209864 Nmm` and
+requires at least **172.096327 N/mm**. Its favorable cap allows at most
+**26180.190980 Nmm** at that net force. The original records also require
+opposed grain-bearing resultants of **115.322548–1402.410615 N** if confined
+to the outer band. Ignoring the inner wood cannot silently inherit the
+existing full-width joint comparisons or replace their moments with net force.
+
+**Disposition:** close the outer-core-only shortcut at these fixed port
+wrenches under the working lateral hypothesis. It does not establish failure
+of the actual full-width leg, an NDS-ASD capacity failure, or rejection of
+every possible core load redistribution. Retain the existing paired-hole
+normal results and the actual tapered geometry. The existing
+[taper helper](../../scripts/floor_taper_checks.py) already provides an EC5
+notch coefficient and rectangular shear/torsion comparison; reuse those
+scalar methods only after rebinding their geometry, load components and
+applicability. Its historical native/sample guards and explicitly hybrid
+US-ASD/EC5 comparison do not transfer a current full-member acceptance.
+No new native/frame solve or generic mechanics framework is required here.
+
+The independent check reduces the original fine bearing/capture actions,
+rather than the aggregate port moments: maximum force/first-moment join
+errors are **2.28e-13 N / 1.75e-10 Nmm**. All **26** saturated-field identities
+and dual certificates use exact rational arithmetic; body/root cap checks
+and all **51 source pins** pass. The six-case admission summary is separately
+rehash-verified. Fresh-path replay is byte-identical and scoped Ruff passes.
+These **78,725 bytes** stay active in the same ignored closure folder;
+no field, dependency, manual or historical source is copied or pruned.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-rear-leg-core-entry-v1.py` | 9,584 | `977f3e5ccef7c31a2205ff2c659a13debe242e2966ba686f1a162bc1305e017c` |
+| `current-rear-leg-core-entry-attempt01.json` | 52,268 | `7948a6773220125a21d3ee4869910c803bfc1f1b8e8364cd4f1e6ce67a4d59c1` |
+| `current-rear-leg-core-entry-verification-v1.json` | 16,873 | `b76451ecea6ddd0ac2520be3736a76fc7cb731c486569a8be97995f6f144edc0` |
+
+```sh
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-rear-leg-core-entry-v1.py /tmp/eoere-rear-leg-core-entry-v1-replay.json
+```
+
+The verification JSON embeds the complete checker; load it with
+`__name__="verification"` and call `verify(record_path, record_sha256)`.
+Both followups pass all **220 development/documentation checks**, nine
+added-line local link/fragment checks and whitespace checks; the maintained
+summary stays at **148 lines**. All inputs remain active.
+The engineering goal remains active; no complete member resistance is claimed.
+
 <a id="same-station-bore-window-normal-followup"></a>
 **Same-station bore-window normal followup.** Critical-section accounting
 finds that the 58 screened pairs occupy **116 distinct wood-bore occurrences**
@@ -4295,7 +4476,7 @@ The remaining unsupported qualifications reduce to this decision table:
 | --- | --- | --- |
 | Cleat local wood resistance | Passing relaxed section references, retained shear/normal reference checks and [existing-upper-bolt bridge statics](#existing-upper-bolt-bridge-statics). | **Complete local transverse/splitting resistance unsupported.** The bridge supplies a normal compression construction at the central cut with changed force shares, retaining explicit inclined-host and common-shaft demands. It does not cover every split/shear/torque path. The failed prescribed-pressure family and inapplicable beam shortcut retain their separate outcomes; neither establishes physical cleat failure. |
 | Combined joints/seats and their restraint/response paths | Ordinary lateral, bolt-metal, axial washer, ideal-bend and representative mixed-stack statics comparisons. Current restraint locations/directions are mapped. | **Complete simultaneous transfer and applicable response unsupported** for the eight mixed stacks, holed flanges and eccentric axial seats. All four long-member restraint duties share these axial capture/seat return paths. They do not create separate commissions for four member models and another frame model. |
-| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**, including all staggered, same-station and single-bore windows. | **Deep-recess/support, clipped-end load introduction and remaining channel/recess critical-section coverage remain unsupported** within the precise NDS limits above. The [outer-post moment bound](#current-five-member-existing-bolt-loop) requires transverse tension in both the original field and the new loop; load introduction/local brittle resistance and the loop's changed member sections remain open. The 34 compression-domain exceptions retain their conditional restraint dependence; completed comparisons are not reopened. The clipped groups' normal arithmetic is complete; its physical applicability exception is not a strength-failure finding. |
+| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**, including all staggered, same-station and single-bore windows. | **Deep-recess/support, clipped-end load introduction and remaining channel/recess critical-section coverage remain unsupported** within the precise NDS limits above. The [post followup](#current-post-foot-pressure-and-contact-shape-bound) recovers its normal floor wrench but retains transverse tension under pressure-shape changes alone. The [outer-core-only shortcut](#current-rear-leg-outer-core-load-entry) fails its necessary working bearing reference at fixed port wrenches. Reuse the actual-taper method within its scope; retain local brittle/end-load and changed-section duties. The 34 compression-domain exceptions retain their conditional restraint dependence; completed normal comparisons are not reopened. |
 
 The owner-selected disposition is to retain the current design and its
 qualification limits. Panel/screw exceedances stay deferred. No new design,
