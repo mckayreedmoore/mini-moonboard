@@ -9583,6 +9583,86 @@ only to inspect source pages. No native/frame solve, CAD query/rebuild,
 new project dependency, physical operation, archive or pruning occurs.
 All current inputs, earlier failures and this source stay active.
 
+<a id="current-cleat-centric-group-scope"></a>
+**Centric splitting methods: actual groups and internal loading.** Reuse the
+96 eccentric-dowel components and existing finished-profile audit to identify
+four physical two-bolt groups: lower post and upper side/mixed groups on each
+cleat. The original and coupled allocations give **48 group/case vectors**.
+All **24 source-to-coupled complete group wrenches** are identical, including
+every force and moment. Nevertheless, **zero source and ten coupled groups**
+have opposing own Y forces. A net group wrench does not identify the local
+dowel loading needed to apply a splitting method.
+
+The largest cancellation is the coupled left upper-side group in `a1-rear`:
+own forces **+27.407803 / −16.575610 N**, net **10.832193 N**, absolute sum
+**43.983413 N**. Their absolute-sum/net ratio is **4.060435**. This is a load
+diagnostic, not a strength multiplier or failure. The coupled allocation's
+improved cut references therefore cannot justify using a centered net force
+while discarding its self-equilibrated individual forces and couples.
+
+| Group on each cleat | Opposing receiver(s) | Local depth over complete bore band, mm | Nearest actual grain end, mm |
+| --- | --- | ---: | ---: |
+| Lower post, Z200 | `base_post_outer_left/right` | 139.7, rectangular | 60.3 |
+| Upper side, Z342.0875 | `base_side_left/right` and `eoere_clip_angle_base_left/right` | 128.918518–137.577146, sloping | 45.284053 |
+
+The depth interval encloses the saved exact values. The complete lower and
+upper bore bands are Z194.840525–205.159475 and Z336.928025–347.246975 mm,
+including the prior numerical enclosure. Their separation is **131.76855 mm**,
+or **0.9432252** times the 139.7-mm stock depth. This is a bore-enclosure gap,
+not an established standard's joint-spacing definition; no isolated-group
+credit or adjacency factor is adopted. The upper group's finite sloping
+profile also cannot silently inherit a full rectangular-member resistance.
+
+| Published route reviewed | Usable information and current limit |
+| --- | --- |
+| [CWC Lecture 6](https://cwc.ca/wp-content/uploads/2025/08/CWC-Lecture-6-Design-of-connections1.pdf), PDF p.130 | CSA splitting reference `QSi = 14*t*sqrt(de/(1-de/d))`, with `phi_w`, `KD`, `KSF`, `KT`. A numeric factor alone does not map centered group loading or its factored format to independent critical-load thresholds at each current dowel. |
+| [Quenneville 2009](https://www.timberdesign.org.nz/library/design-of-bolted-connections-a-comparison-of-a-proposal-and-various-existing-standards), Eq.9, printed p.5 | The proposed splitting expression includes exterior `Kloc=0.5` and mean-to-fractile, duration and design factors. Its experimental mean predictions are not adopted current design capacities. |
+| [NZ Wood reinforcement guide](https://cms.timberunlimited.co.nz/assets/Resources/reinforcement_of_timber_members.pdf?v=1689136441), September 2020, C5.1, printed pp.23–25 | Supplies an effective-area/group method with member transverse-tension value, effective thickness, row and adjacency factors. Material assignment, the actual edges/groups and their loading still need matching; the earlier C16 intact-section hypothesis is not automatically a connection resistance. |
+
+**Disposition:** these are available engineering routes, not a missing
+arbitrary scalar or an external approval requirement. Select and justify a
+method for the finite groups, actual individual load distribution and
+couples, adjacent groups and consistent resistance format before assigning
+`Pc0`. A whole-group resistance cannot simply become an independent `Pc0`
+for every bore. This scope check assigns no centric, complete-cleat or joint
+capacity and establishes no physical failure. The 96 eccentric components
+retain their limits. Both corners, 100 bolt axes, 66 Hillman axes, blank
+observations and the six channel machining holds stay unchanged. The full
+engineering completion goal remains active and unachieved.
+
+The independent checker reconstructs groups from the original complete port
+aliases and raw V4 increments, and rechecks band depths against the source
+profile polygon. All **48 vectors**, **24 complete-wrench invariants** and
+**15 source pins** pass. Complete group-wrench and increment-wrench differences
+are zero; the maximum source Y-force reduction difference is **2.3e-14 N**
+and polygon depth difference **3.718e-15 mm**. Producer/checker replays are
+byte-identical; scoped Ruff passes. All **220 affected Node checks**, **five**
+added-line local links/fragments, source/artifact hashes, reported values and
+whitespace checks pass; the maintained summary stays at **150 lines**. Python
+**3.12.3** and its standard library suffice for arithmetic.
+
+The existing ignored closure folder retains **103,803 arithmetic-evidence
+bytes**. The two new shared primary PDFs total **21,117,047 bytes**, retained
+once for their actual equations and scope figures. All inputs and prior failed
+attempts stay active; none is archived or pruned. No tracked assets, dependency,
+native/frame solve, CAD query/rebuild or physical operation is added.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-centric-group-scope-v1.py` | 9,817 | `2f458bb02e44dafce28bc6436332661ee3a818f74956326ff0a41d91d35c1850` |
+| `current-cleat-centric-group-scope-attempt01.json` | 85,737 | `d8200caae8151d5070cf547706fc1a31f756750d908891baf6fc583827e91547` |
+| `current-cleat-centric-group-scope-verification-v1.json` | 8,249 | `8db474fdbdd04b1cb9136330dba94b0e4c87b7df0267bdf5c0f805598fc72cf9` |
+| `method-source-cache/nz-wood-2020-reinforcement-of-timber-members.pdf` | 10,220,352 | `7072e354335e4d02530b3818e623e39fc21b592adc5481904d67e9ae7e4fe64b` |
+| `method-source-cache/cwc-2025-connection-lecture6.pdf` | 10,896,695 | `fed852cbd78dd82fdd29d0d86fd9e294a52321fb7dfbb134c25c2ace70bf0911` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-centric-group-scope-v1.py /tmp/eoere-cleat-centric-group-scope-replay.json
+```
+
+The result embeds `reproduction_python_source`; verification embeds
+`verification_python_source`. Run from the repository root with a fresh
+output filename. PyMuPDF **1.26.4** was used only to inspect cached source pages.
+
 The [published stiffness investigation](../bolted-candidate-prototypes/simple-center-published-stiffness-basis.md)
 is reused for method scope. Its older PB02 hardware values are not transferred.
 The current six fields instead declare **1,000 N/mm screw stiffness**,
