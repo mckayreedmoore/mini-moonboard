@@ -7618,6 +7618,150 @@ active and unachieved; panel/screw remedies stay deferred and actual fit
 excluded. All inputs, earlier failures and these four records remain
 active; nothing is archived or pruned.
 
+<a id="current-connected-bend-and-unholed-necks"></a>
+**Connected ideal bend and both unholed flange necks.** The retained
+**132 t6.35/Ri6.35 ideal bends** now join **264 straight necks** through
+matching full Cauchy tractions. Each neck runs from the heel tangent at
+**X12.7** to the first unused-hole edge at **X18.8125 mm**, length
+**6.1125 mm**. All continuous neck bounds are below the working reference;
+the largest is **0.5092611052131094**, displayed upward as **0.509262**.
+The retained bend bound **0.952732** controls the connected bend/two-neck
+region. This resolves that interface within the existing nominal strength
+and gravity hypotheses. Its generated outgoing neck tractions still require
+transfer through the holed surrounding flange.
+
+The question was whether the saved ideal-bend **end stress distributions**
+could extend into the adjoining material while carrying its finite backing
+pressure. The preceding bend record leaves this interface unmatched.
+Reuse the [frozen bend field and captured inputs](#current-fitting-end-wrenches-and-ideal-bend-stress-constructions). No native, frame,
+CAD or contact solve, geometry change or new product model is involved.
+The metric t6/Ri6 sensitivity stays separate; its **0.979325** bend bound
+is not the t6.35 result used here.
+
+Let r and zeta be the bend's radial and width coordinates. Use outward
+neck distance x, width y and thickness-midpoint coordinate n. Define
+**o=-1 / theta=0** for arm-z and **o=+1 / theta=pi/2** for arm-x, with
+**y=-zeta**, **n=-o*(r-9.525)**. At that bend end let
+**T=sigma_theta_theta**, **G=sigma_r_theta**, **K=sigma_theta_zeta** and
+**D=G_r+K_zeta**. The exact straight-neck base field is:
+
+```text
+sigma_xx = T-o*x*D
+tau_xn   = -G
+tau_xy   = -o*K
+all other base components = 0
+```
+
+Its x-equilibrium is **-o*D+o*G_r+o*K_zeta=0**; the other rows vanish
+because the shears are independent of x. At x=0 the three root traction
+components equal the properly rotated frozen bend field. This matches
+the complete end traction, not only its six resultants. The inherited shear
+profiles are zero on the appropriate thickness/width sides. Tangential
+stress components may jump at the internal interface while traction remains
+continuous, as required by the static lower-bound construction.
+
+Include the source backing pressure within the neck through a separate
+exact field. For face pressures pt/pb, p=pt-pb and u=2n/t, define:
+
+```text
+q(x,y) = integral_0^x p(s,y) ds
+A(x,y) = integral_0^x (x-s)*p(s,y) ds
+sigma_xx = 4*A*sign(u)/t^2
+tau_xn = 2*q*(1-|u|)/t
+sigma_nn = -(pt+pb)/2 - p*(u-u*|u|/2)
+all other pressure-field components = 0
+```
+
+The identities A_x=q and q_x=p establish equilibrium. Both normal-loaded
+faces, free width sides and midplane traction continuity are retained.
+At x=0, q=A=0, so this field adds no root traction and leaves the bend
+connection intact. The source footprints are unchanged; pressure is not
+spread uniformly across the neck. No bore, washer footprint or retained
+straight-flange point gravity load enters this region. The bend's own
+uniform gravity field and the original outside point-gravity partition remain
+unchanged; no physical uniform-gravity or stiffness qualification is added.
+
+For an upper pressure P, the pressure field's Mises norm is bounded by
+**2*P*L²/t² + P + 4*P*L/t**. Use the preceding sum of eight projected
+cell-pressure uppers, plus **1e-10 MPa** as a numerical allowance; its parent
+independent pressure error is below 5e-16 MPa. This is a calculation control,
+not a manufacturing tolerance or physical-pressure accuracy bound.
+
+The base tensor is affine in x and its Mises norm is convex, so checking
+x=0/L bounds the whole extension. Reuse the frozen outward-rounded interval
+arithmetic on an **8×8 radial/width partition** at both ends: **128 boxes
+per neck / 33,792 endpoint-box comparisons** cover the complete region.
+The square-root uppers are verified by exact rational squaring; acceptance
+uses exact rational combined uppers against **235/1.67 MPa**. The pressure
+norm bound applies throughout the extension. No sampled interior maximum
+or sampled pressure replacement supplies the result.
+
+| Current case | Necks | Continuous neck upper |
+| --- | ---: | ---: |
+| `a12-forward` | 44 | 0.405811 |
+| `a12-rear` | 44 | 0.423890 |
+| `a12-left` | 44 | **0.509262** |
+| `k12-right` | 44 | 0.502394 |
+| `k12-rear` | 44 | 0.429274 |
+| `a1-rear` | 44 | 0.327907 |
+
+The governing box is **left top single angle / arm-z / a12-left**, at the
+neck's outgoing face. Its base Mises upper is **63.426273 MPa**, and the
+pressure allowance contributes at most **8.236219 MPa**. The exact stored
+index upper is **8068479177588785/15843501683114768**. The source old-bend
+squared upper **0.9076968646670572**, within the unchanged gate, supplies
+the controlling bound for the connected region. These are constructed
+static-strength bounds, not actual elastic stresses or a complete fitting pass.
+
+An independent exact-polynomial checker reuses four authenticated arithmetic
+definitions from the frozen washer verifier. It verifies **18** analytic
+bend-trace derivative identities, **54** base-equilibrium identities, **54**
+base root-traction identities and **72** free-side identities. The pressure
+field adds **108** equilibrium, **108** zero-root-traction, **108** loaded-face
+and **54** midplane-continuity identities. Both signed coordinate maps are
+proper rotations. **1,056 source interface-corner mappings**, all 264 covers
+and their exact square-root/pressure-budget bounds are checked. The derivative
+controls cover all nine force/moment/body-density components at both end
+charts. Gravity shear terms are linear in theta; the interval evaluation
+retains the exact pi/2 enclosure at the second end.
+
+Three active files in the existing ignored engineering-closure folder total
+**341,834 bytes**. All **138 unique direct/inherited/checker source bindings**
+remain unchanged. Uniform partition definitions, worst boxes and canonical
+per-neck box-record hashes retain the proof without storing 33,792 raw rows.
+The old bend results, field helper, interval arithmetic, pressure bounds and
+source caches are reused without copying fields, manuals or installations.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-bend-neck-transfer-v1.py` | 10,369 | `4b98d6afe83612c33b081160b9b804caf1309697d782063f35720bc1b7eecf7d` |
+| `current-bend-neck-transfer-attempt01.json` | 318,523 | `7053a6eec34d6ab5e38ceaea2a6193ec8a179c0e8a154b56dc0532b2a9fdc679` |
+| `current-bend-neck-transfer-verification-v1.json` | 12,942 | `22230746cfc264f6486999c1727aee91843b5abdcf006a0b9895f559690fef80` |
+
+The verification JSON embeds its complete checker. Reproduce into a fresh
+output:
+
+```sh
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-bend-neck-transfer-v1.py /tmp/eoere-bend-neck-transfer-replay.json
+```
+
+Scoped Ruff checks pass for the producer and independent checker. Fresh
+producer/checker replays are identical. All **220 affected development and
+documentation checks**, seven changed local links/fragments and owned
+whitespace checks pass. The maintained summary stays at 148 lines; only
+the two maintained documents enter the commit.
+
+The remaining steel transfer connects the explicit outgoing neck tractions,
+the loaded-hole regions and the outer plate, including the unused near
+holes. Incoming self-equilibrated outer stresses, prying, instability and
+physical restraint/response remain unqualified. Preserve the local-hole,
+nominal net-section and washer evidence within their recorded limits;
+the new connected construction does not assemble a full fitting/joint pass.
+Both retained cleats, 100 bolt axes and 66 Hillman axes stay fixed. Panel/screw
+remedies remain deferred and actual observations blank. All three records,
+earlier failures and reused inputs remain active; no archive or pruning occurs.
+The full engineering completion goal stays active and unachieved.
+
 <a id="current-loaded-steel-hole-transfer"></a>
 **Combined three-dimensional transfer around the loaded steel holes.**
 The existing steel within **14 mm** of each loaded bolt admits a static
