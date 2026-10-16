@@ -10959,6 +10959,86 @@ uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure
 The producer and checker records embed complete sources. Use fresh outputs
 from the repository root. All current/frozen inputs and failed evidence stay active.
 
+<a id="current-cleat-normal-return-wrench"></a>
+**Cleat normal-pressure return and the compression-column limit.** Before
+assigning wood compression stiffness to the remaining capture budget, check
+whether that constituent supplies the current load path. This worksheet
+reuses the six authenticated fields and the existing own-datum member-action
+reducer. It preserves all **516 original load rows** across the twelve
+cleat/case combinations: four captures, eight bore points, thirty contact
+cells and self-weight for each. No area/modulus sweep or response solve is
+needed to answer this equilibrium question.
+
+Project the washer captures and timber contacts onto global **X**. About
+each member's recorded start datum, their combined force is effectively zero
+(largest absolute residual **2.4648e-10 N**), but the following couples remain.
+These are the moments of the **normal-pressure partition**, not additional
+loads applied to the complete body:
+
+| Case | Left My / Mz, Nmm | Right My / Mz, Nmm |
+| --- | ---: | ---: |
+| `a12-forward` | −8202.247 / −5294.114 | 1852.714 / 780.529 |
+| `a12-rear` | −7043.252 / −2499.468 | 1438.530 / 629.542 |
+| `a12-left` | −6675.716 / −4413.983 | 2330.100 / 999.051 |
+| `k12-right` | −2545.139 / −1070.376 | 6558.062 / 4365.804 |
+| `k12-rear` | −1525.662 / −638.849 | 6969.805 / 2439.777 |
+| `a1-rear` | −475.641 / 199.240 | 660.955 / 318.872 |
+
+Every combination has a nonzero couple; the largest component is
+**8202.246726 Nmm**. Contact and capture pressure-resultant centroids differ
+by up to **6.922349 mm in Y** and **12.612801 mm in Z**. The original bore,
+other contact and gravity actions balance these couples. Recombining all
+original actions closes the complete body within **9.318e-10 N** and
+**9.537e-8 Nmm**. No complete-body imbalance is being reported.
+
+An opposed pair of X forces at identical Y/Z coordinates has zero total
+force and moment, whatever its separation in X. The same holds for a matched
+annular compression column and for sums of those columns. **Forty-eight
+exact zero-wrench controls** check that identity on the current captures.
+Such columns alone therefore cannot replace the recorded normal-pressure
+partition while leaving the other source actions unchanged. A favorable
+`E*A/L` value does not remove the missing couple or establish an admissible
+complete wood return field.
+
+**Disposition:** the unmodified coaxial-column shortcut is closed for the
+entire source cleat return duty. A compression contribution with justified
+additional timber normal/shear/moment transfer remains possible. Use the
+recorded couples in that coupled treatment before crediting the residual
+series-compliance budget, capture stiffness or a brace return path. The
+[washer/spacer mode](#current-washer-axial-compliance-bound) keeps its own
+valid scope. This X-normal return problem is separate from the Y-normal
+cleat opening/splitting duty below. No wood strength, compliance, actual
+failure or complete joint qualification follows from this equilibrium check.
+
+An independent **80-digit Decimal** calculation reconstructs captures from
+the existing ring geometry and normal-force records, and complete body loads
+from the four aggregate bore/capture wrenches rather than the twelve original
+point rows. All **288 normal scalar comparisons** agree within **9e-78**;
+the aggregate reconstruction differs by at most **8e-14 N / 3.524e-11 Nmm**.
+Known shifted-force and origin controls pass, as do all **13 source pins**.
+Fresh producer/checker replays are byte-identical; scoped Ruff, the affected
+development/documentation checks, changed links, tables and whitespace pass.
+
+These **80,314 active bytes** remain in the existing ignored closure folder;
+the result and verification embed their complete standard-library Python
+sources. Only the two maintained documents are committed:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-cleat-normal-return-wrench-v1.py` | 12,640 | `a96bd20a303cf740879b58a76f62cf59f6b2e6be094757843b98aa4d1fffd968` |
+| `current-cleat-normal-return-wrench-attempt01.json` | 52,669 | `b538a3e4f74d9e0c369973a1f6934a62a3e6fd67763ccafeeabe9ee38272d2e3` |
+| `current-cleat-normal-return-verification-v1.json` | 15,005 | `033980c5115b5bb7002f0c371d4bd65e8c4d78a69ed8d50614a1e540f2895f76` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-cleat-normal-return-wrench-v1.py /tmp/eoere-cleat-normal-return-replay.json
+```
+
+Use fresh outputs from the repository root. Both corners, 100 bolts and
+66 Hillman axes remain fixed. No geometry, hardware, spring, material law,
+native/frame/CAD solve, physical operation, observation, archive or pruning
+is added. All current inputs and failed evidence stay active. Coupled wood
+return, complete joints, restraint/response and the full goal remain open.
+
 ### Cleat transverse wrenches and the three qualification limits
 
 The owner requested investigation of cleat transverse resistance,
