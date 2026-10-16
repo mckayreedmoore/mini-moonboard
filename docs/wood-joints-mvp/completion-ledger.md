@@ -3937,6 +3937,216 @@ calling its `verify(record_path, record_sha256)` reproduces the independent
 checks without another LP. Original failed pressure, original-force mixed-stack
 and intermediate allocation results retain their original meanings.
 
+<a id="current-short-edge-and-compression-family-bound"></a>
+**Short-edge force/moment check and the compression-only route.** Passing
+the V4 bearing/bending reference does not settle loaded-edge eligibility.
+The existing six short-edge occurrences are 067/070 in the sides, 068/069 in
+the center principals and the first left/right leg bolt in the sides. Reuse
+their frozen outer-profile distances and all six current fields. Only the
+067/070 wood-port actions receive the V4 increments; the other four stay
+at their original actions. No geometry or strength reference changes.
+
+For the scalar line-force component directed toward the short edge, retain
+its resultant F and centered shaft-width first moment S. The earlier normal
+hull argument gives the necessary positive directed resultant:
+
+```text
+T >= max(0, F, F/2 + abs(S)/L)
+```
+
+It follows from `F=T-U`, `T,U>=0` and `abs(S)<=(T+U)*L/2`. Exact rational
+arithmetic checks **36 own occurrence/case records**. **20** require a
+positive short-edge-directed resultant; **19** of those have net force
+pointing away from the edge. A net-force-only screen misses that retained
+moment duty. The largest lower is **49.491666 N**, 067/left side/`a1-rear`
+under V4. These are necessary resultants, not resistance values or actual
+pressure distributions. A zero lower also does not establish absence of
+outward loading in the real bore.
+
+The [NDS Chapter 12](hypotheses/upper-block-strength-2026-10-01/source-cache/chapter12-2024-awc-20260911.pdf),
+Table 12.5.1C, retains the loaded/unloaded edge distinction. Here the declared
+perpendicular-component screen needs **38.1 mm** at 067/070; the nearer
+outer edge is **29.108028 mm**. This rules out that sufficient one-sided
+screen for the named actions. It supplies no invented reduced Cdelta,
+complete oblique-load failure or physical splitting conclusion.
+
+A second free-body check asks whether moving the inward Y-force pair from
+the upper bolts to the existing lower cleat/post pair can avoid this duty
+while keeping both timber cuts in compression. Allow any upper pair Pu,
+lower pair Pl and Y/Z interface couples, with other vertical/axial actions
+and ports fixed. At the common Y cut:
+
+```text
+cleat normal force = Nc0 - Pu - Pl
+post normal force  = Np0 + Pl
+side short-edge component = F0 + k Pu,  k > 0
+```
+
+The governing left `a1-rear` free body has
+`Nc0=1.665405 N`, `Np0=-8.817576 N`, `F0=33.974952 N` and
+`k=0.766044443`. Keeping both normal forces nonpositive requires
+`Pu >= Nc0+Np0`; the side's short-edge component is consequently at least
+**28.496071 N**. Conversely, keeping that side component nonpositive requires
+a combined cleat/post net tensile-resultant lower of **37.198979 N**.
+These lower bounds ignore the additional moment constraints and cannot be
+used as the complete design demand. All **12 corner/case identities** are
+checked; this one case already excludes the proposed compression-only /
+away-from-short-edge route, even when the lower pair is included.
+
+**Disposition:** close that bounded route without another P/G search or
+pressure refinement. Retained-detail completion needs an applicable local
+edge/splitting treatment under the complete shared actions, or a justified
+larger sharing path with its own checks. No corner change, lower-bolt force
+allocation or new demand authority is adopted. V4's 24 passing lateral
+statics comparisons retain their scope; complete resistance stays open.
+
+Independent reductions from the original fine actions recover all 36 force /
+first-moment pairs within **7.31e-14 N / 2.85e-12 Nmm**. A separate direct
+sum of every current point-action table recovers all 12 cleat/post normal
+force pairs exactly and verifies the pair geometry and three-body identities.
+The first worksheet has nine direct pins; the second has 48 unchanged pins.
+Both producer replays are byte-identical. The **136,144 bytes** below stay
+active in the existing ignored closure folder, with no new dependency,
+copied field, manual or model:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-short-edge-moment-bound-v1.py` | 9,890 | `f2bf2f5a977cf92a47f91c538601fa53c34fe3b923674c8f743080122da59a24` |
+| `current-short-edge-moment-bound-attempt01.json` | 71,173 | `5cc665f8baabff59531fbc3024b85a0a4ba6ec26f3e88421b67fe436cfa3dd93` |
+| `current-short-edge-family-bound-v2.py` | 7,668 | `55384153fddcb52f4324bbe826c4f6167f863384b2b7a02eb99711700cc518c5` |
+| `current-short-edge-family-bound-attempt02.json` | 29,642 | `81ccb3c5bb84751427335bce66ccb39f4849e523465abc187ded8b5af6892bce` |
+| `current-short-edge-verification-v1.py` | 8,109 | `a02c27454a949701ed6f6ebd17274b16f3fdfd2a33c4544df2704fb9cae181ec` |
+| `current-short-edge-verification-v1.json` | 9,662 | `dee9fc8c0b6b4f5770cb869ef27ff288e9c1073643a77f86f5fe4535f7b08fd9` |
+
+```sh
+uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-short-edge-moment-bound-v1.py /tmp/eoere-short-edge-moment-bound-v1-replay.json
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-short-edge-family-bound-v2.py /tmp/eoere-short-edge-family-bound-v2-replay.json
+```
+
+The verification JSON embeds its complete `verification_python_source`;
+calling `verify(records)` reproduces the saved checks without a mechanics
+solve. No prior failed result is removed or relabeled as a physical failure.
+
+<a id="current-five-member-existing-bolt-loop"></a>
+**Five-member existing-bolt load path.** The preceding exclusion fixes the
+other vertical actions. A wider path already exists through five timber
+members and ten bolts; it needs no new part or axis:
+
+```mermaid
+flowchart LR
+  C[Cleat] ---|cleat_post pair| P[Outer post]
+  P ---|rail_front pair| R[Runner]
+  R ---|rail_rear pair| L[Rear leg]
+  L ---|lumber_leg pair| S[Side member]
+  S ---|067 and 071| C
+```
+
+The bounded question is whether a fixed redistribution along that loop can
+carry the `a1-rear` left-side short-edge duty with the same material references.
+Use a **100-N opposing vertical-force pair** at the upper bolts, giving
+**5,080 Nmm about X** at each successive joint. Each joint moment comes from
+two lateral forces. No individual bolt receives a new axial torque. Transfer
+each force at the shared wood interface to its own bearing center with the
+complete `r cross F` couple.
+
+Three additional self-balanced Y/Z couple pairs shape the pressure fields.
+The first wood's low-Y port receives the following couple, its high-Y port
+the opposite, and the second wood each opposite:
+
+| First / second wood | Gy, Nmm | Gz, Nmm |
+| --- | ---: | ---: |
+| Cleat / side, upper pair | −3,728.078126 | 0 |
+| Cleat / post, lower pair | +3,728.078126 | 0 |
+| Rear leg / side, leg pair | +10,144.400167 | +12,089.625336 |
+
+All **five whole-timber and ten whole-shaft incremental wrenches are zero**,
+maximum numerical residual **1.46e-11 N/Nmm**. The two upper steel ports,
+all axial captures, gravity and the original six force fields are unchanged.
+The final fields prescribe each own lateral force and couple together.
+
+All **ten continuous affine bearing/bending comparisons** satisfy the same
+minimum-radial-Fe/divisor-5 reference, maximum **0.650129398** at
+`lumber_leg_bolt_left_1`. Their **22 surface fields** include the two unchanged
+steel-port wrenches and each own catalog body/root transition. Both critical
+side-bore affine edge components are strictly directed away from the nearer
+edge throughout their full intervals:
+
+| Side bore | Endpoint line components toward the short edge, N/mm |
+| --- | --- |
+| 067 | −0.166334 / −0.166334 |
+| `lumber_leg_bolt_left_1` | −2.365524 / −7.096572 |
+
+This constructs the named sufficient load-direction screen for these two
+bores in this case. It does not qualify complete NDS geometry or the other
+unchanged short-edge cases. The maintained affine helper's equations and
+gates are reused; only its three-member count guard is widened, in the
+captured consumer, to these explicitly named two/three-member stacks.
+No maintained helper is modified. Reused integration kernels retain their
+earlier known-answer coverage; the new source joins and full affine fields
+are independently checked below.
+
+The first consumer stops at 067 because it assigns a steel port's moment to
+the interval center without datum transport. Its source and stop receipt
+remain frozen. V2 adds the required transport for every surface, retaining
+all loads, material references and equilibrium gates. Independent sums of
+the original fine bearing/capture actions then recover all **22 final own
+surface wrenches**, with force/couple errors **1.14e-13 N / 1.82e-12 Nmm**.
+Direct integration reconstructs all **94 cubic bending segments**. Their
+Bernstein control vectors give a continuous working bending upper
+**0.557170007**; the independently checked bearing upper is **0.650129398**.
+Maximum cubic-coefficient discrepancy is **8.85e-10 Nmm**. No frame/native
+solve or optimality claim enters these checks.
+
+**Receiving-member consequences.** The cleat central cut's complete
+six-wrench circulation increment is zero, independently recovered within
+**3.10e-12 N/Nmm**. The side cut still has compression constructions on its
+two previously contained patches: pressures **0.040919 / 0.005723 MPa**,
+below the unchanged 1.1-MPa reference. Their normal force and both moments
+recover within **9.10e-13 N/Nmm**.
+
+Both allocations retain transverse normal tension in the post. Its normal-hull tensile
+lower is **112.338 N in the original field** and **122.970 N in the loop**.
+These are lower bounds using the enclosing **38.1 × 238.9-mm** rectangle
+and the most favorable possible low-half gravity moment, up to
+**430.792777 Nmm**. No intact-section claim, gravity-volume split or new
+CAD query is needed for this necessary test. A negative net normal force
+alone does not remove that moment-driven tension. These lower resultants
+are not complete design demands or splitting capacities.
+
+**Disposition:** this closes one wider-path statics and reference comparison
+on retained hardware. It preserves the cleat's named cut and supplies finite
+side compression patches, while retaining the post's explicit load-introduction
+and brittle-resistance duty. Changed post, runner, side and leg sections and
+physical sharing/restraint need their own checks. No original section pass,
+complete resistance or physical demand bound is transferred to this allocation.
+The other current cases retain V4's recorded component results and limits.
+
+All **257,608 bytes** below stay active in the existing ignored closure
+folder. The 48-pin loop and 51-pin cut records rehash unchanged; both producer
+replays are byte-identical. Both verification records embed their complete
+checker and can be replayed without a mechanics solve.
+All seven new worksheet/check sources pass scoped Ruff. All **220 affected
+development/documentation checks** and whitespace checks pass; the maintained
+summary is **148 lines**, within its 150-line limit.
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `current-five-member-loop-v1.py` | 15,099 | `dac88f3690f8a1b9a3ccde8fc436376f45b57f9214666dae62fbf4aafebcd998` |
+| `current-five-member-loop-attempt01-stop.json` | 894 | `7bfb899602a2a81257f0c7e00fabda5f89438f6fa9ea8cb90519be260d2b501f` |
+| `current-five-member-loop-v2.py` | 2,132 | `2e10f65c19c1998464f0c02d1e086e14417d52a627148222e99735e11659a3a4` |
+| `current-five-member-loop-attempt02.json` | 192,265 | `12ebc54182b38b0352cc85e26cfdb98b735770d7da3a702734aeb96d933f4b72` |
+| `current-five-member-loop-verification-v1.py` | 9,774 | `b3de39f441af728b95b84f14c17fd7948f5e7842ef5c2a24d72de76e8f17d275` |
+| `current-five-member-loop-verification-v1.json` | 11,259 | `30444ff3a8f01c59ff551e33281d5c7f84ebe0536030e29bc94b05817948021e` |
+| `current-five-member-loop-cuts-v1.py` | 8,598 | `c5386e82d230d189aef00b3eac315154c3adff2c767244b36c9a7e1b75032462` |
+| `current-five-member-loop-cuts-attempt01.json` | 12,288 | `d1d6d2e82d81f96c8b3d37cb72f3d947720e5241fde977a9d4cc6caec92d8ee9` |
+| `current-five-member-loop-cut-verification-v1.json` | 5,299 | `4f024f8d740464e760401faa2d950d515328e4bf63ec8ab535ee2acfcb4d1ed3` |
+
+```sh
+eoere_loop_replay_dir=$(mktemp -d /tmp/eoere-loop-replay.XXXXXX)
+PYTHONPATH=. OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-five-member-loop-v2.py "$eoere_loop_replay_dir/loop.json"
+PYTHONPATH=. uv run python -B fea/generated/selected-hardware-followup-v1/engineering-closure-v1/current-five-member-loop-cuts-v1.py "$eoere_loop_replay_dir/cuts.json"
+```
+
 These inputs remain active. No native/frame solve, CAD rebuild, model change,
 fabrication, archive or prune occurs. The complete engineering goal remains
 active and unachieved.
@@ -4085,7 +4295,7 @@ The remaining unsupported qualifications reduce to this decision table:
 | --- | --- | --- |
 | Cleat local wood resistance | Passing relaxed section references, retained shear/normal reference checks and [existing-upper-bolt bridge statics](#existing-upper-bolt-bridge-statics). | **Complete local transverse/splitting resistance unsupported.** The bridge supplies a normal compression construction at the central cut with changed force shares, retaining explicit inclined-host and common-shaft demands. It does not cover every split/shear/torque path. The failed prescribed-pressure family and inapplicable beam shortcut retain their separate outcomes; neither establishes physical cleat failure. |
 | Combined joints/seats and their restraint/response paths | Ordinary lateral, bolt-metal, axial washer, ideal-bend and representative mixed-stack statics comparisons. Current restraint locations/directions are mapped. | **Complete simultaneous transfer and applicable response unsupported** for the eight mixed stacks, holed flanges and eccentric axial seats. All four long-member restraint duties share these axial capture/seat return paths. They do not create separate commissions for four member models and another frame model. |
-| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**, including all staggered, same-station and single-bore windows. | **Deep-recess/support, clipped-end load introduction and remaining channel/recess critical-section coverage remain unsupported** within the precise NDS limits above. The 34 compression-domain exceptions retain their conditional restraint dependence; completed comparisons are not reopened. The clipped groups' normal arithmetic is complete; its physical applicability exception is not a strength-failure finding. |
+| Specific finished-member exceptions | The 228 section comparisons, 264 member witnesses and **372 nominal normal comparisons covering all 120 wood-bearing occurrences**, including all staggered, same-station and single-bore windows. | **Deep-recess/support, clipped-end load introduction and remaining channel/recess critical-section coverage remain unsupported** within the precise NDS limits above. The [outer-post moment bound](#current-five-member-existing-bolt-loop) requires transverse tension in both the original field and the new loop; load introduction/local brittle resistance and the loop's changed member sections remain open. The 34 compression-domain exceptions retain their conditional restraint dependence; completed comparisons are not reopened. The clipped groups' normal arithmetic is complete; its physical applicability exception is not a strength-failure finding. |
 
 The owner-selected disposition is to retain the current design and its
 qualification limits. Panel/screw exceedances stay deferred. No new design,
